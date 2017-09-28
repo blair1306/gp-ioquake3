@@ -1,0 +1,10 @@
+<dec f='codebrowser/code/qcommon/vm_local.h' l='203' type='void VM_BlockCopy(unsigned int dest, unsigned int src, size_t n)'/>
+<def f='codebrowser/code/qcommon/vm.c' l='997' ll='1010' type='void VM_BlockCopy(unsigned int dest, unsigned int src, size_t n)'/>
+<doc f='codebrowser/code/qcommon/vm.c' l='990'>/*
+=================
+VM_BlockCopy
+Executes a block copy operation within currentVM data space
+=================
+*/</doc>
+<use f='codebrowser/code/qcommon/vm_interpreted.c' l='469' u='c' c='VM_CallInterpreted'/>
+<use f='codebrowser/code/qcommon/vm_x86.c' l='452' u='c' c='DoSyscall'/>

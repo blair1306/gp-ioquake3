@@ -1,0 +1,32 @@
+<dec f='codebrowser/code/qcommon/q_shared.h' l='341' type='void * Hunk_Alloc(int size, ha_pref preference)'/>
+<use f='codebrowser/code/client/cl_main.c' l='3249' u='r' c='CL_InitRef'/>
+<use f='codebrowser/code/qcommon/cm_load.c' l='103' u='c' c='CMod_LoadShaders'/>
+<use f='codebrowser/code/qcommon/cm_load.c' l='134' u='c' c='CMod_LoadSubmodels'/>
+<use f='codebrowser/code/qcommon/cm_load.c' l='157' u='c' c='CMod_LoadSubmodels'/>
+<use f='codebrowser/code/qcommon/cm_load.c' l='164' u='c' c='CMod_LoadSubmodels'/>
+<use f='codebrowser/code/qcommon/cm_load.c' l='192' u='c' c='CMod_LoadNodes'/>
+<use f='codebrowser/code/qcommon/cm_load.c' l='244' u='c' c='CMod_LoadBrushes'/>
+<use f='codebrowser/code/qcommon/cm_load.c' l='284' u='c' c='CMod_LoadLeafs'/>
+<use f='codebrowser/code/qcommon/cm_load.c' l='303' u='c' c='CMod_LoadLeafs'/>
+<use f='codebrowser/code/qcommon/cm_load.c' l='304' u='c' c='CMod_LoadLeafs'/>
+<use f='codebrowser/code/qcommon/cm_load.c' l='327' u='c' c='CMod_LoadPlanes'/>
+<use f='codebrowser/code/qcommon/cm_load.c' l='365' u='c' c='CMod_LoadLeafBrushes'/>
+<use f='codebrowser/code/qcommon/cm_load.c' l='392' u='c' c='CMod_LoadLeafSurfaces'/>
+<use f='codebrowser/code/qcommon/cm_load.c' l='421' u='c' c='CMod_LoadBrushSides'/>
+<use f='codebrowser/code/qcommon/cm_load.c' l='444' u='c' c='CMod_LoadEntityString'/>
+<use f='codebrowser/code/qcommon/cm_load.c' l='462' u='c' c='CMod_LoadVisibility'/>
+<use f='codebrowser/code/qcommon/cm_load.c' l='469' u='c' c='CMod_LoadVisibility'/>
+<use f='codebrowser/code/qcommon/cm_load.c' l='499' u='c' c='CMod_LoadPatches'/>
+<use f='codebrowser/code/qcommon/cm_load.c' l='513' u='c' c='CMod_LoadPatches'/>
+<use f='codebrowser/code/qcommon/cm_load.c' l='603' u='c' c='CM_LoadMap'/>
+<use f='codebrowser/code/qcommon/cm_patch.c' l='1159' u='c' c='CM_PatchCollideFromGrid'/>
+<use f='codebrowser/code/qcommon/cm_patch.c' l='1161' u='c' c='CM_PatchCollideFromGrid'/>
+<use f='codebrowser/code/qcommon/cm_patch.c' l='1219' u='c' c='CM_GeneratePatchCollide'/>
+<def f='codebrowser/code/qcommon/common.c' l='1712' ll='1777' type='void * Hunk_Alloc(int size, ha_pref preference)'/>
+<use f='codebrowser/code/qcommon/vm.c' l='279' u='c' c='VM_LoadSymbols'/>
+<use f='codebrowser/code/qcommon/vm.c' l='456' u='c' c='VM_LoadQVM'/>
+<use f='codebrowser/code/qcommon/vm.c' l='495' u='c' c='VM_LoadQVM'/>
+<use f='codebrowser/code/qcommon/vm.c' l='649' u='c' c='VM_Create'/>
+<use f='codebrowser/code/qcommon/vm_interpreted.c' l='178' u='c' c='VM_PrepareInterpreter'/>
+<use f='codebrowser/code/server/sv_bot.c' l='311' u='c' c='BotImport_HunkAlloc'/>
+<use f='codebrowser/code/server/sv_init.c' l='442' u='c' c='SV_SpawnServer'/>

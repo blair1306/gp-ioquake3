@@ -1,0 +1,45 @@
+<dec f='codebrowser/code/botlib/l_log.h' l='39' type='void Log_Write(char * fmt)'/>
+<use f='codebrowser/code/botlib/be_aas_cluster.c' l='155' u='c' c='AAS_UpdatePortal'/>
+<use f='codebrowser/code/botlib/be_aas_cluster.c' l='910' u='c' c='AAS_CheckAreaForPossiblePortals'/>
+<use f='codebrowser/code/botlib/be_aas_cluster.c' l='1384' u='c' c='AAS_TestPortals'/>
+<use f='codebrowser/code/botlib/be_aas_cluster.c' l='1390' u='c' c='AAS_TestPortals'/>
+<use f='codebrowser/code/botlib/be_aas_cluster.c' l='1411' u='c' c='AAS_CountForcedClusterPortals'/>
+<use f='codebrowser/code/botlib/be_aas_cluster.c' l='1524' u='c' c='AAS_InitClustering'/>
+<doc f='codebrowser/code/botlib/l_log.h' l='38'>//write to the current opened log file</doc>
+<use f='codebrowser/code/botlib/be_aas_reach.c' l='3332' u='c' c='AAS_Reachability_FuncBobbing'/>
+<use f='codebrowser/code/botlib/be_aas_reach.c' l='3424' u='c' c='AAS_Reachability_FuncBobbing'/>
+<use f='codebrowser/code/botlib/be_aas_reach.c' l='3810' u='c' c='AAS_Reachability_Grapple'/>
+<use f='codebrowser/code/botlib/be_aas_reach.c' l='4025' u='c' c='AAS_Reachability_WeaponJump'/>
+<use f='codebrowser/code/botlib/be_aas_route.c' l='2034' u='c' c='AAS_RandomGoalArea'/>
+<use f='codebrowser/code/botlib/be_aas_routealt.c' l='156' u='c' c='AAS_AlternativeRouteGoals'/>
+<use f='codebrowser/code/botlib/be_ai_char.c' l='109' u='c' c='BotDumpCharacter'/>
+<use f='codebrowser/code/botlib/be_ai_char.c' l='110' u='c' c='BotDumpCharacter'/>
+<use f='codebrowser/code/botlib/be_ai_char.c' l='111' u='c' c='BotDumpCharacter'/>
+<use f='codebrowser/code/botlib/be_ai_char.c' l='116' u='c' c='BotDumpCharacter'/>
+<use f='codebrowser/code/botlib/be_ai_char.c' l='117' u='c' c='BotDumpCharacter'/>
+<use f='codebrowser/code/botlib/be_ai_char.c' l='118' u='c' c='BotDumpCharacter'/>
+<use f='codebrowser/code/botlib/be_ai_char.c' l='121' u='c' c='BotDumpCharacter'/>
+<use f='codebrowser/code/botlib/be_ai_chat.c' l='1573' u='c' c='BotCheckChatMessageIntegrety'/>
+<use f='codebrowser/code/botlib/be_ai_chat.c' l='2012' u='c' c='BotDumpInitialChat'/>
+<use f='codebrowser/code/botlib/be_ai_chat.c' l='2015' u='c' c='BotDumpInitialChat'/>
+<use f='codebrowser/code/botlib/be_ai_chat.c' l='2016' u='c' c='BotDumpInitialChat'/>
+<use f='codebrowser/code/botlib/be_ai_chat.c' l='2017' u='c' c='BotDumpInitialChat'/>
+<use f='codebrowser/code/botlib/be_ai_chat.c' l='2020' u='c' c='BotDumpInitialChat'/>
+<use f='codebrowser/code/botlib/be_ai_chat.c' l='2022' u='c' c='BotDumpInitialChat'/>
+<use f='codebrowser/code/botlib/be_ai_chat.c' l='2024' u='c' c='BotDumpInitialChat'/>
+<use f='codebrowser/code/botlib/be_ai_goal.c' l='360' u='c' c='ItemWeightIndex'/>
+<use f='codebrowser/code/botlib/be_ai_goal.c' l='566' u='c' c='BotInitLevelItems'/>
+<use f='codebrowser/code/botlib/be_ai_goal.c' l='583' u='c' c='BotInitLevelItems'/>
+<use f='codebrowser/code/botlib/be_ai_goal.c' l='608' u='c' c='BotInitLevelItems'/>
+<use f='codebrowser/code/botlib/be_ai_goal.c' l='728' u='c' c='BotDumpAvoidGoals'/>
+<use f='codebrowser/code/botlib/be_ai_goal.c' l='1190' u='c' c='BotDumpGoalStack'/>
+<def f='codebrowser/code/botlib/l_log.c' l='114' ll='124' type='void Log_Write(char * fmt)'/>
+<doc f='codebrowser/code/botlib/l_log.c' l='108'>//===========================================================================
+//
+// Parameter:				-
+// Returns:					-
+// Changes Globals:		-
+//===========================================================================</doc>
+<use f='codebrowser/code/botlib/l_precomp.c' l='533' u='c' c='PC_PrintDefineHashTable'/>
+<use f='codebrowser/code/botlib/l_precomp.c' l='536' u='c' c='PC_PrintDefineHashTable'/>
+<use f='codebrowser/code/botlib/l_precomp.c' l='538' u='c' c='PC_PrintDefineHashTable'/>

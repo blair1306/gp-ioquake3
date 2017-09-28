@@ -1,0 +1,17 @@
+<dec f='codebrowser/code/opusfile-0.8/include/opusfile.h' l='1451' type='int op_seekable(const OggOpusFile * _of)'/>
+<use f='codebrowser/code/client/snd_codec_opus.c' l='251' u='c' c='S_OggOpus_CodecOpenStream'/>
+<doc f='codebrowser/code/opusfile-0.8/include/opusfile.h' l='1437'>/**Returns whether or not the data source being read is seekable.
+   This is true if
+   &lt;ol&gt;
+   &lt;li&gt;The &lt;code&gt;&lt;a href=&quot;#op_seek_func&quot;&gt;seek()&lt;/a&gt;&lt;/code&gt; and
+    &lt;code&gt;&lt;a href=&quot;#op_tell_func&quot;&gt;tell()&lt;/a&gt;&lt;/code&gt; callbacks are both
+    non-&lt;code&gt;NULL&lt;/code&gt;,&lt;/li&gt;
+   &lt;li&gt;The &lt;code&gt;&lt;a href=&quot;#op_seek_func&quot;&gt;seek()&lt;/a&gt;&lt;/code&gt; callback was
+    successfully executed at least once, and&lt;/li&gt;
+   &lt;li&gt;The &lt;code&gt;&lt;a href=&quot;#op_tell_func&quot;&gt;tell()&lt;/a&gt;&lt;/code&gt; callback was
+    successfully able to report the position indicator afterwards.&lt;/li&gt;
+   &lt;/ol&gt;
+   This function may be called on partially-opened streams.
+   \param _of The \c OggOpusFile whose seekable status is to be returned.
+   \return A non-zero value if seekable, and 0 if unseekable.*/</doc>
+<def f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='1697' ll='1699' type='int op_seekable(const OggOpusFile * _of)'/>

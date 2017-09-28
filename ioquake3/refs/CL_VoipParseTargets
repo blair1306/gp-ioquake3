@@ -1,0 +1,11 @@
+<def f='codebrowser/code/client/cl_main.c' l='323' ll='394' type='void CL_VoipParseTargets()'/>
+<use f='codebrowser/code/client/cl_main.c' l='483' u='c' c='CL_CaptureVoip'/>
+<doc f='codebrowser/code/client/cl_main.c' l='314'>/*
+===============
+CL_VoipParseTargets
+
+sets clc.voipTargets according to cl_voipSendTarget
+Generally we don&apos;t want who&apos;s listening to change during a transmission,
+so this is only called when the key is first pressed
+===============
+*/</doc>

@@ -1,0 +1,11 @@
+<dec f='codebrowser/code/qcommon/unzip.h' l='227' type='int unzGetCurrentFileInfo(unzFile file, unz_file_info * pfile_info, char * szFileName, uLong fileNameBufferSize, void * extraField, uLong extraFieldBufferSize, char * szComment, uLong commentBufferSize)'/>
+<use f='codebrowser/code/qcommon/files.c' l='2046' u='c' c='FS_LoadZipFile'/>
+<use f='codebrowser/code/qcommon/files.c' l='2088' u='c' c='FS_LoadZipFile'/>
+<doc f='codebrowser/code/qcommon/unzip.h' l='225'>/* ****************************************** */</doc>
+<def f='codebrowser/code/qcommon/unzip.c' l='746' ll='764' type='int unzGetCurrentFileInfo(unzFile file, unz_file_info * pfile_info, char * szFileName, uLong fileNameBufferSize, void * extraField, uLong extraFieldBufferSize, char * szComment, uLong commentBufferSize)'/>
+<use f='codebrowser/code/qcommon/unzip.c' l='864' u='c' c='unzLocateFile'/>
+<doc f='codebrowser/code/qcommon/unzip.c' l='741'>/*
+  Write info about the ZipFile in the *pglobal_info structure.
+  No preparation of the structure is needed
+  return UNZ_OK if there is no problem.
+*/</doc>

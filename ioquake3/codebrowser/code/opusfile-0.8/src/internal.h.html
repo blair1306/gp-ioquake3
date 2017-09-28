@@ -1,0 +1,273 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>internal.h source code [codebrowser/code/opusfile-0.8/src/internal.h] - Woboq Code Browser</title>
+<meta name="woboq:interestingDefinitions" content="OggOpusFile,OggOpusLink "/>
+<link rel="stylesheet" href="../../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'codebrowser/code/opusfile-0.8/src/internal.h'; var root_path = '../../../..'; var data_path = '../../../../../data';</script>
+<script src='../../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../../..'>codebrowser</a>/<a href='../..'>code</a>/<a href='..'>opusfile-0.8</a>/<a href='./'>src</a>/<a href='internal.h.html'>internal.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/********************************************************************</i></td></tr>
+<tr><th id="2">2</th><td><i> *                                                                  *</i></td></tr>
+<tr><th id="3">3</th><td><i> * THIS FILE IS PART OF THE libopusfile SOFTWARE CODEC SOURCE CODE. *</i></td></tr>
+<tr><th id="4">4</th><td><i> * USE, DISTRIBUTION AND REPRODUCTION OF THIS LIBRARY SOURCE IS     *</i></td></tr>
+<tr><th id="5">5</th><td><i> * GOVERNED BY A BSD-STYLE SOURCE LICENSE INCLUDED WITH THIS SOURCE *</i></td></tr>
+<tr><th id="6">6</th><td><i> * IN 'COPYING'. PLEASE READ THESE TERMS BEFORE DISTRIBUTING.       *</i></td></tr>
+<tr><th id="7">7</th><td><i> *                                                                  *</i></td></tr>
+<tr><th id="8">8</th><td><i> * THE libopusfile SOURCE CODE IS (C) COPYRIGHT 2012                *</i></td></tr>
+<tr><th id="9">9</th><td><i> * by the Xiph.Org Foundation and contributors <a href="http://www.xiph.org/">http://www.xiph.org/</a> *</i></td></tr>
+<tr><th id="10">10</th><td><i> *                                                                  *</i></td></tr>
+<tr><th id="11">11</th><td><i> ********************************************************************/</i></td></tr>
+<tr><th id="12">12</th><td><u>#<span data-ppcond="12">if</span> !defined(<span class="macro" data-ref="_M/_opusfile_internal_h">_opusfile_internal_h</span>)</u></td></tr>
+<tr><th id="13">13</th><td><u># define <dfn class="macro" id="_M/_opusfile_internal_h" data-ref="_M/_opusfile_internal_h">_opusfile_internal_h</dfn> (1)</u></td></tr>
+<tr><th id="14">14</th><td></td></tr>
+<tr><th id="15">15</th><td><u># <span data-ppcond="15">if</span> !defined(<span class="macro" data-ref="_M/_REENTRANT">_REENTRANT</span>)</u></td></tr>
+<tr><th id="16">16</th><td><u>#  define _REENTRANT</u></td></tr>
+<tr><th id="17">17</th><td><u># <span data-ppcond="15">endif</span></u></td></tr>
+<tr><th id="18">18</th><td><u># <span data-ppcond="18">if</span> !defined(<span class="macro" data-ref="_M/_GNU_SOURCE">_GNU_SOURCE</span>)</u></td></tr>
+<tr><th id="19">19</th><td><u>#  define <dfn class="macro" id="_M/_GNU_SOURCE" data-ref="_M/_GNU_SOURCE">_GNU_SOURCE</dfn></u></td></tr>
+<tr><th id="20">20</th><td><u># <span data-ppcond="18">endif</span></u></td></tr>
+<tr><th id="21">21</th><td><u># <span data-ppcond="21">if</span> !defined(<span class="macro" data-ref="_M/_LARGEFILE_SOURCE">_LARGEFILE_SOURCE</span>)</u></td></tr>
+<tr><th id="22">22</th><td><u>#  define <dfn class="macro" id="_M/_LARGEFILE_SOURCE" data-ref="_M/_LARGEFILE_SOURCE">_LARGEFILE_SOURCE</dfn></u></td></tr>
+<tr><th id="23">23</th><td><u># <span data-ppcond="21">endif</span></u></td></tr>
+<tr><th id="24">24</th><td><u># <span data-ppcond="24">if</span> !defined(<span class="macro" data-ref="_M/_LARGEFILE64_SOURCE">_LARGEFILE64_SOURCE</span>)</u></td></tr>
+<tr><th id="25">25</th><td><u>#  define <dfn class="macro" id="_M/_LARGEFILE64_SOURCE" data-ref="_M/_LARGEFILE64_SOURCE">_LARGEFILE64_SOURCE</dfn></u></td></tr>
+<tr><th id="26">26</th><td><u># <span data-ppcond="24">endif</span></u></td></tr>
+<tr><th id="27">27</th><td><u># <span data-ppcond="27">if</span> !defined(<span class="macro" data-ref="_M/_FILE_OFFSET_BITS">_FILE_OFFSET_BITS</span>)</u></td></tr>
+<tr><th id="28">28</th><td><u>#  define <dfn class="macro" id="_M/_FILE_OFFSET_BITS" data-ref="_M/_FILE_OFFSET_BITS">_FILE_OFFSET_BITS</dfn> 64</u></td></tr>
+<tr><th id="29">29</th><td><u># <span data-ppcond="27">endif</span></u></td></tr>
+<tr><th id="30">30</th><td></td></tr>
+<tr><th id="31">31</th><td><u># include <a href="../../../../include/stdlib.h.html">&lt;stdlib.h&gt;</a></u></td></tr>
+<tr><th id="32">32</th><td><u># include <a href="../include/opusfile.h.html">&lt;opusfile.h&gt;</a></u></td></tr>
+<tr><th id="33">33</th><td></td></tr>
+<tr><th id="34">34</th><td><b>typedef</b> <b>struct</b> <a class="type" href="#OggOpusLink" title='OggOpusLink' data-ref="OggOpusLink">OggOpusLink</a> <dfn class="typedef" id="OggOpusLink" title='OggOpusLink' data-type='struct OggOpusLink' data-ref="OggOpusLink">OggOpusLink</dfn>;</td></tr>
+<tr><th id="35">35</th><td></td></tr>
+<tr><th id="36">36</th><td><u># <span data-ppcond="36">if</span> defined(<span class="macro" data-ref="_M/OP_FIXED_POINT">OP_FIXED_POINT</span>)</u></td></tr>
+<tr><th id="37">37</th><td></td></tr>
+<tr><th id="38">38</th><td><b>typedef</b> opus_int16 op_sample;</td></tr>
+<tr><th id="39">39</th><td></td></tr>
+<tr><th id="40">40</th><td><u># <span data-ppcond="36">else</span></u></td></tr>
+<tr><th id="41">41</th><td></td></tr>
+<tr><th id="42">42</th><td><b>typedef</b> <em>float</em>      <dfn class="typedef" id="op_sample" title='op_sample' data-type='float' data-ref="op_sample">op_sample</dfn>;</td></tr>
+<tr><th id="43">43</th><td></td></tr>
+<tr><th id="44">44</th><td><i>/*We're using this define to test for libopus 1.1 or later until libopus</i></td></tr>
+<tr><th id="45">45</th><td><i>   provides a better mechanism.*/</i></td></tr>
+<tr><th id="46">46</th><td><u>#  <span data-ppcond="46">if</span> defined(<a class="macro" href="../../opus-1.1.4/include/opus_defines.h.html#165" data-ref="_M/OPUS_GET_EXPERT_FRAME_DURATION_REQUEST">OPUS_GET_EXPERT_FRAME_DURATION_REQUEST</a>)</u></td></tr>
+<tr><th id="47">47</th><td><i>/*Enable soft clipping prevention in 16-bit decodes.*/</i></td></tr>
+<tr><th id="48">48</th><td><u>#   define <dfn class="macro" id="_M/OP_SOFT_CLIP" data-ref="_M/OP_SOFT_CLIP">OP_SOFT_CLIP</dfn> (1)</u></td></tr>
+<tr><th id="49">49</th><td><u>#  <span data-ppcond="46">endif</span></u></td></tr>
+<tr><th id="50">50</th><td></td></tr>
+<tr><th id="51">51</th><td><u># <span data-ppcond="36">endif</span></u></td></tr>
+<tr><th id="52">52</th><td></td></tr>
+<tr><th id="53">53</th><td><u># <span data-ppcond="53">if</span> <a class="macro" href="../include/opusfile.h.html#117" title="((4&lt;&lt;16)+2&gt;=((4)&lt;&lt;16)+(2))" data-ref="_M/OP_GNUC_PREREQ">OP_GNUC_PREREQ</a>(4,2)</u></td></tr>
+<tr><th id="54">54</th><td><i>/*Disable excessive warnings about the order of operations.*/</i></td></tr>
+<tr><th id="55">55</th><td><u>#  pragma GCC diagnostic ignored "-Wparentheses"</u></td></tr>
+<tr><th id="56">56</th><td><u># <span data-ppcond="53">elif</span> defined(_MSC_VER)</u></td></tr>
+<tr><th id="57">57</th><td><i>/*Disable excessive warnings about the order of operations.*/</i></td></tr>
+<tr><th id="58">58</th><td><u>#  pragma warning(disable:4554)</u></td></tr>
+<tr><th id="59">59</th><td><i>/*Disable warnings about "deprecated" POSIX functions.*/</i></td></tr>
+<tr><th id="60">60</th><td><u>#  pragma warning(disable:4996)</u></td></tr>
+<tr><th id="61">61</th><td><u># <span data-ppcond="53">endif</span></u></td></tr>
+<tr><th id="62">62</th><td></td></tr>
+<tr><th id="63">63</th><td><u># <span data-ppcond="63">if</span> <a class="macro" href="../include/opusfile.h.html#117" title="((4&lt;&lt;16)+2&gt;=((3)&lt;&lt;16)+(0))" data-ref="_M/OP_GNUC_PREREQ">OP_GNUC_PREREQ</a>(3,0)</u></td></tr>
+<tr><th id="64">64</th><td><i>/*Another alternative is</i></td></tr>
+<tr><th id="65">65</th><td><i>    (__builtin_constant_p(_x)?!!(_x):__builtin_expect(!!(_x),1))</i></td></tr>
+<tr><th id="66">66</th><td><i>   but that evaluates _x multiple times, which may be bad.*/</i></td></tr>
+<tr><th id="67">67</th><td><u>#  define <dfn class="macro" id="_M/OP_LIKELY" data-ref="_M/OP_LIKELY">OP_LIKELY</dfn>(_x) (__builtin_expect(!!(_x),1))</u></td></tr>
+<tr><th id="68">68</th><td><u>#  define <dfn class="macro" id="_M/OP_UNLIKELY" data-ref="_M/OP_UNLIKELY">OP_UNLIKELY</dfn>(_x) (__builtin_expect(!!(_x),0))</u></td></tr>
+<tr><th id="69">69</th><td><u># <span data-ppcond="63">else</span></u></td></tr>
+<tr><th id="70">70</th><td><u>#  define OP_LIKELY(_x)   (!!(_x))</u></td></tr>
+<tr><th id="71">71</th><td><u>#  define OP_UNLIKELY(_x) (!!(_x))</u></td></tr>
+<tr><th id="72">72</th><td><u># <span data-ppcond="63">endif</span></u></td></tr>
+<tr><th id="73">73</th><td></td></tr>
+<tr><th id="74">74</th><td><u># <span data-ppcond="74">if</span> defined(<span class="macro" data-ref="_M/OP_ENABLE_ASSERTIONS">OP_ENABLE_ASSERTIONS</span>)</u></td></tr>
+<tr><th id="75">75</th><td><u>#  if OP_GNUC_PREREQ(2,5)||__SUNPRO_C&gt;=0x590</u></td></tr>
+<tr><th id="76">76</th><td><b>__attribute__</b>((noreturn))</td></tr>
+<tr><th id="77">77</th><td><u>#  endif</u></td></tr>
+<tr><th id="78">78</th><td><em>void</em> op_fatal_impl(<em>const</em> <em>char</em> *_str,<em>const</em> <em>char</em> *_file,<em>int</em> _line);</td></tr>
+<tr><th id="79">79</th><td></td></tr>
+<tr><th id="80">80</th><td><u>#  define OP_FATAL(_str) (op_fatal_impl(_str,__FILE__,__LINE__))</u></td></tr>
+<tr><th id="81">81</th><td></td></tr>
+<tr><th id="82">82</th><td><u>#  define OP_ASSERT(_cond) \</u></td></tr>
+<tr><th id="83">83</th><td><u>  do{ \</u></td></tr>
+<tr><th id="84">84</th><td><u>    if(OP_UNLIKELY(!(_cond)))OP_FATAL("assertion failed: " #_cond); \</u></td></tr>
+<tr><th id="85">85</th><td><u>  } \</u></td></tr>
+<tr><th id="86">86</th><td><u>  while(0)</u></td></tr>
+<tr><th id="87">87</th><td><u>#  define OP_ALWAYS_TRUE(_cond) OP_ASSERT(_cond)</u></td></tr>
+<tr><th id="88">88</th><td></td></tr>
+<tr><th id="89">89</th><td><u># <span data-ppcond="74">else</span></u></td></tr>
+<tr><th id="90">90</th><td><u>#  define <dfn class="macro" id="_M/OP_FATAL" data-ref="_M/OP_FATAL">OP_FATAL</dfn>(_str) abort()</u></td></tr>
+<tr><th id="91">91</th><td><u>#  define <dfn class="macro" id="_M/OP_ASSERT" data-ref="_M/OP_ASSERT">OP_ASSERT</dfn>(_cond)</u></td></tr>
+<tr><th id="92">92</th><td><u>#  define <dfn class="macro" id="_M/OP_ALWAYS_TRUE" data-ref="_M/OP_ALWAYS_TRUE">OP_ALWAYS_TRUE</dfn>(_cond) ((void)(_cond))</u></td></tr>
+<tr><th id="93">93</th><td><u># <span data-ppcond="74">endif</span></u></td></tr>
+<tr><th id="94">94</th><td></td></tr>
+<tr><th id="95">95</th><td><u># define <dfn class="macro" id="_M/OP_INT64_MAX" data-ref="_M/OP_INT64_MAX">OP_INT64_MAX</dfn> (2*(((ogg_int64_t)1&lt;&lt;62)-1)|1)</u></td></tr>
+<tr><th id="96">96</th><td><u># define <dfn class="macro" id="_M/OP_INT64_MIN" data-ref="_M/OP_INT64_MIN">OP_INT64_MIN</dfn> (-OP_INT64_MAX-1)</u></td></tr>
+<tr><th id="97">97</th><td><u># define <dfn class="macro" id="_M/OP_INT32_MAX" data-ref="_M/OP_INT32_MAX">OP_INT32_MAX</dfn> (2*(((ogg_int32_t)1&lt;&lt;30)-1)|1)</u></td></tr>
+<tr><th id="98">98</th><td><u># define <dfn class="macro" id="_M/OP_INT32_MIN" data-ref="_M/OP_INT32_MIN">OP_INT32_MIN</dfn> (-OP_INT32_MAX-1)</u></td></tr>
+<tr><th id="99">99</th><td></td></tr>
+<tr><th id="100">100</th><td><u># define <dfn class="macro" id="_M/OP_MIN" data-ref="_M/OP_MIN">OP_MIN</dfn>(_a,_b)        ((_a)&lt;(_b)?(_a):(_b))</u></td></tr>
+<tr><th id="101">101</th><td><u># define <dfn class="macro" id="_M/OP_MAX" data-ref="_M/OP_MAX">OP_MAX</dfn>(_a,_b)        ((_a)&gt;(_b)?(_a):(_b))</u></td></tr>
+<tr><th id="102">102</th><td><u># define <dfn class="macro" id="_M/OP_CLAMP" data-ref="_M/OP_CLAMP">OP_CLAMP</dfn>(_lo,_x,_hi) (OP_MAX(_lo,OP_MIN(_x,_hi)))</u></td></tr>
+<tr><th id="103">103</th><td></td></tr>
+<tr><th id="104">104</th><td><i>/*Advance a file offset by the given amount, clamping against OP_INT64_MAX.</i></td></tr>
+<tr><th id="105">105</th><td><i>  This is used to advance a known offset by things like OP_CHUNK_SIZE or</i></td></tr>
+<tr><th id="106">106</th><td><i>   OP_PAGE_SIZE_MAX, while making sure to avoid signed overflow.</i></td></tr>
+<tr><th id="107">107</th><td><i>  It assumes that both _offset and _amount are non-negative.*/</i></td></tr>
+<tr><th id="108">108</th><td><u>#define <dfn class="macro" id="_M/OP_ADV_OFFSET" data-ref="_M/OP_ADV_OFFSET">OP_ADV_OFFSET</dfn>(_offset,_amount) \</u></td></tr>
+<tr><th id="109">109</th><td><u> (OP_MIN(_offset,OP_INT64_MAX-(_amount))+(_amount))</u></td></tr>
+<tr><th id="110">110</th><td></td></tr>
+<tr><th id="111">111</th><td><i>/*The maximum channel count for any mapping we'll actually decode.*/</i></td></tr>
+<tr><th id="112">112</th><td><u># define <dfn class="macro" id="_M/OP_NCHANNELS_MAX" data-ref="_M/OP_NCHANNELS_MAX">OP_NCHANNELS_MAX</dfn> (8)</u></td></tr>
+<tr><th id="113">113</th><td></td></tr>
+<tr><th id="114">114</th><td><i>/*Initial state.*/</i></td></tr>
+<tr><th id="115">115</th><td><u># define  <dfn class="macro" id="_M/OP_NOTOPEN" data-ref="_M/OP_NOTOPEN">OP_NOTOPEN</dfn>   (0)</u></td></tr>
+<tr><th id="116">116</th><td><i>/*We've found the first Opus stream in the first link.*/</i></td></tr>
+<tr><th id="117">117</th><td><u># define  <dfn class="macro" id="_M/OP_PARTOPEN" data-ref="_M/OP_PARTOPEN">OP_PARTOPEN</dfn>  (1)</u></td></tr>
+<tr><th id="118">118</th><td><u># define  <dfn class="macro" id="_M/OP_OPENED" data-ref="_M/OP_OPENED">OP_OPENED</dfn>    (2)</u></td></tr>
+<tr><th id="119">119</th><td><i>/*We've found the first Opus stream in the current link.*/</i></td></tr>
+<tr><th id="120">120</th><td><u># define  <dfn class="macro" id="_M/OP_STREAMSET" data-ref="_M/OP_STREAMSET">OP_STREAMSET</dfn> (3)</u></td></tr>
+<tr><th id="121">121</th><td><i>/*We've initialized the decoder for the chosen Opus stream in the current</i></td></tr>
+<tr><th id="122">122</th><td><i>   link.*/</i></td></tr>
+<tr><th id="123">123</th><td><u># define  <dfn class="macro" id="_M/OP_INITSET" data-ref="_M/OP_INITSET">OP_INITSET</dfn>   (4)</u></td></tr>
+<tr><th id="124">124</th><td></td></tr>
+<tr><th id="125">125</th><td><i>/*Information cached for a single link in a chained Ogg Opus file.</i></td></tr>
+<tr><th id="126">126</th><td><i>  We choose the first Opus stream encountered in each link to play back (and</i></td></tr>
+<tr><th id="127">127</th><td><i>   require at least one).*/</i></td></tr>
+<tr><th id="128">128</th><td><b>struct</b> <dfn class="type def" id="OggOpusLink" title='OggOpusLink' data-ref="OggOpusLink">OggOpusLink</dfn>{</td></tr>
+<tr><th id="129">129</th><td>  <i>/*The byte offset of the first header page in this link.*/</i></td></tr>
+<tr><th id="130">130</th><td>  <a class="macro" href="../../opus-1.1.4/include/opus_types.h.html#152" title="long long" data-ref="_M/opus_int64">opus_int64</a>   <dfn class="decl" id="OggOpusLink::offset" title='OggOpusLink::offset' data-ref="OggOpusLink::offset">offset</dfn>;</td></tr>
+<tr><th id="131">131</th><td>  <i>/*The byte offset of the first data page from the chosen Opus stream in this</i></td></tr>
+<tr><th id="132">132</th><td><i>     link (after the headers).*/</i></td></tr>
+<tr><th id="133">133</th><td>  <a class="macro" href="../../opus-1.1.4/include/opus_types.h.html#152" title="long long" data-ref="_M/opus_int64">opus_int64</a>   <dfn class="decl" id="OggOpusLink::data_offset" title='OggOpusLink::data_offset' data-ref="OggOpusLink::data_offset">data_offset</dfn>;</td></tr>
+<tr><th id="134">134</th><td>  <i>/*The byte offset of the last page from the chosen Opus stream in this link.</i></td></tr>
+<tr><th id="135">135</th><td><i>    This is used when seeking to ensure we find a page before the last one, so</i></td></tr>
+<tr><th id="136">136</th><td><i>     that end-trimming calculations work properly.</i></td></tr>
+<tr><th id="137">137</th><td><i>    This is only valid for seekable sources.*/</i></td></tr>
+<tr><th id="138">138</th><td>  <a class="macro" href="../../opus-1.1.4/include/opus_types.h.html#152" title="long long" data-ref="_M/opus_int64">opus_int64</a>   <dfn class="decl" id="OggOpusLink::end_offset" title='OggOpusLink::end_offset' data-ref="OggOpusLink::end_offset">end_offset</dfn>;</td></tr>
+<tr><th id="139">139</th><td>  <i>/*The granule position of the last sample.</i></td></tr>
+<tr><th id="140">140</th><td><i>    This is only valid for seekable sources.*/</i></td></tr>
+<tr><th id="141">141</th><td>  <a class="typedef" href="../../libogg-1.3.2/include/ogg/config_types.h.html#ogg_int64_t" title='ogg_int64_t' data-type='int64_t' data-ref="ogg_int64_t">ogg_int64_t</a>  <dfn class="decl" id="OggOpusLink::pcm_end" title='OggOpusLink::pcm_end' data-ref="OggOpusLink::pcm_end">pcm_end</dfn>;</td></tr>
+<tr><th id="142">142</th><td>  <i>/*The granule position before the first sample.*/</i></td></tr>
+<tr><th id="143">143</th><td>  <a class="typedef" href="../../libogg-1.3.2/include/ogg/config_types.h.html#ogg_int64_t" title='ogg_int64_t' data-type='int64_t' data-ref="ogg_int64_t">ogg_int64_t</a>  <dfn class="decl" id="OggOpusLink::pcm_start" title='OggOpusLink::pcm_start' data-ref="OggOpusLink::pcm_start">pcm_start</dfn>;</td></tr>
+<tr><th id="144">144</th><td>  <i>/*The serial number.*/</i></td></tr>
+<tr><th id="145">145</th><td>  <a class="typedef" href="../../libogg-1.3.2/include/ogg/config_types.h.html#ogg_uint32_t" title='ogg_uint32_t' data-type='uint32_t' data-ref="ogg_uint32_t">ogg_uint32_t</a> <dfn class="decl" id="OggOpusLink::serialno" title='OggOpusLink::serialno' data-ref="OggOpusLink::serialno">serialno</dfn>;</td></tr>
+<tr><th id="146">146</th><td>  <i>/*The contents of the info header.*/</i></td></tr>
+<tr><th id="147">147</th><td>  <a class="typedef" href="../include/opusfile.h.html#OpusHead" title='OpusHead' data-type='struct OpusHead' data-ref="OpusHead">OpusHead</a>     <dfn class="decl" id="OggOpusLink::head" title='OggOpusLink::head' data-ref="OggOpusLink::head">head</dfn>;</td></tr>
+<tr><th id="148">148</th><td>  <i>/*The contents of the comment header.*/</i></td></tr>
+<tr><th id="149">149</th><td>  <a class="typedef" href="../include/opusfile.h.html#OpusTags" title='OpusTags' data-type='struct OpusTags' data-ref="OpusTags">OpusTags</a>     <dfn class="decl" id="OggOpusLink::tags" title='OggOpusLink::tags' data-ref="OggOpusLink::tags">tags</dfn>;</td></tr>
+<tr><th id="150">150</th><td>};</td></tr>
+<tr><th id="151">151</th><td></td></tr>
+<tr><th id="152">152</th><td><b>struct</b> <dfn class="type def" id="OggOpusFile" title='OggOpusFile' data-ref="OggOpusFile">OggOpusFile</dfn>{</td></tr>
+<tr><th id="153">153</th><td>  <i>/*The callbacks used to access the data source.*/</i></td></tr>
+<tr><th id="154">154</th><td>  <a class="typedef" href="../include/opusfile.h.html#OpusFileCallbacks" title='OpusFileCallbacks' data-type='struct OpusFileCallbacks' data-ref="OpusFileCallbacks">OpusFileCallbacks</a>  <dfn class="decl" id="OggOpusFile::callbacks" title='OggOpusFile::callbacks' data-ref="OggOpusFile::callbacks">callbacks</dfn>;</td></tr>
+<tr><th id="155">155</th><td>  <i>/*A FILE *, memory bufer, etc.*/</i></td></tr>
+<tr><th id="156">156</th><td>  <em>void</em>              *<dfn class="decl" id="OggOpusFile::source" title='OggOpusFile::source' data-ref="OggOpusFile::source">source</dfn>;</td></tr>
+<tr><th id="157">157</th><td>  <i>/*Whether or not we can seek with this data source.*/</i></td></tr>
+<tr><th id="158">158</th><td>  <em>int</em>                <dfn class="decl" id="OggOpusFile::seekable" title='OggOpusFile::seekable' data-ref="OggOpusFile::seekable">seekable</dfn>;</td></tr>
+<tr><th id="159">159</th><td>  <i>/*The number of links in this chained Ogg Opus file.*/</i></td></tr>
+<tr><th id="160">160</th><td>  <em>int</em>                <dfn class="decl" id="OggOpusFile::nlinks" title='OggOpusFile::nlinks' data-ref="OggOpusFile::nlinks">nlinks</dfn>;</td></tr>
+<tr><th id="161">161</th><td>  <i>/*The cached information from each link in a chained Ogg Opus file.</i></td></tr>
+<tr><th id="162">162</th><td><i>    If source isn't seekable (e.g., it's a pipe), only the current link</i></td></tr>
+<tr><th id="163">163</th><td><i>     appears.*/</i></td></tr>
+<tr><th id="164">164</th><td>  <a class="typedef" href="#OggOpusLink" title='OggOpusLink' data-type='struct OggOpusLink' data-ref="OggOpusLink">OggOpusLink</a>       *<dfn class="decl" id="OggOpusFile::links" title='OggOpusFile::links' data-ref="OggOpusFile::links">links</dfn>;</td></tr>
+<tr><th id="165">165</th><td>  <i>/*The number of serial numbers from a single link.*/</i></td></tr>
+<tr><th id="166">166</th><td>  <em>int</em>                <dfn class="decl" id="OggOpusFile::nserialnos" title='OggOpusFile::nserialnos' data-ref="OggOpusFile::nserialnos">nserialnos</dfn>;</td></tr>
+<tr><th id="167">167</th><td>  <i>/*The capacity of the list of serial numbers from a single link.*/</i></td></tr>
+<tr><th id="168">168</th><td>  <em>int</em>                <dfn class="decl" id="OggOpusFile::cserialnos" title='OggOpusFile::cserialnos' data-ref="OggOpusFile::cserialnos">cserialnos</dfn>;</td></tr>
+<tr><th id="169">169</th><td>  <i>/*Storage for the list of serial numbers from a single link.*/</i></td></tr>
+<tr><th id="170">170</th><td>  <a class="typedef" href="../../libogg-1.3.2/include/ogg/config_types.h.html#ogg_uint32_t" title='ogg_uint32_t' data-type='uint32_t' data-ref="ogg_uint32_t">ogg_uint32_t</a>      *<dfn class="decl" id="OggOpusFile::serialnos" title='OggOpusFile::serialnos' data-ref="OggOpusFile::serialnos">serialnos</dfn>;</td></tr>
+<tr><th id="171">171</th><td>  <i>/*This is the current offset of the data processed by the ogg_sync_state.</i></td></tr>
+<tr><th id="172">172</th><td><i>    After a seek, this should be set to the target offset so that we can track</i></td></tr>
+<tr><th id="173">173</th><td><i>     the byte offsets of subsequent pages.</i></td></tr>
+<tr><th id="174">174</th><td><i>    After a call to op_get_next_page(), this will point to the first byte after</i></td></tr>
+<tr><th id="175">175</th><td><i>     that page.*/</i></td></tr>
+<tr><th id="176">176</th><td>  <a class="macro" href="../../opus-1.1.4/include/opus_types.h.html#152" title="long long" data-ref="_M/opus_int64">opus_int64</a>         <dfn class="decl" id="OggOpusFile::offset" title='OggOpusFile::offset' data-ref="OggOpusFile::offset">offset</dfn>;</td></tr>
+<tr><th id="177">177</th><td>  <i>/*The total size of this data source, or -1 if it's unseekable.*/</i></td></tr>
+<tr><th id="178">178</th><td>  <a class="macro" href="../../opus-1.1.4/include/opus_types.h.html#152" title="long long" data-ref="_M/opus_int64">opus_int64</a>         <dfn class="decl" id="OggOpusFile::end" title='OggOpusFile::end' data-ref="OggOpusFile::end">end</dfn>;</td></tr>
+<tr><th id="179">179</th><td>  <i>/*Used to locate pages in the data source.*/</i></td></tr>
+<tr><th id="180">180</th><td>  <a class="typedef" href="../../libogg-1.3.2/include/ogg/ogg.h.html#ogg_sync_state" title='ogg_sync_state' data-type='struct ogg_sync_state' data-ref="ogg_sync_state">ogg_sync_state</a>     <dfn class="decl" id="OggOpusFile::oy" title='OggOpusFile::oy' data-ref="OggOpusFile::oy">oy</dfn>;</td></tr>
+<tr><th id="181">181</th><td>  <i>/*One of OP_NOTOPEN, OP_PARTOPEN, OP_OPENED, OP_STREAMSET, OP_INITSET.*/</i></td></tr>
+<tr><th id="182">182</th><td>  <em>int</em>                <dfn class="decl" id="OggOpusFile::ready_state" title='OggOpusFile::ready_state' data-ref="OggOpusFile::ready_state">ready_state</dfn>;</td></tr>
+<tr><th id="183">183</th><td>  <i>/*The current link being played back.*/</i></td></tr>
+<tr><th id="184">184</th><td>  <em>int</em>                <dfn class="decl" id="OggOpusFile::cur_link" title='OggOpusFile::cur_link' data-ref="OggOpusFile::cur_link">cur_link</dfn>;</td></tr>
+<tr><th id="185">185</th><td>  <i>/*The number of decoded samples to discard from the start of decoding.*/</i></td></tr>
+<tr><th id="186">186</th><td>  <a class="typedef" href="../../opus-1.1.4/include/opus_types.h.html#opus_int32" title='opus_int32' data-type='int32_t' data-ref="opus_int32">opus_int32</a>         <dfn class="decl" id="OggOpusFile::cur_discard_count" title='OggOpusFile::cur_discard_count' data-ref="OggOpusFile::cur_discard_count">cur_discard_count</dfn>;</td></tr>
+<tr><th id="187">187</th><td>  <i>/*The granule position of the previous packet (current packet start time).*/</i></td></tr>
+<tr><th id="188">188</th><td>  <a class="typedef" href="../../libogg-1.3.2/include/ogg/config_types.h.html#ogg_int64_t" title='ogg_int64_t' data-type='int64_t' data-ref="ogg_int64_t">ogg_int64_t</a>        <dfn class="decl" id="OggOpusFile::prev_packet_gp" title='OggOpusFile::prev_packet_gp' data-ref="OggOpusFile::prev_packet_gp">prev_packet_gp</dfn>;</td></tr>
+<tr><th id="189">189</th><td>  <i>/*The stream offset of the most recent page with completed packets, or -1.</i></td></tr>
+<tr><th id="190">190</th><td><i>    This is only needed to recover continued packet data in the seeking logic,</i></td></tr>
+<tr><th id="191">191</th><td><i>     when we use the current position as one of our bounds, only to later</i></td></tr>
+<tr><th id="192">192</th><td><i>     discover it was the correct starting point.*/</i></td></tr>
+<tr><th id="193">193</th><td>  <a class="macro" href="../../opus-1.1.4/include/opus_types.h.html#152" title="long long" data-ref="_M/opus_int64">opus_int64</a>         <dfn class="decl" id="OggOpusFile::prev_page_offset" title='OggOpusFile::prev_page_offset' data-ref="OggOpusFile::prev_page_offset">prev_page_offset</dfn>;</td></tr>
+<tr><th id="194">194</th><td>  <i>/*The number of bytes read since the last bitrate query, including framing.*/</i></td></tr>
+<tr><th id="195">195</th><td>  <a class="macro" href="../../opus-1.1.4/include/opus_types.h.html#152" title="long long" data-ref="_M/opus_int64">opus_int64</a>         <dfn class="decl" id="OggOpusFile::bytes_tracked" title='OggOpusFile::bytes_tracked' data-ref="OggOpusFile::bytes_tracked">bytes_tracked</dfn>;</td></tr>
+<tr><th id="196">196</th><td>  <i>/*The number of samples decoded since the last bitrate query.*/</i></td></tr>
+<tr><th id="197">197</th><td>  <a class="typedef" href="../../libogg-1.3.2/include/ogg/config_types.h.html#ogg_int64_t" title='ogg_int64_t' data-type='int64_t' data-ref="ogg_int64_t">ogg_int64_t</a>        <dfn class="decl" id="OggOpusFile::samples_tracked" title='OggOpusFile::samples_tracked' data-ref="OggOpusFile::samples_tracked">samples_tracked</dfn>;</td></tr>
+<tr><th id="198">198</th><td>  <i>/*Takes physical pages and welds them into a logical stream of packets.*/</i></td></tr>
+<tr><th id="199">199</th><td>  <a class="typedef" href="../../libogg-1.3.2/include/ogg/ogg.h.html#ogg_stream_state" title='ogg_stream_state' data-type='struct ogg_stream_state' data-ref="ogg_stream_state">ogg_stream_state</a>   <dfn class="decl" id="OggOpusFile::os" title='OggOpusFile::os' data-ref="OggOpusFile::os">os</dfn>;</td></tr>
+<tr><th id="200">200</th><td>  <i>/*Re-timestamped packets from a single page.</i></td></tr>
+<tr><th id="201">201</th><td><i>    Buffering these relies on the undocumented libogg behavior that ogg_packet</i></td></tr>
+<tr><th id="202">202</th><td><i>     pointers remain valid until the next page is submitted to the</i></td></tr>
+<tr><th id="203">203</th><td><i>     ogg_stream_state they came from.*/</i></td></tr>
+<tr><th id="204">204</th><td>  <a class="typedef" href="../../libogg-1.3.2/include/ogg/ogg.h.html#ogg_packet" title='ogg_packet' data-type='struct ogg_packet' data-ref="ogg_packet">ogg_packet</a>         <dfn class="decl" id="OggOpusFile::op" title='OggOpusFile::op' data-ref="OggOpusFile::op">op</dfn>[<var>255</var>];</td></tr>
+<tr><th id="205">205</th><td>  <i>/*The index of the next packet to return.*/</i></td></tr>
+<tr><th id="206">206</th><td>  <em>int</em>                <dfn class="decl" id="OggOpusFile::op_pos" title='OggOpusFile::op_pos' data-ref="OggOpusFile::op_pos">op_pos</dfn>;</td></tr>
+<tr><th id="207">207</th><td>  <i>/*The total number of packets available.*/</i></td></tr>
+<tr><th id="208">208</th><td>  <em>int</em>                <dfn class="decl" id="OggOpusFile::op_count" title='OggOpusFile::op_count' data-ref="OggOpusFile::op_count">op_count</dfn>;</td></tr>
+<tr><th id="209">209</th><td>  <i>/*Central working state for the packet-to-PCM decoder.*/</i></td></tr>
+<tr><th id="210">210</th><td>  <a class="typedef" href="../../opus-1.1.4/include/opus_multistream.h.html#OpusMSDecoder" title='OpusMSDecoder' data-type='struct OpusMSDecoder' data-ref="OpusMSDecoder">OpusMSDecoder</a>     *<dfn class="decl" id="OggOpusFile::od" title='OggOpusFile::od' data-ref="OggOpusFile::od">od</dfn>;</td></tr>
+<tr><th id="211">211</th><td>  <i>/*The application-provided packet decode callback.*/</i></td></tr>
+<tr><th id="212">212</th><td>  <a class="typedef" href="../include/opusfile.h.html#op_decode_cb_func" title='op_decode_cb_func' data-type='int (*)(void *, OpusMSDecoder *, void *, const ogg_packet *, int, int, int, int)' data-ref="op_decode_cb_func">op_decode_cb_func</a>  <dfn class="decl" id="OggOpusFile::decode_cb" title='OggOpusFile::decode_cb' data-ref="OggOpusFile::decode_cb">decode_cb</dfn>;</td></tr>
+<tr><th id="213">213</th><td>  <i>/*The application-provided packet decode callback context.*/</i></td></tr>
+<tr><th id="214">214</th><td>  <em>void</em>              *<dfn class="decl" id="OggOpusFile::decode_cb_ctx" title='OggOpusFile::decode_cb_ctx' data-ref="OggOpusFile::decode_cb_ctx">decode_cb_ctx</dfn>;</td></tr>
+<tr><th id="215">215</th><td>  <i>/*The stream count used to initialize the decoder.*/</i></td></tr>
+<tr><th id="216">216</th><td>  <em>int</em>                <dfn class="decl" id="OggOpusFile::od_stream_count" title='OggOpusFile::od_stream_count' data-ref="OggOpusFile::od_stream_count">od_stream_count</dfn>;</td></tr>
+<tr><th id="217">217</th><td>  <i>/*The coupled stream count used to initialize the decoder.*/</i></td></tr>
+<tr><th id="218">218</th><td>  <em>int</em>                <dfn class="decl" id="OggOpusFile::od_coupled_count" title='OggOpusFile::od_coupled_count' data-ref="OggOpusFile::od_coupled_count">od_coupled_count</dfn>;</td></tr>
+<tr><th id="219">219</th><td>  <i>/*The channel count used to initialize the decoder.*/</i></td></tr>
+<tr><th id="220">220</th><td>  <em>int</em>                <dfn class="decl" id="OggOpusFile::od_channel_count" title='OggOpusFile::od_channel_count' data-ref="OggOpusFile::od_channel_count">od_channel_count</dfn>;</td></tr>
+<tr><th id="221">221</th><td>  <i>/*The channel mapping used to initialize the decoder.*/</i></td></tr>
+<tr><th id="222">222</th><td>  <em>unsigned</em> <em>char</em>      <dfn class="decl" id="OggOpusFile::od_mapping" title='OggOpusFile::od_mapping' data-ref="OggOpusFile::od_mapping">od_mapping</dfn>[<a class="macro" href="#112" title="(8)" data-ref="_M/OP_NCHANNELS_MAX">OP_NCHANNELS_MAX</a>];</td></tr>
+<tr><th id="223">223</th><td>  <i>/*The buffered data for one decoded packet.*/</i></td></tr>
+<tr><th id="224">224</th><td>  <a class="typedef" href="#op_sample" title='op_sample' data-type='float' data-ref="op_sample">op_sample</a>         *<dfn class="decl" id="OggOpusFile::od_buffer" title='OggOpusFile::od_buffer' data-ref="OggOpusFile::od_buffer">od_buffer</dfn>;</td></tr>
+<tr><th id="225">225</th><td>  <i>/*The current position in the decoded buffer.*/</i></td></tr>
+<tr><th id="226">226</th><td>  <em>int</em>                <dfn class="decl" id="OggOpusFile::od_buffer_pos" title='OggOpusFile::od_buffer_pos' data-ref="OggOpusFile::od_buffer_pos">od_buffer_pos</dfn>;</td></tr>
+<tr><th id="227">227</th><td>  <i>/*The number of valid samples in the decoded buffer.*/</i></td></tr>
+<tr><th id="228">228</th><td>  <em>int</em>                <dfn class="decl" id="OggOpusFile::od_buffer_size" title='OggOpusFile::od_buffer_size' data-ref="OggOpusFile::od_buffer_size">od_buffer_size</dfn>;</td></tr>
+<tr><th id="229">229</th><td>  <i>/*The type of gain offset to apply.</i></td></tr>
+<tr><th id="230">230</th><td><i>    One of OP_HEADER_GAIN, OP_TRACK_GAIN, or OP_ABSOLUTE_GAIN.*/</i></td></tr>
+<tr><th id="231">231</th><td>  <em>int</em>                <dfn class="decl" id="OggOpusFile::gain_type" title='OggOpusFile::gain_type' data-ref="OggOpusFile::gain_type">gain_type</dfn>;</td></tr>
+<tr><th id="232">232</th><td>  <i>/*The offset to apply to the gain.*/</i></td></tr>
+<tr><th id="233">233</th><td>  <a class="typedef" href="../../opus-1.1.4/include/opus_types.h.html#opus_int32" title='opus_int32' data-type='int32_t' data-ref="opus_int32">opus_int32</a>         <dfn class="decl" id="OggOpusFile::gain_offset_q8" title='OggOpusFile::gain_offset_q8' data-ref="OggOpusFile::gain_offset_q8">gain_offset_q8</dfn>;</td></tr>
+<tr><th id="234">234</th><td>  <i>/*Internal state for soft clipping and dithering float-&gt;short output.*/</i></td></tr>
+<tr><th id="235">235</th><td><u>#<span data-ppcond="235">if</span> !defined(<span class="macro" data-ref="_M/OP_FIXED_POINT">OP_FIXED_POINT</span>)</u></td></tr>
+<tr><th id="236">236</th><td><u># <span data-ppcond="236">if</span> defined(<a class="macro" href="#48" data-ref="_M/OP_SOFT_CLIP">OP_SOFT_CLIP</a>)</u></td></tr>
+<tr><th id="237">237</th><td>  <em>float</em>              <dfn class="decl" id="OggOpusFile::clip_state" title='OggOpusFile::clip_state' data-ref="OggOpusFile::clip_state">clip_state</dfn>[<a class="macro" href="#112" title="(8)" data-ref="_M/OP_NCHANNELS_MAX">OP_NCHANNELS_MAX</a>];</td></tr>
+<tr><th id="238">238</th><td><u># <span data-ppcond="236">endif</span></u></td></tr>
+<tr><th id="239">239</th><td>  <em>float</em>              <dfn class="decl" id="OggOpusFile::dither_a" title='OggOpusFile::dither_a' data-ref="OggOpusFile::dither_a">dither_a</dfn>[<a class="macro" href="#112" title="(8)" data-ref="_M/OP_NCHANNELS_MAX">OP_NCHANNELS_MAX</a>*<var>4</var>];</td></tr>
+<tr><th id="240">240</th><td>  <em>float</em>              <dfn class="decl" id="OggOpusFile::dither_b" title='OggOpusFile::dither_b' data-ref="OggOpusFile::dither_b">dither_b</dfn>[<a class="macro" href="#112" title="(8)" data-ref="_M/OP_NCHANNELS_MAX">OP_NCHANNELS_MAX</a>*<var>4</var>];</td></tr>
+<tr><th id="241">241</th><td>  <a class="typedef" href="../../opus-1.1.4/include/opus_types.h.html#opus_uint32" title='opus_uint32' data-type='uint32_t' data-ref="opus_uint32">opus_uint32</a>        <dfn class="decl" id="OggOpusFile::dither_seed" title='OggOpusFile::dither_seed' data-ref="OggOpusFile::dither_seed">dither_seed</dfn>;</td></tr>
+<tr><th id="242">242</th><td>  <em>int</em>                <dfn class="decl" id="OggOpusFile::dither_mute" title='OggOpusFile::dither_mute' data-ref="OggOpusFile::dither_mute">dither_mute</dfn>;</td></tr>
+<tr><th id="243">243</th><td>  <em>int</em>                <dfn class="decl" id="OggOpusFile::dither_disabled" title='OggOpusFile::dither_disabled' data-ref="OggOpusFile::dither_disabled">dither_disabled</dfn>;</td></tr>
+<tr><th id="244">244</th><td>  <i>/*The number of channels represented by the internal state.</i></td></tr>
+<tr><th id="245">245</th><td><i>    This gets set to 0 whenever anything that would prevent state propagation</i></td></tr>
+<tr><th id="246">246</th><td><i>     occurs (switching between the float/short APIs, or between the</i></td></tr>
+<tr><th id="247">247</th><td><i>     stereo/multistream APIs).*/</i></td></tr>
+<tr><th id="248">248</th><td>  <em>int</em>                <dfn class="decl" id="OggOpusFile::state_channel_count" title='OggOpusFile::state_channel_count' data-ref="OggOpusFile::state_channel_count">state_channel_count</dfn>;</td></tr>
+<tr><th id="249">249</th><td><u>#<span data-ppcond="235">endif</span></u></td></tr>
+<tr><th id="250">250</th><td>};</td></tr>
+<tr><th id="251">251</th><td></td></tr>
+<tr><th id="252">252</th><td><em>int</em> <dfn class="decl" id="op_strncasecmp" title='op_strncasecmp' data-ref="op_strncasecmp">op_strncasecmp</dfn>(<em>const</em> <em>char</em> *<dfn class="local col1 decl" id="1_a" title='_a' data-type='const char *' data-ref="1_a">_a</dfn>,<em>const</em> <em>char</em> *<dfn class="local col2 decl" id="2_b" title='_b' data-type='const char *' data-ref="2_b">_b</dfn>,<em>int</em> <dfn class="local col3 decl" id="3_n" title='_n' data-type='int' data-ref="3_n">_n</dfn>);</td></tr>
+<tr><th id="253">253</th><td></td></tr>
+<tr><th id="254">254</th><td><u>#<span data-ppcond="12">endif</span></u></td></tr>
+<tr><th id="255">255</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='http.c.html'>codebrowser/code/opusfile-0.8/src/http.c</a><br/>Generated on <em>2017-Aug-29</em> from project codebrowser revision <em>63e07af</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

@@ -1,0 +1,131 @@
+<dec f='codebrowser/code/game/bg_public.h' l='546' type='1'/>
+<use f='codebrowser/code/cgame/cg_draw.c' l='385' u='r' c='CG_DrawFlagModel'/>
+<use f='codebrowser/code/cgame/cg_draw.c' l='398' u='r' c='CG_DrawFlagModel'/>
+<use f='codebrowser/code/cgame/cg_draw.c' l='496' u='r' c='CG_DrawTeamBackground'/>
+<use f='codebrowser/code/cgame/cg_draw.c' l='560' u='r' c='CG_DrawStatusBar'/>
+<use f='codebrowser/code/cgame/cg_draw.c' l='820' u='r' c='CG_DrawTeamOverlay'/>
+<use f='codebrowser/code/cgame/cg_draw.c' l='875' u='r' c='CG_DrawTeamOverlay'/>
+<use f='codebrowser/code/cgame/cg_draw.c' l='1069' u='r' c='CG_DrawScores'/>
+<use f='codebrowser/code/cgame/cg_draw.c' l='1377' u='r' c='CG_DrawTeamInfo'/>
+<use f='codebrowser/code/cgame/cg_draw.c' l='2137' u='r' c='CG_DrawTeamVote'/>
+<use f='codebrowser/code/cgame/cg_drawtools.c' l='366' c='CG_TeamColor'/>
+<use f='codebrowser/code/cgame/cg_ents.c' l='806' u='r' c='CG_TeamBase'/>
+<use f='codebrowser/code/cgame/cg_event.c' l='1045' u='r' c='CG_EntityEvent'/>
+<use f='codebrowser/code/cgame/cg_event.c' l='1057' u='r' c='CG_EntityEvent'/>
+<use f='codebrowser/code/cgame/cg_event.c' l='1086' u='r' c='CG_EntityEvent'/>
+<use f='codebrowser/code/cgame/cg_event.c' l='1101' u='r' c='CG_EntityEvent'/>
+<use f='codebrowser/code/cgame/cg_newdraw.c' l='620' u='r' c='CG_DrawBlueFlagName'/>
+<use f='codebrowser/code/cgame/cg_newdraw.c' l='657' u='r' c='CG_DrawBlueFlagHead'/>
+<use f='codebrowser/code/cgame/cg_newdraw.c' l='938' u='r' c='CG_OtherTeamHasFlag'/>
+<use f='codebrowser/code/cgame/cg_newdraw.c' l='946' u='r' c='CG_OtherTeamHasFlag'/>
+<use f='codebrowser/code/cgame/cg_newdraw.c' l='962' u='r' c='CG_YourTeamHasFlag'/>
+<use f='codebrowser/code/cgame/cg_newdraw.c' l='970' u='r' c='CG_YourTeamHasFlag'/>
+<use f='codebrowser/code/cgame/cg_newdraw.c' l='1093' u='r' c='CG_DrawPlayerHasFlag'/>
+<use f='codebrowser/code/cgame/cg_newdraw.c' l='1815' u='r' c='CG_GetTeamColor'/>
+<use f='codebrowser/code/cgame/cg_players.c' l='2170' u='r' c='CG_AddRefEntityWithPowerups'/>
+<use f='codebrowser/code/cgame/cg_predict.c' l='292' u='r' c='CG_TouchItem'/>
+<use f='codebrowser/code/cgame/cg_scoreboard.c' l='107' u='r' c='CG_DrawClientScore'/>
+<use f='codebrowser/code/cgame/cg_scoreboard.c' l='110' u='r' c='CG_DrawClientScore'/>
+<use f='codebrowser/code/cgame/cg_scoreboard.c' l='375' u='r' c='CG_DrawOldScoreboard'/>
+<use f='codebrowser/code/cgame/cg_scoreboard.c' l='376' u='r' c='CG_DrawOldScoreboard'/>
+<use f='codebrowser/code/cgame/cg_scoreboard.c' l='388' u='r' c='CG_DrawOldScoreboard'/>
+<use f='codebrowser/code/cgame/cg_scoreboard.c' l='389' u='r' c='CG_DrawOldScoreboard'/>
+<use f='codebrowser/code/game/ai_cmd.c' l='1729' u='r' c='BotMatch_CTF'/>
+<use f='codebrowser/code/game/ai_dmnet.c' l='764' c='BotGetLongTermGoal'/>
+<use f='codebrowser/code/game/ai_dmnet.c' l='772' c='BotGetLongTermGoal'/>
+<use f='codebrowser/code/game/ai_dmnet.c' l='787' c='BotGetLongTermGoal'/>
+<use f='codebrowser/code/game/ai_dmnet.c' l='822' c='BotGetLongTermGoal'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='148' u='r' c='BotTeam'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='149' u='r' c='BotTeam'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='164' c='BotOppositeTeam'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='165' u='r' c='BotOppositeTeam'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='176' u='r' c='BotEnemyFlag'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='190' u='r' c='BotTeamFlag'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='432' u='r' c='BotSetLastOrderedTask'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='514' c='BotCTFSeekGoals'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='530' u='r' c='BotCTFSeekGoals'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='548' u='r' c='BotCTFSeekGoals'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='753' u='r' c='BotCTFSeekGoals'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='1543' u='r' c='BotSynonymContext'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='5106' u='r' c='BotGetAlternateRouteGoal'/>
+<use f='codebrowser/code/game/ai_main.c' l='291' u='r' c='BotReportStatus'/>
+<use f='codebrowser/code/game/ai_main.c' l='403' u='r' c='BotTeamplayReport'/>
+<use f='codebrowser/code/game/ai_team.c' l='139' u='r' c='BotSortTeamMatesByBaseTravelTime'/>
+<use f='codebrowser/code/game/ai_team.c' l='837' u='r' c='BotCTFOrders'/>
+<use f='codebrowser/code/game/ai_vcmd.c' l='191' c='BotVoiceChat_Defend'/>
+<use f='codebrowser/code/game/bg_misc.c' l='1148' u='r' c='BG_CanItemBeGrabbed'/>
+<use f='codebrowser/code/game/g_bot.c' l='324' u='r' c='G_AddRandomBot'/>
+<use f='codebrowser/code/game/g_bot.c' l='435' u='r' c='G_CheckMinimumPlayers'/>
+<use f='codebrowser/code/game/g_bot.c' l='436' u='r' c='G_CheckMinimumPlayers'/>
+<use f='codebrowser/code/game/g_bot.c' l='439' u='r' c='G_CheckMinimumPlayers'/>
+<use f='codebrowser/code/game/g_bot.c' l='441' u='r' c='G_CheckMinimumPlayers'/>
+<use f='codebrowser/code/game/g_bot.c' l='606' u='r' c='G_AddBot'/>
+<use f='codebrowser/code/game/g_bot.c' l='621' u='r' c='G_AddBot'/>
+<use f='codebrowser/code/game/g_client.c' l='596' u='w' c='PickTeam'/>
+<use f='codebrowser/code/game/g_client.c' l='596' u='r' c='PickTeam'/>
+<use f='codebrowser/code/game/g_client.c' l='598' u='r' c='PickTeam'/>
+<use f='codebrowser/code/game/g_client.c' l='599' u='r' c='PickTeam'/>
+<use f='codebrowser/code/game/g_client.c' l='601' u='r' c='PickTeam'/>
+<use f='codebrowser/code/game/g_client.c' l='605' u='r' c='PickTeam'/>
+<use f='codebrowser/code/game/g_client.c' l='606' u='r' c='PickTeam'/>
+<use f='codebrowser/code/game/g_cmds.c' l='93' u='r' c='DeathmatchScoreboardMessage'/>
+<use f='codebrowser/code/game/g_cmds.c' l='495' u='r' c='BroadcastTeamChange'/>
+<use f='codebrowser/code/game/g_cmds.c' l='549' u='r' c='SetTeam'/>
+<use f='codebrowser/code/game/g_cmds.c' l='561' u='w' c='SetTeam'/>
+<use f='codebrowser/code/game/g_cmds.c' l='561' u='r' c='SetTeam'/>
+<use f='codebrowser/code/game/g_cmds.c' l='564' u='r' c='SetTeam'/>
+<use f='codebrowser/code/game/g_cmds.c' l='564' u='r' c='SetTeam'/>
+<use f='codebrowser/code/game/g_cmds.c' l='569' u='r' c='SetTeam'/>
+<use f='codebrowser/code/game/g_cmds.c' l='628' u='r' c='SetTeam'/>
+<use f='codebrowser/code/game/g_cmds.c' l='636' u='r' c='SetTeam'/>
+<use f='codebrowser/code/game/g_cmds.c' l='692' c='Cmd_Team_f'/>
+<use f='codebrowser/code/game/g_cmds.c' l='1477' u='r' c='Cmd_CallTeamVote_f'/>
+<use f='codebrowser/code/game/g_cmds.c' l='1610' u='r' c='Cmd_TeamVote_f'/>
+<use f='codebrowser/code/game/g_combat.c' l='555' u='r' c='player_die'/>
+<use f='codebrowser/code/game/g_main.c' l='817' u='r' c='CalculateRanks'/>
+<use f='codebrowser/code/game/g_main.c' l='840' u='r' c='CalculateRanks'/>
+<use f='codebrowser/code/game/g_main.c' l='842' u='r' c='CalculateRanks'/>
+<use f='codebrowser/code/game/g_main.c' l='872' u='r' c='CalculateRanks'/>
+<use f='codebrowser/code/game/g_main.c' l='1079' u='w' c='ExitLevel'/>
+<use f='codebrowser/code/game/g_main.c' l='1168' u='r' c='LogExit'/>
+<use f='codebrowser/code/game/g_main.c' l='1319' u='r' c='ScoreIsTied'/>
+<use f='codebrowser/code/game/g_main.c' l='1378' u='r' c='CheckExitRules'/>
+<use f='codebrowser/code/game/g_main.c' l='1410' u='r' c='CheckExitRules'/>
+<use f='codebrowser/code/game/g_main.c' l='1505' u='w' c='CheckTournament'/>
+<use f='codebrowser/code/game/g_main.c' l='1505' u='r' c='CheckTournament'/>
+<use f='codebrowser/code/game/g_main.c' l='1507' u='r' c='CheckTournament'/>
+<use f='codebrowser/code/game/g_main.c' l='1679' u='r' c='CheckTeamVote'/>
+<use f='codebrowser/code/game/g_main.c' l='1867' u='r' c='G_RunFrame'/>
+<use f='codebrowser/code/game/g_target.c' l='73' u='r' c='Use_target_remove_powerups'/>
+<use f='codebrowser/code/game/g_target.c' l='150' u='r' c='Use_Target_Print'/>
+<use f='codebrowser/code/game/g_target.c' l='379' u='r' c='target_relay_use'/>
+<use f='codebrowser/code/game/g_team.c' l='51' u='r' c='Team_InitGame'/>
+<use f='codebrowser/code/game/g_team.c' l='67' u='r' c='OtherTeam'/>
+<use f='codebrowser/code/game/g_team.c' l='70' u='r' c='OtherTeam'/>
+<use f='codebrowser/code/game/g_team.c' l='75' u='r' c='TeamName'/>
+<use f='codebrowser/code/game/g_team.c' l='85' u='r' c='TeamColorString'/>
+<use f='codebrowser/code/game/g_team.c' l='127' u='r' c='AddTeamScore'/>
+<use f='codebrowser/code/game/g_team.c' l='128' u='r' c='AddTeamScore'/>
+<use f='codebrowser/code/game/g_team.c' l='132' u='r' c='AddTeamScore'/>
+<use f='codebrowser/code/game/g_team.c' l='133' u='r' c='AddTeamScore'/>
+<use f='codebrowser/code/game/g_team.c' l='143' u='r' c='AddTeamScore'/>
+<use f='codebrowser/code/game/g_team.c' l='147' u='r' c='AddTeamScore'/>
+<use f='codebrowser/code/game/g_team.c' l='148' u='r' c='AddTeamScore'/>
+<use f='codebrowser/code/game/g_team.c' l='189' c='Team_SetFlagStatus'/>
+<use f='codebrowser/code/game/g_team.c' l='230' u='r' c='Team_CheckDroppedItem'/>
+<use f='codebrowser/code/game/g_team.c' l='293' u='r' c='Team_FragBonuses'/>
+<use f='codebrowser/code/game/g_team.c' l='394' c='Team_FragBonuses'/>
+<use f='codebrowser/code/game/g_team.c' l='485' u='r' c='Team_CheckHurtCarrier'/>
+<use f='codebrowser/code/game/g_team.c' l='513' c='Team_ResetFlag'/>
+<use f='codebrowser/code/game/g_team.c' l='543' u='r' c='Team_ResetFlags'/>
+<use f='codebrowser/code/game/g_team.c' l='582' c='Team_TakeFlagSound'/>
+<use f='codebrowser/code/game/g_team.c' l='639' u='r' c='Team_FreeEntity'/>
+<use f='codebrowser/code/game/g_team.c' l='662' u='r' c='Team_DroppedFlagThink'/>
+<use f='codebrowser/code/game/g_team.c' l='693' u='r' c='Team_TouchOurFlag'/>
+<use f='codebrowser/code/game/g_team.c' l='819' u='r' c='Team_TouchEnemyFlag'/>
+<use f='codebrowser/code/game/g_team.c' l='858' u='r' c='Pickup_Team'/>
+<use f='codebrowser/code/game/g_team.c' l='976' u='r' c='SelectRandomTeamSpawnPoint'/>
+<use f='codebrowser/code/game/g_team.c' l='983' u='r' c='SelectRandomTeamSpawnPoint'/>
+<use f='codebrowser/code/game/g_team.c' l='1075' u='r' c='TeamplayInfoMessage'/>
+<use f='codebrowser/code/game/g_team.c' l='1137' u='r' c='CheckTeamStatus'/>
+<use f='codebrowser/code/game/g_trigger.c' l='53' u='r' c='multi_trigger'/>

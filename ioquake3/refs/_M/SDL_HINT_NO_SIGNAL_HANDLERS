@@ -1,0 +1,11 @@
+<dec f='include/SDL2/SDL_hints.h' l='622'/>
+<doc f='include/SDL2/SDL_hints.h' l='612'>/**
+ *  \brief Tell SDL not to catch the SIGINT or SIGTERM signals.
+ *
+ * This hint only applies to Unix-like platforms.
+ *
+ * The variable can be set to the following values:
+ *   &quot;0&quot;       - SDL will install a SIGINT and SIGTERM handler, and when it
+ *               catches a signal, convert it into an SDL_QUIT event.
+ *   &quot;1&quot;       - SDL will not install a signal handler at all.
+ */</doc>

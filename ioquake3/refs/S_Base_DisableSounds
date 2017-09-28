@@ -1,0 +1,11 @@
+<def f='codebrowser/code/client/snd_dma.c' l='342' ll='345' type='void S_Base_DisableSounds()'/>
+<use f='codebrowser/code/client/snd_dma.c' l='1609' u='r' c='S_Base_Init'/>
+<doc f='codebrowser/code/client/snd_dma.c' l='333'>/*
+===================
+S_DisableSounds
+
+Disables sounds until the next S_BeginRegistration.
+This is called when the hunk is cleared and the sounds
+are no longer valid.
+===================
+*/</doc>

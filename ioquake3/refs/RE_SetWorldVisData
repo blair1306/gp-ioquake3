@@ -1,0 +1,22 @@
+<dec f='codebrowser/code/renderergl1/tr_local.h' l='1147' type='void RE_SetWorldVisData(const byte * vis)'/>
+<def f='codebrowser/code/renderergl1/tr_bsp.c' l='224' ll='226' type='void RE_SetWorldVisData(const byte * vis)'/>
+<doc f='codebrowser/code/renderergl1/tr_bsp.c' l='216'>/*
+=================
+RE_SetWorldVisData
+
+This is called by the clipmodel subsystem so we can share the 1.8 megs of
+space in big maps...
+=================
+*/</doc>
+<use f='codebrowser/code/renderergl1/tr_init.c' l='1341' u='r' c='GetRefAPI'/>
+<dec f='codebrowser/code/renderergl2/tr_local.h' l='1894' type='void RE_SetWorldVisData(const byte * vis)'/>
+<def f='codebrowser/code/renderergl2/tr_bsp.c' l='557' ll='559' type='void RE_SetWorldVisData(const byte * vis)'/>
+<doc f='codebrowser/code/renderergl2/tr_bsp.c' l='549'>/*
+=================
+RE_SetWorldVisData
+
+This is called by the clipmodel subsystem so we can share the 1.8 megs of
+space in big maps...
+=================
+*/</doc>
+<use f='codebrowser/code/renderergl2/tr_init.c' l='1590' u='r' c='GetRefAPI'/>

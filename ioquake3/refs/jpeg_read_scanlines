@@ -1,0 +1,15 @@
+<dec f='codebrowser/code/jpeg-8c/jpeglib.h' l='1033' type='JDIMENSION jpeg_read_scanlines(j_decompress_ptr cinfo, JSAMPARRAY scanlines, JDIMENSION max_lines)'/>
+<def f='codebrowser/code/jpeg-8c/jdapistd.c' l='151' ll='176' macro='1' type='JDIMENSION jpeg_read_scanlines(j_decompress_ptr cinfo, JSAMPARRAY scanlines, JDIMENSION max_lines)'/>
+<doc f='codebrowser/code/jpeg-8c/jdapistd.c' l='138'>/*
+ * Read some scanlines of data from the JPEG decompressor.
+ *
+ * The return value will be the number of lines actually read.
+ * This may be less than the number requested in several cases,
+ * including bottom of image, data source suspension, and operating
+ * modes that emit multiple scanlines at a time.
+ *
+ * Note: we warn about excess calls to jpeg_read_scanlines() since
+ * this likely signals an application programmer error.  However,
+ * an oversize buffer (max_lines &gt; scanlines remaining) is not an error.
+ */</doc>
+<use f='codebrowser/code/renderercommon/tr_image_jpg.c' l='224' u='c' c='R_LoadJPG'/>

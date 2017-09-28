@@ -1,0 +1,13 @@
+<dec f='codebrowser/code/qcommon/cm_public.h' l='28' type='clipHandle_t CM_InlineModel(int index)'/>
+<doc f='codebrowser/code/qcommon/cm_public.h' l='28'>// 0 = world, 1 + are bmodels</doc>
+<use f='codebrowser/code/client/cl_cgame.c' l='479' u='c' c='CL_CgameSystemCalls'/>
+<def f='codebrowser/code/qcommon/cm_load.c' l='703' ll='708' type='clipHandle_t CM_InlineModel(int index)'/>
+<doc f='codebrowser/code/qcommon/cm_load.c' l='698'>/*
+==================
+CM_InlineModel
+==================
+*/</doc>
+<use f='codebrowser/code/server/sv_bot.c' l='264' u='c' c='BotImport_BSPModelMinsMaxsOrigin'/>
+<use f='codebrowser/code/server/sv_game.c' l='126' u='c' c='SV_SetBrushModel'/>
+<use f='codebrowser/code/server/sv_world.c' l='38' u='c' c='SV_ClipHandleForEntity'/>
+<use f='codebrowser/code/server/sv_world.c' l='155' u='c' c='SV_ClearWorld'/>

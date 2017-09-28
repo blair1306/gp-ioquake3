@@ -1,0 +1,34 @@
+<dec f='codebrowser/code/qcommon/q_shared.h' l='1268' type='int'/>
+<offset>64</offset>
+<doc f='codebrowser/code/qcommon/q_shared.h' l='1268'>// if non 0, trTime + trDuration = stop time</doc>
+<use f='codebrowser/code/game/bg_misc.c' l='1211' u='r' c='BG_EvaluateTrajectory'/>
+<use f='codebrowser/code/game/bg_misc.c' l='1216' u='r' c='BG_EvaluateTrajectory'/>
+<use f='codebrowser/code/game/bg_misc.c' l='1217' u='r' c='BG_EvaluateTrajectory'/>
+<use f='codebrowser/code/game/bg_misc.c' l='1256' u='r' c='BG_EvaluateTrajectoryDelta'/>
+<use f='codebrowser/code/game/bg_misc.c' l='1262' u='r' c='BG_EvaluateTrajectoryDelta'/>
+<use f='codebrowser/code/game/bg_misc.c' l='1563' u='w' c='BG_PlayerStateToEntityStateExtraPolate'/>
+<use f='codebrowser/code/game/g_mover.c' l='463' u='r' c='G_MoverTeam'/>
+<use f='codebrowser/code/game/g_mover.c' l='528' u='r' c='SetMoverState'/>
+<use f='codebrowser/code/game/g_mover.c' l='535' u='r' c='SetMoverState'/>
+<use f='codebrowser/code/game/g_mover.c' l='672' u='r' c='Use_BinaryMover'/>
+<use f='codebrowser/code/game/g_mover.c' l='688' u='r' c='Use_BinaryMover'/>
+<use f='codebrowser/code/game/g_mover.c' l='777' u='w' c='InitMover'/>
+<use f='codebrowser/code/game/g_mover.c' l='778' u='r' c='InitMover'/>
+<use f='codebrowser/code/game/g_mover.c' l='779' u='w' c='InitMover'/>
+<use f='codebrowser/code/game/g_mover.c' l='1311' u='w' c='Reached_Train'/>
+<use f='codebrowser/code/game/g_mover.c' l='1317' u='r' c='Reached_Train'/>
+<use f='codebrowser/code/game/g_mover.c' l='1326' u='w' c='Reached_Train'/>
+<use f='codebrowser/code/game/g_mover.c' l='1566' u='w' c='SP_func_bobbing'/>
+<use f='codebrowser/code/game/g_mover.c' l='1567' u='r' c='SP_func_bobbing'/>
+<use f='codebrowser/code/game/g_mover.c' l='1620' u='w' c='SP_func_pendulum'/>
+<use f='codebrowser/code/game/g_mover.c' l='1629' u='w' c='SP_func_pendulum'/>
+<use f='codebrowser/code/game/g_mover.c' l='1630' u='r' c='SP_func_pendulum'/>
+<use f='codebrowser/code/game/g_utils.c' l='630' u='w' c='G_SetOrigin'/>
+<use f='codebrowser/code/qcommon/msg.c' l='807' u='a'/>
+<use f='codebrowser/code/qcommon/msg.c' l='807' u='a'/>
+<use f='codebrowser/code/qcommon/msg.c' l='825' u='a'/>
+<use f='codebrowser/code/qcommon/msg.c' l='825' u='a'/>
+<use f='codebrowser/code/qcommon/msg.c' l='807' u='a'/>
+<use f='codebrowser/code/qcommon/msg.c' l='807' u='a'/>
+<use f='codebrowser/code/qcommon/msg.c' l='825' u='a'/>
+<use f='codebrowser/code/qcommon/msg.c' l='825' u='a'/>

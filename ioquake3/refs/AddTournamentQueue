@@ -1,0 +1,11 @@
+<dec f='codebrowser/code/game/g_local.h' l='606' type='void AddTournamentQueue(gclient_t * client)'/>
+<use f='codebrowser/code/game/g_cmds.c' l='621' u='c' c='SetTeam'/>
+<def f='codebrowser/code/game/g_main.c' l='633' ll='650' type='void AddTournamentQueue(gclient_t * client)'/>
+<doc f='codebrowser/code/game/g_main.c' l='625'>/*
+=======================
+AddTournamentQueue
+
+Add client to end of tournament queue
+=======================
+*/</doc>
+<use f='codebrowser/code/game/g_session.c' l='158' u='c' c='G_InitSessionData'/>

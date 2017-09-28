@@ -1,0 +1,35 @@
+<dec f='codebrowser/code/client/client.h' l='507' type='void CL_WritePacket()'/>
+<use f='codebrowser/code/client/cl_curl.c' l='324' u='c' c='CL_cURL_BeginDownload'/>
+<use f='codebrowser/code/client/cl_curl.c' l='325' u='c' c='CL_cURL_BeginDownload'/>
+<use f='codebrowser/code/client/cl_curl.c' l='326' u='c' c='CL_cURL_BeginDownload'/>
+<def f='codebrowser/code/client/cl_input.c' l='743' ll='895' type='void CL_WritePacket()'/>
+<use f='codebrowser/code/client/cl_input.c' l='926' u='c' c='CL_SendCmd'/>
+<doc f='codebrowser/code/client/cl_input.c' l='722'>/*
+===================
+CL_WritePacket
+
+Create and send the command packet to the server
+Including both the reliable commands and the usercmds
+
+During normal gameplay, a client packet will contain something like:
+
+4	sequence number
+2	qport
+4	serverid
+4	acknowledged sequence number
+4	clc.serverCommandSequence
+&lt;optional reliable commands&gt;
+1	clc_move or clc_moveNoDelta
+1	command count
+&lt;count * usercmds&gt;
+
+===================
+*/</doc>
+<use f='codebrowser/code/client/cl_main.c' l='1442' u='c' c='CL_Disconnect'/>
+<use f='codebrowser/code/client/cl_main.c' l='1443' u='c' c='CL_Disconnect'/>
+<use f='codebrowser/code/client/cl_main.c' l='1444' u='c' c='CL_Disconnect'/>
+<use f='codebrowser/code/client/cl_main.c' l='2150' u='c' c='CL_DownloadsComplete'/>
+<use f='codebrowser/code/client/cl_main.c' l='2151' u='c' c='CL_DownloadsComplete'/>
+<use f='codebrowser/code/client/cl_main.c' l='2152' u='c' c='CL_DownloadsComplete'/>
+<use f='codebrowser/code/client/cl_parse.c' l='646' u='c' c='CL_ParseDownload'/>
+<use f='codebrowser/code/client/cl_parse.c' l='647' u='c' c='CL_ParseDownload'/>

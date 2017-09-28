@@ -1,0 +1,12 @@
+<dec f='codebrowser/code/opusfile-0.8/include/opusfile.h' l='1858' type='void op_set_dither_enabled(OggOpusFile * _of, int _enabled)'/>
+<doc f='codebrowser/code/opusfile-0.8/include/opusfile.h' l='1848'>/**Sets whether or not dithering is enabled for 16-bit decoding.
+   By default, when &lt;tt&gt;libopusfile&lt;/tt&gt; is compiled to use floating-point
+    internally, calling op_read() or op_read_stereo() will first decode to
+    float, and then convert to fixed-point using noise-shaping dithering.
+   This flag can be used to disable that dithering.
+   When the application uses op_read_float() or op_read_float_stereo(), or when
+    the library has been compiled to decode directly to fixed point, this flag
+    has no effect.
+   \param _of      The \c OggOpusFile on which to enable or disable dithering.
+   \param _enabled A non-zero value to enable dithering, or 0 to disable it.*/</doc>
+<def f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='2678' ll='2683' type='void op_set_dither_enabled(OggOpusFile * _of, int _enabled)'/>

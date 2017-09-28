@@ -1,0 +1,30 @@
+<dec f='include/stdlib.h' l='543' type='void exit(int __status)'/>
+<doc f='include/stdlib.h' l='540'>/* Call all functions registered with `atexit&apos; and `on_exit&apos;,
+   in the reverse of the order in which they were registered,
+   perform stdio cleanup, and terminate program execution with STATUS.  */</doc>
+<use f='codebrowser/code/cgame/cg_syscalls.c' l='53' u='c' c='trap_Error'/>
+<use f='codebrowser/code/game/g_syscalls.c' l='52' u='c' c='trap_Error'/>
+<use f='codebrowser/code/jpeg-8c/jerror.c' l='80' u='c' c='error_exit'/>
+<use f='codebrowser/code/sys/sys_main.c' l='293' u='c' c='Sys_Exit'/>
+<use f='codebrowser/code/sys/sys_unix.c' l='658' u='c' c='Sys_Exec'/>
+<use f='codebrowser/code/tools/asm/cmdlib.c' l='154' u='c' c='Error'/>
+<use f='codebrowser/code/tools/lcc/cpp/cpp.c' l='42' u='c' c='main'/>
+<use f='codebrowser/code/tools/lcc/cpp/cpp.c' l='322' u='c' c='error'/>
+<use f='codebrowser/code/tools/lcc/etc/lcc.c' l='112' u='c' c='main'/>
+<use f='codebrowser/code/tools/lcc/etc/lcc.c' l='123' u='c' c='main'/>
+<use f='codebrowser/code/tools/lcc/etc/lcc.c' l='129' u='c' c='main'/>
+<use f='codebrowser/code/tools/lcc/etc/lcc.c' l='305' u='c' c='spawn'/>
+<use f='codebrowser/code/tools/lcc/etc/lcc.c' l='618' u='c' c='interrupt'/>
+<use f='codebrowser/code/tools/lcc/lburg/lburg.c' l='55' u='c' c='main'/>
+<use f='codebrowser/code/tools/lcc/lburg/lburg.c' l='61' u='c' c='main'/>
+<use f='codebrowser/code/tools/lcc/lburg/lburg.c' l='68' u='c' c='main'/>
+<use f='codebrowser/code/tools/lcc/lburg/lburg.c' l='111' u='c' c='alloc'/>
+<use f='codebrowser/code/tools/lcc/src/alloc.c' l='71' u='c' c='allocate'/>
+<use f='codebrowser/code/tools/lcc/src/error.c' l='39' u='c' c='error'/>
+<use f='codebrowser/code/tools/lcc/src/error.c' l='79' u='c' c='fatal'/>
+<use f='codebrowser/code/tools/lcc/src/input.c' l='56' u='c' c='fillbuf'/>
+<use f='codebrowser/code/tools/lcc/src/main.c' l='48' u='c' c='main'/>
+<use f='codebrowser/code/tools/lcc/src/main.c' l='143' u='c' c='main_init'/>
+<use f='codebrowser/code/tools/lcc/src/main.c' l='174' u='c' c='main_init'/>
+<use f='codebrowser/code/tools/lcc/src/main.c' l='179' u='c' c='main_init'/>
+<use f='codebrowser/code/ui/ui_syscalls.c' l='51' u='c' c='trap_Error'/>

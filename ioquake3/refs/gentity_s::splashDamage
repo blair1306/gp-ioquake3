@@ -1,0 +1,15 @@
+<dec f='codebrowser/code/game/g_local.h' l='149' type='int'/>
+<offset>6784</offset>
+<doc f='codebrowser/code/game/g_local.h' l='149'>// quad will increase this without increasing radius</doc>
+<use f='codebrowser/code/game/g_missile.c' l='85' u='r' c='G_ExplodeMissile'/>
+<use f='codebrowser/code/game/g_missile.c' l='86' u='r' c='G_ExplodeMissile'/>
+<use f='codebrowser/code/game/g_missile.c' l='431' u='r' c='G_MissileImpact'/>
+<use f='codebrowser/code/game/g_missile.c' l='432' u='r' c='G_MissileImpact'/>
+<use f='codebrowser/code/game/g_missile.c' l='537' u='w' c='fire_plasma'/>
+<use f='codebrowser/code/game/g_missile.c' l='579' u='w' c='fire_grenade'/>
+<use f='codebrowser/code/game/g_missile.c' l='620' u='w' c='fire_bfg'/>
+<use f='codebrowser/code/game/g_missile.c' l='660' u='w' c='fire_rocket'/>
+<use f='codebrowser/code/game/g_weapon.c' l='252' u='w' c='BFG_Fire'/>
+<use f='codebrowser/code/game/g_weapon.c' l='386' u='w' c='weapon_grenadelauncher_fire'/>
+<use f='codebrowser/code/game/g_weapon.c' l='404' u='w' c='Weapon_RocketLauncher_Fire'/>
+<use f='codebrowser/code/game/g_weapon.c' l='423' u='w' c='Weapon_Plasmagun_Fire'/>

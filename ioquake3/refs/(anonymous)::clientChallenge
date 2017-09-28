@@ -1,0 +1,5 @@
+<dec f='codebrowser/code/server/server.h' l='221' type='int'/>
+<offset>352</offset>
+<doc f='codebrowser/code/server/server.h' l='221'>// challenge number coming from the client</doc>
+<use f='codebrowser/code/server/sv_client.c' l='136' u='w' c='SV_GetChallenge'/>
+<use f='codebrowser/code/server/sv_client.c' l='256' u='r' c='SV_AuthorizeIpPacket'/>

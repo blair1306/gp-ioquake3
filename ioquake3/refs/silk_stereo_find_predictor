@@ -1,0 +1,8 @@
+<dec f='codebrowser/code/opus-1.1.4/silk/main.h' l='71' type='opus_int32 silk_stereo_find_predictor(opus_int32 * ratio_Q14, const opus_int16 * x, const opus_int16 * y, opus_int32 * mid_res_amp_Q0, int length, int smooth_coef_Q16)'/>
+<doc f='codebrowser/code/opus-1.1.4/silk/main.h' l='70'>/* Find least-squares prediction gain for one signal based on another and quantize it */</doc>
+<doc f='codebrowser/code/opus-1.1.4/silk/main.h' l='71'>/* O    Returns predictor in Q13                    */</doc>
+<use f='codebrowser/code/opus-1.1.4/silk/stereo_LR_to_MS.c' l='101' u='c' c='silk_stereo_LR_to_MS'/>
+<use f='codebrowser/code/opus-1.1.4/silk/stereo_LR_to_MS.c' l='102' u='c' c='silk_stereo_LR_to_MS'/>
+<def f='codebrowser/code/opus-1.1.4/silk/stereo_find_predictor.c' l='35' ll='79' type='opus_int32 silk_stereo_find_predictor(opus_int32 * ratio_Q14, const opus_int16 * x, const opus_int16 * y, opus_int32 * mid_res_amp_Q0, int length, int smooth_coef_Q16)'/>
+<doc f='codebrowser/code/opus-1.1.4/silk/stereo_find_predictor.c' l='34'>/* Find least-squares prediction gain for one signal based on another and quantize it */</doc>
+<doc f='codebrowser/code/opus-1.1.4/silk/stereo_find_predictor.c' l='35'>/* O    Returns predictor in Q13                    */</doc>

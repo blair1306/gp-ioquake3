@@ -1,0 +1,34 @@
+<dec f='codebrowser/code/qcommon/qcommon.h' l='1064' type='void IN_Init(void * windowData)'/>
+<doc f='codebrowser/code/qcommon/qcommon.h' l='1061'>//
+// input interface
+//</doc>
+<use f='codebrowser/code/client/cl_main.c' l='3279' u='r' c='CL_InitRef'/>
+<def f='codebrowser/code/null/null_input.c' l='23' ll='24' type='void IN_Init()'/>
+<doc f='codebrowser/code/null/null_input.c' l='1'>/*
+===========================================================================
+Copyright (C) 1999-2005 Id Software, Inc.
+
+This file is part of Quake III Arena source code.
+
+Quake III Arena source code is free software; you can redistribute it
+and/or modify it under the terms of the GNU General Public License as
+published by the Free Software Foundation; either version 2 of the License,
+or (at your option) any later version.
+
+Quake III Arena source code is distributed in the hope that it will be
+useful, but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with Quake III Arena source code; if not, write to the Free Software
+Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
+===========================================================================
+*/</doc>
+<def f='codebrowser/code/sdl/sdl_input.c' l='1205' ll='1239' type='void IN_Init(void * windowData)'/>
+<use f='codebrowser/code/sdl/sdl_input.c' l='1266' u='c' c='IN_Restart'/>
+<doc f='codebrowser/code/sdl/sdl_input.c' l='1200'>/*
+===============
+IN_Init
+===============
+*/</doc>

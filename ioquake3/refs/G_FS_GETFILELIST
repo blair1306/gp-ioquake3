@@ -1,0 +1,6 @@
+<dec f='codebrowser/code/game/g_public.h' l='221' type='38'/>
+<doc f='codebrowser/code/game/g_public.h' l='217'>// Retrieves the next string token from the entity spawn text, returning
+	// false when all tokens have been parsed.
+	// This should only be done at GAME_INIT time.</doc>
+<use f='codebrowser/code/game/g_syscalls.c' l='83' c='trap_FS_GetFileList'/>
+<use f='codebrowser/code/server/sv_game.c' l='336' c='SV_GameSystemCalls'/>

@@ -1,0 +1,13 @@
+<def f='codebrowser/code/game/g_main.c' l='273' ll='316' type='void G_FindTeams()'/>
+<use f='codebrowser/code/game/g_main.c' l='488' u='c' c='G_InitGame'/>
+<doc f='codebrowser/code/game/g_main.c' l='262'>/*
+================
+G_FindTeams
+
+Chain together all entities with a matching team field.
+Entity teams are used for item groups and multi-entity mover groups.
+
+All but the first will have the FL_TEAMSLAVE flag set and teammaster field set
+All but the last will have the teamchain field set to the next one
+================
+*/</doc>

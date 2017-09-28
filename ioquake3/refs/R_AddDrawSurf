@@ -1,0 +1,42 @@
+<dec f='codebrowser/code/renderergl1/tr_local.h' l='1079' type='void R_AddDrawSurf(surfaceType_t * surface, shader_t * shader, int fogIndex, int dlightMap)'/>
+<use f='codebrowser/code/renderergl1/tr_animation.c' l='287' u='c' c='R_MDRAddAnimSurfaces'/>
+<use f='codebrowser/code/renderergl1/tr_animation.c' l='296' u='c' c='R_MDRAddAnimSurfaces'/>
+<use f='codebrowser/code/renderergl1/tr_animation.c' l='300' u='c' c='R_MDRAddAnimSurfaces'/>
+<def f='codebrowser/code/renderergl1/tr_main.c' l='1102' ll='1115' type='void R_AddDrawSurf(surfaceType_t * surface, shader_t * shader, int fogIndex, int dlightMap)'/>
+<use f='codebrowser/code/renderergl1/tr_main.c' l='1227' u='c' c='R_AddEntitySurfaces'/>
+<use f='codebrowser/code/renderergl1/tr_main.c' l='1236' u='c' c='R_AddEntitySurfaces'/>
+<use f='codebrowser/code/renderergl1/tr_main.c' l='1255' u='c' c='R_AddEntitySurfaces'/>
+<doc f='codebrowser/code/renderergl1/tr_main.c' l='1097'>/*
+=================
+R_AddDrawSurf
+=================
+*/</doc>
+<use f='codebrowser/code/renderergl1/tr_mesh.c' l='392' u='c' c='R_AddMD3Surfaces'/>
+<use f='codebrowser/code/renderergl1/tr_mesh.c' l='400' u='c' c='R_AddMD3Surfaces'/>
+<use f='codebrowser/code/renderergl1/tr_mesh.c' l='405' u='c' c='R_AddMD3Surfaces'/>
+<use f='codebrowser/code/renderergl1/tr_model_iqm.c' l='924' u='c' c='R_AddIQMSurfaces'/>
+<use f='codebrowser/code/renderergl1/tr_model_iqm.c' l='932' u='c' c='R_AddIQMSurfaces'/>
+<use f='codebrowser/code/renderergl1/tr_model_iqm.c' l='936' u='c' c='R_AddIQMSurfaces'/>
+<use f='codebrowser/code/renderergl1/tr_scene.c' l='100' u='c' c='R_AddPolygonSurfaces'/>
+<use f='codebrowser/code/renderergl1/tr_world.c' l='302' u='c' c='R_AddWorldSurface'/>
+<dec f='codebrowser/code/renderergl2/tr_local.h' l='1816' type='void R_AddDrawSurf(surfaceType_t * surface, shader_t * shader, int fogIndex, int dlightMap, int pshadowMap, int cubemap)'/>
+<use f='codebrowser/code/renderergl2/tr_animation.c' l='291' u='c' c='R_MDRAddAnimSurfaces'/>
+<use f='codebrowser/code/renderergl2/tr_animation.c' l='300' u='c' c='R_MDRAddAnimSurfaces'/>
+<use f='codebrowser/code/renderergl2/tr_animation.c' l='304' u='c' c='R_MDRAddAnimSurfaces'/>
+<def f='codebrowser/code/renderergl2/tr_main.c' l='1461' ll='1476' type='void R_AddDrawSurf(surfaceType_t * surface, shader_t * shader, int fogIndex, int dlightMap, int pshadowMap, int cubemap)'/>
+<use f='codebrowser/code/renderergl2/tr_main.c' l='1590' u='c' c='R_AddEntitySurface'/>
+<use f='codebrowser/code/renderergl2/tr_main.c' l='1599' u='c' c='R_AddEntitySurface'/>
+<use f='codebrowser/code/renderergl2/tr_main.c' l='1618' u='c' c='R_AddEntitySurface'/>
+<doc f='codebrowser/code/renderergl2/tr_main.c' l='1456'>/*
+=================
+R_AddDrawSurf
+=================
+*/</doc>
+<use f='codebrowser/code/renderergl2/tr_mesh.c' l='396' u='c' c='R_AddMD3Surfaces'/>
+<use f='codebrowser/code/renderergl2/tr_mesh.c' l='404' u='c' c='R_AddMD3Surfaces'/>
+<use f='codebrowser/code/renderergl2/tr_mesh.c' l='409' u='c' c='R_AddMD3Surfaces'/>
+<use f='codebrowser/code/renderergl2/tr_model_iqm.c' l='928' u='c' c='R_AddIQMSurfaces'/>
+<use f='codebrowser/code/renderergl2/tr_model_iqm.c' l='936' u='c' c='R_AddIQMSurfaces'/>
+<use f='codebrowser/code/renderergl2/tr_model_iqm.c' l='940' u='c' c='R_AddIQMSurfaces'/>
+<use f='codebrowser/code/renderergl2/tr_scene.c' l='102' u='c' c='R_AddPolygonSurfaces'/>
+<use f='codebrowser/code/renderergl2/tr_world.c' l='342' u='c' c='R_AddWorldSurface'/>

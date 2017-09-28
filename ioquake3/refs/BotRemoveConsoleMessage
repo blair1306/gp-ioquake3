@@ -1,0 +1,11 @@
+<dec f='codebrowser/code/botlib/be_ai_chat.h' l='80' type='void BotRemoveConsoleMessage(int chatstate, int handle)'/>
+<def f='codebrowser/code/botlib/be_ai_chat.c' l='296' ll='319' type='void BotRemoveConsoleMessage(int chatstate, int handle)'/>
+<use f='codebrowser/code/botlib/be_ai_chat.c' l='2958' u='c' c='BotFreeChatState'/>
+<doc f='codebrowser/code/botlib/be_ai_chat.c' l='290'>//===========================================================================
+//
+// Parameter:				-
+// Returns:					-
+// Changes Globals:		-
+//===========================================================================</doc>
+<doc f='codebrowser/code/botlib/be_ai_chat.h' l='79'>//removes the console message from the chat state</doc>
+<use f='codebrowser/code/botlib/be_interface.c' l='786' u='r' c='Init_AI_Export'/>

@@ -1,0 +1,7 @@
+<dec f='codebrowser/code/cgame/cg_local.h' l='1601' type='void trap_R_RemapShader(const char * oldShader, const char * newShader, const char * timeOffset)'/>
+<use f='codebrowser/code/cgame/cg_servercmds.c' l='265' u='c' c='CG_ShaderStateChanged'/>
+<use f='codebrowser/code/cgame/cg_servercmds.c' l='1085' u='c' c='CG_ServerCommand'/>
+<def f='codebrowser/code/cgame/cg_syscalls.c' l='303' ll='305' type='void trap_R_RemapShader(const char * oldShader, const char * newShader, const char * timeOffset)'/>
+<dec f='codebrowser/code/ui/ui_local.h' l='995' type='void trap_R_RemapShader(const char * oldShader, const char * newShader, const char * timeOffset)'/>
+<use f='codebrowser/code/ui/ui_atoms.c' l='377' u='c' c='UI_ConsoleCommand'/>
+<def f='codebrowser/code/ui/ui_syscalls.c' l='394' ll='396' type='void trap_R_RemapShader(const char * oldShader, const char * newShader, const char * timeOffset)'/>

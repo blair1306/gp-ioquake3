@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>l_crc.h source code [codebrowser/code/botlib/l_crc.h] - Woboq Code Browser</title>
+<link rel="stylesheet" href="../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'codebrowser/code/botlib/l_crc.h'; var root_path = '../../..'; var data_path = '../../../../data';</script>
+<script src='../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../..'>codebrowser</a>/<a href='..'>code</a>/<a href='./'>botlib</a>/<a href='l_crc.h.html'>l_crc.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/*</i></td></tr>
+<tr><th id="2">2</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="3">3</th><td><i>Copyright (C) 1999-2005 Id Software, Inc.</i></td></tr>
+<tr><th id="4">4</th><td><i></i></td></tr>
+<tr><th id="5">5</th><td><i>This file is part of Quake III Arena source code.</i></td></tr>
+<tr><th id="6">6</th><td><i></i></td></tr>
+<tr><th id="7">7</th><td><i>Quake III Arena source code is free software; you can redistribute it</i></td></tr>
+<tr><th id="8">8</th><td><i>and/or modify it under the terms of the GNU General Public License as</i></td></tr>
+<tr><th id="9">9</th><td><i>published by the Free Software Foundation; either version 2 of the License,</i></td></tr>
+<tr><th id="10">10</th><td><i>or (at your option) any later version.</i></td></tr>
+<tr><th id="11">11</th><td><i></i></td></tr>
+<tr><th id="12">12</th><td><i>Quake III Arena source code is distributed in the hope that it will be</i></td></tr>
+<tr><th id="13">13</th><td><i>useful, but WITHOUT ANY WARRANTY; without even the implied warranty of</i></td></tr>
+<tr><th id="14">14</th><td><i>MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</i></td></tr>
+<tr><th id="15">15</th><td><i>GNU General Public License for more details.</i></td></tr>
+<tr><th id="16">16</th><td><i></i></td></tr>
+<tr><th id="17">17</th><td><i>You should have received a copy of the GNU General Public License</i></td></tr>
+<tr><th id="18">18</th><td><i>along with Quake III Arena source code; if not, write to the Free Software</i></td></tr>
+<tr><th id="19">19</th><td><i>Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA</i></td></tr>
+<tr><th id="20">20</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="21">21</th><td><i>*/</i></td></tr>
+<tr><th id="22">22</th><td></td></tr>
+<tr><th id="23">23</th><td><b>typedef</b> <em>unsigned</em> <em>short</em> <dfn class="typedef" id="crc_t" title='crc_t' data-type='unsigned short' data-ref="crc_t">crc_t</dfn>;</td></tr>
+<tr><th id="24">24</th><td></td></tr>
+<tr><th id="25">25</th><td><em>void</em> <dfn class="decl" id="CRC_Init" title='CRC_Init' data-ref="CRC_Init">CRC_Init</dfn>(<em>unsigned</em> <em>short</em> *<dfn class="local col1 decl" id="1crcvalue" title='crcvalue' data-type='unsigned short *' data-ref="1crcvalue">crcvalue</dfn>);</td></tr>
+<tr><th id="26">26</th><td><em>void</em> <dfn class="decl" id="CRC_ProcessByte" title='CRC_ProcessByte' data-ref="CRC_ProcessByte">CRC_ProcessByte</dfn>(<em>unsigned</em> <em>short</em> *<dfn class="local col2 decl" id="2crcvalue" title='crcvalue' data-type='unsigned short *' data-ref="2crcvalue">crcvalue</dfn>, <a class="typedef" href="../qcommon/q_shared.h.html#byte" title='byte' data-type='unsigned char' data-ref="byte">byte</a> <dfn class="local col3 decl" id="3data" title='data' data-type='byte' data-ref="3data">data</dfn>);</td></tr>
+<tr><th id="27">27</th><td><em>unsigned</em> <em>short</em> <dfn class="decl" id="CRC_Value" title='CRC_Value' data-ref="CRC_Value">CRC_Value</dfn>(<em>unsigned</em> <em>short</em> <dfn class="local col4 decl" id="4crcvalue" title='crcvalue' data-type='unsigned short' data-ref="4crcvalue">crcvalue</dfn>);</td></tr>
+<tr><th id="28">28</th><td><em>unsigned</em> <em>short</em> <dfn class="decl" id="CRC_ProcessString" title='CRC_ProcessString' data-ref="CRC_ProcessString">CRC_ProcessString</dfn>(<em>unsigned</em> <em>char</em> *<dfn class="local col5 decl" id="5data" title='data' data-type='unsigned char *' data-ref="5data">data</dfn>, <em>int</em> <dfn class="local col6 decl" id="6length" title='length' data-type='int' data-ref="6length">length</dfn>);</td></tr>
+<tr><th id="29">29</th><td><em>void</em> <dfn class="decl" id="CRC_ContinueProcessString" title='CRC_ContinueProcessString' data-ref="CRC_ContinueProcessString">CRC_ContinueProcessString</dfn>(<em>unsigned</em> <em>short</em> *<dfn class="local col7 decl" id="7crc" title='crc' data-type='unsigned short *' data-ref="7crc">crc</dfn>, <em>char</em> *<dfn class="local col8 decl" id="8data" title='data' data-type='char *' data-ref="8data">data</dfn>, <em>int</em> <dfn class="local col9 decl" id="9length" title='length' data-type='int' data-ref="9length">length</dfn>);</td></tr>
+<tr><th id="30">30</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='be_aas_route.c.html'>codebrowser/code/botlib/be_aas_route.c</a><br/>Generated on <em>2017-Aug-29</em> from project codebrowser revision <em>63e07af</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

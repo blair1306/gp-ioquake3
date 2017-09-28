@@ -1,0 +1,13 @@
+<dec f='codebrowser/code/jpeg-8c/jpeglib.h' l='966' type='void jpeg_set_defaults(j_compress_ptr cinfo)'/>
+<def f='codebrowser/code/jpeg-8c/jcparam.c' l='284' ll='373' macro='1' type='void jpeg_set_defaults(j_compress_ptr cinfo)'/>
+<doc f='codebrowser/code/jpeg-8c/jcparam.c' l='274'>/*
+ * Default parameter setup for compression.
+ *
+ * Applications that don&apos;t choose to use this routine must do their
+ * own setup of all these parameters.  Alternately, you can call this
+ * to establish defaults and then alter parameters selectively.  This
+ * is the recommended approach since, if we add any new parameters,
+ * your code will still work (they&apos;ll be set to reasonable defaults).
+ */</doc>
+<use f='codebrowser/code/jpeg-8c/jctrans.c' l='85' u='c' c='jpeg_copy_critical_parameters'/>
+<use f='codebrowser/code/renderercommon/tr_image_jpg.c' l='427' u='c' c='RE_SaveJPGToBuffer'/>

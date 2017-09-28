@@ -1,0 +1,11 @@
+<dec f='codebrowser/code/qcommon/q_shared.h' l='1206' type='int'/>
+<offset>3616</offset>
+<doc f='codebrowser/code/qcommon/q_shared.h' l='1205'>// not communicated over the net at all</doc>
+<doc f='codebrowser/code/qcommon/q_shared.h' l='1206'>// server to game info for scoreboard</doc>
+<use f='codebrowser/code/game/g_client.c' l='1111' u='r' c='ClientSpawn'/>
+<use f='codebrowser/code/game/g_client.c' l='1124' u='w' c='ClientSpawn'/>
+<use f='codebrowser/code/game/g_cmds.c' l='63' u='r' c='DeathmatchScoreboardMessage'/>
+<use f='codebrowser/code/game/g_cmds.c' l='63' u='r' c='DeathmatchScoreboardMessage'/>
+<use f='codebrowser/code/game/g_main.c' l='1183' u='r' c='LogExit'/>
+<use f='codebrowser/code/game/g_main.c' l='1183' u='r' c='LogExit'/>
+<use f='codebrowser/code/server/sv_main.c' l='931' u='w' c='SV_CalcPings'/>

@@ -1,0 +1,17 @@
+<dec f='codebrowser/code/server/server.h' l='168' type='int'/>
+<use f='codebrowser/code/server/sv_bot.c' l='65' u='w' c='SV_BotAllocateClient'/>
+<use f='codebrowser/code/server/sv_bot.c' l='580' u='w' c='SV_BotGetConsoleMessage'/>
+<offset>546944</offset>
+<doc f='codebrowser/code/server/server.h' l='168'>// svs.time when packet was last received</doc>
+<use f='codebrowser/code/server/sv_ccmds.c' l='393' u='w' c='SV_Kick_f'/>
+<use f='codebrowser/code/server/sv_ccmds.c' l='405' u='w' c='SV_Kick_f'/>
+<use f='codebrowser/code/server/sv_ccmds.c' l='416' u='w' c='SV_Kick_f'/>
+<use f='codebrowser/code/server/sv_ccmds.c' l='446' u='w' c='SV_KickBots_f'/>
+<use f='codebrowser/code/server/sv_ccmds.c' l='476' u='w' c='SV_KickAll_f'/>
+<use f='codebrowser/code/server/sv_ccmds.c' l='511' u='w' c='SV_KickNum_f'/>
+<use f='codebrowser/code/server/sv_client.c' l='582' u='w' c='SV_DirectConnect'/>
+<use f='codebrowser/code/server/sv_main.c' l='872' u='w' c='SV_PacketEvent'/>
+<use f='codebrowser/code/server/sv_main.c' l='959' u='r' c='SV_CheckTimeouts'/>
+<use f='codebrowser/code/server/sv_main.c' l='960' u='w' c='SV_CheckTimeouts'/>
+<use f='codebrowser/code/server/sv_main.c' l='964' u='r' c='SV_CheckTimeouts'/>
+<use f='codebrowser/code/server/sv_main.c' l='970' u='r' c='SV_CheckTimeouts'/>

@@ -1,0 +1,20 @@
+<dec f='codebrowser/code/qcommon/q_shared.h' l='721' type='void PerpendicularVector(vec_t * dst, const vec_t * src)'/>
+<use f='codebrowser/code/cgame/cg_ents.c' l='650' u='c' c='CG_Portal'/>
+<use f='codebrowser/code/cgame/cg_marks.c' l='157' u='c' c='CG_ImpactMark'/>
+<use f='codebrowser/code/cgame/cg_weapons.c' l='267' u='c' c='CG_RailTrail'/>
+<use f='codebrowser/code/cgame/cg_weapons.c' l='2044' u='c' c='CG_ShotgunPattern'/>
+<use f='codebrowser/code/game/g_misc.c' l='262' u='c' c='Use_Shooter'/>
+<use f='codebrowser/code/game/g_weapon.c' l='337' u='c' c='ShotgunPattern'/>
+<use f='codebrowser/code/qcommon/q_math.c' l='306' u='c' c='RotatePointAroundVector'/>
+<use f='codebrowser/code/qcommon/q_math.c' l='355' u='c' c='RotateAroundDirection'/>
+<def f='codebrowser/code/qcommon/q_math.c' l='965' ll='995' type='void PerpendicularVector(vec_t * dst, const vec_t * src)'/>
+<doc f='codebrowser/code/qcommon/q_math.c' l='962'>/*
+** assumes &quot;src&quot; is normalized
+*/</doc>
+<use f='codebrowser/code/renderergl1/tr_main.c' l='701' u='c' c='R_GetPortalOrientations'/>
+<use f='codebrowser/code/renderergl1/tr_sky.c' l='716' u='c' c='RB_DrawSun'/>
+<use f='codebrowser/code/renderergl1/tr_surface.c' l='314' u='c' c='RB_SurfaceBeam'/>
+<use f='codebrowser/code/renderergl2/tr_main.c' l='1051' u='c' c='R_GetPortalOrientations'/>
+<use f='codebrowser/code/renderergl2/tr_sky.c' l='814' u='c' c='RB_DrawSun'/>
+<use f='codebrowser/code/renderergl2/tr_surface.c' l='505' u='c' c='RB_SurfaceBeam'/>
+<use f='codebrowser/code/server/sv_game.c' l='836' u='c' c='SV_GameSystemCalls'/>

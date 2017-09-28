@@ -1,0 +1,16 @@
+<dec f='codebrowser/code/client/snd_public.h' l='40' type='void S_StopAllSounds()'/>
+<dec f='codebrowser/code/client/snd_public.h' l='40' type='void S_StopAllSounds()'/>
+<doc f='codebrowser/code/client/snd_public.h' l='39'>// stop all sounds and the background track</doc>
+<use f='codebrowser/code/client/cl_cin.c' l='1627' u='c' c='CL_PlayCinematic_f'/>
+<use f='codebrowser/code/client/cl_cin.c' l='1654' u='c' c='SCR_StopCinematic'/>
+<use f='codebrowser/code/client/cl_keys.c' l='1295' u='c' c='CL_KeyDownEvent'/>
+<use f='codebrowser/code/client/cl_main.c' l='1941' u='c' c='CL_Vid_Restart_f'/>
+<use f='codebrowser/code/client/cl_main.c' l='2963' u='c' c='CL_Frame'/>
+<use f='codebrowser/code/client/cl_scrn.c' l='504' u='c' c='SCR_DrawScreenField'/>
+<def f='codebrowser/code/client/snd_main.c' l='143' ll='148' type='void S_StopAllSounds()'/>
+<use f='codebrowser/code/client/snd_main.c' l='498' u='r' c='S_Init'/>
+<doc f='codebrowser/code/client/snd_main.c' l='138'>/*
+=================
+S_StopAllSounds
+=================
+*/</doc>

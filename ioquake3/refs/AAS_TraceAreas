@@ -1,0 +1,25 @@
+<dec f='codebrowser/code/botlib/be_aas_sample.h' l='58' type='int AAS_TraceAreas(vec_t * start, vec_t * end, int * areas, vec3_t * points, int maxareas)'/>
+<dec f='codebrowser/code/botlib/be_aas_sample.h' l='58' type='int AAS_TraceAreas(vec_t * start, vec_t * end, int * areas, vec3_t * points, int maxareas)'/>
+<doc f='codebrowser/code/botlib/be_aas_sample.h' l='57'>//stores the areas the trace went through and returns the number of passed areas</doc>
+<use f='codebrowser/code/botlib/be_aas_move.c' l='654' u='c' c='AAS_ClientMovementPrediction'/>
+<use f='codebrowser/code/botlib/be_aas_reach.c' l='1555' u='c' c='AAS_Reachability_Step_Barrier_WaterJump_WalkOffLedge'/>
+<use f='codebrowser/code/botlib/be_aas_reach.c' l='2310' u='c' c='AAS_Reachability_Jump'/>
+<use f='codebrowser/code/botlib/be_aas_reach.c' l='3438' u='c' c='AAS_Reachability_FuncBobbing'/>
+<use f='codebrowser/code/botlib/be_aas_reach.c' l='3890' u='c' c='AAS_Reachability_Grapple'/>
+<use f='codebrowser/code/botlib/be_aas_reach.c' l='4256' u='c' c='AAS_Reachability_WalkOffLedge'/>
+<use f='codebrowser/code/botlib/be_aas_route.c' l='1175' u='c' c='AAS_InitReachabilityAreas'/>
+<use f='codebrowser/code/botlib/be_aas_route.c' l='1180' u='c' c='AAS_InitReachabilityAreas'/>
+<use f='codebrowser/code/botlib/be_aas_route.c' l='1183' u='c' c='AAS_InitReachabilityAreas'/>
+<def f='codebrowser/code/botlib/be_aas_sample.c' l='725' ll='903' type='int AAS_TraceAreas(vec_t * start, vec_t * end, int * areas, vec3_t * points, int maxareas)'/>
+<doc f='codebrowser/code/botlib/be_aas_sample.c' l='718'>//===========================================================================
+// recursive subdivision of the line by the BSP tree.
+//
+// Parameter:				-
+// Returns:					-
+// Changes Globals:		-
+//===========================================================================</doc>
+<use f='codebrowser/code/botlib/be_ai_move.c' l='255' u='c' c='BotFuzzyPointReachabilityArea'/>
+<use f='codebrowser/code/botlib/be_ai_move.c' l='272' u='c' c='BotFuzzyPointReachabilityArea'/>
+<use f='codebrowser/code/botlib/be_ai_move.c' l='3361' u='c' c='BotMoveToGoal'/>
+<dec f='codebrowser/code/botlib/be_interface.c' l='331' type='int AAS_TraceAreas(vec_t * start, vec_t * end, int * areas, vec3_t * points, int maxareas)'/>
+<use f='codebrowser/code/botlib/be_interface.c' l='694' u='r' c='Init_AAS_Export'/>

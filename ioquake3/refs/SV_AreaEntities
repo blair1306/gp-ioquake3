@@ -1,0 +1,10 @@
+<dec f='codebrowser/code/server/server.h' l='461' type='int SV_AreaEntities(const vec_t * mins, const vec_t * maxs, int * entityList, int maxcount)'/>
+<use f='codebrowser/code/server/sv_game.c' l='357' u='c' c='SV_GameSystemCalls'/>
+<def f='codebrowser/code/server/sv_world.c' l='426' ll='438' type='int SV_AreaEntities(const vec_t * mins, const vec_t * maxs, int * entityList, int maxcount)'/>
+<use f='codebrowser/code/server/sv_world.c' l='515' u='c' c='SV_ClipMoveToEntities'/>
+<use f='codebrowser/code/server/sv_world.c' l='665' u='c' c='SV_PointContents'/>
+<doc f='codebrowser/code/server/sv_world.c' l='421'>/*
+================
+SV_AreaEntities
+================
+*/</doc>

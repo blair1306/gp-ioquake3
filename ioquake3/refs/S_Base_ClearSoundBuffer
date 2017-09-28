@@ -1,0 +1,11 @@
+<def f='codebrowser/code/client/snd_dma.c' l='689' ll='713' type='void S_Base_ClearSoundBuffer()'/>
+<use f='codebrowser/code/client/snd_dma.c' l='728' u='c' c='S_Base_StopAllSounds'/>
+<use f='codebrowser/code/client/snd_dma.c' l='1612' u='r' c='S_Base_Init'/>
+<doc f='codebrowser/code/client/snd_dma.c' l='681'>/*
+==================
+S_ClearSoundBuffer
+
+If we are about to perform file access, clear the buffer
+so sound doesn&apos;t stutter.
+==================
+*/</doc>

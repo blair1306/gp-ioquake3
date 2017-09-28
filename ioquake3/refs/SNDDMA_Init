@@ -1,0 +1,18 @@
+<dec f='codebrowser/code/client/snd_local.h' l='166' type='qboolean SNDDMA_Init()'/>
+<doc f='codebrowser/code/client/snd_local.h' l='157'>/*
+====================================================================
+
+  SYSTEM SPECIFIC FUNCTIONS
+
+====================================================================
+*/
+
+// initializes cycling through a DMA buffer and returns information on it</doc>
+<use f='codebrowser/code/client/snd_dma.c' l='1578' u='c' c='S_Base_Init'/>
+<def f='codebrowser/code/null/null_snddma.c' l='29' ll='32' type='qboolean SNDDMA_Init()'/>
+<def f='codebrowser/code/sdl/sdl_snd.c' l='138' ll='245' type='qboolean SNDDMA_Init()'/>
+<doc f='codebrowser/code/sdl/sdl_snd.c' l='133'>/*
+===============
+SNDDMA_Init
+===============
+*/</doc>

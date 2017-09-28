@@ -1,0 +1,12 @@
+<dec f='codebrowser/code/renderergl1/tr_local.h' l='389' type='qboolean'/>
+<offset>928</offset>
+<doc f='codebrowser/code/renderergl1/tr_local.h' l='389'>// qtrue if areamask changed since last scene</doc>
+<use f='codebrowser/code/renderergl1/tr_scene.c' l='326' u='w' c='RE_RenderScene'/>
+<use f='codebrowser/code/renderergl1/tr_scene.c' l='340' u='w' c='RE_RenderScene'/>
+<use f='codebrowser/code/renderergl1/tr_world.c' l='587' u='r' c='R_MarkLeaves'/>
+<dec f='codebrowser/code/renderergl2/tr_local.h' l='711' type='qboolean'/>
+<offset>928</offset>
+<doc f='codebrowser/code/renderergl2/tr_local.h' l='711'>// qtrue if areamask changed since last scene</doc>
+<use f='codebrowser/code/renderergl2/tr_scene.c' l='308' u='w' c='RE_BeginScene'/>
+<use f='codebrowser/code/renderergl2/tr_scene.c' l='322' u='w' c='RE_BeginScene'/>
+<use f='codebrowser/code/renderergl2/tr_world.c' l='681' u='r' c='R_MarkLeaves'/>

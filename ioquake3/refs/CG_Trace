@@ -1,0 +1,16 @@
+<dec f='codebrowser/code/cgame/cg_local.h' l='1320' type='void CG_Trace(trace_t * result, const vec_t * start, const vec_t * mins, const vec_t * maxs, const vec_t * end, int skipNumber, int mask)'/>
+<use f='codebrowser/code/cgame/cg_draw.c' l='1981' u='c' c='CG_DrawCrosshair3D'/>
+<use f='codebrowser/code/cgame/cg_draw.c' l='2011' u='c' c='CG_ScanForCrosshairEntity'/>
+<use f='codebrowser/code/cgame/cg_localents.c' l='276' u='c' c='CG_AddFragment'/>
+<use f='codebrowser/code/cgame/cg_particles.c' l='1697' u='c' c='ValidBloodPool'/>
+<def f='codebrowser/code/cgame/cg_predict.c' l='145' ll='155' type='void CG_Trace(trace_t * result, const vec_t * start, const vec_t * mins, const vec_t * maxs, const vec_t * end, int skipNumber, int mask)'/>
+<use f='codebrowser/code/cgame/cg_predict.c' l='444' u='r' c='CG_PredictPlayerState'/>
+<doc f='codebrowser/code/cgame/cg_predict.c' l='140'>/*
+================
+CG_Trace
+================
+*/</doc>
+<use f='codebrowser/code/cgame/cg_view.c' l='266' u='c' c='CG_OffsetThirdPersonView'/>
+<use f='codebrowser/code/cgame/cg_view.c' l='274' u='c' c='CG_OffsetThirdPersonView'/>
+<use f='codebrowser/code/cgame/cg_weapons.c' l='1025' u='c' c='CG_LightningBolt'/>
+<use f='codebrowser/code/cgame/cg_weapons.c' l='1986' u='c' c='CG_ShotgunPellet'/>

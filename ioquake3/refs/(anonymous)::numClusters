@@ -1,0 +1,24 @@
+<dec f='codebrowser/code/qcommon/cm_local.h' l='112' type='int'/>
+<use f='codebrowser/code/qcommon/cm_load.c' l='297' u='r' c='CMod_LoadLeafs'/>
+<use f='codebrowser/code/qcommon/cm_load.c' l='298' u='w' c='CMod_LoadLeafs'/>
+<use f='codebrowser/code/qcommon/cm_load.c' l='461' u='r' c='CMod_LoadVisibility'/>
+<use f='codebrowser/code/qcommon/cm_load.c' l='470' u='w' c='CMod_LoadVisibility'/>
+<use f='codebrowser/code/qcommon/cm_load.c' l='601' u='w' c='CM_LoadMap'/>
+<use f='codebrowser/code/qcommon/cm_load.c' l='711' u='r' c='CM_NumClusters'/>
+<offset>1664</offset>
+<use f='codebrowser/code/qcommon/cm_test.c' l='317' u='r' c='CM_ClusterPVS'/>
+<dec f='codebrowser/code/renderergl1/tr_local.h' l='718' type='int'/>
+<offset>2304</offset>
+<use f='codebrowser/code/renderergl1/tr_bsp.c' l='238' u='r' c='R_LoadVisibility'/>
+<use f='codebrowser/code/renderergl1/tr_bsp.c' l='248' u='w' c='R_LoadVisibility'/>
+<use f='codebrowser/code/renderergl1/tr_bsp.c' l='1422' u='r' c='R_LoadNodesAndLeafs'/>
+<use f='codebrowser/code/renderergl1/tr_bsp.c' l='1423' u='w' c='R_LoadNodesAndLeafs'/>
+<use f='codebrowser/code/renderergl1/tr_world.c' l='533' u='r' c='R_ClusterPVS'/>
+<use f='codebrowser/code/renderergl1/tr_world.c' l='615' u='r' c='R_MarkLeaves'/>
+<dec f='codebrowser/code/renderergl2/tr_local.h' l='1125' type='int'/>
+<offset>2624</offset>
+<use f='codebrowser/code/renderergl2/tr_bsp.c' l='577' u='w' c='R_LoadVisibility'/>
+<use f='codebrowser/code/renderergl2/tr_bsp.c' l='1942' u='r' c='R_LoadNodesAndLeafs'/>
+<use f='codebrowser/code/renderergl2/tr_bsp.c' l='1943' u='w' c='R_LoadNodesAndLeafs'/>
+<use f='codebrowser/code/renderergl2/tr_world.c' l='624' u='r' c='R_ClusterPVS'/>
+<use f='codebrowser/code/renderergl2/tr_world.c' l='711' u='r' c='R_MarkLeaves'/>

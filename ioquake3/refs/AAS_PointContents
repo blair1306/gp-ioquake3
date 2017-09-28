@@ -1,0 +1,22 @@
+<dec f='codebrowser/code/botlib/be_aas_bsp.h' l='68' type='int AAS_PointContents(vec_t * point)'/>
+<dec f='codebrowser/code/botlib/be_aas_bsp.h' l='68' type='int AAS_PointContents(vec_t * point)'/>
+<def f='codebrowser/code/botlib/be_aas_bspq3.c' l='160' ll='163' type='int AAS_PointContents(vec_t * point)'/>
+<doc f='codebrowser/code/botlib/be_aas_bspq3.c' l='153'>//===========================================================================
+// returns the contents at the given point
+//
+// Parameter:				-
+// Returns:					-
+// Changes Globals:		-
+//===========================================================================</doc>
+<doc f='codebrowser/code/botlib/be_aas_bsp.h' l='67'>//returns the contents at the given point</doc>
+<use f='codebrowser/code/botlib/be_aas_move.c' l='221' u='c' c='AAS_Swimming'/>
+<use f='codebrowser/code/botlib/be_aas_move.c' l='874' u='c' c='AAS_ClientMovementPrediction'/>
+<use f='codebrowser/code/botlib/be_aas_move.c' l='948' u='c' c='AAS_ClientMovementPrediction'/>
+<use f='codebrowser/code/botlib/be_aas_reach.c' l='872' u='c' c='AAS_Reachability_Swim'/>
+<use f='codebrowser/code/botlib/be_aas_reach.c' l='2233' u='c' c='AAS_Reachability_Jump'/>
+<use f='codebrowser/code/botlib/be_aas_reach.c' l='2256' u='c' c='AAS_Reachability_Jump'/>
+<use f='codebrowser/code/botlib/be_aas_reach.c' l='3820' u='c' c='AAS_Reachability_Grapple'/>
+<use f='codebrowser/code/botlib/be_ai_goal.c' l='598' u='c' c='BotInitLevelItems'/>
+<use f='codebrowser/code/botlib/be_ai_move.c' l='1030' u='c' c='BotGapDistance'/>
+<use f='codebrowser/code/botlib/be_ai_move.c' l='1576' u='c' c='BotFinishTravel_WaterJump'/>
+<use f='codebrowser/code/botlib/be_interface.c' l='700' u='r' c='Init_AAS_Export'/>

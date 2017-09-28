@@ -1,0 +1,12 @@
+<dec f='codebrowser/code/client/client.h' l='533' type='void CL_GlobalServers_f()'/>
+<use f='codebrowser/code/client/cl_main.c' l='3680' u='r' c='CL_Init'/>
+<def f='codebrowser/code/client/cl_main.c' l='4174' ll='4265' type='void CL_GlobalServers_f()'/>
+<doc f='codebrowser/code/client/cl_main.c' l='4165'>/*
+==================
+CL_GlobalServers_f
+
+Originally master 0 was Internet and master 1 was MPlayer.
+ioquake3 2008; added support for requesting five separate master servers using 0-4.
+ioquake3 2017; made master 0 fetch all master servers and 1-5 request a single master server.
+==================
+*/</doc>

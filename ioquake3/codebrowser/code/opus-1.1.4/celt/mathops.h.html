@@ -1,0 +1,276 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>mathops.h source code [codebrowser/code/opus-1.1.4/celt/mathops.h] - Woboq Code Browser</title>
+<link rel="stylesheet" href="../../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'codebrowser/code/opus-1.1.4/celt/mathops.h'; var root_path = '../../../..'; var data_path = '../../../../../data';</script>
+<script src='../../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../../..'>codebrowser</a>/<a href='../..'>code</a>/<a href='..'>opus-1.1.4</a>/<a href='./'>celt</a>/<a href='mathops.h.html'>mathops.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/* Copyright (c) 2002-2008 Jean-Marc Valin</i></td></tr>
+<tr><th id="2">2</th><td><i>   Copyright (c) 2007-2008 CSIRO</i></td></tr>
+<tr><th id="3">3</th><td><i>   Copyright (c) 2007-2009 Xiph.Org Foundation</i></td></tr>
+<tr><th id="4">4</th><td><i>   Written by Jean-Marc Valin */</i></td></tr>
+<tr><th id="5">5</th><td><i class="doc">/**</i></td></tr>
+<tr><th id="6">6</th><td><i class="doc">  <span class="command"> @file</span> mathops.h</i></td></tr>
+<tr><th id="7">7</th><td><i class="doc">   <span class="command">@brief</span> Various math functions</i></td></tr>
+<tr><th id="8">8</th><td><i class="doc">*/</i></td></tr>
+<tr><th id="9">9</th><td><i>/*</i></td></tr>
+<tr><th id="10">10</th><td><i>   Redistribution and use in source and binary forms, with or without</i></td></tr>
+<tr><th id="11">11</th><td><i>   modification, are permitted provided that the following conditions</i></td></tr>
+<tr><th id="12">12</th><td><i>   are met:</i></td></tr>
+<tr><th id="13">13</th><td><i></i></td></tr>
+<tr><th id="14">14</th><td><i>   - Redistributions of source code must retain the above copyright</i></td></tr>
+<tr><th id="15">15</th><td><i>   notice, this list of conditions and the following disclaimer.</i></td></tr>
+<tr><th id="16">16</th><td><i></i></td></tr>
+<tr><th id="17">17</th><td><i>   - Redistributions in binary form must reproduce the above copyright</i></td></tr>
+<tr><th id="18">18</th><td><i>   notice, this list of conditions and the following disclaimer in the</i></td></tr>
+<tr><th id="19">19</th><td><i>   documentation and/or other materials provided with the distribution.</i></td></tr>
+<tr><th id="20">20</th><td><i></i></td></tr>
+<tr><th id="21">21</th><td><i>   THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS</i></td></tr>
+<tr><th id="22">22</th><td><i>   ``AS IS'' AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT</i></td></tr>
+<tr><th id="23">23</th><td><i>   LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR</i></td></tr>
+<tr><th id="24">24</th><td><i>   A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER</i></td></tr>
+<tr><th id="25">25</th><td><i>   OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,</i></td></tr>
+<tr><th id="26">26</th><td><i>   EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,</i></td></tr>
+<tr><th id="27">27</th><td><i>   PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR</i></td></tr>
+<tr><th id="28">28</th><td><i>   PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF</i></td></tr>
+<tr><th id="29">29</th><td><i>   LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING</i></td></tr>
+<tr><th id="30">30</th><td><i>   NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS</i></td></tr>
+<tr><th id="31">31</th><td><i>   SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</i></td></tr>
+<tr><th id="32">32</th><td><i>*/</i></td></tr>
+<tr><th id="33">33</th><td></td></tr>
+<tr><th id="34">34</th><td><u>#<span data-ppcond="34">ifndef</span> <span class="macro" data-ref="_M/MATHOPS_H">MATHOPS_H</span></u></td></tr>
+<tr><th id="35">35</th><td><u>#define <dfn class="macro" id="_M/MATHOPS_H" data-ref="_M/MATHOPS_H">MATHOPS_H</dfn></u></td></tr>
+<tr><th id="36">36</th><td></td></tr>
+<tr><th id="37">37</th><td><u>#include <a href="arch.h.html">"arch.h"</a></u></td></tr>
+<tr><th id="38">38</th><td><u>#include <a href="entcode.h.html">"entcode.h"</a></u></td></tr>
+<tr><th id="39">39</th><td><u>#include <a href="os_support.h.html">"os_support.h"</a></u></td></tr>
+<tr><th id="40">40</th><td></td></tr>
+<tr><th id="41">41</th><td><i>/* Multiplies two 16-bit fractional values. Bit-exactness of this macro is important */</i></td></tr>
+<tr><th id="42">42</th><td><u>#define <dfn class="macro" id="_M/FRAC_MUL16" data-ref="_M/FRAC_MUL16">FRAC_MUL16</dfn>(a,b) ((16384+((opus_int32)(opus_int16)(a)*(opus_int16)(b)))&gt;&gt;15)</u></td></tr>
+<tr><th id="43">43</th><td></td></tr>
+<tr><th id="44">44</th><td><em>unsigned</em> <dfn class="decl" id="isqrt32" title='isqrt32' data-ref="isqrt32">isqrt32</dfn>(<a class="typedef" href="../include/opus_types.h.html#opus_uint32" title='opus_uint32' data-type='uint32_t' data-ref="opus_uint32">opus_uint32</a> <dfn class="local col1 decl" id="341_val" title='_val' data-type='opus_uint32' data-ref="341_val">_val</dfn>);</td></tr>
+<tr><th id="45">45</th><td></td></tr>
+<tr><th id="46">46</th><td><u>#<span data-ppcond="46">ifndef</span> <span class="macro" data-ref="_M/OVERRIDE_CELT_MAXABS16">OVERRIDE_CELT_MAXABS16</span></u></td></tr>
+<tr><th id="47">47</th><td><em>static</em> <a class="macro" href="../include/opus_defines.h.html#110" title="inline" data-ref="_M/OPUS_INLINE">OPUS_INLINE</a> <a class="typedef" href="arch.h.html#opus_val32" title='opus_val32' data-type='float' data-ref="opus_val32">opus_val32</a> <dfn class="decl def" id="celt_maxabs16" title='celt_maxabs16' data-ref="celt_maxabs16">celt_maxabs16</dfn>(<em>const</em> <a class="typedef" href="arch.h.html#opus_val16" title='opus_val16' data-type='float' data-ref="opus_val16">opus_val16</a> *<dfn class="local col2 decl" id="342x" title='x' data-type='const opus_val16 *' data-ref="342x">x</dfn>, <em>int</em> <dfn class="local col3 decl" id="343len" title='len' data-type='int' data-ref="343len">len</dfn>)</td></tr>
+<tr><th id="48">48</th><td>{</td></tr>
+<tr><th id="49">49</th><td>   <em>int</em> <dfn class="local col4 decl" id="344i" title='i' data-type='int' data-ref="344i">i</dfn>;</td></tr>
+<tr><th id="50">50</th><td>   <a class="typedef" href="arch.h.html#opus_val16" title='opus_val16' data-type='float' data-ref="opus_val16">opus_val16</a> <dfn class="local col5 decl" id="345maxval" title='maxval' data-type='opus_val16' data-ref="345maxval">maxval</dfn> = <var>0</var>;</td></tr>
+<tr><th id="51">51</th><td>   <a class="typedef" href="arch.h.html#opus_val16" title='opus_val16' data-type='float' data-ref="opus_val16">opus_val16</a> <dfn class="local col6 decl" id="346minval" title='minval' data-type='opus_val16' data-ref="346minval">minval</dfn> = <var>0</var>;</td></tr>
+<tr><th id="52">52</th><td>   <b>for</b> (<a class="local col4 ref" href="#344i" title='i' data-ref="344i">i</a>=<var>0</var>;<a class="local col4 ref" href="#344i" title='i' data-ref="344i">i</a>&lt;<a class="local col3 ref" href="#343len" title='len' data-ref="343len">len</a>;<a class="local col4 ref" href="#344i" title='i' data-ref="344i">i</a>++)</td></tr>
+<tr><th id="53">53</th><td>   {</td></tr>
+<tr><th id="54">54</th><td>      <a class="local col5 ref" href="#345maxval" title='maxval' data-ref="345maxval">maxval</a> = <a class="macro" href="arch.h.html#73" title="((maxval) &gt; (x[i]) ? (maxval) : (x[i]))" data-ref="_M/MAX16">MAX16</a>(<a class="local col5 ref" href="#345maxval" title='maxval' data-ref="345maxval">maxval</a>, <a class="local col2 ref" href="#342x" title='x' data-ref="342x">x</a>[<a class="local col4 ref" href="#344i" title='i' data-ref="344i">i</a>]);</td></tr>
+<tr><th id="55">55</th><td>      <a class="local col6 ref" href="#346minval" title='minval' data-ref="346minval">minval</a> = <a class="macro" href="arch.h.html#72" title="((minval) &lt; (x[i]) ? (minval) : (x[i]))" data-ref="_M/MIN16">MIN16</a>(<a class="local col6 ref" href="#346minval" title='minval' data-ref="346minval">minval</a>, <a class="local col2 ref" href="#342x" title='x' data-ref="342x">x</a>[<a class="local col4 ref" href="#344i" title='i' data-ref="344i">i</a>]);</td></tr>
+<tr><th id="56">56</th><td>   }</td></tr>
+<tr><th id="57">57</th><td>   <b>return</b> <a class="macro" href="arch.h.html#75" title="(((maxval)) &gt; (-(minval)) ? ((maxval)) : (-(minval)))" data-ref="_M/MAX32">MAX32</a>(<a class="macro" href="arch.h.html#190" title="(maxval)" data-ref="_M/EXTEND32">EXTEND32</a>(<a class="local col5 ref" href="#345maxval" title='maxval' data-ref="345maxval">maxval</a>),-<a class="macro" href="arch.h.html#190" title="(minval)" data-ref="_M/EXTEND32">EXTEND32</a>(<a class="local col6 ref" href="#346minval" title='minval' data-ref="346minval">minval</a>));</td></tr>
+<tr><th id="58">58</th><td>}</td></tr>
+<tr><th id="59">59</th><td><u>#<span data-ppcond="46">endif</span></u></td></tr>
+<tr><th id="60">60</th><td></td></tr>
+<tr><th id="61">61</th><td><u>#<span data-ppcond="61">ifndef</span> <span class="macro" data-ref="_M/OVERRIDE_CELT_MAXABS32">OVERRIDE_CELT_MAXABS32</span></u></td></tr>
+<tr><th id="62">62</th><td><u>#<span data-ppcond="62">ifdef</span> <span class="macro" data-ref="_M/FIXED_POINT">FIXED_POINT</span></u></td></tr>
+<tr><th id="63">63</th><td><em>static</em> OPUS_INLINE opus_val32 celt_maxabs32(<em>const</em> opus_val32 *x, <em>int</em> len)</td></tr>
+<tr><th id="64">64</th><td>{</td></tr>
+<tr><th id="65">65</th><td>   <em>int</em> i;</td></tr>
+<tr><th id="66">66</th><td>   opus_val32 maxval = <var>0</var>;</td></tr>
+<tr><th id="67">67</th><td>   opus_val32 minval = <var>0</var>;</td></tr>
+<tr><th id="68">68</th><td>   <b>for</b> (i=<var>0</var>;i&lt;len;i++)</td></tr>
+<tr><th id="69">69</th><td>   {</td></tr>
+<tr><th id="70">70</th><td>      maxval = MAX32(maxval, x[i]);</td></tr>
+<tr><th id="71">71</th><td>      minval = MIN32(minval, x[i]);</td></tr>
+<tr><th id="72">72</th><td>   }</td></tr>
+<tr><th id="73">73</th><td>   <b>return</b> MAX32(maxval, -minval);</td></tr>
+<tr><th id="74">74</th><td>}</td></tr>
+<tr><th id="75">75</th><td><u>#<span data-ppcond="62">else</span></u></td></tr>
+<tr><th id="76">76</th><td><u>#define <dfn class="macro" id="_M/celt_maxabs32" data-ref="_M/celt_maxabs32">celt_maxabs32</dfn>(x,len) celt_maxabs16(x,len)</u></td></tr>
+<tr><th id="77">77</th><td><u>#<span data-ppcond="62">endif</span></u></td></tr>
+<tr><th id="78">78</th><td><u>#<span data-ppcond="61">endif</span></u></td></tr>
+<tr><th id="79">79</th><td></td></tr>
+<tr><th id="80">80</th><td></td></tr>
+<tr><th id="81">81</th><td><u>#<span data-ppcond="81">ifndef</span> <span class="macro" data-ref="_M/FIXED_POINT">FIXED_POINT</span></u></td></tr>
+<tr><th id="82">82</th><td></td></tr>
+<tr><th id="83">83</th><td><u>#define <dfn class="macro" id="_M/PI" data-ref="_M/PI">PI</dfn> 3.141592653f</u></td></tr>
+<tr><th id="84">84</th><td><u>#define <dfn class="macro" id="_M/celt_sqrt" data-ref="_M/celt_sqrt">celt_sqrt</dfn>(x) ((float)sqrt(x))</u></td></tr>
+<tr><th id="85">85</th><td><u>#define <dfn class="macro" id="_M/celt_rsqrt" data-ref="_M/celt_rsqrt">celt_rsqrt</dfn>(x) (1.f/celt_sqrt(x))</u></td></tr>
+<tr><th id="86">86</th><td><u>#define <dfn class="macro" id="_M/celt_rsqrt_norm" data-ref="_M/celt_rsqrt_norm">celt_rsqrt_norm</dfn>(x) (celt_rsqrt(x))</u></td></tr>
+<tr><th id="87">87</th><td><u>#define <dfn class="macro" id="_M/celt_cos_norm" data-ref="_M/celt_cos_norm">celt_cos_norm</dfn>(x) ((float)cos((.5f*PI)*(x)))</u></td></tr>
+<tr><th id="88">88</th><td><u>#define <dfn class="macro" id="_M/celt_rcp" data-ref="_M/celt_rcp">celt_rcp</dfn>(x) (1.f/(x))</u></td></tr>
+<tr><th id="89">89</th><td><u>#define <dfn class="macro" id="_M/celt_div" data-ref="_M/celt_div">celt_div</dfn>(a,b) ((a)/(b))</u></td></tr>
+<tr><th id="90">90</th><td><u>#define <dfn class="macro" id="_M/frac_div32" data-ref="_M/frac_div32">frac_div32</dfn>(a,b) ((float)(a)/(b))</u></td></tr>
+<tr><th id="91">91</th><td></td></tr>
+<tr><th id="92">92</th><td><u>#<span data-ppcond="92">ifdef</span> <span class="macro" data-ref="_M/FLOAT_APPROX">FLOAT_APPROX</span></u></td></tr>
+<tr><th id="93">93</th><td></td></tr>
+<tr><th id="94">94</th><td><i>/* Note: This assumes radix-2 floating point with the exponent at bits 23..30 and an offset of 127</i></td></tr>
+<tr><th id="95">95</th><td><i>         denorm, +/- inf and NaN are *not* handled */</i></td></tr>
+<tr><th id="96">96</th><td></td></tr>
+<tr><th id="97">97</th><td><i class="doc">/** Base-2 log approximation (log2(x)). */</i></td></tr>
+<tr><th id="98">98</th><td><em>static</em> <a class="macro" href="../include/opus_defines.h.html#110" title="inline" data-ref="_M/OPUS_INLINE">OPUS_INLINE</a> <em>float</em> <dfn class="decl def" id="celt_log2" title='celt_log2' data-ref="celt_log2">celt_log2</dfn>(<em>float</em> <dfn class="local col7 decl" id="347x" title='x' data-type='float' data-ref="347x">x</dfn>)</td></tr>
+<tr><th id="99">99</th><td>{</td></tr>
+<tr><th id="100">100</th><td>   <em>int</em> <dfn class="local col8 decl" id="348integer" title='integer' data-type='int' data-ref="348integer">integer</dfn>;</td></tr>
+<tr><th id="101">101</th><td>   <em>float</em> <dfn class="local col9 decl" id="349frac" title='frac' data-type='float' data-ref="349frac">frac</dfn>;</td></tr>
+<tr><th id="102">102</th><td>   <b>union</b> {</td></tr>
+<tr><th id="103">103</th><td>      <em>float</em> <dfn class="local col0 decl" id="350f" title='f' data-type='float' data-ref="350f">f</dfn>;</td></tr>
+<tr><th id="104">104</th><td>      <a class="typedef" href="../include/opus_types.h.html#opus_uint32" title='opus_uint32' data-type='uint32_t' data-ref="opus_uint32">opus_uint32</a> <dfn class="local col1 decl" id="351i" title='i' data-type='opus_uint32' data-ref="351i">i</dfn>;</td></tr>
+<tr><th id="105">105</th><td>   } <dfn class="local col2 decl" id="352in" title='in' data-type='union (anonymous union at /home/jon/workspace/ioq3/code/opus-1.1.4/celt/mathops.h:102:4)' data-ref="352in">in</dfn>;</td></tr>
+<tr><th id="106">106</th><td>   <a class="local col2 ref" href="#352in" title='in' data-ref="352in">in</a>.<a class="local col0 ref" href="#350f" title='f' data-ref="350f">f</a> = <a class="local col7 ref" href="#347x" title='x' data-ref="347x">x</a>;</td></tr>
+<tr><th id="107">107</th><td>   <a class="local col8 ref" href="#348integer" title='integer' data-ref="348integer">integer</a> = (<a class="local col2 ref" href="#352in" title='in' data-ref="352in">in</a>.<a class="local col1 ref" href="#351i" title='i' data-ref="351i">i</a>&gt;&gt;<var>23</var>)-<var>127</var>;</td></tr>
+<tr><th id="108">108</th><td>   <a class="local col2 ref" href="#352in" title='in' data-ref="352in">in</a>.<a class="local col1 ref" href="#351i" title='i' data-ref="351i">i</a> -= <a class="local col8 ref" href="#348integer" title='integer' data-ref="348integer">integer</a>&lt;&lt;<var>23</var>;</td></tr>
+<tr><th id="109">109</th><td>   <a class="local col9 ref" href="#349frac" title='frac' data-ref="349frac">frac</a> = <a class="local col2 ref" href="#352in" title='in' data-ref="352in">in</a>.<a class="local col0 ref" href="#350f" title='f' data-ref="350f">f</a> - <var>1.5f</var>;</td></tr>
+<tr><th id="110">110</th><td>   <a class="local col9 ref" href="#349frac" title='frac' data-ref="349frac">frac</a> = -<var>0.41445418f</var> + <a class="local col9 ref" href="#349frac" title='frac' data-ref="349frac">frac</a>*(<var>0.95909232f</var></td></tr>
+<tr><th id="111">111</th><td>          + <a class="local col9 ref" href="#349frac" title='frac' data-ref="349frac">frac</a>*(-<var>0.33951290f</var> + <a class="local col9 ref" href="#349frac" title='frac' data-ref="349frac">frac</a>*<var>0.16541097f</var>));</td></tr>
+<tr><th id="112">112</th><td>   <b>return</b> <var>1</var>+<a class="local col8 ref" href="#348integer" title='integer' data-ref="348integer">integer</a>+<a class="local col9 ref" href="#349frac" title='frac' data-ref="349frac">frac</a>;</td></tr>
+<tr><th id="113">113</th><td>}</td></tr>
+<tr><th id="114">114</th><td></td></tr>
+<tr><th id="115">115</th><td><i class="doc">/** Base-2 exponential approximation (2^x). */</i></td></tr>
+<tr><th id="116">116</th><td><em>static</em> <a class="macro" href="../include/opus_defines.h.html#110" title="inline" data-ref="_M/OPUS_INLINE">OPUS_INLINE</a> <em>float</em> <dfn class="decl def" id="celt_exp2" title='celt_exp2' data-ref="celt_exp2">celt_exp2</dfn>(<em>float</em> <dfn class="local col3 decl" id="353x" title='x' data-type='float' data-ref="353x">x</dfn>)</td></tr>
+<tr><th id="117">117</th><td>{</td></tr>
+<tr><th id="118">118</th><td>   <em>int</em> <dfn class="local col4 decl" id="354integer" title='integer' data-type='int' data-ref="354integer">integer</dfn>;</td></tr>
+<tr><th id="119">119</th><td>   <em>float</em> <dfn class="local col5 decl" id="355frac" title='frac' data-type='float' data-ref="355frac">frac</dfn>;</td></tr>
+<tr><th id="120">120</th><td>   <b>union</b> {</td></tr>
+<tr><th id="121">121</th><td>      <em>float</em> <dfn class="local col6 decl" id="356f" title='f' data-type='float' data-ref="356f">f</dfn>;</td></tr>
+<tr><th id="122">122</th><td>      <a class="typedef" href="../include/opus_types.h.html#opus_uint32" title='opus_uint32' data-type='uint32_t' data-ref="opus_uint32">opus_uint32</a> <dfn class="local col7 decl" id="357i" title='i' data-type='opus_uint32' data-ref="357i">i</dfn>;</td></tr>
+<tr><th id="123">123</th><td>   } <dfn class="local col8 decl" id="358res" title='res' data-type='union (anonymous union at /home/jon/workspace/ioq3/code/opus-1.1.4/celt/mathops.h:120:4)' data-ref="358res">res</dfn>;</td></tr>
+<tr><th id="124">124</th><td>   <a class="local col4 ref" href="#354integer" title='integer' data-ref="354integer">integer</a> = <a class="ref" href="../../../../include/x86_64-linux-gnu/bits/mathcalls.h.html#184" title='floor' data-ref="floor">floor</a>(<a class="local col3 ref" href="#353x" title='x' data-ref="353x">x</a>);</td></tr>
+<tr><th id="125">125</th><td>   <b>if</b> (<a class="local col4 ref" href="#354integer" title='integer' data-ref="354integer">integer</a> &lt; -<var>50</var>)</td></tr>
+<tr><th id="126">126</th><td>      <b>return</b> <var>0</var>;</td></tr>
+<tr><th id="127">127</th><td>   <a class="local col5 ref" href="#355frac" title='frac' data-ref="355frac">frac</a> = <a class="local col3 ref" href="#353x" title='x' data-ref="353x">x</a>-<a class="local col4 ref" href="#354integer" title='integer' data-ref="354integer">integer</a>;</td></tr>
+<tr><th id="128">128</th><td>   <i>/* K0 = 1, K1 = log(2), K2 = 3-4*log(2), K3 = 3*log(2) - 2 */</i></td></tr>
+<tr><th id="129">129</th><td>   <a class="local col8 ref" href="#358res" title='res' data-ref="358res">res</a>.<a class="local col6 ref" href="#356f" title='f' data-ref="356f">f</a> = <var>0.99992522f</var> + <a class="local col5 ref" href="#355frac" title='frac' data-ref="355frac">frac</a> * (<var>0.69583354f</var></td></tr>
+<tr><th id="130">130</th><td>           + <a class="local col5 ref" href="#355frac" title='frac' data-ref="355frac">frac</a> * (<var>0.22606716f</var> + <var>0.078024523f</var>*<a class="local col5 ref" href="#355frac" title='frac' data-ref="355frac">frac</a>));</td></tr>
+<tr><th id="131">131</th><td>   <a class="local col8 ref" href="#358res" title='res' data-ref="358res">res</a>.<a class="local col7 ref" href="#357i" title='i' data-ref="357i">i</a> = (<a class="local col8 ref" href="#358res" title='res' data-ref="358res">res</a>.<a class="local col7 ref" href="#357i" title='i' data-ref="357i">i</a> + (<a class="local col4 ref" href="#354integer" title='integer' data-ref="354integer">integer</a>&lt;&lt;<var>23</var>)) &amp; <var>0x7fffffff</var>;</td></tr>
+<tr><th id="132">132</th><td>   <b>return</b> <a class="local col8 ref" href="#358res" title='res' data-ref="358res">res</a>.<a class="local col6 ref" href="#356f" title='f' data-ref="356f">f</a>;</td></tr>
+<tr><th id="133">133</th><td>}</td></tr>
+<tr><th id="134">134</th><td></td></tr>
+<tr><th id="135">135</th><td><u>#<span data-ppcond="92">else</span></u></td></tr>
+<tr><th id="136">136</th><td><u>#define celt_log2(x) ((float)(1.442695040888963387*log(x)))</u></td></tr>
+<tr><th id="137">137</th><td><u>#define celt_exp2(x) ((float)exp(0.6931471805599453094*(x)))</u></td></tr>
+<tr><th id="138">138</th><td><u>#<span data-ppcond="92">endif</span></u></td></tr>
+<tr><th id="139">139</th><td></td></tr>
+<tr><th id="140">140</th><td><u>#<span data-ppcond="81">endif</span></u></td></tr>
+<tr><th id="141">141</th><td></td></tr>
+<tr><th id="142">142</th><td><u>#<span data-ppcond="142">ifdef</span> <span class="macro" data-ref="_M/FIXED_POINT">FIXED_POINT</span></u></td></tr>
+<tr><th id="143">143</th><td></td></tr>
+<tr><th id="144">144</th><td><u>#include "os_support.h"</u></td></tr>
+<tr><th id="145">145</th><td></td></tr>
+<tr><th id="146">146</th><td><u>#ifndef OVERRIDE_CELT_ILOG2</u></td></tr>
+<tr><th id="147">147</th><td><i class="doc">/** Integer log in base2. Undefined for zero and negative numbers */</i></td></tr>
+<tr><th id="148">148</th><td><em>static</em> OPUS_INLINE opus_int16 celt_ilog2(opus_int32 x)</td></tr>
+<tr><th id="149">149</th><td>{</td></tr>
+<tr><th id="150">150</th><td>   celt_assert2(x&gt;<var>0</var>, <q>"celt_ilog2() only defined for strictly positive numbers"</q>);</td></tr>
+<tr><th id="151">151</th><td>   <b>return</b> EC_ILOG(x)-<var>1</var>;</td></tr>
+<tr><th id="152">152</th><td>}</td></tr>
+<tr><th id="153">153</th><td><u>#endif</u></td></tr>
+<tr><th id="154">154</th><td></td></tr>
+<tr><th id="155">155</th><td></td></tr>
+<tr><th id="156">156</th><td><i class="doc">/** Integer log in base2. Defined for zero, but not for negative numbers */</i></td></tr>
+<tr><th id="157">157</th><td><em>static</em> OPUS_INLINE opus_int16 celt_zlog2(opus_val32 x)</td></tr>
+<tr><th id="158">158</th><td>{</td></tr>
+<tr><th id="159">159</th><td>   <b>return</b> x &lt;= <var>0</var> ? <var>0</var> : celt_ilog2(x);</td></tr>
+<tr><th id="160">160</th><td>}</td></tr>
+<tr><th id="161">161</th><td></td></tr>
+<tr><th id="162">162</th><td>opus_val16 celt_rsqrt_norm(opus_val32 x);</td></tr>
+<tr><th id="163">163</th><td></td></tr>
+<tr><th id="164">164</th><td>opus_val32 celt_sqrt(opus_val32 x);</td></tr>
+<tr><th id="165">165</th><td></td></tr>
+<tr><th id="166">166</th><td>opus_val16 celt_cos_norm(opus_val32 x);</td></tr>
+<tr><th id="167">167</th><td></td></tr>
+<tr><th id="168">168</th><td><i class="doc">/** Base-2 logarithm approximation (log2(x)). (Q14 input, Q10 output) */</i></td></tr>
+<tr><th id="169">169</th><td><em>static</em> OPUS_INLINE opus_val16 celt_log2(opus_val32 x)</td></tr>
+<tr><th id="170">170</th><td>{</td></tr>
+<tr><th id="171">171</th><td>   <em>int</em> i;</td></tr>
+<tr><th id="172">172</th><td>   opus_val16 n, frac;</td></tr>
+<tr><th id="173">173</th><td>   <i>/* -0.41509302963303146, 0.9609890551383969, -0.31836011537636605,</i></td></tr>
+<tr><th id="174">174</th><td><i>       0.15530808010959576, -0.08556153059057618 */</i></td></tr>
+<tr><th id="175">175</th><td>   <em>static</em> <em>const</em> opus_val16 C[<var>5</var>] = {-<var>6801</var>+(<var>1</var>&lt;&lt;(<var>13</var>-DB_SHIFT)), <var>15746</var>, -<var>5217</var>, <var>2545</var>, -<var>1401</var>};</td></tr>
+<tr><th id="176">176</th><td>   <b>if</b> (x==<var>0</var>)</td></tr>
+<tr><th id="177">177</th><td>      <b>return</b> -<var>32767</var>;</td></tr>
+<tr><th id="178">178</th><td>   i = celt_ilog2(x);</td></tr>
+<tr><th id="179">179</th><td>   n = VSHR32(x,i-<var>15</var>)-<var>32768</var>-<var>16384</var>;</td></tr>
+<tr><th id="180">180</th><td>   frac = ADD16(C[<var>0</var>], MULT16_16_Q15(n, ADD16(C[<var>1</var>], MULT16_16_Q15(n, ADD16(C[<var>2</var>], MULT16_16_Q15(n, ADD16(C[<var>3</var>], MULT16_16_Q15(n, C[<var>4</var>]))))))));</td></tr>
+<tr><th id="181">181</th><td>   <b>return</b> SHL16(i-<var>13</var>,DB_SHIFT)+SHR16(frac,<var>14</var>-DB_SHIFT);</td></tr>
+<tr><th id="182">182</th><td>}</td></tr>
+<tr><th id="183">183</th><td></td></tr>
+<tr><th id="184">184</th><td><i>/*</i></td></tr>
+<tr><th id="185">185</th><td><i> K0 = 1</i></td></tr>
+<tr><th id="186">186</th><td><i> K1 = log(2)</i></td></tr>
+<tr><th id="187">187</th><td><i> K2 = 3-4*log(2)</i></td></tr>
+<tr><th id="188">188</th><td><i> K3 = 3*log(2) - 2</i></td></tr>
+<tr><th id="189">189</th><td><i>*/</i></td></tr>
+<tr><th id="190">190</th><td><u>#define D0 16383</u></td></tr>
+<tr><th id="191">191</th><td><u>#define D1 22804</u></td></tr>
+<tr><th id="192">192</th><td><u>#define D2 14819</u></td></tr>
+<tr><th id="193">193</th><td><u>#define D3 10204</u></td></tr>
+<tr><th id="194">194</th><td></td></tr>
+<tr><th id="195">195</th><td><em>static</em> OPUS_INLINE opus_val32 celt_exp2_frac(opus_val16 x)</td></tr>
+<tr><th id="196">196</th><td>{</td></tr>
+<tr><th id="197">197</th><td>   opus_val16 frac;</td></tr>
+<tr><th id="198">198</th><td>   frac = SHL16(x, <var>4</var>);</td></tr>
+<tr><th id="199">199</th><td>   <b>return</b> ADD16(D0, MULT16_16_Q15(frac, ADD16(D1, MULT16_16_Q15(frac, ADD16(D2 , MULT16_16_Q15(D3,frac))))));</td></tr>
+<tr><th id="200">200</th><td>}</td></tr>
+<tr><th id="201">201</th><td><i class="doc">/** Base-2 exponential approximation (2^x). (Q10 input, Q16 output) */</i></td></tr>
+<tr><th id="202">202</th><td><em>static</em> OPUS_INLINE opus_val32 celt_exp2(opus_val16 x)</td></tr>
+<tr><th id="203">203</th><td>{</td></tr>
+<tr><th id="204">204</th><td>   <em>int</em> integer;</td></tr>
+<tr><th id="205">205</th><td>   opus_val16 frac;</td></tr>
+<tr><th id="206">206</th><td>   integer = SHR16(x,<var>10</var>);</td></tr>
+<tr><th id="207">207</th><td>   <b>if</b> (integer&gt;<var>14</var>)</td></tr>
+<tr><th id="208">208</th><td>      <b>return</b> <var>0x7f000000</var>;</td></tr>
+<tr><th id="209">209</th><td>   <b>else</b> <b>if</b> (integer &lt; -<var>15</var>)</td></tr>
+<tr><th id="210">210</th><td>      <b>return</b> <var>0</var>;</td></tr>
+<tr><th id="211">211</th><td>   frac = celt_exp2_frac(x-SHL16(integer,<var>10</var>));</td></tr>
+<tr><th id="212">212</th><td>   <b>return</b> VSHR32(EXTEND32(frac), -integer-<var>2</var>);</td></tr>
+<tr><th id="213">213</th><td>}</td></tr>
+<tr><th id="214">214</th><td></td></tr>
+<tr><th id="215">215</th><td>opus_val32 celt_rcp(opus_val32 x);</td></tr>
+<tr><th id="216">216</th><td></td></tr>
+<tr><th id="217">217</th><td><u>#define celt_div(a,b) MULT32_32_Q31((opus_val32)(a),celt_rcp(b))</u></td></tr>
+<tr><th id="218">218</th><td></td></tr>
+<tr><th id="219">219</th><td>opus_val32 frac_div32(opus_val32 a, opus_val32 b);</td></tr>
+<tr><th id="220">220</th><td></td></tr>
+<tr><th id="221">221</th><td><u>#define M1 32767</u></td></tr>
+<tr><th id="222">222</th><td><u>#define M2 -21</u></td></tr>
+<tr><th id="223">223</th><td><u>#define M3 -11943</u></td></tr>
+<tr><th id="224">224</th><td><u>#define M4 4936</u></td></tr>
+<tr><th id="225">225</th><td></td></tr>
+<tr><th id="226">226</th><td><i>/* Atan approximation using a 4th order polynomial. Input is in Q15 format</i></td></tr>
+<tr><th id="227">227</th><td><i>   and normalized by pi/4. Output is in Q15 format */</i></td></tr>
+<tr><th id="228">228</th><td><em>static</em> OPUS_INLINE opus_val16 celt_atan01(opus_val16 x)</td></tr>
+<tr><th id="229">229</th><td>{</td></tr>
+<tr><th id="230">230</th><td>   <b>return</b> MULT16_16_P15(x, ADD32(M1, MULT16_16_P15(x, ADD32(M2, MULT16_16_P15(x, ADD32(M3, MULT16_16_P15(M4, x)))))));</td></tr>
+<tr><th id="231">231</th><td>}</td></tr>
+<tr><th id="232">232</th><td></td></tr>
+<tr><th id="233">233</th><td><u>#undef M1</u></td></tr>
+<tr><th id="234">234</th><td><u>#undef M2</u></td></tr>
+<tr><th id="235">235</th><td><u>#undef M3</u></td></tr>
+<tr><th id="236">236</th><td><u>#undef M4</u></td></tr>
+<tr><th id="237">237</th><td></td></tr>
+<tr><th id="238">238</th><td><i>/* atan2() approximation valid for positive input values */</i></td></tr>
+<tr><th id="239">239</th><td><em>static</em> OPUS_INLINE opus_val16 celt_atan2p(opus_val16 y, opus_val16 x)</td></tr>
+<tr><th id="240">240</th><td>{</td></tr>
+<tr><th id="241">241</th><td>   <b>if</b> (y &lt; x)</td></tr>
+<tr><th id="242">242</th><td>   {</td></tr>
+<tr><th id="243">243</th><td>      opus_val32 arg;</td></tr>
+<tr><th id="244">244</th><td>      arg = celt_div(SHL32(EXTEND32(y),<var>15</var>),x);</td></tr>
+<tr><th id="245">245</th><td>      <b>if</b> (arg &gt;= <var>32767</var>)</td></tr>
+<tr><th id="246">246</th><td>         arg = <var>32767</var>;</td></tr>
+<tr><th id="247">247</th><td>      <b>return</b> SHR16(celt_atan01(EXTRACT16(arg)),<var>1</var>);</td></tr>
+<tr><th id="248">248</th><td>   } <b>else</b> {</td></tr>
+<tr><th id="249">249</th><td>      opus_val32 arg;</td></tr>
+<tr><th id="250">250</th><td>      arg = celt_div(SHL32(EXTEND32(x),<var>15</var>),y);</td></tr>
+<tr><th id="251">251</th><td>      <b>if</b> (arg &gt;= <var>32767</var>)</td></tr>
+<tr><th id="252">252</th><td>         arg = <var>32767</var>;</td></tr>
+<tr><th id="253">253</th><td>      <b>return</b> <var>25736</var>-SHR16(celt_atan01(EXTRACT16(arg)),<var>1</var>);</td></tr>
+<tr><th id="254">254</th><td>   }</td></tr>
+<tr><th id="255">255</th><td>}</td></tr>
+<tr><th id="256">256</th><td></td></tr>
+<tr><th id="257">257</th><td><u>#<span data-ppcond="142">endif</span> /* FIXED_POINT */</u></td></tr>
+<tr><th id="258">258</th><td><u>#<span data-ppcond="34">endif</span> /* MATHOPS_H */</u></td></tr>
+<tr><th id="259">259</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='bands.c.html'>codebrowser/code/opus-1.1.4/celt/bands.c</a><br/>Generated on <em>2017-Aug-29</em> from project codebrowser revision <em>63e07af</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

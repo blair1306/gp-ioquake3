@@ -1,0 +1,12 @@
+<dec f='codebrowser/code/qcommon/qcommon.h' l='987' type='qboolean CL_GameCommand()'/>
+<dec f='codebrowser/code/client/client.h' l='606' type='qboolean CL_GameCommand()'/>
+<def f='codebrowser/code/client/cl_cgame.c' l='780' ll='786' type='qboolean CL_GameCommand()'/>
+<doc f='codebrowser/code/client/cl_cgame.c' l='773'>/*
+====================
+CL_GameCommand
+
+See if the current console command is claimed by the cgame
+====================
+*/</doc>
+<def f='codebrowser/code/null/null_client.c' l='57' ll='59' type='qboolean CL_GameCommand()'/>
+<use f='codebrowser/code/qcommon/cmd.c' l='800' u='c' c='Cmd_ExecuteString'/>

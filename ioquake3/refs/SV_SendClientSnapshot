@@ -1,0 +1,13 @@
+<dec f='codebrowser/code/server/server.h' l='402' type='void SV_SendClientSnapshot(client_t * client)'/>
+<use f='codebrowser/code/server/sv_client.c' l='1370' u='c' c='SV_VerifyPaks_f'/>
+<use f='codebrowser/code/server/sv_init.c' l='731' u='c' c='SV_FinalMessage'/>
+<def f='codebrowser/code/server/sv_snapshot.c' l='597' ll='635' type='void SV_SendClientSnapshot(client_t * client)'/>
+<use f='codebrowser/code/server/sv_snapshot.c' l='682' u='c' c='SV_SendClientMessages'/>
+<doc f='codebrowser/code/server/sv_snapshot.c' l='589'>/*
+=======================
+SV_SendClientSnapshot
+
+Also called by SV_FinalMessage
+
+=======================
+*/</doc>

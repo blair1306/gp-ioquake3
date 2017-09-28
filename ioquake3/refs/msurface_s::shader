@@ -1,0 +1,41 @@
+<dec f='codebrowser/code/renderergl1/tr_local.h' l='650' type='struct shader_s *'/>
+<offset>64</offset>
+<use f='codebrowser/code/renderergl1/tr_bsp.c' l='318' u='w' c='ParseFace'/>
+<use f='codebrowser/code/renderergl1/tr_bsp.c' l='319' u='r' c='ParseFace'/>
+<use f='codebrowser/code/renderergl1/tr_bsp.c' l='320' u='w' c='ParseFace'/>
+<use f='codebrowser/code/renderergl1/tr_bsp.c' l='327' u='w' c='ParseFace'/>
+<use f='codebrowser/code/renderergl1/tr_bsp.c' l='393' u='w' c='ParseMesh'/>
+<use f='codebrowser/code/renderergl1/tr_bsp.c' l='394' u='r' c='ParseMesh'/>
+<use f='codebrowser/code/renderergl1/tr_bsp.c' l='395' u='w' c='ParseMesh'/>
+<use f='codebrowser/code/renderergl1/tr_bsp.c' l='453' u='w' c='ParseTriSurf'/>
+<use f='codebrowser/code/renderergl1/tr_bsp.c' l='454' u='r' c='ParseTriSurf'/>
+<use f='codebrowser/code/renderergl1/tr_bsp.c' l='455' u='w' c='ParseTriSurf'/>
+<use f='codebrowser/code/renderergl1/tr_bsp.c' l='511' u='w' c='ParseFlare'/>
+<use f='codebrowser/code/renderergl1/tr_bsp.c' l='512' u='r' c='ParseFlare'/>
+<use f='codebrowser/code/renderergl1/tr_bsp.c' l='513' u='w' c='ParseFlare'/>
+<use f='codebrowser/code/renderergl1/tr_marks.c' l='161' u='r' c='R_BoxSurfaces_r'/>
+<use f='codebrowser/code/renderergl1/tr_marks.c' l='162' u='r' c='R_BoxSurfaces_r'/>
+<use f='codebrowser/code/renderergl1/tr_world.c' l='292' u='r' c='R_AddWorldSurface'/>
+<use f='codebrowser/code/renderergl1/tr_world.c' l='302' u='r' c='R_AddWorldSurface'/>
+<dec f='codebrowser/code/renderergl2/tr_local.h' l='1049' type='struct shader_s *'/>
+<offset>0</offset>
+<doc f='codebrowser/code/renderergl2/tr_local.h' l='1048'>//int					viewCount;		// if == tr.viewCount, already added</doc>
+<use f='codebrowser/code/renderergl2/tr_bsp.c' l='708' u='w' c='ParseFace'/>
+<use f='codebrowser/code/renderergl2/tr_bsp.c' l='709' u='r' c='ParseFace'/>
+<use f='codebrowser/code/renderergl2/tr_bsp.c' l='710' u='w' c='ParseFace'/>
+<use f='codebrowser/code/renderergl2/tr_bsp.c' l='717' u='w' c='ParseFace'/>
+<use f='codebrowser/code/renderergl2/tr_bsp.c' l='763' u='r' c='ParseFace'/>
+<use f='codebrowser/code/renderergl2/tr_bsp.c' l='815' u='w' c='ParseMesh'/>
+<use f='codebrowser/code/renderergl2/tr_bsp.c' l='816' u='r' c='ParseMesh'/>
+<use f='codebrowser/code/renderergl2/tr_bsp.c' l='817' u='w' c='ParseMesh'/>
+<use f='codebrowser/code/renderergl2/tr_bsp.c' l='875' u='w' c='ParseTriSurf'/>
+<use f='codebrowser/code/renderergl2/tr_bsp.c' l='876' u='r' c='ParseTriSurf'/>
+<use f='codebrowser/code/renderergl2/tr_bsp.c' l='877' u='w' c='ParseTriSurf'/>
+<use f='codebrowser/code/renderergl2/tr_bsp.c' l='926' u='r' c='ParseTriSurf'/>
+<use f='codebrowser/code/renderergl2/tr_bsp.c' l='958' u='w' c='ParseFlare'/>
+<use f='codebrowser/code/renderergl2/tr_bsp.c' l='959' u='r' c='ParseFlare'/>
+<use f='codebrowser/code/renderergl2/tr_bsp.c' l='960' u='w' c='ParseFlare'/>
+<use f='codebrowser/code/renderergl2/tr_marks.c' l='164' u='r' c='R_BoxSurfaces_r'/>
+<use f='codebrowser/code/renderergl2/tr_marks.c' l='165' u='r' c='R_BoxSurfaces_r'/>
+<use f='codebrowser/code/renderergl2/tr_world.c' l='53' u='r' c='R_CullSurface'/>
+<use f='codebrowser/code/renderergl2/tr_world.c' l='342' u='r' c='R_AddWorldSurface'/>

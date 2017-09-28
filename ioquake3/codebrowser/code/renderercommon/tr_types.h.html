@@ -1,0 +1,238 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>tr_types.h source code [codebrowser/code/renderercommon/tr_types.h] - Woboq Code Browser</title>
+<meta name="woboq:interestingDefinitions" content="poly_s "/>
+<link rel="stylesheet" href="../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'codebrowser/code/renderercommon/tr_types.h'; var root_path = '../../..'; var data_path = '../../../../data';</script>
+<script src='../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../..'>codebrowser</a>/<a href='..'>code</a>/<a href='./'>renderercommon</a>/<a href='tr_types.h.html'>tr_types.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/*</i></td></tr>
+<tr><th id="2">2</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="3">3</th><td><i>Copyright (C) 1999-2005 Id Software, Inc.</i></td></tr>
+<tr><th id="4">4</th><td><i></i></td></tr>
+<tr><th id="5">5</th><td><i>This file is part of Quake III Arena source code.</i></td></tr>
+<tr><th id="6">6</th><td><i></i></td></tr>
+<tr><th id="7">7</th><td><i>Quake III Arena source code is free software; you can redistribute it</i></td></tr>
+<tr><th id="8">8</th><td><i>and/or modify it under the terms of the GNU General Public License as</i></td></tr>
+<tr><th id="9">9</th><td><i>published by the Free Software Foundation; either version 2 of the License,</i></td></tr>
+<tr><th id="10">10</th><td><i>or (at your option) any later version.</i></td></tr>
+<tr><th id="11">11</th><td><i></i></td></tr>
+<tr><th id="12">12</th><td><i>Quake III Arena source code is distributed in the hope that it will be</i></td></tr>
+<tr><th id="13">13</th><td><i>useful, but WITHOUT ANY WARRANTY; without even the implied warranty of</i></td></tr>
+<tr><th id="14">14</th><td><i>MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</i></td></tr>
+<tr><th id="15">15</th><td><i>GNU General Public License for more details.</i></td></tr>
+<tr><th id="16">16</th><td><i></i></td></tr>
+<tr><th id="17">17</th><td><i>You should have received a copy of the GNU General Public License</i></td></tr>
+<tr><th id="18">18</th><td><i>along with Quake III Arena source code; if not, write to the Free Software</i></td></tr>
+<tr><th id="19">19</th><td><i>Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA</i></td></tr>
+<tr><th id="20">20</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="21">21</th><td><i>*/</i></td></tr>
+<tr><th id="22">22</th><td><i>//</i></td></tr>
+<tr><th id="23">23</th><td><u>#<span data-ppcond="23">ifndef</span> <span class="macro" data-ref="_M/__TR_TYPES_H">__TR_TYPES_H</span></u></td></tr>
+<tr><th id="24">24</th><td><u>#define <dfn class="macro" id="_M/__TR_TYPES_H" data-ref="_M/__TR_TYPES_H">__TR_TYPES_H</dfn></u></td></tr>
+<tr><th id="25">25</th><td></td></tr>
+<tr><th id="26">26</th><td></td></tr>
+<tr><th id="27">27</th><td><u>#define	<dfn class="macro" id="_M/MAX_DLIGHTS" data-ref="_M/MAX_DLIGHTS">MAX_DLIGHTS</dfn>		32		// can't be increased, because bit flags are used on surfaces</u></td></tr>
+<tr><th id="28">28</th><td></td></tr>
+<tr><th id="29">29</th><td><u>#define	<dfn class="macro" id="_M/REFENTITYNUM_BITS" data-ref="_M/REFENTITYNUM_BITS">REFENTITYNUM_BITS</dfn>	10		// can't be increased without changing drawsurf bit packing</u></td></tr>
+<tr><th id="30">30</th><td><u>#define	<dfn class="macro" id="_M/REFENTITYNUM_MASK" data-ref="_M/REFENTITYNUM_MASK">REFENTITYNUM_MASK</dfn>	((1&lt;&lt;REFENTITYNUM_BITS) - 1)</u></td></tr>
+<tr><th id="31">31</th><td><i>// the last N-bit number (2^REFENTITYNUM_BITS - 1) is reserved for the special world refentity,</i></td></tr>
+<tr><th id="32">32</th><td><i>//  and this is reflected by the value of MAX_REFENTITIES (which therefore is not a power-of-2)</i></td></tr>
+<tr><th id="33">33</th><td><u>#define	<dfn class="macro" id="_M/MAX_REFENTITIES" data-ref="_M/MAX_REFENTITIES">MAX_REFENTITIES</dfn>		((1&lt;&lt;REFENTITYNUM_BITS) - 1)</u></td></tr>
+<tr><th id="34">34</th><td><u>#define	<dfn class="macro" id="_M/REFENTITYNUM_WORLD" data-ref="_M/REFENTITYNUM_WORLD">REFENTITYNUM_WORLD</dfn>	((1&lt;&lt;REFENTITYNUM_BITS) - 1)</u></td></tr>
+<tr><th id="35">35</th><td></td></tr>
+<tr><th id="36">36</th><td><i>// renderfx flags</i></td></tr>
+<tr><th id="37">37</th><td><u>#define	<dfn class="macro" id="_M/RF_MINLIGHT" data-ref="_M/RF_MINLIGHT">RF_MINLIGHT</dfn>		0x0001		// allways have some light (viewmodel, some items)</u></td></tr>
+<tr><th id="38">38</th><td><u>#define	<dfn class="macro" id="_M/RF_THIRD_PERSON" data-ref="_M/RF_THIRD_PERSON">RF_THIRD_PERSON</dfn>		0x0002		// don't draw through eyes, only mirrors (player bodies, chat sprites)</u></td></tr>
+<tr><th id="39">39</th><td><u>#define	<dfn class="macro" id="_M/RF_FIRST_PERSON" data-ref="_M/RF_FIRST_PERSON">RF_FIRST_PERSON</dfn>		0x0004		// only draw through eyes (view weapon, damage blood blob)</u></td></tr>
+<tr><th id="40">40</th><td><u>#define	<dfn class="macro" id="_M/RF_DEPTHHACK" data-ref="_M/RF_DEPTHHACK">RF_DEPTHHACK</dfn>		0x0008		// for view weapon Z crunching</u></td></tr>
+<tr><th id="41">41</th><td></td></tr>
+<tr><th id="42">42</th><td><u>#define <dfn class="macro" id="_M/RF_CROSSHAIR" data-ref="_M/RF_CROSSHAIR">RF_CROSSHAIR</dfn>		0x0010		// This item is a cross hair and will draw over everything similar to</u></td></tr>
+<tr><th id="43">43</th><td>						<i>// DEPTHHACK in stereo rendering mode, with the difference that the</i></td></tr>
+<tr><th id="44">44</th><td><i>						// projection matrix won't be hacked to reduce the stereo separation as</i></td></tr>
+<tr><th id="45">45</th><td><i>						// is done for the gun.</i></td></tr>
+<tr><th id="46">46</th><td></td></tr>
+<tr><th id="47">47</th><td><u>#define	<dfn class="macro" id="_M/RF_NOSHADOW" data-ref="_M/RF_NOSHADOW">RF_NOSHADOW</dfn>		0x0040		// don't add stencil shadows</u></td></tr>
+<tr><th id="48">48</th><td></td></tr>
+<tr><th id="49">49</th><td><u>#define <dfn class="macro" id="_M/RF_LIGHTING_ORIGIN" data-ref="_M/RF_LIGHTING_ORIGIN">RF_LIGHTING_ORIGIN</dfn>	0x0080		// use refEntity-&gt;lightingOrigin instead of refEntity-&gt;origin</u></td></tr>
+<tr><th id="50">50</th><td>						<i>// for lighting.  This allows entities to sink into the floor</i></td></tr>
+<tr><th id="51">51</th><td><i>						// with their origin going solid, and allows all parts of a</i></td></tr>
+<tr><th id="52">52</th><td><i>						// player to get the same lighting</i></td></tr>
+<tr><th id="53">53</th><td></td></tr>
+<tr><th id="54">54</th><td><u>#define	<dfn class="macro" id="_M/RF_SHADOW_PLANE" data-ref="_M/RF_SHADOW_PLANE">RF_SHADOW_PLANE</dfn>		0x0100		// use refEntity-&gt;shadowPlane</u></td></tr>
+<tr><th id="55">55</th><td><u>#define	<dfn class="macro" id="_M/RF_WRAP_FRAMES" data-ref="_M/RF_WRAP_FRAMES">RF_WRAP_FRAMES</dfn>		0x0200		// mod the model frames by the maxframes to allow continuous</u></td></tr>
+<tr><th id="56">56</th><td>										<i>// animation without needing to know the frame count</i></td></tr>
+<tr><th id="57">57</th><td><i></i></td></tr>
+<tr><th id="58">58</th><td><i>// refdef flags</i></td></tr>
+<tr><th id="59">59</th><td><u>#define <dfn class="macro" id="_M/RDF_NOWORLDMODEL" data-ref="_M/RDF_NOWORLDMODEL">RDF_NOWORLDMODEL</dfn>	0x0001		// used for player configuration screen</u></td></tr>
+<tr><th id="60">60</th><td><u>#define <dfn class="macro" id="_M/RDF_HYPERSPACE" data-ref="_M/RDF_HYPERSPACE">RDF_HYPERSPACE</dfn>		0x0004		// teleportation effect</u></td></tr>
+<tr><th id="61">61</th><td></td></tr>
+<tr><th id="62">62</th><td><b>typedef</b> <b>struct</b> {</td></tr>
+<tr><th id="63">63</th><td>	<a class="typedef" href="../qcommon/q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a>		<dfn class="decl" id="(anonymous)::xyz" title='(anonymous struct)::xyz' data-ref="(anonymous)::xyz">xyz</dfn>;</td></tr>
+<tr><th id="64">64</th><td>	<em>float</em>		<dfn class="decl" id="(anonymous)::st" title='(anonymous struct)::st' data-ref="(anonymous)::st">st</dfn>[<var>2</var>];</td></tr>
+<tr><th id="65">65</th><td>	<a class="typedef" href="../qcommon/q_shared.h.html#byte" title='byte' data-type='unsigned char' data-ref="byte">byte</a>		<dfn class="decl" id="(anonymous)::modulate" title='(anonymous struct)::modulate' data-ref="(anonymous)::modulate">modulate</dfn>[<var>4</var>];</td></tr>
+<tr><th id="66">66</th><td>} <dfn class="typedef" id="polyVert_t" title='polyVert_t' data-type='struct polyVert_t' data-ref="polyVert_t">polyVert_t</dfn>;</td></tr>
+<tr><th id="67">67</th><td></td></tr>
+<tr><th id="68">68</th><td><b>typedef</b> <b>struct</b> <dfn class="type def" id="poly_s" title='poly_s' data-ref="poly_s"><a class="type" href="#poly_s" title='poly_s' data-ref="poly_s">poly_s</a></dfn> {</td></tr>
+<tr><th id="69">69</th><td>	<a class="typedef" href="../qcommon/q_shared.h.html#qhandle_t" title='qhandle_t' data-type='int' data-ref="qhandle_t">qhandle_t</a>			<dfn class="decl" id="poly_s::hShader" title='poly_s::hShader' data-ref="poly_s::hShader">hShader</dfn>;</td></tr>
+<tr><th id="70">70</th><td>	<em>int</em>					<dfn class="decl" id="poly_s::numVerts" title='poly_s::numVerts' data-ref="poly_s::numVerts">numVerts</dfn>;</td></tr>
+<tr><th id="71">71</th><td>	<a class="typedef" href="#polyVert_t" title='polyVert_t' data-type='struct polyVert_t' data-ref="polyVert_t">polyVert_t</a>			*<dfn class="decl" id="poly_s::verts" title='poly_s::verts' data-ref="poly_s::verts">verts</dfn>;</td></tr>
+<tr><th id="72">72</th><td>} <dfn class="typedef" id="poly_t" title='poly_t' data-type='struct poly_s' data-ref="poly_t">poly_t</dfn>;</td></tr>
+<tr><th id="73">73</th><td></td></tr>
+<tr><th id="74">74</th><td><b>typedef</b> <b>enum</b> {</td></tr>
+<tr><th id="75">75</th><td>	<dfn class="enum" id="RT_MODEL" title='RT_MODEL' data-ref="RT_MODEL">RT_MODEL</dfn>,</td></tr>
+<tr><th id="76">76</th><td>	<dfn class="enum" id="RT_POLY" title='RT_POLY' data-ref="RT_POLY">RT_POLY</dfn>,</td></tr>
+<tr><th id="77">77</th><td>	<dfn class="enum" id="RT_SPRITE" title='RT_SPRITE' data-ref="RT_SPRITE">RT_SPRITE</dfn>,</td></tr>
+<tr><th id="78">78</th><td>	<dfn class="enum" id="RT_BEAM" title='RT_BEAM' data-ref="RT_BEAM">RT_BEAM</dfn>,</td></tr>
+<tr><th id="79">79</th><td>	<dfn class="enum" id="RT_RAIL_CORE" title='RT_RAIL_CORE' data-ref="RT_RAIL_CORE">RT_RAIL_CORE</dfn>,</td></tr>
+<tr><th id="80">80</th><td>	<dfn class="enum" id="RT_RAIL_RINGS" title='RT_RAIL_RINGS' data-ref="RT_RAIL_RINGS">RT_RAIL_RINGS</dfn>,</td></tr>
+<tr><th id="81">81</th><td>	<dfn class="enum" id="RT_LIGHTNING" title='RT_LIGHTNING' data-ref="RT_LIGHTNING">RT_LIGHTNING</dfn>,</td></tr>
+<tr><th id="82">82</th><td>	<dfn class="enum" id="RT_PORTALSURFACE" title='RT_PORTALSURFACE' data-ref="RT_PORTALSURFACE">RT_PORTALSURFACE</dfn>,		<i>// doesn't draw anything, just info for portals</i></td></tr>
+<tr><th id="83">83</th><td></td></tr>
+<tr><th id="84">84</th><td>	<dfn class="enum" id="RT_MAX_REF_ENTITY_TYPE" title='RT_MAX_REF_ENTITY_TYPE' data-ref="RT_MAX_REF_ENTITY_TYPE">RT_MAX_REF_ENTITY_TYPE</dfn></td></tr>
+<tr><th id="85">85</th><td>} <dfn class="typedef" id="refEntityType_t" title='refEntityType_t' data-type='enum refEntityType_t' data-ref="refEntityType_t">refEntityType_t</dfn>;</td></tr>
+<tr><th id="86">86</th><td></td></tr>
+<tr><th id="87">87</th><td><b>typedef</b> <b>struct</b> {</td></tr>
+<tr><th id="88">88</th><td>	<a class="typedef" href="#refEntityType_t" title='refEntityType_t' data-type='enum refEntityType_t' data-ref="refEntityType_t">refEntityType_t</a>	<dfn class="decl" id="(anonymous)::reType" title='(anonymous struct)::reType' data-ref="(anonymous)::reType">reType</dfn>;</td></tr>
+<tr><th id="89">89</th><td>	<em>int</em>			<dfn class="decl" id="(anonymous)::renderfx" title='(anonymous struct)::renderfx' data-ref="(anonymous)::renderfx">renderfx</dfn>;</td></tr>
+<tr><th id="90">90</th><td></td></tr>
+<tr><th id="91">91</th><td>	<a class="typedef" href="../qcommon/q_shared.h.html#qhandle_t" title='qhandle_t' data-type='int' data-ref="qhandle_t">qhandle_t</a>	<dfn class="decl" id="(anonymous)::hModel" title='(anonymous struct)::hModel' data-ref="(anonymous)::hModel">hModel</dfn>;				<i>// opaque type outside refresh</i></td></tr>
+<tr><th id="92">92</th><td></td></tr>
+<tr><th id="93">93</th><td>	<i>// most recent data</i></td></tr>
+<tr><th id="94">94</th><td>	<a class="typedef" href="../qcommon/q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a>		<dfn class="decl" id="(anonymous)::lightingOrigin" title='(anonymous struct)::lightingOrigin' data-ref="(anonymous)::lightingOrigin">lightingOrigin</dfn>;		<i>// so multi-part models can be lit identically (RF_LIGHTING_ORIGIN)</i></td></tr>
+<tr><th id="95">95</th><td>	<em>float</em>		<dfn class="decl" id="(anonymous)::shadowPlane" title='(anonymous struct)::shadowPlane' data-ref="(anonymous)::shadowPlane">shadowPlane</dfn>;		<i>// projection shadows go here, stencils go slightly lower</i></td></tr>
+<tr><th id="96">96</th><td></td></tr>
+<tr><th id="97">97</th><td>	<a class="typedef" href="../qcommon/q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a>		<dfn class="decl" id="(anonymous)::axis" title='(anonymous struct)::axis' data-ref="(anonymous)::axis">axis</dfn>[<var>3</var>];			<i>// rotation vectors</i></td></tr>
+<tr><th id="98">98</th><td>	<a class="typedef" href="../qcommon/q_shared.h.html#qboolean" title='qboolean' data-type='enum qboolean' data-ref="qboolean">qboolean</a>	<dfn class="decl" id="(anonymous)::nonNormalizedAxes" title='(anonymous struct)::nonNormalizedAxes' data-ref="(anonymous)::nonNormalizedAxes">nonNormalizedAxes</dfn>;	<i>// axis are not normalized, i.e. they have scale</i></td></tr>
+<tr><th id="99">99</th><td>	<em>float</em>		<dfn class="decl" id="(anonymous)::origin" title='(anonymous struct)::origin' data-ref="(anonymous)::origin">origin</dfn>[<var>3</var>];			<i>// also used as MODEL_BEAM's "from"</i></td></tr>
+<tr><th id="100">100</th><td>	<em>int</em>			<dfn class="decl" id="(anonymous)::frame" title='(anonymous struct)::frame' data-ref="(anonymous)::frame">frame</dfn>;				<i>// also used as MODEL_BEAM's diameter</i></td></tr>
+<tr><th id="101">101</th><td></td></tr>
+<tr><th id="102">102</th><td>	<i>// previous data for frame interpolation</i></td></tr>
+<tr><th id="103">103</th><td>	<em>float</em>		<dfn class="decl" id="(anonymous)::oldorigin" title='(anonymous struct)::oldorigin' data-ref="(anonymous)::oldorigin">oldorigin</dfn>[<var>3</var>];		<i>// also used as MODEL_BEAM's "to"</i></td></tr>
+<tr><th id="104">104</th><td>	<em>int</em>			<dfn class="decl" id="(anonymous)::oldframe" title='(anonymous struct)::oldframe' data-ref="(anonymous)::oldframe">oldframe</dfn>;</td></tr>
+<tr><th id="105">105</th><td>	<em>float</em>		<dfn class="decl" id="(anonymous)::backlerp" title='(anonymous struct)::backlerp' data-ref="(anonymous)::backlerp">backlerp</dfn>;			<i>// 0.0 = current, 1.0 = old</i></td></tr>
+<tr><th id="106">106</th><td></td></tr>
+<tr><th id="107">107</th><td>	<i>// texturing</i></td></tr>
+<tr><th id="108">108</th><td>	<em>int</em>			<dfn class="decl" id="(anonymous)::skinNum" title='(anonymous struct)::skinNum' data-ref="(anonymous)::skinNum">skinNum</dfn>;			<i>// inline skin index</i></td></tr>
+<tr><th id="109">109</th><td>	<a class="typedef" href="../qcommon/q_shared.h.html#qhandle_t" title='qhandle_t' data-type='int' data-ref="qhandle_t">qhandle_t</a>	<dfn class="decl" id="(anonymous)::customSkin" title='(anonymous struct)::customSkin' data-ref="(anonymous)::customSkin">customSkin</dfn>;			<i>// NULL for default skin</i></td></tr>
+<tr><th id="110">110</th><td>	<a class="typedef" href="../qcommon/q_shared.h.html#qhandle_t" title='qhandle_t' data-type='int' data-ref="qhandle_t">qhandle_t</a>	<dfn class="decl" id="(anonymous)::customShader" title='(anonymous struct)::customShader' data-ref="(anonymous)::customShader">customShader</dfn>;		<i>// use one image for the entire thing</i></td></tr>
+<tr><th id="111">111</th><td></td></tr>
+<tr><th id="112">112</th><td>	<i>// misc</i></td></tr>
+<tr><th id="113">113</th><td>	<a class="typedef" href="../qcommon/q_shared.h.html#byte" title='byte' data-type='unsigned char' data-ref="byte">byte</a>		<dfn class="decl" id="(anonymous)::shaderRGBA" title='(anonymous struct)::shaderRGBA' data-ref="(anonymous)::shaderRGBA">shaderRGBA</dfn>[<var>4</var>];		<i>// colors used by rgbgen entity shaders</i></td></tr>
+<tr><th id="114">114</th><td>	<em>float</em>		<dfn class="decl" id="(anonymous)::shaderTexCoord" title='(anonymous struct)::shaderTexCoord' data-ref="(anonymous)::shaderTexCoord">shaderTexCoord</dfn>[<var>2</var>];	<i>// texture coordinates used by tcMod entity modifiers</i></td></tr>
+<tr><th id="115">115</th><td>	<em>float</em>		<dfn class="decl" id="(anonymous)::shaderTime" title='(anonymous struct)::shaderTime' data-ref="(anonymous)::shaderTime">shaderTime</dfn>;			<i>// subtracted from refdef time to control effect start times</i></td></tr>
+<tr><th id="116">116</th><td></td></tr>
+<tr><th id="117">117</th><td>	<i>// extra sprite information</i></td></tr>
+<tr><th id="118">118</th><td>	<em>float</em>		<dfn class="decl" id="(anonymous)::radius" title='(anonymous struct)::radius' data-ref="(anonymous)::radius">radius</dfn>;</td></tr>
+<tr><th id="119">119</th><td>	<em>float</em>		<dfn class="decl" id="(anonymous)::rotation" title='(anonymous struct)::rotation' data-ref="(anonymous)::rotation">rotation</dfn>;</td></tr>
+<tr><th id="120">120</th><td>} <dfn class="typedef" id="refEntity_t" title='refEntity_t' data-type='struct refEntity_t' data-ref="refEntity_t">refEntity_t</dfn>;</td></tr>
+<tr><th id="121">121</th><td></td></tr>
+<tr><th id="122">122</th><td></td></tr>
+<tr><th id="123">123</th><td><u>#define	<dfn class="macro" id="_M/MAX_RENDER_STRINGS" data-ref="_M/MAX_RENDER_STRINGS">MAX_RENDER_STRINGS</dfn>			8</u></td></tr>
+<tr><th id="124">124</th><td><u>#define	<dfn class="macro" id="_M/MAX_RENDER_STRING_LENGTH" data-ref="_M/MAX_RENDER_STRING_LENGTH">MAX_RENDER_STRING_LENGTH</dfn>	32</u></td></tr>
+<tr><th id="125">125</th><td></td></tr>
+<tr><th id="126">126</th><td><b>typedef</b> <b>struct</b> {</td></tr>
+<tr><th id="127">127</th><td>	<em>int</em>			<dfn class="decl" id="(anonymous)::x" title='(anonymous struct)::x' data-ref="(anonymous)::x">x</dfn>, <dfn class="decl" id="(anonymous)::y" title='(anonymous struct)::y' data-ref="(anonymous)::y">y</dfn>, <dfn class="decl" id="(anonymous)::width" title='(anonymous struct)::width' data-ref="(anonymous)::width">width</dfn>, <dfn class="decl" id="(anonymous)::height" title='(anonymous struct)::height' data-ref="(anonymous)::height">height</dfn>;</td></tr>
+<tr><th id="128">128</th><td>	<em>float</em>		<dfn class="decl" id="(anonymous)::fov_x" title='(anonymous struct)::fov_x' data-ref="(anonymous)::fov_x">fov_x</dfn>, <dfn class="decl" id="(anonymous)::fov_y" title='(anonymous struct)::fov_y' data-ref="(anonymous)::fov_y">fov_y</dfn>;</td></tr>
+<tr><th id="129">129</th><td>	<a class="typedef" href="../qcommon/q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a>		<dfn class="decl" id="(anonymous)::vieworg" title='(anonymous struct)::vieworg' data-ref="(anonymous)::vieworg">vieworg</dfn>;</td></tr>
+<tr><th id="130">130</th><td>	<a class="typedef" href="../qcommon/q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a>		<dfn class="decl" id="(anonymous)::viewaxis" title='(anonymous struct)::viewaxis' data-ref="(anonymous)::viewaxis">viewaxis</dfn>[<var>3</var>];		<i>// transformation matrix</i></td></tr>
+<tr><th id="131">131</th><td></td></tr>
+<tr><th id="132">132</th><td>	<i>// time in milliseconds for shader effects and other time dependent rendering issues</i></td></tr>
+<tr><th id="133">133</th><td>	<em>int</em>			<dfn class="decl" id="(anonymous)::time" title='(anonymous struct)::time' data-ref="(anonymous)::time">time</dfn>;</td></tr>
+<tr><th id="134">134</th><td></td></tr>
+<tr><th id="135">135</th><td>	<em>int</em>			<dfn class="decl" id="(anonymous)::rdflags" title='(anonymous struct)::rdflags' data-ref="(anonymous)::rdflags">rdflags</dfn>;			<i>// RDF_NOWORLDMODEL, etc</i></td></tr>
+<tr><th id="136">136</th><td></td></tr>
+<tr><th id="137">137</th><td>	<i>// 1 bits will prevent the associated area from rendering at all</i></td></tr>
+<tr><th id="138">138</th><td>	<a class="typedef" href="../qcommon/q_shared.h.html#byte" title='byte' data-type='unsigned char' data-ref="byte">byte</a>		<dfn class="decl" id="(anonymous)::areamask" title='(anonymous struct)::areamask' data-ref="(anonymous)::areamask">areamask</dfn>[<a class="macro" href="../qcommon/q_shared.h.html#279" title="32" data-ref="_M/MAX_MAP_AREA_BYTES">MAX_MAP_AREA_BYTES</a>];</td></tr>
+<tr><th id="139">139</th><td></td></tr>
+<tr><th id="140">140</th><td>	<i>// text messages for deform text shaders</i></td></tr>
+<tr><th id="141">141</th><td>	<em>char</em>		<dfn class="decl" id="(anonymous)::text" title='(anonymous struct)::text' data-ref="(anonymous)::text">text</dfn>[<a class="macro" href="#123" title="8" data-ref="_M/MAX_RENDER_STRINGS">MAX_RENDER_STRINGS</a>][<a class="macro" href="#124" title="32" data-ref="_M/MAX_RENDER_STRING_LENGTH">MAX_RENDER_STRING_LENGTH</a>];</td></tr>
+<tr><th id="142">142</th><td>} <dfn class="typedef" id="refdef_t" title='refdef_t' data-type='struct refdef_t' data-ref="refdef_t">refdef_t</dfn>;</td></tr>
+<tr><th id="143">143</th><td></td></tr>
+<tr><th id="144">144</th><td></td></tr>
+<tr><th id="145">145</th><td><b>typedef</b> <b>enum</b> {</td></tr>
+<tr><th id="146">146</th><td>	<dfn class="enum" id="STEREO_CENTER" title='STEREO_CENTER' data-ref="STEREO_CENTER">STEREO_CENTER</dfn>,</td></tr>
+<tr><th id="147">147</th><td>	<dfn class="enum" id="STEREO_LEFT" title='STEREO_LEFT' data-ref="STEREO_LEFT">STEREO_LEFT</dfn>,</td></tr>
+<tr><th id="148">148</th><td>	<dfn class="enum" id="STEREO_RIGHT" title='STEREO_RIGHT' data-ref="STEREO_RIGHT">STEREO_RIGHT</dfn></td></tr>
+<tr><th id="149">149</th><td>} <dfn class="typedef" id="stereoFrame_t" title='stereoFrame_t' data-type='enum stereoFrame_t' data-ref="stereoFrame_t">stereoFrame_t</dfn>;</td></tr>
+<tr><th id="150">150</th><td></td></tr>
+<tr><th id="151">151</th><td></td></tr>
+<tr><th id="152">152</th><td><i>/*</i></td></tr>
+<tr><th id="153">153</th><td><i>** glconfig_t</i></td></tr>
+<tr><th id="154">154</th><td><i>**</i></td></tr>
+<tr><th id="155">155</th><td><i>** Contains variables specific to the OpenGL configuration</i></td></tr>
+<tr><th id="156">156</th><td><i>** being run right now.  These are constant once the OpenGL</i></td></tr>
+<tr><th id="157">157</th><td><i>** subsystem is initialized.</i></td></tr>
+<tr><th id="158">158</th><td><i>*/</i></td></tr>
+<tr><th id="159">159</th><td><b>typedef</b> <b>enum</b> {</td></tr>
+<tr><th id="160">160</th><td>	<dfn class="enum" id="TC_NONE" title='TC_NONE' data-ref="TC_NONE">TC_NONE</dfn>,</td></tr>
+<tr><th id="161">161</th><td>	<dfn class="enum" id="TC_S3TC" title='TC_S3TC' data-ref="TC_S3TC">TC_S3TC</dfn>,  <i>// this is for the GL_S3_s3tc extension.</i></td></tr>
+<tr><th id="162">162</th><td>	<dfn class="enum" id="TC_S3TC_ARB" title='TC_S3TC_ARB' data-ref="TC_S3TC_ARB">TC_S3TC_ARB</dfn>  <i>// this is for the GL_EXT_texture_compression_s3tc extension.</i></td></tr>
+<tr><th id="163">163</th><td>} <dfn class="typedef" id="textureCompression_t" title='textureCompression_t' data-type='enum textureCompression_t' data-ref="textureCompression_t">textureCompression_t</dfn>;</td></tr>
+<tr><th id="164">164</th><td></td></tr>
+<tr><th id="165">165</th><td><b>typedef</b> <b>enum</b> {</td></tr>
+<tr><th id="166">166</th><td>	<dfn class="enum" id="GLDRV_ICD" title='GLDRV_ICD' data-ref="GLDRV_ICD">GLDRV_ICD</dfn>,					<i>// driver is integrated with window system</i></td></tr>
+<tr><th id="167">167</th><td>								<i>// WARNING: there are tests that check for</i></td></tr>
+<tr><th id="168">168</th><td><i>								// &gt; GLDRV_ICD for minidriverness, so this</i></td></tr>
+<tr><th id="169">169</th><td><i>								// should always be the lowest value in this</i></td></tr>
+<tr><th id="170">170</th><td><i>								// enum set</i></td></tr>
+<tr><th id="171">171</th><td>	<dfn class="enum" id="GLDRV_STANDALONE" title='GLDRV_STANDALONE' data-ref="GLDRV_STANDALONE">GLDRV_STANDALONE</dfn>,			<i>// driver is a non-3Dfx standalone driver</i></td></tr>
+<tr><th id="172">172</th><td>	<dfn class="enum" id="GLDRV_VOODOO" title='GLDRV_VOODOO' data-ref="GLDRV_VOODOO">GLDRV_VOODOO</dfn>				<i>// driver is a 3Dfx standalone driver</i></td></tr>
+<tr><th id="173">173</th><td>} <dfn class="typedef" id="glDriverType_t" title='glDriverType_t' data-type='enum glDriverType_t' data-ref="glDriverType_t">glDriverType_t</dfn>;</td></tr>
+<tr><th id="174">174</th><td></td></tr>
+<tr><th id="175">175</th><td><b>typedef</b> <b>enum</b> {</td></tr>
+<tr><th id="176">176</th><td>	<dfn class="enum" id="GLHW_GENERIC" title='GLHW_GENERIC' data-ref="GLHW_GENERIC">GLHW_GENERIC</dfn>,			<i>// where everthing works the way it should</i></td></tr>
+<tr><th id="177">177</th><td>	<dfn class="enum" id="GLHW_3DFX_2D3D" title='GLHW_3DFX_2D3D' data-ref="GLHW_3DFX_2D3D">GLHW_3DFX_2D3D</dfn>,			<i>// Voodoo Banshee or Voodoo3, relevant since if this is</i></td></tr>
+<tr><th id="178">178</th><td>							<i>// the hardware type then there can NOT exist a secondary</i></td></tr>
+<tr><th id="179">179</th><td><i>							// display adapter</i></td></tr>
+<tr><th id="180">180</th><td>	<dfn class="enum" id="GLHW_RIVA128" title='GLHW_RIVA128' data-ref="GLHW_RIVA128">GLHW_RIVA128</dfn>,			<i>// where you can't interpolate alpha</i></td></tr>
+<tr><th id="181">181</th><td>	<dfn class="enum" id="GLHW_RAGEPRO" title='GLHW_RAGEPRO' data-ref="GLHW_RAGEPRO">GLHW_RAGEPRO</dfn>,			<i>// where you can't modulate alpha on alpha textures</i></td></tr>
+<tr><th id="182">182</th><td>	<dfn class="enum" id="GLHW_PERMEDIA2" title='GLHW_PERMEDIA2' data-ref="GLHW_PERMEDIA2">GLHW_PERMEDIA2</dfn>			<i>// where you don't have src*dst</i></td></tr>
+<tr><th id="183">183</th><td>} <dfn class="typedef" id="glHardwareType_t" title='glHardwareType_t' data-type='enum glHardwareType_t' data-ref="glHardwareType_t">glHardwareType_t</dfn>;</td></tr>
+<tr><th id="184">184</th><td></td></tr>
+<tr><th id="185">185</th><td><b>typedef</b> <b>struct</b> {</td></tr>
+<tr><th id="186">186</th><td>	<em>char</em>					<dfn class="decl" id="(anonymous)::renderer_string" title='(anonymous struct)::renderer_string' data-ref="(anonymous)::renderer_string">renderer_string</dfn>[<a class="macro" href="../qcommon/q_shared.h.html#243" title="1024" data-ref="_M/MAX_STRING_CHARS">MAX_STRING_CHARS</a>];</td></tr>
+<tr><th id="187">187</th><td>	<em>char</em>					<dfn class="decl" id="(anonymous)::vendor_string" title='(anonymous struct)::vendor_string' data-ref="(anonymous)::vendor_string">vendor_string</dfn>[<a class="macro" href="../qcommon/q_shared.h.html#243" title="1024" data-ref="_M/MAX_STRING_CHARS">MAX_STRING_CHARS</a>];</td></tr>
+<tr><th id="188">188</th><td>	<em>char</em>					<dfn class="decl" id="(anonymous)::version_string" title='(anonymous struct)::version_string' data-ref="(anonymous)::version_string">version_string</dfn>[<a class="macro" href="../qcommon/q_shared.h.html#243" title="1024" data-ref="_M/MAX_STRING_CHARS">MAX_STRING_CHARS</a>];</td></tr>
+<tr><th id="189">189</th><td>	<em>char</em>					<dfn class="decl" id="(anonymous)::extensions_string" title='(anonymous struct)::extensions_string' data-ref="(anonymous)::extensions_string">extensions_string</dfn>[<a class="macro" href="../qcommon/q_shared.h.html#251" title="8192" data-ref="_M/BIG_INFO_STRING">BIG_INFO_STRING</a>];</td></tr>
+<tr><th id="190">190</th><td></td></tr>
+<tr><th id="191">191</th><td>	<em>int</em>						<dfn class="decl" id="(anonymous)::maxTextureSize" title='(anonymous struct)::maxTextureSize' data-ref="(anonymous)::maxTextureSize">maxTextureSize</dfn>;			<i>// queried from GL</i></td></tr>
+<tr><th id="192">192</th><td>	<em>int</em>						<dfn class="decl" id="(anonymous)::numTextureUnits" title='(anonymous struct)::numTextureUnits' data-ref="(anonymous)::numTextureUnits">numTextureUnits</dfn>;		<i>// multitexture ability</i></td></tr>
+<tr><th id="193">193</th><td></td></tr>
+<tr><th id="194">194</th><td>	<em>int</em>						<dfn class="decl" id="(anonymous)::colorBits" title='(anonymous struct)::colorBits' data-ref="(anonymous)::colorBits">colorBits</dfn>, <dfn class="decl" id="(anonymous)::depthBits" title='(anonymous struct)::depthBits' data-ref="(anonymous)::depthBits">depthBits</dfn>, <dfn class="decl" id="(anonymous)::stencilBits" title='(anonymous struct)::stencilBits' data-ref="(anonymous)::stencilBits">stencilBits</dfn>;</td></tr>
+<tr><th id="195">195</th><td></td></tr>
+<tr><th id="196">196</th><td>	<a class="typedef" href="#glDriverType_t" title='glDriverType_t' data-type='enum glDriverType_t' data-ref="glDriverType_t">glDriverType_t</a>			<dfn class="decl" id="(anonymous)::driverType" title='(anonymous struct)::driverType' data-ref="(anonymous)::driverType">driverType</dfn>;</td></tr>
+<tr><th id="197">197</th><td>	<a class="typedef" href="#glHardwareType_t" title='glHardwareType_t' data-type='enum glHardwareType_t' data-ref="glHardwareType_t">glHardwareType_t</a>		<dfn class="decl" id="(anonymous)::hardwareType" title='(anonymous struct)::hardwareType' data-ref="(anonymous)::hardwareType">hardwareType</dfn>;</td></tr>
+<tr><th id="198">198</th><td></td></tr>
+<tr><th id="199">199</th><td>	<a class="typedef" href="../qcommon/q_shared.h.html#qboolean" title='qboolean' data-type='enum qboolean' data-ref="qboolean">qboolean</a>				<dfn class="decl" id="(anonymous)::deviceSupportsGamma" title='(anonymous struct)::deviceSupportsGamma' data-ref="(anonymous)::deviceSupportsGamma">deviceSupportsGamma</dfn>;</td></tr>
+<tr><th id="200">200</th><td>	<a class="typedef" href="#textureCompression_t" title='textureCompression_t' data-type='enum textureCompression_t' data-ref="textureCompression_t">textureCompression_t</a>	<dfn class="decl" id="(anonymous)::textureCompression" title='(anonymous struct)::textureCompression' data-ref="(anonymous)::textureCompression">textureCompression</dfn>;</td></tr>
+<tr><th id="201">201</th><td>	<a class="typedef" href="../qcommon/q_shared.h.html#qboolean" title='qboolean' data-type='enum qboolean' data-ref="qboolean">qboolean</a>				<dfn class="decl" id="(anonymous)::textureEnvAddAvailable" title='(anonymous struct)::textureEnvAddAvailable' data-ref="(anonymous)::textureEnvAddAvailable">textureEnvAddAvailable</dfn>;</td></tr>
+<tr><th id="202">202</th><td></td></tr>
+<tr><th id="203">203</th><td>	<em>int</em>						<dfn class="decl" id="(anonymous)::vidWidth" title='(anonymous struct)::vidWidth' data-ref="(anonymous)::vidWidth">vidWidth</dfn>, <dfn class="decl" id="(anonymous)::vidHeight" title='(anonymous struct)::vidHeight' data-ref="(anonymous)::vidHeight">vidHeight</dfn>;</td></tr>
+<tr><th id="204">204</th><td>	<i>// aspect is the screen's physical width / height, which may be different</i></td></tr>
+<tr><th id="205">205</th><td><i>	// than scrWidth / scrHeight if the pixels are non-square</i></td></tr>
+<tr><th id="206">206</th><td><i>	// normal screens should be 4/3, but wide aspect monitors may be 16/9</i></td></tr>
+<tr><th id="207">207</th><td>	<em>float</em>					<dfn class="decl" id="(anonymous)::windowAspect" title='(anonymous struct)::windowAspect' data-ref="(anonymous)::windowAspect">windowAspect</dfn>;</td></tr>
+<tr><th id="208">208</th><td></td></tr>
+<tr><th id="209">209</th><td>	<em>int</em>						<dfn class="decl" id="(anonymous)::displayFrequency" title='(anonymous struct)::displayFrequency' data-ref="(anonymous)::displayFrequency">displayFrequency</dfn>;</td></tr>
+<tr><th id="210">210</th><td></td></tr>
+<tr><th id="211">211</th><td>	<i>// synonymous with "does rendering consume the entire screen?", therefore</i></td></tr>
+<tr><th id="212">212</th><td><i>	// a Voodoo or Voodoo2 will have this set to TRUE, as will a Win32 ICD that</i></td></tr>
+<tr><th id="213">213</th><td><i>	// used CDS.</i></td></tr>
+<tr><th id="214">214</th><td>	<a class="typedef" href="../qcommon/q_shared.h.html#qboolean" title='qboolean' data-type='enum qboolean' data-ref="qboolean">qboolean</a>				<dfn class="decl" id="(anonymous)::isFullscreen" title='(anonymous struct)::isFullscreen' data-ref="(anonymous)::isFullscreen">isFullscreen</dfn>;</td></tr>
+<tr><th id="215">215</th><td>	<a class="typedef" href="../qcommon/q_shared.h.html#qboolean" title='qboolean' data-type='enum qboolean' data-ref="qboolean">qboolean</a>				<dfn class="decl" id="(anonymous)::stereoEnabled" title='(anonymous struct)::stereoEnabled' data-ref="(anonymous)::stereoEnabled">stereoEnabled</dfn>;</td></tr>
+<tr><th id="216">216</th><td>	<a class="typedef" href="../qcommon/q_shared.h.html#qboolean" title='qboolean' data-type='enum qboolean' data-ref="qboolean">qboolean</a>				<dfn class="decl" id="(anonymous)::smpActive" title='(anonymous struct)::smpActive' data-ref="(anonymous)::smpActive">smpActive</dfn>;		<i>// UNUSED, present for compatibility</i></td></tr>
+<tr><th id="217">217</th><td>} <dfn class="typedef" id="glconfig_t" title='glconfig_t' data-type='struct glconfig_t' data-ref="glconfig_t">glconfig_t</dfn>;</td></tr>
+<tr><th id="218">218</th><td></td></tr>
+<tr><th id="219">219</th><td><u>#<span data-ppcond="23">endif</span>	// __TR_TYPES_H</u></td></tr>
+<tr><th id="220">220</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='../cgame/cg_consolecmds.c.html'>codebrowser/code/cgame/cg_consolecmds.c</a><br/>Generated on <em>2017-Aug-29</em> from project codebrowser revision <em>63e07af</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

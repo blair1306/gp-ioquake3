@@ -1,0 +1,10 @@
+<dec f='codebrowser/code/opusfile-0.8/src/internal.h' l='197' type='ogg_int64_t'/>
+<offset>1280</offset>
+<doc f='codebrowser/code/opusfile-0.8/src/internal.h' l='196'>/*The number of samples decoded since the last bitrate query.*/</doc>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='1374' u='w' c='op_make_decode_ready'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='1815' u='r' c='op_bitrate_instant'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='1819' u='w' c='op_bitrate_instant'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='2096' u='w' c='op_raw_seek'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='2212' u='w' c='op_pcm_seek_page'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='2813' u='w' c='op_read_native'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='2833' u='w' c='op_read_native'/>

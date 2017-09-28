@@ -1,0 +1,9 @@
+<def f='codebrowser/code/qcommon/cm_patch.c' l='1259' ll='1352' type='void CM_TracePointThroughPatchCollide(traceWork_t * tw, const struct patchCollide_s * pc)'/>
+<use f='codebrowser/code/qcommon/cm_patch.c' l='1422' u='c' c='CM_TraceThroughPatchCollide'/>
+<doc f='codebrowser/code/qcommon/cm_patch.c' l='1252'>/*
+====================
+CM_TracePointThroughPatchCollide
+
+  special case for point traces because the patch collide &quot;brushes&quot; have no volume
+====================
+*/</doc>

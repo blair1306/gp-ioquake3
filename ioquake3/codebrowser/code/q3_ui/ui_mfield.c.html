@@ -1,0 +1,454 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>ui_mfield.c source code [codebrowser/code/q3_ui/ui_mfield.c] - Woboq Code Browser</title>
+<link rel="stylesheet" href="../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'codebrowser/code/q3_ui/ui_mfield.c'; var root_path = '../../..'; var data_path = '../../../../data';</script>
+<script src='../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../..'>codebrowser</a>/<a href='..'>code</a>/<a href='./'>q3_ui</a>/<a href='ui_mfield.c.html'>ui_mfield.c</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/*</i></td></tr>
+<tr><th id="2">2</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="3">3</th><td><i>Copyright (C) 1999-2005 Id Software, Inc.</i></td></tr>
+<tr><th id="4">4</th><td><i></i></td></tr>
+<tr><th id="5">5</th><td><i>This file is part of Quake III Arena source code.</i></td></tr>
+<tr><th id="6">6</th><td><i></i></td></tr>
+<tr><th id="7">7</th><td><i>Quake III Arena source code is free software; you can redistribute it</i></td></tr>
+<tr><th id="8">8</th><td><i>and/or modify it under the terms of the GNU General Public License as</i></td></tr>
+<tr><th id="9">9</th><td><i>published by the Free Software Foundation; either version 2 of the License,</i></td></tr>
+<tr><th id="10">10</th><td><i>or (at your option) any later version.</i></td></tr>
+<tr><th id="11">11</th><td><i></i></td></tr>
+<tr><th id="12">12</th><td><i>Quake III Arena source code is distributed in the hope that it will be</i></td></tr>
+<tr><th id="13">13</th><td><i>useful, but WITHOUT ANY WARRANTY; without even the implied warranty of</i></td></tr>
+<tr><th id="14">14</th><td><i>MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</i></td></tr>
+<tr><th id="15">15</th><td><i>GNU General Public License for more details.</i></td></tr>
+<tr><th id="16">16</th><td><i></i></td></tr>
+<tr><th id="17">17</th><td><i>You should have received a copy of the GNU General Public License</i></td></tr>
+<tr><th id="18">18</th><td><i>along with Quake III Arena source code; if not, write to the Free Software</i></td></tr>
+<tr><th id="19">19</th><td><i>Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA</i></td></tr>
+<tr><th id="20">20</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="21">21</th><td><i>*/</i></td></tr>
+<tr><th id="22">22</th><td><i>//</i></td></tr>
+<tr><th id="23">23</th><td><u>#include <a href="ui_local.h.html">"ui_local.h"</a></u></td></tr>
+<tr><th id="24">24</th><td></td></tr>
+<tr><th id="25">25</th><td><i>/*</i></td></tr>
+<tr><th id="26">26</th><td><i>===================</i></td></tr>
+<tr><th id="27">27</th><td><i>MField_Draw</i></td></tr>
+<tr><th id="28">28</th><td><i></i></td></tr>
+<tr><th id="29">29</th><td><i>Handles horizontal scrolling and cursor blinking</i></td></tr>
+<tr><th id="30">30</th><td><i>x, y, are in pixels</i></td></tr>
+<tr><th id="31">31</th><td><i>===================</i></td></tr>
+<tr><th id="32">32</th><td><i>*/</i></td></tr>
+<tr><th id="33">33</th><td><em>void</em> <dfn class="decl def" id="MField_Draw" title='MField_Draw' data-ref="MField_Draw">MField_Draw</dfn>( <a class="typedef" href="ui_local.h.html#mfield_t" title='mfield_t' data-type='struct mfield_t' data-ref="mfield_t">mfield_t</a> *<dfn class="local col1 decl" id="1edit" title='edit' data-type='mfield_t *' data-ref="1edit">edit</dfn>, <em>int</em> <dfn class="local col2 decl" id="2x" title='x' data-type='int' data-ref="2x">x</dfn>, <em>int</em> <dfn class="local col3 decl" id="3y" title='y' data-type='int' data-ref="3y">y</dfn>, <em>int</em> <dfn class="local col4 decl" id="4style" title='style' data-type='int' data-ref="4style">style</dfn>, <a class="typedef" href="../qcommon/q_shared.h.html#vec4_t" title='vec4_t' data-type='vec_t [4]' data-ref="vec4_t">vec4_t</a> <dfn class="local col5 decl" id="5color" title='color' data-type='vec_t *' data-ref="5color">color</dfn> ) {</td></tr>
+<tr><th id="34">34</th><td>	<em>int</em>		<dfn class="local col6 decl" id="6len" title='len' data-type='int' data-ref="6len">len</dfn>;</td></tr>
+<tr><th id="35">35</th><td>	<em>int</em>		<dfn class="local col7 decl" id="7charw" title='charw' data-type='int' data-ref="7charw">charw</dfn>;</td></tr>
+<tr><th id="36">36</th><td>	<em>int</em>		<dfn class="local col8 decl" id="8drawLen" title='drawLen' data-type='int' data-ref="8drawLen">drawLen</dfn>;</td></tr>
+<tr><th id="37">37</th><td>	<em>int</em>		<dfn class="local col9 decl" id="9prestep" title='prestep' data-type='int' data-ref="9prestep">prestep</dfn>;</td></tr>
+<tr><th id="38">38</th><td>	<em>int</em>		<dfn class="local col0 decl" id="10cursorChar" title='cursorChar' data-type='int' data-ref="10cursorChar">cursorChar</dfn>;</td></tr>
+<tr><th id="39">39</th><td>	<em>char</em>	<dfn class="local col1 decl" id="11str" title='str' data-type='char [1024]' data-ref="11str">str</dfn>[<a class="macro" href="../qcommon/q_shared.h.html#243" title="1024" data-ref="_M/MAX_STRING_CHARS">MAX_STRING_CHARS</a>];</td></tr>
+<tr><th id="40">40</th><td></td></tr>
+<tr><th id="41">41</th><td>	<a class="local col8 ref" href="#8drawLen" title='drawLen' data-ref="8drawLen">drawLen</a> = <a class="local col1 ref" href="#1edit" title='edit' data-ref="1edit">edit</a>-&gt;<a class="ref" href="ui_local.h.html#(anonymous)::widthInChars" title='(anonymous struct)::widthInChars' data-ref="(anonymous)::widthInChars">widthInChars</a>;</td></tr>
+<tr><th id="42">42</th><td>	<a class="local col6 ref" href="#6len" title='len' data-ref="6len">len</a>     = <a class="ref" href="../../../include/string.h.html#strlen" title='strlen' data-ref="strlen">strlen</a>( <a class="local col1 ref" href="#1edit" title='edit' data-ref="1edit">edit</a>-&gt;<a class="ref" href="ui_local.h.html#(anonymous)::buffer" title='(anonymous struct)::buffer' data-ref="(anonymous)::buffer">buffer</a> ) + <var>1</var>;</td></tr>
+<tr><th id="43">43</th><td></td></tr>
+<tr><th id="44">44</th><td>	<i>// guarantee that cursor will be visible</i></td></tr>
+<tr><th id="45">45</th><td>	<b>if</b> ( <a class="local col6 ref" href="#6len" title='len' data-ref="6len">len</a> &lt;= <a class="local col8 ref" href="#8drawLen" title='drawLen' data-ref="8drawLen">drawLen</a> ) {</td></tr>
+<tr><th id="46">46</th><td>		<a class="local col9 ref" href="#9prestep" title='prestep' data-ref="9prestep">prestep</a> = <var>0</var>;</td></tr>
+<tr><th id="47">47</th><td>	} <b>else</b> {</td></tr>
+<tr><th id="48">48</th><td>		<b>if</b> ( <a class="local col1 ref" href="#1edit" title='edit' data-ref="1edit">edit</a>-&gt;<a class="ref" href="ui_local.h.html#(anonymous)::scroll" title='(anonymous struct)::scroll' data-ref="(anonymous)::scroll">scroll</a> + <a class="local col8 ref" href="#8drawLen" title='drawLen' data-ref="8drawLen">drawLen</a> &gt; <a class="local col6 ref" href="#6len" title='len' data-ref="6len">len</a> ) {</td></tr>
+<tr><th id="49">49</th><td>			<a class="local col1 ref" href="#1edit" title='edit' data-ref="1edit">edit</a>-&gt;<a class="ref" href="ui_local.h.html#(anonymous)::scroll" title='(anonymous struct)::scroll' data-ref="(anonymous)::scroll">scroll</a> = <a class="local col6 ref" href="#6len" title='len' data-ref="6len">len</a> - <a class="local col8 ref" href="#8drawLen" title='drawLen' data-ref="8drawLen">drawLen</a>;</td></tr>
+<tr><th id="50">50</th><td>			<b>if</b> ( <a class="local col1 ref" href="#1edit" title='edit' data-ref="1edit">edit</a>-&gt;<a class="ref" href="ui_local.h.html#(anonymous)::scroll" title='(anonymous struct)::scroll' data-ref="(anonymous)::scroll">scroll</a> &lt; <var>0</var> ) {</td></tr>
+<tr><th id="51">51</th><td>				<a class="local col1 ref" href="#1edit" title='edit' data-ref="1edit">edit</a>-&gt;<a class="ref" href="ui_local.h.html#(anonymous)::scroll" title='(anonymous struct)::scroll' data-ref="(anonymous)::scroll">scroll</a> = <var>0</var>;</td></tr>
+<tr><th id="52">52</th><td>			}</td></tr>
+<tr><th id="53">53</th><td>		}</td></tr>
+<tr><th id="54">54</th><td>		<a class="local col9 ref" href="#9prestep" title='prestep' data-ref="9prestep">prestep</a> = <a class="local col1 ref" href="#1edit" title='edit' data-ref="1edit">edit</a>-&gt;<a class="ref" href="ui_local.h.html#(anonymous)::scroll" title='(anonymous struct)::scroll' data-ref="(anonymous)::scroll">scroll</a>;</td></tr>
+<tr><th id="55">55</th><td>	}</td></tr>
+<tr><th id="56">56</th><td></td></tr>
+<tr><th id="57">57</th><td>	<b>if</b> ( <a class="local col9 ref" href="#9prestep" title='prestep' data-ref="9prestep">prestep</a> + <a class="local col8 ref" href="#8drawLen" title='drawLen' data-ref="8drawLen">drawLen</a> &gt; <a class="local col6 ref" href="#6len" title='len' data-ref="6len">len</a> ) {</td></tr>
+<tr><th id="58">58</th><td>		<a class="local col8 ref" href="#8drawLen" title='drawLen' data-ref="8drawLen">drawLen</a> = <a class="local col6 ref" href="#6len" title='len' data-ref="6len">len</a> - <a class="local col9 ref" href="#9prestep" title='prestep' data-ref="9prestep">prestep</a>;</td></tr>
+<tr><th id="59">59</th><td>	}</td></tr>
+<tr><th id="60">60</th><td></td></tr>
+<tr><th id="61">61</th><td>	<i>// extract &lt;drawLen&gt; characters from the field at &lt;prestep&gt;</i></td></tr>
+<tr><th id="62">62</th><td>	<b>if</b> ( <a class="local col8 ref" href="#8drawLen" title='drawLen' data-ref="8drawLen">drawLen</a> &gt;= <a class="macro" href="../qcommon/q_shared.h.html#243" title="1024" data-ref="_M/MAX_STRING_CHARS">MAX_STRING_CHARS</a> ) {</td></tr>
+<tr><th id="63">63</th><td>		<a class="ref" href="ui_local.h.html#trap_Error" title='trap_Error' data-ref="trap_Error">trap_Error</a>( <q>"drawLen &gt;= MAX_STRING_CHARS"</q> );</td></tr>
+<tr><th id="64">64</th><td>	}</td></tr>
+<tr><th id="65">65</th><td>	<a class="ref" href="../../../include/string.h.html#memcpy" title='memcpy' data-ref="memcpy">memcpy</a>( <a class="local col1 ref" href="#11str" title='str' data-ref="11str">str</a>, <a class="local col1 ref" href="#1edit" title='edit' data-ref="1edit">edit</a>-&gt;<a class="ref" href="ui_local.h.html#(anonymous)::buffer" title='(anonymous struct)::buffer' data-ref="(anonymous)::buffer">buffer</a> + <a class="local col9 ref" href="#9prestep" title='prestep' data-ref="9prestep">prestep</a>, <a class="local col8 ref" href="#8drawLen" title='drawLen' data-ref="8drawLen">drawLen</a> );</td></tr>
+<tr><th id="66">66</th><td>	<a class="local col1 ref" href="#11str" title='str' data-ref="11str">str</a>[ <a class="local col8 ref" href="#8drawLen" title='drawLen' data-ref="8drawLen">drawLen</a> ] = <var>0</var>;</td></tr>
+<tr><th id="67">67</th><td></td></tr>
+<tr><th id="68">68</th><td>	<a class="ref" href="ui_local.h.html#UI_DrawString" title='UI_DrawString' data-ref="UI_DrawString">UI_DrawString</a>( <a class="local col2 ref" href="#2x" title='x' data-ref="2x">x</a>, <a class="local col3 ref" href="#3y" title='y' data-ref="3y">y</a>, <a class="local col1 ref" href="#11str" title='str' data-ref="11str">str</a>, <a class="local col4 ref" href="#4style" title='style' data-ref="4style">style</a>, <a class="local col5 ref" href="#5color" title='color' data-ref="5color">color</a> );</td></tr>
+<tr><th id="69">69</th><td></td></tr>
+<tr><th id="70">70</th><td>	<i>// draw the cursor</i></td></tr>
+<tr><th id="71">71</th><td>	<b>if</b> (!(<a class="local col4 ref" href="#4style" title='style' data-ref="4style">style</a> &amp; <a class="macro" href="../qcommon/q_shared.h.html#325" title="0x00004000" data-ref="_M/UI_PULSE">UI_PULSE</a>)) {</td></tr>
+<tr><th id="72">72</th><td>		<b>return</b>;</td></tr>
+<tr><th id="73">73</th><td>	}</td></tr>
+<tr><th id="74">74</th><td></td></tr>
+<tr><th id="75">75</th><td>	<b>if</b> ( <a class="ref" href="ui_local.h.html#trap_Key_GetOverstrikeMode" title='trap_Key_GetOverstrikeMode' data-ref="trap_Key_GetOverstrikeMode">trap_Key_GetOverstrikeMode</a>() ) {</td></tr>
+<tr><th id="76">76</th><td>		<a class="local col0 ref" href="#10cursorChar" title='cursorChar' data-ref="10cursorChar">cursorChar</a> = <var>11</var>;</td></tr>
+<tr><th id="77">77</th><td>	} <b>else</b> {</td></tr>
+<tr><th id="78">78</th><td>		<a class="local col0 ref" href="#10cursorChar" title='cursorChar' data-ref="10cursorChar">cursorChar</a> = <var>10</var>;</td></tr>
+<tr><th id="79">79</th><td>	}</td></tr>
+<tr><th id="80">80</th><td></td></tr>
+<tr><th id="81">81</th><td>	<a class="local col4 ref" href="#4style" title='style' data-ref="4style">style</a> &amp;= ~<a class="macro" href="../qcommon/q_shared.h.html#325" title="0x00004000" data-ref="_M/UI_PULSE">UI_PULSE</a>;</td></tr>
+<tr><th id="82">82</th><td>	<a class="local col4 ref" href="#4style" title='style' data-ref="4style">style</a> |= <a class="macro" href="../qcommon/q_shared.h.html#323" title="0x00001000" data-ref="_M/UI_BLINK">UI_BLINK</a>;</td></tr>
+<tr><th id="83">83</th><td></td></tr>
+<tr><th id="84">84</th><td>	<b>if</b> (<a class="local col4 ref" href="#4style" title='style' data-ref="4style">style</a> &amp; <a class="macro" href="../qcommon/q_shared.h.html#319" title="0x00000010" data-ref="_M/UI_SMALLFONT">UI_SMALLFONT</a>)</td></tr>
+<tr><th id="85">85</th><td>	{</td></tr>
+<tr><th id="86">86</th><td>		<a class="local col7 ref" href="#7charw" title='charw' data-ref="7charw">charw</a> =	<a class="macro" href="../qcommon/q_shared.h.html#387" title="8" data-ref="_M/SMALLCHAR_WIDTH">SMALLCHAR_WIDTH</a>;</td></tr>
+<tr><th id="87">87</th><td>	}</td></tr>
+<tr><th id="88">88</th><td>	<b>else</b> <b>if</b> (<a class="local col4 ref" href="#4style" title='style' data-ref="4style">style</a> &amp; <a class="macro" href="../qcommon/q_shared.h.html#321" title="0x00000040" data-ref="_M/UI_GIANTFONT">UI_GIANTFONT</a>)</td></tr>
+<tr><th id="89">89</th><td>	{</td></tr>
+<tr><th id="90">90</th><td>		<a class="local col7 ref" href="#7charw" title='charw' data-ref="7charw">charw</a> =	<a class="macro" href="../qcommon/q_shared.h.html#393" title="32" data-ref="_M/GIANTCHAR_WIDTH">GIANTCHAR_WIDTH</a>;</td></tr>
+<tr><th id="91">91</th><td>	}</td></tr>
+<tr><th id="92">92</th><td>	<b>else</b></td></tr>
+<tr><th id="93">93</th><td>	{</td></tr>
+<tr><th id="94">94</th><td>		<a class="local col7 ref" href="#7charw" title='charw' data-ref="7charw">charw</a> =	<a class="macro" href="../qcommon/q_shared.h.html#390" title="16" data-ref="_M/BIGCHAR_WIDTH">BIGCHAR_WIDTH</a>;</td></tr>
+<tr><th id="95">95</th><td>	}</td></tr>
+<tr><th id="96">96</th><td></td></tr>
+<tr><th id="97">97</th><td>	<b>if</b> (<a class="local col4 ref" href="#4style" title='style' data-ref="4style">style</a> &amp; <a class="macro" href="../qcommon/q_shared.h.html#316" title="0x00000001" data-ref="_M/UI_CENTER">UI_CENTER</a>)</td></tr>
+<tr><th id="98">98</th><td>	{</td></tr>
+<tr><th id="99">99</th><td>		<a class="local col6 ref" href="#6len" title='len' data-ref="6len">len</a> = <a class="ref" href="../../../include/string.h.html#strlen" title='strlen' data-ref="strlen">strlen</a>(<a class="local col1 ref" href="#11str" title='str' data-ref="11str">str</a>);</td></tr>
+<tr><th id="100">100</th><td>		<a class="local col2 ref" href="#2x" title='x' data-ref="2x">x</a> = <a class="local col2 ref" href="#2x" title='x' data-ref="2x">x</a> - <a class="local col6 ref" href="#6len" title='len' data-ref="6len">len</a>*<a class="local col7 ref" href="#7charw" title='charw' data-ref="7charw">charw</a>/<var>2</var>;</td></tr>
+<tr><th id="101">101</th><td>	}</td></tr>
+<tr><th id="102">102</th><td>	<b>else</b> <b>if</b> (<a class="local col4 ref" href="#4style" title='style' data-ref="4style">style</a> &amp; <a class="macro" href="../qcommon/q_shared.h.html#317" title="0x00000002" data-ref="_M/UI_RIGHT">UI_RIGHT</a>)</td></tr>
+<tr><th id="103">103</th><td>	{</td></tr>
+<tr><th id="104">104</th><td>		<a class="local col6 ref" href="#6len" title='len' data-ref="6len">len</a> = <a class="ref" href="../../../include/string.h.html#strlen" title='strlen' data-ref="strlen">strlen</a>(<a class="local col1 ref" href="#11str" title='str' data-ref="11str">str</a>);</td></tr>
+<tr><th id="105">105</th><td>		<a class="local col2 ref" href="#2x" title='x' data-ref="2x">x</a> = <a class="local col2 ref" href="#2x" title='x' data-ref="2x">x</a> - <a class="local col6 ref" href="#6len" title='len' data-ref="6len">len</a>*<a class="local col7 ref" href="#7charw" title='charw' data-ref="7charw">charw</a>;</td></tr>
+<tr><th id="106">106</th><td>	}</td></tr>
+<tr><th id="107">107</th><td>	</td></tr>
+<tr><th id="108">108</th><td>	<a class="ref" href="ui_local.h.html#UI_DrawChar" title='UI_DrawChar' data-ref="UI_DrawChar">UI_DrawChar</a>( <a class="local col2 ref" href="#2x" title='x' data-ref="2x">x</a> + ( <a class="local col1 ref" href="#1edit" title='edit' data-ref="1edit">edit</a>-&gt;<a class="ref" href="ui_local.h.html#(anonymous)::cursor" title='(anonymous struct)::cursor' data-ref="(anonymous)::cursor">cursor</a> - <a class="local col9 ref" href="#9prestep" title='prestep' data-ref="9prestep">prestep</a> ) * <a class="local col7 ref" href="#7charw" title='charw' data-ref="7charw">charw</a>, <a class="local col3 ref" href="#3y" title='y' data-ref="3y">y</a>, <a class="local col0 ref" href="#10cursorChar" title='cursorChar' data-ref="10cursorChar">cursorChar</a>, <a class="local col4 ref" href="#4style" title='style' data-ref="4style">style</a> &amp; ~(<a class="macro" href="../qcommon/q_shared.h.html#316" title="0x00000001" data-ref="_M/UI_CENTER">UI_CENTER</a>|<a class="macro" href="../qcommon/q_shared.h.html#317" title="0x00000002" data-ref="_M/UI_RIGHT">UI_RIGHT</a>), <a class="local col5 ref" href="#5color" title='color' data-ref="5color">color</a> );</td></tr>
+<tr><th id="109">109</th><td>}</td></tr>
+<tr><th id="110">110</th><td></td></tr>
+<tr><th id="111">111</th><td><i>/*</i></td></tr>
+<tr><th id="112">112</th><td><i>================</i></td></tr>
+<tr><th id="113">113</th><td><i>MField_Paste</i></td></tr>
+<tr><th id="114">114</th><td><i>================</i></td></tr>
+<tr><th id="115">115</th><td><i>*/</i></td></tr>
+<tr><th id="116">116</th><td><em>void</em> <dfn class="decl def" id="MField_Paste" title='MField_Paste' data-ref="MField_Paste">MField_Paste</dfn>( <a class="typedef" href="ui_local.h.html#mfield_t" title='mfield_t' data-type='struct mfield_t' data-ref="mfield_t">mfield_t</a> *<dfn class="local col2 decl" id="12edit" title='edit' data-type='mfield_t *' data-ref="12edit">edit</dfn> ) {</td></tr>
+<tr><th id="117">117</th><td>	<em>char</em>	<dfn class="local col3 decl" id="13pasteBuffer" title='pasteBuffer' data-type='char [64]' data-ref="13pasteBuffer">pasteBuffer</dfn>[<var>64</var>];</td></tr>
+<tr><th id="118">118</th><td>	<em>int</em>		<dfn class="local col4 decl" id="14pasteLen" title='pasteLen' data-type='int' data-ref="14pasteLen">pasteLen</dfn>, <dfn class="local col5 decl" id="15i" title='i' data-type='int' data-ref="15i">i</dfn>;</td></tr>
+<tr><th id="119">119</th><td></td></tr>
+<tr><th id="120">120</th><td>	<a class="ref" href="ui_local.h.html#trap_GetClipboardData" title='trap_GetClipboardData' data-ref="trap_GetClipboardData">trap_GetClipboardData</a>( <a class="local col3 ref" href="#13pasteBuffer" title='pasteBuffer' data-ref="13pasteBuffer">pasteBuffer</a>, <var>64</var> );</td></tr>
+<tr><th id="121">121</th><td></td></tr>
+<tr><th id="122">122</th><td>	<i>// send as if typed, so insert / overstrike works properly</i></td></tr>
+<tr><th id="123">123</th><td>	<a class="local col4 ref" href="#14pasteLen" title='pasteLen' data-ref="14pasteLen">pasteLen</a> = <a class="ref" href="../../../include/string.h.html#strlen" title='strlen' data-ref="strlen">strlen</a>( <a class="local col3 ref" href="#13pasteBuffer" title='pasteBuffer' data-ref="13pasteBuffer">pasteBuffer</a> );</td></tr>
+<tr><th id="124">124</th><td>	<b>for</b> ( <a class="local col5 ref" href="#15i" title='i' data-ref="15i">i</a> = <var>0</var> ; <a class="local col5 ref" href="#15i" title='i' data-ref="15i">i</a> &lt; <a class="local col4 ref" href="#14pasteLen" title='pasteLen' data-ref="14pasteLen">pasteLen</a> ; <a class="local col5 ref" href="#15i" title='i' data-ref="15i">i</a>++ ) {</td></tr>
+<tr><th id="125">125</th><td>		<a class="ref" href="#MField_CharEvent" title='MField_CharEvent' data-ref="MField_CharEvent">MField_CharEvent</a>( <a class="local col2 ref" href="#12edit" title='edit' data-ref="12edit">edit</a>, <a class="local col3 ref" href="#13pasteBuffer" title='pasteBuffer' data-ref="13pasteBuffer">pasteBuffer</a>[<a class="local col5 ref" href="#15i" title='i' data-ref="15i">i</a>] );</td></tr>
+<tr><th id="126">126</th><td>	}</td></tr>
+<tr><th id="127">127</th><td>}</td></tr>
+<tr><th id="128">128</th><td></td></tr>
+<tr><th id="129">129</th><td><i>/*</i></td></tr>
+<tr><th id="130">130</th><td><i>=================</i></td></tr>
+<tr><th id="131">131</th><td><i>MField_KeyDownEvent</i></td></tr>
+<tr><th id="132">132</th><td><i></i></td></tr>
+<tr><th id="133">133</th><td><i>Performs the basic line editing functions for the console,</i></td></tr>
+<tr><th id="134">134</th><td><i>in-game talk, and menu fields</i></td></tr>
+<tr><th id="135">135</th><td><i></i></td></tr>
+<tr><th id="136">136</th><td><i>Key events are used for non-printable characters, others are gotten from char events.</i></td></tr>
+<tr><th id="137">137</th><td><i>=================</i></td></tr>
+<tr><th id="138">138</th><td><i>*/</i></td></tr>
+<tr><th id="139">139</th><td><em>void</em> <dfn class="decl def" id="MField_KeyDownEvent" title='MField_KeyDownEvent' data-ref="MField_KeyDownEvent">MField_KeyDownEvent</dfn>( <a class="typedef" href="ui_local.h.html#mfield_t" title='mfield_t' data-type='struct mfield_t' data-ref="mfield_t">mfield_t</a> *<dfn class="local col6 decl" id="16edit" title='edit' data-type='mfield_t *' data-ref="16edit">edit</dfn>, <em>int</em> <dfn class="local col7 decl" id="17key" title='key' data-type='int' data-ref="17key">key</dfn> ) {</td></tr>
+<tr><th id="140">140</th><td>	<em>int</em>		<dfn class="local col8 decl" id="18len" title='len' data-type='int' data-ref="18len">len</dfn>;</td></tr>
+<tr><th id="141">141</th><td></td></tr>
+<tr><th id="142">142</th><td>	<i>// shift-insert is paste</i></td></tr>
+<tr><th id="143">143</th><td>	<b>if</b> ( ( ( <a class="local col7 ref" href="#17key" title='key' data-ref="17key">key</a> == <a class="enum" href="../client/keycodes.h.html#K_INS" title='K_INS' data-ref="K_INS">K_INS</a> ) || ( <a class="local col7 ref" href="#17key" title='key' data-ref="17key">key</a> == <a class="enum" href="../client/keycodes.h.html#K_KP_INS" title='K_KP_INS' data-ref="K_KP_INS">K_KP_INS</a> ) ) &amp;&amp; <a class="ref" href="ui_local.h.html#trap_Key_IsDown" title='trap_Key_IsDown' data-ref="trap_Key_IsDown">trap_Key_IsDown</a>( <a class="enum" href="../client/keycodes.h.html#K_SHIFT" title='K_SHIFT' data-ref="K_SHIFT">K_SHIFT</a> ) ) {</td></tr>
+<tr><th id="144">144</th><td>		<a class="ref" href="#MField_Paste" title='MField_Paste' data-ref="MField_Paste">MField_Paste</a>( <a class="local col6 ref" href="#16edit" title='edit' data-ref="16edit">edit</a> );</td></tr>
+<tr><th id="145">145</th><td>		<b>return</b>;</td></tr>
+<tr><th id="146">146</th><td>	}</td></tr>
+<tr><th id="147">147</th><td></td></tr>
+<tr><th id="148">148</th><td>	<a class="local col8 ref" href="#18len" title='len' data-ref="18len">len</a> = <a class="ref" href="../../../include/string.h.html#strlen" title='strlen' data-ref="strlen">strlen</a>( <a class="local col6 ref" href="#16edit" title='edit' data-ref="16edit">edit</a>-&gt;<a class="ref" href="ui_local.h.html#(anonymous)::buffer" title='(anonymous struct)::buffer' data-ref="(anonymous)::buffer">buffer</a> );</td></tr>
+<tr><th id="149">149</th><td></td></tr>
+<tr><th id="150">150</th><td>	<b>if</b> ( <a class="local col7 ref" href="#17key" title='key' data-ref="17key">key</a> == <a class="enum" href="../client/keycodes.h.html#K_DEL" title='K_DEL' data-ref="K_DEL">K_DEL</a> || <a class="local col7 ref" href="#17key" title='key' data-ref="17key">key</a> == <a class="enum" href="../client/keycodes.h.html#K_KP_DEL" title='K_KP_DEL' data-ref="K_KP_DEL">K_KP_DEL</a> ) {</td></tr>
+<tr><th id="151">151</th><td>		<b>if</b> ( <a class="local col6 ref" href="#16edit" title='edit' data-ref="16edit">edit</a>-&gt;<a class="ref" href="ui_local.h.html#(anonymous)::cursor" title='(anonymous struct)::cursor' data-ref="(anonymous)::cursor">cursor</a> &lt; <a class="local col8 ref" href="#18len" title='len' data-ref="18len">len</a> ) {</td></tr>
+<tr><th id="152">152</th><td>			<a class="ref" href="../../../include/string.h.html#memmove" title='memmove' data-ref="memmove">memmove</a>( <a class="local col6 ref" href="#16edit" title='edit' data-ref="16edit">edit</a>-&gt;<a class="ref" href="ui_local.h.html#(anonymous)::buffer" title='(anonymous struct)::buffer' data-ref="(anonymous)::buffer">buffer</a> + <a class="local col6 ref" href="#16edit" title='edit' data-ref="16edit">edit</a>-&gt;<a class="ref" href="ui_local.h.html#(anonymous)::cursor" title='(anonymous struct)::cursor' data-ref="(anonymous)::cursor">cursor</a>, </td></tr>
+<tr><th id="153">153</th><td>				<a class="local col6 ref" href="#16edit" title='edit' data-ref="16edit">edit</a>-&gt;<a class="ref" href="ui_local.h.html#(anonymous)::buffer" title='(anonymous struct)::buffer' data-ref="(anonymous)::buffer">buffer</a> + <a class="local col6 ref" href="#16edit" title='edit' data-ref="16edit">edit</a>-&gt;<a class="ref" href="ui_local.h.html#(anonymous)::cursor" title='(anonymous struct)::cursor' data-ref="(anonymous)::cursor">cursor</a> + <var>1</var>, <a class="local col8 ref" href="#18len" title='len' data-ref="18len">len</a> - <a class="local col6 ref" href="#16edit" title='edit' data-ref="16edit">edit</a>-&gt;<a class="ref" href="ui_local.h.html#(anonymous)::cursor" title='(anonymous struct)::cursor' data-ref="(anonymous)::cursor">cursor</a> );</td></tr>
+<tr><th id="154">154</th><td>		}</td></tr>
+<tr><th id="155">155</th><td>		<b>return</b>;</td></tr>
+<tr><th id="156">156</th><td>	}</td></tr>
+<tr><th id="157">157</th><td></td></tr>
+<tr><th id="158">158</th><td>	<b>if</b> ( <a class="local col7 ref" href="#17key" title='key' data-ref="17key">key</a> == <a class="enum" href="../client/keycodes.h.html#K_RIGHTARROW" title='K_RIGHTARROW' data-ref="K_RIGHTARROW">K_RIGHTARROW</a> || <a class="local col7 ref" href="#17key" title='key' data-ref="17key">key</a> == <a class="enum" href="../client/keycodes.h.html#K_KP_RIGHTARROW" title='K_KP_RIGHTARROW' data-ref="K_KP_RIGHTARROW">K_KP_RIGHTARROW</a> ) </td></tr>
+<tr><th id="159">159</th><td>	{</td></tr>
+<tr><th id="160">160</th><td>		<b>if</b> ( <a class="local col6 ref" href="#16edit" title='edit' data-ref="16edit">edit</a>-&gt;<a class="ref" href="ui_local.h.html#(anonymous)::cursor" title='(anonymous struct)::cursor' data-ref="(anonymous)::cursor">cursor</a> &lt; <a class="local col8 ref" href="#18len" title='len' data-ref="18len">len</a> ) {</td></tr>
+<tr><th id="161">161</th><td>			<a class="local col6 ref" href="#16edit" title='edit' data-ref="16edit">edit</a>-&gt;<a class="ref" href="ui_local.h.html#(anonymous)::cursor" title='(anonymous struct)::cursor' data-ref="(anonymous)::cursor">cursor</a>++;</td></tr>
+<tr><th id="162">162</th><td>		}</td></tr>
+<tr><th id="163">163</th><td>		<b>if</b> ( <a class="local col6 ref" href="#16edit" title='edit' data-ref="16edit">edit</a>-&gt;<a class="ref" href="ui_local.h.html#(anonymous)::cursor" title='(anonymous struct)::cursor' data-ref="(anonymous)::cursor">cursor</a> &gt;= <a class="local col6 ref" href="#16edit" title='edit' data-ref="16edit">edit</a>-&gt;<a class="ref" href="ui_local.h.html#(anonymous)::scroll" title='(anonymous struct)::scroll' data-ref="(anonymous)::scroll">scroll</a> + <a class="local col6 ref" href="#16edit" title='edit' data-ref="16edit">edit</a>-&gt;<a class="ref" href="ui_local.h.html#(anonymous)::widthInChars" title='(anonymous struct)::widthInChars' data-ref="(anonymous)::widthInChars">widthInChars</a> &amp;&amp; <a class="local col6 ref" href="#16edit" title='edit' data-ref="16edit">edit</a>-&gt;<a class="ref" href="ui_local.h.html#(anonymous)::cursor" title='(anonymous struct)::cursor' data-ref="(anonymous)::cursor">cursor</a> &lt;= <a class="local col8 ref" href="#18len" title='len' data-ref="18len">len</a> )</td></tr>
+<tr><th id="164">164</th><td>		{</td></tr>
+<tr><th id="165">165</th><td>			<a class="local col6 ref" href="#16edit" title='edit' data-ref="16edit">edit</a>-&gt;<a class="ref" href="ui_local.h.html#(anonymous)::scroll" title='(anonymous struct)::scroll' data-ref="(anonymous)::scroll">scroll</a>++;</td></tr>
+<tr><th id="166">166</th><td>		}</td></tr>
+<tr><th id="167">167</th><td>		<b>return</b>;</td></tr>
+<tr><th id="168">168</th><td>	}</td></tr>
+<tr><th id="169">169</th><td></td></tr>
+<tr><th id="170">170</th><td>	<b>if</b> ( <a class="local col7 ref" href="#17key" title='key' data-ref="17key">key</a> == <a class="enum" href="../client/keycodes.h.html#K_LEFTARROW" title='K_LEFTARROW' data-ref="K_LEFTARROW">K_LEFTARROW</a> || <a class="local col7 ref" href="#17key" title='key' data-ref="17key">key</a> == <a class="enum" href="../client/keycodes.h.html#K_KP_LEFTARROW" title='K_KP_LEFTARROW' data-ref="K_KP_LEFTARROW">K_KP_LEFTARROW</a> ) </td></tr>
+<tr><th id="171">171</th><td>	{</td></tr>
+<tr><th id="172">172</th><td>		<b>if</b> ( <a class="local col6 ref" href="#16edit" title='edit' data-ref="16edit">edit</a>-&gt;<a class="ref" href="ui_local.h.html#(anonymous)::cursor" title='(anonymous struct)::cursor' data-ref="(anonymous)::cursor">cursor</a> &gt; <var>0</var> ) {</td></tr>
+<tr><th id="173">173</th><td>			<a class="local col6 ref" href="#16edit" title='edit' data-ref="16edit">edit</a>-&gt;<a class="ref" href="ui_local.h.html#(anonymous)::cursor" title='(anonymous struct)::cursor' data-ref="(anonymous)::cursor">cursor</a>--;</td></tr>
+<tr><th id="174">174</th><td>		}</td></tr>
+<tr><th id="175">175</th><td>		<b>if</b> ( <a class="local col6 ref" href="#16edit" title='edit' data-ref="16edit">edit</a>-&gt;<a class="ref" href="ui_local.h.html#(anonymous)::cursor" title='(anonymous struct)::cursor' data-ref="(anonymous)::cursor">cursor</a> &lt; <a class="local col6 ref" href="#16edit" title='edit' data-ref="16edit">edit</a>-&gt;<a class="ref" href="ui_local.h.html#(anonymous)::scroll" title='(anonymous struct)::scroll' data-ref="(anonymous)::scroll">scroll</a> )</td></tr>
+<tr><th id="176">176</th><td>		{</td></tr>
+<tr><th id="177">177</th><td>			<a class="local col6 ref" href="#16edit" title='edit' data-ref="16edit">edit</a>-&gt;<a class="ref" href="ui_local.h.html#(anonymous)::scroll" title='(anonymous struct)::scroll' data-ref="(anonymous)::scroll">scroll</a>--;</td></tr>
+<tr><th id="178">178</th><td>		}</td></tr>
+<tr><th id="179">179</th><td>		<b>return</b>;</td></tr>
+<tr><th id="180">180</th><td>	}</td></tr>
+<tr><th id="181">181</th><td></td></tr>
+<tr><th id="182">182</th><td>	<b>if</b> ( <a class="local col7 ref" href="#17key" title='key' data-ref="17key">key</a> == <a class="enum" href="../client/keycodes.h.html#K_HOME" title='K_HOME' data-ref="K_HOME">K_HOME</a> || <a class="local col7 ref" href="#17key" title='key' data-ref="17key">key</a> == <a class="enum" href="../client/keycodes.h.html#K_KP_HOME" title='K_KP_HOME' data-ref="K_KP_HOME">K_KP_HOME</a> || ( <a class="macro" href="../../../include/ctype.h.html#228" title="(__extension__ ({ int __res; if (sizeof (key) &gt; 1) { if (__builtin_constant_p (key)) { int __c = (key); __res = __c &lt; -128 || __c &gt; 255 ? __c : (*__ctype_tolower_loc ())[__c]; } else __res = tolower (key); } else __res = (*__ctype_tolower_loc ())[(int) (key)]; __res; }))" data-ref="_M/tolower">tolower</a>(<a class="local col7 ref" href="#17key" title='key' data-ref="17key">key</a>) == <kbd>'a'</kbd> &amp;&amp; <a class="ref" href="ui_local.h.html#trap_Key_IsDown" title='trap_Key_IsDown' data-ref="trap_Key_IsDown">trap_Key_IsDown</a>( <a class="enum" href="../client/keycodes.h.html#K_CTRL" title='K_CTRL' data-ref="K_CTRL">K_CTRL</a> ) ) ) {</td></tr>
+<tr><th id="183">183</th><td>		<a class="local col6 ref" href="#16edit" title='edit' data-ref="16edit">edit</a>-&gt;<a class="ref" href="ui_local.h.html#(anonymous)::cursor" title='(anonymous struct)::cursor' data-ref="(anonymous)::cursor">cursor</a> = <var>0</var>;</td></tr>
+<tr><th id="184">184</th><td>		<a class="local col6 ref" href="#16edit" title='edit' data-ref="16edit">edit</a>-&gt;<a class="ref" href="ui_local.h.html#(anonymous)::scroll" title='(anonymous struct)::scroll' data-ref="(anonymous)::scroll">scroll</a> = <var>0</var>;</td></tr>
+<tr><th id="185">185</th><td>		<b>return</b>;</td></tr>
+<tr><th id="186">186</th><td>	}</td></tr>
+<tr><th id="187">187</th><td></td></tr>
+<tr><th id="188">188</th><td>	<b>if</b> ( <a class="local col7 ref" href="#17key" title='key' data-ref="17key">key</a> == <a class="enum" href="../client/keycodes.h.html#K_END" title='K_END' data-ref="K_END">K_END</a> || <a class="local col7 ref" href="#17key" title='key' data-ref="17key">key</a> == <a class="enum" href="../client/keycodes.h.html#K_KP_END" title='K_KP_END' data-ref="K_KP_END">K_KP_END</a> || ( <a class="macro" href="../../../include/ctype.h.html#228" title="(__extension__ ({ int __res; if (sizeof (key) &gt; 1) { if (__builtin_constant_p (key)) { int __c = (key); __res = __c &lt; -128 || __c &gt; 255 ? __c : (*__ctype_tolower_loc ())[__c]; } else __res = tolower (key); } else __res = (*__ctype_tolower_loc ())[(int) (key)]; __res; }))" data-ref="_M/tolower">tolower</a>(<a class="local col7 ref" href="#17key" title='key' data-ref="17key">key</a>) == <kbd>'e'</kbd> &amp;&amp; <a class="ref" href="ui_local.h.html#trap_Key_IsDown" title='trap_Key_IsDown' data-ref="trap_Key_IsDown">trap_Key_IsDown</a>( <a class="enum" href="../client/keycodes.h.html#K_CTRL" title='K_CTRL' data-ref="K_CTRL">K_CTRL</a> ) ) ) {</td></tr>
+<tr><th id="189">189</th><td>		<a class="local col6 ref" href="#16edit" title='edit' data-ref="16edit">edit</a>-&gt;<a class="ref" href="ui_local.h.html#(anonymous)::cursor" title='(anonymous struct)::cursor' data-ref="(anonymous)::cursor">cursor</a> = <a class="local col8 ref" href="#18len" title='len' data-ref="18len">len</a>;</td></tr>
+<tr><th id="190">190</th><td>		<a class="local col6 ref" href="#16edit" title='edit' data-ref="16edit">edit</a>-&gt;<a class="ref" href="ui_local.h.html#(anonymous)::scroll" title='(anonymous struct)::scroll' data-ref="(anonymous)::scroll">scroll</a> = <a class="local col8 ref" href="#18len" title='len' data-ref="18len">len</a> - <a class="local col6 ref" href="#16edit" title='edit' data-ref="16edit">edit</a>-&gt;<a class="ref" href="ui_local.h.html#(anonymous)::widthInChars" title='(anonymous struct)::widthInChars' data-ref="(anonymous)::widthInChars">widthInChars</a> + <var>1</var>;</td></tr>
+<tr><th id="191">191</th><td>		<b>if</b> (<a class="local col6 ref" href="#16edit" title='edit' data-ref="16edit">edit</a>-&gt;<a class="ref" href="ui_local.h.html#(anonymous)::scroll" title='(anonymous struct)::scroll' data-ref="(anonymous)::scroll">scroll</a> &lt; <var>0</var>)</td></tr>
+<tr><th id="192">192</th><td>			<a class="local col6 ref" href="#16edit" title='edit' data-ref="16edit">edit</a>-&gt;<a class="ref" href="ui_local.h.html#(anonymous)::scroll" title='(anonymous struct)::scroll' data-ref="(anonymous)::scroll">scroll</a> = <var>0</var>;</td></tr>
+<tr><th id="193">193</th><td>		<b>return</b>;</td></tr>
+<tr><th id="194">194</th><td>	}</td></tr>
+<tr><th id="195">195</th><td></td></tr>
+<tr><th id="196">196</th><td>	<b>if</b> ( <a class="local col7 ref" href="#17key" title='key' data-ref="17key">key</a> == <a class="enum" href="../client/keycodes.h.html#K_INS" title='K_INS' data-ref="K_INS">K_INS</a> || <a class="local col7 ref" href="#17key" title='key' data-ref="17key">key</a> == <a class="enum" href="../client/keycodes.h.html#K_KP_INS" title='K_KP_INS' data-ref="K_KP_INS">K_KP_INS</a> ) {</td></tr>
+<tr><th id="197">197</th><td>		<a class="ref" href="ui_local.h.html#trap_Key_SetOverstrikeMode" title='trap_Key_SetOverstrikeMode' data-ref="trap_Key_SetOverstrikeMode">trap_Key_SetOverstrikeMode</a>( !<a class="ref" href="ui_local.h.html#trap_Key_GetOverstrikeMode" title='trap_Key_GetOverstrikeMode' data-ref="trap_Key_GetOverstrikeMode">trap_Key_GetOverstrikeMode</a>() );</td></tr>
+<tr><th id="198">198</th><td>		<b>return</b>;</td></tr>
+<tr><th id="199">199</th><td>	}</td></tr>
+<tr><th id="200">200</th><td>}</td></tr>
+<tr><th id="201">201</th><td></td></tr>
+<tr><th id="202">202</th><td><i>/*</i></td></tr>
+<tr><th id="203">203</th><td><i>==================</i></td></tr>
+<tr><th id="204">204</th><td><i>MField_CharEvent</i></td></tr>
+<tr><th id="205">205</th><td><i>==================</i></td></tr>
+<tr><th id="206">206</th><td><i>*/</i></td></tr>
+<tr><th id="207">207</th><td><em>void</em> <dfn class="decl def" id="MField_CharEvent" title='MField_CharEvent' data-ref="MField_CharEvent">MField_CharEvent</dfn>( <a class="typedef" href="ui_local.h.html#mfield_t" title='mfield_t' data-type='struct mfield_t' data-ref="mfield_t">mfield_t</a> *<dfn class="local col9 decl" id="19edit" title='edit' data-type='mfield_t *' data-ref="19edit">edit</dfn>, <em>int</em> <dfn class="local col0 decl" id="20ch" title='ch' data-type='int' data-ref="20ch">ch</dfn> ) {</td></tr>
+<tr><th id="208">208</th><td>	<em>int</em>		<dfn class="local col1 decl" id="21len" title='len' data-type='int' data-ref="21len">len</dfn>;</td></tr>
+<tr><th id="209">209</th><td></td></tr>
+<tr><th id="210">210</th><td>	<b>if</b> ( <a class="local col0 ref" href="#20ch" title='ch' data-ref="20ch">ch</a> == <kbd>'v'</kbd> - <kbd>'a'</kbd> + <var>1</var> ) {	<i>// ctrl-v is paste</i></td></tr>
+<tr><th id="211">211</th><td>		<a class="ref" href="#MField_Paste" title='MField_Paste' data-ref="MField_Paste">MField_Paste</a>( <a class="local col9 ref" href="#19edit" title='edit' data-ref="19edit">edit</a> );</td></tr>
+<tr><th id="212">212</th><td>		<b>return</b>;</td></tr>
+<tr><th id="213">213</th><td>	}</td></tr>
+<tr><th id="214">214</th><td></td></tr>
+<tr><th id="215">215</th><td>	<b>if</b> ( <a class="local col0 ref" href="#20ch" title='ch' data-ref="20ch">ch</a> == <kbd>'c'</kbd> - <kbd>'a'</kbd> + <var>1</var> ) {	<i>// ctrl-c clears the field</i></td></tr>
+<tr><th id="216">216</th><td>		<a class="ref" href="#MField_Clear" title='MField_Clear' data-ref="MField_Clear">MField_Clear</a>( <a class="local col9 ref" href="#19edit" title='edit' data-ref="19edit">edit</a> );</td></tr>
+<tr><th id="217">217</th><td>		<b>return</b>;</td></tr>
+<tr><th id="218">218</th><td>	}</td></tr>
+<tr><th id="219">219</th><td></td></tr>
+<tr><th id="220">220</th><td>	<a class="local col1 ref" href="#21len" title='len' data-ref="21len">len</a> = <a class="ref" href="../../../include/string.h.html#strlen" title='strlen' data-ref="strlen">strlen</a>( <a class="local col9 ref" href="#19edit" title='edit' data-ref="19edit">edit</a>-&gt;<a class="ref" href="ui_local.h.html#(anonymous)::buffer" title='(anonymous struct)::buffer' data-ref="(anonymous)::buffer">buffer</a> );</td></tr>
+<tr><th id="221">221</th><td></td></tr>
+<tr><th id="222">222</th><td>	<b>if</b> ( <a class="local col0 ref" href="#20ch" title='ch' data-ref="20ch">ch</a> == <kbd>'h'</kbd> - <kbd>'a'</kbd> + <var>1</var> )	{	<i>// ctrl-h is backspace</i></td></tr>
+<tr><th id="223">223</th><td>		<b>if</b> ( <a class="local col9 ref" href="#19edit" title='edit' data-ref="19edit">edit</a>-&gt;<a class="ref" href="ui_local.h.html#(anonymous)::cursor" title='(anonymous struct)::cursor' data-ref="(anonymous)::cursor">cursor</a> &gt; <var>0</var> ) {</td></tr>
+<tr><th id="224">224</th><td>			<a class="ref" href="../../../include/string.h.html#memmove" title='memmove' data-ref="memmove">memmove</a>( <a class="local col9 ref" href="#19edit" title='edit' data-ref="19edit">edit</a>-&gt;<a class="ref" href="ui_local.h.html#(anonymous)::buffer" title='(anonymous struct)::buffer' data-ref="(anonymous)::buffer">buffer</a> + <a class="local col9 ref" href="#19edit" title='edit' data-ref="19edit">edit</a>-&gt;<a class="ref" href="ui_local.h.html#(anonymous)::cursor" title='(anonymous struct)::cursor' data-ref="(anonymous)::cursor">cursor</a> - <var>1</var>, </td></tr>
+<tr><th id="225">225</th><td>				<a class="local col9 ref" href="#19edit" title='edit' data-ref="19edit">edit</a>-&gt;<a class="ref" href="ui_local.h.html#(anonymous)::buffer" title='(anonymous struct)::buffer' data-ref="(anonymous)::buffer">buffer</a> + <a class="local col9 ref" href="#19edit" title='edit' data-ref="19edit">edit</a>-&gt;<a class="ref" href="ui_local.h.html#(anonymous)::cursor" title='(anonymous struct)::cursor' data-ref="(anonymous)::cursor">cursor</a>, <a class="local col1 ref" href="#21len" title='len' data-ref="21len">len</a> + <var>1</var> - <a class="local col9 ref" href="#19edit" title='edit' data-ref="19edit">edit</a>-&gt;<a class="ref" href="ui_local.h.html#(anonymous)::cursor" title='(anonymous struct)::cursor' data-ref="(anonymous)::cursor">cursor</a> );</td></tr>
+<tr><th id="226">226</th><td>			<a class="local col9 ref" href="#19edit" title='edit' data-ref="19edit">edit</a>-&gt;<a class="ref" href="ui_local.h.html#(anonymous)::cursor" title='(anonymous struct)::cursor' data-ref="(anonymous)::cursor">cursor</a>--;</td></tr>
+<tr><th id="227">227</th><td>			<b>if</b> ( <a class="local col9 ref" href="#19edit" title='edit' data-ref="19edit">edit</a>-&gt;<a class="ref" href="ui_local.h.html#(anonymous)::cursor" title='(anonymous struct)::cursor' data-ref="(anonymous)::cursor">cursor</a> &lt; <a class="local col9 ref" href="#19edit" title='edit' data-ref="19edit">edit</a>-&gt;<a class="ref" href="ui_local.h.html#(anonymous)::scroll" title='(anonymous struct)::scroll' data-ref="(anonymous)::scroll">scroll</a> )</td></tr>
+<tr><th id="228">228</th><td>			{</td></tr>
+<tr><th id="229">229</th><td>				<a class="local col9 ref" href="#19edit" title='edit' data-ref="19edit">edit</a>-&gt;<a class="ref" href="ui_local.h.html#(anonymous)::scroll" title='(anonymous struct)::scroll' data-ref="(anonymous)::scroll">scroll</a>--;</td></tr>
+<tr><th id="230">230</th><td>			}</td></tr>
+<tr><th id="231">231</th><td>		}</td></tr>
+<tr><th id="232">232</th><td>		<b>return</b>;</td></tr>
+<tr><th id="233">233</th><td>	}</td></tr>
+<tr><th id="234">234</th><td></td></tr>
+<tr><th id="235">235</th><td>	<b>if</b> ( <a class="local col0 ref" href="#20ch" title='ch' data-ref="20ch">ch</a> == <kbd>'a'</kbd> - <kbd>'a'</kbd> + <var>1</var> ) {	<i>// ctrl-a is home</i></td></tr>
+<tr><th id="236">236</th><td>		<a class="local col9 ref" href="#19edit" title='edit' data-ref="19edit">edit</a>-&gt;<a class="ref" href="ui_local.h.html#(anonymous)::cursor" title='(anonymous struct)::cursor' data-ref="(anonymous)::cursor">cursor</a> = <var>0</var>;</td></tr>
+<tr><th id="237">237</th><td>		<a class="local col9 ref" href="#19edit" title='edit' data-ref="19edit">edit</a>-&gt;<a class="ref" href="ui_local.h.html#(anonymous)::scroll" title='(anonymous struct)::scroll' data-ref="(anonymous)::scroll">scroll</a> = <var>0</var>;</td></tr>
+<tr><th id="238">238</th><td>		<b>return</b>;</td></tr>
+<tr><th id="239">239</th><td>	}</td></tr>
+<tr><th id="240">240</th><td></td></tr>
+<tr><th id="241">241</th><td>	<b>if</b> ( <a class="local col0 ref" href="#20ch" title='ch' data-ref="20ch">ch</a> == <kbd>'e'</kbd> - <kbd>'a'</kbd> + <var>1</var> ) {	<i>// ctrl-e is end</i></td></tr>
+<tr><th id="242">242</th><td>		<a class="local col9 ref" href="#19edit" title='edit' data-ref="19edit">edit</a>-&gt;<a class="ref" href="ui_local.h.html#(anonymous)::cursor" title='(anonymous struct)::cursor' data-ref="(anonymous)::cursor">cursor</a> = <a class="local col1 ref" href="#21len" title='len' data-ref="21len">len</a>;</td></tr>
+<tr><th id="243">243</th><td>		<a class="local col9 ref" href="#19edit" title='edit' data-ref="19edit">edit</a>-&gt;<a class="ref" href="ui_local.h.html#(anonymous)::scroll" title='(anonymous struct)::scroll' data-ref="(anonymous)::scroll">scroll</a> = <a class="local col9 ref" href="#19edit" title='edit' data-ref="19edit">edit</a>-&gt;<a class="ref" href="ui_local.h.html#(anonymous)::cursor" title='(anonymous struct)::cursor' data-ref="(anonymous)::cursor">cursor</a> - <a class="local col9 ref" href="#19edit" title='edit' data-ref="19edit">edit</a>-&gt;<a class="ref" href="ui_local.h.html#(anonymous)::widthInChars" title='(anonymous struct)::widthInChars' data-ref="(anonymous)::widthInChars">widthInChars</a> + <var>1</var>;</td></tr>
+<tr><th id="244">244</th><td>		<b>if</b> (<a class="local col9 ref" href="#19edit" title='edit' data-ref="19edit">edit</a>-&gt;<a class="ref" href="ui_local.h.html#(anonymous)::scroll" title='(anonymous struct)::scroll' data-ref="(anonymous)::scroll">scroll</a> &lt; <var>0</var>)</td></tr>
+<tr><th id="245">245</th><td>			<a class="local col9 ref" href="#19edit" title='edit' data-ref="19edit">edit</a>-&gt;<a class="ref" href="ui_local.h.html#(anonymous)::scroll" title='(anonymous struct)::scroll' data-ref="(anonymous)::scroll">scroll</a> = <var>0</var>;</td></tr>
+<tr><th id="246">246</th><td>		<b>return</b>;</td></tr>
+<tr><th id="247">247</th><td>	}</td></tr>
+<tr><th id="248">248</th><td></td></tr>
+<tr><th id="249">249</th><td>	<i>//</i></td></tr>
+<tr><th id="250">250</th><td><i>	// ignore any other non printable chars</i></td></tr>
+<tr><th id="251">251</th><td><i>	//</i></td></tr>
+<tr><th id="252">252</th><td>	<b>if</b> ( <a class="local col0 ref" href="#20ch" title='ch' data-ref="20ch">ch</a> &lt; <var>32</var> ) {</td></tr>
+<tr><th id="253">253</th><td>		<b>return</b>;</td></tr>
+<tr><th id="254">254</th><td>	}</td></tr>
+<tr><th id="255">255</th><td></td></tr>
+<tr><th id="256">256</th><td>	<b>if</b> ( <a class="ref" href="ui_local.h.html#trap_Key_GetOverstrikeMode" title='trap_Key_GetOverstrikeMode' data-ref="trap_Key_GetOverstrikeMode">trap_Key_GetOverstrikeMode</a>() ) {</td></tr>
+<tr><th id="257">257</th><td>		<b>if</b> ((<a class="local col9 ref" href="#19edit" title='edit' data-ref="19edit">edit</a>-&gt;<a class="ref" href="ui_local.h.html#(anonymous)::cursor" title='(anonymous struct)::cursor' data-ref="(anonymous)::cursor">cursor</a> == <a class="macro" href="ui_local.h.html#106" title="256" data-ref="_M/MAX_EDIT_LINE">MAX_EDIT_LINE</a> - <var>1</var>) || (<a class="local col9 ref" href="#19edit" title='edit' data-ref="19edit">edit</a>-&gt;<a class="ref" href="ui_local.h.html#(anonymous)::maxchars" title='(anonymous struct)::maxchars' data-ref="(anonymous)::maxchars">maxchars</a> &amp;&amp; <a class="local col9 ref" href="#19edit" title='edit' data-ref="19edit">edit</a>-&gt;<a class="ref" href="ui_local.h.html#(anonymous)::cursor" title='(anonymous struct)::cursor' data-ref="(anonymous)::cursor">cursor</a> &gt;= <a class="local col9 ref" href="#19edit" title='edit' data-ref="19edit">edit</a>-&gt;<a class="ref" href="ui_local.h.html#(anonymous)::maxchars" title='(anonymous struct)::maxchars' data-ref="(anonymous)::maxchars">maxchars</a>))</td></tr>
+<tr><th id="258">258</th><td>			<b>return</b>;</td></tr>
+<tr><th id="259">259</th><td>	} <b>else</b> {</td></tr>
+<tr><th id="260">260</th><td>		<i>// insert mode</i></td></tr>
+<tr><th id="261">261</th><td>		<b>if</b> (( <a class="local col1 ref" href="#21len" title='len' data-ref="21len">len</a> == <a class="macro" href="ui_local.h.html#106" title="256" data-ref="_M/MAX_EDIT_LINE">MAX_EDIT_LINE</a> - <var>1</var> ) || (<a class="local col9 ref" href="#19edit" title='edit' data-ref="19edit">edit</a>-&gt;<a class="ref" href="ui_local.h.html#(anonymous)::maxchars" title='(anonymous struct)::maxchars' data-ref="(anonymous)::maxchars">maxchars</a> &amp;&amp; <a class="local col1 ref" href="#21len" title='len' data-ref="21len">len</a> &gt;= <a class="local col9 ref" href="#19edit" title='edit' data-ref="19edit">edit</a>-&gt;<a class="ref" href="ui_local.h.html#(anonymous)::maxchars" title='(anonymous struct)::maxchars' data-ref="(anonymous)::maxchars">maxchars</a>))</td></tr>
+<tr><th id="262">262</th><td>			<b>return</b>;</td></tr>
+<tr><th id="263">263</th><td>		<a class="ref" href="../../../include/string.h.html#memmove" title='memmove' data-ref="memmove">memmove</a>( <a class="local col9 ref" href="#19edit" title='edit' data-ref="19edit">edit</a>-&gt;<a class="ref" href="ui_local.h.html#(anonymous)::buffer" title='(anonymous struct)::buffer' data-ref="(anonymous)::buffer">buffer</a> + <a class="local col9 ref" href="#19edit" title='edit' data-ref="19edit">edit</a>-&gt;<a class="ref" href="ui_local.h.html#(anonymous)::cursor" title='(anonymous struct)::cursor' data-ref="(anonymous)::cursor">cursor</a> + <var>1</var>, <a class="local col9 ref" href="#19edit" title='edit' data-ref="19edit">edit</a>-&gt;<a class="ref" href="ui_local.h.html#(anonymous)::buffer" title='(anonymous struct)::buffer' data-ref="(anonymous)::buffer">buffer</a> + <a class="local col9 ref" href="#19edit" title='edit' data-ref="19edit">edit</a>-&gt;<a class="ref" href="ui_local.h.html#(anonymous)::cursor" title='(anonymous struct)::cursor' data-ref="(anonymous)::cursor">cursor</a>, <a class="local col1 ref" href="#21len" title='len' data-ref="21len">len</a> + <var>1</var> - <a class="local col9 ref" href="#19edit" title='edit' data-ref="19edit">edit</a>-&gt;<a class="ref" href="ui_local.h.html#(anonymous)::cursor" title='(anonymous struct)::cursor' data-ref="(anonymous)::cursor">cursor</a> );</td></tr>
+<tr><th id="264">264</th><td>	}</td></tr>
+<tr><th id="265">265</th><td></td></tr>
+<tr><th id="266">266</th><td>	<a class="local col9 ref" href="#19edit" title='edit' data-ref="19edit">edit</a>-&gt;<a class="ref" href="ui_local.h.html#(anonymous)::buffer" title='(anonymous struct)::buffer' data-ref="(anonymous)::buffer">buffer</a>[<a class="local col9 ref" href="#19edit" title='edit' data-ref="19edit">edit</a>-&gt;<a class="ref" href="ui_local.h.html#(anonymous)::cursor" title='(anonymous struct)::cursor' data-ref="(anonymous)::cursor">cursor</a>] = <a class="local col0 ref" href="#20ch" title='ch' data-ref="20ch">ch</a>;</td></tr>
+<tr><th id="267">267</th><td>	<b>if</b> (!<a class="local col9 ref" href="#19edit" title='edit' data-ref="19edit">edit</a>-&gt;<a class="ref" href="ui_local.h.html#(anonymous)::maxchars" title='(anonymous struct)::maxchars' data-ref="(anonymous)::maxchars">maxchars</a> || <a class="local col9 ref" href="#19edit" title='edit' data-ref="19edit">edit</a>-&gt;<a class="ref" href="ui_local.h.html#(anonymous)::cursor" title='(anonymous struct)::cursor' data-ref="(anonymous)::cursor">cursor</a> &lt; <a class="local col9 ref" href="#19edit" title='edit' data-ref="19edit">edit</a>-&gt;<a class="ref" href="ui_local.h.html#(anonymous)::maxchars" title='(anonymous struct)::maxchars' data-ref="(anonymous)::maxchars">maxchars</a>-<var>1</var>)</td></tr>
+<tr><th id="268">268</th><td>		<a class="local col9 ref" href="#19edit" title='edit' data-ref="19edit">edit</a>-&gt;<a class="ref" href="ui_local.h.html#(anonymous)::cursor" title='(anonymous struct)::cursor' data-ref="(anonymous)::cursor">cursor</a>++;</td></tr>
+<tr><th id="269">269</th><td></td></tr>
+<tr><th id="270">270</th><td>	<b>if</b> ( <a class="local col9 ref" href="#19edit" title='edit' data-ref="19edit">edit</a>-&gt;<a class="ref" href="ui_local.h.html#(anonymous)::cursor" title='(anonymous struct)::cursor' data-ref="(anonymous)::cursor">cursor</a> &gt;= <a class="local col9 ref" href="#19edit" title='edit' data-ref="19edit">edit</a>-&gt;<a class="ref" href="ui_local.h.html#(anonymous)::widthInChars" title='(anonymous struct)::widthInChars' data-ref="(anonymous)::widthInChars">widthInChars</a> )</td></tr>
+<tr><th id="271">271</th><td>	{</td></tr>
+<tr><th id="272">272</th><td>		<a class="local col9 ref" href="#19edit" title='edit' data-ref="19edit">edit</a>-&gt;<a class="ref" href="ui_local.h.html#(anonymous)::scroll" title='(anonymous struct)::scroll' data-ref="(anonymous)::scroll">scroll</a>++;</td></tr>
+<tr><th id="273">273</th><td>	}</td></tr>
+<tr><th id="274">274</th><td></td></tr>
+<tr><th id="275">275</th><td>	<b>if</b> ( <a class="local col9 ref" href="#19edit" title='edit' data-ref="19edit">edit</a>-&gt;<a class="ref" href="ui_local.h.html#(anonymous)::cursor" title='(anonymous struct)::cursor' data-ref="(anonymous)::cursor">cursor</a> == <a class="local col1 ref" href="#21len" title='len' data-ref="21len">len</a> + <var>1</var>) {</td></tr>
+<tr><th id="276">276</th><td>		<a class="local col9 ref" href="#19edit" title='edit' data-ref="19edit">edit</a>-&gt;<a class="ref" href="ui_local.h.html#(anonymous)::buffer" title='(anonymous struct)::buffer' data-ref="(anonymous)::buffer">buffer</a>[<a class="local col9 ref" href="#19edit" title='edit' data-ref="19edit">edit</a>-&gt;<a class="ref" href="ui_local.h.html#(anonymous)::cursor" title='(anonymous struct)::cursor' data-ref="(anonymous)::cursor">cursor</a>] = <var>0</var>;</td></tr>
+<tr><th id="277">277</th><td>	}</td></tr>
+<tr><th id="278">278</th><td>}</td></tr>
+<tr><th id="279">279</th><td></td></tr>
+<tr><th id="280">280</th><td><i>/*</i></td></tr>
+<tr><th id="281">281</th><td><i>==================</i></td></tr>
+<tr><th id="282">282</th><td><i>MField_Clear</i></td></tr>
+<tr><th id="283">283</th><td><i>==================</i></td></tr>
+<tr><th id="284">284</th><td><i>*/</i></td></tr>
+<tr><th id="285">285</th><td><em>void</em> <dfn class="decl def" id="MField_Clear" title='MField_Clear' data-ref="MField_Clear">MField_Clear</dfn>( <a class="typedef" href="ui_local.h.html#mfield_t" title='mfield_t' data-type='struct mfield_t' data-ref="mfield_t">mfield_t</a> *<dfn class="local col2 decl" id="22edit" title='edit' data-type='mfield_t *' data-ref="22edit">edit</dfn> ) {</td></tr>
+<tr><th id="286">286</th><td>	<a class="local col2 ref" href="#22edit" title='edit' data-ref="22edit">edit</a>-&gt;<a class="ref" href="ui_local.h.html#(anonymous)::buffer" title='(anonymous struct)::buffer' data-ref="(anonymous)::buffer">buffer</a>[<var>0</var>] = <var>0</var>;</td></tr>
+<tr><th id="287">287</th><td>	<a class="local col2 ref" href="#22edit" title='edit' data-ref="22edit">edit</a>-&gt;<a class="ref" href="ui_local.h.html#(anonymous)::cursor" title='(anonymous struct)::cursor' data-ref="(anonymous)::cursor">cursor</a> = <var>0</var>;</td></tr>
+<tr><th id="288">288</th><td>	<a class="local col2 ref" href="#22edit" title='edit' data-ref="22edit">edit</a>-&gt;<a class="ref" href="ui_local.h.html#(anonymous)::scroll" title='(anonymous struct)::scroll' data-ref="(anonymous)::scroll">scroll</a> = <var>0</var>;</td></tr>
+<tr><th id="289">289</th><td>}</td></tr>
+<tr><th id="290">290</th><td></td></tr>
+<tr><th id="291">291</th><td><i>/*</i></td></tr>
+<tr><th id="292">292</th><td><i>==================</i></td></tr>
+<tr><th id="293">293</th><td><i>MenuField_Init</i></td></tr>
+<tr><th id="294">294</th><td><i>==================</i></td></tr>
+<tr><th id="295">295</th><td><i>*/</i></td></tr>
+<tr><th id="296">296</th><td><em>void</em> <dfn class="decl def" id="MenuField_Init" title='MenuField_Init' data-ref="MenuField_Init">MenuField_Init</dfn>( <a class="typedef" href="ui_local.h.html#menufield_s" title='menufield_s' data-type='struct menufield_s' data-ref="menufield_s">menufield_s</a>* <dfn class="local col3 decl" id="23m" title='m' data-type='menufield_s *' data-ref="23m">m</dfn> ) {</td></tr>
+<tr><th id="297">297</th><td>	<em>int</em>	<dfn class="local col4 decl" id="24l" title='l' data-type='int' data-ref="24l">l</dfn>;</td></tr>
+<tr><th id="298">298</th><td>	<em>int</em>	<dfn class="local col5 decl" id="25w" title='w' data-type='int' data-ref="25w">w</dfn>;</td></tr>
+<tr><th id="299">299</th><td>	<em>int</em>	<dfn class="local col6 decl" id="26h" title='h' data-type='int' data-ref="26h">h</dfn>;</td></tr>
+<tr><th id="300">300</th><td></td></tr>
+<tr><th id="301">301</th><td>	<a class="ref" href="#MField_Clear" title='MField_Clear' data-ref="MField_Clear">MField_Clear</a>( &amp;<a class="local col3 ref" href="#23m" title='m' data-ref="23m">m</a>-&gt;<a class="ref" href="ui_local.h.html#(anonymous)::field" title='(anonymous struct)::field' data-ref="(anonymous)::field">field</a> );</td></tr>
+<tr><th id="302">302</th><td></td></tr>
+<tr><th id="303">303</th><td>	<b>if</b> (<a class="local col3 ref" href="#23m" title='m' data-ref="23m">m</a>-&gt;<a class="ref" href="ui_local.h.html#(anonymous)::generic" title='(anonymous struct)::generic' data-ref="(anonymous)::generic">generic</a>.<a class="ref" href="ui_local.h.html#(anonymous)::flags" title='(anonymous struct)::flags' data-ref="(anonymous)::flags">flags</a> &amp; <a class="macro" href="ui_local.h.html#124" title="((unsigned int) 0x00000002)" data-ref="_M/QMF_SMALLFONT">QMF_SMALLFONT</a>)</td></tr>
+<tr><th id="304">304</th><td>	{</td></tr>
+<tr><th id="305">305</th><td>		<a class="local col5 ref" href="#25w" title='w' data-ref="25w">w</a> = <a class="macro" href="../qcommon/q_shared.h.html#387" title="8" data-ref="_M/SMALLCHAR_WIDTH">SMALLCHAR_WIDTH</a>;</td></tr>
+<tr><th id="306">306</th><td>		<a class="local col6 ref" href="#26h" title='h' data-ref="26h">h</a> = <a class="macro" href="../qcommon/q_shared.h.html#388" title="16" data-ref="_M/SMALLCHAR_HEIGHT">SMALLCHAR_HEIGHT</a>;</td></tr>
+<tr><th id="307">307</th><td>	}</td></tr>
+<tr><th id="308">308</th><td>	<b>else</b></td></tr>
+<tr><th id="309">309</th><td>	{</td></tr>
+<tr><th id="310">310</th><td>		<a class="local col5 ref" href="#25w" title='w' data-ref="25w">w</a> = <a class="macro" href="../qcommon/q_shared.h.html#390" title="16" data-ref="_M/BIGCHAR_WIDTH">BIGCHAR_WIDTH</a>;</td></tr>
+<tr><th id="311">311</th><td>		<a class="local col6 ref" href="#26h" title='h' data-ref="26h">h</a> = <a class="macro" href="../qcommon/q_shared.h.html#391" title="16" data-ref="_M/BIGCHAR_HEIGHT">BIGCHAR_HEIGHT</a>;</td></tr>
+<tr><th id="312">312</th><td>	}	</td></tr>
+<tr><th id="313">313</th><td></td></tr>
+<tr><th id="314">314</th><td>	<b>if</b> (<a class="local col3 ref" href="#23m" title='m' data-ref="23m">m</a>-&gt;<a class="ref" href="ui_local.h.html#(anonymous)::generic" title='(anonymous struct)::generic' data-ref="(anonymous)::generic">generic</a>.<a class="ref" href="ui_local.h.html#(anonymous)::name" title='(anonymous struct)::name' data-ref="(anonymous)::name">name</a>) {</td></tr>
+<tr><th id="315">315</th><td>		<a class="local col4 ref" href="#24l" title='l' data-ref="24l">l</a> = (<a class="ref" href="../../../include/string.h.html#strlen" title='strlen' data-ref="strlen">strlen</a>( <a class="local col3 ref" href="#23m" title='m' data-ref="23m">m</a>-&gt;<a class="ref" href="ui_local.h.html#(anonymous)::generic" title='(anonymous struct)::generic' data-ref="(anonymous)::generic">generic</a>.<a class="ref" href="ui_local.h.html#(anonymous)::name" title='(anonymous struct)::name' data-ref="(anonymous)::name">name</a> )+<var>1</var>) * <a class="local col5 ref" href="#25w" title='w' data-ref="25w">w</a>;		</td></tr>
+<tr><th id="316">316</th><td>	}</td></tr>
+<tr><th id="317">317</th><td>	<b>else</b> {</td></tr>
+<tr><th id="318">318</th><td>		<a class="local col4 ref" href="#24l" title='l' data-ref="24l">l</a> = <var>0</var>;</td></tr>
+<tr><th id="319">319</th><td>	}</td></tr>
+<tr><th id="320">320</th><td></td></tr>
+<tr><th id="321">321</th><td>	<a class="local col3 ref" href="#23m" title='m' data-ref="23m">m</a>-&gt;<a class="ref" href="ui_local.h.html#(anonymous)::generic" title='(anonymous struct)::generic' data-ref="(anonymous)::generic">generic</a>.<a class="ref" href="ui_local.h.html#(anonymous)::left" title='(anonymous struct)::left' data-ref="(anonymous)::left">left</a>   = <a class="local col3 ref" href="#23m" title='m' data-ref="23m">m</a>-&gt;<a class="ref" href="ui_local.h.html#(anonymous)::generic" title='(anonymous struct)::generic' data-ref="(anonymous)::generic">generic</a>.<a class="ref" href="ui_local.h.html#(anonymous)::x" title='(anonymous struct)::x' data-ref="(anonymous)::x">x</a> - <a class="local col4 ref" href="#24l" title='l' data-ref="24l">l</a>;</td></tr>
+<tr><th id="322">322</th><td>	<a class="local col3 ref" href="#23m" title='m' data-ref="23m">m</a>-&gt;<a class="ref" href="ui_local.h.html#(anonymous)::generic" title='(anonymous struct)::generic' data-ref="(anonymous)::generic">generic</a>.<a class="ref" href="ui_local.h.html#(anonymous)::top" title='(anonymous struct)::top' data-ref="(anonymous)::top">top</a>    = <a class="local col3 ref" href="#23m" title='m' data-ref="23m">m</a>-&gt;<a class="ref" href="ui_local.h.html#(anonymous)::generic" title='(anonymous struct)::generic' data-ref="(anonymous)::generic">generic</a>.<a class="ref" href="ui_local.h.html#(anonymous)::y" title='(anonymous struct)::y' data-ref="(anonymous)::y">y</a>;</td></tr>
+<tr><th id="323">323</th><td>	<a class="local col3 ref" href="#23m" title='m' data-ref="23m">m</a>-&gt;<a class="ref" href="ui_local.h.html#(anonymous)::generic" title='(anonymous struct)::generic' data-ref="(anonymous)::generic">generic</a>.<a class="ref" href="ui_local.h.html#(anonymous)::right" title='(anonymous struct)::right' data-ref="(anonymous)::right">right</a>  = <a class="local col3 ref" href="#23m" title='m' data-ref="23m">m</a>-&gt;<a class="ref" href="ui_local.h.html#(anonymous)::generic" title='(anonymous struct)::generic' data-ref="(anonymous)::generic">generic</a>.<a class="ref" href="ui_local.h.html#(anonymous)::x" title='(anonymous struct)::x' data-ref="(anonymous)::x">x</a> + <a class="local col5 ref" href="#25w" title='w' data-ref="25w">w</a> + <a class="local col3 ref" href="#23m" title='m' data-ref="23m">m</a>-&gt;<a class="ref" href="ui_local.h.html#(anonymous)::field" title='(anonymous struct)::field' data-ref="(anonymous)::field">field</a>.<a class="ref" href="ui_local.h.html#(anonymous)::widthInChars" title='(anonymous struct)::widthInChars' data-ref="(anonymous)::widthInChars">widthInChars</a>*<a class="local col5 ref" href="#25w" title='w' data-ref="25w">w</a>;</td></tr>
+<tr><th id="324">324</th><td>	<a class="local col3 ref" href="#23m" title='m' data-ref="23m">m</a>-&gt;<a class="ref" href="ui_local.h.html#(anonymous)::generic" title='(anonymous struct)::generic' data-ref="(anonymous)::generic">generic</a>.<a class="ref" href="ui_local.h.html#(anonymous)::bottom" title='(anonymous struct)::bottom' data-ref="(anonymous)::bottom">bottom</a> = <a class="local col3 ref" href="#23m" title='m' data-ref="23m">m</a>-&gt;<a class="ref" href="ui_local.h.html#(anonymous)::generic" title='(anonymous struct)::generic' data-ref="(anonymous)::generic">generic</a>.<a class="ref" href="ui_local.h.html#(anonymous)::y" title='(anonymous struct)::y' data-ref="(anonymous)::y">y</a> + <a class="local col6 ref" href="#26h" title='h' data-ref="26h">h</a>;</td></tr>
+<tr><th id="325">325</th><td>}</td></tr>
+<tr><th id="326">326</th><td></td></tr>
+<tr><th id="327">327</th><td><i>/*</i></td></tr>
+<tr><th id="328">328</th><td><i>==================</i></td></tr>
+<tr><th id="329">329</th><td><i>MenuField_Draw</i></td></tr>
+<tr><th id="330">330</th><td><i>==================</i></td></tr>
+<tr><th id="331">331</th><td><i>*/</i></td></tr>
+<tr><th id="332">332</th><td><em>void</em> <dfn class="decl def" id="MenuField_Draw" title='MenuField_Draw' data-ref="MenuField_Draw">MenuField_Draw</dfn>( <a class="typedef" href="ui_local.h.html#menufield_s" title='menufield_s' data-type='struct menufield_s' data-ref="menufield_s">menufield_s</a> *<dfn class="local col7 decl" id="27f" title='f' data-type='menufield_s *' data-ref="27f">f</dfn> )</td></tr>
+<tr><th id="333">333</th><td>{</td></tr>
+<tr><th id="334">334</th><td>	<em>int</em>		<dfn class="local col8 decl" id="28x" title='x' data-type='int' data-ref="28x">x</dfn>;</td></tr>
+<tr><th id="335">335</th><td>	<em>int</em>		<dfn class="local col9 decl" id="29y" title='y' data-type='int' data-ref="29y">y</dfn>;</td></tr>
+<tr><th id="336">336</th><td>	<em>int</em>		<dfn class="local col0 decl" id="30w" title='w' data-type='int' data-ref="30w">w</dfn>;</td></tr>
+<tr><th id="337">337</th><td>	<em>int</em>		<dfn class="local col1 decl" id="31style" title='style' data-type='int' data-ref="31style">style</dfn>;</td></tr>
+<tr><th id="338">338</th><td>	<a class="typedef" href="../qcommon/q_shared.h.html#qboolean" title='qboolean' data-type='enum qboolean' data-ref="qboolean">qboolean</a> <dfn class="local col2 decl" id="32focus" title='focus' data-type='qboolean' data-ref="32focus">focus</dfn>;</td></tr>
+<tr><th id="339">339</th><td>	<em>float</em>	*<dfn class="local col3 decl" id="33color" title='color' data-type='float *' data-ref="33color">color</dfn>;</td></tr>
+<tr><th id="340">340</th><td></td></tr>
+<tr><th id="341">341</th><td>	<a class="local col8 ref" href="#28x" title='x' data-ref="28x">x</a> =	<a class="local col7 ref" href="#27f" title='f' data-ref="27f">f</a>-&gt;<a class="ref" href="ui_local.h.html#(anonymous)::generic" title='(anonymous struct)::generic' data-ref="(anonymous)::generic">generic</a>.<a class="ref" href="ui_local.h.html#(anonymous)::x" title='(anonymous struct)::x' data-ref="(anonymous)::x">x</a>;</td></tr>
+<tr><th id="342">342</th><td>	<a class="local col9 ref" href="#29y" title='y' data-ref="29y">y</a> =	<a class="local col7 ref" href="#27f" title='f' data-ref="27f">f</a>-&gt;<a class="ref" href="ui_local.h.html#(anonymous)::generic" title='(anonymous struct)::generic' data-ref="(anonymous)::generic">generic</a>.<a class="ref" href="ui_local.h.html#(anonymous)::y" title='(anonymous struct)::y' data-ref="(anonymous)::y">y</a>;</td></tr>
+<tr><th id="343">343</th><td></td></tr>
+<tr><th id="344">344</th><td>	<b>if</b> (<a class="local col7 ref" href="#27f" title='f' data-ref="27f">f</a>-&gt;<a class="ref" href="ui_local.h.html#(anonymous)::generic" title='(anonymous struct)::generic' data-ref="(anonymous)::generic">generic</a>.<a class="ref" href="ui_local.h.html#(anonymous)::flags" title='(anonymous struct)::flags' data-ref="(anonymous)::flags">flags</a> &amp; <a class="macro" href="ui_local.h.html#124" title="((unsigned int) 0x00000002)" data-ref="_M/QMF_SMALLFONT">QMF_SMALLFONT</a>)</td></tr>
+<tr><th id="345">345</th><td>	{</td></tr>
+<tr><th id="346">346</th><td>		<a class="local col0 ref" href="#30w" title='w' data-ref="30w">w</a> = <a class="macro" href="../qcommon/q_shared.h.html#387" title="8" data-ref="_M/SMALLCHAR_WIDTH">SMALLCHAR_WIDTH</a>;</td></tr>
+<tr><th id="347">347</th><td>		<a class="local col1 ref" href="#31style" title='style' data-ref="31style">style</a> = <a class="macro" href="../qcommon/q_shared.h.html#319" title="0x00000010" data-ref="_M/UI_SMALLFONT">UI_SMALLFONT</a>;</td></tr>
+<tr><th id="348">348</th><td>	}</td></tr>
+<tr><th id="349">349</th><td>	<b>else</b></td></tr>
+<tr><th id="350">350</th><td>	{</td></tr>
+<tr><th id="351">351</th><td>		<a class="local col0 ref" href="#30w" title='w' data-ref="30w">w</a> = <a class="macro" href="../qcommon/q_shared.h.html#390" title="16" data-ref="_M/BIGCHAR_WIDTH">BIGCHAR_WIDTH</a>;</td></tr>
+<tr><th id="352">352</th><td>		<a class="local col1 ref" href="#31style" title='style' data-ref="31style">style</a> = <a class="macro" href="../qcommon/q_shared.h.html#320" title="0x00000020" data-ref="_M/UI_BIGFONT">UI_BIGFONT</a>;</td></tr>
+<tr><th id="353">353</th><td>	}	</td></tr>
+<tr><th id="354">354</th><td></td></tr>
+<tr><th id="355">355</th><td>	<b>if</b> (<a class="ref" href="ui_local.h.html#Menu_ItemAtCursor" title='Menu_ItemAtCursor' data-ref="Menu_ItemAtCursor">Menu_ItemAtCursor</a>( <a class="local col7 ref" href="#27f" title='f' data-ref="27f">f</a>-&gt;<a class="ref" href="ui_local.h.html#(anonymous)::generic" title='(anonymous struct)::generic' data-ref="(anonymous)::generic">generic</a>.<a class="ref" href="ui_local.h.html#(anonymous)::parent" title='(anonymous struct)::parent' data-ref="(anonymous)::parent">parent</a> ) == <a class="local col7 ref" href="#27f" title='f' data-ref="27f">f</a>) {</td></tr>
+<tr><th id="356">356</th><td>		<a class="local col2 ref" href="#32focus" title='focus' data-ref="32focus">focus</a> = <a class="enum" href="../qcommon/q_shared.h.html#qtrue" title='qtrue' data-ref="qtrue">qtrue</a>;</td></tr>
+<tr><th id="357">357</th><td>		<a class="local col1 ref" href="#31style" title='style' data-ref="31style">style</a> |= <a class="macro" href="../qcommon/q_shared.h.html#325" title="0x00004000" data-ref="_M/UI_PULSE">UI_PULSE</a>;</td></tr>
+<tr><th id="358">358</th><td>	}</td></tr>
+<tr><th id="359">359</th><td>	<b>else</b> {</td></tr>
+<tr><th id="360">360</th><td>		<a class="local col2 ref" href="#32focus" title='focus' data-ref="32focus">focus</a> = <a class="enum" href="../qcommon/q_shared.h.html#qfalse" title='qfalse' data-ref="qfalse">qfalse</a>;</td></tr>
+<tr><th id="361">361</th><td>	}</td></tr>
+<tr><th id="362">362</th><td></td></tr>
+<tr><th id="363">363</th><td>	<b>if</b> (<a class="local col7 ref" href="#27f" title='f' data-ref="27f">f</a>-&gt;<a class="ref" href="ui_local.h.html#(anonymous)::generic" title='(anonymous struct)::generic' data-ref="(anonymous)::generic">generic</a>.<a class="ref" href="ui_local.h.html#(anonymous)::flags" title='(anonymous struct)::flags' data-ref="(anonymous)::flags">flags</a> &amp; <a class="macro" href="ui_local.h.html#136" title="((unsigned int) 0x00002000)" data-ref="_M/QMF_GRAYED">QMF_GRAYED</a>)</td></tr>
+<tr><th id="364">364</th><td>		<a class="local col3 ref" href="#33color" title='color' data-ref="33color">color</a> = <a class="ref" href="ui_local.h.html#text_color_disabled" title='text_color_disabled' data-ref="text_color_disabled">text_color_disabled</a>;</td></tr>
+<tr><th id="365">365</th><td>	<b>else</b> <b>if</b> (<a class="local col2 ref" href="#32focus" title='focus' data-ref="32focus">focus</a>)</td></tr>
+<tr><th id="366">366</th><td>		<a class="local col3 ref" href="#33color" title='color' data-ref="33color">color</a> = <a class="ref" href="ui_local.h.html#text_color_highlight" title='text_color_highlight' data-ref="text_color_highlight">text_color_highlight</a>;</td></tr>
+<tr><th id="367">367</th><td>	<b>else</b></td></tr>
+<tr><th id="368">368</th><td>		<a class="local col3 ref" href="#33color" title='color' data-ref="33color">color</a> = <a class="ref" href="ui_local.h.html#text_color_normal" title='text_color_normal' data-ref="text_color_normal">text_color_normal</a>;</td></tr>
+<tr><th id="369">369</th><td></td></tr>
+<tr><th id="370">370</th><td>	<b>if</b> ( <a class="local col2 ref" href="#32focus" title='focus' data-ref="32focus">focus</a> )</td></tr>
+<tr><th id="371">371</th><td>	{</td></tr>
+<tr><th id="372">372</th><td>		<i>// draw cursor</i></td></tr>
+<tr><th id="373">373</th><td>		<a class="ref" href="ui_local.h.html#UI_FillRect" title='UI_FillRect' data-ref="UI_FillRect">UI_FillRect</a>( <a class="local col7 ref" href="#27f" title='f' data-ref="27f">f</a>-&gt;<a class="ref" href="ui_local.h.html#(anonymous)::generic" title='(anonymous struct)::generic' data-ref="(anonymous)::generic">generic</a>.<a class="ref" href="ui_local.h.html#(anonymous)::left" title='(anonymous struct)::left' data-ref="(anonymous)::left">left</a>, <a class="local col7 ref" href="#27f" title='f' data-ref="27f">f</a>-&gt;<a class="ref" href="ui_local.h.html#(anonymous)::generic" title='(anonymous struct)::generic' data-ref="(anonymous)::generic">generic</a>.<a class="ref" href="ui_local.h.html#(anonymous)::top" title='(anonymous struct)::top' data-ref="(anonymous)::top">top</a>, <a class="local col7 ref" href="#27f" title='f' data-ref="27f">f</a>-&gt;<a class="ref" href="ui_local.h.html#(anonymous)::generic" title='(anonymous struct)::generic' data-ref="(anonymous)::generic">generic</a>.<a class="ref" href="ui_local.h.html#(anonymous)::right" title='(anonymous struct)::right' data-ref="(anonymous)::right">right</a>-<a class="local col7 ref" href="#27f" title='f' data-ref="27f">f</a>-&gt;<a class="ref" href="ui_local.h.html#(anonymous)::generic" title='(anonymous struct)::generic' data-ref="(anonymous)::generic">generic</a>.<a class="ref" href="ui_local.h.html#(anonymous)::left" title='(anonymous struct)::left' data-ref="(anonymous)::left">left</a>+<var>1</var>, <a class="local col7 ref" href="#27f" title='f' data-ref="27f">f</a>-&gt;<a class="ref" href="ui_local.h.html#(anonymous)::generic" title='(anonymous struct)::generic' data-ref="(anonymous)::generic">generic</a>.<a class="ref" href="ui_local.h.html#(anonymous)::bottom" title='(anonymous struct)::bottom' data-ref="(anonymous)::bottom">bottom</a>-<a class="local col7 ref" href="#27f" title='f' data-ref="27f">f</a>-&gt;<a class="ref" href="ui_local.h.html#(anonymous)::generic" title='(anonymous struct)::generic' data-ref="(anonymous)::generic">generic</a>.<a class="ref" href="ui_local.h.html#(anonymous)::top" title='(anonymous struct)::top' data-ref="(anonymous)::top">top</a>+<var>1</var>, <a class="ref" href="ui_local.h.html#listbar_color" title='listbar_color' data-ref="listbar_color">listbar_color</a> ); </td></tr>
+<tr><th id="374">374</th><td>		<a class="ref" href="ui_local.h.html#UI_DrawChar" title='UI_DrawChar' data-ref="UI_DrawChar">UI_DrawChar</a>( <a class="local col8 ref" href="#28x" title='x' data-ref="28x">x</a>, <a class="local col9 ref" href="#29y" title='y' data-ref="29y">y</a>, <var>13</var>, <a class="macro" href="../qcommon/q_shared.h.html#316" title="0x00000001" data-ref="_M/UI_CENTER">UI_CENTER</a>|<a class="macro" href="../qcommon/q_shared.h.html#323" title="0x00001000" data-ref="_M/UI_BLINK">UI_BLINK</a>|<a class="local col1 ref" href="#31style" title='style' data-ref="31style">style</a>, <a class="local col3 ref" href="#33color" title='color' data-ref="33color">color</a>);</td></tr>
+<tr><th id="375">375</th><td>	}</td></tr>
+<tr><th id="376">376</th><td></td></tr>
+<tr><th id="377">377</th><td>	<b>if</b> ( <a class="local col7 ref" href="#27f" title='f' data-ref="27f">f</a>-&gt;<a class="ref" href="ui_local.h.html#(anonymous)::generic" title='(anonymous struct)::generic' data-ref="(anonymous)::generic">generic</a>.<a class="ref" href="ui_local.h.html#(anonymous)::name" title='(anonymous struct)::name' data-ref="(anonymous)::name">name</a> ) {</td></tr>
+<tr><th id="378">378</th><td>		<a class="ref" href="ui_local.h.html#UI_DrawString" title='UI_DrawString' data-ref="UI_DrawString">UI_DrawString</a>( <a class="local col8 ref" href="#28x" title='x' data-ref="28x">x</a> - <a class="local col0 ref" href="#30w" title='w' data-ref="30w">w</a>, <a class="local col9 ref" href="#29y" title='y' data-ref="29y">y</a>, <a class="local col7 ref" href="#27f" title='f' data-ref="27f">f</a>-&gt;<a class="ref" href="ui_local.h.html#(anonymous)::generic" title='(anonymous struct)::generic' data-ref="(anonymous)::generic">generic</a>.<a class="ref" href="ui_local.h.html#(anonymous)::name" title='(anonymous struct)::name' data-ref="(anonymous)::name">name</a>, <a class="local col1 ref" href="#31style" title='style' data-ref="31style">style</a>|<a class="macro" href="../qcommon/q_shared.h.html#317" title="0x00000002" data-ref="_M/UI_RIGHT">UI_RIGHT</a>, <a class="local col3 ref" href="#33color" title='color' data-ref="33color">color</a> );</td></tr>
+<tr><th id="379">379</th><td>	}</td></tr>
+<tr><th id="380">380</th><td></td></tr>
+<tr><th id="381">381</th><td>	<a class="ref" href="#MField_Draw" title='MField_Draw' data-ref="MField_Draw">MField_Draw</a>( &amp;<a class="local col7 ref" href="#27f" title='f' data-ref="27f">f</a>-&gt;<a class="ref" href="ui_local.h.html#(anonymous)::field" title='(anonymous struct)::field' data-ref="(anonymous)::field">field</a>, <a class="local col8 ref" href="#28x" title='x' data-ref="28x">x</a> + <a class="local col0 ref" href="#30w" title='w' data-ref="30w">w</a>, <a class="local col9 ref" href="#29y" title='y' data-ref="29y">y</a>, <a class="local col1 ref" href="#31style" title='style' data-ref="31style">style</a>, <a class="local col3 ref" href="#33color" title='color' data-ref="33color">color</a> );</td></tr>
+<tr><th id="382">382</th><td>}</td></tr>
+<tr><th id="383">383</th><td></td></tr>
+<tr><th id="384">384</th><td><i>/*</i></td></tr>
+<tr><th id="385">385</th><td><i>==================</i></td></tr>
+<tr><th id="386">386</th><td><i>MenuField_Key</i></td></tr>
+<tr><th id="387">387</th><td><i>==================</i></td></tr>
+<tr><th id="388">388</th><td><i>*/</i></td></tr>
+<tr><th id="389">389</th><td><a class="typedef" href="../qcommon/q_shared.h.html#sfxHandle_t" title='sfxHandle_t' data-type='int' data-ref="sfxHandle_t">sfxHandle_t</a> <dfn class="decl def" id="MenuField_Key" title='MenuField_Key' data-ref="MenuField_Key">MenuField_Key</dfn>( <a class="typedef" href="ui_local.h.html#menufield_s" title='menufield_s' data-type='struct menufield_s' data-ref="menufield_s">menufield_s</a>* <dfn class="local col4 decl" id="34m" title='m' data-type='menufield_s *' data-ref="34m">m</dfn>, <em>int</em>* <dfn class="local col5 decl" id="35key" title='key' data-type='int *' data-ref="35key">key</dfn> )</td></tr>
+<tr><th id="390">390</th><td>{</td></tr>
+<tr><th id="391">391</th><td>	<em>int</em> <dfn class="local col6 decl" id="36keycode" title='keycode' data-type='int' data-ref="36keycode">keycode</dfn>;</td></tr>
+<tr><th id="392">392</th><td></td></tr>
+<tr><th id="393">393</th><td>	<a class="local col6 ref" href="#36keycode" title='keycode' data-ref="36keycode">keycode</a> = *<a class="local col5 ref" href="#35key" title='key' data-ref="35key">key</a>;</td></tr>
+<tr><th id="394">394</th><td></td></tr>
+<tr><th id="395">395</th><td>	<b>switch</b> ( <a class="local col6 ref" href="#36keycode" title='keycode' data-ref="36keycode">keycode</a> )</td></tr>
+<tr><th id="396">396</th><td>	{</td></tr>
+<tr><th id="397">397</th><td>		<b>case</b> <a class="enum" href="../client/keycodes.h.html#K_KP_ENTER" title='K_KP_ENTER' data-ref="K_KP_ENTER">K_KP_ENTER</a>:</td></tr>
+<tr><th id="398">398</th><td>		<b>case</b> <a class="enum" href="../client/keycodes.h.html#K_ENTER" title='K_ENTER' data-ref="K_ENTER">K_ENTER</a>:</td></tr>
+<tr><th id="399">399</th><td>		<b>case</b> <a class="enum" href="../client/keycodes.h.html#K_JOY1" title='K_JOY1' data-ref="K_JOY1">K_JOY1</a>:</td></tr>
+<tr><th id="400">400</th><td>		<b>case</b> <a class="enum" href="../client/keycodes.h.html#K_JOY2" title='K_JOY2' data-ref="K_JOY2">K_JOY2</a>:</td></tr>
+<tr><th id="401">401</th><td>		<b>case</b> <a class="enum" href="../client/keycodes.h.html#K_JOY3" title='K_JOY3' data-ref="K_JOY3">K_JOY3</a>:</td></tr>
+<tr><th id="402">402</th><td>		<b>case</b> <a class="enum" href="../client/keycodes.h.html#K_JOY4" title='K_JOY4' data-ref="K_JOY4">K_JOY4</a>:</td></tr>
+<tr><th id="403">403</th><td>			<i>// have enter go to next cursor point</i></td></tr>
+<tr><th id="404">404</th><td>			*<a class="local col5 ref" href="#35key" title='key' data-ref="35key">key</a> = <a class="enum" href="../client/keycodes.h.html#K_TAB" title='K_TAB' data-ref="K_TAB">K_TAB</a>;</td></tr>
+<tr><th id="405">405</th><td>			<b>break</b>;</td></tr>
+<tr><th id="406">406</th><td></td></tr>
+<tr><th id="407">407</th><td>		<b>case</b> <a class="enum" href="../client/keycodes.h.html#K_TAB" title='K_TAB' data-ref="K_TAB">K_TAB</a>:</td></tr>
+<tr><th id="408">408</th><td>		<b>case</b> <a class="enum" href="../client/keycodes.h.html#K_KP_DOWNARROW" title='K_KP_DOWNARROW' data-ref="K_KP_DOWNARROW">K_KP_DOWNARROW</a>:</td></tr>
+<tr><th id="409">409</th><td>		<b>case</b> <a class="enum" href="../client/keycodes.h.html#K_DOWNARROW" title='K_DOWNARROW' data-ref="K_DOWNARROW">K_DOWNARROW</a>:</td></tr>
+<tr><th id="410">410</th><td>		<b>case</b> <a class="enum" href="../client/keycodes.h.html#K_KP_UPARROW" title='K_KP_UPARROW' data-ref="K_KP_UPARROW">K_KP_UPARROW</a>:</td></tr>
+<tr><th id="411">411</th><td>		<b>case</b> <a class="enum" href="../client/keycodes.h.html#K_UPARROW" title='K_UPARROW' data-ref="K_UPARROW">K_UPARROW</a>:</td></tr>
+<tr><th id="412">412</th><td>			<b>break</b>;</td></tr>
+<tr><th id="413">413</th><td></td></tr>
+<tr><th id="414">414</th><td>		<b>default</b>:</td></tr>
+<tr><th id="415">415</th><td>			<b>if</b> ( <a class="local col6 ref" href="#36keycode" title='keycode' data-ref="36keycode">keycode</a> &amp; <a class="macro" href="../client/keycodes.h.html#307" title="1024" data-ref="_M/K_CHAR_FLAG">K_CHAR_FLAG</a> )</td></tr>
+<tr><th id="416">416</th><td>			{</td></tr>
+<tr><th id="417">417</th><td>				<a class="local col6 ref" href="#36keycode" title='keycode' data-ref="36keycode">keycode</a> &amp;= ~<a class="macro" href="../client/keycodes.h.html#307" title="1024" data-ref="_M/K_CHAR_FLAG">K_CHAR_FLAG</a>;</td></tr>
+<tr><th id="418">418</th><td></td></tr>
+<tr><th id="419">419</th><td>				<b>if</b> ((<a class="local col4 ref" href="#34m" title='m' data-ref="34m">m</a>-&gt;<a class="ref" href="ui_local.h.html#(anonymous)::generic" title='(anonymous struct)::generic' data-ref="(anonymous)::generic">generic</a>.<a class="ref" href="ui_local.h.html#(anonymous)::flags" title='(anonymous struct)::flags' data-ref="(anonymous)::flags">flags</a> &amp; <a class="macro" href="ui_local.h.html#142" title="((unsigned int) 0x00080000)" data-ref="_M/QMF_UPPERCASE">QMF_UPPERCASE</a>) &amp;&amp; <a class="ref" href="../qcommon/q_shared.h.html#Q_islower" title='Q_islower' data-ref="Q_islower">Q_islower</a>( <a class="local col6 ref" href="#36keycode" title='keycode' data-ref="36keycode">keycode</a> ))</td></tr>
+<tr><th id="420">420</th><td>					<a class="local col6 ref" href="#36keycode" title='keycode' data-ref="36keycode">keycode</a> -= <kbd>'a'</kbd> - <kbd>'A'</kbd>;</td></tr>
+<tr><th id="421">421</th><td>				<b>else</b> <b>if</b> ((<a class="local col4 ref" href="#34m" title='m' data-ref="34m">m</a>-&gt;<a class="ref" href="ui_local.h.html#(anonymous)::generic" title='(anonymous struct)::generic' data-ref="(anonymous)::generic">generic</a>.<a class="ref" href="ui_local.h.html#(anonymous)::flags" title='(anonymous struct)::flags' data-ref="(anonymous)::flags">flags</a> &amp; <a class="macro" href="ui_local.h.html#141" title="((unsigned int) 0x00040000)" data-ref="_M/QMF_LOWERCASE">QMF_LOWERCASE</a>) &amp;&amp; <a class="ref" href="../qcommon/q_shared.h.html#Q_isupper" title='Q_isupper' data-ref="Q_isupper">Q_isupper</a>( <a class="local col6 ref" href="#36keycode" title='keycode' data-ref="36keycode">keycode</a> ))</td></tr>
+<tr><th id="422">422</th><td>					<a class="local col6 ref" href="#36keycode" title='keycode' data-ref="36keycode">keycode</a> -= <kbd>'A'</kbd> - <kbd>'a'</kbd>;</td></tr>
+<tr><th id="423">423</th><td>				<b>else</b> <b>if</b> ((<a class="local col4 ref" href="#34m" title='m' data-ref="34m">m</a>-&gt;<a class="ref" href="ui_local.h.html#(anonymous)::generic" title='(anonymous struct)::generic' data-ref="(anonymous)::generic">generic</a>.<a class="ref" href="ui_local.h.html#(anonymous)::flags" title='(anonymous struct)::flags' data-ref="(anonymous)::flags">flags</a> &amp; <a class="macro" href="ui_local.h.html#128" title="((unsigned int) 0x00000020)" data-ref="_M/QMF_NUMBERSONLY">QMF_NUMBERSONLY</a>) &amp;&amp; <a class="ref" href="../qcommon/q_shared.h.html#Q_isalpha" title='Q_isalpha' data-ref="Q_isalpha">Q_isalpha</a>( <a class="local col6 ref" href="#36keycode" title='keycode' data-ref="36keycode">keycode</a> ))</td></tr>
+<tr><th id="424">424</th><td>					<b>return</b> (<a class="ref" href="ui_local.h.html#menu_buzz_sound" title='menu_buzz_sound' data-ref="menu_buzz_sound">menu_buzz_sound</a>);</td></tr>
+<tr><th id="425">425</th><td></td></tr>
+<tr><th id="426">426</th><td>				<a class="ref" href="#MField_CharEvent" title='MField_CharEvent' data-ref="MField_CharEvent">MField_CharEvent</a>( &amp;<a class="local col4 ref" href="#34m" title='m' data-ref="34m">m</a>-&gt;<a class="ref" href="ui_local.h.html#(anonymous)::field" title='(anonymous struct)::field' data-ref="(anonymous)::field">field</a>, <a class="local col6 ref" href="#36keycode" title='keycode' data-ref="36keycode">keycode</a>);</td></tr>
+<tr><th id="427">427</th><td>			}</td></tr>
+<tr><th id="428">428</th><td>			<b>else</b></td></tr>
+<tr><th id="429">429</th><td>				<a class="ref" href="#MField_KeyDownEvent" title='MField_KeyDownEvent' data-ref="MField_KeyDownEvent">MField_KeyDownEvent</a>( &amp;<a class="local col4 ref" href="#34m" title='m' data-ref="34m">m</a>-&gt;<a class="ref" href="ui_local.h.html#(anonymous)::field" title='(anonymous struct)::field' data-ref="(anonymous)::field">field</a>, <a class="local col6 ref" href="#36keycode" title='keycode' data-ref="36keycode">keycode</a> );</td></tr>
+<tr><th id="430">430</th><td>			<b>break</b>;</td></tr>
+<tr><th id="431">431</th><td>	}</td></tr>
+<tr><th id="432">432</th><td></td></tr>
+<tr><th id="433">433</th><td>	<b>return</b> (<var>0</var>);</td></tr>
+<tr><th id="434">434</th><td>}</td></tr>
+<tr><th id="435">435</th><td></td></tr>
+<tr><th id="436">436</th><td></td></tr>
+<tr><th id="437">437</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated on <em>2017-Aug-29</em> from project codebrowser revision <em>63e07af</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

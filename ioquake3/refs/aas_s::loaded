@@ -1,0 +1,26 @@
+<dec f='codebrowser/code/botlib/be_aas_def.h' l='182' type='int'/>
+<offset>0</offset>
+<doc f='codebrowser/code/botlib/be_aas_def.h' l='182'>//true when an AAS file is loaded</doc>
+<use f='codebrowser/code/botlib/be_aas_cluster.c' l='1464' u='r' c='AAS_InitClustering'/>
+<use f='codebrowser/code/botlib/be_aas_entity.c' l='69' u='r' c='AAS_UpdateEntity'/>
+<use f='codebrowser/code/botlib/be_aas_entity.c' l='429' u='r' c='AAS_NextEntity'/>
+<use f='codebrowser/code/botlib/be_aas_file.c' l='229' u='w' c='AAS_DumpAASData'/>
+<use f='codebrowser/code/botlib/be_aas_file.c' l='480' u='w' c='AAS_LoadAASFile'/>
+<use f='codebrowser/code/botlib/be_aas_main.c' l='75' u='r' c='AAS_Loaded'/>
+<use f='codebrowser/code/botlib/be_aas_main.c' l='113' u='r' c='AAS_ContinueInit'/>
+<use f='codebrowser/code/botlib/be_aas_main.c' l='270' u='w' c='AAS_LoadMap'/>
+<use f='codebrowser/code/botlib/be_aas_reach.c' l='368' u='r' c='AAS_BestReachableArea'/>
+<use f='codebrowser/code/botlib/be_aas_reach.c' l='4365' u='r' c='AAS_ContinueInitReachability'/>
+<use f='codebrowser/code/botlib/be_aas_reach.c' l='4508' u='r' c='AAS_InitReachability'/>
+<use f='codebrowser/code/botlib/be_aas_sample.c' l='189' u='r' c='AAS_InitAASLinkedEntities'/>
+<use f='codebrowser/code/botlib/be_aas_sample.c' l='219' u='r' c='AAS_PointAreaNum'/>
+<use f='codebrowser/code/botlib/be_aas_sample.c' l='325' u='r' c='AAS_AreaPresenceType'/>
+<use f='codebrowser/code/botlib/be_aas_sample.c' l='344' u='r' c='AAS_PointPresenceType'/>
+<use f='codebrowser/code/botlib/be_aas_sample.c' l='463' u='r' c='AAS_TraceClientBBox'/>
+<use f='codebrowser/code/botlib/be_aas_sample.c' l='738' u='r' c='AAS_TraceAreas'/>
+<use f='codebrowser/code/botlib/be_aas_sample.c' l='935' u='r' c='AAS_InsideFace'/>
+<use f='codebrowser/code/botlib/be_aas_sample.c' l='986' u='r' c='AAS_PointInsideFace'/>
+<use f='codebrowser/code/botlib/be_aas_sample.c' l='1025' u='r' c='AAS_AreaGroundFace'/>
+<use f='codebrowser/code/botlib/be_aas_sample.c' l='1072' u='r' c='AAS_TraceEndFace'/>
+<use f='codebrowser/code/botlib/be_aas_sample.c' l='1231' u='r' c='AAS_AASLinkEntity'/>
+<use f='codebrowser/code/botlib/be_aas_sample.c' l='1390' u='r' c='AAS_PlaneFromNum'/>

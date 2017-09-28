@@ -1,0 +1,12 @@
+<dec f='codebrowser/code/game/bg_public.h' l='341'/>
+<doc f='codebrowser/code/game/bg_public.h' l='332'>// entityState_t-&gt;event values
+// entity events are for effects that take place relative
+// to an existing entities origin.  Very network efficient.
+
+// two bits at the top of the entityState-&gt;event field
+// will be incremented with each change in the event so
+// that an identical event started twice in a row can
+// be distinguished.  And off the value with ~EV_EVENT_BITS
+// to retrieve the actual event number</doc>
+<use f='codebrowser/code/game/g_utils.c' l='589' u='c'/>
+<use f='codebrowser/code/game/g_utils.c' l='595' u='c'/>

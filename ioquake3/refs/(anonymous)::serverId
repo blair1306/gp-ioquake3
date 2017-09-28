@@ -1,0 +1,19 @@
+<dec f='codebrowser/code/client/client.h' l='136' type='int'/>
+<offset>182112</offset>
+<doc f='codebrowser/code/client/client.h' l='136'>// included in each client message so the server</doc>
+<use f='codebrowser/code/client/cl_input.c' l='766' u='r' c='CL_WritePacket'/>
+<use f='codebrowser/code/client/cl_main.c' l='1906' u='r' c='CL_SendPureChecksums'/>
+<use f='codebrowser/code/client/cl_parse.c' l='354' u='w' c='CL_SystemInfoChanged'/>
+<dec f='codebrowser/code/server/server.h' l='72' type='int'/>
+<offset>64</offset>
+<doc f='codebrowser/code/server/server.h' l='72'>// changes each server start</doc>
+<use f='codebrowser/code/server/sv_ccmds.c' l='237' u='r' c='SV_MapRestart_f'/>
+<use f='codebrowser/code/server/sv_ccmds.c' l='282' u='w' c='SV_MapRestart_f'/>
+<use f='codebrowser/code/server/sv_ccmds.c' l='283' u='r' c='SV_MapRestart_f'/>
+<use f='codebrowser/code/server/sv_client.c' l='1945' u='r' c='SV_ExecuteClientMessage'/>
+<use f='codebrowser/code/server/sv_client.c' l='1946' u='r' c='SV_ExecuteClientMessage'/>
+<use f='codebrowser/code/server/sv_client.c' l='1962' u='r' c='SV_ExecuteClientMessage'/>
+<use f='codebrowser/code/server/sv_init.c' l='482' u='w' c='SV_SpawnServer'/>
+<use f='codebrowser/code/server/sv_init.c' l='483' u='r' c='SV_SpawnServer'/>
+<use f='codebrowser/code/server/sv_init.c' l='484' u='r' c='SV_SpawnServer'/>
+<use f='codebrowser/code/server/sv_init.c' l='485' u='r' c='SV_SpawnServer'/>

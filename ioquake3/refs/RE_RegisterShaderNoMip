@@ -1,0 +1,20 @@
+<dec f='codebrowser/code/renderercommon/tr_common.h' l='128' type='qhandle_t RE_RegisterShaderNoMip(const char * name)'/>
+<use f='codebrowser/code/renderercommon/tr_font.c' l='401' u='c' c='RE_RegisterFont'/>
+<use f='codebrowser/code/renderergl1/tr_init.c' l='1339' u='r' c='GetRefAPI'/>
+<def f='codebrowser/code/renderergl1/tr_shader.c' l='2829' ll='2849' type='qhandle_t RE_RegisterShaderNoMip(const char * name)'/>
+<doc f='codebrowser/code/renderergl1/tr_shader.c' l='2822'>/*
+====================
+RE_RegisterShaderNoMip
+
+For menu graphics that should never be picmiped
+====================
+*/</doc>
+<use f='codebrowser/code/renderergl2/tr_init.c' l='1588' u='r' c='GetRefAPI'/>
+<def f='codebrowser/code/renderergl2/tr_shader.c' l='3541' ll='3561' type='qhandle_t RE_RegisterShaderNoMip(const char * name)'/>
+<doc f='codebrowser/code/renderergl2/tr_shader.c' l='3534'>/*
+====================
+RE_RegisterShaderNoMip
+
+For menu graphics that should never be picmiped
+====================
+*/</doc>

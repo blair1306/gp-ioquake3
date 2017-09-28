@@ -1,0 +1,15 @@
+<dec f='codebrowser/code/cgame/cg_local.h' l='1454' type='void CG_ExecuteNewServerCommands(int latestSequence)'/>
+<doc f='codebrowser/code/cgame/cg_local.h' l='1451'>//
+// cg_servercmds.c
+//</doc>
+<def f='codebrowser/code/cgame/cg_servercmds.c' l='1116' ll='1122' type='void CG_ExecuteNewServerCommands(int latestSequence)'/>
+<doc f='codebrowser/code/cgame/cg_servercmds.c' l='1108'>/*
+====================
+CG_ExecuteNewServerCommands
+
+Execute all of the server commands that were received along
+with this this snapshot.
+====================
+*/</doc>
+<use f='codebrowser/code/cgame/cg_snapshot.c' l='95' u='c' c='CG_SetInitialSnapshot'/>
+<use f='codebrowser/code/cgame/cg_snapshot.c' l='138' u='c' c='CG_TransitionSnapshot'/>

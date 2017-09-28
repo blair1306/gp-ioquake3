@@ -1,0 +1,9 @@
+<dec f='codebrowser/code/qcommon/qcommon.h' l='95' type='void MSG_ReadData(msg_t * sb, void * buffer, int size)'/>
+<use f='codebrowser/code/client/cl_parse.c' l='272' u='c' c='CL_ParseSnapshot'/>
+<use f='codebrowser/code/client/cl_parse.c' l='600' u='c' c='CL_ParseDownload'/>
+<use f='codebrowser/code/client/cl_parse.c' l='737' u='c' c='CL_ParseVoip'/>
+<use f='codebrowser/code/client/cl_parse.c' l='743' u='c' c='CL_ParseVoip'/>
+<def f='codebrowser/code/qcommon/msg.c' l='535' ll='541' type='void MSG_ReadData(msg_t * msg, void * data, int len)'/>
+<use f='codebrowser/code/server/sv_client.c' l='1811' u='c' c='SV_UserVoip'/>
+<use f='codebrowser/code/server/sv_client.c' l='1824' u='c' c='SV_UserVoip'/>
+<use f='codebrowser/code/server/sv_client.c' l='1830' u='c' c='SV_UserVoip'/>

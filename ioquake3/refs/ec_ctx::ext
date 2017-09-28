@@ -1,0 +1,15 @@
+<dec f='codebrowser/code/opus-1.1.4/celt/entcode.h' l='86' type='opus_uint32'/>
+<offset>320</offset>
+<doc f='codebrowser/code/opus-1.1.4/celt/entcode.h' l='84'>/*In the decoder: the saved normalization factor from ec_decode().
+     In the encoder: the number of oustanding carry propagating symbols.*/</doc>
+<use f='codebrowser/code/opus-1.1.4/celt/entdec.c' l='141' u='w' c='ec_decode'/>
+<use f='codebrowser/code/opus-1.1.4/celt/entdec.c' l='142' u='r' c='ec_decode'/>
+<use f='codebrowser/code/opus-1.1.4/celt/entdec.c' l='148' u='w' c='ec_decode_bin'/>
+<use f='codebrowser/code/opus-1.1.4/celt/entdec.c' l='149' u='r' c='ec_decode_bin'/>
+<use f='codebrowser/code/opus-1.1.4/celt/entdec.c' l='155' u='r' c='ec_dec_update'/>
+<use f='codebrowser/code/opus-1.1.4/celt/entdec.c' l='157' u='r' c='ec_dec_update'/>
+<use f='codebrowser/code/opus-1.1.4/celt/entenc.c' l='90' u='r' c='ec_enc_carry_out'/>
+<use f='codebrowser/code/opus-1.1.4/celt/entenc.c' l='94' u='w' c='ec_enc_carry_out'/>
+<use f='codebrowser/code/opus-1.1.4/celt/entenc.c' l='98' u='w' c='ec_enc_carry_out'/>
+<use f='codebrowser/code/opus-1.1.4/celt/entenc.c' l='123' u='w' c='ec_enc_init'/>
+<use f='codebrowser/code/opus-1.1.4/celt/entenc.c' l='266' u='r' c='ec_enc_done'/>

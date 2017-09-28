@@ -1,0 +1,8 @@
+<dec f='codebrowser/code/opus-1.1.4/celt/mdct.h' l='72' type='void clt_mdct_backward_c(const mdct_lookup * l, float * in, float *restrict out, const opus_val16 *restrict window, int overlap, int shift, int stride, int arch)'/>
+<doc f='codebrowser/code/opus-1.1.4/celt/mdct.h' l='70'>/** Compute a backward MDCT (no scaling) and performs weighted overlap-add
+    (scales implicitly by 1/2) */</doc>
+<use f='codebrowser/code/opus-1.1.4/celt/celt_decoder.c' l='322' macro='1' u='c'/>
+<use f='codebrowser/code/opus-1.1.4/celt/celt_decoder.c' l='324' macro='1' u='c'/>
+<use f='codebrowser/code/opus-1.1.4/celt/celt_decoder.c' l='338' macro='1' u='c'/>
+<use f='codebrowser/code/opus-1.1.4/celt/celt_decoder.c' l='345' macro='1' u='c'/>
+<def f='codebrowser/code/opus-1.1.4/celt/mdct.c' l='242' ll='342' type='void clt_mdct_backward_c(const mdct_lookup * l, float * in, float *restrict out, const opus_val16 *restrict window, int overlap, int shift, int stride, int arch)'/>

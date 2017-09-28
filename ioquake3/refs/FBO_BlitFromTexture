@@ -1,0 +1,16 @@
+<dec f='codebrowser/code/renderergl2/tr_fbo.h' l='60' type='void FBO_BlitFromTexture(struct image_s * src, vec_t * inSrcTexCorners, vec_t * inSrcTexScale, FBO_t * dst, int * inDstBox, struct shaderProgram_s * shaderProgram, vec_t * inColor, int blend)'/>
+<use f='codebrowser/code/renderergl2/tr_backend.c' l='941' u='c' c='RB_DrawSurfs'/>
+<use f='codebrowser/code/renderergl2/tr_backend.c' l='1611' u='c' c='RB_PostProcess'/>
+<use f='codebrowser/code/renderergl2/tr_backend.c' l='1613' u='c' c='RB_PostProcess'/>
+<use f='codebrowser/code/renderergl2/tr_backend.c' l='1615' u='c' c='RB_PostProcess'/>
+<use f='codebrowser/code/renderergl2/tr_backend.c' l='1617' u='c' c='RB_PostProcess'/>
+<use f='codebrowser/code/renderergl2/tr_backend.c' l='1624' u='c' c='RB_PostProcess'/>
+<use f='codebrowser/code/renderergl2/tr_backend.c' l='1626' u='c' c='RB_PostProcess'/>
+<use f='codebrowser/code/renderergl2/tr_backend.c' l='1628' u='c' c='RB_PostProcess'/>
+<use f='codebrowser/code/renderergl2/tr_backend.c' l='1630' u='c' c='RB_PostProcess'/>
+<use f='codebrowser/code/renderergl2/tr_backend.c' l='1637' u='c' c='RB_PostProcess'/>
+<use f='codebrowser/code/renderergl2/tr_backend.c' l='1639' u='c' c='RB_PostProcess'/>
+<use f='codebrowser/code/renderergl2/tr_backend.c' l='1646' u='c' c='RB_PostProcess'/>
+<def f='codebrowser/code/renderergl2/tr_fbo.c' l='486' ll='589' type='void FBO_BlitFromTexture(struct image_s * src, vec_t * inSrcTexCorners, vec_t * inSrcTexScale, FBO_t * dst, int * inDstBox, struct shaderProgram_s * shaderProgram, vec_t * inColor, int blend)'/>
+<use f='codebrowser/code/renderergl2/tr_fbo.c' l='613' u='c' c='FBO_Blit'/>
+<use f='codebrowser/code/renderergl2/tr_postprocess.c' l='470' u='c' c='RB_GaussianBlur'/>

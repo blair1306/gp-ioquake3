@@ -1,0 +1,27 @@
+<dec f='codebrowser/code/qcommon/qcommon.h' l='534' type='char * Cvar_VariableString(const char * var_name)'/>
+<use f='codebrowser/code/client/cl_avi.c' l='389' u='c' c='CL_OpenAVIForWriting'/>
+<doc f='codebrowser/code/qcommon/qcommon.h' l='532'>// returns 0 if not defined or non numeric</doc>
+<use f='codebrowser/code/client/cl_cin.c' l='1289' u='c' c='RoQShutdown'/>
+<use f='codebrowser/code/client/cl_main.c' l='1184' u='c' c='CL_NextDemo'/>
+<use f='codebrowser/code/client/cl_main.c' l='2201' u='c' c='CL_NextDownload'/>
+<use f='codebrowser/code/client/cl_main.c' l='4191' u='c' c='CL_GlobalServers_f'/>
+<use f='codebrowser/code/client/cl_main.c' l='4209' u='c' c='CL_GlobalServers_f'/>
+<use f='codebrowser/code/client/cl_parse.c' l='432' u='c' c='CL_SystemInfoChanged'/>
+<use f='codebrowser/code/qcommon/cmd.c' l='314' u='c' c='Cmd_Vstr_f'/>
+<use f='codebrowser/code/qcommon/common.c' l='3381' u='c' c='PrintCvarMatches'/>
+<def f='codebrowser/code/qcommon/cvar.c' l='135' ll='142' type='char * Cvar_VariableString(const char * var_name)'/>
+<use f='codebrowser/code/qcommon/cvar.c' l='830' u='c' c='Cvar_Toggle_f'/>
+<doc f='codebrowser/code/qcommon/cvar.c' l='130'>/*
+============
+Cvar_VariableString
+============
+*/</doc>
+<use f='codebrowser/code/qcommon/files.c' l='3947' u='c' c='FS_InitFilesystem'/>
+<use f='codebrowser/code/server/sv_ccmds.c' l='270' u='c' c='SV_MapRestart_f'/>
+<use f='codebrowser/code/server/sv_main.c' l='676' u='c' c='SVC_Info'/>
+<use f='codebrowser/code/server/sv_main.c' l='1099' u='c' c='SV_Frame'/>
+<use f='codebrowser/code/server/sv_main.c' l='1105' u='c' c='SV_Frame'/>
+<use f='codebrowser/code/sys/sys_main.c' l='172' u='c' c='Sys_PIDFileName'/>
+<use f='codebrowser/code/sys/sys_main.c' l='539' u='c' c='Sys_LoadDll'/>
+<use f='codebrowser/code/sys/sys_unix.c' l='547' u='c' c='Sys_ErrorDialog'/>
+<use f='codebrowser/code/sys/sys_unix.c' l='548' u='c' c='Sys_ErrorDialog'/>

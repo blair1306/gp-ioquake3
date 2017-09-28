@@ -1,0 +1,93 @@
+<dec f='codebrowser/code/renderergl1/tr_local.h' l='1182' type='shader_t * R_FindShader(const char * name, int lightmapIndex, qboolean mipRawImage)'/>
+<doc f='codebrowser/code/renderergl1/tr_local.h' l='1179'>//
+// tr_shader.c
+//</doc>
+<use f='codebrowser/code/renderergl1/tr_bsp.c' l='290' u='c' c='ShaderForShaderNum'/>
+<use f='codebrowser/code/renderergl1/tr_bsp.c' l='1614' u='c' c='R_LoadFogs'/>
+<use f='codebrowser/code/renderergl1/tr_image.c' l='1563' u='c' c='RE_RegisterSkin'/>
+<use f='codebrowser/code/renderergl1/tr_image.c' l='1600' u='c' c='RE_RegisterSkin'/>
+<use f='codebrowser/code/renderergl1/tr_model.c' l='485' u='c' c='R_LoadMD3'/>
+<use f='codebrowser/code/renderergl1/tr_model.c' l='750' u='c' c='R_LoadMDR'/>
+<use f='codebrowser/code/renderergl1/tr_model_iqm.c' l='625' u='c' c='R_LoadIQM'/>
+<def f='codebrowser/code/renderergl1/tr_shader.c' l='2512' ll='2658' type='shader_t * R_FindShader(const char * name, int lightmapIndex, qboolean mipRawImage)'/>
+<use f='codebrowser/code/renderergl1/tr_shader.c' l='2773' u='c' c='RE_RegisterShaderLightMap'/>
+<use f='codebrowser/code/renderergl1/tr_shader.c' l='2807' u='c' c='RE_RegisterShader'/>
+<use f='codebrowser/code/renderergl1/tr_shader.c' l='2837' u='c' c='RE_RegisterShaderNoMip'/>
+<use f='codebrowser/code/renderergl1/tr_shader.c' l='3121' u='c' c='CreateExternalShaders'/>
+<use f='codebrowser/code/renderergl1/tr_shader.c' l='3122' u='c' c='CreateExternalShaders'/>
+<use f='codebrowser/code/renderergl1/tr_shader.c' l='3137' u='c' c='CreateExternalShaders'/>
+<doc f='codebrowser/code/renderergl1/tr_shader.c' l='2484'>/*
+===============
+R_FindShader
+
+Will always return a valid shader, but it might be the
+default shader if the real one can&apos;t be found.
+
+In the interest of not requiring an explicit shader text entry to
+be defined for every single image used in the game, three default
+shader behaviors can be auto-created for any image:
+
+If lightmapIndex == LIGHTMAP_NONE, then the image will have
+dynamic diffuse lighting applied to it, as apropriate for most
+entity skin surfaces.
+
+If lightmapIndex == LIGHTMAP_2D, then the image will be used
+for 2D rendering unless an explicit shader is found
+
+If lightmapIndex == LIGHTMAP_BY_VERTEX, then the image will use
+the vertex rgba modulate values, as apropriate for misc_model
+pre-lit surfaces.
+
+Other lightmapIndex values will have a lightmap stage created
+and src*dest blending applied with the texture, as apropriate for
+most world construction surfaces.
+
+===============
+*/</doc>
+<dec f='codebrowser/code/renderergl2/tr_local.h' l='1930' type='shader_t * R_FindShader(const char * name, int lightmapIndex, qboolean mipRawImage)'/>
+<doc f='codebrowser/code/renderergl2/tr_local.h' l='1927'>//
+// tr_shader.c
+//</doc>
+<use f='codebrowser/code/renderergl2/tr_bsp.c' l='619' u='c' c='ShaderForShaderNum'/>
+<use f='codebrowser/code/renderergl2/tr_bsp.c' l='2133' u='c' c='R_LoadFogs'/>
+<use f='codebrowser/code/renderergl2/tr_image.c' l='3114' u='c' c='RE_RegisterSkin'/>
+<use f='codebrowser/code/renderergl2/tr_image.c' l='3151' u='c' c='RE_RegisterSkin'/>
+<use f='codebrowser/code/renderergl2/tr_model.c' l='535' u='c' c='R_LoadMD3'/>
+<use f='codebrowser/code/renderergl2/tr_model.c' l='1040' u='c' c='R_LoadMDR'/>
+<use f='codebrowser/code/renderergl2/tr_model_iqm.c' l='625' u='c' c='R_LoadIQM'/>
+<def f='codebrowser/code/renderergl2/tr_shader.c' l='3233' ll='3376' type='shader_t * R_FindShader(const char * name, int lightmapIndex, qboolean mipRawImage)'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='3485' u='c' c='RE_RegisterShaderLightMap'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='3519' u='c' c='RE_RegisterShader'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='3549' u='c' c='RE_RegisterShaderNoMip'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='3834' u='c' c='CreateExternalShaders'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='3835' u='c' c='CreateExternalShaders'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='3850' u='c' c='CreateExternalShaders'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='3852' u='c' c='CreateExternalShaders'/>
+<doc f='codebrowser/code/renderergl2/tr_shader.c' l='3205'>/*
+===============
+R_FindShader
+
+Will always return a valid shader, but it might be the
+default shader if the real one can&apos;t be found.
+
+In the interest of not requiring an explicit shader text entry to
+be defined for every single image used in the game, three default
+shader behaviors can be auto-created for any image:
+
+If lightmapIndex == LIGHTMAP_NONE, then the image will have
+dynamic diffuse lighting applied to it, as apropriate for most
+entity skin surfaces.
+
+If lightmapIndex == LIGHTMAP_2D, then the image will be used
+for 2D rendering unless an explicit shader is found
+
+If lightmapIndex == LIGHTMAP_BY_VERTEX, then the image will use
+the vertex rgba modulate values, as apropriate for misc_model
+pre-lit surfaces.
+
+Other lightmapIndex values will have a lightmap stage created
+and src*dest blending applied with the texture, as apropriate for
+most world construction surfaces.
+
+===============
+*/</doc>

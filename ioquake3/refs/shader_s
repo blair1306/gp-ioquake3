@@ -1,0 +1,67 @@
+<def f='codebrowser/code/renderergl1/tr_local.h' l='315' ll='371'/>
+<size>536</size>
+<mbr r='shader_s::name' o='0' t='char [64]'/>
+<mbr r='shader_s::lightmapIndex' o='512' t='int'/>
+<mbr r='shader_s::index' o='544' t='int'/>
+<mbr r='shader_s::sortedIndex' o='576' t='int'/>
+<mbr r='shader_s::sort' o='608' t='float'/>
+<mbr r='shader_s::defaultShader' o='640' t='qboolean'/>
+<mbr r='shader_s::explicitlyDefined' o='672' t='qboolean'/>
+<mbr r='shader_s::surfaceFlags' o='704' t='int'/>
+<mbr r='shader_s::contentFlags' o='736' t='int'/>
+<mbr r='shader_s::entityMergable' o='768' t='qboolean'/>
+<mbr r='shader_s::isSky' o='800' t='qboolean'/>
+<mbr r='shader_s::sky' o='832' t='skyParms_t'/>
+<mbr r='shader_s::fogParms' o='1664' t='fogParms_t'/>
+<mbr r='shader_s::portalRange' o='1792' t='float'/>
+<mbr r='shader_s::multitextureEnv' o='1824' t='int'/>
+<mbr r='shader_s::cullType' o='1856' t='cullType_t'/>
+<mbr r='shader_s::polygonOffset' o='1888' t='qboolean'/>
+<mbr r='shader_s::noMipMaps' o='1920' t='qboolean'/>
+<mbr r='shader_s::noPicMip' o='1952' t='qboolean'/>
+<mbr r='shader_s::fogPass' o='1984' t='fogPass_t'/>
+<mbr r='shader_s::needsNormal' o='2016' t='qboolean'/>
+<mbr r='shader_s::needsST1' o='2048' t='qboolean'/>
+<mbr r='shader_s::needsST2' o='2080' t='qboolean'/>
+<mbr r='shader_s::needsColor' o='2112' t='qboolean'/>
+<mbr r='shader_s::numDeforms' o='2144' t='int'/>
+<mbr r='shader_s::deforms' o='2176' t='deformStage_t [3]'/>
+<mbr r='shader_s::numUnfoggedPasses' o='3424' t='int'/>
+<mbr r='shader_s::stages' o='3456' t='shaderStage_t *[8]'/>
+<mbr r='shader_s::optimalStageIteratorFunc' o='3968' t='void (*)(void)'/>
+<mbr r='shader_s::clampTime' o='4032' t='double'/>
+<mbr r='shader_s::timeOffset' o='4096' t='double'/>
+<mbr r='shader_s::remappedShader' o='4160' t='struct shader_s *'/>
+<mbr r='shader_s::next' o='4224' t='struct shader_s *'/>
+<def f='codebrowser/code/renderergl2/tr_local.h' l='428' ll='480'/>
+<size>528</size>
+<mbr r='shader_s::name' o='0' t='char [64]'/>
+<mbr r='shader_s::lightmapIndex' o='512' t='int'/>
+<mbr r='shader_s::index' o='544' t='int'/>
+<mbr r='shader_s::sortedIndex' o='576' t='int'/>
+<mbr r='shader_s::sort' o='608' t='float'/>
+<mbr r='shader_s::defaultShader' o='640' t='qboolean'/>
+<mbr r='shader_s::explicitlyDefined' o='672' t='qboolean'/>
+<mbr r='shader_s::surfaceFlags' o='704' t='int'/>
+<mbr r='shader_s::contentFlags' o='736' t='int'/>
+<mbr r='shader_s::entityMergable' o='768' t='qboolean'/>
+<mbr r='shader_s::isSky' o='800' t='qboolean'/>
+<mbr r='shader_s::sky' o='832' t='skyParms_t'/>
+<mbr r='shader_s::fogParms' o='1664' t='fogParms_t'/>
+<mbr r='shader_s::portalRange' o='1792' t='float'/>
+<mbr r='shader_s::isPortal' o='1824' t='qboolean'/>
+<mbr r='shader_s::cullType' o='1856' t='cullType_t'/>
+<mbr r='shader_s::polygonOffset' o='1888' t='qboolean'/>
+<mbr r='shader_s::noMipMaps' o='1920' t='qboolean'/>
+<mbr r='shader_s::noPicMip' o='1952' t='qboolean'/>
+<mbr r='shader_s::fogPass' o='1984' t='fogPass_t'/>
+<mbr r='shader_s::vertexAttribs' o='2016' t='int'/>
+<mbr r='shader_s::numDeforms' o='2048' t='int'/>
+<mbr r='shader_s::deforms' o='2080' t='deformStage_t [3]'/>
+<mbr r='shader_s::numUnfoggedPasses' o='3328' t='int'/>
+<mbr r='shader_s::stages' o='3392' t='shaderStage_t *[8]'/>
+<mbr r='shader_s::optimalStageIteratorFunc' o='3904' t='void (*)(void)'/>
+<mbr r='shader_s::clampTime' o='3968' t='double'/>
+<mbr r='shader_s::timeOffset' o='4032' t='double'/>
+<mbr r='shader_s::remappedShader' o='4096' t='struct shader_s *'/>
+<mbr r='shader_s::next' o='4160' t='struct shader_s *'/>

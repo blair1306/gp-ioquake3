@@ -1,0 +1,11 @@
+<dec f='codebrowser/code/cgame/cg_local.h' l='1332' type='void CG_PainEvent(centity_t * cent, int health)'/>
+<def f='codebrowser/code/cgame/cg_event.c' l='479' ll='509' type='void CG_PainEvent(centity_t * cent, int health)'/>
+<use f='codebrowser/code/cgame/cg_event.c' l='1163' u='c' c='CG_EntityEvent'/>
+<doc f='codebrowser/code/cgame/cg_event.c' l='472'>/*
+================
+CG_PainEvent
+
+Also called by playerstate transition
+================
+*/</doc>
+<use f='codebrowser/code/cgame/cg_playerstate.c' l='331' u='c' c='CG_CheckLocalSounds'/>

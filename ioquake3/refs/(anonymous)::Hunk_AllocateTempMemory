@@ -1,0 +1,19 @@
+<dec f='codebrowser/code/renderercommon/tr_public.h' l='125' type='void *(*)(int)'/>
+<offset>256</offset>
+<use f='codebrowser/code/client/cl_main.c' l='3251' u='w' c='CL_InitRef'/>
+<use f='codebrowser/code/renderercommon/tr_image_jpg.c' l='470' u='r' c='RE_SaveJPG'/>
+<use f='codebrowser/code/renderergl1/tr_backend.c' l='1092' u='r' c='RB_SwapBuffers'/>
+<use f='codebrowser/code/renderergl1/tr_image.c' l='419' u='r' c='R_MipMap2'/>
+<use f='codebrowser/code/renderergl1/tr_image.c' l='586' u='r' c='Upload32'/>
+<use f='codebrowser/code/renderergl1/tr_image.c' l='622' u='r' c='Upload32'/>
+<use f='codebrowser/code/renderergl1/tr_image.c' l='1173' u='r' c='R_CreateFogImage'/>
+<use f='codebrowser/code/renderergl1/tr_init.c' l='381' u='r' c='RB_ReadPixels'/>
+<use f='codebrowser/code/renderergl1/tr_init.c' l='593' u='r' c='R_LevelShot'/>
+<use f='codebrowser/code/renderergl2/tr_backend.c' l='1374' u='r' c='RB_SwapBuffers'/>
+<use f='codebrowser/code/renderergl2/tr_image.c' l='1534' u='r' c='RawImage_ScaleToPower2'/>
+<use f='codebrowser/code/renderergl2/tr_image.c' l='1567' u='r' c='RawImage_ScaleToPower2'/>
+<use f='codebrowser/code/renderergl2/tr_image.c' l='1856' u='r' c='RawImage_UploadToRgtc2Texture'/>
+<use f='codebrowser/code/renderergl2/tr_image.c' l='2658' u='r' c='R_CreateFogImage'/>
+<use f='codebrowser/code/renderergl2/tr_init.c' l='446' u='r' c='RB_ReadPixels'/>
+<use f='codebrowser/code/renderergl2/tr_init.c' l='663' u='r' c='R_LevelShot'/>
+<use f='codebrowser/code/renderergl2/tr_vbo.c' l='267' u='r' c='R_CreateVao2'/>

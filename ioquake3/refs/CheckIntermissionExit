@@ -1,0 +1,12 @@
+<def f='codebrowser/code/game/g_main.c' l='1226' ll='1304' type='void CheckIntermissionExit()'/>
+<use f='codebrowser/code/game/g_main.c' l='1343' u='c' c='CheckExitRules'/>
+<doc f='codebrowser/code/game/g_main.c' l='1216'>/*
+=================
+CheckIntermissionExit
+
+The level will stay at the intermission for a minimum of 5 seconds
+If all players wish to continue, the level will then exit.
+If one or more players have not acknowledged the continue, the game will
+wait 10 seconds before going on.
+=================
+*/</doc>

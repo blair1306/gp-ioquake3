@@ -1,0 +1,16 @@
+<dec f='codebrowser/code/game/ai_dmq3.h' l='118' type='int BotFindEnemy(bot_state_t * bs, int curenemy)'/>
+<doc f='codebrowser/code/game/ai_dmq3.h' l='117'>//returns true and sets the .enemy field when an enemy is found</doc>
+<use f='codebrowser/code/game/ai_dmnet.c' l='1212' u='c' c='AINode_Stand'/>
+<use f='codebrowser/code/game/ai_dmnet.c' l='1626' u='c' c='AINode_Seek_ActivateEntity'/>
+<use f='codebrowser/code/game/ai_dmnet.c' l='1760' u='c' c='AINode_Seek_NBG'/>
+<use f='codebrowser/code/game/ai_dmnet.c' l='1849' u='c' c='AINode_Seek_LTG'/>
+<use f='codebrowser/code/game/ai_dmnet.c' l='2014' u='c' c='AINode_Battle_Fight'/>
+<use f='codebrowser/code/game/ai_dmnet.c' l='2195' u='c' c='AINode_Battle_Chase'/>
+<use f='codebrowser/code/game/ai_dmnet.c' l='2336' u='c' c='AINode_Battle_Retreat'/>
+<use f='codebrowser/code/game/ai_dmnet.c' l='2387' u='c' c='AINode_Battle_Retreat'/>
+<def f='codebrowser/code/game/ai_dmq3.c' l='2935' ll='3057' type='int BotFindEnemy(bot_state_t * bs, int curenemy)'/>
+<doc f='codebrowser/code/game/ai_dmq3.c' l='2930'>/*
+==================
+BotFindEnemy
+==================
+*/</doc>

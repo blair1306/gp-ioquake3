@@ -1,0 +1,56 @@
+<dec f='codebrowser/code/renderercommon/tr_types.h' l='105' type='float'/>
+<dec f='codebrowser/code/cgame/cg_local.h' l='130' type='float'/>
+<offset>128</offset>
+<doc f='codebrowser/code/renderercommon/tr_types.h' l='105'>// 0.0 = current, 1.0 = old</doc>
+<use f='codebrowser/code/cgame/cg_ents.c' l='43' u='r' c='CG_PositionEntityOnTag'/>
+<use f='codebrowser/code/cgame/cg_ents.c' l='53' u='w' c='CG_PositionEntityOnTag'/>
+<use f='codebrowser/code/cgame/cg_ents.c' l='53' u='r' c='CG_PositionEntityOnTag'/>
+<use f='codebrowser/code/cgame/cg_ents.c' l='74' u='r' c='CG_PositionRotatedEntityOnTag'/>
+<use f='codebrowser/code/cgame/cg_ents.c' l='180' u='w' c='CG_General'/>
+<use f='codebrowser/code/cgame/cg_players.c' l='1144' u='w' c='CG_RunLerpFrame'/>
+<use f='codebrowser/code/cgame/cg_players.c' l='1214' u='w' c='CG_RunLerpFrame'/>
+<use f='codebrowser/code/cgame/cg_players.c' l='1216' u='w' c='CG_RunLerpFrame'/>
+<use f='codebrowser/code/cgame/cg_players.c' l='1268' u='r' c='CG_PlayerAnimation'/>
+<use f='codebrowser/code/cgame/cg_players.c' l='1274' u='r' c='CG_PlayerAnimation'/>
+<use f='codebrowser/code/cgame/cg_players.c' l='1756' u='w' c='CG_PlayerFlag'/>
+<use f='codebrowser/code/cgame/cg_players.c' l='1756' u='r' c='CG_PlayerFlag'/>
+<use f='codebrowser/code/cgame/cg_players.c' l='2295' u='a' c='CG_Player'/>
+<use f='codebrowser/code/cgame/cg_players.c' l='2296' u='a' c='CG_Player'/>
+<use f='codebrowser/code/cgame/cg_view.c' l='83' u='w' c='CG_TestModel_f'/>
+<use f='codebrowser/code/cgame/cg_weapons.c' l='1252' u='r' c='CG_AddPlayerWeapon'/>
+<use f='codebrowser/code/cgame/cg_weapons.c' l='1266' u='w' c='CG_AddPlayerWeapon'/>
+<use f='codebrowser/code/cgame/cg_weapons.c' l='1266' u='r' c='CG_AddPlayerWeapon'/>
+<use f='codebrowser/code/cgame/cg_weapons.c' l='1423' u='w' c='CG_AddViewWeapon'/>
+<use f='codebrowser/code/cgame/cg_weapons.c' l='1429' u='w' c='CG_AddViewWeapon'/>
+<use f='codebrowser/code/cgame/cg_weapons.c' l='1429' u='r' c='CG_AddViewWeapon'/>
+<dec f='codebrowser/code/q3_ui/ui_local.h' l='462' type='float'/>
+<offset>128</offset>
+<use f='codebrowser/code/q3_ui/ui_players.c' l='297' u='r' c='UI_PositionEntityOnTag'/>
+<use f='codebrowser/code/q3_ui/ui_players.c' l='307' u='w' c='UI_PositionEntityOnTag'/>
+<use f='codebrowser/code/q3_ui/ui_players.c' l='307' u='r' c='UI_PositionEntityOnTag'/>
+<use f='codebrowser/code/q3_ui/ui_players.c' l='324' u='r' c='UI_PositionRotatedEntityOnTag'/>
+<use f='codebrowser/code/q3_ui/ui_players.c' l='415' u='w' c='UI_RunLerpFrame'/>
+<use f='codebrowser/code/q3_ui/ui_players.c' l='417' u='w' c='UI_RunLerpFrame'/>
+<use f='codebrowser/code/q3_ui/ui_players.c' l='445' u='r' c='UI_PlayerAnimation'/>
+<use f='codebrowser/code/q3_ui/ui_players.c' l='458' u='r' c='UI_PlayerAnimation'/>
+<use f='codebrowser/code/q3_ui/ui_players.c' l='756' u='a' c='UI_DrawPlayer'/>
+<use f='codebrowser/code/q3_ui/ui_players.c' l='757' u='a' c='UI_DrawPlayer'/>
+<use f='codebrowser/code/renderergl1/tr_animation.c' l='336' u='r' c='RB_MDRSurfaceAnim'/>
+<use f='codebrowser/code/renderergl1/tr_model_iqm.c' l='1030' u='r' c='RB_IQMSurfaceAnim'/>
+<use f='codebrowser/code/renderergl1/tr_surface.c' l='873' u='r' c='RB_SurfaceMesh'/>
+<use f='codebrowser/code/renderergl2/tr_animation.c' l='340' u='r' c='RB_MDRSurfaceAnim'/>
+<use f='codebrowser/code/renderergl2/tr_model_iqm.c' l='1035' u='r' c='RB_IQMSurfaceAnim'/>
+<use f='codebrowser/code/renderergl2/tr_surface.c' l='859' u='r' c='RB_SurfaceMesh'/>
+<use f='codebrowser/code/renderergl2/tr_surface.c' l='1245' u='r' c='RB_SurfaceVaoMdvMesh'/>
+<dec f='codebrowser/code/ui/ui_local.h' l='509' type='float'/>
+<offset>128</offset>
+<use f='codebrowser/code/ui/ui_players.c' l='298' u='r' c='UI_PositionEntityOnTag'/>
+<use f='codebrowser/code/ui/ui_players.c' l='308' u='w' c='UI_PositionEntityOnTag'/>
+<use f='codebrowser/code/ui/ui_players.c' l='308' u='r' c='UI_PositionEntityOnTag'/>
+<use f='codebrowser/code/ui/ui_players.c' l='325' u='r' c='UI_PositionRotatedEntityOnTag'/>
+<use f='codebrowser/code/ui/ui_players.c' l='416' u='w' c='UI_RunLerpFrame'/>
+<use f='codebrowser/code/ui/ui_players.c' l='418' u='w' c='UI_RunLerpFrame'/>
+<use f='codebrowser/code/ui/ui_players.c' l='446' u='r' c='UI_PlayerAnimation'/>
+<use f='codebrowser/code/ui/ui_players.c' l='459' u='r' c='UI_PlayerAnimation'/>
+<use f='codebrowser/code/ui/ui_players.c' l='762' u='a' c='UI_DrawPlayer'/>
+<use f='codebrowser/code/ui/ui_players.c' l='763' u='a' c='UI_DrawPlayer'/>

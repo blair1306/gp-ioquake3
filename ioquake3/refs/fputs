@@ -1,0 +1,15 @@
+<dec f='include/stdio.h' l='689' type='int fputs(const char *restrict __s, FILE *restrict __stream)'/>
+<doc f='include/stdio.h' l='685'>/* Write a string to STREAM.
+
+   This function is a possible cancellation point and therefore not
+   marked with __THROW.  */</doc>
+<use f='codebrowser/code/sys/con_tty.c' l='528' u='c' c='CON_Print'/>
+<use f='codebrowser/code/sys/sys_main.c' l='370' u='c' c='Sys_AnsiColorPrint'/>
+<use f='codebrowser/code/sys/sys_main.c' l='377' u='c' c='Sys_AnsiColorPrint'/>
+<use f='codebrowser/code/sys/sys_main.c' l='385' u='c' c='Sys_AnsiColorPrint'/>
+<use f='codebrowser/code/sys/sys_main.c' l='404' u='c' c='Sys_AnsiColorPrint'/>
+<use f='codebrowser/code/tools/lcc/lburg/gram.c' l='89' u='c' c='get'/>
+<use f='codebrowser/code/tools/lcc/lburg/lburg.c' l='290' u='c' c='print'/>
+<use f='codebrowser/code/tools/lcc/lburg/lburg.c' l='306' u='c' c='print'/>
+<use f='codebrowser/code/tools/lcc/src/gen.c' l='362' u='c' c='emitasm'/>
+<use f='codebrowser/code/tools/lcc/src/output.c' l='6' u='c' c='outs'/>

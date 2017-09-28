@@ -1,0 +1,11 @@
+<dec f='codebrowser/code/tools/lcc/cpp/cpp.h' l='121' type='Tokenrow * normtokenrow(Tokenrow * )'/>
+<use f='codebrowser/code/tools/lcc/cpp/macro.c' l='70' u='c' c='dodefine'/>
+<use f='codebrowser/code/tools/lcc/cpp/macro.c' l='79' u='c' c='dodefine'/>
+<use f='codebrowser/code/tools/lcc/cpp/macro.c' l='121' u='c' c='doadefine'/>
+<use f='codebrowser/code/tools/lcc/cpp/macro.c' l='307' u='c' c='gatherargs'/>
+<def f='codebrowser/code/tools/lcc/cpp/tokens.c' l='231' ll='255' type='Tokenrow * normtokenrow(Tokenrow * trp)'/>
+<doc f='codebrowser/code/tools/lcc/cpp/tokens.c' l='226'>/*
+ * Produce a copy of a row of tokens.  Start at trp-&gt;tp.
+ * The value strings are copied as well.  The first token
+ * has WS available.
+ */</doc>

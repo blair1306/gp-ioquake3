@@ -1,0 +1,12 @@
+<dec f='codebrowser/code/qcommon/qcommon.h' l='705' type='const char * FS_LoadedPakNames()'/>
+<use f='codebrowser/code/client/cl_main.c' l='2030' u='c' c='CL_OpenedPK3List_f'/>
+<def f='codebrowser/code/qcommon/files.c' l='3643' ll='3662' type='const char * FS_LoadedPakNames()'/>
+<doc f='codebrowser/code/qcommon/files.c' l='3635'>/*
+=====================
+FS_LoadedPakNames
+
+Returns a space separated string containing the names of all loaded pk3 files.
+Servers with sv_pure set will get this string and pass it to clients.
+=====================
+*/</doc>
+<use f='codebrowser/code/server/sv_init.c' l='574' u='c' c='SV_SpawnServer'/>

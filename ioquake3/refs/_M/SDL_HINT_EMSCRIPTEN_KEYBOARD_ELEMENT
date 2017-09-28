@@ -1,0 +1,13 @@
+<dec f='include/SDL2/SDL_hints.h' l='610'/>
+<doc f='include/SDL2/SDL_hints.h' l='598'>/**
+ *  \brief override the binding element for keyboard inputs for Emscripten builds
+ *
+ * This hint only applies to the emscripten platform
+ *
+ * The variable can be one of
+ *    &quot;#window&quot;      - The javascript window object (this is the default)
+ *    &quot;#document&quot;    - The javascript document object
+ *    &quot;#screen&quot;      - the javascript window.screen object
+ *    &quot;#canvas&quot;      - the WebGL canvas element
+ *    any other string without a leading # sign applies to the element on the page with that ID.
+ */</doc>

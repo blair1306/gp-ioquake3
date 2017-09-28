@@ -1,0 +1,19 @@
+<dec f='codebrowser/code/qcommon/qcommon.h' l='531' type='int Cvar_VariableIntegerValue(const char * var_name)'/>
+<use f='codebrowser/code/client/cl_avi.c' l='385' u='c' c='CL_OpenAVIForWriting'/>
+<use f='codebrowser/code/client/cl_keys.c' l='1251' u='c' c='CL_KeyDownEvent'/>
+<use f='codebrowser/code/client/cl_main.c' l='3269' u='r' c='CL_InitRef'/>
+<use f='codebrowser/code/client/cl_main.c' l='4238' u='c' c='CL_GlobalServers_f'/>
+<use f='codebrowser/code/client/cl_main.c' l='4295' u='c' c='CL_GetPing'/>
+<use f='codebrowser/code/client/cl_scrn.c' l='576' u='c' c='SCR_UpdateScreen'/>
+<def f='codebrowser/code/qcommon/cvar.c' l='120' ll='127' type='int Cvar_VariableIntegerValue(const char * var_name)'/>
+<doc f='codebrowser/code/qcommon/cvar.c' l='115'>/*
+============
+Cvar_VariableIntegerValue
+============
+*/</doc>
+<use f='codebrowser/code/sdl/sdl_input.c' l='359' u='c' c='IN_ActivateMouse'/>
+<use f='codebrowser/code/sdl/sdl_input.c' l='387' u='c' c='IN_DeactivateMouse'/>
+<use f='codebrowser/code/server/sv_bot.c' l='526' u='c' c='SV_BotInitBotLib'/>
+<use f='codebrowser/code/server/sv_game.c' l='312' u='c' c='SV_GameSystemCalls'/>
+<use f='codebrowser/code/server/sv_main.c' l='247' u='c' c='SV_MasterHeartbeat'/>
+<use f='codebrowser/code/server/sv_main.c' l='662' u='c' c='SVC_Info'/>

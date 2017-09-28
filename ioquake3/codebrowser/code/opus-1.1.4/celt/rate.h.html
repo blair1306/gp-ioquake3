@@ -1,0 +1,119 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>rate.h source code [codebrowser/code/opus-1.1.4/celt/rate.h] - Woboq Code Browser</title>
+<link rel="stylesheet" href="../../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'codebrowser/code/opus-1.1.4/celt/rate.h'; var root_path = '../../../..'; var data_path = '../../../../../data';</script>
+<script src='../../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../../..'>codebrowser</a>/<a href='../..'>code</a>/<a href='..'>opus-1.1.4</a>/<a href='./'>celt</a>/<a href='rate.h.html'>rate.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/* Copyright (c) 2007-2008 CSIRO</i></td></tr>
+<tr><th id="2">2</th><td><i>   Copyright (c) 2007-2009 Xiph.Org Foundation</i></td></tr>
+<tr><th id="3">3</th><td><i>   Written by Jean-Marc Valin */</i></td></tr>
+<tr><th id="4">4</th><td><i>/*</i></td></tr>
+<tr><th id="5">5</th><td><i>   Redistribution and use in source and binary forms, with or without</i></td></tr>
+<tr><th id="6">6</th><td><i>   modification, are permitted provided that the following conditions</i></td></tr>
+<tr><th id="7">7</th><td><i>   are met:</i></td></tr>
+<tr><th id="8">8</th><td><i></i></td></tr>
+<tr><th id="9">9</th><td><i>   - Redistributions of source code must retain the above copyright</i></td></tr>
+<tr><th id="10">10</th><td><i>   notice, this list of conditions and the following disclaimer.</i></td></tr>
+<tr><th id="11">11</th><td><i></i></td></tr>
+<tr><th id="12">12</th><td><i>   - Redistributions in binary form must reproduce the above copyright</i></td></tr>
+<tr><th id="13">13</th><td><i>   notice, this list of conditions and the following disclaimer in the</i></td></tr>
+<tr><th id="14">14</th><td><i>   documentation and/or other materials provided with the distribution.</i></td></tr>
+<tr><th id="15">15</th><td><i></i></td></tr>
+<tr><th id="16">16</th><td><i>   THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS</i></td></tr>
+<tr><th id="17">17</th><td><i>   ``AS IS'' AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT</i></td></tr>
+<tr><th id="18">18</th><td><i>   LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR</i></td></tr>
+<tr><th id="19">19</th><td><i>   A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER</i></td></tr>
+<tr><th id="20">20</th><td><i>   OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,</i></td></tr>
+<tr><th id="21">21</th><td><i>   EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,</i></td></tr>
+<tr><th id="22">22</th><td><i>   PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR</i></td></tr>
+<tr><th id="23">23</th><td><i>   PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF</i></td></tr>
+<tr><th id="24">24</th><td><i>   LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING</i></td></tr>
+<tr><th id="25">25</th><td><i>   NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS</i></td></tr>
+<tr><th id="26">26</th><td><i>   SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</i></td></tr>
+<tr><th id="27">27</th><td><i>*/</i></td></tr>
+<tr><th id="28">28</th><td></td></tr>
+<tr><th id="29">29</th><td><u>#<span data-ppcond="29">ifndef</span> <span class="macro" data-ref="_M/RATE_H">RATE_H</span></u></td></tr>
+<tr><th id="30">30</th><td><u>#define <dfn class="macro" id="_M/RATE_H" data-ref="_M/RATE_H">RATE_H</dfn></u></td></tr>
+<tr><th id="31">31</th><td></td></tr>
+<tr><th id="32">32</th><td><u>#define <dfn class="macro" id="_M/MAX_PSEUDO" data-ref="_M/MAX_PSEUDO">MAX_PSEUDO</dfn> 40</u></td></tr>
+<tr><th id="33">33</th><td><u>#define <dfn class="macro" id="_M/LOG_MAX_PSEUDO" data-ref="_M/LOG_MAX_PSEUDO">LOG_MAX_PSEUDO</dfn> 6</u></td></tr>
+<tr><th id="34">34</th><td></td></tr>
+<tr><th id="35">35</th><td><u>#define <dfn class="macro" id="_M/CELT_MAX_PULSES" data-ref="_M/CELT_MAX_PULSES">CELT_MAX_PULSES</dfn> 128</u></td></tr>
+<tr><th id="36">36</th><td></td></tr>
+<tr><th id="37">37</th><td><u>#define <dfn class="macro" id="_M/MAX_FINE_BITS" data-ref="_M/MAX_FINE_BITS">MAX_FINE_BITS</dfn> 8</u></td></tr>
+<tr><th id="38">38</th><td></td></tr>
+<tr><th id="39">39</th><td><u>#define <dfn class="macro" id="_M/FINE_OFFSET" data-ref="_M/FINE_OFFSET">FINE_OFFSET</dfn> 21</u></td></tr>
+<tr><th id="40">40</th><td><u>#define <dfn class="macro" id="_M/QTHETA_OFFSET" data-ref="_M/QTHETA_OFFSET">QTHETA_OFFSET</dfn> 4</u></td></tr>
+<tr><th id="41">41</th><td><u>#define <dfn class="macro" id="_M/QTHETA_OFFSET_TWOPHASE" data-ref="_M/QTHETA_OFFSET_TWOPHASE">QTHETA_OFFSET_TWOPHASE</dfn> 16</u></td></tr>
+<tr><th id="42">42</th><td></td></tr>
+<tr><th id="43">43</th><td><u>#include <a href="cwrs.h.html">"cwrs.h"</a></u></td></tr>
+<tr><th id="44">44</th><td><u>#include <a href="modes.h.html">"modes.h"</a></u></td></tr>
+<tr><th id="45">45</th><td></td></tr>
+<tr><th id="46">46</th><td><em>void</em> <dfn class="decl" id="compute_pulse_cache" title='compute_pulse_cache' data-ref="compute_pulse_cache">compute_pulse_cache</dfn>(<a class="macro" href="celt.h.html#51" title="OpusCustomMode" data-ref="_M/CELTMode">CELTMode</a> *<dfn class="local col4 decl" id="204m" title='m' data-type='OpusCustomMode *' data-ref="204m">m</dfn>, <em>int</em> <dfn class="local col5 decl" id="205LM" title='LM' data-type='int' data-ref="205LM">LM</dfn>);</td></tr>
+<tr><th id="47">47</th><td></td></tr>
+<tr><th id="48">48</th><td><em>static</em> <a class="macro" href="../include/opus_defines.h.html#110" title="inline" data-ref="_M/OPUS_INLINE">OPUS_INLINE</a> <em>int</em> <dfn class="decl def" id="get_pulses" title='get_pulses' data-ref="get_pulses">get_pulses</dfn>(<em>int</em> <dfn class="local col6 decl" id="206i" title='i' data-type='int' data-ref="206i">i</dfn>)</td></tr>
+<tr><th id="49">49</th><td>{</td></tr>
+<tr><th id="50">50</th><td>   <b>return</b> <a class="local col6 ref" href="#206i" title='i' data-ref="206i">i</a>&lt;<var>8</var> ? <a class="local col6 ref" href="#206i" title='i' data-ref="206i">i</a> : (<var>8</var> + (<a class="local col6 ref" href="#206i" title='i' data-ref="206i">i</a>&amp;<var>7</var>)) &lt;&lt; ((<a class="local col6 ref" href="#206i" title='i' data-ref="206i">i</a>&gt;&gt;<var>3</var>)-<var>1</var>);</td></tr>
+<tr><th id="51">51</th><td>}</td></tr>
+<tr><th id="52">52</th><td></td></tr>
+<tr><th id="53">53</th><td><em>static</em> <a class="macro" href="../include/opus_defines.h.html#110" title="inline" data-ref="_M/OPUS_INLINE">OPUS_INLINE</a> <em>int</em> <dfn class="decl def" id="bits2pulses" title='bits2pulses' data-ref="bits2pulses">bits2pulses</dfn>(<em>const</em> <a class="macro" href="celt.h.html#51" title="OpusCustomMode" data-ref="_M/CELTMode">CELTMode</a> *<dfn class="local col7 decl" id="207m" title='m' data-type='const OpusCustomMode *' data-ref="207m">m</dfn>, <em>int</em> <dfn class="local col8 decl" id="208band" title='band' data-type='int' data-ref="208band">band</dfn>, <em>int</em> <dfn class="local col9 decl" id="209LM" title='LM' data-type='int' data-ref="209LM">LM</dfn>, <em>int</em> <dfn class="local col0 decl" id="210bits" title='bits' data-type='int' data-ref="210bits">bits</dfn>)</td></tr>
+<tr><th id="54">54</th><td>{</td></tr>
+<tr><th id="55">55</th><td>   <em>int</em> <dfn class="local col1 decl" id="211i" title='i' data-type='int' data-ref="211i">i</dfn>;</td></tr>
+<tr><th id="56">56</th><td>   <em>int</em> <dfn class="local col2 decl" id="212lo" title='lo' data-type='int' data-ref="212lo">lo</dfn>, <dfn class="local col3 decl" id="213hi" title='hi' data-type='int' data-ref="213hi">hi</dfn>;</td></tr>
+<tr><th id="57">57</th><td>   <em>const</em> <em>unsigned</em> <em>char</em> *<dfn class="local col4 decl" id="214cache" title='cache' data-type='const unsigned char *' data-ref="214cache">cache</dfn>;</td></tr>
+<tr><th id="58">58</th><td></td></tr>
+<tr><th id="59">59</th><td>   <a class="local col9 ref" href="#209LM" title='LM' data-ref="209LM">LM</a>++;</td></tr>
+<tr><th id="60">60</th><td>   <a class="local col4 ref" href="#214cache" title='cache' data-ref="214cache">cache</a> = <a class="local col7 ref" href="#207m" title='m' data-ref="207m">m</a>-&gt;<a class="ref" href="modes.h.html#OpusCustomMode::cache" title='OpusCustomMode::cache' data-ref="OpusCustomMode::cache">cache</a>.<a class="ref" href="modes.h.html#(anonymous)::bits" title='(anonymous struct)::bits' data-ref="(anonymous)::bits">bits</a> + <a class="local col7 ref" href="#207m" title='m' data-ref="207m">m</a>-&gt;<a class="ref" href="modes.h.html#OpusCustomMode::cache" title='OpusCustomMode::cache' data-ref="OpusCustomMode::cache">cache</a>.<a class="ref" href="modes.h.html#(anonymous)::index" title='(anonymous struct)::index' data-ref="(anonymous)::index">index</a>[<a class="local col9 ref" href="#209LM" title='LM' data-ref="209LM">LM</a>*<a class="local col7 ref" href="#207m" title='m' data-ref="207m">m</a>-&gt;<a class="ref" href="modes.h.html#OpusCustomMode::nbEBands" title='OpusCustomMode::nbEBands' data-ref="OpusCustomMode::nbEBands">nbEBands</a>+<a class="local col8 ref" href="#208band" title='band' data-ref="208band">band</a>];</td></tr>
+<tr><th id="61">61</th><td></td></tr>
+<tr><th id="62">62</th><td>   <a class="local col2 ref" href="#212lo" title='lo' data-ref="212lo">lo</a> = <var>0</var>;</td></tr>
+<tr><th id="63">63</th><td>   <a class="local col3 ref" href="#213hi" title='hi' data-ref="213hi">hi</a> = <a class="local col4 ref" href="#214cache" title='cache' data-ref="214cache">cache</a>[<var>0</var>];</td></tr>
+<tr><th id="64">64</th><td>   <a class="local col0 ref" href="#210bits" title='bits' data-ref="210bits">bits</a>--;</td></tr>
+<tr><th id="65">65</th><td>   <b>for</b> (<a class="local col1 ref" href="#211i" title='i' data-ref="211i">i</a>=<var>0</var>;<a class="local col1 ref" href="#211i" title='i' data-ref="211i">i</a>&lt;<a class="macro" href="#33" title="6" data-ref="_M/LOG_MAX_PSEUDO">LOG_MAX_PSEUDO</a>;<a class="local col1 ref" href="#211i" title='i' data-ref="211i">i</a>++)</td></tr>
+<tr><th id="66">66</th><td>   {</td></tr>
+<tr><th id="67">67</th><td>      <em>int</em> <dfn class="local col5 decl" id="215mid" title='mid' data-type='int' data-ref="215mid">mid</dfn> = (<a class="local col2 ref" href="#212lo" title='lo' data-ref="212lo">lo</a>+<a class="local col3 ref" href="#213hi" title='hi' data-ref="213hi">hi</a>+<var>1</var>)&gt;&gt;<var>1</var>;</td></tr>
+<tr><th id="68">68</th><td>      <i>/* OPT: Make sure this is implemented with a conditional move */</i></td></tr>
+<tr><th id="69">69</th><td>      <b>if</b> ((<em>int</em>)<a class="local col4 ref" href="#214cache" title='cache' data-ref="214cache">cache</a>[<a class="local col5 ref" href="#215mid" title='mid' data-ref="215mid">mid</a>] &gt;= <a class="local col0 ref" href="#210bits" title='bits' data-ref="210bits">bits</a>)</td></tr>
+<tr><th id="70">70</th><td>         <a class="local col3 ref" href="#213hi" title='hi' data-ref="213hi">hi</a> = <a class="local col5 ref" href="#215mid" title='mid' data-ref="215mid">mid</a>;</td></tr>
+<tr><th id="71">71</th><td>      <b>else</b></td></tr>
+<tr><th id="72">72</th><td>         <a class="local col2 ref" href="#212lo" title='lo' data-ref="212lo">lo</a> = <a class="local col5 ref" href="#215mid" title='mid' data-ref="215mid">mid</a>;</td></tr>
+<tr><th id="73">73</th><td>   }</td></tr>
+<tr><th id="74">74</th><td>   <b>if</b> (<a class="local col0 ref" href="#210bits" title='bits' data-ref="210bits">bits</a>- (<a class="local col2 ref" href="#212lo" title='lo' data-ref="212lo">lo</a> == <var>0</var> ? -<var>1</var> : (<em>int</em>)<a class="local col4 ref" href="#214cache" title='cache' data-ref="214cache">cache</a>[<a class="local col2 ref" href="#212lo" title='lo' data-ref="212lo">lo</a>]) &lt;= (<em>int</em>)<a class="local col4 ref" href="#214cache" title='cache' data-ref="214cache">cache</a>[<a class="local col3 ref" href="#213hi" title='hi' data-ref="213hi">hi</a>]-<a class="local col0 ref" href="#210bits" title='bits' data-ref="210bits">bits</a>)</td></tr>
+<tr><th id="75">75</th><td>      <b>return</b> <a class="local col2 ref" href="#212lo" title='lo' data-ref="212lo">lo</a>;</td></tr>
+<tr><th id="76">76</th><td>   <b>else</b></td></tr>
+<tr><th id="77">77</th><td>      <b>return</b> <a class="local col3 ref" href="#213hi" title='hi' data-ref="213hi">hi</a>;</td></tr>
+<tr><th id="78">78</th><td>}</td></tr>
+<tr><th id="79">79</th><td></td></tr>
+<tr><th id="80">80</th><td><em>static</em> <a class="macro" href="../include/opus_defines.h.html#110" title="inline" data-ref="_M/OPUS_INLINE">OPUS_INLINE</a> <em>int</em> <dfn class="decl def" id="pulses2bits" title='pulses2bits' data-ref="pulses2bits">pulses2bits</dfn>(<em>const</em> <a class="macro" href="celt.h.html#51" title="OpusCustomMode" data-ref="_M/CELTMode">CELTMode</a> *<dfn class="local col6 decl" id="216m" title='m' data-type='const OpusCustomMode *' data-ref="216m">m</dfn>, <em>int</em> <dfn class="local col7 decl" id="217band" title='band' data-type='int' data-ref="217band">band</dfn>, <em>int</em> <dfn class="local col8 decl" id="218LM" title='LM' data-type='int' data-ref="218LM">LM</dfn>, <em>int</em> <dfn class="local col9 decl" id="219pulses" title='pulses' data-type='int' data-ref="219pulses">pulses</dfn>)</td></tr>
+<tr><th id="81">81</th><td>{</td></tr>
+<tr><th id="82">82</th><td>   <em>const</em> <em>unsigned</em> <em>char</em> *<dfn class="local col0 decl" id="220cache" title='cache' data-type='const unsigned char *' data-ref="220cache">cache</dfn>;</td></tr>
+<tr><th id="83">83</th><td></td></tr>
+<tr><th id="84">84</th><td>   <a class="local col8 ref" href="#218LM" title='LM' data-ref="218LM">LM</a>++;</td></tr>
+<tr><th id="85">85</th><td>   <a class="local col0 ref" href="#220cache" title='cache' data-ref="220cache">cache</a> = <a class="local col6 ref" href="#216m" title='m' data-ref="216m">m</a>-&gt;<a class="ref" href="modes.h.html#OpusCustomMode::cache" title='OpusCustomMode::cache' data-ref="OpusCustomMode::cache">cache</a>.<a class="ref" href="modes.h.html#(anonymous)::bits" title='(anonymous struct)::bits' data-ref="(anonymous)::bits">bits</a> + <a class="local col6 ref" href="#216m" title='m' data-ref="216m">m</a>-&gt;<a class="ref" href="modes.h.html#OpusCustomMode::cache" title='OpusCustomMode::cache' data-ref="OpusCustomMode::cache">cache</a>.<a class="ref" href="modes.h.html#(anonymous)::index" title='(anonymous struct)::index' data-ref="(anonymous)::index">index</a>[<a class="local col8 ref" href="#218LM" title='LM' data-ref="218LM">LM</a>*<a class="local col6 ref" href="#216m" title='m' data-ref="216m">m</a>-&gt;<a class="ref" href="modes.h.html#OpusCustomMode::nbEBands" title='OpusCustomMode::nbEBands' data-ref="OpusCustomMode::nbEBands">nbEBands</a>+<a class="local col7 ref" href="#217band" title='band' data-ref="217band">band</a>];</td></tr>
+<tr><th id="86">86</th><td>   <b>return</b> <a class="local col9 ref" href="#219pulses" title='pulses' data-ref="219pulses">pulses</a> == <var>0</var> ? <var>0</var> : <a class="local col0 ref" href="#220cache" title='cache' data-ref="220cache">cache</a>[<a class="local col9 ref" href="#219pulses" title='pulses' data-ref="219pulses">pulses</a>]+<var>1</var>;</td></tr>
+<tr><th id="87">87</th><td>}</td></tr>
+<tr><th id="88">88</th><td></td></tr>
+<tr><th id="89">89</th><td><i class="doc">/** Compute the pulse allocation, i.e. how many pulses will go in each</i></td></tr>
+<tr><th id="90">90</th><td><i class="doc">  * band.</i></td></tr>
+<tr><th id="91">91</th><td><i class="doc"> <span class="command">@param</span> <span class="arg">m</span> mode</i></td></tr>
+<tr><th id="92">92</th><td><i class="doc"> <span class="command">@param</span> <span class="arg">offsets</span> Requested increase or decrease in the number of bits for</i></td></tr>
+<tr><th id="93">93</th><td><i class="doc">                each band</i></td></tr>
+<tr><th id="94">94</th><td><i class="doc"> <span class="command">@param</span> <span class="arg">total</span> Number of bands</i></td></tr>
+<tr><th id="95">95</th><td><i class="doc"> <span class="command">@param</span> <span class="arg">pulses</span> Number of pulses per band (returned)</i></td></tr>
+<tr><th id="96">96</th><td><i class="doc"> <span class="command">@return</span> Total number of bits allocated</i></td></tr>
+<tr><th id="97">97</th><td><i class="doc">*/</i></td></tr>
+<tr><th id="98">98</th><td><em>int</em> <dfn class="decl" id="compute_allocation" title='compute_allocation' data-ref="compute_allocation">compute_allocation</dfn>(<em>const</em> <a class="macro" href="celt.h.html#51" title="OpusCustomMode" data-ref="_M/CELTMode">CELTMode</a> *<dfn class="local col1 decl" id="221m" title='m' data-type='const OpusCustomMode *' data-ref="221m">m</dfn>, <em>int</em> <dfn class="local col2 decl" id="222start" title='start' data-type='int' data-ref="222start">start</dfn>, <em>int</em> <dfn class="local col3 decl" id="223end" title='end' data-type='int' data-ref="223end">end</dfn>, <em>const</em> <em>int</em> *<dfn class="local col4 decl" id="224offsets" title='offsets' data-type='const int *' data-ref="224offsets">offsets</dfn>, <em>const</em> <em>int</em> *<dfn class="local col5 decl" id="225cap" title='cap' data-type='const int *' data-ref="225cap">cap</dfn>, <em>int</em> <dfn class="local col6 decl" id="226alloc_trim" title='alloc_trim' data-type='int' data-ref="226alloc_trim">alloc_trim</dfn>, <em>int</em> *<dfn class="local col7 decl" id="227intensity" title='intensity' data-type='int *' data-ref="227intensity">intensity</dfn>, <em>int</em> *<dfn class="local col8 decl" id="228dual_stero" title='dual_stero' data-type='int *' data-ref="228dual_stero">dual_stero</dfn>,</td></tr>
+<tr><th id="99">99</th><td>      <a class="typedef" href="../include/opus_types.h.html#opus_int32" title='opus_int32' data-type='int32_t' data-ref="opus_int32">opus_int32</a> <dfn class="local col9 decl" id="229total" title='total' data-type='opus_int32' data-ref="229total">total</dfn>, <a class="typedef" href="../include/opus_types.h.html#opus_int32" title='opus_int32' data-type='int32_t' data-ref="opus_int32">opus_int32</a> *<dfn class="local col0 decl" id="230balance" title='balance' data-type='opus_int32 *' data-ref="230balance">balance</dfn>, <em>int</em> *<dfn class="local col1 decl" id="231pulses" title='pulses' data-type='int *' data-ref="231pulses">pulses</dfn>, <em>int</em> *<dfn class="local col2 decl" id="232ebits" title='ebits' data-type='int *' data-ref="232ebits">ebits</dfn>, <em>int</em> *<dfn class="local col3 decl" id="233fine_priority" title='fine_priority' data-type='int *' data-ref="233fine_priority">fine_priority</dfn>, <em>int</em> <dfn class="local col4 decl" id="234C" title='C' data-type='int' data-ref="234C">C</dfn>, <em>int</em> <dfn class="local col5 decl" id="235LM" title='LM' data-type='int' data-ref="235LM">LM</dfn>, <a class="typedef" href="entcode.h.html#ec_ctx" title='ec_ctx' data-type='struct ec_ctx' data-ref="ec_ctx">ec_ctx</a> *<dfn class="local col6 decl" id="236ec" title='ec' data-type='ec_ctx *' data-ref="236ec">ec</dfn>, <em>int</em> <dfn class="local col7 decl" id="237encode" title='encode' data-type='int' data-ref="237encode">encode</dfn>, <em>int</em> <dfn class="local col8 decl" id="238prev" title='prev' data-type='int' data-ref="238prev">prev</dfn>, <em>int</em> <dfn class="local col9 decl" id="239signalBandwidth" title='signalBandwidth' data-type='int' data-ref="239signalBandwidth">signalBandwidth</dfn>);</td></tr>
+<tr><th id="100">100</th><td></td></tr>
+<tr><th id="101">101</th><td><u>#<span data-ppcond="29">endif</span></u></td></tr>
+<tr><th id="102">102</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='bands.c.html'>codebrowser/code/opus-1.1.4/celt/bands.c</a><br/>Generated on <em>2017-Aug-29</em> from project codebrowser revision <em>63e07af</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

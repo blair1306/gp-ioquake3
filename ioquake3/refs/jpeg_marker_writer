@@ -1,0 +1,10 @@
+<def f='codebrowser/code/jpeg-8c/jpegint.h' l='123' ll='134'/>
+<size>56</size>
+<doc f='codebrowser/code/jpeg-8c/jpegint.h' l='122'>/* Marker writing */</doc>
+<mbr r='jpeg_marker_writer::write_file_header' o='0' t='void (*)(j_compress_ptr)'/>
+<mbr r='jpeg_marker_writer::write_frame_header' o='64' t='void (*)(j_compress_ptr)'/>
+<mbr r='jpeg_marker_writer::write_scan_header' o='128' t='void (*)(j_compress_ptr)'/>
+<mbr r='jpeg_marker_writer::write_file_trailer' o='192' t='void (*)(j_compress_ptr)'/>
+<mbr r='jpeg_marker_writer::write_tables_only' o='256' t='void (*)(j_compress_ptr)'/>
+<mbr r='jpeg_marker_writer::write_marker_header' o='320' t='void (*)(j_compress_ptr, int, unsigned int)'/>
+<mbr r='jpeg_marker_writer::write_marker_byte' o='384' t='void (*)(j_compress_ptr, int)'/>

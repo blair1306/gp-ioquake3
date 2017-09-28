@@ -1,0 +1,14 @@
+<dec f='codebrowser/code/cgame/cg_local.h' l='1584' type='void trap_R_ClearScene()'/>
+<doc f='codebrowser/code/cgame/cg_local.h' l='1582'>// a scene is built up by calls to R_ClearScene and the various R_Add functions.
+// Nothing is drawn until R_RenderScene is called.</doc>
+<use f='codebrowser/code/cgame/cg_draw.c' l='300' u='c' c='CG_Draw3DModel'/>
+<use f='codebrowser/code/cgame/cg_main.c' l='819' u='c' c='CG_RegisterGraphics'/>
+<def f='codebrowser/code/cgame/cg_syscalls.c' l='253' ll='255' type='void trap_R_ClearScene()'/>
+<use f='codebrowser/code/cgame/cg_view.c' l='777' u='c' c='CG_DrawActiveFrame'/>
+<dec f='codebrowser/code/q3_ui/ui_local.h' l='649' type='void trap_R_ClearScene()'/>
+<use f='codebrowser/code/q3_ui/ui_menu.c' l='195' u='c' c='Main_MenuDraw'/>
+<use f='codebrowser/code/q3_ui/ui_players.c' l='750' u='c' c='UI_DrawPlayer'/>
+<dec f='codebrowser/code/ui/ui_local.h' l='940' type='void trap_R_ClearScene()'/>
+<use f='codebrowser/code/ui/ui_main.c' l='5111' u='a' c='_UI_Init'/>
+<use f='codebrowser/code/ui/ui_players.c' l='756' u='c' c='UI_DrawPlayer'/>
+<def f='codebrowser/code/ui/ui_syscalls.c' l='148' ll='150' type='void trap_R_ClearScene()'/>

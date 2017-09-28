@@ -1,0 +1,18 @@
+<dec f='codebrowser/code/renderergl1/tr_local.h' l='725' type='char *'/>
+<offset>2560</offset>
+<use f='codebrowser/code/renderergl1/tr_bsp.c' l='1710' u='w' c='R_LoadEntities'/>
+<use f='codebrowser/code/renderergl1/tr_bsp.c' l='1777' u='a' c='R_GetEntityToken'/>
+<use f='codebrowser/code/renderergl1/tr_bsp.c' l='1779' u='r' c='R_GetEntityToken'/>
+<use f='codebrowser/code/renderergl1/tr_bsp.c' l='1780' u='w' c='R_GetEntityToken'/>
+<dec f='codebrowser/code/renderergl2/tr_local.h' l='1130' type='char *'/>
+<offset>2816</offset>
+<use f='codebrowser/code/renderergl2/tr_bsp.c' l='2291' u='w' c='R_LoadEntities'/>
+<use f='codebrowser/code/renderergl2/tr_bsp.c' l='2364' u='a' c='R_GetEntityToken'/>
+<use f='codebrowser/code/renderergl2/tr_bsp.c' l='2366' u='r' c='R_GetEntityToken'/>
+<use f='codebrowser/code/renderergl2/tr_bsp.c' l='2367' u='w' c='R_GetEntityToken'/>
+<dec f='codebrowser/code/server/server.h' l='84' type='char *'/>
+<offset>2621760</offset>
+<doc f='codebrowser/code/server/server.h' l='84'>// used during game VM init</doc>
+<use f='codebrowser/code/server/sv_game.c' l='412' u='a' c='SV_GameSystemCalls'/>
+<use f='codebrowser/code/server/sv_game.c' l='414' u='r' c='SV_GameSystemCalls'/>
+<use f='codebrowser/code/server/sv_game.c' l='879' u='w' c='SV_InitGameVM'/>

@@ -1,0 +1,98 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>surfaceflags.h source code [codebrowser/code/qcommon/surfaceflags.h] - Woboq Code Browser</title>
+<link rel="stylesheet" href="../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'codebrowser/code/qcommon/surfaceflags.h'; var root_path = '../../..'; var data_path = '../../../../data';</script>
+<script src='../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../..'>codebrowser</a>/<a href='..'>code</a>/<a href='./'>qcommon</a>/<a href='surfaceflags.h.html'>surfaceflags.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/*</i></td></tr>
+<tr><th id="2">2</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="3">3</th><td><i>Copyright (C) 1999-2005 Id Software, Inc.</i></td></tr>
+<tr><th id="4">4</th><td><i></i></td></tr>
+<tr><th id="5">5</th><td><i>This file is part of Quake III Arena source code.</i></td></tr>
+<tr><th id="6">6</th><td><i></i></td></tr>
+<tr><th id="7">7</th><td><i>Quake III Arena source code is free software; you can redistribute it</i></td></tr>
+<tr><th id="8">8</th><td><i>and/or modify it under the terms of the GNU General Public License as</i></td></tr>
+<tr><th id="9">9</th><td><i>published by the Free Software Foundation; either version 2 of the License,</i></td></tr>
+<tr><th id="10">10</th><td><i>or (at your option) any later version.</i></td></tr>
+<tr><th id="11">11</th><td><i></i></td></tr>
+<tr><th id="12">12</th><td><i>Quake III Arena source code is distributed in the hope that it will be</i></td></tr>
+<tr><th id="13">13</th><td><i>useful, but WITHOUT ANY WARRANTY; without even the implied warranty of</i></td></tr>
+<tr><th id="14">14</th><td><i>MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</i></td></tr>
+<tr><th id="15">15</th><td><i>GNU General Public License for more details.</i></td></tr>
+<tr><th id="16">16</th><td><i></i></td></tr>
+<tr><th id="17">17</th><td><i>You should have received a copy of the GNU General Public License</i></td></tr>
+<tr><th id="18">18</th><td><i>along with Quake III Arena source code; if not, write to the Free Software</i></td></tr>
+<tr><th id="19">19</th><td><i>Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA</i></td></tr>
+<tr><th id="20">20</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="21">21</th><td><i>*/</i></td></tr>
+<tr><th id="22">22</th><td><i>//</i></td></tr>
+<tr><th id="23">23</th><td><i>// This file must be identical in the quake and utils directories</i></td></tr>
+<tr><th id="24">24</th><td><i></i></td></tr>
+<tr><th id="25">25</th><td><i>// contents flags are seperate bits</i></td></tr>
+<tr><th id="26">26</th><td><i>// a given brush can contribute multiple content bits</i></td></tr>
+<tr><th id="27">27</th><td><i></i></td></tr>
+<tr><th id="28">28</th><td><i>// these definitions also need to be in q_shared.h!</i></td></tr>
+<tr><th id="29">29</th><td></td></tr>
+<tr><th id="30">30</th><td><u>#define	<dfn class="macro" id="_M/CONTENTS_SOLID" data-ref="_M/CONTENTS_SOLID">CONTENTS_SOLID</dfn>			1		// an eye is never valid in a solid</u></td></tr>
+<tr><th id="31">31</th><td><u>#define	<dfn class="macro" id="_M/CONTENTS_LAVA" data-ref="_M/CONTENTS_LAVA">CONTENTS_LAVA</dfn>			8</u></td></tr>
+<tr><th id="32">32</th><td><u>#define	<dfn class="macro" id="_M/CONTENTS_SLIME" data-ref="_M/CONTENTS_SLIME">CONTENTS_SLIME</dfn>			16</u></td></tr>
+<tr><th id="33">33</th><td><u>#define	<dfn class="macro" id="_M/CONTENTS_WATER" data-ref="_M/CONTENTS_WATER">CONTENTS_WATER</dfn>			32</u></td></tr>
+<tr><th id="34">34</th><td><u>#define	<dfn class="macro" id="_M/CONTENTS_FOG" data-ref="_M/CONTENTS_FOG">CONTENTS_FOG</dfn>			64</u></td></tr>
+<tr><th id="35">35</th><td></td></tr>
+<tr><th id="36">36</th><td><u>#define <dfn class="macro" id="_M/CONTENTS_NOTTEAM1" data-ref="_M/CONTENTS_NOTTEAM1">CONTENTS_NOTTEAM1</dfn>		0x0080</u></td></tr>
+<tr><th id="37">37</th><td><u>#define <dfn class="macro" id="_M/CONTENTS_NOTTEAM2" data-ref="_M/CONTENTS_NOTTEAM2">CONTENTS_NOTTEAM2</dfn>		0x0100</u></td></tr>
+<tr><th id="38">38</th><td><u>#define <dfn class="macro" id="_M/CONTENTS_NOBOTCLIP" data-ref="_M/CONTENTS_NOBOTCLIP">CONTENTS_NOBOTCLIP</dfn>		0x0200</u></td></tr>
+<tr><th id="39">39</th><td></td></tr>
+<tr><th id="40">40</th><td><u>#define	<dfn class="macro" id="_M/CONTENTS_AREAPORTAL" data-ref="_M/CONTENTS_AREAPORTAL">CONTENTS_AREAPORTAL</dfn>		0x8000</u></td></tr>
+<tr><th id="41">41</th><td></td></tr>
+<tr><th id="42">42</th><td><u>#define	<dfn class="macro" id="_M/CONTENTS_PLAYERCLIP" data-ref="_M/CONTENTS_PLAYERCLIP">CONTENTS_PLAYERCLIP</dfn>		0x10000</u></td></tr>
+<tr><th id="43">43</th><td><u>#define	<dfn class="macro" id="_M/CONTENTS_MONSTERCLIP" data-ref="_M/CONTENTS_MONSTERCLIP">CONTENTS_MONSTERCLIP</dfn>	0x20000</u></td></tr>
+<tr><th id="44">44</th><td><i>//bot specific contents types</i></td></tr>
+<tr><th id="45">45</th><td><u>#define	<dfn class="macro" id="_M/CONTENTS_TELEPORTER" data-ref="_M/CONTENTS_TELEPORTER">CONTENTS_TELEPORTER</dfn>		0x40000</u></td></tr>
+<tr><th id="46">46</th><td><u>#define	<dfn class="macro" id="_M/CONTENTS_JUMPPAD" data-ref="_M/CONTENTS_JUMPPAD">CONTENTS_JUMPPAD</dfn>		0x80000</u></td></tr>
+<tr><th id="47">47</th><td><u>#define <dfn class="macro" id="_M/CONTENTS_CLUSTERPORTAL" data-ref="_M/CONTENTS_CLUSTERPORTAL">CONTENTS_CLUSTERPORTAL</dfn>	0x100000</u></td></tr>
+<tr><th id="48">48</th><td><u>#define <dfn class="macro" id="_M/CONTENTS_DONOTENTER" data-ref="_M/CONTENTS_DONOTENTER">CONTENTS_DONOTENTER</dfn>		0x200000</u></td></tr>
+<tr><th id="49">49</th><td><u>#define <dfn class="macro" id="_M/CONTENTS_BOTCLIP" data-ref="_M/CONTENTS_BOTCLIP">CONTENTS_BOTCLIP</dfn>		0x400000</u></td></tr>
+<tr><th id="50">50</th><td><u>#define <dfn class="macro" id="_M/CONTENTS_MOVER" data-ref="_M/CONTENTS_MOVER">CONTENTS_MOVER</dfn>			0x800000</u></td></tr>
+<tr><th id="51">51</th><td></td></tr>
+<tr><th id="52">52</th><td><u>#define	<dfn class="macro" id="_M/CONTENTS_ORIGIN" data-ref="_M/CONTENTS_ORIGIN">CONTENTS_ORIGIN</dfn>			0x1000000	// removed before bsping an entity</u></td></tr>
+<tr><th id="53">53</th><td></td></tr>
+<tr><th id="54">54</th><td><u>#define	<dfn class="macro" id="_M/CONTENTS_BODY" data-ref="_M/CONTENTS_BODY">CONTENTS_BODY</dfn>			0x2000000	// should never be on a brush, only in game</u></td></tr>
+<tr><th id="55">55</th><td><u>#define	<dfn class="macro" id="_M/CONTENTS_CORPSE" data-ref="_M/CONTENTS_CORPSE">CONTENTS_CORPSE</dfn>			0x4000000</u></td></tr>
+<tr><th id="56">56</th><td><u>#define	<dfn class="macro" id="_M/CONTENTS_DETAIL" data-ref="_M/CONTENTS_DETAIL">CONTENTS_DETAIL</dfn>			0x8000000	// brushes not used for the bsp</u></td></tr>
+<tr><th id="57">57</th><td><u>#define	<dfn class="macro" id="_M/CONTENTS_STRUCTURAL" data-ref="_M/CONTENTS_STRUCTURAL">CONTENTS_STRUCTURAL</dfn>		0x10000000	// brushes used for the bsp</u></td></tr>
+<tr><th id="58">58</th><td><u>#define	<dfn class="macro" id="_M/CONTENTS_TRANSLUCENT" data-ref="_M/CONTENTS_TRANSLUCENT">CONTENTS_TRANSLUCENT</dfn>	0x20000000	// don't consume surface fragments inside</u></td></tr>
+<tr><th id="59">59</th><td><u>#define	<dfn class="macro" id="_M/CONTENTS_TRIGGER" data-ref="_M/CONTENTS_TRIGGER">CONTENTS_TRIGGER</dfn>		0x40000000</u></td></tr>
+<tr><th id="60">60</th><td><u>#define	<dfn class="macro" id="_M/CONTENTS_NODROP" data-ref="_M/CONTENTS_NODROP">CONTENTS_NODROP</dfn>			0x80000000	// don't leave bodies or items (death fog, lava)</u></td></tr>
+<tr><th id="61">61</th><td></td></tr>
+<tr><th id="62">62</th><td><u>#define	<dfn class="macro" id="_M/SURF_NODAMAGE" data-ref="_M/SURF_NODAMAGE">SURF_NODAMAGE</dfn>			0x1		// never give falling damage</u></td></tr>
+<tr><th id="63">63</th><td><u>#define	<dfn class="macro" id="_M/SURF_SLICK" data-ref="_M/SURF_SLICK">SURF_SLICK</dfn>				0x2		// effects game physics</u></td></tr>
+<tr><th id="64">64</th><td><u>#define	<dfn class="macro" id="_M/SURF_SKY" data-ref="_M/SURF_SKY">SURF_SKY</dfn>				0x4		// lighting from environment map</u></td></tr>
+<tr><th id="65">65</th><td><u>#define	<dfn class="macro" id="_M/SURF_LADDER" data-ref="_M/SURF_LADDER">SURF_LADDER</dfn>				0x8</u></td></tr>
+<tr><th id="66">66</th><td><u>#define	<dfn class="macro" id="_M/SURF_NOIMPACT" data-ref="_M/SURF_NOIMPACT">SURF_NOIMPACT</dfn>			0x10	// don't make missile explosions</u></td></tr>
+<tr><th id="67">67</th><td><u>#define	<dfn class="macro" id="_M/SURF_NOMARKS" data-ref="_M/SURF_NOMARKS">SURF_NOMARKS</dfn>			0x20	// don't leave missile marks</u></td></tr>
+<tr><th id="68">68</th><td><u>#define	<dfn class="macro" id="_M/SURF_FLESH" data-ref="_M/SURF_FLESH">SURF_FLESH</dfn>				0x40	// make flesh sounds and effects</u></td></tr>
+<tr><th id="69">69</th><td><u>#define	<dfn class="macro" id="_M/SURF_NODRAW" data-ref="_M/SURF_NODRAW">SURF_NODRAW</dfn>				0x80	// don't generate a drawsurface at all</u></td></tr>
+<tr><th id="70">70</th><td><u>#define	<dfn class="macro" id="_M/SURF_HINT" data-ref="_M/SURF_HINT">SURF_HINT</dfn>				0x100	// make a primary bsp splitter</u></td></tr>
+<tr><th id="71">71</th><td><u>#define	<dfn class="macro" id="_M/SURF_SKIP" data-ref="_M/SURF_SKIP">SURF_SKIP</dfn>				0x200	// completely ignore, allowing non-closed brushes</u></td></tr>
+<tr><th id="72">72</th><td><u>#define	<dfn class="macro" id="_M/SURF_NOLIGHTMAP" data-ref="_M/SURF_NOLIGHTMAP">SURF_NOLIGHTMAP</dfn>			0x400	// surface doesn't need a lightmap</u></td></tr>
+<tr><th id="73">73</th><td><u>#define	<dfn class="macro" id="_M/SURF_POINTLIGHT" data-ref="_M/SURF_POINTLIGHT">SURF_POINTLIGHT</dfn>			0x800	// generate lighting info at vertexes</u></td></tr>
+<tr><th id="74">74</th><td><u>#define	<dfn class="macro" id="_M/SURF_METALSTEPS" data-ref="_M/SURF_METALSTEPS">SURF_METALSTEPS</dfn>			0x1000	// clanking footsteps</u></td></tr>
+<tr><th id="75">75</th><td><u>#define	<dfn class="macro" id="_M/SURF_NOSTEPS" data-ref="_M/SURF_NOSTEPS">SURF_NOSTEPS</dfn>			0x2000	// no footstep sounds</u></td></tr>
+<tr><th id="76">76</th><td><u>#define	<dfn class="macro" id="_M/SURF_NONSOLID" data-ref="_M/SURF_NONSOLID">SURF_NONSOLID</dfn>			0x4000	// don't collide against curves with this set</u></td></tr>
+<tr><th id="77">77</th><td><u>#define	<dfn class="macro" id="_M/SURF_LIGHTFILTER" data-ref="_M/SURF_LIGHTFILTER">SURF_LIGHTFILTER</dfn>		0x8000	// act as a light filter during q3map -light</u></td></tr>
+<tr><th id="78">78</th><td><u>#define	<dfn class="macro" id="_M/SURF_ALPHASHADOW" data-ref="_M/SURF_ALPHASHADOW">SURF_ALPHASHADOW</dfn>		0x10000	// do per-pixel light shadow casting in q3map</u></td></tr>
+<tr><th id="79">79</th><td><u>#define	<dfn class="macro" id="_M/SURF_NODLIGHT" data-ref="_M/SURF_NODLIGHT">SURF_NODLIGHT</dfn>			0x20000	// don't dlight even if solid (solid lava, skies)</u></td></tr>
+<tr><th id="80">80</th><td><u>#define <dfn class="macro" id="_M/SURF_DUST" data-ref="_M/SURF_DUST">SURF_DUST</dfn>				0x40000 // leave a dust trail when walking on this surface</u></td></tr>
+<tr><th id="81">81</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='../asm/snapvector.c.html'>codebrowser/code/asm/snapvector.c</a><br/>Generated on <em>2017-Aug-29</em> from project codebrowser revision <em>63e07af</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

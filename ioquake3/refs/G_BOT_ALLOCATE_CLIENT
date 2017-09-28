@@ -1,0 +1,7 @@
+<dec f='codebrowser/code/game/g_public.h' l='210' type='34'/>
+<doc f='codebrowser/code/game/g_public.h' l='207'>// perform an exact check against inline brush models of non-square shape
+
+	// access for bots to get and free a server client (FIXME?)</doc>
+<doc f='codebrowser/code/game/g_public.h' l='210'>// ( void );</doc>
+<use f='codebrowser/code/game/g_syscalls.c' l='202' c='trap_BotAllocateClient'/>
+<use f='codebrowser/code/server/sv_game.c' l='399' c='SV_GameSystemCalls'/>

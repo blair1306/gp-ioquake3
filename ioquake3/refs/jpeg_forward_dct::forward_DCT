@@ -1,0 +1,8 @@
+<dec f='codebrowser/code/jpeg-8c/jpegint.h' l='112' type='forward_DCT_ptr [10]'/>
+<offset>64</offset>
+<doc f='codebrowser/code/jpeg-8c/jpegint.h' l='111'>/* It is useful to allow each component to have a separate FDCT method. */</doc>
+<use f='codebrowser/code/jpeg-8c/jccoefct.c' l='171' u='r' c='compress_data'/>
+<use f='codebrowser/code/jpeg-8c/jccoefct.c' l='281' u='r' c='compress_first_pass'/>
+<use f='codebrowser/code/jpeg-8c/jcdctmgr.c' l='372' u='w' c='start_pass_fdctmgr'/>
+<use f='codebrowser/code/jpeg-8c/jcdctmgr.c' l='411' u='w' c='start_pass_fdctmgr'/>
+<use f='codebrowser/code/jpeg-8c/jcdctmgr.c' l='448' u='w' c='start_pass_fdctmgr'/>

@@ -1,0 +1,16 @@
+<dec f='codebrowser/code/renderercommon/tr_common.h' l='97' type='cvar_t *'/>
+<doc f='codebrowser/code/renderercommon/tr_common.h' l='92'>// 0 = use framebuffer depth
+										// 16 = use 16-bit textures
+										// 32 = use 32-bit textures
+										// all else = error</doc>
+<doc f='codebrowser/code/renderercommon/tr_common.h' l='97'>// video mode</doc>
+<def f='codebrowser/code/renderergl1/tr_init.c' l='115' type='cvar_t *'/>
+<use f='codebrowser/code/renderergl1/tr_init.c' l='928' u='r' c='GfxInfo_f'/>
+<use f='codebrowser/code/renderergl1/tr_init.c' l='1032' u='w' c='R_Register'/>
+<def f='codebrowser/code/renderergl2/tr_init.c' l='179' type='cvar_t *'/>
+<use f='codebrowser/code/renderergl2/tr_init.c' l='1053' u='r' c='GfxInfo_f'/>
+<use f='codebrowser/code/renderergl2/tr_init.c' l='1190' u='w' c='R_Register'/>
+<use f='codebrowser/code/sdl/sdl_glimp.c' l='812' u='r' c='GLimp_Init'/>
+<use f='codebrowser/code/sdl/sdl_glimp.c' l='818' u='r' c='GLimp_Init'/>
+<use f='codebrowser/code/sdl/sdl_glimp.c' l='822' u='r' c='GLimp_Init'/>
+<use f='codebrowser/code/sdl/sdl_glimp.c' l='825' u='r' c='GLimp_Init'/>

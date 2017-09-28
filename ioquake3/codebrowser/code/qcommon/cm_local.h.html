@@ -1,0 +1,215 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>cm_local.h source code [codebrowser/code/qcommon/cm_local.h] - Woboq Code Browser</title>
+<meta name="woboq:interestingDefinitions" content="cmodel_s,leafList_s "/>
+<link rel="stylesheet" href="../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'codebrowser/code/qcommon/cm_local.h'; var root_path = '../../..'; var data_path = '../../../../data';</script>
+<script src='../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../..'>codebrowser</a>/<a href='..'>code</a>/<a href='./'>qcommon</a>/<a href='cm_local.h.html'>cm_local.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/*</i></td></tr>
+<tr><th id="2">2</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="3">3</th><td><i>Copyright (C) 1999-2005 Id Software, Inc.</i></td></tr>
+<tr><th id="4">4</th><td><i></i></td></tr>
+<tr><th id="5">5</th><td><i>This file is part of Quake III Arena source code.</i></td></tr>
+<tr><th id="6">6</th><td><i></i></td></tr>
+<tr><th id="7">7</th><td><i>Quake III Arena source code is free software; you can redistribute it</i></td></tr>
+<tr><th id="8">8</th><td><i>and/or modify it under the terms of the GNU General Public License as</i></td></tr>
+<tr><th id="9">9</th><td><i>published by the Free Software Foundation; either version 2 of the License,</i></td></tr>
+<tr><th id="10">10</th><td><i>or (at your option) any later version.</i></td></tr>
+<tr><th id="11">11</th><td><i></i></td></tr>
+<tr><th id="12">12</th><td><i>Quake III Arena source code is distributed in the hope that it will be</i></td></tr>
+<tr><th id="13">13</th><td><i>useful, but WITHOUT ANY WARRANTY; without even the implied warranty of</i></td></tr>
+<tr><th id="14">14</th><td><i>MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</i></td></tr>
+<tr><th id="15">15</th><td><i>GNU General Public License for more details.</i></td></tr>
+<tr><th id="16">16</th><td><i></i></td></tr>
+<tr><th id="17">17</th><td><i>You should have received a copy of the GNU General Public License</i></td></tr>
+<tr><th id="18">18</th><td><i>along with Quake III Arena source code; if not, write to the Free Software</i></td></tr>
+<tr><th id="19">19</th><td><i>Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA</i></td></tr>
+<tr><th id="20">20</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="21">21</th><td><i>*/</i></td></tr>
+<tr><th id="22">22</th><td></td></tr>
+<tr><th id="23">23</th><td><u>#include <a href="q_shared.h.html">"q_shared.h"</a></u></td></tr>
+<tr><th id="24">24</th><td><u>#include <a href="qcommon.h.html">"qcommon.h"</a></u></td></tr>
+<tr><th id="25">25</th><td><u>#include <a href="cm_polylib.h.html">"cm_polylib.h"</a></u></td></tr>
+<tr><th id="26">26</th><td></td></tr>
+<tr><th id="27">27</th><td><u>#define	<dfn class="macro" id="_M/MAX_SUBMODELS" data-ref="_M/MAX_SUBMODELS">MAX_SUBMODELS</dfn>			256</u></td></tr>
+<tr><th id="28">28</th><td><u>#define	<dfn class="macro" id="_M/BOX_MODEL_HANDLE" data-ref="_M/BOX_MODEL_HANDLE">BOX_MODEL_HANDLE</dfn>		255</u></td></tr>
+<tr><th id="29">29</th><td><u>#define <dfn class="macro" id="_M/CAPSULE_MODEL_HANDLE" data-ref="_M/CAPSULE_MODEL_HANDLE">CAPSULE_MODEL_HANDLE</dfn>	254</u></td></tr>
+<tr><th id="30">30</th><td></td></tr>
+<tr><th id="31">31</th><td></td></tr>
+<tr><th id="32">32</th><td><b>typedef</b> <b>struct</b> {</td></tr>
+<tr><th id="33">33</th><td>	<a class="typedef" href="q_shared.h.html#cplane_t" title='cplane_t' data-type='struct cplane_s' data-ref="cplane_t">cplane_t</a>	*<dfn class="decl" id="(anonymous)::plane" title='(anonymous struct)::plane' data-ref="(anonymous)::plane">plane</dfn>;</td></tr>
+<tr><th id="34">34</th><td>	<em>int</em>			<dfn class="decl" id="(anonymous)::children" title='(anonymous struct)::children' data-ref="(anonymous)::children">children</dfn>[<var>2</var>];		<i>// negative numbers are leafs</i></td></tr>
+<tr><th id="35">35</th><td>} <dfn class="typedef" id="cNode_t" title='cNode_t' data-type='struct cNode_t' data-ref="cNode_t">cNode_t</dfn>;</td></tr>
+<tr><th id="36">36</th><td></td></tr>
+<tr><th id="37">37</th><td><b>typedef</b> <b>struct</b> {</td></tr>
+<tr><th id="38">38</th><td>	<em>int</em>			<dfn class="decl" id="(anonymous)::cluster" title='(anonymous struct)::cluster' data-ref="(anonymous)::cluster">cluster</dfn>;</td></tr>
+<tr><th id="39">39</th><td>	<em>int</em>			<dfn class="decl" id="(anonymous)::area" title='(anonymous struct)::area' data-ref="(anonymous)::area">area</dfn>;</td></tr>
+<tr><th id="40">40</th><td></td></tr>
+<tr><th id="41">41</th><td>	<em>int</em>			<dfn class="decl" id="(anonymous)::firstLeafBrush" title='(anonymous struct)::firstLeafBrush' data-ref="(anonymous)::firstLeafBrush">firstLeafBrush</dfn>;</td></tr>
+<tr><th id="42">42</th><td>	<em>int</em>			<dfn class="decl" id="(anonymous)::numLeafBrushes" title='(anonymous struct)::numLeafBrushes' data-ref="(anonymous)::numLeafBrushes">numLeafBrushes</dfn>;</td></tr>
+<tr><th id="43">43</th><td></td></tr>
+<tr><th id="44">44</th><td>	<em>int</em>			<dfn class="decl" id="(anonymous)::firstLeafSurface" title='(anonymous struct)::firstLeafSurface' data-ref="(anonymous)::firstLeafSurface">firstLeafSurface</dfn>;</td></tr>
+<tr><th id="45">45</th><td>	<em>int</em>			<dfn class="decl" id="(anonymous)::numLeafSurfaces" title='(anonymous struct)::numLeafSurfaces' data-ref="(anonymous)::numLeafSurfaces">numLeafSurfaces</dfn>;</td></tr>
+<tr><th id="46">46</th><td>} <dfn class="typedef" id="cLeaf_t" title='cLeaf_t' data-type='struct cLeaf_t' data-ref="cLeaf_t">cLeaf_t</dfn>;</td></tr>
+<tr><th id="47">47</th><td></td></tr>
+<tr><th id="48">48</th><td><b>typedef</b> <b>struct</b> <dfn class="type def" id="cmodel_s" title='cmodel_s' data-ref="cmodel_s"><a class="type" href="#cmodel_s" title='cmodel_s' data-ref="cmodel_s">cmodel_s</a></dfn> {</td></tr>
+<tr><th id="49">49</th><td>	<a class="typedef" href="q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a>		<dfn class="decl" id="cmodel_s::mins" title='cmodel_s::mins' data-ref="cmodel_s::mins">mins</dfn>, <dfn class="decl" id="cmodel_s::maxs" title='cmodel_s::maxs' data-ref="cmodel_s::maxs">maxs</dfn>;</td></tr>
+<tr><th id="50">50</th><td>	<a class="typedef" href="#cLeaf_t" title='cLeaf_t' data-type='struct cLeaf_t' data-ref="cLeaf_t">cLeaf_t</a>		<dfn class="decl" id="cmodel_s::leaf" title='cmodel_s::leaf' data-ref="cmodel_s::leaf">leaf</dfn>;			<i>// submodels don't reference the main tree</i></td></tr>
+<tr><th id="51">51</th><td>} <dfn class="typedef" id="cmodel_t" title='cmodel_t' data-type='struct cmodel_s' data-ref="cmodel_t">cmodel_t</dfn>;</td></tr>
+<tr><th id="52">52</th><td></td></tr>
+<tr><th id="53">53</th><td><b>typedef</b> <b>struct</b> {</td></tr>
+<tr><th id="54">54</th><td>	<a class="typedef" href="q_shared.h.html#cplane_t" title='cplane_t' data-type='struct cplane_s' data-ref="cplane_t">cplane_t</a>	*<dfn class="decl" id="(anonymous)::plane" title='(anonymous struct)::plane' data-ref="(anonymous)::plane">plane</dfn>;</td></tr>
+<tr><th id="55">55</th><td>	<em>int</em>			<dfn class="decl" id="(anonymous)::surfaceFlags" title='(anonymous struct)::surfaceFlags' data-ref="(anonymous)::surfaceFlags">surfaceFlags</dfn>;</td></tr>
+<tr><th id="56">56</th><td>	<em>int</em>			<dfn class="decl" id="(anonymous)::shaderNum" title='(anonymous struct)::shaderNum' data-ref="(anonymous)::shaderNum">shaderNum</dfn>;</td></tr>
+<tr><th id="57">57</th><td>} <dfn class="typedef" id="cbrushside_t" title='cbrushside_t' data-type='struct cbrushside_t' data-ref="cbrushside_t">cbrushside_t</dfn>;</td></tr>
+<tr><th id="58">58</th><td></td></tr>
+<tr><th id="59">59</th><td><b>typedef</b> <b>struct</b> {</td></tr>
+<tr><th id="60">60</th><td>	<em>int</em>			<dfn class="decl" id="(anonymous)::shaderNum" title='(anonymous struct)::shaderNum' data-ref="(anonymous)::shaderNum">shaderNum</dfn>;		<i>// the shader that determined the contents</i></td></tr>
+<tr><th id="61">61</th><td>	<em>int</em>			<dfn class="decl" id="(anonymous)::contents" title='(anonymous struct)::contents' data-ref="(anonymous)::contents">contents</dfn>;</td></tr>
+<tr><th id="62">62</th><td>	<a class="typedef" href="q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a>		<dfn class="decl" id="(anonymous)::bounds" title='(anonymous struct)::bounds' data-ref="(anonymous)::bounds">bounds</dfn>[<var>2</var>];</td></tr>
+<tr><th id="63">63</th><td>	<em>int</em>			<dfn class="decl" id="(anonymous)::numsides" title='(anonymous struct)::numsides' data-ref="(anonymous)::numsides">numsides</dfn>;</td></tr>
+<tr><th id="64">64</th><td>	<a class="typedef" href="#cbrushside_t" title='cbrushside_t' data-type='struct cbrushside_t' data-ref="cbrushside_t">cbrushside_t</a>	*<dfn class="decl" id="(anonymous)::sides" title='(anonymous struct)::sides' data-ref="(anonymous)::sides">sides</dfn>;</td></tr>
+<tr><th id="65">65</th><td>	<em>int</em>			<dfn class="decl" id="(anonymous)::checkcount" title='(anonymous struct)::checkcount' data-ref="(anonymous)::checkcount">checkcount</dfn>;		<i>// to avoid repeated testings</i></td></tr>
+<tr><th id="66">66</th><td>} <dfn class="typedef" id="cbrush_t" title='cbrush_t' data-type='struct cbrush_t' data-ref="cbrush_t">cbrush_t</dfn>;</td></tr>
+<tr><th id="67">67</th><td></td></tr>
+<tr><th id="68">68</th><td></td></tr>
+<tr><th id="69">69</th><td><b>typedef</b> <b>struct</b> {</td></tr>
+<tr><th id="70">70</th><td>	<em>int</em>			<dfn class="decl" id="(anonymous)::checkcount" title='(anonymous struct)::checkcount' data-ref="(anonymous)::checkcount">checkcount</dfn>;				<i>// to avoid repeated testings</i></td></tr>
+<tr><th id="71">71</th><td>	<em>int</em>			<dfn class="decl" id="(anonymous)::surfaceFlags" title='(anonymous struct)::surfaceFlags' data-ref="(anonymous)::surfaceFlags">surfaceFlags</dfn>;</td></tr>
+<tr><th id="72">72</th><td>	<em>int</em>			<dfn class="decl" id="(anonymous)::contents" title='(anonymous struct)::contents' data-ref="(anonymous)::contents">contents</dfn>;</td></tr>
+<tr><th id="73">73</th><td>	<b>struct</b> <dfn class="type" id="patchCollide_s" title='patchCollide_s' data-ref="patchCollide_s"><a class="type" href="#patchCollide_s" title='patchCollide_s' data-ref="patchCollide_s">patchCollide_s</a></dfn>	*<dfn class="decl" id="(anonymous)::pc" title='(anonymous struct)::pc' data-ref="(anonymous)::pc">pc</dfn>;</td></tr>
+<tr><th id="74">74</th><td>} <dfn class="typedef" id="cPatch_t" title='cPatch_t' data-type='struct cPatch_t' data-ref="cPatch_t">cPatch_t</dfn>;</td></tr>
+<tr><th id="75">75</th><td></td></tr>
+<tr><th id="76">76</th><td></td></tr>
+<tr><th id="77">77</th><td><b>typedef</b> <b>struct</b> {</td></tr>
+<tr><th id="78">78</th><td>	<em>int</em>			<dfn class="decl" id="(anonymous)::floodnum" title='(anonymous struct)::floodnum' data-ref="(anonymous)::floodnum">floodnum</dfn>;</td></tr>
+<tr><th id="79">79</th><td>	<em>int</em>			<dfn class="decl" id="(anonymous)::floodvalid" title='(anonymous struct)::floodvalid' data-ref="(anonymous)::floodvalid">floodvalid</dfn>;</td></tr>
+<tr><th id="80">80</th><td>} <dfn class="typedef" id="cArea_t" title='cArea_t' data-type='struct cArea_t' data-ref="cArea_t">cArea_t</dfn>;</td></tr>
+<tr><th id="81">81</th><td></td></tr>
+<tr><th id="82">82</th><td><b>typedef</b> <b>struct</b> {</td></tr>
+<tr><th id="83">83</th><td>	<em>char</em>		<dfn class="decl" id="(anonymous)::name" title='(anonymous struct)::name' data-ref="(anonymous)::name">name</dfn>[<a class="macro" href="qfiles.h.html#43" title="64" data-ref="_M/MAX_QPATH">MAX_QPATH</a>];</td></tr>
+<tr><th id="84">84</th><td></td></tr>
+<tr><th id="85">85</th><td>	<em>int</em>			<dfn class="decl" id="(anonymous)::numShaders" title='(anonymous struct)::numShaders' data-ref="(anonymous)::numShaders">numShaders</dfn>;</td></tr>
+<tr><th id="86">86</th><td>	<a class="typedef" href="qfiles.h.html#dshader_t" title='dshader_t' data-type='struct dshader_t' data-ref="dshader_t">dshader_t</a>	*<dfn class="decl" id="(anonymous)::shaders" title='(anonymous struct)::shaders' data-ref="(anonymous)::shaders">shaders</dfn>;</td></tr>
+<tr><th id="87">87</th><td></td></tr>
+<tr><th id="88">88</th><td>	<em>int</em>			<dfn class="decl" id="(anonymous)::numBrushSides" title='(anonymous struct)::numBrushSides' data-ref="(anonymous)::numBrushSides">numBrushSides</dfn>;</td></tr>
+<tr><th id="89">89</th><td>	<a class="typedef" href="#cbrushside_t" title='cbrushside_t' data-type='struct cbrushside_t' data-ref="cbrushside_t">cbrushside_t</a> *<dfn class="decl" id="(anonymous)::brushsides" title='(anonymous struct)::brushsides' data-ref="(anonymous)::brushsides">brushsides</dfn>;</td></tr>
+<tr><th id="90">90</th><td></td></tr>
+<tr><th id="91">91</th><td>	<em>int</em>			<dfn class="decl" id="(anonymous)::numPlanes" title='(anonymous struct)::numPlanes' data-ref="(anonymous)::numPlanes">numPlanes</dfn>;</td></tr>
+<tr><th id="92">92</th><td>	<a class="typedef" href="q_shared.h.html#cplane_t" title='cplane_t' data-type='struct cplane_s' data-ref="cplane_t">cplane_t</a>	*<dfn class="decl" id="(anonymous)::planes" title='(anonymous struct)::planes' data-ref="(anonymous)::planes">planes</dfn>;</td></tr>
+<tr><th id="93">93</th><td></td></tr>
+<tr><th id="94">94</th><td>	<em>int</em>			<dfn class="decl" id="(anonymous)::numNodes" title='(anonymous struct)::numNodes' data-ref="(anonymous)::numNodes">numNodes</dfn>;</td></tr>
+<tr><th id="95">95</th><td>	<a class="typedef" href="#cNode_t" title='cNode_t' data-type='struct cNode_t' data-ref="cNode_t">cNode_t</a>		*<dfn class="decl" id="(anonymous)::nodes" title='(anonymous struct)::nodes' data-ref="(anonymous)::nodes">nodes</dfn>;</td></tr>
+<tr><th id="96">96</th><td></td></tr>
+<tr><th id="97">97</th><td>	<em>int</em>			<dfn class="decl" id="(anonymous)::numLeafs" title='(anonymous struct)::numLeafs' data-ref="(anonymous)::numLeafs">numLeafs</dfn>;</td></tr>
+<tr><th id="98">98</th><td>	<a class="typedef" href="#cLeaf_t" title='cLeaf_t' data-type='struct cLeaf_t' data-ref="cLeaf_t">cLeaf_t</a>		*<dfn class="decl" id="(anonymous)::leafs" title='(anonymous struct)::leafs' data-ref="(anonymous)::leafs">leafs</dfn>;</td></tr>
+<tr><th id="99">99</th><td></td></tr>
+<tr><th id="100">100</th><td>	<em>int</em>			<dfn class="decl" id="(anonymous)::numLeafBrushes" title='(anonymous struct)::numLeafBrushes' data-ref="(anonymous)::numLeafBrushes">numLeafBrushes</dfn>;</td></tr>
+<tr><th id="101">101</th><td>	<em>int</em>			*<dfn class="decl" id="(anonymous)::leafbrushes" title='(anonymous struct)::leafbrushes' data-ref="(anonymous)::leafbrushes">leafbrushes</dfn>;</td></tr>
+<tr><th id="102">102</th><td></td></tr>
+<tr><th id="103">103</th><td>	<em>int</em>			<dfn class="decl" id="(anonymous)::numLeafSurfaces" title='(anonymous struct)::numLeafSurfaces' data-ref="(anonymous)::numLeafSurfaces">numLeafSurfaces</dfn>;</td></tr>
+<tr><th id="104">104</th><td>	<em>int</em>			*<dfn class="decl" id="(anonymous)::leafsurfaces" title='(anonymous struct)::leafsurfaces' data-ref="(anonymous)::leafsurfaces">leafsurfaces</dfn>;</td></tr>
+<tr><th id="105">105</th><td></td></tr>
+<tr><th id="106">106</th><td>	<em>int</em>			<dfn class="decl" id="(anonymous)::numSubModels" title='(anonymous struct)::numSubModels' data-ref="(anonymous)::numSubModels">numSubModels</dfn>;</td></tr>
+<tr><th id="107">107</th><td>	<a class="typedef" href="#cmodel_t" title='cmodel_t' data-type='struct cmodel_s' data-ref="cmodel_t">cmodel_t</a>	*<dfn class="decl" id="(anonymous)::cmodels" title='(anonymous struct)::cmodels' data-ref="(anonymous)::cmodels">cmodels</dfn>;</td></tr>
+<tr><th id="108">108</th><td></td></tr>
+<tr><th id="109">109</th><td>	<em>int</em>			<dfn class="decl" id="(anonymous)::numBrushes" title='(anonymous struct)::numBrushes' data-ref="(anonymous)::numBrushes">numBrushes</dfn>;</td></tr>
+<tr><th id="110">110</th><td>	<a class="typedef" href="#cbrush_t" title='cbrush_t' data-type='struct cbrush_t' data-ref="cbrush_t">cbrush_t</a>	*<dfn class="decl" id="(anonymous)::brushes" title='(anonymous struct)::brushes' data-ref="(anonymous)::brushes">brushes</dfn>;</td></tr>
+<tr><th id="111">111</th><td></td></tr>
+<tr><th id="112">112</th><td>	<em>int</em>			<dfn class="decl" id="(anonymous)::numClusters" title='(anonymous struct)::numClusters' data-ref="(anonymous)::numClusters">numClusters</dfn>;</td></tr>
+<tr><th id="113">113</th><td>	<em>int</em>			<dfn class="decl" id="(anonymous)::clusterBytes" title='(anonymous struct)::clusterBytes' data-ref="(anonymous)::clusterBytes">clusterBytes</dfn>;</td></tr>
+<tr><th id="114">114</th><td>	<a class="typedef" href="q_shared.h.html#byte" title='byte' data-type='unsigned char' data-ref="byte">byte</a>		*<dfn class="decl" id="(anonymous)::visibility" title='(anonymous struct)::visibility' data-ref="(anonymous)::visibility">visibility</dfn>;</td></tr>
+<tr><th id="115">115</th><td>	<a class="typedef" href="q_shared.h.html#qboolean" title='qboolean' data-type='enum qboolean' data-ref="qboolean">qboolean</a>	<dfn class="decl" id="(anonymous)::vised" title='(anonymous struct)::vised' data-ref="(anonymous)::vised">vised</dfn>;			<i>// if false, visibility is just a single cluster of ffs</i></td></tr>
+<tr><th id="116">116</th><td></td></tr>
+<tr><th id="117">117</th><td>	<em>int</em>			<dfn class="decl" id="(anonymous)::numEntityChars" title='(anonymous struct)::numEntityChars' data-ref="(anonymous)::numEntityChars">numEntityChars</dfn>;</td></tr>
+<tr><th id="118">118</th><td>	<em>char</em>		*<dfn class="decl" id="(anonymous)::entityString" title='(anonymous struct)::entityString' data-ref="(anonymous)::entityString">entityString</dfn>;</td></tr>
+<tr><th id="119">119</th><td></td></tr>
+<tr><th id="120">120</th><td>	<em>int</em>			<dfn class="decl" id="(anonymous)::numAreas" title='(anonymous struct)::numAreas' data-ref="(anonymous)::numAreas">numAreas</dfn>;</td></tr>
+<tr><th id="121">121</th><td>	<a class="typedef" href="#cArea_t" title='cArea_t' data-type='struct cArea_t' data-ref="cArea_t">cArea_t</a>		*<dfn class="decl" id="(anonymous)::areas" title='(anonymous struct)::areas' data-ref="(anonymous)::areas">areas</dfn>;</td></tr>
+<tr><th id="122">122</th><td>	<em>int</em>			*<dfn class="decl" id="(anonymous)::areaPortals" title='(anonymous struct)::areaPortals' data-ref="(anonymous)::areaPortals">areaPortals</dfn>;	<i>// [ numAreas*numAreas ] reference counts</i></td></tr>
+<tr><th id="123">123</th><td></td></tr>
+<tr><th id="124">124</th><td>	<em>int</em>			<dfn class="decl" id="(anonymous)::numSurfaces" title='(anonymous struct)::numSurfaces' data-ref="(anonymous)::numSurfaces">numSurfaces</dfn>;</td></tr>
+<tr><th id="125">125</th><td>	<a class="typedef" href="#cPatch_t" title='cPatch_t' data-type='struct cPatch_t' data-ref="cPatch_t">cPatch_t</a>	**<dfn class="decl" id="(anonymous)::surfaces" title='(anonymous struct)::surfaces' data-ref="(anonymous)::surfaces">surfaces</dfn>;			<i>// non-patches will be NULL</i></td></tr>
+<tr><th id="126">126</th><td></td></tr>
+<tr><th id="127">127</th><td>	<em>int</em>			<dfn class="decl" id="(anonymous)::floodvalid" title='(anonymous struct)::floodvalid' data-ref="(anonymous)::floodvalid">floodvalid</dfn>;</td></tr>
+<tr><th id="128">128</th><td>	<em>int</em>			<dfn class="decl" id="(anonymous)::checkcount" title='(anonymous struct)::checkcount' data-ref="(anonymous)::checkcount">checkcount</dfn>;					<i>// incremented on each trace</i></td></tr>
+<tr><th id="129">129</th><td>} <dfn class="typedef" id="clipMap_t" title='clipMap_t' data-type='struct clipMap_t' data-ref="clipMap_t">clipMap_t</dfn>;</td></tr>
+<tr><th id="130">130</th><td></td></tr>
+<tr><th id="131">131</th><td></td></tr>
+<tr><th id="132">132</th><td><i>// keep 1/8 unit away to keep the position valid before network snapping</i></td></tr>
+<tr><th id="133">133</th><td><i>// and to avoid various numeric issues</i></td></tr>
+<tr><th id="134">134</th><td><u>#define	<dfn class="macro" id="_M/SURFACE_CLIP_EPSILON" data-ref="_M/SURFACE_CLIP_EPSILON">SURFACE_CLIP_EPSILON</dfn>	(0.125)</u></td></tr>
+<tr><th id="135">135</th><td></td></tr>
+<tr><th id="136">136</th><td><b>extern</b>	<a class="typedef" href="#clipMap_t" title='clipMap_t' data-type='struct clipMap_t' data-ref="clipMap_t">clipMap_t</a>	<dfn class="decl" id="cm" title='cm' data-ref="cm">cm</dfn>;</td></tr>
+<tr><th id="137">137</th><td><b>extern</b>	<em>int</em>			<dfn class="decl" id="c_pointcontents" title='c_pointcontents' data-ref="c_pointcontents">c_pointcontents</dfn>;</td></tr>
+<tr><th id="138">138</th><td><b>extern</b>	<em>int</em>			<dfn class="decl" id="c_traces" title='c_traces' data-ref="c_traces">c_traces</dfn>, <dfn class="decl" id="c_brush_traces" title='c_brush_traces' data-ref="c_brush_traces">c_brush_traces</dfn>, <dfn class="decl" id="c_patch_traces" title='c_patch_traces' data-ref="c_patch_traces">c_patch_traces</dfn>;</td></tr>
+<tr><th id="139">139</th><td><b>extern</b>	<a class="typedef" href="q_shared.h.html#cvar_t" title='cvar_t' data-type='struct cvar_s' data-ref="cvar_t">cvar_t</a>		*<dfn class="decl" id="cm_noAreas" title='cm_noAreas' data-ref="cm_noAreas">cm_noAreas</dfn>;</td></tr>
+<tr><th id="140">140</th><td><b>extern</b>	<a class="typedef" href="q_shared.h.html#cvar_t" title='cvar_t' data-type='struct cvar_s' data-ref="cvar_t">cvar_t</a>		*<dfn class="decl" id="cm_noCurves" title='cm_noCurves' data-ref="cm_noCurves">cm_noCurves</dfn>;</td></tr>
+<tr><th id="141">141</th><td><b>extern</b>	<a class="typedef" href="q_shared.h.html#cvar_t" title='cvar_t' data-type='struct cvar_s' data-ref="cvar_t">cvar_t</a>		*<dfn class="decl" id="cm_playerCurveClip" title='cm_playerCurveClip' data-ref="cm_playerCurveClip">cm_playerCurveClip</dfn>;</td></tr>
+<tr><th id="142">142</th><td></td></tr>
+<tr><th id="143">143</th><td><i>// cm_test.c</i></td></tr>
+<tr><th id="144">144</th><td><i></i></td></tr>
+<tr><th id="145">145</th><td><i>// Used for oriented capsule collision detection</i></td></tr>
+<tr><th id="146">146</th><td><b>typedef</b> <b>struct</b></td></tr>
+<tr><th id="147">147</th><td>{</td></tr>
+<tr><th id="148">148</th><td>	<a class="typedef" href="q_shared.h.html#qboolean" title='qboolean' data-type='enum qboolean' data-ref="qboolean">qboolean</a>	<dfn class="decl" id="(anonymous)::use" title='(anonymous struct)::use' data-ref="(anonymous)::use">use</dfn>;</td></tr>
+<tr><th id="149">149</th><td>	<em>float</em>		<dfn class="decl" id="(anonymous)::radius" title='(anonymous struct)::radius' data-ref="(anonymous)::radius">radius</dfn>;</td></tr>
+<tr><th id="150">150</th><td>	<em>float</em>		<dfn class="decl" id="(anonymous)::halfheight" title='(anonymous struct)::halfheight' data-ref="(anonymous)::halfheight">halfheight</dfn>;</td></tr>
+<tr><th id="151">151</th><td>	<a class="typedef" href="q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a>		<dfn class="decl" id="(anonymous)::offset" title='(anonymous struct)::offset' data-ref="(anonymous)::offset">offset</dfn>;</td></tr>
+<tr><th id="152">152</th><td>} <dfn class="typedef" id="sphere_t" title='sphere_t' data-type='struct sphere_t' data-ref="sphere_t">sphere_t</dfn>;</td></tr>
+<tr><th id="153">153</th><td></td></tr>
+<tr><th id="154">154</th><td><b>typedef</b> <b>struct</b> {</td></tr>
+<tr><th id="155">155</th><td>	<a class="typedef" href="q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a>		<dfn class="decl" id="(anonymous)::start" title='(anonymous struct)::start' data-ref="(anonymous)::start">start</dfn>;</td></tr>
+<tr><th id="156">156</th><td>	<a class="typedef" href="q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a>		<dfn class="decl" id="(anonymous)::end" title='(anonymous struct)::end' data-ref="(anonymous)::end">end</dfn>;</td></tr>
+<tr><th id="157">157</th><td>	<a class="typedef" href="q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a>		<dfn class="decl" id="(anonymous)::size" title='(anonymous struct)::size' data-ref="(anonymous)::size">size</dfn>[<var>2</var>];	<i>// size of the box being swept through the model</i></td></tr>
+<tr><th id="158">158</th><td>	<a class="typedef" href="q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a>		<dfn class="decl" id="(anonymous)::offsets" title='(anonymous struct)::offsets' data-ref="(anonymous)::offsets">offsets</dfn>[<var>8</var>];	<i>// [signbits][x] = either size[0][x] or size[1][x]</i></td></tr>
+<tr><th id="159">159</th><td>	<em>float</em>		<dfn class="decl" id="(anonymous)::maxOffset" title='(anonymous struct)::maxOffset' data-ref="(anonymous)::maxOffset">maxOffset</dfn>;	<i>// longest corner length from origin</i></td></tr>
+<tr><th id="160">160</th><td>	<a class="typedef" href="q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a>		<dfn class="decl" id="(anonymous)::extents" title='(anonymous struct)::extents' data-ref="(anonymous)::extents">extents</dfn>;	<i>// greatest of abs(size[0]) and abs(size[1])</i></td></tr>
+<tr><th id="161">161</th><td>	<a class="typedef" href="q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a>		<dfn class="decl" id="(anonymous)::bounds" title='(anonymous struct)::bounds' data-ref="(anonymous)::bounds">bounds</dfn>[<var>2</var>];	<i>// enclosing box of start and end surrounding by size</i></td></tr>
+<tr><th id="162">162</th><td>	<a class="typedef" href="q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a>		<dfn class="decl" id="(anonymous)::modelOrigin" title='(anonymous struct)::modelOrigin' data-ref="(anonymous)::modelOrigin">modelOrigin</dfn>;<i>// origin of the model tracing through</i></td></tr>
+<tr><th id="163">163</th><td>	<em>int</em>			<dfn class="decl" id="(anonymous)::contents" title='(anonymous struct)::contents' data-ref="(anonymous)::contents">contents</dfn>;	<i>// ored contents of the model tracing through</i></td></tr>
+<tr><th id="164">164</th><td>	<a class="typedef" href="q_shared.h.html#qboolean" title='qboolean' data-type='enum qboolean' data-ref="qboolean">qboolean</a>	<dfn class="decl" id="(anonymous)::isPoint" title='(anonymous struct)::isPoint' data-ref="(anonymous)::isPoint">isPoint</dfn>;	<i>// optimized case</i></td></tr>
+<tr><th id="165">165</th><td>	<a class="typedef" href="q_shared.h.html#trace_t" title='trace_t' data-type='struct trace_t' data-ref="trace_t">trace_t</a>		<dfn class="decl" id="(anonymous)::trace" title='(anonymous struct)::trace' data-ref="(anonymous)::trace">trace</dfn>;		<i>// returned from trace call</i></td></tr>
+<tr><th id="166">166</th><td>	<a class="typedef" href="#sphere_t" title='sphere_t' data-type='struct sphere_t' data-ref="sphere_t">sphere_t</a>	<dfn class="decl" id="(anonymous)::sphere" title='(anonymous struct)::sphere' data-ref="(anonymous)::sphere">sphere</dfn>;		<i>// sphere for oriendted capsule collision</i></td></tr>
+<tr><th id="167">167</th><td>} <dfn class="typedef" id="traceWork_t" title='traceWork_t' data-type='struct traceWork_t' data-ref="traceWork_t">traceWork_t</dfn>;</td></tr>
+<tr><th id="168">168</th><td></td></tr>
+<tr><th id="169">169</th><td><b>typedef</b> <b>struct</b> <dfn class="type def" id="leafList_s" title='leafList_s' data-ref="leafList_s"><a class="type" href="#leafList_s" title='leafList_s' data-ref="leafList_s">leafList_s</a></dfn> {</td></tr>
+<tr><th id="170">170</th><td>	<em>int</em>		<dfn class="decl" id="leafList_s::count" title='leafList_s::count' data-ref="leafList_s::count">count</dfn>;</td></tr>
+<tr><th id="171">171</th><td>	<em>int</em>		<dfn class="decl" id="leafList_s::maxcount" title='leafList_s::maxcount' data-ref="leafList_s::maxcount">maxcount</dfn>;</td></tr>
+<tr><th id="172">172</th><td>	<a class="typedef" href="q_shared.h.html#qboolean" title='qboolean' data-type='enum qboolean' data-ref="qboolean">qboolean</a>	<dfn class="decl" id="leafList_s::overflowed" title='leafList_s::overflowed' data-ref="leafList_s::overflowed">overflowed</dfn>;</td></tr>
+<tr><th id="173">173</th><td>	<em>int</em>		*<dfn class="decl" id="leafList_s::list" title='leafList_s::list' data-ref="leafList_s::list">list</dfn>;</td></tr>
+<tr><th id="174">174</th><td>	<a class="typedef" href="q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a>	<dfn class="decl" id="leafList_s::bounds" title='leafList_s::bounds' data-ref="leafList_s::bounds">bounds</dfn>[<var>2</var>];</td></tr>
+<tr><th id="175">175</th><td>	<em>int</em>		<dfn class="decl" id="leafList_s::lastLeaf" title='leafList_s::lastLeaf' data-ref="leafList_s::lastLeaf">lastLeaf</dfn>;		<i>// for overflows where each leaf can't be stored individually</i></td></tr>
+<tr><th id="176">176</th><td>	<em>void</em>	(*<dfn class="decl" id="leafList_s::storeLeafs" title='leafList_s::storeLeafs' data-ref="leafList_s::storeLeafs">storeLeafs</dfn>)( <b>struct</b> <a class="type" href="#leafList_s" title='leafList_s' data-ref="leafList_s">leafList_s</a> *<dfn class="local col8 decl" id="38ll" title='ll' data-type='struct leafList_s *' data-ref="38ll">ll</dfn>, <em>int</em> <dfn class="local col9 decl" id="39nodenum" title='nodenum' data-type='int' data-ref="39nodenum">nodenum</dfn> );</td></tr>
+<tr><th id="177">177</th><td>} <dfn class="typedef" id="leafList_t" title='leafList_t' data-type='struct leafList_s' data-ref="leafList_t">leafList_t</dfn>;</td></tr>
+<tr><th id="178">178</th><td></td></tr>
+<tr><th id="179">179</th><td></td></tr>
+<tr><th id="180">180</th><td><em>int</em> <dfn class="decl" id="CM_BoxBrushes" title='CM_BoxBrushes' data-ref="CM_BoxBrushes">CM_BoxBrushes</dfn>( <em>const</em> <a class="typedef" href="q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="local col0 decl" id="40mins" title='mins' data-type='const vec_t *' data-ref="40mins">mins</dfn>, <em>const</em> <a class="typedef" href="q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="local col1 decl" id="41maxs" title='maxs' data-type='const vec_t *' data-ref="41maxs">maxs</dfn>, <a class="typedef" href="#cbrush_t" title='cbrush_t' data-type='struct cbrush_t' data-ref="cbrush_t">cbrush_t</a> **<dfn class="local col2 decl" id="42list" title='list' data-type='cbrush_t **' data-ref="42list">list</dfn>, <em>int</em> <dfn class="local col3 decl" id="43listsize" title='listsize' data-type='int' data-ref="43listsize">listsize</dfn> );</td></tr>
+<tr><th id="181">181</th><td></td></tr>
+<tr><th id="182">182</th><td><em>void</em> <dfn class="decl" id="CM_StoreLeafs" title='CM_StoreLeafs' data-ref="CM_StoreLeafs">CM_StoreLeafs</dfn>( <a class="typedef" href="#leafList_t" title='leafList_t' data-type='struct leafList_s' data-ref="leafList_t">leafList_t</a> *<dfn class="local col4 decl" id="44ll" title='ll' data-type='leafList_t *' data-ref="44ll">ll</dfn>, <em>int</em> <dfn class="local col5 decl" id="45nodenum" title='nodenum' data-type='int' data-ref="45nodenum">nodenum</dfn> );</td></tr>
+<tr><th id="183">183</th><td><em>void</em> <dfn class="decl" id="CM_StoreBrushes" title='CM_StoreBrushes' data-ref="CM_StoreBrushes">CM_StoreBrushes</dfn>( <a class="typedef" href="#leafList_t" title='leafList_t' data-type='struct leafList_s' data-ref="leafList_t">leafList_t</a> *<dfn class="local col6 decl" id="46ll" title='ll' data-type='leafList_t *' data-ref="46ll">ll</dfn>, <em>int</em> <dfn class="local col7 decl" id="47nodenum" title='nodenum' data-type='int' data-ref="47nodenum">nodenum</dfn> );</td></tr>
+<tr><th id="184">184</th><td></td></tr>
+<tr><th id="185">185</th><td><em>void</em> <dfn class="decl" id="CM_BoxLeafnums_r" title='CM_BoxLeafnums_r' data-ref="CM_BoxLeafnums_r">CM_BoxLeafnums_r</dfn>( <a class="typedef" href="#leafList_t" title='leafList_t' data-type='struct leafList_s' data-ref="leafList_t">leafList_t</a> *<dfn class="local col8 decl" id="48ll" title='ll' data-type='leafList_t *' data-ref="48ll">ll</dfn>, <em>int</em> <dfn class="local col9 decl" id="49nodenum" title='nodenum' data-type='int' data-ref="49nodenum">nodenum</dfn> );</td></tr>
+<tr><th id="186">186</th><td></td></tr>
+<tr><th id="187">187</th><td><a class="typedef" href="#cmodel_t" title='cmodel_t' data-type='struct cmodel_s' data-ref="cmodel_t">cmodel_t</a>	*<a class="decl" href="cm_load.c.html#CM_ClipHandleToModel" title='CM_ClipHandleToModel' data-ref="CM_ClipHandleToModel" id="CM_ClipHandleToModel">CM_ClipHandleToModel</a>( <a class="typedef" href="q_shared.h.html#clipHandle_t" title='clipHandle_t' data-type='int' data-ref="clipHandle_t">clipHandle_t</a> <dfn class="local col0 decl" id="50handle" title='handle' data-type='clipHandle_t' data-ref="50handle">handle</dfn> );</td></tr>
+<tr><th id="188">188</th><td><a class="typedef" href="q_shared.h.html#qboolean" title='qboolean' data-type='enum qboolean' data-ref="qboolean">qboolean</a> <dfn class="decl" id="CM_BoundsIntersect" title='CM_BoundsIntersect' data-ref="CM_BoundsIntersect">CM_BoundsIntersect</dfn>( <em>const</em> <a class="typedef" href="q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="local col1 decl" id="51mins" title='mins' data-type='const vec_t *' data-ref="51mins">mins</dfn>, <em>const</em> <a class="typedef" href="q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="local col2 decl" id="52maxs" title='maxs' data-type='const vec_t *' data-ref="52maxs">maxs</dfn>, <em>const</em> <a class="typedef" href="q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="local col3 decl" id="53mins2" title='mins2' data-type='const vec_t *' data-ref="53mins2">mins2</dfn>, <em>const</em> <a class="typedef" href="q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="local col4 decl" id="54maxs2" title='maxs2' data-type='const vec_t *' data-ref="54maxs2">maxs2</dfn> );</td></tr>
+<tr><th id="189">189</th><td><a class="typedef" href="q_shared.h.html#qboolean" title='qboolean' data-type='enum qboolean' data-ref="qboolean">qboolean</a> <dfn class="decl" id="CM_BoundsIntersectPoint" title='CM_BoundsIntersectPoint' data-ref="CM_BoundsIntersectPoint">CM_BoundsIntersectPoint</dfn>( <em>const</em> <a class="typedef" href="q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="local col5 decl" id="55mins" title='mins' data-type='const vec_t *' data-ref="55mins">mins</dfn>, <em>const</em> <a class="typedef" href="q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="local col6 decl" id="56maxs" title='maxs' data-type='const vec_t *' data-ref="56maxs">maxs</dfn>, <em>const</em> <a class="typedef" href="q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="local col7 decl" id="57point" title='point' data-type='const vec_t *' data-ref="57point">point</dfn> );</td></tr>
+<tr><th id="190">190</th><td></td></tr>
+<tr><th id="191">191</th><td><i>// cm_patch.c</i></td></tr>
+<tr><th id="192">192</th><td></td></tr>
+<tr><th id="193">193</th><td><b>struct</b> <a class="type" href="#patchCollide_s" title='patchCollide_s' data-ref="patchCollide_s">patchCollide_s</a>	*<dfn class="decl" id="CM_GeneratePatchCollide" title='CM_GeneratePatchCollide' data-ref="CM_GeneratePatchCollide">CM_GeneratePatchCollide</dfn>( <em>int</em> <dfn class="local col8 decl" id="58width" title='width' data-type='int' data-ref="58width">width</dfn>, <em>int</em> <dfn class="local col9 decl" id="59height" title='height' data-type='int' data-ref="59height">height</dfn>, <a class="typedef" href="q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> *<dfn class="local col0 decl" id="60points" title='points' data-type='vec3_t *' data-ref="60points">points</dfn> );</td></tr>
+<tr><th id="194">194</th><td><em>void</em> <dfn class="decl" id="CM_TraceThroughPatchCollide" title='CM_TraceThroughPatchCollide' data-ref="CM_TraceThroughPatchCollide">CM_TraceThroughPatchCollide</dfn>( <a class="typedef" href="#traceWork_t" title='traceWork_t' data-type='struct traceWork_t' data-ref="traceWork_t">traceWork_t</a> *<dfn class="local col1 decl" id="61tw" title='tw' data-type='traceWork_t *' data-ref="61tw">tw</dfn>, <em>const</em> <b>struct</b> <a class="type" href="#patchCollide_s" title='patchCollide_s' data-ref="patchCollide_s">patchCollide_s</a> *<dfn class="local col2 decl" id="62pc" title='pc' data-type='const struct patchCollide_s *' data-ref="62pc">pc</dfn> );</td></tr>
+<tr><th id="195">195</th><td><a class="typedef" href="q_shared.h.html#qboolean" title='qboolean' data-type='enum qboolean' data-ref="qboolean">qboolean</a> <dfn class="decl" id="CM_PositionTestInPatchCollide" title='CM_PositionTestInPatchCollide' data-ref="CM_PositionTestInPatchCollide">CM_PositionTestInPatchCollide</dfn>( <a class="typedef" href="#traceWork_t" title='traceWork_t' data-type='struct traceWork_t' data-ref="traceWork_t">traceWork_t</a> *<dfn class="local col3 decl" id="63tw" title='tw' data-type='traceWork_t *' data-ref="63tw">tw</dfn>, <em>const</em> <b>struct</b> <a class="type" href="#patchCollide_s" title='patchCollide_s' data-ref="patchCollide_s">patchCollide_s</a> *<dfn class="local col4 decl" id="64pc" title='pc' data-type='const struct patchCollide_s *' data-ref="64pc">pc</dfn> );</td></tr>
+<tr><th id="196">196</th><td><em>void</em> <dfn class="decl" id="CM_ClearLevelPatches" title='CM_ClearLevelPatches' data-ref="CM_ClearLevelPatches">CM_ClearLevelPatches</dfn>( <em>void</em> );</td></tr>
+<tr><th id="197">197</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='cm_load.c.html'>codebrowser/code/qcommon/cm_load.c</a><br/>Generated on <em>2017-Aug-29</em> from project codebrowser revision <em>63e07af</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

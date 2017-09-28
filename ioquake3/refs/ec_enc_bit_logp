@@ -1,0 +1,19 @@
+<dec f='codebrowser/code/opus-1.1.4/celt/entenc.h' l='56' type='void ec_enc_bit_logp(ec_enc * _this, int _val, unsigned int _logp)'/>
+<use f='codebrowser/code/opus-1.1.4/celt/bands.c' l='808' u='c' c='compute_theta'/>
+<doc f='codebrowser/code/opus-1.1.4/celt/entenc.h' l='55'>/* Encode a bit that has a 1/(1&lt;&lt;_logp) probability of being a one */</doc>
+<use f='codebrowser/code/opus-1.1.4/celt/celt_encoder.c' l='732' u='c' c='tf_encode'/>
+<use f='codebrowser/code/opus-1.1.4/celt/celt_encoder.c' l='745' u='c' c='tf_encode'/>
+<use f='codebrowser/code/opus-1.1.4/celt/celt_encoder.c' l='1528' u='c' c='celt_encode_with_ec'/>
+<use f='codebrowser/code/opus-1.1.4/celt/celt_encoder.c' l='1572' u='c' c='celt_encode_with_ec'/>
+<use f='codebrowser/code/opus-1.1.4/celt/celt_encoder.c' l='1577' u='c' c='celt_encode_with_ec'/>
+<use f='codebrowser/code/opus-1.1.4/celt/celt_encoder.c' l='1756' u='c' c='celt_encode_with_ec'/>
+<use f='codebrowser/code/opus-1.1.4/celt/celt_encoder.c' l='1865' u='c' c='celt_encode_with_ec'/>
+<def f='codebrowser/code/opus-1.1.4/celt/entenc.c' l='151' ll='162' type='void ec_enc_bit_logp(ec_enc * _this, int _val, unsigned int _logp)'/>
+<doc f='codebrowser/code/opus-1.1.4/celt/entenc.c' l='150'>/*The probability of having a &quot;one&quot; is 1/(1&lt;&lt;_logp).*/</doc>
+<use f='codebrowser/code/opus-1.1.4/celt/quant_bands.c' l='169' u='c' c='quant_coarse_energy_impl'/>
+<use f='codebrowser/code/opus-1.1.4/celt/quant_bands.c' l='242' u='c' c='quant_coarse_energy_impl'/>
+<use f='codebrowser/code/opus-1.1.4/celt/rate.c' l='359' u='c' c='interp_bits2pulses'/>
+<use f='codebrowser/code/opus-1.1.4/celt/rate.c' l='362' u='c' c='interp_bits2pulses'/>
+<use f='codebrowser/code/opus-1.1.4/celt/rate.c' l='408' u='c' c='interp_bits2pulses'/>
+<use f='codebrowser/code/opus-1.1.4/src/opus_encoder.c' l='1813' u='c' c='opus_encode_native'/>
+<use f='codebrowser/code/opus-1.1.4/src/opus_encoder.c' l='1817' u='c' c='opus_encode_native'/>

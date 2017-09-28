@@ -1,0 +1,14 @@
+<def f='codebrowser/code/renderercommon/tr_image_jpg.c' l='387' ll='462' type='size_t RE_SaveJPGToBuffer(byte * buffer, size_t bufSize, int quality, int image_width, int image_height, byte * image_buffer, int padding)'/>
+<use f='codebrowser/code/renderercommon/tr_image_jpg.c' l='472' u='c' c='RE_SaveJPG'/>
+<doc f='codebrowser/code/renderercommon/tr_image_jpg.c' l='379'>/*
+=================
+SaveJPGToBuffer
+
+Encodes JPEG from image in image_buffer and writes to buffer.
+Expects RGB input data
+=================
+*/</doc>
+<dec f='codebrowser/code/renderergl1/tr_local.h' l='1581' type='size_t RE_SaveJPGToBuffer(byte * buffer, size_t bufSize, int quality, int image_width, int image_height, byte * image_buffer, int padding)'/>
+<use f='codebrowser/code/renderergl1/tr_init.c' l='794' u='c' c='RB_TakeVideoFrameCmd'/>
+<dec f='codebrowser/code/renderergl2/tr_local.h' l='2430' type='size_t RE_SaveJPGToBuffer(byte * buffer, size_t bufSize, int quality, int image_width, int image_height, byte * image_buffer, int padding)'/>
+<use f='codebrowser/code/renderergl2/tr_init.c' l='897' u='c' c='RB_TakeVideoFrameCmd'/>

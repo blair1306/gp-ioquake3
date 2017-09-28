@@ -1,0 +1,14 @@
+<dec f='codebrowser/code/qcommon/q_shared.h' l='738' type='qboolean COM_CompareExtension(const char * in, const char * ext)'/>
+<use f='codebrowser/code/client/cl_console.c' l='198' u='c' c='Con_Dump_f'/>
+<use f='codebrowser/code/qcommon/common.c' l='2996' u='c' c='Com_WriteConfig_f'/>
+<use f='codebrowser/code/qcommon/files.c' l='572' u='c' c='FS_CheckFilenameIsMutable'/>
+<use f='codebrowser/code/qcommon/files.c' l='573' u='c' c='FS_CheckFilenameIsMutable'/>
+<def f='codebrowser/code/qcommon/q_shared.c' l='96' ll='112' type='qboolean COM_CompareExtension(const char * in, const char * ext)'/>
+<doc f='codebrowser/code/qcommon/q_shared.c' l='89'>/*
+============
+COM_CompareExtension
+
+string compare the end of the strings and return qtrue if strings match
+============
+*/</doc>
+<use f='codebrowser/code/sys/sys_unix.c' l='927' u='c' c='Sys_DllExtension'/>

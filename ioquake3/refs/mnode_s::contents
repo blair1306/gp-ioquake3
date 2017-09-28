@@ -1,0 +1,19 @@
+<dec f='codebrowser/code/renderergl1/tr_local.h' l='661' type='int'/>
+<offset>0</offset>
+<doc f='codebrowser/code/renderergl1/tr_local.h' l='660'>// common with leaf and node</doc>
+<doc f='codebrowser/code/renderergl1/tr_local.h' l='661'>// -1 for nodes, to differentiate from leafs</doc>
+<use f='codebrowser/code/renderergl1/tr_bsp.c' l='1353' u='r' c='R_SetParent'/>
+<use f='codebrowser/code/renderergl1/tr_bsp.c' l='1397' u='w' c='R_LoadNodesAndLeafs'/>
+<use f='codebrowser/code/renderergl1/tr_marks.c' l='140' u='r' c='R_BoxSurfaces_r'/>
+<use f='codebrowser/code/renderergl1/tr_world.c' l='414' u='r' c='R_RecursiveWorldNode'/>
+<use f='codebrowser/code/renderergl1/tr_world.c' l='512' u='r' c='R_PointInLeaf'/>
+<use f='codebrowser/code/renderergl1/tr_world.c' l='604' u='r' c='R_MarkLeaves'/>
+<dec f='codebrowser/code/renderergl2/tr_local.h' l='1061' type='int'/>
+<offset>0</offset>
+<doc f='codebrowser/code/renderergl2/tr_local.h' l='1060'>// common with leaf and node</doc>
+<doc f='codebrowser/code/renderergl2/tr_local.h' l='1061'>// -1 for nodes, to differentiate from leafs</doc>
+<use f='codebrowser/code/renderergl2/tr_bsp.c' l='1873' u='r' c='R_SetParent'/>
+<use f='codebrowser/code/renderergl2/tr_bsp.c' l='1917' u='w' c='R_LoadNodesAndLeafs'/>
+<use f='codebrowser/code/renderergl2/tr_marks.c' l='141' u='r' c='R_BoxSurfaces_r'/>
+<use f='codebrowser/code/renderergl2/tr_world.c' l='471' u='r' c='R_RecursiveWorldNode'/>
+<use f='codebrowser/code/renderergl2/tr_world.c' l='603' u='r' c='R_PointInLeaf'/>

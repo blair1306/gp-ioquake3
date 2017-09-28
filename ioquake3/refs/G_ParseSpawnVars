@@ -1,0 +1,13 @@
+<def f='codebrowser/code/game/g_spawn.c' l='509' ll='553' type='qboolean G_ParseSpawnVars()'/>
+<use f='codebrowser/code/game/g_spawn.c' l='631' u='c' c='G_SpawnEntitiesFromString'/>
+<use f='codebrowser/code/game/g_spawn.c' l='637' u='c' c='G_SpawnEntitiesFromString'/>
+<doc f='codebrowser/code/game/g_spawn.c' l='499'>/*
+====================
+G_ParseSpawnVars
+
+Parses a brace bounded set of key / value pairs out of the
+level&apos;s entity strings into level.spawnVars[]
+
+This does not actually spawn an entity.
+====================
+*/</doc>

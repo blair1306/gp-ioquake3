@@ -1,0 +1,6 @@
+<dec f='codebrowser/code/game/g_public.h' l='206' type='33'/>
+<doc f='codebrowser/code/game/g_public.h' l='203'>// EntitiesInBox will return brush models based on their bounding box,
+	// so exact determination must still be done with EntityContact</doc>
+<doc f='codebrowser/code/game/g_public.h' l='206'>// ( const vec3_t mins, const vec3_t maxs, const gentity_t *ent );</doc>
+<use f='codebrowser/code/game/g_syscalls.c' l='194' c='trap_EntityContact'/>
+<use f='codebrowser/code/server/sv_game.c' l='358' c='SV_GameSystemCalls'/>

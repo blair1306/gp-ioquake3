@@ -1,0 +1,8 @@
+<dec f='codebrowser/code/libogg-1.3.2/include/ogg/ogg.h' l='169' type='int ogg_sync_clear(ogg_sync_state * oy)'/>
+<def f='codebrowser/code/libogg-1.3.2/src/framing.c' l='607' ll='613' type='int ogg_sync_clear(ogg_sync_state * oy)'/>
+<use f='codebrowser/code/libogg-1.3.2/src/framing.c' l='617' u='c' c='ogg_sync_destroy'/>
+<use f='codebrowser/code/libogg-1.3.2/src/framing.c' l='649' u='c' c='ogg_sync_buffer'/>
+<doc f='codebrowser/code/libogg-1.3.2/src/framing.c' l='606'>/* clear non-flat storage within */</doc>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='127' u='c' c='op_test'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='1445' u='c' c='op_open_seekable2'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='1495' u='c' c='op_clear'/>

@@ -1,0 +1,661 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>client.h source code [codebrowser/code/client/client.h] - Woboq Code Browser</title>
+<link rel="stylesheet" href="../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'codebrowser/code/client/client.h'; var root_path = '../../..'; var data_path = '../../../../data';</script>
+<script src='../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../..'>codebrowser</a>/<a href='..'>code</a>/<a href='./'>client</a>/<a href='client.h.html'>client.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/*</i></td></tr>
+<tr><th id="2">2</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="3">3</th><td><i>Copyright (C) 1999-2005 Id Software, Inc.</i></td></tr>
+<tr><th id="4">4</th><td><i></i></td></tr>
+<tr><th id="5">5</th><td><i>This file is part of Quake III Arena source code.</i></td></tr>
+<tr><th id="6">6</th><td><i></i></td></tr>
+<tr><th id="7">7</th><td><i>Quake III Arena source code is free software; you can redistribute it</i></td></tr>
+<tr><th id="8">8</th><td><i>and/or modify it under the terms of the GNU General Public License as</i></td></tr>
+<tr><th id="9">9</th><td><i>published by the Free Software Foundation; either version 2 of the License,</i></td></tr>
+<tr><th id="10">10</th><td><i>or (at your option) any later version.</i></td></tr>
+<tr><th id="11">11</th><td><i></i></td></tr>
+<tr><th id="12">12</th><td><i>Quake III Arena source code is distributed in the hope that it will be</i></td></tr>
+<tr><th id="13">13</th><td><i>useful, but WITHOUT ANY WARRANTY; without even the implied warranty of</i></td></tr>
+<tr><th id="14">14</th><td><i>MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</i></td></tr>
+<tr><th id="15">15</th><td><i>GNU General Public License for more details.</i></td></tr>
+<tr><th id="16">16</th><td><i></i></td></tr>
+<tr><th id="17">17</th><td><i>You should have received a copy of the GNU General Public License</i></td></tr>
+<tr><th id="18">18</th><td><i>along with Quake III Arena source code; if not, write to the Free Software</i></td></tr>
+<tr><th id="19">19</th><td><i>Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA</i></td></tr>
+<tr><th id="20">20</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="21">21</th><td><i>*/</i></td></tr>
+<tr><th id="22">22</th><td><i>// client.h -- primary header for client</i></td></tr>
+<tr><th id="23">23</th><td></td></tr>
+<tr><th id="24">24</th><td><u>#include <a href="../qcommon/q_shared.h.html">"../qcommon/q_shared.h"</a></u></td></tr>
+<tr><th id="25">25</th><td><u>#include <a href="../qcommon/qcommon.h.html">"../qcommon/qcommon.h"</a></u></td></tr>
+<tr><th id="26">26</th><td><u>#include <a href="../renderercommon/tr_public.h.html">"../renderercommon/tr_public.h"</a></u></td></tr>
+<tr><th id="27">27</th><td><u>#include <a href="../ui/ui_public.h.html">"../ui/ui_public.h"</a></u></td></tr>
+<tr><th id="28">28</th><td><u>#include <a href="keys.h.html">"keys.h"</a></u></td></tr>
+<tr><th id="29">29</th><td><u>#include <a href="snd_public.h.html">"snd_public.h"</a></u></td></tr>
+<tr><th id="30">30</th><td><u>#include <a href="../cgame/cg_public.h.html">"../cgame/cg_public.h"</a></u></td></tr>
+<tr><th id="31">31</th><td><u>#include <a href="../game/bg_public.h.html">"../game/bg_public.h"</a></u></td></tr>
+<tr><th id="32">32</th><td></td></tr>
+<tr><th id="33">33</th><td><u>#<span data-ppcond="33">ifdef</span> <span class="macro" data-ref="_M/USE_CURL">USE_CURL</span></u></td></tr>
+<tr><th id="34">34</th><td><u>#include <a href="cl_curl.h.html">"cl_curl.h"</a></u></td></tr>
+<tr><th id="35">35</th><td><u>#<span data-ppcond="33">endif</span> /* USE_CURL */</u></td></tr>
+<tr><th id="36">36</th><td></td></tr>
+<tr><th id="37">37</th><td><u>#<span data-ppcond="37">ifdef</span> <span class="macro" data-ref="_M/USE_VOIP">USE_VOIP</span></u></td></tr>
+<tr><th id="38">38</th><td><u>#include <a href="../opus-1.1.4/include/opus.h.html">&lt;opus.h&gt;</a></u></td></tr>
+<tr><th id="39">39</th><td><u>#<span data-ppcond="37">endif</span></u></td></tr>
+<tr><th id="40">40</th><td></td></tr>
+<tr><th id="41">41</th><td><i>// file full of random crap that gets used to create cl_guid</i></td></tr>
+<tr><th id="42">42</th><td><u>#define <dfn class="macro" id="_M/QKEY_FILE" data-ref="_M/QKEY_FILE">QKEY_FILE</dfn> "qkey"</u></td></tr>
+<tr><th id="43">43</th><td><u>#define <dfn class="macro" id="_M/QKEY_SIZE" data-ref="_M/QKEY_SIZE">QKEY_SIZE</dfn> 2048</u></td></tr>
+<tr><th id="44">44</th><td></td></tr>
+<tr><th id="45">45</th><td><u>#define	<dfn class="macro" id="_M/RETRANSMIT_TIMEOUT" data-ref="_M/RETRANSMIT_TIMEOUT">RETRANSMIT_TIMEOUT</dfn>	3000	// time between connection packet retransmits</u></td></tr>
+<tr><th id="46">46</th><td></td></tr>
+<tr><th id="47">47</th><td><i>// snapshots are a view of the server at a given time</i></td></tr>
+<tr><th id="48">48</th><td><b>typedef</b> <b>struct</b> {</td></tr>
+<tr><th id="49">49</th><td>	<a class="typedef" href="../qcommon/q_shared.h.html#qboolean" title='qboolean' data-type='enum qboolean' data-ref="qboolean">qboolean</a>		<dfn class="decl" id="(anonymous)::valid" title='(anonymous struct)::valid' data-ref="(anonymous)::valid">valid</dfn>;			<i>// cleared if delta parsing was invalid</i></td></tr>
+<tr><th id="50">50</th><td>	<em>int</em>				<dfn class="decl" id="(anonymous)::snapFlags" title='(anonymous struct)::snapFlags' data-ref="(anonymous)::snapFlags">snapFlags</dfn>;		<i>// rate delayed and dropped commands</i></td></tr>
+<tr><th id="51">51</th><td></td></tr>
+<tr><th id="52">52</th><td>	<em>int</em>				<dfn class="decl" id="(anonymous)::serverTime" title='(anonymous struct)::serverTime' data-ref="(anonymous)::serverTime">serverTime</dfn>;		<i>// server time the message is valid for (in msec)</i></td></tr>
+<tr><th id="53">53</th><td></td></tr>
+<tr><th id="54">54</th><td>	<em>int</em>				<dfn class="decl" id="(anonymous)::messageNum" title='(anonymous struct)::messageNum' data-ref="(anonymous)::messageNum">messageNum</dfn>;		<i>// copied from netchan-&gt;incoming_sequence</i></td></tr>
+<tr><th id="55">55</th><td>	<em>int</em>				<dfn class="decl" id="(anonymous)::deltaNum" title='(anonymous struct)::deltaNum' data-ref="(anonymous)::deltaNum">deltaNum</dfn>;		<i>// messageNum the delta is from</i></td></tr>
+<tr><th id="56">56</th><td>	<em>int</em>				<dfn class="decl" id="(anonymous)::ping" title='(anonymous struct)::ping' data-ref="(anonymous)::ping">ping</dfn>;			<i>// time from when cmdNum-1 was sent to time packet was reeceived</i></td></tr>
+<tr><th id="57">57</th><td>	<a class="typedef" href="../qcommon/q_shared.h.html#byte" title='byte' data-type='unsigned char' data-ref="byte">byte</a>			<dfn class="decl" id="(anonymous)::areamask" title='(anonymous struct)::areamask' data-ref="(anonymous)::areamask">areamask</dfn>[<a class="macro" href="../qcommon/q_shared.h.html#279" title="32" data-ref="_M/MAX_MAP_AREA_BYTES">MAX_MAP_AREA_BYTES</a>];		<i>// portalarea visibility bits</i></td></tr>
+<tr><th id="58">58</th><td></td></tr>
+<tr><th id="59">59</th><td>	<em>int</em>				<dfn class="decl" id="(anonymous)::cmdNum" title='(anonymous struct)::cmdNum' data-ref="(anonymous)::cmdNum">cmdNum</dfn>;			<i>// the next cmdNum the server is expecting</i></td></tr>
+<tr><th id="60">60</th><td>	<a class="typedef" href="../qcommon/q_shared.h.html#playerState_t" title='playerState_t' data-type='struct playerState_s' data-ref="playerState_t">playerState_t</a>	<dfn class="decl" id="(anonymous)::ps" title='(anonymous struct)::ps' data-ref="(anonymous)::ps">ps</dfn>;						<i>// complete information about the current player at this time</i></td></tr>
+<tr><th id="61">61</th><td></td></tr>
+<tr><th id="62">62</th><td>	<em>int</em>				<dfn class="decl" id="(anonymous)::numEntities" title='(anonymous struct)::numEntities' data-ref="(anonymous)::numEntities">numEntities</dfn>;			<i>// all of the entities that need to be presented</i></td></tr>
+<tr><th id="63">63</th><td>	<em>int</em>				<dfn class="decl" id="(anonymous)::parseEntitiesNum" title='(anonymous struct)::parseEntitiesNum' data-ref="(anonymous)::parseEntitiesNum">parseEntitiesNum</dfn>;		<i>// at the time of this snapshot</i></td></tr>
+<tr><th id="64">64</th><td></td></tr>
+<tr><th id="65">65</th><td>	<em>int</em>				<dfn class="decl" id="(anonymous)::serverCommandNum" title='(anonymous struct)::serverCommandNum' data-ref="(anonymous)::serverCommandNum">serverCommandNum</dfn>;		<i>// execute all commands up to this before</i></td></tr>
+<tr><th id="66">66</th><td>											<i>// making the snapshot current</i></td></tr>
+<tr><th id="67">67</th><td>} <dfn class="typedef" id="clSnapshot_t" title='clSnapshot_t' data-type='struct clSnapshot_t' data-ref="clSnapshot_t">clSnapshot_t</dfn>;</td></tr>
+<tr><th id="68">68</th><td></td></tr>
+<tr><th id="69">69</th><td></td></tr>
+<tr><th id="70">70</th><td></td></tr>
+<tr><th id="71">71</th><td><i>/*</i></td></tr>
+<tr><th id="72">72</th><td><i>=============================================================================</i></td></tr>
+<tr><th id="73">73</th><td><i></i></td></tr>
+<tr><th id="74">74</th><td><i>the clientActive_t structure is wiped completely at every</i></td></tr>
+<tr><th id="75">75</th><td><i>new gamestate_t, potentially several times during an established connection</i></td></tr>
+<tr><th id="76">76</th><td><i></i></td></tr>
+<tr><th id="77">77</th><td><i>=============================================================================</i></td></tr>
+<tr><th id="78">78</th><td><i>*/</i></td></tr>
+<tr><th id="79">79</th><td></td></tr>
+<tr><th id="80">80</th><td><b>typedef</b> <b>struct</b> {</td></tr>
+<tr><th id="81">81</th><td>	<em>int</em>		<dfn class="decl" id="(anonymous)::p_cmdNumber" title='(anonymous struct)::p_cmdNumber' data-ref="(anonymous)::p_cmdNumber">p_cmdNumber</dfn>;		<i>// cl.cmdNumber when packet was sent</i></td></tr>
+<tr><th id="82">82</th><td>	<em>int</em>		<dfn class="decl" id="(anonymous)::p_serverTime" title='(anonymous struct)::p_serverTime' data-ref="(anonymous)::p_serverTime">p_serverTime</dfn>;		<i>// usercmd-&gt;serverTime when packet was sent</i></td></tr>
+<tr><th id="83">83</th><td>	<em>int</em>		<dfn class="decl" id="(anonymous)::p_realtime" title='(anonymous struct)::p_realtime' data-ref="(anonymous)::p_realtime">p_realtime</dfn>;			<i>// cls.realtime when packet was sent</i></td></tr>
+<tr><th id="84">84</th><td>} <dfn class="typedef" id="outPacket_t" title='outPacket_t' data-type='struct outPacket_t' data-ref="outPacket_t">outPacket_t</dfn>;</td></tr>
+<tr><th id="85">85</th><td></td></tr>
+<tr><th id="86">86</th><td><i>// the parseEntities array must be large enough to hold PACKET_BACKUP frames of</i></td></tr>
+<tr><th id="87">87</th><td><i>// entities, so that when a delta compressed message arives from the server</i></td></tr>
+<tr><th id="88">88</th><td><i>// it can be un-deltad from the original </i></td></tr>
+<tr><th id="89">89</th><td><u>#define	<dfn class="macro" id="_M/MAX_PARSE_ENTITIES" data-ref="_M/MAX_PARSE_ENTITIES">MAX_PARSE_ENTITIES</dfn>	( PACKET_BACKUP * MAX_SNAPSHOT_ENTITIES )</u></td></tr>
+<tr><th id="90">90</th><td></td></tr>
+<tr><th id="91">91</th><td><b>extern</b> <em>int</em> <dfn class="decl" id="g_console_field_width" title='g_console_field_width' data-ref="g_console_field_width">g_console_field_width</dfn>;</td></tr>
+<tr><th id="92">92</th><td></td></tr>
+<tr><th id="93">93</th><td><b>typedef</b> <b>struct</b> {</td></tr>
+<tr><th id="94">94</th><td>	<em>int</em>			<dfn class="decl" id="(anonymous)::timeoutcount" title='(anonymous struct)::timeoutcount' data-ref="(anonymous)::timeoutcount">timeoutcount</dfn>;		<i>// it requres several frames in a timeout condition</i></td></tr>
+<tr><th id="95">95</th><td>									<i>// to disconnect, preventing debugging breaks from</i></td></tr>
+<tr><th id="96">96</th><td><i>									// causing immediate disconnects on continue</i></td></tr>
+<tr><th id="97">97</th><td>	<a class="typedef" href="#clSnapshot_t" title='clSnapshot_t' data-type='struct clSnapshot_t' data-ref="clSnapshot_t">clSnapshot_t</a>	<dfn class="decl" id="(anonymous)::snap" title='(anonymous struct)::snap' data-ref="(anonymous)::snap">snap</dfn>;			<i>// latest received from server</i></td></tr>
+<tr><th id="98">98</th><td></td></tr>
+<tr><th id="99">99</th><td>	<em>int</em>			<dfn class="decl" id="(anonymous)::serverTime" title='(anonymous struct)::serverTime' data-ref="(anonymous)::serverTime">serverTime</dfn>;			<i>// may be paused during play</i></td></tr>
+<tr><th id="100">100</th><td>	<em>int</em>			<dfn class="decl" id="(anonymous)::oldServerTime" title='(anonymous struct)::oldServerTime' data-ref="(anonymous)::oldServerTime">oldServerTime</dfn>;		<i>// to prevent time from flowing bakcwards</i></td></tr>
+<tr><th id="101">101</th><td>	<em>int</em>			<dfn class="decl" id="(anonymous)::oldFrameServerTime" title='(anonymous struct)::oldFrameServerTime' data-ref="(anonymous)::oldFrameServerTime">oldFrameServerTime</dfn>;	<i>// to check tournament restarts</i></td></tr>
+<tr><th id="102">102</th><td>	<em>int</em>			<dfn class="decl" id="(anonymous)::serverTimeDelta" title='(anonymous struct)::serverTimeDelta' data-ref="(anonymous)::serverTimeDelta">serverTimeDelta</dfn>;	<i>// cl.serverTime = cls.realtime + cl.serverTimeDelta</i></td></tr>
+<tr><th id="103">103</th><td>									<i>// this value changes as net lag varies</i></td></tr>
+<tr><th id="104">104</th><td>	<a class="typedef" href="../qcommon/q_shared.h.html#qboolean" title='qboolean' data-type='enum qboolean' data-ref="qboolean">qboolean</a>	<dfn class="decl" id="(anonymous)::extrapolatedSnapshot" title='(anonymous struct)::extrapolatedSnapshot' data-ref="(anonymous)::extrapolatedSnapshot">extrapolatedSnapshot</dfn>;	<i>// set if any cgame frame has been forced to extrapolate</i></td></tr>
+<tr><th id="105">105</th><td>									<i>// cleared when CL_AdjustTimeDelta looks at it</i></td></tr>
+<tr><th id="106">106</th><td>	<a class="typedef" href="../qcommon/q_shared.h.html#qboolean" title='qboolean' data-type='enum qboolean' data-ref="qboolean">qboolean</a>	<dfn class="decl" id="(anonymous)::newSnapshots" title='(anonymous struct)::newSnapshots' data-ref="(anonymous)::newSnapshots">newSnapshots</dfn>;		<i>// set on parse of any valid packet</i></td></tr>
+<tr><th id="107">107</th><td></td></tr>
+<tr><th id="108">108</th><td>	<a class="typedef" href="../qcommon/q_shared.h.html#gameState_t" title='gameState_t' data-type='struct gameState_t' data-ref="gameState_t">gameState_t</a>	<dfn class="decl" id="(anonymous)::gameState" title='(anonymous struct)::gameState' data-ref="(anonymous)::gameState">gameState</dfn>;			<i>// configstrings</i></td></tr>
+<tr><th id="109">109</th><td>	<em>char</em>		<dfn class="decl" id="(anonymous)::mapname" title='(anonymous struct)::mapname' data-ref="(anonymous)::mapname">mapname</dfn>[<a class="macro" href="../qcommon/qfiles.h.html#43" title="64" data-ref="_M/MAX_QPATH">MAX_QPATH</a>];	<i>// extracted from CS_SERVERINFO</i></td></tr>
+<tr><th id="110">110</th><td></td></tr>
+<tr><th id="111">111</th><td>	<em>int</em>			<dfn class="decl" id="(anonymous)::parseEntitiesNum" title='(anonymous struct)::parseEntitiesNum' data-ref="(anonymous)::parseEntitiesNum">parseEntitiesNum</dfn>;	<i>// index (not anded off) into cl_parse_entities[]</i></td></tr>
+<tr><th id="112">112</th><td></td></tr>
+<tr><th id="113">113</th><td>	<em>int</em>			<dfn class="decl" id="(anonymous)::mouseDx" title='(anonymous struct)::mouseDx' data-ref="(anonymous)::mouseDx">mouseDx</dfn>[<var>2</var>], <dfn class="decl" id="(anonymous)::mouseDy" title='(anonymous struct)::mouseDy' data-ref="(anonymous)::mouseDy">mouseDy</dfn>[<var>2</var>];	<i>// added to by mouse events</i></td></tr>
+<tr><th id="114">114</th><td>	<em>int</em>			<dfn class="decl" id="(anonymous)::mouseIndex" title='(anonymous struct)::mouseIndex' data-ref="(anonymous)::mouseIndex">mouseIndex</dfn>;</td></tr>
+<tr><th id="115">115</th><td>	<em>int</em>			<dfn class="decl" id="(anonymous)::joystickAxis" title='(anonymous struct)::joystickAxis' data-ref="(anonymous)::joystickAxis">joystickAxis</dfn>[<a class="macro" href="../qcommon/qcommon.h.html#1077" title="16" data-ref="_M/MAX_JOYSTICK_AXIS">MAX_JOYSTICK_AXIS</a>];	<i>// set by joystick events</i></td></tr>
+<tr><th id="116">116</th><td></td></tr>
+<tr><th id="117">117</th><td>	<i>// cgame communicates a few values to the client system</i></td></tr>
+<tr><th id="118">118</th><td>	<em>int</em>			<dfn class="decl" id="(anonymous)::cgameUserCmdValue" title='(anonymous struct)::cgameUserCmdValue' data-ref="(anonymous)::cgameUserCmdValue">cgameUserCmdValue</dfn>;	<i>// current weapon to add to usercmd_t</i></td></tr>
+<tr><th id="119">119</th><td>	<em>float</em>		<dfn class="decl" id="(anonymous)::cgameSensitivity" title='(anonymous struct)::cgameSensitivity' data-ref="(anonymous)::cgameSensitivity">cgameSensitivity</dfn>;</td></tr>
+<tr><th id="120">120</th><td></td></tr>
+<tr><th id="121">121</th><td>	<i>// cmds[cmdNumber] is the predicted command, [cmdNumber-1] is the last</i></td></tr>
+<tr><th id="122">122</th><td><i>	// properly generated command</i></td></tr>
+<tr><th id="123">123</th><td>	<a class="typedef" href="../qcommon/q_shared.h.html#usercmd_t" title='usercmd_t' data-type='struct usercmd_s' data-ref="usercmd_t">usercmd_t</a>	<dfn class="decl" id="(anonymous)::cmds" title='(anonymous struct)::cmds' data-ref="(anonymous)::cmds">cmds</dfn>[<a class="macro" href="../cgame/cg_public.h.html#25" title="64" data-ref="_M/CMD_BACKUP">CMD_BACKUP</a>];	<i>// each mesage will send several old cmds</i></td></tr>
+<tr><th id="124">124</th><td>	<em>int</em>			<dfn class="decl" id="(anonymous)::cmdNumber" title='(anonymous struct)::cmdNumber' data-ref="(anonymous)::cmdNumber">cmdNumber</dfn>;			<i>// incremented each frame, because multiple</i></td></tr>
+<tr><th id="125">125</th><td>									<i>// frames may need to be packed into a single packet</i></td></tr>
+<tr><th id="126">126</th><td></td></tr>
+<tr><th id="127">127</th><td>	<a class="typedef" href="#outPacket_t" title='outPacket_t' data-type='struct outPacket_t' data-ref="outPacket_t">outPacket_t</a>	<dfn class="decl" id="(anonymous)::outPackets" title='(anonymous struct)::outPackets' data-ref="(anonymous)::outPackets">outPackets</dfn>[<a class="macro" href="../qcommon/qcommon.h.html#130" title="32" data-ref="_M/PACKET_BACKUP">PACKET_BACKUP</a>];	<i>// information about each packet we have sent out</i></td></tr>
+<tr><th id="128">128</th><td></td></tr>
+<tr><th id="129">129</th><td>	<i>// the client maintains its own idea of view angles, which are</i></td></tr>
+<tr><th id="130">130</th><td><i>	// sent to the server each frame.  It is cleared to 0 upon entering each level.</i></td></tr>
+<tr><th id="131">131</th><td><i>	// the server sends a delta each frame which is added to the locally</i></td></tr>
+<tr><th id="132">132</th><td><i>	// tracked view angles to account for standing on rotating objects,</i></td></tr>
+<tr><th id="133">133</th><td><i>	// and teleport direction changes</i></td></tr>
+<tr><th id="134">134</th><td>	<a class="typedef" href="../qcommon/q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a>		<dfn class="decl" id="(anonymous)::viewangles" title='(anonymous struct)::viewangles' data-ref="(anonymous)::viewangles">viewangles</dfn>;</td></tr>
+<tr><th id="135">135</th><td></td></tr>
+<tr><th id="136">136</th><td>	<em>int</em>			<dfn class="decl" id="(anonymous)::serverId" title='(anonymous struct)::serverId' data-ref="(anonymous)::serverId">serverId</dfn>;			<i>// included in each client message so the server</i></td></tr>
+<tr><th id="137">137</th><td>												<i>// can tell if it is for a prior map_restart</i></td></tr>
+<tr><th id="138">138</th><td><i>	// big stuff at end of structure so most offsets are 15 bits or less</i></td></tr>
+<tr><th id="139">139</th><td>	<a class="typedef" href="#clSnapshot_t" title='clSnapshot_t' data-type='struct clSnapshot_t' data-ref="clSnapshot_t">clSnapshot_t</a>	<dfn class="decl" id="(anonymous)::snapshots" title='(anonymous struct)::snapshots' data-ref="(anonymous)::snapshots">snapshots</dfn>[<a class="macro" href="../qcommon/qcommon.h.html#130" title="32" data-ref="_M/PACKET_BACKUP">PACKET_BACKUP</a>];</td></tr>
+<tr><th id="140">140</th><td></td></tr>
+<tr><th id="141">141</th><td>	<a class="typedef" href="../qcommon/q_shared.h.html#entityState_t" title='entityState_t' data-type='struct entityState_s' data-ref="entityState_t">entityState_t</a>	<dfn class="decl" id="(anonymous)::entityBaselines" title='(anonymous struct)::entityBaselines' data-ref="(anonymous)::entityBaselines">entityBaselines</dfn>[<a class="macro" href="../qcommon/q_shared.h.html#1091" title="(1&lt;&lt;10)" data-ref="_M/MAX_GENTITIES">MAX_GENTITIES</a>];	<i>// for delta compression when not in previous frame</i></td></tr>
+<tr><th id="142">142</th><td></td></tr>
+<tr><th id="143">143</th><td>	<a class="typedef" href="../qcommon/q_shared.h.html#entityState_t" title='entityState_t' data-type='struct entityState_s' data-ref="entityState_t">entityState_t</a>	<dfn class="decl" id="(anonymous)::parseEntities" title='(anonymous struct)::parseEntities' data-ref="(anonymous)::parseEntities">parseEntities</dfn>[<a class="macro" href="#89" title="( 32 * 256 )" data-ref="_M/MAX_PARSE_ENTITIES">MAX_PARSE_ENTITIES</a>];</td></tr>
+<tr><th id="144">144</th><td>} <dfn class="typedef" id="clientActive_t" title='clientActive_t' data-type='struct clientActive_t' data-ref="clientActive_t">clientActive_t</dfn>;</td></tr>
+<tr><th id="145">145</th><td></td></tr>
+<tr><th id="146">146</th><td><b>extern</b>	<a class="typedef" href="#clientActive_t" title='clientActive_t' data-type='struct clientActive_t' data-ref="clientActive_t">clientActive_t</a>		<dfn class="decl" id="cl" title='cl' data-ref="cl">cl</dfn>;</td></tr>
+<tr><th id="147">147</th><td></td></tr>
+<tr><th id="148">148</th><td><i>/*</i></td></tr>
+<tr><th id="149">149</th><td><i>=============================================================================</i></td></tr>
+<tr><th id="150">150</th><td><i></i></td></tr>
+<tr><th id="151">151</th><td><i>the clientConnection_t structure is wiped when disconnecting from a server,</i></td></tr>
+<tr><th id="152">152</th><td><i>either to go to a full screen console, play a demo, or connect to a different server</i></td></tr>
+<tr><th id="153">153</th><td><i></i></td></tr>
+<tr><th id="154">154</th><td><i>A connection can be to either a server through the network layer or a</i></td></tr>
+<tr><th id="155">155</th><td><i>demo through a file.</i></td></tr>
+<tr><th id="156">156</th><td><i></i></td></tr>
+<tr><th id="157">157</th><td><i>=============================================================================</i></td></tr>
+<tr><th id="158">158</th><td><i>*/</i></td></tr>
+<tr><th id="159">159</th><td></td></tr>
+<tr><th id="160">160</th><td><u>#define <dfn class="macro" id="_M/MAX_TIMEDEMO_DURATIONS" data-ref="_M/MAX_TIMEDEMO_DURATIONS">MAX_TIMEDEMO_DURATIONS</dfn>	4096</u></td></tr>
+<tr><th id="161">161</th><td></td></tr>
+<tr><th id="162">162</th><td><b>typedef</b> <b>struct</b> {</td></tr>
+<tr><th id="163">163</th><td></td></tr>
+<tr><th id="164">164</th><td>	<a class="typedef" href="../qcommon/q_shared.h.html#connstate_t" title='connstate_t' data-type='enum connstate_t' data-ref="connstate_t">connstate_t</a>	<dfn class="decl" id="(anonymous)::state" title='(anonymous struct)::state' data-ref="(anonymous)::state">state</dfn>;				<i>// connection status</i></td></tr>
+<tr><th id="165">165</th><td></td></tr>
+<tr><th id="166">166</th><td>	<em>int</em>			<dfn class="decl" id="(anonymous)::clientNum" title='(anonymous struct)::clientNum' data-ref="(anonymous)::clientNum">clientNum</dfn>;</td></tr>
+<tr><th id="167">167</th><td>	<em>int</em>			<dfn class="decl" id="(anonymous)::lastPacketSentTime" title='(anonymous struct)::lastPacketSentTime' data-ref="(anonymous)::lastPacketSentTime">lastPacketSentTime</dfn>;			<i>// for retransmits during connection</i></td></tr>
+<tr><th id="168">168</th><td>	<em>int</em>			<dfn class="decl" id="(anonymous)::lastPacketTime" title='(anonymous struct)::lastPacketTime' data-ref="(anonymous)::lastPacketTime">lastPacketTime</dfn>;				<i>// for timeouts</i></td></tr>
+<tr><th id="169">169</th><td></td></tr>
+<tr><th id="170">170</th><td>	<em>char</em>		<dfn class="decl" id="(anonymous)::servername" title='(anonymous struct)::servername' data-ref="(anonymous)::servername">servername</dfn>[<a class="macro" href="../qcommon/q_shared.h.html#258" title="4096" data-ref="_M/MAX_OSPATH">MAX_OSPATH</a>];		<i>// name of server from original connect (used by reconnect)</i></td></tr>
+<tr><th id="171">171</th><td>	<a class="typedef" href="../qcommon/qcommon.h.html#netadr_t" title='netadr_t' data-type='struct netadr_t' data-ref="netadr_t">netadr_t</a>	<dfn class="decl" id="(anonymous)::serverAddress" title='(anonymous struct)::serverAddress' data-ref="(anonymous)::serverAddress">serverAddress</dfn>;</td></tr>
+<tr><th id="172">172</th><td>	<em>int</em>			<dfn class="decl" id="(anonymous)::connectTime" title='(anonymous struct)::connectTime' data-ref="(anonymous)::connectTime">connectTime</dfn>;				<i>// for connection retransmits</i></td></tr>
+<tr><th id="173">173</th><td>	<em>int</em>			<dfn class="decl" id="(anonymous)::connectPacketCount" title='(anonymous struct)::connectPacketCount' data-ref="(anonymous)::connectPacketCount">connectPacketCount</dfn>;			<i>// for display on connection dialog</i></td></tr>
+<tr><th id="174">174</th><td>	<em>char</em>		<dfn class="decl" id="(anonymous)::serverMessage" title='(anonymous struct)::serverMessage' data-ref="(anonymous)::serverMessage">serverMessage</dfn>[<a class="macro" href="../qcommon/q_shared.h.html#244" title="1024" data-ref="_M/MAX_STRING_TOKENS">MAX_STRING_TOKENS</a>];	<i>// for display on connection dialog</i></td></tr>
+<tr><th id="175">175</th><td></td></tr>
+<tr><th id="176">176</th><td>	<em>int</em>			<dfn class="decl" id="(anonymous)::challenge" title='(anonymous struct)::challenge' data-ref="(anonymous)::challenge">challenge</dfn>;					<i>// from the server to use for connecting</i></td></tr>
+<tr><th id="177">177</th><td>	<em>int</em>			<dfn class="decl" id="(anonymous)::checksumFeed" title='(anonymous struct)::checksumFeed' data-ref="(anonymous)::checksumFeed">checksumFeed</dfn>;				<i>// from the server for checksum calculations</i></td></tr>
+<tr><th id="178">178</th><td></td></tr>
+<tr><th id="179">179</th><td>	<i>// these are our reliable messages that go to the server</i></td></tr>
+<tr><th id="180">180</th><td>	<em>int</em>			<dfn class="decl" id="(anonymous)::reliableSequence" title='(anonymous struct)::reliableSequence' data-ref="(anonymous)::reliableSequence">reliableSequence</dfn>;</td></tr>
+<tr><th id="181">181</th><td>	<em>int</em>			<dfn class="decl" id="(anonymous)::reliableAcknowledge" title='(anonymous struct)::reliableAcknowledge' data-ref="(anonymous)::reliableAcknowledge">reliableAcknowledge</dfn>;		<i>// the last one the server has executed</i></td></tr>
+<tr><th id="182">182</th><td>	<em>char</em>		<dfn class="decl" id="(anonymous)::reliableCommands" title='(anonymous struct)::reliableCommands' data-ref="(anonymous)::reliableCommands">reliableCommands</dfn>[<a class="macro" href="../qcommon/qcommon.h.html#140" title="64" data-ref="_M/MAX_RELIABLE_COMMANDS">MAX_RELIABLE_COMMANDS</a>][<a class="macro" href="../qcommon/q_shared.h.html#243" title="1024" data-ref="_M/MAX_STRING_CHARS">MAX_STRING_CHARS</a>];</td></tr>
+<tr><th id="183">183</th><td></td></tr>
+<tr><th id="184">184</th><td>	<i>// server message (unreliable) and command (reliable) sequence</i></td></tr>
+<tr><th id="185">185</th><td><i>	// numbers are NOT cleared at level changes, but continue to</i></td></tr>
+<tr><th id="186">186</th><td><i>	// increase as long as the connection is valid</i></td></tr>
+<tr><th id="187">187</th><td><i></i></td></tr>
+<tr><th id="188">188</th><td><i>	// message sequence is used by both the network layer and the</i></td></tr>
+<tr><th id="189">189</th><td><i>	// delta compression layer</i></td></tr>
+<tr><th id="190">190</th><td>	<em>int</em>			<dfn class="decl" id="(anonymous)::serverMessageSequence" title='(anonymous struct)::serverMessageSequence' data-ref="(anonymous)::serverMessageSequence">serverMessageSequence</dfn>;</td></tr>
+<tr><th id="191">191</th><td></td></tr>
+<tr><th id="192">192</th><td>	<i>// reliable messages received from server</i></td></tr>
+<tr><th id="193">193</th><td>	<em>int</em>			<dfn class="decl" id="(anonymous)::serverCommandSequence" title='(anonymous struct)::serverCommandSequence' data-ref="(anonymous)::serverCommandSequence">serverCommandSequence</dfn>;</td></tr>
+<tr><th id="194">194</th><td>	<em>int</em>			<dfn class="decl" id="(anonymous)::lastExecutedServerCommand" title='(anonymous struct)::lastExecutedServerCommand' data-ref="(anonymous)::lastExecutedServerCommand">lastExecutedServerCommand</dfn>;		<i>// last server command grabbed or executed with CL_GetServerCommand</i></td></tr>
+<tr><th id="195">195</th><td>	<em>char</em>		<dfn class="decl" id="(anonymous)::serverCommands" title='(anonymous struct)::serverCommands' data-ref="(anonymous)::serverCommands">serverCommands</dfn>[<a class="macro" href="../qcommon/qcommon.h.html#140" title="64" data-ref="_M/MAX_RELIABLE_COMMANDS">MAX_RELIABLE_COMMANDS</a>][<a class="macro" href="../qcommon/q_shared.h.html#243" title="1024" data-ref="_M/MAX_STRING_CHARS">MAX_STRING_CHARS</a>];</td></tr>
+<tr><th id="196">196</th><td></td></tr>
+<tr><th id="197">197</th><td>	<i>// file transfer from server</i></td></tr>
+<tr><th id="198">198</th><td>	<a class="typedef" href="../qcommon/q_shared.h.html#fileHandle_t" title='fileHandle_t' data-type='int' data-ref="fileHandle_t">fileHandle_t</a> <dfn class="decl" id="(anonymous)::download" title='(anonymous struct)::download' data-ref="(anonymous)::download">download</dfn>;</td></tr>
+<tr><th id="199">199</th><td>	<em>char</em>		<dfn class="decl" id="(anonymous)::downloadTempName" title='(anonymous struct)::downloadTempName' data-ref="(anonymous)::downloadTempName">downloadTempName</dfn>[<a class="macro" href="../qcommon/q_shared.h.html#258" title="4096" data-ref="_M/MAX_OSPATH">MAX_OSPATH</a>];</td></tr>
+<tr><th id="200">200</th><td>	<em>char</em>		<dfn class="decl" id="(anonymous)::downloadName" title='(anonymous struct)::downloadName' data-ref="(anonymous)::downloadName">downloadName</dfn>[<a class="macro" href="../qcommon/q_shared.h.html#258" title="4096" data-ref="_M/MAX_OSPATH">MAX_OSPATH</a>];</td></tr>
+<tr><th id="201">201</th><td><u>#<span data-ppcond="201">ifdef</span> <span class="macro" data-ref="_M/USE_CURL">USE_CURL</span></u></td></tr>
+<tr><th id="202">202</th><td>	<a class="typedef" href="../qcommon/q_shared.h.html#qboolean" title='qboolean' data-type='enum qboolean' data-ref="qboolean">qboolean</a>	<dfn class="decl" id="(anonymous)::cURLEnabled" title='(anonymous struct)::cURLEnabled' data-ref="(anonymous)::cURLEnabled">cURLEnabled</dfn>;</td></tr>
+<tr><th id="203">203</th><td>	<a class="typedef" href="../qcommon/q_shared.h.html#qboolean" title='qboolean' data-type='enum qboolean' data-ref="qboolean">qboolean</a>	<dfn class="decl" id="(anonymous)::cURLUsed" title='(anonymous struct)::cURLUsed' data-ref="(anonymous)::cURLUsed">cURLUsed</dfn>;</td></tr>
+<tr><th id="204">204</th><td>	<a class="typedef" href="../qcommon/q_shared.h.html#qboolean" title='qboolean' data-type='enum qboolean' data-ref="qboolean">qboolean</a>	<dfn class="decl" id="(anonymous)::cURLDisconnected" title='(anonymous struct)::cURLDisconnected' data-ref="(anonymous)::cURLDisconnected">cURLDisconnected</dfn>;</td></tr>
+<tr><th id="205">205</th><td>	<em>char</em>		<dfn class="decl" id="(anonymous)::downloadURL" title='(anonymous struct)::downloadURL' data-ref="(anonymous)::downloadURL">downloadURL</dfn>[<a class="macro" href="../qcommon/q_shared.h.html#258" title="4096" data-ref="_M/MAX_OSPATH">MAX_OSPATH</a>];</td></tr>
+<tr><th id="206">206</th><td>	<a class="typedef" href="../curl-7.54.0/include/curl/curl.h.html#CURL" title='CURL' data-type='void' data-ref="CURL">CURL</a>		*<dfn class="decl" id="(anonymous)::downloadCURL" title='(anonymous struct)::downloadCURL' data-ref="(anonymous)::downloadCURL">downloadCURL</dfn>;</td></tr>
+<tr><th id="207">207</th><td>	<a class="typedef" href="../curl-7.54.0/include/curl/multi.h.html#CURLM" title='CURLM' data-type='void' data-ref="CURLM">CURLM</a>		*<dfn class="decl" id="(anonymous)::downloadCURLM" title='(anonymous struct)::downloadCURLM' data-ref="(anonymous)::downloadCURLM">downloadCURLM</dfn>;</td></tr>
+<tr><th id="208">208</th><td><u>#<span data-ppcond="201">endif</span> /* USE_CURL */</u></td></tr>
+<tr><th id="209">209</th><td>	<em>int</em>		<dfn class="decl" id="(anonymous)::sv_allowDownload" title='(anonymous struct)::sv_allowDownload' data-ref="(anonymous)::sv_allowDownload">sv_allowDownload</dfn>;</td></tr>
+<tr><th id="210">210</th><td>	<em>char</em>		<dfn class="decl" id="(anonymous)::sv_dlURL" title='(anonymous struct)::sv_dlURL' data-ref="(anonymous)::sv_dlURL">sv_dlURL</dfn>[<a class="macro" href="../qcommon/q_shared.h.html#946" title="256" data-ref="_M/MAX_CVAR_VALUE_STRING">MAX_CVAR_VALUE_STRING</a>];</td></tr>
+<tr><th id="211">211</th><td>	<em>int</em>			<dfn class="decl" id="(anonymous)::downloadNumber" title='(anonymous struct)::downloadNumber' data-ref="(anonymous)::downloadNumber">downloadNumber</dfn>;</td></tr>
+<tr><th id="212">212</th><td>	<em>int</em>			<dfn class="decl" id="(anonymous)::downloadBlock" title='(anonymous struct)::downloadBlock' data-ref="(anonymous)::downloadBlock">downloadBlock</dfn>;	<i>// block we are waiting for</i></td></tr>
+<tr><th id="213">213</th><td>	<em>int</em>			<dfn class="decl" id="(anonymous)::downloadCount" title='(anonymous struct)::downloadCount' data-ref="(anonymous)::downloadCount">downloadCount</dfn>;	<i>// how many bytes we got</i></td></tr>
+<tr><th id="214">214</th><td>	<em>int</em>			<dfn class="decl" id="(anonymous)::downloadSize" title='(anonymous struct)::downloadSize' data-ref="(anonymous)::downloadSize">downloadSize</dfn>;	<i>// how many bytes we got</i></td></tr>
+<tr><th id="215">215</th><td>	<em>char</em>		<dfn class="decl" id="(anonymous)::downloadList" title='(anonymous struct)::downloadList' data-ref="(anonymous)::downloadList">downloadList</dfn>[<a class="macro" href="../qcommon/q_shared.h.html#247" title="1024" data-ref="_M/MAX_INFO_STRING">MAX_INFO_STRING</a>]; <i>// list of paks we need to download</i></td></tr>
+<tr><th id="216">216</th><td>	<a class="typedef" href="../qcommon/q_shared.h.html#qboolean" title='qboolean' data-type='enum qboolean' data-ref="qboolean">qboolean</a>	<dfn class="decl" id="(anonymous)::downloadRestart" title='(anonymous struct)::downloadRestart' data-ref="(anonymous)::downloadRestart">downloadRestart</dfn>;	<i>// if true, we need to do another FS_Restart because we downloaded a pak</i></td></tr>
+<tr><th id="217">217</th><td></td></tr>
+<tr><th id="218">218</th><td>	<i>// demo information</i></td></tr>
+<tr><th id="219">219</th><td>	<em>char</em>		<dfn class="decl" id="(anonymous)::demoName" title='(anonymous struct)::demoName' data-ref="(anonymous)::demoName">demoName</dfn>[<a class="macro" href="../qcommon/qfiles.h.html#43" title="64" data-ref="_M/MAX_QPATH">MAX_QPATH</a>];</td></tr>
+<tr><th id="220">220</th><td>	<a class="typedef" href="../qcommon/q_shared.h.html#qboolean" title='qboolean' data-type='enum qboolean' data-ref="qboolean">qboolean</a>	<dfn class="decl" id="(anonymous)::spDemoRecording" title='(anonymous struct)::spDemoRecording' data-ref="(anonymous)::spDemoRecording">spDemoRecording</dfn>;</td></tr>
+<tr><th id="221">221</th><td>	<a class="typedef" href="../qcommon/q_shared.h.html#qboolean" title='qboolean' data-type='enum qboolean' data-ref="qboolean">qboolean</a>	<dfn class="decl" id="(anonymous)::demorecording" title='(anonymous struct)::demorecording' data-ref="(anonymous)::demorecording">demorecording</dfn>;</td></tr>
+<tr><th id="222">222</th><td>	<a class="typedef" href="../qcommon/q_shared.h.html#qboolean" title='qboolean' data-type='enum qboolean' data-ref="qboolean">qboolean</a>	<dfn class="decl" id="(anonymous)::demoplaying" title='(anonymous struct)::demoplaying' data-ref="(anonymous)::demoplaying">demoplaying</dfn>;</td></tr>
+<tr><th id="223">223</th><td>	<a class="typedef" href="../qcommon/q_shared.h.html#qboolean" title='qboolean' data-type='enum qboolean' data-ref="qboolean">qboolean</a>	<dfn class="decl" id="(anonymous)::demowaiting" title='(anonymous struct)::demowaiting' data-ref="(anonymous)::demowaiting">demowaiting</dfn>;	<i>// don't record until a non-delta message is received</i></td></tr>
+<tr><th id="224">224</th><td>	<a class="typedef" href="../qcommon/q_shared.h.html#qboolean" title='qboolean' data-type='enum qboolean' data-ref="qboolean">qboolean</a>	<dfn class="decl" id="(anonymous)::firstDemoFrameSkipped" title='(anonymous struct)::firstDemoFrameSkipped' data-ref="(anonymous)::firstDemoFrameSkipped">firstDemoFrameSkipped</dfn>;</td></tr>
+<tr><th id="225">225</th><td>	<a class="typedef" href="../qcommon/q_shared.h.html#fileHandle_t" title='fileHandle_t' data-type='int' data-ref="fileHandle_t">fileHandle_t</a>	<dfn class="decl" id="(anonymous)::demofile" title='(anonymous struct)::demofile' data-ref="(anonymous)::demofile">demofile</dfn>;</td></tr>
+<tr><th id="226">226</th><td></td></tr>
+<tr><th id="227">227</th><td>	<em>int</em>			<dfn class="decl" id="(anonymous)::timeDemoFrames" title='(anonymous struct)::timeDemoFrames' data-ref="(anonymous)::timeDemoFrames">timeDemoFrames</dfn>;		<i>// counter of rendered frames</i></td></tr>
+<tr><th id="228">228</th><td>	<em>int</em>			<dfn class="decl" id="(anonymous)::timeDemoStart" title='(anonymous struct)::timeDemoStart' data-ref="(anonymous)::timeDemoStart">timeDemoStart</dfn>;		<i>// cls.realtime before first frame</i></td></tr>
+<tr><th id="229">229</th><td>	<em>int</em>			<dfn class="decl" id="(anonymous)::timeDemoBaseTime" title='(anonymous struct)::timeDemoBaseTime' data-ref="(anonymous)::timeDemoBaseTime">timeDemoBaseTime</dfn>;	<i>// each frame will be at this time + frameNum * 50</i></td></tr>
+<tr><th id="230">230</th><td>	<em>int</em>			<dfn class="decl" id="(anonymous)::timeDemoLastFrame" title='(anonymous struct)::timeDemoLastFrame' data-ref="(anonymous)::timeDemoLastFrame">timeDemoLastFrame</dfn>;<i>// time the last frame was rendered</i></td></tr>
+<tr><th id="231">231</th><td>	<em>int</em>			<dfn class="decl" id="(anonymous)::timeDemoMinDuration" title='(anonymous struct)::timeDemoMinDuration' data-ref="(anonymous)::timeDemoMinDuration">timeDemoMinDuration</dfn>;	<i>// minimum frame duration</i></td></tr>
+<tr><th id="232">232</th><td>	<em>int</em>			<dfn class="decl" id="(anonymous)::timeDemoMaxDuration" title='(anonymous struct)::timeDemoMaxDuration' data-ref="(anonymous)::timeDemoMaxDuration">timeDemoMaxDuration</dfn>;	<i>// maximum frame duration</i></td></tr>
+<tr><th id="233">233</th><td>	<em>unsigned</em> <em>char</em>	<dfn class="decl" id="(anonymous)::timeDemoDurations" title='(anonymous struct)::timeDemoDurations' data-ref="(anonymous)::timeDemoDurations">timeDemoDurations</dfn>[ <a class="macro" href="#160" title="4096" data-ref="_M/MAX_TIMEDEMO_DURATIONS">MAX_TIMEDEMO_DURATIONS</a> ];	<i>// log of frame durations</i></td></tr>
+<tr><th id="234">234</th><td></td></tr>
+<tr><th id="235">235</th><td>	<em>float</em>		<dfn class="decl" id="(anonymous)::aviVideoFrameRemainder" title='(anonymous struct)::aviVideoFrameRemainder' data-ref="(anonymous)::aviVideoFrameRemainder">aviVideoFrameRemainder</dfn>;</td></tr>
+<tr><th id="236">236</th><td>	<em>float</em>		<dfn class="decl" id="(anonymous)::aviSoundFrameRemainder" title='(anonymous struct)::aviSoundFrameRemainder' data-ref="(anonymous)::aviSoundFrameRemainder">aviSoundFrameRemainder</dfn>;</td></tr>
+<tr><th id="237">237</th><td></td></tr>
+<tr><th id="238">238</th><td><u>#<span data-ppcond="238">ifdef</span> <span class="macro" data-ref="_M/USE_VOIP">USE_VOIP</span></u></td></tr>
+<tr><th id="239">239</th><td>	<a class="typedef" href="../qcommon/q_shared.h.html#qboolean" title='qboolean' data-type='enum qboolean' data-ref="qboolean">qboolean</a> <dfn class="decl" id="(anonymous)::voipEnabled" title='(anonymous struct)::voipEnabled' data-ref="(anonymous)::voipEnabled">voipEnabled</dfn>;</td></tr>
+<tr><th id="240">240</th><td>	<a class="typedef" href="../qcommon/q_shared.h.html#qboolean" title='qboolean' data-type='enum qboolean' data-ref="qboolean">qboolean</a> <dfn class="decl" id="(anonymous)::voipCodecInitialized" title='(anonymous struct)::voipCodecInitialized' data-ref="(anonymous)::voipCodecInitialized">voipCodecInitialized</dfn>;</td></tr>
+<tr><th id="241">241</th><td></td></tr>
+<tr><th id="242">242</th><td>	<i>// incoming data...</i></td></tr>
+<tr><th id="243">243</th><td><i>	// !!! FIXME: convert from parallel arrays to array of a struct.</i></td></tr>
+<tr><th id="244">244</th><td>	<a class="typedef" href="../opus-1.1.4/include/opus.h.html#OpusDecoder" title='OpusDecoder' data-type='struct OpusDecoder' data-ref="OpusDecoder">OpusDecoder</a> *<dfn class="decl" id="(anonymous)::opusDecoder" title='(anonymous struct)::opusDecoder' data-ref="(anonymous)::opusDecoder">opusDecoder</dfn>[<a class="macro" href="../qcommon/q_shared.h.html#1087" title="64" data-ref="_M/MAX_CLIENTS">MAX_CLIENTS</a>];</td></tr>
+<tr><th id="245">245</th><td>	<a class="typedef" href="../qcommon/q_shared.h.html#byte" title='byte' data-type='unsigned char' data-ref="byte">byte</a> <dfn class="decl" id="(anonymous)::voipIncomingGeneration" title='(anonymous struct)::voipIncomingGeneration' data-ref="(anonymous)::voipIncomingGeneration">voipIncomingGeneration</dfn>[<a class="macro" href="../qcommon/q_shared.h.html#1087" title="64" data-ref="_M/MAX_CLIENTS">MAX_CLIENTS</a>];</td></tr>
+<tr><th id="246">246</th><td>	<em>int</em> <dfn class="decl" id="(anonymous)::voipIncomingSequence" title='(anonymous struct)::voipIncomingSequence' data-ref="(anonymous)::voipIncomingSequence">voipIncomingSequence</dfn>[<a class="macro" href="../qcommon/q_shared.h.html#1087" title="64" data-ref="_M/MAX_CLIENTS">MAX_CLIENTS</a>];</td></tr>
+<tr><th id="247">247</th><td>	<em>float</em> <dfn class="decl" id="(anonymous)::voipGain" title='(anonymous struct)::voipGain' data-ref="(anonymous)::voipGain">voipGain</dfn>[<a class="macro" href="../qcommon/q_shared.h.html#1087" title="64" data-ref="_M/MAX_CLIENTS">MAX_CLIENTS</a>];</td></tr>
+<tr><th id="248">248</th><td>	<a class="typedef" href="../qcommon/q_shared.h.html#qboolean" title='qboolean' data-type='enum qboolean' data-ref="qboolean">qboolean</a> <dfn class="decl" id="(anonymous)::voipIgnore" title='(anonymous struct)::voipIgnore' data-ref="(anonymous)::voipIgnore">voipIgnore</dfn>[<a class="macro" href="../qcommon/q_shared.h.html#1087" title="64" data-ref="_M/MAX_CLIENTS">MAX_CLIENTS</a>];</td></tr>
+<tr><th id="249">249</th><td>	<a class="typedef" href="../qcommon/q_shared.h.html#qboolean" title='qboolean' data-type='enum qboolean' data-ref="qboolean">qboolean</a> <dfn class="decl" id="(anonymous)::voipMuteAll" title='(anonymous struct)::voipMuteAll' data-ref="(anonymous)::voipMuteAll">voipMuteAll</dfn>;</td></tr>
+<tr><th id="250">250</th><td></td></tr>
+<tr><th id="251">251</th><td>	<i>// outgoing data...</i></td></tr>
+<tr><th id="252">252</th><td><i>	// if voipTargets[i / 8] &amp; (1 &lt;&lt; (i % 8)),</i></td></tr>
+<tr><th id="253">253</th><td><i>	// then we are sending to clientnum i.</i></td></tr>
+<tr><th id="254">254</th><td>	<a class="typedef" href="../../../include/stdint.h.html#uint8_t" title='uint8_t' data-type='unsigned char' data-ref="uint8_t">uint8_t</a> <dfn class="decl" id="(anonymous)::voipTargets" title='(anonymous struct)::voipTargets' data-ref="(anonymous)::voipTargets">voipTargets</dfn>[(<a class="macro" href="../qcommon/q_shared.h.html#1087" title="64" data-ref="_M/MAX_CLIENTS">MAX_CLIENTS</a> + <var>7</var>) / <var>8</var>];</td></tr>
+<tr><th id="255">255</th><td>	<a class="typedef" href="../../../include/stdint.h.html#uint8_t" title='uint8_t' data-type='unsigned char' data-ref="uint8_t">uint8_t</a> <dfn class="decl" id="(anonymous)::voipFlags" title='(anonymous struct)::voipFlags' data-ref="(anonymous)::voipFlags">voipFlags</dfn>;</td></tr>
+<tr><th id="256">256</th><td>	<a class="typedef" href="../opus-1.1.4/include/opus.h.html#OpusEncoder" title='OpusEncoder' data-type='struct OpusEncoder' data-ref="OpusEncoder">OpusEncoder</a> *<dfn class="decl" id="(anonymous)::opusEncoder" title='(anonymous struct)::opusEncoder' data-ref="(anonymous)::opusEncoder">opusEncoder</dfn>;</td></tr>
+<tr><th id="257">257</th><td>	<em>int</em> <dfn class="decl" id="(anonymous)::voipOutgoingDataSize" title='(anonymous struct)::voipOutgoingDataSize' data-ref="(anonymous)::voipOutgoingDataSize">voipOutgoingDataSize</dfn>;</td></tr>
+<tr><th id="258">258</th><td>	<em>int</em> <dfn class="decl" id="(anonymous)::voipOutgoingDataFrames" title='(anonymous struct)::voipOutgoingDataFrames' data-ref="(anonymous)::voipOutgoingDataFrames">voipOutgoingDataFrames</dfn>;</td></tr>
+<tr><th id="259">259</th><td>	<em>int</em> <dfn class="decl" id="(anonymous)::voipOutgoingSequence" title='(anonymous struct)::voipOutgoingSequence' data-ref="(anonymous)::voipOutgoingSequence">voipOutgoingSequence</dfn>;</td></tr>
+<tr><th id="260">260</th><td>	<a class="typedef" href="../qcommon/q_shared.h.html#byte" title='byte' data-type='unsigned char' data-ref="byte">byte</a> <dfn class="decl" id="(anonymous)::voipOutgoingGeneration" title='(anonymous struct)::voipOutgoingGeneration' data-ref="(anonymous)::voipOutgoingGeneration">voipOutgoingGeneration</dfn>;</td></tr>
+<tr><th id="261">261</th><td>	<a class="typedef" href="../qcommon/q_shared.h.html#byte" title='byte' data-type='unsigned char' data-ref="byte">byte</a> <dfn class="decl" id="(anonymous)::voipOutgoingData" title='(anonymous struct)::voipOutgoingData' data-ref="(anonymous)::voipOutgoingData">voipOutgoingData</dfn>[<var>1024</var>];</td></tr>
+<tr><th id="262">262</th><td>	<em>float</em> <dfn class="decl" id="(anonymous)::voipPower" title='(anonymous struct)::voipPower' data-ref="(anonymous)::voipPower">voipPower</dfn>;</td></tr>
+<tr><th id="263">263</th><td><u>#<span data-ppcond="238">endif</span></u></td></tr>
+<tr><th id="264">264</th><td></td></tr>
+<tr><th id="265">265</th><td><u>#<span data-ppcond="265">ifdef</span> <a class="macro" href="../qcommon/q_shared.h.html#57" data-ref="_M/LEGACY_PROTOCOL">LEGACY_PROTOCOL</a></u></td></tr>
+<tr><th id="266">266</th><td>	<a class="typedef" href="../qcommon/q_shared.h.html#qboolean" title='qboolean' data-type='enum qboolean' data-ref="qboolean">qboolean</a> <dfn class="decl" id="(anonymous)::compat" title='(anonymous struct)::compat' data-ref="(anonymous)::compat">compat</dfn>;</td></tr>
+<tr><th id="267">267</th><td><u>#<span data-ppcond="265">endif</span></u></td></tr>
+<tr><th id="268">268</th><td></td></tr>
+<tr><th id="269">269</th><td>	<i>// big stuff at end of structure so most offsets are 15 bits or less</i></td></tr>
+<tr><th id="270">270</th><td>	<a class="typedef" href="../qcommon/qcommon.h.html#netchan_t" title='netchan_t' data-type='struct netchan_t' data-ref="netchan_t">netchan_t</a>	<dfn class="decl" id="(anonymous)::netchan" title='(anonymous struct)::netchan' data-ref="(anonymous)::netchan">netchan</dfn>;</td></tr>
+<tr><th id="271">271</th><td>} <dfn class="typedef" id="clientConnection_t" title='clientConnection_t' data-type='struct clientConnection_t' data-ref="clientConnection_t">clientConnection_t</dfn>;</td></tr>
+<tr><th id="272">272</th><td></td></tr>
+<tr><th id="273">273</th><td><b>extern</b>	<a class="typedef" href="#clientConnection_t" title='clientConnection_t' data-type='struct clientConnection_t' data-ref="clientConnection_t">clientConnection_t</a> <dfn class="decl" id="clc" title='clc' data-ref="clc">clc</dfn>;</td></tr>
+<tr><th id="274">274</th><td></td></tr>
+<tr><th id="275">275</th><td><i>/*</i></td></tr>
+<tr><th id="276">276</th><td><i>==================================================================</i></td></tr>
+<tr><th id="277">277</th><td><i></i></td></tr>
+<tr><th id="278">278</th><td><i>the clientStatic_t structure is never wiped, and is used even when</i></td></tr>
+<tr><th id="279">279</th><td><i>no client connection is active at all</i></td></tr>
+<tr><th id="280">280</th><td><i>(except when CL_Shutdown is called)</i></td></tr>
+<tr><th id="281">281</th><td><i></i></td></tr>
+<tr><th id="282">282</th><td><i>==================================================================</i></td></tr>
+<tr><th id="283">283</th><td><i>*/</i></td></tr>
+<tr><th id="284">284</th><td></td></tr>
+<tr><th id="285">285</th><td><b>typedef</b> <b>struct</b> {</td></tr>
+<tr><th id="286">286</th><td>	<a class="typedef" href="../qcommon/qcommon.h.html#netadr_t" title='netadr_t' data-type='struct netadr_t' data-ref="netadr_t">netadr_t</a>	<dfn class="decl" id="(anonymous)::adr" title='(anonymous struct)::adr' data-ref="(anonymous)::adr">adr</dfn>;</td></tr>
+<tr><th id="287">287</th><td>	<em>int</em>			<dfn class="decl" id="(anonymous)::start" title='(anonymous struct)::start' data-ref="(anonymous)::start">start</dfn>;</td></tr>
+<tr><th id="288">288</th><td>	<em>int</em>			<dfn class="decl" id="(anonymous)::time" title='(anonymous struct)::time' data-ref="(anonymous)::time">time</dfn>;</td></tr>
+<tr><th id="289">289</th><td>	<em>char</em>		<dfn class="decl" id="(anonymous)::info" title='(anonymous struct)::info' data-ref="(anonymous)::info">info</dfn>[<a class="macro" href="../qcommon/q_shared.h.html#247" title="1024" data-ref="_M/MAX_INFO_STRING">MAX_INFO_STRING</a>];</td></tr>
+<tr><th id="290">290</th><td>} <dfn class="typedef" id="ping_t" title='ping_t' data-type='struct ping_t' data-ref="ping_t">ping_t</dfn>;</td></tr>
+<tr><th id="291">291</th><td></td></tr>
+<tr><th id="292">292</th><td><b>typedef</b> <b>struct</b> {</td></tr>
+<tr><th id="293">293</th><td>	<a class="typedef" href="../qcommon/qcommon.h.html#netadr_t" title='netadr_t' data-type='struct netadr_t' data-ref="netadr_t">netadr_t</a>	<dfn class="decl" id="(anonymous)::adr" title='(anonymous struct)::adr' data-ref="(anonymous)::adr">adr</dfn>;</td></tr>
+<tr><th id="294">294</th><td>	<em>char</em>	  	<dfn class="decl" id="(anonymous)::hostName" title='(anonymous struct)::hostName' data-ref="(anonymous)::hostName">hostName</dfn>[<a class="macro" href="../qcommon/q_shared.h.html#263" title="32" data-ref="_M/MAX_NAME_LENGTH">MAX_NAME_LENGTH</a>];</td></tr>
+<tr><th id="295">295</th><td>	<em>char</em>	  	<dfn class="decl" id="(anonymous)::mapName" title='(anonymous struct)::mapName' data-ref="(anonymous)::mapName">mapName</dfn>[<a class="macro" href="../qcommon/q_shared.h.html#263" title="32" data-ref="_M/MAX_NAME_LENGTH">MAX_NAME_LENGTH</a>];</td></tr>
+<tr><th id="296">296</th><td>	<em>char</em>	  	<dfn class="decl" id="(anonymous)::game" title='(anonymous struct)::game' data-ref="(anonymous)::game">game</dfn>[<a class="macro" href="../qcommon/q_shared.h.html#263" title="32" data-ref="_M/MAX_NAME_LENGTH">MAX_NAME_LENGTH</a>];</td></tr>
+<tr><th id="297">297</th><td>	<em>int</em>			<dfn class="decl" id="(anonymous)::netType" title='(anonymous struct)::netType' data-ref="(anonymous)::netType">netType</dfn>;</td></tr>
+<tr><th id="298">298</th><td>	<em>int</em>			<dfn class="decl" id="(anonymous)::gameType" title='(anonymous struct)::gameType' data-ref="(anonymous)::gameType">gameType</dfn>;</td></tr>
+<tr><th id="299">299</th><td>	<em>int</em>		  	<dfn class="decl" id="(anonymous)::clients" title='(anonymous struct)::clients' data-ref="(anonymous)::clients">clients</dfn>;</td></tr>
+<tr><th id="300">300</th><td>	<em>int</em>		  	<dfn class="decl" id="(anonymous)::maxClients" title='(anonymous struct)::maxClients' data-ref="(anonymous)::maxClients">maxClients</dfn>;</td></tr>
+<tr><th id="301">301</th><td>	<em>int</em>			<dfn class="decl" id="(anonymous)::minPing" title='(anonymous struct)::minPing' data-ref="(anonymous)::minPing">minPing</dfn>;</td></tr>
+<tr><th id="302">302</th><td>	<em>int</em>			<dfn class="decl" id="(anonymous)::maxPing" title='(anonymous struct)::maxPing' data-ref="(anonymous)::maxPing">maxPing</dfn>;</td></tr>
+<tr><th id="303">303</th><td>	<em>int</em>			<dfn class="decl" id="(anonymous)::ping" title='(anonymous struct)::ping' data-ref="(anonymous)::ping">ping</dfn>;</td></tr>
+<tr><th id="304">304</th><td>	<a class="typedef" href="../qcommon/q_shared.h.html#qboolean" title='qboolean' data-type='enum qboolean' data-ref="qboolean">qboolean</a>	<dfn class="decl" id="(anonymous)::visible" title='(anonymous struct)::visible' data-ref="(anonymous)::visible">visible</dfn>;</td></tr>
+<tr><th id="305">305</th><td>	<em>int</em>			<dfn class="decl" id="(anonymous)::punkbuster" title='(anonymous struct)::punkbuster' data-ref="(anonymous)::punkbuster">punkbuster</dfn>;</td></tr>
+<tr><th id="306">306</th><td>	<em>int</em>			<dfn class="decl" id="(anonymous)::g_humanplayers" title='(anonymous struct)::g_humanplayers' data-ref="(anonymous)::g_humanplayers">g_humanplayers</dfn>;</td></tr>
+<tr><th id="307">307</th><td>	<em>int</em>			<dfn class="decl" id="(anonymous)::g_needpass" title='(anonymous struct)::g_needpass' data-ref="(anonymous)::g_needpass">g_needpass</dfn>;</td></tr>
+<tr><th id="308">308</th><td>} <dfn class="typedef" id="serverInfo_t" title='serverInfo_t' data-type='struct serverInfo_t' data-ref="serverInfo_t">serverInfo_t</dfn>;</td></tr>
+<tr><th id="309">309</th><td></td></tr>
+<tr><th id="310">310</th><td><b>typedef</b> <b>struct</b> {</td></tr>
+<tr><th id="311">311</th><td>	<a class="typedef" href="../qcommon/q_shared.h.html#qboolean" title='qboolean' data-type='enum qboolean' data-ref="qboolean">qboolean</a>	<dfn class="decl" id="(anonymous)::cddialog" title='(anonymous struct)::cddialog' data-ref="(anonymous)::cddialog">cddialog</dfn>;			<i>// bring up the cd needed dialog next frame</i></td></tr>
+<tr><th id="312">312</th><td></td></tr>
+<tr><th id="313">313</th><td>	<i>// when the server clears the hunk, all of these must be restarted</i></td></tr>
+<tr><th id="314">314</th><td>	<a class="typedef" href="../qcommon/q_shared.h.html#qboolean" title='qboolean' data-type='enum qboolean' data-ref="qboolean">qboolean</a>	<dfn class="decl" id="(anonymous)::rendererStarted" title='(anonymous struct)::rendererStarted' data-ref="(anonymous)::rendererStarted">rendererStarted</dfn>;</td></tr>
+<tr><th id="315">315</th><td>	<a class="typedef" href="../qcommon/q_shared.h.html#qboolean" title='qboolean' data-type='enum qboolean' data-ref="qboolean">qboolean</a>	<dfn class="decl" id="(anonymous)::soundStarted" title='(anonymous struct)::soundStarted' data-ref="(anonymous)::soundStarted">soundStarted</dfn>;</td></tr>
+<tr><th id="316">316</th><td>	<a class="typedef" href="../qcommon/q_shared.h.html#qboolean" title='qboolean' data-type='enum qboolean' data-ref="qboolean">qboolean</a>	<dfn class="decl" id="(anonymous)::soundRegistered" title='(anonymous struct)::soundRegistered' data-ref="(anonymous)::soundRegistered">soundRegistered</dfn>;</td></tr>
+<tr><th id="317">317</th><td>	<a class="typedef" href="../qcommon/q_shared.h.html#qboolean" title='qboolean' data-type='enum qboolean' data-ref="qboolean">qboolean</a>	<dfn class="decl" id="(anonymous)::uiStarted" title='(anonymous struct)::uiStarted' data-ref="(anonymous)::uiStarted">uiStarted</dfn>;</td></tr>
+<tr><th id="318">318</th><td>	<a class="typedef" href="../qcommon/q_shared.h.html#qboolean" title='qboolean' data-type='enum qboolean' data-ref="qboolean">qboolean</a>	<dfn class="decl" id="(anonymous)::cgameStarted" title='(anonymous struct)::cgameStarted' data-ref="(anonymous)::cgameStarted">cgameStarted</dfn>;</td></tr>
+<tr><th id="319">319</th><td></td></tr>
+<tr><th id="320">320</th><td>	<em>int</em>			<dfn class="decl" id="(anonymous)::framecount" title='(anonymous struct)::framecount' data-ref="(anonymous)::framecount">framecount</dfn>;</td></tr>
+<tr><th id="321">321</th><td>	<em>int</em>			<dfn class="decl" id="(anonymous)::frametime" title='(anonymous struct)::frametime' data-ref="(anonymous)::frametime">frametime</dfn>;			<i>// msec since last frame</i></td></tr>
+<tr><th id="322">322</th><td></td></tr>
+<tr><th id="323">323</th><td>	<em>int</em>			<dfn class="decl" id="(anonymous)::realtime" title='(anonymous struct)::realtime' data-ref="(anonymous)::realtime">realtime</dfn>;			<i>// ignores pause</i></td></tr>
+<tr><th id="324">324</th><td>	<em>int</em>			<dfn class="decl" id="(anonymous)::realFrametime" title='(anonymous struct)::realFrametime' data-ref="(anonymous)::realFrametime">realFrametime</dfn>;		<i>// ignoring pause, so console always works</i></td></tr>
+<tr><th id="325">325</th><td></td></tr>
+<tr><th id="326">326</th><td>	<em>int</em>			<dfn class="decl" id="(anonymous)::numlocalservers" title='(anonymous struct)::numlocalservers' data-ref="(anonymous)::numlocalservers">numlocalservers</dfn>;</td></tr>
+<tr><th id="327">327</th><td>	<a class="typedef" href="#serverInfo_t" title='serverInfo_t' data-type='struct serverInfo_t' data-ref="serverInfo_t">serverInfo_t</a>	<dfn class="decl" id="(anonymous)::localServers" title='(anonymous struct)::localServers' data-ref="(anonymous)::localServers">localServers</dfn>[<a class="macro" href="../qcommon/q_shared.h.html#1415" title="128" data-ref="_M/MAX_OTHER_SERVERS">MAX_OTHER_SERVERS</a>];</td></tr>
+<tr><th id="328">328</th><td></td></tr>
+<tr><th id="329">329</th><td>	<em>int</em>			<dfn class="decl" id="(anonymous)::numglobalservers" title='(anonymous struct)::numglobalservers' data-ref="(anonymous)::numglobalservers">numglobalservers</dfn>;</td></tr>
+<tr><th id="330">330</th><td>	<a class="typedef" href="#serverInfo_t" title='serverInfo_t' data-type='struct serverInfo_t' data-ref="serverInfo_t">serverInfo_t</a>  <dfn class="decl" id="(anonymous)::globalServers" title='(anonymous struct)::globalServers' data-ref="(anonymous)::globalServers">globalServers</dfn>[<a class="macro" href="../qcommon/q_shared.h.html#1414" title="4096" data-ref="_M/MAX_GLOBAL_SERVERS">MAX_GLOBAL_SERVERS</a>];</td></tr>
+<tr><th id="331">331</th><td>	<i>// additional global servers</i></td></tr>
+<tr><th id="332">332</th><td>	<em>int</em>			<dfn class="decl" id="(anonymous)::numGlobalServerAddresses" title='(anonymous struct)::numGlobalServerAddresses' data-ref="(anonymous)::numGlobalServerAddresses">numGlobalServerAddresses</dfn>;</td></tr>
+<tr><th id="333">333</th><td>	<a class="typedef" href="../qcommon/qcommon.h.html#netadr_t" title='netadr_t' data-type='struct netadr_t' data-ref="netadr_t">netadr_t</a>		<dfn class="decl" id="(anonymous)::globalServerAddresses" title='(anonymous struct)::globalServerAddresses' data-ref="(anonymous)::globalServerAddresses">globalServerAddresses</dfn>[<a class="macro" href="../qcommon/q_shared.h.html#1414" title="4096" data-ref="_M/MAX_GLOBAL_SERVERS">MAX_GLOBAL_SERVERS</a>];</td></tr>
+<tr><th id="334">334</th><td></td></tr>
+<tr><th id="335">335</th><td>	<em>int</em>			<dfn class="decl" id="(anonymous)::numfavoriteservers" title='(anonymous struct)::numfavoriteservers' data-ref="(anonymous)::numfavoriteservers">numfavoriteservers</dfn>;</td></tr>
+<tr><th id="336">336</th><td>	<a class="typedef" href="#serverInfo_t" title='serverInfo_t' data-type='struct serverInfo_t' data-ref="serverInfo_t">serverInfo_t</a>	<dfn class="decl" id="(anonymous)::favoriteServers" title='(anonymous struct)::favoriteServers' data-ref="(anonymous)::favoriteServers">favoriteServers</dfn>[<a class="macro" href="../qcommon/q_shared.h.html#1415" title="128" data-ref="_M/MAX_OTHER_SERVERS">MAX_OTHER_SERVERS</a>];</td></tr>
+<tr><th id="337">337</th><td></td></tr>
+<tr><th id="338">338</th><td>	<em>int</em> <dfn class="decl" id="(anonymous)::pingUpdateSource" title='(anonymous struct)::pingUpdateSource' data-ref="(anonymous)::pingUpdateSource">pingUpdateSource</dfn>;		<i>// source currently pinging or updating</i></td></tr>
+<tr><th id="339">339</th><td></td></tr>
+<tr><th id="340">340</th><td>	<i>// update server info</i></td></tr>
+<tr><th id="341">341</th><td>	<a class="typedef" href="../qcommon/qcommon.h.html#netadr_t" title='netadr_t' data-type='struct netadr_t' data-ref="netadr_t">netadr_t</a>	<dfn class="decl" id="(anonymous)::updateServer" title='(anonymous struct)::updateServer' data-ref="(anonymous)::updateServer">updateServer</dfn>;</td></tr>
+<tr><th id="342">342</th><td>	<em>char</em>		<dfn class="decl" id="(anonymous)::updateChallenge" title='(anonymous struct)::updateChallenge' data-ref="(anonymous)::updateChallenge">updateChallenge</dfn>[<a class="macro" href="../qcommon/q_shared.h.html#245" title="1024" data-ref="_M/MAX_TOKEN_CHARS">MAX_TOKEN_CHARS</a>];</td></tr>
+<tr><th id="343">343</th><td>	<em>char</em>		<dfn class="decl" id="(anonymous)::updateInfoString" title='(anonymous struct)::updateInfoString' data-ref="(anonymous)::updateInfoString">updateInfoString</dfn>[<a class="macro" href="../qcommon/q_shared.h.html#247" title="1024" data-ref="_M/MAX_INFO_STRING">MAX_INFO_STRING</a>];</td></tr>
+<tr><th id="344">344</th><td></td></tr>
+<tr><th id="345">345</th><td>	<a class="typedef" href="../qcommon/qcommon.h.html#netadr_t" title='netadr_t' data-type='struct netadr_t' data-ref="netadr_t">netadr_t</a>	<dfn class="decl" id="(anonymous)::authorizeServer" title='(anonymous struct)::authorizeServer' data-ref="(anonymous)::authorizeServer">authorizeServer</dfn>;</td></tr>
+<tr><th id="346">346</th><td></td></tr>
+<tr><th id="347">347</th><td>	<a class="typedef" href="../qcommon/qcommon.h.html#netadr_t" title='netadr_t' data-type='struct netadr_t' data-ref="netadr_t">netadr_t</a>	<dfn class="decl" id="(anonymous)::rconAddress" title='(anonymous struct)::rconAddress' data-ref="(anonymous)::rconAddress">rconAddress</dfn>;</td></tr>
+<tr><th id="348">348</th><td></td></tr>
+<tr><th id="349">349</th><td>	<i>// rendering info</i></td></tr>
+<tr><th id="350">350</th><td>	<a class="typedef" href="../renderercommon/tr_types.h.html#glconfig_t" title='glconfig_t' data-type='struct glconfig_t' data-ref="glconfig_t">glconfig_t</a>	<dfn class="decl" id="(anonymous)::glconfig" title='(anonymous struct)::glconfig' data-ref="(anonymous)::glconfig">glconfig</dfn>;</td></tr>
+<tr><th id="351">351</th><td>	<a class="typedef" href="../qcommon/q_shared.h.html#qhandle_t" title='qhandle_t' data-type='int' data-ref="qhandle_t">qhandle_t</a>	<dfn class="decl" id="(anonymous)::charSetShader" title='(anonymous struct)::charSetShader' data-ref="(anonymous)::charSetShader">charSetShader</dfn>;</td></tr>
+<tr><th id="352">352</th><td>	<a class="typedef" href="../qcommon/q_shared.h.html#qhandle_t" title='qhandle_t' data-type='int' data-ref="qhandle_t">qhandle_t</a>	<dfn class="decl" id="(anonymous)::whiteShader" title='(anonymous struct)::whiteShader' data-ref="(anonymous)::whiteShader">whiteShader</dfn>;</td></tr>
+<tr><th id="353">353</th><td>	<a class="typedef" href="../qcommon/q_shared.h.html#qhandle_t" title='qhandle_t' data-type='int' data-ref="qhandle_t">qhandle_t</a>	<dfn class="decl" id="(anonymous)::consoleShader" title='(anonymous struct)::consoleShader' data-ref="(anonymous)::consoleShader">consoleShader</dfn>;</td></tr>
+<tr><th id="354">354</th><td>} <dfn class="typedef" id="clientStatic_t" title='clientStatic_t' data-type='struct clientStatic_t' data-ref="clientStatic_t">clientStatic_t</dfn>;</td></tr>
+<tr><th id="355">355</th><td></td></tr>
+<tr><th id="356">356</th><td><b>extern</b>	<a class="typedef" href="#clientStatic_t" title='clientStatic_t' data-type='struct clientStatic_t' data-ref="clientStatic_t">clientStatic_t</a>		<dfn class="decl" id="cls" title='cls' data-ref="cls">cls</dfn>;</td></tr>
+<tr><th id="357">357</th><td></td></tr>
+<tr><th id="358">358</th><td><b>extern</b>	<em>char</em>		<dfn class="decl" id="cl_oldGame" title='cl_oldGame' data-ref="cl_oldGame">cl_oldGame</dfn>[<a class="macro" href="../qcommon/qfiles.h.html#43" title="64" data-ref="_M/MAX_QPATH">MAX_QPATH</a>];</td></tr>
+<tr><th id="359">359</th><td><b>extern</b>	<a class="typedef" href="../qcommon/q_shared.h.html#qboolean" title='qboolean' data-type='enum qboolean' data-ref="qboolean">qboolean</a>	<dfn class="decl" id="cl_oldGameSet" title='cl_oldGameSet' data-ref="cl_oldGameSet">cl_oldGameSet</dfn>;</td></tr>
+<tr><th id="360">360</th><td></td></tr>
+<tr><th id="361">361</th><td><i>//=============================================================================</i></td></tr>
+<tr><th id="362">362</th><td></td></tr>
+<tr><th id="363">363</th><td><b>extern</b>	<a class="typedef" href="../qcommon/qcommon.h.html#vm_t" title='vm_t' data-type='struct vm_s' data-ref="vm_t">vm_t</a>			*<dfn class="decl" id="cgvm" title='cgvm' data-ref="cgvm">cgvm</dfn>;	<i>// interface to cgame dll or vm</i></td></tr>
+<tr><th id="364">364</th><td><b>extern</b>	<a class="typedef" href="../qcommon/qcommon.h.html#vm_t" title='vm_t' data-type='struct vm_s' data-ref="vm_t">vm_t</a>			*<dfn class="decl" id="uivm" title='uivm' data-ref="uivm">uivm</dfn>;	<i>// interface to ui dll or vm</i></td></tr>
+<tr><th id="365">365</th><td><b>extern</b>	<a class="typedef" href="../renderercommon/tr_public.h.html#refexport_t" title='refexport_t' data-type='struct refexport_t' data-ref="refexport_t">refexport_t</a>		<dfn class="decl" id="re" title='re' data-ref="re">re</dfn>;		<i>// interface to refresh .dll</i></td></tr>
+<tr><th id="366">366</th><td></td></tr>
+<tr><th id="367">367</th><td></td></tr>
+<tr><th id="368">368</th><td><i>//</i></td></tr>
+<tr><th id="369">369</th><td><i>// cvars</i></td></tr>
+<tr><th id="370">370</th><td><i>//</i></td></tr>
+<tr><th id="371">371</th><td><b>extern</b>	<a class="typedef" href="../qcommon/q_shared.h.html#cvar_t" title='cvar_t' data-type='struct cvar_s' data-ref="cvar_t">cvar_t</a>	*<dfn class="decl" id="cl_nodelta" title='cl_nodelta' data-ref="cl_nodelta">cl_nodelta</dfn>;</td></tr>
+<tr><th id="372">372</th><td><b>extern</b>	<a class="typedef" href="../qcommon/q_shared.h.html#cvar_t" title='cvar_t' data-type='struct cvar_s' data-ref="cvar_t">cvar_t</a>	*<dfn class="decl" id="cl_debugMove" title='cl_debugMove' data-ref="cl_debugMove">cl_debugMove</dfn>;</td></tr>
+<tr><th id="373">373</th><td><b>extern</b>	<a class="typedef" href="../qcommon/q_shared.h.html#cvar_t" title='cvar_t' data-type='struct cvar_s' data-ref="cvar_t">cvar_t</a>	*<dfn class="decl" id="cl_noprint" title='cl_noprint' data-ref="cl_noprint">cl_noprint</dfn>;</td></tr>
+<tr><th id="374">374</th><td><b>extern</b>	<a class="typedef" href="../qcommon/q_shared.h.html#cvar_t" title='cvar_t' data-type='struct cvar_s' data-ref="cvar_t">cvar_t</a>	*<dfn class="decl" id="cl_timegraph" title='cl_timegraph' data-ref="cl_timegraph">cl_timegraph</dfn>;</td></tr>
+<tr><th id="375">375</th><td><b>extern</b>	<a class="typedef" href="../qcommon/q_shared.h.html#cvar_t" title='cvar_t' data-type='struct cvar_s' data-ref="cvar_t">cvar_t</a>	*<dfn class="decl" id="cl_maxpackets" title='cl_maxpackets' data-ref="cl_maxpackets">cl_maxpackets</dfn>;</td></tr>
+<tr><th id="376">376</th><td><b>extern</b>	<a class="typedef" href="../qcommon/q_shared.h.html#cvar_t" title='cvar_t' data-type='struct cvar_s' data-ref="cvar_t">cvar_t</a>	*<dfn class="decl" id="cl_packetdup" title='cl_packetdup' data-ref="cl_packetdup">cl_packetdup</dfn>;</td></tr>
+<tr><th id="377">377</th><td><b>extern</b>	<a class="typedef" href="../qcommon/q_shared.h.html#cvar_t" title='cvar_t' data-type='struct cvar_s' data-ref="cvar_t">cvar_t</a>	*<dfn class="decl" id="cl_shownet" title='cl_shownet' data-ref="cl_shownet">cl_shownet</dfn>;</td></tr>
+<tr><th id="378">378</th><td><b>extern</b>	<a class="typedef" href="../qcommon/q_shared.h.html#cvar_t" title='cvar_t' data-type='struct cvar_s' data-ref="cvar_t">cvar_t</a>	*<dfn class="decl" id="cl_showSend" title='cl_showSend' data-ref="cl_showSend">cl_showSend</dfn>;</td></tr>
+<tr><th id="379">379</th><td><b>extern</b>	<a class="typedef" href="../qcommon/q_shared.h.html#cvar_t" title='cvar_t' data-type='struct cvar_s' data-ref="cvar_t">cvar_t</a>	*<dfn class="decl" id="cl_timeNudge" title='cl_timeNudge' data-ref="cl_timeNudge">cl_timeNudge</dfn>;</td></tr>
+<tr><th id="380">380</th><td><b>extern</b>	<a class="typedef" href="../qcommon/q_shared.h.html#cvar_t" title='cvar_t' data-type='struct cvar_s' data-ref="cvar_t">cvar_t</a>	*<dfn class="decl" id="cl_showTimeDelta" title='cl_showTimeDelta' data-ref="cl_showTimeDelta">cl_showTimeDelta</dfn>;</td></tr>
+<tr><th id="381">381</th><td><b>extern</b>	<a class="typedef" href="../qcommon/q_shared.h.html#cvar_t" title='cvar_t' data-type='struct cvar_s' data-ref="cvar_t">cvar_t</a>	*<dfn class="decl" id="cl_freezeDemo" title='cl_freezeDemo' data-ref="cl_freezeDemo">cl_freezeDemo</dfn>;</td></tr>
+<tr><th id="382">382</th><td></td></tr>
+<tr><th id="383">383</th><td><b>extern</b>	<a class="typedef" href="../qcommon/q_shared.h.html#cvar_t" title='cvar_t' data-type='struct cvar_s' data-ref="cvar_t">cvar_t</a>	*<dfn class="decl" id="cl_yawspeed" title='cl_yawspeed' data-ref="cl_yawspeed">cl_yawspeed</dfn>;</td></tr>
+<tr><th id="384">384</th><td><b>extern</b>	<a class="typedef" href="../qcommon/q_shared.h.html#cvar_t" title='cvar_t' data-type='struct cvar_s' data-ref="cvar_t">cvar_t</a>	*<dfn class="decl" id="cl_pitchspeed" title='cl_pitchspeed' data-ref="cl_pitchspeed">cl_pitchspeed</dfn>;</td></tr>
+<tr><th id="385">385</th><td><b>extern</b>	<a class="typedef" href="../qcommon/q_shared.h.html#cvar_t" title='cvar_t' data-type='struct cvar_s' data-ref="cvar_t">cvar_t</a>	*<dfn class="decl" id="cl_run" title='cl_run' data-ref="cl_run">cl_run</dfn>;</td></tr>
+<tr><th id="386">386</th><td><b>extern</b>	<a class="typedef" href="../qcommon/q_shared.h.html#cvar_t" title='cvar_t' data-type='struct cvar_s' data-ref="cvar_t">cvar_t</a>	*<dfn class="decl" id="cl_anglespeedkey" title='cl_anglespeedkey' data-ref="cl_anglespeedkey">cl_anglespeedkey</dfn>;</td></tr>
+<tr><th id="387">387</th><td></td></tr>
+<tr><th id="388">388</th><td><b>extern</b>	<a class="typedef" href="../qcommon/q_shared.h.html#cvar_t" title='cvar_t' data-type='struct cvar_s' data-ref="cvar_t">cvar_t</a>	*<dfn class="decl" id="cl_sensitivity" title='cl_sensitivity' data-ref="cl_sensitivity">cl_sensitivity</dfn>;</td></tr>
+<tr><th id="389">389</th><td><b>extern</b>	<a class="typedef" href="../qcommon/q_shared.h.html#cvar_t" title='cvar_t' data-type='struct cvar_s' data-ref="cvar_t">cvar_t</a>	*<dfn class="decl" id="cl_freelook" title='cl_freelook' data-ref="cl_freelook">cl_freelook</dfn>;</td></tr>
+<tr><th id="390">390</th><td></td></tr>
+<tr><th id="391">391</th><td><b>extern</b>	<a class="typedef" href="../qcommon/q_shared.h.html#cvar_t" title='cvar_t' data-type='struct cvar_s' data-ref="cvar_t">cvar_t</a>	*<dfn class="decl" id="cl_mouseAccel" title='cl_mouseAccel' data-ref="cl_mouseAccel">cl_mouseAccel</dfn>;</td></tr>
+<tr><th id="392">392</th><td><b>extern</b>	<a class="typedef" href="../qcommon/q_shared.h.html#cvar_t" title='cvar_t' data-type='struct cvar_s' data-ref="cvar_t">cvar_t</a>	*<dfn class="decl" id="cl_mouseAccelOffset" title='cl_mouseAccelOffset' data-ref="cl_mouseAccelOffset">cl_mouseAccelOffset</dfn>;</td></tr>
+<tr><th id="393">393</th><td><b>extern</b>	<a class="typedef" href="../qcommon/q_shared.h.html#cvar_t" title='cvar_t' data-type='struct cvar_s' data-ref="cvar_t">cvar_t</a>	*<dfn class="decl" id="cl_mouseAccelStyle" title='cl_mouseAccelStyle' data-ref="cl_mouseAccelStyle">cl_mouseAccelStyle</dfn>;</td></tr>
+<tr><th id="394">394</th><td><b>extern</b>	<a class="typedef" href="../qcommon/q_shared.h.html#cvar_t" title='cvar_t' data-type='struct cvar_s' data-ref="cvar_t">cvar_t</a>	*<dfn class="decl" id="cl_showMouseRate" title='cl_showMouseRate' data-ref="cl_showMouseRate">cl_showMouseRate</dfn>;</td></tr>
+<tr><th id="395">395</th><td></td></tr>
+<tr><th id="396">396</th><td><b>extern</b>	<a class="typedef" href="../qcommon/q_shared.h.html#cvar_t" title='cvar_t' data-type='struct cvar_s' data-ref="cvar_t">cvar_t</a>	*<dfn class="decl" id="m_pitch" title='m_pitch' data-ref="m_pitch">m_pitch</dfn>;</td></tr>
+<tr><th id="397">397</th><td><b>extern</b>	<a class="typedef" href="../qcommon/q_shared.h.html#cvar_t" title='cvar_t' data-type='struct cvar_s' data-ref="cvar_t">cvar_t</a>	*<dfn class="decl" id="m_yaw" title='m_yaw' data-ref="m_yaw">m_yaw</dfn>;</td></tr>
+<tr><th id="398">398</th><td><b>extern</b>	<a class="typedef" href="../qcommon/q_shared.h.html#cvar_t" title='cvar_t' data-type='struct cvar_s' data-ref="cvar_t">cvar_t</a>	*<dfn class="decl" id="m_forward" title='m_forward' data-ref="m_forward">m_forward</dfn>;</td></tr>
+<tr><th id="399">399</th><td><b>extern</b>	<a class="typedef" href="../qcommon/q_shared.h.html#cvar_t" title='cvar_t' data-type='struct cvar_s' data-ref="cvar_t">cvar_t</a>	*<dfn class="decl" id="m_side" title='m_side' data-ref="m_side">m_side</dfn>;</td></tr>
+<tr><th id="400">400</th><td><b>extern</b>	<a class="typedef" href="../qcommon/q_shared.h.html#cvar_t" title='cvar_t' data-type='struct cvar_s' data-ref="cvar_t">cvar_t</a>	*<dfn class="decl" id="m_filter" title='m_filter' data-ref="m_filter">m_filter</dfn>;</td></tr>
+<tr><th id="401">401</th><td></td></tr>
+<tr><th id="402">402</th><td><b>extern</b>	<a class="typedef" href="../qcommon/q_shared.h.html#cvar_t" title='cvar_t' data-type='struct cvar_s' data-ref="cvar_t">cvar_t</a>	*<dfn class="decl" id="j_pitch" title='j_pitch' data-ref="j_pitch">j_pitch</dfn>;</td></tr>
+<tr><th id="403">403</th><td><b>extern</b>	<a class="typedef" href="../qcommon/q_shared.h.html#cvar_t" title='cvar_t' data-type='struct cvar_s' data-ref="cvar_t">cvar_t</a>	*<dfn class="decl" id="j_yaw" title='j_yaw' data-ref="j_yaw">j_yaw</dfn>;</td></tr>
+<tr><th id="404">404</th><td><b>extern</b>	<a class="typedef" href="../qcommon/q_shared.h.html#cvar_t" title='cvar_t' data-type='struct cvar_s' data-ref="cvar_t">cvar_t</a>	*<dfn class="decl" id="j_forward" title='j_forward' data-ref="j_forward">j_forward</dfn>;</td></tr>
+<tr><th id="405">405</th><td><b>extern</b>	<a class="typedef" href="../qcommon/q_shared.h.html#cvar_t" title='cvar_t' data-type='struct cvar_s' data-ref="cvar_t">cvar_t</a>	*<dfn class="decl" id="j_side" title='j_side' data-ref="j_side">j_side</dfn>;</td></tr>
+<tr><th id="406">406</th><td><b>extern</b>	<a class="typedef" href="../qcommon/q_shared.h.html#cvar_t" title='cvar_t' data-type='struct cvar_s' data-ref="cvar_t">cvar_t</a>	*<dfn class="decl" id="j_up" title='j_up' data-ref="j_up">j_up</dfn>;</td></tr>
+<tr><th id="407">407</th><td><b>extern</b>	<a class="typedef" href="../qcommon/q_shared.h.html#cvar_t" title='cvar_t' data-type='struct cvar_s' data-ref="cvar_t">cvar_t</a>	*<dfn class="decl" id="j_pitch_axis" title='j_pitch_axis' data-ref="j_pitch_axis">j_pitch_axis</dfn>;</td></tr>
+<tr><th id="408">408</th><td><b>extern</b>	<a class="typedef" href="../qcommon/q_shared.h.html#cvar_t" title='cvar_t' data-type='struct cvar_s' data-ref="cvar_t">cvar_t</a>	*<dfn class="decl" id="j_yaw_axis" title='j_yaw_axis' data-ref="j_yaw_axis">j_yaw_axis</dfn>;</td></tr>
+<tr><th id="409">409</th><td><b>extern</b>	<a class="typedef" href="../qcommon/q_shared.h.html#cvar_t" title='cvar_t' data-type='struct cvar_s' data-ref="cvar_t">cvar_t</a>	*<dfn class="decl" id="j_forward_axis" title='j_forward_axis' data-ref="j_forward_axis">j_forward_axis</dfn>;</td></tr>
+<tr><th id="410">410</th><td><b>extern</b>	<a class="typedef" href="../qcommon/q_shared.h.html#cvar_t" title='cvar_t' data-type='struct cvar_s' data-ref="cvar_t">cvar_t</a>	*<dfn class="decl" id="j_side_axis" title='j_side_axis' data-ref="j_side_axis">j_side_axis</dfn>;</td></tr>
+<tr><th id="411">411</th><td><b>extern</b>	<a class="typedef" href="../qcommon/q_shared.h.html#cvar_t" title='cvar_t' data-type='struct cvar_s' data-ref="cvar_t">cvar_t</a>	*<dfn class="decl" id="j_up_axis" title='j_up_axis' data-ref="j_up_axis">j_up_axis</dfn>;</td></tr>
+<tr><th id="412">412</th><td></td></tr>
+<tr><th id="413">413</th><td><b>extern</b>	<a class="typedef" href="../qcommon/q_shared.h.html#cvar_t" title='cvar_t' data-type='struct cvar_s' data-ref="cvar_t">cvar_t</a>	*<dfn class="decl" id="cl_timedemo" title='cl_timedemo' data-ref="cl_timedemo">cl_timedemo</dfn>;</td></tr>
+<tr><th id="414">414</th><td><b>extern</b>	<a class="typedef" href="../qcommon/q_shared.h.html#cvar_t" title='cvar_t' data-type='struct cvar_s' data-ref="cvar_t">cvar_t</a>	*<dfn class="decl" id="cl_aviFrameRate" title='cl_aviFrameRate' data-ref="cl_aviFrameRate">cl_aviFrameRate</dfn>;</td></tr>
+<tr><th id="415">415</th><td><b>extern</b>	<a class="typedef" href="../qcommon/q_shared.h.html#cvar_t" title='cvar_t' data-type='struct cvar_s' data-ref="cvar_t">cvar_t</a>	*<dfn class="decl" id="cl_aviMotionJpeg" title='cl_aviMotionJpeg' data-ref="cl_aviMotionJpeg">cl_aviMotionJpeg</dfn>;</td></tr>
+<tr><th id="416">416</th><td></td></tr>
+<tr><th id="417">417</th><td><b>extern</b>	<a class="typedef" href="../qcommon/q_shared.h.html#cvar_t" title='cvar_t' data-type='struct cvar_s' data-ref="cvar_t">cvar_t</a>	*<dfn class="decl" id="cl_activeAction" title='cl_activeAction' data-ref="cl_activeAction">cl_activeAction</dfn>;</td></tr>
+<tr><th id="418">418</th><td></td></tr>
+<tr><th id="419">419</th><td><b>extern</b>	<a class="typedef" href="../qcommon/q_shared.h.html#cvar_t" title='cvar_t' data-type='struct cvar_s' data-ref="cvar_t">cvar_t</a>	*<dfn class="decl" id="cl_allowDownload" title='cl_allowDownload' data-ref="cl_allowDownload">cl_allowDownload</dfn>;</td></tr>
+<tr><th id="420">420</th><td><b>extern</b>  <a class="typedef" href="../qcommon/q_shared.h.html#cvar_t" title='cvar_t' data-type='struct cvar_s' data-ref="cvar_t">cvar_t</a>  *<dfn class="decl" id="cl_downloadMethod" title='cl_downloadMethod' data-ref="cl_downloadMethod">cl_downloadMethod</dfn>;</td></tr>
+<tr><th id="421">421</th><td><b>extern</b>	<a class="typedef" href="../qcommon/q_shared.h.html#cvar_t" title='cvar_t' data-type='struct cvar_s' data-ref="cvar_t">cvar_t</a>	*<dfn class="decl" id="cl_conXOffset" title='cl_conXOffset' data-ref="cl_conXOffset">cl_conXOffset</dfn>;</td></tr>
+<tr><th id="422">422</th><td><b>extern</b>	<a class="typedef" href="../qcommon/q_shared.h.html#cvar_t" title='cvar_t' data-type='struct cvar_s' data-ref="cvar_t">cvar_t</a>	*<dfn class="decl" id="cl_inGameVideo" title='cl_inGameVideo' data-ref="cl_inGameVideo">cl_inGameVideo</dfn>;</td></tr>
+<tr><th id="423">423</th><td></td></tr>
+<tr><th id="424">424</th><td><b>extern</b>	<a class="typedef" href="../qcommon/q_shared.h.html#cvar_t" title='cvar_t' data-type='struct cvar_s' data-ref="cvar_t">cvar_t</a>	*<dfn class="decl" id="cl_lanForcePackets" title='cl_lanForcePackets' data-ref="cl_lanForcePackets">cl_lanForcePackets</dfn>;</td></tr>
+<tr><th id="425">425</th><td><b>extern</b>	<a class="typedef" href="../qcommon/q_shared.h.html#cvar_t" title='cvar_t' data-type='struct cvar_s' data-ref="cvar_t">cvar_t</a>	*<dfn class="decl" id="cl_autoRecordDemo" title='cl_autoRecordDemo' data-ref="cl_autoRecordDemo">cl_autoRecordDemo</dfn>;</td></tr>
+<tr><th id="426">426</th><td></td></tr>
+<tr><th id="427">427</th><td><b>extern</b>	<a class="typedef" href="../qcommon/q_shared.h.html#cvar_t" title='cvar_t' data-type='struct cvar_s' data-ref="cvar_t">cvar_t</a>	*<dfn class="decl" id="cl_consoleKeys" title='cl_consoleKeys' data-ref="cl_consoleKeys">cl_consoleKeys</dfn>;</td></tr>
+<tr><th id="428">428</th><td></td></tr>
+<tr><th id="429">429</th><td><u>#<span data-ppcond="429">ifdef</span> <span class="macro" data-ref="_M/USE_MUMBLE">USE_MUMBLE</span></u></td></tr>
+<tr><th id="430">430</th><td><b>extern</b>	<a class="typedef" href="../qcommon/q_shared.h.html#cvar_t" title='cvar_t' data-type='struct cvar_s' data-ref="cvar_t">cvar_t</a>	*<dfn class="decl" id="cl_useMumble" title='cl_useMumble' data-ref="cl_useMumble">cl_useMumble</dfn>;</td></tr>
+<tr><th id="431">431</th><td><b>extern</b>	<a class="typedef" href="../qcommon/q_shared.h.html#cvar_t" title='cvar_t' data-type='struct cvar_s' data-ref="cvar_t">cvar_t</a>	*<dfn class="decl" id="cl_mumbleScale" title='cl_mumbleScale' data-ref="cl_mumbleScale">cl_mumbleScale</dfn>;</td></tr>
+<tr><th id="432">432</th><td><u>#<span data-ppcond="429">endif</span></u></td></tr>
+<tr><th id="433">433</th><td></td></tr>
+<tr><th id="434">434</th><td><u>#<span data-ppcond="434">ifdef</span> <span class="macro" data-ref="_M/USE_VOIP">USE_VOIP</span></u></td></tr>
+<tr><th id="435">435</th><td><i>// cl_voipSendTarget is a string: "all" to broadcast to everyone, "none" to</i></td></tr>
+<tr><th id="436">436</th><td><i>//  send to no one, or a comma-separated list of client numbers:</i></td></tr>
+<tr><th id="437">437</th><td><i>//  "0,7,2,23" ... an empty string is treated like "all".</i></td></tr>
+<tr><th id="438">438</th><td><b>extern</b>	<a class="typedef" href="../qcommon/q_shared.h.html#cvar_t" title='cvar_t' data-type='struct cvar_s' data-ref="cvar_t">cvar_t</a>	*<dfn class="decl" id="cl_voipUseVAD" title='cl_voipUseVAD' data-ref="cl_voipUseVAD">cl_voipUseVAD</dfn>;</td></tr>
+<tr><th id="439">439</th><td><b>extern</b>	<a class="typedef" href="../qcommon/q_shared.h.html#cvar_t" title='cvar_t' data-type='struct cvar_s' data-ref="cvar_t">cvar_t</a>	*<dfn class="decl" id="cl_voipVADThreshold" title='cl_voipVADThreshold' data-ref="cl_voipVADThreshold">cl_voipVADThreshold</dfn>;</td></tr>
+<tr><th id="440">440</th><td><b>extern</b>	<a class="typedef" href="../qcommon/q_shared.h.html#cvar_t" title='cvar_t' data-type='struct cvar_s' data-ref="cvar_t">cvar_t</a>	*<dfn class="decl" id="cl_voipSend" title='cl_voipSend' data-ref="cl_voipSend">cl_voipSend</dfn>;</td></tr>
+<tr><th id="441">441</th><td><b>extern</b>	<a class="typedef" href="../qcommon/q_shared.h.html#cvar_t" title='cvar_t' data-type='struct cvar_s' data-ref="cvar_t">cvar_t</a>	*<dfn class="decl" id="cl_voipSendTarget" title='cl_voipSendTarget' data-ref="cl_voipSendTarget">cl_voipSendTarget</dfn>;</td></tr>
+<tr><th id="442">442</th><td><b>extern</b>	<a class="typedef" href="../qcommon/q_shared.h.html#cvar_t" title='cvar_t' data-type='struct cvar_s' data-ref="cvar_t">cvar_t</a>	*<dfn class="decl" id="cl_voipGainDuringCapture" title='cl_voipGainDuringCapture' data-ref="cl_voipGainDuringCapture">cl_voipGainDuringCapture</dfn>;</td></tr>
+<tr><th id="443">443</th><td><b>extern</b>	<a class="typedef" href="../qcommon/q_shared.h.html#cvar_t" title='cvar_t' data-type='struct cvar_s' data-ref="cvar_t">cvar_t</a>	*<dfn class="decl" id="cl_voipCaptureMult" title='cl_voipCaptureMult' data-ref="cl_voipCaptureMult">cl_voipCaptureMult</dfn>;</td></tr>
+<tr><th id="444">444</th><td><b>extern</b>	<a class="typedef" href="../qcommon/q_shared.h.html#cvar_t" title='cvar_t' data-type='struct cvar_s' data-ref="cvar_t">cvar_t</a>	*<dfn class="decl" id="cl_voipShowMeter" title='cl_voipShowMeter' data-ref="cl_voipShowMeter">cl_voipShowMeter</dfn>;</td></tr>
+<tr><th id="445">445</th><td><b>extern</b>	<a class="typedef" href="../qcommon/q_shared.h.html#cvar_t" title='cvar_t' data-type='struct cvar_s' data-ref="cvar_t">cvar_t</a>	*<dfn class="decl" id="cl_voip" title='cl_voip' data-ref="cl_voip">cl_voip</dfn>;</td></tr>
+<tr><th id="446">446</th><td></td></tr>
+<tr><th id="447">447</th><td><i>// 20ms at 48k</i></td></tr>
+<tr><th id="448">448</th><td><u>#define <dfn class="macro" id="_M/VOIP_MAX_FRAME_SAMPLES" data-ref="_M/VOIP_MAX_FRAME_SAMPLES">VOIP_MAX_FRAME_SAMPLES</dfn>		( 20 * 48 )</u></td></tr>
+<tr><th id="449">449</th><td></td></tr>
+<tr><th id="450">450</th><td><i>// 3 frame is 60ms of audio, the max opus will encode at once</i></td></tr>
+<tr><th id="451">451</th><td><u>#define <dfn class="macro" id="_M/VOIP_MAX_PACKET_FRAMES" data-ref="_M/VOIP_MAX_PACKET_FRAMES">VOIP_MAX_PACKET_FRAMES</dfn>		3</u></td></tr>
+<tr><th id="452">452</th><td><u>#define <dfn class="macro" id="_M/VOIP_MAX_PACKET_SAMPLES" data-ref="_M/VOIP_MAX_PACKET_SAMPLES">VOIP_MAX_PACKET_SAMPLES</dfn>		( VOIP_MAX_FRAME_SAMPLES * VOIP_MAX_PACKET_FRAMES )</u></td></tr>
+<tr><th id="453">453</th><td><u>#<span data-ppcond="434">endif</span></u></td></tr>
+<tr><th id="454">454</th><td></td></tr>
+<tr><th id="455">455</th><td><i>//=================================================</i></td></tr>
+<tr><th id="456">456</th><td><i></i></td></tr>
+<tr><th id="457">457</th><td><i>//</i></td></tr>
+<tr><th id="458">458</th><td><i>// cl_main</i></td></tr>
+<tr><th id="459">459</th><td><i>//</i></td></tr>
+<tr><th id="460">460</th><td></td></tr>
+<tr><th id="461">461</th><td><em>void</em> <a class="decl" href="../qcommon/qcommon.h.html#CL_Init" title='CL_Init' data-ref="CL_Init" id="CL_Init">CL_Init</a> (<em>void</em>);</td></tr>
+<tr><th id="462">462</th><td><em>void</em> <dfn class="decl" id="CL_AddReliableCommand" title='CL_AddReliableCommand' data-ref="CL_AddReliableCommand">CL_AddReliableCommand</dfn>(<em>const</em> <em>char</em> *<dfn class="local col6 decl" id="1126cmd" title='cmd' data-type='const char *' data-ref="1126cmd">cmd</dfn>, <a class="typedef" href="../qcommon/q_shared.h.html#qboolean" title='qboolean' data-type='enum qboolean' data-ref="qboolean">qboolean</a> <dfn class="local col7 decl" id="1127isDisconnectCmd" title='isDisconnectCmd' data-type='qboolean' data-ref="1127isDisconnectCmd">isDisconnectCmd</dfn>);</td></tr>
+<tr><th id="463">463</th><td></td></tr>
+<tr><th id="464">464</th><td><em>void</em> <a class="decl" href="../qcommon/qcommon.h.html#CL_StartHunkUsers" title='CL_StartHunkUsers' data-ref="CL_StartHunkUsers" id="CL_StartHunkUsers">CL_StartHunkUsers</a>( <a class="typedef" href="../qcommon/q_shared.h.html#qboolean" title='qboolean' data-type='enum qboolean' data-ref="qboolean">qboolean</a> <dfn class="local col8 decl" id="1128rendererOnly" title='rendererOnly' data-type='qboolean' data-ref="1128rendererOnly">rendererOnly</dfn> );</td></tr>
+<tr><th id="465">465</th><td></td></tr>
+<tr><th id="466">466</th><td><em>void</em> <dfn class="decl" id="CL_Disconnect_f" title='CL_Disconnect_f' data-ref="CL_Disconnect_f">CL_Disconnect_f</dfn> (<em>void</em>);</td></tr>
+<tr><th id="467">467</th><td><em>void</em> <dfn class="decl" id="CL_GetChallengePacket" title='CL_GetChallengePacket' data-ref="CL_GetChallengePacket">CL_GetChallengePacket</dfn> (<em>void</em>);</td></tr>
+<tr><th id="468">468</th><td><em>void</em> <dfn class="decl" id="CL_Vid_Restart_f" title='CL_Vid_Restart_f' data-ref="CL_Vid_Restart_f">CL_Vid_Restart_f</dfn>( <em>void</em> );</td></tr>
+<tr><th id="469">469</th><td><em>void</em> <dfn class="decl" id="CL_Snd_Restart_f" title='CL_Snd_Restart_f' data-ref="CL_Snd_Restart_f">CL_Snd_Restart_f</dfn> (<em>void</em>);</td></tr>
+<tr><th id="470">470</th><td><em>void</em> <dfn class="decl" id="CL_StartDemoLoop" title='CL_StartDemoLoop' data-ref="CL_StartDemoLoop">CL_StartDemoLoop</dfn>( <em>void</em> );</td></tr>
+<tr><th id="471">471</th><td><em>void</em> <dfn class="decl" id="CL_NextDemo" title='CL_NextDemo' data-ref="CL_NextDemo">CL_NextDemo</dfn>( <em>void</em> );</td></tr>
+<tr><th id="472">472</th><td><em>void</em> <dfn class="decl" id="CL_ReadDemoMessage" title='CL_ReadDemoMessage' data-ref="CL_ReadDemoMessage">CL_ReadDemoMessage</dfn>( <em>void</em> );</td></tr>
+<tr><th id="473">473</th><td><em>void</em> <dfn class="decl" id="CL_StopRecord_f" title='CL_StopRecord_f' data-ref="CL_StopRecord_f">CL_StopRecord_f</dfn>(<em>void</em>);</td></tr>
+<tr><th id="474">474</th><td></td></tr>
+<tr><th id="475">475</th><td><em>void</em> <dfn class="decl" id="CL_InitDownloads" title='CL_InitDownloads' data-ref="CL_InitDownloads">CL_InitDownloads</dfn>(<em>void</em>);</td></tr>
+<tr><th id="476">476</th><td><em>void</em> <dfn class="decl" id="CL_NextDownload" title='CL_NextDownload' data-ref="CL_NextDownload">CL_NextDownload</dfn>(<em>void</em>);</td></tr>
+<tr><th id="477">477</th><td></td></tr>
+<tr><th id="478">478</th><td><em>void</em> <dfn class="decl" id="CL_GetPing" title='CL_GetPing' data-ref="CL_GetPing">CL_GetPing</dfn>( <em>int</em> <dfn class="local col9 decl" id="1129n" title='n' data-type='int' data-ref="1129n">n</dfn>, <em>char</em> *<dfn class="local col0 decl" id="1130buf" title='buf' data-type='char *' data-ref="1130buf">buf</dfn>, <em>int</em> <dfn class="local col1 decl" id="1131buflen" title='buflen' data-type='int' data-ref="1131buflen">buflen</dfn>, <em>int</em> *<dfn class="local col2 decl" id="1132pingtime" title='pingtime' data-type='int *' data-ref="1132pingtime">pingtime</dfn> );</td></tr>
+<tr><th id="479">479</th><td><em>void</em> <dfn class="decl" id="CL_GetPingInfo" title='CL_GetPingInfo' data-ref="CL_GetPingInfo">CL_GetPingInfo</dfn>( <em>int</em> <dfn class="local col3 decl" id="1133n" title='n' data-type='int' data-ref="1133n">n</dfn>, <em>char</em> *<dfn class="local col4 decl" id="1134buf" title='buf' data-type='char *' data-ref="1134buf">buf</dfn>, <em>int</em> <dfn class="local col5 decl" id="1135buflen" title='buflen' data-type='int' data-ref="1135buflen">buflen</dfn> );</td></tr>
+<tr><th id="480">480</th><td><em>void</em> <dfn class="decl" id="CL_ClearPing" title='CL_ClearPing' data-ref="CL_ClearPing">CL_ClearPing</dfn>( <em>int</em> <dfn class="local col6 decl" id="1136n" title='n' data-type='int' data-ref="1136n">n</dfn> );</td></tr>
+<tr><th id="481">481</th><td><em>int</em> <dfn class="decl" id="CL_GetPingQueueCount" title='CL_GetPingQueueCount' data-ref="CL_GetPingQueueCount">CL_GetPingQueueCount</dfn>( <em>void</em> );</td></tr>
+<tr><th id="482">482</th><td></td></tr>
+<tr><th id="483">483</th><td><em>void</em> <dfn class="decl" id="CL_ShutdownRef" title='CL_ShutdownRef' data-ref="CL_ShutdownRef">CL_ShutdownRef</dfn>( <em>void</em> );</td></tr>
+<tr><th id="484">484</th><td><em>void</em> <a class="decl" href="../qcommon/qcommon.h.html#CL_InitRef" title='CL_InitRef' data-ref="CL_InitRef" id="CL_InitRef">CL_InitRef</a>( <em>void</em> );</td></tr>
+<tr><th id="485">485</th><td><a class="typedef" href="../qcommon/q_shared.h.html#qboolean" title='qboolean' data-type='enum qboolean' data-ref="qboolean">qboolean</a> <dfn class="decl" id="CL_CDKeyValidate" title='CL_CDKeyValidate' data-ref="CL_CDKeyValidate">CL_CDKeyValidate</dfn>( <em>const</em> <em>char</em> *<dfn class="local col7 decl" id="1137key" title='key' data-type='const char *' data-ref="1137key">key</dfn>, <em>const</em> <em>char</em> *<dfn class="local col8 decl" id="1138checksum" title='checksum' data-type='const char *' data-ref="1138checksum">checksum</dfn> );</td></tr>
+<tr><th id="486">486</th><td><em>int</em> <dfn class="decl" id="CL_ServerStatus" title='CL_ServerStatus' data-ref="CL_ServerStatus">CL_ServerStatus</dfn>( <em>char</em> *<dfn class="local col9 decl" id="1139serverAddress" title='serverAddress' data-type='char *' data-ref="1139serverAddress">serverAddress</dfn>, <em>char</em> *<dfn class="local col0 decl" id="1140serverStatusString" title='serverStatusString' data-type='char *' data-ref="1140serverStatusString">serverStatusString</dfn>, <em>int</em> <dfn class="local col1 decl" id="1141maxLen" title='maxLen' data-type='int' data-ref="1141maxLen">maxLen</dfn> );</td></tr>
+<tr><th id="487">487</th><td></td></tr>
+<tr><th id="488">488</th><td><a class="typedef" href="../qcommon/q_shared.h.html#qboolean" title='qboolean' data-type='enum qboolean' data-ref="qboolean">qboolean</a> <dfn class="decl" id="CL_CheckPaused" title='CL_CheckPaused' data-ref="CL_CheckPaused">CL_CheckPaused</dfn>(<em>void</em>);</td></tr>
+<tr><th id="489">489</th><td></td></tr>
+<tr><th id="490">490</th><td><i>//</i></td></tr>
+<tr><th id="491">491</th><td><i>// cl_input</i></td></tr>
+<tr><th id="492">492</th><td><i>//</i></td></tr>
+<tr><th id="493">493</th><td><b>typedef</b> <b>struct</b> {</td></tr>
+<tr><th id="494">494</th><td>	<em>int</em>			<dfn class="decl" id="(anonymous)::down" title='(anonymous struct)::down' data-ref="(anonymous)::down">down</dfn>[<var>2</var>];		<i>// key nums holding it down</i></td></tr>
+<tr><th id="495">495</th><td>	<em>unsigned</em>	<dfn class="decl" id="(anonymous)::downtime" title='(anonymous struct)::downtime' data-ref="(anonymous)::downtime">downtime</dfn>;		<i>// msec timestamp</i></td></tr>
+<tr><th id="496">496</th><td>	<em>unsigned</em>	<dfn class="decl" id="(anonymous)::msec" title='(anonymous struct)::msec' data-ref="(anonymous)::msec">msec</dfn>;			<i>// msec down this frame if both a down and up happened</i></td></tr>
+<tr><th id="497">497</th><td>	<a class="typedef" href="../qcommon/q_shared.h.html#qboolean" title='qboolean' data-type='enum qboolean' data-ref="qboolean">qboolean</a>	<dfn class="decl" id="(anonymous)::active" title='(anonymous struct)::active' data-ref="(anonymous)::active">active</dfn>;			<i>// current state</i></td></tr>
+<tr><th id="498">498</th><td>	<a class="typedef" href="../qcommon/q_shared.h.html#qboolean" title='qboolean' data-type='enum qboolean' data-ref="qboolean">qboolean</a>	<dfn class="decl" id="(anonymous)::wasPressed" title='(anonymous struct)::wasPressed' data-ref="(anonymous)::wasPressed">wasPressed</dfn>;		<i>// set when down, not cleared when up</i></td></tr>
+<tr><th id="499">499</th><td>} <dfn class="typedef" id="kbutton_t" title='kbutton_t' data-type='struct kbutton_t' data-ref="kbutton_t">kbutton_t</dfn>;</td></tr>
+<tr><th id="500">500</th><td></td></tr>
+<tr><th id="501">501</th><td><em>void</em> <dfn class="decl" id="CL_InitInput" title='CL_InitInput' data-ref="CL_InitInput">CL_InitInput</dfn>(<em>void</em>);</td></tr>
+<tr><th id="502">502</th><td><em>void</em> <dfn class="decl" id="CL_ShutdownInput" title='CL_ShutdownInput' data-ref="CL_ShutdownInput">CL_ShutdownInput</dfn>(<em>void</em>);</td></tr>
+<tr><th id="503">503</th><td><em>void</em> <dfn class="decl" id="CL_SendCmd" title='CL_SendCmd' data-ref="CL_SendCmd">CL_SendCmd</dfn> (<em>void</em>);</td></tr>
+<tr><th id="504">504</th><td><em>void</em> <dfn class="decl" id="CL_ClearState" title='CL_ClearState' data-ref="CL_ClearState">CL_ClearState</dfn> (<em>void</em>);</td></tr>
+<tr><th id="505">505</th><td><em>void</em> <dfn class="decl" id="CL_ReadPackets" title='CL_ReadPackets' data-ref="CL_ReadPackets">CL_ReadPackets</dfn> (<em>void</em>);</td></tr>
+<tr><th id="506">506</th><td></td></tr>
+<tr><th id="507">507</th><td><em>void</em> <dfn class="decl" id="CL_WritePacket" title='CL_WritePacket' data-ref="CL_WritePacket">CL_WritePacket</dfn>( <em>void</em> );</td></tr>
+<tr><th id="508">508</th><td><em>void</em> <dfn class="decl" id="IN_CenterView" title='IN_CenterView' data-ref="IN_CenterView">IN_CenterView</dfn> (<em>void</em>);</td></tr>
+<tr><th id="509">509</th><td></td></tr>
+<tr><th id="510">510</th><td><em>void</em> <dfn class="decl" id="CL_VerifyCode" title='CL_VerifyCode' data-ref="CL_VerifyCode">CL_VerifyCode</dfn>( <em>void</em> );</td></tr>
+<tr><th id="511">511</th><td></td></tr>
+<tr><th id="512">512</th><td><em>float</em> <dfn class="decl" id="CL_KeyState" title='CL_KeyState' data-ref="CL_KeyState">CL_KeyState</dfn> (<a class="typedef" href="#kbutton_t" title='kbutton_t' data-type='struct kbutton_t' data-ref="kbutton_t">kbutton_t</a> *<dfn class="local col2 decl" id="1142key" title='key' data-type='kbutton_t *' data-ref="1142key">key</dfn>);</td></tr>
+<tr><th id="513">513</th><td><em>int</em> <dfn class="decl" id="Key_StringToKeynum" title='Key_StringToKeynum' data-ref="Key_StringToKeynum">Key_StringToKeynum</dfn>( <em>char</em> *<dfn class="local col3 decl" id="1143str" title='str' data-type='char *' data-ref="1143str">str</dfn> );</td></tr>
+<tr><th id="514">514</th><td><em>char</em> *<dfn class="decl" id="Key_KeynumToString" title='Key_KeynumToString' data-ref="Key_KeynumToString">Key_KeynumToString</dfn> (<em>int</em> <dfn class="local col4 decl" id="1144keynum" title='keynum' data-type='int' data-ref="1144keynum">keynum</dfn>);</td></tr>
+<tr><th id="515">515</th><td></td></tr>
+<tr><th id="516">516</th><td><i>//</i></td></tr>
+<tr><th id="517">517</th><td><i>// cl_parse.c</i></td></tr>
+<tr><th id="518">518</th><td><i>//</i></td></tr>
+<tr><th id="519">519</th><td><b>extern</b> <em>int</em> <dfn class="decl" id="cl_connectedToPureServer" title='cl_connectedToPureServer' data-ref="cl_connectedToPureServer">cl_connectedToPureServer</dfn>;</td></tr>
+<tr><th id="520">520</th><td><b>extern</b> <em>int</em> <dfn class="decl" id="cl_connectedToCheatServer" title='cl_connectedToCheatServer' data-ref="cl_connectedToCheatServer">cl_connectedToCheatServer</dfn>;</td></tr>
+<tr><th id="521">521</th><td></td></tr>
+<tr><th id="522">522</th><td><u>#<span data-ppcond="522">ifdef</span> <span class="macro" data-ref="_M/USE_VOIP">USE_VOIP</span></u></td></tr>
+<tr><th id="523">523</th><td><em>void</em> <dfn class="decl" id="CL_Voip_f" title='CL_Voip_f' data-ref="CL_Voip_f">CL_Voip_f</dfn>( <em>void</em> );</td></tr>
+<tr><th id="524">524</th><td><u>#<span data-ppcond="522">endif</span></u></td></tr>
+<tr><th id="525">525</th><td></td></tr>
+<tr><th id="526">526</th><td><em>void</em> <dfn class="decl" id="CL_SystemInfoChanged" title='CL_SystemInfoChanged' data-ref="CL_SystemInfoChanged">CL_SystemInfoChanged</dfn>( <em>void</em> );</td></tr>
+<tr><th id="527">527</th><td><em>void</em> <dfn class="decl" id="CL_ParseServerMessage" title='CL_ParseServerMessage' data-ref="CL_ParseServerMessage">CL_ParseServerMessage</dfn>( <a class="typedef" href="../qcommon/qcommon.h.html#msg_t" title='msg_t' data-type='struct msg_t' data-ref="msg_t">msg_t</a> *<dfn class="local col5 decl" id="1145msg" title='msg' data-type='msg_t *' data-ref="1145msg">msg</dfn> );</td></tr>
+<tr><th id="528">528</th><td></td></tr>
+<tr><th id="529">529</th><td><i>//====================================================================</i></td></tr>
+<tr><th id="530">530</th><td></td></tr>
+<tr><th id="531">531</th><td><em>void</em>	<dfn class="decl" id="CL_ServerInfoPacket" title='CL_ServerInfoPacket' data-ref="CL_ServerInfoPacket">CL_ServerInfoPacket</dfn>( <a class="typedef" href="../qcommon/qcommon.h.html#netadr_t" title='netadr_t' data-type='struct netadr_t' data-ref="netadr_t">netadr_t</a> <dfn class="local col6 decl" id="1146from" title='from' data-type='netadr_t' data-ref="1146from">from</dfn>, <a class="typedef" href="../qcommon/qcommon.h.html#msg_t" title='msg_t' data-type='struct msg_t' data-ref="msg_t">msg_t</a> *<dfn class="local col7 decl" id="1147msg" title='msg' data-type='msg_t *' data-ref="1147msg">msg</dfn> );</td></tr>
+<tr><th id="532">532</th><td><em>void</em>	<dfn class="decl" id="CL_LocalServers_f" title='CL_LocalServers_f' data-ref="CL_LocalServers_f">CL_LocalServers_f</dfn>( <em>void</em> );</td></tr>
+<tr><th id="533">533</th><td><em>void</em>	<dfn class="decl" id="CL_GlobalServers_f" title='CL_GlobalServers_f' data-ref="CL_GlobalServers_f">CL_GlobalServers_f</dfn>( <em>void</em> );</td></tr>
+<tr><th id="534">534</th><td><em>void</em>	<dfn class="decl" id="CL_FavoriteServers_f" title='CL_FavoriteServers_f' data-ref="CL_FavoriteServers_f">CL_FavoriteServers_f</dfn>( <em>void</em> );</td></tr>
+<tr><th id="535">535</th><td><em>void</em>	<dfn class="decl" id="CL_Ping_f" title='CL_Ping_f' data-ref="CL_Ping_f">CL_Ping_f</dfn>( <em>void</em> );</td></tr>
+<tr><th id="536">536</th><td><a class="typedef" href="../qcommon/q_shared.h.html#qboolean" title='qboolean' data-type='enum qboolean' data-ref="qboolean">qboolean</a> <dfn class="decl" id="CL_UpdateVisiblePings_f" title='CL_UpdateVisiblePings_f' data-ref="CL_UpdateVisiblePings_f">CL_UpdateVisiblePings_f</dfn>( <em>int</em> <dfn class="local col8 decl" id="1148source" title='source' data-type='int' data-ref="1148source">source</dfn> );</td></tr>
+<tr><th id="537">537</th><td></td></tr>
+<tr><th id="538">538</th><td></td></tr>
+<tr><th id="539">539</th><td><i>//</i></td></tr>
+<tr><th id="540">540</th><td><i>// console</i></td></tr>
+<tr><th id="541">541</th><td><i>//</i></td></tr>
+<tr><th id="542">542</th><td><em>void</em> <dfn class="decl" id="Con_DrawCharacter" title='Con_DrawCharacter' data-ref="Con_DrawCharacter">Con_DrawCharacter</dfn> (<em>int</em> <dfn class="local col9 decl" id="1149cx" title='cx' data-type='int' data-ref="1149cx">cx</dfn>, <em>int</em> <dfn class="local col0 decl" id="1150line" title='line' data-type='int' data-ref="1150line">line</dfn>, <em>int</em> <dfn class="local col1 decl" id="1151num" title='num' data-type='int' data-ref="1151num">num</dfn>);</td></tr>
+<tr><th id="543">543</th><td></td></tr>
+<tr><th id="544">544</th><td><em>void</em> <dfn class="decl" id="Con_CheckResize" title='Con_CheckResize' data-ref="Con_CheckResize">Con_CheckResize</dfn> (<em>void</em>);</td></tr>
+<tr><th id="545">545</th><td><em>void</em> <dfn class="decl" id="Con_Init" title='Con_Init' data-ref="Con_Init">Con_Init</dfn>(<em>void</em>);</td></tr>
+<tr><th id="546">546</th><td><em>void</em> <dfn class="decl" id="Con_Shutdown" title='Con_Shutdown' data-ref="Con_Shutdown">Con_Shutdown</dfn>(<em>void</em>);</td></tr>
+<tr><th id="547">547</th><td><em>void</em> <dfn class="decl" id="Con_Clear_f" title='Con_Clear_f' data-ref="Con_Clear_f">Con_Clear_f</dfn> (<em>void</em>);</td></tr>
+<tr><th id="548">548</th><td><em>void</em> <dfn class="decl" id="Con_ToggleConsole_f" title='Con_ToggleConsole_f' data-ref="Con_ToggleConsole_f">Con_ToggleConsole_f</dfn> (<em>void</em>);</td></tr>
+<tr><th id="549">549</th><td><em>void</em> <dfn class="decl" id="Con_DrawNotify" title='Con_DrawNotify' data-ref="Con_DrawNotify">Con_DrawNotify</dfn> (<em>void</em>);</td></tr>
+<tr><th id="550">550</th><td><em>void</em> <dfn class="decl" id="Con_ClearNotify" title='Con_ClearNotify' data-ref="Con_ClearNotify">Con_ClearNotify</dfn> (<em>void</em>);</td></tr>
+<tr><th id="551">551</th><td><em>void</em> <dfn class="decl" id="Con_RunConsole" title='Con_RunConsole' data-ref="Con_RunConsole">Con_RunConsole</dfn> (<em>void</em>);</td></tr>
+<tr><th id="552">552</th><td><em>void</em> <dfn class="decl" id="Con_DrawConsole" title='Con_DrawConsole' data-ref="Con_DrawConsole">Con_DrawConsole</dfn> (<em>void</em>);</td></tr>
+<tr><th id="553">553</th><td><em>void</em> <dfn class="decl" id="Con_PageUp" title='Con_PageUp' data-ref="Con_PageUp">Con_PageUp</dfn>( <em>void</em> );</td></tr>
+<tr><th id="554">554</th><td><em>void</em> <dfn class="decl" id="Con_PageDown" title='Con_PageDown' data-ref="Con_PageDown">Con_PageDown</dfn>( <em>void</em> );</td></tr>
+<tr><th id="555">555</th><td><em>void</em> <dfn class="decl" id="Con_Top" title='Con_Top' data-ref="Con_Top">Con_Top</dfn>( <em>void</em> );</td></tr>
+<tr><th id="556">556</th><td><em>void</em> <dfn class="decl" id="Con_Bottom" title='Con_Bottom' data-ref="Con_Bottom">Con_Bottom</dfn>( <em>void</em> );</td></tr>
+<tr><th id="557">557</th><td><em>void</em> <dfn class="decl" id="Con_Close" title='Con_Close' data-ref="Con_Close">Con_Close</dfn>( <em>void</em> );</td></tr>
+<tr><th id="558">558</th><td></td></tr>
+<tr><th id="559">559</th><td><em>void</em> <dfn class="decl" id="CL_LoadConsoleHistory" title='CL_LoadConsoleHistory' data-ref="CL_LoadConsoleHistory">CL_LoadConsoleHistory</dfn>( <em>void</em> );</td></tr>
+<tr><th id="560">560</th><td><em>void</em> <dfn class="decl" id="CL_SaveConsoleHistory" title='CL_SaveConsoleHistory' data-ref="CL_SaveConsoleHistory">CL_SaveConsoleHistory</dfn>( <em>void</em> );</td></tr>
+<tr><th id="561">561</th><td></td></tr>
+<tr><th id="562">562</th><td><i>//</i></td></tr>
+<tr><th id="563">563</th><td><i>// cl_scrn.c</i></td></tr>
+<tr><th id="564">564</th><td><i>//</i></td></tr>
+<tr><th id="565">565</th><td><em>void</em>	<dfn class="decl" id="SCR_Init" title='SCR_Init' data-ref="SCR_Init">SCR_Init</dfn> (<em>void</em>);</td></tr>
+<tr><th id="566">566</th><td><em>void</em>	<dfn class="decl" id="SCR_UpdateScreen" title='SCR_UpdateScreen' data-ref="SCR_UpdateScreen">SCR_UpdateScreen</dfn> (<em>void</em>);</td></tr>
+<tr><th id="567">567</th><td></td></tr>
+<tr><th id="568">568</th><td><em>void</em>	<a class="decl" href="../qcommon/qcommon.h.html#SCR_DebugGraph" title='SCR_DebugGraph' data-ref="SCR_DebugGraph" id="SCR_DebugGraph">SCR_DebugGraph</a> (<em>float</em> <dfn class="local col2 decl" id="1152value" title='value' data-type='float' data-ref="1152value">value</dfn>);</td></tr>
+<tr><th id="569">569</th><td></td></tr>
+<tr><th id="570">570</th><td><em>int</em>		<dfn class="decl" id="SCR_GetBigStringWidth" title='SCR_GetBigStringWidth' data-ref="SCR_GetBigStringWidth">SCR_GetBigStringWidth</dfn>( <em>const</em> <em>char</em> *<dfn class="local col3 decl" id="1153str" title='str' data-type='const char *' data-ref="1153str">str</dfn> );	<i>// returns in virtual 640x480 coordinates</i></td></tr>
+<tr><th id="571">571</th><td></td></tr>
+<tr><th id="572">572</th><td><em>void</em>	<dfn class="decl" id="SCR_AdjustFrom640" title='SCR_AdjustFrom640' data-ref="SCR_AdjustFrom640">SCR_AdjustFrom640</dfn>( <em>float</em> *<dfn class="local col4 decl" id="1154x" title='x' data-type='float *' data-ref="1154x">x</dfn>, <em>float</em> *<dfn class="local col5 decl" id="1155y" title='y' data-type='float *' data-ref="1155y">y</dfn>, <em>float</em> *<dfn class="local col6 decl" id="1156w" title='w' data-type='float *' data-ref="1156w">w</dfn>, <em>float</em> *<dfn class="local col7 decl" id="1157h" title='h' data-type='float *' data-ref="1157h">h</dfn> );</td></tr>
+<tr><th id="573">573</th><td><em>void</em>	<dfn class="decl" id="SCR_FillRect" title='SCR_FillRect' data-ref="SCR_FillRect">SCR_FillRect</dfn>( <em>float</em> <dfn class="local col8 decl" id="1158x" title='x' data-type='float' data-ref="1158x">x</dfn>, <em>float</em> <dfn class="local col9 decl" id="1159y" title='y' data-type='float' data-ref="1159y">y</dfn>, <em>float</em> <dfn class="local col0 decl" id="1160width" title='width' data-type='float' data-ref="1160width">width</dfn>, <em>float</em> <dfn class="local col1 decl" id="1161height" title='height' data-type='float' data-ref="1161height">height</dfn>, </td></tr>
+<tr><th id="574">574</th><td>					 <em>const</em> <em>float</em> *<dfn class="local col2 decl" id="1162color" title='color' data-type='const float *' data-ref="1162color">color</dfn> );</td></tr>
+<tr><th id="575">575</th><td><em>void</em>	<dfn class="decl" id="SCR_DrawPic" title='SCR_DrawPic' data-ref="SCR_DrawPic">SCR_DrawPic</dfn>( <em>float</em> <dfn class="local col3 decl" id="1163x" title='x' data-type='float' data-ref="1163x">x</dfn>, <em>float</em> <dfn class="local col4 decl" id="1164y" title='y' data-type='float' data-ref="1164y">y</dfn>, <em>float</em> <dfn class="local col5 decl" id="1165width" title='width' data-type='float' data-ref="1165width">width</dfn>, <em>float</em> <dfn class="local col6 decl" id="1166height" title='height' data-type='float' data-ref="1166height">height</dfn>, <a class="typedef" href="../qcommon/q_shared.h.html#qhandle_t" title='qhandle_t' data-type='int' data-ref="qhandle_t">qhandle_t</a> <dfn class="local col7 decl" id="1167hShader" title='hShader' data-type='qhandle_t' data-ref="1167hShader">hShader</dfn> );</td></tr>
+<tr><th id="576">576</th><td><em>void</em>	<dfn class="decl" id="SCR_DrawNamedPic" title='SCR_DrawNamedPic' data-ref="SCR_DrawNamedPic">SCR_DrawNamedPic</dfn>( <em>float</em> <dfn class="local col8 decl" id="1168x" title='x' data-type='float' data-ref="1168x">x</dfn>, <em>float</em> <dfn class="local col9 decl" id="1169y" title='y' data-type='float' data-ref="1169y">y</dfn>, <em>float</em> <dfn class="local col0 decl" id="1170width" title='width' data-type='float' data-ref="1170width">width</dfn>, <em>float</em> <dfn class="local col1 decl" id="1171height" title='height' data-type='float' data-ref="1171height">height</dfn>, <em>const</em> <em>char</em> *<dfn class="local col2 decl" id="1172picname" title='picname' data-type='const char *' data-ref="1172picname">picname</dfn> );</td></tr>
+<tr><th id="577">577</th><td></td></tr>
+<tr><th id="578">578</th><td><em>void</em>	<dfn class="decl" id="SCR_DrawBigString" title='SCR_DrawBigString' data-ref="SCR_DrawBigString">SCR_DrawBigString</dfn>( <em>int</em> <dfn class="local col3 decl" id="1173x" title='x' data-type='int' data-ref="1173x">x</dfn>, <em>int</em> <dfn class="local col4 decl" id="1174y" title='y' data-type='int' data-ref="1174y">y</dfn>, <em>const</em> <em>char</em> *<dfn class="local col5 decl" id="1175s" title='s' data-type='const char *' data-ref="1175s">s</dfn>, <em>float</em> <dfn class="local col6 decl" id="1176alpha" title='alpha' data-type='float' data-ref="1176alpha">alpha</dfn>, <a class="typedef" href="../qcommon/q_shared.h.html#qboolean" title='qboolean' data-type='enum qboolean' data-ref="qboolean">qboolean</a> <dfn class="local col7 decl" id="1177noColorEscape" title='noColorEscape' data-type='qboolean' data-ref="1177noColorEscape">noColorEscape</dfn> );			<i>// draws a string with embedded color control characters with fade</i></td></tr>
+<tr><th id="579">579</th><td><em>void</em>	<dfn class="decl" id="SCR_DrawBigStringColor" title='SCR_DrawBigStringColor' data-ref="SCR_DrawBigStringColor">SCR_DrawBigStringColor</dfn>( <em>int</em> <dfn class="local col8 decl" id="1178x" title='x' data-type='int' data-ref="1178x">x</dfn>, <em>int</em> <dfn class="local col9 decl" id="1179y" title='y' data-type='int' data-ref="1179y">y</dfn>, <em>const</em> <em>char</em> *<dfn class="local col0 decl" id="1180s" title='s' data-type='const char *' data-ref="1180s">s</dfn>, <a class="typedef" href="../qcommon/q_shared.h.html#vec4_t" title='vec4_t' data-type='vec_t [4]' data-ref="vec4_t">vec4_t</a> <dfn class="local col1 decl" id="1181color" title='color' data-type='vec_t *' data-ref="1181color">color</dfn>, <a class="typedef" href="../qcommon/q_shared.h.html#qboolean" title='qboolean' data-type='enum qboolean' data-ref="qboolean">qboolean</a> <dfn class="local col2 decl" id="1182noColorEscape" title='noColorEscape' data-type='qboolean' data-ref="1182noColorEscape">noColorEscape</dfn> );	<i>// ignores embedded color control characters</i></td></tr>
+<tr><th id="580">580</th><td><em>void</em>	<dfn class="decl" id="SCR_DrawSmallStringExt" title='SCR_DrawSmallStringExt' data-ref="SCR_DrawSmallStringExt">SCR_DrawSmallStringExt</dfn>( <em>int</em> <dfn class="local col3 decl" id="1183x" title='x' data-type='int' data-ref="1183x">x</dfn>, <em>int</em> <dfn class="local col4 decl" id="1184y" title='y' data-type='int' data-ref="1184y">y</dfn>, <em>const</em> <em>char</em> *<dfn class="local col5 decl" id="1185string" title='string' data-type='const char *' data-ref="1185string">string</dfn>, <em>float</em> *<dfn class="local col6 decl" id="1186setColor" title='setColor' data-type='float *' data-ref="1186setColor">setColor</dfn>, <a class="typedef" href="../qcommon/q_shared.h.html#qboolean" title='qboolean' data-type='enum qboolean' data-ref="qboolean">qboolean</a> <dfn class="local col7 decl" id="1187forceColor" title='forceColor' data-type='qboolean' data-ref="1187forceColor">forceColor</dfn>, <a class="typedef" href="../qcommon/q_shared.h.html#qboolean" title='qboolean' data-type='enum qboolean' data-ref="qboolean">qboolean</a> <dfn class="local col8 decl" id="1188noColorEscape" title='noColorEscape' data-type='qboolean' data-ref="1188noColorEscape">noColorEscape</dfn> );</td></tr>
+<tr><th id="581">581</th><td><em>void</em>	<dfn class="decl" id="SCR_DrawSmallChar" title='SCR_DrawSmallChar' data-ref="SCR_DrawSmallChar">SCR_DrawSmallChar</dfn>( <em>int</em> <dfn class="local col9 decl" id="1189x" title='x' data-type='int' data-ref="1189x">x</dfn>, <em>int</em> <dfn class="local col0 decl" id="1190y" title='y' data-type='int' data-ref="1190y">y</dfn>, <em>int</em> <dfn class="local col1 decl" id="1191ch" title='ch' data-type='int' data-ref="1191ch">ch</dfn> );</td></tr>
+<tr><th id="582">582</th><td></td></tr>
+<tr><th id="583">583</th><td></td></tr>
+<tr><th id="584">584</th><td><i>//</i></td></tr>
+<tr><th id="585">585</th><td><i>// cl_cin.c</i></td></tr>
+<tr><th id="586">586</th><td><i>//</i></td></tr>
+<tr><th id="587">587</th><td></td></tr>
+<tr><th id="588">588</th><td><em>void</em> <dfn class="decl" id="CL_PlayCinematic_f" title='CL_PlayCinematic_f' data-ref="CL_PlayCinematic_f">CL_PlayCinematic_f</dfn>( <em>void</em> );</td></tr>
+<tr><th id="589">589</th><td><em>void</em> <dfn class="decl" id="SCR_DrawCinematic" title='SCR_DrawCinematic' data-ref="SCR_DrawCinematic">SCR_DrawCinematic</dfn> (<em>void</em>);</td></tr>
+<tr><th id="590">590</th><td><em>void</em> <dfn class="decl" id="SCR_RunCinematic" title='SCR_RunCinematic' data-ref="SCR_RunCinematic">SCR_RunCinematic</dfn> (<em>void</em>);</td></tr>
+<tr><th id="591">591</th><td><em>void</em> <dfn class="decl" id="SCR_StopCinematic" title='SCR_StopCinematic' data-ref="SCR_StopCinematic">SCR_StopCinematic</dfn> (<em>void</em>);</td></tr>
+<tr><th id="592">592</th><td><em>int</em> <dfn class="decl" id="CIN_PlayCinematic" title='CIN_PlayCinematic' data-ref="CIN_PlayCinematic">CIN_PlayCinematic</dfn>( <em>const</em> <em>char</em> *<dfn class="local col2 decl" id="1192arg0" title='arg0' data-type='const char *' data-ref="1192arg0">arg0</dfn>, <em>int</em> <dfn class="local col3 decl" id="1193xpos" title='xpos' data-type='int' data-ref="1193xpos">xpos</dfn>, <em>int</em> <dfn class="local col4 decl" id="1194ypos" title='ypos' data-type='int' data-ref="1194ypos">ypos</dfn>, <em>int</em> <dfn class="local col5 decl" id="1195width" title='width' data-type='int' data-ref="1195width">width</dfn>, <em>int</em> <dfn class="local col6 decl" id="1196height" title='height' data-type='int' data-ref="1196height">height</dfn>, <em>int</em> <dfn class="local col7 decl" id="1197bits" title='bits' data-type='int' data-ref="1197bits">bits</dfn>);</td></tr>
+<tr><th id="593">593</th><td><a class="typedef" href="../qcommon/q_shared.h.html#e_status" title='e_status' data-type='enum e_status' data-ref="e_status">e_status</a> <dfn class="decl" id="CIN_StopCinematic" title='CIN_StopCinematic' data-ref="CIN_StopCinematic">CIN_StopCinematic</dfn>(<em>int</em> <dfn class="local col8 decl" id="1198handle" title='handle' data-type='int' data-ref="1198handle">handle</dfn>);</td></tr>
+<tr><th id="594">594</th><td><a class="typedef" href="../qcommon/q_shared.h.html#e_status" title='e_status' data-type='enum e_status' data-ref="e_status">e_status</a> <dfn class="decl" id="CIN_RunCinematic" title='CIN_RunCinematic' data-ref="CIN_RunCinematic">CIN_RunCinematic</dfn> (<em>int</em> <dfn class="local col9 decl" id="1199handle" title='handle' data-type='int' data-ref="1199handle">handle</dfn>);</td></tr>
+<tr><th id="595">595</th><td><em>void</em> <dfn class="decl" id="CIN_DrawCinematic" title='CIN_DrawCinematic' data-ref="CIN_DrawCinematic">CIN_DrawCinematic</dfn> (<em>int</em> <dfn class="local col0 decl" id="1200handle" title='handle' data-type='int' data-ref="1200handle">handle</dfn>);</td></tr>
+<tr><th id="596">596</th><td><em>void</em> <dfn class="decl" id="CIN_SetExtents" title='CIN_SetExtents' data-ref="CIN_SetExtents">CIN_SetExtents</dfn> (<em>int</em> <dfn class="local col1 decl" id="1201handle" title='handle' data-type='int' data-ref="1201handle">handle</dfn>, <em>int</em> <dfn class="local col2 decl" id="1202x" title='x' data-type='int' data-ref="1202x">x</dfn>, <em>int</em> <dfn class="local col3 decl" id="1203y" title='y' data-type='int' data-ref="1203y">y</dfn>, <em>int</em> <dfn class="local col4 decl" id="1204w" title='w' data-type='int' data-ref="1204w">w</dfn>, <em>int</em> <dfn class="local col5 decl" id="1205h" title='h' data-type='int' data-ref="1205h">h</dfn>);</td></tr>
+<tr><th id="597">597</th><td><em>void</em> <dfn class="decl" id="CIN_SetLooping" title='CIN_SetLooping' data-ref="CIN_SetLooping">CIN_SetLooping</dfn> (<em>int</em> <dfn class="local col6 decl" id="1206handle" title='handle' data-type='int' data-ref="1206handle">handle</dfn>, <a class="typedef" href="../qcommon/q_shared.h.html#qboolean" title='qboolean' data-type='enum qboolean' data-ref="qboolean">qboolean</a> <dfn class="local col7 decl" id="1207loop" title='loop' data-type='qboolean' data-ref="1207loop">loop</dfn>);</td></tr>
+<tr><th id="598">598</th><td><em>void</em> <dfn class="decl" id="CIN_UploadCinematic" title='CIN_UploadCinematic' data-ref="CIN_UploadCinematic">CIN_UploadCinematic</dfn>(<em>int</em> <dfn class="local col8 decl" id="1208handle" title='handle' data-type='int' data-ref="1208handle">handle</dfn>);</td></tr>
+<tr><th id="599">599</th><td><em>void</em> <dfn class="decl" id="CIN_CloseAllVideos" title='CIN_CloseAllVideos' data-ref="CIN_CloseAllVideos">CIN_CloseAllVideos</dfn>(<em>void</em>);</td></tr>
+<tr><th id="600">600</th><td></td></tr>
+<tr><th id="601">601</th><td><i>//</i></td></tr>
+<tr><th id="602">602</th><td><i>// cl_cgame.c</i></td></tr>
+<tr><th id="603">603</th><td><i>//</i></td></tr>
+<tr><th id="604">604</th><td><em>void</em> <dfn class="decl" id="CL_InitCGame" title='CL_InitCGame' data-ref="CL_InitCGame">CL_InitCGame</dfn>( <em>void</em> );</td></tr>
+<tr><th id="605">605</th><td><em>void</em> <dfn class="decl" id="CL_ShutdownCGame" title='CL_ShutdownCGame' data-ref="CL_ShutdownCGame">CL_ShutdownCGame</dfn>( <em>void</em> );</td></tr>
+<tr><th id="606">606</th><td><a class="typedef" href="../qcommon/q_shared.h.html#qboolean" title='qboolean' data-type='enum qboolean' data-ref="qboolean">qboolean</a> <a class="decl" href="../qcommon/qcommon.h.html#CL_GameCommand" title='CL_GameCommand' data-ref="CL_GameCommand" id="CL_GameCommand">CL_GameCommand</a>( <em>void</em> );</td></tr>
+<tr><th id="607">607</th><td><em>void</em> <dfn class="decl" id="CL_CGameRendering" title='CL_CGameRendering' data-ref="CL_CGameRendering">CL_CGameRendering</dfn>( <a class="typedef" href="../renderercommon/tr_types.h.html#stereoFrame_t" title='stereoFrame_t' data-type='enum stereoFrame_t' data-ref="stereoFrame_t">stereoFrame_t</a> <dfn class="local col9 decl" id="1209stereo" title='stereo' data-type='stereoFrame_t' data-ref="1209stereo">stereo</dfn> );</td></tr>
+<tr><th id="608">608</th><td><em>void</em> <dfn class="decl" id="CL_SetCGameTime" title='CL_SetCGameTime' data-ref="CL_SetCGameTime">CL_SetCGameTime</dfn>( <em>void</em> );</td></tr>
+<tr><th id="609">609</th><td><em>void</em> <dfn class="decl" id="CL_FirstSnapshot" title='CL_FirstSnapshot' data-ref="CL_FirstSnapshot">CL_FirstSnapshot</dfn>( <em>void</em> );</td></tr>
+<tr><th id="610">610</th><td><em>void</em> <dfn class="decl" id="CL_ShaderStateChanged" title='CL_ShaderStateChanged' data-ref="CL_ShaderStateChanged">CL_ShaderStateChanged</dfn>(<em>void</em>);</td></tr>
+<tr><th id="611">611</th><td></td></tr>
+<tr><th id="612">612</th><td><i>//</i></td></tr>
+<tr><th id="613">613</th><td><i>// cl_ui.c</i></td></tr>
+<tr><th id="614">614</th><td><i>//</i></td></tr>
+<tr><th id="615">615</th><td><em>void</em> <dfn class="decl" id="CL_InitUI" title='CL_InitUI' data-ref="CL_InitUI">CL_InitUI</dfn>( <em>void</em> );</td></tr>
+<tr><th id="616">616</th><td><em>void</em> <dfn class="decl" id="CL_ShutdownUI" title='CL_ShutdownUI' data-ref="CL_ShutdownUI">CL_ShutdownUI</dfn>( <em>void</em> );</td></tr>
+<tr><th id="617">617</th><td><em>int</em> <dfn class="decl" id="Key_GetCatcher" title='Key_GetCatcher' data-ref="Key_GetCatcher">Key_GetCatcher</dfn>( <em>void</em> );</td></tr>
+<tr><th id="618">618</th><td><em>void</em> <dfn class="decl" id="Key_SetCatcher" title='Key_SetCatcher' data-ref="Key_SetCatcher">Key_SetCatcher</dfn>( <em>int</em> <dfn class="local col0 decl" id="1210catcher" title='catcher' data-type='int' data-ref="1210catcher">catcher</dfn> );</td></tr>
+<tr><th id="619">619</th><td><em>void</em> <dfn class="decl" id="LAN_LoadCachedServers" title='LAN_LoadCachedServers' data-ref="LAN_LoadCachedServers">LAN_LoadCachedServers</dfn>( <em>void</em> );</td></tr>
+<tr><th id="620">620</th><td><em>void</em> <dfn class="decl" id="LAN_SaveServersToCache" title='LAN_SaveServersToCache' data-ref="LAN_SaveServersToCache">LAN_SaveServersToCache</dfn>( <em>void</em> );</td></tr>
+<tr><th id="621">621</th><td></td></tr>
+<tr><th id="622">622</th><td></td></tr>
+<tr><th id="623">623</th><td><i>//</i></td></tr>
+<tr><th id="624">624</th><td><i>// cl_net_chan.c</i></td></tr>
+<tr><th id="625">625</th><td><i>//</i></td></tr>
+<tr><th id="626">626</th><td><em>void</em> <dfn class="decl" id="CL_Netchan_Transmit" title='CL_Netchan_Transmit' data-ref="CL_Netchan_Transmit">CL_Netchan_Transmit</dfn>( <a class="typedef" href="../qcommon/qcommon.h.html#netchan_t" title='netchan_t' data-type='struct netchan_t' data-ref="netchan_t">netchan_t</a> *<dfn class="local col1 decl" id="1211chan" title='chan' data-type='netchan_t *' data-ref="1211chan">chan</dfn>, <a class="typedef" href="../qcommon/qcommon.h.html#msg_t" title='msg_t' data-type='struct msg_t' data-ref="msg_t">msg_t</a>* <dfn class="local col2 decl" id="1212msg" title='msg' data-type='msg_t *' data-ref="1212msg">msg</dfn>);	<i>//int length, const byte *data );</i></td></tr>
+<tr><th id="627">627</th><td><a class="typedef" href="../qcommon/q_shared.h.html#qboolean" title='qboolean' data-type='enum qboolean' data-ref="qboolean">qboolean</a> <dfn class="decl" id="CL_Netchan_Process" title='CL_Netchan_Process' data-ref="CL_Netchan_Process">CL_Netchan_Process</dfn>( <a class="typedef" href="../qcommon/qcommon.h.html#netchan_t" title='netchan_t' data-type='struct netchan_t' data-ref="netchan_t">netchan_t</a> *<dfn class="local col3 decl" id="1213chan" title='chan' data-type='netchan_t *' data-ref="1213chan">chan</dfn>, <a class="typedef" href="../qcommon/qcommon.h.html#msg_t" title='msg_t' data-type='struct msg_t' data-ref="msg_t">msg_t</a> *<dfn class="local col4 decl" id="1214msg" title='msg' data-type='msg_t *' data-ref="1214msg">msg</dfn> );</td></tr>
+<tr><th id="628">628</th><td></td></tr>
+<tr><th id="629">629</th><td><i>//</i></td></tr>
+<tr><th id="630">630</th><td><i>// cl_avi.c</i></td></tr>
+<tr><th id="631">631</th><td><i>//</i></td></tr>
+<tr><th id="632">632</th><td><a class="typedef" href="../qcommon/q_shared.h.html#qboolean" title='qboolean' data-type='enum qboolean' data-ref="qboolean">qboolean</a> <a class="decl" href="cl_avi.c.html#CL_OpenAVIForWriting" title='CL_OpenAVIForWriting' data-ref="CL_OpenAVIForWriting" id="CL_OpenAVIForWriting">CL_OpenAVIForWriting</a>( <em>const</em> <em>char</em> *<dfn class="local col5 decl" id="1215filename" title='filename' data-type='const char *' data-ref="1215filename">filename</dfn> );</td></tr>
+<tr><th id="633">633</th><td><em>void</em> <a class="decl" href="cl_avi.c.html#CL_TakeVideoFrame" title='CL_TakeVideoFrame' data-ref="CL_TakeVideoFrame" id="CL_TakeVideoFrame">CL_TakeVideoFrame</a>( <em>void</em> );</td></tr>
+<tr><th id="634">634</th><td><em>void</em> <a class="decl" href="cl_avi.c.html#CL_WriteAVIVideoFrame" title='CL_WriteAVIVideoFrame' data-ref="CL_WriteAVIVideoFrame" id="CL_WriteAVIVideoFrame">CL_WriteAVIVideoFrame</a>( <em>const</em> <a class="typedef" href="../qcommon/q_shared.h.html#byte" title='byte' data-type='unsigned char' data-ref="byte">byte</a> *<dfn class="local col6 decl" id="1216imageBuffer" title='imageBuffer' data-type='const byte *' data-ref="1216imageBuffer">imageBuffer</dfn>, <em>int</em> <dfn class="local col7 decl" id="1217size" title='size' data-type='int' data-ref="1217size">size</dfn> );</td></tr>
+<tr><th id="635">635</th><td><em>void</em> <a class="decl" href="cl_avi.c.html#CL_WriteAVIAudioFrame" title='CL_WriteAVIAudioFrame' data-ref="CL_WriteAVIAudioFrame" id="CL_WriteAVIAudioFrame">CL_WriteAVIAudioFrame</a>( <em>const</em> <a class="typedef" href="../qcommon/q_shared.h.html#byte" title='byte' data-type='unsigned char' data-ref="byte">byte</a> *<dfn class="local col8 decl" id="1218pcmBuffer" title='pcmBuffer' data-type='const byte *' data-ref="1218pcmBuffer">pcmBuffer</dfn>, <em>int</em> <dfn class="local col9 decl" id="1219size" title='size' data-type='int' data-ref="1219size">size</dfn> );</td></tr>
+<tr><th id="636">636</th><td><a class="typedef" href="../qcommon/q_shared.h.html#qboolean" title='qboolean' data-type='enum qboolean' data-ref="qboolean">qboolean</a> <a class="decl" href="cl_avi.c.html#CL_CloseAVI" title='CL_CloseAVI' data-ref="CL_CloseAVI" id="CL_CloseAVI">CL_CloseAVI</a>( <em>void</em> );</td></tr>
+<tr><th id="637">637</th><td><a class="typedef" href="../qcommon/q_shared.h.html#qboolean" title='qboolean' data-type='enum qboolean' data-ref="qboolean">qboolean</a> <a class="decl" href="cl_avi.c.html#CL_VideoRecording" title='CL_VideoRecording' data-ref="CL_VideoRecording" id="CL_VideoRecording">CL_VideoRecording</a>( <em>void</em> );</td></tr>
+<tr><th id="638">638</th><td></td></tr>
+<tr><th id="639">639</th><td><i>//</i></td></tr>
+<tr><th id="640">640</th><td><i>// cl_main.c</i></td></tr>
+<tr><th id="641">641</th><td><i>//</i></td></tr>
+<tr><th id="642">642</th><td><em>void</em> <dfn class="decl" id="CL_WriteDemoMessage" title='CL_WriteDemoMessage' data-ref="CL_WriteDemoMessage">CL_WriteDemoMessage</dfn> ( <a class="typedef" href="../qcommon/qcommon.h.html#msg_t" title='msg_t' data-type='struct msg_t' data-ref="msg_t">msg_t</a> *<dfn class="local col0 decl" id="1220msg" title='msg' data-type='msg_t *' data-ref="1220msg">msg</dfn>, <em>int</em> <dfn class="local col1 decl" id="1221headerBytes" title='headerBytes' data-type='int' data-ref="1221headerBytes">headerBytes</dfn> );</td></tr>
+<tr><th id="643">643</th><td></td></tr>
+<tr><th id="644">644</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='cl_avi.c.html'>codebrowser/code/client/cl_avi.c</a><br/>Generated on <em>2017-Aug-29</em> from project codebrowser revision <em>63e07af</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

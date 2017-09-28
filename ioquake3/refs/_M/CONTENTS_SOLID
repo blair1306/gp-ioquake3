@@ -1,0 +1,61 @@
+<dec f='codebrowser/code/qcommon/surfaceflags.h' l='30'/>
+<doc f='codebrowser/code/qcommon/surfaceflags.h' l='1'>/*
+===========================================================================
+Copyright (C) 1999-2005 Id Software, Inc.
+
+This file is part of Quake III Arena source code.
+
+Quake III Arena source code is free software; you can redistribute it
+and/or modify it under the terms of the GNU General Public License as
+published by the Free Software Foundation; either version 2 of the License,
+or (at your option) any later version.
+
+Quake III Arena source code is distributed in the hope that it will be
+useful, but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with Quake III Arena source code; if not, write to the Free Software
+Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
+===========================================================================
+*/
+//
+// This file must be identical in the quake and utils directories
+
+// contents flags are seperate bits
+// a given brush can contribute multiple content bits
+
+// these definitions also need to be in q_shared.h!</doc>
+<use f='codebrowser/code/botlib/be_aas_move.c' l='63' u='c'/>
+<use f='codebrowser/code/botlib/be_aas_move.c' l='313' u='c'/>
+<use f='codebrowser/code/botlib/be_aas_reach.c' l='3858' u='c'/>
+<use f='codebrowser/code/botlib/be_aas_sample.c' l='425' u='c'/>
+<use f='codebrowser/code/botlib/be_ai_goal.c' l='602' u='c'/>
+<use f='codebrowser/code/botlib/be_ai_goal.c' l='1646' u='c'/>
+<use f='codebrowser/code/botlib/be_ai_move.c' l='310' u='c'/>
+<use f='codebrowser/code/botlib/be_ai_move.c' l='469' u='c'/>
+<use f='codebrowser/code/botlib/be_ai_move.c' l='554' u='c'/>
+<use f='codebrowser/code/botlib/be_ai_move.c' l='898' u='c'/>
+<use f='codebrowser/code/botlib/be_ai_move.c' l='1293' u='c'/>
+<use f='codebrowser/code/botlib/be_ai_move.c' l='1309' u='c'/>
+<use f='codebrowser/code/botlib/be_ai_move.c' l='2660' u='c'/>
+<use f='codebrowser/code/cgame/cg_draw.c' l='2012' u='c'/>
+<use f='codebrowser/code/cgame/cg_localents.c' l='276' u='c'/>
+<use f='codebrowser/code/cgame/cg_particles.c' l='1697' u='c'/>
+<use f='codebrowser/code/cgame/cg_players.c' l='2085' u='c'/>
+<use f='codebrowser/code/game/ai_cmd.c' l='1490' u='c'/>
+<use f='codebrowser/code/game/ai_dmnet.c' l='124' u='c'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='2856' u='c'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='3629' u='c'/>
+<use f='codebrowser/code/game/bg_pmove.c' l='421' u='c'/>
+<use f='codebrowser/code/game/bg_pmove.c' l='427' u='c'/>
+<use f='codebrowser/code/game/g_arenas.c' l='177' u='c'/>
+<use f='codebrowser/code/game/g_arenas.c' l='303' u='c'/>
+<use f='codebrowser/code/game/g_arenas.c' l='304' u='c'/>
+<use f='codebrowser/code/game/g_client.c' l='481' u='c'/>
+<use f='codebrowser/code/game/g_items.c' l='107' u='c'/>
+<use f='codebrowser/code/game/g_target.c' l='270' u='c'/>
+<use f='codebrowser/code/game/g_weapon.c' l='507' u='c'/>
+<use f='codebrowser/code/renderergl1/tr_world.c' l='604' u='c'/>
+<use f='codebrowser/code/server/sv_world.c' l='225' u='c'/>

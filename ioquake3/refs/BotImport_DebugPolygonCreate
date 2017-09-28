@@ -1,0 +1,10 @@
+<dec f='codebrowser/code/server/server.h' l='430' type='int BotImport_DebugPolygonCreate(int color, int numPoints, vec3_t * points)'/>
+<def f='codebrowser/code/server/sv_bot.c' l='319' ll='339' type='int BotImport_DebugPolygonCreate(int color, int numPoints, vec3_t * points)'/>
+<use f='codebrowser/code/server/sv_bot.c' l='375' u='c' c='BotImport_DebugLineCreate'/>
+<use f='codebrowser/code/server/sv_bot.c' l='557' u='r' c='SV_BotInitBotLib'/>
+<doc f='codebrowser/code/server/sv_bot.c' l='314'>/*
+==================
+BotImport_DebugPolygonCreate
+==================
+*/</doc>
+<use f='codebrowser/code/server/sv_game.c' l='422' u='c' c='SV_GameSystemCalls'/>

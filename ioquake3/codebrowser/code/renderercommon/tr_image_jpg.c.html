@@ -1,0 +1,495 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>tr_image_jpg.c source code [codebrowser/code/renderercommon/tr_image_jpg.c] - Woboq Code Browser</title>
+<meta name="woboq:interestingDefinitions" content="q_jpeg_error_mgr_s "/>
+<link rel="stylesheet" href="../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'codebrowser/code/renderercommon/tr_image_jpg.c'; var root_path = '../../..'; var data_path = '../../../../data';</script>
+<script src='../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../..'>codebrowser</a>/<a href='..'>code</a>/<a href='./'>renderercommon</a>/<a href='tr_image_jpg.c.html'>tr_image_jpg.c</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/*</i></td></tr>
+<tr><th id="2">2</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="3">3</th><td><i>Copyright (C) 1999-2005 Id Software, Inc.</i></td></tr>
+<tr><th id="4">4</th><td><i></i></td></tr>
+<tr><th id="5">5</th><td><i>This file is part of Quake III Arena source code.</i></td></tr>
+<tr><th id="6">6</th><td><i></i></td></tr>
+<tr><th id="7">7</th><td><i>Quake III Arena source code is free software; you can redistribute it</i></td></tr>
+<tr><th id="8">8</th><td><i>and/or modify it under the terms of the GNU General Public License as</i></td></tr>
+<tr><th id="9">9</th><td><i>published by the Free Software Foundation; either version 2 of the License,</i></td></tr>
+<tr><th id="10">10</th><td><i>or (at your option) any later version.</i></td></tr>
+<tr><th id="11">11</th><td><i></i></td></tr>
+<tr><th id="12">12</th><td><i>Quake III Arena source code is distributed in the hope that it will be</i></td></tr>
+<tr><th id="13">13</th><td><i>useful, but WITHOUT ANY WARRANTY; without even the implied warranty of</i></td></tr>
+<tr><th id="14">14</th><td><i>MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</i></td></tr>
+<tr><th id="15">15</th><td><i>GNU General Public License for more details.</i></td></tr>
+<tr><th id="16">16</th><td><i></i></td></tr>
+<tr><th id="17">17</th><td><i>You should have received a copy of the GNU General Public License</i></td></tr>
+<tr><th id="18">18</th><td><i>along with Quake III Arena source code; if not, write to the Free Software</i></td></tr>
+<tr><th id="19">19</th><td><i>Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA</i></td></tr>
+<tr><th id="20">20</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="21">21</th><td><i>*/</i></td></tr>
+<tr><th id="22">22</th><td></td></tr>
+<tr><th id="23">23</th><td><u>#include <a href="../../../include/setjmp.h.html">&lt;setjmp.h&gt;</a></u></td></tr>
+<tr><th id="24">24</th><td></td></tr>
+<tr><th id="25">25</th><td><u>#include <a href="tr_common.h.html">"tr_common.h"</a></u></td></tr>
+<tr><th id="26">26</th><td></td></tr>
+<tr><th id="27">27</th><td><i>/*</i></td></tr>
+<tr><th id="28">28</th><td><i> * Include file for users of JPEG library.</i></td></tr>
+<tr><th id="29">29</th><td><i> * You will need to have included system headers that define at least</i></td></tr>
+<tr><th id="30">30</th><td><i> * the typedefs FILE and size_t before you can include jpeglib.h.</i></td></tr>
+<tr><th id="31">31</th><td><i> * (stdio.h is sufficient on ANSI-conforming systems.)</i></td></tr>
+<tr><th id="32">32</th><td><i> * You may also wish to include "jerror.h".</i></td></tr>
+<tr><th id="33">33</th><td><i> */</i></td></tr>
+<tr><th id="34">34</th><td></td></tr>
+<tr><th id="35">35</th><td><u>#<span data-ppcond="35">ifdef</span> <span class="macro" data-ref="_M/USE_INTERNAL_JPEG">USE_INTERNAL_JPEG</span></u></td></tr>
+<tr><th id="36">36</th><td><u>#  define <dfn class="macro" id="_M/JPEG_INTERNALS" data-ref="_M/JPEG_INTERNALS">JPEG_INTERNALS</dfn></u></td></tr>
+<tr><th id="37">37</th><td><u>#<span data-ppcond="35">endif</span></u></td></tr>
+<tr><th id="38">38</th><td></td></tr>
+<tr><th id="39">39</th><td><u>#include <a href="../jpeg-8c/jpeglib.h.html">&lt;jpeglib.h&gt;</a></u></td></tr>
+<tr><th id="40">40</th><td></td></tr>
+<tr><th id="41">41</th><td><u>#<span data-ppcond="41">ifndef</span> <span class="macro" data-ref="_M/USE_INTERNAL_JPEG">USE_INTERNAL_JPEG</span></u></td></tr>
+<tr><th id="42">42</th><td><u>#  if JPEG_LIB_VERSION &lt; 80 &amp;&amp; !defined(MEM_SRCDST_SUPPORTED)</u></td></tr>
+<tr><th id="43">43</th><td><u>#    error Need system libjpeg &gt;= 80 or jpeg_mem_ support</u></td></tr>
+<tr><th id="44">44</th><td><u>#  endif</u></td></tr>
+<tr><th id="45">45</th><td><u>#<span data-ppcond="41">endif</span></u></td></tr>
+<tr><th id="46">46</th><td></td></tr>
+<tr><th id="47">47</th><td><i>/* Catching errors, as done in libjpeg's example.c */</i></td></tr>
+<tr><th id="48">48</th><td><b>typedef</b> <b>struct</b> <dfn class="type def" id="q_jpeg_error_mgr_s" title='q_jpeg_error_mgr_s' data-ref="q_jpeg_error_mgr_s"><a class="type" href="#q_jpeg_error_mgr_s" title='q_jpeg_error_mgr_s' data-ref="q_jpeg_error_mgr_s">q_jpeg_error_mgr_s</a></dfn></td></tr>
+<tr><th id="49">49</th><td>{</td></tr>
+<tr><th id="50">50</th><td>  <b>struct</b> <a class="type" href="../jpeg-8c/jpeglib.h.html#jpeg_error_mgr" title='jpeg_error_mgr' data-ref="jpeg_error_mgr">jpeg_error_mgr</a> <dfn class="tu decl" id="q_jpeg_error_mgr_s::pub" title='q_jpeg_error_mgr_s::pub' data-type='struct jpeg_error_mgr' data-ref="q_jpeg_error_mgr_s::pub">pub</dfn>;  <i  data-doc="q_jpeg_error_mgr_s::pub">/* "public" fields */</i></td></tr>
+<tr><th id="51">51</th><td></td></tr>
+<tr><th id="52">52</th><td>  <a class="typedef" href="../../../include/setjmp.h.html#jmp_buf" title='jmp_buf' data-type='struct __jmp_buf_tag [1]' data-ref="jmp_buf">jmp_buf</a> <dfn class="tu decl" id="q_jpeg_error_mgr_s::setjmp_buffer" title='q_jpeg_error_mgr_s::setjmp_buffer' data-type='jmp_buf' data-ref="q_jpeg_error_mgr_s::setjmp_buffer">setjmp_buffer</dfn>;  <i  data-doc="q_jpeg_error_mgr_s::setjmp_buffer">/* for return to caller */</i></td></tr>
+<tr><th id="53">53</th><td>} <dfn class="typedef" id="q_jpeg_error_mgr_t" title='q_jpeg_error_mgr_t' data-type='struct q_jpeg_error_mgr_s' data-ref="q_jpeg_error_mgr_t">q_jpeg_error_mgr_t</dfn>;</td></tr>
+<tr><th id="54">54</th><td></td></tr>
+<tr><th id="55">55</th><td><em>static</em> <em>void</em> <dfn class="tu decl def" id="R_JPGErrorExit" title='R_JPGErrorExit' data-type='void R_JPGErrorExit(j_common_ptr cinfo)' data-ref="R_JPGErrorExit">R_JPGErrorExit</dfn>(<a class="typedef" href="../jpeg-8c/jpeglib.h.html#j_common_ptr" title='j_common_ptr' data-type='struct jpeg_common_struct *' data-ref="j_common_ptr">j_common_ptr</a> <dfn class="local col1 decl" id="1cinfo" title='cinfo' data-type='j_common_ptr' data-ref="1cinfo">cinfo</dfn>)</td></tr>
+<tr><th id="56">56</th><td>{</td></tr>
+<tr><th id="57">57</th><td>  <em>char</em> <dfn class="local col2 decl" id="2buffer" title='buffer' data-type='char [200]' data-ref="2buffer">buffer</dfn>[<a class="macro" href="../jpeg-8c/jpeglib.h.html#691" title="200" data-ref="_M/JMSG_LENGTH_MAX">JMSG_LENGTH_MAX</a>];</td></tr>
+<tr><th id="58">58</th><td></td></tr>
+<tr><th id="59">59</th><td>  <i>/* cinfo-&gt;err really points to a q_jpeg_error_mgr_s struct, so coerce pointer */</i></td></tr>
+<tr><th id="60">60</th><td>  <a class="typedef" href="#q_jpeg_error_mgr_t" title='q_jpeg_error_mgr_t' data-type='struct q_jpeg_error_mgr_s' data-ref="q_jpeg_error_mgr_t">q_jpeg_error_mgr_t</a> *<dfn class="local col3 decl" id="3jerr" title='jerr' data-type='q_jpeg_error_mgr_t *' data-ref="3jerr">jerr</dfn> = (<a class="typedef" href="#q_jpeg_error_mgr_t" title='q_jpeg_error_mgr_t' data-type='struct q_jpeg_error_mgr_s' data-ref="q_jpeg_error_mgr_t">q_jpeg_error_mgr_t</a> *)<a class="local col1 ref" href="#1cinfo" title='cinfo' data-ref="1cinfo">cinfo</a>-&gt;<a class="ref" href="../jpeg-8c/jpeglib.h.html#263" title='jpeg_common_struct::err' data-ref="jpeg_common_struct::err">err</a>;</td></tr>
+<tr><th id="61">61</th><td>  </td></tr>
+<tr><th id="62">62</th><td>  (*<a class="local col1 ref" href="#1cinfo" title='cinfo' data-ref="1cinfo">cinfo</a>-&gt;<a class="ref" href="../jpeg-8c/jpeglib.h.html#263" title='jpeg_common_struct::err' data-ref="jpeg_common_struct::err">err</a>-&gt;<a class="ref" href="../jpeg-8c/jpeglib.h.html#690" title='jpeg_error_mgr::format_message' data-ref="jpeg_error_mgr::format_message">format_message</a>) (<a class="local col1 ref" href="#1cinfo" title='cinfo' data-ref="1cinfo">cinfo</a>, <a class="local col2 ref" href="#2buffer" title='buffer' data-ref="2buffer">buffer</a>);</td></tr>
+<tr><th id="63">63</th><td></td></tr>
+<tr><th id="64">64</th><td>  <a class="ref" href="tr_common.h.html#ri" title='ri' data-ref="ri">ri</a>.<a class="ref" href="tr_public.h.html#(anonymous)::Printf" title='(anonymous struct)::Printf' data-ref="(anonymous)::Printf">Printf</a>(<a class="enum" href="../qcommon/q_shared.h.html#PRINT_ALL" title='PRINT_ALL' data-ref="PRINT_ALL">PRINT_ALL</a>, <q>"Error: %s"</q>, <a class="local col2 ref" href="#2buffer" title='buffer' data-ref="2buffer">buffer</a>);</td></tr>
+<tr><th id="65">65</th><td></td></tr>
+<tr><th id="66">66</th><td>  <i>/* Return control to the setjmp point */</i></td></tr>
+<tr><th id="67">67</th><td>  <a class="ref" href="../../../include/setjmp.h.html#longjmp" title='longjmp' data-ref="longjmp">longjmp</a>(<a class="local col3 ref" href="#3jerr" title='jerr' data-ref="3jerr">jerr</a>-&gt;<a class="tu ref" href="#q_jpeg_error_mgr_s::setjmp_buffer" title='q_jpeg_error_mgr_s::setjmp_buffer' data-use='r' data-ref="q_jpeg_error_mgr_s::setjmp_buffer">setjmp_buffer</a>, <var>1</var>);</td></tr>
+<tr><th id="68">68</th><td>}</td></tr>
+<tr><th id="69">69</th><td></td></tr>
+<tr><th id="70">70</th><td><em>static</em> <em>void</em> <dfn class="tu decl def" id="R_JPGOutputMessage" title='R_JPGOutputMessage' data-type='void R_JPGOutputMessage(j_common_ptr cinfo)' data-ref="R_JPGOutputMessage">R_JPGOutputMessage</dfn>(<a class="typedef" href="../jpeg-8c/jpeglib.h.html#j_common_ptr" title='j_common_ptr' data-type='struct jpeg_common_struct *' data-ref="j_common_ptr">j_common_ptr</a> <dfn class="local col4 decl" id="4cinfo" title='cinfo' data-type='j_common_ptr' data-ref="4cinfo">cinfo</dfn>)</td></tr>
+<tr><th id="71">71</th><td>{</td></tr>
+<tr><th id="72">72</th><td>  <em>char</em> <dfn class="local col5 decl" id="5buffer" title='buffer' data-type='char [200]' data-ref="5buffer">buffer</dfn>[<a class="macro" href="../jpeg-8c/jpeglib.h.html#691" title="200" data-ref="_M/JMSG_LENGTH_MAX">JMSG_LENGTH_MAX</a>];</td></tr>
+<tr><th id="73">73</th><td>  </td></tr>
+<tr><th id="74">74</th><td>  <i>/* Create the message */</i></td></tr>
+<tr><th id="75">75</th><td>  (*<a class="local col4 ref" href="#4cinfo" title='cinfo' data-ref="4cinfo">cinfo</a>-&gt;<a class="ref" href="../jpeg-8c/jpeglib.h.html#263" title='jpeg_common_struct::err' data-ref="jpeg_common_struct::err">err</a>-&gt;<a class="ref" href="../jpeg-8c/jpeglib.h.html#690" title='jpeg_error_mgr::format_message' data-ref="jpeg_error_mgr::format_message">format_message</a>) (<a class="local col4 ref" href="#4cinfo" title='cinfo' data-ref="4cinfo">cinfo</a>, <a class="local col5 ref" href="#5buffer" title='buffer' data-ref="5buffer">buffer</a>);</td></tr>
+<tr><th id="76">76</th><td>  </td></tr>
+<tr><th id="77">77</th><td>  <i>/* Send it to stderr, adding a newline */</i></td></tr>
+<tr><th id="78">78</th><td>  <a class="ref" href="tr_common.h.html#ri" title='ri' data-ref="ri">ri</a>.<a class="ref" href="tr_public.h.html#(anonymous)::Printf" title='(anonymous struct)::Printf' data-ref="(anonymous)::Printf">Printf</a>(<a class="enum" href="../qcommon/q_shared.h.html#PRINT_ALL" title='PRINT_ALL' data-ref="PRINT_ALL">PRINT_ALL</a>, <q>"%s\n"</q>, <a class="local col5 ref" href="#5buffer" title='buffer' data-ref="5buffer">buffer</a>);</td></tr>
+<tr><th id="79">79</th><td>}</td></tr>
+<tr><th id="80">80</th><td></td></tr>
+<tr><th id="81">81</th><td><em>void</em> <dfn class="decl def" id="R_LoadJPG" title='R_LoadJPG' data-ref="R_LoadJPG">R_LoadJPG</dfn>(<em>const</em> <em>char</em> *<dfn class="local col6 decl" id="6filename" title='filename' data-type='const char *' data-ref="6filename">filename</dfn>, <em>unsigned</em> <em>char</em> **<dfn class="local col7 decl" id="7pic" title='pic' data-type='unsigned char **' data-ref="7pic">pic</dfn>, <em>int</em> *<dfn class="local col8 decl" id="8width" title='width' data-type='int *' data-ref="8width">width</dfn>, <em>int</em> *<dfn class="local col9 decl" id="9height" title='height' data-type='int *' data-ref="9height">height</dfn>)</td></tr>
+<tr><th id="82">82</th><td>{</td></tr>
+<tr><th id="83">83</th><td>  <i>/* This struct contains the JPEG decompression parameters and pointers to</i></td></tr>
+<tr><th id="84">84</th><td><i>   * working space (which is allocated as needed by the JPEG library).</i></td></tr>
+<tr><th id="85">85</th><td><i>   */</i></td></tr>
+<tr><th id="86">86</th><td>  <b>struct</b> <a class="type" href="../jpeg-8c/jpeglib.h.html#jpeg_decompress_struct" title='jpeg_decompress_struct' data-ref="jpeg_decompress_struct">jpeg_decompress_struct</a> <dfn class="local col0 decl" id="10cinfo" title='cinfo' data-type='struct jpeg_decompress_struct' data-ref="10cinfo">cinfo</dfn> = {<span class="macro" title="((void*)0)" data-ref="_M/NULL">NULL</span>};</td></tr>
+<tr><th id="87">87</th><td>  <i>/* We use our private extension JPEG error handler.</i></td></tr>
+<tr><th id="88">88</th><td><i>   * Note that this struct must live as long as the main JPEG parameter</i></td></tr>
+<tr><th id="89">89</th><td><i>   * struct, to avoid dangling-pointer problems.</i></td></tr>
+<tr><th id="90">90</th><td><i>   */</i></td></tr>
+<tr><th id="91">91</th><td>  <i>/* This struct represents a JPEG error handler.  It is declared separately</i></td></tr>
+<tr><th id="92">92</th><td><i>   * because applications often want to supply a specialized error handler</i></td></tr>
+<tr><th id="93">93</th><td><i>   * (see the second half of this file for an example).  But here we just</i></td></tr>
+<tr><th id="94">94</th><td><i>   * take the easy way out and use the standard error handler, which will</i></td></tr>
+<tr><th id="95">95</th><td><i>   * print a message on stderr and call exit() if compression fails.</i></td></tr>
+<tr><th id="96">96</th><td><i>   * Note that this struct must live as long as the main JPEG parameter</i></td></tr>
+<tr><th id="97">97</th><td><i>   * struct, to avoid dangling-pointer problems.</i></td></tr>
+<tr><th id="98">98</th><td><i>   */</i></td></tr>
+<tr><th id="99">99</th><td>  <a class="typedef" href="#q_jpeg_error_mgr_t" title='q_jpeg_error_mgr_t' data-type='struct q_jpeg_error_mgr_s' data-ref="q_jpeg_error_mgr_t">q_jpeg_error_mgr_t</a> <dfn class="local col1 decl" id="11jerr" title='jerr' data-type='q_jpeg_error_mgr_t' data-ref="11jerr">jerr</dfn>;</td></tr>
+<tr><th id="100">100</th><td>  <i>/* More stuff */</i></td></tr>
+<tr><th id="101">101</th><td>  <a class="typedef" href="../jpeg-8c/jpeglib.h.html#JSAMPARRAY" title='JSAMPARRAY' data-type='JSAMPROW *' data-ref="JSAMPARRAY">JSAMPARRAY</a> <dfn class="local col2 decl" id="12buffer" title='buffer' data-type='JSAMPARRAY' data-ref="12buffer">buffer</dfn>;		<i>/* Output row buffer */</i></td></tr>
+<tr><th id="102">102</th><td>  <em>unsigned</em> <em>int</em> <dfn class="local col3 decl" id="13row_stride" title='row_stride' data-type='unsigned int' data-ref="13row_stride">row_stride</dfn>;	<i>/* physical row width in output buffer */</i></td></tr>
+<tr><th id="103">103</th><td>  <em>unsigned</em> <em>int</em> <dfn class="local col4 decl" id="14pixelcount" title='pixelcount' data-type='unsigned int' data-ref="14pixelcount">pixelcount</dfn>, <dfn class="local col5 decl" id="15memcount" title='memcount' data-type='unsigned int' data-ref="15memcount">memcount</dfn>;</td></tr>
+<tr><th id="104">104</th><td>  <em>unsigned</em> <em>int</em> <dfn class="local col6 decl" id="16sindex" title='sindex' data-type='unsigned int' data-ref="16sindex">sindex</dfn>, <dfn class="local col7 decl" id="17dindex" title='dindex' data-type='unsigned int' data-ref="17dindex">dindex</dfn>;</td></tr>
+<tr><th id="105">105</th><td>  <a class="typedef" href="../qcommon/q_shared.h.html#byte" title='byte' data-type='unsigned char' data-ref="byte">byte</a> *<dfn class="local col8 decl" id="18out" title='out' data-type='byte *' data-ref="18out">out</dfn>;</td></tr>
+<tr><th id="106">106</th><td>  <em>int</em> <dfn class="local col9 decl" id="19len" title='len' data-type='int' data-ref="19len">len</dfn>;</td></tr>
+<tr><th id="107">107</th><td>	<b>union</b> {</td></tr>
+<tr><th id="108">108</th><td>		<a class="typedef" href="../qcommon/q_shared.h.html#byte" title='byte' data-type='unsigned char' data-ref="byte">byte</a> *<dfn class="local col0 decl" id="20b" title='b' data-type='byte *' data-ref="20b">b</dfn>;</td></tr>
+<tr><th id="109">109</th><td>		<em>void</em> *<dfn class="local col1 decl" id="21v" title='v' data-type='void *' data-ref="21v">v</dfn>;</td></tr>
+<tr><th id="110">110</th><td>	} <dfn class="local col2 decl" id="22fbuffer" title='fbuffer' data-type='union (anonymous union at /home/jon/workspace/ioq3/code/renderercommon/tr_image_jpg.c:107:2)' data-ref="22fbuffer">fbuffer</dfn>;</td></tr>
+<tr><th id="111">111</th><td>  <a class="typedef" href="../qcommon/q_shared.h.html#byte" title='byte' data-type='unsigned char' data-ref="byte">byte</a>  *<dfn class="local col3 decl" id="23buf" title='buf' data-type='byte *' data-ref="23buf">buf</dfn>;</td></tr>
+<tr><th id="112">112</th><td></td></tr>
+<tr><th id="113">113</th><td>  <i>/* In this example we want to open the input file before doing anything else,</i></td></tr>
+<tr><th id="114">114</th><td><i>   * so that the setjmp() error recovery below can assume the file is open.</i></td></tr>
+<tr><th id="115">115</th><td><i>   * VERY IMPORTANT: use "b" option to fopen() if you are on a machine that</i></td></tr>
+<tr><th id="116">116</th><td><i>   * requires it in order to read binary files.</i></td></tr>
+<tr><th id="117">117</th><td><i>   */</i></td></tr>
+<tr><th id="118">118</th><td></td></tr>
+<tr><th id="119">119</th><td>  <a class="local col9 ref" href="#19len" title='len' data-ref="19len">len</a> = <a class="ref" href="tr_common.h.html#ri" title='ri' data-ref="ri">ri</a>.<a class="ref" href="tr_public.h.html#(anonymous)::FS_ReadFile" title='(anonymous struct)::FS_ReadFile' data-ref="(anonymous)::FS_ReadFile">FS_ReadFile</a> ( ( <em>char</em> * ) <a class="local col6 ref" href="#6filename" title='filename' data-ref="6filename">filename</a>, &amp;<a class="local col2 ref" href="#22fbuffer" title='fbuffer' data-ref="22fbuffer">fbuffer</a>.<a class="local col1 ref" href="#21v" title='v' data-ref="21v">v</a>);</td></tr>
+<tr><th id="120">120</th><td>  <b>if</b> (!<a class="local col2 ref" href="#22fbuffer" title='fbuffer' data-ref="22fbuffer">fbuffer</a>.<a class="local col0 ref" href="#20b" title='b' data-ref="20b">b</a> || <a class="local col9 ref" href="#19len" title='len' data-ref="19len">len</a> &lt; <var>0</var>) {</td></tr>
+<tr><th id="121">121</th><td>	<b>return</b>;</td></tr>
+<tr><th id="122">122</th><td>  }</td></tr>
+<tr><th id="123">123</th><td></td></tr>
+<tr><th id="124">124</th><td>  <i>/* Step 1: allocate and initialize JPEG decompression object */</i></td></tr>
+<tr><th id="125">125</th><td></td></tr>
+<tr><th id="126">126</th><td>  <i>/* We have to set up the error handler first, in case the initialization</i></td></tr>
+<tr><th id="127">127</th><td><i>   * step fails.  (Unlikely, but it could happen if you are out of memory.)</i></td></tr>
+<tr><th id="128">128</th><td><i>   * This routine fills in the contents of struct jerr, and returns jerr's</i></td></tr>
+<tr><th id="129">129</th><td><i>   * address which we place into the link field in cinfo.</i></td></tr>
+<tr><th id="130">130</th><td><i>   */</i></td></tr>
+<tr><th id="131">131</th><td>  <a class="local col0 ref" href="#10cinfo" title='cinfo' data-ref="10cinfo">cinfo</a>.<a class="ref" href="../jpeg-8c/jpeglib.h.html#443" title='jpeg_decompress_struct::err' data-ref="jpeg_decompress_struct::err">err</a> = <a class="ref" href="../jpeg-8c/jpeglib.h.html#jpeg_std_error" title='jpeg_std_error' data-ref="jpeg_std_error">jpeg_std_error</a>(&amp;<a class="local col1 ref" href="#11jerr" title='jerr' data-ref="11jerr">jerr</a>.<a class="tu ref" href="#q_jpeg_error_mgr_s::pub" title='q_jpeg_error_mgr_s::pub' data-use='a' data-ref="q_jpeg_error_mgr_s::pub">pub</a>);</td></tr>
+<tr><th id="132">132</th><td>  <a class="local col0 ref" href="#10cinfo" title='cinfo' data-ref="10cinfo">cinfo</a>.<a class="ref" href="../jpeg-8c/jpeglib.h.html#443" title='jpeg_decompress_struct::err' data-ref="jpeg_decompress_struct::err">err</a>-&gt;<a class="ref" href="../jpeg-8c/jpeglib.h.html#684" title='jpeg_error_mgr::error_exit' data-ref="jpeg_error_mgr::error_exit">error_exit</a> = <a class="tu ref" href="#R_JPGErrorExit" title='R_JPGErrorExit' data-use='r' data-ref="R_JPGErrorExit">R_JPGErrorExit</a>;</td></tr>
+<tr><th id="133">133</th><td>  <a class="local col0 ref" href="#10cinfo" title='cinfo' data-ref="10cinfo">cinfo</a>.<a class="ref" href="../jpeg-8c/jpeglib.h.html#443" title='jpeg_decompress_struct::err' data-ref="jpeg_decompress_struct::err">err</a>-&gt;<a class="ref" href="../jpeg-8c/jpeglib.h.html#688" title='jpeg_error_mgr::output_message' data-ref="jpeg_error_mgr::output_message">output_message</a> = <a class="tu ref" href="#R_JPGOutputMessage" title='R_JPGOutputMessage' data-use='r' data-ref="R_JPGOutputMessage">R_JPGOutputMessage</a>;</td></tr>
+<tr><th id="134">134</th><td></td></tr>
+<tr><th id="135">135</th><td>  <i>/* Establish the setjmp return context for R_JPGErrorExit to use. */</i></td></tr>
+<tr><th id="136">136</th><td>  <b>if</b> (<a class="macro" href="../../../include/setjmp.h.html#67" title="_setjmp (jerr.setjmp_buffer)" data-ref="_M/setjmp">setjmp</a>(<a class="local col1 ref" href="#11jerr" title='jerr' data-ref="11jerr">jerr</a>.<a class="tu ref" href="#q_jpeg_error_mgr_s::setjmp_buffer" title='q_jpeg_error_mgr_s::setjmp_buffer' data-use='r' data-ref="q_jpeg_error_mgr_s::setjmp_buffer">setjmp_buffer</a>))</td></tr>
+<tr><th id="137">137</th><td>  {</td></tr>
+<tr><th id="138">138</th><td>    <i>/* If we get here, the JPEG code has signaled an error.</i></td></tr>
+<tr><th id="139">139</th><td><i>     * We need to clean up the JPEG object, close the input file, and return.</i></td></tr>
+<tr><th id="140">140</th><td><i>     */</i></td></tr>
+<tr><th id="141">141</th><td>    <a class="ref" href="../jpeg-8c/jpeglib.h.html#jpeg_destroy_decompress" title='jpeg_destroy_decompress' data-ref="jpeg_destroy_decompress">jpeg_destroy_decompress</a>(&amp;<a class="local col0 ref" href="#10cinfo" title='cinfo' data-ref="10cinfo">cinfo</a>);</td></tr>
+<tr><th id="142">142</th><td>    <a class="ref" href="tr_common.h.html#ri" title='ri' data-ref="ri">ri</a>.<a class="ref" href="tr_public.h.html#(anonymous)::FS_FreeFile" title='(anonymous struct)::FS_FreeFile' data-ref="(anonymous)::FS_FreeFile">FS_FreeFile</a>(<a class="local col2 ref" href="#22fbuffer" title='fbuffer' data-ref="22fbuffer">fbuffer</a>.<a class="local col1 ref" href="#21v" title='v' data-ref="21v">v</a>);</td></tr>
+<tr><th id="143">143</th><td></td></tr>
+<tr><th id="144">144</th><td>    <i>/* Append the filename to the error for easier debugging */</i></td></tr>
+<tr><th id="145">145</th><td>    <a class="ref" href="tr_common.h.html#ri" title='ri' data-ref="ri">ri</a>.<a class="ref" href="tr_public.h.html#(anonymous)::Printf" title='(anonymous struct)::Printf' data-ref="(anonymous)::Printf">Printf</a>(<a class="enum" href="../qcommon/q_shared.h.html#PRINT_ALL" title='PRINT_ALL' data-ref="PRINT_ALL">PRINT_ALL</a>, <q>", loading file %s\n"</q>, <a class="local col6 ref" href="#6filename" title='filename' data-ref="6filename">filename</a>);</td></tr>
+<tr><th id="146">146</th><td>    <b>return</b>;</td></tr>
+<tr><th id="147">147</th><td>  }</td></tr>
+<tr><th id="148">148</th><td></td></tr>
+<tr><th id="149">149</th><td>  <i>/* Now we can initialize the JPEG decompression object. */</i></td></tr>
+<tr><th id="150">150</th><td>  <a class="macro" href="../jpeg-8c/jpeglib.h.html#941" title="jpeg_CreateDecompress((&amp;cinfo), 80, (size_t) sizeof(struct jpeg_decompress_struct))" data-ref="_M/jpeg_create_decompress">jpeg_create_decompress</a>(&amp;<a class="local col0 ref" href="#10cinfo" title='cinfo' data-ref="10cinfo">cinfo</a>);</td></tr>
+<tr><th id="151">151</th><td></td></tr>
+<tr><th id="152">152</th><td>  <i>/* Step 2: specify data source (eg, a file) */</i></td></tr>
+<tr><th id="153">153</th><td></td></tr>
+<tr><th id="154">154</th><td>  <a class="ref" href="../jpeg-8c/jpeglib.h.html#jpeg_mem_src" title='jpeg_mem_src' data-ref="jpeg_mem_src">jpeg_mem_src</a>(&amp;<a class="local col0 ref" href="#10cinfo" title='cinfo' data-ref="10cinfo">cinfo</a>, <a class="local col2 ref" href="#22fbuffer" title='fbuffer' data-ref="22fbuffer">fbuffer</a>.<a class="local col0 ref" href="#20b" title='b' data-ref="20b">b</a>, <a class="local col9 ref" href="#19len" title='len' data-ref="19len">len</a>);</td></tr>
+<tr><th id="155">155</th><td></td></tr>
+<tr><th id="156">156</th><td>  <i>/* Step 3: read file parameters with jpeg_read_header() */</i></td></tr>
+<tr><th id="157">157</th><td></td></tr>
+<tr><th id="158">158</th><td>  (<em>void</em>) <a class="ref" href="../jpeg-8c/jpeglib.h.html#jpeg_read_header" title='jpeg_read_header' data-ref="jpeg_read_header">jpeg_read_header</a>(&amp;<a class="local col0 ref" href="#10cinfo" title='cinfo' data-ref="10cinfo">cinfo</a>, <a class="macro" href="../jpeg-8c/jmorecfg.h.html#242" title="1" data-ref="_M/TRUE">TRUE</a>);</td></tr>
+<tr><th id="159">159</th><td>  <i>/* We can ignore the return value from jpeg_read_header since</i></td></tr>
+<tr><th id="160">160</th><td><i>   *   (a) suspension is not possible with the stdio data source, and</i></td></tr>
+<tr><th id="161">161</th><td><i>   *   (b) we passed TRUE to reject a tables-only JPEG file as an error.</i></td></tr>
+<tr><th id="162">162</th><td><i>   * See libjpeg.doc for more info.</i></td></tr>
+<tr><th id="163">163</th><td><i>   */</i></td></tr>
+<tr><th id="164">164</th><td></td></tr>
+<tr><th id="165">165</th><td>  <i>/* Step 4: set parameters for decompression */</i></td></tr>
+<tr><th id="166">166</th><td></td></tr>
+<tr><th id="167">167</th><td>  <i>/*</i></td></tr>
+<tr><th id="168">168</th><td><i>   * Make sure it always converts images to RGB color space. This will</i></td></tr>
+<tr><th id="169">169</th><td><i>   * automatically convert 8-bit greyscale images to RGB as well.</i></td></tr>
+<tr><th id="170">170</th><td><i>   */</i></td></tr>
+<tr><th id="171">171</th><td>  <a class="local col0 ref" href="#10cinfo" title='cinfo' data-ref="10cinfo">cinfo</a>.<a class="ref" href="../jpeg-8c/jpeglib.h.html#jpeg_decompress_struct::out_color_space" title='jpeg_decompress_struct::out_color_space' data-ref="jpeg_decompress_struct::out_color_space">out_color_space</a> = <a class="enum" href="../jpeg-8c/jpeglib.h.html#JCS_RGB" title='JCS_RGB' data-ref="JCS_RGB">JCS_RGB</a>;</td></tr>
+<tr><th id="172">172</th><td></td></tr>
+<tr><th id="173">173</th><td>  <i>/* Step 5: Start decompressor */</i></td></tr>
+<tr><th id="174">174</th><td></td></tr>
+<tr><th id="175">175</th><td>  (<em>void</em>) <a class="ref" href="../jpeg-8c/jpeglib.h.html#jpeg_start_decompress" title='jpeg_start_decompress' data-ref="jpeg_start_decompress">jpeg_start_decompress</a>(&amp;<a class="local col0 ref" href="#10cinfo" title='cinfo' data-ref="10cinfo">cinfo</a>);</td></tr>
+<tr><th id="176">176</th><td>  <i>/* We can ignore the return value since suspension is not possible</i></td></tr>
+<tr><th id="177">177</th><td><i>   * with the stdio data source.</i></td></tr>
+<tr><th id="178">178</th><td><i>   */</i></td></tr>
+<tr><th id="179">179</th><td></td></tr>
+<tr><th id="180">180</th><td>  <i>/* We may need to do some setup of our own at this point before reading</i></td></tr>
+<tr><th id="181">181</th><td><i>   * the data.  After jpeg_start_decompress() we have the correct scaled</i></td></tr>
+<tr><th id="182">182</th><td><i>   * output image dimensions available, as well as the output colormap</i></td></tr>
+<tr><th id="183">183</th><td><i>   * if we asked for color quantization.</i></td></tr>
+<tr><th id="184">184</th><td><i>   * In this example, we need to make an output work buffer of the right size.</i></td></tr>
+<tr><th id="185">185</th><td><i>   */</i> </td></tr>
+<tr><th id="186">186</th><td>  <i>/* JSAMPLEs per row in output buffer */</i></td></tr>
+<tr><th id="187">187</th><td></td></tr>
+<tr><th id="188">188</th><td>  <a class="local col4 ref" href="#14pixelcount" title='pixelcount' data-ref="14pixelcount">pixelcount</a> = <a class="local col0 ref" href="#10cinfo" title='cinfo' data-ref="10cinfo">cinfo</a>.<a class="ref" href="../jpeg-8c/jpeglib.h.html#jpeg_decompress_struct::output_width" title='jpeg_decompress_struct::output_width' data-ref="jpeg_decompress_struct::output_width">output_width</a> * <a class="local col0 ref" href="#10cinfo" title='cinfo' data-ref="10cinfo">cinfo</a>.<a class="ref" href="../jpeg-8c/jpeglib.h.html#jpeg_decompress_struct::output_height" title='jpeg_decompress_struct::output_height' data-ref="jpeg_decompress_struct::output_height">output_height</a>;</td></tr>
+<tr><th id="189">189</th><td></td></tr>
+<tr><th id="190">190</th><td>  <b>if</b>(!<a class="local col0 ref" href="#10cinfo" title='cinfo' data-ref="10cinfo">cinfo</a>.<a class="ref" href="../jpeg-8c/jpeglib.h.html#jpeg_decompress_struct::output_width" title='jpeg_decompress_struct::output_width' data-ref="jpeg_decompress_struct::output_width">output_width</a> || !<a class="local col0 ref" href="#10cinfo" title='cinfo' data-ref="10cinfo">cinfo</a>.<a class="ref" href="../jpeg-8c/jpeglib.h.html#jpeg_decompress_struct::output_height" title='jpeg_decompress_struct::output_height' data-ref="jpeg_decompress_struct::output_height">output_height</a></td></tr>
+<tr><th id="191">191</th><td>      || ((<a class="local col4 ref" href="#14pixelcount" title='pixelcount' data-ref="14pixelcount">pixelcount</a> * <var>4</var>) / <a class="local col0 ref" href="#10cinfo" title='cinfo' data-ref="10cinfo">cinfo</a>.<a class="ref" href="../jpeg-8c/jpeglib.h.html#jpeg_decompress_struct::output_width" title='jpeg_decompress_struct::output_width' data-ref="jpeg_decompress_struct::output_width">output_width</a>) / <var>4</var> != <a class="local col0 ref" href="#10cinfo" title='cinfo' data-ref="10cinfo">cinfo</a>.<a class="ref" href="../jpeg-8c/jpeglib.h.html#jpeg_decompress_struct::output_height" title='jpeg_decompress_struct::output_height' data-ref="jpeg_decompress_struct::output_height">output_height</a></td></tr>
+<tr><th id="192">192</th><td>      || <a class="local col4 ref" href="#14pixelcount" title='pixelcount' data-ref="14pixelcount">pixelcount</a> &gt; <var>0x1FFFFFFF</var> || <a class="local col0 ref" href="#10cinfo" title='cinfo' data-ref="10cinfo">cinfo</a>.<a class="ref" href="../jpeg-8c/jpeglib.h.html#jpeg_decompress_struct::output_components" title='jpeg_decompress_struct::output_components' data-ref="jpeg_decompress_struct::output_components">output_components</a> != <var>3</var></td></tr>
+<tr><th id="193">193</th><td>    )</td></tr>
+<tr><th id="194">194</th><td>  {</td></tr>
+<tr><th id="195">195</th><td>    <i>// Free the memory to make sure we don't leak memory</i></td></tr>
+<tr><th id="196">196</th><td>    <a class="ref" href="tr_common.h.html#ri" title='ri' data-ref="ri">ri</a>.<a class="ref" href="tr_public.h.html#(anonymous)::FS_FreeFile" title='(anonymous struct)::FS_FreeFile' data-ref="(anonymous)::FS_FreeFile">FS_FreeFile</a> (<a class="local col2 ref" href="#22fbuffer" title='fbuffer' data-ref="22fbuffer">fbuffer</a>.<a class="local col1 ref" href="#21v" title='v' data-ref="21v">v</a>);</td></tr>
+<tr><th id="197">197</th><td>    <a class="ref" href="../jpeg-8c/jpeglib.h.html#jpeg_destroy_decompress" title='jpeg_destroy_decompress' data-ref="jpeg_destroy_decompress">jpeg_destroy_decompress</a>(&amp;<a class="local col0 ref" href="#10cinfo" title='cinfo' data-ref="10cinfo">cinfo</a>);</td></tr>
+<tr><th id="198">198</th><td>  </td></tr>
+<tr><th id="199">199</th><td>    <a class="ref" href="tr_common.h.html#ri" title='ri' data-ref="ri">ri</a>.<a class="ref" href="tr_public.h.html#(anonymous)::Error" title='(anonymous struct)::Error' data-ref="(anonymous)::Error">Error</a>(<a class="enum" href="../qcommon/q_shared.h.html#ERR_DROP" title='ERR_DROP' data-ref="ERR_DROP">ERR_DROP</a>, <q>"LoadJPG: %s has an invalid image format: %dx%d*4=%d, components: %d"</q>, <a class="local col6 ref" href="#6filename" title='filename' data-ref="6filename">filename</a>,</td></tr>
+<tr><th id="200">200</th><td>		    <a class="local col0 ref" href="#10cinfo" title='cinfo' data-ref="10cinfo">cinfo</a>.<a class="ref" href="../jpeg-8c/jpeglib.h.html#jpeg_decompress_struct::output_width" title='jpeg_decompress_struct::output_width' data-ref="jpeg_decompress_struct::output_width">output_width</a>, <a class="local col0 ref" href="#10cinfo" title='cinfo' data-ref="10cinfo">cinfo</a>.<a class="ref" href="../jpeg-8c/jpeglib.h.html#jpeg_decompress_struct::output_height" title='jpeg_decompress_struct::output_height' data-ref="jpeg_decompress_struct::output_height">output_height</a>, <a class="local col4 ref" href="#14pixelcount" title='pixelcount' data-ref="14pixelcount">pixelcount</a> * <var>4</var>, <a class="local col0 ref" href="#10cinfo" title='cinfo' data-ref="10cinfo">cinfo</a>.<a class="ref" href="../jpeg-8c/jpeglib.h.html#jpeg_decompress_struct::output_components" title='jpeg_decompress_struct::output_components' data-ref="jpeg_decompress_struct::output_components">output_components</a>);</td></tr>
+<tr><th id="201">201</th><td>  }</td></tr>
+<tr><th id="202">202</th><td></td></tr>
+<tr><th id="203">203</th><td>  <a class="local col5 ref" href="#15memcount" title='memcount' data-ref="15memcount">memcount</a> = <a class="local col4 ref" href="#14pixelcount" title='pixelcount' data-ref="14pixelcount">pixelcount</a> * <var>4</var>;</td></tr>
+<tr><th id="204">204</th><td>  <a class="local col3 ref" href="#13row_stride" title='row_stride' data-ref="13row_stride">row_stride</a> = <a class="local col0 ref" href="#10cinfo" title='cinfo' data-ref="10cinfo">cinfo</a>.<a class="ref" href="../jpeg-8c/jpeglib.h.html#jpeg_decompress_struct::output_width" title='jpeg_decompress_struct::output_width' data-ref="jpeg_decompress_struct::output_width">output_width</a> * <a class="local col0 ref" href="#10cinfo" title='cinfo' data-ref="10cinfo">cinfo</a>.<a class="ref" href="../jpeg-8c/jpeglib.h.html#jpeg_decompress_struct::output_components" title='jpeg_decompress_struct::output_components' data-ref="jpeg_decompress_struct::output_components">output_components</a>;</td></tr>
+<tr><th id="205">205</th><td></td></tr>
+<tr><th id="206">206</th><td>  <a class="local col8 ref" href="#18out" title='out' data-ref="18out">out</a> = <a class="ref" href="tr_common.h.html#ri" title='ri' data-ref="ri">ri</a>.<a class="ref" href="tr_public.h.html#(anonymous)::Malloc" title='(anonymous struct)::Malloc' data-ref="(anonymous)::Malloc">Malloc</a>(<a class="local col5 ref" href="#15memcount" title='memcount' data-ref="15memcount">memcount</a>);</td></tr>
+<tr><th id="207">207</th><td></td></tr>
+<tr><th id="208">208</th><td>  *<a class="local col8 ref" href="#8width" title='width' data-ref="8width">width</a> = <a class="local col0 ref" href="#10cinfo" title='cinfo' data-ref="10cinfo">cinfo</a>.<a class="ref" href="../jpeg-8c/jpeglib.h.html#jpeg_decompress_struct::output_width" title='jpeg_decompress_struct::output_width' data-ref="jpeg_decompress_struct::output_width">output_width</a>;</td></tr>
+<tr><th id="209">209</th><td>  *<a class="local col9 ref" href="#9height" title='height' data-ref="9height">height</a> = <a class="local col0 ref" href="#10cinfo" title='cinfo' data-ref="10cinfo">cinfo</a>.<a class="ref" href="../jpeg-8c/jpeglib.h.html#jpeg_decompress_struct::output_height" title='jpeg_decompress_struct::output_height' data-ref="jpeg_decompress_struct::output_height">output_height</a>;</td></tr>
+<tr><th id="210">210</th><td></td></tr>
+<tr><th id="211">211</th><td>  <i>/* Step 6: while (scan lines remain to be read) */</i></td></tr>
+<tr><th id="212">212</th><td>  <i>/*           jpeg_read_scanlines(...); */</i></td></tr>
+<tr><th id="213">213</th><td></td></tr>
+<tr><th id="214">214</th><td>  <i>/* Here we use the library's state variable cinfo.output_scanline as the</i></td></tr>
+<tr><th id="215">215</th><td><i>   * loop counter, so that we don't have to keep track ourselves.</i></td></tr>
+<tr><th id="216">216</th><td><i>   */</i></td></tr>
+<tr><th id="217">217</th><td>  <b>while</b> (<a class="local col0 ref" href="#10cinfo" title='cinfo' data-ref="10cinfo">cinfo</a>.<a class="ref" href="../jpeg-8c/jpeglib.h.html#jpeg_decompress_struct::output_scanline" title='jpeg_decompress_struct::output_scanline' data-ref="jpeg_decompress_struct::output_scanline">output_scanline</a> &lt; <a class="local col0 ref" href="#10cinfo" title='cinfo' data-ref="10cinfo">cinfo</a>.<a class="ref" href="../jpeg-8c/jpeglib.h.html#jpeg_decompress_struct::output_height" title='jpeg_decompress_struct::output_height' data-ref="jpeg_decompress_struct::output_height">output_height</a>) {</td></tr>
+<tr><th id="218">218</th><td>    <i>/* jpeg_read_scanlines expects an array of pointers to scanlines.</i></td></tr>
+<tr><th id="219">219</th><td><i>     * Here the array is only one element long, but you could ask for</i></td></tr>
+<tr><th id="220">220</th><td><i>     * more than one scanline at a time if that's more convenient.</i></td></tr>
+<tr><th id="221">221</th><td><i>     */</i></td></tr>
+<tr><th id="222">222</th><td>	<a class="local col3 ref" href="#23buf" title='buf' data-ref="23buf">buf</a> = ((<a class="local col8 ref" href="#18out" title='out' data-ref="18out">out</a>+(<a class="local col3 ref" href="#13row_stride" title='row_stride' data-ref="13row_stride">row_stride</a>*<a class="local col0 ref" href="#10cinfo" title='cinfo' data-ref="10cinfo">cinfo</a>.<a class="ref" href="../jpeg-8c/jpeglib.h.html#jpeg_decompress_struct::output_scanline" title='jpeg_decompress_struct::output_scanline' data-ref="jpeg_decompress_struct::output_scanline">output_scanline</a>)));</td></tr>
+<tr><th id="223">223</th><td>	<a class="local col2 ref" href="#12buffer" title='buffer' data-ref="12buffer">buffer</a> = &amp;<a class="local col3 ref" href="#23buf" title='buf' data-ref="23buf">buf</a>;</td></tr>
+<tr><th id="224">224</th><td>    (<em>void</em>) <a class="ref" href="../jpeg-8c/jpeglib.h.html#jpeg_read_scanlines" title='jpeg_read_scanlines' data-ref="jpeg_read_scanlines">jpeg_read_scanlines</a>(&amp;<a class="local col0 ref" href="#10cinfo" title='cinfo' data-ref="10cinfo">cinfo</a>, <a class="local col2 ref" href="#12buffer" title='buffer' data-ref="12buffer">buffer</a>, <var>1</var>);</td></tr>
+<tr><th id="225">225</th><td>  }</td></tr>
+<tr><th id="226">226</th><td>  </td></tr>
+<tr><th id="227">227</th><td>  <a class="local col3 ref" href="#23buf" title='buf' data-ref="23buf">buf</a> = <a class="local col8 ref" href="#18out" title='out' data-ref="18out">out</a>;</td></tr>
+<tr><th id="228">228</th><td></td></tr>
+<tr><th id="229">229</th><td>  <i>// Expand from RGB to RGBA</i></td></tr>
+<tr><th id="230">230</th><td>  <a class="local col6 ref" href="#16sindex" title='sindex' data-ref="16sindex">sindex</a> = <a class="local col4 ref" href="#14pixelcount" title='pixelcount' data-ref="14pixelcount">pixelcount</a> * <a class="local col0 ref" href="#10cinfo" title='cinfo' data-ref="10cinfo">cinfo</a>.<a class="ref" href="../jpeg-8c/jpeglib.h.html#jpeg_decompress_struct::output_components" title='jpeg_decompress_struct::output_components' data-ref="jpeg_decompress_struct::output_components">output_components</a>;</td></tr>
+<tr><th id="231">231</th><td>  <a class="local col7 ref" href="#17dindex" title='dindex' data-ref="17dindex">dindex</a> = <a class="local col5 ref" href="#15memcount" title='memcount' data-ref="15memcount">memcount</a>;</td></tr>
+<tr><th id="232">232</th><td></td></tr>
+<tr><th id="233">233</th><td>  <b>do</b></td></tr>
+<tr><th id="234">234</th><td>  {	</td></tr>
+<tr><th id="235">235</th><td>    <a class="local col3 ref" href="#23buf" title='buf' data-ref="23buf">buf</a>[--<a class="local col7 ref" href="#17dindex" title='dindex' data-ref="17dindex">dindex</a>] = <var>255</var>;</td></tr>
+<tr><th id="236">236</th><td>    <a class="local col3 ref" href="#23buf" title='buf' data-ref="23buf">buf</a>[--<a class="local col7 ref" href="#17dindex" title='dindex' data-ref="17dindex">dindex</a>] = <a class="local col3 ref" href="#23buf" title='buf' data-ref="23buf">buf</a>[--<a class="local col6 ref" href="#16sindex" title='sindex' data-ref="16sindex">sindex</a>];</td></tr>
+<tr><th id="237">237</th><td>    <a class="local col3 ref" href="#23buf" title='buf' data-ref="23buf">buf</a>[--<a class="local col7 ref" href="#17dindex" title='dindex' data-ref="17dindex">dindex</a>] = <a class="local col3 ref" href="#23buf" title='buf' data-ref="23buf">buf</a>[--<a class="local col6 ref" href="#16sindex" title='sindex' data-ref="16sindex">sindex</a>];</td></tr>
+<tr><th id="238">238</th><td>    <a class="local col3 ref" href="#23buf" title='buf' data-ref="23buf">buf</a>[--<a class="local col7 ref" href="#17dindex" title='dindex' data-ref="17dindex">dindex</a>] = <a class="local col3 ref" href="#23buf" title='buf' data-ref="23buf">buf</a>[--<a class="local col6 ref" href="#16sindex" title='sindex' data-ref="16sindex">sindex</a>];</td></tr>
+<tr><th id="239">239</th><td>  } <b>while</b>(<a class="local col6 ref" href="#16sindex" title='sindex' data-ref="16sindex">sindex</a>);</td></tr>
+<tr><th id="240">240</th><td></td></tr>
+<tr><th id="241">241</th><td>  *<a class="local col7 ref" href="#7pic" title='pic' data-ref="7pic">pic</a> = <a class="local col8 ref" href="#18out" title='out' data-ref="18out">out</a>;</td></tr>
+<tr><th id="242">242</th><td></td></tr>
+<tr><th id="243">243</th><td>  <i>/* Step 7: Finish decompression */</i></td></tr>
+<tr><th id="244">244</th><td></td></tr>
+<tr><th id="245">245</th><td>  <a class="ref" href="../jpeg-8c/jpeglib.h.html#jpeg_finish_decompress" title='jpeg_finish_decompress' data-ref="jpeg_finish_decompress">jpeg_finish_decompress</a>(&amp;<a class="local col0 ref" href="#10cinfo" title='cinfo' data-ref="10cinfo">cinfo</a>);</td></tr>
+<tr><th id="246">246</th><td>  <i>/* We can ignore the return value since suspension is not possible</i></td></tr>
+<tr><th id="247">247</th><td><i>   * with the stdio data source.</i></td></tr>
+<tr><th id="248">248</th><td><i>   */</i></td></tr>
+<tr><th id="249">249</th><td></td></tr>
+<tr><th id="250">250</th><td>  <i>/* Step 8: Release JPEG decompression object */</i></td></tr>
+<tr><th id="251">251</th><td></td></tr>
+<tr><th id="252">252</th><td>  <i>/* This is an important step since it will release a good deal of memory. */</i></td></tr>
+<tr><th id="253">253</th><td>  <a class="ref" href="../jpeg-8c/jpeglib.h.html#jpeg_destroy_decompress" title='jpeg_destroy_decompress' data-ref="jpeg_destroy_decompress">jpeg_destroy_decompress</a>(&amp;<a class="local col0 ref" href="#10cinfo" title='cinfo' data-ref="10cinfo">cinfo</a>);</td></tr>
+<tr><th id="254">254</th><td></td></tr>
+<tr><th id="255">255</th><td>  <i>/* After finish_decompress, we can close the input file.</i></td></tr>
+<tr><th id="256">256</th><td><i>   * Here we postpone it until after no more JPEG errors are possible,</i></td></tr>
+<tr><th id="257">257</th><td><i>   * so as to simplify the setjmp error logic above.  (Actually, I don't</i></td></tr>
+<tr><th id="258">258</th><td><i>   * think that jpeg_destroy can do an error exit, but why assume anything...)</i></td></tr>
+<tr><th id="259">259</th><td><i>   */</i></td></tr>
+<tr><th id="260">260</th><td>  <a class="ref" href="tr_common.h.html#ri" title='ri' data-ref="ri">ri</a>.<a class="ref" href="tr_public.h.html#(anonymous)::FS_FreeFile" title='(anonymous struct)::FS_FreeFile' data-ref="(anonymous)::FS_FreeFile">FS_FreeFile</a> (<a class="local col2 ref" href="#22fbuffer" title='fbuffer' data-ref="22fbuffer">fbuffer</a>.<a class="local col1 ref" href="#21v" title='v' data-ref="21v">v</a>);</td></tr>
+<tr><th id="261">261</th><td></td></tr>
+<tr><th id="262">262</th><td>  <i>/* At this point you may want to check to see whether any corrupt-data</i></td></tr>
+<tr><th id="263">263</th><td><i>   * warnings occurred (test whether jerr.pub.num_warnings is nonzero).</i></td></tr>
+<tr><th id="264">264</th><td><i>   */</i></td></tr>
+<tr><th id="265">265</th><td></td></tr>
+<tr><th id="266">266</th><td>  <i>/* And we're done! */</i></td></tr>
+<tr><th id="267">267</th><td>}</td></tr>
+<tr><th id="268">268</th><td></td></tr>
+<tr><th id="269">269</th><td></td></tr>
+<tr><th id="270">270</th><td><i>/* Expanded data destination object for stdio output */</i></td></tr>
+<tr><th id="271">271</th><td></td></tr>
+<tr><th id="272">272</th><td><b>typedef</b> <b>struct</b> {</td></tr>
+<tr><th id="273">273</th><td>  <b>struct</b> <a class="type" href="../jpeg-8c/jpeglib.h.html#jpeg_destination_mgr" title='jpeg_destination_mgr' data-ref="jpeg_destination_mgr">jpeg_destination_mgr</a> <dfn class="tu decl" id="(anonymous)::pub" title='(anonymous struct)::pub' data-type='struct jpeg_destination_mgr' data-ref="(anonymous)::pub">pub</dfn>; <i  data-doc="(anonymous)::pub">/* public fields */</i></td></tr>
+<tr><th id="274">274</th><td></td></tr>
+<tr><th id="275">275</th><td>  <a class="typedef" href="../qcommon/q_shared.h.html#byte" title='byte' data-type='unsigned char' data-ref="byte">byte</a>* <dfn class="tu decl" id="(anonymous)::outfile" title='(anonymous struct)::outfile' data-type='byte *' data-ref="(anonymous)::outfile">outfile</dfn>;		<i  data-doc="(anonymous)::outfile">/* target stream */</i></td></tr>
+<tr><th id="276">276</th><td>  <em>int</em>	<dfn class="tu decl" id="(anonymous)::size" title='(anonymous struct)::size' data-type='int' data-ref="(anonymous)::size">size</dfn>;</td></tr>
+<tr><th id="277">277</th><td>} <dfn class="typedef" id="my_destination_mgr" title='my_destination_mgr' data-type='struct my_destination_mgr' data-ref="my_destination_mgr">my_destination_mgr</dfn>;</td></tr>
+<tr><th id="278">278</th><td></td></tr>
+<tr><th id="279">279</th><td><b>typedef</b> <a class="typedef" href="#my_destination_mgr" title='my_destination_mgr' data-type='struct my_destination_mgr' data-ref="my_destination_mgr">my_destination_mgr</a> * <dfn class="typedef" id="my_dest_ptr" title='my_dest_ptr' data-type='my_destination_mgr *' data-ref="my_dest_ptr">my_dest_ptr</dfn>;</td></tr>
+<tr><th id="280">280</th><td></td></tr>
+<tr><th id="281">281</th><td></td></tr>
+<tr><th id="282">282</th><td><i  data-doc="init_destination">/*</i></td></tr>
+<tr><th id="283">283</th><td><i  data-doc="init_destination"> * Initialize destination --- called by jpeg_start_compress</i></td></tr>
+<tr><th id="284">284</th><td><i  data-doc="init_destination"> * before any data is actually written.</i></td></tr>
+<tr><th id="285">285</th><td><i  data-doc="init_destination"> */</i></td></tr>
+<tr><th id="286">286</th><td></td></tr>
+<tr><th id="287">287</th><td><em>static</em> <em>void</em></td></tr>
+<tr><th id="288">288</th><td><dfn class="tu decl def" id="init_destination" title='init_destination' data-type='void init_destination(j_compress_ptr cinfo)' data-ref="init_destination">init_destination</dfn> (<a class="typedef" href="../jpeg-8c/jpeglib.h.html#j_compress_ptr" title='j_compress_ptr' data-type='struct jpeg_compress_struct *' data-ref="j_compress_ptr">j_compress_ptr</a> <dfn class="local col4 decl" id="24cinfo" title='cinfo' data-type='j_compress_ptr' data-ref="24cinfo">cinfo</dfn>)</td></tr>
+<tr><th id="289">289</th><td>{</td></tr>
+<tr><th id="290">290</th><td>  <a class="typedef" href="#my_dest_ptr" title='my_dest_ptr' data-type='my_destination_mgr *' data-ref="my_dest_ptr">my_dest_ptr</a> <dfn class="local col5 decl" id="25dest" title='dest' data-type='my_dest_ptr' data-ref="25dest">dest</dfn> = (<a class="typedef" href="#my_dest_ptr" title='my_dest_ptr' data-type='my_destination_mgr *' data-ref="my_dest_ptr">my_dest_ptr</a>) <a class="local col4 ref" href="#24cinfo" title='cinfo' data-ref="24cinfo">cinfo</a>-&gt;<a class="ref" href="../jpeg-8c/jpeglib.h.html#jpeg_compress_struct::dest" title='jpeg_compress_struct::dest' data-ref="jpeg_compress_struct::dest">dest</a>;</td></tr>
+<tr><th id="291">291</th><td></td></tr>
+<tr><th id="292">292</th><td>  <a class="local col5 ref" href="#25dest" title='dest' data-ref="25dest">dest</a>-&gt;<a class="tu ref" href="#(anonymous)::pub" title='(anonymous struct)::pub' data-use='m' data-ref="(anonymous)::pub">pub</a>.<a class="ref" href="../jpeg-8c/jpeglib.h.html#jpeg_destination_mgr::next_output_byte" title='jpeg_destination_mgr::next_output_byte' data-ref="jpeg_destination_mgr::next_output_byte">next_output_byte</a> = <a class="local col5 ref" href="#25dest" title='dest' data-ref="25dest">dest</a>-&gt;<a class="tu ref" href="#(anonymous)::outfile" title='(anonymous struct)::outfile' data-use='r' data-ref="(anonymous)::outfile">outfile</a>;</td></tr>
+<tr><th id="293">293</th><td>  <a class="local col5 ref" href="#25dest" title='dest' data-ref="25dest">dest</a>-&gt;<a class="tu ref" href="#(anonymous)::pub" title='(anonymous struct)::pub' data-use='m' data-ref="(anonymous)::pub">pub</a>.<a class="ref" href="../jpeg-8c/jpeglib.h.html#jpeg_destination_mgr::free_in_buffer" title='jpeg_destination_mgr::free_in_buffer' data-ref="jpeg_destination_mgr::free_in_buffer">free_in_buffer</a> = <a class="local col5 ref" href="#25dest" title='dest' data-ref="25dest">dest</a>-&gt;<a class="tu ref" href="#(anonymous)::size" title='(anonymous struct)::size' data-use='r' data-ref="(anonymous)::size">size</a>;</td></tr>
+<tr><th id="294">294</th><td>}</td></tr>
+<tr><th id="295">295</th><td></td></tr>
+<tr><th id="296">296</th><td></td></tr>
+<tr><th id="297">297</th><td><i  data-doc="empty_output_buffer">/*</i></td></tr>
+<tr><th id="298">298</th><td><i  data-doc="empty_output_buffer"> * Empty the output buffer --- called whenever buffer fills up.</i></td></tr>
+<tr><th id="299">299</th><td><i  data-doc="empty_output_buffer"> *</i></td></tr>
+<tr><th id="300">300</th><td><i  data-doc="empty_output_buffer"> * In typical applications, this should write the entire output buffer</i></td></tr>
+<tr><th id="301">301</th><td><i  data-doc="empty_output_buffer"> * (ignoring the current state of next_output_byte &amp; free_in_buffer),</i></td></tr>
+<tr><th id="302">302</th><td><i  data-doc="empty_output_buffer"> * reset the pointer &amp; count to the start of the buffer, and return TRUE</i></td></tr>
+<tr><th id="303">303</th><td><i  data-doc="empty_output_buffer"> * indicating that the buffer has been dumped.</i></td></tr>
+<tr><th id="304">304</th><td><i  data-doc="empty_output_buffer"> *</i></td></tr>
+<tr><th id="305">305</th><td><i  data-doc="empty_output_buffer"> * In applications that need to be able to suspend compression due to output</i></td></tr>
+<tr><th id="306">306</th><td><i  data-doc="empty_output_buffer"> * overrun, a FALSE return indicates that the buffer cannot be emptied now.</i></td></tr>
+<tr><th id="307">307</th><td><i  data-doc="empty_output_buffer"> * In this situation, the compressor will return to its caller (possibly with</i></td></tr>
+<tr><th id="308">308</th><td><i  data-doc="empty_output_buffer"> * an indication that it has not accepted all the supplied scanlines).  The</i></td></tr>
+<tr><th id="309">309</th><td><i  data-doc="empty_output_buffer"> * application should resume compression after it has made more room in the</i></td></tr>
+<tr><th id="310">310</th><td><i  data-doc="empty_output_buffer"> * output buffer.  Note that there are substantial restrictions on the use of</i></td></tr>
+<tr><th id="311">311</th><td><i  data-doc="empty_output_buffer"> * suspension --- see the documentation.</i></td></tr>
+<tr><th id="312">312</th><td><i  data-doc="empty_output_buffer"> *</i></td></tr>
+<tr><th id="313">313</th><td><i  data-doc="empty_output_buffer"> * When suspending, the compressor will back up to a convenient restart point</i></td></tr>
+<tr><th id="314">314</th><td><i  data-doc="empty_output_buffer"> * (typically the start of the current MCU). next_output_byte &amp; free_in_buffer</i></td></tr>
+<tr><th id="315">315</th><td><i  data-doc="empty_output_buffer"> * indicate where the restart point will be if the current call returns FALSE.</i></td></tr>
+<tr><th id="316">316</th><td><i  data-doc="empty_output_buffer"> * Data beyond this point will be regenerated after resumption, so do not</i></td></tr>
+<tr><th id="317">317</th><td><i  data-doc="empty_output_buffer"> * write it out when emptying the buffer externally.</i></td></tr>
+<tr><th id="318">318</th><td><i  data-doc="empty_output_buffer"> */</i></td></tr>
+<tr><th id="319">319</th><td></td></tr>
+<tr><th id="320">320</th><td><em>static</em> <a class="typedef" href="../jpeg-8c/jmorecfg.h.html#boolean" title='boolean' data-type='int' data-ref="boolean">boolean</a></td></tr>
+<tr><th id="321">321</th><td><dfn class="tu decl def" id="empty_output_buffer" title='empty_output_buffer' data-type='boolean empty_output_buffer(j_compress_ptr cinfo)' data-ref="empty_output_buffer">empty_output_buffer</dfn> (<a class="typedef" href="../jpeg-8c/jpeglib.h.html#j_compress_ptr" title='j_compress_ptr' data-type='struct jpeg_compress_struct *' data-ref="j_compress_ptr">j_compress_ptr</a> <dfn class="local col6 decl" id="26cinfo" title='cinfo' data-type='j_compress_ptr' data-ref="26cinfo">cinfo</dfn>)</td></tr>
+<tr><th id="322">322</th><td>{</td></tr>
+<tr><th id="323">323</th><td>  <a class="typedef" href="#my_dest_ptr" title='my_dest_ptr' data-type='my_destination_mgr *' data-ref="my_dest_ptr">my_dest_ptr</a> <dfn class="local col7 decl" id="27dest" title='dest' data-type='my_dest_ptr' data-ref="27dest">dest</dfn> = (<a class="typedef" href="#my_dest_ptr" title='my_dest_ptr' data-type='my_destination_mgr *' data-ref="my_dest_ptr">my_dest_ptr</a>) <a class="local col6 ref" href="#26cinfo" title='cinfo' data-ref="26cinfo">cinfo</a>-&gt;<a class="ref" href="../jpeg-8c/jpeglib.h.html#jpeg_compress_struct::dest" title='jpeg_compress_struct::dest' data-ref="jpeg_compress_struct::dest">dest</a>;</td></tr>
+<tr><th id="324">324</th><td>  </td></tr>
+<tr><th id="325">325</th><td>  <a class="ref" href="../jpeg-8c/jpeglib.h.html#jpeg_destroy_compress" title='jpeg_destroy_compress' data-ref="jpeg_destroy_compress">jpeg_destroy_compress</a>(<a class="local col6 ref" href="#26cinfo" title='cinfo' data-ref="26cinfo">cinfo</a>);</td></tr>
+<tr><th id="326">326</th><td>  </td></tr>
+<tr><th id="327">327</th><td>  <i>// Make crash fatal or we would probably leak memory.</i></td></tr>
+<tr><th id="328">328</th><td>  <a class="ref" href="tr_common.h.html#ri" title='ri' data-ref="ri">ri</a>.<a class="ref" href="tr_public.h.html#(anonymous)::Error" title='(anonymous struct)::Error' data-ref="(anonymous)::Error">Error</a>(<a class="enum" href="../qcommon/q_shared.h.html#ERR_FATAL" title='ERR_FATAL' data-ref="ERR_FATAL">ERR_FATAL</a>, <q>"Output buffer for encoded JPEG image has insufficient size of %d bytes"</q>,</td></tr>
+<tr><th id="329">329</th><td>           <a class="local col7 ref" href="#27dest" title='dest' data-ref="27dest">dest</a>-&gt;<a class="tu ref" href="#(anonymous)::size" title='(anonymous struct)::size' data-use='r' data-ref="(anonymous)::size">size</a>);</td></tr>
+<tr><th id="330">330</th><td></td></tr>
+<tr><th id="331">331</th><td>  <b>return</b> <a class="macro" href="../jpeg-8c/jmorecfg.h.html#239" title="0" data-ref="_M/FALSE">FALSE</a>;</td></tr>
+<tr><th id="332">332</th><td>}</td></tr>
+<tr><th id="333">333</th><td></td></tr>
+<tr><th id="334">334</th><td><i  data-doc="term_destination">/*</i></td></tr>
+<tr><th id="335">335</th><td><i  data-doc="term_destination"> * Terminate destination --- called by jpeg_finish_compress</i></td></tr>
+<tr><th id="336">336</th><td><i  data-doc="term_destination"> * after all data has been written.  Usually needs to flush buffer.</i></td></tr>
+<tr><th id="337">337</th><td><i  data-doc="term_destination"> *</i></td></tr>
+<tr><th id="338">338</th><td><i  data-doc="term_destination"> * NB: *not* called by jpeg_abort or jpeg_destroy; surrounding</i></td></tr>
+<tr><th id="339">339</th><td><i  data-doc="term_destination"> * application must deal with any cleanup that should happen even</i></td></tr>
+<tr><th id="340">340</th><td><i  data-doc="term_destination"> * for error exit.</i></td></tr>
+<tr><th id="341">341</th><td><i  data-doc="term_destination"> */</i></td></tr>
+<tr><th id="342">342</th><td></td></tr>
+<tr><th id="343">343</th><td><em>static</em> <em>void</em> <dfn class="tu decl def" id="term_destination" title='term_destination' data-type='void term_destination(j_compress_ptr cinfo)' data-ref="term_destination">term_destination</dfn>(<a class="typedef" href="../jpeg-8c/jpeglib.h.html#j_compress_ptr" title='j_compress_ptr' data-type='struct jpeg_compress_struct *' data-ref="j_compress_ptr">j_compress_ptr</a> <dfn class="local col8 decl" id="28cinfo" title='cinfo' data-type='j_compress_ptr' data-ref="28cinfo">cinfo</dfn>)</td></tr>
+<tr><th id="344">344</th><td>{</td></tr>
+<tr><th id="345">345</th><td>}</td></tr>
+<tr><th id="346">346</th><td></td></tr>
+<tr><th id="347">347</th><td></td></tr>
+<tr><th id="348">348</th><td><i  data-doc="jpegDest">/*</i></td></tr>
+<tr><th id="349">349</th><td><i  data-doc="jpegDest"> * Prepare for output to a stdio stream.</i></td></tr>
+<tr><th id="350">350</th><td><i  data-doc="jpegDest"> * The caller must have already opened the stream, and is responsible</i></td></tr>
+<tr><th id="351">351</th><td><i  data-doc="jpegDest"> * for closing it after finishing compression.</i></td></tr>
+<tr><th id="352">352</th><td><i  data-doc="jpegDest"> */</i></td></tr>
+<tr><th id="353">353</th><td></td></tr>
+<tr><th id="354">354</th><td><em>static</em> <em>void</em></td></tr>
+<tr><th id="355">355</th><td><dfn class="tu decl def" id="jpegDest" title='jpegDest' data-type='void jpegDest(j_compress_ptr cinfo, byte * outfile, int size)' data-ref="jpegDest">jpegDest</dfn> (<a class="typedef" href="../jpeg-8c/jpeglib.h.html#j_compress_ptr" title='j_compress_ptr' data-type='struct jpeg_compress_struct *' data-ref="j_compress_ptr">j_compress_ptr</a> <dfn class="local col9 decl" id="29cinfo" title='cinfo' data-type='j_compress_ptr' data-ref="29cinfo">cinfo</dfn>, <a class="typedef" href="../qcommon/q_shared.h.html#byte" title='byte' data-type='unsigned char' data-ref="byte">byte</a>* <dfn class="local col0 decl" id="30outfile" title='outfile' data-type='byte *' data-ref="30outfile">outfile</dfn>, <em>int</em> <dfn class="local col1 decl" id="31size" title='size' data-type='int' data-ref="31size">size</dfn>)</td></tr>
+<tr><th id="356">356</th><td>{</td></tr>
+<tr><th id="357">357</th><td>  <a class="typedef" href="#my_dest_ptr" title='my_dest_ptr' data-type='my_destination_mgr *' data-ref="my_dest_ptr">my_dest_ptr</a> <dfn class="local col2 decl" id="32dest" title='dest' data-type='my_dest_ptr' data-ref="32dest">dest</dfn>;</td></tr>
+<tr><th id="358">358</th><td></td></tr>
+<tr><th id="359">359</th><td>  <i>/* The destination object is made permanent so that multiple JPEG images</i></td></tr>
+<tr><th id="360">360</th><td><i>   * can be written to the same file without re-executing jpeg_stdio_dest.</i></td></tr>
+<tr><th id="361">361</th><td><i>   * This makes it dangerous to use this manager and a different destination</i></td></tr>
+<tr><th id="362">362</th><td><i>   * manager serially with the same JPEG object, because their private object</i></td></tr>
+<tr><th id="363">363</th><td><i>   * sizes may be different.  Caveat programmer.</i></td></tr>
+<tr><th id="364">364</th><td><i>   */</i></td></tr>
+<tr><th id="365">365</th><td>  <b>if</b> (<a class="local col9 ref" href="#29cinfo" title='cinfo' data-ref="29cinfo">cinfo</a>-&gt;<a class="ref" href="../jpeg-8c/jpeglib.h.html#jpeg_compress_struct::dest" title='jpeg_compress_struct::dest' data-ref="jpeg_compress_struct::dest">dest</a> == <span class="macro" title="((void*)0)" data-ref="_M/NULL">NULL</span>) {	<i>/* first time for this JPEG object? */</i></td></tr>
+<tr><th id="366">366</th><td>    <a class="local col9 ref" href="#29cinfo" title='cinfo' data-ref="29cinfo">cinfo</a>-&gt;<a class="ref" href="../jpeg-8c/jpeglib.h.html#jpeg_compress_struct::dest" title='jpeg_compress_struct::dest' data-ref="jpeg_compress_struct::dest">dest</a> = (<b>struct</b> <a class="type" href="../jpeg-8c/jpeglib.h.html#jpeg_destination_mgr" title='jpeg_destination_mgr' data-ref="jpeg_destination_mgr">jpeg_destination_mgr</a> *)</td></tr>
+<tr><th id="367">367</th><td>      (*<a class="local col9 ref" href="#29cinfo" title='cinfo' data-ref="29cinfo">cinfo</a>-&gt;<a class="ref" href="../jpeg-8c/jpeglib.h.html#278" title='jpeg_compress_struct::mem' data-ref="jpeg_compress_struct::mem">mem</a>-&gt;<a class="ref" href="../jpeg-8c/jpeglib.h.html#797" title='jpeg_memory_mgr::alloc_small' data-ref="jpeg_memory_mgr::alloc_small">alloc_small</a>) ((<a class="typedef" href="../jpeg-8c/jpeglib.h.html#j_common_ptr" title='j_common_ptr' data-type='struct jpeg_common_struct *' data-ref="j_common_ptr">j_common_ptr</a>) <a class="local col9 ref" href="#29cinfo" title='cinfo' data-ref="29cinfo">cinfo</a>, <a class="macro" href="../jpeg-8c/jpeglib.h.html#787" title="0" data-ref="_M/JPOOL_PERMANENT">JPOOL_PERMANENT</a>,</td></tr>
+<tr><th id="368">368</th><td>				  <b>sizeof</b>(<a class="typedef" href="#my_destination_mgr" title='my_destination_mgr' data-type='struct my_destination_mgr' data-ref="my_destination_mgr">my_destination_mgr</a>));</td></tr>
+<tr><th id="369">369</th><td>  }</td></tr>
+<tr><th id="370">370</th><td></td></tr>
+<tr><th id="371">371</th><td>  <a class="local col2 ref" href="#32dest" title='dest' data-ref="32dest">dest</a> = (<a class="typedef" href="#my_dest_ptr" title='my_dest_ptr' data-type='my_destination_mgr *' data-ref="my_dest_ptr">my_dest_ptr</a>) <a class="local col9 ref" href="#29cinfo" title='cinfo' data-ref="29cinfo">cinfo</a>-&gt;<a class="ref" href="../jpeg-8c/jpeglib.h.html#jpeg_compress_struct::dest" title='jpeg_compress_struct::dest' data-ref="jpeg_compress_struct::dest">dest</a>;</td></tr>
+<tr><th id="372">372</th><td>  <a class="local col2 ref" href="#32dest" title='dest' data-ref="32dest">dest</a>-&gt;<a class="tu ref" href="#(anonymous)::pub" title='(anonymous struct)::pub' data-use='m' data-ref="(anonymous)::pub">pub</a>.<a class="ref" href="../jpeg-8c/jpeglib.h.html#756" title='jpeg_destination_mgr::init_destination' data-ref="jpeg_destination_mgr::init_destination">init_destination</a> = <a class="tu ref" href="#init_destination" title='init_destination' data-use='r' data-ref="init_destination">init_destination</a>;</td></tr>
+<tr><th id="373">373</th><td>  <a class="local col2 ref" href="#32dest" title='dest' data-ref="32dest">dest</a>-&gt;<a class="tu ref" href="#(anonymous)::pub" title='(anonymous struct)::pub' data-use='m' data-ref="(anonymous)::pub">pub</a>.<a class="ref" href="../jpeg-8c/jpeglib.h.html#757" title='jpeg_destination_mgr::empty_output_buffer' data-ref="jpeg_destination_mgr::empty_output_buffer">empty_output_buffer</a> = <a class="tu ref" href="#empty_output_buffer" title='empty_output_buffer' data-use='r' data-ref="empty_output_buffer">empty_output_buffer</a>;</td></tr>
+<tr><th id="374">374</th><td>  <a class="local col2 ref" href="#32dest" title='dest' data-ref="32dest">dest</a>-&gt;<a class="tu ref" href="#(anonymous)::pub" title='(anonymous struct)::pub' data-use='m' data-ref="(anonymous)::pub">pub</a>.<a class="ref" href="../jpeg-8c/jpeglib.h.html#758" title='jpeg_destination_mgr::term_destination' data-ref="jpeg_destination_mgr::term_destination">term_destination</a> = <a class="tu ref" href="#term_destination" title='term_destination' data-use='r' data-ref="term_destination">term_destination</a>;</td></tr>
+<tr><th id="375">375</th><td>  <a class="local col2 ref" href="#32dest" title='dest' data-ref="32dest">dest</a>-&gt;<a class="tu ref" href="#(anonymous)::outfile" title='(anonymous struct)::outfile' data-use='w' data-ref="(anonymous)::outfile">outfile</a> = <a class="local col0 ref" href="#30outfile" title='outfile' data-ref="30outfile">outfile</a>;</td></tr>
+<tr><th id="376">376</th><td>  <a class="local col2 ref" href="#32dest" title='dest' data-ref="32dest">dest</a>-&gt;<a class="tu ref" href="#(anonymous)::size" title='(anonymous struct)::size' data-use='w' data-ref="(anonymous)::size">size</a> = <a class="local col1 ref" href="#31size" title='size' data-ref="31size">size</a>;</td></tr>
+<tr><th id="377">377</th><td>}</td></tr>
+<tr><th id="378">378</th><td></td></tr>
+<tr><th id="379">379</th><td><i>/*</i></td></tr>
+<tr><th id="380">380</th><td><i>=================</i></td></tr>
+<tr><th id="381">381</th><td><i>SaveJPGToBuffer</i></td></tr>
+<tr><th id="382">382</th><td><i></i></td></tr>
+<tr><th id="383">383</th><td><i>Encodes JPEG from image in image_buffer and writes to buffer.</i></td></tr>
+<tr><th id="384">384</th><td><i>Expects RGB input data</i></td></tr>
+<tr><th id="385">385</th><td><i>=================</i></td></tr>
+<tr><th id="386">386</th><td><i>*/</i></td></tr>
+<tr><th id="387">387</th><td><span class='typedef' title='size_t' data-type='unsigned long' data-ref="size_t">size_t</span> <dfn class="decl def" id="RE_SaveJPGToBuffer" title='RE_SaveJPGToBuffer' data-ref="RE_SaveJPGToBuffer">RE_SaveJPGToBuffer</dfn>(<a class="typedef" href="../qcommon/q_shared.h.html#byte" title='byte' data-type='unsigned char' data-ref="byte">byte</a> *<dfn class="local col3 decl" id="33buffer" title='buffer' data-type='byte *' data-ref="33buffer">buffer</dfn>, <span class='typedef' title='size_t' data-type='unsigned long' data-ref="size_t">size_t</span> <dfn class="local col4 decl" id="34bufSize" title='bufSize' data-type='size_t' data-ref="34bufSize">bufSize</dfn>, <em>int</em> <dfn class="local col5 decl" id="35quality" title='quality' data-type='int' data-ref="35quality">quality</dfn>,</td></tr>
+<tr><th id="388">388</th><td>    <em>int</em> <dfn class="local col6 decl" id="36image_width" title='image_width' data-type='int' data-ref="36image_width">image_width</dfn>, <em>int</em> <dfn class="local col7 decl" id="37image_height" title='image_height' data-type='int' data-ref="37image_height">image_height</dfn>, <a class="typedef" href="../qcommon/q_shared.h.html#byte" title='byte' data-type='unsigned char' data-ref="byte">byte</a> *<dfn class="local col8 decl" id="38image_buffer" title='image_buffer' data-type='byte *' data-ref="38image_buffer">image_buffer</dfn>, <em>int</em> <dfn class="local col9 decl" id="39padding" title='padding' data-type='int' data-ref="39padding">padding</dfn>)</td></tr>
+<tr><th id="389">389</th><td>{</td></tr>
+<tr><th id="390">390</th><td>  <b>struct</b> <a class="type" href="../jpeg-8c/jpeglib.h.html#jpeg_compress_struct" title='jpeg_compress_struct' data-ref="jpeg_compress_struct">jpeg_compress_struct</a> <dfn class="local col0 decl" id="40cinfo" title='cinfo' data-type='struct jpeg_compress_struct' data-ref="40cinfo">cinfo</dfn>;</td></tr>
+<tr><th id="391">391</th><td>  <a class="typedef" href="#q_jpeg_error_mgr_t" title='q_jpeg_error_mgr_t' data-type='struct q_jpeg_error_mgr_s' data-ref="q_jpeg_error_mgr_t">q_jpeg_error_mgr_t</a> <dfn class="local col1 decl" id="41jerr" title='jerr' data-type='q_jpeg_error_mgr_t' data-ref="41jerr">jerr</dfn>;</td></tr>
+<tr><th id="392">392</th><td>  <a class="typedef" href="../jpeg-8c/jpeglib.h.html#JSAMPROW" title='JSAMPROW' data-type='JSAMPLE *' data-ref="JSAMPROW">JSAMPROW</a> <dfn class="local col2 decl" id="42row_pointer" title='row_pointer' data-type='JSAMPROW [1]' data-ref="42row_pointer">row_pointer</dfn>[<var>1</var>];	<i>/* pointer to JSAMPLE row[s] */</i></td></tr>
+<tr><th id="393">393</th><td>  <a class="typedef" href="#my_dest_ptr" title='my_dest_ptr' data-type='my_destination_mgr *' data-ref="my_dest_ptr">my_dest_ptr</a> <dfn class="local col3 decl" id="43dest" title='dest' data-type='my_dest_ptr' data-ref="43dest">dest</dfn>;</td></tr>
+<tr><th id="394">394</th><td>  <em>int</em> <dfn class="local col4 decl" id="44row_stride" title='row_stride' data-type='int' data-ref="44row_stride">row_stride</dfn>;		<i>/* physical row width in image buffer */</i></td></tr>
+<tr><th id="395">395</th><td>  <span class='typedef' title='size_t' data-type='unsigned long' data-ref="size_t">size_t</span> <dfn class="local col5 decl" id="45outcount" title='outcount' data-type='size_t' data-ref="45outcount">outcount</dfn>;</td></tr>
+<tr><th id="396">396</th><td></td></tr>
+<tr><th id="397">397</th><td>  <i>/* Step 1: allocate and initialize JPEG compression object */</i></td></tr>
+<tr><th id="398">398</th><td>  <a class="local col0 ref" href="#40cinfo" title='cinfo' data-ref="40cinfo">cinfo</a>.<a class="ref" href="../jpeg-8c/jpeglib.h.html#278" title='jpeg_compress_struct::err' data-ref="jpeg_compress_struct::err">err</a> = <a class="ref" href="../jpeg-8c/jpeglib.h.html#jpeg_std_error" title='jpeg_std_error' data-ref="jpeg_std_error">jpeg_std_error</a>(&amp;<a class="local col1 ref" href="#41jerr" title='jerr' data-ref="41jerr">jerr</a>.<a class="tu ref" href="#q_jpeg_error_mgr_s::pub" title='q_jpeg_error_mgr_s::pub' data-use='a' data-ref="q_jpeg_error_mgr_s::pub">pub</a>);</td></tr>
+<tr><th id="399">399</th><td>  <a class="local col0 ref" href="#40cinfo" title='cinfo' data-ref="40cinfo">cinfo</a>.<a class="ref" href="../jpeg-8c/jpeglib.h.html#278" title='jpeg_compress_struct::err' data-ref="jpeg_compress_struct::err">err</a>-&gt;<a class="ref" href="../jpeg-8c/jpeglib.h.html#684" title='jpeg_error_mgr::error_exit' data-ref="jpeg_error_mgr::error_exit">error_exit</a> = <a class="tu ref" href="#R_JPGErrorExit" title='R_JPGErrorExit' data-use='r' data-ref="R_JPGErrorExit">R_JPGErrorExit</a>;</td></tr>
+<tr><th id="400">400</th><td>  <a class="local col0 ref" href="#40cinfo" title='cinfo' data-ref="40cinfo">cinfo</a>.<a class="ref" href="../jpeg-8c/jpeglib.h.html#278" title='jpeg_compress_struct::err' data-ref="jpeg_compress_struct::err">err</a>-&gt;<a class="ref" href="../jpeg-8c/jpeglib.h.html#688" title='jpeg_error_mgr::output_message' data-ref="jpeg_error_mgr::output_message">output_message</a> = <a class="tu ref" href="#R_JPGOutputMessage" title='R_JPGOutputMessage' data-use='r' data-ref="R_JPGOutputMessage">R_JPGOutputMessage</a>;</td></tr>
+<tr><th id="401">401</th><td></td></tr>
+<tr><th id="402">402</th><td>  <i>/* Establish the setjmp return context for R_JPGErrorExit to use. */</i></td></tr>
+<tr><th id="403">403</th><td>  <b>if</b> (<a class="macro" href="../../../include/setjmp.h.html#67" title="_setjmp (jerr.setjmp_buffer)" data-ref="_M/setjmp">setjmp</a>(<a class="local col1 ref" href="#41jerr" title='jerr' data-ref="41jerr">jerr</a>.<a class="tu ref" href="#q_jpeg_error_mgr_s::setjmp_buffer" title='q_jpeg_error_mgr_s::setjmp_buffer' data-use='r' data-ref="q_jpeg_error_mgr_s::setjmp_buffer">setjmp_buffer</a>))</td></tr>
+<tr><th id="404">404</th><td>  {</td></tr>
+<tr><th id="405">405</th><td>    <i>/* If we get here, the JPEG code has signaled an error.</i></td></tr>
+<tr><th id="406">406</th><td><i>     * We need to clean up the JPEG object and return.</i></td></tr>
+<tr><th id="407">407</th><td><i>     */</i></td></tr>
+<tr><th id="408">408</th><td>    <a class="ref" href="../jpeg-8c/jpeglib.h.html#jpeg_destroy_compress" title='jpeg_destroy_compress' data-ref="jpeg_destroy_compress">jpeg_destroy_compress</a>(&amp;<a class="local col0 ref" href="#40cinfo" title='cinfo' data-ref="40cinfo">cinfo</a>);</td></tr>
+<tr><th id="409">409</th><td></td></tr>
+<tr><th id="410">410</th><td>    <a class="ref" href="tr_common.h.html#ri" title='ri' data-ref="ri">ri</a>.<a class="ref" href="tr_public.h.html#(anonymous)::Printf" title='(anonymous struct)::Printf' data-ref="(anonymous)::Printf">Printf</a>(<a class="enum" href="../qcommon/q_shared.h.html#PRINT_ALL" title='PRINT_ALL' data-ref="PRINT_ALL">PRINT_ALL</a>, <q>"\n"</q>);</td></tr>
+<tr><th id="411">411</th><td>    <b>return</b> <var>0</var>;</td></tr>
+<tr><th id="412">412</th><td>  }</td></tr>
+<tr><th id="413">413</th><td></td></tr>
+<tr><th id="414">414</th><td>  <i>/* Now we can initialize the JPEG compression object. */</i></td></tr>
+<tr><th id="415">415</th><td>  <a class="macro" href="../jpeg-8c/jpeglib.h.html#938" title="jpeg_CreateCompress((&amp;cinfo), 80, (size_t) sizeof(struct jpeg_compress_struct))" data-ref="_M/jpeg_create_compress">jpeg_create_compress</a>(&amp;<a class="local col0 ref" href="#40cinfo" title='cinfo' data-ref="40cinfo">cinfo</a>);</td></tr>
+<tr><th id="416">416</th><td></td></tr>
+<tr><th id="417">417</th><td>  <i>/* Step 2: specify data destination (eg, a file) */</i></td></tr>
+<tr><th id="418">418</th><td>  <i>/* Note: steps 2 and 3 can be done in either order. */</i></td></tr>
+<tr><th id="419">419</th><td>  <a class="tu ref" href="#jpegDest" title='jpegDest' data-use='c' data-ref="jpegDest">jpegDest</a>(&amp;<a class="local col0 ref" href="#40cinfo" title='cinfo' data-ref="40cinfo">cinfo</a>, <a class="local col3 ref" href="#33buffer" title='buffer' data-ref="33buffer">buffer</a>, <a class="local col4 ref" href="#34bufSize" title='bufSize' data-ref="34bufSize">bufSize</a>);</td></tr>
+<tr><th id="420">420</th><td></td></tr>
+<tr><th id="421">421</th><td>  <i>/* Step 3: set parameters for compression */</i></td></tr>
+<tr><th id="422">422</th><td>  <a class="local col0 ref" href="#40cinfo" title='cinfo' data-ref="40cinfo">cinfo</a>.<a class="ref" href="../jpeg-8c/jpeglib.h.html#jpeg_compress_struct::image_width" title='jpeg_compress_struct::image_width' data-ref="jpeg_compress_struct::image_width">image_width</a> = <a class="local col6 ref" href="#36image_width" title='image_width' data-ref="36image_width">image_width</a>; 	<i>/* image width and height, in pixels */</i></td></tr>
+<tr><th id="423">423</th><td>  <a class="local col0 ref" href="#40cinfo" title='cinfo' data-ref="40cinfo">cinfo</a>.<a class="ref" href="../jpeg-8c/jpeglib.h.html#jpeg_compress_struct::image_height" title='jpeg_compress_struct::image_height' data-ref="jpeg_compress_struct::image_height">image_height</a> = <a class="local col7 ref" href="#37image_height" title='image_height' data-ref="37image_height">image_height</a>;</td></tr>
+<tr><th id="424">424</th><td>  <a class="local col0 ref" href="#40cinfo" title='cinfo' data-ref="40cinfo">cinfo</a>.<a class="ref" href="../jpeg-8c/jpeglib.h.html#jpeg_compress_struct::input_components" title='jpeg_compress_struct::input_components' data-ref="jpeg_compress_struct::input_components">input_components</a> = <var>3</var>;		<i>/* # of color components per pixel */</i></td></tr>
+<tr><th id="425">425</th><td>  <a class="local col0 ref" href="#40cinfo" title='cinfo' data-ref="40cinfo">cinfo</a>.<a class="ref" href="../jpeg-8c/jpeglib.h.html#jpeg_compress_struct::in_color_space" title='jpeg_compress_struct::in_color_space' data-ref="jpeg_compress_struct::in_color_space">in_color_space</a> = <a class="enum" href="../jpeg-8c/jpeglib.h.html#JCS_RGB" title='JCS_RGB' data-ref="JCS_RGB">JCS_RGB</a>; 	<i>/* colorspace of input image */</i></td></tr>
+<tr><th id="426">426</th><td></td></tr>
+<tr><th id="427">427</th><td>  <a class="ref" href="../jpeg-8c/jpeglib.h.html#jpeg_set_defaults" title='jpeg_set_defaults' data-ref="jpeg_set_defaults">jpeg_set_defaults</a>(&amp;<a class="local col0 ref" href="#40cinfo" title='cinfo' data-ref="40cinfo">cinfo</a>);</td></tr>
+<tr><th id="428">428</th><td>  <a class="ref" href="../jpeg-8c/jpeglib.h.html#jpeg_set_quality" title='jpeg_set_quality' data-ref="jpeg_set_quality">jpeg_set_quality</a>(&amp;<a class="local col0 ref" href="#40cinfo" title='cinfo' data-ref="40cinfo">cinfo</a>, <a class="local col5 ref" href="#35quality" title='quality' data-ref="35quality">quality</a>, <a class="macro" href="../jpeg-8c/jmorecfg.h.html#242" title="1" data-ref="_M/TRUE">TRUE</a> <i>/* limit to baseline-JPEG values */</i>);</td></tr>
+<tr><th id="429">429</th><td>  <i>/* If quality is set high, disable chroma subsampling */</i></td></tr>
+<tr><th id="430">430</th><td>  <b>if</b> (<a class="local col5 ref" href="#35quality" title='quality' data-ref="35quality">quality</a> &gt;= <var>85</var>) {</td></tr>
+<tr><th id="431">431</th><td>    <a class="local col0 ref" href="#40cinfo" title='cinfo' data-ref="40cinfo">cinfo</a>.<a class="ref" href="../jpeg-8c/jpeglib.h.html#jpeg_compress_struct::comp_info" title='jpeg_compress_struct::comp_info' data-ref="jpeg_compress_struct::comp_info">comp_info</a>[<var>0</var>].<a class="ref" href="../jpeg-8c/jpeglib.h.html#(anonymous)::h_samp_factor" title='(anonymous struct)::h_samp_factor' data-ref="(anonymous)::h_samp_factor">h_samp_factor</a> = <var>1</var>;</td></tr>
+<tr><th id="432">432</th><td>    <a class="local col0 ref" href="#40cinfo" title='cinfo' data-ref="40cinfo">cinfo</a>.<a class="ref" href="../jpeg-8c/jpeglib.h.html#jpeg_compress_struct::comp_info" title='jpeg_compress_struct::comp_info' data-ref="jpeg_compress_struct::comp_info">comp_info</a>[<var>0</var>].<a class="ref" href="../jpeg-8c/jpeglib.h.html#(anonymous)::v_samp_factor" title='(anonymous struct)::v_samp_factor' data-ref="(anonymous)::v_samp_factor">v_samp_factor</a> = <var>1</var>;</td></tr>
+<tr><th id="433">433</th><td>  }</td></tr>
+<tr><th id="434">434</th><td></td></tr>
+<tr><th id="435">435</th><td>  <i>/* Step 4: Start compressor */</i></td></tr>
+<tr><th id="436">436</th><td>  <a class="ref" href="../jpeg-8c/jpeglib.h.html#jpeg_start_compress" title='jpeg_start_compress' data-ref="jpeg_start_compress">jpeg_start_compress</a>(&amp;<a class="local col0 ref" href="#40cinfo" title='cinfo' data-ref="40cinfo">cinfo</a>, <a class="macro" href="../jpeg-8c/jmorecfg.h.html#242" title="1" data-ref="_M/TRUE">TRUE</a>);</td></tr>
+<tr><th id="437">437</th><td></td></tr>
+<tr><th id="438">438</th><td>  <i>/* Step 5: while (scan lines remain to be written) */</i></td></tr>
+<tr><th id="439">439</th><td>  <i>/*           jpeg_write_scanlines(...); */</i></td></tr>
+<tr><th id="440">440</th><td>  <a class="local col4 ref" href="#44row_stride" title='row_stride' data-ref="44row_stride">row_stride</a> = <a class="local col6 ref" href="#36image_width" title='image_width' data-ref="36image_width">image_width</a> * <a class="local col0 ref" href="#40cinfo" title='cinfo' data-ref="40cinfo">cinfo</a>.<a class="ref" href="../jpeg-8c/jpeglib.h.html#jpeg_compress_struct::input_components" title='jpeg_compress_struct::input_components' data-ref="jpeg_compress_struct::input_components">input_components</a> + <a class="local col9 ref" href="#39padding" title='padding' data-ref="39padding">padding</a>; <i>/* JSAMPLEs per row in image_buffer */</i></td></tr>
+<tr><th id="441">441</th><td>  </td></tr>
+<tr><th id="442">442</th><td>  <b>while</b> (<a class="local col0 ref" href="#40cinfo" title='cinfo' data-ref="40cinfo">cinfo</a>.<a class="ref" href="../jpeg-8c/jpeglib.h.html#jpeg_compress_struct::next_scanline" title='jpeg_compress_struct::next_scanline' data-ref="jpeg_compress_struct::next_scanline">next_scanline</a> &lt; <a class="local col0 ref" href="#40cinfo" title='cinfo' data-ref="40cinfo">cinfo</a>.<a class="ref" href="../jpeg-8c/jpeglib.h.html#jpeg_compress_struct::image_height" title='jpeg_compress_struct::image_height' data-ref="jpeg_compress_struct::image_height">image_height</a>) {</td></tr>
+<tr><th id="443">443</th><td>    <i>/* jpeg_write_scanlines expects an array of pointers to scanlines.</i></td></tr>
+<tr><th id="444">444</th><td><i>     * Here the array is only one element long, but you could pass</i></td></tr>
+<tr><th id="445">445</th><td><i>     * more than one scanline at a time if that's more convenient.</i></td></tr>
+<tr><th id="446">446</th><td><i>     */</i></td></tr>
+<tr><th id="447">447</th><td>    <a class="local col2 ref" href="#42row_pointer" title='row_pointer' data-ref="42row_pointer">row_pointer</a>[<var>0</var>] = &amp;<a class="local col8 ref" href="#38image_buffer" title='image_buffer' data-ref="38image_buffer">image_buffer</a>[((<a class="local col0 ref" href="#40cinfo" title='cinfo' data-ref="40cinfo">cinfo</a>.<a class="ref" href="../jpeg-8c/jpeglib.h.html#jpeg_compress_struct::image_height" title='jpeg_compress_struct::image_height' data-ref="jpeg_compress_struct::image_height">image_height</a>-<var>1</var>)*<a class="local col4 ref" href="#44row_stride" title='row_stride' data-ref="44row_stride">row_stride</a>)-<a class="local col0 ref" href="#40cinfo" title='cinfo' data-ref="40cinfo">cinfo</a>.<a class="ref" href="../jpeg-8c/jpeglib.h.html#jpeg_compress_struct::next_scanline" title='jpeg_compress_struct::next_scanline' data-ref="jpeg_compress_struct::next_scanline">next_scanline</a> * <a class="local col4 ref" href="#44row_stride" title='row_stride' data-ref="44row_stride">row_stride</a>];</td></tr>
+<tr><th id="448">448</th><td>    (<em>void</em>) <a class="ref" href="../jpeg-8c/jpeglib.h.html#jpeg_write_scanlines" title='jpeg_write_scanlines' data-ref="jpeg_write_scanlines">jpeg_write_scanlines</a>(&amp;<a class="local col0 ref" href="#40cinfo" title='cinfo' data-ref="40cinfo">cinfo</a>, <a class="local col2 ref" href="#42row_pointer" title='row_pointer' data-ref="42row_pointer">row_pointer</a>, <var>1</var>);</td></tr>
+<tr><th id="449">449</th><td>  }</td></tr>
+<tr><th id="450">450</th><td></td></tr>
+<tr><th id="451">451</th><td>  <i>/* Step 6: Finish compression */</i></td></tr>
+<tr><th id="452">452</th><td>  <a class="ref" href="../jpeg-8c/jpeglib.h.html#jpeg_finish_compress" title='jpeg_finish_compress' data-ref="jpeg_finish_compress">jpeg_finish_compress</a>(&amp;<a class="local col0 ref" href="#40cinfo" title='cinfo' data-ref="40cinfo">cinfo</a>);</td></tr>
+<tr><th id="453">453</th><td>  </td></tr>
+<tr><th id="454">454</th><td>  <a class="local col3 ref" href="#43dest" title='dest' data-ref="43dest">dest</a> = (<a class="typedef" href="#my_dest_ptr" title='my_dest_ptr' data-type='my_destination_mgr *' data-ref="my_dest_ptr">my_dest_ptr</a>) <a class="local col0 ref" href="#40cinfo" title='cinfo' data-ref="40cinfo">cinfo</a>.<a class="ref" href="../jpeg-8c/jpeglib.h.html#jpeg_compress_struct::dest" title='jpeg_compress_struct::dest' data-ref="jpeg_compress_struct::dest">dest</a>;</td></tr>
+<tr><th id="455">455</th><td>  <a class="local col5 ref" href="#45outcount" title='outcount' data-ref="45outcount">outcount</a> = <a class="local col3 ref" href="#43dest" title='dest' data-ref="43dest">dest</a>-&gt;<a class="tu ref" href="#(anonymous)::size" title='(anonymous struct)::size' data-use='r' data-ref="(anonymous)::size">size</a> - <a class="local col3 ref" href="#43dest" title='dest' data-ref="43dest">dest</a>-&gt;<a class="tu ref" href="#(anonymous)::pub" title='(anonymous struct)::pub' data-use='m' data-ref="(anonymous)::pub">pub</a>.<a class="ref" href="../jpeg-8c/jpeglib.h.html#jpeg_destination_mgr::free_in_buffer" title='jpeg_destination_mgr::free_in_buffer' data-ref="jpeg_destination_mgr::free_in_buffer">free_in_buffer</a>;</td></tr>
+<tr><th id="456">456</th><td> </td></tr>
+<tr><th id="457">457</th><td>  <i>/* Step 7: release JPEG compression object */</i></td></tr>
+<tr><th id="458">458</th><td>  <a class="ref" href="../jpeg-8c/jpeglib.h.html#jpeg_destroy_compress" title='jpeg_destroy_compress' data-ref="jpeg_destroy_compress">jpeg_destroy_compress</a>(&amp;<a class="local col0 ref" href="#40cinfo" title='cinfo' data-ref="40cinfo">cinfo</a>);</td></tr>
+<tr><th id="459">459</th><td></td></tr>
+<tr><th id="460">460</th><td>  <i>/* And we're done! */</i></td></tr>
+<tr><th id="461">461</th><td>  <b>return</b> <a class="local col5 ref" href="#45outcount" title='outcount' data-ref="45outcount">outcount</a>;</td></tr>
+<tr><th id="462">462</th><td>}</td></tr>
+<tr><th id="463">463</th><td></td></tr>
+<tr><th id="464">464</th><td><em>void</em> <dfn class="decl def" id="RE_SaveJPG" title='RE_SaveJPG' data-ref="RE_SaveJPG">RE_SaveJPG</dfn>(<em>char</em> * <dfn class="local col6 decl" id="46filename" title='filename' data-type='char *' data-ref="46filename">filename</dfn>, <em>int</em> <dfn class="local col7 decl" id="47quality" title='quality' data-type='int' data-ref="47quality">quality</dfn>, <em>int</em> <dfn class="local col8 decl" id="48image_width" title='image_width' data-type='int' data-ref="48image_width">image_width</dfn>, <em>int</em> <dfn class="local col9 decl" id="49image_height" title='image_height' data-type='int' data-ref="49image_height">image_height</dfn>, <a class="typedef" href="../qcommon/q_shared.h.html#byte" title='byte' data-type='unsigned char' data-ref="byte">byte</a> *<dfn class="local col0 decl" id="50image_buffer" title='image_buffer' data-type='byte *' data-ref="50image_buffer">image_buffer</dfn>, <em>int</em> <dfn class="local col1 decl" id="51padding" title='padding' data-type='int' data-ref="51padding">padding</dfn>)</td></tr>
+<tr><th id="465">465</th><td>{</td></tr>
+<tr><th id="466">466</th><td>  <a class="typedef" href="../qcommon/q_shared.h.html#byte" title='byte' data-type='unsigned char' data-ref="byte">byte</a> *<dfn class="local col2 decl" id="52out" title='out' data-type='byte *' data-ref="52out">out</dfn>;</td></tr>
+<tr><th id="467">467</th><td>  <span class='typedef' title='size_t' data-type='unsigned long' data-ref="size_t">size_t</span> <dfn class="local col3 decl" id="53bufSize" title='bufSize' data-type='size_t' data-ref="53bufSize">bufSize</dfn>;</td></tr>
+<tr><th id="468">468</th><td></td></tr>
+<tr><th id="469">469</th><td>  <a class="local col3 ref" href="#53bufSize" title='bufSize' data-ref="53bufSize">bufSize</a> = <a class="local col8 ref" href="#48image_width" title='image_width' data-ref="48image_width">image_width</a> * <a class="local col9 ref" href="#49image_height" title='image_height' data-ref="49image_height">image_height</a> * <var>3</var>;</td></tr>
+<tr><th id="470">470</th><td>  <a class="local col2 ref" href="#52out" title='out' data-ref="52out">out</a> = <a class="ref" href="tr_common.h.html#ri" title='ri' data-ref="ri">ri</a>.<a class="ref" href="tr_public.h.html#(anonymous)::Hunk_AllocateTempMemory" title='(anonymous struct)::Hunk_AllocateTempMemory' data-ref="(anonymous)::Hunk_AllocateTempMemory">Hunk_AllocateTempMemory</a>(<a class="local col3 ref" href="#53bufSize" title='bufSize' data-ref="53bufSize">bufSize</a>);</td></tr>
+<tr><th id="471">471</th><td></td></tr>
+<tr><th id="472">472</th><td>  <a class="local col3 ref" href="#53bufSize" title='bufSize' data-ref="53bufSize">bufSize</a> = <a class="ref" href="#RE_SaveJPGToBuffer" title='RE_SaveJPGToBuffer' data-ref="RE_SaveJPGToBuffer">RE_SaveJPGToBuffer</a>(<a class="local col2 ref" href="#52out" title='out' data-ref="52out">out</a>, <a class="local col3 ref" href="#53bufSize" title='bufSize' data-ref="53bufSize">bufSize</a>, <a class="local col7 ref" href="#47quality" title='quality' data-ref="47quality">quality</a>, <a class="local col8 ref" href="#48image_width" title='image_width' data-ref="48image_width">image_width</a>, <a class="local col9 ref" href="#49image_height" title='image_height' data-ref="49image_height">image_height</a>, <a class="local col0 ref" href="#50image_buffer" title='image_buffer' data-ref="50image_buffer">image_buffer</a>, <a class="local col1 ref" href="#51padding" title='padding' data-ref="51padding">padding</a>);</td></tr>
+<tr><th id="473">473</th><td>  <a class="ref" href="tr_common.h.html#ri" title='ri' data-ref="ri">ri</a>.<a class="ref" href="tr_public.h.html#(anonymous)::FS_WriteFile" title='(anonymous struct)::FS_WriteFile' data-ref="(anonymous)::FS_WriteFile">FS_WriteFile</a>(<a class="local col6 ref" href="#46filename" title='filename' data-ref="46filename">filename</a>, <a class="local col2 ref" href="#52out" title='out' data-ref="52out">out</a>, <a class="local col3 ref" href="#53bufSize" title='bufSize' data-ref="53bufSize">bufSize</a>);</td></tr>
+<tr><th id="474">474</th><td></td></tr>
+<tr><th id="475">475</th><td>  <a class="ref" href="tr_common.h.html#ri" title='ri' data-ref="ri">ri</a>.<a class="ref" href="tr_public.h.html#(anonymous)::Hunk_FreeTempMemory" title='(anonymous struct)::Hunk_FreeTempMemory' data-ref="(anonymous)::Hunk_FreeTempMemory">Hunk_FreeTempMemory</a>(<a class="local col2 ref" href="#52out" title='out' data-ref="52out">out</a>);</td></tr>
+<tr><th id="476">476</th><td>}</td></tr>
+<tr><th id="477">477</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated on <em>2017-Aug-29</em> from project codebrowser revision <em>63e07af</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

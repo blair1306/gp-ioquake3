@@ -1,0 +1,15 @@
+<def f='codebrowser/code/game/g_mover.c' l='552' ll='558' type='void MatchTeam(gentity_t * teamLeader, int moverState, int time)'/>
+<use f='codebrowser/code/game/g_mover.c' l='568' u='c' c='ReturnToPos1'/>
+<use f='codebrowser/code/game/g_mover.c' l='647' u='c' c='Use_BinaryMover'/>
+<use f='codebrowser/code/game/g_mover.c' l='678' u='c' c='Use_BinaryMover'/>
+<use f='codebrowser/code/game/g_mover.c' l='694' u='c' c='Use_BinaryMover'/>
+<use f='codebrowser/code/game/g_mover.c' l='924' u='c' c='Think_SpawnNewDoorTrigger'/>
+<use f='codebrowser/code/game/g_mover.c' l='928' u='c' c='Think_MatchTeam'/>
+<doc f='codebrowser/code/game/g_mover.c' l='544'>/*
+================
+MatchTeam
+
+All entities in a mover team will move from pos1 to pos2
+in the same amount of time
+================
+*/</doc>

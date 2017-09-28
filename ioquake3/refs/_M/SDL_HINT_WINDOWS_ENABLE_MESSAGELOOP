@@ -1,0 +1,10 @@
+<dec f='include/SDL2/SDL_hints.h' l='222'/>
+<doc f='include/SDL2/SDL_hints.h' l='213'>/**
+ *  \brief  A variable controlling whether the windows message loop is processed by SDL 
+ *
+ *  This variable can be set to the following values:
+ *    &quot;0&quot;       - The window message loop is not run
+ *    &quot;1&quot;       - The window message loop is processed in SDL_PumpEvents()
+ *
+ *  By default SDL will process the windows message loop
+ */</doc>

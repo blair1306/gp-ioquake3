@@ -1,0 +1,11 @@
+<dec f='codebrowser/code/cgame/cg_local.h' l='1660' type='e_status trap_CIN_RunCinematic(int handle)'/>
+<def f='codebrowser/code/cgame/cg_syscalls.c' l='412' ll='414' type='e_status trap_CIN_RunCinematic(int handle)'/>
+<doc f='codebrowser/code/cgame/cg_syscalls.c' l='411'>// will run a frame of the cinematic but will not draw it.  Will return FMV_EOF if the end of the cinematic has been reached.</doc>
+<dec f='codebrowser/code/ui/ui_local.h' l='991' type='e_status trap_CIN_RunCinematic(int handle)'/>
+<use f='codebrowser/code/ui/ui_main.c' l='1116' u='c' c='UI_DrawClanCinematic'/>
+<use f='codebrowser/code/ui/ui_main.c' l='1137' u='c' c='UI_DrawPreviewCinematic'/>
+<use f='codebrowser/code/ui/ui_main.c' l='1260' u='c' c='UI_DrawMapCinematic'/>
+<use f='codebrowser/code/ui/ui_main.c' l='1340' u='c' c='UI_DrawNetMapCinematic'/>
+<use f='codebrowser/code/ui/ui_main.c' l='4991' u='c' c='UI_RunCinematicFrame'/>
+<def f='codebrowser/code/ui/ui_syscalls.c' l='377' ll='379' type='e_status trap_CIN_RunCinematic(int handle)'/>
+<doc f='codebrowser/code/ui/ui_syscalls.c' l='376'>// will run a frame of the cinematic but will not draw it.  Will return FMV_EOF if the end of the cinematic has been reached.</doc>

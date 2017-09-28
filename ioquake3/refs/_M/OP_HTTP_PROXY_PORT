@@ -1,0 +1,11 @@
+<dec f='codebrowser/code/opusfile-0.8/include/opusfile.h' l='795'/>
+<doc f='codebrowser/code/opusfile-0.8/include/opusfile.h' l='785'>/**Use the given port when proxying connections.
+   This option only has an effect if #OP_HTTP_PROXY_HOST is specified with a
+    non-&lt;code&gt;NULL&lt;/code&gt; \a _host.
+   If this option is not provided, the proxy port number defaults to 8080
+    (http-alt).
+   All proxy parameters are ignored for non-http and non-https URLs.
+   \param _port &lt;code&gt;opus_int32&lt;/code&gt;: The proxy server port.
+                This must be in the range 0...65535 (inclusive), or the
+                 URL function this is passed to will fail.
+   \hideinitializer*/</doc>

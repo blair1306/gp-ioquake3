@@ -1,0 +1,11 @@
+<dec f='codebrowser/code/client/snd_public.h' l='50' type='void S_Respatialize(int entityNum, const vec_t * origin, vec3_t * axis, int inwater)'/>
+<dec f='codebrowser/code/client/snd_public.h' l='50' type='void S_Respatialize(int entityNum, const vec_t * origin, vec3_t * axis, int inwater)'/>
+<doc f='codebrowser/code/client/snd_public.h' l='48'>// recompute the relative volumes for all running sounds
+// relative to the given entityNum / orientation</doc>
+<use f='codebrowser/code/client/cl_cgame.c' l='524' u='c' c='CL_CgameSystemCalls'/>
+<def f='codebrowser/code/client/snd_main.c' l='205' ll='211' type='void S_Respatialize(int entityNum, const vec_t * origin, vec3_t * axis, int inwater)'/>
+<doc f='codebrowser/code/client/snd_main.c' l='200'>/*
+=================
+S_Respatialize
+=================
+*/</doc>

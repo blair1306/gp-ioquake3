@@ -1,0 +1,10 @@
+<dec f='codebrowser/code/game/ai_dmq3.h' l='168' type='bot_waypoint_t * BotCreateWayPoint(char * name, vec_t * origin, int areanum)'/>
+<doc f='codebrowser/code/game/ai_dmq3.h' l='167'>//create a new waypoint</doc>
+<use f='codebrowser/code/game/ai_cmd.c' l='326' u='c' c='BotGetPatrolWaypoints'/>
+<use f='codebrowser/code/game/ai_cmd.c' l='1200' u='c' c='BotMatch_CheckPoint'/>
+<def f='codebrowser/code/game/ai_dmq3.c' l='2118' ll='2137' type='bot_waypoint_t * BotCreateWayPoint(char * name, vec_t * origin, int areanum)'/>
+<doc f='codebrowser/code/game/ai_dmq3.c' l='2113'>/*
+==================
+BotCreateWayPoint
+==================
+*/</doc>

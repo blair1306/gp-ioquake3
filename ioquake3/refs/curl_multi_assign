@@ -1,0 +1,10 @@
+<dec f='codebrowser/code/curl-7.54.0/include/curl/multi.h' l='407' type='CURLMcode curl_multi_assign(CURLM * multi_handle, curl_socket_t sockfd, void * sockp)'/>
+<doc f='codebrowser/code/curl-7.54.0/include/curl/multi.h' l='398'>/*
+ * Name:    curl_multi_assign()
+ *
+ * Desc:    This function sets an association in the multi handle between the
+ *          given socket and a private pointer of the application. This is
+ *          (only) useful for curl_multi_socket uses.
+ *
+ * Returns: CURLM error code.
+ */</doc>

@@ -1,0 +1,6 @@
+<dec f='include/SDL2/SDL_audio.h' l='245' type='const char * SDL_GetCurrentAudioDriver()'/>
+<doc f='include/SDL2/SDL_audio.h' l='241'>/**
+ *  This function returns the name of the current audio driver, or NULL
+ *  if no driver has been initialized.
+ */</doc>
+<use f='codebrowser/code/sdl/sdl_snd.c' l='168' u='c' c='SNDDMA_Init'/>

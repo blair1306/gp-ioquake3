@@ -1,0 +1,189 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>tr_common.h source code [codebrowser/code/renderercommon/tr_common.h] - Woboq Code Browser</title>
+<meta name="woboq:interestingDefinitions" content="image_s "/>
+<link rel="stylesheet" href="../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'codebrowser/code/renderercommon/tr_common.h'; var root_path = '../../..'; var data_path = '../../../../data';</script>
+<script src='../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../..'>codebrowser</a>/<a href='..'>code</a>/<a href='./'>renderercommon</a>/<a href='tr_common.h.html'>tr_common.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/*</i></td></tr>
+<tr><th id="2">2</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="3">3</th><td><i>Copyright (C) 1999-2005 Id Software, Inc.</i></td></tr>
+<tr><th id="4">4</th><td><i></i></td></tr>
+<tr><th id="5">5</th><td><i>This file is part of Quake III Arena source code.</i></td></tr>
+<tr><th id="6">6</th><td><i></i></td></tr>
+<tr><th id="7">7</th><td><i>Quake III Arena source code is free software; you can redistribute it</i></td></tr>
+<tr><th id="8">8</th><td><i>and/or modify it under the terms of the GNU General Public License as</i></td></tr>
+<tr><th id="9">9</th><td><i>published by the Free Software Foundation; either version 2 of the License,</i></td></tr>
+<tr><th id="10">10</th><td><i>or (at your option) any later version.</i></td></tr>
+<tr><th id="11">11</th><td><i></i></td></tr>
+<tr><th id="12">12</th><td><i>Quake III Arena source code is distributed in the hope that it will be</i></td></tr>
+<tr><th id="13">13</th><td><i>useful, but WITHOUT ANY WARRANTY; without even the implied warranty of</i></td></tr>
+<tr><th id="14">14</th><td><i>MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</i></td></tr>
+<tr><th id="15">15</th><td><i>GNU General Public License for more details.</i></td></tr>
+<tr><th id="16">16</th><td><i></i></td></tr>
+<tr><th id="17">17</th><td><i>You should have received a copy of the GNU General Public License</i></td></tr>
+<tr><th id="18">18</th><td><i>along with Quake III Arena source code; if not, write to the Free Software</i></td></tr>
+<tr><th id="19">19</th><td><i>Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA</i></td></tr>
+<tr><th id="20">20</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="21">21</th><td><i>*/</i></td></tr>
+<tr><th id="22">22</th><td><u>#<span data-ppcond="22">ifndef</span> <span class="macro" data-ref="_M/TR_COMMON_H">TR_COMMON_H</span></u></td></tr>
+<tr><th id="23">23</th><td><u>#define <dfn class="macro" id="_M/TR_COMMON_H" data-ref="_M/TR_COMMON_H">TR_COMMON_H</dfn></u></td></tr>
+<tr><th id="24">24</th><td></td></tr>
+<tr><th id="25">25</th><td><u>#include <a href="../qcommon/q_shared.h.html">"../qcommon/q_shared.h"</a></u></td></tr>
+<tr><th id="26">26</th><td><u>#include <a href="tr_public.h.html">"../renderercommon/tr_public.h"</a></u></td></tr>
+<tr><th id="27">27</th><td><u>#include <a href="qgl.h.html">"qgl.h"</a></u></td></tr>
+<tr><th id="28">28</th><td></td></tr>
+<tr><th id="29">29</th><td><b>typedef</b> <b>enum</b></td></tr>
+<tr><th id="30">30</th><td>{</td></tr>
+<tr><th id="31">31</th><td>	<dfn class="enum" id="IMGTYPE_COLORALPHA" title='IMGTYPE_COLORALPHA' data-ref="IMGTYPE_COLORALPHA">IMGTYPE_COLORALPHA</dfn>, <i>// for color, lightmap, diffuse, and specular</i></td></tr>
+<tr><th id="32">32</th><td>	<dfn class="enum" id="IMGTYPE_NORMAL" title='IMGTYPE_NORMAL' data-ref="IMGTYPE_NORMAL">IMGTYPE_NORMAL</dfn>,</td></tr>
+<tr><th id="33">33</th><td>	<dfn class="enum" id="IMGTYPE_NORMALHEIGHT" title='IMGTYPE_NORMALHEIGHT' data-ref="IMGTYPE_NORMALHEIGHT">IMGTYPE_NORMALHEIGHT</dfn>,</td></tr>
+<tr><th id="34">34</th><td>	<dfn class="enum" id="IMGTYPE_DELUXE" title='IMGTYPE_DELUXE' data-ref="IMGTYPE_DELUXE">IMGTYPE_DELUXE</dfn>, <i>// normals are swizzled, deluxe are not</i></td></tr>
+<tr><th id="35">35</th><td>} <dfn class="typedef" id="imgType_t" title='imgType_t' data-type='enum imgType_t' data-ref="imgType_t">imgType_t</dfn>;</td></tr>
+<tr><th id="36">36</th><td></td></tr>
+<tr><th id="37">37</th><td><b>typedef</b> <b>enum</b></td></tr>
+<tr><th id="38">38</th><td>{</td></tr>
+<tr><th id="39">39</th><td>	<dfn class="enum" id="IMGFLAG_NONE" title='IMGFLAG_NONE' data-ref="IMGFLAG_NONE">IMGFLAG_NONE</dfn>           = <var>0x0000</var>,</td></tr>
+<tr><th id="40">40</th><td>	<dfn class="enum" id="IMGFLAG_MIPMAP" title='IMGFLAG_MIPMAP' data-ref="IMGFLAG_MIPMAP">IMGFLAG_MIPMAP</dfn>         = <var>0x0001</var>,</td></tr>
+<tr><th id="41">41</th><td>	<dfn class="enum" id="IMGFLAG_PICMIP" title='IMGFLAG_PICMIP' data-ref="IMGFLAG_PICMIP">IMGFLAG_PICMIP</dfn>         = <var>0x0002</var>,</td></tr>
+<tr><th id="42">42</th><td>	<dfn class="enum" id="IMGFLAG_CUBEMAP" title='IMGFLAG_CUBEMAP' data-ref="IMGFLAG_CUBEMAP">IMGFLAG_CUBEMAP</dfn>        = <var>0x0004</var>,</td></tr>
+<tr><th id="43">43</th><td>	<dfn class="enum" id="IMGFLAG_NO_COMPRESSION" title='IMGFLAG_NO_COMPRESSION' data-ref="IMGFLAG_NO_COMPRESSION">IMGFLAG_NO_COMPRESSION</dfn> = <var>0x0010</var>,</td></tr>
+<tr><th id="44">44</th><td>	<dfn class="enum" id="IMGFLAG_NOLIGHTSCALE" title='IMGFLAG_NOLIGHTSCALE' data-ref="IMGFLAG_NOLIGHTSCALE">IMGFLAG_NOLIGHTSCALE</dfn>   = <var>0x0020</var>,</td></tr>
+<tr><th id="45">45</th><td>	<dfn class="enum" id="IMGFLAG_CLAMPTOEDGE" title='IMGFLAG_CLAMPTOEDGE' data-ref="IMGFLAG_CLAMPTOEDGE">IMGFLAG_CLAMPTOEDGE</dfn>    = <var>0x0040</var>,</td></tr>
+<tr><th id="46">46</th><td>	<dfn class="enum" id="IMGFLAG_GENNORMALMAP" title='IMGFLAG_GENNORMALMAP' data-ref="IMGFLAG_GENNORMALMAP">IMGFLAG_GENNORMALMAP</dfn>   = <var>0x0080</var>,</td></tr>
+<tr><th id="47">47</th><td>} <dfn class="typedef" id="imgFlags_t" title='imgFlags_t' data-type='enum imgFlags_t' data-ref="imgFlags_t">imgFlags_t</dfn>;</td></tr>
+<tr><th id="48">48</th><td></td></tr>
+<tr><th id="49">49</th><td><b>typedef</b> <b>struct</b> <dfn class="type def" id="image_s" title='image_s' data-ref="image_s"><a class="type" href="#image_s" title='image_s' data-ref="image_s">image_s</a></dfn> {</td></tr>
+<tr><th id="50">50</th><td>	<em>char</em>		<dfn class="decl" id="image_s::imgName" title='image_s::imgName' data-ref="image_s::imgName">imgName</dfn>[<a class="macro" href="../qcommon/q_shared.h.html#256" title="64" data-ref="_M/MAX_QPATH">MAX_QPATH</a>];		<i>// game path, including extension</i></td></tr>
+<tr><th id="51">51</th><td>	<em>int</em>			<dfn class="decl" id="image_s::width" title='image_s::width' data-ref="image_s::width">width</dfn>, <dfn class="decl" id="image_s::height" title='image_s::height' data-ref="image_s::height">height</dfn>;				<i>// source image</i></td></tr>
+<tr><th id="52">52</th><td>	<em>int</em>			<dfn class="decl" id="image_s::uploadWidth" title='image_s::uploadWidth' data-ref="image_s::uploadWidth">uploadWidth</dfn>, <dfn class="decl" id="image_s::uploadHeight" title='image_s::uploadHeight' data-ref="image_s::uploadHeight">uploadHeight</dfn>;	<i>// after power of two and picmip but not including clamp to MAX_TEXTURE_SIZE</i></td></tr>
+<tr><th id="53">53</th><td>	<a class="typedef" href="../../../include/SDL2/SDL_opengl.h.html#GLuint" title='GLuint' data-type='unsigned int' data-ref="GLuint">GLuint</a>		<dfn class="decl" id="image_s::texnum" title='image_s::texnum' data-ref="image_s::texnum">texnum</dfn>;					<i>// gl texture binding</i></td></tr>
+<tr><th id="54">54</th><td></td></tr>
+<tr><th id="55">55</th><td>	<em>int</em>			<dfn class="decl" id="image_s::frameUsed" title='image_s::frameUsed' data-ref="image_s::frameUsed">frameUsed</dfn>;			<i>// for texture usage in frame statistics</i></td></tr>
+<tr><th id="56">56</th><td></td></tr>
+<tr><th id="57">57</th><td>	<em>int</em>			<dfn class="decl" id="image_s::internalFormat" title='image_s::internalFormat' data-ref="image_s::internalFormat">internalFormat</dfn>;</td></tr>
+<tr><th id="58">58</th><td>	<em>int</em>			<dfn class="decl" id="image_s::TMU" title='image_s::TMU' data-ref="image_s::TMU">TMU</dfn>;				<i>// only needed for voodoo2</i></td></tr>
+<tr><th id="59">59</th><td></td></tr>
+<tr><th id="60">60</th><td>	<a class="typedef" href="#imgType_t" title='imgType_t' data-type='enum imgType_t' data-ref="imgType_t">imgType_t</a>   <dfn class="decl" id="image_s::type" title='image_s::type' data-ref="image_s::type">type</dfn>;</td></tr>
+<tr><th id="61">61</th><td>	<a class="typedef" href="#imgFlags_t" title='imgFlags_t' data-type='enum imgFlags_t' data-ref="imgFlags_t">imgFlags_t</a>  <dfn class="decl" id="image_s::flags" title='image_s::flags' data-ref="image_s::flags">flags</dfn>;</td></tr>
+<tr><th id="62">62</th><td></td></tr>
+<tr><th id="63">63</th><td>	<b>struct</b> <a class="type" href="#image_s" title='image_s' data-ref="image_s">image_s</a>*	<dfn class="decl" id="image_s::next" title='image_s::next' data-ref="image_s::next">next</dfn>;</td></tr>
+<tr><th id="64">64</th><td>} <dfn class="typedef" id="image_t" title='image_t' data-type='struct image_s' data-ref="image_t">image_t</dfn>;</td></tr>
+<tr><th id="65">65</th><td></td></tr>
+<tr><th id="66">66</th><td><i>// any change in the LIGHTMAP_* defines here MUST be reflected in</i></td></tr>
+<tr><th id="67">67</th><td><i>// R_FindShader() in tr_bsp.c</i></td></tr>
+<tr><th id="68">68</th><td><u>#define <dfn class="macro" id="_M/LIGHTMAP_2D" data-ref="_M/LIGHTMAP_2D">LIGHTMAP_2D</dfn>         -4	// shader is for 2D rendering</u></td></tr>
+<tr><th id="69">69</th><td><u>#define <dfn class="macro" id="_M/LIGHTMAP_BY_VERTEX" data-ref="_M/LIGHTMAP_BY_VERTEX">LIGHTMAP_BY_VERTEX</dfn>  -3	// pre-lit triangle models</u></td></tr>
+<tr><th id="70">70</th><td><u>#define <dfn class="macro" id="_M/LIGHTMAP_WHITEIMAGE" data-ref="_M/LIGHTMAP_WHITEIMAGE">LIGHTMAP_WHITEIMAGE</dfn> -2</u></td></tr>
+<tr><th id="71">71</th><td><u>#define <dfn class="macro" id="_M/LIGHTMAP_NONE" data-ref="_M/LIGHTMAP_NONE">LIGHTMAP_NONE</dfn>       -1</u></td></tr>
+<tr><th id="72">72</th><td></td></tr>
+<tr><th id="73">73</th><td><b>extern</b>	<a class="typedef" href="tr_public.h.html#refimport_t" title='refimport_t' data-type='struct refimport_t' data-ref="refimport_t">refimport_t</a>		<dfn class="decl" id="ri" title='ri' data-ref="ri">ri</dfn>;</td></tr>
+<tr><th id="74">74</th><td><b>extern</b> <a class="typedef" href="tr_types.h.html#glconfig_t" title='glconfig_t' data-type='struct glconfig_t' data-ref="glconfig_t">glconfig_t</a>	<dfn class="decl" id="glConfig" title='glConfig' data-ref="glConfig">glConfig</dfn>;		<i>// outside of TR since it shouldn't be cleared during ref re-init</i></td></tr>
+<tr><th id="75">75</th><td></td></tr>
+<tr><th id="76">76</th><td><i>// These variables should live inside glConfig but can't because of</i></td></tr>
+<tr><th id="77">77</th><td><i>// compatibility issues to the original ID vms.  If you release a stand-alone</i></td></tr>
+<tr><th id="78">78</th><td><i>// game and your mod uses tr_types.h from this build you can safely move them</i></td></tr>
+<tr><th id="79">79</th><td><i>// to the glconfig_t struct.</i></td></tr>
+<tr><th id="80">80</th><td><b>extern</b> <a class="typedef" href="../qcommon/q_shared.h.html#qboolean" title='qboolean' data-type='enum qboolean' data-ref="qboolean">qboolean</a>  <dfn class="decl" id="textureFilterAnisotropic" title='textureFilterAnisotropic' data-ref="textureFilterAnisotropic">textureFilterAnisotropic</dfn>;</td></tr>
+<tr><th id="81">81</th><td><b>extern</b> <em>int</em>       <dfn class="decl" id="maxAnisotropy" title='maxAnisotropy' data-ref="maxAnisotropy">maxAnisotropy</dfn>;</td></tr>
+<tr><th id="82">82</th><td><b>extern</b> <em>float</em>     <dfn class="decl" id="displayAspect" title='displayAspect' data-ref="displayAspect">displayAspect</dfn>;</td></tr>
+<tr><th id="83">83</th><td></td></tr>
+<tr><th id="84">84</th><td><i>//</i></td></tr>
+<tr><th id="85">85</th><td><i>// cvars</i></td></tr>
+<tr><th id="86">86</th><td><i>//</i></td></tr>
+<tr><th id="87">87</th><td><b>extern</b> <a class="typedef" href="../qcommon/q_shared.h.html#cvar_t" title='cvar_t' data-type='struct cvar_s' data-ref="cvar_t">cvar_t</a> *<dfn class="decl" id="r_stencilbits" title='r_stencilbits' data-ref="r_stencilbits">r_stencilbits</dfn>;			<i>// number of desired stencil bits</i></td></tr>
+<tr><th id="88">88</th><td><b>extern</b> <a class="typedef" href="../qcommon/q_shared.h.html#cvar_t" title='cvar_t' data-type='struct cvar_s' data-ref="cvar_t">cvar_t</a> *<dfn class="decl" id="r_depthbits" title='r_depthbits' data-ref="r_depthbits">r_depthbits</dfn>;			<i>// number of desired depth bits</i></td></tr>
+<tr><th id="89">89</th><td><b>extern</b> <a class="typedef" href="../qcommon/q_shared.h.html#cvar_t" title='cvar_t' data-type='struct cvar_s' data-ref="cvar_t">cvar_t</a> *<dfn class="decl" id="r_colorbits" title='r_colorbits' data-ref="r_colorbits">r_colorbits</dfn>;			<i>// number of desired color bits, only relevant for fullscreen</i></td></tr>
+<tr><th id="90">90</th><td><b>extern</b> <a class="typedef" href="../qcommon/q_shared.h.html#cvar_t" title='cvar_t' data-type='struct cvar_s' data-ref="cvar_t">cvar_t</a> *<dfn class="decl" id="r_texturebits" title='r_texturebits' data-ref="r_texturebits">r_texturebits</dfn>;			<i>// number of desired texture bits</i></td></tr>
+<tr><th id="91">91</th><td><b>extern</b> <a class="typedef" href="../qcommon/q_shared.h.html#cvar_t" title='cvar_t' data-type='struct cvar_s' data-ref="cvar_t">cvar_t</a> *<dfn class="decl" id="r_ext_multisample" title='r_ext_multisample' data-ref="r_ext_multisample">r_ext_multisample</dfn>;</td></tr>
+<tr><th id="92">92</th><td>										<i>// 0 = use framebuffer depth</i></td></tr>
+<tr><th id="93">93</th><td><i>										// 16 = use 16-bit textures</i></td></tr>
+<tr><th id="94">94</th><td><i>										// 32 = use 32-bit textures</i></td></tr>
+<tr><th id="95">95</th><td><i>										// all else = error</i></td></tr>
+<tr><th id="96">96</th><td></td></tr>
+<tr><th id="97">97</th><td><b>extern</b> <a class="typedef" href="../qcommon/q_shared.h.html#cvar_t" title='cvar_t' data-type='struct cvar_s' data-ref="cvar_t">cvar_t</a> *<dfn class="decl" id="r_mode" title='r_mode' data-ref="r_mode">r_mode</dfn>;				<i>// video mode</i></td></tr>
+<tr><th id="98">98</th><td><b>extern</b> <a class="typedef" href="../qcommon/q_shared.h.html#cvar_t" title='cvar_t' data-type='struct cvar_s' data-ref="cvar_t">cvar_t</a> *<dfn class="decl" id="r_noborder" title='r_noborder' data-ref="r_noborder">r_noborder</dfn>;</td></tr>
+<tr><th id="99">99</th><td><b>extern</b> <a class="typedef" href="../qcommon/q_shared.h.html#cvar_t" title='cvar_t' data-type='struct cvar_s' data-ref="cvar_t">cvar_t</a> *<dfn class="decl" id="r_fullscreen" title='r_fullscreen' data-ref="r_fullscreen">r_fullscreen</dfn>;</td></tr>
+<tr><th id="100">100</th><td><b>extern</b> <a class="typedef" href="../qcommon/q_shared.h.html#cvar_t" title='cvar_t' data-type='struct cvar_s' data-ref="cvar_t">cvar_t</a> *<dfn class="decl" id="r_ignorehwgamma" title='r_ignorehwgamma' data-ref="r_ignorehwgamma">r_ignorehwgamma</dfn>;		<i>// overrides hardware gamma capabilities</i></td></tr>
+<tr><th id="101">101</th><td><b>extern</b> <a class="typedef" href="../qcommon/q_shared.h.html#cvar_t" title='cvar_t' data-type='struct cvar_s' data-ref="cvar_t">cvar_t</a> *<dfn class="decl" id="r_drawBuffer" title='r_drawBuffer' data-ref="r_drawBuffer">r_drawBuffer</dfn>;</td></tr>
+<tr><th id="102">102</th><td><b>extern</b> <a class="typedef" href="../qcommon/q_shared.h.html#cvar_t" title='cvar_t' data-type='struct cvar_s' data-ref="cvar_t">cvar_t</a> *<dfn class="decl" id="r_swapInterval" title='r_swapInterval' data-ref="r_swapInterval">r_swapInterval</dfn>;</td></tr>
+<tr><th id="103">103</th><td></td></tr>
+<tr><th id="104">104</th><td><b>extern</b> <a class="typedef" href="../qcommon/q_shared.h.html#cvar_t" title='cvar_t' data-type='struct cvar_s' data-ref="cvar_t">cvar_t</a> *<dfn class="decl" id="r_allowExtensions" title='r_allowExtensions' data-ref="r_allowExtensions">r_allowExtensions</dfn>;				<i>// global enable/disable of OpenGL extensions</i></td></tr>
+<tr><th id="105">105</th><td><b>extern</b> <a class="typedef" href="../qcommon/q_shared.h.html#cvar_t" title='cvar_t' data-type='struct cvar_s' data-ref="cvar_t">cvar_t</a> *<dfn class="decl" id="r_ext_compressed_textures" title='r_ext_compressed_textures' data-ref="r_ext_compressed_textures">r_ext_compressed_textures</dfn>;		<i>// these control use of specific extensions</i></td></tr>
+<tr><th id="106">106</th><td><b>extern</b> <a class="typedef" href="../qcommon/q_shared.h.html#cvar_t" title='cvar_t' data-type='struct cvar_s' data-ref="cvar_t">cvar_t</a> *<dfn class="decl" id="r_ext_multitexture" title='r_ext_multitexture' data-ref="r_ext_multitexture">r_ext_multitexture</dfn>;</td></tr>
+<tr><th id="107">107</th><td><b>extern</b> <a class="typedef" href="../qcommon/q_shared.h.html#cvar_t" title='cvar_t' data-type='struct cvar_s' data-ref="cvar_t">cvar_t</a> *<dfn class="decl" id="r_ext_compiled_vertex_array" title='r_ext_compiled_vertex_array' data-ref="r_ext_compiled_vertex_array">r_ext_compiled_vertex_array</dfn>;</td></tr>
+<tr><th id="108">108</th><td><b>extern</b> <a class="typedef" href="../qcommon/q_shared.h.html#cvar_t" title='cvar_t' data-type='struct cvar_s' data-ref="cvar_t">cvar_t</a> *<dfn class="decl" id="r_ext_texture_env_add" title='r_ext_texture_env_add' data-ref="r_ext_texture_env_add">r_ext_texture_env_add</dfn>;</td></tr>
+<tr><th id="109">109</th><td></td></tr>
+<tr><th id="110">110</th><td><b>extern</b> <a class="typedef" href="../qcommon/q_shared.h.html#cvar_t" title='cvar_t' data-type='struct cvar_s' data-ref="cvar_t">cvar_t</a> *<dfn class="decl" id="r_ext_texture_filter_anisotropic" title='r_ext_texture_filter_anisotropic' data-ref="r_ext_texture_filter_anisotropic">r_ext_texture_filter_anisotropic</dfn>;</td></tr>
+<tr><th id="111">111</th><td><b>extern</b> <a class="typedef" href="../qcommon/q_shared.h.html#cvar_t" title='cvar_t' data-type='struct cvar_s' data-ref="cvar_t">cvar_t</a> *<dfn class="decl" id="r_ext_max_anisotropy" title='r_ext_max_anisotropy' data-ref="r_ext_max_anisotropy">r_ext_max_anisotropy</dfn>;</td></tr>
+<tr><th id="112">112</th><td></td></tr>
+<tr><th id="113">113</th><td><b>extern</b> <a class="typedef" href="../qcommon/q_shared.h.html#cvar_t" title='cvar_t' data-type='struct cvar_s' data-ref="cvar_t">cvar_t</a> *<dfn class="decl" id="r_stereoEnabled" title='r_stereoEnabled' data-ref="r_stereoEnabled">r_stereoEnabled</dfn>;</td></tr>
+<tr><th id="114">114</th><td></td></tr>
+<tr><th id="115">115</th><td><b>extern</b>	<a class="typedef" href="../qcommon/q_shared.h.html#cvar_t" title='cvar_t' data-type='struct cvar_s' data-ref="cvar_t">cvar_t</a>	*<dfn class="decl" id="r_saveFontData" title='r_saveFontData' data-ref="r_saveFontData">r_saveFontData</dfn>;</td></tr>
+<tr><th id="116">116</th><td></td></tr>
+<tr><th id="117">117</th><td><a class="typedef" href="../qcommon/q_shared.h.html#qboolean" title='qboolean' data-type='enum qboolean' data-ref="qboolean">qboolean</a>	<dfn class="decl" id="R_GetModeInfo" title='R_GetModeInfo' data-ref="R_GetModeInfo">R_GetModeInfo</dfn>( <em>int</em> *<dfn class="local col3 decl" id="8913width" title='width' data-type='int *' data-ref="8913width">width</dfn>, <em>int</em> *<dfn class="local col4 decl" id="8914height" title='height' data-type='int *' data-ref="8914height">height</dfn>, <em>float</em> *<dfn class="local col5 decl" id="8915windowAspect" title='windowAspect' data-type='float *' data-ref="8915windowAspect">windowAspect</dfn>, <em>int</em> <dfn class="local col6 decl" id="8916mode" title='mode' data-type='int' data-ref="8916mode">mode</dfn> );</td></tr>
+<tr><th id="118">118</th><td></td></tr>
+<tr><th id="119">119</th><td><em>float</em> <dfn class="decl" id="R_NoiseGet4f" title='R_NoiseGet4f' data-ref="R_NoiseGet4f">R_NoiseGet4f</dfn>( <em>float</em> <dfn class="local col7 decl" id="8917x" title='x' data-type='float' data-ref="8917x">x</dfn>, <em>float</em> <dfn class="local col8 decl" id="8918y" title='y' data-type='float' data-ref="8918y">y</dfn>, <em>float</em> <dfn class="local col9 decl" id="8919z" title='z' data-type='float' data-ref="8919z">z</dfn>, <em>double</em> <dfn class="local col0 decl" id="8920t" title='t' data-type='double' data-ref="8920t">t</dfn> );</td></tr>
+<tr><th id="120">120</th><td><em>void</em>  <dfn class="decl" id="R_NoiseInit" title='R_NoiseInit' data-ref="R_NoiseInit">R_NoiseInit</dfn>( <em>void</em> );</td></tr>
+<tr><th id="121">121</th><td></td></tr>
+<tr><th id="122">122</th><td><a class="typedef" href="#image_t" title='image_t' data-type='struct image_s' data-ref="image_t">image_t</a>     *<dfn class="decl" id="R_FindImageFile" title='R_FindImageFile' data-ref="R_FindImageFile">R_FindImageFile</dfn>( <em>const</em> <em>char</em> *<dfn class="local col1 decl" id="8921name" title='name' data-type='const char *' data-ref="8921name">name</dfn>, <a class="typedef" href="#imgType_t" title='imgType_t' data-type='enum imgType_t' data-ref="imgType_t">imgType_t</a> <dfn class="local col2 decl" id="8922type" title='type' data-type='imgType_t' data-ref="8922type">type</dfn>, <a class="typedef" href="#imgFlags_t" title='imgFlags_t' data-type='enum imgFlags_t' data-ref="imgFlags_t">imgFlags_t</a> <dfn class="local col3 decl" id="8923flags" title='flags' data-type='imgFlags_t' data-ref="8923flags">flags</dfn> );</td></tr>
+<tr><th id="123">123</th><td><a class="typedef" href="#image_t" title='image_t' data-type='struct image_s' data-ref="image_t">image_t</a> *<dfn class="decl" id="R_CreateImage" title='R_CreateImage' data-ref="R_CreateImage">R_CreateImage</dfn>( <em>const</em> <em>char</em> *<dfn class="local col4 decl" id="8924name" title='name' data-type='const char *' data-ref="8924name">name</dfn>, <a class="typedef" href="../qcommon/q_shared.h.html#byte" title='byte' data-type='unsigned char' data-ref="byte">byte</a> *<dfn class="local col5 decl" id="8925pic" title='pic' data-type='byte *' data-ref="8925pic">pic</dfn>, <em>int</em> <dfn class="local col6 decl" id="8926width" title='width' data-type='int' data-ref="8926width">width</dfn>, <em>int</em> <dfn class="local col7 decl" id="8927height" title='height' data-type='int' data-ref="8927height">height</dfn>, <a class="typedef" href="#imgType_t" title='imgType_t' data-type='enum imgType_t' data-ref="imgType_t">imgType_t</a> <dfn class="local col8 decl" id="8928type" title='type' data-type='imgType_t' data-ref="8928type">type</dfn>, <a class="typedef" href="#imgFlags_t" title='imgFlags_t' data-type='enum imgFlags_t' data-ref="imgFlags_t">imgFlags_t</a> <dfn class="local col9 decl" id="8929flags" title='flags' data-type='imgFlags_t' data-ref="8929flags">flags</dfn>, <em>int</em> <dfn class="local col0 decl" id="8930internalFormat" title='internalFormat' data-type='int' data-ref="8930internalFormat">internalFormat</dfn> );</td></tr>
+<tr><th id="124">124</th><td></td></tr>
+<tr><th id="125">125</th><td><em>void</em> <dfn class="decl" id="R_IssuePendingRenderCommands" title='R_IssuePendingRenderCommands' data-ref="R_IssuePendingRenderCommands">R_IssuePendingRenderCommands</dfn>( <em>void</em> );</td></tr>
+<tr><th id="126">126</th><td><a class="typedef" href="../qcommon/q_shared.h.html#qhandle_t" title='qhandle_t' data-type='int' data-ref="qhandle_t">qhandle_t</a>		 <dfn class="decl" id="RE_RegisterShaderLightMap" title='RE_RegisterShaderLightMap' data-ref="RE_RegisterShaderLightMap">RE_RegisterShaderLightMap</dfn>( <em>const</em> <em>char</em> *<dfn class="local col1 decl" id="8931name" title='name' data-type='const char *' data-ref="8931name">name</dfn>, <em>int</em> <dfn class="local col2 decl" id="8932lightmapIndex" title='lightmapIndex' data-type='int' data-ref="8932lightmapIndex">lightmapIndex</dfn> );</td></tr>
+<tr><th id="127">127</th><td><a class="typedef" href="../qcommon/q_shared.h.html#qhandle_t" title='qhandle_t' data-type='int' data-ref="qhandle_t">qhandle_t</a>		 <dfn class="decl" id="RE_RegisterShader" title='RE_RegisterShader' data-ref="RE_RegisterShader">RE_RegisterShader</dfn>( <em>const</em> <em>char</em> *<dfn class="local col3 decl" id="8933name" title='name' data-type='const char *' data-ref="8933name">name</dfn> );</td></tr>
+<tr><th id="128">128</th><td><a class="typedef" href="../qcommon/q_shared.h.html#qhandle_t" title='qhandle_t' data-type='int' data-ref="qhandle_t">qhandle_t</a>		 <dfn class="decl" id="RE_RegisterShaderNoMip" title='RE_RegisterShaderNoMip' data-ref="RE_RegisterShaderNoMip">RE_RegisterShaderNoMip</dfn>( <em>const</em> <em>char</em> *<dfn class="local col4 decl" id="8934name" title='name' data-type='const char *' data-ref="8934name">name</dfn> );</td></tr>
+<tr><th id="129">129</th><td><a class="typedef" href="../qcommon/q_shared.h.html#qhandle_t" title='qhandle_t' data-type='int' data-ref="qhandle_t">qhandle_t</a> <dfn class="decl" id="RE_RegisterShaderFromImage" title='RE_RegisterShaderFromImage' data-ref="RE_RegisterShaderFromImage">RE_RegisterShaderFromImage</dfn>(<em>const</em> <em>char</em> *<dfn class="local col5 decl" id="8935name" title='name' data-type='const char *' data-ref="8935name">name</dfn>, <em>int</em> <dfn class="local col6 decl" id="8936lightmapIndex" title='lightmapIndex' data-type='int' data-ref="8936lightmapIndex">lightmapIndex</dfn>, <a class="typedef" href="#image_t" title='image_t' data-type='struct image_s' data-ref="image_t">image_t</a> *<dfn class="local col7 decl" id="8937image" title='image' data-type='image_t *' data-ref="8937image">image</dfn>, <a class="typedef" href="../qcommon/q_shared.h.html#qboolean" title='qboolean' data-type='enum qboolean' data-ref="qboolean">qboolean</a> <dfn class="local col8 decl" id="8938mipRawImage" title='mipRawImage' data-type='qboolean' data-ref="8938mipRawImage">mipRawImage</dfn>);</td></tr>
+<tr><th id="130">130</th><td></td></tr>
+<tr><th id="131">131</th><td><i>// font stuff</i></td></tr>
+<tr><th id="132">132</th><td><em>void</em> <a class="decl" href="tr_font.c.html#R_InitFreeType" title='R_InitFreeType' data-ref="R_InitFreeType" id="R_InitFreeType">R_InitFreeType</a>( <em>void</em> );</td></tr>
+<tr><th id="133">133</th><td><em>void</em> <a class="decl" href="tr_font.c.html#R_DoneFreeType" title='R_DoneFreeType' data-ref="R_DoneFreeType" id="R_DoneFreeType">R_DoneFreeType</a>( <em>void</em> );</td></tr>
+<tr><th id="134">134</th><td><em>void</em> <a class="decl" href="tr_font.c.html#RE_RegisterFont" title='RE_RegisterFont' data-ref="RE_RegisterFont" id="RE_RegisterFont">RE_RegisterFont</a>(<em>const</em> <em>char</em> *<dfn class="local col9 decl" id="8939fontName" title='fontName' data-type='const char *' data-ref="8939fontName">fontName</dfn>, <em>int</em> <dfn class="local col0 decl" id="8940pointSize" title='pointSize' data-type='int' data-ref="8940pointSize">pointSize</dfn>, <a class="typedef" href="../qcommon/q_shared.h.html#fontInfo_t" title='fontInfo_t' data-type='struct fontInfo_t' data-ref="fontInfo_t">fontInfo_t</a> *<dfn class="local col1 decl" id="8941font" title='font' data-type='fontInfo_t *' data-ref="8941font">font</dfn>);</td></tr>
+<tr><th id="135">135</th><td></td></tr>
+<tr><th id="136">136</th><td><i>/*</i></td></tr>
+<tr><th id="137">137</th><td><i>=============================================================</i></td></tr>
+<tr><th id="138">138</th><td><i></i></td></tr>
+<tr><th id="139">139</th><td><i>IMAGE LOADERS</i></td></tr>
+<tr><th id="140">140</th><td><i></i></td></tr>
+<tr><th id="141">141</th><td><i>=============================================================</i></td></tr>
+<tr><th id="142">142</th><td><i>*/</i></td></tr>
+<tr><th id="143">143</th><td></td></tr>
+<tr><th id="144">144</th><td><em>void</em> <dfn class="decl" id="R_LoadBMP" title='R_LoadBMP' data-ref="R_LoadBMP">R_LoadBMP</dfn>( <em>const</em> <em>char</em> *<dfn class="local col2 decl" id="8942name" title='name' data-type='const char *' data-ref="8942name">name</dfn>, <a class="typedef" href="../qcommon/q_shared.h.html#byte" title='byte' data-type='unsigned char' data-ref="byte">byte</a> **<dfn class="local col3 decl" id="8943pic" title='pic' data-type='byte **' data-ref="8943pic">pic</dfn>, <em>int</em> *<dfn class="local col4 decl" id="8944width" title='width' data-type='int *' data-ref="8944width">width</dfn>, <em>int</em> *<dfn class="local col5 decl" id="8945height" title='height' data-type='int *' data-ref="8945height">height</dfn> );</td></tr>
+<tr><th id="145">145</th><td><em>void</em> <dfn class="decl" id="R_LoadJPG" title='R_LoadJPG' data-ref="R_LoadJPG">R_LoadJPG</dfn>( <em>const</em> <em>char</em> *<dfn class="local col6 decl" id="8946name" title='name' data-type='const char *' data-ref="8946name">name</dfn>, <a class="typedef" href="../qcommon/q_shared.h.html#byte" title='byte' data-type='unsigned char' data-ref="byte">byte</a> **<dfn class="local col7 decl" id="8947pic" title='pic' data-type='byte **' data-ref="8947pic">pic</dfn>, <em>int</em> *<dfn class="local col8 decl" id="8948width" title='width' data-type='int *' data-ref="8948width">width</dfn>, <em>int</em> *<dfn class="local col9 decl" id="8949height" title='height' data-type='int *' data-ref="8949height">height</dfn> );</td></tr>
+<tr><th id="146">146</th><td><em>void</em> <dfn class="decl" id="R_LoadPCX" title='R_LoadPCX' data-ref="R_LoadPCX">R_LoadPCX</dfn>( <em>const</em> <em>char</em> *<dfn class="local col0 decl" id="8950name" title='name' data-type='const char *' data-ref="8950name">name</dfn>, <a class="typedef" href="../qcommon/q_shared.h.html#byte" title='byte' data-type='unsigned char' data-ref="byte">byte</a> **<dfn class="local col1 decl" id="8951pic" title='pic' data-type='byte **' data-ref="8951pic">pic</dfn>, <em>int</em> *<dfn class="local col2 decl" id="8952width" title='width' data-type='int *' data-ref="8952width">width</dfn>, <em>int</em> *<dfn class="local col3 decl" id="8953height" title='height' data-type='int *' data-ref="8953height">height</dfn> );</td></tr>
+<tr><th id="147">147</th><td><em>void</em> <dfn class="decl" id="R_LoadPNG" title='R_LoadPNG' data-ref="R_LoadPNG">R_LoadPNG</dfn>( <em>const</em> <em>char</em> *<dfn class="local col4 decl" id="8954name" title='name' data-type='const char *' data-ref="8954name">name</dfn>, <a class="typedef" href="../qcommon/q_shared.h.html#byte" title='byte' data-type='unsigned char' data-ref="byte">byte</a> **<dfn class="local col5 decl" id="8955pic" title='pic' data-type='byte **' data-ref="8955pic">pic</dfn>, <em>int</em> *<dfn class="local col6 decl" id="8956width" title='width' data-type='int *' data-ref="8956width">width</dfn>, <em>int</em> *<dfn class="local col7 decl" id="8957height" title='height' data-type='int *' data-ref="8957height">height</dfn> );</td></tr>
+<tr><th id="148">148</th><td><em>void</em> <dfn class="decl" id="R_LoadTGA" title='R_LoadTGA' data-ref="R_LoadTGA">R_LoadTGA</dfn>( <em>const</em> <em>char</em> *<dfn class="local col8 decl" id="8958name" title='name' data-type='const char *' data-ref="8958name">name</dfn>, <a class="typedef" href="../qcommon/q_shared.h.html#byte" title='byte' data-type='unsigned char' data-ref="byte">byte</a> **<dfn class="local col9 decl" id="8959pic" title='pic' data-type='byte **' data-ref="8959pic">pic</dfn>, <em>int</em> *<dfn class="local col0 decl" id="8960width" title='width' data-type='int *' data-ref="8960width">width</dfn>, <em>int</em> *<dfn class="local col1 decl" id="8961height" title='height' data-type='int *' data-ref="8961height">height</dfn> );</td></tr>
+<tr><th id="149">149</th><td></td></tr>
+<tr><th id="150">150</th><td><i>/*</i></td></tr>
+<tr><th id="151">151</th><td><i>====================================================================</i></td></tr>
+<tr><th id="152">152</th><td><i></i></td></tr>
+<tr><th id="153">153</th><td><i>IMPLEMENTATION SPECIFIC FUNCTIONS</i></td></tr>
+<tr><th id="154">154</th><td><i></i></td></tr>
+<tr><th id="155">155</th><td><i>====================================================================</i></td></tr>
+<tr><th id="156">156</th><td><i>*/</i></td></tr>
+<tr><th id="157">157</th><td></td></tr>
+<tr><th id="158">158</th><td><em>void</em>		<dfn class="decl" id="GLimp_Init" title='GLimp_Init' data-ref="GLimp_Init">GLimp_Init</dfn>( <a class="typedef" href="../qcommon/q_shared.h.html#qboolean" title='qboolean' data-type='enum qboolean' data-ref="qboolean">qboolean</a> );</td></tr>
+<tr><th id="159">159</th><td><em>void</em>		<dfn class="decl" id="GLimp_Shutdown" title='GLimp_Shutdown' data-ref="GLimp_Shutdown">GLimp_Shutdown</dfn>( <em>void</em> );</td></tr>
+<tr><th id="160">160</th><td><em>void</em>		<dfn class="decl" id="GLimp_EndFrame" title='GLimp_EndFrame' data-ref="GLimp_EndFrame">GLimp_EndFrame</dfn>( <em>void</em> );</td></tr>
+<tr><th id="161">161</th><td></td></tr>
+<tr><th id="162">162</th><td><em>void</em>		<dfn class="decl" id="GLimp_LogComment" title='GLimp_LogComment' data-ref="GLimp_LogComment">GLimp_LogComment</dfn>( <em>char</em> *<dfn class="local col2 decl" id="8962comment" title='comment' data-type='char *' data-ref="8962comment">comment</dfn> );</td></tr>
+<tr><th id="163">163</th><td><em>void</em>		<dfn class="decl" id="GLimp_Minimize" title='GLimp_Minimize' data-ref="GLimp_Minimize">GLimp_Minimize</dfn>(<em>void</em>);</td></tr>
+<tr><th id="164">164</th><td></td></tr>
+<tr><th id="165">165</th><td><em>void</em>		<dfn class="decl" id="GLimp_SetGamma" title='GLimp_SetGamma' data-ref="GLimp_SetGamma">GLimp_SetGamma</dfn>( <em>unsigned</em> <em>char</em> <dfn class="local col3 decl" id="8963red" title='red' data-type='unsigned char *' data-ref="8963red">red</dfn>[<var>256</var>],</td></tr>
+<tr><th id="166">166</th><td>		<em>unsigned</em> <em>char</em> <dfn class="local col4 decl" id="8964green" title='green' data-type='unsigned char *' data-ref="8964green">green</dfn>[<var>256</var>],</td></tr>
+<tr><th id="167">167</th><td>		<em>unsigned</em> <em>char</em> <dfn class="local col5 decl" id="8965blue" title='blue' data-type='unsigned char *' data-ref="8965blue">blue</dfn>[<var>256</var>] );</td></tr>
+<tr><th id="168">168</th><td></td></tr>
+<tr><th id="169">169</th><td></td></tr>
+<tr><th id="170">170</th><td><u>#<span data-ppcond="22">endif</span></u></td></tr>
+<tr><th id="171">171</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='tr_font.c.html'>codebrowser/code/renderercommon/tr_font.c</a><br/>Generated on <em>2017-Aug-29</em> from project codebrowser revision <em>63e07af</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

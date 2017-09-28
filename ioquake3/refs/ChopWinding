@@ -1,0 +1,10 @@
+<dec f='codebrowser/code/qcommon/cm_polylib.h' l='52' type='winding_t * ChopWinding(winding_t * in, vec_t * normal, vec_t dist)'/>
+<def f='codebrowser/code/qcommon/cm_polylib.c' l='526' ll='535' type='winding_t * ChopWinding(winding_t * in, vec_t * normal, vec_t dist)'/>
+<doc f='codebrowser/code/qcommon/cm_polylib.c' l='518'>/*
+=================
+ChopWinding
+
+Returns the fragment of in that is on the front side
+of the cliping plane.  The original is freed.
+=================
+*/</doc>

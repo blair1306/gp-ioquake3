@@ -1,0 +1,56 @@
+<dec f='codebrowser/code/game/g_local.h' l='894' type='void trap_BotMatchVariable(void * match, int variable, char * buf, int size)'/>
+<doc f='codebrowser/code/game/g_local.h' l='894'>/* struct bot_match_s */</doc>
+<use f='codebrowser/code/game/ai_cmd.c' l='207' u='c' c='BotGetTime'/>
+<use f='codebrowser/code/game/ai_cmd.c' l='220' u='c' c='BotGetTime'/>
+<use f='codebrowser/code/game/ai_cmd.c' l='308' u='c' c='BotGetPatrolWaypoints'/>
+<use f='codebrowser/code/game/ai_cmd.c' l='317' u='c' c='BotGetPatrolWaypoints'/>
+<use f='codebrowser/code/game/ai_cmd.c' l='350' u='c' c='BotGetPatrolWaypoints'/>
+<use f='codebrowser/code/game/ai_cmd.c' l='386' u='c' c='BotAddressedToBot'/>
+<use f='codebrowser/code/game/ai_cmd.c' l='391' u='c' c='BotAddressedToBot'/>
+<use f='codebrowser/code/game/ai_cmd.c' l='400' u='c' c='BotAddressedToBot'/>
+<use f='codebrowser/code/game/ai_cmd.c' l='405' u='c' c='BotAddressedToBot'/>
+<use f='codebrowser/code/game/ai_cmd.c' l='408' u='c' c='BotAddressedToBot'/>
+<use f='codebrowser/code/game/ai_cmd.c' l='486' u='c' c='BotMatch_HelpAccompany'/>
+<use f='codebrowser/code/game/ai_cmd.c' l='492' u='c' c='BotMatch_HelpAccompany'/>
+<use f='codebrowser/code/game/ai_cmd.c' l='542' u='c' c='BotMatch_HelpAccompany'/>
+<use f='codebrowser/code/game/ai_cmd.c' l='562' u='c' c='BotMatch_HelpAccompany'/>
+<use f='codebrowser/code/game/ai_cmd.c' l='609' u='c' c='BotMatch_DefendKeyArea'/>
+<use f='codebrowser/code/game/ai_cmd.c' l='617' u='c' c='BotMatch_DefendKeyArea'/>
+<use f='codebrowser/code/game/ai_cmd.c' l='657' u='c' c='BotMatch_GetItem'/>
+<use f='codebrowser/code/game/ai_cmd.c' l='664' u='c' c='BotMatch_GetItem'/>
+<use f='codebrowser/code/game/ai_cmd.c' l='698' u='c' c='BotMatch_Camp'/>
+<use f='codebrowser/code/game/ai_cmd.c' l='708' u='c' c='BotMatch_Camp'/>
+<use f='codebrowser/code/game/ai_cmd.c' l='790' u='c' c='BotMatch_Patrol'/>
+<use f='codebrowser/code/game/ai_cmd.c' l='839' u='c' c='BotMatch_GetFlag'/>
+<use f='codebrowser/code/game/ai_cmd.c' l='890' u='c' c='BotMatch_AttackEnemyBase'/>
+<use f='codebrowser/code/game/ai_cmd.c' l='982' u='c' c='BotMatch_RushBase'/>
+<use f='codebrowser/code/game/ai_cmd.c' l='1016' u='c' c='BotMatch_TaskPreference'/>
+<use f='codebrowser/code/game/ai_cmd.c' l='1071' u='c' c='BotMatch_ReturnFlag'/>
+<use f='codebrowser/code/game/ai_cmd.c' l='1106' u='c' c='BotMatch_JoinSubteam'/>
+<use f='codebrowser/code/game/ai_cmd.c' l='1111' u='c' c='BotMatch_JoinSubteam'/>
+<use f='codebrowser/code/game/ai_cmd.c' l='1133' u='c' c='BotMatch_LeaveSubteam'/>
+<use f='codebrowser/code/game/ai_cmd.c' l='1173' u='c' c='BotMatch_CheckPoint'/>
+<use f='codebrowser/code/game/ai_cmd.c' l='1176' u='c' c='BotMatch_CheckPoint'/>
+<use f='codebrowser/code/game/ai_cmd.c' l='1190' u='c' c='BotMatch_CheckPoint'/>
+<use f='codebrowser/code/game/ai_cmd.c' l='1229' u='c' c='BotMatch_FormationSpace'/>
+<use f='codebrowser/code/game/ai_cmd.c' l='1251' u='c' c='BotMatch_Dismiss'/>
+<use f='codebrowser/code/game/ai_cmd.c' l='1279' u='c' c='BotMatch_Suicide'/>
+<use f='codebrowser/code/game/ai_cmd.c' l='1299' u='c' c='BotMatch_StartTeamLeaderShip'/>
+<use f='codebrowser/code/game/ai_cmd.c' l='1306' u='c' c='BotMatch_StartTeamLeaderShip'/>
+<use f='codebrowser/code/game/ai_cmd.c' l='1324' u='c' c='BotMatch_StopTeamLeaderShip'/>
+<use f='codebrowser/code/game/ai_cmd.c' l='1327' u='c' c='BotMatch_StopTeamLeaderShip'/>
+<use f='codebrowser/code/game/ai_cmd.c' l='1448' u='c' c='BotMatch_WhatAreYouDoing'/>
+<use f='codebrowser/code/game/ai_cmd.c' l='1595' u='c' c='BotMatch_WhereAreYou'/>
+<use f='codebrowser/code/game/ai_cmd.c' l='1617' u='c' c='BotMatch_LeadTheWay'/>
+<use f='codebrowser/code/game/ai_cmd.c' l='1633' u='c' c='BotMatch_LeadTheWay'/>
+<use f='codebrowser/code/game/ai_cmd.c' l='1684' u='c' c='BotMatch_Kill'/>
+<use f='codebrowser/code/game/ai_cmd.c' l='1689' u='c' c='BotMatch_Kill'/>
+<use f='codebrowser/code/game/ai_cmd.c' l='1718' u='c' c='BotMatch_CTF'/>
+<use f='codebrowser/code/game/ai_cmd.c' l='1723' u='c' c='BotMatch_CTF'/>
+<use f='codebrowser/code/game/ai_cmd.c' l='1730' u='c' c='BotMatch_CTF'/>
+<use f='codebrowser/code/game/ai_cmd.c' l='1763' u='c' c='BotMatch_EnterGame'/>
+<use f='codebrowser/code/game/ai_cmd.c' l='1777' u='c' c='BotMatch_NewLeader'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='4660' u='c' c='BotCheckConsoleMessages'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='4661' u='c' c='BotCheckConsoleMessages'/>
+<def f='codebrowser/code/game/g_syscalls.c' l='560' ll='562' type='void trap_BotMatchVariable(void * match, int variable, char * buf, int size)'/>
+<doc f='codebrowser/code/game/g_syscalls.c' l='560'>/* struct bot_match_s */</doc>

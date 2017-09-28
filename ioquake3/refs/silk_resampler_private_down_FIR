@@ -1,0 +1,6 @@
+<dec f='codebrowser/code/opus-1.1.4/silk/resampler_private.h' l='53' type='void silk_resampler_private_down_FIR(void * SS, opus_int16 * out, const opus_int16 * in, opus_int32 inLen)'/>
+<use f='codebrowser/code/opus-1.1.4/silk/resampler.c' l='203' u='c' c='silk_resampler'/>
+<use f='codebrowser/code/opus-1.1.4/silk/resampler.c' l='204' u='c' c='silk_resampler'/>
+<doc f='codebrowser/code/opus-1.1.4/silk/resampler_private.h' l='52'>/* Description: Hybrid IIR/FIR polyphase implementation of resampling */</doc>
+<def f='codebrowser/code/opus-1.1.4/silk/resampler_private_down_FIR.c' l='145' ll='194' type='void silk_resampler_private_down_FIR(void * SS, opus_int16 * out, const opus_int16 * in, opus_int32 inLen)'/>
+<doc f='codebrowser/code/opus-1.1.4/silk/resampler_private_down_FIR.c' l='144'>/* Resample with a 2nd order AR filter followed by FIR interpolation */</doc>

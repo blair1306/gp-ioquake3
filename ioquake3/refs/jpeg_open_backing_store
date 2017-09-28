@@ -1,0 +1,9 @@
+<dec f='codebrowser/code/jpeg-8c/jmemsys.h' l='180' type='void jpeg_open_backing_store(j_common_ptr cinfo, backing_store_ptr info, long total_bytes_needed)'/>
+<use f='codebrowser/code/jpeg-8c/jmemmgr.c' l='648' u='c' c='realize_virt_arrays'/>
+<use f='codebrowser/code/jpeg-8c/jmemmgr.c' l='672' u='c' c='realize_virt_arrays'/>
+<def f='codebrowser/code/jpeg-8c/jmemnobs.c' l='86' ll='91' macro='1' type='void jpeg_open_backing_store(j_common_ptr cinfo, backing_store_ptr info, long total_bytes_needed)'/>
+<doc f='codebrowser/code/jpeg-8c/jmemnobs.c' l='80'>/*
+ * Backing store (temporary file) management.
+ * Since jpeg_mem_available always promised the moon,
+ * this should never be called and we can just error out.
+ */</doc>

@@ -1,0 +1,7 @@
+<dec f='include/SDL2/SDL_events.h' l='614' type='void SDL_FlushEvent(Uint32 type)'/>
+<doc f='include/SDL2/SDL_events.h' l='608'>/**
+ *  This function clears events from the event queue
+ *  This function only affects currently queued events. If you want to make
+ *  sure that all pending OS events are flushed, you can call SDL_PumpEvents()
+ *  on the main thread immediately before the flush call.
+ */</doc>

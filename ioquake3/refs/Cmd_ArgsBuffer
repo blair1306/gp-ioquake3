@@ -1,0 +1,11 @@
+<dec f='codebrowser/code/qcommon/qcommon.h' l='458' type='void Cmd_ArgsBuffer(char * buffer, int bufferLength)'/>
+<use f='codebrowser/code/client/cl_cgame.c' l='438' u='c' c='CL_CgameSystemCalls'/>
+<def f='codebrowser/code/qcommon/cmd.c' l='444' ll='446' type='void Cmd_ArgsBuffer(char * buffer, int bufferLength)'/>
+<doc f='codebrowser/code/qcommon/cmd.c' l='436'>/*
+============
+Cmd_ArgsBuffer
+
+The interpreted versions use this because
+they can&apos;t have pointers returned to them
+============
+*/</doc>

@@ -1,0 +1,9 @@
+<dec f='codebrowser/code/qcommon/cm_local.h' l='164' type='qboolean'/>
+<offset>1600</offset>
+<doc f='codebrowser/code/qcommon/cm_local.h' l='164'>// optimized case</doc>
+<use f='codebrowser/code/qcommon/cm_patch.c' l='1273' u='r' c='CM_TracePointThroughPatchCollide'/>
+<use f='codebrowser/code/qcommon/cm_patch.c' l='1421' u='r' c='CM_TraceThroughPatchCollide'/>
+<use f='codebrowser/code/qcommon/cm_patch.c' l='1554' u='r' c='CM_PositionTestInPatchCollide'/>
+<use f='codebrowser/code/qcommon/cm_trace.c' l='1070' u='r' c='CM_TraceThroughTree'/>
+<use f='codebrowser/code/qcommon/cm_trace.c' l='1302' u='w' c='CM_Trace'/>
+<use f='codebrowser/code/qcommon/cm_trace.c' l='1305' u='w' c='CM_Trace'/>

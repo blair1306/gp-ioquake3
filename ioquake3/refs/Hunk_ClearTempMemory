@@ -1,0 +1,12 @@
+<dec f='codebrowser/code/qcommon/qcommon.h' l='954' type='void Hunk_ClearTempMemory()'/>
+<def f='codebrowser/code/qcommon/common.c' l='1885' ll='1889' type='void Hunk_ClearTempMemory()'/>
+<doc f='codebrowser/code/qcommon/common.c' l='1876'>/*
+=================
+Hunk_ClearTempMemory
+
+The temp space is no longer needed.  If we have left more
+touched but unused memory on this side, have future
+permanent allocs use this side.
+=================
+*/</doc>
+<use f='codebrowser/code/qcommon/files.c' l='1968' u='c' c='FS_FreeFile'/>

@@ -1,0 +1,23 @@
+<dec f='codebrowser/code/qcommon/qcommon.h' l='1048' type='void SV_Shutdown(char * finalmsg)'/>
+<use f='codebrowser/code/client/cl_main.c' l='1731' u='c' c='CL_Connect_f'/>
+<use f='codebrowser/code/qcommon/common.c' l='311' u='c' c='Com_Error'/>
+<use f='codebrowser/code/qcommon/common.c' l='325' u='c' c='Com_Error'/>
+<use f='codebrowser/code/qcommon/common.c' l='337' u='c' c='Com_Error'/>
+<use f='codebrowser/code/qcommon/common.c' l='358' u='c' c='Com_Error'/>
+<use f='codebrowser/code/qcommon/common.c' l='385' u='c' c='Com_Quit_f'/>
+<use f='codebrowser/code/qcommon/common.c' l='2397' u='c' c='Com_GameRestart'/>
+<use f='codebrowser/code/qcommon/common.c' l='3201' u='c' c='Com_Frame'/>
+<use f='codebrowser/code/server/sv_ccmds.c' l='1462' u='c' c='SV_KillServer_f'/>
+<def f='codebrowser/code/server/sv_init.c' l='746' ll='786' type='void SV_Shutdown(char * finalmsg)'/>
+<doc f='codebrowser/code/server/sv_init.c' l='738'>/*
+================
+SV_Shutdown
+
+Called when each game quits,
+before Sys_Quit or Sys_Error
+================
+*/</doc>
+<use f='codebrowser/code/server/sv_main.c' l='1055' u='c' c='SV_Frame'/>
+<use f='codebrowser/code/server/sv_main.c' l='1098' u='c' c='SV_Frame'/>
+<use f='codebrowser/code/server/sv_main.c' l='1104' u='c' c='SV_Frame'/>
+<use f='codebrowser/code/sys/sys_main.c' l='666' u='c' c='Sys_SigHandler'/>

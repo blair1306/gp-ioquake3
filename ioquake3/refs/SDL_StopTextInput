@@ -1,0 +1,9 @@
+<dec f='include/SDL2/SDL_keyboard.h' l='177' type='void SDL_StopTextInput()'/>
+<doc f='include/SDL2/SDL_keyboard.h' l='170'>/**
+ *  \brief Stop receiving any text input events.
+ *         This function will hide the on-screen keyboard if supported.
+ *
+ *  \sa SDL_StartTextInput()
+ *  \sa SDL_HasScreenKeyboardSupport()
+ */</doc>
+<use f='codebrowser/code/sdl/sdl_input.c' l='1248' u='c' c='IN_Shutdown'/>

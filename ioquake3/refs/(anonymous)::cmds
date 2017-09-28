@@ -1,0 +1,22 @@
+<dec f='codebrowser/code/client/client.h' l='123' type='usercmd_t [64]'/>
+<offset>166624</offset>
+<doc f='codebrowser/code/client/client.h' l='121'>// cmds[cmdNumber] is the predicted command, [cmdNumber-1] is the last
+	// properly generated command</doc>
+<doc f='codebrowser/code/client/client.h' l='123'>// each mesage will send several old cmds</doc>
+<use f='codebrowser/code/client/cl_cgame.c' l='76' u='r' c='CL_GetUserCmd'/>
+<use f='codebrowser/code/client/cl_cgame.c' l='337' u='r' c='CL_GetServerCommand'/>
+<use f='codebrowser/code/client/cl_cgame.c' l='337' u='r' c='CL_GetServerCommand'/>
+<use f='codebrowser/code/client/cl_input.c' l='658' u='w' c='CL_CreateNewCommands'/>
+<use f='codebrowser/code/client/cl_input.c' l='875' u='a' c='CL_WritePacket'/>
+<dec f='codebrowser/code/renderergl1/tr_local.h' l='1451' type='byte [262144]'/>
+<offset>0</offset>
+<use f='codebrowser/code/renderergl1/tr_cmds.c' l='84' u='r' c='R_IssueRenderCommands'/>
+<use f='codebrowser/code/renderergl1/tr_cmds.c' l='96' u='r' c='R_IssueRenderCommands'/>
+<use f='codebrowser/code/renderergl1/tr_cmds.c' l='139' u='r' c='R_GetCommandBufferReserved'/>
+<use f='codebrowser/code/renderergl1/tr_shader.c' l='1934' u='r' c='FixRenderCommandList'/>
+<dec f='codebrowser/code/renderergl2/tr_local.h' l='2278' type='byte [262144]'/>
+<offset>0</offset>
+<use f='codebrowser/code/renderergl2/tr_cmds.c' l='91' u='r' c='R_IssueRenderCommands'/>
+<use f='codebrowser/code/renderergl2/tr_cmds.c' l='103' u='r' c='R_IssueRenderCommands'/>
+<use f='codebrowser/code/renderergl2/tr_cmds.c' l='146' u='r' c='R_GetCommandBufferReserved'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='2639' u='r' c='FixRenderCommandList'/>

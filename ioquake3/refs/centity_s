@@ -1,0 +1,29 @@
+<def f='codebrowser/code/cgame/cg_local.h' l='163' ll='194'/>
+<size>752</size>
+<doc f='codebrowser/code/cgame/cg_local.h' l='157'>//=================================================
+
+
+
+// centity_t have a direct corespondence with gentity_t in the game, but
+// only the entityState_t is directly communicated to the cgame</doc>
+<mbr r='centity_s::currentState' o='0' t='entityState_t'/>
+<mbr r='centity_s::nextState' o='1664' t='entityState_t'/>
+<mbr r='centity_s::interpolate' o='3328' t='qboolean'/>
+<mbr r='centity_s::currentValid' o='3360' t='qboolean'/>
+<mbr r='centity_s::muzzleFlashTime' o='3392' t='int'/>
+<mbr r='centity_s::previousEvent' o='3424' t='int'/>
+<mbr r='centity_s::teleportFlag' o='3456' t='int'/>
+<mbr r='centity_s::trailTime' o='3488' t='int'/>
+<mbr r='centity_s::dustTrailTime' o='3520' t='int'/>
+<mbr r='centity_s::miscTime' o='3552' t='int'/>
+<mbr r='centity_s::snapShotTime' o='3584' t='int'/>
+<mbr r='centity_s::pe' o='3648' t='playerEntity_t'/>
+<mbr r='centity_s::errorTime' o='5248' t='int'/>
+<mbr r='centity_s::errorOrigin' o='5280' t='vec3_t'/>
+<mbr r='centity_s::errorAngles' o='5376' t='vec3_t'/>
+<mbr r='centity_s::extrapolated' o='5472' t='qboolean'/>
+<mbr r='centity_s::rawOrigin' o='5504' t='vec3_t'/>
+<mbr r='centity_s::rawAngles' o='5600' t='vec3_t'/>
+<mbr r='centity_s::beamEnd' o='5696' t='vec3_t'/>
+<mbr r='centity_s::lerpOrigin' o='5792' t='vec3_t'/>
+<mbr r='centity_s::lerpAngles' o='5888' t='vec3_t'/>

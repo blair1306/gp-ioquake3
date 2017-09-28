@@ -1,0 +1,119 @@
+<dec f='codebrowser/code/qcommon/qcommon.h' l='439' type='void Cmd_RemoveCommand(const char * cmd_name)'/>
+<doc f='codebrowser/code/qcommon/qcommon.h' l='433'>// called by the init functions of other parts of the program to
+// register commands and functions to call for them.
+// The cmd_name is referenced later, so it should not be in temp memory
+// if function is NULL, the command will be forwarded to the server
+// as a clc_clientCommand instead of executed locally</doc>
+<use f='codebrowser/code/client/cl_console.c' l='389' u='c' c='Con_Shutdown'/>
+<use f='codebrowser/code/client/cl_console.c' l='390' u='c' c='Con_Shutdown'/>
+<use f='codebrowser/code/client/cl_console.c' l='391' u='c' c='Con_Shutdown'/>
+<use f='codebrowser/code/client/cl_console.c' l='392' u='c' c='Con_Shutdown'/>
+<use f='codebrowser/code/client/cl_console.c' l='393' u='c' c='Con_Shutdown'/>
+<use f='codebrowser/code/client/cl_console.c' l='394' u='c' c='Con_Shutdown'/>
+<use f='codebrowser/code/client/cl_console.c' l='395' u='c' c='Con_Shutdown'/>
+<use f='codebrowser/code/client/cl_console.c' l='396' u='c' c='Con_Shutdown'/>
+<use f='codebrowser/code/client/cl_input.c' l='1012' u='c' c='CL_ShutdownInput'/>
+<use f='codebrowser/code/client/cl_input.c' l='1014' u='c' c='CL_ShutdownInput'/>
+<use f='codebrowser/code/client/cl_input.c' l='1015' u='c' c='CL_ShutdownInput'/>
+<use f='codebrowser/code/client/cl_input.c' l='1016' u='c' c='CL_ShutdownInput'/>
+<use f='codebrowser/code/client/cl_input.c' l='1017' u='c' c='CL_ShutdownInput'/>
+<use f='codebrowser/code/client/cl_input.c' l='1018' u='c' c='CL_ShutdownInput'/>
+<use f='codebrowser/code/client/cl_input.c' l='1019' u='c' c='CL_ShutdownInput'/>
+<use f='codebrowser/code/client/cl_input.c' l='1020' u='c' c='CL_ShutdownInput'/>
+<use f='codebrowser/code/client/cl_input.c' l='1021' u='c' c='CL_ShutdownInput'/>
+<use f='codebrowser/code/client/cl_input.c' l='1022' u='c' c='CL_ShutdownInput'/>
+<use f='codebrowser/code/client/cl_input.c' l='1023' u='c' c='CL_ShutdownInput'/>
+<use f='codebrowser/code/client/cl_input.c' l='1024' u='c' c='CL_ShutdownInput'/>
+<use f='codebrowser/code/client/cl_input.c' l='1025' u='c' c='CL_ShutdownInput'/>
+<use f='codebrowser/code/client/cl_input.c' l='1026' u='c' c='CL_ShutdownInput'/>
+<use f='codebrowser/code/client/cl_input.c' l='1027' u='c' c='CL_ShutdownInput'/>
+<use f='codebrowser/code/client/cl_input.c' l='1028' u='c' c='CL_ShutdownInput'/>
+<use f='codebrowser/code/client/cl_input.c' l='1029' u='c' c='CL_ShutdownInput'/>
+<use f='codebrowser/code/client/cl_input.c' l='1030' u='c' c='CL_ShutdownInput'/>
+<use f='codebrowser/code/client/cl_input.c' l='1031' u='c' c='CL_ShutdownInput'/>
+<use f='codebrowser/code/client/cl_input.c' l='1032' u='c' c='CL_ShutdownInput'/>
+<use f='codebrowser/code/client/cl_input.c' l='1033' u='c' c='CL_ShutdownInput'/>
+<use f='codebrowser/code/client/cl_input.c' l='1034' u='c' c='CL_ShutdownInput'/>
+<use f='codebrowser/code/client/cl_input.c' l='1035' u='c' c='CL_ShutdownInput'/>
+<use f='codebrowser/code/client/cl_input.c' l='1036' u='c' c='CL_ShutdownInput'/>
+<use f='codebrowser/code/client/cl_input.c' l='1037' u='c' c='CL_ShutdownInput'/>
+<use f='codebrowser/code/client/cl_input.c' l='1038' u='c' c='CL_ShutdownInput'/>
+<use f='codebrowser/code/client/cl_input.c' l='1039' u='c' c='CL_ShutdownInput'/>
+<use f='codebrowser/code/client/cl_input.c' l='1040' u='c' c='CL_ShutdownInput'/>
+<use f='codebrowser/code/client/cl_input.c' l='1041' u='c' c='CL_ShutdownInput'/>
+<use f='codebrowser/code/client/cl_input.c' l='1042' u='c' c='CL_ShutdownInput'/>
+<use f='codebrowser/code/client/cl_input.c' l='1043' u='c' c='CL_ShutdownInput'/>
+<use f='codebrowser/code/client/cl_input.c' l='1044' u='c' c='CL_ShutdownInput'/>
+<use f='codebrowser/code/client/cl_input.c' l='1045' u='c' c='CL_ShutdownInput'/>
+<use f='codebrowser/code/client/cl_input.c' l='1046' u='c' c='CL_ShutdownInput'/>
+<use f='codebrowser/code/client/cl_input.c' l='1047' u='c' c='CL_ShutdownInput'/>
+<use f='codebrowser/code/client/cl_input.c' l='1048' u='c' c='CL_ShutdownInput'/>
+<use f='codebrowser/code/client/cl_input.c' l='1049' u='c' c='CL_ShutdownInput'/>
+<use f='codebrowser/code/client/cl_input.c' l='1050' u='c' c='CL_ShutdownInput'/>
+<use f='codebrowser/code/client/cl_input.c' l='1051' u='c' c='CL_ShutdownInput'/>
+<use f='codebrowser/code/client/cl_input.c' l='1052' u='c' c='CL_ShutdownInput'/>
+<use f='codebrowser/code/client/cl_input.c' l='1053' u='c' c='CL_ShutdownInput'/>
+<use f='codebrowser/code/client/cl_input.c' l='1054' u='c' c='CL_ShutdownInput'/>
+<use f='codebrowser/code/client/cl_input.c' l='1055' u='c' c='CL_ShutdownInput'/>
+<use f='codebrowser/code/client/cl_input.c' l='1056' u='c' c='CL_ShutdownInput'/>
+<use f='codebrowser/code/client/cl_input.c' l='1057' u='c' c='CL_ShutdownInput'/>
+<use f='codebrowser/code/client/cl_input.c' l='1058' u='c' c='CL_ShutdownInput'/>
+<use f='codebrowser/code/client/cl_input.c' l='1059' u='c' c='CL_ShutdownInput'/>
+<use f='codebrowser/code/client/cl_input.c' l='1060' u='c' c='CL_ShutdownInput'/>
+<use f='codebrowser/code/client/cl_input.c' l='1061' u='c' c='CL_ShutdownInput'/>
+<use f='codebrowser/code/client/cl_input.c' l='1062' u='c' c='CL_ShutdownInput'/>
+<use f='codebrowser/code/client/cl_input.c' l='1063' u='c' c='CL_ShutdownInput'/>
+<use f='codebrowser/code/client/cl_input.c' l='1064' u='c' c='CL_ShutdownInput'/>
+<use f='codebrowser/code/client/cl_input.c' l='1065' u='c' c='CL_ShutdownInput'/>
+<use f='codebrowser/code/client/cl_input.c' l='1066' u='c' c='CL_ShutdownInput'/>
+<use f='codebrowser/code/client/cl_input.c' l='1067' u='c' c='CL_ShutdownInput'/>
+<use f='codebrowser/code/client/cl_input.c' l='1068' u='c' c='CL_ShutdownInput'/>
+<use f='codebrowser/code/client/cl_input.c' l='1069' u='c' c='CL_ShutdownInput'/>
+<use f='codebrowser/code/client/cl_input.c' l='1070' u='c' c='CL_ShutdownInput'/>
+<use f='codebrowser/code/client/cl_input.c' l='1071' u='c' c='CL_ShutdownInput'/>
+<use f='codebrowser/code/client/cl_input.c' l='1074' u='c' c='CL_ShutdownInput'/>
+<use f='codebrowser/code/client/cl_input.c' l='1075' u='c' c='CL_ShutdownInput'/>
+<use f='codebrowser/code/client/cl_main.c' l='1423' u='c' c='CL_Disconnect'/>
+<use f='codebrowser/code/client/cl_main.c' l='3237' u='r' c='CL_InitRef'/>
+<use f='codebrowser/code/client/cl_main.c' l='3741' u='c' c='CL_Shutdown'/>
+<use f='codebrowser/code/client/cl_main.c' l='3742' u='c' c='CL_Shutdown'/>
+<use f='codebrowser/code/client/cl_main.c' l='3743' u='c' c='CL_Shutdown'/>
+<use f='codebrowser/code/client/cl_main.c' l='3744' u='c' c='CL_Shutdown'/>
+<use f='codebrowser/code/client/cl_main.c' l='3745' u='c' c='CL_Shutdown'/>
+<use f='codebrowser/code/client/cl_main.c' l='3746' u='c' c='CL_Shutdown'/>
+<use f='codebrowser/code/client/cl_main.c' l='3747' u='c' c='CL_Shutdown'/>
+<use f='codebrowser/code/client/cl_main.c' l='3748' u='c' c='CL_Shutdown'/>
+<use f='codebrowser/code/client/cl_main.c' l='3749' u='c' c='CL_Shutdown'/>
+<use f='codebrowser/code/client/cl_main.c' l='3750' u='c' c='CL_Shutdown'/>
+<use f='codebrowser/code/client/cl_main.c' l='3751' u='c' c='CL_Shutdown'/>
+<use f='codebrowser/code/client/cl_main.c' l='3752' u='c' c='CL_Shutdown'/>
+<use f='codebrowser/code/client/cl_main.c' l='3753' u='c' c='CL_Shutdown'/>
+<use f='codebrowser/code/client/cl_main.c' l='3754' u='c' c='CL_Shutdown'/>
+<use f='codebrowser/code/client/cl_main.c' l='3755' u='c' c='CL_Shutdown'/>
+<use f='codebrowser/code/client/cl_main.c' l='3756' u='c' c='CL_Shutdown'/>
+<use f='codebrowser/code/client/cl_main.c' l='3757' u='c' c='CL_Shutdown'/>
+<use f='codebrowser/code/client/cl_main.c' l='3758' u='c' c='CL_Shutdown'/>
+<use f='codebrowser/code/client/cl_main.c' l='3759' u='c' c='CL_Shutdown'/>
+<use f='codebrowser/code/client/cl_main.c' l='3760' u='c' c='CL_Shutdown'/>
+<use f='codebrowser/code/client/cl_main.c' l='3761' u='c' c='CL_Shutdown'/>
+<use f='codebrowser/code/client/cl_main.c' l='3762' u='c' c='CL_Shutdown'/>
+<use f='codebrowser/code/client/cl_main.c' l='3763' u='c' c='CL_Shutdown'/>
+<use f='codebrowser/code/client/snd_dma.c' l='1558' u='c' c='S_Base_Shutdown'/>
+<use f='codebrowser/code/client/snd_main.c' l='541' u='c' c='S_Shutdown'/>
+<use f='codebrowser/code/client/snd_main.c' l='542' u='c' c='S_Shutdown'/>
+<use f='codebrowser/code/client/snd_main.c' l='543' u='c' c='S_Shutdown'/>
+<use f='codebrowser/code/client/snd_main.c' l='544' u='c' c='S_Shutdown'/>
+<use f='codebrowser/code/client/snd_main.c' l='545' u='c' c='S_Shutdown'/>
+<use f='codebrowser/code/client/snd_main.c' l='546' u='c' c='S_Shutdown'/>
+<def f='codebrowser/code/qcommon/cmd.c' l='680' ll='700' type='void Cmd_RemoveCommand(const char * cmd_name)'/>
+<use f='codebrowser/code/qcommon/cmd.c' l='722' u='c' c='Cmd_RemoveCommandSafe'/>
+<doc f='codebrowser/code/qcommon/cmd.c' l='675'>/*
+============
+Cmd_RemoveCommand
+============
+*/</doc>
+<use f='codebrowser/code/qcommon/files.c' l='3231' u='c' c='FS_Shutdown'/>
+<use f='codebrowser/code/qcommon/files.c' l='3232' u='c' c='FS_Shutdown'/>
+<use f='codebrowser/code/qcommon/files.c' l='3233' u='c' c='FS_Shutdown'/>
+<use f='codebrowser/code/qcommon/files.c' l='3234' u='c' c='FS_Shutdown'/>
+<use f='codebrowser/code/qcommon/files.c' l='3235' u='c' c='FS_Shutdown'/>

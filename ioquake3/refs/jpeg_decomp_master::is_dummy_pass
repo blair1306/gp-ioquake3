@@ -1,0 +1,13 @@
+<dec f='codebrowser/code/jpeg-8c/jpegint.h' l='145' type='boolean'/>
+<offset>128</offset>
+<doc f='codebrowser/code/jpeg-8c/jpegint.h' l='144'>/* State variables made visible to other modules */</doc>
+<doc f='codebrowser/code/jpeg-8c/jpegint.h' l='145'>/* True during 1st pass for 2-pass quant */</doc>
+<use f='codebrowser/code/jpeg-8c/jdapistd.c' l='104' u='r' c='output_pass_setup'/>
+<use f='codebrowser/code/jpeg-8c/jdmaster.c' l='418' u='r' c='prepare_for_output_pass'/>
+<use f='codebrowser/code/jpeg-8c/jdmaster.c' l='421' u='w' c='prepare_for_output_pass'/>
+<use f='codebrowser/code/jpeg-8c/jdmaster.c' l='433' u='w' c='prepare_for_output_pass'/>
+<use f='codebrowser/code/jpeg-8c/jdmaster.c' l='447' u='r' c='prepare_for_output_pass'/>
+<use f='codebrowser/code/jpeg-8c/jdmaster.c' l='449' u='r' c='prepare_for_output_pass'/>
+<use f='codebrowser/code/jpeg-8c/jdmaster.c' l='458' u='r' c='prepare_for_output_pass'/>
+<use f='codebrowser/code/jpeg-8c/jdmaster.c' l='505' u='w' c='jpeg_new_colormap'/>
+<use f='codebrowser/code/jpeg-8c/jdmaster.c' l='530' u='w' c='jinit_master_decompress'/>

@@ -1,0 +1,14 @@
+<dec f='codebrowser/code/renderergl1/tr_local.h' l='1031' type='cvar_t *'/>
+<doc f='codebrowser/code/renderergl1/tr_local.h' l='1031'>// light flares</doc>
+<use f='codebrowser/code/renderergl1/tr_flares.c' l='226' u='r' c='RB_AddDlightFlares'/>
+<use f='codebrowser/code/renderergl1/tr_flares.c' l='462' u='r' c='RB_RenderFlares'/>
+<def f='codebrowser/code/renderergl1/tr_init.c' l='114' type='cvar_t *'/>
+<use f='codebrowser/code/renderergl1/tr_init.c' l='1062' u='w' c='R_Register'/>
+<use f='codebrowser/code/renderergl1/tr_surface.c' l='1217' u='r' c='RB_SurfaceFlare'/>
+<dec f='codebrowser/code/renderergl2/tr_local.h' l='1682' type='cvar_t *'/>
+<doc f='codebrowser/code/renderergl2/tr_local.h' l='1682'>// light flares</doc>
+<use f='codebrowser/code/renderergl2/tr_flares.c' l='226' u='r' c='RB_AddDlightFlares'/>
+<use f='codebrowser/code/renderergl2/tr_flares.c' l='477' u='r' c='RB_RenderFlares'/>
+<def f='codebrowser/code/renderergl2/tr_init.c' l='178' type='cvar_t *'/>
+<use f='codebrowser/code/renderergl2/tr_init.c' l='1277' u='w' c='R_Register'/>
+<use f='codebrowser/code/renderergl2/tr_surface.c' l='1208' u='r' c='RB_SurfaceFlare'/>

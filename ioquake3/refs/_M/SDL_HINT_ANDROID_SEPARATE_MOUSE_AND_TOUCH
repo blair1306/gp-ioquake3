@@ -1,0 +1,11 @@
+<dec f='include/SDL2/SDL_hints.h' l='596'/>
+<doc f='include/SDL2/SDL_hints.h' l='586'>/**
+ * \brief A variable to control whether mouse and touch events are to be treated together or separately
+ *
+ * The variable can be set to the following values:
+ *   &quot;0&quot;       - Mouse events will be handled as touch events, and touch will raise fake mouse
+ *               events. This is the behaviour of SDL &lt;= 2.0.3. (default)
+ *   &quot;1&quot;       - Mouse events will be handled separately from pure touch events.
+ *
+ * The value of this hint is used at runtime, so it can be changed at any time.
+ */</doc>

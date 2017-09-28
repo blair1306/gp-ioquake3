@@ -1,0 +1,44 @@
+<dec f='codebrowser/code/opus-1.1.4/celt/entdec.h' l='82' type='int ec_dec_icdf(ec_dec * _this, const unsigned char * _icdf, unsigned int _ftb)'/>
+<doc f='codebrowser/code/opus-1.1.4/celt/entdec.h' l='74'>/*Decodes a symbol given an &quot;inverse&quot; CDF table.
+  No call to ec_dec_update() is necessary after this call.
+  _icdf: The &quot;inverse&quot; CDF, such that symbol s falls in the range
+          [s&gt;0?ft-_icdf[s-1]:0,ft-_icdf[s]), where ft=1&lt;&lt;_ftb.
+         The values must be monotonically non-increasing, and the last value
+          must be 0.
+  _ftb: The number of bits of precision in the cumulative distribution.
+  Return: The decoded symbol s.*/</doc>
+<use f='codebrowser/code/opus-1.1.4/celt/celt_decoder.c' l='878' u='c' c='celt_decode_with_ec'/>
+<use f='codebrowser/code/opus-1.1.4/celt/celt_decoder.c' l='909' u='c' c='celt_decode_with_ec'/>
+<use f='codebrowser/code/opus-1.1.4/celt/celt_decoder.c' l='950' u='c' c='celt_decode_with_ec'/>
+<def f='codebrowser/code/opus-1.1.4/celt/entdec.c' l='177' ll='196' type='int ec_dec_icdf(ec_dec * _this, const unsigned char * _icdf, unsigned int _ftb)'/>
+<use f='codebrowser/code/opus-1.1.4/celt/quant_bands.c' l='470' u='c' c='unquant_coarse_energy'/>
+<use f='codebrowser/code/opus-1.1.4/silk/code_signs.c' l='108' u='c' c='silk_decode_signs'/>
+<use f='codebrowser/code/opus-1.1.4/silk/dec_API.c' l='190' u='c' c='silk_Decode'/>
+<use f='codebrowser/code/opus-1.1.4/silk/decode_indices.c' l='52' u='c' c='silk_decode_indices'/>
+<use f='codebrowser/code/opus-1.1.4/silk/decode_indices.c' l='54' u='c' c='silk_decode_indices'/>
+<use f='codebrowser/code/opus-1.1.4/silk/decode_indices.c' l='65' u='c' c='silk_decode_indices'/>
+<use f='codebrowser/code/opus-1.1.4/silk/decode_indices.c' l='68' u='c' c='silk_decode_indices'/>
+<use f='codebrowser/code/opus-1.1.4/silk/decode_indices.c' l='69' u='c' c='silk_decode_indices'/>
+<use f='codebrowser/code/opus-1.1.4/silk/decode_indices.c' l='74' u='c' c='silk_decode_indices'/>
+<use f='codebrowser/code/opus-1.1.4/silk/decode_indices.c' l='80' u='c' c='silk_decode_indices'/>
+<use f='codebrowser/code/opus-1.1.4/silk/decode_indices.c' l='84' u='c' c='silk_decode_indices'/>
+<use f='codebrowser/code/opus-1.1.4/silk/decode_indices.c' l='86' u='c' c='silk_decode_indices'/>
+<use f='codebrowser/code/opus-1.1.4/silk/decode_indices.c' l='88' u='c' c='silk_decode_indices'/>
+<use f='codebrowser/code/opus-1.1.4/silk/decode_indices.c' l='95' u='c' c='silk_decode_indices'/>
+<use f='codebrowser/code/opus-1.1.4/silk/decode_indices.c' l='109' u='c' c='silk_decode_indices'/>
+<use f='codebrowser/code/opus-1.1.4/silk/decode_indices.c' l='118' u='c' c='silk_decode_indices'/>
+<use f='codebrowser/code/opus-1.1.4/silk/decode_indices.c' l='119' u='c' c='silk_decode_indices'/>
+<use f='codebrowser/code/opus-1.1.4/silk/decode_indices.c' l='124' u='c' c='silk_decode_indices'/>
+<use f='codebrowser/code/opus-1.1.4/silk/decode_indices.c' l='130' u='c' c='silk_decode_indices'/>
+<use f='codebrowser/code/opus-1.1.4/silk/decode_indices.c' l='133' u='c' c='silk_decode_indices'/>
+<use f='codebrowser/code/opus-1.1.4/silk/decode_indices.c' l='140' u='c' c='silk_decode_indices'/>
+<use f='codebrowser/code/opus-1.1.4/silk/decode_indices.c' l='150' u='c' c='silk_decode_indices'/>
+<use f='codebrowser/code/opus-1.1.4/silk/decode_pulses.c' l='53' u='c' c='silk_decode_pulses'/>
+<use f='codebrowser/code/opus-1.1.4/silk/decode_pulses.c' l='69' u='c' c='silk_decode_pulses'/>
+<use f='codebrowser/code/opus-1.1.4/silk/decode_pulses.c' l='75' u='c' c='silk_decode_pulses'/>
+<use f='codebrowser/code/opus-1.1.4/silk/decode_pulses.c' l='102' u='c' c='silk_decode_pulses'/>
+<use f='codebrowser/code/opus-1.1.4/silk/shell_coder.c' l='69' u='c' c='decode_split'/>
+<use f='codebrowser/code/opus-1.1.4/silk/stereo_decode_pred.c' l='44' u='c' c='silk_stereo_decode_pred'/>
+<use f='codebrowser/code/opus-1.1.4/silk/stereo_decode_pred.c' l='48' u='c' c='silk_stereo_decode_pred'/>
+<use f='codebrowser/code/opus-1.1.4/silk/stereo_decode_pred.c' l='49' u='c' c='silk_stereo_decode_pred'/>
+<use f='codebrowser/code/opus-1.1.4/silk/stereo_decode_pred.c' l='72' u='c' c='silk_stereo_decode_mid_only'/>

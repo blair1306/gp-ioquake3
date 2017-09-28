@@ -1,0 +1,62 @@
+<dec f='codebrowser/code/client/snd_local.h' l='37' type='int'/>
+<offset>32</offset>
+<use f='codebrowser/code/client/snd_dma.c' l='1031' u='w' c='S_Base_RawSamples'/>
+<use f='codebrowser/code/client/snd_dma.c' l='1044' u='w' c='S_Base_RawSamples'/>
+<use f='codebrowser/code/client/snd_dma.c' l='1058' u='w' c='S_Base_RawSamples'/>
+<use f='codebrowser/code/client/snd_dma.c' l='1074' u='w' c='S_Base_RawSamples'/>
+<use f='codebrowser/code/client/snd_dma.c' l='1090' u='w' c='S_Base_RawSamples'/>
+<use f='codebrowser/code/client/snd_mix.c' l='171' u='w' c='S_TransferPaintBuffer'/>
+<use f='codebrowser/code/client/snd_mix.c' l='467' u='w' c='S_PaintChannelFrom16_scalar'/>
+<use f='codebrowser/code/client/snd_mix.c' l='510' u='w' c='S_PaintChannelFrom16_scalar'/>
+<use f='codebrowser/code/client/snd_mix.c' l='557' u='w' c='S_PaintChannelFromWavelet'/>
+<use f='codebrowser/code/client/snd_mix.c' l='604' u='w' c='S_PaintChannelFromADPCM'/>
+<use f='codebrowser/code/client/snd_mix.c' l='642' u='w' c='S_PaintChannelFromMuLaw'/>
+<use f='codebrowser/code/client/snd_mix.c' l='656' u='w' c='S_PaintChannelFromMuLaw'/>
+<use f='codebrowser/code/client/snd_mix.c' l='707' u='w' c='S_PaintChannels'/>
+<use f='codebrowser/code/client/snd_mix.c' l='707' u='r' c='S_PaintChannels'/>
+<dec f='codebrowser/code/game/bg_local.h' l='40' type='vec3_t'/>
+<use f='codebrowser/code/game/bg_pmove.c' l='508' u='r' c='PM_WaterMove'/>
+<use f='codebrowser/code/game/bg_pmove.c' l='579' u='r' c='PM_FlyMove'/>
+<use f='codebrowser/code/game/bg_pmove.c' l='622' u='w' c='PM_AirMove'/>
+<use f='codebrowser/code/game/bg_pmove.c' l='624' u='r' c='PM_AirMove'/>
+<use f='codebrowser/code/game/bg_pmove.c' l='627' u='r' c='PM_AirMove'/>
+<use f='codebrowser/code/game/bg_pmove.c' l='732' u='w' c='PM_WalkMove'/>
+<use f='codebrowser/code/game/bg_pmove.c' l='736' u='r' c='PM_WalkMove'/>
+<use f='codebrowser/code/game/bg_pmove.c' l='736' u='r' c='PM_WalkMove'/>
+<use f='codebrowser/code/game/bg_pmove.c' l='739' u='r' c='PM_WalkMove'/>
+<use f='codebrowser/code/game/bg_pmove.c' l='742' u='r' c='PM_WalkMove'/>
+<use f='codebrowser/code/game/bg_pmove.c' l='883' u='r' c='PM_NoclipMove'/>
+<use f='codebrowser/code/game/bg_pmove.c' l='1913' u='r' c='PmoveSingle'/>
+<offset>96</offset>
+<dec f='codebrowser/code/q3_ui/ui_local.h' l='174' type='int'/>
+<offset>288</offset>
+<use f='codebrowser/code/q3_ui/ui_atoms.c' l='906' u='r' c='UI_MouseEvent'/>
+<use f='codebrowser/code/q3_ui/ui_controls2.c' l='586' u='w' c='Controls_Update'/>
+<use f='codebrowser/code/q3_ui/ui_controls2.c' l='691' u='r' c='Controls_DrawKeyBinding'/>
+<use f='codebrowser/code/q3_ui/ui_mfield.c' l='323' u='w' c='MenuField_Init'/>
+<use f='codebrowser/code/q3_ui/ui_mfield.c' l='373' u='r' c='MenuField_Draw'/>
+<use f='codebrowser/code/q3_ui/ui_playermodel.c' l='594' u='w' c='PlayerModel_MenuInit'/>
+<use f='codebrowser/code/q3_ui/ui_playersettings.c' l='397' u='w' c='PlayerSettings_MenuInit'/>
+<use f='codebrowser/code/q3_ui/ui_playersettings.c' l='409' u='w' c='PlayerSettings_MenuInit'/>
+<use f='codebrowser/code/q3_ui/ui_playersettings.c' l='422' u='w' c='PlayerSettings_MenuInit'/>
+<use f='codebrowser/code/q3_ui/ui_preferences.c' l='205' u='r' c='Crosshair_Draw'/>
+<use f='codebrowser/code/q3_ui/ui_preferences.c' l='262' u='w' c='Preferences_MenuInit'/>
+<use f='codebrowser/code/q3_ui/ui_qmenu.c' l='198' u='w' c='PText_Init'/>
+<use f='codebrowser/code/q3_ui/ui_qmenu.c' l='269' u='w' c='Bitmap_Init'/>
+<use f='codebrowser/code/q3_ui/ui_qmenu.c' l='380' u='w' c='Action_Init'/>
+<use f='codebrowser/code/q3_ui/ui_qmenu.c' l='445' u='w' c='RadioButton_Init'/>
+<use f='codebrowser/code/q3_ui/ui_qmenu.c' l='521' u='r' c='RadioButton_Draw'/>
+<use f='codebrowser/code/q3_ui/ui_qmenu.c' l='556' u='w' c='Slider_Init'/>
+<use f='codebrowser/code/q3_ui/ui_qmenu.c' l='785' u='w' c='SpinControl_Init'/>
+<use f='codebrowser/code/q3_ui/ui_qmenu.c' l='861' u='r' c='SpinControl_Draw'/>
+<use f='codebrowser/code/q3_ui/ui_qmenu.c' l='894' u='w' c='ScrollList_Init'/>
+<use f='codebrowser/code/q3_ui/ui_qmenu.c' l='899' u='w' c='ScrollList_Init'/>
+<use f='codebrowser/code/q3_ui/ui_saveconfig.c' l='157' u='w' c='UI_SaveConfigMenu_Init'/>
+<use f='codebrowser/code/q3_ui/ui_startserver.c' l='458' u='w' c='StartServer_MenuInit'/>
+<use f='codebrowser/code/q3_ui/ui_startserver.c' l='1224' u='r' c='PlayerName_Draw'/>
+<use f='codebrowser/code/q3_ui/ui_startserver.c' l='1398' u='w' c='ServerOptions_MenuInit'/>
+<use f='codebrowser/code/q3_ui/ui_startserver.c' l='1888' u='w' c='UI_BotSelectMenu_Init'/>
+<use f='codebrowser/code/q3_ui/ui_teamorders.c' l='170' u='r' c='UI_TeamOrdersMenu_Key'/>
+<use f='codebrowser/code/q3_ui/ui_teamorders.c' l='393' u='w' c='UI_TeamOrdersMenu_Init'/>
+<dec f='codebrowser/code/ui/ui_local.h' l='211' type='int'/>
+<offset>288</offset>

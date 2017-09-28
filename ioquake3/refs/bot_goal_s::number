@@ -1,0 +1,37 @@
+<dec f='codebrowser/code/botlib/be_ai_goal.h' l='47' type='int'/>
+<use f='codebrowser/code/botlib/be_ai_goal.c' l='894' u='w' c='BotGetLevelItemGoal'/>
+<use f='codebrowser/code/botlib/be_ai_goal.c' l='1189' u='r' c='BotDumpGoalStack'/>
+<use f='codebrowser/code/botlib/be_ai_goal.c' l='1415' u='w' c='BotChooseLTGItem'/>
+<use f='codebrowser/code/botlib/be_ai_goal.c' l='1572' u='w' c='BotChooseNBGItem'/>
+<offset>352</offset>
+<doc f='codebrowser/code/botlib/be_ai_goal.h' l='47'>//goal number</doc>
+<use f='codebrowser/code/game/ai_cmd.c' l='1387' u='r' c='BotMatch_WhatAreYouDoing'/>
+<use f='codebrowser/code/game/ai_cmd.c' l='1393' u='r' c='BotMatch_WhatAreYouDoing'/>
+<use f='codebrowser/code/game/ai_cmd.c' l='1483' u='r' c='BotNearestVisibleItem'/>
+<use f='codebrowser/code/game/ai_dmnet.c' l='142' u='w' c='BotGetAirGoal'/>
+<use f='codebrowser/code/game/ai_dmnet.c' l='234' u='r' c='BotReachedGoal'/>
+<use f='codebrowser/code/game/ai_dmnet.c' l='537' u='r' c='BotGetLongTermGoal'/>
+<use f='codebrowser/code/game/ai_dmnet.c' l='547' u='r' c='BotGetLongTermGoal'/>
+<use f='codebrowser/code/game/ai_dmnet.c' l='593' u='r' c='BotGetLongTermGoal'/>
+<use f='codebrowser/code/game/ai_dmnet.c' l='608' u='r' c='BotGetLongTermGoal'/>
+<use f='codebrowser/code/game/ai_dmnet.c' l='614' u='r' c='BotGetLongTermGoal'/>
+<use f='codebrowser/code/game/ai_dmnet.c' l='1653' u='r' c='AIEnter_Seek_NBG'/>
+<use f='codebrowser/code/game/ai_dmnet.c' l='1786' u='r' c='AIEnter_Seek_LTG'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='556' u='r' c='BotCTFSeekGoals'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='556' u='r' c='BotCTFSeekGoals'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='557' u='r' c='BotCTFSeekGoals'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='557' u='r' c='BotCTFSeekGoals'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='2550' u='r' c='BotDontAvoid'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='3872' u='w' c='BotFuncButtonActivateGoal'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='3920' u='w' c='BotFuncButtonActivateGoal'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='3962' u='w' c='BotFuncButtonActivateGoal'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='3995' u='w' c='BotFuncDoorActivateGoal'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='4048' u='w' c='BotTriggerMultipleActivateGoal'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='5126' u='w' c='BotGetAlternateRouteGoal'/>
+<use f='codebrowser/code/game/ai_main.c' l='325' u='r' c='BotReportStatus'/>
+<use f='codebrowser/code/game/ai_main.c' l='331' u='r' c='BotReportStatus'/>
+<use f='codebrowser/code/game/ai_main.c' l='473' u='r' c='BotSetInfoConfigString'/>
+<use f='codebrowser/code/game/ai_main.c' l='479' u='r' c='BotSetInfoConfigString'/>
+<use f='codebrowser/code/game/ai_main.c' l='528' u='r' c='BotSetInfoConfigString'/>
+<use f='codebrowser/code/game/ai_main.c' l='1114' u='r' c='BotWriteSessionData'/>
+<use f='codebrowser/code/game/ai_main.c' l='1157' u='a' c='BotReadSessionData'/>

@@ -1,0 +1,152 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>match.h source code [codebrowser/code/game/match.h] - Woboq Code Browser</title>
+<link rel="stylesheet" href="../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'codebrowser/code/game/match.h'; var root_path = '../../..'; var data_path = '../../../../data';</script>
+<script src='../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../..'>codebrowser</a>/<a href='..'>code</a>/<a href='./'>game</a>/<a href='match.h.html'>match.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/*</i></td></tr>
+<tr><th id="2">2</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="3">3</th><td><i>Copyright (C) 1999-2005 Id Software, Inc.</i></td></tr>
+<tr><th id="4">4</th><td><i></i></td></tr>
+<tr><th id="5">5</th><td><i>This file is part of Quake III Arena source code.</i></td></tr>
+<tr><th id="6">6</th><td><i></i></td></tr>
+<tr><th id="7">7</th><td><i>Quake III Arena source code is free software; you can redistribute it</i></td></tr>
+<tr><th id="8">8</th><td><i>and/or modify it under the terms of the GNU General Public License as</i></td></tr>
+<tr><th id="9">9</th><td><i>published by the Free Software Foundation; either version 2 of the License,</i></td></tr>
+<tr><th id="10">10</th><td><i>or (at your option) any later version.</i></td></tr>
+<tr><th id="11">11</th><td><i></i></td></tr>
+<tr><th id="12">12</th><td><i>Quake III Arena source code is distributed in the hope that it will be</i></td></tr>
+<tr><th id="13">13</th><td><i>useful, but WITHOUT ANY WARRANTY; without even the implied warranty of</i></td></tr>
+<tr><th id="14">14</th><td><i>MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</i></td></tr>
+<tr><th id="15">15</th><td><i>GNU General Public License for more details.</i></td></tr>
+<tr><th id="16">16</th><td><i></i></td></tr>
+<tr><th id="17">17</th><td><i>You should have received a copy of the GNU General Public License</i></td></tr>
+<tr><th id="18">18</th><td><i>along with Quake III Arena source code; if not, write to the Free Software</i></td></tr>
+<tr><th id="19">19</th><td><i>Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA</i></td></tr>
+<tr><th id="20">20</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="21">21</th><td><i>*/</i></td></tr>
+<tr><th id="22">22</th><td><i></i></td></tr>
+<tr><th id="23">23</th><td><i>// make sure this is the same character as we use in chats in g_cmd.c</i></td></tr>
+<tr><th id="24">24</th><td><u>#define <dfn class="macro" id="_M/EC" data-ref="_M/EC">EC</dfn>	"\x19"</u></td></tr>
+<tr><th id="25">25</th><td></td></tr>
+<tr><th id="26">26</th><td><i>//match template contexts</i></td></tr>
+<tr><th id="27">27</th><td><u>#define <dfn class="macro" id="_M/MTCONTEXT_MISC" data-ref="_M/MTCONTEXT_MISC">MTCONTEXT_MISC</dfn>					2</u></td></tr>
+<tr><th id="28">28</th><td><u>#define <dfn class="macro" id="_M/MTCONTEXT_INITIALTEAMCHAT" data-ref="_M/MTCONTEXT_INITIALTEAMCHAT">MTCONTEXT_INITIALTEAMCHAT</dfn>		4</u></td></tr>
+<tr><th id="29">29</th><td><u>#define <dfn class="macro" id="_M/MTCONTEXT_TIME" data-ref="_M/MTCONTEXT_TIME">MTCONTEXT_TIME</dfn>					8</u></td></tr>
+<tr><th id="30">30</th><td><u>#define <dfn class="macro" id="_M/MTCONTEXT_TEAMMATE" data-ref="_M/MTCONTEXT_TEAMMATE">MTCONTEXT_TEAMMATE</dfn>				16</u></td></tr>
+<tr><th id="31">31</th><td><u>#define <dfn class="macro" id="_M/MTCONTEXT_ADDRESSEE" data-ref="_M/MTCONTEXT_ADDRESSEE">MTCONTEXT_ADDRESSEE</dfn>				32</u></td></tr>
+<tr><th id="32">32</th><td><u>#define <dfn class="macro" id="_M/MTCONTEXT_PATROLKEYAREA" data-ref="_M/MTCONTEXT_PATROLKEYAREA">MTCONTEXT_PATROLKEYAREA</dfn>			64</u></td></tr>
+<tr><th id="33">33</th><td><u>#define <dfn class="macro" id="_M/MTCONTEXT_REPLYCHAT" data-ref="_M/MTCONTEXT_REPLYCHAT">MTCONTEXT_REPLYCHAT</dfn>				128</u></td></tr>
+<tr><th id="34">34</th><td><u>#define <dfn class="macro" id="_M/MTCONTEXT_CTF" data-ref="_M/MTCONTEXT_CTF">MTCONTEXT_CTF</dfn>					256</u></td></tr>
+<tr><th id="35">35</th><td></td></tr>
+<tr><th id="36">36</th><td><i>//message types</i></td></tr>
+<tr><th id="37">37</th><td><u>#define <dfn class="macro" id="_M/MSG_NEWLEADER" data-ref="_M/MSG_NEWLEADER">MSG_NEWLEADER</dfn>					1		//new leader</u></td></tr>
+<tr><th id="38">38</th><td><u>#define <dfn class="macro" id="_M/MSG_ENTERGAME" data-ref="_M/MSG_ENTERGAME">MSG_ENTERGAME</dfn>					2		//enter game message</u></td></tr>
+<tr><th id="39">39</th><td><u>#define <dfn class="macro" id="_M/MSG_HELP" data-ref="_M/MSG_HELP">MSG_HELP</dfn>						3		//help someone</u></td></tr>
+<tr><th id="40">40</th><td><u>#define <dfn class="macro" id="_M/MSG_ACCOMPANY" data-ref="_M/MSG_ACCOMPANY">MSG_ACCOMPANY</dfn>					4		//accompany someone</u></td></tr>
+<tr><th id="41">41</th><td><u>#define <dfn class="macro" id="_M/MSG_DEFENDKEYAREA" data-ref="_M/MSG_DEFENDKEYAREA">MSG_DEFENDKEYAREA</dfn>				5		//defend a key area</u></td></tr>
+<tr><th id="42">42</th><td><u>#define <dfn class="macro" id="_M/MSG_RUSHBASE" data-ref="_M/MSG_RUSHBASE">MSG_RUSHBASE</dfn>					6		//everyone rush to base</u></td></tr>
+<tr><th id="43">43</th><td><u>#define <dfn class="macro" id="_M/MSG_GETFLAG" data-ref="_M/MSG_GETFLAG">MSG_GETFLAG</dfn>						7		//get the enemy flag</u></td></tr>
+<tr><th id="44">44</th><td><u>#define <dfn class="macro" id="_M/MSG_STARTTEAMLEADERSHIP" data-ref="_M/MSG_STARTTEAMLEADERSHIP">MSG_STARTTEAMLEADERSHIP</dfn>			8		//someone wants to become the team leader</u></td></tr>
+<tr><th id="45">45</th><td><u>#define <dfn class="macro" id="_M/MSG_STOPTEAMLEADERSHIP" data-ref="_M/MSG_STOPTEAMLEADERSHIP">MSG_STOPTEAMLEADERSHIP</dfn>			9		//someone wants to stop being the team leader</u></td></tr>
+<tr><th id="46">46</th><td><u>#define <dfn class="macro" id="_M/MSG_WHOISTEAMLAEDER" data-ref="_M/MSG_WHOISTEAMLAEDER">MSG_WHOISTEAMLAEDER</dfn>				10		//who is the team leader</u></td></tr>
+<tr><th id="47">47</th><td><u>#define <dfn class="macro" id="_M/MSG_WAIT" data-ref="_M/MSG_WAIT">MSG_WAIT</dfn>						11		//wait for someone</u></td></tr>
+<tr><th id="48">48</th><td><u>#define <dfn class="macro" id="_M/MSG_WHATAREYOUDOING" data-ref="_M/MSG_WHATAREYOUDOING">MSG_WHATAREYOUDOING</dfn>				12		//what are you doing?</u></td></tr>
+<tr><th id="49">49</th><td><u>#define <dfn class="macro" id="_M/MSG_JOINSUBTEAM" data-ref="_M/MSG_JOINSUBTEAM">MSG_JOINSUBTEAM</dfn>					13		//join a sub-team</u></td></tr>
+<tr><th id="50">50</th><td><u>#define <dfn class="macro" id="_M/MSG_LEAVESUBTEAM" data-ref="_M/MSG_LEAVESUBTEAM">MSG_LEAVESUBTEAM</dfn>				14		//leave a sub-team</u></td></tr>
+<tr><th id="51">51</th><td><u>#define <dfn class="macro" id="_M/MSG_CREATENEWFORMATION" data-ref="_M/MSG_CREATENEWFORMATION">MSG_CREATENEWFORMATION</dfn>			15		//create a new formation</u></td></tr>
+<tr><th id="52">52</th><td><u>#define <dfn class="macro" id="_M/MSG_FORMATIONPOSITION" data-ref="_M/MSG_FORMATIONPOSITION">MSG_FORMATIONPOSITION</dfn>			16		//tell someone his/her position in a formation</u></td></tr>
+<tr><th id="53">53</th><td><u>#define <dfn class="macro" id="_M/MSG_FORMATIONSPACE" data-ref="_M/MSG_FORMATIONSPACE">MSG_FORMATIONSPACE</dfn>				17		//set the formation intervening space</u></td></tr>
+<tr><th id="54">54</th><td><u>#define <dfn class="macro" id="_M/MSG_DOFORMATION" data-ref="_M/MSG_DOFORMATION">MSG_DOFORMATION</dfn>					18		//form a known formation</u></td></tr>
+<tr><th id="55">55</th><td><u>#define <dfn class="macro" id="_M/MSG_DISMISS" data-ref="_M/MSG_DISMISS">MSG_DISMISS</dfn>						19		//dismiss commanded team mates</u></td></tr>
+<tr><th id="56">56</th><td><u>#define <dfn class="macro" id="_M/MSG_CAMP" data-ref="_M/MSG_CAMP">MSG_CAMP</dfn>						20		//camp somewhere</u></td></tr>
+<tr><th id="57">57</th><td><u>#define <dfn class="macro" id="_M/MSG_CHECKPOINT" data-ref="_M/MSG_CHECKPOINT">MSG_CHECKPOINT</dfn>					21		//remember a check point</u></td></tr>
+<tr><th id="58">58</th><td><u>#define <dfn class="macro" id="_M/MSG_PATROL" data-ref="_M/MSG_PATROL">MSG_PATROL</dfn>						22		//patrol between certain keypoints</u></td></tr>
+<tr><th id="59">59</th><td><u>#define <dfn class="macro" id="_M/MSG_LEADTHEWAY" data-ref="_M/MSG_LEADTHEWAY">MSG_LEADTHEWAY</dfn>					23		//lead the way</u></td></tr>
+<tr><th id="60">60</th><td><u>#define <dfn class="macro" id="_M/MSG_GETITEM" data-ref="_M/MSG_GETITEM">MSG_GETITEM</dfn>						24		//get an item</u></td></tr>
+<tr><th id="61">61</th><td><u>#define <dfn class="macro" id="_M/MSG_KILL" data-ref="_M/MSG_KILL">MSG_KILL</dfn>						25		//kill someone</u></td></tr>
+<tr><th id="62">62</th><td><u>#define <dfn class="macro" id="_M/MSG_WHEREAREYOU" data-ref="_M/MSG_WHEREAREYOU">MSG_WHEREAREYOU</dfn>					26		//where is someone</u></td></tr>
+<tr><th id="63">63</th><td><u>#define <dfn class="macro" id="_M/MSG_RETURNFLAG" data-ref="_M/MSG_RETURNFLAG">MSG_RETURNFLAG</dfn>					27		//return the flag</u></td></tr>
+<tr><th id="64">64</th><td><u>#define <dfn class="macro" id="_M/MSG_WHATISMYCOMMAND" data-ref="_M/MSG_WHATISMYCOMMAND">MSG_WHATISMYCOMMAND</dfn>				28		//ask the team leader what to do</u></td></tr>
+<tr><th id="65">65</th><td><u>#define <dfn class="macro" id="_M/MSG_WHICHTEAM" data-ref="_M/MSG_WHICHTEAM">MSG_WHICHTEAM</dfn>					29		//ask which team a bot is in</u></td></tr>
+<tr><th id="66">66</th><td><u>#define <dfn class="macro" id="_M/MSG_TASKPREFERENCE" data-ref="_M/MSG_TASKPREFERENCE">MSG_TASKPREFERENCE</dfn>				30		//tell your teamplay task preference</u></td></tr>
+<tr><th id="67">67</th><td><u>#define <dfn class="macro" id="_M/MSG_ATTACKENEMYBASE" data-ref="_M/MSG_ATTACKENEMYBASE">MSG_ATTACKENEMYBASE</dfn>				31		//attack the enemy base</u></td></tr>
+<tr><th id="68">68</th><td><u>#define <dfn class="macro" id="_M/MSG_HARVEST" data-ref="_M/MSG_HARVEST">MSG_HARVEST</dfn>						32		//go harvest</u></td></tr>
+<tr><th id="69">69</th><td><u>#define <dfn class="macro" id="_M/MSG_SUICIDE" data-ref="_M/MSG_SUICIDE">MSG_SUICIDE</dfn>						33		//order to suicide</u></td></tr>
+<tr><th id="70">70</th><td><i>//</i></td></tr>
+<tr><th id="71">71</th><td><u>#define <dfn class="macro" id="_M/MSG_ME" data-ref="_M/MSG_ME">MSG_ME</dfn>							100</u></td></tr>
+<tr><th id="72">72</th><td><u>#define <dfn class="macro" id="_M/MSG_EVERYONE" data-ref="_M/MSG_EVERYONE">MSG_EVERYONE</dfn>					101</u></td></tr>
+<tr><th id="73">73</th><td><u>#define <dfn class="macro" id="_M/MSG_MULTIPLENAMES" data-ref="_M/MSG_MULTIPLENAMES">MSG_MULTIPLENAMES</dfn>				102</u></td></tr>
+<tr><th id="74">74</th><td><u>#define <dfn class="macro" id="_M/MSG_NAME" data-ref="_M/MSG_NAME">MSG_NAME</dfn>						103</u></td></tr>
+<tr><th id="75">75</th><td><u>#define <dfn class="macro" id="_M/MSG_PATROLKEYAREA" data-ref="_M/MSG_PATROLKEYAREA">MSG_PATROLKEYAREA</dfn>				104</u></td></tr>
+<tr><th id="76">76</th><td><u>#define <dfn class="macro" id="_M/MSG_MINUTES" data-ref="_M/MSG_MINUTES">MSG_MINUTES</dfn>						105</u></td></tr>
+<tr><th id="77">77</th><td><u>#define <dfn class="macro" id="_M/MSG_SECONDS" data-ref="_M/MSG_SECONDS">MSG_SECONDS</dfn>						106</u></td></tr>
+<tr><th id="78">78</th><td><u>#define <dfn class="macro" id="_M/MSG_FOREVER" data-ref="_M/MSG_FOREVER">MSG_FOREVER</dfn>						107</u></td></tr>
+<tr><th id="79">79</th><td><u>#define <dfn class="macro" id="_M/MSG_FORALONGTIME" data-ref="_M/MSG_FORALONGTIME">MSG_FORALONGTIME</dfn>				108</u></td></tr>
+<tr><th id="80">80</th><td><u>#define <dfn class="macro" id="_M/MSG_FORAWHILE" data-ref="_M/MSG_FORAWHILE">MSG_FORAWHILE</dfn>					109</u></td></tr>
+<tr><th id="81">81</th><td><i>//</i></td></tr>
+<tr><th id="82">82</th><td><u>#define <dfn class="macro" id="_M/MSG_CHATALL" data-ref="_M/MSG_CHATALL">MSG_CHATALL</dfn>						200</u></td></tr>
+<tr><th id="83">83</th><td><u>#define <dfn class="macro" id="_M/MSG_CHATTEAM" data-ref="_M/MSG_CHATTEAM">MSG_CHATTEAM</dfn>					201</u></td></tr>
+<tr><th id="84">84</th><td><u>#define <dfn class="macro" id="_M/MSG_CHATTELL" data-ref="_M/MSG_CHATTELL">MSG_CHATTELL</dfn>					202</u></td></tr>
+<tr><th id="85">85</th><td><i>//</i></td></tr>
+<tr><th id="86">86</th><td><u>#define <dfn class="macro" id="_M/MSG_CTF" data-ref="_M/MSG_CTF">MSG_CTF</dfn>							300		//ctf message</u></td></tr>
+<tr><th id="87">87</th><td></td></tr>
+<tr><th id="88">88</th><td><i>//command sub types</i></td></tr>
+<tr><th id="89">89</th><td><u>#define <dfn class="macro" id="_M/ST_SOMEWHERE" data-ref="_M/ST_SOMEWHERE">ST_SOMEWHERE</dfn>					0</u></td></tr>
+<tr><th id="90">90</th><td><u>#define <dfn class="macro" id="_M/ST_NEARITEM" data-ref="_M/ST_NEARITEM">ST_NEARITEM</dfn>						1</u></td></tr>
+<tr><th id="91">91</th><td><u>#define <dfn class="macro" id="_M/ST_ADDRESSED" data-ref="_M/ST_ADDRESSED">ST_ADDRESSED</dfn>					2</u></td></tr>
+<tr><th id="92">92</th><td><u>#define <dfn class="macro" id="_M/ST_METER" data-ref="_M/ST_METER">ST_METER</dfn>						4</u></td></tr>
+<tr><th id="93">93</th><td><u>#define <dfn class="macro" id="_M/ST_FEET" data-ref="_M/ST_FEET">ST_FEET</dfn>							8</u></td></tr>
+<tr><th id="94">94</th><td><u>#define <dfn class="macro" id="_M/ST_TIME" data-ref="_M/ST_TIME">ST_TIME</dfn>							16</u></td></tr>
+<tr><th id="95">95</th><td><u>#define <dfn class="macro" id="_M/ST_HERE" data-ref="_M/ST_HERE">ST_HERE</dfn>							32</u></td></tr>
+<tr><th id="96">96</th><td><u>#define <dfn class="macro" id="_M/ST_THERE" data-ref="_M/ST_THERE">ST_THERE</dfn>						64</u></td></tr>
+<tr><th id="97">97</th><td><u>#define <dfn class="macro" id="_M/ST_I" data-ref="_M/ST_I">ST_I</dfn>							128</u></td></tr>
+<tr><th id="98">98</th><td><u>#define <dfn class="macro" id="_M/ST_MORE" data-ref="_M/ST_MORE">ST_MORE</dfn>							256</u></td></tr>
+<tr><th id="99">99</th><td><u>#define <dfn class="macro" id="_M/ST_BACK" data-ref="_M/ST_BACK">ST_BACK</dfn>							512</u></td></tr>
+<tr><th id="100">100</th><td><u>#define <dfn class="macro" id="_M/ST_REVERSE" data-ref="_M/ST_REVERSE">ST_REVERSE</dfn>						1024</u></td></tr>
+<tr><th id="101">101</th><td><u>#define <dfn class="macro" id="_M/ST_SOMEONE" data-ref="_M/ST_SOMEONE">ST_SOMEONE</dfn>						2048</u></td></tr>
+<tr><th id="102">102</th><td><u>#define <dfn class="macro" id="_M/ST_GOTFLAG" data-ref="_M/ST_GOTFLAG">ST_GOTFLAG</dfn>						4096</u></td></tr>
+<tr><th id="103">103</th><td><u>#define <dfn class="macro" id="_M/ST_CAPTUREDFLAG" data-ref="_M/ST_CAPTUREDFLAG">ST_CAPTUREDFLAG</dfn>					8192</u></td></tr>
+<tr><th id="104">104</th><td><u>#define <dfn class="macro" id="_M/ST_RETURNEDFLAG" data-ref="_M/ST_RETURNEDFLAG">ST_RETURNEDFLAG</dfn>					16384</u></td></tr>
+<tr><th id="105">105</th><td><u>#define <dfn class="macro" id="_M/ST_TEAM" data-ref="_M/ST_TEAM">ST_TEAM</dfn>							32768</u></td></tr>
+<tr><th id="106">106</th><td><u>#define <dfn class="macro" id="_M/ST_1FCTFGOTFLAG" data-ref="_M/ST_1FCTFGOTFLAG">ST_1FCTFGOTFLAG</dfn>					65535</u></td></tr>
+<tr><th id="107">107</th><td><i>//ctf task preferences</i></td></tr>
+<tr><th id="108">108</th><td><u>#define <dfn class="macro" id="_M/ST_DEFENDER" data-ref="_M/ST_DEFENDER">ST_DEFENDER</dfn>						1</u></td></tr>
+<tr><th id="109">109</th><td><u>#define <dfn class="macro" id="_M/ST_ATTACKER" data-ref="_M/ST_ATTACKER">ST_ATTACKER</dfn>						2</u></td></tr>
+<tr><th id="110">110</th><td><u>#define <dfn class="macro" id="_M/ST_ROAMER" data-ref="_M/ST_ROAMER">ST_ROAMER</dfn>						4</u></td></tr>
+<tr><th id="111">111</th><td></td></tr>
+<tr><th id="112">112</th><td></td></tr>
+<tr><th id="113">113</th><td><i>//word replacement variables</i></td></tr>
+<tr><th id="114">114</th><td><u>#define <dfn class="macro" id="_M/THE_ENEMY" data-ref="_M/THE_ENEMY">THE_ENEMY</dfn>						7</u></td></tr>
+<tr><th id="115">115</th><td><u>#define <dfn class="macro" id="_M/THE_TEAM" data-ref="_M/THE_TEAM">THE_TEAM</dfn>						7</u></td></tr>
+<tr><th id="116">116</th><td><i>//team message variables</i></td></tr>
+<tr><th id="117">117</th><td><u>#define <dfn class="macro" id="_M/NETNAME" data-ref="_M/NETNAME">NETNAME</dfn>							0</u></td></tr>
+<tr><th id="118">118</th><td><u>#define <dfn class="macro" id="_M/PLACE" data-ref="_M/PLACE">PLACE</dfn>							1</u></td></tr>
+<tr><th id="119">119</th><td><u>#define <dfn class="macro" id="_M/FLAG" data-ref="_M/FLAG">FLAG</dfn>							1</u></td></tr>
+<tr><th id="120">120</th><td><u>#define <dfn class="macro" id="_M/MESSAGE" data-ref="_M/MESSAGE">MESSAGE</dfn>							2</u></td></tr>
+<tr><th id="121">121</th><td><u>#define <dfn class="macro" id="_M/ADDRESSEE" data-ref="_M/ADDRESSEE">ADDRESSEE</dfn>						2</u></td></tr>
+<tr><th id="122">122</th><td><u>#define <dfn class="macro" id="_M/ITEM" data-ref="_M/ITEM">ITEM</dfn>							3</u></td></tr>
+<tr><th id="123">123</th><td><u>#define <dfn class="macro" id="_M/TEAMMATE" data-ref="_M/TEAMMATE">TEAMMATE</dfn>						4</u></td></tr>
+<tr><th id="124">124</th><td><u>#define <dfn class="macro" id="_M/TEAMNAME" data-ref="_M/TEAMNAME">TEAMNAME</dfn>						4</u></td></tr>
+<tr><th id="125">125</th><td><u>#define <dfn class="macro" id="_M/ENEMY" data-ref="_M/ENEMY">ENEMY</dfn>							4</u></td></tr>
+<tr><th id="126">126</th><td><u>#define <dfn class="macro" id="_M/KEYAREA" data-ref="_M/KEYAREA">KEYAREA</dfn>							5</u></td></tr>
+<tr><th id="127">127</th><td><u>#define <dfn class="macro" id="_M/FORMATION" data-ref="_M/FORMATION">FORMATION</dfn>						5</u></td></tr>
+<tr><th id="128">128</th><td><u>#define <dfn class="macro" id="_M/POSITION" data-ref="_M/POSITION">POSITION</dfn>						5</u></td></tr>
+<tr><th id="129">129</th><td><u>#define <dfn class="macro" id="_M/NUMBER" data-ref="_M/NUMBER">NUMBER</dfn>							5</u></td></tr>
+<tr><th id="130">130</th><td><u>#define <dfn class="macro" id="_M/TIME" data-ref="_M/TIME">TIME</dfn>							6</u></td></tr>
+<tr><th id="131">131</th><td><u>#define <dfn class="macro" id="_M/NAME" data-ref="_M/NAME">NAME</dfn>							6</u></td></tr>
+<tr><th id="132">132</th><td><u>#define <dfn class="macro" id="_M/MORE" data-ref="_M/MORE">MORE</dfn>							6</u></td></tr>
+<tr><th id="133">133</th><td></td></tr>
+<tr><th id="134">134</th><td></td></tr>
+<tr><th id="135">135</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='ai_chat.c.html'>codebrowser/code/game/ai_chat.c</a><br/>Generated on <em>2017-Aug-29</em> from project codebrowser revision <em>63e07af</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

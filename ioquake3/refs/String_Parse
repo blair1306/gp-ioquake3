@@ -1,0 +1,51 @@
+<dec f='codebrowser/code/ui/ui_shared.h' l='404' type='qboolean String_Parse(char ** p, const char ** out)'/>
+<use f='codebrowser/code/ui/ui_main.c' l='3162' u='c' c='UI_RunMenuScript'/>
+<use f='codebrowser/code/ui/ui_main.c' l='3474' u='c' c='UI_RunMenuScript'/>
+<use f='codebrowser/code/ui/ui_main.c' l='3498' u='c' c='UI_RunMenuScript'/>
+<use f='codebrowser/code/ui/ui_main.c' l='3511' u='c' c='UI_RunMenuScript'/>
+<use f='codebrowser/code/ui/ui_main.c' l='3526' u='c' c='UI_RunMenuScript'/>
+<use f='codebrowser/code/ui/ui_main.c' l='4567' u='c' c='Team_Parse'/>
+<use f='codebrowser/code/ui/ui_main.c' l='4567' u='c' c='Team_Parse'/>
+<use f='codebrowser/code/ui/ui_main.c' l='4581' u='c' c='Team_Parse'/>
+<use f='codebrowser/code/ui/ui_main.c' l='4628' u='c' c='Character_Parse'/>
+<use f='codebrowser/code/ui/ui_main.c' l='4628' u='c' c='Character_Parse'/>
+<use f='codebrowser/code/ui/ui_main.c' l='4684' u='c' c='Alias_Parse'/>
+<use f='codebrowser/code/ui/ui_main.c' l='4684' u='c' c='Alias_Parse'/>
+<use f='codebrowser/code/ui/ui_main.c' l='4684' u='c' c='Alias_Parse'/>
+<use f='codebrowser/code/ui/ui_main.c' l='4781' u='c' c='GameType_Parse'/>
+<use f='codebrowser/code/ui/ui_main.c' l='4785' u='c' c='GameType_Parse'/>
+<use f='codebrowser/code/ui/ui_main.c' l='4836' u='c' c='MapList_Parse'/>
+<use f='codebrowser/code/ui/ui_main.c' l='4836' u='c' c='MapList_Parse'/>
+<use f='codebrowser/code/ui/ui_main.c' l='4841' u='c' c='MapList_Parse'/>
+<def f='codebrowser/code/ui/ui_shared.c' l='480' ll='489' type='qboolean String_Parse(char ** p, const char ** out)'/>
+<use f='codebrowser/code/ui/ui_shared.c' l='858' u='c' c='Script_SetColor'/>
+<use f='codebrowser/code/ui/ui_shared.c' l='884' u='c' c='Script_SetAsset'/>
+<use f='codebrowser/code/ui/ui_shared.c' l='894' u='c' c='Script_SetBackground'/>
+<use f='codebrowser/code/ui/ui_shared.c' l='935' u='c' c='Script_SetItemColor'/>
+<use f='codebrowser/code/ui/ui_shared.c' l='935' u='c' c='Script_SetItemColor'/>
+<use f='codebrowser/code/ui/ui_shared.c' l='1055' u='c' c='Script_Show'/>
+<use f='codebrowser/code/ui/ui_shared.c' l='1062' u='c' c='Script_Hide'/>
+<use f='codebrowser/code/ui/ui_shared.c' l='1069' u='c' c='Script_FadeIn'/>
+<use f='codebrowser/code/ui/ui_shared.c' l='1076' u='c' c='Script_FadeOut'/>
+<use f='codebrowser/code/ui/ui_shared.c' l='1085' u='c' c='Script_Open'/>
+<use f='codebrowser/code/ui/ui_shared.c' l='1096' u='c' c='Script_ConditionalOpen'/>
+<use f='codebrowser/code/ui/ui_shared.c' l='1096' u='c' c='Script_ConditionalOpen'/>
+<use f='codebrowser/code/ui/ui_shared.c' l='1096' u='c' c='Script_ConditionalOpen'/>
+<use f='codebrowser/code/ui/ui_shared.c' l='1108' u='c' c='Script_Close'/>
+<use f='codebrowser/code/ui/ui_shared.c' l='1140' u='c' c='Script_Transition'/>
+<use f='codebrowser/code/ui/ui_shared.c' l='1172' u='c' c='Script_Orbit'/>
+<use f='codebrowser/code/ui/ui_shared.c' l='1185' u='c' c='Script_SetFocus'/>
+<use f='codebrowser/code/ui/ui_shared.c' l='1202' u='c' c='Script_SetPlayerModel'/>
+<use f='codebrowser/code/ui/ui_shared.c' l='1209' u='c' c='Script_SetPlayerHead'/>
+<use f='codebrowser/code/ui/ui_shared.c' l='1216' u='c' c='Script_SetCvar'/>
+<use f='codebrowser/code/ui/ui_shared.c' l='1216' u='c' c='Script_SetCvar'/>
+<use f='codebrowser/code/ui/ui_shared.c' l='1224' u='c' c='Script_Exec'/>
+<use f='codebrowser/code/ui/ui_shared.c' l='1231' u='c' c='Script_Play'/>
+<use f='codebrowser/code/ui/ui_shared.c' l='1238' u='c' c='Script_playLooped'/>
+<use f='codebrowser/code/ui/ui_shared.c' l='1284' u='c' c='Item_RunScript'/>
+<use f='codebrowser/code/ui/ui_shared.c' l='1321' u='c' c='Item_EnableShowViaCvar'/>
+<doc f='codebrowser/code/ui/ui_shared.c' l='475'>/*
+=================
+String_Parse
+=================
+*/</doc>

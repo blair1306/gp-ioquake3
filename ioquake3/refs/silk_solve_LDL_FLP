@@ -1,0 +1,8 @@
+<dec f='codebrowser/code/opus-1.1.4/silk/float/main_FLP.h' l='257' type='void silk_solve_LDL_FLP(float * A, const int M, const float * b, float * x)'/>
+<doc f='codebrowser/code/opus-1.1.4/silk/float/main_FLP.h' l='256'>/* Function to solve linear equation Ax = b, where A is an MxM symmetric matrix */</doc>
+<use f='codebrowser/code/opus-1.1.4/silk/float/find_LTP_FLP.c' l='70' u='c' c='silk_find_LTP_FLP'/>
+<def f='codebrowser/code/opus-1.1.4/silk/float/solve_LS_FLP.c' l='73' ll='110' type='void silk_solve_LDL_FLP(float * A, const int M, const float * b, float * x)'/>
+<doc f='codebrowser/code/opus-1.1.4/silk/float/solve_LS_FLP.c' l='69'>/**********************************************************************
+ * Function to solve linear equation Ax = b, when A is a MxM
+ * symmetric square matrix - using LDL factorisation
+ **********************************************************************/</doc>

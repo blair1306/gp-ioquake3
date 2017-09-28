@@ -1,0 +1,43 @@
+<dec f='codebrowser/code/qcommon/qcommon.h' l='50' type='int'/>
+<offset>288</offset>
+<doc f='codebrowser/code/qcommon/qcommon.h' l='50'>// for bitwise reads and writes</doc>
+<use f='codebrowser/code/client/cl_net_chan.c' l='49' u='r' c='CL_Netchan_Encode'/>
+<use f='codebrowser/code/client/cl_net_chan.c' l='52' u='w' c='CL_Netchan_Encode'/>
+<use f='codebrowser/code/client/cl_net_chan.c' l='61' u='w' c='CL_Netchan_Encode'/>
+<use f='codebrowser/code/client/cl_net_chan.c' l='99' u='r' c='CL_Netchan_Decode'/>
+<use f='codebrowser/code/client/cl_net_chan.c' l='107' u='w' c='CL_Netchan_Decode'/>
+<use f='codebrowser/code/qcommon/msg.c' l='66' u='w' c='MSG_Clear'/>
+<use f='codebrowser/code/qcommon/msg.c' l='76' u='w' c='MSG_BeginReading'/>
+<use f='codebrowser/code/qcommon/msg.c' l='82' u='w' c='MSG_BeginReadingOOB'/>
+<use f='codebrowser/code/qcommon/msg.c' l='131' u='w' c='MSG_WriteBits'/>
+<use f='codebrowser/code/qcommon/msg.c' l='137' u='w' c='MSG_WriteBits'/>
+<use f='codebrowser/code/qcommon/msg.c' l='141' u='w' c='MSG_WriteBits'/>
+<use f='codebrowser/code/qcommon/msg.c' l='150' u='r' c='MSG_WriteBits'/>
+<use f='codebrowser/code/qcommon/msg.c' l='155' u='a' c='MSG_WriteBits'/>
+<use f='codebrowser/code/qcommon/msg.c' l='162' u='a' c='MSG_WriteBits'/>
+<use f='codebrowser/code/qcommon/msg.c' l='165' u='r' c='MSG_WriteBits'/>
+<use f='codebrowser/code/qcommon/msg.c' l='171' u='r' c='MSG_WriteBits'/>
+<use f='codebrowser/code/qcommon/msg.c' l='205' u='w' c='MSG_ReadBits'/>
+<use f='codebrowser/code/qcommon/msg.c' l='214' u='w' c='MSG_ReadBits'/>
+<use f='codebrowser/code/qcommon/msg.c' l='220' u='w' c='MSG_ReadBits'/>
+<use f='codebrowser/code/qcommon/msg.c' l='228' u='r' c='MSG_ReadBits'/>
+<use f='codebrowser/code/qcommon/msg.c' l='233' u='a' c='MSG_ReadBits'/>
+<use f='codebrowser/code/qcommon/msg.c' l='240' u='a' c='MSG_ReadBits'/>
+<use f='codebrowser/code/qcommon/msg.c' l='244' u='r' c='MSG_ReadBits'/>
+<use f='codebrowser/code/qcommon/msg.c' l='251' u='r' c='MSG_ReadBits'/>
+<use f='codebrowser/code/qcommon/msg.c' l='406' u='r' c='MSG_LookaheadByte'/>
+<use f='codebrowser/code/qcommon/msg.c' l='410' u='w' c='MSG_LookaheadByte'/>
+<use f='codebrowser/code/qcommon/msg.c' l='986' u='r' c='MSG_ReadDeltaEntity'/>
+<use f='codebrowser/code/qcommon/msg.c' l='989' u='r' c='MSG_ReadDeltaEntity'/>
+<use f='codebrowser/code/qcommon/msg.c' l='1079' u='r' c='MSG_ReadDeltaEntity'/>
+<use f='codebrowser/code/qcommon/msg.c' l='1082' u='r' c='MSG_ReadDeltaEntity'/>
+<use f='codebrowser/code/qcommon/msg.c' l='1327' u='r' c='MSG_ReadDeltaPlayerstate'/>
+<use f='codebrowser/code/qcommon/msg.c' l='1330' u='r' c='MSG_ReadDeltaPlayerstate'/>
+<use f='codebrowser/code/qcommon/msg.c' l='1440' u='r' c='MSG_ReadDeltaPlayerstate'/>
+<use f='codebrowser/code/qcommon/msg.c' l='1443' u='r' c='MSG_ReadDeltaPlayerstate'/>
+<use f='codebrowser/code/qcommon/net_chan.c' l='393' u='w' c='Netchan_Process'/>
+<use f='codebrowser/code/server/sv_net_chan.c' l='49' u='r' c='SV_Netchan_Encode'/>
+<use f='codebrowser/code/server/sv_net_chan.c' l='52' u='w' c='SV_Netchan_Encode'/>
+<use f='codebrowser/code/server/sv_net_chan.c' l='59' u='w' c='SV_Netchan_Encode'/>
+<use f='codebrowser/code/server/sv_net_chan.c' l='100' u='r' c='SV_Netchan_Decode'/>
+<use f='codebrowser/code/server/sv_net_chan.c' l='110' u='w' c='SV_Netchan_Decode'/>

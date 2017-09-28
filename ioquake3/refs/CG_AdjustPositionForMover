@@ -1,0 +1,12 @@
+<dec f='codebrowser/code/cgame/cg_local.h' l='1341' type='void CG_AdjustPositionForMover(const vec_t * in, int moverNum, int fromTime, int toTime, vec_t * out, vec_t * angles_in, vec_t * angles_out)'/>
+<def f='codebrowser/code/cgame/cg_ents.c' l='674' ll='704' type='void CG_AdjustPositionForMover(const vec_t * in, int moverNum, int fromTime, int toTime, vec_t * out, vec_t * angles_in, vec_t * angles_out)'/>
+<use f='codebrowser/code/cgame/cg_ents.c' l='779' u='c' c='CG_CalcEntityLerpPositions'/>
+<doc f='codebrowser/code/cgame/cg_ents.c' l='667'>/*
+=========================
+CG_AdjustPositionForMover
+
+Also called by client movement prediction code
+=========================
+*/</doc>
+<use f='codebrowser/code/cgame/cg_predict.c' l='540' u='c' c='CG_PredictPlayerState'/>
+<use f='codebrowser/code/cgame/cg_predict.c' l='607' u='c' c='CG_PredictPlayerState'/>

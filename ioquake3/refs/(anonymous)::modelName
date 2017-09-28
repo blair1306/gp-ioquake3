@@ -1,0 +1,21 @@
+<dec f='codebrowser/code/cgame/cg_local.h' l='344' type='char [64]'/>
+<offset>1344</offset>
+<doc f='codebrowser/code/cgame/cg_local.h' l='341'>// when clientinfo is changed, the loading of models/skins/sounds
+	// can be deferred until you are dead, to prevent hitches in
+	// gameplay</doc>
+<use f='codebrowser/code/cgame/cg_players.c' l='672' u='r' c='CG_LoadClientInfo'/>
+<use f='codebrowser/code/cgame/cg_players.c' l='674' c='CG_LoadClientInfo'/>
+<use f='codebrowser/code/cgame/cg_players.c' l='706' u='r' c='CG_LoadClientInfo'/>
+<use f='codebrowser/code/cgame/cg_players.c' l='777' u='r' c='CG_ScanForExistingClientInfo'/>
+<use f='codebrowser/code/cgame/cg_players.c' l='777' u='r' c='CG_ScanForExistingClientInfo'/>
+<use f='codebrowser/code/cgame/cg_players.c' l='818' u='r' c='CG_SetDeferredClientInfo'/>
+<use f='codebrowser/code/cgame/cg_players.c' l='818' u='r' c='CG_SetDeferredClientInfo'/>
+<use f='codebrowser/code/cgame/cg_players.c' l='959' u='r' c='CG_NewClientInfo'/>
+<use f='codebrowser/code/cgame/cg_players.c' l='959' u='r' c='CG_NewClientInfo'/>
+<use f='codebrowser/code/cgame/cg_players.c' l='970' u='r' c='CG_NewClientInfo'/>
+<use f='codebrowser/code/cgame/cg_players.c' l='970' u='r' c='CG_NewClientInfo'/>
+<use f='codebrowser/code/cgame/cg_players.c' l='981' u='r' c='CG_NewClientInfo'/>
+<use f='codebrowser/code/cgame/cg_players.c' l='981' u='r' c='CG_NewClientInfo'/>
+<use f='codebrowser/code/cgame/cg_players.c' l='983' c='CG_NewClientInfo'/>
+<use f='codebrowser/code/cgame/cg_players.c' l='983' u='r' c='CG_NewClientInfo'/>
+<use f='codebrowser/code/cgame/cg_players.c' l='983' u='r' c='CG_NewClientInfo'/>

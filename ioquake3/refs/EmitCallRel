@@ -1,0 +1,12 @@
+<def f='codebrowser/code/qcommon/vm_x86.c' l='470' ll='474' type='void EmitCallRel(vm_t * vm, int callOfs)'/>
+<use f='codebrowser/code/qcommon/vm_x86.c' l='558' u='c' c='EmitCallErrJump'/>
+<use f='codebrowser/code/qcommon/vm_x86.c' l='609' u='c' c='EmitCallProcedure'/>
+<use f='codebrowser/code/qcommon/vm_x86.c' l='672' u='c' c='EmitCallConst'/>
+<use f='codebrowser/code/qcommon/vm_x86.c' l='1195' u='c' c='VM_Compile'/>
+<use f='codebrowser/code/qcommon/vm_x86.c' l='1619' u='c' c='VM_Compile'/>
+<doc f='codebrowser/code/qcommon/vm_x86.c' l='463'>/*
+=================
+EmitCallRel
+Relative call to vm-&gt;codeBase + callOfs
+=================
+*/</doc>

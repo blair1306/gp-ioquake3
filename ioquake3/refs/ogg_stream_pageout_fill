@@ -1,0 +1,5 @@
+<dec f='codebrowser/code/libogg-1.3.2/include/ogg/ogg.h' l='162' type='int ogg_stream_pageout_fill(ogg_stream_state * os, ogg_page * og, int nfill)'/>
+<def f='codebrowser/code/libogg-1.3.2/src/framing.c' l='566' ll='575' type='int ogg_stream_pageout_fill(ogg_stream_state * os, ogg_page * og, int nfill)'/>
+<doc f='codebrowser/code/libogg-1.3.2/src/framing.c' l='562'>/* Like the above, but an argument is provided to adjust the nominal
+page size for applications which are smart enough to provide their
+own delay based flushing */</doc>

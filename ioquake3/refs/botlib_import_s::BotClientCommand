@@ -1,0 +1,12 @@
+<dec f='codebrowser/code/botlib/botlib.h' l='187' type='void (*)(int, char *)'/>
+<offset>448</offset>
+<doc f='codebrowser/code/botlib/botlib.h' l='186'>//send a bot client command</doc>
+<use f='codebrowser/code/botlib/be_ea.c' l='53' u='r' c='EA_Say'/>
+<use f='codebrowser/code/botlib/be_ea.c' l='63' u='r' c='EA_SayTeam'/>
+<use f='codebrowser/code/botlib/be_ea.c' l='73' u='r' c='EA_Tell'/>
+<use f='codebrowser/code/botlib/be_ea.c' l='83' u='r' c='EA_UseItem'/>
+<use f='codebrowser/code/botlib/be_ea.c' l='93' u='r' c='EA_DropItem'/>
+<use f='codebrowser/code/botlib/be_ea.c' l='103' u='r' c='EA_UseInv'/>
+<use f='codebrowser/code/botlib/be_ea.c' l='113' u='r' c='EA_DropInv'/>
+<use f='codebrowser/code/botlib/be_ea.c' l='137' u='r' c='EA_Command'/>
+<use f='codebrowser/code/server/sv_bot.c' l='536' u='w' c='SV_BotInitBotLib'/>

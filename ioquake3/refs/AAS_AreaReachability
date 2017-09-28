@@ -1,0 +1,32 @@
+<dec f='codebrowser/code/botlib/be_aas_reach.h' l='42' type='int AAS_AreaReachability(int areanum)'/>
+<dec f='codebrowser/code/botlib/be_aas_reach.h' l='42' type='int AAS_AreaReachability(int areanum)'/>
+<doc f='codebrowser/code/botlib/be_aas_reach.h' l='41'>//returns true if the are has reachabilities to other areas</doc>
+<use f='codebrowser/code/botlib/be_aas_cluster.c' l='330' u='c' c='AAS_NumberClusterAreas'/>
+<use f='codebrowser/code/botlib/be_aas_cluster.c' l='343' u='c' c='AAS_NumberClusterAreas'/>
+<use f='codebrowser/code/botlib/be_aas_cluster.c' l='361' u='c' c='AAS_NumberClusterAreas'/>
+<use f='codebrowser/code/botlib/be_aas_cluster.c' l='373' u='c' c='AAS_NumberClusterAreas'/>
+<use f='codebrowser/code/botlib/be_aas_reach.c' l='202' u='c' c='AAS_BestReachableLinkArea'/>
+<def f='codebrowser/code/botlib/be_aas_reach.c' l='522' ll='530' type='int AAS_AreaReachability(int areanum)'/>
+<doc f='codebrowser/code/botlib/be_aas_reach.c' l='515'>//===========================================================================
+// returns qtrue if the area has reachability links
+//
+// Parameter:				-
+// Returns:					-
+// Changes Globals:		-
+//===========================================================================</doc>
+<use f='codebrowser/code/botlib/be_aas_route.c' l='898' u='c' c='AAS_CreateAllRoutingCache'/>
+<use f='codebrowser/code/botlib/be_aas_route.c' l='902' u='c' c='AAS_CreateAllRoutingCache'/>
+<use f='codebrowser/code/botlib/be_aas_route.c' l='2012' u='c' c='AAS_RandomGoalArea'/>
+<use f='codebrowser/code/botlib/be_aas_route.c' l='2019' u='c' c='AAS_RandomGoalArea'/>
+<use f='codebrowser/code/botlib/be_aas_routealt.c' l='141' u='c' c='AAS_AlternativeRouteGoals'/>
+<use f='codebrowser/code/botlib/be_aas_sample.c' l='283' u='c' c='AAS_PointReachabilityAreaIndex'/>
+<use f='codebrowser/code/botlib/be_ai_goal.c' l='1299' u='c' c='BotChooseLTGItem'/>
+<use f='codebrowser/code/botlib/be_ai_goal.c' l='1467' u='c' c='BotChooseNBGItem'/>
+<use f='codebrowser/code/botlib/be_ai_move.c' l='251' u='c' c='BotFuzzyPointReachabilityArea'/>
+<use f='codebrowser/code/botlib/be_ai_move.c' l='258' u='c' c='BotFuzzyPointReachabilityArea'/>
+<use f='codebrowser/code/botlib/be_ai_move.c' l='275' u='c' c='BotFuzzyPointReachabilityArea'/>
+<use f='codebrowser/code/botlib/be_ai_move.c' l='342' u='c' c='BotReachabilityArea'/>
+<use f='codebrowser/code/botlib/be_ai_move.c' l='1304' u='c' c='BotCheckBlocked'/>
+<use f='codebrowser/code/botlib/be_ai_move.c' l='3119' u='c' c='BotMoveToGoal'/>
+<use f='codebrowser/code/botlib/be_ai_move.c' l='3235' u='c' c='BotMoveToGoal'/>
+<use f='codebrowser/code/botlib/be_interface.c' l='709' u='r' c='Init_AAS_Export'/>

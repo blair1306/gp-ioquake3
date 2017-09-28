@@ -1,0 +1,24 @@
+<dec f='codebrowser/code/renderergl1/tr_local.h' l='1141' type='void RE_StretchRaw(int x, int y, int w, int h, int cols, int rows, const byte * data, int client, qboolean dirty)'/>
+<def f='codebrowser/code/renderergl1/tr_backend.c' l='732' ll='800' type='void RE_StretchRaw(int x, int y, int w, int h, int cols, int rows, const byte * data, int client, qboolean dirty)'/>
+<doc f='codebrowser/code/renderergl1/tr_backend.c' l='723'>/*
+=============
+RE_StretchRaw
+
+FIXME: not exactly backend
+Stretches a raw 32 bit power of 2 bitmap image over the given screen rectangle.
+Used for cinematics.
+=============
+*/</doc>
+<use f='codebrowser/code/renderergl1/tr_init.c' l='1361' u='r' c='GetRefAPI'/>
+<dec f='codebrowser/code/renderergl2/tr_local.h' l='1888' type='void RE_StretchRaw(int x, int y, int w, int h, int cols, int rows, const byte * data, int client, qboolean dirty)'/>
+<def f='codebrowser/code/renderergl2/tr_backend.c' l='677' ll='741' type='void RE_StretchRaw(int x, int y, int w, int h, int cols, int rows, const byte * data, int client, qboolean dirty)'/>
+<doc f='codebrowser/code/renderergl2/tr_backend.c' l='668'>/*
+=============
+RE_StretchRaw
+
+FIXME: not exactly backend
+Stretches a raw 32 bit power of 2 bitmap image over the given screen rectangle.
+Used for cinematics.
+=============
+*/</doc>
+<use f='codebrowser/code/renderergl2/tr_init.c' l='1610' u='r' c='GetRefAPI'/>

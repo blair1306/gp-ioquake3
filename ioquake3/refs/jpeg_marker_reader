@@ -1,0 +1,10 @@
+<def f='codebrowser/code/jpeg-8c/jpegint.h' l='192' ll='209'/>
+<size>40</size>
+<doc f='codebrowser/code/jpeg-8c/jpegint.h' l='191'>/* Marker reading &amp; parsing */</doc>
+<mbr r='jpeg_marker_reader::reset_marker_reader' o='0' t='void (*)(j_decompress_ptr)'/>
+<mbr r='jpeg_marker_reader::read_markers' o='64' t='int (*)(j_decompress_ptr)'/>
+<mbr r='jpeg_marker_reader::read_restart_marker' o='128' t='jpeg_marker_parser_method'/>
+<mbr r='jpeg_marker_reader::saw_SOI' o='192' t='boolean'/>
+<mbr r='jpeg_marker_reader::saw_SOF' o='224' t='boolean'/>
+<mbr r='jpeg_marker_reader::next_restart_num' o='256' t='int'/>
+<mbr r='jpeg_marker_reader::discarded_bytes' o='288' t='unsigned int'/>

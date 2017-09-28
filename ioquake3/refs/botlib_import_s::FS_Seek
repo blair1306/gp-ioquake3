@@ -1,0 +1,5 @@
+<dec f='codebrowser/code/botlib/botlib.h' l='198' type='int (*)(fileHandle_t, long, int)'/>
+<offset>1024</offset>
+<use f='codebrowser/code/botlib/be_aas_file.c' l='303' u='r' c='AAS_LoadAASLump'/>
+<use f='codebrowser/code/botlib/be_aas_file.c' l='576' u='r' c='AAS_WriteAASFile'/>
+<use f='codebrowser/code/server/sv_bot.c' l='549' u='w' c='SV_BotInitBotLib'/>

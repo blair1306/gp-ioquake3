@@ -1,0 +1,30 @@
+<dec f='codebrowser/code/renderergl1/tr_local.h' l='1092' type='void R_RotateForEntity(const trRefEntity_t * ent, const viewParms_t * viewParms, orientationr_t * or)'/>
+<use f='codebrowser/code/renderergl1/tr_backend.c' l='574' u='c' c='RB_RenderDrawSurfList'/>
+<def f='codebrowser/code/renderergl1/tr_main.c' l='272' ll='330' type='void R_RotateForEntity(const trRefEntity_t * ent, const viewParms_t * viewParms, orientationr_t * or)'/>
+<use f='codebrowser/code/renderergl1/tr_main.c' l='687' u='c' c='R_GetPortalOrientations'/>
+<use f='codebrowser/code/renderergl1/tr_main.c' l='805' u='c' c='IsMirror'/>
+<use f='codebrowser/code/renderergl1/tr_main.c' l='1232' u='c' c='R_AddEntitySurfaces'/>
+<doc f='codebrowser/code/renderergl1/tr_main.c' l='263'>/*
+=================
+R_RotateForEntity
+
+Generates an orientation for an entity and viewParms
+Does NOT produce any GL calls
+Called by both the front end and the back end
+=================
+*/</doc>
+<dec f='codebrowser/code/renderergl2/tr_local.h' l='1836' type='void R_RotateForEntity(const trRefEntity_t * ent, const viewParms_t * viewParms, orientationr_t * or)'/>
+<use f='codebrowser/code/renderergl2/tr_backend.c' l='510' u='c' c='RB_RenderDrawSurfList'/>
+<def f='codebrowser/code/renderergl2/tr_main.c' l='498' ll='557' type='void R_RotateForEntity(const trRefEntity_t * ent, const viewParms_t * viewParms, orientationr_t * or)'/>
+<use f='codebrowser/code/renderergl2/tr_main.c' l='1037' u='c' c='R_GetPortalOrientations'/>
+<use f='codebrowser/code/renderergl2/tr_main.c' l='1155' u='c' c='IsMirror'/>
+<use f='codebrowser/code/renderergl2/tr_main.c' l='1595' u='c' c='R_AddEntitySurface'/>
+<doc f='codebrowser/code/renderergl2/tr_main.c' l='489'>/*
+=================
+R_RotateForEntity
+
+Generates an orientation for an entity and viewParms
+Does NOT produce any GL calls
+Called by both the front end and the back end
+=================
+*/</doc>

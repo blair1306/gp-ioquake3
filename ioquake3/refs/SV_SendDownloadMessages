@@ -1,0 +1,11 @@
+<dec f='codebrowser/code/server/server.h' l='385' type='int SV_SendDownloadMessages()'/>
+<def f='codebrowser/code/server/sv_client.c' l='1173' ll='1201' type='int SV_SendDownloadMessages()'/>
+<doc f='codebrowser/code/server/sv_client.c' l='1165'>/*
+==================
+SV_SendDownloadMessages
+
+Send one round of download messages to all clients
+==================
+*/</doc>
+<use f='codebrowser/code/server/sv_main.c' l='1246' u='c' c='SV_SendQueuedPackets'/>
+<use f='codebrowser/code/server/sv_main.c' l='1283' u='c' c='SV_SendQueuedPackets'/>

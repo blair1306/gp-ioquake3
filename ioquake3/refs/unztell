@@ -1,0 +1,16 @@
+<dec f='codebrowser/code/qcommon/unzip.h' l='315' type='off_t unztell(unzFile file)'/>
+<use f='codebrowser/code/qcommon/files.c' l='4122' u='c' c='FS_FTell'/>
+<doc f='codebrowser/code/qcommon/unzip.h' l='304'>/*
+  Read bytes from the current file (opened by unzOpenCurrentFile)
+  buf contain buffer where data must be copied
+  len the size of buf.
+
+  return the number of byte copied if somes bytes are copied
+  return 0 if the end of file was reached
+  return &lt;0 with error code if there is an error
+    (UNZ_ERRNO for IO error, or zLib error for uncompress error)
+*/</doc>
+<def f='codebrowser/code/qcommon/unzip.c' l='1396' ll='1410' type='off_t unztell(unzFile file)'/>
+<doc f='codebrowser/code/qcommon/unzip.c' l='1393'>/*
+  Give the current position in uncompressed data
+*/</doc>

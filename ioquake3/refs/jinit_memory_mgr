@@ -1,0 +1,8 @@
+<dec f='codebrowser/code/jpeg-8c/jpegint.h' l='374' type='void jinit_memory_mgr(j_common_ptr cinfo)'/>
+<use f='codebrowser/code/jpeg-8c/jcapimin.c' l='59' u='c' c='jpeg_CreateCompress'/>
+<use f='codebrowser/code/jpeg-8c/jdapimin.c' l='59' u='c' c='jpeg_CreateDecompress'/>
+<def f='codebrowser/code/jpeg-8c/jmemmgr.c' l='1027' ll='1118' macro='1' type='void jinit_memory_mgr(j_common_ptr cinfo)'/>
+<doc f='codebrowser/code/jpeg-8c/jmemmgr.c' l='1022'>/*
+ * Memory manager initialization.
+ * When this is called, only the error manager pointer is valid in cinfo!
+ */</doc>

@@ -1,0 +1,12 @@
+<dec f='codebrowser/code/game/g_local.h' l='462' type='void G_KillBox(gentity_t * ent)'/>
+<use f='codebrowser/code/game/g_client.c' l='1203' u='c' c='ClientSpawn'/>
+<use f='codebrowser/code/game/g_misc.c' l='112' u='c' c='TeleportPlayer'/>
+<def f='codebrowser/code/game/g_utils.c' l='529' ll='550' type='void G_KillBox(gentity_t * ent)'/>
+<doc f='codebrowser/code/game/g_utils.c' l='521'>/*
+=================
+G_KillBox
+
+Kills all entities that would touch the proposed new positioning
+of ent.  Ent should be unlinked before calling this!
+=================
+*/</doc>

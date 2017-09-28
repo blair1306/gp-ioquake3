@@ -1,0 +1,29 @@
+<dec f='codebrowser/code/renderergl1/tr_local.h' l='405' type='int'/>
+<dec f='codebrowser/code/renderergl1/tr_local.h' l='1496' type='int'/>
+<offset>7680</offset>
+<use f='codebrowser/code/renderergl1/tr_backend.c' l='939' u='r' c='RB_DrawSurfs'/>
+<use f='codebrowser/code/renderergl1/tr_cmds.c' l='170' u='w' c='R_AddDrawSurfCmd'/>
+<use f='codebrowser/code/renderergl1/tr_main.c' l='1108' u='r' c='R_AddDrawSurf'/>
+<use f='codebrowser/code/renderergl1/tr_main.c' l='1114' u='w' c='R_AddDrawSurf'/>
+<use f='codebrowser/code/renderergl1/tr_main.c' l='1369' u='r' c='R_RenderView'/>
+<use f='codebrowser/code/renderergl1/tr_main.c' l='1383' u='r' c='R_RenderView'/>
+<use f='codebrowser/code/renderergl1/tr_scene.c' l='349' u='w' c='RE_RenderScene'/>
+<use f='codebrowser/code/renderergl1/tr_scene.c' l='405' u='r' c='RE_RenderScene'/>
+<use f='codebrowser/code/renderergl1/tr_shader.c' l='1963' u='r' c='FixRenderCommandList'/>
+<dec f='codebrowser/code/renderergl2/tr_local.h' l='729' type='int'/>
+<dec f='codebrowser/code/renderergl2/tr_local.h' l='2323' type='int'/>
+<offset>11840</offset>
+<use f='codebrowser/code/renderergl2/tr_backend.c' l='915' u='r' c='RB_DrawSurfs'/>
+<use f='codebrowser/code/renderergl2/tr_backend.c' l='1135' u='r' c='RB_DrawSurfs'/>
+<use f='codebrowser/code/renderergl2/tr_cmds.c' l='177' u='w' c='R_AddDrawSurfCmd'/>
+<use f='codebrowser/code/renderergl2/tr_main.c' l='1467' u='r' c='R_AddDrawSurf'/>
+<use f='codebrowser/code/renderergl2/tr_main.c' l='1475' u='w' c='R_AddDrawSurf'/>
+<use f='codebrowser/code/renderergl2/tr_main.c' l='1752' u='r' c='R_RenderView'/>
+<use f='codebrowser/code/renderergl2/tr_main.c' l='1766' u='r' c='R_RenderView'/>
+<use f='codebrowser/code/renderergl2/tr_main.c' l='2117' u='r' c='R_RenderPshadowMaps'/>
+<use f='codebrowser/code/renderergl2/tr_main.c' l='2188' u='r' c='R_RenderPshadowMaps'/>
+<use f='codebrowser/code/renderergl2/tr_main.c' l='2526' u='r' c='R_RenderSunShadowMaps'/>
+<use f='codebrowser/code/renderergl2/tr_main.c' l='2541' u='r' c='R_RenderSunShadowMaps'/>
+<use f='codebrowser/code/renderergl2/tr_scene.c' l='405' u='w' c='RE_BeginScene'/>
+<use f='codebrowser/code/renderergl2/tr_scene.c' l='441' u='r' c='RE_EndScene'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='2669' u='r' c='FixRenderCommandList'/>

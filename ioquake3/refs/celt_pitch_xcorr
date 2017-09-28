@@ -1,0 +1,6 @@
+<dec f='codebrowser/code/opus-1.1.4/celt/pitch.h' l='195' type='void celt_pitch_xcorr(const opus_val16 * _x, const opus_val16 * _y, opus_val32 * xcorr, int len, int max_pitch, int arch)'/>
+<use f='codebrowser/code/opus-1.1.4/celt/celt_lpc.c' l='284' u='c' c='_celt_autocorr'/>
+<def f='codebrowser/code/opus-1.1.4/celt/pitch.c' l='221' ll='302' type='void celt_pitch_xcorr(const opus_val16 * _x, const opus_val16 * _y, opus_val32 * xcorr, int len, int max_pitch, int arch)'/>
+<use f='codebrowser/code/opus-1.1.4/celt/pitch.c' l='358' u='c' c='pitch_search'/>
+<use f='codebrowser/code/opus-1.1.4/silk/float/pitch_analysis_core_FLP.c' l='181' u='c' c='silk_pitch_analysis_core_FLP'/>
+<use f='codebrowser/code/opus-1.1.4/silk/float/pitch_analysis_core_FLP.c' l='533' u='c' c='silk_P_Ana_calc_corr_st3'/>

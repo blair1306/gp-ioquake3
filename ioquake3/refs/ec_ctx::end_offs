@@ -1,0 +1,20 @@
+<dec f='codebrowser/code/opus-1.1.4/celt/entcode.h' l='68' type='opus_uint32'/>
+<offset>96</offset>
+<doc f='codebrowser/code/opus-1.1.4/celt/entcode.h' l='67'>/*The offset at which the last byte containing raw bits was read/written.*/</doc>
+<use f='codebrowser/code/opus-1.1.4/celt/entdec.c' l='96' u='r' c='ec_read_byte_from_end'/>
+<use f='codebrowser/code/opus-1.1.4/celt/entdec.c' l='97' u='w' c='ec_read_byte_from_end'/>
+<use f='codebrowser/code/opus-1.1.4/celt/entdec.c' l='122' u='w' c='ec_dec_init'/>
+<use f='codebrowser/code/opus-1.1.4/celt/entenc.c' l='61' u='r' c='ec_write_byte'/>
+<use f='codebrowser/code/opus-1.1.4/celt/entenc.c' l='67' u='r' c='ec_write_byte_at_end'/>
+<use f='codebrowser/code/opus-1.1.4/celt/entenc.c' l='68' u='w' c='ec_write_byte_at_end'/>
+<use f='codebrowser/code/opus-1.1.4/celt/entenc.c' l='114' u='w' c='ec_enc_init'/>
+<use f='codebrowser/code/opus-1.1.4/celt/entenc.c' l='239' u='r' c='ec_enc_shrink'/>
+<use f='codebrowser/code/opus-1.1.4/celt/entenc.c' l='240' u='r' c='ec_enc_shrink'/>
+<use f='codebrowser/code/opus-1.1.4/celt/entenc.c' l='240' u='r' c='ec_enc_shrink'/>
+<use f='codebrowser/code/opus-1.1.4/celt/entenc.c' l='239' u='r' c='ec_enc_shrink'/>
+<use f='codebrowser/code/opus-1.1.4/celt/entenc.c' l='239' u='r' c='ec_enc_shrink'/>
+<use f='codebrowser/code/opus-1.1.4/celt/entenc.c' l='240' u='r' c='ec_enc_shrink'/>
+<use f='codebrowser/code/opus-1.1.4/celt/entenc.c' l='278' u='r' c='ec_enc_done'/>
+<use f='codebrowser/code/opus-1.1.4/celt/entenc.c' l='281' u='r' c='ec_enc_done'/>
+<use f='codebrowser/code/opus-1.1.4/celt/entenc.c' l='286' u='r' c='ec_enc_done'/>
+<use f='codebrowser/code/opus-1.1.4/celt/entenc.c' l='290' u='r' c='ec_enc_done'/>

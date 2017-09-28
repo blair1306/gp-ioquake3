@@ -1,0 +1,6 @@
+<dec f='codebrowser/code/jpeg-8c/jpegint.h' l='200' type='jpeg_marker_parser_method'/>
+<offset>128</offset>
+<doc f='codebrowser/code/jpeg-8c/jpegint.h' l='199'>/* Read a restart marker --- exported for use by entropy decoder only */</doc>
+<use f='codebrowser/code/jpeg-8c/jdarith.c' l='197' u='r' c='process_restart'/>
+<use f='codebrowser/code/jpeg-8c/jdhuff.c' l='647' u='r' c='process_restart'/>
+<use f='codebrowser/code/jpeg-8c/jdmarker.c' l='1321' u='w' c='jinit_marker_reader'/>

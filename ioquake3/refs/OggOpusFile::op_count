@@ -1,0 +1,16 @@
+<dec f='codebrowser/code/opusfile-0.8/src/internal.h' l='208' type='int'/>
+<offset>102560</offset>
+<doc f='codebrowser/code/opusfile-0.8/src/internal.h' l='207'>/*The total number of packets available.*/</doc>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='806' u='w' c='op_collect_audio_packets'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='885' u='r' c='op_find_initial_pcm_offset'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='952' u='w' c='op_find_initial_pcm_offset'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='1430' u='r' c='op_open_seekable2'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='1449' u='w' c='op_open_seekable2'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='1465' u='w' c='op_decode_clear'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='1924' u='r' c='op_fetch_and_process_page'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='1953' u='r' c='op_fetch_and_process_page'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='1977' u='w' c='op_fetch_and_process_page'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='2079' u='w' c='op_fetch_and_process_page'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='2238' u='r' c='op_pcm_seek_page'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='2565' u='r' c='op_pcm_seek'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='2768' u='r' c='op_read_native'/>

@@ -1,0 +1,11 @@
+<dec f='codebrowser/code/server/server.h' l='378' type='void SV_FreeClient(client_t * client)'/>
+<def f='codebrowser/code/server/sv_client.c' l='610' ll='627' type='void SV_FreeClient(client_t * client)'/>
+<use f='codebrowser/code/server/sv_client.c' l='662' u='c' c='SV_DropClient'/>
+<doc f='codebrowser/code/server/sv_client.c' l='603'>/*
+=====================
+SV_FreeClient
+
+Destructor for data allocated in a client structure
+=====================
+*/</doc>
+<use f='codebrowser/code/server/sv_init.c' l='772' u='c' c='SV_Shutdown'/>

@@ -1,0 +1,19 @@
+<dec f='codebrowser/code/qcommon/q_shared.h' l='774' type='qboolean SkipBracedSection(char ** program, int depth)'/>
+<def f='codebrowser/code/qcommon/q_shared.c' l='575' ll='591' type='qboolean SkipBracedSection(char ** program, int depth)'/>
+<doc f='codebrowser/code/qcommon/q_shared.c' l='566'>/*
+=================
+SkipBracedSection
+
+The next token should be an open brace or set depth to 1 if already parsed it.
+Skips until a matching close brace is found.
+Internal brace depths are properly skipped.
+=================
+*/</doc>
+<use f='codebrowser/code/renderergl1/tr_shader.c' l='2437' u='c' c='FindShaderInShaderText'/>
+<use f='codebrowser/code/renderergl1/tr_shader.c' l='3014' u='c' c='ScanAndLoadShaderFiles'/>
+<use f='codebrowser/code/renderergl1/tr_shader.c' l='3065' u='c' c='ScanAndLoadShaderFiles'/>
+<use f='codebrowser/code/renderergl1/tr_shader.c' l='3091' u='c' c='ScanAndLoadShaderFiles'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='3158' u='c' c='FindShaderInShaderText'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='3727' u='c' c='ScanAndLoadShaderFiles'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='3778' u='c' c='ScanAndLoadShaderFiles'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='3804' u='c' c='ScanAndLoadShaderFiles'/>

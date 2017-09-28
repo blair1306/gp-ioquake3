@@ -1,0 +1,9 @@
+<dec f='include/SDL2/SDL_video.h' l='401' type='int SDL_GetWindowDisplayMode(SDL_Window * window, SDL_DisplayMode * mode)'/>
+<doc f='include/SDL2/SDL_video.h' l='394'>/**
+ *  \brief Fill in information about the display mode used when a fullscreen
+ *         window is visible.
+ *
+ *  \sa SDL_SetWindowDisplayMode()
+ *  \sa SDL_SetWindowFullscreen()
+ */</doc>
+<use f='codebrowser/code/sdl/sdl_glimp.c' l='146' u='c' c='GLimp_DetectAvailableModes'/>

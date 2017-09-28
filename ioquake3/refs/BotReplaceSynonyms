@@ -1,0 +1,12 @@
+<dec f='codebrowser/code/botlib/be_ai_chat.h' l='106' type='void BotReplaceSynonyms(char * string, unsigned long context)'/>
+<def f='codebrowser/code/botlib/be_ai_chat.c' l='777' ll='790' type='void BotReplaceSynonyms(char * string, unsigned long context)'/>
+<use f='codebrowser/code/botlib/be_ai_chat.c' l='2332' u='c' c='BotExpandChatMessage'/>
+<doc f='codebrowser/code/botlib/be_ai_chat.c' l='770'>//===========================================================================
+// replace all the synonyms in the string
+//
+// Parameter:				-
+// Returns:					-
+// Changes Globals:		-
+//===========================================================================</doc>
+<doc f='codebrowser/code/botlib/be_ai_chat.h' l='105'>//replace all the context related synonyms in the string</doc>
+<use f='codebrowser/code/botlib/be_interface.c' l='799' u='r' c='Init_AI_Export'/>

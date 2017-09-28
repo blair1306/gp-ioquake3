@@ -1,0 +1,13 @@
+<dec f='codebrowser/code/qcommon/qfiles.h' l='420' type='int'/>
+<offset>0</offset>
+<doc f='codebrowser/code/qcommon/qfiles.h' l='420'>// -1 = opaque cluster (do I still store these?)</doc>
+<dec f='codebrowser/code/qcommon/cm_local.h' l='38' type='int'/>
+<use f='codebrowser/code/qcommon/cm_load.c' l='290' u='w' c='CMod_LoadLeafs'/>
+<use f='codebrowser/code/qcommon/cm_load.c' l='290' u='r' c='CMod_LoadLeafs'/>
+<use f='codebrowser/code/qcommon/cm_load.c' l='297' u='r' c='CMod_LoadLeafs'/>
+<use f='codebrowser/code/qcommon/cm_load.c' l='298' u='r' c='CMod_LoadLeafs'/>
+<use f='codebrowser/code/qcommon/cm_load.c' l='726' u='r' c='CM_LeafCluster'/>
+<offset>0</offset>
+<use f='codebrowser/code/qcommon/cm_test.c' l='79' u='r' c='CM_StoreLeafs'/>
+<use f='codebrowser/code/renderergl1/tr_bsp.c' l='1419' u='r' c='R_LoadNodesAndLeafs'/>
+<use f='codebrowser/code/renderergl2/tr_bsp.c' l='1939' u='r' c='R_LoadNodesAndLeafs'/>

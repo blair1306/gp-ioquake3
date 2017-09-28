@@ -1,0 +1,11 @@
+<dec f='codebrowser/code/server/server.h' l='400' type='void SV_SendMessageToClient(msg_t * msg, client_t * client)'/>
+<use f='codebrowser/code/server/sv_client.c' l='775' u='c' c='SV_SendClientGameState'/>
+<def f='codebrowser/code/server/sv_snapshot.c' l='577' ll='586' type='void SV_SendMessageToClient(msg_t * msg, client_t * client)'/>
+<use f='codebrowser/code/server/sv_snapshot.c' l='634' u='c' c='SV_SendClientSnapshot'/>
+<doc f='codebrowser/code/server/sv_snapshot.c' l='570'>/*
+=======================
+SV_SendMessageToClient
+
+Called by SV_SendClientSnapshot and SV_SendClientGameState
+=======================
+*/</doc>

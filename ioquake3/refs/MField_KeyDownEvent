@@ -1,0 +1,14 @@
+<dec f='codebrowser/code/q3_ui/ui_local.h' l='307' type='void MField_KeyDownEvent(mfield_t * edit, int key)'/>
+<def f='codebrowser/code/q3_ui/ui_mfield.c' l='139' ll='200' type='void MField_KeyDownEvent(mfield_t * edit, int key)'/>
+<use f='codebrowser/code/q3_ui/ui_mfield.c' l='429' u='c' c='MenuField_Key'/>
+<doc f='codebrowser/code/q3_ui/ui_mfield.c' l='129'>/*
+=================
+MField_KeyDownEvent
+
+Performs the basic line editing functions for the console,
+in-game talk, and menu fields
+
+Key events are used for non-printable characters, others are gotten from char events.
+=================
+*/</doc>
+<dec f='codebrowser/code/ui/ui_local.h' l='344' type='void MField_KeyDownEvent(mfield_t * edit, int key)'/>

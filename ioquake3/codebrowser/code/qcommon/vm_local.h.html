@@ -1,0 +1,222 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>vm_local.h source code [codebrowser/code/qcommon/vm_local.h] - Woboq Code Browser</title>
+<meta name="woboq:interestingDefinitions" content="vmSymbol_s,vm_s "/>
+<link rel="stylesheet" href="../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'codebrowser/code/qcommon/vm_local.h'; var root_path = '../../..'; var data_path = '../../../../data';</script>
+<script src='../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../..'>codebrowser</a>/<a href='..'>code</a>/<a href='./'>qcommon</a>/<a href='vm_local.h.html'>vm_local.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/*</i></td></tr>
+<tr><th id="2">2</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="3">3</th><td><i>Copyright (C) 1999-2005 Id Software, Inc.</i></td></tr>
+<tr><th id="4">4</th><td><i></i></td></tr>
+<tr><th id="5">5</th><td><i>This file is part of Quake III Arena source code.</i></td></tr>
+<tr><th id="6">6</th><td><i></i></td></tr>
+<tr><th id="7">7</th><td><i>Quake III Arena source code is free software; you can redistribute it</i></td></tr>
+<tr><th id="8">8</th><td><i>and/or modify it under the terms of the GNU General Public License as</i></td></tr>
+<tr><th id="9">9</th><td><i>published by the Free Software Foundation; either version 2 of the License,</i></td></tr>
+<tr><th id="10">10</th><td><i>or (at your option) any later version.</i></td></tr>
+<tr><th id="11">11</th><td><i></i></td></tr>
+<tr><th id="12">12</th><td><i>Quake III Arena source code is distributed in the hope that it will be</i></td></tr>
+<tr><th id="13">13</th><td><i>useful, but WITHOUT ANY WARRANTY; without even the implied warranty of</i></td></tr>
+<tr><th id="14">14</th><td><i>MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</i></td></tr>
+<tr><th id="15">15</th><td><i>GNU General Public License for more details.</i></td></tr>
+<tr><th id="16">16</th><td><i></i></td></tr>
+<tr><th id="17">17</th><td><i>You should have received a copy of the GNU General Public License</i></td></tr>
+<tr><th id="18">18</th><td><i>along with Quake III Arena source code; if not, write to the Free Software</i></td></tr>
+<tr><th id="19">19</th><td><i>Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA</i></td></tr>
+<tr><th id="20">20</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="21">21</th><td><i>*/</i></td></tr>
+<tr><th id="22">22</th><td><u>#include <a href="q_shared.h.html">"q_shared.h"</a></u></td></tr>
+<tr><th id="23">23</th><td><u>#include <a href="qcommon.h.html">"qcommon.h"</a></u></td></tr>
+<tr><th id="24">24</th><td></td></tr>
+<tr><th id="25">25</th><td><i>// Max number of arguments to pass from engine to vm's vmMain function.</i></td></tr>
+<tr><th id="26">26</th><td><i>// command number + 12 arguments</i></td></tr>
+<tr><th id="27">27</th><td><u>#define <dfn class="macro" id="_M/MAX_VMMAIN_ARGS" data-ref="_M/MAX_VMMAIN_ARGS">MAX_VMMAIN_ARGS</dfn> 13</u></td></tr>
+<tr><th id="28">28</th><td></td></tr>
+<tr><th id="29">29</th><td><i>// Max number of arguments to pass from a vm to engine's syscall handler function for the vm.</i></td></tr>
+<tr><th id="30">30</th><td><i>// syscall number + 15 arguments</i></td></tr>
+<tr><th id="31">31</th><td><u>#define <dfn class="macro" id="_M/MAX_VMSYSCALL_ARGS" data-ref="_M/MAX_VMSYSCALL_ARGS">MAX_VMSYSCALL_ARGS</dfn> 16</u></td></tr>
+<tr><th id="32">32</th><td></td></tr>
+<tr><th id="33">33</th><td><i>// don't change, this is hardcoded into x86 VMs, opStack protection relies</i></td></tr>
+<tr><th id="34">34</th><td><i>// on this</i></td></tr>
+<tr><th id="35">35</th><td><u>#define	<dfn class="macro" id="_M/OPSTACK_SIZE" data-ref="_M/OPSTACK_SIZE">OPSTACK_SIZE</dfn>	1024</u></td></tr>
+<tr><th id="36">36</th><td><u>#define	<dfn class="macro" id="_M/OPSTACK_MASK" data-ref="_M/OPSTACK_MASK">OPSTACK_MASK</dfn>	(OPSTACK_SIZE-1)</u></td></tr>
+<tr><th id="37">37</th><td></td></tr>
+<tr><th id="38">38</th><td><i>// don't change</i></td></tr>
+<tr><th id="39">39</th><td><i>// Hardcoded in q3asm a reserved at end of bss</i></td></tr>
+<tr><th id="40">40</th><td><u>#define	<dfn class="macro" id="_M/PROGRAM_STACK_SIZE" data-ref="_M/PROGRAM_STACK_SIZE">PROGRAM_STACK_SIZE</dfn>	0x10000</u></td></tr>
+<tr><th id="41">41</th><td><u>#define	<dfn class="macro" id="_M/PROGRAM_STACK_MASK" data-ref="_M/PROGRAM_STACK_MASK">PROGRAM_STACK_MASK</dfn>	(PROGRAM_STACK_SIZE-1)</u></td></tr>
+<tr><th id="42">42</th><td></td></tr>
+<tr><th id="43">43</th><td><b>typedef</b> <b>enum</b> {</td></tr>
+<tr><th id="44">44</th><td>	<dfn class="enum" id="OP_UNDEF" title='OP_UNDEF' data-ref="OP_UNDEF">OP_UNDEF</dfn>, </td></tr>
+<tr><th id="45">45</th><td></td></tr>
+<tr><th id="46">46</th><td>	<dfn class="enum" id="OP_IGNORE" title='OP_IGNORE' data-ref="OP_IGNORE">OP_IGNORE</dfn>, </td></tr>
+<tr><th id="47">47</th><td></td></tr>
+<tr><th id="48">48</th><td>	<dfn class="enum" id="OP_BREAK" title='OP_BREAK' data-ref="OP_BREAK">OP_BREAK</dfn>,</td></tr>
+<tr><th id="49">49</th><td></td></tr>
+<tr><th id="50">50</th><td>	<dfn class="enum" id="OP_ENTER" title='OP_ENTER' data-ref="OP_ENTER">OP_ENTER</dfn>,</td></tr>
+<tr><th id="51">51</th><td>	<dfn class="enum" id="OP_LEAVE" title='OP_LEAVE' data-ref="OP_LEAVE">OP_LEAVE</dfn>,</td></tr>
+<tr><th id="52">52</th><td>	<dfn class="enum" id="OP_CALL" title='OP_CALL' data-ref="OP_CALL">OP_CALL</dfn>,</td></tr>
+<tr><th id="53">53</th><td>	<dfn class="enum" id="OP_PUSH" title='OP_PUSH' data-ref="OP_PUSH">OP_PUSH</dfn>,</td></tr>
+<tr><th id="54">54</th><td>	<dfn class="enum" id="OP_POP" title='OP_POP' data-ref="OP_POP">OP_POP</dfn>,</td></tr>
+<tr><th id="55">55</th><td></td></tr>
+<tr><th id="56">56</th><td>	<dfn class="enum" id="OP_CONST" title='OP_CONST' data-ref="OP_CONST">OP_CONST</dfn>,</td></tr>
+<tr><th id="57">57</th><td>	<dfn class="enum" id="OP_LOCAL" title='OP_LOCAL' data-ref="OP_LOCAL">OP_LOCAL</dfn>,</td></tr>
+<tr><th id="58">58</th><td></td></tr>
+<tr><th id="59">59</th><td>	<dfn class="enum" id="OP_JUMP" title='OP_JUMP' data-ref="OP_JUMP">OP_JUMP</dfn>,</td></tr>
+<tr><th id="60">60</th><td></td></tr>
+<tr><th id="61">61</th><td>	<i>//-------------------</i></td></tr>
+<tr><th id="62">62</th><td></td></tr>
+<tr><th id="63">63</th><td>	<dfn class="enum" id="OP_EQ" title='OP_EQ' data-ref="OP_EQ">OP_EQ</dfn>,</td></tr>
+<tr><th id="64">64</th><td>	<dfn class="enum" id="OP_NE" title='OP_NE' data-ref="OP_NE">OP_NE</dfn>,</td></tr>
+<tr><th id="65">65</th><td></td></tr>
+<tr><th id="66">66</th><td>	<dfn class="enum" id="OP_LTI" title='OP_LTI' data-ref="OP_LTI">OP_LTI</dfn>,</td></tr>
+<tr><th id="67">67</th><td>	<dfn class="enum" id="OP_LEI" title='OP_LEI' data-ref="OP_LEI">OP_LEI</dfn>,</td></tr>
+<tr><th id="68">68</th><td>	<dfn class="enum" id="OP_GTI" title='OP_GTI' data-ref="OP_GTI">OP_GTI</dfn>,</td></tr>
+<tr><th id="69">69</th><td>	<dfn class="enum" id="OP_GEI" title='OP_GEI' data-ref="OP_GEI">OP_GEI</dfn>,</td></tr>
+<tr><th id="70">70</th><td></td></tr>
+<tr><th id="71">71</th><td>	<dfn class="enum" id="OP_LTU" title='OP_LTU' data-ref="OP_LTU">OP_LTU</dfn>,</td></tr>
+<tr><th id="72">72</th><td>	<dfn class="enum" id="OP_LEU" title='OP_LEU' data-ref="OP_LEU">OP_LEU</dfn>,</td></tr>
+<tr><th id="73">73</th><td>	<dfn class="enum" id="OP_GTU" title='OP_GTU' data-ref="OP_GTU">OP_GTU</dfn>,</td></tr>
+<tr><th id="74">74</th><td>	<dfn class="enum" id="OP_GEU" title='OP_GEU' data-ref="OP_GEU">OP_GEU</dfn>,</td></tr>
+<tr><th id="75">75</th><td></td></tr>
+<tr><th id="76">76</th><td>	<dfn class="enum" id="OP_EQF" title='OP_EQF' data-ref="OP_EQF">OP_EQF</dfn>,</td></tr>
+<tr><th id="77">77</th><td>	<dfn class="enum" id="OP_NEF" title='OP_NEF' data-ref="OP_NEF">OP_NEF</dfn>,</td></tr>
+<tr><th id="78">78</th><td></td></tr>
+<tr><th id="79">79</th><td>	<dfn class="enum" id="OP_LTF" title='OP_LTF' data-ref="OP_LTF">OP_LTF</dfn>,</td></tr>
+<tr><th id="80">80</th><td>	<dfn class="enum" id="OP_LEF" title='OP_LEF' data-ref="OP_LEF">OP_LEF</dfn>,</td></tr>
+<tr><th id="81">81</th><td>	<dfn class="enum" id="OP_GTF" title='OP_GTF' data-ref="OP_GTF">OP_GTF</dfn>,</td></tr>
+<tr><th id="82">82</th><td>	<dfn class="enum" id="OP_GEF" title='OP_GEF' data-ref="OP_GEF">OP_GEF</dfn>,</td></tr>
+<tr><th id="83">83</th><td></td></tr>
+<tr><th id="84">84</th><td>	<i>//-------------------</i></td></tr>
+<tr><th id="85">85</th><td></td></tr>
+<tr><th id="86">86</th><td>	<dfn class="enum" id="OP_LOAD1" title='OP_LOAD1' data-ref="OP_LOAD1">OP_LOAD1</dfn>,</td></tr>
+<tr><th id="87">87</th><td>	<dfn class="enum" id="OP_LOAD2" title='OP_LOAD2' data-ref="OP_LOAD2">OP_LOAD2</dfn>,</td></tr>
+<tr><th id="88">88</th><td>	<dfn class="enum" id="OP_LOAD4" title='OP_LOAD4' data-ref="OP_LOAD4">OP_LOAD4</dfn>,</td></tr>
+<tr><th id="89">89</th><td>	<dfn class="enum" id="OP_STORE1" title='OP_STORE1' data-ref="OP_STORE1">OP_STORE1</dfn>,</td></tr>
+<tr><th id="90">90</th><td>	<dfn class="enum" id="OP_STORE2" title='OP_STORE2' data-ref="OP_STORE2">OP_STORE2</dfn>,</td></tr>
+<tr><th id="91">91</th><td>	<dfn class="enum" id="OP_STORE4" title='OP_STORE4' data-ref="OP_STORE4">OP_STORE4</dfn>,				<i>// *(stack[top-1]) = stack[top]</i></td></tr>
+<tr><th id="92">92</th><td>	<dfn class="enum" id="OP_ARG" title='OP_ARG' data-ref="OP_ARG">OP_ARG</dfn>,</td></tr>
+<tr><th id="93">93</th><td></td></tr>
+<tr><th id="94">94</th><td>	<dfn class="enum" id="OP_BLOCK_COPY" title='OP_BLOCK_COPY' data-ref="OP_BLOCK_COPY">OP_BLOCK_COPY</dfn>,</td></tr>
+<tr><th id="95">95</th><td></td></tr>
+<tr><th id="96">96</th><td>	<i>//-------------------</i></td></tr>
+<tr><th id="97">97</th><td></td></tr>
+<tr><th id="98">98</th><td>	<dfn class="enum" id="OP_SEX8" title='OP_SEX8' data-ref="OP_SEX8">OP_SEX8</dfn>,</td></tr>
+<tr><th id="99">99</th><td>	<dfn class="enum" id="OP_SEX16" title='OP_SEX16' data-ref="OP_SEX16">OP_SEX16</dfn>,</td></tr>
+<tr><th id="100">100</th><td></td></tr>
+<tr><th id="101">101</th><td>	<dfn class="enum" id="OP_NEGI" title='OP_NEGI' data-ref="OP_NEGI">OP_NEGI</dfn>,</td></tr>
+<tr><th id="102">102</th><td>	<dfn class="enum" id="OP_ADD" title='OP_ADD' data-ref="OP_ADD">OP_ADD</dfn>,</td></tr>
+<tr><th id="103">103</th><td>	<dfn class="enum" id="OP_SUB" title='OP_SUB' data-ref="OP_SUB">OP_SUB</dfn>,</td></tr>
+<tr><th id="104">104</th><td>	<dfn class="enum" id="OP_DIVI" title='OP_DIVI' data-ref="OP_DIVI">OP_DIVI</dfn>,</td></tr>
+<tr><th id="105">105</th><td>	<dfn class="enum" id="OP_DIVU" title='OP_DIVU' data-ref="OP_DIVU">OP_DIVU</dfn>,</td></tr>
+<tr><th id="106">106</th><td>	<dfn class="enum" id="OP_MODI" title='OP_MODI' data-ref="OP_MODI">OP_MODI</dfn>,</td></tr>
+<tr><th id="107">107</th><td>	<dfn class="enum" id="OP_MODU" title='OP_MODU' data-ref="OP_MODU">OP_MODU</dfn>,</td></tr>
+<tr><th id="108">108</th><td>	<dfn class="enum" id="OP_MULI" title='OP_MULI' data-ref="OP_MULI">OP_MULI</dfn>,</td></tr>
+<tr><th id="109">109</th><td>	<dfn class="enum" id="OP_MULU" title='OP_MULU' data-ref="OP_MULU">OP_MULU</dfn>,</td></tr>
+<tr><th id="110">110</th><td></td></tr>
+<tr><th id="111">111</th><td>	<dfn class="enum" id="OP_BAND" title='OP_BAND' data-ref="OP_BAND">OP_BAND</dfn>,</td></tr>
+<tr><th id="112">112</th><td>	<dfn class="enum" id="OP_BOR" title='OP_BOR' data-ref="OP_BOR">OP_BOR</dfn>,</td></tr>
+<tr><th id="113">113</th><td>	<dfn class="enum" id="OP_BXOR" title='OP_BXOR' data-ref="OP_BXOR">OP_BXOR</dfn>,</td></tr>
+<tr><th id="114">114</th><td>	<dfn class="enum" id="OP_BCOM" title='OP_BCOM' data-ref="OP_BCOM">OP_BCOM</dfn>,</td></tr>
+<tr><th id="115">115</th><td></td></tr>
+<tr><th id="116">116</th><td>	<dfn class="enum" id="OP_LSH" title='OP_LSH' data-ref="OP_LSH">OP_LSH</dfn>,</td></tr>
+<tr><th id="117">117</th><td>	<dfn class="enum" id="OP_RSHI" title='OP_RSHI' data-ref="OP_RSHI">OP_RSHI</dfn>,</td></tr>
+<tr><th id="118">118</th><td>	<dfn class="enum" id="OP_RSHU" title='OP_RSHU' data-ref="OP_RSHU">OP_RSHU</dfn>,</td></tr>
+<tr><th id="119">119</th><td></td></tr>
+<tr><th id="120">120</th><td>	<dfn class="enum" id="OP_NEGF" title='OP_NEGF' data-ref="OP_NEGF">OP_NEGF</dfn>,</td></tr>
+<tr><th id="121">121</th><td>	<dfn class="enum" id="OP_ADDF" title='OP_ADDF' data-ref="OP_ADDF">OP_ADDF</dfn>,</td></tr>
+<tr><th id="122">122</th><td>	<dfn class="enum" id="OP_SUBF" title='OP_SUBF' data-ref="OP_SUBF">OP_SUBF</dfn>,</td></tr>
+<tr><th id="123">123</th><td>	<dfn class="enum" id="OP_DIVF" title='OP_DIVF' data-ref="OP_DIVF">OP_DIVF</dfn>,</td></tr>
+<tr><th id="124">124</th><td>	<dfn class="enum" id="OP_MULF" title='OP_MULF' data-ref="OP_MULF">OP_MULF</dfn>,</td></tr>
+<tr><th id="125">125</th><td></td></tr>
+<tr><th id="126">126</th><td>	<dfn class="enum" id="OP_CVIF" title='OP_CVIF' data-ref="OP_CVIF">OP_CVIF</dfn>,</td></tr>
+<tr><th id="127">127</th><td>	<dfn class="enum" id="OP_CVFI" title='OP_CVFI' data-ref="OP_CVFI">OP_CVFI</dfn></td></tr>
+<tr><th id="128">128</th><td>} <dfn class="typedef" id="opcode_t" title='opcode_t' data-type='enum opcode_t' data-ref="opcode_t">opcode_t</dfn>;</td></tr>
+<tr><th id="129">129</th><td></td></tr>
+<tr><th id="130">130</th><td></td></tr>
+<tr><th id="131">131</th><td></td></tr>
+<tr><th id="132">132</th><td><b>typedef</b> <em>int</em>	<dfn class="typedef" id="vmptr_t" title='vmptr_t' data-type='int' data-ref="vmptr_t">vmptr_t</dfn>;</td></tr>
+<tr><th id="133">133</th><td></td></tr>
+<tr><th id="134">134</th><td><b>typedef</b> <b>struct</b> <dfn class="type def" id="vmSymbol_s" title='vmSymbol_s' data-ref="vmSymbol_s"><a class="type" href="#vmSymbol_s" title='vmSymbol_s' data-ref="vmSymbol_s">vmSymbol_s</a></dfn> {</td></tr>
+<tr><th id="135">135</th><td>	<b>struct</b> <a class="type" href="#vmSymbol_s" title='vmSymbol_s' data-ref="vmSymbol_s">vmSymbol_s</a>	*<dfn class="decl" id="vmSymbol_s::next" title='vmSymbol_s::next' data-ref="vmSymbol_s::next">next</dfn>;</td></tr>
+<tr><th id="136">136</th><td>	<em>int</em>		<dfn class="decl" id="vmSymbol_s::symValue" title='vmSymbol_s::symValue' data-ref="vmSymbol_s::symValue">symValue</dfn>;</td></tr>
+<tr><th id="137">137</th><td>	<em>int</em>		<dfn class="decl" id="vmSymbol_s::profileCount" title='vmSymbol_s::profileCount' data-ref="vmSymbol_s::profileCount">profileCount</dfn>;</td></tr>
+<tr><th id="138">138</th><td>	<em>char</em>	<dfn class="decl" id="vmSymbol_s::symName" title='vmSymbol_s::symName' data-ref="vmSymbol_s::symName">symName</dfn>[<var>1</var>];		<i>// variable sized</i></td></tr>
+<tr><th id="139">139</th><td>} <dfn class="typedef" id="vmSymbol_t" title='vmSymbol_t' data-type='struct vmSymbol_s' data-ref="vmSymbol_t">vmSymbol_t</dfn>;</td></tr>
+<tr><th id="140">140</th><td></td></tr>
+<tr><th id="141">141</th><td><u>#define	<dfn class="macro" id="_M/VM_OFFSET_PROGRAM_STACK" data-ref="_M/VM_OFFSET_PROGRAM_STACK">VM_OFFSET_PROGRAM_STACK</dfn>		0</u></td></tr>
+<tr><th id="142">142</th><td><u>#define	<dfn class="macro" id="_M/VM_OFFSET_SYSTEM_CALL" data-ref="_M/VM_OFFSET_SYSTEM_CALL">VM_OFFSET_SYSTEM_CALL</dfn>		4</u></td></tr>
+<tr><th id="143">143</th><td></td></tr>
+<tr><th id="144">144</th><td><b>struct</b> <dfn class="type def" id="vm_s" title='vm_s' data-ref="vm_s">vm_s</dfn> {</td></tr>
+<tr><th id="145">145</th><td>    <i>// DO NOT MOVE OR CHANGE THESE WITHOUT CHANGING THE VM_OFFSET_* DEFINES</i></td></tr>
+<tr><th id="146">146</th><td><i>    // USED BY THE ASM CODE</i></td></tr>
+<tr><th id="147">147</th><td>    <em>int</em>			<dfn class="decl" id="vm_s::programStack" title='vm_s::programStack' data-ref="vm_s::programStack">programStack</dfn>;		<i>// the vm may be recursively entered</i></td></tr>
+<tr><th id="148">148</th><td>    <a class="typedef" href="../../../include/stdint.h.html#intptr_t" title='intptr_t' data-type='long' data-ref="intptr_t">intptr_t</a>			(*<dfn class="decl" id="vm_s::systemCall" title='vm_s::systemCall' data-ref="vm_s::systemCall">systemCall</dfn>)( <a class="typedef" href="../../../include/stdint.h.html#intptr_t" title='intptr_t' data-type='long' data-ref="intptr_t">intptr_t</a> *<dfn class="local col1 decl" id="1parms" title='parms' data-type='intptr_t *' data-ref="1parms">parms</dfn> );</td></tr>
+<tr><th id="149">149</th><td></td></tr>
+<tr><th id="150">150</th><td>	<i>//------------------------------------</i></td></tr>
+<tr><th id="151">151</th><td>   </td></tr>
+<tr><th id="152">152</th><td>	<em>char</em>		<dfn class="decl" id="vm_s::name" title='vm_s::name' data-ref="vm_s::name">name</dfn>[<a class="macro" href="qfiles.h.html#43" title="64" data-ref="_M/MAX_QPATH">MAX_QPATH</a>];</td></tr>
+<tr><th id="153">153</th><td>	<em>void</em>	*<dfn class="decl" id="vm_s::searchPath" title='vm_s::searchPath' data-ref="vm_s::searchPath">searchPath</dfn>;				<i>// hint for FS_ReadFileDir()</i></td></tr>
+<tr><th id="154">154</th><td></td></tr>
+<tr><th id="155">155</th><td>	<i>// for dynamic linked modules</i></td></tr>
+<tr><th id="156">156</th><td>	<em>void</em>		*<dfn class="decl" id="vm_s::dllHandle" title='vm_s::dllHandle' data-ref="vm_s::dllHandle">dllHandle</dfn>;</td></tr>
+<tr><th id="157">157</th><td>	<a class="typedef" href="../../../include/stdint.h.html#intptr_t" title='intptr_t' data-type='long' data-ref="intptr_t">intptr_t</a>			(<a class="macro" href="q_platform.h.html#75" title="" data-ref="_M/QDECL">QDECL</a> *<dfn class="decl" id="vm_s::entryPoint" title='vm_s::entryPoint' data-ref="vm_s::entryPoint">entryPoint</dfn>)( <em>int</em> <dfn class="local col2 decl" id="2callNum" title='callNum' data-type='int' data-ref="2callNum">callNum</dfn>, ... );</td></tr>
+<tr><th id="158">158</th><td>	<em>void</em> (*<dfn class="decl" id="vm_s::destroy" title='vm_s::destroy' data-ref="vm_s::destroy">destroy</dfn>)(<a class="typedef" href="qcommon.h.html#vm_t" title='vm_t' data-type='struct vm_s' data-ref="vm_t">vm_t</a>* <dfn class="local col3 decl" id="3self" title='self' data-type='vm_t *' data-ref="3self">self</dfn>);</td></tr>
+<tr><th id="159">159</th><td></td></tr>
+<tr><th id="160">160</th><td>	<i>// for interpreted modules</i></td></tr>
+<tr><th id="161">161</th><td>	<a class="typedef" href="q_shared.h.html#qboolean" title='qboolean' data-type='enum qboolean' data-ref="qboolean">qboolean</a>	<dfn class="decl" id="vm_s::currentlyInterpreting" title='vm_s::currentlyInterpreting' data-ref="vm_s::currentlyInterpreting">currentlyInterpreting</dfn>;</td></tr>
+<tr><th id="162">162</th><td></td></tr>
+<tr><th id="163">163</th><td>	<a class="typedef" href="q_shared.h.html#qboolean" title='qboolean' data-type='enum qboolean' data-ref="qboolean">qboolean</a>	<dfn class="decl" id="vm_s::compiled" title='vm_s::compiled' data-ref="vm_s::compiled">compiled</dfn>;</td></tr>
+<tr><th id="164">164</th><td>	<a class="typedef" href="q_shared.h.html#byte" title='byte' data-type='unsigned char' data-ref="byte">byte</a>		*<dfn class="decl" id="vm_s::codeBase" title='vm_s::codeBase' data-ref="vm_s::codeBase">codeBase</dfn>;</td></tr>
+<tr><th id="165">165</th><td>	<em>int</em>			<dfn class="decl" id="vm_s::entryOfs" title='vm_s::entryOfs' data-ref="vm_s::entryOfs">entryOfs</dfn>;</td></tr>
+<tr><th id="166">166</th><td>	<em>int</em>			<dfn class="decl" id="vm_s::codeLength" title='vm_s::codeLength' data-ref="vm_s::codeLength">codeLength</dfn>;</td></tr>
+<tr><th id="167">167</th><td></td></tr>
+<tr><th id="168">168</th><td>	<a class="typedef" href="../../../include/stdint.h.html#intptr_t" title='intptr_t' data-type='long' data-ref="intptr_t">intptr_t</a>	*<dfn class="decl" id="vm_s::instructionPointers" title='vm_s::instructionPointers' data-ref="vm_s::instructionPointers">instructionPointers</dfn>;</td></tr>
+<tr><th id="169">169</th><td>	<em>int</em>			<dfn class="decl" id="vm_s::instructionCount" title='vm_s::instructionCount' data-ref="vm_s::instructionCount">instructionCount</dfn>;</td></tr>
+<tr><th id="170">170</th><td></td></tr>
+<tr><th id="171">171</th><td>	<a class="typedef" href="q_shared.h.html#byte" title='byte' data-type='unsigned char' data-ref="byte">byte</a>		*<dfn class="decl" id="vm_s::dataBase" title='vm_s::dataBase' data-ref="vm_s::dataBase">dataBase</dfn>;</td></tr>
+<tr><th id="172">172</th><td>	<em>int</em>			<dfn class="decl" id="vm_s::dataMask" title='vm_s::dataMask' data-ref="vm_s::dataMask">dataMask</dfn>;</td></tr>
+<tr><th id="173">173</th><td>	<em>int</em>			<dfn class="decl" id="vm_s::dataAlloc" title='vm_s::dataAlloc' data-ref="vm_s::dataAlloc">dataAlloc</dfn>;			<i>// actually allocated</i></td></tr>
+<tr><th id="174">174</th><td></td></tr>
+<tr><th id="175">175</th><td>	<em>int</em>			<dfn class="decl" id="vm_s::stackBottom" title='vm_s::stackBottom' data-ref="vm_s::stackBottom">stackBottom</dfn>;		<i>// if programStack &lt; stackBottom, error</i></td></tr>
+<tr><th id="176">176</th><td></td></tr>
+<tr><th id="177">177</th><td>	<em>int</em>			<dfn class="decl" id="vm_s::numSymbols" title='vm_s::numSymbols' data-ref="vm_s::numSymbols">numSymbols</dfn>;</td></tr>
+<tr><th id="178">178</th><td>	<b>struct</b> <a class="type" href="#vmSymbol_s" title='vmSymbol_s' data-ref="vmSymbol_s">vmSymbol_s</a>	*<dfn class="decl" id="vm_s::symbols" title='vm_s::symbols' data-ref="vm_s::symbols">symbols</dfn>;</td></tr>
+<tr><th id="179">179</th><td></td></tr>
+<tr><th id="180">180</th><td>	<em>int</em>			<dfn class="decl" id="vm_s::callLevel" title='vm_s::callLevel' data-ref="vm_s::callLevel">callLevel</dfn>;		<i>// counts recursive VM_Call</i></td></tr>
+<tr><th id="181">181</th><td>	<em>int</em>			<dfn class="decl" id="vm_s::breakFunction" title='vm_s::breakFunction' data-ref="vm_s::breakFunction">breakFunction</dfn>;		<i>// increment breakCount on function entry to this</i></td></tr>
+<tr><th id="182">182</th><td>	<em>int</em>			<dfn class="decl" id="vm_s::breakCount" title='vm_s::breakCount' data-ref="vm_s::breakCount">breakCount</dfn>;</td></tr>
+<tr><th id="183">183</th><td></td></tr>
+<tr><th id="184">184</th><td>	<a class="typedef" href="q_shared.h.html#byte" title='byte' data-type='unsigned char' data-ref="byte">byte</a>		*<dfn class="decl" id="vm_s::jumpTableTargets" title='vm_s::jumpTableTargets' data-ref="vm_s::jumpTableTargets">jumpTableTargets</dfn>;</td></tr>
+<tr><th id="185">185</th><td>	<em>int</em>			<dfn class="decl" id="vm_s::numJumpTableTargets" title='vm_s::numJumpTableTargets' data-ref="vm_s::numJumpTableTargets">numJumpTableTargets</dfn>;</td></tr>
+<tr><th id="186">186</th><td>};</td></tr>
+<tr><th id="187">187</th><td></td></tr>
+<tr><th id="188">188</th><td></td></tr>
+<tr><th id="189">189</th><td><b>extern</b>	<a class="typedef" href="qcommon.h.html#vm_t" title='vm_t' data-type='struct vm_s' data-ref="vm_t">vm_t</a>	*<dfn class="decl" id="currentVM" title='currentVM' data-ref="currentVM">currentVM</dfn>;</td></tr>
+<tr><th id="190">190</th><td><b>extern</b>	<em>int</em>		<dfn class="decl" id="vm_debugLevel" title='vm_debugLevel' data-ref="vm_debugLevel">vm_debugLevel</dfn>;</td></tr>
+<tr><th id="191">191</th><td></td></tr>
+<tr><th id="192">192</th><td><em>void</em> <dfn class="decl" id="VM_Compile" title='VM_Compile' data-ref="VM_Compile">VM_Compile</dfn>( <a class="typedef" href="qcommon.h.html#vm_t" title='vm_t' data-type='struct vm_s' data-ref="vm_t">vm_t</a> *<dfn class="local col4 decl" id="4vm" title='vm' data-type='vm_t *' data-ref="4vm">vm</dfn>, <a class="typedef" href="qfiles.h.html#vmHeader_t" title='vmHeader_t' data-type='struct vmHeader_t' data-ref="vmHeader_t">vmHeader_t</a> *<dfn class="local col5 decl" id="5header" title='header' data-type='vmHeader_t *' data-ref="5header">header</dfn> );</td></tr>
+<tr><th id="193">193</th><td><em>int</em>	<dfn class="decl" id="VM_CallCompiled" title='VM_CallCompiled' data-ref="VM_CallCompiled">VM_CallCompiled</dfn>( <a class="typedef" href="qcommon.h.html#vm_t" title='vm_t' data-type='struct vm_s' data-ref="vm_t">vm_t</a> *<dfn class="local col6 decl" id="6vm" title='vm' data-type='vm_t *' data-ref="6vm">vm</dfn>, <em>int</em> *<dfn class="local col7 decl" id="7args" title='args' data-type='int *' data-ref="7args">args</dfn> );</td></tr>
+<tr><th id="194">194</th><td></td></tr>
+<tr><th id="195">195</th><td><em>void</em> <dfn class="decl" id="VM_PrepareInterpreter" title='VM_PrepareInterpreter' data-ref="VM_PrepareInterpreter">VM_PrepareInterpreter</dfn>( <a class="typedef" href="qcommon.h.html#vm_t" title='vm_t' data-type='struct vm_s' data-ref="vm_t">vm_t</a> *<dfn class="local col8 decl" id="8vm" title='vm' data-type='vm_t *' data-ref="8vm">vm</dfn>, <a class="typedef" href="qfiles.h.html#vmHeader_t" title='vmHeader_t' data-type='struct vmHeader_t' data-ref="vmHeader_t">vmHeader_t</a> *<dfn class="local col9 decl" id="9header" title='header' data-type='vmHeader_t *' data-ref="9header">header</dfn> );</td></tr>
+<tr><th id="196">196</th><td><em>int</em>	<dfn class="decl" id="VM_CallInterpreted" title='VM_CallInterpreted' data-ref="VM_CallInterpreted">VM_CallInterpreted</dfn>( <a class="typedef" href="qcommon.h.html#vm_t" title='vm_t' data-type='struct vm_s' data-ref="vm_t">vm_t</a> *<dfn class="local col0 decl" id="10vm" title='vm' data-type='vm_t *' data-ref="10vm">vm</dfn>, <em>int</em> *<dfn class="local col1 decl" id="11args" title='args' data-type='int *' data-ref="11args">args</dfn> );</td></tr>
+<tr><th id="197">197</th><td></td></tr>
+<tr><th id="198">198</th><td><a class="typedef" href="#vmSymbol_t" title='vmSymbol_t' data-type='struct vmSymbol_s' data-ref="vmSymbol_t">vmSymbol_t</a> *<a class="decl" href="vm.c.html#VM_ValueToFunctionSymbol" title='VM_ValueToFunctionSymbol' data-ref="VM_ValueToFunctionSymbol" id="VM_ValueToFunctionSymbol">VM_ValueToFunctionSymbol</a>( <a class="typedef" href="qcommon.h.html#vm_t" title='vm_t' data-type='struct vm_s' data-ref="vm_t">vm_t</a> *<dfn class="local col2 decl" id="12vm" title='vm' data-type='vm_t *' data-ref="12vm">vm</dfn>, <em>int</em> <dfn class="local col3 decl" id="13value" title='value' data-type='int' data-ref="13value">value</dfn> );</td></tr>
+<tr><th id="199">199</th><td><em>int</em> <a class="decl" href="vm.c.html#VM_SymbolToValue" title='VM_SymbolToValue' data-ref="VM_SymbolToValue" id="VM_SymbolToValue">VM_SymbolToValue</a>( <a class="typedef" href="qcommon.h.html#vm_t" title='vm_t' data-type='struct vm_s' data-ref="vm_t">vm_t</a> *<dfn class="local col4 decl" id="14vm" title='vm' data-type='vm_t *' data-ref="14vm">vm</dfn>, <em>const</em> <em>char</em> *<dfn class="local col5 decl" id="15symbol" title='symbol' data-type='const char *' data-ref="15symbol">symbol</dfn> );</td></tr>
+<tr><th id="200">200</th><td><em>const</em> <em>char</em> *<a class="decl" href="vm.c.html#VM_ValueToSymbol" title='VM_ValueToSymbol' data-ref="VM_ValueToSymbol" id="VM_ValueToSymbol">VM_ValueToSymbol</a>( <a class="typedef" href="qcommon.h.html#vm_t" title='vm_t' data-type='struct vm_s' data-ref="vm_t">vm_t</a> *<dfn class="local col6 decl" id="16vm" title='vm' data-type='vm_t *' data-ref="16vm">vm</dfn>, <em>int</em> <dfn class="local col7 decl" id="17value" title='value' data-type='int' data-ref="17value">value</dfn> );</td></tr>
+<tr><th id="201">201</th><td><em>void</em> <a class="decl" href="vm.c.html#VM_LogSyscalls" title='VM_LogSyscalls' data-ref="VM_LogSyscalls" id="VM_LogSyscalls">VM_LogSyscalls</a>( <em>int</em> *<dfn class="local col8 decl" id="18args" title='args' data-type='int *' data-ref="18args">args</dfn> );</td></tr>
+<tr><th id="202">202</th><td></td></tr>
+<tr><th id="203">203</th><td><em>void</em> <a class="decl" href="vm.c.html#VM_BlockCopy" title='VM_BlockCopy' data-ref="VM_BlockCopy" id="VM_BlockCopy">VM_BlockCopy</a>(<em>unsigned</em> <em>int</em> <dfn class="local col9 decl" id="19dest" title='dest' data-type='unsigned int' data-ref="19dest">dest</dfn>, <em>unsigned</em> <em>int</em> <dfn class="local col0 decl" id="20src" title='src' data-type='unsigned int' data-ref="20src">src</dfn>, <span class='typedef' title='size_t' data-type='unsigned long' data-ref="size_t">size_t</span> <dfn class="local col1 decl" id="21n" title='n' data-type='size_t' data-ref="21n">n</dfn>);</td></tr>
+<tr><th id="204">204</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='vm.c.html'>codebrowser/code/qcommon/vm.c</a><br/>Generated on <em>2017-Aug-29</em> from project codebrowser revision <em>63e07af</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

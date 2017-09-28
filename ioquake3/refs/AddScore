@@ -1,0 +1,22 @@
+<dec f='codebrowser/code/game/g_local.h' l='574' type='void AddScore(gentity_t * ent, vec_t * origin, int score)'/>
+<def f='codebrowser/code/game/g_combat.c' l='52' ll='67' type='void AddScore(gentity_t * ent, vec_t * origin, int score)'/>
+<use f='codebrowser/code/game/g_combat.c' l='509' u='c' c='player_die'/>
+<use f='codebrowser/code/game/g_combat.c' l='511' u='c' c='player_die'/>
+<use f='codebrowser/code/game/g_combat.c' l='542' u='c' c='player_die'/>
+<doc f='codebrowser/code/game/g_combat.c' l='45'>/*
+============
+AddScore
+
+Adds score to both the client and his team
+============
+*/</doc>
+<use f='codebrowser/code/game/g_target.c' l='125' u='c' c='Use_Target_Score'/>
+<use f='codebrowser/code/game/g_team.c' l='317' u='c' c='Team_FragBonuses'/>
+<use f='codebrowser/code/game/g_team.c' l='335' u='c' c='Team_FragBonuses'/>
+<use f='codebrowser/code/game/g_team.c' l='355' u='c' c='Team_FragBonuses'/>
+<use f='codebrowser/code/game/g_team.c' l='435' u='c' c='Team_FragBonuses'/>
+<use f='codebrowser/code/game/g_team.c' l='456' u='c' c='Team_FragBonuses'/>
+<use f='codebrowser/code/game/g_team.c' l='703' u='c' c='Team_TouchOurFlag'/>
+<use f='codebrowser/code/game/g_team.c' l='746' u='c' c='Team_TouchOurFlag'/>
+<use f='codebrowser/code/game/g_team.c' l='769' u='c' c='Team_TouchOurFlag'/>
+<use f='codebrowser/code/game/g_team.c' l='781' u='c' c='Team_TouchOurFlag'/>

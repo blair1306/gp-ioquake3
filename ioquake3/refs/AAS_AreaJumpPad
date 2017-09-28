@@ -1,0 +1,23 @@
+<dec f='codebrowser/code/botlib/be_aas_reach.h' l='66' type='int AAS_AreaJumpPad(int areanum)'/>
+<dec f='codebrowser/code/botlib/be_aas_reach.h' l='66' type='int AAS_AreaJumpPad(int areanum)'/>
+<doc f='codebrowser/code/botlib/be_aas_reach.h' l='65'>//returns true if the area is a jump pad</doc>
+<use f='codebrowser/code/botlib/be_aas_reach.c' l='317' u='c' c='AAS_BestReachableFromJumpPadArea'/>
+<use f='codebrowser/code/botlib/be_aas_reach.c' l='338' u='c' c='AAS_BestReachableFromJumpPadArea'/>
+<def f='codebrowser/code/botlib/be_aas_reach.c' l='733' ll='736' type='int AAS_AreaJumpPad(int areanum)'/>
+<use f='codebrowser/code/botlib/be_aas_reach.c' l='1572' u='c' c='AAS_Reachability_Step_Barrier_WaterJump_WalkOffLedge'/>
+<use f='codebrowser/code/botlib/be_aas_reach.c' l='2348' u='c' c='AAS_Reachability_Jump'/>
+<use f='codebrowser/code/botlib/be_aas_reach.c' l='2841' u='c' c='AAS_Reachability_Teleport'/>
+<use f='codebrowser/code/botlib/be_aas_reach.c' l='3600' u='c' c='AAS_Reachability_JumpPad'/>
+<use f='codebrowser/code/botlib/be_aas_reach.c' l='3627' u='c' c='AAS_Reachability_JumpPad'/>
+<use f='codebrowser/code/botlib/be_aas_reach.c' l='3638' u='c' c='AAS_Reachability_JumpPad'/>
+<use f='codebrowser/code/botlib/be_aas_reach.c' l='3687' u='c' c='AAS_Reachability_JumpPad'/>
+<use f='codebrowser/code/botlib/be_aas_reach.c' l='3741' u='c' c='AAS_Reachability_JumpPad'/>
+<use f='codebrowser/code/botlib/be_aas_reach.c' l='4275' u='c' c='AAS_Reachability_WalkOffLedge'/>
+<doc f='codebrowser/code/botlib/be_aas_reach.c' l='727'>//===========================================================================
+//
+// Parameter:				-
+// Returns:					-
+// Changes Globals:		-
+//===========================================================================</doc>
+<use f='codebrowser/code/botlib/be_ai_goal.c' l='1152' u='c' c='BotUpdateEntityItems'/>
+<use f='codebrowser/code/botlib/be_ai_move.c' l='3364' u='c' c='BotMoveToGoal'/>

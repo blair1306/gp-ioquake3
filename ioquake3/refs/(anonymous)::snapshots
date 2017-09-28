@@ -1,0 +1,8 @@
+<dec f='codebrowser/code/client/client.h' l='139' type='clSnapshot_t [32]'/>
+<offset>182144</offset>
+<doc f='codebrowser/code/client/client.h' l='137'>// can tell if it is for a prior map_restart
+	// big stuff at end of structure so most offsets are 15 bits or less</doc>
+<use f='codebrowser/code/client/cl_cgame.c' l='136' u='a' c='CL_GetSnapshot'/>
+<use f='codebrowser/code/client/cl_parse.c' l='248' u='a' c='CL_ParseSnapshot'/>
+<use f='codebrowser/code/client/cl_parse.c' l='302' u='m' c='CL_ParseSnapshot'/>
+<use f='codebrowser/code/client/cl_parse.c' l='317' u='w' c='CL_ParseSnapshot'/>

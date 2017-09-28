@@ -1,0 +1,10 @@
+<dec f='codebrowser/code/server/server.h' l='148' type='int'/>
+<offset>532928</offset>
+<doc f='codebrowser/code/server/server.h' l='148'>// reliable client message sequence</doc>
+<use f='codebrowser/code/server/sv_client.c' l='735' u='r' c='SV_SendClientGameState'/>
+<use f='codebrowser/code/server/sv_client.c' l='1187' u='r' c='SV_SendDownloadMessages'/>
+<use f='codebrowser/code/server/sv_client.c' l='1604' u='r' c='SV_ClientCommand'/>
+<use f='codebrowser/code/server/sv_client.c' l='1611' u='r' c='SV_ClientCommand'/>
+<use f='codebrowser/code/server/sv_client.c' l='1613' u='r' c='SV_ClientCommand'/>
+<use f='codebrowser/code/server/sv_client.c' l='1639' u='w' c='SV_ClientCommand'/>
+<use f='codebrowser/code/server/sv_snapshot.c' l='615' u='r' c='SV_SendClientSnapshot'/>

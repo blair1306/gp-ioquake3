@@ -1,0 +1,4 @@
+<dec f='include/x86_64-linux-gnu/sys/stat.h' l='320' type='int mkdir(const char * __path, __mode_t __mode)'/>
+<doc f='include/x86_64-linux-gnu/sys/stat.h' l='319'>/* Create a new directory named PATH, with permission bits MODE.  */</doc>
+<use f='codebrowser/code/sys/sys_unix.c' l='251' u='c' c='Sys_Mkdir'/>
+<use f='codebrowser/code/tools/asm/cmdlib.c' l='423' u='c' c='Q_mkdir'/>

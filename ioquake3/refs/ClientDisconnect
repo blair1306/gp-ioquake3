@@ -1,0 +1,16 @@
+<dec f='codebrowser/code/game/g_local.h' l='617' type='void ClientDisconnect(int clientNum)'/>
+<use f='codebrowser/code/game/g_client.c' l='925' u='c' c='ClientConnect'/>
+<def f='codebrowser/code/game/g_client.c' l='1258' ll='1334' type='void ClientDisconnect(int clientNum)'/>
+<doc f='codebrowser/code/game/g_client.c' l='1246'>/*
+===========
+ClientDisconnect
+
+Called when a player drops from the server.
+Will not be called between levels.
+
+This should NOT be called directly by any game logic,
+call trap_DropClient(), which will call this and do
+server system housekeeping.
+============
+*/</doc>
+<use f='codebrowser/code/game/g_main.c' l='219' u='c' c='vmMain'/>

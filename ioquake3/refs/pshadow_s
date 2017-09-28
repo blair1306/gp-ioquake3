@@ -1,0 +1,20 @@
+<def f='codebrowser/code/renderergl2/tr_local.h' l='998' ll='1014'/>
+<size>256</size>
+<doc f='codebrowser/code/renderergl2/tr_local.h' l='990'>/*
+==============================================================================
+
+SHADOWS
+
+==============================================================================
+*/</doc>
+<mbr r='pshadow_s::sort' o='0' t='float'/>
+<mbr r='pshadow_s::numEntities' o='32' t='int'/>
+<mbr r='pshadow_s::entityNums' o='64' t='int [8]'/>
+<mbr r='pshadow_s::entityOrigins' o='320' t='vec3_t [8]'/>
+<mbr r='pshadow_s::entityRadiuses' o='1088' t='float [8]'/>
+<mbr r='pshadow_s::viewRadius' o='1344' t='float'/>
+<mbr r='pshadow_s::viewOrigin' o='1376' t='vec3_t'/>
+<mbr r='pshadow_s::lightViewAxis' o='1472' t='vec3_t [3]'/>
+<mbr r='pshadow_s::lightOrigin' o='1760' t='vec3_t'/>
+<mbr r='pshadow_s::lightRadius' o='1856' t='float'/>
+<mbr r='pshadow_s::cullPlane' o='1888' t='cplane_t'/>

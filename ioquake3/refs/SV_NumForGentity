@@ -1,0 +1,7 @@
+<dec f='codebrowser/code/server/server.h' l='407' type='int SV_NumForGentity(sharedEntity_t * ent)'/>
+<doc f='codebrowser/code/server/server.h' l='404'>//
+// sv_game.c
+//</doc>
+<def f='codebrowser/code/server/sv_game.c' l='32' ll='38' type='int SV_NumForGentity(sharedEntity_t * ent)'/>
+<doc f='codebrowser/code/server/sv_game.c' l='30'>// these functions must be used instead of pointer arithmetic, because
+// the game allocates gentities with private information after the server shared part</doc>

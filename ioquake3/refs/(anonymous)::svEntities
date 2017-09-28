@@ -1,0 +1,9 @@
+<dec f='codebrowser/code/server/server.h' l='82' type='svEntity_t [1024]'/>
+<offset>65856</offset>
+<use f='codebrowser/code/server/sv_client.c' l='759' u='m' c='SV_SendClientGameState'/>
+<use f='codebrowser/code/server/sv_game.c' l='60' u='a' c='SV_SvEntityForGentity'/>
+<use f='codebrowser/code/server/sv_game.c' l='66' u='r' c='SV_GEntityForSvEntity'/>
+<use f='codebrowser/code/server/sv_init.c' l='231' u='m' c='SV_CreateBaseline'/>
+<use f='codebrowser/code/server/sv_snapshot.c' l='99' u='m' c='SV_EmitPacketEntities'/>
+<use f='codebrowser/code/server/sv_snapshot.c' l='482' u='a' c='SV_BuildClientSnapshot'/>
+<use f='codebrowser/code/server/sv_world.c' l='404' u='r' c='SV_AreaEntities_r'/>

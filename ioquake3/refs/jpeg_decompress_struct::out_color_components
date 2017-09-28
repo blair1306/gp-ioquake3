@@ -1,0 +1,35 @@
+<dec f='codebrowser/code/jpeg-8c/jpeglib.h' l='492' type='int'/>
+<offset>1152</offset>
+<doc f='codebrowser/code/jpeg-8c/jpeglib.h' l='492'>/* # of color components in out_color_space */</doc>
+<use f='codebrowser/code/jpeg-8c/jdcolor.c' l='347' u='w' c='jinit_color_deconverter'/>
+<use f='codebrowser/code/jpeg-8c/jdcolor.c' l='359' u='w' c='jinit_color_deconverter'/>
+<use f='codebrowser/code/jpeg-8c/jdcolor.c' l='372' u='w' c='jinit_color_deconverter'/>
+<use f='codebrowser/code/jpeg-8c/jdcolor.c' l='385' u='w' c='jinit_color_deconverter'/>
+<use f='codebrowser/code/jpeg-8c/jdcolor.c' l='395' u='r' c='jinit_color_deconverter'/>
+<use f='codebrowser/code/jpeg-8c/jdmaster.c' l='54' u='r' c='use_merged_upsample'/>
+<use f='codebrowser/code/jpeg-8c/jdmaster.c' l='158' u='w' c='jpeg_calc_output_dimensions'/>
+<use f='codebrowser/code/jpeg-8c/jdmaster.c' l='166' u='w' c='jpeg_calc_output_dimensions'/>
+<use f='codebrowser/code/jpeg-8c/jdmaster.c' l='170' u='w' c='jpeg_calc_output_dimensions'/>
+<use f='codebrowser/code/jpeg-8c/jdmaster.c' l='173' u='w' c='jpeg_calc_output_dimensions'/>
+<use f='codebrowser/code/jpeg-8c/jdmaster.c' l='177' u='r' c='jpeg_calc_output_dimensions'/>
+<use f='codebrowser/code/jpeg-8c/jdmaster.c' l='283' u='r' c='master_selection'/>
+<use f='codebrowser/code/jpeg-8c/jdmaster.c' l='305' u='r' c='master_selection'/>
+<use f='codebrowser/code/jpeg-8c/jdmerge.c' l='381' u='r' c='jinit_merged_upsampler'/>
+<use f='codebrowser/code/jpeg-8c/jdpostct.c' l='275' u='r' c='jinit_d_post_controller'/>
+<use f='codebrowser/code/jpeg-8c/jdpostct.c' l='286' u='r' c='jinit_d_post_controller'/>
+<use f='codebrowser/code/jpeg-8c/jquant1.c' l='191' u='r' c='select_ncolors'/>
+<use f='codebrowser/code/jpeg-8c/jquant1.c' l='284' u='r' c='create_colormap'/>
+<use f='codebrowser/code/jpeg-8c/jquant1.c' l='297' u='r' c='create_colormap'/>
+<use f='codebrowser/code/jpeg-8c/jquant1.c' l='303' u='r' c='create_colormap'/>
+<use f='codebrowser/code/jpeg-8c/jquant1.c' l='355' u='r' c='create_colorindex'/>
+<use f='codebrowser/code/jpeg-8c/jquant1.c' l='360' u='r' c='create_colorindex'/>
+<use f='codebrowser/code/jpeg-8c/jquant1.c' l='438' u='r' c='create_odither_tables'/>
+<use f='codebrowser/code/jpeg-8c/jquant1.c' l='470' u='r' c='color_quantize'/>
+<use f='codebrowser/code/jpeg-8c/jquant1.c' l='525' u='r' c='quantize_ord_dither'/>
+<use f='codebrowser/code/jpeg-8c/jquant1.c' l='626' u='r' c='quantize_fs_dither'/>
+<use f='codebrowser/code/jpeg-8c/jquant1.c' l='729' u='r' c='alloc_fs_workspace'/>
+<use f='codebrowser/code/jpeg-8c/jquant1.c' l='754' u='r' c='start_pass_1_quant'/>
+<use f='codebrowser/code/jpeg-8c/jquant1.c' l='760' u='r' c='start_pass_1_quant'/>
+<use f='codebrowser/code/jpeg-8c/jquant1.c' l='783' u='r' c='start_pass_1_quant'/>
+<use f='codebrowser/code/jpeg-8c/jquant1.c' l='836' u='r' c='jinit_1pass_quantizer'/>
+<use f='codebrowser/code/jpeg-8c/jquant2.c' l='1259' u='r' c='jinit_2pass_quantizer'/>

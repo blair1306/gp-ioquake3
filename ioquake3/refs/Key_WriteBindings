@@ -1,0 +1,13 @@
+<dec f='codebrowser/code/qcommon/qcommon.h' l='1033' type='void Key_WriteBindings(fileHandle_t f)'/>
+<dec f='codebrowser/code/client/keys.h' l='48' type='void Key_WriteBindings(fileHandle_t f)'/>
+<doc f='codebrowser/code/qcommon/qcommon.h' l='1031'>// for keyname autocompletion</doc>
+<def f='codebrowser/code/client/cl_keys.c' l='1051' ll='1063' type='void Key_WriteBindings(fileHandle_t f)'/>
+<doc f='codebrowser/code/client/cl_keys.c' l='1044'>/*
+============
+Key_WriteBindings
+
+Writes lines containing &quot;bind key value&quot;
+============
+*/</doc>
+<def f='codebrowser/code/null/null_client.c' l='39' ll='40' type='void Key_WriteBindings(fileHandle_t f)'/>
+<use f='codebrowser/code/qcommon/common.c' l='2932' u='c' c='Com_WriteConfigToFile'/>

@@ -1,0 +1,15 @@
+<dec f='codebrowser/code/game/ai_dmq3.h' l='116' type='qboolean InFieldOfVision(vec_t * viewangles, float fov, vec_t * angles)'/>
+<doc f='codebrowser/code/game/ai_dmq3.h' l='115'>//returns true if within the field of vision for the given angles</doc>
+<use f='codebrowser/code/game/ai_dmnet.c' l='1361' u='c' c='BotClearPath'/>
+<use f='codebrowser/code/game/ai_dmnet.c' l='1418' u='c' c='BotClearPath'/>
+<use f='codebrowser/code/game/ai_dmnet.c' l='1504' u='c' c='AINode_Seek_ActivateEntity'/>
+<def f='codebrowser/code/game/ai_dmq3.c' l='2794' ll='2817' type='qboolean InFieldOfVision(vec_t * viewangles, float fov, vec_t * angles)'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='2845' u='c' c='BotEntityVisible'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='3040' u='c' c='BotFindEnemy'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='3627' u='c' c='BotCheckAttack'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='3748' u='c' c='BotMapScripts'/>
+<doc f='codebrowser/code/game/ai_dmq3.c' l='2789'>/*
+==================
+InFieldOfVision
+==================
+*/</doc>

@@ -1,0 +1,8 @@
+<dec f='include/SDL2/SDL.h' l='92' type='int SDL_Init(Uint32 flags)'/>
+<doc f='include/SDL2/SDL.h' l='89'>/**
+ *  This function initializes  the subsystems specified by \c flags
+ */</doc>
+<use f='codebrowser/code/sdl/sdl_glimp.c' l='578' u='c' c='GLimp_StartDriverAndSetMode'/>
+<use f='codebrowser/code/sdl/sdl_input.c' l='471' u='c' c='IN_InitJoystick'/>
+<use f='codebrowser/code/sdl/sdl_input.c' l='482' u='c' c='IN_InitJoystick'/>
+<use f='codebrowser/code/sdl/sdl_snd.c' l='159' u='c' c='SNDDMA_Init'/>

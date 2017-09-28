@@ -1,0 +1,28 @@
+<dec f='codebrowser/code/renderergl1/tr_local.h' l='460' type='float'/>
+<offset>3904</offset>
+<use f='codebrowser/code/renderergl1/tr_cmds.c' l='60' u='r' c='R_PerformanceCounters'/>
+<use f='codebrowser/code/renderergl1/tr_main.c' l='392' u='w' c='R_SetFarClip'/>
+<use f='codebrowser/code/renderergl1/tr_main.c' l='442' u='w' c='R_SetFarClip'/>
+<use f='codebrowser/code/renderergl1/tr_main.c' l='574' u='r' c='R_SetupProjectionZ'/>
+<use f='codebrowser/code/renderergl1/tr_sky.c' l='311' u='r' c='MakeSkyVec'/>
+<use f='codebrowser/code/renderergl1/tr_sky.c' l='649' u='w' c='R_InitSkyTexCoords'/>
+<use f='codebrowser/code/renderergl1/tr_sky.c' l='712' u='r' c='RB_DrawSun'/>
+<dec f='codebrowser/code/renderergl2/tr_local.h' l='810' type='float'/>
+<offset>5280</offset>
+<use f='codebrowser/code/renderergl2/tr_backend.c' l='911' u='r' c='RB_DrawSurfs'/>
+<use f='codebrowser/code/renderergl2/tr_backend.c' l='911' u='r' c='RB_DrawSurfs'/>
+<use f='codebrowser/code/renderergl2/tr_backend.c' l='1008' u='r' c='RB_DrawSurfs'/>
+<use f='codebrowser/code/renderergl2/tr_cmds.c' l='60' u='r' c='R_PerformanceCounters'/>
+<use f='codebrowser/code/renderergl2/tr_main.c' l='619' u='w' c='R_SetFarClip'/>
+<use f='codebrowser/code/renderergl2/tr_main.c' l='669' u='w' c='R_SetFarClip'/>
+<use f='codebrowser/code/renderergl2/tr_main.c' l='814' u='r' c='R_SetupProjectionZ'/>
+<use f='codebrowser/code/renderergl2/tr_main.c' l='1329' u='w' c='R_MirrorViewBySurface'/>
+<use f='codebrowser/code/renderergl2/tr_main.c' l='1759' u='r' c='R_RenderView'/>
+<use f='codebrowser/code/renderergl2/tr_main.c' l='1804' u='w' c='R_RenderDlightCubemaps'/>
+<use f='codebrowser/code/renderergl2/tr_main.c' l='2102' u='w' c='R_RenderPshadowMaps'/>
+<use f='codebrowser/code/renderergl2/tr_main.c' l='2509' u='w' c='R_RenderSunShadowMaps'/>
+<use f='codebrowser/code/renderergl2/tr_postprocess.c' l='324' u='r' c='RB_SunRays'/>
+<use f='codebrowser/code/renderergl2/tr_shade.c' l='1391' u='r' c='RB_RenderShadowmap'/>
+<use f='codebrowser/code/renderergl2/tr_sky.c' l='311' u='r' c='MakeSkyVec'/>
+<use f='codebrowser/code/renderergl2/tr_sky.c' l='740' u='w' c='R_InitSkyTexCoords'/>
+<use f='codebrowser/code/renderergl2/tr_sky.c' l='810' u='r' c='RB_DrawSun'/>

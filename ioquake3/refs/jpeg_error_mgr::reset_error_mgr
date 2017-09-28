@@ -1,0 +1,8 @@
+<dec f='codebrowser/code/jpeg-8c/jpeglib.h' l='693' type='void (*)(j_common_ptr)'/>
+<offset>256</offset>
+<doc f='codebrowser/code/jpeg-8c/jpeglib.h' l='692'>/* Reset error state variables at start of a new image */</doc>
+<use f='codebrowser/code/jpeg-8c/jcapimin.c' l='268' u='r' c='jpeg_write_tables'/>
+<use f='codebrowser/code/jpeg-8c/jcapistd.c' l='47' u='r' c='jpeg_start_compress'/>
+<use f='codebrowser/code/jpeg-8c/jctrans.c' l='46' u='r' c='jpeg_write_coefficients'/>
+<use f='codebrowser/code/jpeg-8c/jdinput.c' l='628' u='r' c='reset_input_controller'/>
+<use f='codebrowser/code/jpeg-8c/jerror.c' l='239' u='w' c='jpeg_std_error'/>

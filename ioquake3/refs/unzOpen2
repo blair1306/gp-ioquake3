@@ -1,0 +1,21 @@
+<dec f='codebrowser/code/qcommon/unzip.h' l='147' type='unzFile unzOpen2(const char * path, zlib_filefunc_def * pzlib_filefunc_def)'/>
+<doc f='codebrowser/code/qcommon/unzip.h' l='137'>/*
+  Open a Zip file. path contain the full pathname (by example,
+     on a Windows XP computer &quot;c:\\zlib\\zlib113.zip&quot; or on a Unix computer
+     &quot;zlib/zlib113.zip&quot;.
+     If the zipfile cannot be opened (file don&apos;t exist or in not valid), the
+       return value is NULL.
+     Else, the return value is an unzFile Handle, usable with other function
+       of this unzip package.
+*/</doc>
+<def f='codebrowser/code/qcommon/unzip.c' l='392' ll='492' type='unzFile unzOpen2(const char * path, zlib_filefunc_def * pzlib_filefunc_def)'/>
+<use f='codebrowser/code/qcommon/unzip.c' l='498' u='c' c='unzOpen'/>
+<doc f='codebrowser/code/qcommon/unzip.c' l='383'>/*
+  Open a Zip file. path contain the full pathname (by example,
+     on a Windows NT computer &quot;c:\\test\\zlib114.zip&quot; or on a Unix computer
+     &quot;zlib/zlib114.zip&quot;.
+     If the zipfile cannot be opened (file doesn&apos;t exist or in not valid), the
+       return value is NULL.
+     Else, the return value is an unzFile Handle, usable with other function
+       of this unzip package.
+*/</doc>

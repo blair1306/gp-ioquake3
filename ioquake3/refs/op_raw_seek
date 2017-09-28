@@ -1,0 +1,15 @@
+<dec f='codebrowser/code/opusfile-0.8/include/opusfile.h' l='1680' type='int op_raw_seek(OggOpusFile * _of, long long _byte_offset)'/>
+<doc f='codebrowser/code/opusfile-0.8/include/opusfile.h' l='1667'>/**Seek to a byte offset relative to the &lt;b&gt;compressed&lt;/b&gt; data.
+   This also scans packets to update the PCM cursor.
+   It will cross a logical bitstream boundary, but only if it can&apos;t get any
+    packets out of the tail of the link to which it seeks.
+   \param _of          The \c OggOpusFile in which to seek.
+   \param _byte_offset The byte position to seek to.
+   \return 0 on success, or a negative error code on failure.
+   \retval #OP_EREAD    The underlying seek operation failed.
+   \retval #OP_EINVAL   The stream was only partially open, or the target was
+                         outside the valid range for the stream.
+   \retval #OP_ENOSEEK  This stream is not seekable.
+   \retval #OP_EBADLINK Failed to initialize a decoder for a stream for an
+                         unknown reason.*/</doc>
+<def f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='2087' ll='2112' type='int op_raw_seek(OggOpusFile * _of, long long _pos)'/>

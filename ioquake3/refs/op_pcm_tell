@@ -1,0 +1,9 @@
+<dec f='codebrowser/code/opusfile-0.8/include/opusfile.h' l='1634' type='ogg_int64_t op_pcm_tell(const OggOpusFile * _of)'/>
+<doc f='codebrowser/code/opusfile-0.8/include/opusfile.h' l='1627'>/**Obtain the PCM offset of the next sample to be read.
+   If the stream is not properly timestamped, this might not increment by the
+    proper amount between reads, or even return monotonically increasing
+    values.
+   \param _of The \c OggOpusFile from which to retrieve the PCM offset.
+   \return The PCM offset of the next sample to be read.
+   \retval #OP_EINVAL The stream was only partially open.*/</doc>
+<def f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='2641' ll='2655' type='ogg_int64_t op_pcm_tell(const OggOpusFile * _of)'/>

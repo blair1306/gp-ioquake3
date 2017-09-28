@@ -1,0 +1,20 @@
+<dec f='codebrowser/code/qcommon/qcommon.h' l='700' type='int FS_Seek(fileHandle_t f, long offset, int origin)'/>
+<use f='codebrowser/code/client/cl_avi.c' l='602' u='c' c='CL_CloseAVI'/>
+<use f='codebrowser/code/client/cl_avi.c' l='637' u='c' c='CL_CloseAVI'/>
+<doc f='codebrowser/code/qcommon/qcommon.h' l='698'>// opens a file for reading, writing, or appending depending on the value of mode</doc>
+<use f='codebrowser/code/client/cl_cgame.c' l='452' u='c' c='CL_CgameSystemCalls'/>
+<use f='codebrowser/code/client/cl_ui.c' l='808' u='c' c='CL_UISystemCalls'/>
+<use f='codebrowser/code/client/snd_codec_opus.c' l='118' u='c' c='S_OggOpus_Callback_seek'/>
+<use f='codebrowser/code/client/snd_codec_opus.c' l='134' u='c' c='S_OggOpus_Callback_seek'/>
+<use f='codebrowser/code/client/snd_codec_opus.c' l='150' u='c' c='S_OggOpus_Callback_seek'/>
+<use f='codebrowser/code/client/snd_codec_wav.c' l='97' u='c' c='S_FindRIFFChunk'/>
+<use f='codebrowser/code/client/snd_codec_wav.c' l='168' u='c' c='S_ReadRIFFHeader'/>
+<def f='codebrowser/code/qcommon/files.c' l='1648' ll='1735' type='int FS_Seek(fileHandle_t f, long offset, int origin)'/>
+<doc f='codebrowser/code/qcommon/files.c' l='1642'>/*
+=================
+FS_Seek
+
+=================
+*/</doc>
+<use f='codebrowser/code/server/sv_bot.c' l='549' u='r' c='SV_BotInitBotLib'/>
+<use f='codebrowser/code/server/sv_game.c' l='339' u='c' c='SV_GameSystemCalls'/>

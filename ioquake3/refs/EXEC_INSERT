@@ -1,0 +1,9 @@
+<dec f='codebrowser/code/qcommon/q_shared.h' l='271' type='1'/>
+<doc f='codebrowser/code/qcommon/q_shared.h' l='270'>// because some commands might cause the VM to be unloaded...</doc>
+<doc f='codebrowser/code/qcommon/q_shared.h' l='271'>// insert at current position, but don&apos;t run yet</doc>
+<use f='codebrowser/code/client/cl_ui.c' l='784' u='r' c='CL_UISystemCalls'/>
+<use f='codebrowser/code/game/ai_main.c' l='674' u='r' c='BotInterbreeding'/>
+<use f='codebrowser/code/game/g_bot.c' l='327' u='r' c='G_AddRandomBot'/>
+<use f='codebrowser/code/game/g_bot.c' l='350' u='r' c='G_RemoveRandomBot'/>
+<use f='codebrowser/code/game/g_bot.c' l='889' u='r' c='G_SpawnBots'/>
+<use f='codebrowser/code/qcommon/cmd.c' l='156' c='Cbuf_ExecuteText'/>

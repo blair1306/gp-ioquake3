@@ -1,0 +1,209 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>ui_public.h source code [codebrowser/code/ui/ui_public.h] - Woboq Code Browser</title>
+<link rel="stylesheet" href="../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'codebrowser/code/ui/ui_public.h'; var root_path = '../../..'; var data_path = '../../../../data';</script>
+<script src='../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../..'>codebrowser</a>/<a href='..'>code</a>/<a href='./'>ui</a>/<a href='ui_public.h.html'>ui_public.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/*</i></td></tr>
+<tr><th id="2">2</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="3">3</th><td><i>Copyright (C) 1999-2005 Id Software, Inc.</i></td></tr>
+<tr><th id="4">4</th><td><i></i></td></tr>
+<tr><th id="5">5</th><td><i>This file is part of Quake III Arena source code.</i></td></tr>
+<tr><th id="6">6</th><td><i></i></td></tr>
+<tr><th id="7">7</th><td><i>Quake III Arena source code is free software; you can redistribute it</i></td></tr>
+<tr><th id="8">8</th><td><i>and/or modify it under the terms of the GNU General Public License as</i></td></tr>
+<tr><th id="9">9</th><td><i>published by the Free Software Foundation; either version 2 of the License,</i></td></tr>
+<tr><th id="10">10</th><td><i>or (at your option) any later version.</i></td></tr>
+<tr><th id="11">11</th><td><i></i></td></tr>
+<tr><th id="12">12</th><td><i>Quake III Arena source code is distributed in the hope that it will be</i></td></tr>
+<tr><th id="13">13</th><td><i>useful, but WITHOUT ANY WARRANTY; without even the implied warranty of</i></td></tr>
+<tr><th id="14">14</th><td><i>MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</i></td></tr>
+<tr><th id="15">15</th><td><i>GNU General Public License for more details.</i></td></tr>
+<tr><th id="16">16</th><td><i></i></td></tr>
+<tr><th id="17">17</th><td><i>You should have received a copy of the GNU General Public License</i></td></tr>
+<tr><th id="18">18</th><td><i>along with Quake III Arena source code; if not, write to the Free Software</i></td></tr>
+<tr><th id="19">19</th><td><i>Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA</i></td></tr>
+<tr><th id="20">20</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="21">21</th><td><i>*/</i></td></tr>
+<tr><th id="22">22</th><td><i>//</i></td></tr>
+<tr><th id="23">23</th><td><u>#<span data-ppcond="23">ifndef</span> <span class="macro" data-ref="_M/__UI_PUBLIC_H__">__UI_PUBLIC_H__</span></u></td></tr>
+<tr><th id="24">24</th><td><u>#define <dfn class="macro" id="_M/__UI_PUBLIC_H__" data-ref="_M/__UI_PUBLIC_H__">__UI_PUBLIC_H__</dfn></u></td></tr>
+<tr><th id="25">25</th><td></td></tr>
+<tr><th id="26">26</th><td><u>#define <dfn class="macro" id="_M/UI_API_VERSION" data-ref="_M/UI_API_VERSION">UI_API_VERSION</dfn>	6</u></td></tr>
+<tr><th id="27">27</th><td></td></tr>
+<tr><th id="28">28</th><td><b>typedef</b> <b>struct</b> {</td></tr>
+<tr><th id="29">29</th><td>	<a class="typedef" href="../qcommon/q_shared.h.html#connstate_t" title='connstate_t' data-type='enum connstate_t' data-ref="connstate_t">connstate_t</a>		<dfn class="decl" id="(anonymous)::connState" title='(anonymous struct)::connState' data-ref="(anonymous)::connState">connState</dfn>;</td></tr>
+<tr><th id="30">30</th><td>	<em>int</em>				<dfn class="decl" id="(anonymous)::connectPacketCount" title='(anonymous struct)::connectPacketCount' data-ref="(anonymous)::connectPacketCount">connectPacketCount</dfn>;</td></tr>
+<tr><th id="31">31</th><td>	<em>int</em>				<dfn class="decl" id="(anonymous)::clientNum" title='(anonymous struct)::clientNum' data-ref="(anonymous)::clientNum">clientNum</dfn>;</td></tr>
+<tr><th id="32">32</th><td>	<em>char</em>			<dfn class="decl" id="(anonymous)::servername" title='(anonymous struct)::servername' data-ref="(anonymous)::servername">servername</dfn>[<a class="macro" href="../qcommon/q_shared.h.html#243" title="1024" data-ref="_M/MAX_STRING_CHARS">MAX_STRING_CHARS</a>];</td></tr>
+<tr><th id="33">33</th><td>	<em>char</em>			<dfn class="decl" id="(anonymous)::updateInfoString" title='(anonymous struct)::updateInfoString' data-ref="(anonymous)::updateInfoString">updateInfoString</dfn>[<a class="macro" href="../qcommon/q_shared.h.html#243" title="1024" data-ref="_M/MAX_STRING_CHARS">MAX_STRING_CHARS</a>];</td></tr>
+<tr><th id="34">34</th><td>	<em>char</em>			<dfn class="decl" id="(anonymous)::messageString" title='(anonymous struct)::messageString' data-ref="(anonymous)::messageString">messageString</dfn>[<a class="macro" href="../qcommon/q_shared.h.html#243" title="1024" data-ref="_M/MAX_STRING_CHARS">MAX_STRING_CHARS</a>];</td></tr>
+<tr><th id="35">35</th><td>} <dfn class="typedef" id="uiClientState_t" title='uiClientState_t' data-type='struct uiClientState_t' data-ref="uiClientState_t">uiClientState_t</dfn>;</td></tr>
+<tr><th id="36">36</th><td></td></tr>
+<tr><th id="37">37</th><td><b>typedef</b> <b>enum</b> {</td></tr>
+<tr><th id="38">38</th><td>	<dfn class="enum" id="UI_ERROR" title='UI_ERROR' data-ref="UI_ERROR">UI_ERROR</dfn>,</td></tr>
+<tr><th id="39">39</th><td>	<dfn class="enum" id="UI_PRINT" title='UI_PRINT' data-ref="UI_PRINT">UI_PRINT</dfn>,</td></tr>
+<tr><th id="40">40</th><td>	<dfn class="enum" id="UI_MILLISECONDS" title='UI_MILLISECONDS' data-ref="UI_MILLISECONDS">UI_MILLISECONDS</dfn>,</td></tr>
+<tr><th id="41">41</th><td>	<dfn class="enum" id="UI_CVAR_SET" title='UI_CVAR_SET' data-ref="UI_CVAR_SET">UI_CVAR_SET</dfn>,</td></tr>
+<tr><th id="42">42</th><td>	<dfn class="enum" id="UI_CVAR_VARIABLEVALUE" title='UI_CVAR_VARIABLEVALUE' data-ref="UI_CVAR_VARIABLEVALUE">UI_CVAR_VARIABLEVALUE</dfn>,</td></tr>
+<tr><th id="43">43</th><td>	<dfn class="enum" id="UI_CVAR_VARIABLESTRINGBUFFER" title='UI_CVAR_VARIABLESTRINGBUFFER' data-ref="UI_CVAR_VARIABLESTRINGBUFFER">UI_CVAR_VARIABLESTRINGBUFFER</dfn>,</td></tr>
+<tr><th id="44">44</th><td>	<dfn class="enum" id="UI_CVAR_SETVALUE" title='UI_CVAR_SETVALUE' data-ref="UI_CVAR_SETVALUE">UI_CVAR_SETVALUE</dfn>,</td></tr>
+<tr><th id="45">45</th><td>	<dfn class="enum" id="UI_CVAR_RESET" title='UI_CVAR_RESET' data-ref="UI_CVAR_RESET">UI_CVAR_RESET</dfn>,</td></tr>
+<tr><th id="46">46</th><td>	<dfn class="enum" id="UI_CVAR_CREATE" title='UI_CVAR_CREATE' data-ref="UI_CVAR_CREATE">UI_CVAR_CREATE</dfn>,</td></tr>
+<tr><th id="47">47</th><td>	<dfn class="enum" id="UI_CVAR_INFOSTRINGBUFFER" title='UI_CVAR_INFOSTRINGBUFFER' data-ref="UI_CVAR_INFOSTRINGBUFFER">UI_CVAR_INFOSTRINGBUFFER</dfn>,</td></tr>
+<tr><th id="48">48</th><td>	<dfn class="enum" id="UI_ARGC" title='UI_ARGC' data-ref="UI_ARGC">UI_ARGC</dfn>,</td></tr>
+<tr><th id="49">49</th><td>	<dfn class="enum" id="UI_ARGV" title='UI_ARGV' data-ref="UI_ARGV">UI_ARGV</dfn>,</td></tr>
+<tr><th id="50">50</th><td>	<dfn class="enum" id="UI_CMD_EXECUTETEXT" title='UI_CMD_EXECUTETEXT' data-ref="UI_CMD_EXECUTETEXT">UI_CMD_EXECUTETEXT</dfn>,</td></tr>
+<tr><th id="51">51</th><td>	<dfn class="enum" id="UI_FS_FOPENFILE" title='UI_FS_FOPENFILE' data-ref="UI_FS_FOPENFILE">UI_FS_FOPENFILE</dfn>,</td></tr>
+<tr><th id="52">52</th><td>	<dfn class="enum" id="UI_FS_READ" title='UI_FS_READ' data-ref="UI_FS_READ">UI_FS_READ</dfn>,</td></tr>
+<tr><th id="53">53</th><td>	<dfn class="enum" id="UI_FS_WRITE" title='UI_FS_WRITE' data-ref="UI_FS_WRITE">UI_FS_WRITE</dfn>,</td></tr>
+<tr><th id="54">54</th><td>	<dfn class="enum" id="UI_FS_FCLOSEFILE" title='UI_FS_FCLOSEFILE' data-ref="UI_FS_FCLOSEFILE">UI_FS_FCLOSEFILE</dfn>,</td></tr>
+<tr><th id="55">55</th><td>	<dfn class="enum" id="UI_FS_GETFILELIST" title='UI_FS_GETFILELIST' data-ref="UI_FS_GETFILELIST">UI_FS_GETFILELIST</dfn>,</td></tr>
+<tr><th id="56">56</th><td>	<dfn class="enum" id="UI_R_REGISTERMODEL" title='UI_R_REGISTERMODEL' data-ref="UI_R_REGISTERMODEL">UI_R_REGISTERMODEL</dfn>,</td></tr>
+<tr><th id="57">57</th><td>	<dfn class="enum" id="UI_R_REGISTERSKIN" title='UI_R_REGISTERSKIN' data-ref="UI_R_REGISTERSKIN">UI_R_REGISTERSKIN</dfn>,</td></tr>
+<tr><th id="58">58</th><td>	<dfn class="enum" id="UI_R_REGISTERSHADERNOMIP" title='UI_R_REGISTERSHADERNOMIP' data-ref="UI_R_REGISTERSHADERNOMIP">UI_R_REGISTERSHADERNOMIP</dfn>,</td></tr>
+<tr><th id="59">59</th><td>	<dfn class="enum" id="UI_R_CLEARSCENE" title='UI_R_CLEARSCENE' data-ref="UI_R_CLEARSCENE">UI_R_CLEARSCENE</dfn>,</td></tr>
+<tr><th id="60">60</th><td>	<dfn class="enum" id="UI_R_ADDREFENTITYTOSCENE" title='UI_R_ADDREFENTITYTOSCENE' data-ref="UI_R_ADDREFENTITYTOSCENE">UI_R_ADDREFENTITYTOSCENE</dfn>,</td></tr>
+<tr><th id="61">61</th><td>	<dfn class="enum" id="UI_R_ADDPOLYTOSCENE" title='UI_R_ADDPOLYTOSCENE' data-ref="UI_R_ADDPOLYTOSCENE">UI_R_ADDPOLYTOSCENE</dfn>,</td></tr>
+<tr><th id="62">62</th><td>	<dfn class="enum" id="UI_R_ADDLIGHTTOSCENE" title='UI_R_ADDLIGHTTOSCENE' data-ref="UI_R_ADDLIGHTTOSCENE">UI_R_ADDLIGHTTOSCENE</dfn>,</td></tr>
+<tr><th id="63">63</th><td>	<dfn class="enum" id="UI_R_RENDERSCENE" title='UI_R_RENDERSCENE' data-ref="UI_R_RENDERSCENE">UI_R_RENDERSCENE</dfn>,</td></tr>
+<tr><th id="64">64</th><td>	<dfn class="enum" id="UI_R_SETCOLOR" title='UI_R_SETCOLOR' data-ref="UI_R_SETCOLOR">UI_R_SETCOLOR</dfn>,</td></tr>
+<tr><th id="65">65</th><td>	<dfn class="enum" id="UI_R_DRAWSTRETCHPIC" title='UI_R_DRAWSTRETCHPIC' data-ref="UI_R_DRAWSTRETCHPIC">UI_R_DRAWSTRETCHPIC</dfn>,</td></tr>
+<tr><th id="66">66</th><td>	<dfn class="enum" id="UI_UPDATESCREEN" title='UI_UPDATESCREEN' data-ref="UI_UPDATESCREEN">UI_UPDATESCREEN</dfn>,</td></tr>
+<tr><th id="67">67</th><td>	<dfn class="enum" id="UI_CM_LERPTAG" title='UI_CM_LERPTAG' data-ref="UI_CM_LERPTAG">UI_CM_LERPTAG</dfn>,</td></tr>
+<tr><th id="68">68</th><td>	<dfn class="enum" id="UI_CM_LOADMODEL" title='UI_CM_LOADMODEL' data-ref="UI_CM_LOADMODEL">UI_CM_LOADMODEL</dfn>,</td></tr>
+<tr><th id="69">69</th><td>	<dfn class="enum" id="UI_S_REGISTERSOUND" title='UI_S_REGISTERSOUND' data-ref="UI_S_REGISTERSOUND">UI_S_REGISTERSOUND</dfn>,</td></tr>
+<tr><th id="70">70</th><td>	<dfn class="enum" id="UI_S_STARTLOCALSOUND" title='UI_S_STARTLOCALSOUND' data-ref="UI_S_STARTLOCALSOUND">UI_S_STARTLOCALSOUND</dfn>,</td></tr>
+<tr><th id="71">71</th><td>	<dfn class="enum" id="UI_KEY_KEYNUMTOSTRINGBUF" title='UI_KEY_KEYNUMTOSTRINGBUF' data-ref="UI_KEY_KEYNUMTOSTRINGBUF">UI_KEY_KEYNUMTOSTRINGBUF</dfn>,</td></tr>
+<tr><th id="72">72</th><td>	<dfn class="enum" id="UI_KEY_GETBINDINGBUF" title='UI_KEY_GETBINDINGBUF' data-ref="UI_KEY_GETBINDINGBUF">UI_KEY_GETBINDINGBUF</dfn>,</td></tr>
+<tr><th id="73">73</th><td>	<dfn class="enum" id="UI_KEY_SETBINDING" title='UI_KEY_SETBINDING' data-ref="UI_KEY_SETBINDING">UI_KEY_SETBINDING</dfn>,</td></tr>
+<tr><th id="74">74</th><td>	<dfn class="enum" id="UI_KEY_ISDOWN" title='UI_KEY_ISDOWN' data-ref="UI_KEY_ISDOWN">UI_KEY_ISDOWN</dfn>,</td></tr>
+<tr><th id="75">75</th><td>	<dfn class="enum" id="UI_KEY_GETOVERSTRIKEMODE" title='UI_KEY_GETOVERSTRIKEMODE' data-ref="UI_KEY_GETOVERSTRIKEMODE">UI_KEY_GETOVERSTRIKEMODE</dfn>,</td></tr>
+<tr><th id="76">76</th><td>	<dfn class="enum" id="UI_KEY_SETOVERSTRIKEMODE" title='UI_KEY_SETOVERSTRIKEMODE' data-ref="UI_KEY_SETOVERSTRIKEMODE">UI_KEY_SETOVERSTRIKEMODE</dfn>,</td></tr>
+<tr><th id="77">77</th><td>	<dfn class="enum" id="UI_KEY_CLEARSTATES" title='UI_KEY_CLEARSTATES' data-ref="UI_KEY_CLEARSTATES">UI_KEY_CLEARSTATES</dfn>,</td></tr>
+<tr><th id="78">78</th><td>	<dfn class="enum" id="UI_KEY_GETCATCHER" title='UI_KEY_GETCATCHER' data-ref="UI_KEY_GETCATCHER">UI_KEY_GETCATCHER</dfn>,</td></tr>
+<tr><th id="79">79</th><td>	<dfn class="enum" id="UI_KEY_SETCATCHER" title='UI_KEY_SETCATCHER' data-ref="UI_KEY_SETCATCHER">UI_KEY_SETCATCHER</dfn>,</td></tr>
+<tr><th id="80">80</th><td>	<dfn class="enum" id="UI_GETCLIPBOARDDATA" title='UI_GETCLIPBOARDDATA' data-ref="UI_GETCLIPBOARDDATA">UI_GETCLIPBOARDDATA</dfn>,</td></tr>
+<tr><th id="81">81</th><td>	<dfn class="enum" id="UI_GETGLCONFIG" title='UI_GETGLCONFIG' data-ref="UI_GETGLCONFIG">UI_GETGLCONFIG</dfn>,</td></tr>
+<tr><th id="82">82</th><td>	<dfn class="enum" id="UI_GETCLIENTSTATE" title='UI_GETCLIENTSTATE' data-ref="UI_GETCLIENTSTATE">UI_GETCLIENTSTATE</dfn>,</td></tr>
+<tr><th id="83">83</th><td>	<dfn class="enum" id="UI_GETCONFIGSTRING" title='UI_GETCONFIGSTRING' data-ref="UI_GETCONFIGSTRING">UI_GETCONFIGSTRING</dfn>,</td></tr>
+<tr><th id="84">84</th><td>	<dfn class="enum" id="UI_LAN_GETPINGQUEUECOUNT" title='UI_LAN_GETPINGQUEUECOUNT' data-ref="UI_LAN_GETPINGQUEUECOUNT">UI_LAN_GETPINGQUEUECOUNT</dfn>,</td></tr>
+<tr><th id="85">85</th><td>	<dfn class="enum" id="UI_LAN_CLEARPING" title='UI_LAN_CLEARPING' data-ref="UI_LAN_CLEARPING">UI_LAN_CLEARPING</dfn>,</td></tr>
+<tr><th id="86">86</th><td>	<dfn class="enum" id="UI_LAN_GETPING" title='UI_LAN_GETPING' data-ref="UI_LAN_GETPING">UI_LAN_GETPING</dfn>,</td></tr>
+<tr><th id="87">87</th><td>	<dfn class="enum" id="UI_LAN_GETPINGINFO" title='UI_LAN_GETPINGINFO' data-ref="UI_LAN_GETPINGINFO">UI_LAN_GETPINGINFO</dfn>,</td></tr>
+<tr><th id="88">88</th><td>	<dfn class="enum" id="UI_CVAR_REGISTER" title='UI_CVAR_REGISTER' data-ref="UI_CVAR_REGISTER">UI_CVAR_REGISTER</dfn>,</td></tr>
+<tr><th id="89">89</th><td>	<dfn class="enum" id="UI_CVAR_UPDATE" title='UI_CVAR_UPDATE' data-ref="UI_CVAR_UPDATE">UI_CVAR_UPDATE</dfn>,</td></tr>
+<tr><th id="90">90</th><td>	<dfn class="enum" id="UI_MEMORY_REMAINING" title='UI_MEMORY_REMAINING' data-ref="UI_MEMORY_REMAINING">UI_MEMORY_REMAINING</dfn>,</td></tr>
+<tr><th id="91">91</th><td>	<dfn class="enum" id="UI_GET_CDKEY" title='UI_GET_CDKEY' data-ref="UI_GET_CDKEY">UI_GET_CDKEY</dfn>,</td></tr>
+<tr><th id="92">92</th><td>	<dfn class="enum" id="UI_SET_CDKEY" title='UI_SET_CDKEY' data-ref="UI_SET_CDKEY">UI_SET_CDKEY</dfn>,</td></tr>
+<tr><th id="93">93</th><td>	<dfn class="enum" id="UI_R_REGISTERFONT" title='UI_R_REGISTERFONT' data-ref="UI_R_REGISTERFONT">UI_R_REGISTERFONT</dfn>,</td></tr>
+<tr><th id="94">94</th><td>	<dfn class="enum" id="UI_R_MODELBOUNDS" title='UI_R_MODELBOUNDS' data-ref="UI_R_MODELBOUNDS">UI_R_MODELBOUNDS</dfn>,</td></tr>
+<tr><th id="95">95</th><td>	<dfn class="enum" id="UI_PC_ADD_GLOBAL_DEFINE" title='UI_PC_ADD_GLOBAL_DEFINE' data-ref="UI_PC_ADD_GLOBAL_DEFINE">UI_PC_ADD_GLOBAL_DEFINE</dfn>,</td></tr>
+<tr><th id="96">96</th><td>	<dfn class="enum" id="UI_PC_LOAD_SOURCE" title='UI_PC_LOAD_SOURCE' data-ref="UI_PC_LOAD_SOURCE">UI_PC_LOAD_SOURCE</dfn>,</td></tr>
+<tr><th id="97">97</th><td>	<dfn class="enum" id="UI_PC_FREE_SOURCE" title='UI_PC_FREE_SOURCE' data-ref="UI_PC_FREE_SOURCE">UI_PC_FREE_SOURCE</dfn>,</td></tr>
+<tr><th id="98">98</th><td>	<dfn class="enum" id="UI_PC_READ_TOKEN" title='UI_PC_READ_TOKEN' data-ref="UI_PC_READ_TOKEN">UI_PC_READ_TOKEN</dfn>,</td></tr>
+<tr><th id="99">99</th><td>	<dfn class="enum" id="UI_PC_SOURCE_FILE_AND_LINE" title='UI_PC_SOURCE_FILE_AND_LINE' data-ref="UI_PC_SOURCE_FILE_AND_LINE">UI_PC_SOURCE_FILE_AND_LINE</dfn>,</td></tr>
+<tr><th id="100">100</th><td>	<dfn class="enum" id="UI_S_STOPBACKGROUNDTRACK" title='UI_S_STOPBACKGROUNDTRACK' data-ref="UI_S_STOPBACKGROUNDTRACK">UI_S_STOPBACKGROUNDTRACK</dfn>,</td></tr>
+<tr><th id="101">101</th><td>	<dfn class="enum" id="UI_S_STARTBACKGROUNDTRACK" title='UI_S_STARTBACKGROUNDTRACK' data-ref="UI_S_STARTBACKGROUNDTRACK">UI_S_STARTBACKGROUNDTRACK</dfn>,</td></tr>
+<tr><th id="102">102</th><td>	<dfn class="enum" id="UI_REAL_TIME" title='UI_REAL_TIME' data-ref="UI_REAL_TIME">UI_REAL_TIME</dfn>,</td></tr>
+<tr><th id="103">103</th><td>	<dfn class="enum" id="UI_LAN_GETSERVERCOUNT" title='UI_LAN_GETSERVERCOUNT' data-ref="UI_LAN_GETSERVERCOUNT">UI_LAN_GETSERVERCOUNT</dfn>,</td></tr>
+<tr><th id="104">104</th><td>	<dfn class="enum" id="UI_LAN_GETSERVERADDRESSSTRING" title='UI_LAN_GETSERVERADDRESSSTRING' data-ref="UI_LAN_GETSERVERADDRESSSTRING">UI_LAN_GETSERVERADDRESSSTRING</dfn>,</td></tr>
+<tr><th id="105">105</th><td>	<dfn class="enum" id="UI_LAN_GETSERVERINFO" title='UI_LAN_GETSERVERINFO' data-ref="UI_LAN_GETSERVERINFO">UI_LAN_GETSERVERINFO</dfn>,</td></tr>
+<tr><th id="106">106</th><td>	<dfn class="enum" id="UI_LAN_MARKSERVERVISIBLE" title='UI_LAN_MARKSERVERVISIBLE' data-ref="UI_LAN_MARKSERVERVISIBLE">UI_LAN_MARKSERVERVISIBLE</dfn>,</td></tr>
+<tr><th id="107">107</th><td>	<dfn class="enum" id="UI_LAN_UPDATEVISIBLEPINGS" title='UI_LAN_UPDATEVISIBLEPINGS' data-ref="UI_LAN_UPDATEVISIBLEPINGS">UI_LAN_UPDATEVISIBLEPINGS</dfn>,</td></tr>
+<tr><th id="108">108</th><td>	<dfn class="enum" id="UI_LAN_RESETPINGS" title='UI_LAN_RESETPINGS' data-ref="UI_LAN_RESETPINGS">UI_LAN_RESETPINGS</dfn>,</td></tr>
+<tr><th id="109">109</th><td>	<dfn class="enum" id="UI_LAN_LOADCACHEDSERVERS" title='UI_LAN_LOADCACHEDSERVERS' data-ref="UI_LAN_LOADCACHEDSERVERS">UI_LAN_LOADCACHEDSERVERS</dfn>,</td></tr>
+<tr><th id="110">110</th><td>	<dfn class="enum" id="UI_LAN_SAVECACHEDSERVERS" title='UI_LAN_SAVECACHEDSERVERS' data-ref="UI_LAN_SAVECACHEDSERVERS">UI_LAN_SAVECACHEDSERVERS</dfn>,</td></tr>
+<tr><th id="111">111</th><td>	<dfn class="enum" id="UI_LAN_ADDSERVER" title='UI_LAN_ADDSERVER' data-ref="UI_LAN_ADDSERVER">UI_LAN_ADDSERVER</dfn>,</td></tr>
+<tr><th id="112">112</th><td>	<dfn class="enum" id="UI_LAN_REMOVESERVER" title='UI_LAN_REMOVESERVER' data-ref="UI_LAN_REMOVESERVER">UI_LAN_REMOVESERVER</dfn>,</td></tr>
+<tr><th id="113">113</th><td>	<dfn class="enum" id="UI_CIN_PLAYCINEMATIC" title='UI_CIN_PLAYCINEMATIC' data-ref="UI_CIN_PLAYCINEMATIC">UI_CIN_PLAYCINEMATIC</dfn>,</td></tr>
+<tr><th id="114">114</th><td>	<dfn class="enum" id="UI_CIN_STOPCINEMATIC" title='UI_CIN_STOPCINEMATIC' data-ref="UI_CIN_STOPCINEMATIC">UI_CIN_STOPCINEMATIC</dfn>,</td></tr>
+<tr><th id="115">115</th><td>	<dfn class="enum" id="UI_CIN_RUNCINEMATIC" title='UI_CIN_RUNCINEMATIC' data-ref="UI_CIN_RUNCINEMATIC">UI_CIN_RUNCINEMATIC</dfn>,</td></tr>
+<tr><th id="116">116</th><td>	<dfn class="enum" id="UI_CIN_DRAWCINEMATIC" title='UI_CIN_DRAWCINEMATIC' data-ref="UI_CIN_DRAWCINEMATIC">UI_CIN_DRAWCINEMATIC</dfn>,</td></tr>
+<tr><th id="117">117</th><td>	<dfn class="enum" id="UI_CIN_SETEXTENTS" title='UI_CIN_SETEXTENTS' data-ref="UI_CIN_SETEXTENTS">UI_CIN_SETEXTENTS</dfn>,</td></tr>
+<tr><th id="118">118</th><td>	<dfn class="enum" id="UI_R_REMAP_SHADER" title='UI_R_REMAP_SHADER' data-ref="UI_R_REMAP_SHADER">UI_R_REMAP_SHADER</dfn>,</td></tr>
+<tr><th id="119">119</th><td>	<dfn class="enum" id="UI_VERIFY_CDKEY" title='UI_VERIFY_CDKEY' data-ref="UI_VERIFY_CDKEY">UI_VERIFY_CDKEY</dfn>,</td></tr>
+<tr><th id="120">120</th><td>	<dfn class="enum" id="UI_LAN_SERVERSTATUS" title='UI_LAN_SERVERSTATUS' data-ref="UI_LAN_SERVERSTATUS">UI_LAN_SERVERSTATUS</dfn>,</td></tr>
+<tr><th id="121">121</th><td>	<dfn class="enum" id="UI_LAN_GETSERVERPING" title='UI_LAN_GETSERVERPING' data-ref="UI_LAN_GETSERVERPING">UI_LAN_GETSERVERPING</dfn>,</td></tr>
+<tr><th id="122">122</th><td>	<dfn class="enum" id="UI_LAN_SERVERISVISIBLE" title='UI_LAN_SERVERISVISIBLE' data-ref="UI_LAN_SERVERISVISIBLE">UI_LAN_SERVERISVISIBLE</dfn>,</td></tr>
+<tr><th id="123">123</th><td>	<dfn class="enum" id="UI_LAN_COMPARESERVERS" title='UI_LAN_COMPARESERVERS' data-ref="UI_LAN_COMPARESERVERS">UI_LAN_COMPARESERVERS</dfn>,</td></tr>
+<tr><th id="124">124</th><td>	<i>// 1.32</i></td></tr>
+<tr><th id="125">125</th><td>	<dfn class="enum" id="UI_FS_SEEK" title='UI_FS_SEEK' data-ref="UI_FS_SEEK">UI_FS_SEEK</dfn>,</td></tr>
+<tr><th id="126">126</th><td>	<dfn class="enum" id="UI_SET_PBCLSTATUS" title='UI_SET_PBCLSTATUS' data-ref="UI_SET_PBCLSTATUS">UI_SET_PBCLSTATUS</dfn>,</td></tr>
+<tr><th id="127">127</th><td></td></tr>
+<tr><th id="128">128</th><td>	<dfn class="enum" id="UI_MEMSET" title='UI_MEMSET' data-ref="UI_MEMSET">UI_MEMSET</dfn> = <var>100</var>,</td></tr>
+<tr><th id="129">129</th><td>	<dfn class="enum" id="UI_MEMCPY" title='UI_MEMCPY' data-ref="UI_MEMCPY">UI_MEMCPY</dfn>,</td></tr>
+<tr><th id="130">130</th><td>	<dfn class="enum" id="UI_STRNCPY" title='UI_STRNCPY' data-ref="UI_STRNCPY">UI_STRNCPY</dfn>,</td></tr>
+<tr><th id="131">131</th><td>	<dfn class="enum" id="UI_SIN" title='UI_SIN' data-ref="UI_SIN">UI_SIN</dfn>,</td></tr>
+<tr><th id="132">132</th><td>	<dfn class="enum" id="UI_COS" title='UI_COS' data-ref="UI_COS">UI_COS</dfn>,</td></tr>
+<tr><th id="133">133</th><td>	<dfn class="enum" id="UI_ATAN2" title='UI_ATAN2' data-ref="UI_ATAN2">UI_ATAN2</dfn>,</td></tr>
+<tr><th id="134">134</th><td>	<dfn class="enum" id="UI_SQRT" title='UI_SQRT' data-ref="UI_SQRT">UI_SQRT</dfn>,</td></tr>
+<tr><th id="135">135</th><td>	<dfn class="enum" id="UI_FLOOR" title='UI_FLOOR' data-ref="UI_FLOOR">UI_FLOOR</dfn>,</td></tr>
+<tr><th id="136">136</th><td>	<dfn class="enum" id="UI_CEIL" title='UI_CEIL' data-ref="UI_CEIL">UI_CEIL</dfn></td></tr>
+<tr><th id="137">137</th><td>} <dfn class="typedef" id="uiImport_t" title='uiImport_t' data-type='enum uiImport_t' data-ref="uiImport_t">uiImport_t</dfn>;</td></tr>
+<tr><th id="138">138</th><td></td></tr>
+<tr><th id="139">139</th><td><b>typedef</b> <b>enum</b> {</td></tr>
+<tr><th id="140">140</th><td>	<dfn class="enum" id="UIMENU_NONE" title='UIMENU_NONE' data-ref="UIMENU_NONE">UIMENU_NONE</dfn>,</td></tr>
+<tr><th id="141">141</th><td>	<dfn class="enum" id="UIMENU_MAIN" title='UIMENU_MAIN' data-ref="UIMENU_MAIN">UIMENU_MAIN</dfn>,</td></tr>
+<tr><th id="142">142</th><td>	<dfn class="enum" id="UIMENU_INGAME" title='UIMENU_INGAME' data-ref="UIMENU_INGAME">UIMENU_INGAME</dfn>,</td></tr>
+<tr><th id="143">143</th><td>	<dfn class="enum" id="UIMENU_NEED_CD" title='UIMENU_NEED_CD' data-ref="UIMENU_NEED_CD">UIMENU_NEED_CD</dfn>,</td></tr>
+<tr><th id="144">144</th><td>	<dfn class="enum" id="UIMENU_BAD_CD_KEY" title='UIMENU_BAD_CD_KEY' data-ref="UIMENU_BAD_CD_KEY">UIMENU_BAD_CD_KEY</dfn>,</td></tr>
+<tr><th id="145">145</th><td>	<dfn class="enum" id="UIMENU_TEAM" title='UIMENU_TEAM' data-ref="UIMENU_TEAM">UIMENU_TEAM</dfn>,</td></tr>
+<tr><th id="146">146</th><td>	<dfn class="enum" id="UIMENU_POSTGAME" title='UIMENU_POSTGAME' data-ref="UIMENU_POSTGAME">UIMENU_POSTGAME</dfn></td></tr>
+<tr><th id="147">147</th><td>} <dfn class="typedef" id="uiMenuCommand_t" title='uiMenuCommand_t' data-type='enum uiMenuCommand_t' data-ref="uiMenuCommand_t">uiMenuCommand_t</dfn>;</td></tr>
+<tr><th id="148">148</th><td></td></tr>
+<tr><th id="149">149</th><td><u>#define <dfn class="macro" id="_M/SORT_HOST" data-ref="_M/SORT_HOST">SORT_HOST</dfn>			0</u></td></tr>
+<tr><th id="150">150</th><td><u>#define <dfn class="macro" id="_M/SORT_MAP" data-ref="_M/SORT_MAP">SORT_MAP</dfn>			1</u></td></tr>
+<tr><th id="151">151</th><td><u>#define <dfn class="macro" id="_M/SORT_CLIENTS" data-ref="_M/SORT_CLIENTS">SORT_CLIENTS</dfn>		2</u></td></tr>
+<tr><th id="152">152</th><td><u>#define <dfn class="macro" id="_M/SORT_GAME" data-ref="_M/SORT_GAME">SORT_GAME</dfn>			3</u></td></tr>
+<tr><th id="153">153</th><td><u>#define <dfn class="macro" id="_M/SORT_PING" data-ref="_M/SORT_PING">SORT_PING</dfn>			4</u></td></tr>
+<tr><th id="154">154</th><td><u>#define <dfn class="macro" id="_M/SORT_PUNKBUSTER" data-ref="_M/SORT_PUNKBUSTER">SORT_PUNKBUSTER</dfn>		5</u></td></tr>
+<tr><th id="155">155</th><td></td></tr>
+<tr><th id="156">156</th><td><b>typedef</b> <b>enum</b> {</td></tr>
+<tr><th id="157">157</th><td>	<dfn class="enum" id="UI_GETAPIVERSION" title='UI_GETAPIVERSION' data-ref="UI_GETAPIVERSION">UI_GETAPIVERSION</dfn> = <var>0</var>,	<i>// system reserved</i></td></tr>
+<tr><th id="158">158</th><td></td></tr>
+<tr><th id="159">159</th><td>	<dfn class="enum" id="UI_INIT" title='UI_INIT' data-ref="UI_INIT">UI_INIT</dfn>,</td></tr>
+<tr><th id="160">160</th><td><i>//	void	UI_Init( void );</i></td></tr>
+<tr><th id="161">161</th><td></td></tr>
+<tr><th id="162">162</th><td>	<dfn class="enum" id="UI_SHUTDOWN" title='UI_SHUTDOWN' data-ref="UI_SHUTDOWN">UI_SHUTDOWN</dfn>,</td></tr>
+<tr><th id="163">163</th><td><i>//	void	UI_Shutdown( void );</i></td></tr>
+<tr><th id="164">164</th><td></td></tr>
+<tr><th id="165">165</th><td>	<dfn class="enum" id="UI_KEY_EVENT" title='UI_KEY_EVENT' data-ref="UI_KEY_EVENT">UI_KEY_EVENT</dfn>,</td></tr>
+<tr><th id="166">166</th><td><i>//	void	UI_KeyEvent( int key );</i></td></tr>
+<tr><th id="167">167</th><td></td></tr>
+<tr><th id="168">168</th><td>	<dfn class="enum" id="UI_MOUSE_EVENT" title='UI_MOUSE_EVENT' data-ref="UI_MOUSE_EVENT">UI_MOUSE_EVENT</dfn>,</td></tr>
+<tr><th id="169">169</th><td><i>//	void	UI_MouseEvent( int dx, int dy );</i></td></tr>
+<tr><th id="170">170</th><td></td></tr>
+<tr><th id="171">171</th><td>	<dfn class="enum" id="UI_REFRESH" title='UI_REFRESH' data-ref="UI_REFRESH">UI_REFRESH</dfn>,</td></tr>
+<tr><th id="172">172</th><td><i>//	void	UI_Refresh( int time );</i></td></tr>
+<tr><th id="173">173</th><td></td></tr>
+<tr><th id="174">174</th><td>	<dfn class="enum" id="UI_IS_FULLSCREEN" title='UI_IS_FULLSCREEN' data-ref="UI_IS_FULLSCREEN">UI_IS_FULLSCREEN</dfn>,</td></tr>
+<tr><th id="175">175</th><td><i>//	qboolean UI_IsFullscreen( void );</i></td></tr>
+<tr><th id="176">176</th><td></td></tr>
+<tr><th id="177">177</th><td>	<dfn class="enum" id="UI_SET_ACTIVE_MENU" title='UI_SET_ACTIVE_MENU' data-ref="UI_SET_ACTIVE_MENU">UI_SET_ACTIVE_MENU</dfn>,</td></tr>
+<tr><th id="178">178</th><td><i>//	void	UI_SetActiveMenu( uiMenuCommand_t menu );</i></td></tr>
+<tr><th id="179">179</th><td></td></tr>
+<tr><th id="180">180</th><td>	<dfn class="enum" id="UI_CONSOLE_COMMAND" title='UI_CONSOLE_COMMAND' data-ref="UI_CONSOLE_COMMAND">UI_CONSOLE_COMMAND</dfn>,</td></tr>
+<tr><th id="181">181</th><td><i>//	qboolean UI_ConsoleCommand( int realTime );</i></td></tr>
+<tr><th id="182">182</th><td></td></tr>
+<tr><th id="183">183</th><td>	<dfn class="enum" id="UI_DRAW_CONNECT_SCREEN" title='UI_DRAW_CONNECT_SCREEN' data-ref="UI_DRAW_CONNECT_SCREEN">UI_DRAW_CONNECT_SCREEN</dfn>,</td></tr>
+<tr><th id="184">184</th><td><i>//	void	UI_DrawConnectScreen( qboolean overlay );</i></td></tr>
+<tr><th id="185">185</th><td>	<dfn class="enum" id="UI_HASUNIQUECDKEY" title='UI_HASUNIQUECDKEY' data-ref="UI_HASUNIQUECDKEY">UI_HASUNIQUECDKEY</dfn></td></tr>
+<tr><th id="186">186</th><td><i>// if !overlay, the background will be drawn, otherwise it will be</i></td></tr>
+<tr><th id="187">187</th><td><i>// overlayed over whatever the cgame has drawn.</i></td></tr>
+<tr><th id="188">188</th><td><i>// a GetClientState syscall will be made to get the current strings</i></td></tr>
+<tr><th id="189">189</th><td>} <dfn class="typedef" id="uiExport_t" title='uiExport_t' data-type='enum uiExport_t' data-ref="uiExport_t">uiExport_t</dfn>;</td></tr>
+<tr><th id="190">190</th><td></td></tr>
+<tr><th id="191">191</th><td><u>#<span data-ppcond="23">endif</span></u></td></tr>
+<tr><th id="192">192</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='../client/cl_avi.c.html'>codebrowser/code/client/cl_avi.c</a><br/>Generated on <em>2017-Aug-29</em> from project codebrowser revision <em>63e07af</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

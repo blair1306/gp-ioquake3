@@ -1,0 +1,12 @@
+<dec f='codebrowser/code/client/snd_local.h' l='176' type='void SNDDMA_Submit()'/>
+<use f='codebrowser/code/client/snd_dma.c' l='712' u='c' c='S_Base_ClearSoundBuffer'/>
+<use f='codebrowser/code/client/snd_dma.c' l='1353' u='c' c='S_Update_'/>
+<def f='codebrowser/code/null/null_snddma.c' l='47' ll='49' type='void SNDDMA_Submit()'/>
+<def f='codebrowser/code/sdl/sdl_snd.c' l='282' ll='285' type='void SNDDMA_Submit()'/>
+<doc f='codebrowser/code/sdl/sdl_snd.c' l='275'>/*
+===============
+SNDDMA_Submit
+
+Send sound to device if buffer isn&apos;t really the dma buffer
+===============
+*/</doc>

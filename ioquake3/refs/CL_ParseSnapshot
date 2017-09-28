@@ -1,0 +1,11 @@
+<def f='codebrowser/code/client/cl_parse.c' l='203' ll='325' type='void CL_ParseSnapshot(msg_t * msg)'/>
+<use f='codebrowser/code/client/cl_parse.c' l='914' u='c' c='CL_ParseServerMessage'/>
+<doc f='codebrowser/code/client/cl_parse.c' l='194'>/*
+================
+CL_ParseSnapshot
+
+If the snapshot is parsed properly, it will be copied to
+cl.snap and saved in cl.snapshots[].  If the snapshot is invalid
+for any reason, no changes to the state will be made at all.
+================
+*/</doc>

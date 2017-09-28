@@ -1,0 +1,11 @@
+<dec f='codebrowser/code/server/server.h' l='386' type='int SV_SendQueuedMessages()'/>
+<def f='codebrowser/code/server/sv_client.c' l='1140' ll='1162' type='int SV_SendQueuedMessages()'/>
+<doc f='codebrowser/code/server/sv_client.c' l='1131'>/*
+==================
+SV_SendQueuedMessages
+
+Send one round of fragments, or queued messages to all clients that have data pending.
+Return the shortest time interval for sending next packet to client
+==================
+*/</doc>
+<use f='codebrowser/code/server/sv_main.c' l='1228' u='c' c='SV_SendQueuedPackets'/>

@@ -1,0 +1,16 @@
+<dec f='codebrowser/code/game/g_local.h' l='552' type='qboolean LogAccuracyHit(gentity_t * target, gentity_t * attacker)'/>
+<doc f='codebrowser/code/game/g_local.h' l='549'>//
+// g_weapon.c
+//</doc>
+<use f='codebrowser/code/game/g_combat.c' l='1210' u='c' c='G_RadiusDamage'/>
+<use f='codebrowser/code/game/g_missile.c' l='313' u='c' c='G_MissileImpact'/>
+<use f='codebrowser/code/game/g_weapon.c' l='202' u='c' c='Bullet_Fire'/>
+<use f='codebrowser/code/game/g_weapon.c' l='316' u='c' c='ShotgunPellet'/>
+<use f='codebrowser/code/game/g_weapon.c' l='501' u='c' c='weapon_railgun_fire'/>
+<use f='codebrowser/code/game/g_weapon.c' l='681' u='c' c='Weapon_LightningFire'/>
+<def f='codebrowser/code/game/g_weapon.c' l='748' ll='774' type='qboolean LogAccuracyHit(gentity_t * target, gentity_t * attacker)'/>
+<doc f='codebrowser/code/game/g_weapon.c' l='743'>/*
+===============
+LogAccuracyHit
+===============
+*/</doc>

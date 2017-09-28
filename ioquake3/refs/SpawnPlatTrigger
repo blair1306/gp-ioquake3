@@ -1,0 +1,11 @@
+<def f='codebrowser/code/game/g_mover.c' l='1071' ll='1104' type='void SpawnPlatTrigger(gentity_t * ent)'/>
+<use f='codebrowser/code/game/g_mover.c' l='1157' u='c' c='SP_func_plat'/>
+<doc f='codebrowser/code/game/g_mover.c' l='1062'>/*
+================
+SpawnPlatTrigger
+
+Spawn a trigger in the middle of the plat&apos;s low position
+Elevator cars require that the trigger extend through the entire low position,
+not just sit on top of it.
+================
+*/</doc>

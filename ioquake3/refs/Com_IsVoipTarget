@@ -1,0 +1,12 @@
+<dec f='codebrowser/code/qcommon/qcommon.h' l='839' type='qboolean Com_IsVoipTarget(uint8_t * voipTargets, int voipTargetsSize, int clientNum)'/>
+<use f='codebrowser/code/client/cl_input.c' l='801' u='c' c='CL_WritePacket'/>
+<def f='codebrowser/code/qcommon/common.c' l='3604' ll='3624' type='qboolean Com_IsVoipTarget(uint8_t * voipTargets, int voipTargetsSize, int clientNum)'/>
+<doc f='codebrowser/code/qcommon/common.c' l='3596'>/*
+==================
+Com_IsVoipTarget
+
+Returns non-zero if given clientNum is enabled in voipTargets, zero otherwise.
+If clientNum is negative return if any bit is set.
+==================
+*/</doc>
+<use f='codebrowser/code/server/sv_client.c' l='1855' u='c' c='SV_UserVoip'/>

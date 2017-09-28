@@ -1,0 +1,7 @@
+<dec f='codebrowser/code/qcommon/json.h' l='50' type='unsigned int JSON_ArrayGetIndex(const char * json, const char * jsonEnd, const char ** indexes, unsigned int numIndexes)'/>
+<def f='codebrowser/code/qcommon/json.h' l='190' ll='205' type='unsigned int JSON_ArrayGetIndex(const char * json, const char * jsonEnd, const char ** indexes, unsigned int numIndexes)'/>
+<use f='codebrowser/code/renderergl2/tr_bsp.c' l='2492' u='c' c='R_LoadEnvironmentJson'/>
+<use f='codebrowser/code/renderergl2/tr_bsp.c' l='2509' u='c' c='R_LoadEnvironmentJson'/>
+<doc f='codebrowser/code/qcommon/json.h' l='47'>// Get pointers to values in an array
+// returns 0 if not an array, array is empty, or out of data
+// returns number of values in the array and copies into index if successful</doc>

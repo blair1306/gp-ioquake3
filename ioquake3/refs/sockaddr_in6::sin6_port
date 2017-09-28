@@ -1,0 +1,9 @@
+<dec f='include/netinet/in.h' l='257' type='in_port_t'/>
+<offset>16</offset>
+<doc f='include/netinet/in.h' l='257'>/* Transport layer port # */</doc>
+<use f='codebrowser/code/qcommon/net_ip.c' l='226' u='w' c='NetadrToSockadr'/>
+<use f='codebrowser/code/qcommon/net_ip.c' l='233' u='w' c='NetadrToSockadr'/>
+<use f='codebrowser/code/qcommon/net_ip.c' l='248' u='r' c='SockadrToNetadr'/>
+<use f='codebrowser/code/qcommon/net_ip.c' l='940' u='w' c='NET_IP6Socket'/>
+<use f='codebrowser/code/qcommon/net_ip.c' l='943' u='w' c='NET_IP6Socket'/>
+<use f='codebrowser/code/qcommon/net_ip.c' l='1013' u='r' c='NET_JoinMulticast6'/>

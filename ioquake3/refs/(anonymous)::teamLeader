@@ -1,0 +1,26 @@
+<dec f='codebrowser/code/cgame/cg_local.h' l='331' type='qboolean'/>
+<offset>1152</offset>
+<doc f='codebrowser/code/cgame/cg_local.h' l='331'>// true when this is a team leader</doc>
+<use f='codebrowser/code/cgame/cg_players.c' l='942' u='w' c='CG_NewClientInfo'/>
+<dec f='codebrowser/code/game/g_local.h' l='226' type='qboolean'/>
+<offset>192</offset>
+<doc f='codebrowser/code/game/g_local.h' l='226'>// true when this client is a team leader</doc>
+<use f='codebrowser/code/game/g_client.c' l='577' u='r' c='TeamLeader'/>
+<use f='codebrowser/code/game/g_client.c' l='838' u='r' c='ClientUserinfoChanged'/>
+<use f='codebrowser/code/game/g_cmds.c' l='627' u='w' c='SetTeam'/>
+<use f='codebrowser/code/game/g_main.c' l='1626' u='r' c='SetLeader'/>
+<use f='codebrowser/code/game/g_main.c' l='1627' u='w' c='SetLeader'/>
+<use f='codebrowser/code/game/g_main.c' l='1631' u='w' c='SetLeader'/>
+<use f='codebrowser/code/game/g_main.c' l='1647' u='r' c='CheckTeamLeader'/>
+<use f='codebrowser/code/game/g_main.c' l='1655' u='w' c='CheckTeamLeader'/>
+<use f='codebrowser/code/game/g_main.c' l='1664' u='w' c='CheckTeamLeader'/>
+<use f='codebrowser/code/game/g_session.c' l='54' u='r' c='G_WriteClientSessionData'/>
+<use f='codebrowser/code/game/g_session.c' l='91' u='w' c='G_ReadSessionData'/>
+<dec f='codebrowser/code/ui/ui_local.h' l='788' type='qboolean'/>
+<offset>663520</offset>
+<use f='codebrowser/code/ui/ui_main.c' l='1801' u='w' c='UI_BuildPlayerList'/>
+<use f='codebrowser/code/ui/ui_main.c' l='1828' u='r' c='UI_BuildPlayerList'/>
+<use f='codebrowser/code/ui/ui_main.c' l='1847' u='r' c='UI_DrawSelectedPlayer'/>
+<use f='codebrowser/code/ui/ui_main.c' l='2171' u='r' c='UI_OwnerDrawVisible'/>
+<use f='codebrowser/code/ui/ui_main.c' l='2183' u='r' c='UI_OwnerDrawVisible'/>
+<use f='codebrowser/code/ui/ui_main.c' l='2617' u='r' c='UI_SelectedPlayer_HandleKey'/>

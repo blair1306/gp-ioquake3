@@ -1,0 +1,20 @@
+<dec f='codebrowser/code/qcommon/qcommon.h' l='642' type='fileHandle_t FS_FOpenFileWrite(const char * qpath)'/>
+<use f='codebrowser/code/client/cl_avi.c' l='338' u='c' c='CL_OpenAVIForWriting'/>
+<use f='codebrowser/code/client/cl_avi.c' l='341' u='c' c='CL_OpenAVIForWriting'/>
+<use f='codebrowser/code/client/cl_console.c' l='204' u='c' c='Con_Dump_f'/>
+<use f='codebrowser/code/client/cl_keys.c' l='1574' u='c' c='CL_SaveConsoleHistory'/>
+<use f='codebrowser/code/client/cl_main.c' l='753' u='c' c='CL_Record_f'/>
+<use f='codebrowser/code/client/cl_main.c' l='906' u='c' c='CL_DemoCompleted'/>
+<use f='codebrowser/code/qcommon/common.c' l='208' u='c' c='Com_Printf'/>
+<use f='codebrowser/code/qcommon/common.c' l='1920' u='c' c='Com_InitJournaling'/>
+<use f='codebrowser/code/qcommon/common.c' l='1921' u='c' c='Com_InitJournaling'/>
+<use f='codebrowser/code/qcommon/common.c' l='2925' u='c' c='Com_WriteConfigToFile'/>
+<def f='codebrowser/code/qcommon/files.c' l='900' ll='935' type='fileHandle_t FS_FOpenFileWrite(const char * filename)'/>
+<use f='codebrowser/code/qcommon/files.c' l='1990' u='c' c='FS_WriteFile'/>
+<use f='codebrowser/code/qcommon/files.c' l='4087' u='c' c='FS_FOpenFileByMode'/>
+<doc f='codebrowser/code/qcommon/files.c' l='894'>/*
+===========
+FS_FOpenFileWrite
+
+===========
+*/</doc>

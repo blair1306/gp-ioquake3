@@ -1,0 +1,14 @@
+<dec f='codebrowser/code/jpeg-8c/jpegint.h' l='150' type='int (*)(j_decompress_ptr)'/>
+<offset>0</offset>
+<use f='codebrowser/code/jpeg-8c/jdapimin.c' l='302' u='r' c='jpeg_consume_input'/>
+<use f='codebrowser/code/jpeg-8c/jdapimin.c' l='321' u='r' c='jpeg_consume_input'/>
+<use f='codebrowser/code/jpeg-8c/jdapimin.c' l='388' u='r' c='jpeg_finish_decompress'/>
+<use f='codebrowser/code/jpeg-8c/jdapistd.c' l='60' u='r' c='jpeg_start_decompress'/>
+<use f='codebrowser/code/jpeg-8c/jdapistd.c' l='268' u='r' c='jpeg_finish_output'/>
+<use f='codebrowser/code/jpeg-8c/jdcoefct.c' l='332' u='r' c='decompress_data'/>
+<use f='codebrowser/code/jpeg-8c/jdcoefct.c' l='494' u='r' c='decompress_smooth_data'/>
+<use f='codebrowser/code/jpeg-8c/jdinput.c' l='527' u='w' c='start_input_pass'/>
+<use f='codebrowser/code/jpeg-8c/jdinput.c' l='540' u='w' c='finish_input_pass'/>
+<use f='codebrowser/code/jpeg-8c/jdinput.c' l='623' u='w' c='reset_input_controller'/>
+<use f='codebrowser/code/jpeg-8c/jdinput.c' l='651' u='w' c='jinit_input_controller'/>
+<use f='codebrowser/code/jpeg-8c/jdtrans.c' l='61' u='r' c='jpeg_read_coefficients'/>

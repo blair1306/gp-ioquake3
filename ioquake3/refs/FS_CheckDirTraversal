@@ -1,0 +1,16 @@
+<dec f='codebrowser/code/qcommon/qcommon.h' l='728' type='qboolean FS_CheckDirTraversal(const char * checkdir)'/>
+<doc f='codebrowser/code/qcommon/qcommon.h' l='723'>// If the string is empty, all data sources will be allowed.
+// If not empty, only pk3 files that match one of the space
+// separated checksums will be checked for files, with the
+// sole exception of .cfg files.</doc>
+<use f='codebrowser/code/client/cl_parse.c' l='402' u='c' c='CL_SystemInfoChanged'/>
+<def f='codebrowser/code/qcommon/files.c' l='3062' ll='3068' type='qboolean FS_CheckDirTraversal(const char * checkdir)'/>
+<use f='codebrowser/code/qcommon/files.c' l='3123' u='c' c='FS_ComparePaks'/>
+<doc f='codebrowser/code/qcommon/files.c' l='3053'>/*
+================
+FS_CheckDirTraversal
+
+Check whether the string contains stuff like &quot;../&quot; to prevent directory traversal bugs
+and return qtrue if it does.
+================
+*/</doc>

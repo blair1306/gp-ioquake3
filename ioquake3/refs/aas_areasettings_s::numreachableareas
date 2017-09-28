@@ -1,0 +1,25 @@
+<dec f='codebrowser/code/botlib/aasfile.h' l='148' type='int'/>
+<offset>160</offset>
+<doc f='codebrowser/code/botlib/aasfile.h' l='148'>//number of reachable areas from this one</doc>
+<use f='codebrowser/code/botlib/be_aas_cluster.c' l='232' u='r' c='AAS_FloodClusterAreas_r'/>
+<use f='codebrowser/code/botlib/be_aas_cluster.c' l='264' u='r' c='AAS_FloodClusterAreasUsingReachabilities'/>
+<use f='codebrowser/code/botlib/be_aas_cluster.c' l='405' u='r' c='AAS_FindClusters'/>
+<use f='codebrowser/code/botlib/be_aas_debug.c' l='698' u='r' c='AAS_ShowReachableAreas'/>
+<use f='codebrowser/code/botlib/be_aas_debug.c' l='700' u='r' c='AAS_ShowReachableAreas'/>
+<use f='codebrowser/code/botlib/be_aas_debug.c' l='746' u='r' c='AAS_FloodAreas_r'/>
+<use f='codebrowser/code/botlib/be_aas_file.c' l='129' u='w' c='AAS_SwapAASData'/>
+<use f='codebrowser/code/botlib/be_aas_file.c' l='129' u='r' c='AAS_SwapAASData'/>
+<use f='codebrowser/code/botlib/be_aas_reach.c' l='529' u='r' c='AAS_AreaReachability'/>
+<use f='codebrowser/code/botlib/be_aas_reach.c' l='4316' u='w' c='AAS_StoreReachability'/>
+<use f='codebrowser/code/botlib/be_aas_reach.c' l='4320' u='r' c='AAS_StoreReachability'/>
+<use f='codebrowser/code/botlib/be_aas_reach.c' l='4329' u='w' c='AAS_StoreReachability'/>
+<use f='codebrowser/code/botlib/be_aas_reach.c' l='4331' u='r' c='AAS_StoreReachability'/>
+<use f='codebrowser/code/botlib/be_aas_route.c' l='445' u='r' c='AAS_CreateReversedReachability'/>
+<use f='codebrowser/code/botlib/be_aas_route.c' l='448' u='r' c='AAS_CreateReversedReachability'/>
+<use f='codebrowser/code/botlib/be_aas_route.c' l='523' u='r' c='AAS_CalculateAreaTravelTimes'/>
+<use f='codebrowser/code/botlib/be_aas_route.c' l='525' u='r' c='AAS_CalculateAreaTravelTimes'/>
+<use f='codebrowser/code/botlib/be_aas_route.c' l='541' u='r' c='AAS_CalculateAreaTravelTimes'/>
+<use f='codebrowser/code/botlib/be_aas_route.c' l='543' u='r' c='AAS_CalculateAreaTravelTimes'/>
+<use f='codebrowser/code/botlib/be_aas_route.c' l='583' u='r' c='AAS_PortalMaxTravelTime'/>
+<use f='codebrowser/code/botlib/be_aas_route.c' l='1966' u='r' c='AAS_NextAreaReachability'/>
+<use f='codebrowser/code/botlib/be_aas_route.c' l='2132' u='r' c='AAS_NearestHideArea'/>

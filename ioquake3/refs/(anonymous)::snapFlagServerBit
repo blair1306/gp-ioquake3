@@ -1,0 +1,6 @@
+<dec f='codebrowser/code/server/server.h' l='235' type='int'/>
+<offset>64</offset>
+<doc f='codebrowser/code/server/server.h' l='235'>// ^= SNAPFLAG_SERVERCOUNT every SV_SpawnServer()</doc>
+<use f='codebrowser/code/server/sv_ccmds.c' l='278' u='w' c='SV_MapRestart_f'/>
+<use f='codebrowser/code/server/sv_init.c' l='447' u='w' c='SV_SpawnServer'/>
+<use f='codebrowser/code/server/sv_snapshot.c' l='178' u='r' c='SV_WriteSnapshotToClient'/>

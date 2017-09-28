@@ -1,0 +1,9 @@
+<dec f='codebrowser/code/opusfile-0.8/include/opusfile.h' l='1414' type='void op_free(OggOpusFile * _of)'/>
+<use f='codebrowser/code/client/snd_codec_opus.c' l='253' u='c' c='S_OggOpus_CodecOpenStream'/>
+<use f='codebrowser/code/client/snd_codec_opus.c' l='264' u='c' c='S_OggOpus_CodecOpenStream'/>
+<use f='codebrowser/code/client/snd_codec_opus.c' l='273' u='c' c='S_OggOpus_CodecOpenStream'/>
+<use f='codebrowser/code/client/snd_codec_opus.c' l='283' u='c' c='S_OggOpus_CodecOpenStream'/>
+<use f='codebrowser/code/client/snd_codec_opus.c' l='325' u='c' c='S_OggOpus_CodecCloseStream'/>
+<doc f='codebrowser/code/opusfile-0.8/include/opusfile.h' l='1412'>/**Release all memory used by an \c OggOpusFile.
+   \param _of The \c OggOpusFile to free.*/</doc>
+<def f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='1690' ll='1695' type='void op_free(OggOpusFile * _of)'/>

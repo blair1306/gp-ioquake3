@@ -1,0 +1,11 @@
+<dec f='include/SDL2/SDL_surface.h' l='308' type='int SDL_SetSurfaceBlendMode(SDL_Surface * surface, SDL_BlendMode blendMode)'/>
+<doc f='include/SDL2/SDL_surface.h' l='298'>/**
+ *  \brief Set the blend mode used for blit operations.
+ *
+ *  \param surface The surface to update.
+ *  \param blendMode ::SDL_BlendMode to use for blit blending.
+ *
+ *  \return 0 on success, or -1 if the parameters are not valid.
+ *
+ *  \sa SDL_GetSurfaceBlendMode()
+ */</doc>

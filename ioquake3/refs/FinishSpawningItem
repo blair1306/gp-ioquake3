@@ -1,0 +1,12 @@
+<dec f='codebrowser/code/game/g_local.h' l='446' type='void FinishSpawningItem(gentity_t * ent)'/>
+<use f='codebrowser/code/game/g_cmds.c' l='322' u='c' c='Cmd_Give_f'/>
+<def f='codebrowser/code/game/g_items.c' l='658' ll='714' type='void FinishSpawningItem(gentity_t * ent)'/>
+<use f='codebrowser/code/game/g_items.c' l='900' u='r' c='G_SpawnItem'/>
+<doc f='codebrowser/code/game/g_items.c' l='650'>/*
+================
+FinishSpawningItem
+
+Traces down to find where an item should rest, instead of letting them
+free fall from their spawn points
+================
+*/</doc>

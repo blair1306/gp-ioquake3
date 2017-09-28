@@ -1,0 +1,13 @@
+<dec f='codebrowser/code/qcommon/qcommon.h' l='240' type='void Netchan_Transmit(netchan_t * chan, int length, const byte * data)'/>
+<use f='codebrowser/code/client/cl_net_chan.c' l='160' u='c' c='CL_Netchan_Transmit'/>
+<def f='codebrowser/code/qcommon/net_chan.c' l='177' ll='230' type='void Netchan_Transmit(netchan_t * chan, int length, const byte * data)'/>
+<doc f='codebrowser/code/qcommon/net_chan.c' l='169'>/*
+===============
+Netchan_Transmit
+
+Sends a message to a connection, fragmenting if necessary
+A 0 length will still generate a packet.
+================
+*/</doc>
+<use f='codebrowser/code/server/sv_net_chan.c' l='172' u='c' c='SV_Netchan_TransmitNextInQueue'/>
+<use f='codebrowser/code/server/sv_net_chan.c' l='253' u='c' c='SV_Netchan_Transmit'/>

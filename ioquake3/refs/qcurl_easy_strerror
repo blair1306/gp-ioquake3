@@ -1,0 +1,5 @@
+<dec f='codebrowser/code/client/cl_curl.h' l='57' type='const char *(*)(CURLcode)'/>
+<def f='codebrowser/code/client/cl_curl.c' l='40' type='const char *(*)(CURLcode)'/>
+<use f='codebrowser/code/client/cl_curl.c' l='118' u='w' c='CL_cURL_Init'/>
+<use f='codebrowser/code/client/cl_curl.c' l='239' u='r' c='qcurl_easy_setopt_warn'/>
+<use f='codebrowser/code/client/cl_curl.c' l='360' u='r' c='CL_cURL_PerformDownload'/>

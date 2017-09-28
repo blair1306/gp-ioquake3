@@ -1,0 +1,20 @@
+<dec f='include/stdio.h' l='272' type='FILE * fopen(const char *restrict __filename, const char *restrict __modes)'/>
+<doc f='include/stdio.h' l='268'>/* Open a file and create a new stream for it.
+
+   This function is a possible cancellation point and therefore not
+   marked with __THROW.  */</doc>
+<use f='codebrowser/code/botlib/l_log.c' l='72' u='c' c='Log_Open'/>
+<use f='codebrowser/code/qcommon/ioapi.c' l='90' u='c' c='fopen_file_func'/>
+<use f='codebrowser/code/qcommon/vm.c' l='983' u='c' c='VM_LogSyscalls'/>
+<use f='codebrowser/code/sys/sys_main.c' l='210' u='c' c='Sys_WritePIDFile'/>
+<use f='codebrowser/code/sys/sys_main.c' l='232' u='c' c='Sys_WritePIDFile'/>
+<use f='codebrowser/code/sys/sys_unix.c' l='164' u='c' c='Sys_RandomBytes'/>
+<use f='codebrowser/code/sys/sys_unix.c' l='241' u='c' c='Sys_FOpen'/>
+<use f='codebrowser/code/sys/sys_unix.c' l='279' u='c' c='Sys_Mkfifo'/>
+<use f='codebrowser/code/tools/asm/cmdlib.c' l='651' u='c' c='myfopen'/>
+<use f='codebrowser/code/tools/lcc/lburg/lburg.c' l='59' u='c' c='main'/>
+<use f='codebrowser/code/tools/lcc/lburg/lburg.c' l='66' u='c' c='main'/>
+<use f='codebrowser/code/tools/lcc/src/bytecode.c' l='255' u='c' c='LoadSourceFile'/>
+<use f='codebrowser/code/tools/lcc/src/main.c' l='140' u='c' c='main_init'/>
+<use f='codebrowser/code/tools/lcc/src/main.c' l='196' u='c' c='stabline'/>
+<use f='codebrowser/code/tools/lcc/src/profio.c' l='261' u='c' c='process'/>

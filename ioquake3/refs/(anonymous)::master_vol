@@ -1,0 +1,10 @@
+<dec f='codebrowser/code/client/snd_local.h' l='101' type='int'/>
+<offset>192</offset>
+<doc f='codebrowser/code/client/snd_local.h' l='101'>// 0-255 volume before spatialization</doc>
+<use f='codebrowser/code/client/snd_dma.c' l='640' u='w' c='S_Base_StartSoundEx'/>
+<use f='codebrowser/code/client/snd_dma.c' l='645' u='r' c='S_Base_StartSoundEx'/>
+<use f='codebrowser/code/client/snd_dma.c' l='646' u='r' c='S_Base_StartSoundEx'/>
+<use f='codebrowser/code/client/snd_dma.c' l='930' u='w' c='S_AddLoopSounds'/>
+<use f='codebrowser/code/client/snd_dma.c' l='1146' u='r' c='S_Base_Respatialize'/>
+<use f='codebrowser/code/client/snd_dma.c' l='1147' u='r' c='S_Base_Respatialize'/>
+<use f='codebrowser/code/client/snd_dma.c' l='1155' u='r' c='S_Base_Respatialize'/>

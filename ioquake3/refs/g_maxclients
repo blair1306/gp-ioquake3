@@ -1,0 +1,31 @@
+<dec f='codebrowser/code/game/g_local.h' l='700' type='vmCvar_t'/>
+<doc f='codebrowser/code/game/g_local.h' l='700'>// allow this many total, including spectators</doc>
+<use f='codebrowser/code/game/g_bot.c' l='245' u='m' c='G_CountBotPlayersByName'/>
+<use f='codebrowser/code/game/g_bot.c' l='339' u='m' c='G_RemoveRandomBot'/>
+<use f='codebrowser/code/game/g_bot.c' l='366' u='m' c='G_CountHumanPlayers'/>
+<use f='codebrowser/code/game/g_bot.c' l='394' u='m' c='G_CountBotPlayers'/>
+<use f='codebrowser/code/game/g_bot.c' l='431' u='m' c='G_CheckMinimumPlayers'/>
+<use f='codebrowser/code/game/g_bot.c' l='432' u='m' c='G_CheckMinimumPlayers'/>
+<use f='codebrowser/code/game/g_bot.c' l='454' u='m' c='G_CheckMinimumPlayers'/>
+<use f='codebrowser/code/game/g_bot.c' l='455' u='m' c='G_CheckMinimumPlayers'/>
+<use f='codebrowser/code/game/g_bot.c' l='471' u='m' c='G_CheckMinimumPlayers'/>
+<use f='codebrowser/code/game/g_bot.c' l='472' u='m' c='G_CheckMinimumPlayers'/>
+<def f='codebrowser/code/game/g_main.c' l='49' type='vmCvar_t'/>
+<use f='codebrowser/code/game/g_main.c' l='111' u='a'/>
+<use f='codebrowser/code/game/g_main.c' l='111' u='a'/>
+<use f='codebrowser/code/game/g_main.c' l='111' u='a'/>
+<use f='codebrowser/code/game/g_main.c' l='111' u='a'/>
+<use f='codebrowser/code/game/g_main.c' l='457' u='m' c='G_InitGame'/>
+<use f='codebrowser/code/game/g_main.c' l='1081' u='m' c='ExitLevel'/>
+<use f='codebrowser/code/game/g_main.c' l='1094' u='m' c='ExitLevel'/>
+<use f='codebrowser/code/game/g_main.c' l='1241' u='m' c='CheckIntermissionExit'/>
+<use f='codebrowser/code/game/g_main.c' l='1263' u='m' c='CheckIntermissionExit'/>
+<use f='codebrowser/code/game/g_main.c' l='1390' u='m' c='CheckExitRules'/>
+<use f='codebrowser/code/game/g_team.c' l='324' u='m' c='Team_FragBonuses'/>
+<use f='codebrowser/code/game/g_team.c' l='342' u='m' c='Team_FragBonuses'/>
+<use f='codebrowser/code/game/g_team.c' l='404' u='m' c='Team_FragBonuses'/>
+<use f='codebrowser/code/game/g_team.c' l='751' u='m' c='Team_TouchOurFlag'/>
+<use f='codebrowser/code/game/g_team.c' l='1082' u='m' c='TeamplayInfoMessage'/>
+<use f='codebrowser/code/game/g_team.c' l='1096' u='m' c='TeamplayInfoMessage'/>
+<use f='codebrowser/code/game/g_team.c' l='1130' u='m' c='CheckTeamStatus'/>
+<use f='codebrowser/code/game/g_team.c' l='1146' u='m' c='CheckTeamStatus'/>

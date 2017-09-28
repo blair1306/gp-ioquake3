@@ -1,0 +1,7 @@
+<dec f='codebrowser/code/qcommon/qcommon.h' l='846' type='qboolean Com_PlayerNameToFieldString(char * str, int length, const char * name)'/>
+<doc f='codebrowser/code/qcommon/qcommon.h' l='842'>// checks for and removes command line &quot;+set var arg&quot; constructs
+// if match is NULL, all set commands will be executed, otherwise
+// only a set with the exact name.  Only used during startup.</doc>
+<def f='codebrowser/code/qcommon/common.c' l='3695' ll='3737' type='qboolean Com_PlayerNameToFieldString(char * str, int length, const char * name)'/>
+<use f='codebrowser/code/qcommon/common.c' l='3753' u='c' c='Field_CompletePlayerName'/>
+<use f='codebrowser/code/qcommon/common.c' l='3773' u='c' c='Field_CompletePlayerName'/>

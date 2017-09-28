@@ -1,0 +1,14 @@
+<dec f='include/SDL2/SDL_render.h' l='380' type='int SDL_UpdateTexture(SDL_Texture * texture, const SDL_Rect * rect, const void * pixels, int pitch)'/>
+<doc f='include/SDL2/SDL_render.h' l='367'>/**
+ *  \brief Update the given texture rectangle with new pixel data.
+ *
+ *  \param texture   The texture to update
+ *  \param rect      A pointer to the rectangle of pixels to update, or NULL to
+ *                   update the entire texture.
+ *  \param pixels    The raw pixel data.
+ *  \param pitch     The number of bytes in a row of pixel data, including padding between lines.
+ *
+ *  \return 0 on success, or -1 if the texture is not valid.
+ *
+ *  \note This is a fairly slow function.
+ */</doc>

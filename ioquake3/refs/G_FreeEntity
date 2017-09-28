@@ -1,0 +1,35 @@
+<dec f='codebrowser/code/game/g_local.h' l='472' type='void G_FreeEntity(gentity_t * e)'/>
+<use f='codebrowser/code/game/g_cmds.c' l='326' u='c' c='Cmd_Give_f'/>
+<use f='codebrowser/code/game/g_combat.c' l='252' u='c' c='GibEntity'/>
+<use f='codebrowser/code/game/g_items.c' l='603' u='r' c='LaunchItem'/>
+<use f='codebrowser/code/game/g_items.c' l='683' u='c' c='FinishSpawningItem'/>
+<use f='codebrowser/code/game/g_items.c' l='1011' u='c' c='G_RunItem'/>
+<use f='codebrowser/code/game/g_main.c' l='1805' u='c' c='G_RunFrame'/>
+<use f='codebrowser/code/game/g_misc.c' l='45' u='c' c='SP_info_null'/>
+<use f='codebrowser/code/game/g_misc.c' l='66' u='c' c='SP_light'/>
+<use f='codebrowser/code/game/g_misc.c' l='152' u='c' c='SP_misc_model'/>
+<use f='codebrowser/code/game/g_misc.c' l='166' u='c' c='locateCamera'/>
+<use f='codebrowser/code/game/g_missile.c' l='491' u='c' c='G_RunMissile'/>
+<use f='codebrowser/code/game/g_mover.c' l='809' u='c' c='Blocked_Door'/>
+<use f='codebrowser/code/game/g_mover.c' l='1407' u='c' c='SP_path_corner'/>
+<use f='codebrowser/code/game/g_mover.c' l='1444' u='c' c='SP_func_train'/>
+<use f='codebrowser/code/game/g_spawn.c' l='415' u='c' c='G_SpawnGEntityFromSpawnVars'/>
+<use f='codebrowser/code/game/g_spawn.c' l='424' u='c' c='G_SpawnGEntityFromSpawnVars'/>
+<use f='codebrowser/code/game/g_spawn.c' l='431' u='c' c='G_SpawnGEntityFromSpawnVars'/>
+<use f='codebrowser/code/game/g_spawn.c' l='447' u='c' c='G_SpawnGEntityFromSpawnVars'/>
+<use f='codebrowser/code/game/g_spawn.c' l='459' u='c' c='G_SpawnGEntityFromSpawnVars'/>
+<use f='codebrowser/code/game/g_spawn.c' l='471' u='c' c='G_SpawnGEntityFromSpawnVars'/>
+<use f='codebrowser/code/game/g_team.c' l='529' u='c' c='Team_ResetFlag'/>
+<use f='codebrowser/code/game/g_trigger.c' l='72' u='r' c='multi_trigger'/>
+<use f='codebrowser/code/game/g_trigger.c' l='122' u='c' c='trigger_always_think'/>
+<use f='codebrowser/code/game/g_trigger.c' l='171' u='c' c='AimAtTarget'/>
+<use f='codebrowser/code/game/g_trigger.c' l='179' u='c' c='AimAtTarget'/>
+<def f='codebrowser/code/game/g_utils.c' l='468' ll='479' type='void G_FreeEntity(gentity_t * ed)'/>
+<doc f='codebrowser/code/game/g_utils.c' l='461'>/*
+=================
+G_FreeEntity
+
+Marks the entity as free
+=================
+*/</doc>
+<use f='codebrowser/code/game/g_weapon.c' l='586' u='c' c='Weapon_HookFree'/>

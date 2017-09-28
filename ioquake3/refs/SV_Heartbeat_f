@@ -1,0 +1,16 @@
+<dec f='codebrowser/code/server/server.h' l='392' type='void SV_Heartbeat_f()'/>
+<doc f='codebrowser/code/server/server.h' l='389'>//
+// sv_ccmds.c
+//</doc>
+<def f='codebrowser/code/server/sv_ccmds.c' l='1381' ll='1383' type='void SV_Heartbeat_f()'/>
+<use f='codebrowser/code/server/sv_ccmds.c' l='1528' u='r' c='SV_AddOperatorCommands'/>
+<doc f='codebrowser/code/server/sv_ccmds.c' l='1374'>/*
+==================
+SV_Heartbeat_f
+
+Also called by SV_DropClient, SV_DirectConnect, and SV_SpawnServer
+==================
+*/</doc>
+<use f='codebrowser/code/server/sv_client.c' l='599' u='c' c='SV_DirectConnect'/>
+<use f='codebrowser/code/server/sv_client.c' l='699' u='c' c='SV_DropClient'/>
+<use f='codebrowser/code/server/sv_init.c' l='608' u='c' c='SV_SpawnServer'/>

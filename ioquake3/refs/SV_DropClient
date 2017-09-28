@@ -1,0 +1,30 @@
+<dec f='codebrowser/code/server/server.h' l='379' type='void SV_DropClient(client_t * drop, const char * reason)'/>
+<use f='codebrowser/code/server/sv_ccmds.c' l='336' u='c' c='SV_MapRestart_f'/>
+<use f='codebrowser/code/server/sv_ccmds.c' l='392' u='c' c='SV_Kick_f'/>
+<use f='codebrowser/code/server/sv_ccmds.c' l='404' u='c' c='SV_Kick_f'/>
+<use f='codebrowser/code/server/sv_ccmds.c' l='415' u='c' c='SV_Kick_f'/>
+<use f='codebrowser/code/server/sv_ccmds.c' l='445' u='c' c='SV_KickBots_f'/>
+<use f='codebrowser/code/server/sv_ccmds.c' l='475' u='c' c='SV_KickAll_f'/>
+<use f='codebrowser/code/server/sv_ccmds.c' l='510' u='c' c='SV_KickNum_f'/>
+<use f='codebrowser/code/server/sv_client.c' l='518' u='c' c='SV_DirectConnect'/>
+<def f='codebrowser/code/server/sv_client.c' l='638' ll='701' type='void SV_DropClient(client_t * drop, const char * reason)'/>
+<use f='codebrowser/code/server/sv_client.c' l='907' u='c' c='SV_NextDownload_f'/>
+<use f='codebrowser/code/server/sv_client.c' l='1211' u='c' c='SV_Disconnect_f'/>
+<use f='codebrowser/code/server/sv_client.c' l='1371' u='c' c='SV_VerifyPaks_f'/>
+<use f='codebrowser/code/server/sv_client.c' l='1482' u='c' c='SV_UserinfoChanged'/>
+<use f='codebrowser/code/server/sv_client.c' l='1614' u='c' c='SV_ClientCommand'/>
+<use f='codebrowser/code/server/sv_client.c' l='1744' u='c' c='SV_UserMove'/>
+<doc f='codebrowser/code/server/sv_client.c' l='629'>/*
+=====================
+SV_DropClient
+
+Called when the player is totally leaving the server, either willingly
+or unwillingly.  This is NOT called if the entire server is quiting
+or crashing -- SV_FinalMessage() will handle that
+=====================
+*/</doc>
+<use f='codebrowser/code/server/sv_game.c' l='100' u='c' c='SV_GameDropClient'/>
+<use f='codebrowser/code/server/sv_init.c' l='520' u='c' c='SV_SpawnServer'/>
+<use f='codebrowser/code/server/sv_init.c' l='534' u='c' c='SV_SpawnServer'/>
+<use f='codebrowser/code/server/sv_main.c' l='167' u='c' c='SV_AddServerCommand'/>
+<use f='codebrowser/code/server/sv_main.c' l='974' u='c' c='SV_CheckTimeouts'/>

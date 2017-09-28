@@ -1,0 +1,31 @@
+<dec f='codebrowser/code/cgame/cg_local.h' l='422' type='qhandle_t [4]'/>
+<offset>32</offset>
+<use f='codebrowser/code/cgame/cg_ents.c' l='303' u='r' c='CG_Item'/>
+<use f='codebrowser/code/cgame/cg_ents.c' l='385' u='r' c='CG_Item'/>
+<use f='codebrowser/code/cgame/cg_newdraw.c' l='479' u='r' c='CG_DrawPlayerItem'/>
+<use f='codebrowser/code/cgame/cg_weapons.c' l='845' u='w' c='CG_RegisterItemVisuals'/>
+<use f='codebrowser/code/cgame/cg_weapons.c' l='859' u='w' c='CG_RegisterItemVisuals'/>
+<dec f='codebrowser/code/renderergl1/tr_local.h' l='930' type='model_t *[1024]'/>
+<offset>14400</offset>
+<doc f='codebrowser/code/renderergl1/tr_local.h' l='926'>//
+	// put large tables at the end, so most elements will be
+	// within the +/32K indexed range on risc processors
+	//</doc>
+<use f='codebrowser/code/renderergl1/tr_model.c' l='212' u='r' c='R_GetModelByHandle'/>
+<use f='codebrowser/code/renderergl1/tr_model.c' l='215' u='r' c='R_GetModelByHandle'/>
+<use f='codebrowser/code/renderergl1/tr_model.c' l='232' u='r' c='R_AllocModel'/>
+<use f='codebrowser/code/renderergl1/tr_model.c' l='234' u='w' c='R_AllocModel'/>
+<use f='codebrowser/code/renderergl1/tr_model.c' l='276' u='r' c='RE_RegisterModel'/>
+<use f='codebrowser/code/renderergl1/tr_model.c' l='922' u='r' c='R_Modellist_f'/>
+<dec f='codebrowser/code/renderergl2/tr_local.h' l='1569' type='model_t *[1024]'/>
+<offset>484032</offset>
+<doc f='codebrowser/code/renderergl2/tr_local.h' l='1565'>//
+	// put large tables at the end, so most elements will be
+	// within the +/32K indexed range on risc processors
+	//</doc>
+<use f='codebrowser/code/renderergl2/tr_model.c' l='213' u='r' c='R_GetModelByHandle'/>
+<use f='codebrowser/code/renderergl2/tr_model.c' l='216' u='r' c='R_GetModelByHandle'/>
+<use f='codebrowser/code/renderergl2/tr_model.c' l='233' u='r' c='R_AllocModel'/>
+<use f='codebrowser/code/renderergl2/tr_model.c' l='235' u='w' c='R_AllocModel'/>
+<use f='codebrowser/code/renderergl2/tr_model.c' l='277' u='r' c='RE_RegisterModel'/>
+<use f='codebrowser/code/renderergl2/tr_model.c' l='1218' u='r' c='R_Modellist_f'/>

@@ -1,0 +1,29 @@
+<dec f='codebrowser/code/client/client.h' l='462' type='void CL_AddReliableCommand(const char * cmd, qboolean isDisconnectCmd)'/>
+<use f='codebrowser/code/client/cl_cgame.c' l='463' u='c' c='CL_CgameSystemCalls'/>
+<use f='codebrowser/code/client/cl_curl.c' l='323' u='c' c='CL_cURL_BeginDownload'/>
+<use f='codebrowser/code/client/cl_keys.c' l='777' u='c' c='Message_Key'/>
+<use f='codebrowser/code/client/cl_main.c' l='223' u='c' c='CL_UpdateVoipIgnore'/>
+<use f='codebrowser/code/client/cl_main.c' l='286' u='c' c='CL_Voip_f'/>
+<use f='codebrowser/code/client/cl_main.c' l='290' u='c' c='CL_Voip_f'/>
+<def f='codebrowser/code/client/cl_main.c' l='580' ll='599' type='void CL_AddReliableCommand(const char * cmd, qboolean isDisconnectCmd)'/>
+<use f='codebrowser/code/client/cl_main.c' l='1441' u='c' c='CL_Disconnect'/>
+<use f='codebrowser/code/client/cl_main.c' l='1510' u='c' c='CL_ForwardCommandToServer'/>
+<use f='codebrowser/code/client/cl_main.c' l='1512' u='c' c='CL_ForwardCommandToServer'/>
+<use f='codebrowser/code/client/cl_main.c' l='1656' u='c' c='CL_ForwardToServer_f'/>
+<use f='codebrowser/code/client/cl_main.c' l='1908' u='c' c='CL_SendPureChecksums'/>
+<use f='codebrowser/code/client/cl_main.c' l='1917' u='c' c='CL_ResetPureClientAtServer'/>
+<use f='codebrowser/code/client/cl_main.c' l='2115' u='c' c='CL_DownloadsComplete'/>
+<use f='codebrowser/code/client/cl_main.c' l='2182' u='c' c='CL_BeginDownload'/>
+<use f='codebrowser/code/client/cl_main.c' l='2921' u='c' c='CL_CheckUserinfo'/>
+<use f='codebrowser/code/client/cl_main.c' l='3486' u='c' c='CL_Sayto_f'/>
+<doc f='codebrowser/code/client/cl_main.c' l='572'>/*
+======================
+CL_AddReliableCommand
+
+The given command will be transmitted to the server, and is gauranteed to
+not have future usercmd_t executed before it is executed
+======================
+*/</doc>
+<use f='codebrowser/code/client/cl_parse.c' l='572' u='c' c='CL_ParseDownload'/>
+<use f='codebrowser/code/client/cl_parse.c' l='615' u='c' c='CL_ParseDownload'/>
+<use f='codebrowser/code/client/cl_parse.c' l='624' u='c' c='CL_ParseDownload'/>

@@ -1,0 +1,30 @@
+<dec f='codebrowser/code/botlib/be_aas_reach.h' l='54' type='int AAS_AreaSwim(int areanum)'/>
+<dec f='codebrowser/code/botlib/be_aas_reach.h' l='54' type='int AAS_AreaSwim(int areanum)'/>
+<doc f='codebrowser/code/botlib/be_aas_reach.h' l='53'>//returns true if a player can swim in this area</doc>
+<use f='codebrowser/code/botlib/be_aas_reach.c' l='191' u='c' c='AAS_BestReachableLinkArea'/>
+<def f='codebrowser/code/botlib/be_aas_reach.c' l='668' ll='672' type='int AAS_AreaSwim(int areanum)'/>
+<use f='codebrowser/code/botlib/be_aas_reach.c' l='824' u='c' c='AAS_NearbySolidOrGap'/>
+<use f='codebrowser/code/botlib/be_aas_reach.c' l='844' u='c' c='AAS_Reachability_Swim'/>
+<use f='codebrowser/code/botlib/be_aas_reach.c' l='844' u='c' c='AAS_Reachability_Swim'/>
+<use f='codebrowser/code/botlib/be_aas_reach.c' l='1080' u='c' c='AAS_Reachability_Step_Barrier_WaterJump_WalkOffLedge'/>
+<use f='codebrowser/code/botlib/be_aas_reach.c' l='1082' u='c' c='AAS_Reachability_Step_Barrier_WaterJump_WalkOffLedge'/>
+<use f='codebrowser/code/botlib/be_aas_reach.c' l='1087' u='c' c='AAS_Reachability_Step_Barrier_WaterJump_WalkOffLedge'/>
+<use f='codebrowser/code/botlib/be_aas_reach.c' l='1572' u='c' c='AAS_Reachability_Step_Barrier_WaterJump_WalkOffLedge'/>
+<use f='codebrowser/code/botlib/be_aas_reach.c' l='3036' u='c' c='AAS_Reachability_Elevator'/>
+<use f='codebrowser/code/botlib/be_aas_reach.c' l='3082' u='c' c='AAS_Reachability_Elevator'/>
+<use f='codebrowser/code/botlib/be_aas_reach.c' l='3795' u='c' c='AAS_Reachability_Grapple'/>
+<use f='codebrowser/code/botlib/be_aas_reach.c' l='3799' u='c' c='AAS_Reachability_Grapple'/>
+<use f='codebrowser/code/botlib/be_aas_reach.c' l='3808' u='c' c='AAS_Reachability_Grapple'/>
+<use f='codebrowser/code/botlib/be_aas_reach.c' l='4013' u='c' c='AAS_Reachability_WeaponJump'/>
+<use f='codebrowser/code/botlib/be_aas_reach.c' l='4135' u='c' c='AAS_Reachability_WalkOffLedge'/>
+<use f='codebrowser/code/botlib/be_aas_reach.c' l='4243' u='c' c='AAS_Reachability_WalkOffLedge'/>
+<use f='codebrowser/code/botlib/be_aas_reach.c' l='4275' u='c' c='AAS_Reachability_WalkOffLedge'/>
+<doc f='codebrowser/code/botlib/be_aas_reach.c' l='661'>//===========================================================================
+// returns qtrue if it is possible to swim in the area
+//
+// Parameter:				-
+// Returns:					-
+// Changes Globals:		-
+//===========================================================================</doc>
+<use f='codebrowser/code/botlib/be_aas_route.c' l='484' u='c' c='AAS_AreaTravelTime'/>
+<use f='codebrowser/code/botlib/be_aas_route.c' l='2025' u='c' c='AAS_RandomGoalArea'/>

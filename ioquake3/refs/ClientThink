@@ -1,0 +1,14 @@
+<dec f='codebrowser/code/game/g_local.h' l='624' type='void ClientThink(int clientNum)'/>
+<doc f='codebrowser/code/game/g_local.h' l='621'>//
+// g_active.c
+//</doc>
+<def f='codebrowser/code/game/g_active.c' l='1023' ll='1036' type='void ClientThink(int clientNum)'/>
+<doc f='codebrowser/code/game/g_active.c' l='1016'>/*
+==================
+ClientThink
+
+A new command has arrived from the client
+==================
+*/</doc>
+<use f='codebrowser/code/game/g_client.c' l='1234' u='c' c='ClientSpawn'/>
+<use f='codebrowser/code/game/g_main.c' l='213' u='c' c='vmMain'/>

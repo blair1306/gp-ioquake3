@@ -1,0 +1,10 @@
+<dec f='include/SDL2/SDL_video.h' l='713' type='int SDL_SetWindowFullscreen(SDL_Window * window, Uint32 flags)'/>
+<doc f='include/SDL2/SDL_video.h' l='705'>/**
+ *  \brief Set a window&apos;s fullscreen state.
+ *
+ *  \return 0 on success, or -1 if setting the display mode failed.
+ *
+ *  \sa SDL_SetWindowDisplayMode()
+ *  \sa SDL_GetWindowDisplayMode()
+ */</doc>
+<use f='codebrowser/code/sdl/sdl_glimp.c' l='900' u='c' c='GLimp_EndFrame'/>

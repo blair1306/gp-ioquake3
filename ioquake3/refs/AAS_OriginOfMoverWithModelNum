@@ -1,0 +1,14 @@
+<dec f='codebrowser/code/botlib/be_aas_entity.h' l='50' type='int AAS_OriginOfMoverWithModelNum(int modelnum, vec_t * origin)'/>
+<dec f='codebrowser/code/botlib/be_aas_entity.h' l='50' type='int AAS_OriginOfMoverWithModelNum(int modelnum, vec_t * origin)'/>
+<doc f='codebrowser/code/botlib/be_aas_entity.h' l='49'>//returns the origin of an entity with the given model number</doc>
+<def f='codebrowser/code/botlib/be_aas_entity.c' l='261' ll='279' type='int AAS_OriginOfMoverWithModelNum(int modelnum, vec_t * origin)'/>
+<doc f='codebrowser/code/botlib/be_aas_entity.c' l='255'>//===========================================================================
+//
+// Parameter:				-
+// Returns:					-
+// Changes Globals:		-
+//===========================================================================</doc>
+<use f='codebrowser/code/botlib/be_ai_move.c' l='452' u='c' c='BotOnMover'/>
+<use f='codebrowser/code/botlib/be_ai_move.c' l='496' u='c' c='MoverDown'/>
+<use f='codebrowser/code/botlib/be_ai_move.c' l='981' u='c' c='MoverBottomCenter'/>
+<use f='codebrowser/code/botlib/be_ai_move.c' l='2230' u='c' c='BotFuncBobStartEnd'/>

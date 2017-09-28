@@ -1,0 +1,16 @@
+<def f='codebrowser/code/botlib/l_precomp.c' l='120' type='define_t *'/>
+<use f='codebrowser/code/botlib/l_precomp.c' l='1398' u='r' c='PC_AddGlobalDefine'/>
+<use f='codebrowser/code/botlib/l_precomp.c' l='1399' u='w' c='PC_AddGlobalDefine'/>
+<use f='codebrowser/code/botlib/l_precomp.c' l='1413' u='r' c='PC_RemoveGlobalDefine'/>
+<use f='codebrowser/code/botlib/l_precomp.c' l='1432' u='r' c='PC_RemoveAllGlobalDefines'/>
+<use f='codebrowser/code/botlib/l_precomp.c' l='1432' u='r' c='PC_RemoveAllGlobalDefines'/>
+<use f='codebrowser/code/botlib/l_precomp.c' l='1434' u='w' c='PC_RemoveAllGlobalDefines'/>
+<use f='codebrowser/code/botlib/l_precomp.c' l='1434' u='r' c='PC_RemoveAllGlobalDefines'/>
+<use f='codebrowser/code/botlib/l_precomp.c' l='1491' u='r' c='PC_AddGlobalDefinesToSource'/>
+<doc f='codebrowser/code/botlib/l_precomp.c' l='113'>/*
+int tokenheapinitialized;				//true when the token heap is initialized
+token_t token_heap[TOKEN_HEAP_SIZE];	//heap with tokens
+token_t *freetokens;					//free tokens from the heap
+*/
+
+//list with global defines added to every source loaded</doc>

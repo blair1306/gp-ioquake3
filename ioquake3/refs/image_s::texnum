@@ -1,0 +1,38 @@
+<dec f='codebrowser/code/renderercommon/tr_common.h' l='53' type='GLuint'/>
+<offset>640</offset>
+<doc f='codebrowser/code/renderercommon/tr_common.h' l='53'>// gl texture binding</doc>
+<use f='codebrowser/code/renderergl1/tr_backend.c' l='46' u='r' c='GL_Bind'/>
+<use f='codebrowser/code/renderergl1/tr_backend.c' l='48' u='r' c='GL_Bind'/>
+<use f='codebrowser/code/renderergl1/tr_backend.c' l='52' u='r' c='GL_Bind'/>
+<use f='codebrowser/code/renderergl1/tr_backend.c' l='101' u='r' c='GL_BindMultitexture'/>
+<use f='codebrowser/code/renderergl1/tr_backend.c' l='102' u='r' c='GL_BindMultitexture'/>
+<use f='codebrowser/code/renderergl1/tr_backend.c' l='105' u='r' c='GL_BindMultitexture'/>
+<use f='codebrowser/code/renderergl1/tr_image.c' l='864' u='w' c='R_CreateImage'/>
+<use f='codebrowser/code/renderergl1/tr_image.c' l='1373' u='a' c='R_DeleteTextures'/>
+<use f='codebrowser/code/renderergl2/tr_backend.c' l='45' u='r' c='GL_BindToTMU'/>
+<use f='codebrowser/code/renderergl2/tr_backend.c' l='54' u='r' c='GL_BindToTMU'/>
+<use f='codebrowser/code/renderergl2/tr_backend.c' l='752' u='r' c='RE_UploadCinematic'/>
+<use f='codebrowser/code/renderergl2/tr_backend.c' l='931' u='r' c='RB_DrawSurfs'/>
+<use f='codebrowser/code/renderergl2/tr_backend.c' l='1179' u='r' c='RB_DrawSurfs'/>
+<use f='codebrowser/code/renderergl2/tr_backend.c' l='1436' u='r' c='RB_CapShadowMap'/>
+<use f='codebrowser/code/renderergl2/tr_backend.c' l='1443' u='r' c='RB_CapShadowMap'/>
+<use f='codebrowser/code/renderergl2/tr_fbo.c' l='209' u='r' c='FBO_AttachImage'/>
+<use f='codebrowser/code/renderergl2/tr_image.c' l='119' u='r' c='GL_TextureMode'/>
+<use f='codebrowser/code/renderergl2/tr_image.c' l='120' u='r' c='GL_TextureMode'/>
+<use f='codebrowser/code/renderergl2/tr_image.c' l='2078' u='r' c='Upload32'/>
+<use f='codebrowser/code/renderergl2/tr_image.c' l='2089' u='r' c='Upload32'/>
+<use f='codebrowser/code/renderergl2/tr_image.c' l='2129' u='a' c='R_CreateImage2'/>
+<use f='codebrowser/code/renderergl2/tr_image.c' l='2183' u='r' c='R_CreateImage2'/>
+<use f='codebrowser/code/renderergl2/tr_image.c' l='2187' u='r' c='R_CreateImage2'/>
+<use f='codebrowser/code/renderergl2/tr_image.c' l='2204' u='r' c='R_CreateImage2'/>
+<use f='codebrowser/code/renderergl2/tr_image.c' l='2205' u='r' c='R_CreateImage2'/>
+<use f='codebrowser/code/renderergl2/tr_image.c' l='2208' u='r' c='R_CreateImage2'/>
+<use f='codebrowser/code/renderergl2/tr_image.c' l='2211' u='r' c='R_CreateImage2'/>
+<use f='codebrowser/code/renderergl2/tr_image.c' l='2222' u='r' c='R_CreateImage2'/>
+<use f='codebrowser/code/renderergl2/tr_image.c' l='2223' u='r' c='R_CreateImage2'/>
+<use f='codebrowser/code/renderergl2/tr_image.c' l='2224' u='r' c='R_CreateImage2'/>
+<use f='codebrowser/code/renderergl2/tr_image.c' l='2227' u='r' c='R_CreateImage2'/>
+<use f='codebrowser/code/renderergl2/tr_image.c' l='2228' u='r' c='R_CreateImage2'/>
+<use f='codebrowser/code/renderergl2/tr_image.c' l='2823' u='r' c='R_CreateBuiltinImages'/>
+<use f='codebrowser/code/renderergl2/tr_image.c' l='2824' u='r' c='R_CreateBuiltinImages'/>
+<use f='codebrowser/code/renderergl2/tr_image.c' l='2932' u='a' c='R_DeleteTextures'/>

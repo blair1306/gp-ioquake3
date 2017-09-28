@@ -1,0 +1,15 @@
+<dec f='codebrowser/code/qcommon/cm_public.h' l='44' type='void CM_TransformedBoxTrace(trace_t * results, const vec_t * start, const vec_t * end, vec_t * mins, vec_t * maxs, clipHandle_t model, int brushmask, const vec_t * origin, const vec_t * angles, int capsule)'/>
+<use f='codebrowser/code/client/cl_cgame.c' l='495' u='c' c='CL_CgameSystemCalls'/>
+<use f='codebrowser/code/client/cl_cgame.c' l='498' u='c' c='CL_CgameSystemCalls'/>
+<def f='codebrowser/code/qcommon/cm_trace.c' l='1380' ll='1470' type='void CM_TransformedBoxTrace(trace_t * results, const vec_t * start, const vec_t * end, vec_t * mins, vec_t * maxs, clipHandle_t model, int brushmask, const vec_t * origin, const vec_t * angles, int capsule)'/>
+<doc f='codebrowser/code/qcommon/cm_trace.c' l='1372'>/*
+==================
+CM_TransformedBoxTrace
+
+Handles offseting and rotation of the end points for moving and
+rotating entities
+==================
+*/</doc>
+<use f='codebrowser/code/server/sv_game.c' l='227' u='c' c='SV_EntityContact'/>
+<use f='codebrowser/code/server/sv_world.c' l='490' u='c' c='SV_ClipToEntity'/>
+<use f='codebrowser/code/server/sv_world.c' l='562' u='c' c='SV_ClipMoveToEntities'/>

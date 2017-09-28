@@ -1,0 +1,19 @@
+<dec f='codebrowser/code/game/ai_dmq3.h' l='144' type='void BotRememberLastOrderedTask(bot_state_t * bs)'/>
+<doc f='codebrowser/code/game/ai_dmq3.h' l='143'>//remember the last ordered task</doc>
+<use f='codebrowser/code/game/ai_cmd.c' l='588' u='c' c='BotMatch_HelpAccompany'/>
+<use f='codebrowser/code/game/ai_cmd.c' l='637' u='c' c='BotMatch_DefendKeyArea'/>
+<use f='codebrowser/code/game/ai_cmd.c' l='769' u='c' c='BotMatch_Camp'/>
+<use f='codebrowser/code/game/ai_cmd.c' l='808' u='c' c='BotMatch_Patrol'/>
+<use f='codebrowser/code/game/ai_cmd.c' l='860' u='c' c='BotMatch_GetFlag'/>
+<use f='codebrowser/code/game/ai_cmd.c' l='907' u='c' c='BotMatch_AttackEnemyBase'/>
+<def f='codebrowser/code/game/ai_dmq3.c' l='348' ll='356' type='void BotRememberLastOrderedTask(bot_state_t * bs)'/>
+<doc f='codebrowser/code/game/ai_dmq3.c' l='343'>/*
+==================
+BotRememberLastOrderedTask
+==================
+*/</doc>
+<use f='codebrowser/code/game/ai_vcmd.c' l='105' u='c' c='BotVoiceChat_GetFlag'/>
+<use f='codebrowser/code/game/ai_vcmd.c' l='160' u='c' c='BotVoiceChat_Offense'/>
+<use f='codebrowser/code/game/ai_vcmd.c' l='214' u='c' c='BotVoiceChat_Defend'/>
+<use f='codebrowser/code/game/ai_vcmd.c' l='302' u='c' c='BotVoiceChat_Camp'/>
+<use f='codebrowser/code/game/ai_vcmd.c' l='356' u='c' c='BotVoiceChat_FollowMe'/>

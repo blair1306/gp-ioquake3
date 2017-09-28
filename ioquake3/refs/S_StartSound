@@ -1,0 +1,10 @@
+<dec f='codebrowser/code/client/snd_public.h' l='28' type='void S_StartSound(vec_t * origin, int entnum, int entchannel, sfxHandle_t sfx)'/>
+<dec f='codebrowser/code/client/snd_public.h' l='28' type='void S_StartSound(vec_t * origin, int entnum, int entchannel, sfxHandle_t sfx)'/>
+<doc f='codebrowser/code/client/snd_public.h' l='27'>// if origin is NULL, the sound will be dynamically sourced from the entity</doc>
+<use f='codebrowser/code/client/cl_cgame.c' l='503' u='c' c='CL_CgameSystemCalls'/>
+<def f='codebrowser/code/client/snd_main.c' l='83' ll='88' type='void S_StartSound(vec_t * origin, int entnum, int entchannel, sfxHandle_t sfx)'/>
+<doc f='codebrowser/code/client/snd_main.c' l='78'>/*
+=================
+S_StartSound
+=================
+*/</doc>

@@ -1,0 +1,31 @@
+<dec f='codebrowser/code/game/g_local.h' l='484' type='void G_SetOrigin(gentity_t * ent, vec_t * origin)'/>
+<use f='codebrowser/code/game/g_arenas.c' l='192' u='c' c='SpawnModelOnVictoryPad'/>
+<use f='codebrowser/code/game/g_arenas.c' l='244' u='c' c='PodiumPlacementThink'/>
+<use f='codebrowser/code/game/g_arenas.c' l='257' u='c' c='PodiumPlacementThink'/>
+<use f='codebrowser/code/game/g_arenas.c' l='271' u='c' c='PodiumPlacementThink'/>
+<use f='codebrowser/code/game/g_arenas.c' l='285' u='c' c='PodiumPlacementThink'/>
+<use f='codebrowser/code/game/g_arenas.c' l='310' u='c' c='SpawnPodium'/>
+<use f='codebrowser/code/game/g_client.c' l='1181' u='c' c='ClientSpawn'/>
+<use f='codebrowser/code/game/g_items.c' l='588' u='c' c='LaunchItem'/>
+<use f='codebrowser/code/game/g_items.c' l='676' u='c' c='FinishSpawningItem'/>
+<use f='codebrowser/code/game/g_items.c' l='690' u='c' c='FinishSpawningItem'/>
+<use f='codebrowser/code/game/g_items.c' l='941' u='c' c='G_BounceItem'/>
+<use f='codebrowser/code/game/g_misc.c' l='37' u='c' c='SP_info_camp'/>
+<use f='codebrowser/code/game/g_misc.c' l='54' u='c' c='SP_info_notnull'/>
+<use f='codebrowser/code/game/g_missile.c' l='48' u='c' c='G_BounceMissile'/>
+<use f='codebrowser/code/game/g_missile.c' l='73' u='c' c='G_ExplodeMissile'/>
+<use f='codebrowser/code/game/g_missile.c' l='394' u='c' c='G_MissileImpact'/>
+<use f='codebrowser/code/game/g_missile.c' l='395' u='c' c='G_MissileImpact'/>
+<use f='codebrowser/code/game/g_missile.c' l='428' u='c' c='G_MissileImpact'/>
+<use f='codebrowser/code/game/g_target.c' l='420' u='c' c='SP_target_position'/>
+<use f='codebrowser/code/game/g_target.c' l='465' u='c' c='SP_target_location'/>
+<use f='codebrowser/code/game/g_utils.c' l='503' u='c' c='G_TempEntity'/>
+<def f='codebrowser/code/game/g_utils.c' l='626' ll='634' type='void G_SetOrigin(gentity_t * ent, vec_t * origin)'/>
+<doc f='codebrowser/code/game/g_utils.c' l='619'>/*
+================
+G_SetOrigin
+
+Sets the pos trajectory for a fixed position
+================
+*/</doc>
+<use f='codebrowser/code/game/g_weapon.c' l='600' u='c' c='Weapon_HookThink'/>

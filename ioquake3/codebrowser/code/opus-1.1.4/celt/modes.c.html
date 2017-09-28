@@ -1,0 +1,460 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>modes.c source code [codebrowser/code/opus-1.1.4/celt/modes.c] - Woboq Code Browser</title>
+<link rel="stylesheet" href="../../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'codebrowser/code/opus-1.1.4/celt/modes.c'; var root_path = '../../../..'; var data_path = '../../../../../data';</script>
+<script src='../../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../../..'>codebrowser</a>/<a href='../..'>code</a>/<a href='..'>opus-1.1.4</a>/<a href='./'>celt</a>/<a href='modes.c.html'>modes.c</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/* Copyright (c) 2007-2008 CSIRO</i></td></tr>
+<tr><th id="2">2</th><td><i>   Copyright (c) 2007-2009 Xiph.Org Foundation</i></td></tr>
+<tr><th id="3">3</th><td><i>   Copyright (c) 2008 Gregory Maxwell</i></td></tr>
+<tr><th id="4">4</th><td><i>   Written by Jean-Marc Valin and Gregory Maxwell */</i></td></tr>
+<tr><th id="5">5</th><td><i>/*</i></td></tr>
+<tr><th id="6">6</th><td><i>   Redistribution and use in source and binary forms, with or without</i></td></tr>
+<tr><th id="7">7</th><td><i>   modification, are permitted provided that the following conditions</i></td></tr>
+<tr><th id="8">8</th><td><i>   are met:</i></td></tr>
+<tr><th id="9">9</th><td><i></i></td></tr>
+<tr><th id="10">10</th><td><i>   - Redistributions of source code must retain the above copyright</i></td></tr>
+<tr><th id="11">11</th><td><i>   notice, this list of conditions and the following disclaimer.</i></td></tr>
+<tr><th id="12">12</th><td><i></i></td></tr>
+<tr><th id="13">13</th><td><i>   - Redistributions in binary form must reproduce the above copyright</i></td></tr>
+<tr><th id="14">14</th><td><i>   notice, this list of conditions and the following disclaimer in the</i></td></tr>
+<tr><th id="15">15</th><td><i>   documentation and/or other materials provided with the distribution.</i></td></tr>
+<tr><th id="16">16</th><td><i></i></td></tr>
+<tr><th id="17">17</th><td><i>   THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS</i></td></tr>
+<tr><th id="18">18</th><td><i>   ``AS IS'' AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT</i></td></tr>
+<tr><th id="19">19</th><td><i>   LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR</i></td></tr>
+<tr><th id="20">20</th><td><i>   A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER</i></td></tr>
+<tr><th id="21">21</th><td><i>   OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,</i></td></tr>
+<tr><th id="22">22</th><td><i>   EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,</i></td></tr>
+<tr><th id="23">23</th><td><i>   PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR</i></td></tr>
+<tr><th id="24">24</th><td><i>   PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF</i></td></tr>
+<tr><th id="25">25</th><td><i>   LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING</i></td></tr>
+<tr><th id="26">26</th><td><i>   NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS</i></td></tr>
+<tr><th id="27">27</th><td><i>   SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</i></td></tr>
+<tr><th id="28">28</th><td><i>*/</i></td></tr>
+<tr><th id="29">29</th><td></td></tr>
+<tr><th id="30">30</th><td><u>#<span data-ppcond="30">ifdef</span> <span class="macro" data-ref="_M/HAVE_CONFIG_H">HAVE_CONFIG_H</span></u></td></tr>
+<tr><th id="31">31</th><td><u>#include "config.h"</u></td></tr>
+<tr><th id="32">32</th><td><u>#<span data-ppcond="30">endif</span></u></td></tr>
+<tr><th id="33">33</th><td></td></tr>
+<tr><th id="34">34</th><td><u>#include <a href="celt.h.html">"celt.h"</a></u></td></tr>
+<tr><th id="35">35</th><td><u>#include <a href="modes.h.html">"modes.h"</a></u></td></tr>
+<tr><th id="36">36</th><td><u>#include <a href="rate.h.html">"rate.h"</a></u></td></tr>
+<tr><th id="37">37</th><td><u>#include <a href="os_support.h.html">"os_support.h"</a></u></td></tr>
+<tr><th id="38">38</th><td><u>#include <a href="stack_alloc.h.html">"stack_alloc.h"</a></u></td></tr>
+<tr><th id="39">39</th><td><u>#include <a href="quant_bands.h.html">"quant_bands.h"</a></u></td></tr>
+<tr><th id="40">40</th><td><u>#include <a href="cpu_support.h.html">"cpu_support.h"</a></u></td></tr>
+<tr><th id="41">41</th><td></td></tr>
+<tr><th id="42">42</th><td><em>static</em> <em>const</em> <a class="typedef" href="../include/opus_types.h.html#opus_int16" title='opus_int16' data-type='int16_t' data-ref="opus_int16">opus_int16</a> <dfn class="tu decl def" id="eband5ms" title='eband5ms' data-type='const opus_int16 [22]' data-ref="eband5ms">eband5ms</dfn>[] = {</td></tr>
+<tr><th id="43">43</th><td><i>/*0  200 400 600 800  1k 1.2 1.4 1.6  2k 2.4 2.8 3.2  4k 4.8 5.6 6.8  8k 9.6 12k 15.6 */</i></td></tr>
+<tr><th id="44">44</th><td>  <var>0</var>,  <var>1</var>,  <var>2</var>,  <var>3</var>,  <var>4</var>,  <var>5</var>,  <var>6</var>,  <var>7</var>,  <var>8</var>, <var>10</var>, <var>12</var>, <var>14</var>, <var>16</var>, <var>20</var>, <var>24</var>, <var>28</var>, <var>34</var>, <var>40</var>, <var>48</var>, <var>60</var>, <var>78</var>, <var>100</var></td></tr>
+<tr><th id="45">45</th><td>};</td></tr>
+<tr><th id="46">46</th><td></td></tr>
+<tr><th id="47">47</th><td><i>/* Alternate tuning (partially derived from Vorbis) */</i></td></tr>
+<tr><th id="48">48</th><td><u>#define <dfn class="macro" id="_M/BITALLOC_SIZE" data-ref="_M/BITALLOC_SIZE">BITALLOC_SIZE</dfn> 11</u></td></tr>
+<tr><th id="49">49</th><td><i  data-doc="band_allocation">/* Bit allocation table in units of 1/32 bit/sample (0.1875 dB SNR) */</i></td></tr>
+<tr><th id="50">50</th><td><em>static</em> <em>const</em> <em>unsigned</em> <em>char</em> <dfn class="tu decl def" id="band_allocation" title='band_allocation' data-type='const unsigned char [231]' data-ref="band_allocation">band_allocation</dfn>[] = {</td></tr>
+<tr><th id="51">51</th><td><i>/*0  200 400 600 800  1k 1.2 1.4 1.6  2k 2.4 2.8 3.2  4k 4.8 5.6 6.8  8k 9.6 12k 15.6 */</i></td></tr>
+<tr><th id="52">52</th><td>  <var>0</var>,  <var>0</var>,  <var>0</var>,  <var>0</var>,  <var>0</var>,  <var>0</var>,  <var>0</var>,  <var>0</var>,  <var>0</var>,  <var>0</var>,  <var>0</var>,  <var>0</var>,  <var>0</var>,  <var>0</var>,  <var>0</var>,  <var>0</var>,  <var>0</var>,  <var>0</var>,  <var>0</var>,  <var>0</var>,  <var>0</var>,</td></tr>
+<tr><th id="53">53</th><td> <var>90</var>, <var>80</var>, <var>75</var>, <var>69</var>, <var>63</var>, <var>56</var>, <var>49</var>, <var>40</var>, <var>34</var>, <var>29</var>, <var>20</var>, <var>18</var>, <var>10</var>,  <var>0</var>,  <var>0</var>,  <var>0</var>,  <var>0</var>,  <var>0</var>,  <var>0</var>,  <var>0</var>,  <var>0</var>,</td></tr>
+<tr><th id="54">54</th><td><var>110</var>,<var>100</var>, <var>90</var>, <var>84</var>, <var>78</var>, <var>71</var>, <var>65</var>, <var>58</var>, <var>51</var>, <var>45</var>, <var>39</var>, <var>32</var>, <var>26</var>, <var>20</var>, <var>12</var>,  <var>0</var>,  <var>0</var>,  <var>0</var>,  <var>0</var>,  <var>0</var>,  <var>0</var>,</td></tr>
+<tr><th id="55">55</th><td><var>118</var>,<var>110</var>,<var>103</var>, <var>93</var>, <var>86</var>, <var>80</var>, <var>75</var>, <var>70</var>, <var>65</var>, <var>59</var>, <var>53</var>, <var>47</var>, <var>40</var>, <var>31</var>, <var>23</var>, <var>15</var>,  <var>4</var>,  <var>0</var>,  <var>0</var>,  <var>0</var>,  <var>0</var>,</td></tr>
+<tr><th id="56">56</th><td><var>126</var>,<var>119</var>,<var>112</var>,<var>104</var>, <var>95</var>, <var>89</var>, <var>83</var>, <var>78</var>, <var>72</var>, <var>66</var>, <var>60</var>, <var>54</var>, <var>47</var>, <var>39</var>, <var>32</var>, <var>25</var>, <var>17</var>, <var>12</var>,  <var>1</var>,  <var>0</var>,  <var>0</var>,</td></tr>
+<tr><th id="57">57</th><td><var>134</var>,<var>127</var>,<var>120</var>,<var>114</var>,<var>103</var>, <var>97</var>, <var>91</var>, <var>85</var>, <var>78</var>, <var>72</var>, <var>66</var>, <var>60</var>, <var>54</var>, <var>47</var>, <var>41</var>, <var>35</var>, <var>29</var>, <var>23</var>, <var>16</var>, <var>10</var>,  <var>1</var>,</td></tr>
+<tr><th id="58">58</th><td><var>144</var>,<var>137</var>,<var>130</var>,<var>124</var>,<var>113</var>,<var>107</var>,<var>101</var>, <var>95</var>, <var>88</var>, <var>82</var>, <var>76</var>, <var>70</var>, <var>64</var>, <var>57</var>, <var>51</var>, <var>45</var>, <var>39</var>, <var>33</var>, <var>26</var>, <var>15</var>,  <var>1</var>,</td></tr>
+<tr><th id="59">59</th><td><var>152</var>,<var>145</var>,<var>138</var>,<var>132</var>,<var>123</var>,<var>117</var>,<var>111</var>,<var>105</var>, <var>98</var>, <var>92</var>, <var>86</var>, <var>80</var>, <var>74</var>, <var>67</var>, <var>61</var>, <var>55</var>, <var>49</var>, <var>43</var>, <var>36</var>, <var>20</var>,  <var>1</var>,</td></tr>
+<tr><th id="60">60</th><td><var>162</var>,<var>155</var>,<var>148</var>,<var>142</var>,<var>133</var>,<var>127</var>,<var>121</var>,<var>115</var>,<var>108</var>,<var>102</var>, <var>96</var>, <var>90</var>, <var>84</var>, <var>77</var>, <var>71</var>, <var>65</var>, <var>59</var>, <var>53</var>, <var>46</var>, <var>30</var>,  <var>1</var>,</td></tr>
+<tr><th id="61">61</th><td><var>172</var>,<var>165</var>,<var>158</var>,<var>152</var>,<var>143</var>,<var>137</var>,<var>131</var>,<var>125</var>,<var>118</var>,<var>112</var>,<var>106</var>,<var>100</var>, <var>94</var>, <var>87</var>, <var>81</var>, <var>75</var>, <var>69</var>, <var>63</var>, <var>56</var>, <var>45</var>, <var>20</var>,</td></tr>
+<tr><th id="62">62</th><td><var>200</var>,<var>200</var>,<var>200</var>,<var>200</var>,<var>200</var>,<var>200</var>,<var>200</var>,<var>200</var>,<var>198</var>,<var>193</var>,<var>188</var>,<var>183</var>,<var>178</var>,<var>173</var>,<var>168</var>,<var>163</var>,<var>158</var>,<var>153</var>,<var>148</var>,<var>129</var>,<var>104</var>,</td></tr>
+<tr><th id="63">63</th><td>};</td></tr>
+<tr><th id="64">64</th><td></td></tr>
+<tr><th id="65">65</th><td><u>#<span data-ppcond="65">ifndef</span> <span class="macro" data-ref="_M/CUSTOM_MODES_ONLY">CUSTOM_MODES_ONLY</span></u></td></tr>
+<tr><th id="66">66</th><td> <u>#<span data-ppcond="66">ifdef</span> <span class="macro" data-ref="_M/FIXED_POINT">FIXED_POINT</span></u></td></tr>
+<tr><th id="67">67</th><td>  <u>#include "static_modes_fixed.h"</u></td></tr>
+<tr><th id="68">68</th><td> <u>#<span data-ppcond="66">else</span></u></td></tr>
+<tr><th id="69">69</th><td>  <u>#include <a href="static_modes_float.h.html">"static_modes_float.h"</a></u></td></tr>
+<tr><th id="70">70</th><td> <u>#<span data-ppcond="66">endif</span></u></td></tr>
+<tr><th id="71">71</th><td><u>#<span data-ppcond="65">endif</span> /* CUSTOM_MODES_ONLY */</u></td></tr>
+<tr><th id="72">72</th><td></td></tr>
+<tr><th id="73">73</th><td><u>#<span data-ppcond="73">ifndef</span> <a class="macro" href="../../../../include/math.h.html#418" data-ref="_M/M_PI">M_PI</a></u></td></tr>
+<tr><th id="74">74</th><td><u>#define M_PI 3.141592653</u></td></tr>
+<tr><th id="75">75</th><td><u>#<span data-ppcond="73">endif</span></u></td></tr>
+<tr><th id="76">76</th><td></td></tr>
+<tr><th id="77">77</th><td><u>#<span data-ppcond="77">ifdef</span> <span class="macro" data-ref="_M/CUSTOM_MODES">CUSTOM_MODES</span></u></td></tr>
+<tr><th id="78">78</th><td></td></tr>
+<tr><th id="79">79</th><td><i>/* Defining 25 critical bands for the full 0-20 kHz audio bandwidth</i></td></tr>
+<tr><th id="80">80</th><td><i>   Taken from <a href="http://ccrma.stanford.edu/~jos/bbt/Bark_Frequency_Scale.html">http://ccrma.stanford.edu/~jos/bbt/Bark_Frequency_Scale.html</a> */</i></td></tr>
+<tr><th id="81">81</th><td><u>#define BARK_BANDS 25</u></td></tr>
+<tr><th id="82">82</th><td><em>static</em> <em>const</em> opus_int16 bark_freq[BARK_BANDS+<var>1</var>] = {</td></tr>
+<tr><th id="83">83</th><td>      <var>0</var>,   <var>100</var>,   <var>200</var>,   <var>300</var>,   <var>400</var>,</td></tr>
+<tr><th id="84">84</th><td>    <var>510</var>,   <var>630</var>,   <var>770</var>,   <var>920</var>,  <var>1080</var>,</td></tr>
+<tr><th id="85">85</th><td>   <var>1270</var>,  <var>1480</var>,  <var>1720</var>,  <var>2000</var>,  <var>2320</var>,</td></tr>
+<tr><th id="86">86</th><td>   <var>2700</var>,  <var>3150</var>,  <var>3700</var>,  <var>4400</var>,  <var>5300</var>,</td></tr>
+<tr><th id="87">87</th><td>   <var>6400</var>,  <var>7700</var>,  <var>9500</var>, <var>12000</var>, <var>15500</var>,</td></tr>
+<tr><th id="88">88</th><td>  <var>20000</var>};</td></tr>
+<tr><th id="89">89</th><td></td></tr>
+<tr><th id="90">90</th><td><em>static</em> opus_int16 *compute_ebands(opus_int32 Fs, <em>int</em> frame_size, <em>int</em> res, <em>int</em> *nbEBands)</td></tr>
+<tr><th id="91">91</th><td>{</td></tr>
+<tr><th id="92">92</th><td>   opus_int16 *eBands;</td></tr>
+<tr><th id="93">93</th><td>   <em>int</em> i, j, lin, low, high, nBark, offset=<var>0</var>;</td></tr>
+<tr><th id="94">94</th><td></td></tr>
+<tr><th id="95">95</th><td>   <i>/* All modes that have 2.5 ms short blocks use the same definition */</i></td></tr>
+<tr><th id="96">96</th><td>   <b>if</b> (Fs == <var>400</var>*(opus_int32)frame_size)</td></tr>
+<tr><th id="97">97</th><td>   {</td></tr>
+<tr><th id="98">98</th><td>      *nbEBands = <b>sizeof</b>(eband5ms)/<b>sizeof</b>(eband5ms[<var>0</var>])-<var>1</var>;</td></tr>
+<tr><th id="99">99</th><td>      eBands = opus_alloc(<b>sizeof</b>(opus_int16)*(*nbEBands+<var>1</var>));</td></tr>
+<tr><th id="100">100</th><td>      <b>for</b> (i=<var>0</var>;i&lt;*nbEBands+<var>1</var>;i++)</td></tr>
+<tr><th id="101">101</th><td>         eBands[i] = eband5ms[i];</td></tr>
+<tr><th id="102">102</th><td>      <b>return</b> eBands;</td></tr>
+<tr><th id="103">103</th><td>   }</td></tr>
+<tr><th id="104">104</th><td>   <i>/* Find the number of critical bands supported by our sampling rate */</i></td></tr>
+<tr><th id="105">105</th><td>   <b>for</b> (nBark=<var>1</var>;nBark&lt;BARK_BANDS;nBark++)</td></tr>
+<tr><th id="106">106</th><td>    <b>if</b> (bark_freq[nBark+<var>1</var>]*<var>2</var> &gt;= Fs)</td></tr>
+<tr><th id="107">107</th><td>       <b>break</b>;</td></tr>
+<tr><th id="108">108</th><td></td></tr>
+<tr><th id="109">109</th><td>   <i>/* Find where the linear part ends (i.e. where the spacing is more than min_width */</i></td></tr>
+<tr><th id="110">110</th><td>   <b>for</b> (lin=<var>0</var>;lin&lt;nBark;lin++)</td></tr>
+<tr><th id="111">111</th><td>      <b>if</b> (bark_freq[lin+<var>1</var>]-bark_freq[lin] &gt;= res)</td></tr>
+<tr><th id="112">112</th><td>         <b>break</b>;</td></tr>
+<tr><th id="113">113</th><td></td></tr>
+<tr><th id="114">114</th><td>   low = (bark_freq[lin]+res/<var>2</var>)/res;</td></tr>
+<tr><th id="115">115</th><td>   high = nBark-lin;</td></tr>
+<tr><th id="116">116</th><td>   *nbEBands = low+high;</td></tr>
+<tr><th id="117">117</th><td>   eBands = opus_alloc(<b>sizeof</b>(opus_int16)*(*nbEBands+<var>2</var>));</td></tr>
+<tr><th id="118">118</th><td></td></tr>
+<tr><th id="119">119</th><td>   <b>if</b> (eBands==NULL)</td></tr>
+<tr><th id="120">120</th><td>      <b>return</b> NULL;</td></tr>
+<tr><th id="121">121</th><td></td></tr>
+<tr><th id="122">122</th><td>   <i>/* Linear spacing (min_width) */</i></td></tr>
+<tr><th id="123">123</th><td>   <b>for</b> (i=<var>0</var>;i&lt;low;i++)</td></tr>
+<tr><th id="124">124</th><td>      eBands[i] = i;</td></tr>
+<tr><th id="125">125</th><td>   <b>if</b> (low&gt;<var>0</var>)</td></tr>
+<tr><th id="126">126</th><td>      offset = eBands[low-<var>1</var>]*res - bark_freq[lin-<var>1</var>];</td></tr>
+<tr><th id="127">127</th><td>   <i>/* Spacing follows critical bands */</i></td></tr>
+<tr><th id="128">128</th><td>   <b>for</b> (i=<var>0</var>;i&lt;high;i++)</td></tr>
+<tr><th id="129">129</th><td>   {</td></tr>
+<tr><th id="130">130</th><td>      <em>int</em> target = bark_freq[lin+i];</td></tr>
+<tr><th id="131">131</th><td>      <i>/* Round to an even value */</i></td></tr>
+<tr><th id="132">132</th><td>      eBands[i+low] = (target+offset/<var>2</var>+res)/(<var>2</var>*res)*<var>2</var>;</td></tr>
+<tr><th id="133">133</th><td>      offset = eBands[i+low]*res - target;</td></tr>
+<tr><th id="134">134</th><td>   }</td></tr>
+<tr><th id="135">135</th><td>   <i>/* Enforce the minimum spacing at the boundary */</i></td></tr>
+<tr><th id="136">136</th><td>   <b>for</b> (i=<var>0</var>;i&lt;*nbEBands;i++)</td></tr>
+<tr><th id="137">137</th><td>      <b>if</b> (eBands[i] &lt; i)</td></tr>
+<tr><th id="138">138</th><td>         eBands[i] = i;</td></tr>
+<tr><th id="139">139</th><td>   <i>/* Round to an even value */</i></td></tr>
+<tr><th id="140">140</th><td>   eBands[*nbEBands] = (bark_freq[nBark]+res)/(<var>2</var>*res)*<var>2</var>;</td></tr>
+<tr><th id="141">141</th><td>   <b>if</b> (eBands[*nbEBands] &gt; frame_size)</td></tr>
+<tr><th id="142">142</th><td>      eBands[*nbEBands] = frame_size;</td></tr>
+<tr><th id="143">143</th><td>   <b>for</b> (i=<var>1</var>;i&lt;*nbEBands-<var>1</var>;i++)</td></tr>
+<tr><th id="144">144</th><td>   {</td></tr>
+<tr><th id="145">145</th><td>      <b>if</b> (eBands[i+<var>1</var>]-eBands[i] &lt; eBands[i]-eBands[i-<var>1</var>])</td></tr>
+<tr><th id="146">146</th><td>      {</td></tr>
+<tr><th id="147">147</th><td>         eBands[i] -= (<var>2</var>*eBands[i]-eBands[i-<var>1</var>]-eBands[i+<var>1</var>])/<var>2</var>;</td></tr>
+<tr><th id="148">148</th><td>      }</td></tr>
+<tr><th id="149">149</th><td>   }</td></tr>
+<tr><th id="150">150</th><td>   <i>/* Remove any empty bands. */</i></td></tr>
+<tr><th id="151">151</th><td>   <b>for</b> (i=j=<var>0</var>;i&lt;*nbEBands;i++)</td></tr>
+<tr><th id="152">152</th><td>      <b>if</b>(eBands[i+<var>1</var>]&gt;eBands[j])</td></tr>
+<tr><th id="153">153</th><td>         eBands[++j]=eBands[i+<var>1</var>];</td></tr>
+<tr><th id="154">154</th><td>   *nbEBands=j;</td></tr>
+<tr><th id="155">155</th><td></td></tr>
+<tr><th id="156">156</th><td>   <b>for</b> (i=<var>1</var>;i&lt;*nbEBands;i++)</td></tr>
+<tr><th id="157">157</th><td>   {</td></tr>
+<tr><th id="158">158</th><td>      <i>/* Every band must be smaller than the last band. */</i></td></tr>
+<tr><th id="159">159</th><td>      celt_assert(eBands[i]-eBands[i-<var>1</var>]&lt;=eBands[*nbEBands]-eBands[*nbEBands-<var>1</var>]);</td></tr>
+<tr><th id="160">160</th><td>      <i>/* Each band must be no larger than twice the size of the previous one. */</i></td></tr>
+<tr><th id="161">161</th><td>      celt_assert(eBands[i+<var>1</var>]-eBands[i]&lt;=<var>2</var>*(eBands[i]-eBands[i-<var>1</var>]));</td></tr>
+<tr><th id="162">162</th><td>   }</td></tr>
+<tr><th id="163">163</th><td></td></tr>
+<tr><th id="164">164</th><td>   <b>return</b> eBands;</td></tr>
+<tr><th id="165">165</th><td>}</td></tr>
+<tr><th id="166">166</th><td></td></tr>
+<tr><th id="167">167</th><td><em>static</em> <em>void</em> compute_allocation_table(CELTMode *mode)</td></tr>
+<tr><th id="168">168</th><td>{</td></tr>
+<tr><th id="169">169</th><td>   <em>int</em> i, j;</td></tr>
+<tr><th id="170">170</th><td>   <em>unsigned</em> <em>char</em> *allocVectors;</td></tr>
+<tr><th id="171">171</th><td>   <em>int</em> maxBands = <b>sizeof</b>(eband5ms)/<b>sizeof</b>(eband5ms[<var>0</var>])-<var>1</var>;</td></tr>
+<tr><th id="172">172</th><td></td></tr>
+<tr><th id="173">173</th><td>   mode-&gt;nbAllocVectors = BITALLOC_SIZE;</td></tr>
+<tr><th id="174">174</th><td>   allocVectors = opus_alloc(<b>sizeof</b>(<em>unsigned</em> <em>char</em>)*(BITALLOC_SIZE*mode-&gt;nbEBands));</td></tr>
+<tr><th id="175">175</th><td>   <b>if</b> (allocVectors==NULL)</td></tr>
+<tr><th id="176">176</th><td>      <b>return</b>;</td></tr>
+<tr><th id="177">177</th><td></td></tr>
+<tr><th id="178">178</th><td>   <i>/* Check for standard mode */</i></td></tr>
+<tr><th id="179">179</th><td>   <b>if</b> (mode-&gt;Fs == <var>400</var>*(opus_int32)mode-&gt;shortMdctSize)</td></tr>
+<tr><th id="180">180</th><td>   {</td></tr>
+<tr><th id="181">181</th><td>      <b>for</b> (i=<var>0</var>;i&lt;BITALLOC_SIZE*mode-&gt;nbEBands;i++)</td></tr>
+<tr><th id="182">182</th><td>         allocVectors[i] = band_allocation[i];</td></tr>
+<tr><th id="183">183</th><td>      mode-&gt;allocVectors = allocVectors;</td></tr>
+<tr><th id="184">184</th><td>      <b>return</b>;</td></tr>
+<tr><th id="185">185</th><td>   }</td></tr>
+<tr><th id="186">186</th><td>   <i>/* If not the standard mode, interpolate */</i></td></tr>
+<tr><th id="187">187</th><td>   <i>/* Compute per-codec-band allocation from per-critical-band matrix */</i></td></tr>
+<tr><th id="188">188</th><td>   <b>for</b> (i=<var>0</var>;i&lt;BITALLOC_SIZE;i++)</td></tr>
+<tr><th id="189">189</th><td>   {</td></tr>
+<tr><th id="190">190</th><td>      <b>for</b> (j=<var>0</var>;j&lt;mode-&gt;nbEBands;j++)</td></tr>
+<tr><th id="191">191</th><td>      {</td></tr>
+<tr><th id="192">192</th><td>         <em>int</em> k;</td></tr>
+<tr><th id="193">193</th><td>         <b>for</b> (k=<var>0</var>;k&lt;maxBands;k++)</td></tr>
+<tr><th id="194">194</th><td>         {</td></tr>
+<tr><th id="195">195</th><td>            <b>if</b> (<var>400</var>*(opus_int32)eband5ms[k] &gt; mode-&gt;eBands[j]*(opus_int32)mode-&gt;Fs/mode-&gt;shortMdctSize)</td></tr>
+<tr><th id="196">196</th><td>               <b>break</b>;</td></tr>
+<tr><th id="197">197</th><td>         }</td></tr>
+<tr><th id="198">198</th><td>         <b>if</b> (k&gt;maxBands-<var>1</var>)</td></tr>
+<tr><th id="199">199</th><td>            allocVectors[i*mode-&gt;nbEBands+j] = band_allocation[i*maxBands + maxBands-<var>1</var>];</td></tr>
+<tr><th id="200">200</th><td>         <b>else</b> {</td></tr>
+<tr><th id="201">201</th><td>            opus_int32 a0, a1;</td></tr>
+<tr><th id="202">202</th><td>            a1 = mode-&gt;eBands[j]*(opus_int32)mode-&gt;Fs/mode-&gt;shortMdctSize - <var>400</var>*(opus_int32)eband5ms[k-<var>1</var>];</td></tr>
+<tr><th id="203">203</th><td>            a0 = <var>400</var>*(opus_int32)eband5ms[k] - mode-&gt;eBands[j]*(opus_int32)mode-&gt;Fs/mode-&gt;shortMdctSize;</td></tr>
+<tr><th id="204">204</th><td>            allocVectors[i*mode-&gt;nbEBands+j] = (a0*band_allocation[i*maxBands+k-<var>1</var>]</td></tr>
+<tr><th id="205">205</th><td>                                             + a1*band_allocation[i*maxBands+k])/(a0+a1);</td></tr>
+<tr><th id="206">206</th><td>         }</td></tr>
+<tr><th id="207">207</th><td>      }</td></tr>
+<tr><th id="208">208</th><td>   }</td></tr>
+<tr><th id="209">209</th><td></td></tr>
+<tr><th id="210">210</th><td>   <i>/*printf ("\n");</i></td></tr>
+<tr><th id="211">211</th><td><i>   for (i=0;i&lt;BITALLOC_SIZE;i++)</i></td></tr>
+<tr><th id="212">212</th><td><i>   {</i></td></tr>
+<tr><th id="213">213</th><td><i>      for (j=0;j&lt;mode-&gt;nbEBands;j++)</i></td></tr>
+<tr><th id="214">214</th><td><i>         printf ("%d ", allocVectors[i*mode-&gt;nbEBands+j]);</i></td></tr>
+<tr><th id="215">215</th><td><i>      printf ("\n");</i></td></tr>
+<tr><th id="216">216</th><td><i>   }</i></td></tr>
+<tr><th id="217">217</th><td><i>   exit(0);*/</i></td></tr>
+<tr><th id="218">218</th><td></td></tr>
+<tr><th id="219">219</th><td>   mode-&gt;allocVectors = allocVectors;</td></tr>
+<tr><th id="220">220</th><td>}</td></tr>
+<tr><th id="221">221</th><td></td></tr>
+<tr><th id="222">222</th><td><u>#<span data-ppcond="77">endif</span> /* CUSTOM_MODES */</u></td></tr>
+<tr><th id="223">223</th><td></td></tr>
+<tr><th id="224">224</th><td><a class="macro" href="celt.h.html#51" title="OpusCustomMode" data-ref="_M/CELTMode">CELTMode</a> *<dfn class="decl def" id="opus_custom_mode_create" title='opus_custom_mode_create' data-ref="opus_custom_mode_create">opus_custom_mode_create</dfn>(<a class="typedef" href="../include/opus_types.h.html#opus_int32" title='opus_int32' data-type='int32_t' data-ref="opus_int32">opus_int32</a> <dfn class="local col1 decl" id="1Fs" title='Fs' data-type='opus_int32' data-ref="1Fs">Fs</dfn>, <em>int</em> <dfn class="local col2 decl" id="2frame_size" title='frame_size' data-type='int' data-ref="2frame_size">frame_size</dfn>, <em>int</em> *<dfn class="local col3 decl" id="3error" title='error' data-type='int *' data-ref="3error">error</dfn>)</td></tr>
+<tr><th id="225">225</th><td>{</td></tr>
+<tr><th id="226">226</th><td>   <em>int</em> <dfn class="local col4 decl" id="4i" title='i' data-type='int' data-ref="4i">i</dfn>;</td></tr>
+<tr><th id="227">227</th><td><u>#<span data-ppcond="227">ifdef</span> <span class="macro" data-ref="_M/CUSTOM_MODES">CUSTOM_MODES</span></u></td></tr>
+<tr><th id="228">228</th><td>   CELTMode *mode=NULL;</td></tr>
+<tr><th id="229">229</th><td>   <em>int</em> res;</td></tr>
+<tr><th id="230">230</th><td>   opus_val16 *window;</td></tr>
+<tr><th id="231">231</th><td>   opus_int16 *logN;</td></tr>
+<tr><th id="232">232</th><td>   <em>int</em> LM;</td></tr>
+<tr><th id="233">233</th><td>   <em>int</em> arch = opus_select_arch();</td></tr>
+<tr><th id="234">234</th><td>   ALLOC_STACK;</td></tr>
+<tr><th id="235">235</th><td><u>#if !defined(VAR_ARRAYS) &amp;&amp; !defined(USE_ALLOCA)</u></td></tr>
+<tr><th id="236">236</th><td>   <b>if</b> (global_stack==NULL)</td></tr>
+<tr><th id="237">237</th><td>      <b>goto</b> failure;</td></tr>
+<tr><th id="238">238</th><td><u>#endif</u></td></tr>
+<tr><th id="239">239</th><td><u>#<span data-ppcond="227">endif</span></u></td></tr>
+<tr><th id="240">240</th><td></td></tr>
+<tr><th id="241">241</th><td><u>#<span data-ppcond="241">ifndef</span> <span class="macro" data-ref="_M/CUSTOM_MODES_ONLY">CUSTOM_MODES_ONLY</span></u></td></tr>
+<tr><th id="242">242</th><td>   <b>for</b> (<a class="local col4 ref" href="#4i" title='i' data-ref="4i">i</a>=<var>0</var>;<a class="local col4 ref" href="#4i" title='i' data-ref="4i">i</a>&lt;<a class="macro" href="static_modes_float.h.html#885" title="1" data-ref="_M/TOTAL_MODES">TOTAL_MODES</a>;<a class="local col4 ref" href="#4i" title='i' data-ref="4i">i</a>++)</td></tr>
+<tr><th id="243">243</th><td>   {</td></tr>
+<tr><th id="244">244</th><td>      <em>int</em> <dfn class="local col5 decl" id="5j" title='j' data-type='int' data-ref="5j">j</dfn>;</td></tr>
+<tr><th id="245">245</th><td>      <b>for</b> (<a class="local col5 ref" href="#5j" title='j' data-ref="5j">j</a>=<var>0</var>;<a class="local col5 ref" href="#5j" title='j' data-ref="5j">j</a>&lt;<var>4</var>;<a class="local col5 ref" href="#5j" title='j' data-ref="5j">j</a>++)</td></tr>
+<tr><th id="246">246</th><td>      {</td></tr>
+<tr><th id="247">247</th><td>         <b>if</b> (<a class="local col1 ref" href="#1Fs" title='Fs' data-ref="1Fs">Fs</a> == <a class="ref" href="static_modes_float.h.html#static_mode_list" title='static_mode_list' data-ref="static_mode_list">static_mode_list</a>[<a class="local col4 ref" href="#4i" title='i' data-ref="4i">i</a>]-&gt;<a class="ref" href="modes.h.html#OpusCustomMode::Fs" title='OpusCustomMode::Fs' data-ref="OpusCustomMode::Fs">Fs</a> &amp;&amp;</td></tr>
+<tr><th id="248">248</th><td>               (<a class="local col2 ref" href="#2frame_size" title='frame_size' data-ref="2frame_size">frame_size</a>&lt;&lt;<a class="local col5 ref" href="#5j" title='j' data-ref="5j">j</a>) == <a class="ref" href="static_modes_float.h.html#static_mode_list" title='static_mode_list' data-ref="static_mode_list">static_mode_list</a>[<a class="local col4 ref" href="#4i" title='i' data-ref="4i">i</a>]-&gt;<a class="ref" href="modes.h.html#OpusCustomMode::shortMdctSize" title='OpusCustomMode::shortMdctSize' data-ref="OpusCustomMode::shortMdctSize">shortMdctSize</a>*<a class="ref" href="static_modes_float.h.html#static_mode_list" title='static_mode_list' data-ref="static_mode_list">static_mode_list</a>[<a class="local col4 ref" href="#4i" title='i' data-ref="4i">i</a>]-&gt;<a class="ref" href="modes.h.html#OpusCustomMode::nbShortMdcts" title='OpusCustomMode::nbShortMdcts' data-ref="OpusCustomMode::nbShortMdcts">nbShortMdcts</a>)</td></tr>
+<tr><th id="249">249</th><td>         {</td></tr>
+<tr><th id="250">250</th><td>            <b>if</b> (<a class="local col3 ref" href="#3error" title='error' data-ref="3error">error</a>)</td></tr>
+<tr><th id="251">251</th><td>               *<a class="local col3 ref" href="#3error" title='error' data-ref="3error">error</a> = <a class="macro" href="../include/opus_defines.h.html#46" title="0" data-ref="_M/OPUS_OK">OPUS_OK</a>;</td></tr>
+<tr><th id="252">252</th><td>            <b>return</b> (<a class="macro" href="celt.h.html#51" title="OpusCustomMode" data-ref="_M/CELTMode">CELTMode</a>*)<a class="ref" href="static_modes_float.h.html#static_mode_list" title='static_mode_list' data-ref="static_mode_list">static_mode_list</a>[<a class="local col4 ref" href="#4i" title='i' data-ref="4i">i</a>];</td></tr>
+<tr><th id="253">253</th><td>         }</td></tr>
+<tr><th id="254">254</th><td>      }</td></tr>
+<tr><th id="255">255</th><td>   }</td></tr>
+<tr><th id="256">256</th><td><u>#<span data-ppcond="241">endif</span> /* CUSTOM_MODES_ONLY */</u></td></tr>
+<tr><th id="257">257</th><td></td></tr>
+<tr><th id="258">258</th><td><u>#<span data-ppcond="258">ifndef</span> <span class="macro" data-ref="_M/CUSTOM_MODES">CUSTOM_MODES</span></u></td></tr>
+<tr><th id="259">259</th><td>   <b>if</b> (<a class="local col3 ref" href="#3error" title='error' data-ref="3error">error</a>)</td></tr>
+<tr><th id="260">260</th><td>      *<a class="local col3 ref" href="#3error" title='error' data-ref="3error">error</a> = <a class="macro" href="../include/opus_defines.h.html#48" title="-1" data-ref="_M/OPUS_BAD_ARG">OPUS_BAD_ARG</a>;</td></tr>
+<tr><th id="261">261</th><td>   <b>return</b> <span class="macro" title="((void*)0)" data-ref="_M/NULL">NULL</span>;</td></tr>
+<tr><th id="262">262</th><td><u>#<span data-ppcond="258">else</span></u></td></tr>
+<tr><th id="263">263</th><td></td></tr>
+<tr><th id="264">264</th><td>   <i>/* The good thing here is that permutation of the arguments will automatically be invalid */</i></td></tr>
+<tr><th id="265">265</th><td></td></tr>
+<tr><th id="266">266</th><td>   <b>if</b> (Fs &lt; <var>8000</var> || Fs &gt; <var>96000</var>)</td></tr>
+<tr><th id="267">267</th><td>   {</td></tr>
+<tr><th id="268">268</th><td>      <b>if</b> (error)</td></tr>
+<tr><th id="269">269</th><td>         *error = OPUS_BAD_ARG;</td></tr>
+<tr><th id="270">270</th><td>      <b>return</b> NULL;</td></tr>
+<tr><th id="271">271</th><td>   }</td></tr>
+<tr><th id="272">272</th><td>   <b>if</b> (frame_size &lt; <var>40</var> || frame_size &gt; <var>1024</var> || frame_size%<var>2</var>!=<var>0</var>)</td></tr>
+<tr><th id="273">273</th><td>   {</td></tr>
+<tr><th id="274">274</th><td>      <b>if</b> (error)</td></tr>
+<tr><th id="275">275</th><td>         *error = OPUS_BAD_ARG;</td></tr>
+<tr><th id="276">276</th><td>      <b>return</b> NULL;</td></tr>
+<tr><th id="277">277</th><td>   }</td></tr>
+<tr><th id="278">278</th><td>   <i>/* Frames of less than 1ms are not supported. */</i></td></tr>
+<tr><th id="279">279</th><td>   <b>if</b> ((opus_int32)frame_size*<var>1000</var> &lt; Fs)</td></tr>
+<tr><th id="280">280</th><td>   {</td></tr>
+<tr><th id="281">281</th><td>      <b>if</b> (error)</td></tr>
+<tr><th id="282">282</th><td>         *error = OPUS_BAD_ARG;</td></tr>
+<tr><th id="283">283</th><td>      <b>return</b> NULL;</td></tr>
+<tr><th id="284">284</th><td>   }</td></tr>
+<tr><th id="285">285</th><td></td></tr>
+<tr><th id="286">286</th><td>   <b>if</b> ((opus_int32)frame_size*<var>75</var> &gt;= Fs &amp;&amp; (frame_size%<var>16</var>)==<var>0</var>)</td></tr>
+<tr><th id="287">287</th><td>   {</td></tr>
+<tr><th id="288">288</th><td>     LM = <var>3</var>;</td></tr>
+<tr><th id="289">289</th><td>   } <b>else</b> <b>if</b> ((opus_int32)frame_size*<var>150</var> &gt;= Fs &amp;&amp; (frame_size%<var>8</var>)==<var>0</var>)</td></tr>
+<tr><th id="290">290</th><td>   {</td></tr>
+<tr><th id="291">291</th><td>     LM = <var>2</var>;</td></tr>
+<tr><th id="292">292</th><td>   } <b>else</b> <b>if</b> ((opus_int32)frame_size*<var>300</var> &gt;= Fs &amp;&amp; (frame_size%<var>4</var>)==<var>0</var>)</td></tr>
+<tr><th id="293">293</th><td>   {</td></tr>
+<tr><th id="294">294</th><td>     LM = <var>1</var>;</td></tr>
+<tr><th id="295">295</th><td>   } <b>else</b></td></tr>
+<tr><th id="296">296</th><td>   {</td></tr>
+<tr><th id="297">297</th><td>     LM = <var>0</var>;</td></tr>
+<tr><th id="298">298</th><td>   }</td></tr>
+<tr><th id="299">299</th><td></td></tr>
+<tr><th id="300">300</th><td>   <i>/* Shorts longer than 3.3ms are not supported. */</i></td></tr>
+<tr><th id="301">301</th><td>   <b>if</b> ((opus_int32)(frame_size&gt;&gt;LM)*<var>300</var> &gt; Fs)</td></tr>
+<tr><th id="302">302</th><td>   {</td></tr>
+<tr><th id="303">303</th><td>      <b>if</b> (error)</td></tr>
+<tr><th id="304">304</th><td>         *error = OPUS_BAD_ARG;</td></tr>
+<tr><th id="305">305</th><td>      <b>return</b> NULL;</td></tr>
+<tr><th id="306">306</th><td>   }</td></tr>
+<tr><th id="307">307</th><td></td></tr>
+<tr><th id="308">308</th><td>   mode = opus_alloc(<b>sizeof</b>(CELTMode));</td></tr>
+<tr><th id="309">309</th><td>   <b>if</b> (mode==NULL)</td></tr>
+<tr><th id="310">310</th><td>      <b>goto</b> failure;</td></tr>
+<tr><th id="311">311</th><td>   mode-&gt;Fs = Fs;</td></tr>
+<tr><th id="312">312</th><td></td></tr>
+<tr><th id="313">313</th><td>   <i>/* Pre/de-emphasis depends on sampling rate. The "standard" pre-emphasis</i></td></tr>
+<tr><th id="314">314</th><td><i>      is defined as A(z) = 1 - 0.85*z^-1 at 48 kHz. Other rates should</i></td></tr>
+<tr><th id="315">315</th><td><i>      approximate that. */</i></td></tr>
+<tr><th id="316">316</th><td>   <b>if</b>(Fs &lt; <var>12000</var>) <i>/* 8 kHz */</i></td></tr>
+<tr><th id="317">317</th><td>   {</td></tr>
+<tr><th id="318">318</th><td>      mode-&gt;preemph[<var>0</var>] =  QCONST16(<var>0.3500061035f</var>, <var>15</var>);</td></tr>
+<tr><th id="319">319</th><td>      mode-&gt;preemph[<var>1</var>] = -QCONST16(<var>0.1799926758f</var>, <var>15</var>);</td></tr>
+<tr><th id="320">320</th><td>      mode-&gt;preemph[<var>2</var>] =  QCONST16(<var>0.2719968125f</var>, SIG_SHIFT); <i>/* exact 1/preemph[3] */</i></td></tr>
+<tr><th id="321">321</th><td>      mode-&gt;preemph[<var>3</var>] =  QCONST16(<var>3.6765136719f</var>, <var>13</var>);</td></tr>
+<tr><th id="322">322</th><td>   } <b>else</b> <b>if</b>(Fs &lt; <var>24000</var>) <i>/* 16 kHz */</i></td></tr>
+<tr><th id="323">323</th><td>   {</td></tr>
+<tr><th id="324">324</th><td>      mode-&gt;preemph[<var>0</var>] =  QCONST16(<var>0.6000061035f</var>, <var>15</var>);</td></tr>
+<tr><th id="325">325</th><td>      mode-&gt;preemph[<var>1</var>] = -QCONST16(<var>0.1799926758f</var>, <var>15</var>);</td></tr>
+<tr><th id="326">326</th><td>      mode-&gt;preemph[<var>2</var>] =  QCONST16(<var>0.4424998650f</var>, SIG_SHIFT); <i>/* exact 1/preemph[3] */</i></td></tr>
+<tr><th id="327">327</th><td>      mode-&gt;preemph[<var>3</var>] =  QCONST16(<var>2.2598876953f</var>, <var>13</var>);</td></tr>
+<tr><th id="328">328</th><td>   } <b>else</b> <b>if</b>(Fs &lt; <var>40000</var>) <i>/* 32 kHz */</i></td></tr>
+<tr><th id="329">329</th><td>   {</td></tr>
+<tr><th id="330">330</th><td>      mode-&gt;preemph[<var>0</var>] =  QCONST16(<var>0.7799987793f</var>, <var>15</var>);</td></tr>
+<tr><th id="331">331</th><td>      mode-&gt;preemph[<var>1</var>] = -QCONST16(<var>0.1000061035f</var>, <var>15</var>);</td></tr>
+<tr><th id="332">332</th><td>      mode-&gt;preemph[<var>2</var>] =  QCONST16(<var>0.7499771125f</var>, SIG_SHIFT); <i>/* exact 1/preemph[3] */</i></td></tr>
+<tr><th id="333">333</th><td>      mode-&gt;preemph[<var>3</var>] =  QCONST16(<var>1.3333740234f</var>, <var>13</var>);</td></tr>
+<tr><th id="334">334</th><td>   } <b>else</b> <i>/* 48 kHz */</i></td></tr>
+<tr><th id="335">335</th><td>   {</td></tr>
+<tr><th id="336">336</th><td>      mode-&gt;preemph[<var>0</var>] =  QCONST16(<var>0.8500061035f</var>, <var>15</var>);</td></tr>
+<tr><th id="337">337</th><td>      mode-&gt;preemph[<var>1</var>] =  QCONST16(<var>0.0f</var>, <var>15</var>);</td></tr>
+<tr><th id="338">338</th><td>      mode-&gt;preemph[<var>2</var>] =  QCONST16(<var>1.f</var>, SIG_SHIFT);</td></tr>
+<tr><th id="339">339</th><td>      mode-&gt;preemph[<var>3</var>] =  QCONST16(<var>1.f</var>, <var>13</var>);</td></tr>
+<tr><th id="340">340</th><td>   }</td></tr>
+<tr><th id="341">341</th><td></td></tr>
+<tr><th id="342">342</th><td>   mode-&gt;maxLM = LM;</td></tr>
+<tr><th id="343">343</th><td>   mode-&gt;nbShortMdcts = <var>1</var>&lt;&lt;LM;</td></tr>
+<tr><th id="344">344</th><td>   mode-&gt;shortMdctSize = frame_size/mode-&gt;nbShortMdcts;</td></tr>
+<tr><th id="345">345</th><td>   res = (mode-&gt;Fs+mode-&gt;shortMdctSize)/(<var>2</var>*mode-&gt;shortMdctSize);</td></tr>
+<tr><th id="346">346</th><td></td></tr>
+<tr><th id="347">347</th><td>   mode-&gt;eBands = compute_ebands(Fs, mode-&gt;shortMdctSize, res, &amp;mode-&gt;nbEBands);</td></tr>
+<tr><th id="348">348</th><td>   <b>if</b> (mode-&gt;eBands==NULL)</td></tr>
+<tr><th id="349">349</th><td>      <b>goto</b> failure;</td></tr>
+<tr><th id="350">350</th><td><u>#if !defined(SMALL_FOOTPRINT)</u></td></tr>
+<tr><th id="351">351</th><td>   <i>/* Make sure we don't allocate a band larger than our PVQ table.</i></td></tr>
+<tr><th id="352">352</th><td><i>      208 should be enough, but let's be paranoid. */</i></td></tr>
+<tr><th id="353">353</th><td>   <b>if</b> ((mode-&gt;eBands[mode-&gt;nbEBands] - mode-&gt;eBands[mode-&gt;nbEBands-<var>1</var>])&lt;&lt;LM &gt;</td></tr>
+<tr><th id="354">354</th><td>    <var>208</var>) {</td></tr>
+<tr><th id="355">355</th><td>       <b>goto</b> failure;</td></tr>
+<tr><th id="356">356</th><td>   }</td></tr>
+<tr><th id="357">357</th><td><u>#endif</u></td></tr>
+<tr><th id="358">358</th><td></td></tr>
+<tr><th id="359">359</th><td>   mode-&gt;effEBands = mode-&gt;nbEBands;</td></tr>
+<tr><th id="360">360</th><td>   <b>while</b> (mode-&gt;eBands[mode-&gt;effEBands] &gt; mode-&gt;shortMdctSize)</td></tr>
+<tr><th id="361">361</th><td>      mode-&gt;effEBands--;</td></tr>
+<tr><th id="362">362</th><td></td></tr>
+<tr><th id="363">363</th><td>   <i>/* Overlap must be divisible by 4 */</i></td></tr>
+<tr><th id="364">364</th><td>   mode-&gt;overlap = ((mode-&gt;shortMdctSize&gt;&gt;<var>2</var>)&lt;&lt;<var>2</var>);</td></tr>
+<tr><th id="365">365</th><td></td></tr>
+<tr><th id="366">366</th><td>   compute_allocation_table(mode);</td></tr>
+<tr><th id="367">367</th><td>   <b>if</b> (mode-&gt;allocVectors==NULL)</td></tr>
+<tr><th id="368">368</th><td>      <b>goto</b> failure;</td></tr>
+<tr><th id="369">369</th><td></td></tr>
+<tr><th id="370">370</th><td>   window = (opus_val16*)opus_alloc(mode-&gt;overlap*<b>sizeof</b>(opus_val16));</td></tr>
+<tr><th id="371">371</th><td>   <b>if</b> (window==NULL)</td></tr>
+<tr><th id="372">372</th><td>      <b>goto</b> failure;</td></tr>
+<tr><th id="373">373</th><td></td></tr>
+<tr><th id="374">374</th><td><u>#ifndef FIXED_POINT</u></td></tr>
+<tr><th id="375">375</th><td>   <b>for</b> (i=<var>0</var>;i&lt;mode-&gt;overlap;i++)</td></tr>
+<tr><th id="376">376</th><td>      window[i] = Q15ONE*sin(<var>.5</var>*M_PI* sin(<var>.5</var>*M_PI*(i+<var>.5</var>)/mode-&gt;overlap) * sin(<var>.5</var>*M_PI*(i+<var>.5</var>)/mode-&gt;overlap));</td></tr>
+<tr><th id="377">377</th><td><u>#else</u></td></tr>
+<tr><th id="378">378</th><td>   <b>for</b> (i=<var>0</var>;i&lt;mode-&gt;overlap;i++)</td></tr>
+<tr><th id="379">379</th><td>      window[i] = MIN32(<var>32767</var>,floor(<var>.5</var>+<var>32768.</var>*sin(<var>.5</var>*M_PI* sin(<var>.5</var>*M_PI*(i+<var>.5</var>)/mode-&gt;overlap) * sin(<var>.5</var>*M_PI*(i+<var>.5</var>)/mode-&gt;overlap))));</td></tr>
+<tr><th id="380">380</th><td><u>#endif</u></td></tr>
+<tr><th id="381">381</th><td>   mode-&gt;window = window;</td></tr>
+<tr><th id="382">382</th><td></td></tr>
+<tr><th id="383">383</th><td>   logN = (opus_int16*)opus_alloc(mode-&gt;nbEBands*<b>sizeof</b>(opus_int16));</td></tr>
+<tr><th id="384">384</th><td>   <b>if</b> (logN==NULL)</td></tr>
+<tr><th id="385">385</th><td>      <b>goto</b> failure;</td></tr>
+<tr><th id="386">386</th><td></td></tr>
+<tr><th id="387">387</th><td>   <b>for</b> (i=<var>0</var>;i&lt;mode-&gt;nbEBands;i++)</td></tr>
+<tr><th id="388">388</th><td>      logN[i] = log2_frac(mode-&gt;eBands[i+<var>1</var>]-mode-&gt;eBands[i], BITRES);</td></tr>
+<tr><th id="389">389</th><td>   mode-&gt;logN = logN;</td></tr>
+<tr><th id="390">390</th><td></td></tr>
+<tr><th id="391">391</th><td>   compute_pulse_cache(mode, mode-&gt;maxLM);</td></tr>
+<tr><th id="392">392</th><td></td></tr>
+<tr><th id="393">393</th><td>   <b>if</b> (clt_mdct_init(&amp;mode-&gt;mdct, <var>2</var>*mode-&gt;shortMdctSize*mode-&gt;nbShortMdcts,</td></tr>
+<tr><th id="394">394</th><td>           mode-&gt;maxLM, arch) == <var>0</var>)</td></tr>
+<tr><th id="395">395</th><td>      <b>goto</b> failure;</td></tr>
+<tr><th id="396">396</th><td></td></tr>
+<tr><th id="397">397</th><td>   <b>if</b> (error)</td></tr>
+<tr><th id="398">398</th><td>      *error = OPUS_OK;</td></tr>
+<tr><th id="399">399</th><td></td></tr>
+<tr><th id="400">400</th><td>   <b>return</b> mode;</td></tr>
+<tr><th id="401">401</th><td>failure:</td></tr>
+<tr><th id="402">402</th><td>   <b>if</b> (error)</td></tr>
+<tr><th id="403">403</th><td>      *error = OPUS_ALLOC_FAIL;</td></tr>
+<tr><th id="404">404</th><td>   <b>if</b> (mode!=NULL)</td></tr>
+<tr><th id="405">405</th><td>      opus_custom_mode_destroy(mode);</td></tr>
+<tr><th id="406">406</th><td>   <b>return</b> NULL;</td></tr>
+<tr><th id="407">407</th><td><u>#<span data-ppcond="258">endif</span> /* !CUSTOM_MODES */</u></td></tr>
+<tr><th id="408">408</th><td>}</td></tr>
+<tr><th id="409">409</th><td></td></tr>
+<tr><th id="410">410</th><td><u>#<span data-ppcond="410">ifdef</span> <span class="macro" data-ref="_M/CUSTOM_MODES">CUSTOM_MODES</span></u></td></tr>
+<tr><th id="411">411</th><td><em>void</em> opus_custom_mode_destroy(CELTMode *mode)</td></tr>
+<tr><th id="412">412</th><td>{</td></tr>
+<tr><th id="413">413</th><td>   <em>int</em> arch = opus_select_arch();</td></tr>
+<tr><th id="414">414</th><td></td></tr>
+<tr><th id="415">415</th><td>   <b>if</b> (mode == NULL)</td></tr>
+<tr><th id="416">416</th><td>      <b>return</b>;</td></tr>
+<tr><th id="417">417</th><td><u>#ifndef CUSTOM_MODES_ONLY</u></td></tr>
+<tr><th id="418">418</th><td>   {</td></tr>
+<tr><th id="419">419</th><td>     <em>int</em> i;</td></tr>
+<tr><th id="420">420</th><td>     <b>for</b> (i=<var>0</var>;i&lt;TOTAL_MODES;i++)</td></tr>
+<tr><th id="421">421</th><td>     {</td></tr>
+<tr><th id="422">422</th><td>        <b>if</b> (mode == static_mode_list[i])</td></tr>
+<tr><th id="423">423</th><td>        {</td></tr>
+<tr><th id="424">424</th><td>           <b>return</b>;</td></tr>
+<tr><th id="425">425</th><td>        }</td></tr>
+<tr><th id="426">426</th><td>     }</td></tr>
+<tr><th id="427">427</th><td>   }</td></tr>
+<tr><th id="428">428</th><td><u>#endif /* CUSTOM_MODES_ONLY */</u></td></tr>
+<tr><th id="429">429</th><td>   opus_free((opus_int16*)mode-&gt;eBands);</td></tr>
+<tr><th id="430">430</th><td>   opus_free((opus_int16*)mode-&gt;allocVectors);</td></tr>
+<tr><th id="431">431</th><td></td></tr>
+<tr><th id="432">432</th><td>   opus_free((opus_val16*)mode-&gt;window);</td></tr>
+<tr><th id="433">433</th><td>   opus_free((opus_int16*)mode-&gt;logN);</td></tr>
+<tr><th id="434">434</th><td></td></tr>
+<tr><th id="435">435</th><td>   opus_free((opus_int16*)mode-&gt;cache.index);</td></tr>
+<tr><th id="436">436</th><td>   opus_free((<em>unsigned</em> <em>char</em>*)mode-&gt;cache.bits);</td></tr>
+<tr><th id="437">437</th><td>   opus_free((<em>unsigned</em> <em>char</em>*)mode-&gt;cache.caps);</td></tr>
+<tr><th id="438">438</th><td>   clt_mdct_clear(&amp;mode-&gt;mdct, arch);</td></tr>
+<tr><th id="439">439</th><td></td></tr>
+<tr><th id="440">440</th><td>   opus_free((CELTMode *)mode);</td></tr>
+<tr><th id="441">441</th><td>}</td></tr>
+<tr><th id="442">442</th><td><u>#<span data-ppcond="410">endif</span></u></td></tr>
+<tr><th id="443">443</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated on <em>2017-Aug-29</em> from project codebrowser revision <em>63e07af</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

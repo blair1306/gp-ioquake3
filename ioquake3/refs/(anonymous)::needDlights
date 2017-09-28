@@ -1,0 +1,14 @@
+<dec f='codebrowser/code/renderergl1/tr_local.h' l='63' type='qboolean'/>
+<offset>1152</offset>
+<doc f='codebrowser/code/renderergl1/tr_local.h' l='63'>// true for bmodels that touch a dlight</doc>
+<use f='codebrowser/code/renderergl1/tr_backend.c' l='577' u='r' c='RB_RenderDrawSurfList'/>
+<use f='codebrowser/code/renderergl1/tr_light.c' l='91' u='w' c='R_DlightBmodel'/>
+<use f='codebrowser/code/renderergl1/tr_main.c' l='1197' u='w' c='R_AddEntitySurfaces'/>
+<use f='codebrowser/code/renderergl1/tr_world.c' l='337' u='r' c='R_AddBrushModelSurfaces'/>
+<dec f='codebrowser/code/renderergl2/tr_local.h' l='82' type='qboolean'/>
+<offset>1152</offset>
+<doc f='codebrowser/code/renderergl2/tr_local.h' l='82'>// true for bmodels that touch a dlight</doc>
+<use f='codebrowser/code/renderergl2/tr_backend.c' l='513' u='r' c='RB_RenderDrawSurfList'/>
+<use f='codebrowser/code/renderergl2/tr_light.c' l='91' u='w' c='R_DlightBmodel'/>
+<use f='codebrowser/code/renderergl2/tr_main.c' l='1560' u='w' c='R_AddEntitySurface'/>
+<use f='codebrowser/code/renderergl2/tr_world.c' l='382' u='r' c='R_AddBrushModelSurfaces'/>

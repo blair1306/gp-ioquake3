@@ -1,0 +1,30 @@
+<dec f='codebrowser/code/jpeg-8c/jpeglib.h' l='130' type='int'/>
+<dec f='codebrowser/code/jpeg-8c/jpeglib.h' l='195' type='int [4]'/>
+<offset>32</offset>
+<doc f='codebrowser/code/jpeg-8c/jpeglib.h' l='130'>/* its index in SOF or cinfo-&gt;comp_info[] */</doc>
+<doc f='codebrowser/code/jpeg-8c/jpeglib.h' l='195'>/* their SOF/comp_info[] indexes */</doc>
+<use f='codebrowser/code/jpeg-8c/jccoefct.c' l='171' u='r' c='compress_data'/>
+<use f='codebrowser/code/jpeg-8c/jccoefct.c' l='181' u='r' c='compress_data'/>
+<use f='codebrowser/code/jpeg-8c/jccoefct.c' l='362' u='r' c='compress_output'/>
+<use f='codebrowser/code/jpeg-8c/jcdctmgr.c' l='73' u='r' c='forward_DCT'/>
+<use f='codebrowser/code/jpeg-8c/jcdctmgr.c' l='136' u='r' c='forward_DCT_float'/>
+<use f='codebrowser/code/jpeg-8c/jcmaster.c' l='295' u='w' c='initial_setup'/>
+<use f='codebrowser/code/jpeg-8c/jcmaster.c' l='402' u='r' c='validate_script'/>
+<use f='codebrowser/code/jpeg-8c/jcmaster.c' l='406' u='r' c='validate_script'/>
+<use f='codebrowser/code/jpeg-8c/jcmaster.c' l='439' u='r' c='validate_script'/>
+<use f='codebrowser/code/jpeg-8c/jcmaster.c' l='462' u='r' c='validate_script'/>
+<use f='codebrowser/code/jpeg-8c/jcmaster.c' l='542' u='r' c='select_scan_parameters'/>
+<use f='codebrowser/code/jpeg-8c/jcparam.c' l='502' u='w' c='fill_a_scan'/>
+<use f='codebrowser/code/jpeg-8c/jcparam.c' l='520' u='w' c='fill_scans'/>
+<use f='codebrowser/code/jpeg-8c/jcparam.c' l='540' u='w' c='fill_dc_scans'/>
+<use f='codebrowser/code/jpeg-8c/jcsample.c' l='160' u='r' c='int_downsample'/>
+<use f='codebrowser/code/jpeg-8c/jcsample.c' l='161' u='r' c='int_downsample'/>
+<use f='codebrowser/code/jpeg-8c/jctrans.c' l='289' u='r' c='compress_output'/>
+<use f='codebrowser/code/jpeg-8c/jdarith.c' l='665' u='r' c='start_pass'/>
+<use f='codebrowser/code/jpeg-8c/jdcoefct.c' l='186' u='r' c='decompress_onepass'/>
+<use f='codebrowser/code/jpeg-8c/jdcoefct.c' l='189' u='r' c='decompress_onepass'/>
+<use f='codebrowser/code/jpeg-8c/jdcoefct.c' l='258' u='r' c='consume_data'/>
+<use f='codebrowser/code/jpeg-8c/jdhuff.c' l='1350' u='r' c='start_pass_huff_decoder'/>
+<use f='codebrowser/code/jpeg-8c/jdmarker.c' l='284' u='w' c='get_sof'/>
+<use f='codebrowser/code/jpeg-8c/jdsample.c' l='202' u='r' c='int_upsample'/>
+<use f='codebrowser/code/jpeg-8c/jdsample.c' l='203' u='r' c='int_upsample'/>

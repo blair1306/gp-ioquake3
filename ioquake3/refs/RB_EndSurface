@@ -1,0 +1,44 @@
+<dec f='codebrowser/code/renderergl1/tr_local.h' l='1237' type='void RB_EndSurface()'/>
+<use f='codebrowser/code/renderergl1/tr_backend.c' l='549' u='c' c='RB_RenderDrawSurfList'/>
+<use f='codebrowser/code/renderergl1/tr_backend.c' l='663' u='c' c='RB_RenderDrawSurfList'/>
+<use f='codebrowser/code/renderergl1/tr_backend.c' l='742' u='c' c='RE_StretchRaw'/>
+<use f='codebrowser/code/renderergl1/tr_backend.c' l='863' u='c' c='RB_StretchPic'/>
+<use f='codebrowser/code/renderergl1/tr_backend.c' l='931' u='c' c='RB_DrawSurfs'/>
+<use f='codebrowser/code/renderergl1/tr_backend.c' l='1053' u='c' c='RB_ClearDepth'/>
+<use f='codebrowser/code/renderergl1/tr_backend.c' l='1075' u='c' c='RB_SwapBuffers'/>
+<use f='codebrowser/code/renderergl1/tr_flares.c' l='438' u='c' c='RB_RenderFlare'/>
+<def f='codebrowser/code/renderergl1/tr_shade.c' l='1469' ll='1521' type='void RB_EndSurface()'/>
+<doc f='codebrowser/code/renderergl1/tr_shade.c' l='1466'>/*
+** RB_EndSurface
+*/</doc>
+<use f='codebrowser/code/renderergl1/tr_sky.c' l='729' u='c' c='RB_DrawSun'/>
+<use f='codebrowser/code/renderergl1/tr_surface.c' l='57' u='c' c='RB_CheckOverflow'/>
+<use f='codebrowser/code/renderergl1/tr_surface.c' l='1056' u='c' c='RB_SurfaceGrid'/>
+<dec f='codebrowser/code/renderergl2/tr_local.h' l='2004' type='void RB_EndSurface()'/>
+<use f='codebrowser/code/renderergl2/tr_backend.c' l='479' u='c' c='RB_RenderDrawSurfList'/>
+<use f='codebrowser/code/renderergl2/tr_backend.c' l='593' u='c' c='RB_RenderDrawSurfList'/>
+<use f='codebrowser/code/renderergl2/tr_backend.c' l='689' u='c' c='RE_StretchRaw'/>
+<use f='codebrowser/code/renderergl2/tr_backend.c' l='813' u='c' c='RB_StretchPic'/>
+<use f='codebrowser/code/renderergl2/tr_backend.c' l='888' u='c' c='RB_DrawSurfs'/>
+<use f='codebrowser/code/renderergl2/tr_backend.c' l='1199' u='c' c='RB_DrawBuffer'/>
+<use f='codebrowser/code/renderergl2/tr_backend.c' l='1286' u='c' c='RB_ColorMask'/>
+<use f='codebrowser/code/renderergl2/tr_backend.c' l='1314' u='c' c='RB_ClearDepth'/>
+<use f='codebrowser/code/renderergl2/tr_backend.c' l='1357' u='c' c='RB_SwapBuffers'/>
+<use f='codebrowser/code/renderergl2/tr_backend.c' l='1428' u='c' c='RB_CapShadowMap'/>
+<use f='codebrowser/code/renderergl2/tr_backend.c' l='1467' u='c' c='RB_PostProcess'/>
+<use f='codebrowser/code/renderergl2/tr_backend.c' l='1684' u='c' c='RB_ExportCubemaps'/>
+<use f='codebrowser/code/renderergl2/tr_backend.c' l='1792' u='c' c='RB_ExecuteRenderCommands'/>
+<use f='codebrowser/code/renderergl2/tr_flares.c' l='452' u='c' c='RB_RenderFlare'/>
+<use f='codebrowser/code/renderergl2/tr_init.c' l='554' u='c' c='RB_TakeScreenshotCmd'/>
+<use f='codebrowser/code/renderergl2/tr_init.c' l='869' u='c' c='RB_TakeVideoFrameCmd'/>
+<def f='codebrowser/code/renderergl2/tr_shade.c' l='1573' ll='1633' type='void RB_EndSurface()'/>
+<doc f='codebrowser/code/renderergl2/tr_shade.c' l='1570'>/*
+** RB_EndSurface
+*/</doc>
+<use f='codebrowser/code/renderergl2/tr_sky.c' l='827' u='c' c='RB_DrawSun'/>
+<use f='codebrowser/code/renderergl2/tr_surface.c' l='57' u='c' c='RB_CheckOverflow'/>
+<use f='codebrowser/code/renderergl2/tr_surface.c' l='73' u='c' c='RB_CheckVao'/>
+<use f='codebrowser/code/renderergl2/tr_surface.c' l='430' u='c' c='RB_SurfaceVaoCached'/>
+<use f='codebrowser/code/renderergl2/tr_surface.c' l='1017' u='c' c='RB_SurfaceGrid'/>
+<use f='codebrowser/code/renderergl2/tr_surface.c' l='1230' u='c' c='RB_SurfaceVaoMdvMesh'/>
+<use f='codebrowser/code/renderergl2/tr_surface.c' l='1296' u='c' c='RB_SurfaceVaoMdvMesh'/>

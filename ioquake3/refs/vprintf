@@ -1,0 +1,9 @@
+<dec f='include/stdio.h' l='377' type='int vprintf(const char *restrict __format, struct __va_list_tag * __arg)'/>
+<doc f='include/stdio.h' l='373'>/* Write formatted output to stdout from argument list ARG.
+
+   This function is a possible cancellation point and therefore not
+   marked with __THROW.  */</doc>
+<def f='include/x86_64-linux-gnu/bits/stdio.h' l='35' ll='39' macro='1' type='int vprintf(const char *restrict __fmt, struct __va_list_tag * __arg)'/>
+<use f='codebrowser/code/tools/asm/cmdlib.c' l='150' u='c' c='Error'/>
+<use f='codebrowser/code/tools/asm/cmdlib.c' l='167' u='c' c='qprintf'/>
+<use f='codebrowser/code/tools/asm/q3asm.c' l='233' u='c' c='vreport'/>

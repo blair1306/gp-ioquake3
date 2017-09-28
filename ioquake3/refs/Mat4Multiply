@@ -1,0 +1,9 @@
+<dec f='codebrowser/code/renderergl2/tr_extramath.h' l='35' type='void Mat4Multiply(const vec_t * in1, const vec_t * in2, vec_t * out)'/>
+<use f='codebrowser/code/renderergl2/tr_backend.c' l='273' u='c' c='GL_SetProjectionMatrix'/>
+<use f='codebrowser/code/renderergl2/tr_backend.c' l='280' u='c' c='GL_SetModelviewMatrix'/>
+<def f='codebrowser/code/renderergl2/tr_extramath.c' l='53' ll='74' type='void Mat4Multiply(const vec_t * in1, const vec_t * in2, vec_t * out)'/>
+<use f='codebrowser/code/renderergl2/tr_main.c' l='2544' u='c' c='R_RenderSunShadowMaps'/>
+<use f='codebrowser/code/renderergl2/tr_postprocess.c' l='321' u='c' c='RB_SunRays'/>
+<use f='codebrowser/code/renderergl2/tr_postprocess.c' l='322' u='c' c='RB_SunRays'/>
+<use f='codebrowser/code/renderergl2/tr_sky.c' l='806' u='c' c='RB_DrawSun'/>
+<use f='codebrowser/code/renderergl2/tr_sky.c' l='878' u='c' c='RB_StageIteratorSky'/>

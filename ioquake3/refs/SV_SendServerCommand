@@ -1,0 +1,22 @@
+<dec f='codebrowser/code/server/server.h' l='336' type='void SV_SendServerCommand(client_t * cl, const char * fmt)'/>
+<use f='codebrowser/code/server/sv_ccmds.c' l='1264' u='c' c='SV_ConSay_f'/>
+<use f='codebrowser/code/server/sv_ccmds.c' l='1304' u='c' c='SV_ConTell_f'/>
+<use f='codebrowser/code/server/sv_ccmds.c' l='1370' u='c' c='SV_ConSayto_f'/>
+<use f='codebrowser/code/server/sv_client.c' l='665' u='c' c='SV_DropClient'/>
+<use f='codebrowser/code/server/sv_client.c' l='672' u='c' c='SV_DropClient'/>
+<use f='codebrowser/code/server/sv_game.c' l='79' u='c' c='SV_GameSendServerCommand'/>
+<use f='codebrowser/code/server/sv_game.c' l='84' u='c' c='SV_GameSendServerCommand'/>
+<use f='codebrowser/code/server/sv_init.c' l='60' u='c' c='SV_SendConfigstring'/>
+<use f='codebrowser/code/server/sv_init.c' l='68' u='c' c='SV_SendConfigstring'/>
+<use f='codebrowser/code/server/sv_init.c' l='726' u='c' c='SV_FinalMessage'/>
+<use f='codebrowser/code/server/sv_init.c' l='727' u='c' c='SV_FinalMessage'/>
+<def f='codebrowser/code/server/sv_main.c' l='184' ll='216' type='void SV_SendServerCommand(client_t * cl, const char * fmt)'/>
+<doc f='codebrowser/code/server/sv_main.c' l='175'>/*
+=================
+SV_SendServerCommand
+
+Sends a reliable command string to be interpreted by 
+the client game module: &quot;cp&quot;, &quot;print&quot;, &quot;chat&quot;, etc
+A NULL client will broadcast to all clients
+=================
+*/</doc>

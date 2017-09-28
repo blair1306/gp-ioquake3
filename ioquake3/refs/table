@@ -1,0 +1,20 @@
+<dec f='codebrowser/code/tools/lcc/src/c.h' l='689' type='Table table(Table , int )'/>
+<def f='codebrowser/code/tools/lcc/lburg/lburg.c' l='129' ll='136' type='struct entry *[211]'/>
+<use f='codebrowser/code/tools/lcc/lburg/lburg.c' l='150' u='r' c='lookup'/>
+<use f='codebrowser/code/tools/lcc/lburg/lburg.c' l='137' u='r' c='lookup'/>
+<use f='codebrowser/code/tools/lcc/lburg/lburg.c' l='137' u='r' c='lookup'/>
+<use f='codebrowser/code/tools/lcc/lburg/lburg.c' l='137' u='r' c='install'/>
+<use f='codebrowser/code/tools/lcc/lburg/lburg.c' l='137' u='r' c='install'/>
+<use f='codebrowser/code/tools/lcc/lburg/lburg.c' l='164' u='r' c='install'/>
+<use f='codebrowser/code/tools/lcc/lburg/lburg.c' l='165' u='w' c='install'/>
+<use f='codebrowser/code/tools/lcc/src/decl.c' l='760' u='c' c='funcdefn'/>
+<use f='codebrowser/code/tools/lcc/src/decl.c' l='761' u='c' c='funcdefn'/>
+<def f='codebrowser/code/tools/lcc/src/sym.c' l='7' ll='15'/>
+<def f='codebrowser/code/tools/lcc/src/sym.c' l='32' ll='41' type='Table table(Table tp, int level)'/>
+<use f='codebrowser/code/tools/lcc/src/sym.c' l='87' u='c' c='install'/>
+<size>2072</size>
+<mbr r='table::level' o='0' t='int'/>
+<mbr r='table::previous' o='64' t='Table'/>
+<mbr r='table::buckets' o='128' t='struct entry *[256]'/>
+<mbr r='table::all' o='16512' t='Symbol'/>
+<use f='codebrowser/code/tools/lcc/src/types.c' l='307' u='c' c='newfield'/>

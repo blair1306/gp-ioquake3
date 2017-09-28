@@ -1,0 +1,24 @@
+<dec f='codebrowser/code/qcommon/qcommon.h' l='759' type='void Field_Clear(field_t * edit)'/>
+<use f='codebrowser/code/client/cl_console.c' l='77' u='c' c='Con_ToggleConsole_f'/>
+<use f='codebrowser/code/client/cl_console.c' l='104' u='c' c='Con_MessageMode_f'/>
+<use f='codebrowser/code/client/cl_console.c' l='118' u='c' c='Con_MessageMode2_f'/>
+<use f='codebrowser/code/client/cl_console.c' l='135' u='c' c='Con_MessageMode3_f'/>
+<use f='codebrowser/code/client/cl_console.c' l='152' u='c' c='Con_MessageMode4_f'/>
+<use f='codebrowser/code/client/cl_console.c' l='363' u='c' c='Con_Init'/>
+<use f='codebrowser/code/client/cl_console.c' l='366' u='c' c='Con_Init'/>
+<use f='codebrowser/code/client/cl_console.c' l='838' u='c' c='Con_Close'/>
+<use f='codebrowser/code/client/cl_keys.c' l='526' u='c' c='Field_CharEvent'/>
+<use f='codebrowser/code/client/cl_keys.c' l='652' u='c' c='Console_Key'/>
+<use f='codebrowser/code/client/cl_keys.c' l='688' u='c' c='Console_Key'/>
+<use f='codebrowser/code/client/cl_keys.c' l='758' u='c' c='Message_Key'/>
+<use f='codebrowser/code/client/cl_keys.c' l='780' u='c' c='Message_Key'/>
+<use f='codebrowser/code/client/cl_keys.c' l='1519' u='c' c='CL_LoadConsoleHistory'/>
+<def f='codebrowser/code/qcommon/common.c' l='3316' ll='3320' type='void Field_Clear(field_t * edit)'/>
+<doc f='codebrowser/code/qcommon/common.c' l='3311'>/*
+==================
+Field_Clear
+==================
+*/</doc>
+<use f='codebrowser/code/sys/con_tty.c' l='313' u='c' c='CON_Init'/>
+<use f='codebrowser/code/sys/con_tty.c' l='411' u='c' c='CON_Input'/>
+<use f='codebrowser/code/sys/con_tty.c' l='455' u='c' c='CON_Input'/>

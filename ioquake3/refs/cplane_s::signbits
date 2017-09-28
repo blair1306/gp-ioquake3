@@ -1,0 +1,23 @@
+<dec f='codebrowser/code/qcommon/q_shared.h' l='1009' type='byte'/>
+<offset>136</offset>
+<doc f='codebrowser/code/qcommon/q_shared.h' l='1009'>// signx + (signy&lt;&lt;1) + (signz&lt;&lt;2), used as lookup during collision</doc>
+<use f='codebrowser/code/game/ai_main.c' l='150' u='w' c='BotAI_Trace'/>
+<use f='codebrowser/code/game/ai_main.c' l='150' u='r' c='BotAI_Trace'/>
+<use f='codebrowser/code/qcommon/cm_load.c' l='344' u='w' c='CMod_LoadPlanes'/>
+<use f='codebrowser/code/qcommon/cm_load.c' l='778' u='w' c='CM_InitBoxHull'/>
+<use f='codebrowser/code/qcommon/cm_load.c' l='784' u='w' c='CM_InitBoxHull'/>
+<use f='codebrowser/code/qcommon/cm_trace.c' l='218' u='r' c='CM_TestBoxInBrush'/>
+<use f='codebrowser/code/qcommon/cm_trace.c' l='218' u='r' c='CM_TestBoxInBrush'/>
+<use f='codebrowser/code/qcommon/cm_trace.c' l='218' u='r' c='CM_TestBoxInBrush'/>
+<use f='codebrowser/code/qcommon/cm_trace.c' l='588' u='r' c='CM_TraceThroughBrush'/>
+<use f='codebrowser/code/qcommon/cm_trace.c' l='588' u='r' c='CM_TraceThroughBrush'/>
+<use f='codebrowser/code/qcommon/cm_trace.c' l='588' u='r' c='CM_TraceThroughBrush'/>
+<use f='codebrowser/code/qcommon/q_math.c' l='641' u='w' c='SetPlaneSignbits'/>
+<use f='codebrowser/code/qcommon/q_math.c' l='669' u='r' c='BoxOnPlaneSide'/>
+<use f='codebrowser/code/qcommon/q_math.c' l='673' u='r' c='BoxOnPlaneSide'/>
+<use f='codebrowser/code/renderergl1/tr_bsp.c' l='1524' u='w' c='R_LoadPlanes'/>
+<use f='codebrowser/code/renderergl2/tr_bsp.c' l='2043' u='w' c='R_LoadPlanes'/>
+<use f='codebrowser/code/server/sv_bot.c' l='189' u='w' c='BotImport_Trace'/>
+<use f='codebrowser/code/server/sv_bot.c' l='189' u='r' c='BotImport_Trace'/>
+<use f='codebrowser/code/server/sv_bot.c' l='215' u='w' c='BotImport_EntityTrace'/>
+<use f='codebrowser/code/server/sv_bot.c' l='215' u='r' c='BotImport_EntityTrace'/>

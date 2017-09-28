@@ -1,0 +1,12 @@
+<dec f='codebrowser/code/cgame/cg_local.h' l='1455' type='void CG_ParseServerinfo()'/>
+<use f='codebrowser/code/cgame/cg_main.c' l='1891' u='c' c='CG_Init'/>
+<def f='codebrowser/code/cgame/cg_servercmds.c' l='155' ll='174' type='void CG_ParseServerinfo()'/>
+<use f='codebrowser/code/cgame/cg_servercmds.c' l='296' u='c' c='CG_ConfigStringModified'/>
+<doc f='codebrowser/code/cgame/cg_servercmds.c' l='147'>/*
+================
+CG_ParseServerinfo
+
+This is called explicitly when the gamestate is first received,
+and whenever the server updates any serverinfo flagged cvars
+================
+*/</doc>

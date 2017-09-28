@@ -1,0 +1,85 @@
+<def f='codebrowser/code/botlib/be_ai_goal.c' l='192' type='int'/>
+<use f='codebrowser/code/botlib/be_ai_goal.c' l='876' u='r' c='BotGetLevelItemGoal'/>
+<use f='codebrowser/code/botlib/be_ai_goal.c' l='879' u='r' c='BotGetLevelItemGoal'/>
+<use f='codebrowser/code/botlib/be_ai_goal.c' l='1087' u='r' c='BotUpdateEntityItems'/>
+<use f='codebrowser/code/botlib/be_ai_goal.c' l='1090' u='r' c='BotUpdateEntityItems'/>
+<use f='codebrowser/code/botlib/be_ai_goal.c' l='1320' u='r' c='BotChooseLTGItem'/>
+<use f='codebrowser/code/botlib/be_ai_goal.c' l='1324' u='r' c='BotChooseLTGItem'/>
+<use f='codebrowser/code/botlib/be_ai_goal.c' l='1491' u='r' c='BotChooseNBGItem'/>
+<use f='codebrowser/code/botlib/be_ai_goal.c' l='1495' u='r' c='BotChooseNBGItem'/>
+<use f='codebrowser/code/botlib/be_ai_goal.c' l='1776' u='w' c='BotSetupGoalAI'/>
+<doc f='codebrowser/code/botlib/be_ai_goal.c' l='191'>//the game type</doc>
+<dec f='codebrowser/code/game/g_local.h' l='697' type='vmCvar_t'/>
+<use f='codebrowser/code/game/g_arenas.c' l='367' u='m' c='Svcmd_AbortPodium_f'/>
+<use f='codebrowser/code/game/g_bot.c' l='430' u='m' c='G_CheckMinimumPlayers'/>
+<use f='codebrowser/code/game/g_bot.c' l='453' u='m' c='G_CheckMinimumPlayers'/>
+<use f='codebrowser/code/game/g_bot.c' l='470' u='m' c='G_CheckMinimumPlayers'/>
+<use f='codebrowser/code/game/g_bot.c' l='506' u='m' c='G_CheckBotSpawn'/>
+<use f='codebrowser/code/game/g_bot.c' l='605' u='m' c='G_AddBot'/>
+<use f='codebrowser/code/game/g_bot.c' l='1018' u='m' c='G_InitBots'/>
+<use f='codebrowser/code/game/g_client.c' l='776' u='m' c='ClientUserinfoChanged'/>
+<use f='codebrowser/code/game/g_client.c' l='966' u='m' c='ClientConnect'/>
+<use f='codebrowser/code/game/g_client.c' l='1025' u='m' c='ClientBegin'/>
+<use f='codebrowser/code/game/g_client.c' l='1072' u='m' c='ClientSpawn'/>
+<use f='codebrowser/code/game/g_client.c' l='1168' u='m' c='ClientSpawn'/>
+<use f='codebrowser/code/game/g_client.c' l='1302' u='m' c='ClientDisconnect'/>
+<use f='codebrowser/code/game/g_client.c' l='1309' u='m' c='ClientDisconnect'/>
+<use f='codebrowser/code/game/g_cmds.c' l='433' u='m' c='Cmd_LevelShot_f'/>
+<use f='codebrowser/code/game/g_cmds.c' l='545' u='m' c='SetTeam'/>
+<use f='codebrowser/code/game/g_cmds.c' l='584' u='m' c='SetTeam'/>
+<use f='codebrowser/code/game/g_cmds.c' l='711' u='m' c='Cmd_Team_f'/>
+<use f='codebrowser/code/game/g_cmds.c' l='757' u='m' c='Cmd_Follow_f'/>
+<use f='codebrowser/code/game/g_cmds.c' l='781' u='m' c='Cmd_FollowCycle_f'/>
+<use f='codebrowser/code/game/g_cmds.c' l='858' u='m' c='G_SayTo'/>
+<use f='codebrowser/code/game/g_cmds.c' l='880' u='m' c='G_Say'/>
+<use f='codebrowser/code/game/g_cmds.c' l='902' u='m' c='G_Say'/>
+<use f='codebrowser/code/game/g_combat.c' l='64' u='m' c='AddScore'/>
+<use f='codebrowser/code/game/g_combat.c' l='109' u='m' c='TossClientItems'/>
+<use f='codebrowser/code/game/g_combat.c' l='361' u='m' c='CheckAlmostCapture'/>
+<use f='codebrowser/code/game/g_combat.c' l='1015' u='m' c='G_Damage'/>
+<use f='codebrowser/code/game/g_items.c' l='89' u='m' c='Pickup_Powerup'/>
+<use f='codebrowser/code/game/g_items.c' l='248' u='m' c='Pickup_Weapon'/>
+<use f='codebrowser/code/game/g_items.c' l='268' u='m' c='Pickup_Weapon'/>
+<use f='codebrowser/code/game/g_items.c' l='436' u='m' c='Touch_Item'/>
+<use f='codebrowser/code/game/g_items.c' l='597' u='m' c='LaunchItem'/>
+<use f='codebrowser/code/game/g_items.c' l='729' u='m' c='G_CheckTeamItems'/>
+<def f='codebrowser/code/game/g_main.c' l='41' type='vmCvar_t'/>
+<use f='codebrowser/code/game/g_main.c' l='109' u='a'/>
+<use f='codebrowser/code/game/g_main.c' l='109' u='a'/>
+<use f='codebrowser/code/game/g_main.c' l='109' u='a'/>
+<use f='codebrowser/code/game/g_main.c' l='109' u='a'/>
+<use f='codebrowser/code/game/g_main.c' l='359' u='m' c='G_RegisterCvars'/>
+<use f='codebrowser/code/game/g_main.c' l='359' u='m' c='G_RegisterCvars'/>
+<use f='codebrowser/code/game/g_main.c' l='360' u='m' c='G_RegisterCvars'/>
+<use f='codebrowser/code/game/g_main.c' l='362' u='a' c='G_RegisterCvars'/>
+<use f='codebrowser/code/game/g_main.c' l='430' u='m' c='G_InitGame'/>
+<use f='codebrowser/code/game/g_main.c' l='491' u='m' c='G_InitGame'/>
+<use f='codebrowser/code/game/g_main.c' l='499' u='m' c='G_InitGame'/>
+<use f='codebrowser/code/game/g_main.c' l='836' u='m' c='CalculateRanks'/>
+<use f='codebrowser/code/game/g_main.c' l='864' u='m' c='CalculateRanks'/>
+<use f='codebrowser/code/game/g_main.c' l='871' u='m' c='CalculateRanks'/>
+<use f='codebrowser/code/game/g_main.c' l='1000' u='m' c='BeginIntermission'/>
+<use f='codebrowser/code/game/g_main.c' l='1023' u='m' c='BeginIntermission'/>
+<use f='codebrowser/code/game/g_main.c' l='1054' u='m' c='ExitLevel'/>
+<use f='codebrowser/code/game/g_main.c' l='1166' u='m' c='LogExit'/>
+<use f='codebrowser/code/game/g_main.c' l='1232' u='m' c='CheckIntermissionExit'/>
+<use f='codebrowser/code/game/g_main.c' l='1318' u='m' c='ScoreIsTied'/>
+<use f='codebrowser/code/game/g_main.c' l='1377' u='m' c='CheckExitRules'/>
+<use f='codebrowser/code/game/g_main.c' l='1408' u='m' c='CheckExitRules'/>
+<use f='codebrowser/code/game/g_main.c' l='1449' u='m' c='CheckTournament'/>
+<use f='codebrowser/code/game/g_main.c' l='1499' u='m' c='CheckTournament'/>
+<use f='codebrowser/code/game/g_main.c' l='1503' u='m' c='CheckTournament'/>
+<use f='codebrowser/code/game/g_session.c' l='120' u='m' c='G_InitSessionData'/>
+<use f='codebrowser/code/game/g_session.c' l='133' u='m' c='G_InitSessionData'/>
+<use f='codebrowser/code/game/g_session.c' l='179' u='m' c='G_InitWorldSession'/>
+<use f='codebrowser/code/game/g_session.c' l='194' u='m' c='G_WriteSessionData'/>
+<use f='codebrowser/code/game/g_spawn.c' l='411' u='m' c='G_SpawnGEntityFromSpawnVars'/>
+<use f='codebrowser/code/game/g_spawn.c' l='420' u='m' c='G_SpawnGEntityFromSpawnVars'/>
+<use f='codebrowser/code/game/g_spawn.c' l='453' u='m' c='G_SpawnGEntityFromSpawnVars'/>
+<use f='codebrowser/code/game/g_spawn.c' l='453' u='m' c='G_SpawnGEntityFromSpawnVars'/>
+<use f='codebrowser/code/game/g_spawn.c' l='454' u='m' c='G_SpawnGEntityFromSpawnVars'/>
+<use f='codebrowser/code/game/g_team.c' l='48' u='m' c='Team_InitGame'/>
+<use f='codebrowser/code/game/g_team.c' l='170' u='m' c='OnSameTeam'/>
+<use f='codebrowser/code/game/g_team.c' l='214' u='m' c='Team_SetFlagStatus'/>
+<use f='codebrowser/code/game/g_team.c' l='542' u='m' c='Team_ResetFlags'/>
+<use f='codebrowser/code/game/g_weapon.c' l='856' u='m' c='FireWeapon'/>

@@ -1,0 +1,24 @@
+<dec f='codebrowser/code/botlib/l_memory.h' l='61' type='void * GetClearedHunkMemory(unsigned long size)'/>
+<use f='codebrowser/code/botlib/be_aas_bspq3.c' l='411' u='c' c='AAS_ParseBSPEntities'/>
+<use f='codebrowser/code/botlib/be_aas_bspq3.c' l='482' u='c' c='AAS_LoadBSPFile'/>
+<doc f='codebrowser/code/botlib/l_memory.h' l='60'>//allocate a memory block of the given size and clear it</doc>
+<use f='codebrowser/code/botlib/be_aas_file.c' l='297' u='c' c='AAS_LoadAASLump'/>
+<use f='codebrowser/code/botlib/be_aas_file.c' l='312' u='c' c='AAS_LoadAASLump'/>
+<use f='codebrowser/code/botlib/be_aas_main.c' l='301' u='c' c='AAS_Setup'/>
+<use f='codebrowser/code/botlib/be_aas_sample.c' l='191' u='c' c='AAS_InitAASLinkedEntities'/>
+<use f='codebrowser/code/botlib/be_ai_chat.c' l='247' u='c' c='InitConsoleMessageHeap'/>
+<use f='codebrowser/code/botlib/be_ai_chat.c' l='626' u='c' c='BotLoadSynonyms'/>
+<use f='codebrowser/code/botlib/be_ai_chat.c' l='981' u='c' c='BotLoadRandomStrings'/>
+<use f='codebrowser/code/botlib/be_ai_chat.c' l='1191' u='c' c='BotLoadMatchPieces'/>
+<use f='codebrowser/code/botlib/be_ai_chat.c' l='1202' u='c' c='BotLoadMatchPieces'/>
+<use f='codebrowser/code/botlib/be_ai_chat.c' l='1226' u='c' c='BotLoadMatchPieces'/>
+<use f='codebrowser/code/botlib/be_ai_chat.c' l='1321' u='c' c='BotLoadMatchTemplates'/>
+<use f='codebrowser/code/botlib/be_ai_chat.c' l='1877' u='c' c='BotLoadReplyChat'/>
+<use f='codebrowser/code/botlib/be_ai_chat.c' l='1885' u='c' c='BotLoadReplyChat'/>
+<use f='codebrowser/code/botlib/be_ai_chat.c' l='1931' u='c' c='BotLoadReplyChat'/>
+<use f='codebrowser/code/botlib/be_ai_chat.c' l='1944' u='c' c='BotLoadReplyChat'/>
+<use f='codebrowser/code/botlib/be_ai_chat.c' l='1978' u='c' c='BotLoadReplyChat'/>
+<use f='codebrowser/code/botlib/be_ai_goal.c' l='292' u='c' c='LoadItemConfig'/>
+<use f='codebrowser/code/botlib/be_ai_weap.c' l='231' u='c' c='LoadWeaponConfig'/>
+<use f='codebrowser/code/botlib/be_ea.c' l='461' u='c' c='EA_Setup'/>
+<def f='codebrowser/code/botlib/l_memory.c' l='406' ll='417' type='void * GetClearedHunkMemory(unsigned long size)'/>

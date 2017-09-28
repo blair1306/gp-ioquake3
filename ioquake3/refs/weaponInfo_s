@@ -1,0 +1,29 @@
+<def f='codebrowser/code/cgame/cg_local.h' l='380' ll='414'/>
+<size>152</size>
+<doc f='codebrowser/code/cgame/cg_local.h' l='377'>// each WP_* weapon enum has an associated weaponInfo_t
+// that contains media references necessary to present the
+// weapon and its effects</doc>
+<mbr r='weaponInfo_s::registered' o='0' t='qboolean'/>
+<mbr r='weaponInfo_s::item' o='64' t='gitem_t *'/>
+<mbr r='weaponInfo_s::handsModel' o='128' t='qhandle_t'/>
+<mbr r='weaponInfo_s::weaponModel' o='160' t='qhandle_t'/>
+<mbr r='weaponInfo_s::barrelModel' o='192' t='qhandle_t'/>
+<mbr r='weaponInfo_s::flashModel' o='224' t='qhandle_t'/>
+<mbr r='weaponInfo_s::weaponMidpoint' o='256' t='vec3_t'/>
+<mbr r='weaponInfo_s::flashDlight' o='352' t='float'/>
+<mbr r='weaponInfo_s::flashDlightColor' o='384' t='vec3_t'/>
+<mbr r='weaponInfo_s::flashSound' o='480' t='sfxHandle_t [4]'/>
+<mbr r='weaponInfo_s::weaponIcon' o='608' t='qhandle_t'/>
+<mbr r='weaponInfo_s::ammoIcon' o='640' t='qhandle_t'/>
+<mbr r='weaponInfo_s::ammoModel' o='672' t='qhandle_t'/>
+<mbr r='weaponInfo_s::missileModel' o='704' t='qhandle_t'/>
+<mbr r='weaponInfo_s::missileSound' o='736' t='sfxHandle_t'/>
+<mbr r='weaponInfo_s::missileTrailFunc' o='768' t='void (*)(centity_t *, const struct weaponInfo_s *)'/>
+<mbr r='weaponInfo_s::missileDlight' o='832' t='float'/>
+<mbr r='weaponInfo_s::missileDlightColor' o='864' t='vec3_t'/>
+<mbr r='weaponInfo_s::missileRenderfx' o='960' t='int'/>
+<mbr r='weaponInfo_s::ejectBrassFunc' o='1024' t='void (*)(centity_t *)'/>
+<mbr r='weaponInfo_s::trailRadius' o='1088' t='float'/>
+<mbr r='weaponInfo_s::wiTrailTime' o='1120' t='float'/>
+<mbr r='weaponInfo_s::readySound' o='1152' t='sfxHandle_t'/>
+<mbr r='weaponInfo_s::firingSound' o='1184' t='sfxHandle_t'/>

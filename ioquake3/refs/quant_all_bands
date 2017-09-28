@@ -1,0 +1,27 @@
+<dec f='codebrowser/code/opus-1.1.4/celt/bands.h' l='103' type='void quant_all_bands(int encode, const OpusCustomMode * m, int start, int end, celt_norm * X, celt_norm * Y, unsigned char * collapse_masks, const celt_ener * bandE, int * pulses, int shortBlocks, int spread, int dual_stereo, int intensity, int * tf_res, opus_int32 total_bits, opus_int32 balance, ec_ctx * ec, int M, int codedBands, opus_uint32 * seed, int arch)'/>
+<def f='codebrowser/code/opus-1.1.4/celt/bands.c' l='1363' ll='1528' type='void quant_all_bands(int encode, const OpusCustomMode * m, int start, int end, celt_norm * X_, celt_norm * Y_, unsigned char * collapse_masks, const celt_ener * bandE, int * pulses, int shortBlocks, int spread, int dual_stereo, int intensity, int * tf_res, opus_int32 total_bits, opus_int32 balance, ec_ctx * ec, int LM, int codedBands, opus_uint32 * seed, int arch)'/>
+<doc f='codebrowser/code/opus-1.1.4/celt/bands.h' l='80'>/** Quantisation/encoding of the residual spectrum
+ * @param encode flag that indicates whether we&apos;re encoding (1) or decoding (0)
+ * @param m Mode data
+ * @param start First band to process
+ * @param end Last band to process + 1
+ * @param X Residual (normalised)
+ * @param Y Residual (normalised) for second channel (or NULL for mono)
+ * @param collapse_masks Anti-collapse tracking mask
+ * @param bandE Square root of the energy for each band
+ * @param pulses Bit allocation (per band) for PVQ
+ * @param shortBlocks Zero for long blocks, non-zero for short blocks
+ * @param spread Amount of spreading to use
+ * @param dual_stereo Zero for MS stereo, non-zero for dual stereo
+ * @param intensity First band to use intensity stereo
+ * @param tf_res Time-frequency resolution change
+ * @param total_bits Total number of bits that can be used for the frame (including the ones already spent)
+ * @param balance Number of unallocated bits
+ * @param en Entropy coder state
+ * @param LM log2() of the number of 2.5 subframes in the frame
+ * @param codedBands Last band to receive bits + 1
+ * @param seed Random generator seed
+ * @param arch Run-time architecture (see opus_select_arch())
+ */</doc>
+<use f='codebrowser/code/opus-1.1.4/celt/celt_decoder.c' l='980' u='c' c='celt_decode_with_ec'/>
+<use f='codebrowser/code/opus-1.1.4/celt/celt_encoder.c' l='2038' u='c' c='celt_encode_with_ec'/>

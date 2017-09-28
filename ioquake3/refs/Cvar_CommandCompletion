@@ -1,0 +1,10 @@
+<dec f='codebrowser/code/qcommon/qcommon.h' l='541' type='void Cvar_CommandCompletion(void (*)(const char *) callback)'/>
+<doc f='codebrowser/code/qcommon/qcommon.h' l='539'>// returns CVAR_NONEXISTENT if cvar doesn&apos;t exist or the flags of that particular CVAR.</doc>
+<use f='codebrowser/code/qcommon/common.c' l='3548' u='c' c='Field_CompleteCommand'/>
+<use f='codebrowser/code/qcommon/common.c' l='3557' u='c' c='Field_CompleteCommand'/>
+<def f='codebrowser/code/qcommon/cvar.c' l='187' ll='196' type='void Cvar_CommandCompletion(void (*)(const char *) callback)'/>
+<doc f='codebrowser/code/qcommon/cvar.c' l='182'>/*
+============
+Cvar_CommandCompletion
+============
+*/</doc>

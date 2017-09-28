@@ -1,0 +1,21 @@
+<dec f='codebrowser/code/qcommon/qcommon.h' l='955' type='void * Hunk_AllocateTempMemory(int size)'/>
+<use f='codebrowser/code/client/cl_cin.c' l='1594' u='c' c='CIN_DrawCinematic'/>
+<use f='codebrowser/code/client/cl_cin.c' l='1680' u='c' c='CIN_UploadCinematic'/>
+<use f='codebrowser/code/client/cl_console.c' l='230' u='c' c='Con_Dump_f'/>
+<use f='codebrowser/code/client/cl_main.c' l='3251' u='r' c='CL_InitRef'/>
+<use f='codebrowser/code/client/snd_codec_opus.c' l='424' u='c' c='S_OggOpus_CodecLoad'/>
+<use f='codebrowser/code/client/snd_codec_wav.c' l='220' u='c' c='S_WAV_CodecLoad'/>
+<use f='codebrowser/code/client/snd_mem.c' l='235' u='c' c='S_LoadSound'/>
+<def f='codebrowser/code/qcommon/common.c' l='1788' ll='1829' type='void * Hunk_AllocateTempMemory(int size)'/>
+<doc f='codebrowser/code/qcommon/common.c' l='1779'>/*
+=================
+Hunk_AllocateTempMemory
+
+This is used by the file loading system.
+Multiple files can be loaded in temporary memory.
+When the files-in-use count reaches zero, all temp memory will be deleted
+=================
+*/</doc>
+<use f='codebrowser/code/qcommon/files.c' l='1858' u='c' c='FS_ReadFileDir'/>
+<use f='codebrowser/code/qcommon/files.c' l='1918' u='c' c='FS_ReadFileDir'/>
+<use f='codebrowser/code/server/sv_init.c' l='322' u='c' c='SV_ChangeMaxClients'/>

@@ -1,0 +1,11 @@
+<dec f='codebrowser/code/client/client.h' l='475' type='void CL_InitDownloads()'/>
+<def f='codebrowser/code/client/cl_main.c' l='2294' ll='2328' type='void CL_InitDownloads()'/>
+<doc f='codebrowser/code/client/cl_main.c' l='2286'>/*
+=================
+CL_InitDownloads
+
+After receiving a valid game state, we valid the cgame and local zip files here
+and determine if we need to download them
+=================
+*/</doc>
+<use f='codebrowser/code/client/cl_parse.c' l='549' u='c' c='CL_ParseGamestate'/>

@@ -1,0 +1,14 @@
+<dec f='codebrowser/code/game/g_local.h' l='491' type='qboolean CanDamage(gentity_t * targ, vec_t * origin)'/>
+<doc f='codebrowser/code/game/g_local.h' l='488'>//
+// g_combat.c
+//</doc>
+<def f='codebrowser/code/game/g_combat.c' l='1059' ll='1152' type='qboolean CanDamage(gentity_t * targ, vec_t * origin)'/>
+<use f='codebrowser/code/game/g_combat.c' l='1209' u='c' c='G_RadiusDamage'/>
+<doc f='codebrowser/code/game/g_combat.c' l='1051'>/*
+============
+CanDamage
+
+Returns qtrue if the inflictor can directly damage the target.  Used for
+explosions and melee attacks.
+============
+*/</doc>

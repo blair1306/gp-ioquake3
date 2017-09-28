@@ -1,0 +1,7 @@
+<dec f='codebrowser/code/opus-1.1.4/silk/main.h' l='354' type='opus_int32 silk_NLSF_del_dec_quant(signed char * indices, const opus_int16 * x_Q10, const opus_int16 * w_Q5, const unsigned char * pred_coef_Q8, const opus_int16 * ec_ix, const unsigned char * ec_rates_Q5, const int quant_step_size_Q16, const opus_int16 inv_quant_step_size_Q6, const opus_int32 mu_Q20, const opus_int16 order)'/>
+<doc f='codebrowser/code/opus-1.1.4/silk/main.h' l='353'>/* Delayed-decision quantizer for NLSF residuals */</doc>
+<doc f='codebrowser/code/opus-1.1.4/silk/main.h' l='354'>/* O    Returns RD value in Q25                     */</doc>
+<def f='codebrowser/code/opus-1.1.4/silk/NLSF_del_dec_quant.c' l='35' ll='217' type='opus_int32 silk_NLSF_del_dec_quant(signed char * indices, const opus_int16 * x_Q10, const opus_int16 * w_Q5, const unsigned char * pred_coef_Q8, const opus_int16 * ec_ix, const unsigned char * ec_rates_Q5, const int quant_step_size_Q16, const opus_int16 inv_quant_step_size_Q6, const opus_int32 mu_Q20, const opus_int16 order)'/>
+<doc f='codebrowser/code/opus-1.1.4/silk/NLSF_del_dec_quant.c' l='34'>/* Delayed-decision quantizer for NLSF residuals */</doc>
+<doc f='codebrowser/code/opus-1.1.4/silk/NLSF_del_dec_quant.c' l='35'>/* O    Returns RD value in Q25                     */</doc>
+<use f='codebrowser/code/opus-1.1.4/silk/NLSF_encode.c' l='111' u='c' c='silk_NLSF_encode'/>

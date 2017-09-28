@@ -1,0 +1,20 @@
+<dec f='codebrowser/code/cgame/cg_local.h' l='1236' type='void CG_AdjustFrom640(float * x, float * y, float * w, float * h)'/>
+<doc f='codebrowser/code/cgame/cg_local.h' l='1233'>//
+// cg_drawtools.c
+//</doc>
+<use f='codebrowser/code/cgame/cg_draw.c' l='275' u='c' c='CG_Draw3DModel'/>
+<use f='codebrowser/code/cgame/cg_draw.c' l='1664' u='c' c='CG_DrawLagometer'/>
+<use f='codebrowser/code/cgame/cg_draw.c' l='1906' u='c' c='CG_DrawCrosshair'/>
+<def f='codebrowser/code/cgame/cg_drawtools.c' l='33' ll='45' type='void CG_AdjustFrom640(float * x, float * y, float * w, float * h)'/>
+<use f='codebrowser/code/cgame/cg_drawtools.c' l='57' u='c' c='CG_FillRect'/>
+<use f='codebrowser/code/cgame/cg_drawtools.c' l='71' u='c' c='CG_DrawSides'/>
+<use f='codebrowser/code/cgame/cg_drawtools.c' l='78' u='c' c='CG_DrawTopBottom'/>
+<use f='codebrowser/code/cgame/cg_drawtools.c' l='109' u='c' c='CG_DrawPic'/>
+<use f='codebrowser/code/cgame/cg_drawtools.c' l='138' u='c' c='CG_DrawChar'/>
+<doc f='codebrowser/code/cgame/cg_drawtools.c' l='26'>/*
+================
+CG_AdjustFrom640
+
+Adjusted for resolution and screen aspect ratio
+================
+*/</doc>

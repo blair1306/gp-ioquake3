@@ -1,0 +1,14 @@
+<dec f='codebrowser/code/client/client.h' l='604' type='void CL_InitCGame()'/>
+<doc f='codebrowser/code/client/client.h' l='601'>//
+// cl_cgame.c
+//</doc>
+<def f='codebrowser/code/client/cl_cgame.c' l='711' ll='770' type='void CL_InitCGame()'/>
+<doc f='codebrowser/code/client/cl_cgame.c' l='704'>/*
+====================
+CL_InitCGame
+
+Should only be called by CL_StartHunkUsers
+====================
+*/</doc>
+<use f='codebrowser/code/client/cl_main.c' l='1987' u='c' c='CL_Vid_Restart_f'/>
+<use f='codebrowser/code/client/cl_main.c' l='2145' u='c' c='CL_DownloadsComplete'/>

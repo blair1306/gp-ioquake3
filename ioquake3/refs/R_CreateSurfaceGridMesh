@@ -1,0 +1,18 @@
+<def f='codebrowser/code/renderergl1/tr_curve.c' l='289' ll='341' type='srfGridMesh_t * R_CreateSurfaceGridMesh(int width, int height, drawVert_t (*)[65] ctrl, float (*)[65] errorTable)'/>
+<use f='codebrowser/code/renderergl1/tr_curve.c' l='516' u='c' c='R_SubdividePatchToGrid'/>
+<use f='codebrowser/code/renderergl1/tr_curve.c' l='567' u='c' c='R_GridInsertColumn'/>
+<use f='codebrowser/code/renderergl1/tr_curve.c' l='621' u='c' c='R_GridInsertRow'/>
+<doc f='codebrowser/code/renderergl1/tr_curve.c' l='284'>/*
+=================
+R_CreateSurfaceGridMesh
+=================
+*/</doc>
+<def f='codebrowser/code/renderergl2/tr_curve.c' l='367' ll='426' type='void R_CreateSurfaceGridMesh(srfBspSurface_t * grid, int width, int height, srfVert_t (*)[65] ctrl, float (*)[65] errorTable, int numIndexes, glIndex_t * indexes)'/>
+<use f='codebrowser/code/renderergl2/tr_curve.c' l='618' u='c' c='R_SubdividePatchToGrid'/>
+<use f='codebrowser/code/renderergl2/tr_curve.c' l='676' u='c' c='R_GridInsertColumn'/>
+<use f='codebrowser/code/renderergl2/tr_curve.c' l='736' u='c' c='R_GridInsertRow'/>
+<doc f='codebrowser/code/renderergl2/tr_curve.c' l='362'>/*
+=================
+R_CreateSurfaceGridMesh
+=================
+*/</doc>

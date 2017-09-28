@@ -1,0 +1,13 @@
+<dec f='codebrowser/code/jpeg-8c/jpeglib.h' l='1074' type='void jpeg_write_coefficients(j_compress_ptr cinfo, jvirt_barray_ptr * coef_arrays)'/>
+<def f='codebrowser/code/jpeg-8c/jctrans.c' l='38' ll='53' macro='1' type='void jpeg_write_coefficients(j_compress_ptr cinfo, jvirt_barray_ptr * coef_arrays)'/>
+<doc f='codebrowser/code/jpeg-8c/jctrans.c' l='26'>/*
+ * Compression initialization for writing raw-coefficient data.
+ * Before calling this, all parameters and a data destination must be set up.
+ * Call jpeg_finish_compress() to actually write the data.
+ *
+ * The number of passed virtual arrays must match cinfo-&gt;num_components.
+ * Note that the virtual arrays need not be filled or even realized at
+ * the time write_coefficients is called; indeed, if the virtual arrays
+ * were requested from this compression object&apos;s memory manager, they
+ * typically will be realized during this routine and filled afterwards.
+ */</doc>

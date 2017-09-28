@@ -1,0 +1,33 @@
+<dec f='codebrowser/code/game/g_local.h' l='463' type='gentity_t * G_Find(gentity_t * from, int fieldofs, const char * match)'/>
+<use f='codebrowser/code/game/g_client.c' l='121' u='c' c='SelectNearestDeathmatchSpawnPoint'/>
+<use f='codebrowser/code/game/g_client.c' l='152' u='c' c='SelectRandomDeathmatchSpawnPoint'/>
+<use f='codebrowser/code/game/g_client.c' l='169' u='c' c='SelectRandomDeathmatchSpawnPoint'/>
+<use f='codebrowser/code/game/g_client.c' l='194' u='c' c='SelectRandomFurthestSpawnPoint'/>
+<use f='codebrowser/code/game/g_client.c' l='240' u='c' c='SelectRandomFurthestSpawnPoint'/>
+<use f='codebrowser/code/game/g_client.c' l='313' u='c' c='SelectInitialSpawnPoint'/>
+<use f='codebrowser/code/game/g_combat.c' l='380' u='c' c='CheckAlmostCapture'/>
+<use f='codebrowser/code/game/g_combat.c' l='414' u='c' c='CheckAlmostScored'/>
+<use f='codebrowser/code/game/g_main.c' l='968' u='c' c='FindIntermissionPoint'/>
+<use f='codebrowser/code/game/g_mover.c' l='1357' u='c' c='Think_SetupTrainTargets'/>
+<use f='codebrowser/code/game/g_mover.c' l='1381' u='c' c='Think_SetupTrainTargets'/>
+<use f='codebrowser/code/game/g_target.c' l='44' u='c' c='Use_Target_Give'/>
+<use f='codebrowser/code/game/g_target.c' l='313' u='c' c='target_laser_start'/>
+<use f='codebrowser/code/game/g_team.c' l='414' u='c' c='Team_FragBonuses'/>
+<use f='codebrowser/code/game/g_team.c' l='527' u='c' c='Team_ResetFlag'/>
+<use f='codebrowser/code/game/g_team.c' l='994' u='c' c='SelectRandomTeamSpawnPoint'/>
+<use f='codebrowser/code/game/g_team.c' l='1004' u='c' c='SelectRandomTeamSpawnPoint'/>
+<def f='codebrowser/code/game/g_utils.c' l='159' ll='180' type='gentity_t * G_Find(gentity_t * from, int fieldofs, const char * match)'/>
+<use f='codebrowser/code/game/g_utils.c' l='206' u='c' c='G_PickTarget'/>
+<use f='codebrowser/code/game/g_utils.c' l='253' u='c' c='G_UseTargets'/>
+<doc f='codebrowser/code/game/g_utils.c' l='147'>/*
+=============
+G_Find
+
+Searches all active entities for the next one that holds
+the matching string at fieldofs (use the FOFS() macro) in the structure.
+
+Searches beginning at the entity after from, or the beginning if NULL
+NULL will be returned if the end of the list is reached.
+
+=============
+*/</doc>

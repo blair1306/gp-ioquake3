@@ -1,0 +1,17 @@
+<dec f='codebrowser/code/qcommon/qcommon.h' l='896' type='qboolean'/>
+<use f='codebrowser/code/client/cl_main.c' l='3499' u='r' c='CL_Init'/>
+<def f='codebrowser/code/qcommon/common.c' l='119' type='qboolean'/>
+<use f='codebrowser/code/qcommon/common.c' l='2390' u='r' c='Com_GameRestart'/>
+<use f='codebrowser/code/qcommon/common.c' l='2852' u='w' c='Com_Init'/>
+<use f='codebrowser/code/qcommon/common.c' l='2951' u='r' c='Com_WriteConfiguration'/>
+<dec f='codebrowser/code/qcommon/files.c' l='1127' type='qboolean'/>
+<use f='codebrowser/code/qcommon/files.c' l='1160' u='r' c='FS_FOpenFileReadDir'/>
+<doc f='codebrowser/code/qcommon/files.c' l='1119'>/*
+===========
+FS_FOpenFileReadDir
+
+Tries opening file &quot;filename&quot; in searchpath &quot;search&quot;
+Returns filesize and an open FILE pointer.
+===========
+*/</doc>
+<use f='codebrowser/code/sys/sys_main.c' l='283' u='r' c='Sys_Exit'/>

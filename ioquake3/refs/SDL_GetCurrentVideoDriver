@@ -1,0 +1,11 @@
+<dec f='include/SDL2/SDL_video.h' l='273' type='const char * SDL_GetCurrentVideoDriver()'/>
+<doc f='include/SDL2/SDL_video.h' l='264'>/**
+ *  \brief Returns the name of the currently initialized video driver.
+ *
+ *  \return The name of the current video driver or NULL if no driver
+ *          has been initialized
+ *
+ *  \sa SDL_GetNumVideoDrivers()
+ *  \sa SDL_GetVideoDriver()
+ */</doc>
+<use f='codebrowser/code/sdl/sdl_glimp.c' l='584' u='c' c='GLimp_StartDriverAndSetMode'/>

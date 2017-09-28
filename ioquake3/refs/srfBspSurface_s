@@ -1,0 +1,22 @@
+<def f='codebrowser/code/renderergl2/tr_local.h' l='891' ll='927'/>
+<size>152</size>
+<doc f='codebrowser/code/renderergl2/tr_local.h' l='890'>// srfBspSurface_t covers SF_GRID, SF_TRIANGLES, and SF_POLY</doc>
+<mbr r='srfBspSurface_s::surfaceType' o='0' t='surfaceType_t'/>
+<mbr r='srfBspSurface_s::dlightBits' o='32' t='int'/>
+<mbr r='srfBspSurface_s::pshadowBits' o='64' t='int'/>
+<mbr r='srfBspSurface_s::cullBounds' o='96' t='vec3_t [2]'/>
+<mbr r='srfBspSurface_s::cullOrigin' o='288' t='vec3_t'/>
+<mbr r='srfBspSurface_s::cullRadius' o='384' t='float'/>
+<mbr r='srfBspSurface_s::cullPlane' o='416' t='cplane_t'/>
+<mbr r='srfBspSurface_s::numIndexes' o='576' t='int'/>
+<mbr r='srfBspSurface_s::indexes' o='640' t='glIndex_t *'/>
+<mbr r='srfBspSurface_s::numVerts' o='704' t='int'/>
+<mbr r='srfBspSurface_s::verts' o='768' t='srfVert_t *'/>
+<mbr r='srfBspSurface_s::lodOrigin' o='832' t='vec3_t'/>
+<mbr r='srfBspSurface_s::lodRadius' o='928' t='float'/>
+<mbr r='srfBspSurface_s::lodFixed' o='960' t='int'/>
+<mbr r='srfBspSurface_s::lodStitched' o='992' t='int'/>
+<mbr r='srfBspSurface_s::width' o='1024' t='int'/>
+<mbr r='srfBspSurface_s::height' o='1056' t='int'/>
+<mbr r='srfBspSurface_s::widthLodError' o='1088' t='float *'/>
+<mbr r='srfBspSurface_s::heightLodError' o='1152' t='float *'/>

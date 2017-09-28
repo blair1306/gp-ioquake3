@@ -1,0 +1,14 @@
+<dec f='codebrowser/code/cgame/cg_local.h' l='1026' type='char [2][1024]'/>
+<offset>261984</offset>
+<use f='codebrowser/code/cgame/cg_draw.c' l='2158' c='CG_DrawTeamVote'/>
+<use f='codebrowser/code/cgame/cg_servercmds.c' l='329' u='r' c='CG_ConfigStringModified'/>
+<use f='codebrowser/code/cgame/cg_servercmds.c' l='329' u='r' c='CG_ConfigStringModified'/>
+<dec f='codebrowser/code/game/g_local.h' l='377' type='char [2][1024]'/>
+<offset>19456</offset>
+<doc f='codebrowser/code/game/g_local.h' l='376'>// team voting state</doc>
+<use f='codebrowser/code/game/g_cmds.c' l='1574' u='r' c='Cmd_CallTeamVote_f'/>
+<use f='codebrowser/code/game/g_cmds.c' l='1574' u='r' c='Cmd_CallTeamVote_f'/>
+<use f='codebrowser/code/game/g_cmds.c' l='1595' u='r' c='Cmd_CallTeamVote_f'/>
+<use f='codebrowser/code/game/g_main.c' l='1696' u='r' c='CheckTeamVote'/>
+<use f='codebrowser/code/game/g_main.c' l='1698' u='r' c='CheckTeamVote'/>
+<use f='codebrowser/code/game/g_main.c' l='1701' c='CheckTeamVote'/>

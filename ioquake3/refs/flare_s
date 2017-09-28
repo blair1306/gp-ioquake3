@@ -1,0 +1,72 @@
+<def f='codebrowser/code/renderergl1/tr_flares.c' l='60' ll='80'/>
+<size>88</size>
+<doc f='codebrowser/code/renderergl1/tr_flares.c' l='26'>/*
+=============================================================================
+
+LIGHT FLARES
+
+A light flare is an effect that takes place inside the eye when bright light
+sources are visible.  The size of the flare relative to the screen is nearly
+constant, irrespective of distance, but the intensity should be proportional to the
+projected area of the light source.
+
+A surface that has been flagged as having a light flare will calculate the depth
+buffer value that its midpoint should have when the surface is added.
+
+After all opaque surfaces have been rendered, the depth buffer is read back for
+each flare in view.  If the point has not been obscured by a closer surface, the
+flare should be drawn.
+
+Surfaces that have a repeated texture should never be flagged as flaring, because
+there will only be a single flare added at the midpoint of the polygon.
+
+To prevent abrupt popping, the intensity of the flare is interpolated up and
+down as it changes visibility.  This involves scene to scene state, unlike almost
+all other aspects of the renderer, and is complicated by the fact that a single
+frame may have multiple scenes.
+
+RB_RenderFlares() will be called once per view (twice in a mirrored scene, potentially
+up to five or more times in a frame with 3D status bar icons).
+
+=============================================================================
+*/
+
+
+// flare states maintain visibility over multiple frames for fading
+// layers: view, mirror, menu</doc>
+<def f='codebrowser/code/renderergl2/tr_flares.c' l='60' ll='80'/>
+<size>88</size>
+<doc f='codebrowser/code/renderergl2/tr_flares.c' l='26'>/*
+=============================================================================
+
+LIGHT FLARES
+
+A light flare is an effect that takes place inside the eye when bright light
+sources are visible.  The size of the flare reletive to the screen is nearly
+constant, irrespective of distance, but the intensity should be proportional to the
+projected area of the light source.
+
+A surface that has been flagged as having a light flare will calculate the depth
+buffer value that its midpoint should have when the surface is added.
+
+After all opaque surfaces have been rendered, the depth buffer is read back for
+each flare in view.  If the point has not been obscured by a closer surface, the
+flare should be drawn.
+
+Surfaces that have a repeated texture should never be flagged as flaring, because
+there will only be a single flare added at the midpoint of the polygon.
+
+To prevent abrupt popping, the intensity of the flare is interpolated up and
+down as it changes visibility.  This involves scene to scene state, unlike almost
+all other aspects of the renderer, and is complicated by the fact that a single
+frame may have multiple scenes.
+
+RB_RenderFlares() will be called once per view (twice in a mirrored scene, potentially
+up to five or more times in a frame with 3D status bar icons).
+
+=============================================================================
+*/
+
+
+// flare states maintain visibility over multiple frames for fading
+// layers: view, mirror, menu</doc>

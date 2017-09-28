@@ -1,0 +1,13 @@
+<dec f='codebrowser/code/server/server.h' l='359' type='void SV_SpawnServer(char * server, qboolean killBots)'/>
+<use f='codebrowser/code/server/sv_ccmds.c' l='208' u='c' c='SV_Map_f'/>
+<use f='codebrowser/code/server/sv_ccmds.c' l='272' u='c' c='SV_MapRestart_f'/>
+<def f='codebrowser/code/server/sv_init.c' l='402' ll='621' type='void SV_SpawnServer(char * server, qboolean killBots)'/>
+<doc f='codebrowser/code/server/sv_init.c' l='393'>/*
+================
+SV_SpawnServer
+
+Change the server to a new map, taking all connected
+clients along with it.
+This is NOT called for map_restart
+================
+*/</doc>

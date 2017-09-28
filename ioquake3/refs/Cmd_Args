@@ -1,0 +1,16 @@
+<dec f='codebrowser/code/qcommon/qcommon.h' l='456' type='char * Cmd_Args()'/>
+<use f='codebrowser/code/client/cl_main.c' l='1656' u='c' c='CL_ForwardToServer_f'/>
+<use f='codebrowser/code/client/cl_main.c' l='1719' u='c' c='CL_Connect_f'/>
+<use f='codebrowser/code/qcommon/cmd.c' l='328' u='c' c='Cmd_Echo_f'/>
+<def f='codebrowser/code/qcommon/cmd.c' l='397' ll='410' type='char * Cmd_Args()'/>
+<use f='codebrowser/code/qcommon/cmd.c' l='445' u='c' c='Cmd_ArgsBuffer'/>
+<doc f='codebrowser/code/qcommon/cmd.c' l='390'>/*
+============
+Cmd_Args
+
+Returns a single string containing argv(1) to argv(argc()-1)
+============
+*/</doc>
+<use f='codebrowser/code/qcommon/common.c' l='378' u='c' c='Com_Quit_f'/>
+<use f='codebrowser/code/qcommon/cvar.c' l='767' u='c' c='Cvar_Command'/>
+<use f='codebrowser/code/server/sv_ccmds.c' l='1254' u='c' c='SV_ConSay_f'/>

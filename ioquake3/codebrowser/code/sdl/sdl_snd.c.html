@@ -1,0 +1,313 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>sdl_snd.c source code [codebrowser/code/sdl/sdl_snd.c] - Woboq Code Browser</title>
+<link rel="stylesheet" href="../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'codebrowser/code/sdl/sdl_snd.c'; var root_path = '../../..'; var data_path = '../../../../data';</script>
+<script src='../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../..'>codebrowser</a>/<a href='..'>code</a>/<a href='./'>sdl</a>/<a href='sdl_snd.c.html'>sdl_snd.c</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/*</i></td></tr>
+<tr><th id="2">2</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="3">3</th><td><i>Copyright (C) 1999-2005 Id Software, Inc.</i></td></tr>
+<tr><th id="4">4</th><td><i></i></td></tr>
+<tr><th id="5">5</th><td><i>This file is part of Quake III Arena source code.</i></td></tr>
+<tr><th id="6">6</th><td><i></i></td></tr>
+<tr><th id="7">7</th><td><i>Quake III Arena source code is free software; you can redistribute it</i></td></tr>
+<tr><th id="8">8</th><td><i>and/or modify it under the terms of the GNU General Public License as</i></td></tr>
+<tr><th id="9">9</th><td><i>published by the Free Software Foundation; either version 2 of the License,</i></td></tr>
+<tr><th id="10">10</th><td><i>or (at your option) any later version.</i></td></tr>
+<tr><th id="11">11</th><td><i></i></td></tr>
+<tr><th id="12">12</th><td><i>Quake III Arena source code is distributed in the hope that it will be</i></td></tr>
+<tr><th id="13">13</th><td><i>useful, but WITHOUT ANY WARRANTY; without even the implied warranty of</i></td></tr>
+<tr><th id="14">14</th><td><i>MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</i></td></tr>
+<tr><th id="15">15</th><td><i>GNU General Public License for more details.</i></td></tr>
+<tr><th id="16">16</th><td><i></i></td></tr>
+<tr><th id="17">17</th><td><i>You should have received a copy of the GNU General Public License</i></td></tr>
+<tr><th id="18">18</th><td><i>along with Quake III Arena source code; if not, write to the Free Software</i></td></tr>
+<tr><th id="19">19</th><td><i>Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA</i></td></tr>
+<tr><th id="20">20</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="21">21</th><td><i>*/</i></td></tr>
+<tr><th id="22">22</th><td></td></tr>
+<tr><th id="23">23</th><td><u>#include <a href="../../../include/stdlib.h.html">&lt;stdlib.h&gt;</a></u></td></tr>
+<tr><th id="24">24</th><td><u>#include <a href="../../../include/stdio.h.html">&lt;stdio.h&gt;</a></u></td></tr>
+<tr><th id="25">25</th><td></td></tr>
+<tr><th id="26">26</th><td><u>#<span data-ppcond="26">ifdef</span> <span class="macro" data-ref="_M/USE_LOCAL_HEADERS">USE_LOCAL_HEADERS</span></u></td></tr>
+<tr><th id="27">27</th><td><u>#	include <a href="../../../include/SDL2/SDL.h.html">"SDL.h"</a></u></td></tr>
+<tr><th id="28">28</th><td><u>#<span data-ppcond="26">else</span></u></td></tr>
+<tr><th id="29">29</th><td><u>#	include &lt;SDL.h&gt;</u></td></tr>
+<tr><th id="30">30</th><td><u>#<span data-ppcond="26">endif</span></u></td></tr>
+<tr><th id="31">31</th><td></td></tr>
+<tr><th id="32">32</th><td><u>#include <a href="../qcommon/q_shared.h.html">"../qcommon/q_shared.h"</a></u></td></tr>
+<tr><th id="33">33</th><td><u>#include <a href="../client/snd_local.h.html">"../client/snd_local.h"</a></u></td></tr>
+<tr><th id="34">34</th><td></td></tr>
+<tr><th id="35">35</th><td><a class="typedef" href="../qcommon/q_shared.h.html#qboolean" title='qboolean' data-type='enum qboolean' data-ref="qboolean">qboolean</a> <dfn class="decl def" id="snd_inited" title='snd_inited' data-ref="snd_inited">snd_inited</dfn> = <a class="enum" href="../qcommon/q_shared.h.html#qfalse" title='qfalse' data-ref="qfalse">qfalse</a>;</td></tr>
+<tr><th id="36">36</th><td></td></tr>
+<tr><th id="37">37</th><td><a class="typedef" href="../qcommon/q_shared.h.html#cvar_t" title='cvar_t' data-type='struct cvar_s' data-ref="cvar_t">cvar_t</a> *<dfn class="decl def" id="s_sdlBits" title='s_sdlBits' data-ref="s_sdlBits">s_sdlBits</dfn>;</td></tr>
+<tr><th id="38">38</th><td><a class="typedef" href="../qcommon/q_shared.h.html#cvar_t" title='cvar_t' data-type='struct cvar_s' data-ref="cvar_t">cvar_t</a> *<dfn class="decl def" id="s_sdlSpeed" title='s_sdlSpeed' data-ref="s_sdlSpeed">s_sdlSpeed</dfn>;</td></tr>
+<tr><th id="39">39</th><td><a class="typedef" href="../qcommon/q_shared.h.html#cvar_t" title='cvar_t' data-type='struct cvar_s' data-ref="cvar_t">cvar_t</a> *<dfn class="decl def" id="s_sdlChannels" title='s_sdlChannels' data-ref="s_sdlChannels">s_sdlChannels</dfn>;</td></tr>
+<tr><th id="40">40</th><td><a class="typedef" href="../qcommon/q_shared.h.html#cvar_t" title='cvar_t' data-type='struct cvar_s' data-ref="cvar_t">cvar_t</a> *<dfn class="decl def" id="s_sdlDevSamps" title='s_sdlDevSamps' data-ref="s_sdlDevSamps">s_sdlDevSamps</dfn>;</td></tr>
+<tr><th id="41">41</th><td><a class="typedef" href="../qcommon/q_shared.h.html#cvar_t" title='cvar_t' data-type='struct cvar_s' data-ref="cvar_t">cvar_t</a> *<dfn class="decl def" id="s_sdlMixSamps" title='s_sdlMixSamps' data-ref="s_sdlMixSamps">s_sdlMixSamps</dfn>;</td></tr>
+<tr><th id="42">42</th><td></td></tr>
+<tr><th id="43">43</th><td><i  data-doc="dmapos">/* The audio callback. All the magic happens here. */</i></td></tr>
+<tr><th id="44">44</th><td><em>static</em> <em>int</em> <dfn class="tu decl def" id="dmapos" title='dmapos' data-type='int' data-ref="dmapos">dmapos</dfn> = <var>0</var>;</td></tr>
+<tr><th id="45">45</th><td><em>static</em> <em>int</em> <dfn class="tu decl def" id="dmasize" title='dmasize' data-type='int' data-ref="dmasize">dmasize</dfn> = <var>0</var>;</td></tr>
+<tr><th id="46">46</th><td></td></tr>
+<tr><th id="47">47</th><td><i  data-doc="SNDDMA_AudioCallback">/*</i></td></tr>
+<tr><th id="48">48</th><td><i  data-doc="SNDDMA_AudioCallback">===============</i></td></tr>
+<tr><th id="49">49</th><td><i  data-doc="SNDDMA_AudioCallback">SNDDMA_AudioCallback</i></td></tr>
+<tr><th id="50">50</th><td><i  data-doc="SNDDMA_AudioCallback">===============</i></td></tr>
+<tr><th id="51">51</th><td><i  data-doc="SNDDMA_AudioCallback">*/</i></td></tr>
+<tr><th id="52">52</th><td><em>static</em> <em>void</em> <dfn class="tu decl def" id="SNDDMA_AudioCallback" title='SNDDMA_AudioCallback' data-type='void SNDDMA_AudioCallback(void * userdata, Uint8 * stream, int len)' data-ref="SNDDMA_AudioCallback">SNDDMA_AudioCallback</dfn>(<em>void</em> *<dfn class="local col1 decl" id="1userdata" title='userdata' data-type='void *' data-ref="1userdata">userdata</dfn>, <a class="typedef" href="../../../include/SDL2/SDL_stdinc.h.html#Uint8" title='Uint8' data-type='uint8_t' data-ref="Uint8">Uint8</a> *<dfn class="local col2 decl" id="2stream" title='stream' data-type='Uint8 *' data-ref="2stream">stream</dfn>, <em>int</em> <dfn class="local col3 decl" id="3len" title='len' data-type='int' data-ref="3len">len</dfn>)</td></tr>
+<tr><th id="53">53</th><td>{</td></tr>
+<tr><th id="54">54</th><td>	<em>int</em> <dfn class="local col4 decl" id="4pos" title='pos' data-type='int' data-ref="4pos">pos</dfn> = (<a class="tu ref" href="#dmapos" title='dmapos' data-use='r' data-ref="dmapos">dmapos</a> * (<a class="ref" href="../client/snd_local.h.html#dma" title='dma' data-ref="dma">dma</a>.<a class="ref" href="../client/snd_local.h.html#(anonymous)::samplebits" title='(anonymous struct)::samplebits' data-ref="(anonymous)::samplebits">samplebits</a>/<var>8</var>));</td></tr>
+<tr><th id="55">55</th><td>	<b>if</b> (<a class="local col4 ref" href="#4pos" title='pos' data-ref="4pos">pos</a> &gt;= <a class="tu ref" href="#dmasize" title='dmasize' data-use='r' data-ref="dmasize">dmasize</a>)</td></tr>
+<tr><th id="56">56</th><td>		<a class="tu ref" href="#dmapos" title='dmapos' data-use='w' data-ref="dmapos">dmapos</a> = <a class="local col4 ref" href="#4pos" title='pos' data-ref="4pos">pos</a> = <var>0</var>;</td></tr>
+<tr><th id="57">57</th><td></td></tr>
+<tr><th id="58">58</th><td>	<b>if</b> (!<a class="ref" href="#snd_inited" title='snd_inited' data-ref="snd_inited">snd_inited</a>)  <i>/* shouldn't happen, but just in case... */</i></td></tr>
+<tr><th id="59">59</th><td>	{</td></tr>
+<tr><th id="60">60</th><td>		<a class="ref" href="../../../include/string.h.html#memset" title='memset' data-ref="memset">memset</a>(<a class="local col2 ref" href="#2stream" title='stream' data-ref="2stream">stream</a>, <kbd>'\0'</kbd>, <a class="local col3 ref" href="#3len" title='len' data-ref="3len">len</a>);</td></tr>
+<tr><th id="61">61</th><td>		<b>return</b>;</td></tr>
+<tr><th id="62">62</th><td>	}</td></tr>
+<tr><th id="63">63</th><td>	<b>else</b></td></tr>
+<tr><th id="64">64</th><td>	{</td></tr>
+<tr><th id="65">65</th><td>		<em>int</em> <dfn class="local col5 decl" id="5tobufend" title='tobufend' data-type='int' data-ref="5tobufend">tobufend</dfn> = <a class="tu ref" href="#dmasize" title='dmasize' data-use='r' data-ref="dmasize">dmasize</a> - <a class="local col4 ref" href="#4pos" title='pos' data-ref="4pos">pos</a>;  <i>/* bytes to buffer's end. */</i></td></tr>
+<tr><th id="66">66</th><td>		<em>int</em> <dfn class="local col6 decl" id="6len1" title='len1' data-type='int' data-ref="6len1">len1</dfn> = <a class="local col3 ref" href="#3len" title='len' data-ref="3len">len</a>;</td></tr>
+<tr><th id="67">67</th><td>		<em>int</em> <dfn class="local col7 decl" id="7len2" title='len2' data-type='int' data-ref="7len2">len2</dfn> = <var>0</var>;</td></tr>
+<tr><th id="68">68</th><td></td></tr>
+<tr><th id="69">69</th><td>		<b>if</b> (<a class="local col6 ref" href="#6len1" title='len1' data-ref="6len1">len1</a> &gt; <a class="local col5 ref" href="#5tobufend" title='tobufend' data-ref="5tobufend">tobufend</a>)</td></tr>
+<tr><th id="70">70</th><td>		{</td></tr>
+<tr><th id="71">71</th><td>			<a class="local col6 ref" href="#6len1" title='len1' data-ref="6len1">len1</a> = <a class="local col5 ref" href="#5tobufend" title='tobufend' data-ref="5tobufend">tobufend</a>;</td></tr>
+<tr><th id="72">72</th><td>			<a class="local col7 ref" href="#7len2" title='len2' data-ref="7len2">len2</a> = <a class="local col3 ref" href="#3len" title='len' data-ref="3len">len</a> - <a class="local col6 ref" href="#6len1" title='len1' data-ref="6len1">len1</a>;</td></tr>
+<tr><th id="73">73</th><td>		}</td></tr>
+<tr><th id="74">74</th><td>		<a class="ref" href="../../../include/string.h.html#memcpy" title='memcpy' data-ref="memcpy">memcpy</a>(<a class="local col2 ref" href="#2stream" title='stream' data-ref="2stream">stream</a>, <a class="ref" href="../client/snd_local.h.html#dma" title='dma' data-ref="dma">dma</a>.<a class="ref" href="../client/snd_local.h.html#(anonymous)::buffer" title='(anonymous struct)::buffer' data-ref="(anonymous)::buffer">buffer</a> + <a class="local col4 ref" href="#4pos" title='pos' data-ref="4pos">pos</a>, <a class="local col6 ref" href="#6len1" title='len1' data-ref="6len1">len1</a>);</td></tr>
+<tr><th id="75">75</th><td>		<b>if</b> (<a class="local col7 ref" href="#7len2" title='len2' data-ref="7len2">len2</a> &lt;= <var>0</var>)</td></tr>
+<tr><th id="76">76</th><td>			<a class="tu ref" href="#dmapos" title='dmapos' data-use='w' data-ref="dmapos">dmapos</a> += (<a class="local col6 ref" href="#6len1" title='len1' data-ref="6len1">len1</a> / (<a class="ref" href="../client/snd_local.h.html#dma" title='dma' data-ref="dma">dma</a>.<a class="ref" href="../client/snd_local.h.html#(anonymous)::samplebits" title='(anonymous struct)::samplebits' data-ref="(anonymous)::samplebits">samplebits</a>/<var>8</var>));</td></tr>
+<tr><th id="77">77</th><td>		<b>else</b>  <i>/* wraparound? */</i></td></tr>
+<tr><th id="78">78</th><td>		{</td></tr>
+<tr><th id="79">79</th><td>			<a class="ref" href="../../../include/string.h.html#memcpy" title='memcpy' data-ref="memcpy">memcpy</a>(<a class="local col2 ref" href="#2stream" title='stream' data-ref="2stream">stream</a>+<a class="local col6 ref" href="#6len1" title='len1' data-ref="6len1">len1</a>, <a class="ref" href="../client/snd_local.h.html#dma" title='dma' data-ref="dma">dma</a>.<a class="ref" href="../client/snd_local.h.html#(anonymous)::buffer" title='(anonymous struct)::buffer' data-ref="(anonymous)::buffer">buffer</a>, <a class="local col7 ref" href="#7len2" title='len2' data-ref="7len2">len2</a>);</td></tr>
+<tr><th id="80">80</th><td>			<a class="tu ref" href="#dmapos" title='dmapos' data-use='w' data-ref="dmapos">dmapos</a> = (<a class="local col7 ref" href="#7len2" title='len2' data-ref="7len2">len2</a> / (<a class="ref" href="../client/snd_local.h.html#dma" title='dma' data-ref="dma">dma</a>.<a class="ref" href="../client/snd_local.h.html#(anonymous)::samplebits" title='(anonymous struct)::samplebits' data-ref="(anonymous)::samplebits">samplebits</a>/<var>8</var>));</td></tr>
+<tr><th id="81">81</th><td>		}</td></tr>
+<tr><th id="82">82</th><td>	}</td></tr>
+<tr><th id="83">83</th><td></td></tr>
+<tr><th id="84">84</th><td>	<b>if</b> (<a class="tu ref" href="#dmapos" title='dmapos' data-use='r' data-ref="dmapos">dmapos</a> &gt;= <a class="tu ref" href="#dmasize" title='dmasize' data-use='r' data-ref="dmasize">dmasize</a>)</td></tr>
+<tr><th id="85">85</th><td>		<a class="tu ref" href="#dmapos" title='dmapos' data-use='w' data-ref="dmapos">dmapos</a> = <var>0</var>;</td></tr>
+<tr><th id="86">86</th><td>}</td></tr>
+<tr><th id="87">87</th><td></td></tr>
+<tr><th id="88">88</th><td><em>static</em> <b>struct</b></td></tr>
+<tr><th id="89">89</th><td>{</td></tr>
+<tr><th id="90">90</th><td>	<a class="typedef" href="../../../include/SDL2/SDL_stdinc.h.html#Uint16" title='Uint16' data-type='uint16_t' data-ref="Uint16">Uint16</a>	<dfn class="local col8 decl" id="8enumFormat" title='enumFormat' data-type='Uint16' data-ref="8enumFormat">enumFormat</dfn>;</td></tr>
+<tr><th id="91">91</th><td>	<em>char</em>		*<dfn class="local col9 decl" id="9stringFormat" title='stringFormat' data-type='char *' data-ref="9stringFormat">stringFormat</dfn>;</td></tr>
+<tr><th id="92">92</th><td>} <dfn class="tu decl def" id="formatToStringTable" title='formatToStringTable' data-type='struct (anonymous struct at /home/jon/workspace/ioq3/code/sdl/sdl_snd.c:88:8) [6]' data-ref="formatToStringTable">formatToStringTable</dfn>[ ] =</td></tr>
+<tr><th id="93">93</th><td>{</td></tr>
+<tr><th id="94">94</th><td>	{ <a class="macro" href="../../../include/SDL2/SDL_audio.h.html#89" title="0x0008" data-ref="_M/AUDIO_U8">AUDIO_U8</a>,     <q>"AUDIO_U8"</q> },</td></tr>
+<tr><th id="95">95</th><td>	{ <a class="macro" href="../../../include/SDL2/SDL_audio.h.html#90" title="0x8008" data-ref="_M/AUDIO_S8">AUDIO_S8</a>,     <q>"AUDIO_S8"</q> },</td></tr>
+<tr><th id="96">96</th><td>	{ <a class="macro" href="../../../include/SDL2/SDL_audio.h.html#91" title="0x0010" data-ref="_M/AUDIO_U16LSB">AUDIO_U16LSB</a>, <q>"AUDIO_U16LSB"</q> },</td></tr>
+<tr><th id="97">97</th><td>	{ <a class="macro" href="../../../include/SDL2/SDL_audio.h.html#92" title="0x8010" data-ref="_M/AUDIO_S16LSB">AUDIO_S16LSB</a>, <q>"AUDIO_S16LSB"</q> },</td></tr>
+<tr><th id="98">98</th><td>	{ <a class="macro" href="../../../include/SDL2/SDL_audio.h.html#93" title="0x1010" data-ref="_M/AUDIO_U16MSB">AUDIO_U16MSB</a>, <q>"AUDIO_U16MSB"</q> },</td></tr>
+<tr><th id="99">99</th><td>	{ <a class="macro" href="../../../include/SDL2/SDL_audio.h.html#94" title="0x9010" data-ref="_M/AUDIO_S16MSB">AUDIO_S16MSB</a>, <q>"AUDIO_S16MSB"</q> }</td></tr>
+<tr><th id="100">100</th><td>};</td></tr>
+<tr><th id="101">101</th><td></td></tr>
+<tr><th id="102">102</th><td><em>static</em> <em>int</em> <dfn class="tu decl def" id="formatToStringTableSize" title='formatToStringTableSize' data-type='int' data-ref="formatToStringTableSize">formatToStringTableSize</dfn> = <a class="macro" href="../qcommon/q_shared.h.html#233" title="(sizeof(formatToStringTable) / sizeof(*(formatToStringTable)))" data-ref="_M/ARRAY_LEN">ARRAY_LEN</a>( <a class="tu ref" href="#formatToStringTable" title='formatToStringTable' data-use='r' data-ref="formatToStringTable">formatToStringTable</a> );</td></tr>
+<tr><th id="103">103</th><td></td></tr>
+<tr><th id="104">104</th><td><i  data-doc="SNDDMA_PrintAudiospec">/*</i></td></tr>
+<tr><th id="105">105</th><td><i  data-doc="SNDDMA_PrintAudiospec">===============</i></td></tr>
+<tr><th id="106">106</th><td><i  data-doc="SNDDMA_PrintAudiospec">SNDDMA_PrintAudiospec</i></td></tr>
+<tr><th id="107">107</th><td><i  data-doc="SNDDMA_PrintAudiospec">===============</i></td></tr>
+<tr><th id="108">108</th><td><i  data-doc="SNDDMA_PrintAudiospec">*/</i></td></tr>
+<tr><th id="109">109</th><td><em>static</em> <em>void</em> <dfn class="tu decl def" id="SNDDMA_PrintAudiospec" title='SNDDMA_PrintAudiospec' data-type='void SNDDMA_PrintAudiospec(const char * str, const SDL_AudioSpec * spec)' data-ref="SNDDMA_PrintAudiospec">SNDDMA_PrintAudiospec</dfn>(<em>const</em> <em>char</em> *<dfn class="local col0 decl" id="10str" title='str' data-type='const char *' data-ref="10str">str</dfn>, <em>const</em> <a class="typedef" href="../../../include/SDL2/SDL_audio.h.html#SDL_AudioSpec" title='SDL_AudioSpec' data-type='struct SDL_AudioSpec' data-ref="SDL_AudioSpec">SDL_AudioSpec</a> *<dfn class="local col1 decl" id="11spec" title='spec' data-type='const SDL_AudioSpec *' data-ref="11spec">spec</dfn>)</td></tr>
+<tr><th id="110">110</th><td>{</td></tr>
+<tr><th id="111">111</th><td>	<em>int</em>		<dfn class="local col2 decl" id="12i" title='i' data-type='int' data-ref="12i">i</dfn>;</td></tr>
+<tr><th id="112">112</th><td>	<em>char</em>	*<dfn class="local col3 decl" id="13fmt" title='fmt' data-type='char *' data-ref="13fmt">fmt</dfn> = <span class="macro" title="((void*)0)" data-ref="_M/NULL">NULL</span>;</td></tr>
+<tr><th id="113">113</th><td></td></tr>
+<tr><th id="114">114</th><td>	<a class="ref" href="../qcommon/q_shared.h.html#Com_Printf" title='Com_Printf' data-ref="Com_Printf">Com_Printf</a>(<q>"%s:\n"</q>, <a class="local col0 ref" href="#10str" title='str' data-ref="10str">str</a>);</td></tr>
+<tr><th id="115">115</th><td></td></tr>
+<tr><th id="116">116</th><td>	<b>for</b>( <a class="local col2 ref" href="#12i" title='i' data-ref="12i">i</a> = <var>0</var>; <a class="local col2 ref" href="#12i" title='i' data-ref="12i">i</a> &lt; <a class="tu ref" href="#formatToStringTableSize" title='formatToStringTableSize' data-use='r' data-ref="formatToStringTableSize">formatToStringTableSize</a>; <a class="local col2 ref" href="#12i" title='i' data-ref="12i">i</a>++ ) {</td></tr>
+<tr><th id="117">117</th><td>		<b>if</b>( <a class="local col1 ref" href="#11spec" title='spec' data-ref="11spec">spec</a>-&gt;<a class="ref" href="../../../include/SDL2/SDL_audio.h.html#SDL_AudioSpec::format" title='SDL_AudioSpec::format' data-ref="SDL_AudioSpec::format">format</a> == <a class="tu ref" href="#formatToStringTable" title='formatToStringTable' data-use='m' data-ref="formatToStringTable">formatToStringTable</a>[ <a class="local col2 ref" href="#12i" title='i' data-ref="12i">i</a> ].<a class="local col8 ref" href="#8enumFormat" title='enumFormat' data-ref="8enumFormat">enumFormat</a> ) {</td></tr>
+<tr><th id="118">118</th><td>			<a class="local col3 ref" href="#13fmt" title='fmt' data-ref="13fmt">fmt</a> = <a class="tu ref" href="#formatToStringTable" title='formatToStringTable' data-use='m' data-ref="formatToStringTable">formatToStringTable</a>[ <a class="local col2 ref" href="#12i" title='i' data-ref="12i">i</a> ].<a class="local col9 ref" href="#9stringFormat" title='stringFormat' data-ref="9stringFormat">stringFormat</a>;</td></tr>
+<tr><th id="119">119</th><td>		}</td></tr>
+<tr><th id="120">120</th><td>	}</td></tr>
+<tr><th id="121">121</th><td></td></tr>
+<tr><th id="122">122</th><td>	<b>if</b>( <a class="local col3 ref" href="#13fmt" title='fmt' data-ref="13fmt">fmt</a> ) {</td></tr>
+<tr><th id="123">123</th><td>		<a class="ref" href="../qcommon/q_shared.h.html#Com_Printf" title='Com_Printf' data-ref="Com_Printf">Com_Printf</a>( <q>"  Format:   %s\n"</q>, <a class="local col3 ref" href="#13fmt" title='fmt' data-ref="13fmt">fmt</a> );</td></tr>
+<tr><th id="124">124</th><td>	} <b>else</b> {</td></tr>
+<tr><th id="125">125</th><td>		<a class="ref" href="../qcommon/q_shared.h.html#Com_Printf" title='Com_Printf' data-ref="Com_Printf">Com_Printf</a>( <q>"  Format:   "</q> <a class="macro" href="../qcommon/q_shared.h.html#423" title="&quot;^1&quot;" data-ref="_M/S_COLOR_RED">S_COLOR_RED</a> <q>"UNKNOWN\n"</q>);</td></tr>
+<tr><th id="126">126</th><td>	}</td></tr>
+<tr><th id="127">127</th><td></td></tr>
+<tr><th id="128">128</th><td>	<a class="ref" href="../qcommon/q_shared.h.html#Com_Printf" title='Com_Printf' data-ref="Com_Printf">Com_Printf</a>( <q>"  Freq:     %d\n"</q>, (<em>int</em>) <a class="local col1 ref" href="#11spec" title='spec' data-ref="11spec">spec</a>-&gt;<a class="ref" href="../../../include/SDL2/SDL_audio.h.html#SDL_AudioSpec::freq" title='SDL_AudioSpec::freq' data-ref="SDL_AudioSpec::freq">freq</a> );</td></tr>
+<tr><th id="129">129</th><td>	<a class="ref" href="../qcommon/q_shared.h.html#Com_Printf" title='Com_Printf' data-ref="Com_Printf">Com_Printf</a>( <q>"  Samples:  %d\n"</q>, (<em>int</em>) <a class="local col1 ref" href="#11spec" title='spec' data-ref="11spec">spec</a>-&gt;<a class="ref" href="../../../include/SDL2/SDL_audio.h.html#SDL_AudioSpec::samples" title='SDL_AudioSpec::samples' data-ref="SDL_AudioSpec::samples">samples</a> );</td></tr>
+<tr><th id="130">130</th><td>	<a class="ref" href="../qcommon/q_shared.h.html#Com_Printf" title='Com_Printf' data-ref="Com_Printf">Com_Printf</a>( <q>"  Channels: %d\n"</q>, (<em>int</em>) <a class="local col1 ref" href="#11spec" title='spec' data-ref="11spec">spec</a>-&gt;<a class="ref" href="../../../include/SDL2/SDL_audio.h.html#SDL_AudioSpec::channels" title='SDL_AudioSpec::channels' data-ref="SDL_AudioSpec::channels">channels</a> );</td></tr>
+<tr><th id="131">131</th><td>}</td></tr>
+<tr><th id="132">132</th><td></td></tr>
+<tr><th id="133">133</th><td><i>/*</i></td></tr>
+<tr><th id="134">134</th><td><i>===============</i></td></tr>
+<tr><th id="135">135</th><td><i>SNDDMA_Init</i></td></tr>
+<tr><th id="136">136</th><td><i>===============</i></td></tr>
+<tr><th id="137">137</th><td><i>*/</i></td></tr>
+<tr><th id="138">138</th><td><a class="typedef" href="../qcommon/q_shared.h.html#qboolean" title='qboolean' data-type='enum qboolean' data-ref="qboolean">qboolean</a> <dfn class="decl def" id="SNDDMA_Init" title='SNDDMA_Init' data-ref="SNDDMA_Init">SNDDMA_Init</dfn>(<em>void</em>)</td></tr>
+<tr><th id="139">139</th><td>{</td></tr>
+<tr><th id="140">140</th><td>	<a class="typedef" href="../../../include/SDL2/SDL_audio.h.html#SDL_AudioSpec" title='SDL_AudioSpec' data-type='struct SDL_AudioSpec' data-ref="SDL_AudioSpec">SDL_AudioSpec</a> <dfn class="local col4 decl" id="14desired" title='desired' data-type='SDL_AudioSpec' data-ref="14desired">desired</dfn>;</td></tr>
+<tr><th id="141">141</th><td>	<a class="typedef" href="../../../include/SDL2/SDL_audio.h.html#SDL_AudioSpec" title='SDL_AudioSpec' data-type='struct SDL_AudioSpec' data-ref="SDL_AudioSpec">SDL_AudioSpec</a> <dfn class="local col5 decl" id="15obtained" title='obtained' data-type='SDL_AudioSpec' data-ref="15obtained">obtained</dfn>;</td></tr>
+<tr><th id="142">142</th><td>	<em>int</em> <dfn class="local col6 decl" id="16tmp" title='tmp' data-type='int' data-ref="16tmp">tmp</dfn>;</td></tr>
+<tr><th id="143">143</th><td></td></tr>
+<tr><th id="144">144</th><td>	<b>if</b> (<a class="ref" href="#snd_inited" title='snd_inited' data-ref="snd_inited">snd_inited</a>)</td></tr>
+<tr><th id="145">145</th><td>		<b>return</b> <a class="enum" href="../qcommon/q_shared.h.html#qtrue" title='qtrue' data-ref="qtrue">qtrue</a>;</td></tr>
+<tr><th id="146">146</th><td></td></tr>
+<tr><th id="147">147</th><td>	<b>if</b> (!<a class="ref" href="#s_sdlBits" title='s_sdlBits' data-ref="s_sdlBits">s_sdlBits</a>) {</td></tr>
+<tr><th id="148">148</th><td>		<a class="ref" href="#s_sdlBits" title='s_sdlBits' data-ref="s_sdlBits">s_sdlBits</a> = <a class="ref" href="../qcommon/qcommon.h.html#Cvar_Get" title='Cvar_Get' data-ref="Cvar_Get">Cvar_Get</a>(<q>"s_sdlBits"</q>, <q>"16"</q>, <a class="macro" href="../qcommon/q_shared.h.html#894" title="0x0001" data-ref="_M/CVAR_ARCHIVE">CVAR_ARCHIVE</a>);</td></tr>
+<tr><th id="149">149</th><td>		<a class="ref" href="#s_sdlSpeed" title='s_sdlSpeed' data-ref="s_sdlSpeed">s_sdlSpeed</a> = <a class="ref" href="../qcommon/qcommon.h.html#Cvar_Get" title='Cvar_Get' data-ref="Cvar_Get">Cvar_Get</a>(<q>"s_sdlSpeed"</q>, <q>"0"</q>, <a class="macro" href="../qcommon/q_shared.h.html#894" title="0x0001" data-ref="_M/CVAR_ARCHIVE">CVAR_ARCHIVE</a>);</td></tr>
+<tr><th id="150">150</th><td>		<a class="ref" href="#s_sdlChannels" title='s_sdlChannels' data-ref="s_sdlChannels">s_sdlChannels</a> = <a class="ref" href="../qcommon/qcommon.h.html#Cvar_Get" title='Cvar_Get' data-ref="Cvar_Get">Cvar_Get</a>(<q>"s_sdlChannels"</q>, <q>"2"</q>, <a class="macro" href="../qcommon/q_shared.h.html#894" title="0x0001" data-ref="_M/CVAR_ARCHIVE">CVAR_ARCHIVE</a>);</td></tr>
+<tr><th id="151">151</th><td>		<a class="ref" href="#s_sdlDevSamps" title='s_sdlDevSamps' data-ref="s_sdlDevSamps">s_sdlDevSamps</a> = <a class="ref" href="../qcommon/qcommon.h.html#Cvar_Get" title='Cvar_Get' data-ref="Cvar_Get">Cvar_Get</a>(<q>"s_sdlDevSamps"</q>, <q>"0"</q>, <a class="macro" href="../qcommon/q_shared.h.html#894" title="0x0001" data-ref="_M/CVAR_ARCHIVE">CVAR_ARCHIVE</a>);</td></tr>
+<tr><th id="152">152</th><td>		<a class="ref" href="#s_sdlMixSamps" title='s_sdlMixSamps' data-ref="s_sdlMixSamps">s_sdlMixSamps</a> = <a class="ref" href="../qcommon/qcommon.h.html#Cvar_Get" title='Cvar_Get' data-ref="Cvar_Get">Cvar_Get</a>(<q>"s_sdlMixSamps"</q>, <q>"0"</q>, <a class="macro" href="../qcommon/q_shared.h.html#894" title="0x0001" data-ref="_M/CVAR_ARCHIVE">CVAR_ARCHIVE</a>);</td></tr>
+<tr><th id="153">153</th><td>	}</td></tr>
+<tr><th id="154">154</th><td></td></tr>
+<tr><th id="155">155</th><td>	<a class="ref" href="../qcommon/q_shared.h.html#Com_Printf" title='Com_Printf' data-ref="Com_Printf">Com_Printf</a>( <q>"SDL_Init( SDL_INIT_AUDIO )... "</q> );</td></tr>
+<tr><th id="156">156</th><td></td></tr>
+<tr><th id="157">157</th><td>	<b>if</b> (!<a class="ref" href="../../../include/SDL2/SDL.h.html#SDL_WasInit" title='SDL_WasInit' data-ref="SDL_WasInit">SDL_WasInit</a>(<a class="macro" href="../../../include/SDL2/SDL.h.html#76" title="0x00000010" data-ref="_M/SDL_INIT_AUDIO">SDL_INIT_AUDIO</a>))</td></tr>
+<tr><th id="158">158</th><td>	{</td></tr>
+<tr><th id="159">159</th><td>		<b>if</b> (<a class="ref" href="../../../include/SDL2/SDL.h.html#SDL_Init" title='SDL_Init' data-ref="SDL_Init">SDL_Init</a>(<a class="macro" href="../../../include/SDL2/SDL.h.html#76" title="0x00000010" data-ref="_M/SDL_INIT_AUDIO">SDL_INIT_AUDIO</a>) != <var>0</var>)</td></tr>
+<tr><th id="160">160</th><td>		{</td></tr>
+<tr><th id="161">161</th><td>			<a class="ref" href="../qcommon/q_shared.h.html#Com_Printf" title='Com_Printf' data-ref="Com_Printf">Com_Printf</a>( <q>"FAILED (%s)\n"</q>, <a class="ref" href="../../../include/SDL2/SDL_error.h.html#SDL_GetError" title='SDL_GetError' data-ref="SDL_GetError">SDL_GetError</a>( ) );</td></tr>
+<tr><th id="162">162</th><td>			<b>return</b> <a class="enum" href="../qcommon/q_shared.h.html#qfalse" title='qfalse' data-ref="qfalse">qfalse</a>;</td></tr>
+<tr><th id="163">163</th><td>		}</td></tr>
+<tr><th id="164">164</th><td>	}</td></tr>
+<tr><th id="165">165</th><td></td></tr>
+<tr><th id="166">166</th><td>	<a class="ref" href="../qcommon/q_shared.h.html#Com_Printf" title='Com_Printf' data-ref="Com_Printf">Com_Printf</a>( <q>"OK\n"</q> );</td></tr>
+<tr><th id="167">167</th><td></td></tr>
+<tr><th id="168">168</th><td>	<a class="ref" href="../qcommon/q_shared.h.html#Com_Printf" title='Com_Printf' data-ref="Com_Printf">Com_Printf</a>( <q>"SDL audio driver is \"%s\".\n"</q>, <a class="ref" href="../../../include/SDL2/SDL_audio.h.html#SDL_GetCurrentAudioDriver" title='SDL_GetCurrentAudioDriver' data-ref="SDL_GetCurrentAudioDriver">SDL_GetCurrentAudioDriver</a>( ) );</td></tr>
+<tr><th id="169">169</th><td></td></tr>
+<tr><th id="170">170</th><td>	<a class="ref" href="../../../include/string.h.html#memset" title='memset' data-ref="memset">memset</a>(&amp;<a class="local col4 ref" href="#14desired" title='desired' data-ref="14desired">desired</a>, <kbd>'\0'</kbd>, <b>sizeof</b> (<a class="local col4 ref" href="#14desired" title='desired' data-ref="14desired">desired</a>));</td></tr>
+<tr><th id="171">171</th><td>	<a class="ref" href="../../../include/string.h.html#memset" title='memset' data-ref="memset">memset</a>(&amp;<a class="local col5 ref" href="#15obtained" title='obtained' data-ref="15obtained">obtained</a>, <kbd>'\0'</kbd>, <b>sizeof</b> (<a class="local col5 ref" href="#15obtained" title='obtained' data-ref="15obtained">obtained</a>));</td></tr>
+<tr><th id="172">172</th><td></td></tr>
+<tr><th id="173">173</th><td>	<a class="local col6 ref" href="#16tmp" title='tmp' data-ref="16tmp">tmp</a> = ((<em>int</em>) <a class="ref" href="#s_sdlBits" title='s_sdlBits' data-ref="s_sdlBits">s_sdlBits</a>-&gt;<a class="ref" href="../qcommon/q_shared.h.html#cvar_s::value" title='cvar_s::value' data-ref="cvar_s::value">value</a>);</td></tr>
+<tr><th id="174">174</th><td>	<b>if</b> ((<a class="local col6 ref" href="#16tmp" title='tmp' data-ref="16tmp">tmp</a> != <var>16</var>) &amp;&amp; (<a class="local col6 ref" href="#16tmp" title='tmp' data-ref="16tmp">tmp</a> != <var>8</var>))</td></tr>
+<tr><th id="175">175</th><td>		<a class="local col6 ref" href="#16tmp" title='tmp' data-ref="16tmp">tmp</a> = <var>16</var>;</td></tr>
+<tr><th id="176">176</th><td></td></tr>
+<tr><th id="177">177</th><td>	<a class="local col4 ref" href="#14desired" title='desired' data-ref="14desired">desired</a>.<a class="ref" href="../../../include/SDL2/SDL_audio.h.html#SDL_AudioSpec::freq" title='SDL_AudioSpec::freq' data-ref="SDL_AudioSpec::freq">freq</a> = (<em>int</em>) <a class="ref" href="#s_sdlSpeed" title='s_sdlSpeed' data-ref="s_sdlSpeed">s_sdlSpeed</a>-&gt;<a class="ref" href="../qcommon/q_shared.h.html#cvar_s::value" title='cvar_s::value' data-ref="cvar_s::value">value</a>;</td></tr>
+<tr><th id="178">178</th><td>	<b>if</b>(!<a class="local col4 ref" href="#14desired" title='desired' data-ref="14desired">desired</a>.<a class="ref" href="../../../include/SDL2/SDL_audio.h.html#SDL_AudioSpec::freq" title='SDL_AudioSpec::freq' data-ref="SDL_AudioSpec::freq">freq</a>) <a class="local col4 ref" href="#14desired" title='desired' data-ref="14desired">desired</a>.<a class="ref" href="../../../include/SDL2/SDL_audio.h.html#SDL_AudioSpec::freq" title='SDL_AudioSpec::freq' data-ref="SDL_AudioSpec::freq">freq</a> = <var>22050</var>;</td></tr>
+<tr><th id="179">179</th><td>	<a class="local col4 ref" href="#14desired" title='desired' data-ref="14desired">desired</a>.<a class="ref" href="../../../include/SDL2/SDL_audio.h.html#SDL_AudioSpec::format" title='SDL_AudioSpec::format' data-ref="SDL_AudioSpec::format">format</a> = ((<a class="local col6 ref" href="#16tmp" title='tmp' data-ref="16tmp">tmp</a> == <var>16</var>) ? <a class="macro" href="../../../include/SDL2/SDL_audio.h.html#123" title="0x8010" data-ref="_M/AUDIO_S16SYS">AUDIO_S16SYS</a> : <a class="macro" href="../../../include/SDL2/SDL_audio.h.html#89" title="0x0008" data-ref="_M/AUDIO_U8">AUDIO_U8</a>);</td></tr>
+<tr><th id="180">180</th><td></td></tr>
+<tr><th id="181">181</th><td>	<i>// I dunno if this is the best idea, but I'll give it a try...</i></td></tr>
+<tr><th id="182">182</th><td><i>	//  should probably check a cvar for this...</i></td></tr>
+<tr><th id="183">183</th><td>	<b>if</b> (<a class="ref" href="#s_sdlDevSamps" title='s_sdlDevSamps' data-ref="s_sdlDevSamps">s_sdlDevSamps</a>-&gt;<a class="ref" href="../qcommon/q_shared.h.html#cvar_s::value" title='cvar_s::value' data-ref="cvar_s::value">value</a>)</td></tr>
+<tr><th id="184">184</th><td>		<a class="local col4 ref" href="#14desired" title='desired' data-ref="14desired">desired</a>.<a class="ref" href="../../../include/SDL2/SDL_audio.h.html#SDL_AudioSpec::samples" title='SDL_AudioSpec::samples' data-ref="SDL_AudioSpec::samples">samples</a> = <a class="ref" href="#s_sdlDevSamps" title='s_sdlDevSamps' data-ref="s_sdlDevSamps">s_sdlDevSamps</a>-&gt;<a class="ref" href="../qcommon/q_shared.h.html#cvar_s::value" title='cvar_s::value' data-ref="cvar_s::value">value</a>;</td></tr>
+<tr><th id="185">185</th><td>	<b>else</b></td></tr>
+<tr><th id="186">186</th><td>	{</td></tr>
+<tr><th id="187">187</th><td>		<i>// just pick a sane default.</i></td></tr>
+<tr><th id="188">188</th><td>		<b>if</b> (<a class="local col4 ref" href="#14desired" title='desired' data-ref="14desired">desired</a>.<a class="ref" href="../../../include/SDL2/SDL_audio.h.html#SDL_AudioSpec::freq" title='SDL_AudioSpec::freq' data-ref="SDL_AudioSpec::freq">freq</a> &lt;= <var>11025</var>)</td></tr>
+<tr><th id="189">189</th><td>			<a class="local col4 ref" href="#14desired" title='desired' data-ref="14desired">desired</a>.<a class="ref" href="../../../include/SDL2/SDL_audio.h.html#SDL_AudioSpec::samples" title='SDL_AudioSpec::samples' data-ref="SDL_AudioSpec::samples">samples</a> = <var>256</var>;</td></tr>
+<tr><th id="190">190</th><td>		<b>else</b> <b>if</b> (<a class="local col4 ref" href="#14desired" title='desired' data-ref="14desired">desired</a>.<a class="ref" href="../../../include/SDL2/SDL_audio.h.html#SDL_AudioSpec::freq" title='SDL_AudioSpec::freq' data-ref="SDL_AudioSpec::freq">freq</a> &lt;= <var>22050</var>)</td></tr>
+<tr><th id="191">191</th><td>			<a class="local col4 ref" href="#14desired" title='desired' data-ref="14desired">desired</a>.<a class="ref" href="../../../include/SDL2/SDL_audio.h.html#SDL_AudioSpec::samples" title='SDL_AudioSpec::samples' data-ref="SDL_AudioSpec::samples">samples</a> = <var>512</var>;</td></tr>
+<tr><th id="192">192</th><td>		<b>else</b> <b>if</b> (<a class="local col4 ref" href="#14desired" title='desired' data-ref="14desired">desired</a>.<a class="ref" href="../../../include/SDL2/SDL_audio.h.html#SDL_AudioSpec::freq" title='SDL_AudioSpec::freq' data-ref="SDL_AudioSpec::freq">freq</a> &lt;= <var>44100</var>)</td></tr>
+<tr><th id="193">193</th><td>			<a class="local col4 ref" href="#14desired" title='desired' data-ref="14desired">desired</a>.<a class="ref" href="../../../include/SDL2/SDL_audio.h.html#SDL_AudioSpec::samples" title='SDL_AudioSpec::samples' data-ref="SDL_AudioSpec::samples">samples</a> = <var>1024</var>;</td></tr>
+<tr><th id="194">194</th><td>		<b>else</b></td></tr>
+<tr><th id="195">195</th><td>			<a class="local col4 ref" href="#14desired" title='desired' data-ref="14desired">desired</a>.<a class="ref" href="../../../include/SDL2/SDL_audio.h.html#SDL_AudioSpec::samples" title='SDL_AudioSpec::samples' data-ref="SDL_AudioSpec::samples">samples</a> = <var>2048</var>;  <i>// (*shrug*)</i></td></tr>
+<tr><th id="196">196</th><td>	}</td></tr>
+<tr><th id="197">197</th><td></td></tr>
+<tr><th id="198">198</th><td>	<a class="local col4 ref" href="#14desired" title='desired' data-ref="14desired">desired</a>.<a class="ref" href="../../../include/SDL2/SDL_audio.h.html#SDL_AudioSpec::channels" title='SDL_AudioSpec::channels' data-ref="SDL_AudioSpec::channels">channels</a> = (<em>int</em>) <a class="ref" href="#s_sdlChannels" title='s_sdlChannels' data-ref="s_sdlChannels">s_sdlChannels</a>-&gt;<a class="ref" href="../qcommon/q_shared.h.html#cvar_s::value" title='cvar_s::value' data-ref="cvar_s::value">value</a>;</td></tr>
+<tr><th id="199">199</th><td>	<a class="local col4 ref" href="#14desired" title='desired' data-ref="14desired">desired</a>.<a class="ref" href="../../../include/SDL2/SDL_audio.h.html#SDL_AudioSpec::callback" title='SDL_AudioSpec::callback' data-ref="SDL_AudioSpec::callback">callback</a> = <a class="tu ref" href="#SNDDMA_AudioCallback" title='SNDDMA_AudioCallback' data-use='r' data-ref="SNDDMA_AudioCallback">SNDDMA_AudioCallback</a>;</td></tr>
+<tr><th id="200">200</th><td></td></tr>
+<tr><th id="201">201</th><td>	<b>if</b> (<a class="ref" href="../../../include/SDL2/SDL_audio.h.html#SDL_OpenAudio" title='SDL_OpenAudio' data-ref="SDL_OpenAudio">SDL_OpenAudio</a>(&amp;<a class="local col4 ref" href="#14desired" title='desired' data-ref="14desired">desired</a>, &amp;<a class="local col5 ref" href="#15obtained" title='obtained' data-ref="15obtained">obtained</a>) == -<var>1</var>)</td></tr>
+<tr><th id="202">202</th><td>	{</td></tr>
+<tr><th id="203">203</th><td>		<a class="ref" href="../qcommon/q_shared.h.html#Com_Printf" title='Com_Printf' data-ref="Com_Printf">Com_Printf</a>(<q>"SDL_OpenAudio() failed: %s\n"</q>, <a class="ref" href="../../../include/SDL2/SDL_error.h.html#SDL_GetError" title='SDL_GetError' data-ref="SDL_GetError">SDL_GetError</a>());</td></tr>
+<tr><th id="204">204</th><td>		<a class="ref" href="../../../include/SDL2/SDL.h.html#SDL_QuitSubSystem" title='SDL_QuitSubSystem' data-ref="SDL_QuitSubSystem">SDL_QuitSubSystem</a>(<a class="macro" href="../../../include/SDL2/SDL.h.html#76" title="0x00000010" data-ref="_M/SDL_INIT_AUDIO">SDL_INIT_AUDIO</a>);</td></tr>
+<tr><th id="205">205</th><td>		<b>return</b> <a class="enum" href="../qcommon/q_shared.h.html#qfalse" title='qfalse' data-ref="qfalse">qfalse</a>;</td></tr>
+<tr><th id="206">206</th><td>	}</td></tr>
+<tr><th id="207">207</th><td></td></tr>
+<tr><th id="208">208</th><td>	<a class="tu ref" href="#SNDDMA_PrintAudiospec" title='SNDDMA_PrintAudiospec' data-use='c' data-ref="SNDDMA_PrintAudiospec">SNDDMA_PrintAudiospec</a>(<q>"SDL_AudioSpec"</q>, &amp;<a class="local col5 ref" href="#15obtained" title='obtained' data-ref="15obtained">obtained</a>);</td></tr>
+<tr><th id="209">209</th><td></td></tr>
+<tr><th id="210">210</th><td>	<i>// dma.samples needs to be big, or id's mixer will just refuse to</i></td></tr>
+<tr><th id="211">211</th><td><i>	//  work at all; we need to keep it significantly bigger than the</i></td></tr>
+<tr><th id="212">212</th><td><i>	//  amount of SDL callback samples, and just copy a little each time</i></td></tr>
+<tr><th id="213">213</th><td><i>	//  the callback runs.</i></td></tr>
+<tr><th id="214">214</th><td><i>	// 32768 is what the OSS driver filled in here on my system. I don't</i></td></tr>
+<tr><th id="215">215</th><td><i>	//  know if it's a good value overall, but at least we know it's</i></td></tr>
+<tr><th id="216">216</th><td><i>	//  reasonable...this is why I let the user override.</i></td></tr>
+<tr><th id="217">217</th><td>	<a class="local col6 ref" href="#16tmp" title='tmp' data-ref="16tmp">tmp</a> = <a class="ref" href="#s_sdlMixSamps" title='s_sdlMixSamps' data-ref="s_sdlMixSamps">s_sdlMixSamps</a>-&gt;<a class="ref" href="../qcommon/q_shared.h.html#cvar_s::value" title='cvar_s::value' data-ref="cvar_s::value">value</a>;</td></tr>
+<tr><th id="218">218</th><td>	<b>if</b> (!<a class="local col6 ref" href="#16tmp" title='tmp' data-ref="16tmp">tmp</a>)</td></tr>
+<tr><th id="219">219</th><td>		<a class="local col6 ref" href="#16tmp" title='tmp' data-ref="16tmp">tmp</a> = (<a class="local col5 ref" href="#15obtained" title='obtained' data-ref="15obtained">obtained</a>.<a class="ref" href="../../../include/SDL2/SDL_audio.h.html#SDL_AudioSpec::samples" title='SDL_AudioSpec::samples' data-ref="SDL_AudioSpec::samples">samples</a> * <a class="local col5 ref" href="#15obtained" title='obtained' data-ref="15obtained">obtained</a>.<a class="ref" href="../../../include/SDL2/SDL_audio.h.html#SDL_AudioSpec::channels" title='SDL_AudioSpec::channels' data-ref="SDL_AudioSpec::channels">channels</a>) * <var>10</var>;</td></tr>
+<tr><th id="220">220</th><td></td></tr>
+<tr><th id="221">221</th><td>	<b>if</b> (<a class="local col6 ref" href="#16tmp" title='tmp' data-ref="16tmp">tmp</a> &amp; (<a class="local col6 ref" href="#16tmp" title='tmp' data-ref="16tmp">tmp</a> - <var>1</var>))  <i>// not a power of two? Seems to confuse something.</i></td></tr>
+<tr><th id="222">222</th><td>	{</td></tr>
+<tr><th id="223">223</th><td>		<em>int</em> <dfn class="local col7 decl" id="17val" title='val' data-type='int' data-ref="17val">val</dfn> = <var>1</var>;</td></tr>
+<tr><th id="224">224</th><td>		<b>while</b> (<a class="local col7 ref" href="#17val" title='val' data-ref="17val">val</a> &lt; <a class="local col6 ref" href="#16tmp" title='tmp' data-ref="16tmp">tmp</a>)</td></tr>
+<tr><th id="225">225</th><td>			<a class="local col7 ref" href="#17val" title='val' data-ref="17val">val</a> &lt;&lt;= <var>1</var>;</td></tr>
+<tr><th id="226">226</th><td></td></tr>
+<tr><th id="227">227</th><td>		<a class="local col6 ref" href="#16tmp" title='tmp' data-ref="16tmp">tmp</a> = <a class="local col7 ref" href="#17val" title='val' data-ref="17val">val</a>;</td></tr>
+<tr><th id="228">228</th><td>	}</td></tr>
+<tr><th id="229">229</th><td></td></tr>
+<tr><th id="230">230</th><td>	<a class="tu ref" href="#dmapos" title='dmapos' data-use='w' data-ref="dmapos">dmapos</a> = <var>0</var>;</td></tr>
+<tr><th id="231">231</th><td>	<a class="ref" href="../client/snd_local.h.html#dma" title='dma' data-ref="dma">dma</a>.<a class="ref" href="../client/snd_local.h.html#(anonymous)::samplebits" title='(anonymous struct)::samplebits' data-ref="(anonymous)::samplebits">samplebits</a> = <a class="local col5 ref" href="#15obtained" title='obtained' data-ref="15obtained">obtained</a>.<a class="ref" href="../../../include/SDL2/SDL_audio.h.html#SDL_AudioSpec::format" title='SDL_AudioSpec::format' data-ref="SDL_AudioSpec::format">format</a> &amp; <var>0xFF</var>;  <i>// first byte of format is bits.</i></td></tr>
+<tr><th id="232">232</th><td>	<a class="ref" href="../client/snd_local.h.html#dma" title='dma' data-ref="dma">dma</a>.<a class="ref" href="../client/snd_local.h.html#(anonymous)::channels" title='(anonymous struct)::channels' data-ref="(anonymous)::channels">channels</a> = <a class="local col5 ref" href="#15obtained" title='obtained' data-ref="15obtained">obtained</a>.<a class="ref" href="../../../include/SDL2/SDL_audio.h.html#SDL_AudioSpec::channels" title='SDL_AudioSpec::channels' data-ref="SDL_AudioSpec::channels">channels</a>;</td></tr>
+<tr><th id="233">233</th><td>	<a class="ref" href="../client/snd_local.h.html#dma" title='dma' data-ref="dma">dma</a>.<a class="ref" href="../client/snd_local.h.html#(anonymous)::samples" title='(anonymous struct)::samples' data-ref="(anonymous)::samples">samples</a> = <a class="local col6 ref" href="#16tmp" title='tmp' data-ref="16tmp">tmp</a>;</td></tr>
+<tr><th id="234">234</th><td>	<a class="ref" href="../client/snd_local.h.html#dma" title='dma' data-ref="dma">dma</a>.<a class="ref" href="../client/snd_local.h.html#(anonymous)::submission_chunk" title='(anonymous struct)::submission_chunk' data-ref="(anonymous)::submission_chunk">submission_chunk</a> = <var>1</var>;</td></tr>
+<tr><th id="235">235</th><td>	<a class="ref" href="../client/snd_local.h.html#dma" title='dma' data-ref="dma">dma</a>.<a class="ref" href="../client/snd_local.h.html#(anonymous)::speed" title='(anonymous struct)::speed' data-ref="(anonymous)::speed">speed</a> = <a class="local col5 ref" href="#15obtained" title='obtained' data-ref="15obtained">obtained</a>.<a class="ref" href="../../../include/SDL2/SDL_audio.h.html#SDL_AudioSpec::freq" title='SDL_AudioSpec::freq' data-ref="SDL_AudioSpec::freq">freq</a>;</td></tr>
+<tr><th id="236">236</th><td>	<a class="tu ref" href="#dmasize" title='dmasize' data-use='w' data-ref="dmasize">dmasize</a> = (<a class="ref" href="../client/snd_local.h.html#dma" title='dma' data-ref="dma">dma</a>.<a class="ref" href="../client/snd_local.h.html#(anonymous)::samples" title='(anonymous struct)::samples' data-ref="(anonymous)::samples">samples</a> * (<a class="ref" href="../client/snd_local.h.html#dma" title='dma' data-ref="dma">dma</a>.<a class="ref" href="../client/snd_local.h.html#(anonymous)::samplebits" title='(anonymous struct)::samplebits' data-ref="(anonymous)::samplebits">samplebits</a>/<var>8</var>));</td></tr>
+<tr><th id="237">237</th><td>	<a class="ref" href="../client/snd_local.h.html#dma" title='dma' data-ref="dma">dma</a>.<a class="ref" href="../client/snd_local.h.html#(anonymous)::buffer" title='(anonymous struct)::buffer' data-ref="(anonymous)::buffer">buffer</a> = <a class="ref" href="../../../include/stdlib.h.html#calloc" title='calloc' data-ref="calloc">calloc</a>(<var>1</var>, <a class="tu ref" href="#dmasize" title='dmasize' data-use='r' data-ref="dmasize">dmasize</a>);</td></tr>
+<tr><th id="238">238</th><td></td></tr>
+<tr><th id="239">239</th><td>	<a class="ref" href="../qcommon/q_shared.h.html#Com_Printf" title='Com_Printf' data-ref="Com_Printf">Com_Printf</a>(<q>"Starting SDL audio callback...\n"</q>);</td></tr>
+<tr><th id="240">240</th><td>	<a class="ref" href="../../../include/SDL2/SDL_audio.h.html#SDL_PauseAudio" title='SDL_PauseAudio' data-ref="SDL_PauseAudio">SDL_PauseAudio</a>(<var>0</var>);  <i>// start callback.</i></td></tr>
+<tr><th id="241">241</th><td></td></tr>
+<tr><th id="242">242</th><td>	<a class="ref" href="../qcommon/q_shared.h.html#Com_Printf" title='Com_Printf' data-ref="Com_Printf">Com_Printf</a>(<q>"SDL audio initialized.\n"</q>);</td></tr>
+<tr><th id="243">243</th><td>	<a class="ref" href="#snd_inited" title='snd_inited' data-ref="snd_inited">snd_inited</a> = <a class="enum" href="../qcommon/q_shared.h.html#qtrue" title='qtrue' data-ref="qtrue">qtrue</a>;</td></tr>
+<tr><th id="244">244</th><td>	<b>return</b> <a class="enum" href="../qcommon/q_shared.h.html#qtrue" title='qtrue' data-ref="qtrue">qtrue</a>;</td></tr>
+<tr><th id="245">245</th><td>}</td></tr>
+<tr><th id="246">246</th><td></td></tr>
+<tr><th id="247">247</th><td><i>/*</i></td></tr>
+<tr><th id="248">248</th><td><i>===============</i></td></tr>
+<tr><th id="249">249</th><td><i>SNDDMA_GetDMAPos</i></td></tr>
+<tr><th id="250">250</th><td><i>===============</i></td></tr>
+<tr><th id="251">251</th><td><i>*/</i></td></tr>
+<tr><th id="252">252</th><td><em>int</em> <dfn class="decl def" id="SNDDMA_GetDMAPos" title='SNDDMA_GetDMAPos' data-ref="SNDDMA_GetDMAPos">SNDDMA_GetDMAPos</dfn>(<em>void</em>)</td></tr>
+<tr><th id="253">253</th><td>{</td></tr>
+<tr><th id="254">254</th><td>	<b>return</b> <a class="tu ref" href="#dmapos" title='dmapos' data-use='r' data-ref="dmapos">dmapos</a>;</td></tr>
+<tr><th id="255">255</th><td>}</td></tr>
+<tr><th id="256">256</th><td></td></tr>
+<tr><th id="257">257</th><td><i>/*</i></td></tr>
+<tr><th id="258">258</th><td><i>===============</i></td></tr>
+<tr><th id="259">259</th><td><i>SNDDMA_Shutdown</i></td></tr>
+<tr><th id="260">260</th><td><i>===============</i></td></tr>
+<tr><th id="261">261</th><td><i>*/</i></td></tr>
+<tr><th id="262">262</th><td><em>void</em> <dfn class="decl def" id="SNDDMA_Shutdown" title='SNDDMA_Shutdown' data-ref="SNDDMA_Shutdown">SNDDMA_Shutdown</dfn>(<em>void</em>)</td></tr>
+<tr><th id="263">263</th><td>{</td></tr>
+<tr><th id="264">264</th><td>	<a class="ref" href="../qcommon/q_shared.h.html#Com_Printf" title='Com_Printf' data-ref="Com_Printf">Com_Printf</a>(<q>"Closing SDL audio device...\n"</q>);</td></tr>
+<tr><th id="265">265</th><td>	<a class="ref" href="../../../include/SDL2/SDL_audio.h.html#SDL_PauseAudio" title='SDL_PauseAudio' data-ref="SDL_PauseAudio">SDL_PauseAudio</a>(<var>1</var>);</td></tr>
+<tr><th id="266">266</th><td>	<a class="ref" href="../../../include/SDL2/SDL_audio.h.html#SDL_CloseAudio" title='SDL_CloseAudio' data-ref="SDL_CloseAudio">SDL_CloseAudio</a>();</td></tr>
+<tr><th id="267">267</th><td>	<a class="ref" href="../../../include/SDL2/SDL.h.html#SDL_QuitSubSystem" title='SDL_QuitSubSystem' data-ref="SDL_QuitSubSystem">SDL_QuitSubSystem</a>(<a class="macro" href="../../../include/SDL2/SDL.h.html#76" title="0x00000010" data-ref="_M/SDL_INIT_AUDIO">SDL_INIT_AUDIO</a>);</td></tr>
+<tr><th id="268">268</th><td>	<a class="ref" href="../../../include/stdlib.h.html#free" title='free' data-ref="free">free</a>(<a class="ref" href="../client/snd_local.h.html#dma" title='dma' data-ref="dma">dma</a>.<a class="ref" href="../client/snd_local.h.html#(anonymous)::buffer" title='(anonymous struct)::buffer' data-ref="(anonymous)::buffer">buffer</a>);</td></tr>
+<tr><th id="269">269</th><td>	<a class="ref" href="../client/snd_local.h.html#dma" title='dma' data-ref="dma">dma</a>.<a class="ref" href="../client/snd_local.h.html#(anonymous)::buffer" title='(anonymous struct)::buffer' data-ref="(anonymous)::buffer">buffer</a> = <span class="macro" title="((void*)0)" data-ref="_M/NULL">NULL</span>;</td></tr>
+<tr><th id="270">270</th><td>	<a class="tu ref" href="#dmapos" title='dmapos' data-use='w' data-ref="dmapos">dmapos</a> = <a class="tu ref" href="#dmasize" title='dmasize' data-use='w' data-ref="dmasize">dmasize</a> = <var>0</var>;</td></tr>
+<tr><th id="271">271</th><td>	<a class="ref" href="#snd_inited" title='snd_inited' data-ref="snd_inited">snd_inited</a> = <a class="enum" href="../qcommon/q_shared.h.html#qfalse" title='qfalse' data-ref="qfalse">qfalse</a>;</td></tr>
+<tr><th id="272">272</th><td>	<a class="ref" href="../qcommon/q_shared.h.html#Com_Printf" title='Com_Printf' data-ref="Com_Printf">Com_Printf</a>(<q>"SDL audio device shut down.\n"</q>);</td></tr>
+<tr><th id="273">273</th><td>}</td></tr>
+<tr><th id="274">274</th><td></td></tr>
+<tr><th id="275">275</th><td><i>/*</i></td></tr>
+<tr><th id="276">276</th><td><i>===============</i></td></tr>
+<tr><th id="277">277</th><td><i>SNDDMA_Submit</i></td></tr>
+<tr><th id="278">278</th><td><i></i></td></tr>
+<tr><th id="279">279</th><td><i>Send sound to device if buffer isn't really the dma buffer</i></td></tr>
+<tr><th id="280">280</th><td><i>===============</i></td></tr>
+<tr><th id="281">281</th><td><i>*/</i></td></tr>
+<tr><th id="282">282</th><td><em>void</em> <dfn class="decl def" id="SNDDMA_Submit" title='SNDDMA_Submit' data-ref="SNDDMA_Submit">SNDDMA_Submit</dfn>(<em>void</em>)</td></tr>
+<tr><th id="283">283</th><td>{</td></tr>
+<tr><th id="284">284</th><td>	<a class="ref" href="../../../include/SDL2/SDL_audio.h.html#SDL_UnlockAudio" title='SDL_UnlockAudio' data-ref="SDL_UnlockAudio">SDL_UnlockAudio</a>();</td></tr>
+<tr><th id="285">285</th><td>}</td></tr>
+<tr><th id="286">286</th><td></td></tr>
+<tr><th id="287">287</th><td><i>/*</i></td></tr>
+<tr><th id="288">288</th><td><i>===============</i></td></tr>
+<tr><th id="289">289</th><td><i>SNDDMA_BeginPainting</i></td></tr>
+<tr><th id="290">290</th><td><i>===============</i></td></tr>
+<tr><th id="291">291</th><td><i>*/</i></td></tr>
+<tr><th id="292">292</th><td><em>void</em> <dfn class="decl def" id="SNDDMA_BeginPainting" title='SNDDMA_BeginPainting' data-ref="SNDDMA_BeginPainting">SNDDMA_BeginPainting</dfn> (<em>void</em>)</td></tr>
+<tr><th id="293">293</th><td>{</td></tr>
+<tr><th id="294">294</th><td>	<a class="ref" href="../../../include/SDL2/SDL_audio.h.html#SDL_LockAudio" title='SDL_LockAudio' data-ref="SDL_LockAudio">SDL_LockAudio</a>();</td></tr>
+<tr><th id="295">295</th><td>}</td></tr>
+<tr><th id="296">296</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated on <em>2017-Aug-29</em> from project codebrowser revision <em>63e07af</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

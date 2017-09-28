@@ -1,0 +1,153 @@
+<dec f='codebrowser/code/qcommon/qcommon.h' l='756' type='char [256]'/>
+<dec f='codebrowser/code/client/snd_local.h' l='71' type='byte *'/>
+<offset>192</offset>
+<use f='codebrowser/code/client/cl_keys.c' l='349' u='r' c='Field_VariableSizeDraw'/>
+<use f='codebrowser/code/client/cl_keys.c' l='373' u='r' c='Field_VariableSizeDraw'/>
+<use f='codebrowser/code/client/cl_keys.c' l='466' u='r' c='Field_KeyDownEvent'/>
+<use f='codebrowser/code/client/cl_keys.c' l='471' u='r' c='Field_KeyDownEvent'/>
+<use f='codebrowser/code/client/cl_keys.c' l='472' u='r' c='Field_KeyDownEvent'/>
+<use f='codebrowser/code/client/cl_keys.c' l='530' u='r' c='Field_CharEvent'/>
+<use f='codebrowser/code/client/cl_keys.c' l='534' u='r' c='Field_CharEvent'/>
+<use f='codebrowser/code/client/cl_keys.c' l='535' u='r' c='Field_CharEvent'/>
+<use f='codebrowser/code/client/cl_keys.c' l='568' u='w' c='Field_CharEvent'/>
+<use f='codebrowser/code/client/cl_keys.c' l='575' u='r' c='Field_CharEvent'/>
+<use f='codebrowser/code/client/cl_keys.c' l='576' u='r' c='Field_CharEvent'/>
+<use f='codebrowser/code/client/cl_keys.c' l='577' u='w' c='Field_CharEvent'/>
+<use f='codebrowser/code/client/cl_keys.c' l='587' u='w' c='Field_CharEvent'/>
+<use f='codebrowser/code/client/cl_keys.c' l='617' u='r' c='Console_Key'/>
+<use f='codebrowser/code/client/cl_keys.c' l='618' u='r' c='Console_Key'/>
+<use f='codebrowser/code/client/cl_keys.c' l='619' u='r' c='Console_Key'/>
+<use f='codebrowser/code/client/cl_keys.c' l='622' u='r' c='Console_Key'/>
+<use f='codebrowser/code/client/cl_keys.c' l='623' u='r' c='Console_Key'/>
+<use f='codebrowser/code/client/cl_keys.c' l='623' u='r' c='Console_Key'/>
+<use f='codebrowser/code/client/cl_keys.c' l='627' c='Console_Key'/>
+<use f='codebrowser/code/client/cl_keys.c' l='630' u='r' c='Console_Key'/>
+<use f='codebrowser/code/client/cl_keys.c' l='630' u='r' c='Console_Key'/>
+<use f='codebrowser/code/client/cl_keys.c' l='631' u='r' c='Console_Key'/>
+<use f='codebrowser/code/client/cl_keys.c' l='635' u='r' c='Console_Key'/>
+<use f='codebrowser/code/client/cl_keys.c' l='642' u='r' c='Console_Key'/>
+<use f='codebrowser/code/client/cl_keys.c' l='764' u='r' c='Message_Key'/>
+<use f='codebrowser/code/client/cl_keys.c' l='767' c='Message_Key'/>
+<use f='codebrowser/code/client/cl_keys.c' l='771' c='Message_Key'/>
+<use f='codebrowser/code/client/cl_keys.c' l='773' c='Message_Key'/>
+<use f='codebrowser/code/client/cl_keys.c' l='1508' u='r' c='CL_LoadConsoleHistory'/>
+<use f='codebrowser/code/client/cl_keys.c' l='1510' u='w' c='CL_LoadConsoleHistory'/>
+<use f='codebrowser/code/client/cl_keys.c' l='1548' u='r' c='CL_SaveConsoleHistory'/>
+<use f='codebrowser/code/client/cl_keys.c' l='1550' u='r' c='CL_SaveConsoleHistory'/>
+<use f='codebrowser/code/client/cl_keys.c' l='1563' c='CL_SaveConsoleHistory'/>
+<dec f='codebrowser/code/libogg-1.3.2/include/ogg/ogg.h' l='36' type='unsigned char *'/>
+<offset>128</offset>
+<use f='codebrowser/code/client/snd_dma.c' l='106' u='r' c='S_Base_SoundInfo'/>
+<use f='codebrowser/code/client/snd_dma.c' l='710' u='r' c='S_Base_ClearSoundBuffer'/>
+<use f='codebrowser/code/client/snd_dma.c' l='711' u='r' c='S_Base_ClearSoundBuffer'/>
+<use f='codebrowser/code/client/snd_mix.c' l='162' u='r' c='S_TransferPaintBuffer'/>
+<use f='codebrowser/code/libogg-1.3.2/src/bitwise.c' l='42' u='w' c='oggpack_writeinit'/>
+<use f='codebrowser/code/libogg-1.3.2/src/bitwise.c' l='43' u='r' c='oggpack_writeinit'/>
+<use f='codebrowser/code/libogg-1.3.2/src/bitwise.c' l='64' u='r' c='oggpack_writetrunc'/>
+<use f='codebrowser/code/libogg-1.3.2/src/bitwise.c' l='75' u='r' c='oggpackB_writetrunc'/>
+<use f='codebrowser/code/libogg-1.3.2/src/bitwise.c' l='89' u='r' c='oggpack_write'/>
+<use f='codebrowser/code/libogg-1.3.2/src/bitwise.c' l='91' u='w' c='oggpack_write'/>
+<use f='codebrowser/code/libogg-1.3.2/src/bitwise.c' l='93' u='r' c='oggpack_write'/>
+<use f='codebrowser/code/libogg-1.3.2/src/bitwise.c' l='132' u='r' c='oggpackB_write'/>
+<use f='codebrowser/code/libogg-1.3.2/src/bitwise.c' l='134' u='w' c='oggpackB_write'/>
+<use f='codebrowser/code/libogg-1.3.2/src/bitwise.c' l='136' u='r' c='oggpackB_write'/>
+<use f='codebrowser/code/libogg-1.3.2/src/bitwise.c' l='199' u='r' c='oggpack_writecopy_helper'/>
+<use f='codebrowser/code/libogg-1.3.2/src/bitwise.c' l='201' u='w' c='oggpack_writecopy_helper'/>
+<use f='codebrowser/code/libogg-1.3.2/src/bitwise.c' l='202' u='r' c='oggpack_writecopy_helper'/>
+<use f='codebrowser/code/libogg-1.3.2/src/bitwise.c' l='241' u='r' c='oggpack_reset'/>
+<use f='codebrowser/code/libogg-1.3.2/src/bitwise.c' l='242' u='r' c='oggpack_reset'/>
+<use f='codebrowser/code/libogg-1.3.2/src/bitwise.c' l='251' u='r' c='oggpack_writeclear'/>
+<use f='codebrowser/code/libogg-1.3.2/src/bitwise.c' l='251' u='r' c='oggpack_writeclear'/>
+<use f='codebrowser/code/libogg-1.3.2/src/bitwise.c' l='261' u='w' c='oggpack_readinit'/>
+<use f='codebrowser/code/libogg-1.3.2/src/bitwise.c' l='520' u='r' c='oggpack_get_buffer'/>
+<dec f='codebrowser/code/q3_ui/ui_local.h' l='189' type='char [256]'/>
+<offset>96</offset>
+<use f='codebrowser/code/q3_ui/ui_cdkey.c' l='73' u='r' c='UI_CDKeyMenu_Event'/>
+<use f='codebrowser/code/q3_ui/ui_cdkey.c' l='74' u='r' c='UI_CDKeyMenu_Event'/>
+<use f='codebrowser/code/q3_ui/ui_cdkey.c' l='155' u='r' c='UI_CDKeyMenu_DrawKey'/>
+<use f='codebrowser/code/q3_ui/ui_cdkey.c' l='171' u='r' c='UI_CDKeyMenu_DrawKey'/>
+<use f='codebrowser/code/q3_ui/ui_cdkey.c' l='252' u='r' c='UI_CDKeyMenu_Init'/>
+<use f='codebrowser/code/q3_ui/ui_cdkey.c' l='253' u='r' c='UI_CDKeyMenu_Init'/>
+<use f='codebrowser/code/q3_ui/ui_cdkey.c' l='254' u='w' c='UI_CDKeyMenu_Init'/>
+<use f='codebrowser/code/q3_ui/ui_mfield.c' l='42' u='r' c='MField_Draw'/>
+<use f='codebrowser/code/q3_ui/ui_mfield.c' l='65' u='r' c='MField_Draw'/>
+<use f='codebrowser/code/q3_ui/ui_mfield.c' l='148' u='r' c='MField_KeyDownEvent'/>
+<use f='codebrowser/code/q3_ui/ui_mfield.c' l='152' u='r' c='MField_KeyDownEvent'/>
+<use f='codebrowser/code/q3_ui/ui_mfield.c' l='153' u='r' c='MField_KeyDownEvent'/>
+<use f='codebrowser/code/q3_ui/ui_mfield.c' l='220' u='r' c='MField_CharEvent'/>
+<use f='codebrowser/code/q3_ui/ui_mfield.c' l='224' u='r' c='MField_CharEvent'/>
+<use f='codebrowser/code/q3_ui/ui_mfield.c' l='225' u='r' c='MField_CharEvent'/>
+<use f='codebrowser/code/q3_ui/ui_mfield.c' l='263' u='r' c='MField_CharEvent'/>
+<use f='codebrowser/code/q3_ui/ui_mfield.c' l='263' u='r' c='MField_CharEvent'/>
+<use f='codebrowser/code/q3_ui/ui_mfield.c' l='266' u='w' c='MField_CharEvent'/>
+<use f='codebrowser/code/q3_ui/ui_mfield.c' l='276' u='w' c='MField_CharEvent'/>
+<use f='codebrowser/code/q3_ui/ui_mfield.c' l='286' u='w' c='MField_Clear'/>
+<use f='codebrowser/code/q3_ui/ui_playersettings.c' l='135' u='r' c='PlayerSettings_DrawName'/>
+<use f='codebrowser/code/q3_ui/ui_playersettings.c' l='168' u='r' c='PlayerSettings_DrawName'/>
+<use f='codebrowser/code/q3_ui/ui_playersettings.c' l='261' u='r' c='PlayerSettings_SaveChanges'/>
+<use f='codebrowser/code/q3_ui/ui_playersettings.c' l='295' u='r' c='PlayerSettings_SetMenuItems'/>
+<use f='codebrowser/code/q3_ui/ui_playersettings.c' l='295' u='r' c='PlayerSettings_SetMenuItems'/>
+<use f='codebrowser/code/q3_ui/ui_saveconfig.c' l='84' u='r' c='UI_SaveConfigMenu_SaveEvent'/>
+<use f='codebrowser/code/q3_ui/ui_saveconfig.c' l='88' u='r' c='UI_SaveConfigMenu_SaveEvent'/>
+<use f='codebrowser/code/q3_ui/ui_specifyserver.c' l='79' u='r' c='SpecifyServer_Event'/>
+<use f='codebrowser/code/q3_ui/ui_specifyserver.c' l='81' u='r' c='SpecifyServer_Event'/>
+<use f='codebrowser/code/q3_ui/ui_specifyserver.c' l='82' u='r' c='SpecifyServer_Event'/>
+<use f='codebrowser/code/q3_ui/ui_specifyserver.c' l='83' c='SpecifyServer_Event'/>
+<use f='codebrowser/code/q3_ui/ui_specifyserver.c' l='182' u='r' c='SpecifyServer_MenuInit'/>
+<use f='codebrowser/code/q3_ui/ui_startserver.c' l='735' u='r' c='ServerOptions_Start'/>
+<use f='codebrowser/code/q3_ui/ui_startserver.c' l='736' u='r' c='ServerOptions_Start'/>
+<use f='codebrowser/code/q3_ui/ui_startserver.c' l='737' u='r' c='ServerOptions_Start'/>
+<use f='codebrowser/code/q3_ui/ui_startserver.c' l='786' u='r' c='ServerOptions_Start'/>
+<use f='codebrowser/code/q3_ui/ui_startserver.c' l='1141' u='r' c='ServerOptions_SetMenuItems'/>
+<use f='codebrowser/code/q3_ui/ui_startserver.c' l='1142' u='r' c='ServerOptions_SetMenuItems'/>
+<use f='codebrowser/code/q3_ui/ui_startserver.c' l='1146' u='r' c='ServerOptions_SetMenuItems'/>
+<use f='codebrowser/code/q3_ui/ui_startserver.c' l='1147' u='r' c='ServerOptions_SetMenuItems'/>
+<use f='codebrowser/code/q3_ui/ui_startserver.c' l='1151' u='r' c='ServerOptions_SetMenuItems'/>
+<use f='codebrowser/code/q3_ui/ui_startserver.c' l='1152' u='r' c='ServerOptions_SetMenuItems'/>
+<use f='codebrowser/code/q3_ui/ui_startserver.c' l='1157' u='r' c='ServerOptions_SetMenuItems'/>
+<use f='codebrowser/code/q3_ui/ui_startserver.c' l='1158' u='r' c='ServerOptions_SetMenuItems'/>
+<use f='codebrowser/code/q3_ui/ui_startserver.c' l='1163' u='r' c='ServerOptions_SetMenuItems'/>
+<use f='codebrowser/code/q3_ui/ui_startserver.c' l='1163' u='r' c='ServerOptions_SetMenuItems'/>
+<use f='codebrowser/code/qcommon/common.c' l='3317' u='r' c='Field_Clear'/>
+<use f='codebrowser/code/qcommon/common.c' l='3416' u='r' c='Field_Complete'/>
+<use f='codebrowser/code/qcommon/common.c' l='3418' u='a' c='Field_Complete'/>
+<use f='codebrowser/code/qcommon/common.c' l='3419' u='r' c='Field_Complete'/>
+<use f='codebrowser/code/qcommon/common.c' l='3421' u='r' c='Field_Complete'/>
+<use f='codebrowser/code/qcommon/common.c' l='3425' u='r' c='Field_Complete'/>
+<use f='codebrowser/code/qcommon/common.c' l='3425' u='r' c='Field_Complete'/>
+<use f='codebrowser/code/qcommon/common.c' l='3430' c='Field_Complete'/>
+<use f='codebrowser/code/qcommon/common.c' l='3573' u='r' c='Field_AutoComplete'/>
+<use f='codebrowser/code/qcommon/common.c' l='3638' u='r' c='Field_CompletePlayerNameFinal'/>
+<use f='codebrowser/code/qcommon/common.c' l='3640' u='a' c='Field_CompletePlayerNameFinal'/>
+<use f='codebrowser/code/qcommon/common.c' l='3641' u='r' c='Field_CompletePlayerNameFinal'/>
+<use f='codebrowser/code/qcommon/common.c' l='3643' u='r' c='Field_CompletePlayerNameFinal'/>
+<use f='codebrowser/code/qcommon/common.c' l='3647' u='r' c='Field_CompletePlayerNameFinal'/>
+<use f='codebrowser/code/qcommon/common.c' l='3647' u='r' c='Field_CompletePlayerNameFinal'/>
+<use f='codebrowser/code/qcommon/common.c' l='3781' c='Field_CompletePlayerName'/>
+<dec f='codebrowser/code/renderergl1/tr_local.h' l='1462' type='int'/>
+<dec f='codebrowser/code/renderergl1/tr_local.h' l='1479' type='int'/>
+<offset>32</offset>
+<use f='codebrowser/code/renderergl1/tr_backend.c' l='956' u='r' c='RB_DrawBuffer'/>
+<use f='codebrowser/code/renderergl1/tr_cmds.c' l='374' u='w' c='RE_BeginFrame'/>
+<use f='codebrowser/code/renderergl1/tr_cmds.c' l='376' u='w' c='RE_BeginFrame'/>
+<use f='codebrowser/code/renderergl1/tr_cmds.c' l='445' u='w' c='RE_BeginFrame'/>
+<use f='codebrowser/code/renderergl1/tr_cmds.c' l='447' u='w' c='RE_BeginFrame'/>
+<dec f='codebrowser/code/renderergl2/tr_local.h' l='2289' type='int'/>
+<dec f='codebrowser/code/renderergl2/tr_local.h' l='2306' type='int'/>
+<offset>32</offset>
+<use f='codebrowser/code/renderergl2/tr_backend.c' l='1204' u='r' c='RB_DrawBuffer'/>
+<use f='codebrowser/code/renderergl2/tr_cmds.c' l='420' u='w' c='RE_BeginFrame'/>
+<use f='codebrowser/code/renderergl2/tr_cmds.c' l='422' u='w' c='RE_BeginFrame'/>
+<use f='codebrowser/code/renderergl2/tr_cmds.c' l='516' u='w' c='RE_BeginFrame'/>
+<use f='codebrowser/code/renderergl2/tr_cmds.c' l='518' u='w' c='RE_BeginFrame'/>
+<use f='codebrowser/code/sdl/sdl_snd.c' l='74' u='r' c='SNDDMA_AudioCallback'/>
+<use f='codebrowser/code/sdl/sdl_snd.c' l='79' u='r' c='SNDDMA_AudioCallback'/>
+<use f='codebrowser/code/sdl/sdl_snd.c' l='237' u='w' c='SNDDMA_Init'/>
+<use f='codebrowser/code/sdl/sdl_snd.c' l='268' u='r' c='SNDDMA_Shutdown'/>
+<use f='codebrowser/code/sdl/sdl_snd.c' l='269' u='w' c='SNDDMA_Shutdown'/>
+<use f='codebrowser/code/sys/con_tty.c' l='171' u='r' c='CON_Show'/>
+<use f='codebrowser/code/sys/con_tty.c' l='369' u='w' c='CON_Input'/>
+<use f='codebrowser/code/sys/con_tty.c' l='410' u='r' c='CON_Input'/>
+<use f='codebrowser/code/sys/con_tty.c' l='476' u='w' c='CON_Input'/>
+<dec f='codebrowser/code/ui/ui_local.h' l='226' type='char [256]'/>
+<offset>96</offset>

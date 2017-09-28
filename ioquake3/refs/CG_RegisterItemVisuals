@@ -1,0 +1,16 @@
+<dec f='codebrowser/code/cgame/cg_local.h' l='1358' type='void CG_RegisterItemVisuals(int itemNum)'/>
+<use f='codebrowser/code/cgame/cg_draw.c' l='1312' u='c' c='CG_DrawPickupItem'/>
+<use f='codebrowser/code/cgame/cg_draw.c' l='1422' u='c' c='CG_DrawHoldableItem'/>
+<use f='codebrowser/code/cgame/cg_main.c' l='1016' u='c' c='CG_RegisterGraphics'/>
+<use f='codebrowser/code/cgame/cg_newdraw.c' l='468' u='c' c='CG_DrawPlayerItem'/>
+<use f='codebrowser/code/cgame/cg_newdraw.c' l='471' u='c' c='CG_DrawPlayerItem'/>
+<use f='codebrowser/code/cgame/cg_newdraw.c' l='793' u='c' c='CG_DrawCTFPowerUp'/>
+<use f='codebrowser/code/cgame/cg_weapons.c' l='635' u='c' c='CG_RegisterWeapon'/>
+<def f='codebrowser/code/cgame/cg_weapons.c' l='827' ll='862' type='void CG_RegisterItemVisuals(int itemNum)'/>
+<doc f='codebrowser/code/cgame/cg_weapons.c' l='820'>/*
+=================
+CG_RegisterItemVisuals
+
+The server says this item is used on this level
+=================
+*/</doc>

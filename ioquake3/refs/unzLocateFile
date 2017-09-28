@@ -1,0 +1,15 @@
+<dec f='codebrowser/code/qcommon/unzip.h' l='195' type='int unzLocateFile(unzFile file, const char * szFileName, int iCaseSensitivity)'/>
+<doc f='codebrowser/code/qcommon/unzip.h' l='189'>/*
+  Set the current file of the zipfile to the next file.
+  return UNZ_OK if there is no problem
+  return UNZ_END_OF_LIST_OF_FILE if the actual file was the latest.
+*/</doc>
+<def f='codebrowser/code/qcommon/unzip.c' l='826' ll='884' type='int unzLocateFile(unzFile file, const char * szFileName, int iCaseSensitivity)'/>
+<doc f='codebrowser/code/qcommon/unzip.c' l='818'>/*
+  Try locate the file szFileName in the zipfile.
+  For the iCaseSensitivity signification, see unzipStringFileNameCompare
+
+  return value :
+  UNZ_OK if the file is found. It becomes the current file.
+  UNZ_END_OF_LIST_OF_FILE if the file is not found
+*/</doc>

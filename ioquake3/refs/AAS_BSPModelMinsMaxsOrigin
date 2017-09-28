@@ -1,0 +1,20 @@
+<dec f='codebrowser/code/botlib/be_aas_bsp.h' l='78' type='void AAS_BSPModelMinsMaxsOrigin(int modelnum, vec_t * angles, vec_t * mins, vec_t * maxs, vec_t * origin)'/>
+<dec f='codebrowser/code/botlib/be_aas_bsp.h' l='78' type='void AAS_BSPModelMinsMaxsOrigin(int modelnum, vec_t * angles, vec_t * mins, vec_t * maxs, vec_t * origin)'/>
+<def f='codebrowser/code/botlib/be_aas_bspq3.c' l='212' ll='215' type='void AAS_BSPModelMinsMaxsOrigin(int modelnum, vec_t * angles, vec_t * mins, vec_t * maxs, vec_t * origin)'/>
+<doc f='codebrowser/code/botlib/be_aas_bspq3.c' l='206'>//===========================================================================
+//
+// Parameter:				-
+// Returns:					-
+// Changes Globals:		-
+//===========================================================================</doc>
+<doc f='codebrowser/code/botlib/be_aas_bsp.h' l='77'>//gets the mins, maxs and origin of a BSP model</doc>
+<use f='codebrowser/code/botlib/be_aas_entity.c' l='124' u='c' c='AAS_UpdateEntity'/>
+<use f='codebrowser/code/botlib/be_aas_reach.c' l='230' u='c' c='AAS_GetJumpPadInfo'/>
+<use f='codebrowser/code/botlib/be_aas_reach.c' l='2764' u='c' c='AAS_Reachability_Teleport'/>
+<use f='codebrowser/code/botlib/be_aas_reach.c' l='2801' u='c' c='AAS_Reachability_Teleport'/>
+<use f='codebrowser/code/botlib/be_aas_reach.c' l='2973' u='c' c='AAS_Reachability_Elevator'/>
+<use f='codebrowser/code/botlib/be_aas_reach.c' l='3311' u='c' c='AAS_Reachability_FuncBobbing'/>
+<use f='codebrowser/code/botlib/be_ai_move.c' l='450' u='c' c='BotOnMover'/>
+<use f='codebrowser/code/botlib/be_ai_move.c' l='494' u='c' c='MoverDown'/>
+<use f='codebrowser/code/botlib/be_ai_move.c' l='979' u='c' c='MoverBottomCenter'/>
+<use f='codebrowser/code/botlib/be_ai_move.c' l='2237' u='c' c='BotFuncBobStartEnd'/>

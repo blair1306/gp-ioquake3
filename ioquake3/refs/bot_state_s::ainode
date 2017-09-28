@@ -1,0 +1,20 @@
+<dec f='codebrowser/code/game/ai_main.h' l='134' type='int (*)(struct bot_state_s *)'/>
+<offset>38080</offset>
+<doc f='codebrowser/code/game/ai_main.h' l='134'>//current AI node</doc>
+<use f='codebrowser/code/game/ai_dmnet.c' l='1139' u='w' c='AIEnter_Intermission'/>
+<use f='codebrowser/code/game/ai_dmnet.c' l='1170' u='w' c='AIEnter_Observer'/>
+<use f='codebrowser/code/game/ai_dmnet.c' l='1194' u='w' c='AIEnter_Stand'/>
+<use f='codebrowser/code/game/ai_dmnet.c' l='1253' u='w' c='AIEnter_Respawn'/>
+<use f='codebrowser/code/game/ai_dmnet.c' l='1440' u='w' c='AIEnter_Seek_ActivateEntity'/>
+<use f='codebrowser/code/game/ai_dmnet.c' l='1659' u='w' c='AIEnter_Seek_NBG'/>
+<use f='codebrowser/code/game/ai_dmnet.c' l='1792' u='w' c='AIEnter_Seek_LTG'/>
+<use f='codebrowser/code/game/ai_dmnet.c' l='1971' u='w' c='AIEnter_Battle_Fight'/>
+<use f='codebrowser/code/game/ai_dmnet.c' l='1983' u='w' c='AIEnter_Battle_SuicidalFight'/>
+<use f='codebrowser/code/game/ai_dmnet.c' l='2155' u='w' c='AIEnter_Battle_Chase'/>
+<use f='codebrowser/code/game/ai_dmnet.c' l='2294' u='w' c='AIEnter_Battle_Retreat'/>
+<use f='codebrowser/code/game/ai_dmnet.c' l='2483' u='w' c='AIEnter_Battle_NBG'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='4532' u='r' c='BotAIBlocked'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='4533' u='r' c='BotAIBlocked'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='4687' u='r' c='BotCheckConsoleMessages'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='5271' u='r' c='BotDeathmatchAI'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='5286' u='r' c='BotDeathmatchAI'/>

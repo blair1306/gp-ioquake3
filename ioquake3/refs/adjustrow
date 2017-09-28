@@ -1,0 +1,10 @@
+<dec f='codebrowser/code/tools/lcc/cpp/cpp.h' l='122' type='void adjustrow(Tokenrow * , int )'/>
+<use f='codebrowser/code/tools/lcc/cpp/macro.c' l='277' u='c' c='gatherargs'/>
+<use f='codebrowser/code/tools/lcc/cpp/tokens.c' l='136' u='c' c='insertrow'/>
+<def f='codebrowser/code/tools/lcc/cpp/tokens.c' l='194' ll='209' type='void adjustrow(Tokenrow * trp, int nt)'/>
+<doc f='codebrowser/code/tools/lcc/cpp/tokens.c' l='188'>/*
+ * Move the tokens in a row, starting at tr-&gt;tp, rightward by nt tokens;
+ * nt may be negative (left move).
+ * The row may need to be grown.
+ * Non-strictly conforming because of the (char *), but easily fixed
+ */</doc>

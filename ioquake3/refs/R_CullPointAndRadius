@@ -1,0 +1,14 @@
+<dec f='codebrowser/code/renderergl1/tr_local.h' l='1088' type='int R_CullPointAndRadius(vec_t * origin, float radius)'/>
+<use f='codebrowser/code/renderergl1/tr_main.c' l='118' u='c' c='R_CullLocalPointAndRadius'/>
+<def f='codebrowser/code/renderergl1/tr_main.c' l='124' ll='157' type='int R_CullPointAndRadius(vec_t * pt, float radius)'/>
+<doc f='codebrowser/code/renderergl1/tr_main.c' l='121'>/*
+** R_CullPointAndRadius
+*/</doc>
+<use f='codebrowser/code/renderergl1/tr_world.c' l='64' u='c' c='R_CullGrid'/>
+<dec f='codebrowser/code/renderergl2/tr_local.h' l='1832' type='int R_CullPointAndRadius(const vec_t * origin, float radius)'/>
+<use f='codebrowser/code/renderergl2/tr_main.c' l='337' u='c' c='R_CullLocalPointAndRadius'/>
+<def f='codebrowser/code/renderergl2/tr_main.c' l='381' ll='384' type='int R_CullPointAndRadius(const vec_t * pt, float radius)'/>
+<doc f='codebrowser/code/renderergl2/tr_main.c' l='378'>/*
+** R_CullPointAndRadius
+*/</doc>
+<use f='codebrowser/code/renderergl2/tr_world.c' l='119' u='c' c='R_CullSurface'/>

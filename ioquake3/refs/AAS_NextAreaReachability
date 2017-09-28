@@ -1,0 +1,14 @@
+<dec f='codebrowser/code/botlib/be_aas_route.h' l='51' type='int AAS_NextAreaReachability(int areanum, int reachnum)'/>
+<dec f='codebrowser/code/botlib/be_aas_route.h' l='51' type='int AAS_NextAreaReachability(int areanum, int reachnum)'/>
+<doc f='codebrowser/code/botlib/be_aas_route.h' l='50'>//returns the index of the next reachability for the given area</doc>
+<def f='codebrowser/code/botlib/be_aas_route.c' l='1943' ll='1971' type='int AAS_NextAreaReachability(int areanum, int reachnum)'/>
+<doc f='codebrowser/code/botlib/be_aas_route.c' l='1937'>//===========================================================================
+//
+// Parameter:			-
+// Returns:				-
+// Changes Globals:		-
+//===========================================================================</doc>
+<use f='codebrowser/code/botlib/be_ai_move.c' l='762' u='c' c='BotGetReachabilityToGoal'/>
+<use f='codebrowser/code/botlib/be_ai_move.c' l='763' u='c' c='BotGetReachabilityToGoal'/>
+<use f='codebrowser/code/botlib/be_ai_move.c' l='3381' u='c' c='BotMoveToGoal'/>
+<use f='codebrowser/code/botlib/be_ai_move.c' l='3382' u='c' c='BotMoveToGoal'/>

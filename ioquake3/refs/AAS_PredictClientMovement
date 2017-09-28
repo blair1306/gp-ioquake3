@@ -1,0 +1,22 @@
+<dec f='codebrowser/code/botlib/be_aas_move.h' l='37' type='int AAS_PredictClientMovement(struct aas_clientmove_s * move, int entnum, vec_t * origin, int presencetype, int onground, vec_t * velocity, vec_t * cmdmove, int cmdframes, int maxframes, float frametime, int stopevent, int stopareanum, int visualize)'/>
+<dec f='codebrowser/code/botlib/be_aas_move.h' l='37' type='int AAS_PredictClientMovement(struct aas_clientmove_s * move, int entnum, vec_t * origin, int presencetype, int onground, vec_t * velocity, vec_t * cmdmove, int cmdframes, int maxframes, float frametime, int stopevent, int stopareanum, int visualize)'/>
+<doc f='codebrowser/code/botlib/be_aas_move.h' l='36'>//movement prediction</doc>
+<use f='codebrowser/code/botlib/be_aas_debug.c' l='629' u='c' c='AAS_ShowReachability'/>
+<use f='codebrowser/code/botlib/be_aas_debug.c' l='652' u='c' c='AAS_ShowReachability'/>
+<use f='codebrowser/code/botlib/be_aas_debug.c' l='671' u='c' c='AAS_ShowReachability'/>
+<use f='codebrowser/code/botlib/be_aas_move.c' l='272' u='c' c='AAS_JumpReachRunStart'/>
+<def f='codebrowser/code/botlib/be_aas_move.c' l='983' ll='996' type='int AAS_PredictClientMovement(struct aas_clientmove_s * move, int entnum, vec_t * origin, int presencetype, int onground, vec_t * velocity, vec_t * cmdmove, int cmdframes, int maxframes, float frametime, int stopevent, int stopareanum, int visualize)'/>
+<use f='codebrowser/code/botlib/be_aas_move.c' l='1033' u='c' c='AAS_TestMovementPrediction'/>
+<doc f='codebrowser/code/botlib/be_aas_move.c' l='977'>//===========================================================================
+//
+// Parameter:			-
+// Returns:				-
+// Changes Globals:		-
+//===========================================================================</doc>
+<use f='codebrowser/code/botlib/be_aas_reach.c' l='2294' u='c' c='AAS_Reachability_Jump'/>
+<use f='codebrowser/code/botlib/be_aas_reach.c' l='2875' u='c' c='AAS_Reachability_Teleport'/>
+<use f='codebrowser/code/botlib/be_aas_reach.c' l='3620' u='c' c='AAS_Reachability_JumpPad'/>
+<use f='codebrowser/code/botlib/be_aas_reach.c' l='3721' u='c' c='AAS_Reachability_JumpPad'/>
+<use f='codebrowser/code/botlib/be_aas_reach.c' l='4072' u='c' c='AAS_Reachability_WeaponJump'/>
+<use f='codebrowser/code/botlib/be_ai_move.c' l='1164' u='c' c='BotWalkInDirection'/>
+<use f='codebrowser/code/botlib/be_interface.c' l='724' u='r' c='Init_AAS_Export'/>

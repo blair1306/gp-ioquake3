@@ -1,0 +1,13 @@
+<dec f='codebrowser/code/jpeg-8c/jpeglib.h' l='467' type='boolean'/>
+<offset>704</offset>
+<doc f='codebrowser/code/jpeg-8c/jpeglib.h' l='467'>/* TRUE=multiple output passes */</doc>
+<use f='codebrowser/code/jpeg-8c/jdapimin.c' l='192' u='w' c='default_decompress_parms'/>
+<use f='codebrowser/code/jpeg-8c/jdapimin.c' l='373' u='r' c='jpeg_finish_decompress'/>
+<use f='codebrowser/code/jpeg-8c/jdapistd.c' l='43' u='r' c='jpeg_start_decompress'/>
+<use f='codebrowser/code/jpeg-8c/jdapistd.c' l='256' u='r' c='jpeg_finish_output'/>
+<use f='codebrowser/code/jpeg-8c/jdmaster.c' l='296' u='r' c='master_selection'/>
+<use f='codebrowser/code/jpeg-8c/jdmaster.c' l='365' u='r' c='master_selection'/>
+<use f='codebrowser/code/jpeg-8c/jdmaster.c' l='382' u='r' c='master_selection'/>
+<use f='codebrowser/code/jpeg-8c/jdmaster.c' l='462' u='r' c='prepare_for_output_pass'/>
+<use f='codebrowser/code/jpeg-8c/jdtrans.c' l='83' u='r' c='jpeg_read_coefficients'/>
+<use f='codebrowser/code/jpeg-8c/jdtrans.c' l='101' u='w' c='transdecode_master_selection'/>

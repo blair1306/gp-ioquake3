@@ -1,0 +1,30 @@
+<dec f='codebrowser/code/qcommon/qcommon.h' l='228' type='int'/>
+<dec f='codebrowser/code/client/client.h' l='176' type='int'/>
+<offset>41472</offset>
+<doc f='codebrowser/code/client/client.h' l='176'>// from the server to use for connecting</doc>
+<use f='codebrowser/code/client/cl_main.c' l='1771' u='w' c='CL_Connect_f'/>
+<use f='codebrowser/code/client/cl_main.c' l='2371' u='r' c='CL_CheckForResend'/>
+<use f='codebrowser/code/client/cl_main.c' l='2392' u='r' c='CL_CheckForResend'/>
+<use f='codebrowser/code/client/cl_main.c' l='2660' u='r' c='CL_ConnectionlessPacket'/>
+<use f='codebrowser/code/client/cl_main.c' l='2670' u='r' c='CL_ConnectionlessPacket'/>
+<use f='codebrowser/code/client/cl_main.c' l='2678' u='w' c='CL_ConnectionlessPacket'/>
+<use f='codebrowser/code/client/cl_main.c' l='2686' u='r' c='CL_ConnectionlessPacket'/>
+<use f='codebrowser/code/client/cl_main.c' l='2719' u='r' c='CL_ConnectionlessPacket'/>
+<use f='codebrowser/code/client/cl_main.c' l='2728' u='r' c='CL_ConnectionlessPacket'/>
+<use f='codebrowser/code/client/cl_net_chan.c' l='67' u='r' c='CL_Netchan_Encode'/>
+<use f='codebrowser/code/client/cl_net_chan.c' l='113' u='r' c='CL_Netchan_Decode'/>
+<use f='codebrowser/code/qcommon/net_chan.c' l='95' u='w' c='Netchan_Setup'/>
+<use f='codebrowser/code/qcommon/net_chan.c' l='129' u='r' c='Netchan_TransmitNextFragment'/>
+<use f='codebrowser/code/qcommon/net_chan.c' l='129' u='r' c='Netchan_TransmitNextFragment'/>
+<use f='codebrowser/code/qcommon/net_chan.c' l='210' u='r' c='Netchan_Transmit'/>
+<use f='codebrowser/code/qcommon/net_chan.c' l='210' u='r' c='Netchan_Transmit'/>
+<use f='codebrowser/code/qcommon/net_chan.c' l='276' u='r' c='Netchan_Process'/>
+<use f='codebrowser/code/qcommon/net_chan.c' l='276' u='r' c='Netchan_Process'/>
+<dec f='codebrowser/code/server/server.h' l='220' type='int'/>
+<offset>320</offset>
+<use f='codebrowser/code/server/sv_client.c' l='143' u='w' c='SV_GetChallenge'/>
+<use f='codebrowser/code/server/sv_client.c' l='193' u='r' c='SV_GetChallenge'/>
+<use f='codebrowser/code/server/sv_client.c' l='203' u='r' c='SV_GetChallenge'/>
+<use f='codebrowser/code/server/sv_client.c' l='231' u='r' c='SV_AuthorizeIpPacket'/>
+<use f='codebrowser/code/server/sv_client.c' l='256' u='r' c='SV_AuthorizeIpPacket'/>
+<use f='codebrowser/code/server/sv_client.c' l='414' u='r' c='SV_DirectConnect'/>

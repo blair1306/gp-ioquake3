@@ -1,0 +1,545 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>SDL_stdinc.h source code [include/SDL2/SDL_stdinc.h] - Woboq Code Browser</title>
+<link rel="stylesheet" href="../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'include/SDL2/SDL_stdinc.h'; var root_path = '../..'; var data_path = '../../../data';</script>
+<script src='../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='..'>include</a>/<a href='./'>SDL2</a>/<a href='SDL_stdinc.h.html'>SDL_stdinc.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/*</i></td></tr>
+<tr><th id="2">2</th><td><i>  Simple DirectMedia Layer</i></td></tr>
+<tr><th id="3">3</th><td><i>  Copyright (C) 1997-2016 Sam Lantinga &lt;slouken@libsdl.org&gt;</i></td></tr>
+<tr><th id="4">4</th><td><i></i></td></tr>
+<tr><th id="5">5</th><td><i>  This software is provided 'as-is', without any express or implied</i></td></tr>
+<tr><th id="6">6</th><td><i>  warranty.  In no event will the authors be held liable for any damages</i></td></tr>
+<tr><th id="7">7</th><td><i>  arising from the use of this software.</i></td></tr>
+<tr><th id="8">8</th><td><i></i></td></tr>
+<tr><th id="9">9</th><td><i>  Permission is granted to anyone to use this software for any purpose,</i></td></tr>
+<tr><th id="10">10</th><td><i>  including commercial applications, and to alter it and redistribute it</i></td></tr>
+<tr><th id="11">11</th><td><i>  freely, subject to the following restrictions:</i></td></tr>
+<tr><th id="12">12</th><td><i></i></td></tr>
+<tr><th id="13">13</th><td><i>  1. The origin of this software must not be misrepresented; you must not</i></td></tr>
+<tr><th id="14">14</th><td><i>     claim that you wrote the original software. If you use this software</i></td></tr>
+<tr><th id="15">15</th><td><i>     in a product, an acknowledgment in the product documentation would be</i></td></tr>
+<tr><th id="16">16</th><td><i>     appreciated but is not required.</i></td></tr>
+<tr><th id="17">17</th><td><i>  2. Altered source versions must be plainly marked as such, and must not be</i></td></tr>
+<tr><th id="18">18</th><td><i>     misrepresented as being the original software.</i></td></tr>
+<tr><th id="19">19</th><td><i>  3. This notice may not be removed or altered from any source distribution.</i></td></tr>
+<tr><th id="20">20</th><td><i>*/</i></td></tr>
+<tr><th id="21">21</th><td></td></tr>
+<tr><th id="22">22</th><td><i class="doc">/**</i></td></tr>
+<tr><th id="23">23</th><td><i class="doc"> * <span class="command"> \file</span> SDL_stdinc.h</i></td></tr>
+<tr><th id="24">24</th><td><i class="doc"> *</i></td></tr>
+<tr><th id="25">25</th><td><i class="doc"> *  This is a general header that includes C language support.</i></td></tr>
+<tr><th id="26">26</th><td><i class="doc"> */</i></td></tr>
+<tr><th id="27">27</th><td></td></tr>
+<tr><th id="28">28</th><td><u>#<span data-ppcond="28">ifndef</span> <span class="macro" data-ref="_M/_SDL_stdinc_h">_SDL_stdinc_h</span></u></td></tr>
+<tr><th id="29">29</th><td><u>#define <dfn class="macro" id="_M/_SDL_stdinc_h" data-ref="_M/_SDL_stdinc_h">_SDL_stdinc_h</dfn></u></td></tr>
+<tr><th id="30">30</th><td></td></tr>
+<tr><th id="31">31</th><td><u>#include <a href="SDL_config.h.html">"SDL_config.h"</a></u></td></tr>
+<tr><th id="32">32</th><td></td></tr>
+<tr><th id="33">33</th><td><u>#<span data-ppcond="33">ifdef</span> <a class="macro" href="SDL_config.h.html#66" data-ref="_M/HAVE_SYS_TYPES_H">HAVE_SYS_TYPES_H</a></u></td></tr>
+<tr><th id="34">34</th><td><u>#include <a href="../x86_64-linux-gnu/sys/types.h.html">&lt;sys/types.h&gt;</a></u></td></tr>
+<tr><th id="35">35</th><td><u>#<span data-ppcond="33">endif</span></u></td></tr>
+<tr><th id="36">36</th><td><u>#<span data-ppcond="36">ifdef</span> <a class="macro" href="SDL_config.h.html#67" data-ref="_M/HAVE_STDIO_H">HAVE_STDIO_H</a></u></td></tr>
+<tr><th id="37">37</th><td><u>#include <a href="../stdio.h.html">&lt;stdio.h&gt;</a></u></td></tr>
+<tr><th id="38">38</th><td><u>#<span data-ppcond="36">endif</span></u></td></tr>
+<tr><th id="39">39</th><td><u>#<span data-ppcond="39">if</span> defined(<a class="macro" href="SDL_config.h.html#68" data-ref="_M/STDC_HEADERS">STDC_HEADERS</a>)</u></td></tr>
+<tr><th id="40">40</th><td><u># include <a href="../stdlib.h.html">&lt;stdlib.h&gt;</a></u></td></tr>
+<tr><th id="41">41</th><td><u># include &lt;stddef.h&gt;</u></td></tr>
+<tr><th id="42">42</th><td><u># include &lt;stdarg.h&gt;</u></td></tr>
+<tr><th id="43">43</th><td><u>#<span data-ppcond="39">else</span></u></td></tr>
+<tr><th id="44">44</th><td><u># if defined(HAVE_STDLIB_H)</u></td></tr>
+<tr><th id="45">45</th><td><u>#  include &lt;stdlib.h&gt;</u></td></tr>
+<tr><th id="46">46</th><td><u># elif defined(HAVE_MALLOC_H)</u></td></tr>
+<tr><th id="47">47</th><td><u>#  include &lt;malloc.h&gt;</u></td></tr>
+<tr><th id="48">48</th><td><u># endif</u></td></tr>
+<tr><th id="49">49</th><td><u># if defined(HAVE_STDDEF_H)</u></td></tr>
+<tr><th id="50">50</th><td><u>#  include &lt;stddef.h&gt;</u></td></tr>
+<tr><th id="51">51</th><td><u># endif</u></td></tr>
+<tr><th id="52">52</th><td><u># if defined(HAVE_STDARG_H)</u></td></tr>
+<tr><th id="53">53</th><td><u>#  include &lt;stdarg.h&gt;</u></td></tr>
+<tr><th id="54">54</th><td><u># endif</u></td></tr>
+<tr><th id="55">55</th><td><u>#<span data-ppcond="39">endif</span></u></td></tr>
+<tr><th id="56">56</th><td><u>#<span data-ppcond="56">ifdef</span> <a class="macro" href="SDL_config.h.html#73" data-ref="_M/HAVE_STRING_H">HAVE_STRING_H</a></u></td></tr>
+<tr><th id="57">57</th><td><u># <span data-ppcond="57">if</span> !defined(<a class="macro" href="SDL_config.h.html#68" data-ref="_M/STDC_HEADERS">STDC_HEADERS</a>) &amp;&amp; defined(<a class="macro" href="SDL_config.h.html#72" data-ref="_M/HAVE_MEMORY_H">HAVE_MEMORY_H</a>)</u></td></tr>
+<tr><th id="58">58</th><td><u>#  include &lt;memory.h&gt;</u></td></tr>
+<tr><th id="59">59</th><td><u># <span data-ppcond="57">endif</span></u></td></tr>
+<tr><th id="60">60</th><td><u># include <a href="../string.h.html">&lt;string.h&gt;</a></u></td></tr>
+<tr><th id="61">61</th><td><u>#<span data-ppcond="56">endif</span></u></td></tr>
+<tr><th id="62">62</th><td><u>#<span data-ppcond="62">ifdef</span> <a class="macro" href="SDL_config.h.html#74" data-ref="_M/HAVE_STRINGS_H">HAVE_STRINGS_H</a></u></td></tr>
+<tr><th id="63">63</th><td><u># include <a href="../strings.h.html">&lt;strings.h&gt;</a></u></td></tr>
+<tr><th id="64">64</th><td><u>#<span data-ppcond="62">endif</span></u></td></tr>
+<tr><th id="65">65</th><td><u>#<span data-ppcond="65">if</span> defined(<a class="macro" href="SDL_config.h.html#75" data-ref="_M/HAVE_INTTYPES_H">HAVE_INTTYPES_H</a>)</u></td></tr>
+<tr><th id="66">66</th><td><u># include &lt;inttypes.h&gt;</u></td></tr>
+<tr><th id="67">67</th><td><u>#<span data-ppcond="65">elif</span> defined(HAVE_STDINT_H)</u></td></tr>
+<tr><th id="68">68</th><td><u># include &lt;stdint.h&gt;</u></td></tr>
+<tr><th id="69">69</th><td><u>#<span data-ppcond="65">endif</span></u></td></tr>
+<tr><th id="70">70</th><td><u>#<span data-ppcond="70">ifdef</span> <a class="macro" href="SDL_config.h.html#77" data-ref="_M/HAVE_CTYPE_H">HAVE_CTYPE_H</a></u></td></tr>
+<tr><th id="71">71</th><td><u># include <a href="../ctype.h.html">&lt;ctype.h&gt;</a></u></td></tr>
+<tr><th id="72">72</th><td><u>#<span data-ppcond="70">endif</span></u></td></tr>
+<tr><th id="73">73</th><td><u>#<span data-ppcond="73">ifdef</span> <a class="macro" href="SDL_config.h.html#78" data-ref="_M/HAVE_MATH_H">HAVE_MATH_H</a></u></td></tr>
+<tr><th id="74">74</th><td><u># <span data-ppcond="74">if</span> defined(<span class="macro" data-ref="_M/__WINRT__">__WINRT__</span>)</u></td></tr>
+<tr><th id="75">75</th><td><i>/* Defining _USE_MATH_DEFINES is required to get M_PI to be defined on</i></td></tr>
+<tr><th id="76">76</th><td><i>   WinRT.  See <a href="http://msdn.microsoft.com/en-us/library/4hwaceh6.aspx">http://msdn.microsoft.com/en-us/library/4hwaceh6.aspx</a></i></td></tr>
+<tr><th id="77">77</th><td><i>   for more information.</i></td></tr>
+<tr><th id="78">78</th><td><i>*/</i></td></tr>
+<tr><th id="79">79</th><td><u>#  define _USE_MATH_DEFINES</u></td></tr>
+<tr><th id="80">80</th><td><u># <span data-ppcond="74">endif</span></u></td></tr>
+<tr><th id="81">81</th><td><u># include <a href="../math.h.html">&lt;math.h&gt;</a></u></td></tr>
+<tr><th id="82">82</th><td><u>#<span data-ppcond="73">endif</span></u></td></tr>
+<tr><th id="83">83</th><td><u>#<span data-ppcond="83">ifdef</span> <span class="macro" data-ref="_M/HAVE_FLOAT_H">HAVE_FLOAT_H</span></u></td></tr>
+<tr><th id="84">84</th><td><u># include &lt;float.h&gt;</u></td></tr>
+<tr><th id="85">85</th><td><u>#<span data-ppcond="83">endif</span></u></td></tr>
+<tr><th id="86">86</th><td><u>#<span data-ppcond="86">if</span> defined(<a class="macro" href="SDL_config.h.html#172" data-ref="_M/HAVE_ICONV">HAVE_ICONV</a>) &amp;&amp; defined(<a class="macro" href="SDL_config.h.html#79" data-ref="_M/HAVE_ICONV_H">HAVE_ICONV_H</a>)</u></td></tr>
+<tr><th id="87">87</th><td><u># include <a href="../iconv.h.html">&lt;iconv.h&gt;</a></u></td></tr>
+<tr><th id="88">88</th><td><u>#<span data-ppcond="86">endif</span></u></td></tr>
+<tr><th id="89">89</th><td></td></tr>
+<tr><th id="90">90</th><td><i class="doc">/**</i></td></tr>
+<tr><th id="91">91</th><td><i class="doc"> *  The number of elements in an array.</i></td></tr>
+<tr><th id="92">92</th><td><i class="doc"> */</i></td></tr>
+<tr><th id="93">93</th><td><u>#define <dfn class="macro" id="_M/SDL_arraysize" data-ref="_M/SDL_arraysize">SDL_arraysize</dfn>(array)    (sizeof(array)/sizeof(array[0]))</u></td></tr>
+<tr><th id="94">94</th><td><u>#define <dfn class="macro" id="_M/SDL_TABLESIZE" data-ref="_M/SDL_TABLESIZE">SDL_TABLESIZE</dfn>(table)    SDL_arraysize(table)</u></td></tr>
+<tr><th id="95">95</th><td></td></tr>
+<tr><th id="96">96</th><td><i class="doc">/**</i></td></tr>
+<tr><th id="97">97</th><td><i class="doc"> *  <span class="command">\name</span> <span class="verb">Cast operators</span></i></td></tr>
+<tr><th id="98">98</th><td><i class="doc"> *</i></td></tr>
+<tr><th id="99">99</th><td><i class="doc"> *  Use proper C++ casts when compiled as C++ to be compatible with the option</i></td></tr>
+<tr><th id="100">100</th><td><i class="doc"> *  -Wold-style-cast of GCC (and -Werror=old-style-cast in GCC 4.2 and above).</i></td></tr>
+<tr><th id="101">101</th><td><i class="doc"> */</i></td></tr>
+<tr><th id="102">102</th><td><i>/* @{ */</i></td></tr>
+<tr><th id="103">103</th><td><u>#<span data-ppcond="103">ifdef</span> <span class="macro" data-ref="_M/__cplusplus">__cplusplus</span></u></td></tr>
+<tr><th id="104">104</th><td><u>#define SDL_reinterpret_cast(type, expression) reinterpret_cast&lt;type&gt;(expression)</u></td></tr>
+<tr><th id="105">105</th><td><u>#define SDL_static_cast(type, expression) static_cast&lt;type&gt;(expression)</u></td></tr>
+<tr><th id="106">106</th><td><u>#define SDL_const_cast(type, expression) const_cast&lt;type&gt;(expression)</u></td></tr>
+<tr><th id="107">107</th><td><u>#<span data-ppcond="103">else</span></u></td></tr>
+<tr><th id="108">108</th><td><u>#define <dfn class="macro" id="_M/SDL_reinterpret_cast" data-ref="_M/SDL_reinterpret_cast">SDL_reinterpret_cast</dfn>(type, expression) ((type)(expression))</u></td></tr>
+<tr><th id="109">109</th><td><u>#define <dfn class="macro" id="_M/SDL_static_cast" data-ref="_M/SDL_static_cast">SDL_static_cast</dfn>(type, expression) ((type)(expression))</u></td></tr>
+<tr><th id="110">110</th><td><u>#define <dfn class="macro" id="_M/SDL_const_cast" data-ref="_M/SDL_const_cast">SDL_const_cast</dfn>(type, expression) ((type)(expression))</u></td></tr>
+<tr><th id="111">111</th><td><u>#<span data-ppcond="103">endif</span></u></td></tr>
+<tr><th id="112">112</th><td><i>/* @} */</i><i>/* Cast operators */</i></td></tr>
+<tr><th id="113">113</th><td></td></tr>
+<tr><th id="114">114</th><td><i>/* Define a four character code as a Uint32 */</i></td></tr>
+<tr><th id="115">115</th><td><u>#define <dfn class="macro" id="_M/SDL_FOURCC" data-ref="_M/SDL_FOURCC">SDL_FOURCC</dfn>(A, B, C, D) \</u></td></tr>
+<tr><th id="116">116</th><td><u>    ((SDL_static_cast(Uint32, SDL_static_cast(Uint8, (A))) &lt;&lt; 0) | \</u></td></tr>
+<tr><th id="117">117</th><td><u>     (SDL_static_cast(Uint32, SDL_static_cast(Uint8, (B))) &lt;&lt; 8) | \</u></td></tr>
+<tr><th id="118">118</th><td><u>     (SDL_static_cast(Uint32, SDL_static_cast(Uint8, (C))) &lt;&lt; 16) | \</u></td></tr>
+<tr><th id="119">119</th><td><u>     (SDL_static_cast(Uint32, SDL_static_cast(Uint8, (D))) &lt;&lt; 24))</u></td></tr>
+<tr><th id="120">120</th><td></td></tr>
+<tr><th id="121">121</th><td><i class="doc">/**</i></td></tr>
+<tr><th id="122">122</th><td><i class="doc"> *  <span class="command">\name</span> <span class="verb">Basic data types</span></i></td></tr>
+<tr><th id="123">123</th><td><i class="doc"> */</i></td></tr>
+<tr><th id="124">124</th><td><i>/* @{ */</i></td></tr>
+<tr><th id="125">125</th><td></td></tr>
+<tr><th id="126">126</th><td><b>typedef</b> <b>enum</b></td></tr>
+<tr><th id="127">127</th><td>{</td></tr>
+<tr><th id="128">128</th><td>    <dfn class="enum" id="SDL_FALSE" title='SDL_FALSE' data-ref="SDL_FALSE">SDL_FALSE</dfn> = <var>0</var>,</td></tr>
+<tr><th id="129">129</th><td>    <dfn class="enum" id="SDL_TRUE" title='SDL_TRUE' data-ref="SDL_TRUE">SDL_TRUE</dfn> = <var>1</var></td></tr>
+<tr><th id="130">130</th><td>} <dfn class="typedef" id="SDL_bool" title='SDL_bool' data-type='enum SDL_bool' data-ref="SDL_bool">SDL_bool</dfn>;</td></tr>
+<tr><th id="131">131</th><td></td></tr>
+<tr><th id="132">132</th><td><i class="doc">/**</i></td></tr>
+<tr><th id="133">133</th><td><i class="doc"> * <span class="command">\brief</span> A signed 8-bit integer type.</i></td></tr>
+<tr><th id="134">134</th><td><i class="doc"> */</i></td></tr>
+<tr><th id="135">135</th><td><b>typedef</b> <a class="typedef" href="../x86_64-linux-gnu/sys/types.h.html#194" title='int8_t' data-type='signed char' data-ref="int8_t">int8_t</a> <dfn class="typedef" id="Sint8" title='Sint8' data-type='int8_t' data-ref="Sint8">Sint8</dfn>;</td></tr>
+<tr><th id="136">136</th><td><i class="doc">/**</i></td></tr>
+<tr><th id="137">137</th><td><i class="doc"> * <span class="command">\brief</span> An unsigned 8-bit integer type.</i></td></tr>
+<tr><th id="138">138</th><td><i class="doc"> */</i></td></tr>
+<tr><th id="139">139</th><td><b>typedef</b> <a class="typedef" href="../stdint.h.html#uint8_t" title='uint8_t' data-type='unsigned char' data-ref="uint8_t">uint8_t</a> <dfn class="typedef" id="Uint8" title='Uint8' data-type='uint8_t' data-ref="Uint8">Uint8</dfn>;</td></tr>
+<tr><th id="140">140</th><td><i class="doc">/**</i></td></tr>
+<tr><th id="141">141</th><td><i class="doc"> * <span class="command">\brief</span> A signed 16-bit integer type.</i></td></tr>
+<tr><th id="142">142</th><td><i class="doc"> */</i></td></tr>
+<tr><th id="143">143</th><td><b>typedef</b> <a class="typedef" href="../x86_64-linux-gnu/sys/types.h.html#195" title='int16_t' data-type='short' data-ref="int16_t">int16_t</a> <dfn class="typedef" id="Sint16" title='Sint16' data-type='int16_t' data-ref="Sint16">Sint16</dfn>;</td></tr>
+<tr><th id="144">144</th><td><i class="doc">/**</i></td></tr>
+<tr><th id="145">145</th><td><i class="doc"> * <span class="command">\brief</span> An unsigned 16-bit integer type.</i></td></tr>
+<tr><th id="146">146</th><td><i class="doc"> */</i></td></tr>
+<tr><th id="147">147</th><td><b>typedef</b> <a class="typedef" href="../stdint.h.html#uint16_t" title='uint16_t' data-type='unsigned short' data-ref="uint16_t">uint16_t</a> <dfn class="typedef" id="Uint16" title='Uint16' data-type='uint16_t' data-ref="Uint16">Uint16</dfn>;</td></tr>
+<tr><th id="148">148</th><td><i class="doc">/**</i></td></tr>
+<tr><th id="149">149</th><td><i class="doc"> * <span class="command">\brief</span> A signed 32-bit integer type.</i></td></tr>
+<tr><th id="150">150</th><td><i class="doc"> */</i></td></tr>
+<tr><th id="151">151</th><td><b>typedef</b> <a class="typedef" href="../x86_64-linux-gnu/sys/types.h.html#196" title='int32_t' data-type='int' data-ref="int32_t">int32_t</a> <dfn class="typedef" id="Sint32" title='Sint32' data-type='int32_t' data-ref="Sint32">Sint32</dfn>;</td></tr>
+<tr><th id="152">152</th><td><i class="doc">/**</i></td></tr>
+<tr><th id="153">153</th><td><i class="doc"> * <span class="command">\brief</span> An unsigned 32-bit integer type.</i></td></tr>
+<tr><th id="154">154</th><td><i class="doc"> */</i></td></tr>
+<tr><th id="155">155</th><td><b>typedef</b> <a class="typedef" href="../stdint.h.html#uint32_t" title='uint32_t' data-type='unsigned int' data-ref="uint32_t">uint32_t</a> <dfn class="typedef" id="Uint32" title='Uint32' data-type='uint32_t' data-ref="Uint32">Uint32</dfn>;</td></tr>
+<tr><th id="156">156</th><td></td></tr>
+<tr><th id="157">157</th><td><i class="doc">/**</i></td></tr>
+<tr><th id="158">158</th><td><i class="doc"> * <span class="command">\brief</span> A signed 64-bit integer type.</i></td></tr>
+<tr><th id="159">159</th><td><i class="doc"> */</i></td></tr>
+<tr><th id="160">160</th><td><b>typedef</b> <a class="typedef" href="../x86_64-linux-gnu/sys/types.h.html#197" title='int64_t' data-type='long' data-ref="int64_t">int64_t</a> <dfn class="typedef" id="Sint64" title='Sint64' data-type='int64_t' data-ref="Sint64">Sint64</dfn>;</td></tr>
+<tr><th id="161">161</th><td><i class="doc">/**</i></td></tr>
+<tr><th id="162">162</th><td><i class="doc"> * <span class="command">\brief</span> An unsigned 64-bit integer type.</i></td></tr>
+<tr><th id="163">163</th><td><i class="doc"> */</i></td></tr>
+<tr><th id="164">164</th><td><b>typedef</b> <a class="typedef" href="../stdint.h.html#uint64_t" title='uint64_t' data-type='unsigned long' data-ref="uint64_t">uint64_t</a> <dfn class="typedef" id="Uint64" title='Uint64' data-type='uint64_t' data-ref="Uint64">Uint64</dfn>;</td></tr>
+<tr><th id="165">165</th><td></td></tr>
+<tr><th id="166">166</th><td><i>/* @} */</i><i>/* Basic data types */</i></td></tr>
+<tr><th id="167">167</th><td></td></tr>
+<tr><th id="168">168</th><td><i>/* Make sure we have macros for printing 64 bit values.</i></td></tr>
+<tr><th id="169">169</th><td><i> * &lt;stdint.h&gt; should define these but this is not true all platforms.</i></td></tr>
+<tr><th id="170">170</th><td><i> * (for example win32) */</i></td></tr>
+<tr><th id="171">171</th><td><u>#<span data-ppcond="171">ifndef</span> <span class="macro" data-ref="_M/SDL_PRIs64">SDL_PRIs64</span></u></td></tr>
+<tr><th id="172">172</th><td><u>#<span data-ppcond="172">ifdef</span> <span class="macro" data-ref="_M/PRIs64">PRIs64</span></u></td></tr>
+<tr><th id="173">173</th><td><u>#define SDL_PRIs64 PRIs64</u></td></tr>
+<tr><th id="174">174</th><td><u>#<span data-ppcond="172">elif</span> defined(<span class="macro" data-ref="_M/__WIN32__">__WIN32__</span>)</u></td></tr>
+<tr><th id="175">175</th><td><u>#define SDL_PRIs64 "I64d"</u></td></tr>
+<tr><th id="176">176</th><td><u>#<span data-ppcond="172">elif</span> defined(<a class="macro" href="SDL_platform.h.html#61" data-ref="_M/__LINUX__">__LINUX__</a>) &amp;&amp; defined(<span class="macro" data-ref="_M/__LP64__">__LP64__</span>)</u></td></tr>
+<tr><th id="177">177</th><td><u>#define <dfn class="macro" id="_M/SDL_PRIs64" data-ref="_M/SDL_PRIs64">SDL_PRIs64</dfn> "ld"</u></td></tr>
+<tr><th id="178">178</th><td><u>#<span data-ppcond="172">else</span></u></td></tr>
+<tr><th id="179">179</th><td><u>#define SDL_PRIs64 "lld"</u></td></tr>
+<tr><th id="180">180</th><td><u>#<span data-ppcond="172">endif</span></u></td></tr>
+<tr><th id="181">181</th><td><u>#<span data-ppcond="171">endif</span></u></td></tr>
+<tr><th id="182">182</th><td><u>#<span data-ppcond="182">ifndef</span> <span class="macro" data-ref="_M/SDL_PRIu64">SDL_PRIu64</span></u></td></tr>
+<tr><th id="183">183</th><td><u>#<span data-ppcond="183">ifdef</span> <a class="macro" href="../inttypes.h.html#105" data-ref="_M/PRIu64">PRIu64</a></u></td></tr>
+<tr><th id="184">184</th><td><u>#define <dfn class="macro" id="_M/SDL_PRIu64" data-ref="_M/SDL_PRIu64">SDL_PRIu64</dfn> PRIu64</u></td></tr>
+<tr><th id="185">185</th><td><u>#<span data-ppcond="183">elif</span> defined(__WIN32__)</u></td></tr>
+<tr><th id="186">186</th><td><u>#define SDL_PRIu64 "I64u"</u></td></tr>
+<tr><th id="187">187</th><td><u>#elif defined(__LINUX__) &amp;&amp; defined(__LP64__)</u></td></tr>
+<tr><th id="188">188</th><td><u>#define SDL_PRIu64 "lu"</u></td></tr>
+<tr><th id="189">189</th><td><u>#else</u></td></tr>
+<tr><th id="190">190</th><td><u>#define SDL_PRIu64 "llu"</u></td></tr>
+<tr><th id="191">191</th><td><u>#<span data-ppcond="183">endif</span></u></td></tr>
+<tr><th id="192">192</th><td><u>#<span data-ppcond="182">endif</span></u></td></tr>
+<tr><th id="193">193</th><td><u>#<span data-ppcond="193">ifndef</span> <span class="macro" data-ref="_M/SDL_PRIx64">SDL_PRIx64</span></u></td></tr>
+<tr><th id="194">194</th><td><u>#<span data-ppcond="194">ifdef</span> <a class="macro" href="../inttypes.h.html#121" data-ref="_M/PRIx64">PRIx64</a></u></td></tr>
+<tr><th id="195">195</th><td><u>#define <dfn class="macro" id="_M/SDL_PRIx64" data-ref="_M/SDL_PRIx64">SDL_PRIx64</dfn> PRIx64</u></td></tr>
+<tr><th id="196">196</th><td><u>#<span data-ppcond="194">elif</span> defined(__WIN32__)</u></td></tr>
+<tr><th id="197">197</th><td><u>#define SDL_PRIx64 "I64x"</u></td></tr>
+<tr><th id="198">198</th><td><u>#elif defined(__LINUX__) &amp;&amp; defined(__LP64__)</u></td></tr>
+<tr><th id="199">199</th><td><u>#define SDL_PRIx64 "lx"</u></td></tr>
+<tr><th id="200">200</th><td><u>#else</u></td></tr>
+<tr><th id="201">201</th><td><u>#define SDL_PRIx64 "llx"</u></td></tr>
+<tr><th id="202">202</th><td><u>#<span data-ppcond="194">endif</span></u></td></tr>
+<tr><th id="203">203</th><td><u>#<span data-ppcond="193">endif</span></u></td></tr>
+<tr><th id="204">204</th><td><u>#<span data-ppcond="204">ifndef</span> <span class="macro" data-ref="_M/SDL_PRIX64">SDL_PRIX64</span></u></td></tr>
+<tr><th id="205">205</th><td><u>#<span data-ppcond="205">ifdef</span> <a class="macro" href="../inttypes.h.html#137" data-ref="_M/PRIX64">PRIX64</a></u></td></tr>
+<tr><th id="206">206</th><td><u>#define <dfn class="macro" id="_M/SDL_PRIX64" data-ref="_M/SDL_PRIX64">SDL_PRIX64</dfn> PRIX64</u></td></tr>
+<tr><th id="207">207</th><td><u>#<span data-ppcond="205">elif</span> defined(__WIN32__)</u></td></tr>
+<tr><th id="208">208</th><td><u>#define SDL_PRIX64 "I64X"</u></td></tr>
+<tr><th id="209">209</th><td><u>#elif defined(__LINUX__) &amp;&amp; defined(__LP64__)</u></td></tr>
+<tr><th id="210">210</th><td><u>#define SDL_PRIX64 "lX"</u></td></tr>
+<tr><th id="211">211</th><td><u>#else</u></td></tr>
+<tr><th id="212">212</th><td><u>#define SDL_PRIX64 "llX"</u></td></tr>
+<tr><th id="213">213</th><td><u>#<span data-ppcond="205">endif</span></u></td></tr>
+<tr><th id="214">214</th><td><u>#<span data-ppcond="204">endif</span></u></td></tr>
+<tr><th id="215">215</th><td></td></tr>
+<tr><th id="216">216</th><td><i>/* Annotations to help code analysis tools */</i></td></tr>
+<tr><th id="217">217</th><td><u>#<span data-ppcond="217">ifdef</span> <span class="macro" data-ref="_M/SDL_DISABLE_ANALYZE_MACROS">SDL_DISABLE_ANALYZE_MACROS</span></u></td></tr>
+<tr><th id="218">218</th><td><u>#define SDL_IN_BYTECAP(x)</u></td></tr>
+<tr><th id="219">219</th><td><u>#define SDL_INOUT_Z_CAP(x)</u></td></tr>
+<tr><th id="220">220</th><td><u>#define SDL_OUT_Z_CAP(x)</u></td></tr>
+<tr><th id="221">221</th><td><u>#define SDL_OUT_CAP(x)</u></td></tr>
+<tr><th id="222">222</th><td><u>#define SDL_OUT_BYTECAP(x)</u></td></tr>
+<tr><th id="223">223</th><td><u>#define SDL_OUT_Z_BYTECAP(x)</u></td></tr>
+<tr><th id="224">224</th><td><u>#define SDL_PRINTF_FORMAT_STRING</u></td></tr>
+<tr><th id="225">225</th><td><u>#define SDL_SCANF_FORMAT_STRING</u></td></tr>
+<tr><th id="226">226</th><td><u>#define SDL_PRINTF_VARARG_FUNC( fmtargnumber )</u></td></tr>
+<tr><th id="227">227</th><td><u>#define SDL_SCANF_VARARG_FUNC( fmtargnumber )</u></td></tr>
+<tr><th id="228">228</th><td><u>#<span data-ppcond="217">else</span></u></td></tr>
+<tr><th id="229">229</th><td><u>#<span data-ppcond="229">if</span> defined(<span class="macro" data-ref="_M/_MSC_VER">_MSC_VER</span>) &amp;&amp; (_MSC_VER &gt;= 1600) /* VS 2010 and above */</u></td></tr>
+<tr><th id="230">230</th><td><u>#include &lt;sal.h&gt;</u></td></tr>
+<tr><th id="231">231</th><td></td></tr>
+<tr><th id="232">232</th><td><u>#define SDL_IN_BYTECAP(x) _In_bytecount_(x)</u></td></tr>
+<tr><th id="233">233</th><td><u>#define SDL_INOUT_Z_CAP(x) _Inout_z_cap_(x)</u></td></tr>
+<tr><th id="234">234</th><td><u>#define SDL_OUT_Z_CAP(x) _Out_z_cap_(x)</u></td></tr>
+<tr><th id="235">235</th><td><u>#define SDL_OUT_CAP(x) _Out_cap_(x)</u></td></tr>
+<tr><th id="236">236</th><td><u>#define SDL_OUT_BYTECAP(x) _Out_bytecap_(x)</u></td></tr>
+<tr><th id="237">237</th><td><u>#define SDL_OUT_Z_BYTECAP(x) _Out_z_bytecap_(x)</u></td></tr>
+<tr><th id="238">238</th><td></td></tr>
+<tr><th id="239">239</th><td><u>#define SDL_PRINTF_FORMAT_STRING _Printf_format_string_</u></td></tr>
+<tr><th id="240">240</th><td><u>#define SDL_SCANF_FORMAT_STRING _Scanf_format_string_impl_</u></td></tr>
+<tr><th id="241">241</th><td><u>#<span data-ppcond="229">else</span></u></td></tr>
+<tr><th id="242">242</th><td><u>#define <dfn class="macro" id="_M/SDL_IN_BYTECAP" data-ref="_M/SDL_IN_BYTECAP">SDL_IN_BYTECAP</dfn>(x)</u></td></tr>
+<tr><th id="243">243</th><td><u>#define <dfn class="macro" id="_M/SDL_INOUT_Z_CAP" data-ref="_M/SDL_INOUT_Z_CAP">SDL_INOUT_Z_CAP</dfn>(x)</u></td></tr>
+<tr><th id="244">244</th><td><u>#define <dfn class="macro" id="_M/SDL_OUT_Z_CAP" data-ref="_M/SDL_OUT_Z_CAP">SDL_OUT_Z_CAP</dfn>(x)</u></td></tr>
+<tr><th id="245">245</th><td><u>#define <dfn class="macro" id="_M/SDL_OUT_CAP" data-ref="_M/SDL_OUT_CAP">SDL_OUT_CAP</dfn>(x)</u></td></tr>
+<tr><th id="246">246</th><td><u>#define <dfn class="macro" id="_M/SDL_OUT_BYTECAP" data-ref="_M/SDL_OUT_BYTECAP">SDL_OUT_BYTECAP</dfn>(x)</u></td></tr>
+<tr><th id="247">247</th><td><u>#define <dfn class="macro" id="_M/SDL_OUT_Z_BYTECAP" data-ref="_M/SDL_OUT_Z_BYTECAP">SDL_OUT_Z_BYTECAP</dfn>(x)</u></td></tr>
+<tr><th id="248">248</th><td><u>#define <dfn class="macro" id="_M/SDL_PRINTF_FORMAT_STRING" data-ref="_M/SDL_PRINTF_FORMAT_STRING">SDL_PRINTF_FORMAT_STRING</dfn></u></td></tr>
+<tr><th id="249">249</th><td><u>#define <dfn class="macro" id="_M/SDL_SCANF_FORMAT_STRING" data-ref="_M/SDL_SCANF_FORMAT_STRING">SDL_SCANF_FORMAT_STRING</dfn></u></td></tr>
+<tr><th id="250">250</th><td><u>#<span data-ppcond="229">endif</span></u></td></tr>
+<tr><th id="251">251</th><td><u>#<span data-ppcond="251">if</span> defined(<span class="macro" data-ref="_M/__GNUC__">__GNUC__</span>)</u></td></tr>
+<tr><th id="252">252</th><td><u>#define <dfn class="macro" id="_M/SDL_PRINTF_VARARG_FUNC" data-ref="_M/SDL_PRINTF_VARARG_FUNC">SDL_PRINTF_VARARG_FUNC</dfn>( fmtargnumber ) __attribute__ (( format( __printf__, fmtargnumber, fmtargnumber+1 )))</u></td></tr>
+<tr><th id="253">253</th><td><u>#define <dfn class="macro" id="_M/SDL_SCANF_VARARG_FUNC" data-ref="_M/SDL_SCANF_VARARG_FUNC">SDL_SCANF_VARARG_FUNC</dfn>( fmtargnumber ) __attribute__ (( format( __scanf__, fmtargnumber, fmtargnumber+1 )))</u></td></tr>
+<tr><th id="254">254</th><td><u>#<span data-ppcond="251">else</span></u></td></tr>
+<tr><th id="255">255</th><td><u>#define SDL_PRINTF_VARARG_FUNC( fmtargnumber )</u></td></tr>
+<tr><th id="256">256</th><td><u>#define SDL_SCANF_VARARG_FUNC( fmtargnumber )</u></td></tr>
+<tr><th id="257">257</th><td><u>#<span data-ppcond="251">endif</span></u></td></tr>
+<tr><th id="258">258</th><td><u>#<span data-ppcond="217">endif</span> /* SDL_DISABLE_ANALYZE_MACROS */</u></td></tr>
+<tr><th id="259">259</th><td></td></tr>
+<tr><th id="260">260</th><td><u>#define <dfn class="macro" id="_M/SDL_COMPILE_TIME_ASSERT" data-ref="_M/SDL_COMPILE_TIME_ASSERT">SDL_COMPILE_TIME_ASSERT</dfn>(name, x)               \</u></td></tr>
+<tr><th id="261">261</th><td><u>       typedef int SDL_dummy_ ## name[(x) * 2 - 1]</u></td></tr>
+<tr><th id="262">262</th><td><i class="doc">/**<span class="command"> \cond</span> */</i></td></tr>
+<tr><th id="263">263</th><td><u>#<span data-ppcond="263">ifndef</span> <span class="macro" data-ref="_M/DOXYGEN_SHOULD_IGNORE_THIS">DOXYGEN_SHOULD_IGNORE_THIS</span></u></td></tr>
+<tr><th id="264">264</th><td><a class="macro" href="#260" title="typedef int SDL_dummy_uint8[(sizeof(Uint8) == 1) * 2 - 1]" data-ref="_M/SDL_COMPILE_TIME_ASSERT">SDL_COMPILE_TIME_ASSERT</a>(uint8, <b>sizeof</b>(<a class="typedef" href="#Uint8" title='Uint8' data-type='uint8_t' data-ref="Uint8">Uint8</a>) == <var>1</var>);</td></tr>
+<tr><th id="265">265</th><td><a class="macro" href="#260" title="typedef int SDL_dummy_sint8[(sizeof(Sint8) == 1) * 2 - 1]" data-ref="_M/SDL_COMPILE_TIME_ASSERT">SDL_COMPILE_TIME_ASSERT</a>(sint8, <b>sizeof</b>(<a class="typedef" href="#Sint8" title='Sint8' data-type='int8_t' data-ref="Sint8">Sint8</a>) == <var>1</var>);</td></tr>
+<tr><th id="266">266</th><td><a class="macro" href="#260" title="typedef int SDL_dummy_uint16[(sizeof(Uint16) == 2) * 2 - 1]" data-ref="_M/SDL_COMPILE_TIME_ASSERT">SDL_COMPILE_TIME_ASSERT</a>(uint16, <b>sizeof</b>(<a class="typedef" href="#Uint16" title='Uint16' data-type='uint16_t' data-ref="Uint16">Uint16</a>) == <var>2</var>);</td></tr>
+<tr><th id="267">267</th><td><a class="macro" href="#260" title="typedef int SDL_dummy_sint16[(sizeof(Sint16) == 2) * 2 - 1]" data-ref="_M/SDL_COMPILE_TIME_ASSERT">SDL_COMPILE_TIME_ASSERT</a>(sint16, <b>sizeof</b>(<a class="typedef" href="#Sint16" title='Sint16' data-type='int16_t' data-ref="Sint16">Sint16</a>) == <var>2</var>);</td></tr>
+<tr><th id="268">268</th><td><a class="macro" href="#260" title="typedef int SDL_dummy_uint32[(sizeof(Uint32) == 4) * 2 - 1]" data-ref="_M/SDL_COMPILE_TIME_ASSERT">SDL_COMPILE_TIME_ASSERT</a>(uint32, <b>sizeof</b>(<a class="typedef" href="#Uint32" title='Uint32' data-type='uint32_t' data-ref="Uint32">Uint32</a>) == <var>4</var>);</td></tr>
+<tr><th id="269">269</th><td><a class="macro" href="#260" title="typedef int SDL_dummy_sint32[(sizeof(Sint32) == 4) * 2 - 1]" data-ref="_M/SDL_COMPILE_TIME_ASSERT">SDL_COMPILE_TIME_ASSERT</a>(sint32, <b>sizeof</b>(<a class="typedef" href="#Sint32" title='Sint32' data-type='int32_t' data-ref="Sint32">Sint32</a>) == <var>4</var>);</td></tr>
+<tr><th id="270">270</th><td><a class="macro" href="#260" title="typedef int SDL_dummy_uint64[(sizeof(Uint64) == 8) * 2 - 1]" data-ref="_M/SDL_COMPILE_TIME_ASSERT">SDL_COMPILE_TIME_ASSERT</a>(uint64, <b>sizeof</b>(<a class="typedef" href="#Uint64" title='Uint64' data-type='uint64_t' data-ref="Uint64">Uint64</a>) == <var>8</var>);</td></tr>
+<tr><th id="271">271</th><td><a class="macro" href="#260" title="typedef int SDL_dummy_sint64[(sizeof(Sint64) == 8) * 2 - 1]" data-ref="_M/SDL_COMPILE_TIME_ASSERT">SDL_COMPILE_TIME_ASSERT</a>(sint64, <b>sizeof</b>(<a class="typedef" href="#Sint64" title='Sint64' data-type='int64_t' data-ref="Sint64">Sint64</a>) == <var>8</var>);</td></tr>
+<tr><th id="272">272</th><td><u>#<span data-ppcond="263">endif</span> /* DOXYGEN_SHOULD_IGNORE_THIS */</u></td></tr>
+<tr><th id="273">273</th><td><i class="doc">/**<span class="command"> \endcond</span> */</i></td></tr>
+<tr><th id="274">274</th><td></td></tr>
+<tr><th id="275">275</th><td><i>/* Check to make sure enums are the size of ints, for structure packing.</i></td></tr>
+<tr><th id="276">276</th><td><i>   For both Watcom C/C++ and Borland C/C++ the compiler option that makes</i></td></tr>
+<tr><th id="277">277</th><td><i>   enums having the size of an int must be enabled.</i></td></tr>
+<tr><th id="278">278</th><td><i>   This is "-b" for Borland C/C++ and "-ei" for Watcom C/C++ (v11).</i></td></tr>
+<tr><th id="279">279</th><td><i>*/</i></td></tr>
+<tr><th id="280">280</th><td></td></tr>
+<tr><th id="281">281</th><td><i class="doc">/**<span class="command"> \cond</span> */</i></td></tr>
+<tr><th id="282">282</th><td><u>#<span data-ppcond="282">ifndef</span> <span class="macro" data-ref="_M/DOXYGEN_SHOULD_IGNORE_THIS">DOXYGEN_SHOULD_IGNORE_THIS</span></u></td></tr>
+<tr><th id="283">283</th><td><u>#<span data-ppcond="283">if</span> !defined(<span class="macro" data-ref="_M/__ANDROID__">__ANDROID__</span>)</u></td></tr>
+<tr><th id="284">284</th><td>   <i>/* TODO: include/SDL_stdinc.h:174: error: size of array 'SDL_dummy_enum' is negative */</i></td></tr>
+<tr><th id="285">285</th><td><b>typedef</b> <b>enum</b></td></tr>
+<tr><th id="286">286</th><td>{</td></tr>
+<tr><th id="287">287</th><td>    <dfn class="enum" id="DUMMY_ENUM_VALUE" title='DUMMY_ENUM_VALUE' data-ref="DUMMY_ENUM_VALUE">DUMMY_ENUM_VALUE</dfn></td></tr>
+<tr><th id="288">288</th><td>} <dfn class="typedef" id="SDL_DUMMY_ENUM" title='SDL_DUMMY_ENUM' data-type='enum SDL_DUMMY_ENUM' data-ref="SDL_DUMMY_ENUM">SDL_DUMMY_ENUM</dfn>;</td></tr>
+<tr><th id="289">289</th><td></td></tr>
+<tr><th id="290">290</th><td><a class="macro" href="#260" title="typedef int SDL_dummy_enum[(sizeof(SDL_DUMMY_ENUM) == sizeof(int)) * 2 - 1]" data-ref="_M/SDL_COMPILE_TIME_ASSERT">SDL_COMPILE_TIME_ASSERT</a>(<b>enum</b>, <b>sizeof</b>(<a class="typedef" href="#SDL_DUMMY_ENUM" title='SDL_DUMMY_ENUM' data-type='enum SDL_DUMMY_ENUM' data-ref="SDL_DUMMY_ENUM">SDL_DUMMY_ENUM</a>) == <b>sizeof</b>(<em>int</em>));</td></tr>
+<tr><th id="291">291</th><td><u>#<span data-ppcond="283">endif</span></u></td></tr>
+<tr><th id="292">292</th><td><u>#<span data-ppcond="282">endif</span> /* DOXYGEN_SHOULD_IGNORE_THIS */</u></td></tr>
+<tr><th id="293">293</th><td><i class="doc">/**<span class="command"> \endcond</span> */</i></td></tr>
+<tr><th id="294">294</th><td></td></tr>
+<tr><th id="295">295</th><td><u>#include <a href="begin_code.h.html">"begin_code.h"</a></u></td></tr>
+<tr><th id="296">296</th><td><i>/* Set up for C function definitions, even when using C++ */</i></td></tr>
+<tr><th id="297">297</th><td><u>#<span data-ppcond="297">ifdef</span> <span class="macro" data-ref="_M/__cplusplus">__cplusplus</span></u></td></tr>
+<tr><th id="298">298</th><td><b>extern</b> <q>"C"</q> {</td></tr>
+<tr><th id="299">299</th><td><u>#<span data-ppcond="297">endif</span></u></td></tr>
+<tr><th id="300">300</th><td></td></tr>
+<tr><th id="301">301</th><td><u>#<span data-ppcond="301">if</span> defined(<a class="macro" href="SDL_config.h.html#92" data-ref="_M/HAVE_ALLOCA">HAVE_ALLOCA</a>) &amp;&amp; !defined(<a class="macro" href="../alloca.h.html#35" data-ref="_M/alloca">alloca</a>)</u></td></tr>
+<tr><th id="302">302</th><td><u># if defined(HAVE_ALLOCA_H)</u></td></tr>
+<tr><th id="303">303</th><td><u>#  include &lt;alloca.h&gt;</u></td></tr>
+<tr><th id="304">304</th><td><u># elif defined(__GNUC__)</u></td></tr>
+<tr><th id="305">305</th><td><u>#  define alloca __builtin_alloca</u></td></tr>
+<tr><th id="306">306</th><td><u># elif defined(_MSC_VER)</u></td></tr>
+<tr><th id="307">307</th><td><u>#  include &lt;malloc.h&gt;</u></td></tr>
+<tr><th id="308">308</th><td><u>#  define alloca _alloca</u></td></tr>
+<tr><th id="309">309</th><td><u># elif defined(__WATCOMC__)</u></td></tr>
+<tr><th id="310">310</th><td><u>#  include &lt;malloc.h&gt;</u></td></tr>
+<tr><th id="311">311</th><td><u># elif defined(__BORLANDC__)</u></td></tr>
+<tr><th id="312">312</th><td><u>#  include &lt;malloc.h&gt;</u></td></tr>
+<tr><th id="313">313</th><td><u># elif defined(__DMC__)</u></td></tr>
+<tr><th id="314">314</th><td><u>#  include &lt;stdlib.h&gt;</u></td></tr>
+<tr><th id="315">315</th><td><u># elif defined(__AIX__)</u></td></tr>
+<tr><th id="316">316</th><td><u>#pragma alloca</u></td></tr>
+<tr><th id="317">317</th><td><u># elif defined(__MRC__)</u></td></tr>
+<tr><th id="318">318</th><td><em>void</em> *alloca(<em>unsigned</em>);</td></tr>
+<tr><th id="319">319</th><td><u># else</u></td></tr>
+<tr><th id="320">320</th><td><em>char</em> *alloca();</td></tr>
+<tr><th id="321">321</th><td><u># endif</u></td></tr>
+<tr><th id="322">322</th><td><u>#<span data-ppcond="301">endif</span></u></td></tr>
+<tr><th id="323">323</th><td><u>#<span data-ppcond="323">ifdef</span> <a class="macro" href="SDL_config.h.html#92" data-ref="_M/HAVE_ALLOCA">HAVE_ALLOCA</a></u></td></tr>
+<tr><th id="324">324</th><td><u>#define <dfn class="macro" id="_M/SDL_stack_alloc" data-ref="_M/SDL_stack_alloc">SDL_stack_alloc</dfn>(type, count)    (type*)alloca(sizeof(type)*(count))</u></td></tr>
+<tr><th id="325">325</th><td><u>#define <dfn class="macro" id="_M/SDL_stack_free" data-ref="_M/SDL_stack_free">SDL_stack_free</dfn>(data)</u></td></tr>
+<tr><th id="326">326</th><td><u>#<span data-ppcond="323">else</span></u></td></tr>
+<tr><th id="327">327</th><td><u>#define SDL_stack_alloc(type, count)    (type*)SDL_malloc(sizeof(type)*(count))</u></td></tr>
+<tr><th id="328">328</th><td><u>#define SDL_stack_free(data)            SDL_free(data)</u></td></tr>
+<tr><th id="329">329</th><td><u>#<span data-ppcond="323">endif</span></u></td></tr>
+<tr><th id="330">330</th><td></td></tr>
+<tr><th id="331">331</th><td><b>extern</b> <a class="macro" href="begin_code.h.html#66" title="__attribute__ ((visibility(&quot;default&quot;)))" data-ref="_M/DECLSPEC">DECLSPEC</a> <em>void</em> *<a class="macro" href="begin_code.h.html#78" title="" data-ref="_M/SDLCALL">SDLCALL</a> <dfn class="decl" id="SDL_malloc" title='SDL_malloc' data-ref="SDL_malloc">SDL_malloc</dfn>(<span class='typedef' title='size_t' data-type='unsigned long' data-ref="size_t">size_t</span> <dfn class="local col2 decl" id="52size" title='size' data-type='size_t' data-ref="52size">size</dfn>);</td></tr>
+<tr><th id="332">332</th><td><b>extern</b> <a class="macro" href="begin_code.h.html#66" title="__attribute__ ((visibility(&quot;default&quot;)))" data-ref="_M/DECLSPEC">DECLSPEC</a> <em>void</em> *<a class="macro" href="begin_code.h.html#78" title="" data-ref="_M/SDLCALL">SDLCALL</a> <dfn class="decl" id="SDL_calloc" title='SDL_calloc' data-ref="SDL_calloc">SDL_calloc</dfn>(<span class='typedef' title='size_t' data-type='unsigned long' data-ref="size_t">size_t</span> <dfn class="local col3 decl" id="53nmemb" title='nmemb' data-type='size_t' data-ref="53nmemb">nmemb</dfn>, <span class='typedef' title='size_t' data-type='unsigned long' data-ref="size_t">size_t</span> <dfn class="local col4 decl" id="54size" title='size' data-type='size_t' data-ref="54size">size</dfn>);</td></tr>
+<tr><th id="333">333</th><td><b>extern</b> <a class="macro" href="begin_code.h.html#66" title="__attribute__ ((visibility(&quot;default&quot;)))" data-ref="_M/DECLSPEC">DECLSPEC</a> <em>void</em> *<a class="macro" href="begin_code.h.html#78" title="" data-ref="_M/SDLCALL">SDLCALL</a> <dfn class="decl" id="SDL_realloc" title='SDL_realloc' data-ref="SDL_realloc">SDL_realloc</dfn>(<em>void</em> *<dfn class="local col5 decl" id="55mem" title='mem' data-type='void *' data-ref="55mem">mem</dfn>, <span class='typedef' title='size_t' data-type='unsigned long' data-ref="size_t">size_t</span> <dfn class="local col6 decl" id="56size" title='size' data-type='size_t' data-ref="56size">size</dfn>);</td></tr>
+<tr><th id="334">334</th><td><b>extern</b> <a class="macro" href="begin_code.h.html#66" title="__attribute__ ((visibility(&quot;default&quot;)))" data-ref="_M/DECLSPEC">DECLSPEC</a> <em>void</em> <a class="macro" href="begin_code.h.html#78" title="" data-ref="_M/SDLCALL">SDLCALL</a> <dfn class="decl" id="SDL_free" title='SDL_free' data-ref="SDL_free">SDL_free</dfn>(<em>void</em> *<dfn class="local col7 decl" id="57mem" title='mem' data-type='void *' data-ref="57mem">mem</dfn>);</td></tr>
+<tr><th id="335">335</th><td></td></tr>
+<tr><th id="336">336</th><td><b>extern</b> <a class="macro" href="begin_code.h.html#66" title="__attribute__ ((visibility(&quot;default&quot;)))" data-ref="_M/DECLSPEC">DECLSPEC</a> <em>char</em> *<a class="macro" href="begin_code.h.html#78" title="" data-ref="_M/SDLCALL">SDLCALL</a> <dfn class="decl" id="SDL_getenv" title='SDL_getenv' data-ref="SDL_getenv">SDL_getenv</dfn>(<em>const</em> <em>char</em> *<dfn class="local col8 decl" id="58name" title='name' data-type='const char *' data-ref="58name">name</dfn>);</td></tr>
+<tr><th id="337">337</th><td><b>extern</b> <a class="macro" href="begin_code.h.html#66" title="__attribute__ ((visibility(&quot;default&quot;)))" data-ref="_M/DECLSPEC">DECLSPEC</a> <em>int</em> <a class="macro" href="begin_code.h.html#78" title="" data-ref="_M/SDLCALL">SDLCALL</a> <dfn class="decl" id="SDL_setenv" title='SDL_setenv' data-ref="SDL_setenv">SDL_setenv</dfn>(<em>const</em> <em>char</em> *<dfn class="local col9 decl" id="59name" title='name' data-type='const char *' data-ref="59name">name</dfn>, <em>const</em> <em>char</em> *<dfn class="local col0 decl" id="60value" title='value' data-type='const char *' data-ref="60value">value</dfn>, <em>int</em> <dfn class="local col1 decl" id="61overwrite" title='overwrite' data-type='int' data-ref="61overwrite">overwrite</dfn>);</td></tr>
+<tr><th id="338">338</th><td></td></tr>
+<tr><th id="339">339</th><td><b>extern</b> <a class="macro" href="begin_code.h.html#66" title="__attribute__ ((visibility(&quot;default&quot;)))" data-ref="_M/DECLSPEC">DECLSPEC</a> <em>void</em> <a class="macro" href="begin_code.h.html#78" title="" data-ref="_M/SDLCALL">SDLCALL</a> <dfn class="decl" id="SDL_qsort" title='SDL_qsort' data-ref="SDL_qsort">SDL_qsort</dfn>(<em>void</em> *<dfn class="local col2 decl" id="62base" title='base' data-type='void *' data-ref="62base">base</dfn>, <span class='typedef' title='size_t' data-type='unsigned long' data-ref="size_t">size_t</span> <dfn class="local col3 decl" id="63nmemb" title='nmemb' data-type='size_t' data-ref="63nmemb">nmemb</dfn>, <span class='typedef' title='size_t' data-type='unsigned long' data-ref="size_t">size_t</span> <dfn class="local col4 decl" id="64size" title='size' data-type='size_t' data-ref="64size">size</dfn>, <em>int</em> (*<dfn class="local col5 decl" id="65compare" title='compare' data-type='int (*)(const void *, const void *)' data-ref="65compare">compare</dfn>) (<em>const</em> <em>void</em> *, <em>const</em> <em>void</em> *));</td></tr>
+<tr><th id="340">340</th><td></td></tr>
+<tr><th id="341">341</th><td><b>extern</b> <a class="macro" href="begin_code.h.html#66" title="__attribute__ ((visibility(&quot;default&quot;)))" data-ref="_M/DECLSPEC">DECLSPEC</a> <em>int</em> <a class="macro" href="begin_code.h.html#78" title="" data-ref="_M/SDLCALL">SDLCALL</a> <dfn class="decl" id="SDL_abs" title='SDL_abs' data-ref="SDL_abs">SDL_abs</dfn>(<em>int</em> <dfn class="local col6 decl" id="66x" title='x' data-type='int' data-ref="66x">x</dfn>);</td></tr>
+<tr><th id="342">342</th><td></td></tr>
+<tr><th id="343">343</th><td><i>/* !!! FIXME: these have side effects. You probably shouldn't use them. */</i></td></tr>
+<tr><th id="344">344</th><td><i>/* !!! FIXME: Maybe we do forceinline functions of SDL_mini, SDL_minf, etc? */</i></td></tr>
+<tr><th id="345">345</th><td><u>#define <dfn class="macro" id="_M/SDL_min" data-ref="_M/SDL_min">SDL_min</dfn>(x, y) (((x) &lt; (y)) ? (x) : (y))</u></td></tr>
+<tr><th id="346">346</th><td><u>#define <dfn class="macro" id="_M/SDL_max" data-ref="_M/SDL_max">SDL_max</dfn>(x, y) (((x) &gt; (y)) ? (x) : (y))</u></td></tr>
+<tr><th id="347">347</th><td></td></tr>
+<tr><th id="348">348</th><td><b>extern</b> <a class="macro" href="begin_code.h.html#66" title="__attribute__ ((visibility(&quot;default&quot;)))" data-ref="_M/DECLSPEC">DECLSPEC</a> <em>int</em> <a class="macro" href="begin_code.h.html#78" title="" data-ref="_M/SDLCALL">SDLCALL</a> <dfn class="decl" id="SDL_isdigit" title='SDL_isdigit' data-ref="SDL_isdigit">SDL_isdigit</dfn>(<em>int</em> <dfn class="local col7 decl" id="67x" title='x' data-type='int' data-ref="67x">x</dfn>);</td></tr>
+<tr><th id="349">349</th><td><b>extern</b> <a class="macro" href="begin_code.h.html#66" title="__attribute__ ((visibility(&quot;default&quot;)))" data-ref="_M/DECLSPEC">DECLSPEC</a> <em>int</em> <a class="macro" href="begin_code.h.html#78" title="" data-ref="_M/SDLCALL">SDLCALL</a> <dfn class="decl" id="SDL_isspace" title='SDL_isspace' data-ref="SDL_isspace">SDL_isspace</dfn>(<em>int</em> <dfn class="local col8 decl" id="68x" title='x' data-type='int' data-ref="68x">x</dfn>);</td></tr>
+<tr><th id="350">350</th><td><b>extern</b> <a class="macro" href="begin_code.h.html#66" title="__attribute__ ((visibility(&quot;default&quot;)))" data-ref="_M/DECLSPEC">DECLSPEC</a> <em>int</em> <a class="macro" href="begin_code.h.html#78" title="" data-ref="_M/SDLCALL">SDLCALL</a> <dfn class="decl" id="SDL_toupper" title='SDL_toupper' data-ref="SDL_toupper">SDL_toupper</dfn>(<em>int</em> <dfn class="local col9 decl" id="69x" title='x' data-type='int' data-ref="69x">x</dfn>);</td></tr>
+<tr><th id="351">351</th><td><b>extern</b> <a class="macro" href="begin_code.h.html#66" title="__attribute__ ((visibility(&quot;default&quot;)))" data-ref="_M/DECLSPEC">DECLSPEC</a> <em>int</em> <a class="macro" href="begin_code.h.html#78" title="" data-ref="_M/SDLCALL">SDLCALL</a> <dfn class="decl" id="SDL_tolower" title='SDL_tolower' data-ref="SDL_tolower">SDL_tolower</dfn>(<em>int</em> <dfn class="local col0 decl" id="70x" title='x' data-type='int' data-ref="70x">x</dfn>);</td></tr>
+<tr><th id="352">352</th><td></td></tr>
+<tr><th id="353">353</th><td><b>extern</b> <a class="macro" href="begin_code.h.html#66" title="__attribute__ ((visibility(&quot;default&quot;)))" data-ref="_M/DECLSPEC">DECLSPEC</a> <em>void</em> *<a class="macro" href="begin_code.h.html#78" title="" data-ref="_M/SDLCALL">SDLCALL</a> <dfn class="decl" id="SDL_memset" title='SDL_memset' data-ref="SDL_memset">SDL_memset</dfn>(<a class="macro" href="#246" title="" data-ref="_M/SDL_OUT_BYTECAP">SDL_OUT_BYTECAP</a>(len) <em>void</em> *<dfn class="local col1 decl" id="71dst" title='dst' data-type='void *' data-ref="71dst">dst</dfn>, <em>int</em> <dfn class="local col2 decl" id="72c" title='c' data-type='int' data-ref="72c">c</dfn>, <span class='typedef' title='size_t' data-type='unsigned long' data-ref="size_t">size_t</span> <dfn class="local col3 decl" id="73len" title='len' data-type='size_t' data-ref="73len">len</dfn>);</td></tr>
+<tr><th id="354">354</th><td></td></tr>
+<tr><th id="355">355</th><td><u>#define <dfn class="macro" id="_M/SDL_zero" data-ref="_M/SDL_zero">SDL_zero</dfn>(x) SDL_memset(&amp;(x), 0, sizeof((x)))</u></td></tr>
+<tr><th id="356">356</th><td><u>#define <dfn class="macro" id="_M/SDL_zerop" data-ref="_M/SDL_zerop">SDL_zerop</dfn>(x) SDL_memset((x), 0, sizeof(*(x)))</u></td></tr>
+<tr><th id="357">357</th><td></td></tr>
+<tr><th id="358">358</th><td><i>/* Note that memset() is a byte assignment and this is a 32-bit assignment, so they're not directly equivalent. */</i></td></tr>
+<tr><th id="359">359</th><td><a class="macro" href="begin_code.h.html#131" title="__attribute__((always_inline)) static __inline__" data-ref="_M/SDL_FORCE_INLINE">SDL_FORCE_INLINE</a> <em>void</em> <dfn class="decl def" id="SDL_memset4" title='SDL_memset4' data-ref="SDL_memset4">SDL_memset4</dfn>(<em>void</em> *<dfn class="local col4 decl" id="74dst" title='dst' data-type='void *' data-ref="74dst">dst</dfn>, <a class="typedef" href="#Uint32" title='Uint32' data-type='uint32_t' data-ref="Uint32">Uint32</a> <dfn class="local col5 decl" id="75val" title='val' data-type='Uint32' data-ref="75val">val</dfn>, <span class='typedef' title='size_t' data-type='unsigned long' data-ref="size_t">size_t</span> <dfn class="local col6 decl" id="76dwords" title='dwords' data-type='size_t' data-ref="76dwords">dwords</dfn>)</td></tr>
+<tr><th id="360">360</th><td>{</td></tr>
+<tr><th id="361">361</th><td><u>#<span data-ppcond="361">if</span> defined(<span class="macro" data-ref="_M/__GNUC__">__GNUC__</span>) &amp;&amp; defined(<span class="macro" data-ref="_M/i386">i386</span>)</u></td></tr>
+<tr><th id="362">362</th><td>    <em>int</em> u0, u1, u2;</td></tr>
+<tr><th id="363">363</th><td>    <b>__asm__</b> <em>__volatile__</em> (</td></tr>
+<tr><th id="364">364</th><td>        <q>"cld \n\t"</q></td></tr>
+<tr><th id="365">365</th><td>        <q>"rep ; stosl \n\t"</q></td></tr>
+<tr><th id="366">366</th><td>        : <q>"=&amp;D"</q> (u0), <q>"=&amp;a"</q> (u1), <q>"=&amp;c"</q> (u2)</td></tr>
+<tr><th id="367">367</th><td>        : <q>"0"</q> (dst), <q>"1"</q> (val), <q>"2"</q> (SDL_static_cast(Uint32, dwords))</td></tr>
+<tr><th id="368">368</th><td>        : <q>"memory"</q></td></tr>
+<tr><th id="369">369</th><td>    );</td></tr>
+<tr><th id="370">370</th><td><u>#<span data-ppcond="361">else</span></u></td></tr>
+<tr><th id="371">371</th><td>    <span class='typedef' title='size_t' data-type='unsigned long' data-ref="size_t">size_t</span> <dfn class="local col7 decl" id="77_n" title='_n' data-type='size_t' data-ref="77_n">_n</dfn> = (<a class="local col6 ref" href="#76dwords" title='dwords' data-ref="76dwords">dwords</a> + <var>3</var>) / <var>4</var>;</td></tr>
+<tr><th id="372">372</th><td>    <a class="typedef" href="#Uint32" title='Uint32' data-type='uint32_t' data-ref="Uint32">Uint32</a> *<dfn class="local col8 decl" id="78_p" title='_p' data-type='Uint32 *' data-ref="78_p">_p</dfn> = <a class="macro" href="#109" title="((Uint32 *)(dst))" data-ref="_M/SDL_static_cast">SDL_static_cast</a>(<a class="typedef" href="#Uint32" title='Uint32' data-type='uint32_t' data-ref="Uint32">Uint32</a> *, <a class="local col4 ref" href="#74dst" title='dst' data-ref="74dst">dst</a>);</td></tr>
+<tr><th id="373">373</th><td>    <a class="typedef" href="#Uint32" title='Uint32' data-type='uint32_t' data-ref="Uint32">Uint32</a> <dfn class="local col9 decl" id="79_val" title='_val' data-type='Uint32' data-ref="79_val">_val</dfn> = (<a class="local col5 ref" href="#75val" title='val' data-ref="75val">val</a>);</td></tr>
+<tr><th id="374">374</th><td>    <b>if</b> (<a class="local col6 ref" href="#76dwords" title='dwords' data-ref="76dwords">dwords</a> == <var>0</var>)</td></tr>
+<tr><th id="375">375</th><td>        <b>return</b>;</td></tr>
+<tr><th id="376">376</th><td>    <b>switch</b> (<a class="local col6 ref" href="#76dwords" title='dwords' data-ref="76dwords">dwords</a> % <var>4</var>)</td></tr>
+<tr><th id="377">377</th><td>    {</td></tr>
+<tr><th id="378">378</th><td>        <b>case</b> <var>0</var>: <b>do</b> {    *<a class="local col8 ref" href="#78_p" title='_p' data-ref="78_p">_p</a>++ = <a class="local col9 ref" href="#79_val" title='_val' data-ref="79_val">_val</a>;</td></tr>
+<tr><th id="379">379</th><td>        <b>case</b> <var>3</var>:         *<a class="local col8 ref" href="#78_p" title='_p' data-ref="78_p">_p</a>++ = <a class="local col9 ref" href="#79_val" title='_val' data-ref="79_val">_val</a>;</td></tr>
+<tr><th id="380">380</th><td>        <b>case</b> <var>2</var>:         *<a class="local col8 ref" href="#78_p" title='_p' data-ref="78_p">_p</a>++ = <a class="local col9 ref" href="#79_val" title='_val' data-ref="79_val">_val</a>;</td></tr>
+<tr><th id="381">381</th><td>        <b>case</b> <var>1</var>:         *<a class="local col8 ref" href="#78_p" title='_p' data-ref="78_p">_p</a>++ = <a class="local col9 ref" href="#79_val" title='_val' data-ref="79_val">_val</a>;</td></tr>
+<tr><th id="382">382</th><td>        } <b>while</b> ( --<a class="local col7 ref" href="#77_n" title='_n' data-ref="77_n">_n</a> );</td></tr>
+<tr><th id="383">383</th><td>    }</td></tr>
+<tr><th id="384">384</th><td><u>#<span data-ppcond="361">endif</span></u></td></tr>
+<tr><th id="385">385</th><td>}</td></tr>
+<tr><th id="386">386</th><td></td></tr>
+<tr><th id="387">387</th><td></td></tr>
+<tr><th id="388">388</th><td><b>extern</b> <a class="macro" href="begin_code.h.html#66" title="__attribute__ ((visibility(&quot;default&quot;)))" data-ref="_M/DECLSPEC">DECLSPEC</a> <em>void</em> *<a class="macro" href="begin_code.h.html#78" title="" data-ref="_M/SDLCALL">SDLCALL</a> <dfn class="decl" id="SDL_memcpy" title='SDL_memcpy' data-ref="SDL_memcpy">SDL_memcpy</dfn>(<a class="macro" href="#246" title="" data-ref="_M/SDL_OUT_BYTECAP">SDL_OUT_BYTECAP</a>(len) <em>void</em> *<dfn class="local col0 decl" id="80dst" title='dst' data-type='void *' data-ref="80dst">dst</dfn>, <a class="macro" href="#242" title="" data-ref="_M/SDL_IN_BYTECAP">SDL_IN_BYTECAP</a>(len) <em>const</em> <em>void</em> *<dfn class="local col1 decl" id="81src" title='src' data-type='const void *' data-ref="81src">src</dfn>, <span class='typedef' title='size_t' data-type='unsigned long' data-ref="size_t">size_t</span> <dfn class="local col2 decl" id="82len" title='len' data-type='size_t' data-ref="82len">len</dfn>);</td></tr>
+<tr><th id="389">389</th><td></td></tr>
+<tr><th id="390">390</th><td><b>extern</b> <a class="macro" href="begin_code.h.html#66" title="__attribute__ ((visibility(&quot;default&quot;)))" data-ref="_M/DECLSPEC">DECLSPEC</a> <em>void</em> *<a class="macro" href="begin_code.h.html#78" title="" data-ref="_M/SDLCALL">SDLCALL</a> <dfn class="decl" id="SDL_memmove" title='SDL_memmove' data-ref="SDL_memmove">SDL_memmove</dfn>(<a class="macro" href="#246" title="" data-ref="_M/SDL_OUT_BYTECAP">SDL_OUT_BYTECAP</a>(len) <em>void</em> *<dfn class="local col3 decl" id="83dst" title='dst' data-type='void *' data-ref="83dst">dst</dfn>, <a class="macro" href="#242" title="" data-ref="_M/SDL_IN_BYTECAP">SDL_IN_BYTECAP</a>(len) <em>const</em> <em>void</em> *<dfn class="local col4 decl" id="84src" title='src' data-type='const void *' data-ref="84src">src</dfn>, <span class='typedef' title='size_t' data-type='unsigned long' data-ref="size_t">size_t</span> <dfn class="local col5 decl" id="85len" title='len' data-type='size_t' data-ref="85len">len</dfn>);</td></tr>
+<tr><th id="391">391</th><td><b>extern</b> <a class="macro" href="begin_code.h.html#66" title="__attribute__ ((visibility(&quot;default&quot;)))" data-ref="_M/DECLSPEC">DECLSPEC</a> <em>int</em> <a class="macro" href="begin_code.h.html#78" title="" data-ref="_M/SDLCALL">SDLCALL</a> <dfn class="decl" id="SDL_memcmp" title='SDL_memcmp' data-ref="SDL_memcmp">SDL_memcmp</dfn>(<em>const</em> <em>void</em> *<dfn class="local col6 decl" id="86s1" title='s1' data-type='const void *' data-ref="86s1">s1</dfn>, <em>const</em> <em>void</em> *<dfn class="local col7 decl" id="87s2" title='s2' data-type='const void *' data-ref="87s2">s2</dfn>, <span class='typedef' title='size_t' data-type='unsigned long' data-ref="size_t">size_t</span> <dfn class="local col8 decl" id="88len" title='len' data-type='size_t' data-ref="88len">len</dfn>);</td></tr>
+<tr><th id="392">392</th><td></td></tr>
+<tr><th id="393">393</th><td><b>extern</b> <a class="macro" href="begin_code.h.html#66" title="__attribute__ ((visibility(&quot;default&quot;)))" data-ref="_M/DECLSPEC">DECLSPEC</a> <span class='typedef' title='size_t' data-type='unsigned long' data-ref="size_t">size_t</span> <a class="macro" href="begin_code.h.html#78" title="" data-ref="_M/SDLCALL">SDLCALL</a> <dfn class="decl" id="SDL_wcslen" title='SDL_wcslen' data-ref="SDL_wcslen">SDL_wcslen</dfn>(<em>const</em> <span class='typedef' title='wchar_t' data-type='int' data-ref="wchar_t">wchar_t</span> *<dfn class="local col9 decl" id="89wstr" title='wstr' data-type='const wchar_t *' data-ref="89wstr">wstr</dfn>);</td></tr>
+<tr><th id="394">394</th><td><b>extern</b> <a class="macro" href="begin_code.h.html#66" title="__attribute__ ((visibility(&quot;default&quot;)))" data-ref="_M/DECLSPEC">DECLSPEC</a> <span class='typedef' title='size_t' data-type='unsigned long' data-ref="size_t">size_t</span> <a class="macro" href="begin_code.h.html#78" title="" data-ref="_M/SDLCALL">SDLCALL</a> <dfn class="decl" id="SDL_wcslcpy" title='SDL_wcslcpy' data-ref="SDL_wcslcpy">SDL_wcslcpy</dfn>(<a class="macro" href="#244" title="" data-ref="_M/SDL_OUT_Z_CAP">SDL_OUT_Z_CAP</a>(maxlen) <span class='typedef' title='wchar_t' data-type='int' data-ref="wchar_t">wchar_t</span> *<dfn class="local col0 decl" id="90dst" title='dst' data-type='wchar_t *' data-ref="90dst">dst</dfn>, <em>const</em> <span class='typedef' title='wchar_t' data-type='int' data-ref="wchar_t">wchar_t</span> *<dfn class="local col1 decl" id="91src" title='src' data-type='const wchar_t *' data-ref="91src">src</dfn>, <span class='typedef' title='size_t' data-type='unsigned long' data-ref="size_t">size_t</span> <dfn class="local col2 decl" id="92maxlen" title='maxlen' data-type='size_t' data-ref="92maxlen">maxlen</dfn>);</td></tr>
+<tr><th id="395">395</th><td><b>extern</b> <a class="macro" href="begin_code.h.html#66" title="__attribute__ ((visibility(&quot;default&quot;)))" data-ref="_M/DECLSPEC">DECLSPEC</a> <span class='typedef' title='size_t' data-type='unsigned long' data-ref="size_t">size_t</span> <a class="macro" href="begin_code.h.html#78" title="" data-ref="_M/SDLCALL">SDLCALL</a> <dfn class="decl" id="SDL_wcslcat" title='SDL_wcslcat' data-ref="SDL_wcslcat">SDL_wcslcat</dfn>(<a class="macro" href="#243" title="" data-ref="_M/SDL_INOUT_Z_CAP">SDL_INOUT_Z_CAP</a>(maxlen) <span class='typedef' title='wchar_t' data-type='int' data-ref="wchar_t">wchar_t</span> *<dfn class="local col3 decl" id="93dst" title='dst' data-type='wchar_t *' data-ref="93dst">dst</dfn>, <em>const</em> <span class='typedef' title='wchar_t' data-type='int' data-ref="wchar_t">wchar_t</span> *<dfn class="local col4 decl" id="94src" title='src' data-type='const wchar_t *' data-ref="94src">src</dfn>, <span class='typedef' title='size_t' data-type='unsigned long' data-ref="size_t">size_t</span> <dfn class="local col5 decl" id="95maxlen" title='maxlen' data-type='size_t' data-ref="95maxlen">maxlen</dfn>);</td></tr>
+<tr><th id="396">396</th><td></td></tr>
+<tr><th id="397">397</th><td><b>extern</b> <a class="macro" href="begin_code.h.html#66" title="__attribute__ ((visibility(&quot;default&quot;)))" data-ref="_M/DECLSPEC">DECLSPEC</a> <span class='typedef' title='size_t' data-type='unsigned long' data-ref="size_t">size_t</span> <a class="macro" href="begin_code.h.html#78" title="" data-ref="_M/SDLCALL">SDLCALL</a> <dfn class="decl" id="SDL_strlen" title='SDL_strlen' data-ref="SDL_strlen">SDL_strlen</dfn>(<em>const</em> <em>char</em> *<dfn class="local col6 decl" id="96str" title='str' data-type='const char *' data-ref="96str">str</dfn>);</td></tr>
+<tr><th id="398">398</th><td><b>extern</b> <a class="macro" href="begin_code.h.html#66" title="__attribute__ ((visibility(&quot;default&quot;)))" data-ref="_M/DECLSPEC">DECLSPEC</a> <span class='typedef' title='size_t' data-type='unsigned long' data-ref="size_t">size_t</span> <a class="macro" href="begin_code.h.html#78" title="" data-ref="_M/SDLCALL">SDLCALL</a> <dfn class="decl" id="SDL_strlcpy" title='SDL_strlcpy' data-ref="SDL_strlcpy">SDL_strlcpy</dfn>(<a class="macro" href="#244" title="" data-ref="_M/SDL_OUT_Z_CAP">SDL_OUT_Z_CAP</a>(maxlen) <em>char</em> *<dfn class="local col7 decl" id="97dst" title='dst' data-type='char *' data-ref="97dst">dst</dfn>, <em>const</em> <em>char</em> *<dfn class="local col8 decl" id="98src" title='src' data-type='const char *' data-ref="98src">src</dfn>, <span class='typedef' title='size_t' data-type='unsigned long' data-ref="size_t">size_t</span> <dfn class="local col9 decl" id="99maxlen" title='maxlen' data-type='size_t' data-ref="99maxlen">maxlen</dfn>);</td></tr>
+<tr><th id="399">399</th><td><b>extern</b> <a class="macro" href="begin_code.h.html#66" title="__attribute__ ((visibility(&quot;default&quot;)))" data-ref="_M/DECLSPEC">DECLSPEC</a> <span class='typedef' title='size_t' data-type='unsigned long' data-ref="size_t">size_t</span> <a class="macro" href="begin_code.h.html#78" title="" data-ref="_M/SDLCALL">SDLCALL</a> <dfn class="decl" id="SDL_utf8strlcpy" title='SDL_utf8strlcpy' data-ref="SDL_utf8strlcpy">SDL_utf8strlcpy</dfn>(<a class="macro" href="#244" title="" data-ref="_M/SDL_OUT_Z_CAP">SDL_OUT_Z_CAP</a>(dst_bytes) <em>char</em> *<dfn class="local col0 decl" id="100dst" title='dst' data-type='char *' data-ref="100dst">dst</dfn>, <em>const</em> <em>char</em> *<dfn class="local col1 decl" id="101src" title='src' data-type='const char *' data-ref="101src">src</dfn>, <span class='typedef' title='size_t' data-type='unsigned long' data-ref="size_t">size_t</span> <dfn class="local col2 decl" id="102dst_bytes" title='dst_bytes' data-type='size_t' data-ref="102dst_bytes">dst_bytes</dfn>);</td></tr>
+<tr><th id="400">400</th><td><b>extern</b> <a class="macro" href="begin_code.h.html#66" title="__attribute__ ((visibility(&quot;default&quot;)))" data-ref="_M/DECLSPEC">DECLSPEC</a> <span class='typedef' title='size_t' data-type='unsigned long' data-ref="size_t">size_t</span> <a class="macro" href="begin_code.h.html#78" title="" data-ref="_M/SDLCALL">SDLCALL</a> <dfn class="decl" id="SDL_strlcat" title='SDL_strlcat' data-ref="SDL_strlcat">SDL_strlcat</dfn>(<a class="macro" href="#243" title="" data-ref="_M/SDL_INOUT_Z_CAP">SDL_INOUT_Z_CAP</a>(maxlen) <em>char</em> *<dfn class="local col3 decl" id="103dst" title='dst' data-type='char *' data-ref="103dst">dst</dfn>, <em>const</em> <em>char</em> *<dfn class="local col4 decl" id="104src" title='src' data-type='const char *' data-ref="104src">src</dfn>, <span class='typedef' title='size_t' data-type='unsigned long' data-ref="size_t">size_t</span> <dfn class="local col5 decl" id="105maxlen" title='maxlen' data-type='size_t' data-ref="105maxlen">maxlen</dfn>);</td></tr>
+<tr><th id="401">401</th><td><b>extern</b> <a class="macro" href="begin_code.h.html#66" title="__attribute__ ((visibility(&quot;default&quot;)))" data-ref="_M/DECLSPEC">DECLSPEC</a> <em>char</em> *<a class="macro" href="begin_code.h.html#78" title="" data-ref="_M/SDLCALL">SDLCALL</a> <dfn class="decl" id="SDL_strdup" title='SDL_strdup' data-ref="SDL_strdup">SDL_strdup</dfn>(<em>const</em> <em>char</em> *<dfn class="local col6 decl" id="106str" title='str' data-type='const char *' data-ref="106str">str</dfn>);</td></tr>
+<tr><th id="402">402</th><td><b>extern</b> <a class="macro" href="begin_code.h.html#66" title="__attribute__ ((visibility(&quot;default&quot;)))" data-ref="_M/DECLSPEC">DECLSPEC</a> <em>char</em> *<a class="macro" href="begin_code.h.html#78" title="" data-ref="_M/SDLCALL">SDLCALL</a> <dfn class="decl" id="SDL_strrev" title='SDL_strrev' data-ref="SDL_strrev">SDL_strrev</dfn>(<em>char</em> *<dfn class="local col7 decl" id="107str" title='str' data-type='char *' data-ref="107str">str</dfn>);</td></tr>
+<tr><th id="403">403</th><td><b>extern</b> <a class="macro" href="begin_code.h.html#66" title="__attribute__ ((visibility(&quot;default&quot;)))" data-ref="_M/DECLSPEC">DECLSPEC</a> <em>char</em> *<a class="macro" href="begin_code.h.html#78" title="" data-ref="_M/SDLCALL">SDLCALL</a> <dfn class="decl" id="SDL_strupr" title='SDL_strupr' data-ref="SDL_strupr">SDL_strupr</dfn>(<em>char</em> *<dfn class="local col8 decl" id="108str" title='str' data-type='char *' data-ref="108str">str</dfn>);</td></tr>
+<tr><th id="404">404</th><td><b>extern</b> <a class="macro" href="begin_code.h.html#66" title="__attribute__ ((visibility(&quot;default&quot;)))" data-ref="_M/DECLSPEC">DECLSPEC</a> <em>char</em> *<a class="macro" href="begin_code.h.html#78" title="" data-ref="_M/SDLCALL">SDLCALL</a> <dfn class="decl" id="SDL_strlwr" title='SDL_strlwr' data-ref="SDL_strlwr">SDL_strlwr</dfn>(<em>char</em> *<dfn class="local col9 decl" id="109str" title='str' data-type='char *' data-ref="109str">str</dfn>);</td></tr>
+<tr><th id="405">405</th><td><b>extern</b> <a class="macro" href="begin_code.h.html#66" title="__attribute__ ((visibility(&quot;default&quot;)))" data-ref="_M/DECLSPEC">DECLSPEC</a> <em>char</em> *<a class="macro" href="begin_code.h.html#78" title="" data-ref="_M/SDLCALL">SDLCALL</a> <dfn class="decl" id="SDL_strchr" title='SDL_strchr' data-ref="SDL_strchr">SDL_strchr</dfn>(<em>const</em> <em>char</em> *<dfn class="local col0 decl" id="110str" title='str' data-type='const char *' data-ref="110str">str</dfn>, <em>int</em> <dfn class="local col1 decl" id="111c" title='c' data-type='int' data-ref="111c">c</dfn>);</td></tr>
+<tr><th id="406">406</th><td><b>extern</b> <a class="macro" href="begin_code.h.html#66" title="__attribute__ ((visibility(&quot;default&quot;)))" data-ref="_M/DECLSPEC">DECLSPEC</a> <em>char</em> *<a class="macro" href="begin_code.h.html#78" title="" data-ref="_M/SDLCALL">SDLCALL</a> <dfn class="decl" id="SDL_strrchr" title='SDL_strrchr' data-ref="SDL_strrchr">SDL_strrchr</dfn>(<em>const</em> <em>char</em> *<dfn class="local col2 decl" id="112str" title='str' data-type='const char *' data-ref="112str">str</dfn>, <em>int</em> <dfn class="local col3 decl" id="113c" title='c' data-type='int' data-ref="113c">c</dfn>);</td></tr>
+<tr><th id="407">407</th><td><b>extern</b> <a class="macro" href="begin_code.h.html#66" title="__attribute__ ((visibility(&quot;default&quot;)))" data-ref="_M/DECLSPEC">DECLSPEC</a> <em>char</em> *<a class="macro" href="begin_code.h.html#78" title="" data-ref="_M/SDLCALL">SDLCALL</a> <dfn class="decl" id="SDL_strstr" title='SDL_strstr' data-ref="SDL_strstr">SDL_strstr</dfn>(<em>const</em> <em>char</em> *<dfn class="local col4 decl" id="114haystack" title='haystack' data-type='const char *' data-ref="114haystack">haystack</dfn>, <em>const</em> <em>char</em> *<dfn class="local col5 decl" id="115needle" title='needle' data-type='const char *' data-ref="115needle">needle</dfn>);</td></tr>
+<tr><th id="408">408</th><td></td></tr>
+<tr><th id="409">409</th><td><b>extern</b> <a class="macro" href="begin_code.h.html#66" title="__attribute__ ((visibility(&quot;default&quot;)))" data-ref="_M/DECLSPEC">DECLSPEC</a> <em>char</em> *<a class="macro" href="begin_code.h.html#78" title="" data-ref="_M/SDLCALL">SDLCALL</a> <dfn class="decl" id="SDL_itoa" title='SDL_itoa' data-ref="SDL_itoa">SDL_itoa</dfn>(<em>int</em> <dfn class="local col6 decl" id="116value" title='value' data-type='int' data-ref="116value">value</dfn>, <em>char</em> *<dfn class="local col7 decl" id="117str" title='str' data-type='char *' data-ref="117str">str</dfn>, <em>int</em> <dfn class="local col8 decl" id="118radix" title='radix' data-type='int' data-ref="118radix">radix</dfn>);</td></tr>
+<tr><th id="410">410</th><td><b>extern</b> <a class="macro" href="begin_code.h.html#66" title="__attribute__ ((visibility(&quot;default&quot;)))" data-ref="_M/DECLSPEC">DECLSPEC</a> <em>char</em> *<a class="macro" href="begin_code.h.html#78" title="" data-ref="_M/SDLCALL">SDLCALL</a> <dfn class="decl" id="SDL_uitoa" title='SDL_uitoa' data-ref="SDL_uitoa">SDL_uitoa</dfn>(<em>unsigned</em> <em>int</em> <dfn class="local col9 decl" id="119value" title='value' data-type='unsigned int' data-ref="119value">value</dfn>, <em>char</em> *<dfn class="local col0 decl" id="120str" title='str' data-type='char *' data-ref="120str">str</dfn>, <em>int</em> <dfn class="local col1 decl" id="121radix" title='radix' data-type='int' data-ref="121radix">radix</dfn>);</td></tr>
+<tr><th id="411">411</th><td><b>extern</b> <a class="macro" href="begin_code.h.html#66" title="__attribute__ ((visibility(&quot;default&quot;)))" data-ref="_M/DECLSPEC">DECLSPEC</a> <em>char</em> *<a class="macro" href="begin_code.h.html#78" title="" data-ref="_M/SDLCALL">SDLCALL</a> <dfn class="decl" id="SDL_ltoa" title='SDL_ltoa' data-ref="SDL_ltoa">SDL_ltoa</dfn>(<em>long</em> <dfn class="local col2 decl" id="122value" title='value' data-type='long' data-ref="122value">value</dfn>, <em>char</em> *<dfn class="local col3 decl" id="123str" title='str' data-type='char *' data-ref="123str">str</dfn>, <em>int</em> <dfn class="local col4 decl" id="124radix" title='radix' data-type='int' data-ref="124radix">radix</dfn>);</td></tr>
+<tr><th id="412">412</th><td><b>extern</b> <a class="macro" href="begin_code.h.html#66" title="__attribute__ ((visibility(&quot;default&quot;)))" data-ref="_M/DECLSPEC">DECLSPEC</a> <em>char</em> *<a class="macro" href="begin_code.h.html#78" title="" data-ref="_M/SDLCALL">SDLCALL</a> <dfn class="decl" id="SDL_ultoa" title='SDL_ultoa' data-ref="SDL_ultoa">SDL_ultoa</dfn>(<em>unsigned</em> <em>long</em> <dfn class="local col5 decl" id="125value" title='value' data-type='unsigned long' data-ref="125value">value</dfn>, <em>char</em> *<dfn class="local col6 decl" id="126str" title='str' data-type='char *' data-ref="126str">str</dfn>, <em>int</em> <dfn class="local col7 decl" id="127radix" title='radix' data-type='int' data-ref="127radix">radix</dfn>);</td></tr>
+<tr><th id="413">413</th><td><b>extern</b> <a class="macro" href="begin_code.h.html#66" title="__attribute__ ((visibility(&quot;default&quot;)))" data-ref="_M/DECLSPEC">DECLSPEC</a> <em>char</em> *<a class="macro" href="begin_code.h.html#78" title="" data-ref="_M/SDLCALL">SDLCALL</a> <dfn class="decl" id="SDL_lltoa" title='SDL_lltoa' data-ref="SDL_lltoa">SDL_lltoa</dfn>(<a class="typedef" href="#Sint64" title='Sint64' data-type='int64_t' data-ref="Sint64">Sint64</a> <dfn class="local col8 decl" id="128value" title='value' data-type='Sint64' data-ref="128value">value</dfn>, <em>char</em> *<dfn class="local col9 decl" id="129str" title='str' data-type='char *' data-ref="129str">str</dfn>, <em>int</em> <dfn class="local col0 decl" id="130radix" title='radix' data-type='int' data-ref="130radix">radix</dfn>);</td></tr>
+<tr><th id="414">414</th><td><b>extern</b> <a class="macro" href="begin_code.h.html#66" title="__attribute__ ((visibility(&quot;default&quot;)))" data-ref="_M/DECLSPEC">DECLSPEC</a> <em>char</em> *<a class="macro" href="begin_code.h.html#78" title="" data-ref="_M/SDLCALL">SDLCALL</a> <dfn class="decl" id="SDL_ulltoa" title='SDL_ulltoa' data-ref="SDL_ulltoa">SDL_ulltoa</dfn>(<a class="typedef" href="#Uint64" title='Uint64' data-type='uint64_t' data-ref="Uint64">Uint64</a> <dfn class="local col1 decl" id="131value" title='value' data-type='Uint64' data-ref="131value">value</dfn>, <em>char</em> *<dfn class="local col2 decl" id="132str" title='str' data-type='char *' data-ref="132str">str</dfn>, <em>int</em> <dfn class="local col3 decl" id="133radix" title='radix' data-type='int' data-ref="133radix">radix</dfn>);</td></tr>
+<tr><th id="415">415</th><td></td></tr>
+<tr><th id="416">416</th><td><b>extern</b> <a class="macro" href="begin_code.h.html#66" title="__attribute__ ((visibility(&quot;default&quot;)))" data-ref="_M/DECLSPEC">DECLSPEC</a> <em>int</em> <a class="macro" href="begin_code.h.html#78" title="" data-ref="_M/SDLCALL">SDLCALL</a> <dfn class="decl" id="SDL_atoi" title='SDL_atoi' data-ref="SDL_atoi">SDL_atoi</dfn>(<em>const</em> <em>char</em> *<dfn class="local col4 decl" id="134str" title='str' data-type='const char *' data-ref="134str">str</dfn>);</td></tr>
+<tr><th id="417">417</th><td><b>extern</b> <a class="macro" href="begin_code.h.html#66" title="__attribute__ ((visibility(&quot;default&quot;)))" data-ref="_M/DECLSPEC">DECLSPEC</a> <em>double</em> <a class="macro" href="begin_code.h.html#78" title="" data-ref="_M/SDLCALL">SDLCALL</a> <dfn class="decl" id="SDL_atof" title='SDL_atof' data-ref="SDL_atof">SDL_atof</dfn>(<em>const</em> <em>char</em> *<dfn class="local col5 decl" id="135str" title='str' data-type='const char *' data-ref="135str">str</dfn>);</td></tr>
+<tr><th id="418">418</th><td><b>extern</b> <a class="macro" href="begin_code.h.html#66" title="__attribute__ ((visibility(&quot;default&quot;)))" data-ref="_M/DECLSPEC">DECLSPEC</a> <em>long</em> <a class="macro" href="begin_code.h.html#78" title="" data-ref="_M/SDLCALL">SDLCALL</a> <dfn class="decl" id="SDL_strtol" title='SDL_strtol' data-ref="SDL_strtol">SDL_strtol</dfn>(<em>const</em> <em>char</em> *<dfn class="local col6 decl" id="136str" title='str' data-type='const char *' data-ref="136str">str</dfn>, <em>char</em> **<dfn class="local col7 decl" id="137endp" title='endp' data-type='char **' data-ref="137endp">endp</dfn>, <em>int</em> <dfn class="local col8 decl" id="138base" title='base' data-type='int' data-ref="138base">base</dfn>);</td></tr>
+<tr><th id="419">419</th><td><b>extern</b> <a class="macro" href="begin_code.h.html#66" title="__attribute__ ((visibility(&quot;default&quot;)))" data-ref="_M/DECLSPEC">DECLSPEC</a> <em>unsigned</em> <em>long</em> <a class="macro" href="begin_code.h.html#78" title="" data-ref="_M/SDLCALL">SDLCALL</a> <dfn class="decl" id="SDL_strtoul" title='SDL_strtoul' data-ref="SDL_strtoul">SDL_strtoul</dfn>(<em>const</em> <em>char</em> *<dfn class="local col9 decl" id="139str" title='str' data-type='const char *' data-ref="139str">str</dfn>, <em>char</em> **<dfn class="local col0 decl" id="140endp" title='endp' data-type='char **' data-ref="140endp">endp</dfn>, <em>int</em> <dfn class="local col1 decl" id="141base" title='base' data-type='int' data-ref="141base">base</dfn>);</td></tr>
+<tr><th id="420">420</th><td><b>extern</b> <a class="macro" href="begin_code.h.html#66" title="__attribute__ ((visibility(&quot;default&quot;)))" data-ref="_M/DECLSPEC">DECLSPEC</a> <a class="typedef" href="#Sint64" title='Sint64' data-type='int64_t' data-ref="Sint64">Sint64</a> <a class="macro" href="begin_code.h.html#78" title="" data-ref="_M/SDLCALL">SDLCALL</a> <dfn class="decl" id="SDL_strtoll" title='SDL_strtoll' data-ref="SDL_strtoll">SDL_strtoll</dfn>(<em>const</em> <em>char</em> *<dfn class="local col2 decl" id="142str" title='str' data-type='const char *' data-ref="142str">str</dfn>, <em>char</em> **<dfn class="local col3 decl" id="143endp" title='endp' data-type='char **' data-ref="143endp">endp</dfn>, <em>int</em> <dfn class="local col4 decl" id="144base" title='base' data-type='int' data-ref="144base">base</dfn>);</td></tr>
+<tr><th id="421">421</th><td><b>extern</b> <a class="macro" href="begin_code.h.html#66" title="__attribute__ ((visibility(&quot;default&quot;)))" data-ref="_M/DECLSPEC">DECLSPEC</a> <a class="typedef" href="#Uint64" title='Uint64' data-type='uint64_t' data-ref="Uint64">Uint64</a> <a class="macro" href="begin_code.h.html#78" title="" data-ref="_M/SDLCALL">SDLCALL</a> <dfn class="decl" id="SDL_strtoull" title='SDL_strtoull' data-ref="SDL_strtoull">SDL_strtoull</dfn>(<em>const</em> <em>char</em> *<dfn class="local col5 decl" id="145str" title='str' data-type='const char *' data-ref="145str">str</dfn>, <em>char</em> **<dfn class="local col6 decl" id="146endp" title='endp' data-type='char **' data-ref="146endp">endp</dfn>, <em>int</em> <dfn class="local col7 decl" id="147base" title='base' data-type='int' data-ref="147base">base</dfn>);</td></tr>
+<tr><th id="422">422</th><td><b>extern</b> <a class="macro" href="begin_code.h.html#66" title="__attribute__ ((visibility(&quot;default&quot;)))" data-ref="_M/DECLSPEC">DECLSPEC</a> <em>double</em> <a class="macro" href="begin_code.h.html#78" title="" data-ref="_M/SDLCALL">SDLCALL</a> <dfn class="decl" id="SDL_strtod" title='SDL_strtod' data-ref="SDL_strtod">SDL_strtod</dfn>(<em>const</em> <em>char</em> *<dfn class="local col8 decl" id="148str" title='str' data-type='const char *' data-ref="148str">str</dfn>, <em>char</em> **<dfn class="local col9 decl" id="149endp" title='endp' data-type='char **' data-ref="149endp">endp</dfn>);</td></tr>
+<tr><th id="423">423</th><td></td></tr>
+<tr><th id="424">424</th><td><b>extern</b> <a class="macro" href="begin_code.h.html#66" title="__attribute__ ((visibility(&quot;default&quot;)))" data-ref="_M/DECLSPEC">DECLSPEC</a> <em>int</em> <a class="macro" href="begin_code.h.html#78" title="" data-ref="_M/SDLCALL">SDLCALL</a> <dfn class="decl" id="SDL_strcmp" title='SDL_strcmp' data-ref="SDL_strcmp">SDL_strcmp</dfn>(<em>const</em> <em>char</em> *<dfn class="local col0 decl" id="150str1" title='str1' data-type='const char *' data-ref="150str1">str1</dfn>, <em>const</em> <em>char</em> *<dfn class="local col1 decl" id="151str2" title='str2' data-type='const char *' data-ref="151str2">str2</dfn>);</td></tr>
+<tr><th id="425">425</th><td><b>extern</b> <a class="macro" href="begin_code.h.html#66" title="__attribute__ ((visibility(&quot;default&quot;)))" data-ref="_M/DECLSPEC">DECLSPEC</a> <em>int</em> <a class="macro" href="begin_code.h.html#78" title="" data-ref="_M/SDLCALL">SDLCALL</a> <dfn class="decl" id="SDL_strncmp" title='SDL_strncmp' data-ref="SDL_strncmp">SDL_strncmp</dfn>(<em>const</em> <em>char</em> *<dfn class="local col2 decl" id="152str1" title='str1' data-type='const char *' data-ref="152str1">str1</dfn>, <em>const</em> <em>char</em> *<dfn class="local col3 decl" id="153str2" title='str2' data-type='const char *' data-ref="153str2">str2</dfn>, <span class='typedef' title='size_t' data-type='unsigned long' data-ref="size_t">size_t</span> <dfn class="local col4 decl" id="154maxlen" title='maxlen' data-type='size_t' data-ref="154maxlen">maxlen</dfn>);</td></tr>
+<tr><th id="426">426</th><td><b>extern</b> <a class="macro" href="begin_code.h.html#66" title="__attribute__ ((visibility(&quot;default&quot;)))" data-ref="_M/DECLSPEC">DECLSPEC</a> <em>int</em> <a class="macro" href="begin_code.h.html#78" title="" data-ref="_M/SDLCALL">SDLCALL</a> <dfn class="decl" id="SDL_strcasecmp" title='SDL_strcasecmp' data-ref="SDL_strcasecmp">SDL_strcasecmp</dfn>(<em>const</em> <em>char</em> *<dfn class="local col5 decl" id="155str1" title='str1' data-type='const char *' data-ref="155str1">str1</dfn>, <em>const</em> <em>char</em> *<dfn class="local col6 decl" id="156str2" title='str2' data-type='const char *' data-ref="156str2">str2</dfn>);</td></tr>
+<tr><th id="427">427</th><td><b>extern</b> <a class="macro" href="begin_code.h.html#66" title="__attribute__ ((visibility(&quot;default&quot;)))" data-ref="_M/DECLSPEC">DECLSPEC</a> <em>int</em> <a class="macro" href="begin_code.h.html#78" title="" data-ref="_M/SDLCALL">SDLCALL</a> <dfn class="decl" id="SDL_strncasecmp" title='SDL_strncasecmp' data-ref="SDL_strncasecmp">SDL_strncasecmp</dfn>(<em>const</em> <em>char</em> *<dfn class="local col7 decl" id="157str1" title='str1' data-type='const char *' data-ref="157str1">str1</dfn>, <em>const</em> <em>char</em> *<dfn class="local col8 decl" id="158str2" title='str2' data-type='const char *' data-ref="158str2">str2</dfn>, <span class='typedef' title='size_t' data-type='unsigned long' data-ref="size_t">size_t</span> <dfn class="local col9 decl" id="159len" title='len' data-type='size_t' data-ref="159len">len</dfn>);</td></tr>
+<tr><th id="428">428</th><td></td></tr>
+<tr><th id="429">429</th><td><b>extern</b> <a class="macro" href="begin_code.h.html#66" title="__attribute__ ((visibility(&quot;default&quot;)))" data-ref="_M/DECLSPEC">DECLSPEC</a> <em>int</em> <a class="macro" href="begin_code.h.html#78" title="" data-ref="_M/SDLCALL">SDLCALL</a> <dfn class="decl" id="SDL_sscanf" title='SDL_sscanf' data-ref="SDL_sscanf">SDL_sscanf</dfn>(<em>const</em> <em>char</em> *<dfn class="local col0 decl" id="160text" title='text' data-type='const char *' data-ref="160text">text</dfn>, <a class="macro" href="#249" title="" data-ref="_M/SDL_SCANF_FORMAT_STRING">SDL_SCANF_FORMAT_STRING</a> <em>const</em> <em>char</em> *<dfn class="local col1 decl" id="161fmt" title='fmt' data-type='const char *' data-ref="161fmt">fmt</dfn>, ...) <a class="macro" href="#253" title="__attribute__ (( format( __scanf__, 2, 2+1 )))" data-ref="_M/SDL_SCANF_VARARG_FUNC">SDL_SCANF_VARARG_FUNC</a>(<var>2</var>);</td></tr>
+<tr><th id="430">430</th><td><b>extern</b> <a class="macro" href="begin_code.h.html#66" title="__attribute__ ((visibility(&quot;default&quot;)))" data-ref="_M/DECLSPEC">DECLSPEC</a> <em>int</em> <a class="macro" href="begin_code.h.html#78" title="" data-ref="_M/SDLCALL">SDLCALL</a> <dfn class="decl" id="SDL_vsscanf" title='SDL_vsscanf' data-ref="SDL_vsscanf">SDL_vsscanf</dfn>(<em>const</em> <em>char</em> *<dfn class="local col2 decl" id="162text" title='text' data-type='const char *' data-ref="162text">text</dfn>, <em>const</em> <em>char</em> *<dfn class="local col3 decl" id="163fmt" title='fmt' data-type='const char *' data-ref="163fmt">fmt</dfn>, <span class='typedef' title='va_list' data-type='__gnuc_va_list' data-ref="va_list">va_list</span> <dfn class="local col4 decl" id="164ap" title='ap' data-type='struct __va_list_tag *' data-ref="164ap">ap</dfn>);</td></tr>
+<tr><th id="431">431</th><td><b>extern</b> <a class="macro" href="begin_code.h.html#66" title="__attribute__ ((visibility(&quot;default&quot;)))" data-ref="_M/DECLSPEC">DECLSPEC</a> <em>int</em> <a class="macro" href="begin_code.h.html#78" title="" data-ref="_M/SDLCALL">SDLCALL</a> <dfn class="decl" id="SDL_snprintf" title='SDL_snprintf' data-ref="SDL_snprintf">SDL_snprintf</dfn>(<a class="macro" href="#244" title="" data-ref="_M/SDL_OUT_Z_CAP">SDL_OUT_Z_CAP</a>(maxlen) <em>char</em> *<dfn class="local col5 decl" id="165text" title='text' data-type='char *' data-ref="165text">text</dfn>, <span class='typedef' title='size_t' data-type='unsigned long' data-ref="size_t">size_t</span> <dfn class="local col6 decl" id="166maxlen" title='maxlen' data-type='size_t' data-ref="166maxlen">maxlen</dfn>, <a class="macro" href="#248" title="" data-ref="_M/SDL_PRINTF_FORMAT_STRING">SDL_PRINTF_FORMAT_STRING</a> <em>const</em> <em>char</em> *<dfn class="local col7 decl" id="167fmt" title='fmt' data-type='const char *' data-ref="167fmt">fmt</dfn>, ... ) <a class="macro" href="#252" title="__attribute__ (( format( __printf__, 3, 3+1 )))" data-ref="_M/SDL_PRINTF_VARARG_FUNC">SDL_PRINTF_VARARG_FUNC</a>(<var>3</var>);</td></tr>
+<tr><th id="432">432</th><td><b>extern</b> <a class="macro" href="begin_code.h.html#66" title="__attribute__ ((visibility(&quot;default&quot;)))" data-ref="_M/DECLSPEC">DECLSPEC</a> <em>int</em> <a class="macro" href="begin_code.h.html#78" title="" data-ref="_M/SDLCALL">SDLCALL</a> <dfn class="decl" id="SDL_vsnprintf" title='SDL_vsnprintf' data-ref="SDL_vsnprintf">SDL_vsnprintf</dfn>(<a class="macro" href="#244" title="" data-ref="_M/SDL_OUT_Z_CAP">SDL_OUT_Z_CAP</a>(maxlen) <em>char</em> *<dfn class="local col8 decl" id="168text" title='text' data-type='char *' data-ref="168text">text</dfn>, <span class='typedef' title='size_t' data-type='unsigned long' data-ref="size_t">size_t</span> <dfn class="local col9 decl" id="169maxlen" title='maxlen' data-type='size_t' data-ref="169maxlen">maxlen</dfn>, <em>const</em> <em>char</em> *<dfn class="local col0 decl" id="170fmt" title='fmt' data-type='const char *' data-ref="170fmt">fmt</dfn>, <span class='typedef' title='va_list' data-type='__gnuc_va_list' data-ref="va_list">va_list</span> <dfn class="local col1 decl" id="171ap" title='ap' data-type='struct __va_list_tag *' data-ref="171ap">ap</dfn>);</td></tr>
+<tr><th id="433">433</th><td></td></tr>
+<tr><th id="434">434</th><td><u>#<span data-ppcond="434">ifndef</span> <a class="macro" href="SDL_config.h.html#141" data-ref="_M/HAVE_M_PI">HAVE_M_PI</a></u></td></tr>
+<tr><th id="435">435</th><td><u>#ifndef M_PI</u></td></tr>
+<tr><th id="436">436</th><td><u>#define M_PI    3.14159265358979323846264338327950288   /* pi */</u></td></tr>
+<tr><th id="437">437</th><td><u>#endif</u></td></tr>
+<tr><th id="438">438</th><td><u>#<span data-ppcond="434">endif</span></u></td></tr>
+<tr><th id="439">439</th><td></td></tr>
+<tr><th id="440">440</th><td><b>extern</b> <a class="macro" href="begin_code.h.html#66" title="__attribute__ ((visibility(&quot;default&quot;)))" data-ref="_M/DECLSPEC">DECLSPEC</a> <em>double</em> <a class="macro" href="begin_code.h.html#78" title="" data-ref="_M/SDLCALL">SDLCALL</a> <dfn class="decl" id="SDL_acos" title='SDL_acos' data-ref="SDL_acos">SDL_acos</dfn>(<em>double</em> <dfn class="local col2 decl" id="172x" title='x' data-type='double' data-ref="172x">x</dfn>);</td></tr>
+<tr><th id="441">441</th><td><b>extern</b> <a class="macro" href="begin_code.h.html#66" title="__attribute__ ((visibility(&quot;default&quot;)))" data-ref="_M/DECLSPEC">DECLSPEC</a> <em>double</em> <a class="macro" href="begin_code.h.html#78" title="" data-ref="_M/SDLCALL">SDLCALL</a> <dfn class="decl" id="SDL_asin" title='SDL_asin' data-ref="SDL_asin">SDL_asin</dfn>(<em>double</em> <dfn class="local col3 decl" id="173x" title='x' data-type='double' data-ref="173x">x</dfn>);</td></tr>
+<tr><th id="442">442</th><td><b>extern</b> <a class="macro" href="begin_code.h.html#66" title="__attribute__ ((visibility(&quot;default&quot;)))" data-ref="_M/DECLSPEC">DECLSPEC</a> <em>double</em> <a class="macro" href="begin_code.h.html#78" title="" data-ref="_M/SDLCALL">SDLCALL</a> <dfn class="decl" id="SDL_atan" title='SDL_atan' data-ref="SDL_atan">SDL_atan</dfn>(<em>double</em> <dfn class="local col4 decl" id="174x" title='x' data-type='double' data-ref="174x">x</dfn>);</td></tr>
+<tr><th id="443">443</th><td><b>extern</b> <a class="macro" href="begin_code.h.html#66" title="__attribute__ ((visibility(&quot;default&quot;)))" data-ref="_M/DECLSPEC">DECLSPEC</a> <em>double</em> <a class="macro" href="begin_code.h.html#78" title="" data-ref="_M/SDLCALL">SDLCALL</a> <dfn class="decl" id="SDL_atan2" title='SDL_atan2' data-ref="SDL_atan2">SDL_atan2</dfn>(<em>double</em> <dfn class="local col5 decl" id="175x" title='x' data-type='double' data-ref="175x">x</dfn>, <em>double</em> <dfn class="local col6 decl" id="176y" title='y' data-type='double' data-ref="176y">y</dfn>);</td></tr>
+<tr><th id="444">444</th><td><b>extern</b> <a class="macro" href="begin_code.h.html#66" title="__attribute__ ((visibility(&quot;default&quot;)))" data-ref="_M/DECLSPEC">DECLSPEC</a> <em>double</em> <a class="macro" href="begin_code.h.html#78" title="" data-ref="_M/SDLCALL">SDLCALL</a> <dfn class="decl" id="SDL_ceil" title='SDL_ceil' data-ref="SDL_ceil">SDL_ceil</dfn>(<em>double</em> <dfn class="local col7 decl" id="177x" title='x' data-type='double' data-ref="177x">x</dfn>);</td></tr>
+<tr><th id="445">445</th><td><b>extern</b> <a class="macro" href="begin_code.h.html#66" title="__attribute__ ((visibility(&quot;default&quot;)))" data-ref="_M/DECLSPEC">DECLSPEC</a> <em>double</em> <a class="macro" href="begin_code.h.html#78" title="" data-ref="_M/SDLCALL">SDLCALL</a> <dfn class="decl" id="SDL_copysign" title='SDL_copysign' data-ref="SDL_copysign">SDL_copysign</dfn>(<em>double</em> <dfn class="local col8 decl" id="178x" title='x' data-type='double' data-ref="178x">x</dfn>, <em>double</em> <dfn class="local col9 decl" id="179y" title='y' data-type='double' data-ref="179y">y</dfn>);</td></tr>
+<tr><th id="446">446</th><td><b>extern</b> <a class="macro" href="begin_code.h.html#66" title="__attribute__ ((visibility(&quot;default&quot;)))" data-ref="_M/DECLSPEC">DECLSPEC</a> <em>double</em> <a class="macro" href="begin_code.h.html#78" title="" data-ref="_M/SDLCALL">SDLCALL</a> <dfn class="decl" id="SDL_cos" title='SDL_cos' data-ref="SDL_cos">SDL_cos</dfn>(<em>double</em> <dfn class="local col0 decl" id="180x" title='x' data-type='double' data-ref="180x">x</dfn>);</td></tr>
+<tr><th id="447">447</th><td><b>extern</b> <a class="macro" href="begin_code.h.html#66" title="__attribute__ ((visibility(&quot;default&quot;)))" data-ref="_M/DECLSPEC">DECLSPEC</a> <em>float</em> <a class="macro" href="begin_code.h.html#78" title="" data-ref="_M/SDLCALL">SDLCALL</a> <dfn class="decl" id="SDL_cosf" title='SDL_cosf' data-ref="SDL_cosf">SDL_cosf</dfn>(<em>float</em> <dfn class="local col1 decl" id="181x" title='x' data-type='float' data-ref="181x">x</dfn>);</td></tr>
+<tr><th id="448">448</th><td><b>extern</b> <a class="macro" href="begin_code.h.html#66" title="__attribute__ ((visibility(&quot;default&quot;)))" data-ref="_M/DECLSPEC">DECLSPEC</a> <em>double</em> <a class="macro" href="begin_code.h.html#78" title="" data-ref="_M/SDLCALL">SDLCALL</a> <dfn class="decl" id="SDL_fabs" title='SDL_fabs' data-ref="SDL_fabs">SDL_fabs</dfn>(<em>double</em> <dfn class="local col2 decl" id="182x" title='x' data-type='double' data-ref="182x">x</dfn>);</td></tr>
+<tr><th id="449">449</th><td><b>extern</b> <a class="macro" href="begin_code.h.html#66" title="__attribute__ ((visibility(&quot;default&quot;)))" data-ref="_M/DECLSPEC">DECLSPEC</a> <em>double</em> <a class="macro" href="begin_code.h.html#78" title="" data-ref="_M/SDLCALL">SDLCALL</a> <dfn class="decl" id="SDL_floor" title='SDL_floor' data-ref="SDL_floor">SDL_floor</dfn>(<em>double</em> <dfn class="local col3 decl" id="183x" title='x' data-type='double' data-ref="183x">x</dfn>);</td></tr>
+<tr><th id="450">450</th><td><b>extern</b> <a class="macro" href="begin_code.h.html#66" title="__attribute__ ((visibility(&quot;default&quot;)))" data-ref="_M/DECLSPEC">DECLSPEC</a> <em>double</em> <a class="macro" href="begin_code.h.html#78" title="" data-ref="_M/SDLCALL">SDLCALL</a> <dfn class="decl" id="SDL_log" title='SDL_log' data-ref="SDL_log">SDL_log</dfn>(<em>double</em> <dfn class="local col4 decl" id="184x" title='x' data-type='double' data-ref="184x">x</dfn>);</td></tr>
+<tr><th id="451">451</th><td><b>extern</b> <a class="macro" href="begin_code.h.html#66" title="__attribute__ ((visibility(&quot;default&quot;)))" data-ref="_M/DECLSPEC">DECLSPEC</a> <em>double</em> <a class="macro" href="begin_code.h.html#78" title="" data-ref="_M/SDLCALL">SDLCALL</a> <dfn class="decl" id="SDL_pow" title='SDL_pow' data-ref="SDL_pow">SDL_pow</dfn>(<em>double</em> <dfn class="local col5 decl" id="185x" title='x' data-type='double' data-ref="185x">x</dfn>, <em>double</em> <dfn class="local col6 decl" id="186y" title='y' data-type='double' data-ref="186y">y</dfn>);</td></tr>
+<tr><th id="452">452</th><td><b>extern</b> <a class="macro" href="begin_code.h.html#66" title="__attribute__ ((visibility(&quot;default&quot;)))" data-ref="_M/DECLSPEC">DECLSPEC</a> <em>double</em> <a class="macro" href="begin_code.h.html#78" title="" data-ref="_M/SDLCALL">SDLCALL</a> <dfn class="decl" id="SDL_scalbn" title='SDL_scalbn' data-ref="SDL_scalbn">SDL_scalbn</dfn>(<em>double</em> <dfn class="local col7 decl" id="187x" title='x' data-type='double' data-ref="187x">x</dfn>, <em>int</em> <dfn class="local col8 decl" id="188n" title='n' data-type='int' data-ref="188n">n</dfn>);</td></tr>
+<tr><th id="453">453</th><td><b>extern</b> <a class="macro" href="begin_code.h.html#66" title="__attribute__ ((visibility(&quot;default&quot;)))" data-ref="_M/DECLSPEC">DECLSPEC</a> <em>double</em> <a class="macro" href="begin_code.h.html#78" title="" data-ref="_M/SDLCALL">SDLCALL</a> <dfn class="decl" id="SDL_sin" title='SDL_sin' data-ref="SDL_sin">SDL_sin</dfn>(<em>double</em> <dfn class="local col9 decl" id="189x" title='x' data-type='double' data-ref="189x">x</dfn>);</td></tr>
+<tr><th id="454">454</th><td><b>extern</b> <a class="macro" href="begin_code.h.html#66" title="__attribute__ ((visibility(&quot;default&quot;)))" data-ref="_M/DECLSPEC">DECLSPEC</a> <em>float</em> <a class="macro" href="begin_code.h.html#78" title="" data-ref="_M/SDLCALL">SDLCALL</a> <dfn class="decl" id="SDL_sinf" title='SDL_sinf' data-ref="SDL_sinf">SDL_sinf</dfn>(<em>float</em> <dfn class="local col0 decl" id="190x" title='x' data-type='float' data-ref="190x">x</dfn>);</td></tr>
+<tr><th id="455">455</th><td><b>extern</b> <a class="macro" href="begin_code.h.html#66" title="__attribute__ ((visibility(&quot;default&quot;)))" data-ref="_M/DECLSPEC">DECLSPEC</a> <em>double</em> <a class="macro" href="begin_code.h.html#78" title="" data-ref="_M/SDLCALL">SDLCALL</a> <dfn class="decl" id="SDL_sqrt" title='SDL_sqrt' data-ref="SDL_sqrt">SDL_sqrt</dfn>(<em>double</em> <dfn class="local col1 decl" id="191x" title='x' data-type='double' data-ref="191x">x</dfn>);</td></tr>
+<tr><th id="456">456</th><td><b>extern</b> <a class="macro" href="begin_code.h.html#66" title="__attribute__ ((visibility(&quot;default&quot;)))" data-ref="_M/DECLSPEC">DECLSPEC</a> <em>float</em> <a class="macro" href="begin_code.h.html#78" title="" data-ref="_M/SDLCALL">SDLCALL</a> <dfn class="decl" id="SDL_sqrtf" title='SDL_sqrtf' data-ref="SDL_sqrtf">SDL_sqrtf</dfn>(<em>float</em> <dfn class="local col2 decl" id="192x" title='x' data-type='float' data-ref="192x">x</dfn>);</td></tr>
+<tr><th id="457">457</th><td><b>extern</b> <a class="macro" href="begin_code.h.html#66" title="__attribute__ ((visibility(&quot;default&quot;)))" data-ref="_M/DECLSPEC">DECLSPEC</a> <em>double</em> <a class="macro" href="begin_code.h.html#78" title="" data-ref="_M/SDLCALL">SDLCALL</a> <dfn class="decl" id="SDL_tan" title='SDL_tan' data-ref="SDL_tan">SDL_tan</dfn>(<em>double</em> <dfn class="local col3 decl" id="193x" title='x' data-type='double' data-ref="193x">x</dfn>);</td></tr>
+<tr><th id="458">458</th><td><b>extern</b> <a class="macro" href="begin_code.h.html#66" title="__attribute__ ((visibility(&quot;default&quot;)))" data-ref="_M/DECLSPEC">DECLSPEC</a> <em>float</em> <a class="macro" href="begin_code.h.html#78" title="" data-ref="_M/SDLCALL">SDLCALL</a> <dfn class="decl" id="SDL_tanf" title='SDL_tanf' data-ref="SDL_tanf">SDL_tanf</dfn>(<em>float</em> <dfn class="local col4 decl" id="194x" title='x' data-type='float' data-ref="194x">x</dfn>);</td></tr>
+<tr><th id="459">459</th><td></td></tr>
+<tr><th id="460">460</th><td><i>/* The SDL implementation of iconv() returns these error codes */</i></td></tr>
+<tr><th id="461">461</th><td><u>#define <dfn class="macro" id="_M/SDL_ICONV_ERROR" data-ref="_M/SDL_ICONV_ERROR">SDL_ICONV_ERROR</dfn>     (size_t)-1</u></td></tr>
+<tr><th id="462">462</th><td><u>#define <dfn class="macro" id="_M/SDL_ICONV_E2BIG" data-ref="_M/SDL_ICONV_E2BIG">SDL_ICONV_E2BIG</dfn>     (size_t)-2</u></td></tr>
+<tr><th id="463">463</th><td><u>#define <dfn class="macro" id="_M/SDL_ICONV_EILSEQ" data-ref="_M/SDL_ICONV_EILSEQ">SDL_ICONV_EILSEQ</dfn>    (size_t)-3</u></td></tr>
+<tr><th id="464">464</th><td><u>#define <dfn class="macro" id="_M/SDL_ICONV_EINVAL" data-ref="_M/SDL_ICONV_EINVAL">SDL_ICONV_EINVAL</dfn>    (size_t)-4</u></td></tr>
+<tr><th id="465">465</th><td></td></tr>
+<tr><th id="466">466</th><td><i>/* SDL_iconv_* are now always real symbols/types, not macros or inlined. */</i></td></tr>
+<tr><th id="467">467</th><td><b>typedef</b> <b>struct</b> <dfn class="type" id="_SDL_iconv_t" title='_SDL_iconv_t' data-ref="_SDL_iconv_t"><a class="type" href="#_SDL_iconv_t" title='_SDL_iconv_t' data-ref="_SDL_iconv_t">_SDL_iconv_t</a></dfn> *<dfn class="typedef" id="SDL_iconv_t" title='SDL_iconv_t' data-type='struct _SDL_iconv_t *' data-ref="SDL_iconv_t">SDL_iconv_t</dfn>;</td></tr>
+<tr><th id="468">468</th><td><b>extern</b> <a class="macro" href="begin_code.h.html#66" title="__attribute__ ((visibility(&quot;default&quot;)))" data-ref="_M/DECLSPEC">DECLSPEC</a> <a class="typedef" href="#SDL_iconv_t" title='SDL_iconv_t' data-type='struct _SDL_iconv_t *' data-ref="SDL_iconv_t">SDL_iconv_t</a> <a class="macro" href="begin_code.h.html#78" title="" data-ref="_M/SDLCALL">SDLCALL</a> <dfn class="decl" id="SDL_iconv_open" title='SDL_iconv_open' data-ref="SDL_iconv_open">SDL_iconv_open</dfn>(<em>const</em> <em>char</em> *<dfn class="local col5 decl" id="195tocode" title='tocode' data-type='const char *' data-ref="195tocode">tocode</dfn>,</td></tr>
+<tr><th id="469">469</th><td>                                                   <em>const</em> <em>char</em> *<dfn class="local col6 decl" id="196fromcode" title='fromcode' data-type='const char *' data-ref="196fromcode">fromcode</dfn>);</td></tr>
+<tr><th id="470">470</th><td><b>extern</b> <a class="macro" href="begin_code.h.html#66" title="__attribute__ ((visibility(&quot;default&quot;)))" data-ref="_M/DECLSPEC">DECLSPEC</a> <em>int</em> <a class="macro" href="begin_code.h.html#78" title="" data-ref="_M/SDLCALL">SDLCALL</a> <dfn class="decl" id="SDL_iconv_close" title='SDL_iconv_close' data-ref="SDL_iconv_close">SDL_iconv_close</dfn>(<a class="typedef" href="#SDL_iconv_t" title='SDL_iconv_t' data-type='struct _SDL_iconv_t *' data-ref="SDL_iconv_t">SDL_iconv_t</a> <dfn class="local col7 decl" id="197cd" title='cd' data-type='SDL_iconv_t' data-ref="197cd">cd</dfn>);</td></tr>
+<tr><th id="471">471</th><td><b>extern</b> <a class="macro" href="begin_code.h.html#66" title="__attribute__ ((visibility(&quot;default&quot;)))" data-ref="_M/DECLSPEC">DECLSPEC</a> <span class='typedef' title='size_t' data-type='unsigned long' data-ref="size_t">size_t</span> <a class="macro" href="begin_code.h.html#78" title="" data-ref="_M/SDLCALL">SDLCALL</a> <dfn class="decl" id="SDL_iconv" title='SDL_iconv' data-ref="SDL_iconv">SDL_iconv</dfn>(<a class="typedef" href="#SDL_iconv_t" title='SDL_iconv_t' data-type='struct _SDL_iconv_t *' data-ref="SDL_iconv_t">SDL_iconv_t</a> <dfn class="local col8 decl" id="198cd" title='cd' data-type='SDL_iconv_t' data-ref="198cd">cd</dfn>, <em>const</em> <em>char</em> **<dfn class="local col9 decl" id="199inbuf" title='inbuf' data-type='const char **' data-ref="199inbuf">inbuf</dfn>,</td></tr>
+<tr><th id="472">472</th><td>                                         <span class='typedef' title='size_t' data-type='unsigned long' data-ref="size_t">size_t</span> * <dfn class="local col0 decl" id="200inbytesleft" title='inbytesleft' data-type='size_t *' data-ref="200inbytesleft">inbytesleft</dfn>, <em>char</em> **<dfn class="local col1 decl" id="201outbuf" title='outbuf' data-type='char **' data-ref="201outbuf">outbuf</dfn>,</td></tr>
+<tr><th id="473">473</th><td>                                         <span class='typedef' title='size_t' data-type='unsigned long' data-ref="size_t">size_t</span> * <dfn class="local col2 decl" id="202outbytesleft" title='outbytesleft' data-type='size_t *' data-ref="202outbytesleft">outbytesleft</dfn>);</td></tr>
+<tr><th id="474">474</th><td><i class="doc">/**</i></td></tr>
+<tr><th id="475">475</th><td><i class="doc"> *  This function converts a string between encodings in one pass, returning a</i></td></tr>
+<tr><th id="476">476</th><td><i class="doc"> *  string that must be freed with SDL_free() or NULL on error.</i></td></tr>
+<tr><th id="477">477</th><td><i class="doc"> */</i></td></tr>
+<tr><th id="478">478</th><td><b>extern</b> <a class="macro" href="begin_code.h.html#66" title="__attribute__ ((visibility(&quot;default&quot;)))" data-ref="_M/DECLSPEC">DECLSPEC</a> <em>char</em> *<a class="macro" href="begin_code.h.html#78" title="" data-ref="_M/SDLCALL">SDLCALL</a> <dfn class="decl" id="SDL_iconv_string" title='SDL_iconv_string' data-ref="SDL_iconv_string">SDL_iconv_string</dfn>(<em>const</em> <em>char</em> *<dfn class="local col3 decl" id="203tocode" title='tocode' data-type='const char *' data-ref="203tocode">tocode</dfn>,</td></tr>
+<tr><th id="479">479</th><td>                                               <em>const</em> <em>char</em> *<dfn class="local col4 decl" id="204fromcode" title='fromcode' data-type='const char *' data-ref="204fromcode">fromcode</dfn>,</td></tr>
+<tr><th id="480">480</th><td>                                               <em>const</em> <em>char</em> *<dfn class="local col5 decl" id="205inbuf" title='inbuf' data-type='const char *' data-ref="205inbuf">inbuf</dfn>,</td></tr>
+<tr><th id="481">481</th><td>                                               <span class='typedef' title='size_t' data-type='unsigned long' data-ref="size_t">size_t</span> <dfn class="local col6 decl" id="206inbytesleft" title='inbytesleft' data-type='size_t' data-ref="206inbytesleft">inbytesleft</dfn>);</td></tr>
+<tr><th id="482">482</th><td><u>#define <dfn class="macro" id="_M/SDL_iconv_utf8_locale" data-ref="_M/SDL_iconv_utf8_locale">SDL_iconv_utf8_locale</dfn>(S)    SDL_iconv_string("", "UTF-8", S, SDL_strlen(S)+1)</u></td></tr>
+<tr><th id="483">483</th><td><u>#define <dfn class="macro" id="_M/SDL_iconv_utf8_ucs2" data-ref="_M/SDL_iconv_utf8_ucs2">SDL_iconv_utf8_ucs2</dfn>(S)      (Uint16 *)SDL_iconv_string("UCS-2-INTERNAL", "UTF-8", S, SDL_strlen(S)+1)</u></td></tr>
+<tr><th id="484">484</th><td><u>#define <dfn class="macro" id="_M/SDL_iconv_utf8_ucs4" data-ref="_M/SDL_iconv_utf8_ucs4">SDL_iconv_utf8_ucs4</dfn>(S)      (Uint32 *)SDL_iconv_string("UCS-4-INTERNAL", "UTF-8", S, SDL_strlen(S)+1)</u></td></tr>
+<tr><th id="485">485</th><td></td></tr>
+<tr><th id="486">486</th><td><i>/* force builds using Clang's static analysis tools to use literal C runtime</i></td></tr>
+<tr><th id="487">487</th><td><i>   here, since there are possibly tests that are ineffective otherwise. */</i></td></tr>
+<tr><th id="488">488</th><td><u>#<span data-ppcond="488">if</span> defined(<span class="macro" data-ref="_M/__clang_analyzer__">__clang_analyzer__</span>) &amp;&amp; !defined(<span class="macro" data-ref="_M/SDL_DISABLE_ANALYZE_MACROS">SDL_DISABLE_ANALYZE_MACROS</span>)</u></td></tr>
+<tr><th id="489">489</th><td><u>#define SDL_malloc malloc</u></td></tr>
+<tr><th id="490">490</th><td><u>#define SDL_calloc calloc</u></td></tr>
+<tr><th id="491">491</th><td><u>#define SDL_realloc realloc</u></td></tr>
+<tr><th id="492">492</th><td><u>#define SDL_free free</u></td></tr>
+<tr><th id="493">493</th><td><u>#define SDL_memset memset</u></td></tr>
+<tr><th id="494">494</th><td><u>#define SDL_memcpy memcpy</u></td></tr>
+<tr><th id="495">495</th><td><u>#define SDL_memmove memmove</u></td></tr>
+<tr><th id="496">496</th><td><u>#define SDL_memcmp memcmp</u></td></tr>
+<tr><th id="497">497</th><td><u>#define SDL_strlen strlen</u></td></tr>
+<tr><th id="498">498</th><td><u>#define SDL_strlcpy strlcpy</u></td></tr>
+<tr><th id="499">499</th><td><u>#define SDL_strlcat strlcat</u></td></tr>
+<tr><th id="500">500</th><td><u>#define SDL_strdup strdup</u></td></tr>
+<tr><th id="501">501</th><td><u>#define SDL_strchr strchr</u></td></tr>
+<tr><th id="502">502</th><td><u>#define SDL_strrchr strrchr</u></td></tr>
+<tr><th id="503">503</th><td><u>#define SDL_strstr strstr</u></td></tr>
+<tr><th id="504">504</th><td><u>#define SDL_strcmp strcmp</u></td></tr>
+<tr><th id="505">505</th><td><u>#define SDL_strncmp strncmp</u></td></tr>
+<tr><th id="506">506</th><td><u>#define SDL_strcasecmp strcasecmp</u></td></tr>
+<tr><th id="507">507</th><td><u>#define SDL_strncasecmp strncasecmp</u></td></tr>
+<tr><th id="508">508</th><td><u>#define SDL_sscanf sscanf</u></td></tr>
+<tr><th id="509">509</th><td><u>#define SDL_vsscanf vsscanf</u></td></tr>
+<tr><th id="510">510</th><td><u>#define SDL_snprintf snprintf</u></td></tr>
+<tr><th id="511">511</th><td><u>#define SDL_vsnprintf vsnprintf</u></td></tr>
+<tr><th id="512">512</th><td><u>#<span data-ppcond="488">endif</span></u></td></tr>
+<tr><th id="513">513</th><td></td></tr>
+<tr><th id="514">514</th><td><a class="macro" href="begin_code.h.html#131" title="__attribute__((always_inline)) static __inline__" data-ref="_M/SDL_FORCE_INLINE">SDL_FORCE_INLINE</a> <em>void</em> *<dfn class="decl def" id="SDL_memcpy4" title='SDL_memcpy4' data-ref="SDL_memcpy4">SDL_memcpy4</dfn>(<a class="macro" href="#246" title="" data-ref="_M/SDL_OUT_BYTECAP">SDL_OUT_BYTECAP</a>(dwords*<var>4</var>) <em>void</em> *<dfn class="local col7 decl" id="207dst" title='dst' data-type='void *' data-ref="207dst">dst</dfn>, <a class="macro" href="#242" title="" data-ref="_M/SDL_IN_BYTECAP">SDL_IN_BYTECAP</a>(dwords*<var>4</var>) <em>const</em> <em>void</em> *<dfn class="local col8 decl" id="208src" title='src' data-type='const void *' data-ref="208src">src</dfn>, <span class='typedef' title='size_t' data-type='unsigned long' data-ref="size_t">size_t</span> <dfn class="local col9 decl" id="209dwords" title='dwords' data-type='size_t' data-ref="209dwords">dwords</dfn>)</td></tr>
+<tr><th id="515">515</th><td>{</td></tr>
+<tr><th id="516">516</th><td>    <b>return</b> <a class="ref" href="#SDL_memcpy" title='SDL_memcpy' data-ref="SDL_memcpy">SDL_memcpy</a>(<a class="local col7 ref" href="#207dst" title='dst' data-ref="207dst">dst</a>, <a class="local col8 ref" href="#208src" title='src' data-ref="208src">src</a>, <a class="local col9 ref" href="#209dwords" title='dwords' data-ref="209dwords">dwords</a> * <var>4</var>);</td></tr>
+<tr><th id="517">517</th><td>}</td></tr>
+<tr><th id="518">518</th><td></td></tr>
+<tr><th id="519">519</th><td><i>/* Ends C function definitions when using C++ */</i></td></tr>
+<tr><th id="520">520</th><td><u>#<span data-ppcond="520">ifdef</span> <span class="macro" data-ref="_M/__cplusplus">__cplusplus</span></u></td></tr>
+<tr><th id="521">521</th><td>}</td></tr>
+<tr><th id="522">522</th><td><u>#<span data-ppcond="520">endif</span></u></td></tr>
+<tr><th id="523">523</th><td><u>#include <a href="close_code.h.html">"close_code.h"</a></u></td></tr>
+<tr><th id="524">524</th><td></td></tr>
+<tr><th id="525">525</th><td><u>#<span data-ppcond="28">endif</span> /* _SDL_stdinc_h */</u></td></tr>
+<tr><th id="526">526</th><td></td></tr>
+<tr><th id="527">527</th><td><i>/* vi: set ts=4 sw=4 expandtab: */</i></td></tr>
+<tr><th id="528">528</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='../../codebrowser/code/client/cl_curl.c.html'>codebrowser/code/client/cl_curl.c</a><br/>Generated on <em>2017-Aug-29</em> from project include<br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

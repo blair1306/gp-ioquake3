@@ -1,0 +1,33 @@
+<dec f='codebrowser/code/qcommon/q_shared.h' l='827' type='char * Q_CleanStr(char * string)'/>
+<doc f='codebrowser/code/qcommon/q_shared.h' l='826'>// removes color sequences from string</doc>
+<use f='codebrowser/code/cgame/cg_info.c' l='131' u='c' c='CG_LoadingClient'/>
+<use f='codebrowser/code/cgame/cg_info.c' l='195' u='c' c='CG_DrawInformation'/>
+<use f='codebrowser/code/client/cl_main.c' l='1834' u='c' c='CL_CompletePlayerName'/>
+<use f='codebrowser/code/client/cl_main.c' l='3466' u='c' c='CL_Sayto_f'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='1402' u='c' c='ClientName'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='1435' u='c' c='ClientFromName'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='1454' u='c' c='ClientOnSameTeamFromName'/>
+<use f='codebrowser/code/game/g_cmds.c' l='220' u='c' c='ClientNumberFromString'/>
+<use f='codebrowser/code/game/g_cmds.c' l='1549' u='c' c='Cmd_CallTeamVote_f'/>
+<use f='codebrowser/code/game/g_cmds.c' l='1556' u='c' c='Cmd_CallTeamVote_f'/>
+<use f='codebrowser/code/q3_ui/ui_controls2.c' l='1632' u='c' c='Controls_MenuInit'/>
+<use f='codebrowser/code/q3_ui/ui_playermodel.c' l='467' u='c' c='PlayerModel_SetMenuItems'/>
+<use f='codebrowser/code/q3_ui/ui_playersettings.c' l='169' u='c' c='PlayerSettings_DrawName'/>
+<use f='codebrowser/code/q3_ui/ui_removebots.c' l='94' u='c' c='UI_RemoveBotsMenu_SetBotNames'/>
+<use f='codebrowser/code/q3_ui/ui_servers2.c' l='669' u='c' c='ArenaServers_Insert'/>
+<use f='codebrowser/code/q3_ui/ui_servers2.c' l='673' u='c' c='ArenaServers_Insert'/>
+<use f='codebrowser/code/q3_ui/ui_splevel.c' l='215' u='c' c='UI_SPLevelMenu_SetBots'/>
+<use f='codebrowser/code/q3_ui/ui_splevel.c' l='562' u='c' c='UI_SPLevelMenu_MenuDraw'/>
+<use f='codebrowser/code/q3_ui/ui_sppostgame.c' l='285' u='c' c='UI_SPPostgameMenu_MenuDrawScoreLine'/>
+<use f='codebrowser/code/q3_ui/ui_sppostgame.c' l='486' u='c' c='Prepname'/>
+<use f='codebrowser/code/q3_ui/ui_startserver.c' l='860' u='c' c='ServerOptions_InitPlayerItems'/>
+<use f='codebrowser/code/q3_ui/ui_startserver.c' l='1656' u='c' c='UI_BotSelectMenu_UpdateGrid'/>
+<use f='codebrowser/code/q3_ui/ui_teamorders.c' l='334' u='c' c='UI_TeamOrdersMenu_BuildBotList'/>
+<def f='codebrowser/code/qcommon/q_shared.c' l='956' ll='975' type='char * Q_CleanStr(char * string)'/>
+<use f='codebrowser/code/server/sv_ccmds.c' l='87' u='c' c='SV_GetPlayerByHandle'/>
+<use f='codebrowser/code/server/sv_ccmds.c' l='1346' u='c' c='SV_ConSayto_f'/>
+<use f='codebrowser/code/server/sv_ccmds.c' l='1503' u='c' c='SV_CompletePlayerName'/>
+<use f='codebrowser/code/ui/ui_main.c' l='1813' u='c' c='UI_BuildPlayerList'/>
+<use f='codebrowser/code/ui/ui_main.c' l='1818' u='c' c='UI_BuildPlayerList'/>
+<use f='codebrowser/code/ui/ui_main.c' l='4065' u='c' c='UI_BuildFindPlayerList'/>
+<use f='codebrowser/code/ui/ui_main.c' l='4102' u='c' c='UI_BuildFindPlayerList'/>

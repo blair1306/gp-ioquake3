@@ -1,0 +1,14 @@
+<dec f='codebrowser/code/opusfile-0.8/include/opusfile.h' l='599' type='void opus_tags_clear(OpusTags * _tags)'/>
+<doc f='codebrowser/code/opusfile-0.8/include/opusfile.h' l='594'>/**Clears the #OpusTags structure.
+   This should be called on an #OpusTags structure after it is no longer
+    needed.
+   It will free all memory used by the structure members.
+   \param _tags The #OpusTags structure to clear.*/</doc>
+<def f='codebrowser/code/opusfile-0.8/src/info.c' l='94' ll='103' type='void opus_tags_clear(OpusTags * _tags)'/>
+<use f='codebrowser/code/opusfile-0.8/src/info.c' l='227' u='c' c='opus_tags_parse'/>
+<use f='codebrowser/code/opusfile-0.8/src/info.c' l='276' u='c' c='opus_tags_copy'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='559' u='c' c='op_fetch_headers_impl'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='1471' u='c' c='op_decode_clear'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='1483' u='c' c='op_clear'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='1490' u='c' c='op_clear'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='1563' u='c' c='op_open1'/>

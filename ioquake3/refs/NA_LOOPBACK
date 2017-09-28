@@ -1,0 +1,18 @@
+<dec f='codebrowser/code/qcommon/qcommon.h' l='145' type='2'/>
+<use f='codebrowser/code/client/cl_input.c' l='697' u='r' c='CL_ReadyToSendPacket'/>
+<use f='codebrowser/code/qcommon/net_chan.c' l='458' u='r' c='NET_GetLoopPacket'/>
+<use f='codebrowser/code/qcommon/net_chan.c' l='544' u='r' c='NET_SendPacket'/>
+<use f='codebrowser/code/qcommon/net_chan.c' l='636' u='r' c='NET_StringToAdr'/>
+<use f='codebrowser/code/qcommon/net_ip.c' l='398' u='r' c='NET_CompareBaseAdrMask'/>
+<use f='codebrowser/code/qcommon/net_ip.c' l='460' u='r' c='NET_AdrToString'/>
+<use f='codebrowser/code/qcommon/net_ip.c' l='480' u='r' c='NET_AdrToStringwPort'/>
+<use f='codebrowser/code/qcommon/net_ip.c' l='511' u='r' c='NET_IsLocalAddress'/>
+<use f='codebrowser/code/qcommon/net_ip.c' l='713' u='r' c='Sys_IsLANAddress'/>
+<use f='codebrowser/code/server/sv_ccmds.c' l='389' u='r' c='SV_Kick_f'/>
+<use f='codebrowser/code/server/sv_ccmds.c' l='410' u='r' c='SV_Kick_f'/>
+<use f='codebrowser/code/server/sv_ccmds.c' l='471' u='r' c='SV_KickAll_f'/>
+<use f='codebrowser/code/server/sv_ccmds.c' l='505' u='r' c='SV_KickNum_f'/>
+<use f='codebrowser/code/server/sv_ccmds.c' l='545' u='r' c='SV_Ban_f'/>
+<use f='codebrowser/code/server/sv_ccmds.c' l='599' u='r' c='SV_BanNum_f'/>
+<use f='codebrowser/code/server/sv_init.c' l='725' u='r' c='SV_FinalMessage'/>
+<use f='codebrowser/code/server/sv_snapshot.c' l='665' u='r' c='SV_SendClientMessages'/>

@@ -1,0 +1,13 @@
+<dec f='codebrowser/code/game/g_local.h' l='347' type='int'/>
+<offset>384</offset>
+<doc f='codebrowser/code/game/g_local.h' l='347'>// level.time the map was started</doc>
+<use f='codebrowser/code/game/g_bot.c' l='797' u='r' c='Svcmd_AddBot_f'/>
+<use f='codebrowser/code/game/g_main.c' l='426' u='w' c='G_InitGame'/>
+<use f='codebrowser/code/game/g_main.c' l='1114' u='r' c='G_LogPrintf'/>
+<use f='codebrowser/code/game/g_main.c' l='1370' u='r' c='CheckExitRules'/>
+<use f='codebrowser/code/game/g_spawn.c' l='575' u='r' c='SP_worldspawn'/>
+<use f='codebrowser/code/game/g_utils.c' l='405' u='r' c='G_Spawn'/>
+<dec f='codebrowser/code/ui/ui_local.h' l='732' type='int'/>
+<offset>1024</offset>
+<use f='codebrowser/code/ui/ui_main.c' l='4131' u='r' c='UI_BuildFindPlayerList'/>
+<use f='codebrowser/code/ui/ui_main.c' l='4141' u='w' c='UI_BuildFindPlayerList'/>

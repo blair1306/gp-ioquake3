@@ -1,0 +1,16 @@
+<dec f='codebrowser/code/jpeg-8c/jpeglib.h' l='169' type='boolean'/>
+<offset>416</offset>
+<doc f='codebrowser/code/jpeg-8c/jpeglib.h' l='165'>/* This flag is used only for decompression.  In cases where some of the
+   * components will be ignored (eg grayscale output from YCbCr image),
+   * we can skip most computations for the unused components.
+   */</doc>
+<doc f='codebrowser/code/jpeg-8c/jpeglib.h' l='169'>/* do we need the value of this component? */</doc>
+<use f='codebrowser/code/jpeg-8c/jcmaster.c' l='343' u='w' c='initial_setup'/>
+<use f='codebrowser/code/jpeg-8c/jdcoefct.c' l='182' u='r' c='decompress_onepass'/>
+<use f='codebrowser/code/jpeg-8c/jdcoefct.c' l='340' u='r' c='decompress_data'/>
+<use f='codebrowser/code/jpeg-8c/jdcoefct.c' l='502' u='r' c='decompress_smooth_data'/>
+<use f='codebrowser/code/jpeg-8c/jdcolor.c' l='353' u='w' c='jinit_color_deconverter'/>
+<use f='codebrowser/code/jpeg-8c/jddctmgr.c' l='267' u='r' c='start_pass'/>
+<use f='codebrowser/code/jpeg-8c/jdhuff.c' l='1445' u='r' c='start_pass_huff_decoder'/>
+<use f='codebrowser/code/jpeg-8c/jdinput.c' l='369' u='w' c='initial_setup'/>
+<use f='codebrowser/code/jpeg-8c/jdsample.c' l='329' u='r' c='jinit_upsampler'/>

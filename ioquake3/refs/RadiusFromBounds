@@ -1,0 +1,14 @@
+<dec f='codebrowser/code/qcommon/q_shared.h' l='592' type='float RadiusFromBounds(const vec_t * mins, const vec_t * maxs)'/>
+<use f='codebrowser/code/game/g_mover.c' l='282' u='c' c='G_MoverPush'/>
+<def f='codebrowser/code/qcommon/q_math.c' l='694' ll='706' type='float RadiusFromBounds(const vec_t * mins, const vec_t * maxs)'/>
+<doc f='codebrowser/code/qcommon/q_math.c' l='689'>/*
+=================
+RadiusFromBounds
+=================
+*/</doc>
+<use f='codebrowser/code/renderergl1/tr_mesh.c' l='193' u='c' c='R_ComputeLOD'/>
+<use f='codebrowser/code/renderergl1/tr_mesh.c' l='201' u='c' c='R_ComputeLOD'/>
+<use f='codebrowser/code/renderergl2/tr_mesh.c' l='193' u='c' c='R_ComputeLOD'/>
+<use f='codebrowser/code/renderergl2/tr_mesh.c' l='202' u='c' c='R_ComputeLOD'/>
+<use f='codebrowser/code/server/sv_bot.c' l='270' u='c' c='BotImport_BSPModelMinsMaxsOrigin'/>
+<use f='codebrowser/code/server/sv_world.c' l='261' u='c' c='SV_LinkEntity'/>

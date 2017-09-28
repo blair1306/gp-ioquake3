@@ -1,0 +1,269 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>qal.h source code [codebrowser/code/client/qal.h] - Woboq Code Browser</title>
+<link rel="stylesheet" href="../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'codebrowser/code/client/qal.h'; var root_path = '../../..'; var data_path = '../../../../data';</script>
+<script src='../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../..'>codebrowser</a>/<a href='..'>code</a>/<a href='./'>client</a>/<a href='qal.h.html'>qal.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/*</i></td></tr>
+<tr><th id="2">2</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="3">3</th><td><i>Copyright (C) 1999-2005 Id Software, Inc.</i></td></tr>
+<tr><th id="4">4</th><td><i>Copyright (C) 2005 Stuart Dalton (badcdev@gmail.com)</i></td></tr>
+<tr><th id="5">5</th><td><i></i></td></tr>
+<tr><th id="6">6</th><td><i>This file is part of Quake III Arena source code.</i></td></tr>
+<tr><th id="7">7</th><td><i></i></td></tr>
+<tr><th id="8">8</th><td><i>Quake III Arena source code is free software; you can redistribute it</i></td></tr>
+<tr><th id="9">9</th><td><i>and/or modify it under the terms of the GNU General Public License as</i></td></tr>
+<tr><th id="10">10</th><td><i>published by the Free Software Foundation; either version 2 of the License,</i></td></tr>
+<tr><th id="11">11</th><td><i>or (at your option) any later version.</i></td></tr>
+<tr><th id="12">12</th><td><i></i></td></tr>
+<tr><th id="13">13</th><td><i>Quake III Arena source code is distributed in the hope that it will be</i></td></tr>
+<tr><th id="14">14</th><td><i>useful, but WITHOUT ANY WARRANTY; without even the implied warranty of</i></td></tr>
+<tr><th id="15">15</th><td><i>MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</i></td></tr>
+<tr><th id="16">16</th><td><i>GNU General Public License for more details.</i></td></tr>
+<tr><th id="17">17</th><td><i></i></td></tr>
+<tr><th id="18">18</th><td><i>You should have received a copy of the GNU General Public License</i></td></tr>
+<tr><th id="19">19</th><td><i>along with Quake III Arena source code; if not, write to the Free Software</i></td></tr>
+<tr><th id="20">20</th><td><i>Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA</i></td></tr>
+<tr><th id="21">21</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="22">22</th><td><i>*/</i></td></tr>
+<tr><th id="23">23</th><td></td></tr>
+<tr><th id="24">24</th><td></td></tr>
+<tr><th id="25">25</th><td><u>#<span data-ppcond="25">ifndef</span> <span class="macro" data-ref="_M/__QAL_H__">__QAL_H__</span></u></td></tr>
+<tr><th id="26">26</th><td><u>#define <dfn class="macro" id="_M/__QAL_H__" data-ref="_M/__QAL_H__">__QAL_H__</dfn></u></td></tr>
+<tr><th id="27">27</th><td></td></tr>
+<tr><th id="28">28</th><td><u>#include <a href="../qcommon/q_shared.h.html">"../qcommon/q_shared.h"</a></u></td></tr>
+<tr><th id="29">29</th><td><u>#include <a href="../qcommon/qcommon.h.html">"../qcommon/qcommon.h"</a></u></td></tr>
+<tr><th id="30">30</th><td></td></tr>
+<tr><th id="31">31</th><td><u>#<span data-ppcond="31">ifdef</span> <span class="macro" data-ref="_M/USE_OPENAL_DLOPEN">USE_OPENAL_DLOPEN</span></u></td></tr>
+<tr><th id="32">32</th><td><u>#define <dfn class="macro" id="_M/AL_NO_PROTOTYPES" data-ref="_M/AL_NO_PROTOTYPES">AL_NO_PROTOTYPES</dfn></u></td></tr>
+<tr><th id="33">33</th><td><u>#define <dfn class="macro" id="_M/ALC_NO_PROTOTYPES" data-ref="_M/ALC_NO_PROTOTYPES">ALC_NO_PROTOTYPES</dfn></u></td></tr>
+<tr><th id="34">34</th><td><u>#<span data-ppcond="31">endif</span></u></td></tr>
+<tr><th id="35">35</th><td></td></tr>
+<tr><th id="36">36</th><td><u>#<span data-ppcond="36">ifdef</span> <span class="macro" data-ref="_M/USE_LOCAL_HEADERS">USE_LOCAL_HEADERS</span></u></td></tr>
+<tr><th id="37">37</th><td><u>#include <a href="../AL/al.h.html">"../AL/al.h"</a></u></td></tr>
+<tr><th id="38">38</th><td><u>#include <a href="../AL/alc.h.html">"../AL/alc.h"</a></u></td></tr>
+<tr><th id="39">39</th><td><u>#<span data-ppcond="36">else</span></u></td></tr>
+<tr><th id="40">40</th><td><u>#if defined(_MSC_VER) || defined(__APPLE__)</u></td></tr>
+<tr><th id="41">41</th><td>  <i>// MSVC users must install the OpenAL SDK which doesn't use the AL/*.h scheme.</i></td></tr>
+<tr><th id="42">42</th><td><i>  // OSX framework also needs this</i></td></tr>
+<tr><th id="43">43</th><td>  <u>#include &lt;al.h&gt;</u></td></tr>
+<tr><th id="44">44</th><td>  <u>#include &lt;alc.h&gt;</u></td></tr>
+<tr><th id="45">45</th><td><u>#else</u></td></tr>
+<tr><th id="46">46</th><td>  <u>#include &lt;AL/al.h&gt;</u></td></tr>
+<tr><th id="47">47</th><td>  <u>#include &lt;AL/alc.h&gt;</u></td></tr>
+<tr><th id="48">48</th><td><u>#endif</u></td></tr>
+<tr><th id="49">49</th><td><u>#<span data-ppcond="36">endif</span></u></td></tr>
+<tr><th id="50">50</th><td></td></tr>
+<tr><th id="51">51</th><td><i>/* Hack to enable compiling both on OpenAL SDK and OpenAL-soft. */</i></td></tr>
+<tr><th id="52">52</th><td><u>#<span data-ppcond="52">ifndef</span> <a class="macro" href="../AL/alc.h.html#157" data-ref="_M/ALC_ENUMERATE_ALL_EXT">ALC_ENUMERATE_ALL_EXT</a></u></td></tr>
+<tr><th id="53">53</th><td><u>#  define ALC_ENUMERATE_ALL_EXT 1</u></td></tr>
+<tr><th id="54">54</th><td><u>#  define ALC_DEFAULT_ALL_DEVICES_SPECIFIER        0x1012</u></td></tr>
+<tr><th id="55">55</th><td><u>#  define ALC_ALL_DEVICES_SPECIFIER                0x1013</u></td></tr>
+<tr><th id="56">56</th><td><u>#<span data-ppcond="52">endif</span></u></td></tr>
+<tr><th id="57">57</th><td></td></tr>
+<tr><th id="58">58</th><td><u>#<span data-ppcond="58">ifdef</span> <span class="macro" data-ref="_M/USE_OPENAL_DLOPEN">USE_OPENAL_DLOPEN</span></u></td></tr>
+<tr><th id="59">59</th><td><b>extern</b> <a class="typedef" href="../AL/al.h.html#LPALENABLE" title='LPALENABLE' data-type='void (*)(ALenum)' data-ref="LPALENABLE">LPALENABLE</a> <dfn class="decl" id="qalEnable" title='qalEnable' data-ref="qalEnable">qalEnable</dfn>;</td></tr>
+<tr><th id="60">60</th><td><b>extern</b> <a class="typedef" href="../AL/al.h.html#LPALDISABLE" title='LPALDISABLE' data-type='void (*)(ALenum)' data-ref="LPALDISABLE">LPALDISABLE</a> <dfn class="decl" id="qalDisable" title='qalDisable' data-ref="qalDisable">qalDisable</dfn>;</td></tr>
+<tr><th id="61">61</th><td><b>extern</b> <a class="typedef" href="../AL/al.h.html#LPALISENABLED" title='LPALISENABLED' data-type='ALboolean (*)(ALenum)' data-ref="LPALISENABLED">LPALISENABLED</a> <dfn class="decl" id="qalIsEnabled" title='qalIsEnabled' data-ref="qalIsEnabled">qalIsEnabled</dfn>;</td></tr>
+<tr><th id="62">62</th><td><b>extern</b> <a class="typedef" href="../AL/al.h.html#LPALGETSTRING" title='LPALGETSTRING' data-type='const ALchar *(*)(ALenum)' data-ref="LPALGETSTRING">LPALGETSTRING</a> <dfn class="decl" id="qalGetString" title='qalGetString' data-ref="qalGetString">qalGetString</dfn>;</td></tr>
+<tr><th id="63">63</th><td><b>extern</b> <a class="typedef" href="../AL/al.h.html#LPALGETBOOLEANV" title='LPALGETBOOLEANV' data-type='void (*)(ALenum, ALboolean *)' data-ref="LPALGETBOOLEANV">LPALGETBOOLEANV</a> <dfn class="decl" id="qalGetBooleanv" title='qalGetBooleanv' data-ref="qalGetBooleanv">qalGetBooleanv</dfn>;</td></tr>
+<tr><th id="64">64</th><td><b>extern</b> <a class="typedef" href="../AL/al.h.html#LPALGETINTEGERV" title='LPALGETINTEGERV' data-type='void (*)(ALenum, ALint *)' data-ref="LPALGETINTEGERV">LPALGETINTEGERV</a> <dfn class="decl" id="qalGetIntegerv" title='qalGetIntegerv' data-ref="qalGetIntegerv">qalGetIntegerv</dfn>;</td></tr>
+<tr><th id="65">65</th><td><b>extern</b> <a class="typedef" href="../AL/al.h.html#LPALGETFLOATV" title='LPALGETFLOATV' data-type='void (*)(ALenum, ALfloat *)' data-ref="LPALGETFLOATV">LPALGETFLOATV</a> <dfn class="decl" id="qalGetFloatv" title='qalGetFloatv' data-ref="qalGetFloatv">qalGetFloatv</dfn>;</td></tr>
+<tr><th id="66">66</th><td><b>extern</b> <a class="typedef" href="../AL/al.h.html#LPALGETDOUBLEV" title='LPALGETDOUBLEV' data-type='void (*)(ALenum, ALdouble *)' data-ref="LPALGETDOUBLEV">LPALGETDOUBLEV</a> <dfn class="decl" id="qalGetDoublev" title='qalGetDoublev' data-ref="qalGetDoublev">qalGetDoublev</dfn>;</td></tr>
+<tr><th id="67">67</th><td><b>extern</b> <a class="typedef" href="../AL/al.h.html#LPALGETBOOLEAN" title='LPALGETBOOLEAN' data-type='ALboolean (*)(ALenum)' data-ref="LPALGETBOOLEAN">LPALGETBOOLEAN</a> <dfn class="decl" id="qalGetBoolean" title='qalGetBoolean' data-ref="qalGetBoolean">qalGetBoolean</dfn>;</td></tr>
+<tr><th id="68">68</th><td><b>extern</b> <a class="typedef" href="../AL/al.h.html#LPALGETINTEGER" title='LPALGETINTEGER' data-type='ALint (*)(ALenum)' data-ref="LPALGETINTEGER">LPALGETINTEGER</a> <dfn class="decl" id="qalGetInteger" title='qalGetInteger' data-ref="qalGetInteger">qalGetInteger</dfn>;</td></tr>
+<tr><th id="69">69</th><td><b>extern</b> <a class="typedef" href="../AL/al.h.html#LPALGETFLOAT" title='LPALGETFLOAT' data-type='ALfloat (*)(ALenum)' data-ref="LPALGETFLOAT">LPALGETFLOAT</a> <dfn class="decl" id="qalGetFloat" title='qalGetFloat' data-ref="qalGetFloat">qalGetFloat</dfn>;</td></tr>
+<tr><th id="70">70</th><td><b>extern</b> <a class="typedef" href="../AL/al.h.html#LPALGETDOUBLE" title='LPALGETDOUBLE' data-type='ALdouble (*)(ALenum)' data-ref="LPALGETDOUBLE">LPALGETDOUBLE</a> <dfn class="decl" id="qalGetDouble" title='qalGetDouble' data-ref="qalGetDouble">qalGetDouble</dfn>;</td></tr>
+<tr><th id="71">71</th><td><b>extern</b> <a class="typedef" href="../AL/al.h.html#LPALGETERROR" title='LPALGETERROR' data-type='ALenum (*)(void)' data-ref="LPALGETERROR">LPALGETERROR</a> <dfn class="decl" id="qalGetError" title='qalGetError' data-ref="qalGetError">qalGetError</dfn>;</td></tr>
+<tr><th id="72">72</th><td><b>extern</b> <a class="typedef" href="../AL/al.h.html#LPALISEXTENSIONPRESENT" title='LPALISEXTENSIONPRESENT' data-type='ALboolean (*)(const ALchar *)' data-ref="LPALISEXTENSIONPRESENT">LPALISEXTENSIONPRESENT</a> <dfn class="decl" id="qalIsExtensionPresent" title='qalIsExtensionPresent' data-ref="qalIsExtensionPresent">qalIsExtensionPresent</dfn>;</td></tr>
+<tr><th id="73">73</th><td><b>extern</b> <a class="typedef" href="../AL/al.h.html#LPALGETPROCADDRESS" title='LPALGETPROCADDRESS' data-type='void *(*)(const ALchar *)' data-ref="LPALGETPROCADDRESS">LPALGETPROCADDRESS</a> <dfn class="decl" id="qalGetProcAddress" title='qalGetProcAddress' data-ref="qalGetProcAddress">qalGetProcAddress</dfn>;</td></tr>
+<tr><th id="74">74</th><td><b>extern</b> <a class="typedef" href="../AL/al.h.html#LPALGETENUMVALUE" title='LPALGETENUMVALUE' data-type='ALenum (*)(const ALchar *)' data-ref="LPALGETENUMVALUE">LPALGETENUMVALUE</a> <dfn class="decl" id="qalGetEnumValue" title='qalGetEnumValue' data-ref="qalGetEnumValue">qalGetEnumValue</dfn>;</td></tr>
+<tr><th id="75">75</th><td><b>extern</b> <a class="typedef" href="../AL/al.h.html#LPALLISTENERF" title='LPALLISTENERF' data-type='void (*)(ALenum, ALfloat)' data-ref="LPALLISTENERF">LPALLISTENERF</a> <dfn class="decl" id="qalListenerf" title='qalListenerf' data-ref="qalListenerf">qalListenerf</dfn>;</td></tr>
+<tr><th id="76">76</th><td><b>extern</b> <a class="typedef" href="../AL/al.h.html#LPALLISTENER3F" title='LPALLISTENER3F' data-type='void (*)(ALenum, ALfloat, ALfloat, ALfloat)' data-ref="LPALLISTENER3F">LPALLISTENER3F</a> <dfn class="decl" id="qalListener3f" title='qalListener3f' data-ref="qalListener3f">qalListener3f</dfn>;</td></tr>
+<tr><th id="77">77</th><td><b>extern</b> <a class="typedef" href="../AL/al.h.html#LPALLISTENERFV" title='LPALLISTENERFV' data-type='void (*)(ALenum, const ALfloat *)' data-ref="LPALLISTENERFV">LPALLISTENERFV</a> <dfn class="decl" id="qalListenerfv" title='qalListenerfv' data-ref="qalListenerfv">qalListenerfv</dfn>;</td></tr>
+<tr><th id="78">78</th><td><b>extern</b> <a class="typedef" href="../AL/al.h.html#LPALLISTENERI" title='LPALLISTENERI' data-type='void (*)(ALenum, ALint)' data-ref="LPALLISTENERI">LPALLISTENERI</a> <dfn class="decl" id="qalListeneri" title='qalListeneri' data-ref="qalListeneri">qalListeneri</dfn>;</td></tr>
+<tr><th id="79">79</th><td><b>extern</b> <a class="typedef" href="../AL/al.h.html#LPALLISTENER3I" title='LPALLISTENER3I' data-type='void (*)(ALenum, ALint, ALint, ALint)' data-ref="LPALLISTENER3I">LPALLISTENER3I</a> <dfn class="decl" id="qalListener3i" title='qalListener3i' data-ref="qalListener3i">qalListener3i</dfn>;</td></tr>
+<tr><th id="80">80</th><td><b>extern</b> <a class="typedef" href="../AL/al.h.html#LPALLISTENERIV" title='LPALLISTENERIV' data-type='void (*)(ALenum, const ALint *)' data-ref="LPALLISTENERIV">LPALLISTENERIV</a> <dfn class="decl" id="qalListeneriv" title='qalListeneriv' data-ref="qalListeneriv">qalListeneriv</dfn>;</td></tr>
+<tr><th id="81">81</th><td><b>extern</b> <a class="typedef" href="../AL/al.h.html#LPALGETLISTENERF" title='LPALGETLISTENERF' data-type='void (*)(ALenum, ALfloat *)' data-ref="LPALGETLISTENERF">LPALGETLISTENERF</a> <dfn class="decl" id="qalGetListenerf" title='qalGetListenerf' data-ref="qalGetListenerf">qalGetListenerf</dfn>;</td></tr>
+<tr><th id="82">82</th><td><b>extern</b> <a class="typedef" href="../AL/al.h.html#LPALGETLISTENER3F" title='LPALGETLISTENER3F' data-type='void (*)(ALenum, ALfloat *, ALfloat *, ALfloat *)' data-ref="LPALGETLISTENER3F">LPALGETLISTENER3F</a> <dfn class="decl" id="qalGetListener3f" title='qalGetListener3f' data-ref="qalGetListener3f">qalGetListener3f</dfn>;</td></tr>
+<tr><th id="83">83</th><td><b>extern</b> <a class="typedef" href="../AL/al.h.html#LPALGETLISTENERFV" title='LPALGETLISTENERFV' data-type='void (*)(ALenum, ALfloat *)' data-ref="LPALGETLISTENERFV">LPALGETLISTENERFV</a> <dfn class="decl" id="qalGetListenerfv" title='qalGetListenerfv' data-ref="qalGetListenerfv">qalGetListenerfv</dfn>;</td></tr>
+<tr><th id="84">84</th><td><b>extern</b> <a class="typedef" href="../AL/al.h.html#LPALGETLISTENERI" title='LPALGETLISTENERI' data-type='void (*)(ALenum, ALint *)' data-ref="LPALGETLISTENERI">LPALGETLISTENERI</a> <dfn class="decl" id="qalGetListeneri" title='qalGetListeneri' data-ref="qalGetListeneri">qalGetListeneri</dfn>;</td></tr>
+<tr><th id="85">85</th><td><b>extern</b> <a class="typedef" href="../AL/al.h.html#LPALGETLISTENER3I" title='LPALGETLISTENER3I' data-type='void (*)(ALenum, ALint *, ALint *, ALint *)' data-ref="LPALGETLISTENER3I">LPALGETLISTENER3I</a> <dfn class="decl" id="qalGetListener3i" title='qalGetListener3i' data-ref="qalGetListener3i">qalGetListener3i</dfn>;</td></tr>
+<tr><th id="86">86</th><td><b>extern</b> <a class="typedef" href="../AL/al.h.html#LPALGETLISTENERIV" title='LPALGETLISTENERIV' data-type='void (*)(ALenum, ALint *)' data-ref="LPALGETLISTENERIV">LPALGETLISTENERIV</a> <dfn class="decl" id="qalGetListeneriv" title='qalGetListeneriv' data-ref="qalGetListeneriv">qalGetListeneriv</dfn>;</td></tr>
+<tr><th id="87">87</th><td><b>extern</b> <a class="typedef" href="../AL/al.h.html#LPALGENSOURCES" title='LPALGENSOURCES' data-type='void (*)(ALsizei, ALuint *)' data-ref="LPALGENSOURCES">LPALGENSOURCES</a> <dfn class="decl" id="qalGenSources" title='qalGenSources' data-ref="qalGenSources">qalGenSources</dfn>;</td></tr>
+<tr><th id="88">88</th><td><b>extern</b> <a class="typedef" href="../AL/al.h.html#LPALDELETESOURCES" title='LPALDELETESOURCES' data-type='void (*)(ALsizei, const ALuint *)' data-ref="LPALDELETESOURCES">LPALDELETESOURCES</a> <dfn class="decl" id="qalDeleteSources" title='qalDeleteSources' data-ref="qalDeleteSources">qalDeleteSources</dfn>;</td></tr>
+<tr><th id="89">89</th><td><b>extern</b> <a class="typedef" href="../AL/al.h.html#LPALISSOURCE" title='LPALISSOURCE' data-type='ALboolean (*)(ALuint)' data-ref="LPALISSOURCE">LPALISSOURCE</a> <dfn class="decl" id="qalIsSource" title='qalIsSource' data-ref="qalIsSource">qalIsSource</dfn>;</td></tr>
+<tr><th id="90">90</th><td><b>extern</b> <a class="typedef" href="../AL/al.h.html#LPALSOURCEF" title='LPALSOURCEF' data-type='void (*)(ALuint, ALenum, ALfloat)' data-ref="LPALSOURCEF">LPALSOURCEF</a> <dfn class="decl" id="qalSourcef" title='qalSourcef' data-ref="qalSourcef">qalSourcef</dfn>;</td></tr>
+<tr><th id="91">91</th><td><b>extern</b> <a class="typedef" href="../AL/al.h.html#LPALSOURCE3F" title='LPALSOURCE3F' data-type='void (*)(ALuint, ALenum, ALfloat, ALfloat, ALfloat)' data-ref="LPALSOURCE3F">LPALSOURCE3F</a> <dfn class="decl" id="qalSource3f" title='qalSource3f' data-ref="qalSource3f">qalSource3f</dfn>;</td></tr>
+<tr><th id="92">92</th><td><b>extern</b> <a class="typedef" href="../AL/al.h.html#LPALSOURCEFV" title='LPALSOURCEFV' data-type='void (*)(ALuint, ALenum, const ALfloat *)' data-ref="LPALSOURCEFV">LPALSOURCEFV</a> <dfn class="decl" id="qalSourcefv" title='qalSourcefv' data-ref="qalSourcefv">qalSourcefv</dfn>;</td></tr>
+<tr><th id="93">93</th><td><b>extern</b> <a class="typedef" href="../AL/al.h.html#LPALSOURCEI" title='LPALSOURCEI' data-type='void (*)(ALuint, ALenum, ALint)' data-ref="LPALSOURCEI">LPALSOURCEI</a> <dfn class="decl" id="qalSourcei" title='qalSourcei' data-ref="qalSourcei">qalSourcei</dfn>;</td></tr>
+<tr><th id="94">94</th><td><b>extern</b> <a class="typedef" href="../AL/al.h.html#LPALSOURCE3I" title='LPALSOURCE3I' data-type='void (*)(ALuint, ALenum, ALint, ALint, ALint)' data-ref="LPALSOURCE3I">LPALSOURCE3I</a> <dfn class="decl" id="qalSource3i" title='qalSource3i' data-ref="qalSource3i">qalSource3i</dfn>;</td></tr>
+<tr><th id="95">95</th><td><b>extern</b> <a class="typedef" href="../AL/al.h.html#LPALSOURCEIV" title='LPALSOURCEIV' data-type='void (*)(ALuint, ALenum, const ALint *)' data-ref="LPALSOURCEIV">LPALSOURCEIV</a> <dfn class="decl" id="qalSourceiv" title='qalSourceiv' data-ref="qalSourceiv">qalSourceiv</dfn>;</td></tr>
+<tr><th id="96">96</th><td><b>extern</b> <a class="typedef" href="../AL/al.h.html#LPALGETSOURCEF" title='LPALGETSOURCEF' data-type='void (*)(ALuint, ALenum, ALfloat *)' data-ref="LPALGETSOURCEF">LPALGETSOURCEF</a> <dfn class="decl" id="qalGetSourcef" title='qalGetSourcef' data-ref="qalGetSourcef">qalGetSourcef</dfn>;</td></tr>
+<tr><th id="97">97</th><td><b>extern</b> <a class="typedef" href="../AL/al.h.html#LPALGETSOURCE3F" title='LPALGETSOURCE3F' data-type='void (*)(ALuint, ALenum, ALfloat *, ALfloat *, ALfloat *)' data-ref="LPALGETSOURCE3F">LPALGETSOURCE3F</a> <dfn class="decl" id="qalGetSource3f" title='qalGetSource3f' data-ref="qalGetSource3f">qalGetSource3f</dfn>;</td></tr>
+<tr><th id="98">98</th><td><b>extern</b> <a class="typedef" href="../AL/al.h.html#LPALGETSOURCEFV" title='LPALGETSOURCEFV' data-type='void (*)(ALuint, ALenum, ALfloat *)' data-ref="LPALGETSOURCEFV">LPALGETSOURCEFV</a> <dfn class="decl" id="qalGetSourcefv" title='qalGetSourcefv' data-ref="qalGetSourcefv">qalGetSourcefv</dfn>;</td></tr>
+<tr><th id="99">99</th><td><b>extern</b> <a class="typedef" href="../AL/al.h.html#LPALGETSOURCEI" title='LPALGETSOURCEI' data-type='void (*)(ALuint, ALenum, ALint *)' data-ref="LPALGETSOURCEI">LPALGETSOURCEI</a> <dfn class="decl" id="qalGetSourcei" title='qalGetSourcei' data-ref="qalGetSourcei">qalGetSourcei</dfn>;</td></tr>
+<tr><th id="100">100</th><td><b>extern</b> <a class="typedef" href="../AL/al.h.html#LPALGETSOURCE3I" title='LPALGETSOURCE3I' data-type='void (*)(ALuint, ALenum, ALint *, ALint *, ALint *)' data-ref="LPALGETSOURCE3I">LPALGETSOURCE3I</a> <dfn class="decl" id="qalGetSource3i" title='qalGetSource3i' data-ref="qalGetSource3i">qalGetSource3i</dfn>;</td></tr>
+<tr><th id="101">101</th><td><b>extern</b> <a class="typedef" href="../AL/al.h.html#LPALGETSOURCEIV" title='LPALGETSOURCEIV' data-type='void (*)(ALuint, ALenum, ALint *)' data-ref="LPALGETSOURCEIV">LPALGETSOURCEIV</a> <dfn class="decl" id="qalGetSourceiv" title='qalGetSourceiv' data-ref="qalGetSourceiv">qalGetSourceiv</dfn>;</td></tr>
+<tr><th id="102">102</th><td><b>extern</b> <a class="typedef" href="../AL/al.h.html#LPALSOURCEPLAYV" title='LPALSOURCEPLAYV' data-type='void (*)(ALsizei, const ALuint *)' data-ref="LPALSOURCEPLAYV">LPALSOURCEPLAYV</a> <dfn class="decl" id="qalSourcePlayv" title='qalSourcePlayv' data-ref="qalSourcePlayv">qalSourcePlayv</dfn>;</td></tr>
+<tr><th id="103">103</th><td><b>extern</b> <a class="typedef" href="../AL/al.h.html#LPALSOURCESTOPV" title='LPALSOURCESTOPV' data-type='void (*)(ALsizei, const ALuint *)' data-ref="LPALSOURCESTOPV">LPALSOURCESTOPV</a> <dfn class="decl" id="qalSourceStopv" title='qalSourceStopv' data-ref="qalSourceStopv">qalSourceStopv</dfn>;</td></tr>
+<tr><th id="104">104</th><td><b>extern</b> <a class="typedef" href="../AL/al.h.html#LPALSOURCEREWINDV" title='LPALSOURCEREWINDV' data-type='void (*)(ALsizei, const ALuint *)' data-ref="LPALSOURCEREWINDV">LPALSOURCEREWINDV</a> <dfn class="decl" id="qalSourceRewindv" title='qalSourceRewindv' data-ref="qalSourceRewindv">qalSourceRewindv</dfn>;</td></tr>
+<tr><th id="105">105</th><td><b>extern</b> <a class="typedef" href="../AL/al.h.html#LPALSOURCEPAUSEV" title='LPALSOURCEPAUSEV' data-type='void (*)(ALsizei, const ALuint *)' data-ref="LPALSOURCEPAUSEV">LPALSOURCEPAUSEV</a> <dfn class="decl" id="qalSourcePausev" title='qalSourcePausev' data-ref="qalSourcePausev">qalSourcePausev</dfn>;</td></tr>
+<tr><th id="106">106</th><td><b>extern</b> <a class="typedef" href="../AL/al.h.html#LPALSOURCEPLAY" title='LPALSOURCEPLAY' data-type='void (*)(ALuint)' data-ref="LPALSOURCEPLAY">LPALSOURCEPLAY</a> <dfn class="decl" id="qalSourcePlay" title='qalSourcePlay' data-ref="qalSourcePlay">qalSourcePlay</dfn>;</td></tr>
+<tr><th id="107">107</th><td><b>extern</b> <a class="typedef" href="../AL/al.h.html#LPALSOURCESTOP" title='LPALSOURCESTOP' data-type='void (*)(ALuint)' data-ref="LPALSOURCESTOP">LPALSOURCESTOP</a> <dfn class="decl" id="qalSourceStop" title='qalSourceStop' data-ref="qalSourceStop">qalSourceStop</dfn>;</td></tr>
+<tr><th id="108">108</th><td><b>extern</b> <a class="typedef" href="../AL/al.h.html#LPALSOURCEREWIND" title='LPALSOURCEREWIND' data-type='void (*)(ALuint)' data-ref="LPALSOURCEREWIND">LPALSOURCEREWIND</a> <dfn class="decl" id="qalSourceRewind" title='qalSourceRewind' data-ref="qalSourceRewind">qalSourceRewind</dfn>;</td></tr>
+<tr><th id="109">109</th><td><b>extern</b> <a class="typedef" href="../AL/al.h.html#LPALSOURCEPAUSE" title='LPALSOURCEPAUSE' data-type='void (*)(ALuint)' data-ref="LPALSOURCEPAUSE">LPALSOURCEPAUSE</a> <dfn class="decl" id="qalSourcePause" title='qalSourcePause' data-ref="qalSourcePause">qalSourcePause</dfn>;</td></tr>
+<tr><th id="110">110</th><td><b>extern</b> <a class="typedef" href="../AL/al.h.html#LPALSOURCEQUEUEBUFFERS" title='LPALSOURCEQUEUEBUFFERS' data-type='void (*)(ALuint, ALsizei, const ALuint *)' data-ref="LPALSOURCEQUEUEBUFFERS">LPALSOURCEQUEUEBUFFERS</a> <dfn class="decl" id="qalSourceQueueBuffers" title='qalSourceQueueBuffers' data-ref="qalSourceQueueBuffers">qalSourceQueueBuffers</dfn>;</td></tr>
+<tr><th id="111">111</th><td><b>extern</b> <a class="typedef" href="../AL/al.h.html#LPALSOURCEUNQUEUEBUFFERS" title='LPALSOURCEUNQUEUEBUFFERS' data-type='void (*)(ALuint, ALsizei, ALuint *)' data-ref="LPALSOURCEUNQUEUEBUFFERS">LPALSOURCEUNQUEUEBUFFERS</a> <dfn class="decl" id="qalSourceUnqueueBuffers" title='qalSourceUnqueueBuffers' data-ref="qalSourceUnqueueBuffers">qalSourceUnqueueBuffers</dfn>;</td></tr>
+<tr><th id="112">112</th><td><b>extern</b> <a class="typedef" href="../AL/al.h.html#LPALGENBUFFERS" title='LPALGENBUFFERS' data-type='void (*)(ALsizei, ALuint *)' data-ref="LPALGENBUFFERS">LPALGENBUFFERS</a> <dfn class="decl" id="qalGenBuffers" title='qalGenBuffers' data-ref="qalGenBuffers">qalGenBuffers</dfn>;</td></tr>
+<tr><th id="113">113</th><td><b>extern</b> <a class="typedef" href="../AL/al.h.html#LPALDELETEBUFFERS" title='LPALDELETEBUFFERS' data-type='void (*)(ALsizei, const ALuint *)' data-ref="LPALDELETEBUFFERS">LPALDELETEBUFFERS</a> <dfn class="decl" id="qalDeleteBuffers" title='qalDeleteBuffers' data-ref="qalDeleteBuffers">qalDeleteBuffers</dfn>;</td></tr>
+<tr><th id="114">114</th><td><b>extern</b> <a class="typedef" href="../AL/al.h.html#LPALISBUFFER" title='LPALISBUFFER' data-type='ALboolean (*)(ALuint)' data-ref="LPALISBUFFER">LPALISBUFFER</a> <dfn class="decl" id="qalIsBuffer" title='qalIsBuffer' data-ref="qalIsBuffer">qalIsBuffer</dfn>;</td></tr>
+<tr><th id="115">115</th><td><b>extern</b> <a class="typedef" href="../AL/al.h.html#LPALBUFFERDATA" title='LPALBUFFERDATA' data-type='void (*)(ALuint, ALenum, const ALvoid *, ALsizei, ALsizei)' data-ref="LPALBUFFERDATA">LPALBUFFERDATA</a> <dfn class="decl" id="qalBufferData" title='qalBufferData' data-ref="qalBufferData">qalBufferData</dfn>;</td></tr>
+<tr><th id="116">116</th><td><b>extern</b> <a class="typedef" href="../AL/al.h.html#LPALBUFFERF" title='LPALBUFFERF' data-type='void (*)(ALuint, ALenum, ALfloat)' data-ref="LPALBUFFERF">LPALBUFFERF</a> <dfn class="decl" id="qalBufferf" title='qalBufferf' data-ref="qalBufferf">qalBufferf</dfn>;</td></tr>
+<tr><th id="117">117</th><td><b>extern</b> <a class="typedef" href="../AL/al.h.html#LPALBUFFER3F" title='LPALBUFFER3F' data-type='void (*)(ALuint, ALenum, ALfloat, ALfloat, ALfloat)' data-ref="LPALBUFFER3F">LPALBUFFER3F</a> <dfn class="decl" id="qalBuffer3f" title='qalBuffer3f' data-ref="qalBuffer3f">qalBuffer3f</dfn>;</td></tr>
+<tr><th id="118">118</th><td><b>extern</b> <a class="typedef" href="../AL/al.h.html#LPALBUFFERFV" title='LPALBUFFERFV' data-type='void (*)(ALuint, ALenum, const ALfloat *)' data-ref="LPALBUFFERFV">LPALBUFFERFV</a> <dfn class="decl" id="qalBufferfv" title='qalBufferfv' data-ref="qalBufferfv">qalBufferfv</dfn>;</td></tr>
+<tr><th id="119">119</th><td><b>extern</b> <a class="typedef" href="../AL/al.h.html#LPALBUFFERF" title='LPALBUFFERF' data-type='void (*)(ALuint, ALenum, ALfloat)' data-ref="LPALBUFFERF">LPALBUFFERF</a> <dfn class="decl" id="qalBufferi" title='qalBufferi' data-ref="qalBufferi">qalBufferi</dfn>;</td></tr>
+<tr><th id="120">120</th><td><b>extern</b> <a class="typedef" href="../AL/al.h.html#LPALBUFFER3F" title='LPALBUFFER3F' data-type='void (*)(ALuint, ALenum, ALfloat, ALfloat, ALfloat)' data-ref="LPALBUFFER3F">LPALBUFFER3F</a> <dfn class="decl" id="qalBuffer3i" title='qalBuffer3i' data-ref="qalBuffer3i">qalBuffer3i</dfn>;</td></tr>
+<tr><th id="121">121</th><td><b>extern</b> <a class="typedef" href="../AL/al.h.html#LPALBUFFERFV" title='LPALBUFFERFV' data-type='void (*)(ALuint, ALenum, const ALfloat *)' data-ref="LPALBUFFERFV">LPALBUFFERFV</a> <dfn class="decl" id="qalBufferiv" title='qalBufferiv' data-ref="qalBufferiv">qalBufferiv</dfn>;</td></tr>
+<tr><th id="122">122</th><td><b>extern</b> <a class="typedef" href="../AL/al.h.html#LPALGETBUFFERF" title='LPALGETBUFFERF' data-type='void (*)(ALuint, ALenum, ALfloat *)' data-ref="LPALGETBUFFERF">LPALGETBUFFERF</a> <dfn class="decl" id="qalGetBufferf" title='qalGetBufferf' data-ref="qalGetBufferf">qalGetBufferf</dfn>;</td></tr>
+<tr><th id="123">123</th><td><b>extern</b> <a class="typedef" href="../AL/al.h.html#LPALGETBUFFER3F" title='LPALGETBUFFER3F' data-type='void (*)(ALuint, ALenum, ALfloat *, ALfloat *, ALfloat *)' data-ref="LPALGETBUFFER3F">LPALGETBUFFER3F</a> <dfn class="decl" id="qalGetBuffer3f" title='qalGetBuffer3f' data-ref="qalGetBuffer3f">qalGetBuffer3f</dfn>;</td></tr>
+<tr><th id="124">124</th><td><b>extern</b> <a class="typedef" href="../AL/al.h.html#LPALGETBUFFERFV" title='LPALGETBUFFERFV' data-type='void (*)(ALuint, ALenum, ALfloat *)' data-ref="LPALGETBUFFERFV">LPALGETBUFFERFV</a> <dfn class="decl" id="qalGetBufferfv" title='qalGetBufferfv' data-ref="qalGetBufferfv">qalGetBufferfv</dfn>;</td></tr>
+<tr><th id="125">125</th><td><b>extern</b> <a class="typedef" href="../AL/al.h.html#LPALGETBUFFERI" title='LPALGETBUFFERI' data-type='void (*)(ALuint, ALenum, ALint *)' data-ref="LPALGETBUFFERI">LPALGETBUFFERI</a> <dfn class="decl" id="qalGetBufferi" title='qalGetBufferi' data-ref="qalGetBufferi">qalGetBufferi</dfn>;</td></tr>
+<tr><th id="126">126</th><td><b>extern</b> <a class="typedef" href="../AL/al.h.html#LPALGETBUFFER3I" title='LPALGETBUFFER3I' data-type='void (*)(ALuint, ALenum, ALint *, ALint *, ALint *)' data-ref="LPALGETBUFFER3I">LPALGETBUFFER3I</a> <dfn class="decl" id="qalGetBuffer3i" title='qalGetBuffer3i' data-ref="qalGetBuffer3i">qalGetBuffer3i</dfn>;</td></tr>
+<tr><th id="127">127</th><td><b>extern</b> <a class="typedef" href="../AL/al.h.html#LPALGETBUFFERIV" title='LPALGETBUFFERIV' data-type='void (*)(ALuint, ALenum, ALint *)' data-ref="LPALGETBUFFERIV">LPALGETBUFFERIV</a> <dfn class="decl" id="qalGetBufferiv" title='qalGetBufferiv' data-ref="qalGetBufferiv">qalGetBufferiv</dfn>;</td></tr>
+<tr><th id="128">128</th><td><b>extern</b> <a class="typedef" href="../AL/al.h.html#LPALDOPPLERFACTOR" title='LPALDOPPLERFACTOR' data-type='void (*)(ALfloat)' data-ref="LPALDOPPLERFACTOR">LPALDOPPLERFACTOR</a> <dfn class="decl" id="qalDopplerFactor" title='qalDopplerFactor' data-ref="qalDopplerFactor">qalDopplerFactor</dfn>;</td></tr>
+<tr><th id="129">129</th><td><b>extern</b> <a class="typedef" href="../AL/al.h.html#LPALSPEEDOFSOUND" title='LPALSPEEDOFSOUND' data-type='void (*)(ALfloat)' data-ref="LPALSPEEDOFSOUND">LPALSPEEDOFSOUND</a> <dfn class="decl" id="qalSpeedOfSound" title='qalSpeedOfSound' data-ref="qalSpeedOfSound">qalSpeedOfSound</dfn>;</td></tr>
+<tr><th id="130">130</th><td><b>extern</b> <a class="typedef" href="../AL/al.h.html#LPALDISTANCEMODEL" title='LPALDISTANCEMODEL' data-type='void (*)(ALenum)' data-ref="LPALDISTANCEMODEL">LPALDISTANCEMODEL</a> <dfn class="decl" id="qalDistanceModel" title='qalDistanceModel' data-ref="qalDistanceModel">qalDistanceModel</dfn>;</td></tr>
+<tr><th id="131">131</th><td></td></tr>
+<tr><th id="132">132</th><td><b>extern</b> <a class="typedef" href="../AL/alc.h.html#LPALCCREATECONTEXT" title='LPALCCREATECONTEXT' data-type='ALCcontext *(*)(ALCdevice *, const ALCint *)' data-ref="LPALCCREATECONTEXT">LPALCCREATECONTEXT</a> <dfn class="decl" id="qalcCreateContext" title='qalcCreateContext' data-ref="qalcCreateContext">qalcCreateContext</dfn>;</td></tr>
+<tr><th id="133">133</th><td><b>extern</b> <a class="typedef" href="../AL/alc.h.html#LPALCMAKECONTEXTCURRENT" title='LPALCMAKECONTEXTCURRENT' data-type='ALCboolean (*)(ALCcontext *)' data-ref="LPALCMAKECONTEXTCURRENT">LPALCMAKECONTEXTCURRENT</a> <dfn class="decl" id="qalcMakeContextCurrent" title='qalcMakeContextCurrent' data-ref="qalcMakeContextCurrent">qalcMakeContextCurrent</dfn>;</td></tr>
+<tr><th id="134">134</th><td><b>extern</b> <a class="typedef" href="../AL/alc.h.html#LPALCPROCESSCONTEXT" title='LPALCPROCESSCONTEXT' data-type='void (*)(ALCcontext *)' data-ref="LPALCPROCESSCONTEXT">LPALCPROCESSCONTEXT</a> <dfn class="decl" id="qalcProcessContext" title='qalcProcessContext' data-ref="qalcProcessContext">qalcProcessContext</dfn>;</td></tr>
+<tr><th id="135">135</th><td><b>extern</b> <a class="typedef" href="../AL/alc.h.html#LPALCSUSPENDCONTEXT" title='LPALCSUSPENDCONTEXT' data-type='void (*)(ALCcontext *)' data-ref="LPALCSUSPENDCONTEXT">LPALCSUSPENDCONTEXT</a> <dfn class="decl" id="qalcSuspendContext" title='qalcSuspendContext' data-ref="qalcSuspendContext">qalcSuspendContext</dfn>;</td></tr>
+<tr><th id="136">136</th><td><b>extern</b> <a class="typedef" href="../AL/alc.h.html#LPALCDESTROYCONTEXT" title='LPALCDESTROYCONTEXT' data-type='void (*)(ALCcontext *)' data-ref="LPALCDESTROYCONTEXT">LPALCDESTROYCONTEXT</a> <dfn class="decl" id="qalcDestroyContext" title='qalcDestroyContext' data-ref="qalcDestroyContext">qalcDestroyContext</dfn>;</td></tr>
+<tr><th id="137">137</th><td><b>extern</b> <a class="typedef" href="../AL/alc.h.html#LPALCGETCURRENTCONTEXT" title='LPALCGETCURRENTCONTEXT' data-type='ALCcontext *(*)(void)' data-ref="LPALCGETCURRENTCONTEXT">LPALCGETCURRENTCONTEXT</a> <dfn class="decl" id="qalcGetCurrentContext" title='qalcGetCurrentContext' data-ref="qalcGetCurrentContext">qalcGetCurrentContext</dfn>;</td></tr>
+<tr><th id="138">138</th><td><b>extern</b> <a class="typedef" href="../AL/alc.h.html#LPALCGETCONTEXTSDEVICE" title='LPALCGETCONTEXTSDEVICE' data-type='ALCdevice *(*)(ALCcontext *)' data-ref="LPALCGETCONTEXTSDEVICE">LPALCGETCONTEXTSDEVICE</a> <dfn class="decl" id="qalcGetContextsDevice" title='qalcGetContextsDevice' data-ref="qalcGetContextsDevice">qalcGetContextsDevice</dfn>;</td></tr>
+<tr><th id="139">139</th><td><b>extern</b> <a class="typedef" href="../AL/alc.h.html#LPALCOPENDEVICE" title='LPALCOPENDEVICE' data-type='ALCdevice *(*)(const ALCchar *)' data-ref="LPALCOPENDEVICE">LPALCOPENDEVICE</a> <dfn class="decl" id="qalcOpenDevice" title='qalcOpenDevice' data-ref="qalcOpenDevice">qalcOpenDevice</dfn>;</td></tr>
+<tr><th id="140">140</th><td><b>extern</b> <a class="typedef" href="../AL/alc.h.html#LPALCCLOSEDEVICE" title='LPALCCLOSEDEVICE' data-type='ALCboolean (*)(ALCdevice *)' data-ref="LPALCCLOSEDEVICE">LPALCCLOSEDEVICE</a> <dfn class="decl" id="qalcCloseDevice" title='qalcCloseDevice' data-ref="qalcCloseDevice">qalcCloseDevice</dfn>;</td></tr>
+<tr><th id="141">141</th><td><b>extern</b> <a class="typedef" href="../AL/alc.h.html#LPALCGETERROR" title='LPALCGETERROR' data-type='ALCenum (*)(ALCdevice *)' data-ref="LPALCGETERROR">LPALCGETERROR</a> <dfn class="decl" id="qalcGetError" title='qalcGetError' data-ref="qalcGetError">qalcGetError</dfn>;</td></tr>
+<tr><th id="142">142</th><td><b>extern</b> <a class="typedef" href="../AL/alc.h.html#LPALCISEXTENSIONPRESENT" title='LPALCISEXTENSIONPRESENT' data-type='ALCboolean (*)(ALCdevice *, const ALCchar *)' data-ref="LPALCISEXTENSIONPRESENT">LPALCISEXTENSIONPRESENT</a> <dfn class="decl" id="qalcIsExtensionPresent" title='qalcIsExtensionPresent' data-ref="qalcIsExtensionPresent">qalcIsExtensionPresent</dfn>;</td></tr>
+<tr><th id="143">143</th><td><b>extern</b> <a class="typedef" href="../AL/alc.h.html#LPALCGETPROCADDRESS" title='LPALCGETPROCADDRESS' data-type='void *(*)(ALCdevice *, const ALCchar *)' data-ref="LPALCGETPROCADDRESS">LPALCGETPROCADDRESS</a> <dfn class="decl" id="qalcGetProcAddress" title='qalcGetProcAddress' data-ref="qalcGetProcAddress">qalcGetProcAddress</dfn>;</td></tr>
+<tr><th id="144">144</th><td><b>extern</b> <a class="typedef" href="../AL/alc.h.html#LPALCGETENUMVALUE" title='LPALCGETENUMVALUE' data-type='ALCenum (*)(ALCdevice *, const ALCchar *)' data-ref="LPALCGETENUMVALUE">LPALCGETENUMVALUE</a> <dfn class="decl" id="qalcGetEnumValue" title='qalcGetEnumValue' data-ref="qalcGetEnumValue">qalcGetEnumValue</dfn>;</td></tr>
+<tr><th id="145">145</th><td><b>extern</b> <a class="typedef" href="../AL/alc.h.html#LPALCGETSTRING" title='LPALCGETSTRING' data-type='const ALCchar *(*)(ALCdevice *, ALCenum)' data-ref="LPALCGETSTRING">LPALCGETSTRING</a> <dfn class="decl" id="qalcGetString" title='qalcGetString' data-ref="qalcGetString">qalcGetString</dfn>;</td></tr>
+<tr><th id="146">146</th><td><b>extern</b> <a class="typedef" href="../AL/alc.h.html#LPALCGETINTEGERV" title='LPALCGETINTEGERV' data-type='void (*)(ALCdevice *, ALCenum, ALCsizei, ALCint *)' data-ref="LPALCGETINTEGERV">LPALCGETINTEGERV</a> <dfn class="decl" id="qalcGetIntegerv" title='qalcGetIntegerv' data-ref="qalcGetIntegerv">qalcGetIntegerv</dfn>;</td></tr>
+<tr><th id="147">147</th><td><b>extern</b> <a class="typedef" href="../AL/alc.h.html#LPALCCAPTUREOPENDEVICE" title='LPALCCAPTUREOPENDEVICE' data-type='ALCdevice *(*)(const ALCchar *, ALCuint, ALCenum, ALCsizei)' data-ref="LPALCCAPTUREOPENDEVICE">LPALCCAPTUREOPENDEVICE</a> <dfn class="decl" id="qalcCaptureOpenDevice" title='qalcCaptureOpenDevice' data-ref="qalcCaptureOpenDevice">qalcCaptureOpenDevice</dfn>;</td></tr>
+<tr><th id="148">148</th><td><b>extern</b> <a class="typedef" href="../AL/alc.h.html#LPALCCAPTURECLOSEDEVICE" title='LPALCCAPTURECLOSEDEVICE' data-type='ALCboolean (*)(ALCdevice *)' data-ref="LPALCCAPTURECLOSEDEVICE">LPALCCAPTURECLOSEDEVICE</a> <dfn class="decl" id="qalcCaptureCloseDevice" title='qalcCaptureCloseDevice' data-ref="qalcCaptureCloseDevice">qalcCaptureCloseDevice</dfn>;</td></tr>
+<tr><th id="149">149</th><td><b>extern</b> <a class="typedef" href="../AL/alc.h.html#LPALCCAPTURESTART" title='LPALCCAPTURESTART' data-type='void (*)(ALCdevice *)' data-ref="LPALCCAPTURESTART">LPALCCAPTURESTART</a> <dfn class="decl" id="qalcCaptureStart" title='qalcCaptureStart' data-ref="qalcCaptureStart">qalcCaptureStart</dfn>;</td></tr>
+<tr><th id="150">150</th><td><b>extern</b> <a class="typedef" href="../AL/alc.h.html#LPALCCAPTURESTOP" title='LPALCCAPTURESTOP' data-type='void (*)(ALCdevice *)' data-ref="LPALCCAPTURESTOP">LPALCCAPTURESTOP</a> <dfn class="decl" id="qalcCaptureStop" title='qalcCaptureStop' data-ref="qalcCaptureStop">qalcCaptureStop</dfn>;</td></tr>
+<tr><th id="151">151</th><td><b>extern</b> <a class="typedef" href="../AL/alc.h.html#LPALCCAPTURESAMPLES" title='LPALCCAPTURESAMPLES' data-type='void (*)(ALCdevice *, ALCvoid *, ALCsizei)' data-ref="LPALCCAPTURESAMPLES">LPALCCAPTURESAMPLES</a> <dfn class="decl" id="qalcCaptureSamples" title='qalcCaptureSamples' data-ref="qalcCaptureSamples">qalcCaptureSamples</dfn>;</td></tr>
+<tr><th id="152">152</th><td><u>#<span data-ppcond="58">else</span></u></td></tr>
+<tr><th id="153">153</th><td><u>#define qalEnable alEnable</u></td></tr>
+<tr><th id="154">154</th><td><u>#define qalDisable alDisable</u></td></tr>
+<tr><th id="155">155</th><td><u>#define qalIsEnabled alIsEnabled</u></td></tr>
+<tr><th id="156">156</th><td><u>#define qalGetString alGetString</u></td></tr>
+<tr><th id="157">157</th><td><u>#define qalGetBooleanv alGetBooleanv</u></td></tr>
+<tr><th id="158">158</th><td><u>#define qalGetIntegerv alGetIntegerv</u></td></tr>
+<tr><th id="159">159</th><td><u>#define qalGetFloatv alGetFloatv</u></td></tr>
+<tr><th id="160">160</th><td><u>#define qalGetDoublev alGetDoublev</u></td></tr>
+<tr><th id="161">161</th><td><u>#define qalGetBoolean alGetBoolean</u></td></tr>
+<tr><th id="162">162</th><td><u>#define qalGetInteger alGetInteger</u></td></tr>
+<tr><th id="163">163</th><td><u>#define qalGetFloat alGetFloat</u></td></tr>
+<tr><th id="164">164</th><td><u>#define qalGetDouble alGetDouble</u></td></tr>
+<tr><th id="165">165</th><td><u>#define qalGetError alGetError</u></td></tr>
+<tr><th id="166">166</th><td><u>#define qalIsExtensionPresent alIsExtensionPresent</u></td></tr>
+<tr><th id="167">167</th><td><u>#define qalGetProcAddress alGetProcAddress</u></td></tr>
+<tr><th id="168">168</th><td><u>#define qalGetEnumValue alGetEnumValue</u></td></tr>
+<tr><th id="169">169</th><td><u>#define qalListenerf alListenerf</u></td></tr>
+<tr><th id="170">170</th><td><u>#define qalListener3f alListener3f</u></td></tr>
+<tr><th id="171">171</th><td><u>#define qalListenerfv alListenerfv</u></td></tr>
+<tr><th id="172">172</th><td><u>#define qalListeneri alListeneri</u></td></tr>
+<tr><th id="173">173</th><td><u>#define qalListener3i alListener3i</u></td></tr>
+<tr><th id="174">174</th><td><u>#define qalListeneriv alListeneriv</u></td></tr>
+<tr><th id="175">175</th><td><u>#define qalGetListenerf alGetListenerf</u></td></tr>
+<tr><th id="176">176</th><td><u>#define qalGetListener3f alGetListener3f</u></td></tr>
+<tr><th id="177">177</th><td><u>#define qalGetListenerfv alGetListenerfv</u></td></tr>
+<tr><th id="178">178</th><td><u>#define qalGetListeneri alGetListeneri</u></td></tr>
+<tr><th id="179">179</th><td><u>#define qalGetListener3i alGetListener3i</u></td></tr>
+<tr><th id="180">180</th><td><u>#define qalGetListeneriv alGetListeneriv</u></td></tr>
+<tr><th id="181">181</th><td><u>#define qalGenSources alGenSources</u></td></tr>
+<tr><th id="182">182</th><td><u>#define qalDeleteSources alDeleteSources</u></td></tr>
+<tr><th id="183">183</th><td><u>#define qalIsSource alIsSource</u></td></tr>
+<tr><th id="184">184</th><td><u>#define qalSourcef alSourcef</u></td></tr>
+<tr><th id="185">185</th><td><u>#define qalSource3f alSource3f</u></td></tr>
+<tr><th id="186">186</th><td><u>#define qalSourcefv alSourcefv</u></td></tr>
+<tr><th id="187">187</th><td><u>#define qalSourcei alSourcei</u></td></tr>
+<tr><th id="188">188</th><td><u>#define qalSource3i alSource3i</u></td></tr>
+<tr><th id="189">189</th><td><u>#define qalSourceiv alSourceiv</u></td></tr>
+<tr><th id="190">190</th><td><u>#define qalGetSourcef alGetSourcef</u></td></tr>
+<tr><th id="191">191</th><td><u>#define qalGetSource3f alGetSource3f</u></td></tr>
+<tr><th id="192">192</th><td><u>#define qalGetSourcefv alGetSourcefv</u></td></tr>
+<tr><th id="193">193</th><td><u>#define qalGetSourcei alGetSourcei</u></td></tr>
+<tr><th id="194">194</th><td><u>#define qalGetSource3i alGetSource3i</u></td></tr>
+<tr><th id="195">195</th><td><u>#define qalGetSourceiv alGetSourceiv</u></td></tr>
+<tr><th id="196">196</th><td><u>#define qalSourcePlayv alSourcePlayv</u></td></tr>
+<tr><th id="197">197</th><td><u>#define qalSourceStopv alSourceStopv</u></td></tr>
+<tr><th id="198">198</th><td><u>#define qalSourceRewindv alSourceRewindv</u></td></tr>
+<tr><th id="199">199</th><td><u>#define qalSourcePausev alSourcePausev</u></td></tr>
+<tr><th id="200">200</th><td><u>#define qalSourcePlay alSourcePlay</u></td></tr>
+<tr><th id="201">201</th><td><u>#define qalSourceStop alSourceStop</u></td></tr>
+<tr><th id="202">202</th><td><u>#define qalSourceRewind alSourceRewind</u></td></tr>
+<tr><th id="203">203</th><td><u>#define qalSourcePause alSourcePause</u></td></tr>
+<tr><th id="204">204</th><td><u>#define qalSourceQueueBuffers alSourceQueueBuffers</u></td></tr>
+<tr><th id="205">205</th><td><u>#define qalSourceUnqueueBuffers alSourceUnqueueBuffers</u></td></tr>
+<tr><th id="206">206</th><td><u>#define qalGenBuffers alGenBuffers</u></td></tr>
+<tr><th id="207">207</th><td><u>#define qalDeleteBuffers alDeleteBuffers</u></td></tr>
+<tr><th id="208">208</th><td><u>#define qalIsBuffer alIsBuffer</u></td></tr>
+<tr><th id="209">209</th><td><u>#define qalBufferData alBufferData</u></td></tr>
+<tr><th id="210">210</th><td><u>#define qalBufferf alBufferf</u></td></tr>
+<tr><th id="211">211</th><td><u>#define qalBuffer3f alBuffer3f</u></td></tr>
+<tr><th id="212">212</th><td><u>#define qalBufferfv alBufferfv</u></td></tr>
+<tr><th id="213">213</th><td><u>#define qalBufferi alBufferi</u></td></tr>
+<tr><th id="214">214</th><td><u>#define qalBuffer3i alBuffer3i</u></td></tr>
+<tr><th id="215">215</th><td><u>#define qalBufferiv alBufferiv</u></td></tr>
+<tr><th id="216">216</th><td><u>#define qalGetBufferf alGetBufferf</u></td></tr>
+<tr><th id="217">217</th><td><u>#define qalGetBuffer3f alGetBuffer3f</u></td></tr>
+<tr><th id="218">218</th><td><u>#define qalGetBufferfv alGetBufferfv</u></td></tr>
+<tr><th id="219">219</th><td><u>#define qalGetBufferi alGetBufferi</u></td></tr>
+<tr><th id="220">220</th><td><u>#define qalGetBuffer3i alGetBuffer3i</u></td></tr>
+<tr><th id="221">221</th><td><u>#define qalGetBufferiv alGetBufferiv</u></td></tr>
+<tr><th id="222">222</th><td><u>#define qalDopplerFactor alDopplerFactor</u></td></tr>
+<tr><th id="223">223</th><td><u>#define qalSpeedOfSound alSpeedOfSound</u></td></tr>
+<tr><th id="224">224</th><td><u>#define qalDistanceModel alDistanceModel</u></td></tr>
+<tr><th id="225">225</th><td></td></tr>
+<tr><th id="226">226</th><td><u>#define qalcCreateContext alcCreateContext</u></td></tr>
+<tr><th id="227">227</th><td><u>#define qalcMakeContextCurrent alcMakeContextCurrent</u></td></tr>
+<tr><th id="228">228</th><td><u>#define qalcProcessContext alcProcessContext</u></td></tr>
+<tr><th id="229">229</th><td><u>#define qalcSuspendContext alcSuspendContext</u></td></tr>
+<tr><th id="230">230</th><td><u>#define qalcDestroyContext alcDestroyContext</u></td></tr>
+<tr><th id="231">231</th><td><u>#define qalcGetCurrentContext alcGetCurrentContext</u></td></tr>
+<tr><th id="232">232</th><td><u>#define qalcGetContextsDevice alcGetContextsDevice</u></td></tr>
+<tr><th id="233">233</th><td><u>#define qalcOpenDevice alcOpenDevice</u></td></tr>
+<tr><th id="234">234</th><td><u>#define qalcCloseDevice alcCloseDevice</u></td></tr>
+<tr><th id="235">235</th><td><u>#define qalcGetError alcGetError</u></td></tr>
+<tr><th id="236">236</th><td><u>#define qalcIsExtensionPresent alcIsExtensionPresent</u></td></tr>
+<tr><th id="237">237</th><td><u>#define qalcGetProcAddress alcGetProcAddress</u></td></tr>
+<tr><th id="238">238</th><td><u>#define qalcGetEnumValue alcGetEnumValue</u></td></tr>
+<tr><th id="239">239</th><td><u>#define qalcGetString alcGetString</u></td></tr>
+<tr><th id="240">240</th><td><u>#define qalcGetIntegerv alcGetIntegerv</u></td></tr>
+<tr><th id="241">241</th><td><u>#define qalcCaptureOpenDevice alcCaptureOpenDevice</u></td></tr>
+<tr><th id="242">242</th><td><u>#define qalcCaptureCloseDevice alcCaptureCloseDevice</u></td></tr>
+<tr><th id="243">243</th><td><u>#define qalcCaptureStart alcCaptureStart</u></td></tr>
+<tr><th id="244">244</th><td><u>#define qalcCaptureStop alcCaptureStop</u></td></tr>
+<tr><th id="245">245</th><td><u>#define qalcCaptureSamples alcCaptureSamples</u></td></tr>
+<tr><th id="246">246</th><td><u>#<span data-ppcond="58">endif</span></u></td></tr>
+<tr><th id="247">247</th><td></td></tr>
+<tr><th id="248">248</th><td><a class="typedef" href="../qcommon/q_shared.h.html#qboolean" title='qboolean' data-type='enum qboolean' data-ref="qboolean">qboolean</a> <a class="decl" href="qal.c.html#QAL_Init" title='QAL_Init' data-ref="QAL_Init" id="QAL_Init">QAL_Init</a>(<em>const</em> <em>char</em> *<dfn class="local col7 decl" id="417libname" title='libname' data-type='const char *' data-ref="417libname">libname</dfn>);</td></tr>
+<tr><th id="249">249</th><td><em>void</em> <a class="decl" href="qal.c.html#QAL_Shutdown" title='QAL_Shutdown' data-ref="QAL_Shutdown" id="QAL_Shutdown">QAL_Shutdown</a>( <em>void</em> );</td></tr>
+<tr><th id="250">250</th><td></td></tr>
+<tr><th id="251">251</th><td><u>#<span data-ppcond="25">endif</span>	// __QAL_H__</u></td></tr>
+<tr><th id="252">252</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='qal.c.html'>codebrowser/code/client/qal.c</a><br/>Generated on <em>2017-Aug-29</em> from project codebrowser revision <em>63e07af</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

@@ -1,0 +1,10 @@
+<dec f='codebrowser/code/opus-1.1.4/include/opus_defines.h' l='682'/>
+<doc f='codebrowser/code/opus-1.1.4/include/opus_defines.h' l='676'>/** Gets the sampling rate the encoder or decoder was initialized with.
+  * This simply returns the &lt;code&gt;Fs&lt;/code&gt; value passed to opus_encoder_init()
+  * or opus_decoder_init().
+  * @param[out] x &lt;tt&gt;opus_int32 *&lt;/tt&gt;: Sampling rate of encoder or decoder.
+  * @hideinitializer
+  */</doc>
+<use f='codebrowser/code/opus-1.1.4/src/opus_multistream_decoder.c' l='205' u='c'/>
+<use f='codebrowser/code/opus-1.1.4/src/opus_multistream_encoder.c' l='796' u='c'/>
+<use f='codebrowser/code/opus-1.1.4/src/opus_multistream_encoder.c' l='858' u='c'/>

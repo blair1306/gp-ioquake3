@@ -1,0 +1,12 @@
+<dec f='codebrowser/code/game/bg_public.h' l='196' type='void Pmove(pmove_t * pmove)'/>
+<use f='codebrowser/code/cgame/cg_predict.c' l='584' u='c' c='CG_PredictPlayerState'/>
+<def f='codebrowser/code/game/bg_pmove.c' l='2025' ll='2067' type='void Pmove(pmove_t * pmove)'/>
+<doc f='codebrowser/code/game/bg_pmove.c' l='2018'>/*
+================
+Pmove
+
+Can be called by either the server or the client
+================
+*/</doc>
+<use f='codebrowser/code/game/g_active.c' l='341' u='c' c='SpectatorThink'/>
+<use f='codebrowser/code/game/g_active.c' l='937' u='c' c='ClientThink_real'/>

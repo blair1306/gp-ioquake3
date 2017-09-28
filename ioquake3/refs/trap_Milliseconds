@@ -1,0 +1,12 @@
+<dec f='codebrowser/code/cgame/cg_local.h' l='1487' type='int trap_Milliseconds()'/>
+<doc f='codebrowser/code/cgame/cg_local.h' l='1485'>// milliseconds should only be used for performance tuning, never
+// for anything game related.  Get time from the CG_DrawActiveFrame parameter</doc>
+<use f='codebrowser/code/cgame/cg_draw.c' l='744' u='c' c='CG_DrawFPS'/>
+<def f='codebrowser/code/cgame/cg_syscalls.c' l='56' ll='58' type='int trap_Milliseconds()'/>
+<dec f='codebrowser/code/game/g_local.h' l='751' type='int trap_Milliseconds()'/>
+<def f='codebrowser/code/game/g_syscalls.c' l='55' ll='57' type='int trap_Milliseconds()'/>
+<dec f='codebrowser/code/q3_ui/ui_local.h' l='627' type='int trap_Milliseconds()'/>
+<dec f='codebrowser/code/ui/ui_local.h' l='918' type='int trap_Milliseconds()'/>
+<use f='codebrowser/code/ui/ui_main.c' l='930' u='c' c='UI_LoadMenus'/>
+<use f='codebrowser/code/ui/ui_main.c' l='967' u='c' c='UI_LoadMenus'/>
+<def f='codebrowser/code/ui/ui_syscalls.c' l='54' ll='56' type='int trap_Milliseconds()'/>

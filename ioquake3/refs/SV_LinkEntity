@@ -1,0 +1,6 @@
+<dec f='codebrowser/code/server/server.h' l='447' type='void SV_LinkEntity(sharedEntity_t * ent)'/>
+<doc f='codebrowser/code/server/server.h' l='444'>// call before removing an entity, and before trying to move one,
+// so it doesn&apos;t clip against itself</doc>
+<use f='codebrowser/code/server/sv_game.c' l='134' u='c' c='SV_SetBrushModel'/>
+<use f='codebrowser/code/server/sv_game.c' l='351' u='c' c='SV_GameSystemCalls'/>
+<def f='codebrowser/code/server/sv_world.c' l='205' ll='355' type='void SV_LinkEntity(sharedEntity_t * gEnt)'/>

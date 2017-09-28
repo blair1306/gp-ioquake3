@@ -1,0 +1,12 @@
+<dec f='codebrowser/code/jpeg-8c/jpeglib.h' l='598' type='jpeg_saved_marker_ptr'/>
+<offset>3200</offset>
+<doc f='codebrowser/code/jpeg-8c/jpeglib.h' l='594'>/* Aside from the specific data retained from APPn markers known to the
+   * library, the uninterpreted contents of any or all APPn and COM markers
+   * can be saved in a list for examination by the application.
+   */</doc>
+<doc f='codebrowser/code/jpeg-8c/jpeglib.h' l='598'>/* Head of list of saved markers */</doc>
+<use f='codebrowser/code/jpeg-8c/jcomapi.c' l='50' u='w' c='jpeg_abort'/>
+<use f='codebrowser/code/jpeg-8c/jdapimin.c' l='76' u='w' c='jpeg_CreateDecompress'/>
+<use f='codebrowser/code/jpeg-8c/jdmarker.c' l='841' u='r' c='save_marker'/>
+<use f='codebrowser/code/jpeg-8c/jdmarker.c' l='842' u='w' c='save_marker'/>
+<use f='codebrowser/code/jpeg-8c/jdmarker.c' l='844' u='r' c='save_marker'/>

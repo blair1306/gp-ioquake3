@@ -1,0 +1,247 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>celt.h source code [codebrowser/code/opus-1.1.4/celt/celt.h] - Woboq Code Browser</title>
+<link rel="stylesheet" href="../../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'codebrowser/code/opus-1.1.4/celt/celt.h'; var root_path = '../../../..'; var data_path = '../../../../../data';</script>
+<script src='../../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../../..'>codebrowser</a>/<a href='../..'>code</a>/<a href='..'>opus-1.1.4</a>/<a href='./'>celt</a>/<a href='celt.h.html'>celt.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/* Copyright (c) 2007-2008 CSIRO</i></td></tr>
+<tr><th id="2">2</th><td><i>   Copyright (c) 2007-2009 Xiph.Org Foundation</i></td></tr>
+<tr><th id="3">3</th><td><i>   Copyright (c) 2008 Gregory Maxwell</i></td></tr>
+<tr><th id="4">4</th><td><i>   Written by Jean-Marc Valin and Gregory Maxwell */</i></td></tr>
+<tr><th id="5">5</th><td><i class="doc">/**</i></td></tr>
+<tr><th id="6">6</th><td><i class="doc"> <span class="command"> @file</span> celt.h</i></td></tr>
+<tr><th id="7">7</th><td><i class="doc">  <span class="command">@brief</span> Contains all the functions for encoding and decoding audio</i></td></tr>
+<tr><th id="8">8</th><td><i class="doc"> */</i></td></tr>
+<tr><th id="9">9</th><td></td></tr>
+<tr><th id="10">10</th><td><i>/*</i></td></tr>
+<tr><th id="11">11</th><td><i>   Redistribution and use in source and binary forms, with or without</i></td></tr>
+<tr><th id="12">12</th><td><i>   modification, are permitted provided that the following conditions</i></td></tr>
+<tr><th id="13">13</th><td><i>   are met:</i></td></tr>
+<tr><th id="14">14</th><td><i></i></td></tr>
+<tr><th id="15">15</th><td><i>   - Redistributions of source code must retain the above copyright</i></td></tr>
+<tr><th id="16">16</th><td><i>   notice, this list of conditions and the following disclaimer.</i></td></tr>
+<tr><th id="17">17</th><td><i></i></td></tr>
+<tr><th id="18">18</th><td><i>   - Redistributions in binary form must reproduce the above copyright</i></td></tr>
+<tr><th id="19">19</th><td><i>   notice, this list of conditions and the following disclaimer in the</i></td></tr>
+<tr><th id="20">20</th><td><i>   documentation and/or other materials provided with the distribution.</i></td></tr>
+<tr><th id="21">21</th><td><i></i></td></tr>
+<tr><th id="22">22</th><td><i>   THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS</i></td></tr>
+<tr><th id="23">23</th><td><i>   ``AS IS'' AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT</i></td></tr>
+<tr><th id="24">24</th><td><i>   LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR</i></td></tr>
+<tr><th id="25">25</th><td><i>   A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER</i></td></tr>
+<tr><th id="26">26</th><td><i>   OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,</i></td></tr>
+<tr><th id="27">27</th><td><i>   EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,</i></td></tr>
+<tr><th id="28">28</th><td><i>   PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR</i></td></tr>
+<tr><th id="29">29</th><td><i>   PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF</i></td></tr>
+<tr><th id="30">30</th><td><i>   LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING</i></td></tr>
+<tr><th id="31">31</th><td><i>   NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS</i></td></tr>
+<tr><th id="32">32</th><td><i>   SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</i></td></tr>
+<tr><th id="33">33</th><td><i>*/</i></td></tr>
+<tr><th id="34">34</th><td></td></tr>
+<tr><th id="35">35</th><td><u>#<span data-ppcond="35">ifndef</span> <span class="macro" data-ref="_M/CELT_H">CELT_H</span></u></td></tr>
+<tr><th id="36">36</th><td><u>#define <dfn class="macro" id="_M/CELT_H" data-ref="_M/CELT_H">CELT_H</dfn></u></td></tr>
+<tr><th id="37">37</th><td></td></tr>
+<tr><th id="38">38</th><td><u>#include <a href="../include/opus_types.h.html">"opus_types.h"</a></u></td></tr>
+<tr><th id="39">39</th><td><u>#include <a href="../include/opus_defines.h.html">"opus_defines.h"</a></u></td></tr>
+<tr><th id="40">40</th><td><u>#include <a href="../include/opus_custom.h.html">"opus_custom.h"</a></u></td></tr>
+<tr><th id="41">41</th><td><u>#include <a href="entenc.h.html">"entenc.h"</a></u></td></tr>
+<tr><th id="42">42</th><td><u>#include <a href="entdec.h.html">"entdec.h"</a></u></td></tr>
+<tr><th id="43">43</th><td><u>#include <a href="arch.h.html">"arch.h"</a></u></td></tr>
+<tr><th id="44">44</th><td></td></tr>
+<tr><th id="45">45</th><td><u>#<span data-ppcond="45">ifdef</span> <span class="macro" data-ref="_M/__cplusplus">__cplusplus</span></u></td></tr>
+<tr><th id="46">46</th><td><b>extern</b> <q>"C"</q> {</td></tr>
+<tr><th id="47">47</th><td><u>#<span data-ppcond="45">endif</span></u></td></tr>
+<tr><th id="48">48</th><td></td></tr>
+<tr><th id="49">49</th><td><u>#define <dfn class="macro" id="_M/CELTEncoder" data-ref="_M/CELTEncoder">CELTEncoder</dfn> <a class="typedef" href="../include/opus_custom.h.html#OpusCustomEncoder" title='OpusCustomEncoder' data-type='struct OpusCustomEncoder' data-ref="OpusCustomEncoder">OpusCustomEncoder</a></u></td></tr>
+<tr><th id="50">50</th><td><u>#define <dfn class="macro" id="_M/CELTDecoder" data-ref="_M/CELTDecoder">CELTDecoder</dfn> <a class="typedef" href="../include/opus_custom.h.html#OpusCustomDecoder" title='OpusCustomDecoder' data-type='struct OpusCustomDecoder' data-ref="OpusCustomDecoder">OpusCustomDecoder</a></u></td></tr>
+<tr><th id="51">51</th><td><u>#define <dfn class="macro" id="_M/CELTMode" data-ref="_M/CELTMode">CELTMode</dfn> <a class="typedef" href="../include/opus_custom.h.html#OpusCustomMode" title='OpusCustomMode' data-type='struct OpusCustomMode' data-ref="OpusCustomMode">OpusCustomMode</a></u></td></tr>
+<tr><th id="52">52</th><td></td></tr>
+<tr><th id="53">53</th><td><b>typedef</b> <b>struct</b> {</td></tr>
+<tr><th id="54">54</th><td>   <em>int</em> <dfn class="decl" id="(anonymous)::valid" title='(anonymous struct)::valid' data-ref="(anonymous)::valid">valid</dfn>;</td></tr>
+<tr><th id="55">55</th><td>   <em>float</em> <dfn class="decl" id="(anonymous)::tonality" title='(anonymous struct)::tonality' data-ref="(anonymous)::tonality">tonality</dfn>;</td></tr>
+<tr><th id="56">56</th><td>   <em>float</em> <dfn class="decl" id="(anonymous)::tonality_slope" title='(anonymous struct)::tonality_slope' data-ref="(anonymous)::tonality_slope">tonality_slope</dfn>;</td></tr>
+<tr><th id="57">57</th><td>   <em>float</em> <dfn class="decl" id="(anonymous)::noisiness" title='(anonymous struct)::noisiness' data-ref="(anonymous)::noisiness">noisiness</dfn>;</td></tr>
+<tr><th id="58">58</th><td>   <em>float</em> <dfn class="decl" id="(anonymous)::activity" title='(anonymous struct)::activity' data-ref="(anonymous)::activity">activity</dfn>;</td></tr>
+<tr><th id="59">59</th><td>   <em>float</em> <dfn class="decl" id="(anonymous)::music_prob" title='(anonymous struct)::music_prob' data-ref="(anonymous)::music_prob">music_prob</dfn>;</td></tr>
+<tr><th id="60">60</th><td>   <em>int</em>        <dfn class="decl" id="(anonymous)::bandwidth" title='(anonymous struct)::bandwidth' data-ref="(anonymous)::bandwidth">bandwidth</dfn>;</td></tr>
+<tr><th id="61">61</th><td>}<dfn class="typedef" id="AnalysisInfo" title='AnalysisInfo' data-type='struct AnalysisInfo' data-ref="AnalysisInfo">AnalysisInfo</dfn>;</td></tr>
+<tr><th id="62">62</th><td></td></tr>
+<tr><th id="63">63</th><td><u>#define <dfn class="macro" id="_M/__celt_check_mode_ptr_ptr" data-ref="_M/__celt_check_mode_ptr_ptr">__celt_check_mode_ptr_ptr</dfn>(ptr) ((ptr) + ((ptr) - (const CELTMode**)(ptr)))</u></td></tr>
+<tr><th id="64">64</th><td></td></tr>
+<tr><th id="65">65</th><td><u>#define <dfn class="macro" id="_M/__celt_check_analysis_ptr" data-ref="_M/__celt_check_analysis_ptr">__celt_check_analysis_ptr</dfn>(ptr) ((ptr) + ((ptr) - (const AnalysisInfo*)(ptr)))</u></td></tr>
+<tr><th id="66">66</th><td></td></tr>
+<tr><th id="67">67</th><td><i>/* Encoder/decoder Requests */</i></td></tr>
+<tr><th id="68">68</th><td></td></tr>
+<tr><th id="69">69</th><td><i>/* Expose this option again when variable framesize actually works */</i></td></tr>
+<tr><th id="70">70</th><td><u>#define <dfn class="macro" id="_M/OPUS_FRAMESIZE_VARIABLE" data-ref="_M/OPUS_FRAMESIZE_VARIABLE">OPUS_FRAMESIZE_VARIABLE</dfn>              5010 /**&lt; Optimize the frame size dynamically */</u></td></tr>
+<tr><th id="71">71</th><td></td></tr>
+<tr><th id="72">72</th><td></td></tr>
+<tr><th id="73">73</th><td><u>#define <dfn class="macro" id="_M/CELT_SET_PREDICTION_REQUEST" data-ref="_M/CELT_SET_PREDICTION_REQUEST">CELT_SET_PREDICTION_REQUEST</dfn>    10002</u></td></tr>
+<tr><th id="74">74</th><td><i class="doc">/** Controls the use of interframe prediction.</i></td></tr>
+<tr><th id="75">75</th><td><i class="doc">    0=Independent frames</i></td></tr>
+<tr><th id="76">76</th><td><i class="doc">    1=Short term interframe prediction allowed</i></td></tr>
+<tr><th id="77">77</th><td><i class="doc">    2=Long term prediction allowed</i></td></tr>
+<tr><th id="78">78</th><td><i class="doc"> */</i></td></tr>
+<tr><th id="79">79</th><td><u>#define <dfn class="macro" id="_M/CELT_SET_PREDICTION" data-ref="_M/CELT_SET_PREDICTION">CELT_SET_PREDICTION</dfn>(x) CELT_SET_PREDICTION_REQUEST, __opus_check_int(x)</u></td></tr>
+<tr><th id="80">80</th><td></td></tr>
+<tr><th id="81">81</th><td><u>#define <dfn class="macro" id="_M/CELT_SET_INPUT_CLIPPING_REQUEST" data-ref="_M/CELT_SET_INPUT_CLIPPING_REQUEST">CELT_SET_INPUT_CLIPPING_REQUEST</dfn>    10004</u></td></tr>
+<tr><th id="82">82</th><td><u>#define <dfn class="macro" id="_M/CELT_SET_INPUT_CLIPPING" data-ref="_M/CELT_SET_INPUT_CLIPPING">CELT_SET_INPUT_CLIPPING</dfn>(x) CELT_SET_INPUT_CLIPPING_REQUEST, __opus_check_int(x)</u></td></tr>
+<tr><th id="83">83</th><td></td></tr>
+<tr><th id="84">84</th><td><u>#define <dfn class="macro" id="_M/CELT_GET_AND_CLEAR_ERROR_REQUEST" data-ref="_M/CELT_GET_AND_CLEAR_ERROR_REQUEST">CELT_GET_AND_CLEAR_ERROR_REQUEST</dfn>   10007</u></td></tr>
+<tr><th id="85">85</th><td><u>#define <dfn class="macro" id="_M/CELT_GET_AND_CLEAR_ERROR" data-ref="_M/CELT_GET_AND_CLEAR_ERROR">CELT_GET_AND_CLEAR_ERROR</dfn>(x) CELT_GET_AND_CLEAR_ERROR_REQUEST, __opus_check_int_ptr(x)</u></td></tr>
+<tr><th id="86">86</th><td></td></tr>
+<tr><th id="87">87</th><td><u>#define <dfn class="macro" id="_M/CELT_SET_CHANNELS_REQUEST" data-ref="_M/CELT_SET_CHANNELS_REQUEST">CELT_SET_CHANNELS_REQUEST</dfn>    10008</u></td></tr>
+<tr><th id="88">88</th><td><u>#define <dfn class="macro" id="_M/CELT_SET_CHANNELS" data-ref="_M/CELT_SET_CHANNELS">CELT_SET_CHANNELS</dfn>(x) CELT_SET_CHANNELS_REQUEST, __opus_check_int(x)</u></td></tr>
+<tr><th id="89">89</th><td></td></tr>
+<tr><th id="90">90</th><td></td></tr>
+<tr><th id="91">91</th><td><i>/* Internal */</i></td></tr>
+<tr><th id="92">92</th><td><u>#define <dfn class="macro" id="_M/CELT_SET_START_BAND_REQUEST" data-ref="_M/CELT_SET_START_BAND_REQUEST">CELT_SET_START_BAND_REQUEST</dfn>    10010</u></td></tr>
+<tr><th id="93">93</th><td><u>#define <dfn class="macro" id="_M/CELT_SET_START_BAND" data-ref="_M/CELT_SET_START_BAND">CELT_SET_START_BAND</dfn>(x) CELT_SET_START_BAND_REQUEST, __opus_check_int(x)</u></td></tr>
+<tr><th id="94">94</th><td></td></tr>
+<tr><th id="95">95</th><td><u>#define <dfn class="macro" id="_M/CELT_SET_END_BAND_REQUEST" data-ref="_M/CELT_SET_END_BAND_REQUEST">CELT_SET_END_BAND_REQUEST</dfn>    10012</u></td></tr>
+<tr><th id="96">96</th><td><u>#define <dfn class="macro" id="_M/CELT_SET_END_BAND" data-ref="_M/CELT_SET_END_BAND">CELT_SET_END_BAND</dfn>(x) CELT_SET_END_BAND_REQUEST, __opus_check_int(x)</u></td></tr>
+<tr><th id="97">97</th><td></td></tr>
+<tr><th id="98">98</th><td><u>#define <dfn class="macro" id="_M/CELT_GET_MODE_REQUEST" data-ref="_M/CELT_GET_MODE_REQUEST">CELT_GET_MODE_REQUEST</dfn>    10015</u></td></tr>
+<tr><th id="99">99</th><td><i class="doc">/** Get the CELTMode used by an encoder or decoder */</i></td></tr>
+<tr><th id="100">100</th><td><u>#define <dfn class="macro" id="_M/CELT_GET_MODE" data-ref="_M/CELT_GET_MODE">CELT_GET_MODE</dfn>(x) CELT_GET_MODE_REQUEST, __celt_check_mode_ptr_ptr(x)</u></td></tr>
+<tr><th id="101">101</th><td></td></tr>
+<tr><th id="102">102</th><td><u>#define <dfn class="macro" id="_M/CELT_SET_SIGNALLING_REQUEST" data-ref="_M/CELT_SET_SIGNALLING_REQUEST">CELT_SET_SIGNALLING_REQUEST</dfn>    10016</u></td></tr>
+<tr><th id="103">103</th><td><u>#define <dfn class="macro" id="_M/CELT_SET_SIGNALLING" data-ref="_M/CELT_SET_SIGNALLING">CELT_SET_SIGNALLING</dfn>(x) CELT_SET_SIGNALLING_REQUEST, __opus_check_int(x)</u></td></tr>
+<tr><th id="104">104</th><td></td></tr>
+<tr><th id="105">105</th><td><u>#define <dfn class="macro" id="_M/CELT_SET_TONALITY_REQUEST" data-ref="_M/CELT_SET_TONALITY_REQUEST">CELT_SET_TONALITY_REQUEST</dfn>    10018</u></td></tr>
+<tr><th id="106">106</th><td><u>#define <dfn class="macro" id="_M/CELT_SET_TONALITY" data-ref="_M/CELT_SET_TONALITY">CELT_SET_TONALITY</dfn>(x) CELT_SET_TONALITY_REQUEST, __opus_check_int(x)</u></td></tr>
+<tr><th id="107">107</th><td><u>#define <dfn class="macro" id="_M/CELT_SET_TONALITY_SLOPE_REQUEST" data-ref="_M/CELT_SET_TONALITY_SLOPE_REQUEST">CELT_SET_TONALITY_SLOPE_REQUEST</dfn>    10020</u></td></tr>
+<tr><th id="108">108</th><td><u>#define <dfn class="macro" id="_M/CELT_SET_TONALITY_SLOPE" data-ref="_M/CELT_SET_TONALITY_SLOPE">CELT_SET_TONALITY_SLOPE</dfn>(x) CELT_SET_TONALITY_SLOPE_REQUEST, __opus_check_int(x)</u></td></tr>
+<tr><th id="109">109</th><td></td></tr>
+<tr><th id="110">110</th><td><u>#define <dfn class="macro" id="_M/CELT_SET_ANALYSIS_REQUEST" data-ref="_M/CELT_SET_ANALYSIS_REQUEST">CELT_SET_ANALYSIS_REQUEST</dfn>    10022</u></td></tr>
+<tr><th id="111">111</th><td><u>#define <dfn class="macro" id="_M/CELT_SET_ANALYSIS" data-ref="_M/CELT_SET_ANALYSIS">CELT_SET_ANALYSIS</dfn>(x) CELT_SET_ANALYSIS_REQUEST, __celt_check_analysis_ptr(x)</u></td></tr>
+<tr><th id="112">112</th><td></td></tr>
+<tr><th id="113">113</th><td><u>#define <dfn class="macro" id="_M/OPUS_SET_LFE_REQUEST" data-ref="_M/OPUS_SET_LFE_REQUEST">OPUS_SET_LFE_REQUEST</dfn>    10024</u></td></tr>
+<tr><th id="114">114</th><td><u>#define <dfn class="macro" id="_M/OPUS_SET_LFE" data-ref="_M/OPUS_SET_LFE">OPUS_SET_LFE</dfn>(x) OPUS_SET_LFE_REQUEST, __opus_check_int(x)</u></td></tr>
+<tr><th id="115">115</th><td></td></tr>
+<tr><th id="116">116</th><td><u>#define <dfn class="macro" id="_M/OPUS_SET_ENERGY_MASK_REQUEST" data-ref="_M/OPUS_SET_ENERGY_MASK_REQUEST">OPUS_SET_ENERGY_MASK_REQUEST</dfn>    10026</u></td></tr>
+<tr><th id="117">117</th><td><u>#define <dfn class="macro" id="_M/OPUS_SET_ENERGY_MASK" data-ref="_M/OPUS_SET_ENERGY_MASK">OPUS_SET_ENERGY_MASK</dfn>(x) OPUS_SET_ENERGY_MASK_REQUEST, __opus_check_val16_ptr(x)</u></td></tr>
+<tr><th id="118">118</th><td></td></tr>
+<tr><th id="119">119</th><td><i>/* Encoder stuff */</i></td></tr>
+<tr><th id="120">120</th><td></td></tr>
+<tr><th id="121">121</th><td><em>int</em> <dfn class="decl" id="celt_encoder_get_size" title='celt_encoder_get_size' data-ref="celt_encoder_get_size">celt_encoder_get_size</dfn>(<em>int</em> <dfn class="local col0 decl" id="100channels" title='channels' data-type='int' data-ref="100channels">channels</dfn>);</td></tr>
+<tr><th id="122">122</th><td></td></tr>
+<tr><th id="123">123</th><td><em>int</em> <dfn class="decl" id="celt_encode_with_ec" title='celt_encode_with_ec' data-ref="celt_encode_with_ec">celt_encode_with_ec</dfn>(<a class="typedef" href="../include/opus_custom.h.html#OpusCustomEncoder" title='OpusCustomEncoder' data-type='struct OpusCustomEncoder' data-ref="OpusCustomEncoder">OpusCustomEncoder</a> * <a class="macro" href="../include/opus_defines.h.html#98" title="restrict" data-ref="_M/OPUS_RESTRICT">OPUS_RESTRICT</a> <dfn class="local col1 decl" id="101st" title='st' data-type='OpusCustomEncoder *restrict' data-ref="101st">st</dfn>, <em>const</em> <a class="typedef" href="arch.h.html#opus_val16" title='opus_val16' data-type='float' data-ref="opus_val16">opus_val16</a> * <dfn class="local col2 decl" id="102pcm" title='pcm' data-type='const opus_val16 *' data-ref="102pcm">pcm</dfn>, <em>int</em> <dfn class="local col3 decl" id="103frame_size" title='frame_size' data-type='int' data-ref="103frame_size">frame_size</dfn>, <em>unsigned</em> <em>char</em> *<dfn class="local col4 decl" id="104compressed" title='compressed' data-type='unsigned char *' data-ref="104compressed">compressed</dfn>, <em>int</em> <dfn class="local col5 decl" id="105nbCompressedBytes" title='nbCompressedBytes' data-type='int' data-ref="105nbCompressedBytes">nbCompressedBytes</dfn>, <a class="typedef" href="entcode.h.html#ec_enc" title='ec_enc' data-type='struct ec_ctx' data-ref="ec_enc">ec_enc</a> *<dfn class="local col6 decl" id="106enc" title='enc' data-type='ec_enc *' data-ref="106enc">enc</dfn>);</td></tr>
+<tr><th id="124">124</th><td></td></tr>
+<tr><th id="125">125</th><td><em>int</em> <dfn class="decl" id="celt_encoder_init" title='celt_encoder_init' data-ref="celt_encoder_init">celt_encoder_init</dfn>(<a class="macro" href="#49" title="OpusCustomEncoder" data-ref="_M/CELTEncoder">CELTEncoder</a> *<dfn class="local col7 decl" id="107st" title='st' data-type='OpusCustomEncoder *' data-ref="107st">st</dfn>, <a class="typedef" href="../include/opus_types.h.html#opus_int32" title='opus_int32' data-type='int32_t' data-ref="opus_int32">opus_int32</a> <dfn class="local col8 decl" id="108sampling_rate" title='sampling_rate' data-type='opus_int32' data-ref="108sampling_rate">sampling_rate</dfn>, <em>int</em> <dfn class="local col9 decl" id="109channels" title='channels' data-type='int' data-ref="109channels">channels</dfn>,</td></tr>
+<tr><th id="126">126</th><td>                      <em>int</em> <dfn class="local col0 decl" id="110arch" title='arch' data-type='int' data-ref="110arch">arch</dfn>);</td></tr>
+<tr><th id="127">127</th><td></td></tr>
+<tr><th id="128">128</th><td></td></tr>
+<tr><th id="129">129</th><td></td></tr>
+<tr><th id="130">130</th><td><i>/* Decoder stuff */</i></td></tr>
+<tr><th id="131">131</th><td></td></tr>
+<tr><th id="132">132</th><td><em>int</em> <dfn class="decl" id="celt_decoder_get_size" title='celt_decoder_get_size' data-ref="celt_decoder_get_size">celt_decoder_get_size</dfn>(<em>int</em> <dfn class="local col1 decl" id="111channels" title='channels' data-type='int' data-ref="111channels">channels</dfn>);</td></tr>
+<tr><th id="133">133</th><td></td></tr>
+<tr><th id="134">134</th><td></td></tr>
+<tr><th id="135">135</th><td><em>int</em> <dfn class="decl" id="celt_decoder_init" title='celt_decoder_init' data-ref="celt_decoder_init">celt_decoder_init</dfn>(<a class="macro" href="#50" title="OpusCustomDecoder" data-ref="_M/CELTDecoder">CELTDecoder</a> *<dfn class="local col2 decl" id="112st" title='st' data-type='OpusCustomDecoder *' data-ref="112st">st</dfn>, <a class="typedef" href="../include/opus_types.h.html#opus_int32" title='opus_int32' data-type='int32_t' data-ref="opus_int32">opus_int32</a> <dfn class="local col3 decl" id="113sampling_rate" title='sampling_rate' data-type='opus_int32' data-ref="113sampling_rate">sampling_rate</dfn>, <em>int</em> <dfn class="local col4 decl" id="114channels" title='channels' data-type='int' data-ref="114channels">channels</dfn>);</td></tr>
+<tr><th id="136">136</th><td></td></tr>
+<tr><th id="137">137</th><td><em>int</em> <dfn class="decl" id="celt_decode_with_ec" title='celt_decode_with_ec' data-ref="celt_decode_with_ec">celt_decode_with_ec</dfn>(<a class="typedef" href="../include/opus_custom.h.html#OpusCustomDecoder" title='OpusCustomDecoder' data-type='struct OpusCustomDecoder' data-ref="OpusCustomDecoder">OpusCustomDecoder</a> * <a class="macro" href="../include/opus_defines.h.html#98" title="restrict" data-ref="_M/OPUS_RESTRICT">OPUS_RESTRICT</a> <dfn class="local col5 decl" id="115st" title='st' data-type='OpusCustomDecoder *restrict' data-ref="115st">st</dfn>, <em>const</em> <em>unsigned</em> <em>char</em> *<dfn class="local col6 decl" id="116data" title='data' data-type='const unsigned char *' data-ref="116data">data</dfn>,</td></tr>
+<tr><th id="138">138</th><td>      <em>int</em> <dfn class="local col7 decl" id="117len" title='len' data-type='int' data-ref="117len">len</dfn>, <a class="typedef" href="arch.h.html#opus_val16" title='opus_val16' data-type='float' data-ref="opus_val16">opus_val16</a> * <a class="macro" href="../include/opus_defines.h.html#98" title="restrict" data-ref="_M/OPUS_RESTRICT">OPUS_RESTRICT</a> <dfn class="local col8 decl" id="118pcm" title='pcm' data-type='opus_val16 *restrict' data-ref="118pcm">pcm</dfn>, <em>int</em> <dfn class="local col9 decl" id="119frame_size" title='frame_size' data-type='int' data-ref="119frame_size">frame_size</dfn>, <a class="typedef" href="entcode.h.html#ec_dec" title='ec_dec' data-type='struct ec_ctx' data-ref="ec_dec">ec_dec</a> *<dfn class="local col0 decl" id="120dec" title='dec' data-type='ec_dec *' data-ref="120dec">dec</dfn>, <em>int</em> <dfn class="local col1 decl" id="121accum" title='accum' data-type='int' data-ref="121accum">accum</dfn>);</td></tr>
+<tr><th id="139">139</th><td></td></tr>
+<tr><th id="140">140</th><td><u>#define <dfn class="macro" id="_M/celt_encoder_ctl" data-ref="_M/celt_encoder_ctl">celt_encoder_ctl</dfn> opus_custom_encoder_ctl</u></td></tr>
+<tr><th id="141">141</th><td><u>#define <dfn class="macro" id="_M/celt_decoder_ctl" data-ref="_M/celt_decoder_ctl">celt_decoder_ctl</dfn> opus_custom_decoder_ctl</u></td></tr>
+<tr><th id="142">142</th><td></td></tr>
+<tr><th id="143">143</th><td></td></tr>
+<tr><th id="144">144</th><td><u>#<span data-ppcond="144">ifdef</span> <span class="macro" data-ref="_M/CUSTOM_MODES">CUSTOM_MODES</span></u></td></tr>
+<tr><th id="145">145</th><td><u>#define OPUS_CUSTOM_NOSTATIC</u></td></tr>
+<tr><th id="146">146</th><td><u>#<span data-ppcond="144">else</span></u></td></tr>
+<tr><th id="147">147</th><td><u>#define <dfn class="macro" id="_M/OPUS_CUSTOM_NOSTATIC" data-ref="_M/OPUS_CUSTOM_NOSTATIC">OPUS_CUSTOM_NOSTATIC</dfn> static OPUS_INLINE</u></td></tr>
+<tr><th id="148">148</th><td><u>#<span data-ppcond="144">endif</span></u></td></tr>
+<tr><th id="149">149</th><td></td></tr>
+<tr><th id="150">150</th><td><em>static</em> <em>const</em> <em>unsigned</em> <em>char</em> <dfn class="decl def" id="trim_icdf" title='trim_icdf' data-ref="trim_icdf">trim_icdf</dfn>[<var>11</var>] = {<var>126</var>, <var>124</var>, <var>119</var>, <var>109</var>, <var>87</var>, <var>41</var>, <var>19</var>, <var>9</var>, <var>4</var>, <var>2</var>, <var>0</var>};</td></tr>
+<tr><th id="151">151</th><td><i>/* Probs: NONE: 21.875%, LIGHT: 6.25%, NORMAL: 65.625%, AGGRESSIVE: 6.25% */</i></td></tr>
+<tr><th id="152">152</th><td><em>static</em> <em>const</em> <em>unsigned</em> <em>char</em> <dfn class="decl def" id="spread_icdf" title='spread_icdf' data-ref="spread_icdf">spread_icdf</dfn>[<var>4</var>] = {<var>25</var>, <var>23</var>, <var>2</var>, <var>0</var>};</td></tr>
+<tr><th id="153">153</th><td></td></tr>
+<tr><th id="154">154</th><td><em>static</em> <em>const</em> <em>unsigned</em> <em>char</em> <dfn class="decl def" id="tapset_icdf" title='tapset_icdf' data-ref="tapset_icdf">tapset_icdf</dfn>[<var>3</var>]={<var>2</var>,<var>1</var>,<var>0</var>};</td></tr>
+<tr><th id="155">155</th><td></td></tr>
+<tr><th id="156">156</th><td><u>#<span data-ppcond="156">ifdef</span> <span class="macro" data-ref="_M/CUSTOM_MODES">CUSTOM_MODES</span></u></td></tr>
+<tr><th id="157">157</th><td><em>static</em> <em>const</em> <em>unsigned</em> <em>char</em> toOpusTable[<var>20</var>] = {</td></tr>
+<tr><th id="158">158</th><td>      <var>0xE0</var>, <var>0xE8</var>, <var>0xF0</var>, <var>0xF8</var>,</td></tr>
+<tr><th id="159">159</th><td>      <var>0xC0</var>, <var>0xC8</var>, <var>0xD0</var>, <var>0xD8</var>,</td></tr>
+<tr><th id="160">160</th><td>      <var>0xA0</var>, <var>0xA8</var>, <var>0xB0</var>, <var>0xB8</var>,</td></tr>
+<tr><th id="161">161</th><td>      <var>0x00</var>, <var>0x00</var>, <var>0x00</var>, <var>0x00</var>,</td></tr>
+<tr><th id="162">162</th><td>      <var>0x80</var>, <var>0x88</var>, <var>0x90</var>, <var>0x98</var>,</td></tr>
+<tr><th id="163">163</th><td>};</td></tr>
+<tr><th id="164">164</th><td></td></tr>
+<tr><th id="165">165</th><td><em>static</em> <em>const</em> <em>unsigned</em> <em>char</em> fromOpusTable[<var>16</var>] = {</td></tr>
+<tr><th id="166">166</th><td>      <var>0x80</var>, <var>0x88</var>, <var>0x90</var>, <var>0x98</var>,</td></tr>
+<tr><th id="167">167</th><td>      <var>0x40</var>, <var>0x48</var>, <var>0x50</var>, <var>0x58</var>,</td></tr>
+<tr><th id="168">168</th><td>      <var>0x20</var>, <var>0x28</var>, <var>0x30</var>, <var>0x38</var>,</td></tr>
+<tr><th id="169">169</th><td>      <var>0x00</var>, <var>0x08</var>, <var>0x10</var>, <var>0x18</var></td></tr>
+<tr><th id="170">170</th><td>};</td></tr>
+<tr><th id="171">171</th><td></td></tr>
+<tr><th id="172">172</th><td><em>static</em> OPUS_INLINE <em>int</em> toOpus(<em>unsigned</em> <em>char</em> c)</td></tr>
+<tr><th id="173">173</th><td>{</td></tr>
+<tr><th id="174">174</th><td>   <em>int</em> ret=<var>0</var>;</td></tr>
+<tr><th id="175">175</th><td>   <b>if</b> (c&lt;<var>0xA0</var>)</td></tr>
+<tr><th id="176">176</th><td>      ret = toOpusTable[c&gt;&gt;<var>3</var>];</td></tr>
+<tr><th id="177">177</th><td>   <b>if</b> (ret == <var>0</var>)</td></tr>
+<tr><th id="178">178</th><td>      <b>return</b> -<var>1</var>;</td></tr>
+<tr><th id="179">179</th><td>   <b>else</b></td></tr>
+<tr><th id="180">180</th><td>      <b>return</b> ret|(c&amp;<var>0x7</var>);</td></tr>
+<tr><th id="181">181</th><td>}</td></tr>
+<tr><th id="182">182</th><td></td></tr>
+<tr><th id="183">183</th><td><em>static</em> OPUS_INLINE <em>int</em> fromOpus(<em>unsigned</em> <em>char</em> c)</td></tr>
+<tr><th id="184">184</th><td>{</td></tr>
+<tr><th id="185">185</th><td>   <b>if</b> (c&lt;<var>0x80</var>)</td></tr>
+<tr><th id="186">186</th><td>      <b>return</b> -<var>1</var>;</td></tr>
+<tr><th id="187">187</th><td>   <b>else</b></td></tr>
+<tr><th id="188">188</th><td>      <b>return</b> fromOpusTable[(c&gt;&gt;<var>3</var>)-<var>16</var>] | (c&amp;<var>0x7</var>);</td></tr>
+<tr><th id="189">189</th><td>}</td></tr>
+<tr><th id="190">190</th><td><u>#<span data-ppcond="156">endif</span> /* CUSTOM_MODES */</u></td></tr>
+<tr><th id="191">191</th><td></td></tr>
+<tr><th id="192">192</th><td><u>#define <dfn class="macro" id="_M/COMBFILTER_MAXPERIOD" data-ref="_M/COMBFILTER_MAXPERIOD">COMBFILTER_MAXPERIOD</dfn> 1024</u></td></tr>
+<tr><th id="193">193</th><td><u>#define <dfn class="macro" id="_M/COMBFILTER_MINPERIOD" data-ref="_M/COMBFILTER_MINPERIOD">COMBFILTER_MINPERIOD</dfn> 15</u></td></tr>
+<tr><th id="194">194</th><td></td></tr>
+<tr><th id="195">195</th><td><b>extern</b> <em>const</em> <em>signed</em> <em>char</em> <dfn class="decl" id="tf_select_table" title='tf_select_table' data-ref="tf_select_table">tf_select_table</dfn>[<var>4</var>][<var>8</var>];</td></tr>
+<tr><th id="196">196</th><td></td></tr>
+<tr><th id="197">197</th><td><em>int</em> <dfn class="decl" id="resampling_factor" title='resampling_factor' data-ref="resampling_factor">resampling_factor</dfn>(<a class="typedef" href="../include/opus_types.h.html#opus_int32" title='opus_int32' data-type='int32_t' data-ref="opus_int32">opus_int32</a> <dfn class="local col2 decl" id="122rate" title='rate' data-type='opus_int32' data-ref="122rate">rate</dfn>);</td></tr>
+<tr><th id="198">198</th><td></td></tr>
+<tr><th id="199">199</th><td><em>void</em> <dfn class="decl" id="celt_preemphasis" title='celt_preemphasis' data-ref="celt_preemphasis">celt_preemphasis</dfn>(<em>const</em> <a class="typedef" href="arch.h.html#opus_val16" title='opus_val16' data-type='float' data-ref="opus_val16">opus_val16</a> * <a class="macro" href="../include/opus_defines.h.html#98" title="restrict" data-ref="_M/OPUS_RESTRICT">OPUS_RESTRICT</a> <dfn class="local col3 decl" id="123pcmp" title='pcmp' data-type='const opus_val16 *restrict' data-ref="123pcmp">pcmp</dfn>, <a class="typedef" href="arch.h.html#celt_sig" title='celt_sig' data-type='float' data-ref="celt_sig">celt_sig</a> * <a class="macro" href="../include/opus_defines.h.html#98" title="restrict" data-ref="_M/OPUS_RESTRICT">OPUS_RESTRICT</a> <dfn class="local col4 decl" id="124inp" title='inp' data-type='celt_sig *restrict' data-ref="124inp">inp</dfn>,</td></tr>
+<tr><th id="200">200</th><td>                        <em>int</em> <dfn class="local col5 decl" id="125N" title='N' data-type='int' data-ref="125N">N</dfn>, <em>int</em> <dfn class="local col6 decl" id="126CC" title='CC' data-type='int' data-ref="126CC">CC</dfn>, <em>int</em> <dfn class="local col7 decl" id="127upsample" title='upsample' data-type='int' data-ref="127upsample">upsample</dfn>, <em>const</em> <a class="typedef" href="arch.h.html#opus_val16" title='opus_val16' data-type='float' data-ref="opus_val16">opus_val16</a> *<dfn class="local col8 decl" id="128coef" title='coef' data-type='const opus_val16 *' data-ref="128coef">coef</dfn>, <a class="typedef" href="arch.h.html#celt_sig" title='celt_sig' data-type='float' data-ref="celt_sig">celt_sig</a> *<dfn class="local col9 decl" id="129mem" title='mem' data-type='celt_sig *' data-ref="129mem">mem</dfn>, <em>int</em> <dfn class="local col0 decl" id="130clip" title='clip' data-type='int' data-ref="130clip">clip</dfn>);</td></tr>
+<tr><th id="201">201</th><td></td></tr>
+<tr><th id="202">202</th><td><em>void</em> <dfn class="decl" id="comb_filter" title='comb_filter' data-ref="comb_filter">comb_filter</dfn>(<a class="typedef" href="arch.h.html#opus_val32" title='opus_val32' data-type='float' data-ref="opus_val32">opus_val32</a> *<dfn class="local col1 decl" id="131y" title='y' data-type='opus_val32 *' data-ref="131y">y</dfn>, <a class="typedef" href="arch.h.html#opus_val32" title='opus_val32' data-type='float' data-ref="opus_val32">opus_val32</a> *<dfn class="local col2 decl" id="132x" title='x' data-type='opus_val32 *' data-ref="132x">x</dfn>, <em>int</em> <dfn class="local col3 decl" id="133T0" title='T0' data-type='int' data-ref="133T0">T0</dfn>, <em>int</em> <dfn class="local col4 decl" id="134T1" title='T1' data-type='int' data-ref="134T1">T1</dfn>, <em>int</em> <dfn class="local col5 decl" id="135N" title='N' data-type='int' data-ref="135N">N</dfn>,</td></tr>
+<tr><th id="203">203</th><td>      <a class="typedef" href="arch.h.html#opus_val16" title='opus_val16' data-type='float' data-ref="opus_val16">opus_val16</a> <dfn class="local col6 decl" id="136g0" title='g0' data-type='opus_val16' data-ref="136g0">g0</dfn>, <a class="typedef" href="arch.h.html#opus_val16" title='opus_val16' data-type='float' data-ref="opus_val16">opus_val16</a> <dfn class="local col7 decl" id="137g1" title='g1' data-type='opus_val16' data-ref="137g1">g1</dfn>, <em>int</em> <dfn class="local col8 decl" id="138tapset0" title='tapset0' data-type='int' data-ref="138tapset0">tapset0</dfn>, <em>int</em> <dfn class="local col9 decl" id="139tapset1" title='tapset1' data-type='int' data-ref="139tapset1">tapset1</dfn>,</td></tr>
+<tr><th id="204">204</th><td>      <em>const</em> <a class="typedef" href="arch.h.html#opus_val16" title='opus_val16' data-type='float' data-ref="opus_val16">opus_val16</a> *<dfn class="local col0 decl" id="140window" title='window' data-type='const opus_val16 *' data-ref="140window">window</dfn>, <em>int</em> <dfn class="local col1 decl" id="141overlap" title='overlap' data-type='int' data-ref="141overlap">overlap</dfn>, <em>int</em> <dfn class="local col2 decl" id="142arch" title='arch' data-type='int' data-ref="142arch">arch</dfn>);</td></tr>
+<tr><th id="205">205</th><td></td></tr>
+<tr><th id="206">206</th><td><u>#<span data-ppcond="206">ifdef</span> <span class="macro" data-ref="_M/NON_STATIC_COMB_FILTER_CONST_C">NON_STATIC_COMB_FILTER_CONST_C</span></u></td></tr>
+<tr><th id="207">207</th><td><em>void</em> comb_filter_const_c(opus_val32 *y, opus_val32 *x, <em>int</em> T, <em>int</em> N,</td></tr>
+<tr><th id="208">208</th><td>                         opus_val16 g10, opus_val16 g11, opus_val16 g12);</td></tr>
+<tr><th id="209">209</th><td><u>#<span data-ppcond="206">endif</span></u></td></tr>
+<tr><th id="210">210</th><td></td></tr>
+<tr><th id="211">211</th><td><u>#<span data-ppcond="211">ifndef</span> <span class="macro" data-ref="_M/OVERRIDE_COMB_FILTER_CONST">OVERRIDE_COMB_FILTER_CONST</span></u></td></tr>
+<tr><th id="212">212</th><td><u># define <dfn class="macro" id="_M/comb_filter_const" data-ref="_M/comb_filter_const">comb_filter_const</dfn>(y, x, T, N, g10, g11, g12, arch) \</u></td></tr>
+<tr><th id="213">213</th><td><u>    ((void)(arch),comb_filter_const_c(y, x, T, N, g10, g11, g12))</u></td></tr>
+<tr><th id="214">214</th><td><u>#<span data-ppcond="211">endif</span></u></td></tr>
+<tr><th id="215">215</th><td></td></tr>
+<tr><th id="216">216</th><td><em>void</em> <dfn class="decl" id="init_caps" title='init_caps' data-ref="init_caps">init_caps</dfn>(<em>const</em> <a class="macro" href="#51" title="OpusCustomMode" data-ref="_M/CELTMode">CELTMode</a> *<dfn class="local col3 decl" id="143m" title='m' data-type='const OpusCustomMode *' data-ref="143m">m</dfn>,<em>int</em> *<dfn class="local col4 decl" id="144cap" title='cap' data-type='int *' data-ref="144cap">cap</dfn>,<em>int</em> <dfn class="local col5 decl" id="145LM" title='LM' data-type='int' data-ref="145LM">LM</dfn>,<em>int</em> <dfn class="local col6 decl" id="146C" title='C' data-type='int' data-ref="146C">C</dfn>);</td></tr>
+<tr><th id="217">217</th><td></td></tr>
+<tr><th id="218">218</th><td><u>#<span data-ppcond="218">ifdef</span> <span class="macro" data-ref="_M/RESYNTH">RESYNTH</span></u></td></tr>
+<tr><th id="219">219</th><td><em>void</em> deemphasis(celt_sig *in[], opus_val16 *pcm, <em>int</em> N, <em>int</em> C, <em>int</em> downsample, <em>const</em> opus_val16 *coef, celt_sig *mem);</td></tr>
+<tr><th id="220">220</th><td><em>void</em> celt_synthesis(<em>const</em> CELTMode *mode, celt_norm *X, celt_sig * out_syn[],</td></tr>
+<tr><th id="221">221</th><td>      opus_val16 *oldBandE, <em>int</em> start, <em>int</em> effEnd, <em>int</em> C, <em>int</em> CC, <em>int</em> isTransient,</td></tr>
+<tr><th id="222">222</th><td>      <em>int</em> LM, <em>int</em> downsample, <em>int</em> silence);</td></tr>
+<tr><th id="223">223</th><td><u>#<span data-ppcond="218">endif</span></u></td></tr>
+<tr><th id="224">224</th><td></td></tr>
+<tr><th id="225">225</th><td><u>#<span data-ppcond="225">ifdef</span> <span class="macro" data-ref="_M/__cplusplus">__cplusplus</span></u></td></tr>
+<tr><th id="226">226</th><td>}</td></tr>
+<tr><th id="227">227</th><td><u>#<span data-ppcond="225">endif</span></u></td></tr>
+<tr><th id="228">228</th><td></td></tr>
+<tr><th id="229">229</th><td><u>#<span data-ppcond="35">endif</span> /* CELT_H */</u></td></tr>
+<tr><th id="230">230</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='bands.c.html'>codebrowser/code/opus-1.1.4/celt/bands.c</a><br/>Generated on <em>2017-Aug-29</em> from project codebrowser revision <em>63e07af</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

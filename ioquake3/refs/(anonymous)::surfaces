@@ -1,0 +1,68 @@
+<dec f='codebrowser/code/qcommon/cm_local.h' l='125' type='cPatch_t **'/>
+<use f='codebrowser/code/qcommon/cm_load.c' l='499' u='w' c='CMod_LoadPatches'/>
+<use f='codebrowser/code/qcommon/cm_load.c' l='499' u='r' c='CMod_LoadPatches'/>
+<use f='codebrowser/code/qcommon/cm_load.c' l='513' u='r' c='CMod_LoadPatches'/>
+<offset>2176</offset>
+<doc f='codebrowser/code/qcommon/cm_local.h' l='125'>// non-patches will be NULL</doc>
+<use f='codebrowser/code/qcommon/cm_trace.c' l='274' u='r' c='CM_TestInLeaf'/>
+<use f='codebrowser/code/qcommon/cm_trace.c' l='707' u='r' c='CM_TraceThroughLeaf'/>
+<dec f='codebrowser/code/renderergl1/tr_local.h' l='592' type='struct srfIQModel_s *'/>
+<dec f='codebrowser/code/renderergl1/tr_local.h' l='703' type='msurface_t *'/>
+<offset>1536</offset>
+<use f='codebrowser/code/renderergl1/tr_bsp.c' l='586' u='r' c='R_FixSharedVertexLodError_r'/>
+<use f='codebrowser/code/renderergl1/tr_bsp.c' l='698' u='r' c='R_FixSharedVertexLodError'/>
+<use f='codebrowser/code/renderergl1/tr_bsp.c' l='723' u='r' c='R_StitchPatches'/>
+<use f='codebrowser/code/renderergl1/tr_bsp.c' l='724' u='r' c='R_StitchPatches'/>
+<use f='codebrowser/code/renderergl1/tr_bsp.c' l='773' u='r' c='R_StitchPatches'/>
+<use f='codebrowser/code/renderergl1/tr_bsp.c' l='817' u='r' c='R_StitchPatches'/>
+<use f='codebrowser/code/renderergl1/tr_bsp.c' l='870' u='r' c='R_StitchPatches'/>
+<use f='codebrowser/code/renderergl1/tr_bsp.c' l='914' u='r' c='R_StitchPatches'/>
+<use f='codebrowser/code/renderergl1/tr_bsp.c' l='968' u='r' c='R_StitchPatches'/>
+<use f='codebrowser/code/renderergl1/tr_bsp.c' l='1014' u='r' c='R_StitchPatches'/>
+<use f='codebrowser/code/renderergl1/tr_bsp.c' l='1067' u='r' c='R_StitchPatches'/>
+<use f='codebrowser/code/renderergl1/tr_bsp.c' l='1111' u='r' c='R_StitchPatches'/>
+<use f='codebrowser/code/renderergl1/tr_bsp.c' l='1138' u='r' c='R_TryStitchingPatch'/>
+<use f='codebrowser/code/renderergl1/tr_bsp.c' l='1141' u='r' c='R_TryStitchingPatch'/>
+<use f='codebrowser/code/renderergl1/tr_bsp.c' l='1174' u='r' c='R_StitchAllPatches'/>
+<use f='codebrowser/code/renderergl1/tr_bsp.c' l='1203' u='r' c='R_MovePatchSurfacesToHunk'/>
+<use f='codebrowser/code/renderergl1/tr_bsp.c' l='1220' u='r' c='R_MovePatchSurfacesToHunk'/>
+<use f='codebrowser/code/renderergl1/tr_bsp.c' l='1258' u='w' c='R_LoadSurfaces'/>
+<use f='codebrowser/code/renderergl1/tr_bsp.c' l='1336' u='r' c='R_LoadSubmodels'/>
+<use f='codebrowser/code/renderergl1/tr_bsp.c' l='1487' u='r' c='R_LoadMarksurfaces'/>
+<use f='codebrowser/code/renderergl1/tr_model_iqm.c' l='497' u='w' c='R_LoadIQM'/>
+<use f='codebrowser/code/renderergl1/tr_model_iqm.c' l='498' u='r' c='R_LoadIQM'/>
+<use f='codebrowser/code/renderergl1/tr_model_iqm.c' l='619' u='r' c='R_LoadIQM'/>
+<use f='codebrowser/code/renderergl1/tr_model_iqm.c' l='848' u='r' c='R_AddIQMSurfaces'/>
+<dec f='codebrowser/code/renderergl2/tr_local.h' l='937' type='struct srfIQModel_s *'/>
+<dec f='codebrowser/code/renderergl2/tr_local.h' l='1106' type='msurface_t *'/>
+<offset>1600</offset>
+<use f='codebrowser/code/renderergl2/tr_bsp.c' l='1036' u='r' c='R_FixSharedVertexLodError_r'/>
+<use f='codebrowser/code/renderergl2/tr_bsp.c' l='1148' u='r' c='R_FixSharedVertexLodError'/>
+<use f='codebrowser/code/renderergl2/tr_bsp.c' l='1173' u='r' c='R_StitchPatches'/>
+<use f='codebrowser/code/renderergl2/tr_bsp.c' l='1174' u='r' c='R_StitchPatches'/>
+<use f='codebrowser/code/renderergl2/tr_bsp.c' l='1223' u='r' c='R_StitchPatches'/>
+<use f='codebrowser/code/renderergl2/tr_bsp.c' l='1267' u='r' c='R_StitchPatches'/>
+<use f='codebrowser/code/renderergl2/tr_bsp.c' l='1320' u='r' c='R_StitchPatches'/>
+<use f='codebrowser/code/renderergl2/tr_bsp.c' l='1364' u='r' c='R_StitchPatches'/>
+<use f='codebrowser/code/renderergl2/tr_bsp.c' l='1418' u='r' c='R_StitchPatches'/>
+<use f='codebrowser/code/renderergl2/tr_bsp.c' l='1464' u='r' c='R_StitchPatches'/>
+<use f='codebrowser/code/renderergl2/tr_bsp.c' l='1517' u='r' c='R_StitchPatches'/>
+<use f='codebrowser/code/renderergl2/tr_bsp.c' l='1561' u='r' c='R_StitchPatches'/>
+<use f='codebrowser/code/renderergl2/tr_bsp.c' l='1588' u='r' c='R_TryStitchingPatch'/>
+<use f='codebrowser/code/renderergl2/tr_bsp.c' l='1591' u='r' c='R_TryStitchingPatch'/>
+<use f='codebrowser/code/renderergl2/tr_bsp.c' l='1624' u='r' c='R_StitchAllPatches'/>
+<use f='codebrowser/code/renderergl2/tr_bsp.c' l='1654' u='r' c='R_MovePatchSurfacesToHunk'/>
+<use f='codebrowser/code/renderergl2/tr_bsp.c' l='1717' u='w' c='R_LoadSurfaces'/>
+<use f='codebrowser/code/renderergl2/tr_bsp.c' l='1747' u='r' c='R_LoadSurfaces'/>
+<use f='codebrowser/code/renderergl2/tr_bsp.c' l='1768' u='r' c='R_LoadSurfaces'/>
+<use f='codebrowser/code/renderergl2/tr_bsp.c' l='2599' u='r' c='R_AssignCubemapsToWorldSurfaces'/>
+<use f='codebrowser/code/renderergl2/tr_bsp.c' l='2669' u='r' c='R_CalcVertexLightDirs'/>
+<use f='codebrowser/code/renderergl2/tr_bsp.c' l='2900' u='r' c='RE_LoadWorldMap'/>
+<use f='codebrowser/code/renderergl2/tr_light.c' l='95' u='r' c='R_DlightBmodel'/>
+<use f='codebrowser/code/renderergl2/tr_marks.c' l='162' u='r' c='R_BoxSurfaces_r'/>
+<use f='codebrowser/code/renderergl2/tr_model_iqm.c' l='497' u='w' c='R_LoadIQM'/>
+<use f='codebrowser/code/renderergl2/tr_model_iqm.c' l='498' u='r' c='R_LoadIQM'/>
+<use f='codebrowser/code/renderergl2/tr_model_iqm.c' l='619' u='r' c='R_LoadIQM'/>
+<use f='codebrowser/code/renderergl2/tr_model_iqm.c' l='849' u='r' c='R_AddIQMSurfaces'/>
+<use f='codebrowser/code/renderergl2/tr_world.c' l='382' u='r' c='R_AddBrushModelSurfaces'/>
+<use f='codebrowser/code/renderergl2/tr_world.c' l='803' u='r' c='R_AddWorldSurfaces'/>

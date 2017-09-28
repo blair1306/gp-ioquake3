@@ -1,0 +1,343 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>tr_shadows.c source code [codebrowser/code/renderergl2/tr_shadows.c] - Woboq Code Browser</title>
+<link rel="stylesheet" href="../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'codebrowser/code/renderergl2/tr_shadows.c'; var root_path = '../../..'; var data_path = '../../../../data';</script>
+<script src='../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../..'>codebrowser</a>/<a href='..'>code</a>/<a href='./'>renderergl2</a>/<a href='tr_shadows.c.html'>tr_shadows.c</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/*</i></td></tr>
+<tr><th id="2">2</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="3">3</th><td><i>Copyright (C) 1999-2005 Id Software, Inc.</i></td></tr>
+<tr><th id="4">4</th><td><i></i></td></tr>
+<tr><th id="5">5</th><td><i>This file is part of Quake III Arena source code.</i></td></tr>
+<tr><th id="6">6</th><td><i></i></td></tr>
+<tr><th id="7">7</th><td><i>Quake III Arena source code is free software; you can redistribute it</i></td></tr>
+<tr><th id="8">8</th><td><i>and/or modify it under the terms of the GNU General Public License as</i></td></tr>
+<tr><th id="9">9</th><td><i>published by the Free Software Foundation; either version 2 of the License,</i></td></tr>
+<tr><th id="10">10</th><td><i>or (at your option) any later version.</i></td></tr>
+<tr><th id="11">11</th><td><i></i></td></tr>
+<tr><th id="12">12</th><td><i>Quake III Arena source code is distributed in the hope that it will be</i></td></tr>
+<tr><th id="13">13</th><td><i>useful, but WITHOUT ANY WARRANTY; without even the implied warranty of</i></td></tr>
+<tr><th id="14">14</th><td><i>MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</i></td></tr>
+<tr><th id="15">15</th><td><i>GNU General Public License for more details.</i></td></tr>
+<tr><th id="16">16</th><td><i></i></td></tr>
+<tr><th id="17">17</th><td><i>You should have received a copy of the GNU General Public License</i></td></tr>
+<tr><th id="18">18</th><td><i>along with Quake III Arena source code; if not, write to the Free Software</i></td></tr>
+<tr><th id="19">19</th><td><i>Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA</i></td></tr>
+<tr><th id="20">20</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="21">21</th><td><i>*/</i></td></tr>
+<tr><th id="22">22</th><td><u>#include <a href="tr_local.h.html">"tr_local.h"</a></u></td></tr>
+<tr><th id="23">23</th><td></td></tr>
+<tr><th id="24">24</th><td></td></tr>
+<tr><th id="25">25</th><td><i>/*</i></td></tr>
+<tr><th id="26">26</th><td><i></i></td></tr>
+<tr><th id="27">27</th><td><i>  for a projection shadow:</i></td></tr>
+<tr><th id="28">28</th><td><i></i></td></tr>
+<tr><th id="29">29</th><td><i>  point[x] += light vector * ( z - shadow plane )</i></td></tr>
+<tr><th id="30">30</th><td><i>  point[y] +=</i></td></tr>
+<tr><th id="31">31</th><td><i>  point[z] = shadow plane</i></td></tr>
+<tr><th id="32">32</th><td><i></i></td></tr>
+<tr><th id="33">33</th><td><i>  1 0 light[x] / light[z]</i></td></tr>
+<tr><th id="34">34</th><td><i></i></td></tr>
+<tr><th id="35">35</th><td><i>*/</i></td></tr>
+<tr><th id="36">36</th><td></td></tr>
+<tr><th id="37">37</th><td><b>typedef</b> <b>struct</b> {</td></tr>
+<tr><th id="38">38</th><td>	<em>int</em>		<dfn class="tu decl" id="(anonymous)::i2" title='(anonymous struct)::i2' data-type='int' data-ref="(anonymous)::i2">i2</dfn>;</td></tr>
+<tr><th id="39">39</th><td>	<em>int</em>		<dfn class="tu decl" id="(anonymous)::facing" title='(anonymous struct)::facing' data-type='int' data-ref="(anonymous)::facing">facing</dfn>;</td></tr>
+<tr><th id="40">40</th><td>} <dfn class="typedef" id="edgeDef_t" title='edgeDef_t' data-type='struct edgeDef_t' data-ref="edgeDef_t">edgeDef_t</dfn>;</td></tr>
+<tr><th id="41">41</th><td></td></tr>
+<tr><th id="42">42</th><td><u>#define	<dfn class="macro" id="_M/MAX_EDGE_DEFS" data-ref="_M/MAX_EDGE_DEFS">MAX_EDGE_DEFS</dfn>	32</u></td></tr>
+<tr><th id="43">43</th><td></td></tr>
+<tr><th id="44">44</th><td><em>static</em>	<a class="typedef" href="#edgeDef_t" title='edgeDef_t' data-type='struct edgeDef_t' data-ref="edgeDef_t">edgeDef_t</a>	<dfn class="tu decl def" id="edgeDefs" title='edgeDefs' data-type='edgeDef_t [1000][32]' data-ref="edgeDefs">edgeDefs</dfn>[<a class="macro" href="../qcommon/qfiles.h.html#38" title="1000" data-ref="_M/SHADER_MAX_VERTEXES">SHADER_MAX_VERTEXES</a>][<a class="macro" href="#42" title="32" data-ref="_M/MAX_EDGE_DEFS">MAX_EDGE_DEFS</a>];</td></tr>
+<tr><th id="45">45</th><td><em>static</em>	<em>int</em>			<dfn class="tu decl def" id="numEdgeDefs" title='numEdgeDefs' data-type='int [1000]' data-ref="numEdgeDefs">numEdgeDefs</dfn>[<a class="macro" href="../qcommon/qfiles.h.html#38" title="1000" data-ref="_M/SHADER_MAX_VERTEXES">SHADER_MAX_VERTEXES</a>];</td></tr>
+<tr><th id="46">46</th><td><em>static</em>	<em>int</em>			<dfn class="tu decl def" id="facing" title='facing' data-type='int [2000]' data-ref="facing">facing</dfn>[<a class="macro" href="../qcommon/qfiles.h.html#39" title="(6*1000)" data-ref="_M/SHADER_MAX_INDEXES">SHADER_MAX_INDEXES</a>/<var>3</var>];</td></tr>
+<tr><th id="47">47</th><td><em>static</em>	<a class="typedef" href="../qcommon/q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a>		<dfn class="tu decl def" id="shadowXyz" title='shadowXyz' data-type='vec3_t [1000]' data-ref="shadowXyz">shadowXyz</dfn>[<a class="macro" href="../qcommon/qfiles.h.html#38" title="1000" data-ref="_M/SHADER_MAX_VERTEXES">SHADER_MAX_VERTEXES</a>];</td></tr>
+<tr><th id="48">48</th><td></td></tr>
+<tr><th id="49">49</th><td><em>void</em> <dfn class="decl def" id="R_AddEdgeDef" title='R_AddEdgeDef' data-ref="R_AddEdgeDef">R_AddEdgeDef</dfn>( <em>int</em> <dfn class="local col1 decl" id="1i1" title='i1' data-type='int' data-ref="1i1">i1</dfn>, <em>int</em> <dfn class="local col2 decl" id="2i2" title='i2' data-type='int' data-ref="2i2">i2</dfn>, <em>int</em> <dfn class="local col3 decl" id="3facing" title='facing' data-type='int' data-ref="3facing">facing</dfn> ) {</td></tr>
+<tr><th id="50">50</th><td>	<em>int</em>		<dfn class="local col4 decl" id="4c" title='c' data-type='int' data-ref="4c">c</dfn>;</td></tr>
+<tr><th id="51">51</th><td></td></tr>
+<tr><th id="52">52</th><td>	<a class="local col4 ref" href="#4c" title='c' data-ref="4c">c</a> = <a class="tu ref" href="#numEdgeDefs" title='numEdgeDefs' data-use='r' data-ref="numEdgeDefs">numEdgeDefs</a>[ <a class="local col1 ref" href="#1i1" title='i1' data-ref="1i1">i1</a> ];</td></tr>
+<tr><th id="53">53</th><td>	<b>if</b> ( <a class="local col4 ref" href="#4c" title='c' data-ref="4c">c</a> == <a class="macro" href="#42" title="32" data-ref="_M/MAX_EDGE_DEFS">MAX_EDGE_DEFS</a> ) {</td></tr>
+<tr><th id="54">54</th><td>		<b>return</b>;		<i>// overflow</i></td></tr>
+<tr><th id="55">55</th><td>	}</td></tr>
+<tr><th id="56">56</th><td>	<a class="tu ref" href="#edgeDefs" title='edgeDefs' data-use='m' data-ref="edgeDefs">edgeDefs</a>[ <a class="local col1 ref" href="#1i1" title='i1' data-ref="1i1">i1</a> ][ <a class="local col4 ref" href="#4c" title='c' data-ref="4c">c</a> ].<a class="tu ref" href="#(anonymous)::i2" title='(anonymous struct)::i2' data-use='w' data-ref="(anonymous)::i2">i2</a> = <a class="local col2 ref" href="#2i2" title='i2' data-ref="2i2">i2</a>;</td></tr>
+<tr><th id="57">57</th><td>	<a class="tu ref" href="#edgeDefs" title='edgeDefs' data-use='m' data-ref="edgeDefs">edgeDefs</a>[ <a class="local col1 ref" href="#1i1" title='i1' data-ref="1i1">i1</a> ][ <a class="local col4 ref" href="#4c" title='c' data-ref="4c">c</a> ].<a class="tu ref" href="#(anonymous)::facing" title='(anonymous struct)::facing' data-use='w' data-ref="(anonymous)::facing">facing</a> = <a class="local col3 ref" href="#3facing" title='facing' data-ref="3facing">facing</a>;</td></tr>
+<tr><th id="58">58</th><td></td></tr>
+<tr><th id="59">59</th><td>	<a class="tu ref" href="#numEdgeDefs" title='numEdgeDefs' data-use='w' data-ref="numEdgeDefs">numEdgeDefs</a>[ <a class="local col1 ref" href="#1i1" title='i1' data-ref="1i1">i1</a> ]++;</td></tr>
+<tr><th id="60">60</th><td>}</td></tr>
+<tr><th id="61">61</th><td></td></tr>
+<tr><th id="62">62</th><td><em>void</em> <dfn class="decl def" id="R_RenderShadowEdges" title='R_RenderShadowEdges' data-ref="R_RenderShadowEdges">R_RenderShadowEdges</dfn>( <em>void</em> ) {</td></tr>
+<tr><th id="63">63</th><td>	<em>int</em>		<dfn class="local col5 decl" id="5i" title='i' data-type='int' data-ref="5i">i</dfn>;</td></tr>
+<tr><th id="64">64</th><td></td></tr>
+<tr><th id="65">65</th><td><u>#<span data-ppcond="65">if</span> 0</u></td></tr>
+<tr><th id="66">66</th><td>	<em>int</em>		numTris;</td></tr>
+<tr><th id="67">67</th><td></td></tr>
+<tr><th id="68">68</th><td>	<i>// dumb way -- render every triangle's edges</i></td></tr>
+<tr><th id="69">69</th><td>	numTris = tess.numIndexes / <var>3</var>;</td></tr>
+<tr><th id="70">70</th><td></td></tr>
+<tr><th id="71">71</th><td>	<b>for</b> ( i = <var>0</var> ; i &lt; numTris ; i++ ) {</td></tr>
+<tr><th id="72">72</th><td>		<em>int</em>		i1, i2, i3;</td></tr>
+<tr><th id="73">73</th><td></td></tr>
+<tr><th id="74">74</th><td>		<b>if</b> ( !facing[i] ) {</td></tr>
+<tr><th id="75">75</th><td>			<b>continue</b>;</td></tr>
+<tr><th id="76">76</th><td>		}</td></tr>
+<tr><th id="77">77</th><td></td></tr>
+<tr><th id="78">78</th><td>		i1 = tess.indexes[ i*<var>3</var> + <var>0</var> ];</td></tr>
+<tr><th id="79">79</th><td>		i2 = tess.indexes[ i*<var>3</var> + <var>1</var> ];</td></tr>
+<tr><th id="80">80</th><td>		i3 = tess.indexes[ i*<var>3</var> + <var>2</var> ];</td></tr>
+<tr><th id="81">81</th><td></td></tr>
+<tr><th id="82">82</th><td>		qglBegin( GL_TRIANGLE_STRIP );</td></tr>
+<tr><th id="83">83</th><td>		qglVertex3fv( tess.xyz[ i1 ] );</td></tr>
+<tr><th id="84">84</th><td>		qglVertex3fv( shadowXyz[ i1 ] );</td></tr>
+<tr><th id="85">85</th><td>		qglVertex3fv( tess.xyz[ i2 ] );</td></tr>
+<tr><th id="86">86</th><td>		qglVertex3fv( shadowXyz[ i2 ] );</td></tr>
+<tr><th id="87">87</th><td>		qglVertex3fv( tess.xyz[ i3 ] );</td></tr>
+<tr><th id="88">88</th><td>		qglVertex3fv( shadowXyz[ i3 ] );</td></tr>
+<tr><th id="89">89</th><td>		qglVertex3fv( tess.xyz[ i1 ] );</td></tr>
+<tr><th id="90">90</th><td>		qglVertex3fv( shadowXyz[ i1 ] );</td></tr>
+<tr><th id="91">91</th><td>		qglEnd();</td></tr>
+<tr><th id="92">92</th><td>	}</td></tr>
+<tr><th id="93">93</th><td><u>#<span data-ppcond="65">else</span></u></td></tr>
+<tr><th id="94">94</th><td>	<em>int</em>		<dfn class="local col6 decl" id="6c" title='c' data-type='int' data-ref="6c">c</dfn>, <dfn class="local col7 decl" id="7c2" title='c2' data-type='int' data-ref="7c2">c2</dfn>;</td></tr>
+<tr><th id="95">95</th><td>	<em>int</em>		<dfn class="local col8 decl" id="8j" title='j' data-type='int' data-ref="8j">j</dfn>, <dfn class="local col9 decl" id="9k" title='k' data-type='int' data-ref="9k">k</dfn>;</td></tr>
+<tr><th id="96">96</th><td>	<em>int</em>		<dfn class="local col0 decl" id="10i2" title='i2' data-type='int' data-ref="10i2">i2</dfn>;</td></tr>
+<tr><th id="97">97</th><td>	<em>int</em>		<dfn class="local col1 decl" id="11c_edges" title='c_edges' data-type='int' data-ref="11c_edges">c_edges</dfn>, <dfn class="local col2 decl" id="12c_rejected" title='c_rejected' data-type='int' data-ref="12c_rejected">c_rejected</dfn>;</td></tr>
+<tr><th id="98">98</th><td>	<em>int</em>		<dfn class="local col3 decl" id="13hit" title='hit' data-type='int [2]' data-ref="13hit">hit</dfn>[<var>2</var>];</td></tr>
+<tr><th id="99">99</th><td></td></tr>
+<tr><th id="100">100</th><td>	<i>// an edge is NOT a silhouette edge if its face doesn't face the light,</i></td></tr>
+<tr><th id="101">101</th><td><i>	// or if it has a reverse paired edge that also faces the light.</i></td></tr>
+<tr><th id="102">102</th><td><i>	// A well behaved polyhedron would have exactly two faces for each edge,</i></td></tr>
+<tr><th id="103">103</th><td><i>	// but lots of models have dangling edges or overfanned edges</i></td></tr>
+<tr><th id="104">104</th><td>	<a class="local col1 ref" href="#11c_edges" title='c_edges' data-ref="11c_edges">c_edges</a> = <var>0</var>;</td></tr>
+<tr><th id="105">105</th><td>	<a class="local col2 ref" href="#12c_rejected" title='c_rejected' data-ref="12c_rejected">c_rejected</a> = <var>0</var>;</td></tr>
+<tr><th id="106">106</th><td></td></tr>
+<tr><th id="107">107</th><td>	<b>for</b> ( <a class="local col5 ref" href="#5i" title='i' data-ref="5i">i</a> = <var>0</var> ; <a class="local col5 ref" href="#5i" title='i' data-ref="5i">i</a> &lt; <a class="ref" href="tr_local.h.html#tess" title='tess' data-ref="tess">tess</a>.<a class="ref" href="tr_local.h.html#shaderCommands_s::numVertexes" title='shaderCommands_s::numVertexes' data-ref="shaderCommands_s::numVertexes">numVertexes</a> ; <a class="local col5 ref" href="#5i" title='i' data-ref="5i">i</a>++ ) {</td></tr>
+<tr><th id="108">108</th><td>		<a class="local col6 ref" href="#6c" title='c' data-ref="6c">c</a> = <a class="tu ref" href="#numEdgeDefs" title='numEdgeDefs' data-use='r' data-ref="numEdgeDefs">numEdgeDefs</a>[ <a class="local col5 ref" href="#5i" title='i' data-ref="5i">i</a> ];</td></tr>
+<tr><th id="109">109</th><td>		<b>for</b> ( <a class="local col8 ref" href="#8j" title='j' data-ref="8j">j</a> = <var>0</var> ; <a class="local col8 ref" href="#8j" title='j' data-ref="8j">j</a> &lt; <a class="local col6 ref" href="#6c" title='c' data-ref="6c">c</a> ; <a class="local col8 ref" href="#8j" title='j' data-ref="8j">j</a>++ ) {</td></tr>
+<tr><th id="110">110</th><td>			<b>if</b> ( !<a class="tu ref" href="#edgeDefs" title='edgeDefs' data-use='m' data-ref="edgeDefs">edgeDefs</a>[ <a class="local col5 ref" href="#5i" title='i' data-ref="5i">i</a> ][ <a class="local col8 ref" href="#8j" title='j' data-ref="8j">j</a> ].<a class="tu ref" href="#(anonymous)::facing" title='(anonymous struct)::facing' data-use='r' data-ref="(anonymous)::facing">facing</a> ) {</td></tr>
+<tr><th id="111">111</th><td>				<b>continue</b>;</td></tr>
+<tr><th id="112">112</th><td>			}</td></tr>
+<tr><th id="113">113</th><td></td></tr>
+<tr><th id="114">114</th><td>			<a class="local col3 ref" href="#13hit" title='hit' data-ref="13hit">hit</a>[<var>0</var>] = <var>0</var>;</td></tr>
+<tr><th id="115">115</th><td>			<a class="local col3 ref" href="#13hit" title='hit' data-ref="13hit">hit</a>[<var>1</var>] = <var>0</var>;</td></tr>
+<tr><th id="116">116</th><td></td></tr>
+<tr><th id="117">117</th><td>			<a class="local col0 ref" href="#10i2" title='i2' data-ref="10i2">i2</a> = <a class="tu ref" href="#edgeDefs" title='edgeDefs' data-use='m' data-ref="edgeDefs">edgeDefs</a>[ <a class="local col5 ref" href="#5i" title='i' data-ref="5i">i</a> ][ <a class="local col8 ref" href="#8j" title='j' data-ref="8j">j</a> ].<a class="tu ref" href="#(anonymous)::i2" title='(anonymous struct)::i2' data-use='r' data-ref="(anonymous)::i2">i2</a>;</td></tr>
+<tr><th id="118">118</th><td>			<a class="local col7 ref" href="#7c2" title='c2' data-ref="7c2">c2</a> = <a class="tu ref" href="#numEdgeDefs" title='numEdgeDefs' data-use='r' data-ref="numEdgeDefs">numEdgeDefs</a>[ <a class="local col0 ref" href="#10i2" title='i2' data-ref="10i2">i2</a> ];</td></tr>
+<tr><th id="119">119</th><td>			<b>for</b> ( <a class="local col9 ref" href="#9k" title='k' data-ref="9k">k</a> = <var>0</var> ; <a class="local col9 ref" href="#9k" title='k' data-ref="9k">k</a> &lt; <a class="local col7 ref" href="#7c2" title='c2' data-ref="7c2">c2</a> ; <a class="local col9 ref" href="#9k" title='k' data-ref="9k">k</a>++ ) {</td></tr>
+<tr><th id="120">120</th><td>				<b>if</b> ( <a class="tu ref" href="#edgeDefs" title='edgeDefs' data-use='m' data-ref="edgeDefs">edgeDefs</a>[ <a class="local col0 ref" href="#10i2" title='i2' data-ref="10i2">i2</a> ][ <a class="local col9 ref" href="#9k" title='k' data-ref="9k">k</a> ].<a class="tu ref" href="#(anonymous)::i2" title='(anonymous struct)::i2' data-use='r' data-ref="(anonymous)::i2">i2</a> == <a class="local col5 ref" href="#5i" title='i' data-ref="5i">i</a> ) {</td></tr>
+<tr><th id="121">121</th><td>					<a class="local col3 ref" href="#13hit" title='hit' data-ref="13hit">hit</a>[ <a class="tu ref" href="#edgeDefs" title='edgeDefs' data-use='m' data-ref="edgeDefs">edgeDefs</a>[ <a class="local col0 ref" href="#10i2" title='i2' data-ref="10i2">i2</a> ][ <a class="local col9 ref" href="#9k" title='k' data-ref="9k">k</a> ].<a class="tu ref" href="#(anonymous)::facing" title='(anonymous struct)::facing' data-use='r' data-ref="(anonymous)::facing">facing</a> ]++;</td></tr>
+<tr><th id="122">122</th><td>				}</td></tr>
+<tr><th id="123">123</th><td>			}</td></tr>
+<tr><th id="124">124</th><td></td></tr>
+<tr><th id="125">125</th><td>			<i>// if it doesn't share the edge with another front facing</i></td></tr>
+<tr><th id="126">126</th><td><i>			// triangle, it is a sil edge</i></td></tr>
+<tr><th id="127">127</th><td>			<b>if</b> ( <a class="local col3 ref" href="#13hit" title='hit' data-ref="13hit">hit</a>[ <var>1</var> ] == <var>0</var> ) {</td></tr>
+<tr><th id="128">128</th><td>				<a class="macro" href="../renderercommon/qgl.h.html#49" title="glBegin" data-ref="_M/qglBegin">qglBegin</a>( <a class="macro" href="../../../include/SDL2/SDL_opengl.h.html#214" title="0x0005" data-ref="_M/GL_TRIANGLE_STRIP">GL_TRIANGLE_STRIP</a> );</td></tr>
+<tr><th id="129">129</th><td>				<a class="macro" href="../renderercommon/qgl.h.html#364" title="glVertex3fv" data-ref="_M/qglVertex3fv">qglVertex3fv</a>( <a class="ref" href="tr_local.h.html#tess" title='tess' data-ref="tess">tess</a>.<a class="ref" href="tr_local.h.html#shaderCommands_s::xyz" title='shaderCommands_s::xyz' data-ref="shaderCommands_s::xyz">xyz</a>[ <a class="local col5 ref" href="#5i" title='i' data-ref="5i">i</a> ] );</td></tr>
+<tr><th id="130">130</th><td>				<a class="macro" href="../renderercommon/qgl.h.html#364" title="glVertex3fv" data-ref="_M/qglVertex3fv">qglVertex3fv</a>( <a class="tu ref" href="#shadowXyz" title='shadowXyz' data-use='r' data-ref="shadowXyz">shadowXyz</a>[ <a class="local col5 ref" href="#5i" title='i' data-ref="5i">i</a> ] );</td></tr>
+<tr><th id="131">131</th><td>				<a class="macro" href="../renderercommon/qgl.h.html#364" title="glVertex3fv" data-ref="_M/qglVertex3fv">qglVertex3fv</a>( <a class="ref" href="tr_local.h.html#tess" title='tess' data-ref="tess">tess</a>.<a class="ref" href="tr_local.h.html#shaderCommands_s::xyz" title='shaderCommands_s::xyz' data-ref="shaderCommands_s::xyz">xyz</a>[ <a class="local col0 ref" href="#10i2" title='i2' data-ref="10i2">i2</a> ] );</td></tr>
+<tr><th id="132">132</th><td>				<a class="macro" href="../renderercommon/qgl.h.html#364" title="glVertex3fv" data-ref="_M/qglVertex3fv">qglVertex3fv</a>( <a class="tu ref" href="#shadowXyz" title='shadowXyz' data-use='r' data-ref="shadowXyz">shadowXyz</a>[ <a class="local col0 ref" href="#10i2" title='i2' data-ref="10i2">i2</a> ] );</td></tr>
+<tr><th id="133">133</th><td>				<a class="macro" href="../renderercommon/qgl.h.html#119" title="glEnd" data-ref="_M/qglEnd">qglEnd</a>();</td></tr>
+<tr><th id="134">134</th><td>				<a class="local col1 ref" href="#11c_edges" title='c_edges' data-ref="11c_edges">c_edges</a>++;</td></tr>
+<tr><th id="135">135</th><td>			} <b>else</b> {</td></tr>
+<tr><th id="136">136</th><td>				<a class="local col2 ref" href="#12c_rejected" title='c_rejected' data-ref="12c_rejected">c_rejected</a>++;</td></tr>
+<tr><th id="137">137</th><td>			}</td></tr>
+<tr><th id="138">138</th><td>		}</td></tr>
+<tr><th id="139">139</th><td>	}</td></tr>
+<tr><th id="140">140</th><td><u>#<span data-ppcond="65">endif</span></u></td></tr>
+<tr><th id="141">141</th><td>}</td></tr>
+<tr><th id="142">142</th><td></td></tr>
+<tr><th id="143">143</th><td><i>/*</i></td></tr>
+<tr><th id="144">144</th><td><i>=================</i></td></tr>
+<tr><th id="145">145</th><td><i>RB_ShadowTessEnd</i></td></tr>
+<tr><th id="146">146</th><td><i></i></td></tr>
+<tr><th id="147">147</th><td><i>triangleFromEdge[ v1 ][ v2 ]</i></td></tr>
+<tr><th id="148">148</th><td><i></i></td></tr>
+<tr><th id="149">149</th><td><i></i></td></tr>
+<tr><th id="150">150</th><td><i>  set triangle from edge( v1, v2, tri )</i></td></tr>
+<tr><th id="151">151</th><td><i>  if ( facing[ triangleFromEdge[ v1 ][ v2 ] ] &amp;&amp; !facing[ triangleFromEdge[ v2 ][ v1 ] ) {</i></td></tr>
+<tr><th id="152">152</th><td><i>  }</i></td></tr>
+<tr><th id="153">153</th><td><i>=================</i></td></tr>
+<tr><th id="154">154</th><td><i>*/</i></td></tr>
+<tr><th id="155">155</th><td><em>void</em> <dfn class="decl def" id="RB_ShadowTessEnd" title='RB_ShadowTessEnd' data-ref="RB_ShadowTessEnd">RB_ShadowTessEnd</dfn>( <em>void</em> ) {</td></tr>
+<tr><th id="156">156</th><td>	<em>int</em>		<dfn class="local col4 decl" id="14i" title='i' data-type='int' data-ref="14i">i</dfn>;</td></tr>
+<tr><th id="157">157</th><td>	<em>int</em>		<dfn class="local col5 decl" id="15numTris" title='numTris' data-type='int' data-ref="15numTris">numTris</dfn>;</td></tr>
+<tr><th id="158">158</th><td>	<a class="typedef" href="../qcommon/q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a>	<dfn class="local col6 decl" id="16lightDir" title='lightDir' data-type='vec3_t' data-ref="16lightDir">lightDir</dfn>;</td></tr>
+<tr><th id="159">159</th><td>	<a class="typedef" href="../../../include/SDL2/SDL_opengl.h.html#GLboolean" title='GLboolean' data-type='unsigned char' data-ref="GLboolean">GLboolean</a> <dfn class="local col7 decl" id="17rgba" title='rgba' data-type='GLboolean [4]' data-ref="17rgba">rgba</dfn>[<var>4</var>];</td></tr>
+<tr><th id="160">160</th><td></td></tr>
+<tr><th id="161">161</th><td>	<b>if</b> ( <a class="ref" href="../renderercommon/tr_common.h.html#glConfig" title='glConfig' data-ref="glConfig">glConfig</a>.<a class="ref" href="../renderercommon/tr_types.h.html#(anonymous)::stencilBits" title='(anonymous struct)::stencilBits' data-ref="(anonymous)::stencilBits">stencilBits</a> &lt; <var>4</var> ) {</td></tr>
+<tr><th id="162">162</th><td>		<b>return</b>;</td></tr>
+<tr><th id="163">163</th><td>	}</td></tr>
+<tr><th id="164">164</th><td></td></tr>
+<tr><th id="165">165</th><td>	<a class="macro" href="../qcommon/q_shared.h.html#545" title="((lightDir)[0]=(backEnd.currentEntity-&gt;modelLightDir)[0],(lightDir)[1]=(backEnd.currentEntity-&gt;modelLightDir)[1],(lightDir)[2]=(backEnd.currentEntity-&gt;modelLightDir)[2])" data-ref="_M/VectorCopy">VectorCopy</a>( <a class="ref" href="tr_local.h.html#backEnd" title='backEnd' data-ref="backEnd">backEnd</a>.<a class="ref" href="tr_local.h.html#(anonymous)::currentEntity" title='(anonymous struct)::currentEntity' data-ref="(anonymous)::currentEntity">currentEntity</a>-&gt;<a class="ref" href="tr_local.h.html#(anonymous)::modelLightDir" title='(anonymous struct)::modelLightDir' data-ref="(anonymous)::modelLightDir">modelLightDir</a>, <a class="local col6 ref" href="#16lightDir" title='lightDir' data-ref="16lightDir">lightDir</a> );</td></tr>
+<tr><th id="166">166</th><td></td></tr>
+<tr><th id="167">167</th><td>	<i>// project vertexes away from light direction</i></td></tr>
+<tr><th id="168">168</th><td>	<b>for</b> ( <a class="local col4 ref" href="#14i" title='i' data-ref="14i">i</a> = <var>0</var> ; <a class="local col4 ref" href="#14i" title='i' data-ref="14i">i</a> &lt; <a class="ref" href="tr_local.h.html#tess" title='tess' data-ref="tess">tess</a>.<a class="ref" href="tr_local.h.html#shaderCommands_s::numVertexes" title='shaderCommands_s::numVertexes' data-ref="shaderCommands_s::numVertexes">numVertexes</a> ; <a class="local col4 ref" href="#14i" title='i' data-ref="14i">i</a>++ ) {</td></tr>
+<tr><th id="169">169</th><td>		<a class="macro" href="../qcommon/q_shared.h.html#547" title="((shadowXyz[i])[0]=(tess.xyz[i])[0]+(lightDir)[0]*(-512),(shadowXyz[i])[1]=(tess.xyz[i])[1]+(lightDir)[1]*(-512),(shadowXyz[i])[2]=(tess.xyz[i])[2]+(lightDir)[2]*(-512))" data-ref="_M/VectorMA">VectorMA</a>( <a class="ref" href="tr_local.h.html#tess" title='tess' data-ref="tess">tess</a>.<a class="ref" href="tr_local.h.html#shaderCommands_s::xyz" title='shaderCommands_s::xyz' data-ref="shaderCommands_s::xyz">xyz</a>[<a class="local col4 ref" href="#14i" title='i' data-ref="14i">i</a>], -<var>512</var>, <a class="local col6 ref" href="#16lightDir" title='lightDir' data-ref="16lightDir">lightDir</a>, <a class="tu ref" href="#shadowXyz" title='shadowXyz' data-use='w' data-ref="shadowXyz">shadowXyz</a>[<a class="local col4 ref" href="#14i" title='i' data-ref="14i">i</a>] );</td></tr>
+<tr><th id="170">170</th><td>	}</td></tr>
+<tr><th id="171">171</th><td></td></tr>
+<tr><th id="172">172</th><td>	<i>// decide which triangles face the light</i></td></tr>
+<tr><th id="173">173</th><td>	<a class="macro" href="../qcommon/q_shared.h.html#344" title="memset" data-ref="_M/Com_Memset">Com_Memset</a>( <a class="tu ref" href="#numEdgeDefs" title='numEdgeDefs' data-use='r' data-ref="numEdgeDefs">numEdgeDefs</a>, <var>0</var>, <var>4</var> * <a class="ref" href="tr_local.h.html#tess" title='tess' data-ref="tess">tess</a>.<a class="ref" href="tr_local.h.html#shaderCommands_s::numVertexes" title='shaderCommands_s::numVertexes' data-ref="shaderCommands_s::numVertexes">numVertexes</a> );</td></tr>
+<tr><th id="174">174</th><td></td></tr>
+<tr><th id="175">175</th><td>	<a class="local col5 ref" href="#15numTris" title='numTris' data-ref="15numTris">numTris</a> = <a class="ref" href="tr_local.h.html#tess" title='tess' data-ref="tess">tess</a>.<a class="ref" href="tr_local.h.html#shaderCommands_s::numIndexes" title='shaderCommands_s::numIndexes' data-ref="shaderCommands_s::numIndexes">numIndexes</a> / <var>3</var>;</td></tr>
+<tr><th id="176">176</th><td>	<b>for</b> ( <a class="local col4 ref" href="#14i" title='i' data-ref="14i">i</a> = <var>0</var> ; <a class="local col4 ref" href="#14i" title='i' data-ref="14i">i</a> &lt; <a class="local col5 ref" href="#15numTris" title='numTris' data-ref="15numTris">numTris</a> ; <a class="local col4 ref" href="#14i" title='i' data-ref="14i">i</a>++ ) {</td></tr>
+<tr><th id="177">177</th><td>		<em>int</em>		<dfn class="local col8 decl" id="18i1" title='i1' data-type='int' data-ref="18i1">i1</dfn>, <dfn class="local col9 decl" id="19i2" title='i2' data-type='int' data-ref="19i2">i2</dfn>, <dfn class="local col0 decl" id="20i3" title='i3' data-type='int' data-ref="20i3">i3</dfn>;</td></tr>
+<tr><th id="178">178</th><td>		<a class="typedef" href="../qcommon/q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a>	<dfn class="local col1 decl" id="21d1" title='d1' data-type='vec3_t' data-ref="21d1">d1</dfn>, <dfn class="local col2 decl" id="22d2" title='d2' data-type='vec3_t' data-ref="22d2">d2</dfn>, <dfn class="local col3 decl" id="23normal" title='normal' data-type='vec3_t' data-ref="23normal">normal</dfn>;</td></tr>
+<tr><th id="179">179</th><td>		<em>float</em>	*<dfn class="local col4 decl" id="24v1" title='v1' data-type='float *' data-ref="24v1">v1</dfn>, *<dfn class="local col5 decl" id="25v2" title='v2' data-type='float *' data-ref="25v2">v2</dfn>, *<dfn class="local col6 decl" id="26v3" title='v3' data-type='float *' data-ref="26v3">v3</dfn>;</td></tr>
+<tr><th id="180">180</th><td>		<em>float</em>	<dfn class="local col7 decl" id="27d" title='d' data-type='float' data-ref="27d">d</dfn>;</td></tr>
+<tr><th id="181">181</th><td></td></tr>
+<tr><th id="182">182</th><td>		<a class="local col8 ref" href="#18i1" title='i1' data-ref="18i1">i1</a> = <a class="ref" href="tr_local.h.html#tess" title='tess' data-ref="tess">tess</a>.<a class="ref" href="tr_local.h.html#shaderCommands_s::indexes" title='shaderCommands_s::indexes' data-ref="shaderCommands_s::indexes">indexes</a>[ <a class="local col4 ref" href="#14i" title='i' data-ref="14i">i</a>*<var>3</var> + <var>0</var> ];</td></tr>
+<tr><th id="183">183</th><td>		<a class="local col9 ref" href="#19i2" title='i2' data-ref="19i2">i2</a> = <a class="ref" href="tr_local.h.html#tess" title='tess' data-ref="tess">tess</a>.<a class="ref" href="tr_local.h.html#shaderCommands_s::indexes" title='shaderCommands_s::indexes' data-ref="shaderCommands_s::indexes">indexes</a>[ <a class="local col4 ref" href="#14i" title='i' data-ref="14i">i</a>*<var>3</var> + <var>1</var> ];</td></tr>
+<tr><th id="184">184</th><td>		<a class="local col0 ref" href="#20i3" title='i3' data-ref="20i3">i3</a> = <a class="ref" href="tr_local.h.html#tess" title='tess' data-ref="tess">tess</a>.<a class="ref" href="tr_local.h.html#shaderCommands_s::indexes" title='shaderCommands_s::indexes' data-ref="shaderCommands_s::indexes">indexes</a>[ <a class="local col4 ref" href="#14i" title='i' data-ref="14i">i</a>*<var>3</var> + <var>2</var> ];</td></tr>
+<tr><th id="185">185</th><td></td></tr>
+<tr><th id="186">186</th><td>		<a class="local col4 ref" href="#24v1" title='v1' data-ref="24v1">v1</a> = <a class="ref" href="tr_local.h.html#tess" title='tess' data-ref="tess">tess</a>.<a class="ref" href="tr_local.h.html#shaderCommands_s::xyz" title='shaderCommands_s::xyz' data-ref="shaderCommands_s::xyz">xyz</a>[ <a class="local col8 ref" href="#18i1" title='i1' data-ref="18i1">i1</a> ];</td></tr>
+<tr><th id="187">187</th><td>		<a class="local col5 ref" href="#25v2" title='v2' data-ref="25v2">v2</a> = <a class="ref" href="tr_local.h.html#tess" title='tess' data-ref="tess">tess</a>.<a class="ref" href="tr_local.h.html#shaderCommands_s::xyz" title='shaderCommands_s::xyz' data-ref="shaderCommands_s::xyz">xyz</a>[ <a class="local col9 ref" href="#19i2" title='i2' data-ref="19i2">i2</a> ];</td></tr>
+<tr><th id="188">188</th><td>		<a class="local col6 ref" href="#26v3" title='v3' data-ref="26v3">v3</a> = <a class="ref" href="tr_local.h.html#tess" title='tess' data-ref="tess">tess</a>.<a class="ref" href="tr_local.h.html#shaderCommands_s::xyz" title='shaderCommands_s::xyz' data-ref="shaderCommands_s::xyz">xyz</a>[ <a class="local col0 ref" href="#20i3" title='i3' data-ref="20i3">i3</a> ];</td></tr>
+<tr><th id="189">189</th><td></td></tr>
+<tr><th id="190">190</th><td>		<a class="macro" href="../qcommon/q_shared.h.html#543" title="((d1)[0]=(v2)[0]-(v1)[0],(d1)[1]=(v2)[1]-(v1)[1],(d1)[2]=(v2)[2]-(v1)[2])" data-ref="_M/VectorSubtract">VectorSubtract</a>( <a class="local col5 ref" href="#25v2" title='v2' data-ref="25v2">v2</a>, <a class="local col4 ref" href="#24v1" title='v1' data-ref="24v1">v1</a>, <a class="local col1 ref" href="#21d1" title='d1' data-ref="21d1">d1</a> );</td></tr>
+<tr><th id="191">191</th><td>		<a class="macro" href="../qcommon/q_shared.h.html#543" title="((d2)[0]=(v3)[0]-(v1)[0],(d2)[1]=(v3)[1]-(v1)[1],(d2)[2]=(v3)[2]-(v1)[2])" data-ref="_M/VectorSubtract">VectorSubtract</a>( <a class="local col6 ref" href="#26v3" title='v3' data-ref="26v3">v3</a>, <a class="local col4 ref" href="#24v1" title='v1' data-ref="24v1">v1</a>, <a class="local col2 ref" href="#22d2" title='d2' data-ref="22d2">d2</a> );</td></tr>
+<tr><th id="192">192</th><td>		<a class="ref" href="../qcommon/q_shared.h.html#CrossProduct" title='CrossProduct' data-ref="CrossProduct">CrossProduct</a>( <a class="local col1 ref" href="#21d1" title='d1' data-ref="21d1">d1</a>, <a class="local col2 ref" href="#22d2" title='d2' data-ref="22d2">d2</a>, <a class="local col3 ref" href="#23normal" title='normal' data-ref="23normal">normal</a> );</td></tr>
+<tr><th id="193">193</th><td></td></tr>
+<tr><th id="194">194</th><td>		<a class="local col7 ref" href="#27d" title='d' data-ref="27d">d</a> = <a class="macro" href="../qcommon/q_shared.h.html#542" title="((normal)[0]*(lightDir)[0]+(normal)[1]*(lightDir)[1]+(normal)[2]*(lightDir)[2])" data-ref="_M/DotProduct">DotProduct</a>( <a class="local col3 ref" href="#23normal" title='normal' data-ref="23normal">normal</a>, <a class="local col6 ref" href="#16lightDir" title='lightDir' data-ref="16lightDir">lightDir</a> );</td></tr>
+<tr><th id="195">195</th><td>		<b>if</b> ( <a class="local col7 ref" href="#27d" title='d' data-ref="27d">d</a> &gt; <var>0</var> ) {</td></tr>
+<tr><th id="196">196</th><td>			<a class="tu ref" href="#facing" title='facing' data-use='w' data-ref="facing">facing</a>[ <a class="local col4 ref" href="#14i" title='i' data-ref="14i">i</a> ] = <var>1</var>;</td></tr>
+<tr><th id="197">197</th><td>		} <b>else</b> {</td></tr>
+<tr><th id="198">198</th><td>			<a class="tu ref" href="#facing" title='facing' data-use='w' data-ref="facing">facing</a>[ <a class="local col4 ref" href="#14i" title='i' data-ref="14i">i</a> ] = <var>0</var>;</td></tr>
+<tr><th id="199">199</th><td>		}</td></tr>
+<tr><th id="200">200</th><td></td></tr>
+<tr><th id="201">201</th><td>		<i>// create the edges</i></td></tr>
+<tr><th id="202">202</th><td>		<a class="ref" href="#R_AddEdgeDef" title='R_AddEdgeDef' data-ref="R_AddEdgeDef">R_AddEdgeDef</a>( <a class="local col8 ref" href="#18i1" title='i1' data-ref="18i1">i1</a>, <a class="local col9 ref" href="#19i2" title='i2' data-ref="19i2">i2</a>, <a class="tu ref" href="#facing" title='facing' data-use='r' data-ref="facing">facing</a>[ <a class="local col4 ref" href="#14i" title='i' data-ref="14i">i</a> ] );</td></tr>
+<tr><th id="203">203</th><td>		<a class="ref" href="#R_AddEdgeDef" title='R_AddEdgeDef' data-ref="R_AddEdgeDef">R_AddEdgeDef</a>( <a class="local col9 ref" href="#19i2" title='i2' data-ref="19i2">i2</a>, <a class="local col0 ref" href="#20i3" title='i3' data-ref="20i3">i3</a>, <a class="tu ref" href="#facing" title='facing' data-use='r' data-ref="facing">facing</a>[ <a class="local col4 ref" href="#14i" title='i' data-ref="14i">i</a> ] );</td></tr>
+<tr><th id="204">204</th><td>		<a class="ref" href="#R_AddEdgeDef" title='R_AddEdgeDef' data-ref="R_AddEdgeDef">R_AddEdgeDef</a>( <a class="local col0 ref" href="#20i3" title='i3' data-ref="20i3">i3</a>, <a class="local col8 ref" href="#18i1" title='i1' data-ref="18i1">i1</a>, <a class="tu ref" href="#facing" title='facing' data-use='r' data-ref="facing">facing</a>[ <a class="local col4 ref" href="#14i" title='i' data-ref="14i">i</a> ] );</td></tr>
+<tr><th id="205">205</th><td>	}</td></tr>
+<tr><th id="206">206</th><td></td></tr>
+<tr><th id="207">207</th><td>	<i>// draw the silhouette edges</i></td></tr>
+<tr><th id="208">208</th><td></td></tr>
+<tr><th id="209">209</th><td>	<a class="ref" href="tr_local.h.html#GL_BindToTMU" title='GL_BindToTMU' data-ref="GL_BindToTMU">GL_BindToTMU</a>( <a class="ref" href="tr_local.h.html#tr" title='tr' data-ref="tr">tr</a>.<a class="ref" href="tr_local.h.html#(anonymous)::whiteImage" title='(anonymous struct)::whiteImage' data-ref="(anonymous)::whiteImage">whiteImage</a>, <a class="enum" href="tr_local.h.html#TB_COLORMAP" title='TB_COLORMAP' data-ref="TB_COLORMAP">TB_COLORMAP</a> );</td></tr>
+<tr><th id="210">210</th><td>	<a class="ref" href="tr_local.h.html#GL_State" title='GL_State' data-ref="GL_State">GL_State</a>( <a class="macro" href="tr_local.h.html#1852" title="0x00000002" data-ref="_M/GLS_SRCBLEND_ONE">GLS_SRCBLEND_ONE</a> | <a class="macro" href="tr_local.h.html#1862" title="0x00000010" data-ref="_M/GLS_DSTBLEND_ZERO">GLS_DSTBLEND_ZERO</a> );</td></tr>
+<tr><th id="211">211</th><td>	<a class="macro" href="../renderercommon/qgl.h.html#66" title="glColor3f" data-ref="_M/qglColor3f">qglColor3f</a>( <var>0.2f</var>, <var>0.2f</var>, <var>0.2f</var> );</td></tr>
+<tr><th id="212">212</th><td></td></tr>
+<tr><th id="213">213</th><td>	<i>// don't write to the color buffer</i></td></tr>
+<tr><th id="214">214</th><td>	<a class="macro" href="../renderercommon/qgl.h.html#144" title="glGetBooleanv" data-ref="_M/qglGetBooleanv">qglGetBooleanv</a>(<a class="macro" href="../../../include/SDL2/SDL_opengl.h.html#543" title="0x0C23" data-ref="_M/GL_COLOR_WRITEMASK">GL_COLOR_WRITEMASK</a>, <a class="local col7 ref" href="#17rgba" title='rgba' data-ref="17rgba">rgba</a>);</td></tr>
+<tr><th id="215">215</th><td>	<a class="macro" href="../renderercommon/qgl.h.html#94" title="glColorMask" data-ref="_M/qglColorMask">qglColorMask</a>( <a class="macro" href="../../../include/SDL2/SDL_opengl.h.html#192" title="0" data-ref="_M/GL_FALSE">GL_FALSE</a>, <a class="macro" href="../../../include/SDL2/SDL_opengl.h.html#192" title="0" data-ref="_M/GL_FALSE">GL_FALSE</a>, <a class="macro" href="../../../include/SDL2/SDL_opengl.h.html#192" title="0" data-ref="_M/GL_FALSE">GL_FALSE</a>, <a class="macro" href="../../../include/SDL2/SDL_opengl.h.html#192" title="0" data-ref="_M/GL_FALSE">GL_FALSE</a> );</td></tr>
+<tr><th id="216">216</th><td></td></tr>
+<tr><th id="217">217</th><td>	<a class="macro" href="../renderercommon/qgl.h.html#117" title="glEnable" data-ref="_M/qglEnable">qglEnable</a>( <a class="macro" href="../../../include/SDL2/SDL_opengl.h.html#468" title="0x0B90" data-ref="_M/GL_STENCIL_TEST">GL_STENCIL_TEST</a> );</td></tr>
+<tr><th id="218">218</th><td>	<a class="macro" href="../renderercommon/qgl.h.html#297" title="glStencilFunc" data-ref="_M/qglStencilFunc">qglStencilFunc</a>( <a class="macro" href="../../../include/SDL2/SDL_opengl.h.html#319" title="0x0207" data-ref="_M/GL_ALWAYS">GL_ALWAYS</a>, <var>1</var>, <var>255</var> );</td></tr>
+<tr><th id="219">219</th><td></td></tr>
+<tr><th id="220">220</th><td>	<a class="ref" href="tr_local.h.html#GL_Cull" title='GL_Cull' data-ref="GL_Cull">GL_Cull</a>( <a class="enum" href="tr_local.h.html#CT_BACK_SIDED" title='CT_BACK_SIDED' data-ref="CT_BACK_SIDED">CT_BACK_SIDED</a> );</td></tr>
+<tr><th id="221">221</th><td>	<a class="macro" href="../renderercommon/qgl.h.html#299" title="glStencilOp" data-ref="_M/qglStencilOp">qglStencilOp</a>( <a class="macro" href="../../../include/SDL2/SDL_opengl.h.html#478" title="0x1E00" data-ref="_M/GL_KEEP">GL_KEEP</a>, <a class="macro" href="../../../include/SDL2/SDL_opengl.h.html#478" title="0x1E00" data-ref="_M/GL_KEEP">GL_KEEP</a>, <a class="macro" href="../../../include/SDL2/SDL_opengl.h.html#480" title="0x1E02" data-ref="_M/GL_INCR">GL_INCR</a> );</td></tr>
+<tr><th id="222">222</th><td></td></tr>
+<tr><th id="223">223</th><td>	<a class="ref" href="#R_RenderShadowEdges" title='R_RenderShadowEdges' data-ref="R_RenderShadowEdges">R_RenderShadowEdges</a>();</td></tr>
+<tr><th id="224">224</th><td></td></tr>
+<tr><th id="225">225</th><td>	<a class="ref" href="tr_local.h.html#GL_Cull" title='GL_Cull' data-ref="GL_Cull">GL_Cull</a>( <a class="enum" href="tr_local.h.html#CT_FRONT_SIDED" title='CT_FRONT_SIDED' data-ref="CT_FRONT_SIDED">CT_FRONT_SIDED</a> );</td></tr>
+<tr><th id="226">226</th><td>	<a class="macro" href="../renderercommon/qgl.h.html#299" title="glStencilOp" data-ref="_M/qglStencilOp">qglStencilOp</a>( <a class="macro" href="../../../include/SDL2/SDL_opengl.h.html#478" title="0x1E00" data-ref="_M/GL_KEEP">GL_KEEP</a>, <a class="macro" href="../../../include/SDL2/SDL_opengl.h.html#478" title="0x1E00" data-ref="_M/GL_KEEP">GL_KEEP</a>, <a class="macro" href="../../../include/SDL2/SDL_opengl.h.html#481" title="0x1E03" data-ref="_M/GL_DECR">GL_DECR</a> );</td></tr>
+<tr><th id="227">227</th><td></td></tr>
+<tr><th id="228">228</th><td>	<a class="ref" href="#R_RenderShadowEdges" title='R_RenderShadowEdges' data-ref="R_RenderShadowEdges">R_RenderShadowEdges</a>();</td></tr>
+<tr><th id="229">229</th><td></td></tr>
+<tr><th id="230">230</th><td></td></tr>
+<tr><th id="231">231</th><td>	<i>// reenable writing to the color buffer</i></td></tr>
+<tr><th id="232">232</th><td>	<a class="macro" href="../renderercommon/qgl.h.html#94" title="glColorMask" data-ref="_M/qglColorMask">qglColorMask</a>(<a class="local col7 ref" href="#17rgba" title='rgba' data-ref="17rgba">rgba</a>[<var>0</var>], <a class="local col7 ref" href="#17rgba" title='rgba' data-ref="17rgba">rgba</a>[<var>1</var>], <a class="local col7 ref" href="#17rgba" title='rgba' data-ref="17rgba">rgba</a>[<var>2</var>], <a class="local col7 ref" href="#17rgba" title='rgba' data-ref="17rgba">rgba</a>[<var>3</var>]);</td></tr>
+<tr><th id="233">233</th><td>}</td></tr>
+<tr><th id="234">234</th><td></td></tr>
+<tr><th id="235">235</th><td></td></tr>
+<tr><th id="236">236</th><td><i>/*</i></td></tr>
+<tr><th id="237">237</th><td><i>=================</i></td></tr>
+<tr><th id="238">238</th><td><i>RB_ShadowFinish</i></td></tr>
+<tr><th id="239">239</th><td><i></i></td></tr>
+<tr><th id="240">240</th><td><i>Darken everything that is is a shadow volume.</i></td></tr>
+<tr><th id="241">241</th><td><i>We have to delay this until everything has been shadowed,</i></td></tr>
+<tr><th id="242">242</th><td><i>because otherwise shadows from different body parts would</i></td></tr>
+<tr><th id="243">243</th><td><i>overlap and double darken.</i></td></tr>
+<tr><th id="244">244</th><td><i>=================</i></td></tr>
+<tr><th id="245">245</th><td><i>*/</i></td></tr>
+<tr><th id="246">246</th><td><em>void</em> <dfn class="decl def" id="RB_ShadowFinish" title='RB_ShadowFinish' data-ref="RB_ShadowFinish">RB_ShadowFinish</dfn>( <em>void</em> ) {</td></tr>
+<tr><th id="247">247</th><td>	<b>if</b> ( <a class="ref" href="tr_local.h.html#r_shadows" title='r_shadows' data-ref="r_shadows">r_shadows</a>-&gt;<a class="ref" href="../qcommon/q_shared.h.html#cvar_s::integer" title='cvar_s::integer' data-ref="cvar_s::integer">integer</a> != <var>2</var> ) {</td></tr>
+<tr><th id="248">248</th><td>		<b>return</b>;</td></tr>
+<tr><th id="249">249</th><td>	}</td></tr>
+<tr><th id="250">250</th><td>	<b>if</b> ( <a class="ref" href="../renderercommon/tr_common.h.html#glConfig" title='glConfig' data-ref="glConfig">glConfig</a>.<a class="ref" href="../renderercommon/tr_types.h.html#(anonymous)::stencilBits" title='(anonymous struct)::stencilBits' data-ref="(anonymous)::stencilBits">stencilBits</a> &lt; <var>4</var> ) {</td></tr>
+<tr><th id="251">251</th><td>		<b>return</b>;</td></tr>
+<tr><th id="252">252</th><td>	}</td></tr>
+<tr><th id="253">253</th><td>	<a class="macro" href="../renderercommon/qgl.h.html#117" title="glEnable" data-ref="_M/qglEnable">qglEnable</a>( <a class="macro" href="../../../include/SDL2/SDL_opengl.h.html#468" title="0x0B90" data-ref="_M/GL_STENCIL_TEST">GL_STENCIL_TEST</a> );</td></tr>
+<tr><th id="254">254</th><td>	<a class="macro" href="../renderercommon/qgl.h.html#297" title="glStencilFunc" data-ref="_M/qglStencilFunc">qglStencilFunc</a>( <a class="macro" href="../../../include/SDL2/SDL_opengl.h.html#317" title="0x0205" data-ref="_M/GL_NOTEQUAL">GL_NOTEQUAL</a>, <var>0</var>, <var>255</var> );</td></tr>
+<tr><th id="255">255</th><td></td></tr>
+<tr><th id="256">256</th><td>	<a class="macro" href="../renderercommon/qgl.h.html#108" title="glDisable" data-ref="_M/qglDisable">qglDisable</a> (<a class="macro" href="../../../include/SDL2/SDL_opengl.h.html#365" title="0x3000" data-ref="_M/GL_CLIP_PLANE0">GL_CLIP_PLANE0</a>);</td></tr>
+<tr><th id="257">257</th><td>	<a class="ref" href="tr_local.h.html#GL_Cull" title='GL_Cull' data-ref="GL_Cull">GL_Cull</a>( <a class="enum" href="tr_local.h.html#CT_TWO_SIDED" title='CT_TWO_SIDED' data-ref="CT_TWO_SIDED">CT_TWO_SIDED</a> );</td></tr>
+<tr><th id="258">258</th><td></td></tr>
+<tr><th id="259">259</th><td>	<a class="ref" href="tr_local.h.html#GL_BindToTMU" title='GL_BindToTMU' data-ref="GL_BindToTMU">GL_BindToTMU</a>( <a class="ref" href="tr_local.h.html#tr" title='tr' data-ref="tr">tr</a>.<a class="ref" href="tr_local.h.html#(anonymous)::whiteImage" title='(anonymous struct)::whiteImage' data-ref="(anonymous)::whiteImage">whiteImage</a>, <a class="enum" href="tr_local.h.html#TB_COLORMAP" title='TB_COLORMAP' data-ref="TB_COLORMAP">TB_COLORMAP</a> );</td></tr>
+<tr><th id="260">260</th><td></td></tr>
+<tr><th id="261">261</th><td>    <a class="macro" href="../renderercommon/qgl.h.html#200" title="glLoadIdentity" data-ref="_M/qglLoadIdentity">qglLoadIdentity</a> ();</td></tr>
+<tr><th id="262">262</th><td></td></tr>
+<tr><th id="263">263</th><td>	<a class="macro" href="../renderercommon/qgl.h.html#66" title="glColor3f" data-ref="_M/qglColor3f">qglColor3f</a>( <var>0.6f</var>, <var>0.6f</var>, <var>0.6f</var> );</td></tr>
+<tr><th id="264">264</th><td>	<a class="ref" href="tr_local.h.html#GL_State" title='GL_State' data-ref="GL_State">GL_State</a>( <a class="macro" href="tr_local.h.html#1872" title="0x00000100" data-ref="_M/GLS_DEPTHMASK_TRUE">GLS_DEPTHMASK_TRUE</a> | <a class="macro" href="tr_local.h.html#1853" title="0x00000003" data-ref="_M/GLS_SRCBLEND_DST_COLOR">GLS_SRCBLEND_DST_COLOR</a> | <a class="macro" href="tr_local.h.html#1862" title="0x00000010" data-ref="_M/GLS_DSTBLEND_ZERO">GLS_DSTBLEND_ZERO</a> );</td></tr>
+<tr><th id="265">265</th><td></td></tr>
+<tr><th id="266">266</th><td><i>//	qglColor3f( 1, 0, 0 );</i></td></tr>
+<tr><th id="267">267</th><td><i>//	GL_State( GLS_DEPTHMASK_TRUE | GLS_SRCBLEND_ONE | GLS_DSTBLEND_ZERO );</i></td></tr>
+<tr><th id="268">268</th><td></td></tr>
+<tr><th id="269">269</th><td>	<a class="macro" href="../renderercommon/qgl.h.html#49" title="glBegin" data-ref="_M/qglBegin">qglBegin</a>( <a class="macro" href="../../../include/SDL2/SDL_opengl.h.html#216" title="0x0007" data-ref="_M/GL_QUADS">GL_QUADS</a> );</td></tr>
+<tr><th id="270">270</th><td>	<a class="macro" href="../renderercommon/qgl.h.html#363" title="glVertex3f" data-ref="_M/qglVertex3f">qglVertex3f</a>( -<var>100</var>, <var>100</var>, -<var>10</var> );</td></tr>
+<tr><th id="271">271</th><td>	<a class="macro" href="../renderercommon/qgl.h.html#363" title="glVertex3f" data-ref="_M/qglVertex3f">qglVertex3f</a>( <var>100</var>, <var>100</var>, -<var>10</var> );</td></tr>
+<tr><th id="272">272</th><td>	<a class="macro" href="../renderercommon/qgl.h.html#363" title="glVertex3f" data-ref="_M/qglVertex3f">qglVertex3f</a>( <var>100</var>, -<var>100</var>, -<var>10</var> );</td></tr>
+<tr><th id="273">273</th><td>	<a class="macro" href="../renderercommon/qgl.h.html#363" title="glVertex3f" data-ref="_M/qglVertex3f">qglVertex3f</a>( -<var>100</var>, -<var>100</var>, -<var>10</var> );</td></tr>
+<tr><th id="274">274</th><td>	<a class="macro" href="../renderercommon/qgl.h.html#119" title="glEnd" data-ref="_M/qglEnd">qglEnd</a> ();</td></tr>
+<tr><th id="275">275</th><td></td></tr>
+<tr><th id="276">276</th><td>	<a class="macro" href="../renderercommon/qgl.h.html#82" title="glColor4f" data-ref="_M/qglColor4f">qglColor4f</a>(<var>1</var>,<var>1</var>,<var>1</var>,<var>1</var>);</td></tr>
+<tr><th id="277">277</th><td>	<a class="macro" href="../renderercommon/qgl.h.html#108" title="glDisable" data-ref="_M/qglDisable">qglDisable</a>( <a class="macro" href="../../../include/SDL2/SDL_opengl.h.html#468" title="0x0B90" data-ref="_M/GL_STENCIL_TEST">GL_STENCIL_TEST</a> );</td></tr>
+<tr><th id="278">278</th><td>}</td></tr>
+<tr><th id="279">279</th><td></td></tr>
+<tr><th id="280">280</th><td></td></tr>
+<tr><th id="281">281</th><td><i>/*</i></td></tr>
+<tr><th id="282">282</th><td><i>=================</i></td></tr>
+<tr><th id="283">283</th><td><i>RB_ProjectionShadowDeform</i></td></tr>
+<tr><th id="284">284</th><td><i></i></td></tr>
+<tr><th id="285">285</th><td><i>=================</i></td></tr>
+<tr><th id="286">286</th><td><i>*/</i></td></tr>
+<tr><th id="287">287</th><td><em>void</em> <dfn class="decl def" id="RB_ProjectionShadowDeform" title='RB_ProjectionShadowDeform' data-ref="RB_ProjectionShadowDeform">RB_ProjectionShadowDeform</dfn>( <em>void</em> ) {</td></tr>
+<tr><th id="288">288</th><td>	<em>float</em>	*<dfn class="local col8 decl" id="28xyz" title='xyz' data-type='float *' data-ref="28xyz">xyz</dfn>;</td></tr>
+<tr><th id="289">289</th><td>	<em>int</em>		<dfn class="local col9 decl" id="29i" title='i' data-type='int' data-ref="29i">i</dfn>;</td></tr>
+<tr><th id="290">290</th><td>	<em>float</em>	<dfn class="local col0 decl" id="30h" title='h' data-type='float' data-ref="30h">h</dfn>;</td></tr>
+<tr><th id="291">291</th><td>	<a class="typedef" href="../qcommon/q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a>	<dfn class="local col1 decl" id="31ground" title='ground' data-type='vec3_t' data-ref="31ground">ground</dfn>;</td></tr>
+<tr><th id="292">292</th><td>	<a class="typedef" href="../qcommon/q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a>	<dfn class="local col2 decl" id="32light" title='light' data-type='vec3_t' data-ref="32light">light</dfn>;</td></tr>
+<tr><th id="293">293</th><td>	<em>float</em>	<dfn class="local col3 decl" id="33groundDist" title='groundDist' data-type='float' data-ref="33groundDist">groundDist</dfn>;</td></tr>
+<tr><th id="294">294</th><td>	<em>float</em>	<dfn class="local col4 decl" id="34d" title='d' data-type='float' data-ref="34d">d</dfn>;</td></tr>
+<tr><th id="295">295</th><td>	<a class="typedef" href="../qcommon/q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a>	<dfn class="local col5 decl" id="35lightDir" title='lightDir' data-type='vec3_t' data-ref="35lightDir">lightDir</dfn>;</td></tr>
+<tr><th id="296">296</th><td></td></tr>
+<tr><th id="297">297</th><td>	<a class="local col8 ref" href="#28xyz" title='xyz' data-ref="28xyz">xyz</a> = ( <em>float</em> * ) <a class="ref" href="tr_local.h.html#tess" title='tess' data-ref="tess">tess</a>.<a class="ref" href="tr_local.h.html#shaderCommands_s::xyz" title='shaderCommands_s::xyz' data-ref="shaderCommands_s::xyz">xyz</a>;</td></tr>
+<tr><th id="298">298</th><td></td></tr>
+<tr><th id="299">299</th><td>	<a class="local col1 ref" href="#31ground" title='ground' data-ref="31ground">ground</a>[<var>0</var>] = <a class="ref" href="tr_local.h.html#backEnd" title='backEnd' data-ref="backEnd">backEnd</a>.<a class="ref" href="tr_local.h.html#(anonymous)::or" title='(anonymous struct)::or' data-ref="(anonymous)::or">or</a>.<a class="ref" href="tr_local.h.html#(anonymous)::axis" title='(anonymous struct)::axis' data-ref="(anonymous)::axis">axis</a>[<var>0</var>][<var>2</var>];</td></tr>
+<tr><th id="300">300</th><td>	<a class="local col1 ref" href="#31ground" title='ground' data-ref="31ground">ground</a>[<var>1</var>] = <a class="ref" href="tr_local.h.html#backEnd" title='backEnd' data-ref="backEnd">backEnd</a>.<a class="ref" href="tr_local.h.html#(anonymous)::or" title='(anonymous struct)::or' data-ref="(anonymous)::or">or</a>.<a class="ref" href="tr_local.h.html#(anonymous)::axis" title='(anonymous struct)::axis' data-ref="(anonymous)::axis">axis</a>[<var>1</var>][<var>2</var>];</td></tr>
+<tr><th id="301">301</th><td>	<a class="local col1 ref" href="#31ground" title='ground' data-ref="31ground">ground</a>[<var>2</var>] = <a class="ref" href="tr_local.h.html#backEnd" title='backEnd' data-ref="backEnd">backEnd</a>.<a class="ref" href="tr_local.h.html#(anonymous)::or" title='(anonymous struct)::or' data-ref="(anonymous)::or">or</a>.<a class="ref" href="tr_local.h.html#(anonymous)::axis" title='(anonymous struct)::axis' data-ref="(anonymous)::axis">axis</a>[<var>2</var>][<var>2</var>];</td></tr>
+<tr><th id="302">302</th><td></td></tr>
+<tr><th id="303">303</th><td>	<a class="local col3 ref" href="#33groundDist" title='groundDist' data-ref="33groundDist">groundDist</a> = <a class="ref" href="tr_local.h.html#backEnd" title='backEnd' data-ref="backEnd">backEnd</a>.<a class="ref" href="tr_local.h.html#(anonymous)::or" title='(anonymous struct)::or' data-ref="(anonymous)::or">or</a>.<a class="ref" href="tr_local.h.html#(anonymous)::origin" title='(anonymous struct)::origin' data-ref="(anonymous)::origin">origin</a>[<var>2</var>] - <a class="ref" href="tr_local.h.html#backEnd" title='backEnd' data-ref="backEnd">backEnd</a>.<a class="ref" href="tr_local.h.html#(anonymous)::currentEntity" title='(anonymous struct)::currentEntity' data-ref="(anonymous)::currentEntity">currentEntity</a>-&gt;<a class="ref" href="tr_local.h.html#(anonymous)::e" title='(anonymous struct)::e' data-ref="(anonymous)::e">e</a>.<a class="ref" href="../renderercommon/tr_types.h.html#(anonymous)::shadowPlane" title='(anonymous struct)::shadowPlane' data-ref="(anonymous)::shadowPlane">shadowPlane</a>;</td></tr>
+<tr><th id="304">304</th><td></td></tr>
+<tr><th id="305">305</th><td>	<a class="macro" href="../qcommon/q_shared.h.html#545" title="((lightDir)[0]=(backEnd.currentEntity-&gt;modelLightDir)[0],(lightDir)[1]=(backEnd.currentEntity-&gt;modelLightDir)[1],(lightDir)[2]=(backEnd.currentEntity-&gt;modelLightDir)[2])" data-ref="_M/VectorCopy">VectorCopy</a>( <a class="ref" href="tr_local.h.html#backEnd" title='backEnd' data-ref="backEnd">backEnd</a>.<a class="ref" href="tr_local.h.html#(anonymous)::currentEntity" title='(anonymous struct)::currentEntity' data-ref="(anonymous)::currentEntity">currentEntity</a>-&gt;<a class="ref" href="tr_local.h.html#(anonymous)::modelLightDir" title='(anonymous struct)::modelLightDir' data-ref="(anonymous)::modelLightDir">modelLightDir</a>, <a class="local col5 ref" href="#35lightDir" title='lightDir' data-ref="35lightDir">lightDir</a> );</td></tr>
+<tr><th id="306">306</th><td>	<a class="local col4 ref" href="#34d" title='d' data-ref="34d">d</a> = <a class="macro" href="../qcommon/q_shared.h.html#542" title="((lightDir)[0]*(ground)[0]+(lightDir)[1]*(ground)[1]+(lightDir)[2]*(ground)[2])" data-ref="_M/DotProduct">DotProduct</a>( <a class="local col5 ref" href="#35lightDir" title='lightDir' data-ref="35lightDir">lightDir</a>, <a class="local col1 ref" href="#31ground" title='ground' data-ref="31ground">ground</a> );</td></tr>
+<tr><th id="307">307</th><td>	<i>// don't let the shadows get too long or go negative</i></td></tr>
+<tr><th id="308">308</th><td>	<b>if</b> ( <a class="local col4 ref" href="#34d" title='d' data-ref="34d">d</a> &lt; <var>0.5</var> ) {</td></tr>
+<tr><th id="309">309</th><td>		<a class="macro" href="../qcommon/q_shared.h.html#547" title="((lightDir)[0]=(lightDir)[0]+(ground)[0]*((0.5 - d)),(lightDir)[1]=(lightDir)[1]+(ground)[1]*((0.5 - d)),(lightDir)[2]=(lightDir)[2]+(ground)[2]*((0.5 - d)))" data-ref="_M/VectorMA">VectorMA</a>( <a class="local col5 ref" href="#35lightDir" title='lightDir' data-ref="35lightDir">lightDir</a>, (<var>0.5</var> - <a class="local col4 ref" href="#34d" title='d' data-ref="34d">d</a>), <a class="local col1 ref" href="#31ground" title='ground' data-ref="31ground">ground</a>, <a class="local col5 ref" href="#35lightDir" title='lightDir' data-ref="35lightDir">lightDir</a> );</td></tr>
+<tr><th id="310">310</th><td>		<a class="local col4 ref" href="#34d" title='d' data-ref="34d">d</a> = <a class="macro" href="../qcommon/q_shared.h.html#542" title="((lightDir)[0]*(ground)[0]+(lightDir)[1]*(ground)[1]+(lightDir)[2]*(ground)[2])" data-ref="_M/DotProduct">DotProduct</a>( <a class="local col5 ref" href="#35lightDir" title='lightDir' data-ref="35lightDir">lightDir</a>, <a class="local col1 ref" href="#31ground" title='ground' data-ref="31ground">ground</a> );</td></tr>
+<tr><th id="311">311</th><td>	}</td></tr>
+<tr><th id="312">312</th><td>	<a class="local col4 ref" href="#34d" title='d' data-ref="34d">d</a> = <var>1.0</var> / <a class="local col4 ref" href="#34d" title='d' data-ref="34d">d</a>;</td></tr>
+<tr><th id="313">313</th><td></td></tr>
+<tr><th id="314">314</th><td>	<a class="local col2 ref" href="#32light" title='light' data-ref="32light">light</a>[<var>0</var>] = <a class="local col5 ref" href="#35lightDir" title='lightDir' data-ref="35lightDir">lightDir</a>[<var>0</var>] * <a class="local col4 ref" href="#34d" title='d' data-ref="34d">d</a>;</td></tr>
+<tr><th id="315">315</th><td>	<a class="local col2 ref" href="#32light" title='light' data-ref="32light">light</a>[<var>1</var>] = <a class="local col5 ref" href="#35lightDir" title='lightDir' data-ref="35lightDir">lightDir</a>[<var>1</var>] * <a class="local col4 ref" href="#34d" title='d' data-ref="34d">d</a>;</td></tr>
+<tr><th id="316">316</th><td>	<a class="local col2 ref" href="#32light" title='light' data-ref="32light">light</a>[<var>2</var>] = <a class="local col5 ref" href="#35lightDir" title='lightDir' data-ref="35lightDir">lightDir</a>[<var>2</var>] * <a class="local col4 ref" href="#34d" title='d' data-ref="34d">d</a>;</td></tr>
+<tr><th id="317">317</th><td></td></tr>
+<tr><th id="318">318</th><td>	<b>for</b> ( <a class="local col9 ref" href="#29i" title='i' data-ref="29i">i</a> = <var>0</var>; <a class="local col9 ref" href="#29i" title='i' data-ref="29i">i</a> &lt; <a class="ref" href="tr_local.h.html#tess" title='tess' data-ref="tess">tess</a>.<a class="ref" href="tr_local.h.html#shaderCommands_s::numVertexes" title='shaderCommands_s::numVertexes' data-ref="shaderCommands_s::numVertexes">numVertexes</a>; <a class="local col9 ref" href="#29i" title='i' data-ref="29i">i</a>++, <a class="local col8 ref" href="#28xyz" title='xyz' data-ref="28xyz">xyz</a> += <var>4</var> ) {</td></tr>
+<tr><th id="319">319</th><td>		<a class="local col0 ref" href="#30h" title='h' data-ref="30h">h</a> = <a class="macro" href="../qcommon/q_shared.h.html#542" title="((xyz)[0]*(ground)[0]+(xyz)[1]*(ground)[1]+(xyz)[2]*(ground)[2])" data-ref="_M/DotProduct">DotProduct</a>( <a class="local col8 ref" href="#28xyz" title='xyz' data-ref="28xyz">xyz</a>, <a class="local col1 ref" href="#31ground" title='ground' data-ref="31ground">ground</a> ) + <a class="local col3 ref" href="#33groundDist" title='groundDist' data-ref="33groundDist">groundDist</a>;</td></tr>
+<tr><th id="320">320</th><td></td></tr>
+<tr><th id="321">321</th><td>		<a class="local col8 ref" href="#28xyz" title='xyz' data-ref="28xyz">xyz</a>[<var>0</var>] -= <a class="local col2 ref" href="#32light" title='light' data-ref="32light">light</a>[<var>0</var>] * <a class="local col0 ref" href="#30h" title='h' data-ref="30h">h</a>;</td></tr>
+<tr><th id="322">322</th><td>		<a class="local col8 ref" href="#28xyz" title='xyz' data-ref="28xyz">xyz</a>[<var>1</var>] -= <a class="local col2 ref" href="#32light" title='light' data-ref="32light">light</a>[<var>1</var>] * <a class="local col0 ref" href="#30h" title='h' data-ref="30h">h</a>;</td></tr>
+<tr><th id="323">323</th><td>		<a class="local col8 ref" href="#28xyz" title='xyz' data-ref="28xyz">xyz</a>[<var>2</var>] -= <a class="local col2 ref" href="#32light" title='light' data-ref="32light">light</a>[<var>2</var>] * <a class="local col0 ref" href="#30h" title='h' data-ref="30h">h</a>;</td></tr>
+<tr><th id="324">324</th><td>	}</td></tr>
+<tr><th id="325">325</th><td>}</td></tr>
+<tr><th id="326">326</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated on <em>2017-Aug-29</em> from project codebrowser revision <em>63e07af</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

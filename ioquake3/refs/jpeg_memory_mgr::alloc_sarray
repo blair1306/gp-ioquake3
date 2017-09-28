@@ -1,0 +1,12 @@
+<dec f='codebrowser/code/jpeg-8c/jpeglib.h' l='801' type='JSAMPARRAY (*)(j_common_ptr, int, JDIMENSION, JDIMENSION)'/>
+<offset>128</offset>
+<use f='codebrowser/code/jpeg-8c/jcmainct.c' l='287' u='r' c='jinit_c_main_controller'/>
+<use f='codebrowser/code/jpeg-8c/jcprepct.c' l='291' u='r' c='create_context_buffer'/>
+<use f='codebrowser/code/jpeg-8c/jcprepct.c' l='350' u='r' c='jinit_c_prep_controller'/>
+<use f='codebrowser/code/jpeg-8c/jdmainct.c' l='507' u='r' c='jinit_d_main_controller'/>
+<use f='codebrowser/code/jpeg-8c/jdpostct.c' l='284' u='r' c='jinit_d_post_controller'/>
+<use f='codebrowser/code/jpeg-8c/jdsample.c' l='354' u='r' c='jinit_upsampler'/>
+<use f='codebrowser/code/jpeg-8c/jmemmgr.c' l='1069' u='w' c='jinit_memory_mgr'/>
+<use f='codebrowser/code/jpeg-8c/jquant1.c' l='295' u='r' c='create_colormap'/>
+<use f='codebrowser/code/jpeg-8c/jquant1.c' l='352' u='r' c='create_colorindex'/>
+<use f='codebrowser/code/jpeg-8c/jquant2.c' l='1285' u='r' c='jinit_2pass_quantizer'/>

@@ -1,0 +1,28 @@
+<dec f='codebrowser/code/botlib/be_aas_reach.h' l='62' type='int AAS_AreaGrounded(int areanum)'/>
+<dec f='codebrowser/code/botlib/be_aas_reach.h' l='62' type='int AAS_AreaGrounded(int areanum)'/>
+<doc f='codebrowser/code/botlib/be_aas_reach.h' l='61'>//returns true if the area has one or more ground faces</doc>
+<use f='codebrowser/code/botlib/be_aas_reach.c' l='191' u='c' c='AAS_BestReachableLinkArea'/>
+<def f='codebrowser/code/botlib/be_aas_reach.c' l='712' ll='715' type='int AAS_AreaGrounded(int areanum)'/>
+<use f='codebrowser/code/botlib/be_aas_reach.c' l='824' u='c' c='AAS_NearbySolidOrGap'/>
+<use f='codebrowser/code/botlib/be_aas_reach.c' l='922' u='c' c='AAS_Reachability_EqualFloorHeight'/>
+<use f='codebrowser/code/botlib/be_aas_reach.c' l='922' u='c' c='AAS_Reachability_EqualFloorHeight'/>
+<use f='codebrowser/code/botlib/be_aas_reach.c' l='1080' u='c' c='AAS_Reachability_Step_Barrier_WaterJump_WalkOffLedge'/>
+<use f='codebrowser/code/botlib/be_aas_reach.c' l='1082' u='c' c='AAS_Reachability_Step_Barrier_WaterJump_WalkOffLedge'/>
+<use f='codebrowser/code/botlib/be_aas_reach.c' l='2121' u='c' c='AAS_Reachability_Jump'/>
+<use f='codebrowser/code/botlib/be_aas_reach.c' l='2121' u='c' c='AAS_Reachability_Jump'/>
+<use f='codebrowser/code/botlib/be_aas_reach.c' l='3036' u='c' c='AAS_Reachability_Elevator'/>
+<use f='codebrowser/code/botlib/be_aas_reach.c' l='3082' u='c' c='AAS_Reachability_Elevator'/>
+<use f='codebrowser/code/botlib/be_aas_reach.c' l='3100' u='c' c='AAS_Reachability_Elevator'/>
+<use f='codebrowser/code/botlib/be_aas_reach.c' l='3795' u='c' c='AAS_Reachability_Grapple'/>
+<use f='codebrowser/code/botlib/be_aas_reach.c' l='3888' u='c' c='AAS_Reachability_Grapple'/>
+<use f='codebrowser/code/botlib/be_aas_reach.c' l='4013' u='c' c='AAS_Reachability_WeaponJump'/>
+<use f='codebrowser/code/botlib/be_aas_reach.c' l='4014' u='c' c='AAS_Reachability_WeaponJump'/>
+<use f='codebrowser/code/botlib/be_aas_reach.c' l='4135' u='c' c='AAS_Reachability_WalkOffLedge'/>
+<use f='codebrowser/code/botlib/be_aas_reach.c' l='4243' u='c' c='AAS_Reachability_WalkOffLedge'/>
+<doc f='codebrowser/code/botlib/be_aas_reach.c' l='705'>//===========================================================================
+// returns qtrue if the area contains ground faces
+//
+// Parameter:				-
+// Returns:					-
+// Changes Globals:		-
+//===========================================================================</doc>

@@ -1,0 +1,27 @@
+<dec f='codebrowser/code/renderercommon/tr_common.h' l='127' type='qhandle_t RE_RegisterShader(const char * name)'/>
+<use f='codebrowser/code/renderergl1/tr_init.c' l='1338' u='r' c='GetRefAPI'/>
+<def f='codebrowser/code/renderergl1/tr_shader.c' l='2799' ll='2819' type='qhandle_t RE_RegisterShader(const char * name)'/>
+<doc f='codebrowser/code/renderergl1/tr_shader.c' l='2788'>/* 
+====================
+RE_RegisterShader
+
+This is the exported shader entry point for the rest of the system
+It will always return an index that will be valid.
+
+This should really only be used for explicit shaders, because there is no
+way to ask for different implicit lighting modes (vertex, lightmap, etc)
+====================
+*/</doc>
+<use f='codebrowser/code/renderergl2/tr_init.c' l='1587' u='r' c='GetRefAPI'/>
+<def f='codebrowser/code/renderergl2/tr_shader.c' l='3511' ll='3531' type='qhandle_t RE_RegisterShader(const char * name)'/>
+<doc f='codebrowser/code/renderergl2/tr_shader.c' l='3500'>/* 
+====================
+RE_RegisterShader
+
+This is the exported shader entry point for the rest of the system
+It will always return an index that will be valid.
+
+This should really only be used for explicit shaders, because there is no
+way to ask for different implicit lighting modes (vertex, lightmap, etc)
+====================
+*/</doc>

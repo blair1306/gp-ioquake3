@@ -1,0 +1,7 @@
+<dec f='codebrowser/code/cgame/cg_local.h' l='485' type='qboolean'/>
+<offset>861088</offset>
+<doc f='codebrowser/code/cgame/cg_local.h' l='485'>// set on a map restart to set back the weapon</doc>
+<use f='codebrowser/code/cgame/cg_playerstate.c' l='512' u='r' c='CG_TransitionPlayerState'/>
+<use f='codebrowser/code/cgame/cg_playerstate.c' l='514' u='w' c='CG_TransitionPlayerState'/>
+<use f='codebrowser/code/cgame/cg_servercmds.c' l='467' u='w' c='CG_MapRestart'/>
+<use f='codebrowser/code/cgame/cg_snapshot.c' l='141' u='r' c='CG_TransitionSnapshot'/>

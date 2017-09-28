@@ -1,0 +1,70 @@
+<def f='codebrowser/code/game/g_local.h' l='70' ll='177'/>
+<size>944</size>
+<mbr r='gentity_s::s' o='0' t='entityState_t'/>
+<mbr r='gentity_s::r' o='1664' t='entityShared_t'/>
+<mbr r='gentity_s::client' o='4160' t='struct gclient_s *'/>
+<mbr r='gentity_s::inuse' o='4224' t='qboolean'/>
+<mbr r='gentity_s::classname' o='4288' t='char *'/>
+<mbr r='gentity_s::spawnflags' o='4352' t='int'/>
+<mbr r='gentity_s::neverFree' o='4384' t='qboolean'/>
+<mbr r='gentity_s::flags' o='4416' t='int'/>
+<mbr r='gentity_s::model' o='4480' t='char *'/>
+<mbr r='gentity_s::model2' o='4544' t='char *'/>
+<mbr r='gentity_s::freetime' o='4608' t='int'/>
+<mbr r='gentity_s::eventTime' o='4640' t='int'/>
+<mbr r='gentity_s::freeAfterEvent' o='4672' t='qboolean'/>
+<mbr r='gentity_s::unlinkAfterEvent' o='4704' t='qboolean'/>
+<mbr r='gentity_s::physicsObject' o='4736' t='qboolean'/>
+<mbr r='gentity_s::physicsBounce' o='4768' t='float'/>
+<mbr r='gentity_s::clipmask' o='4800' t='int'/>
+<mbr r='gentity_s::moverState' o='4832' t='moverState_t'/>
+<mbr r='gentity_s::soundPos1' o='4864' t='int'/>
+<mbr r='gentity_s::sound1to2' o='4896' t='int'/>
+<mbr r='gentity_s::sound2to1' o='4928' t='int'/>
+<mbr r='gentity_s::soundPos2' o='4960' t='int'/>
+<mbr r='gentity_s::soundLoop' o='4992' t='int'/>
+<mbr r='gentity_s::parent' o='5056' t='gentity_t *'/>
+<mbr r='gentity_s::nextTrain' o='5120' t='gentity_t *'/>
+<mbr r='gentity_s::prevTrain' o='5184' t='gentity_t *'/>
+<mbr r='gentity_s::pos1' o='5248' t='vec3_t'/>
+<mbr r='gentity_s::pos2' o='5344' t='vec3_t'/>
+<mbr r='gentity_s::message' o='5440' t='char *'/>
+<mbr r='gentity_s::timestamp' o='5504' t='int'/>
+<mbr r='gentity_s::target' o='5568' t='char *'/>
+<mbr r='gentity_s::targetname' o='5632' t='char *'/>
+<mbr r='gentity_s::team' o='5696' t='char *'/>
+<mbr r='gentity_s::targetShaderName' o='5760' t='char *'/>
+<mbr r='gentity_s::targetShaderNewName' o='5824' t='char *'/>
+<mbr r='gentity_s::target_ent' o='5888' t='gentity_t *'/>
+<mbr r='gentity_s::speed' o='5952' t='float'/>
+<mbr r='gentity_s::movedir' o='5984' t='vec3_t'/>
+<mbr r='gentity_s::nextthink' o='6080' t='int'/>
+<mbr r='gentity_s::think' o='6144' t='void (*)(gentity_t *)'/>
+<mbr r='gentity_s::reached' o='6208' t='void (*)(gentity_t *)'/>
+<mbr r='gentity_s::blocked' o='6272' t='void (*)(gentity_t *, gentity_t *)'/>
+<mbr r='gentity_s::touch' o='6336' t='void (*)(gentity_t *, gentity_t *, trace_t *)'/>
+<mbr r='gentity_s::use' o='6400' t='void (*)(gentity_t *, gentity_t *, gentity_t *)'/>
+<mbr r='gentity_s::pain' o='6464' t='void (*)(gentity_t *, gentity_t *, int)'/>
+<mbr r='gentity_s::die' o='6528' t='void (*)(gentity_t *, gentity_t *, gentity_t *, int, int)'/>
+<mbr r='gentity_s::pain_debounce_time' o='6592' t='int'/>
+<mbr r='gentity_s::fly_sound_debounce_time' o='6624' t='int'/>
+<mbr r='gentity_s::last_move_time' o='6656' t='int'/>
+<mbr r='gentity_s::health' o='6688' t='int'/>
+<mbr r='gentity_s::takedamage' o='6720' t='qboolean'/>
+<mbr r='gentity_s::damage' o='6752' t='int'/>
+<mbr r='gentity_s::splashDamage' o='6784' t='int'/>
+<mbr r='gentity_s::splashRadius' o='6816' t='int'/>
+<mbr r='gentity_s::methodOfDeath' o='6848' t='int'/>
+<mbr r='gentity_s::splashMethodOfDeath' o='6880' t='int'/>
+<mbr r='gentity_s::count' o='6912' t='int'/>
+<mbr r='gentity_s::chain' o='6976' t='gentity_t *'/>
+<mbr r='gentity_s::enemy' o='7040' t='gentity_t *'/>
+<mbr r='gentity_s::activator' o='7104' t='gentity_t *'/>
+<mbr r='gentity_s::teamchain' o='7168' t='gentity_t *'/>
+<mbr r='gentity_s::teammaster' o='7232' t='gentity_t *'/>
+<mbr r='gentity_s::watertype' o='7296' t='int'/>
+<mbr r='gentity_s::waterlevel' o='7328' t='int'/>
+<mbr r='gentity_s::noise_index' o='7360' t='int'/>
+<mbr r='gentity_s::wait' o='7392' t='float'/>
+<mbr r='gentity_s::random' o='7424' t='float'/>
+<mbr r='gentity_s::item' o='7488' t='gitem_t *'/>

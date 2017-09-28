@@ -1,0 +1,29 @@
+<dec f='include/stdio.h' l='237' type='int fclose(FILE * __stream)'/>
+<doc f='include/stdio.h' l='233'>/* Close STREAM.
+
+   This function is a possible cancellation point and therefore not
+   marked with __THROW.  */</doc>
+<use f='codebrowser/code/botlib/l_log.c' l='90' u='c' c='Log_Close'/>
+<use f='codebrowser/code/opusfile-0.8/src/stream.c' l='125' u='r'/>
+<use f='codebrowser/code/opusfile-0.8/src/stream.c' l='125' u='r'/>
+<use f='codebrowser/code/qcommon/files.c' l='620' u='c' c='FS_FileInPathExists'/>
+<use f='codebrowser/code/qcommon/files.c' l='889' u='c' c='FS_FCloseFile'/>
+<use f='codebrowser/code/qcommon/files.c' l='1215' u='c' c='FS_FOpenFileReadDir'/>
+<use f='codebrowser/code/qcommon/ioapi.c' l='158' u='c' c='fclose_file_func'/>
+<use f='codebrowser/code/sys/sys_main.c' l='216' u='c' c='Sys_WritePIDFile'/>
+<use f='codebrowser/code/sys/sys_main.c' l='235' u='c' c='Sys_WritePIDFile'/>
+<use f='codebrowser/code/sys/sys_unix.c' l='172' u='c' c='Sys_RandomBytes'/>
+<use f='codebrowser/code/sys/sys_unix.c' l='176' u='c' c='Sys_RandomBytes'/>
+<use f='codebrowser/code/tools/asm/cmdlib.c' l='706' u='c' c='FileExists'/>
+<use f='codebrowser/code/tools/asm/cmdlib.c' l='726' u='c' c='LoadFile'/>
+<use f='codebrowser/code/tools/asm/cmdlib.c' l='757' u='c' c='LoadFileBlock'/>
+<use f='codebrowser/code/tools/asm/cmdlib.c' l='786' u='c' c='TryLoadFile'/>
+<use f='codebrowser/code/tools/asm/cmdlib.c' l='804' u='c' c='SaveFile'/>
+<use f='codebrowser/code/tools/asm/q3asm.c' l='1338' u='c' c='WriteMapFile'/>
+<use f='codebrowser/code/tools/asm/q3asm.c' l='1417' u='c' c='WriteVmFile'/>
+<use f='codebrowser/code/tools/lcc/src/bytecode.c' l='268' u='c' c='LoadSourceFile'/>
+<use f='codebrowser/code/tools/lcc/src/main.c' l='145' u='c' c='main_init'/>
+<use f='codebrowser/code/tools/lcc/src/main.c' l='194' u='c' c='stabline'/>
+<use f='codebrowser/code/tools/lcc/src/main.c' l='208' u='c' c='stabline'/>
+<use f='codebrowser/code/tools/lcc/src/main.c' l='224' u='c' c='stabend'/>
+<use f='codebrowser/code/tools/lcc/src/profio.c' l='265' u='c' c='process'/>

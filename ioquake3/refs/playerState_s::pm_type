@@ -1,0 +1,62 @@
+<dec f='codebrowser/code/qcommon/q_shared.h' l='1145' type='int'/>
+<offset>32</offset>
+<use f='codebrowser/code/cgame/cg_draw.c' l='2538' u='r' c='CG_Draw2D'/>
+<use f='codebrowser/code/cgame/cg_newdraw.c' l='1684' u='r' c='CG_MouseEvent'/>
+<use f='codebrowser/code/cgame/cg_newdraw.c' l='1684' u='r' c='CG_MouseEvent'/>
+<use f='codebrowser/code/cgame/cg_newdraw.c' l='1769' u='r' c='CG_KeyEvent'/>
+<use f='codebrowser/code/cgame/cg_newdraw.c' l='1769' u='r' c='CG_KeyEvent'/>
+<use f='codebrowser/code/cgame/cg_playerstate.c' l='517' u='r' c='CG_TransitionPlayerState'/>
+<use f='codebrowser/code/cgame/cg_predict.c' l='339' u='r' c='CG_TouchTriggerPrediction'/>
+<use f='codebrowser/code/cgame/cg_predict.c' l='341' u='r' c='CG_TouchTriggerPrediction'/>
+<use f='codebrowser/code/cgame/cg_predict.c' l='446' u='r' c='CG_PredictPlayerState'/>
+<use f='codebrowser/code/cgame/cg_scoreboard.c' l='281' u='r' c='CG_DrawOldScoreboard'/>
+<use f='codebrowser/code/cgame/cg_scoreboard.c' l='291' u='r' c='CG_DrawOldScoreboard'/>
+<use f='codebrowser/code/cgame/cg_scoreboard.c' l='292' u='r' c='CG_DrawOldScoreboard'/>
+<use f='codebrowser/code/cgame/cg_view.c' l='186' u='r' c='CG_CalcVrect'/>
+<use f='codebrowser/code/cgame/cg_view.c' l='322' u='r' c='CG_OffsetFirstPersonView'/>
+<use f='codebrowser/code/cgame/cg_view.c' l='475' u='r' c='CG_CalcFov'/>
+<use f='codebrowser/code/cgame/cg_view.c' l='636' u='r' c='CG_CalcViewValues'/>
+<use f='codebrowser/code/cgame/cg_weapons.c' l='1368' u='r' c='CG_AddViewWeapon'/>
+<use f='codebrowser/code/client/cl_console.c' l='589' u='r' c='Con_DrawNotify'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='213' u='r' c='EntityIsDead'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='2073' u='r' c='BotIsDead'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='2083' u='r' c='BotIsObserver'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='2097' u='r' c='BotIntermission'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='2097' u='r' c='BotIntermission'/>
+<use f='codebrowser/code/game/bg_misc.c' l='1427' u='r' c='BG_TouchJumpPad'/>
+<use f='codebrowser/code/game/bg_misc.c' l='1467' u='r' c='BG_PlayerStateToEntityState'/>
+<use f='codebrowser/code/game/bg_misc.c' l='1467' u='r' c='BG_PlayerStateToEntityState'/>
+<use f='codebrowser/code/game/bg_misc.c' l='1543' u='r' c='BG_PlayerStateToEntityStateExtraPolate'/>
+<use f='codebrowser/code/game/bg_misc.c' l='1543' u='r' c='BG_PlayerStateToEntityStateExtraPolate'/>
+<use f='codebrowser/code/game/bg_pmove.c' l='94' u='r' c='PM_StartTorsoAnim'/>
+<use f='codebrowser/code/game/bg_pmove.c' l='101' u='r' c='PM_StartLegsAnim'/>
+<use f='codebrowser/code/game/bg_pmove.c' l='215' u='r' c='PM_Friction'/>
+<use f='codebrowser/code/game/bg_pmove.c' l='1276' u='r' c='PM_CheckDuck'/>
+<use f='codebrowser/code/game/bg_pmove.c' l='1800' u='r' c='PM_UpdateViewAngles'/>
+<use f='codebrowser/code/game/bg_pmove.c' l='1800' u='r' c='PM_UpdateViewAngles'/>
+<use f='codebrowser/code/game/bg_pmove.c' l='1804' u='r' c='PM_UpdateViewAngles'/>
+<use f='codebrowser/code/game/bg_pmove.c' l='1865' u='r' c='PmoveSingle'/>
+<use f='codebrowser/code/game/bg_pmove.c' l='1865' u='r' c='PmoveSingle'/>
+<use f='codebrowser/code/game/bg_pmove.c' l='1927' u='r' c='PmoveSingle'/>
+<use f='codebrowser/code/game/bg_pmove.c' l='1933' u='r' c='PmoveSingle'/>
+<use f='codebrowser/code/game/bg_pmove.c' l='1940' u='r' c='PmoveSingle'/>
+<use f='codebrowser/code/game/bg_pmove.c' l='1946' u='r' c='PmoveSingle'/>
+<use f='codebrowser/code/game/bg_pmove.c' l='1950' u='r' c='PmoveSingle'/>
+<use f='codebrowser/code/game/bg_pmove.c' l='1950' u='r' c='PmoveSingle'/>
+<use f='codebrowser/code/game/bg_pmove.c' l='1964' u='r' c='PmoveSingle'/>
+<use f='codebrowser/code/game/g_active.c' l='43' u='r' c='P_DamageFeedback'/>
+<use f='codebrowser/code/game/g_active.c' l='325' u='w' c='SpectatorThink'/>
+<use f='codebrowser/code/game/g_active.c' l='327' u='w' c='SpectatorThink'/>
+<use f='codebrowser/code/game/g_active.c' l='829' u='w' c='ClientThink_real'/>
+<use f='codebrowser/code/game/g_active.c' l='831' u='w' c='ClientThink_real'/>
+<use f='codebrowser/code/game/g_active.c' l='833' u='w' c='ClientThink_real'/>
+<use f='codebrowser/code/game/g_active.c' l='903' u='r' c='ClientThink_real'/>
+<use f='codebrowser/code/game/g_combat.c' l='442' u='r' c='player_die'/>
+<use f='codebrowser/code/game/g_combat.c' l='465' u='w' c='player_die'/>
+<use f='codebrowser/code/game/g_main.c' l='942' u='w' c='MoveClientToIntermission'/>
+<use f='codebrowser/code/game/g_trigger.c' l='221' u='r' c='Use_target_push'/>
+<use f='codebrowser/code/game/g_trigger.c' l='277' u='r' c='trigger_teleporter_touch'/>
+<use f='codebrowser/code/qcommon/msg.c' l='1136' u='a'/>
+<use f='codebrowser/code/qcommon/msg.c' l='1136' u='a'/>
+<use f='codebrowser/code/qcommon/msg.c' l='1136' u='a'/>
+<use f='codebrowser/code/qcommon/msg.c' l='1136' u='a'/>

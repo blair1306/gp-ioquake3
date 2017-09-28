@@ -1,0 +1,6 @@
+<dec f='codebrowser/code/cgame/cg_local.h' l='459' type='qboolean'/>
+<offset>192</offset>
+<doc f='codebrowser/code/cgame/cg_local.h' l='459'>// don&apos;t play voice rewards, because game will end shortly</doc>
+<use f='codebrowser/code/cgame/cg_playerstate.c' l='337' u='r' c='CG_CheckLocalSounds'/>
+<use f='codebrowser/code/cgame/cg_servercmds.c' l='334' u='w' c='CG_ConfigStringModified'/>
+<use f='codebrowser/code/cgame/cg_servercmds.c' l='462' u='w' c='CG_MapRestart'/>

@@ -1,0 +1,10 @@
+<dec f='codebrowser/code/server/server.h' l='412' type='void SV_InitGameProgs()'/>
+<def f='codebrowser/code/server/sv_game.c' l='926' ll='946' type='void SV_InitGameProgs()'/>
+<doc f='codebrowser/code/server/sv_game.c' l='919'>/*
+===============
+SV_InitGameProgs
+
+Called on a normal map change, not on a map_restart
+===============
+*/</doc>
+<use f='codebrowser/code/server/sv_init.c' l='496' u='c' c='SV_SpawnServer'/>

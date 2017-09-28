@@ -1,0 +1,9 @@
+<dec f='codebrowser/code/opusfile-0.8/include/opusfile.h' l='237' type='opus_uint32'/>
+<offset>96</offset>
+<doc f='codebrowser/code/opusfile-0.8/include/opusfile.h' l='231'>/**The sampling rate of the original input.
+     All Opus audio is coded at 48 kHz, and should also be decoded at 48 kHz
+      for playback (unless the target hardware does not support this sampling
+      rate).
+     However, this field may be used to resample the audio back to the original
+      sampling rate, for example, when saving the output to a file.*/</doc>
+<use f='codebrowser/code/opusfile-0.8/src/info.c' l='50' u='w' c='opus_head_parse'/>

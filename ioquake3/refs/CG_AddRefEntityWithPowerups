@@ -1,0 +1,14 @@
+<dec f='codebrowser/code/cgame/cg_local.h' l='1311' type='void CG_AddRefEntityWithPowerups(refEntity_t * ent, entityState_t * state, int team)'/>
+<use f='codebrowser/code/cgame/cg_ents.c' l='514' u='c' c='CG_Missile'/>
+<def f='codebrowser/code/cgame/cg_players.c' l='2150' ll='2187' type='void CG_AddRefEntityWithPowerups(refEntity_t * ent, entityState_t * state, int team)'/>
+<use f='codebrowser/code/cgame/cg_players.c' l='2329' u='c' c='CG_Player'/>
+<use f='codebrowser/code/cgame/cg_players.c' l='2353' u='c' c='CG_Player'/>
+<use f='codebrowser/code/cgame/cg_players.c' l='2575' u='c' c='CG_Player'/>
+<doc f='codebrowser/code/cgame/cg_players.c' l='2142'>/*
+===============
+CG_AddRefEntityWithPowerups
+
+Adds a piece with modifications or duplications for powerups
+Also called by CG_Missile for quad rockets, but nobody can tell...
+===============
+*/</doc>

@@ -1,0 +1,21 @@
+<dec f='codebrowser/code/client/client.h' l='63' type='int'/>
+<dec f='codebrowser/code/client/client.h' l='111' type='int'/>
+<offset>165856</offset>
+<doc f='codebrowser/code/client/client.h' l='63'>// at the time of this snapshot</doc>
+<doc f='codebrowser/code/client/client.h' l='111'>// index (not anded off) into cl_parse_entities[]</doc>
+<use f='codebrowser/code/client/cl_cgame.c' l='93' u='r' c='CL_GetParseEntityState'/>
+<use f='codebrowser/code/client/cl_cgame.c' l='95' u='r' c='CL_GetParseEntityState'/>
+<use f='codebrowser/code/client/cl_cgame.c' l='99' u='r' c='CL_GetParseEntityState'/>
+<use f='codebrowser/code/client/cl_cgame.c' l='143' u='r' c='CL_GetSnapshot'/>
+<use f='codebrowser/code/client/cl_cgame.c' l='143' u='r' c='CL_GetSnapshot'/>
+<use f='codebrowser/code/client/cl_cgame.c' l='162' u='r' c='CL_GetSnapshot'/>
+<use f='codebrowser/code/client/cl_parse.c' l='70' u='r' c='CL_DeltaEntity'/>
+<use f='codebrowser/code/client/cl_parse.c' l='81' u='w' c='CL_DeltaEntity'/>
+<use f='codebrowser/code/client/cl_parse.c' l='96' u='w' c='CL_ParsePacketEntities'/>
+<use f='codebrowser/code/client/cl_parse.c' l='96' u='r' c='CL_ParsePacketEntities'/>
+<use f='codebrowser/code/client/cl_parse.c' l='109' u='r' c='CL_ParsePacketEntities'/>
+<use f='codebrowser/code/client/cl_parse.c' l='139' u='r' c='CL_ParsePacketEntities'/>
+<use f='codebrowser/code/client/cl_parse.c' l='156' u='r' c='CL_ParsePacketEntities'/>
+<use f='codebrowser/code/client/cl_parse.c' l='187' u='r' c='CL_ParsePacketEntities'/>
+<use f='codebrowser/code/client/cl_parse.c' l='256' u='r' c='CL_ParseSnapshot'/>
+<use f='codebrowser/code/client/cl_parse.c' l='256' u='r' c='CL_ParseSnapshot'/>

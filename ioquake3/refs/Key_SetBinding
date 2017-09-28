@@ -1,0 +1,11 @@
+<dec f='codebrowser/code/client/keys.h' l='49' type='void Key_SetBinding(int keynum, const char * binding)'/>
+<def f='codebrowser/code/client/cl_keys.c' l='908' ll='924' type='void Key_SetBinding(int keynum, const char * binding)'/>
+<use f='codebrowser/code/client/cl_keys.c' l='981' u='c' c='Key_Unbind_f'/>
+<use f='codebrowser/code/client/cl_keys.c' l='995' u='c' c='Key_Unbindall_f'/>
+<use f='codebrowser/code/client/cl_keys.c' l='1041' u='c' c='Key_Bind_f'/>
+<doc f='codebrowser/code/client/cl_keys.c' l='903'>/*
+===================
+Key_SetBinding
+===================
+*/</doc>
+<use f='codebrowser/code/client/cl_ui.c' l='875' u='c' c='CL_UISystemCalls'/>

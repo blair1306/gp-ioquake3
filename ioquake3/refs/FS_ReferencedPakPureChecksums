@@ -1,0 +1,13 @@
+<dec f='codebrowser/code/qcommon/qcommon.h' l='713' type='const char * FS_ReferencedPakPureChecksums()'/>
+<use f='codebrowser/code/client/cl_main.c' l='1906' u='c' c='CL_SendPureChecksums'/>
+<def f='codebrowser/code/qcommon/files.c' l='3728' ll='3763' type='const char * FS_ReferencedPakPureChecksums()'/>
+<doc f='codebrowser/code/qcommon/files.c' l='3718'>/*
+=====================
+FS_ReferencedPakPureChecksums
+
+Returns a space separated string containing the pure checksums of all referenced pk3 files.
+Servers with sv_pure set will get this string back from clients for pure validation 
+
+The string has a specific order, &quot;cgame ui @ ref1 ref2 ref3 ...&quot;
+=====================
+*/</doc>

@@ -1,0 +1,11 @@
+<dec f='codebrowser/code/cgame/cg_local.h' l='462' type='int'/>
+<offset>224</offset>
+<doc f='codebrowser/code/cgame/cg_local.h' l='461'>// there are only one or two snapshot_t that are relevent at a time</doc>
+<doc f='codebrowser/code/cgame/cg_local.h' l='462'>// the number of snapshots the client system has received</doc>
+<use f='codebrowser/code/cgame/cg_draw.c' l='718' u='r' c='CG_DrawSnapshot'/>
+<use f='codebrowser/code/cgame/cg_snapshot.c' l='260' u='r' c='CG_ReadNextSnapshot'/>
+<use f='codebrowser/code/cgame/cg_snapshot.c' l='262' u='r' c='CG_ReadNextSnapshot'/>
+<use f='codebrowser/code/cgame/cg_snapshot.c' l='265' u='r' c='CG_ReadNextSnapshot'/>
+<use f='codebrowser/code/cgame/cg_snapshot.c' l='330' u='r' c='CG_ProcessSnapshots'/>
+<use f='codebrowser/code/cgame/cg_snapshot.c' l='331' u='r' c='CG_ProcessSnapshots'/>
+<use f='codebrowser/code/cgame/cg_snapshot.c' l='335' u='w' c='CG_ProcessSnapshots'/>

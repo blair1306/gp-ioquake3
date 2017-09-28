@@ -1,0 +1,12 @@
+<dec f='codebrowser/code/cgame/cg_local.h' l='166' type='qboolean'/>
+<offset>3328</offset>
+<doc f='codebrowser/code/cgame/cg_local.h' l='166'>// true if next is valid to interpolate to</doc>
+<use f='codebrowser/code/cgame/cg_ents.c' l='759' u='r' c='CG_CalcEntityLerpPositions'/>
+<use f='codebrowser/code/cgame/cg_ents.c' l='766' u='r' c='CG_CalcEntityLerpPositions'/>
+<use f='codebrowser/code/cgame/cg_snapshot.c' l='63' u='r' c='CG_TransitionEntity'/>
+<use f='codebrowser/code/cgame/cg_snapshot.c' l='68' u='w' c='CG_TransitionEntity'/>
+<use f='codebrowser/code/cgame/cg_snapshot.c' l='107' u='w' c='CG_SetInitialSnapshot'/>
+<use f='codebrowser/code/cgame/cg_snapshot.c' l='155' u='w' c='CG_TransitionSnapshot'/>
+<use f='codebrowser/code/cgame/cg_snapshot.c' l='204' u='w' c='CG_SetNextSnap'/>
+<use f='codebrowser/code/cgame/cg_snapshot.c' l='217' u='w' c='CG_SetNextSnap'/>
+<use f='codebrowser/code/cgame/cg_snapshot.c' l='219' u='w' c='CG_SetNextSnap'/>

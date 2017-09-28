@@ -1,0 +1,47 @@
+<dec f='codebrowser/code/qcommon/q_shared.h' l='1307' type='int'/>
+<offset>1344</offset>
+<doc f='codebrowser/code/qcommon/q_shared.h' l='1307'>// 0 to (MAX_CLIENTS - 1), for players and corpses</doc>
+<use f='codebrowser/code/cgame/cg_ents.c' l='207' u='r' c='CG_Speaker'/>
+<use f='codebrowser/code/cgame/cg_ents.c' l='219' u='r' c='CG_Speaker'/>
+<use f='codebrowser/code/cgame/cg_ents.c' l='660' u='r' c='CG_Portal'/>
+<use f='codebrowser/code/cgame/cg_event.c' l='377' u='r' c='CG_UseItem'/>
+<use f='codebrowser/code/cgame/cg_event.c' l='542' u='r' c='CG_EntityEvent'/>
+<use f='codebrowser/code/cgame/cg_event.c' l='987' u='r' c='CG_EntityEvent'/>
+<use f='codebrowser/code/cgame/cg_event.c' l='1000' u='r' c='CG_EntityEvent'/>
+<use f='codebrowser/code/cgame/cg_players.c' l='729' u='r' c='CG_LoadClientInfo'/>
+<use f='codebrowser/code/cgame/cg_players.c' l='1244' u='r' c='CG_PlayerAnimation'/>
+<use f='codebrowser/code/cgame/cg_players.c' l='1443' u='r' c='CG_PlayerAngles'/>
+<use f='codebrowser/code/cgame/cg_players.c' l='1472' u='r' c='CG_PlayerAngles'/>
+<use f='codebrowser/code/cgame/cg_players.c' l='1752' u='r' c='CG_PlayerFlag'/>
+<use f='codebrowser/code/cgame/cg_players.c' l='1860' u='r' c='CG_PlayerPowerups'/>
+<use f='codebrowser/code/cgame/cg_players.c' l='1984' u='r' c='CG_PlayerSprites'/>
+<use f='codebrowser/code/cgame/cg_players.c' l='2262' u='r' c='CG_Player'/>
+<use f='codebrowser/code/cgame/cg_players.c' l='2606' u='r' c='CG_ResetPlayerEntity'/>
+<use f='codebrowser/code/cgame/cg_players.c' l='2607' u='r' c='CG_ResetPlayerEntity'/>
+<use f='codebrowser/code/cgame/cg_weapons.c' l='1221' u='r' c='CG_AddPlayerWeapon'/>
+<use f='codebrowser/code/cgame/cg_weapons.c' l='1289' u='r' c='CG_AddPlayerWeapon'/>
+<use f='codebrowser/code/cgame/cg_weapons.c' l='1294' u='r' c='CG_AddPlayerWeapon'/>
+<use f='codebrowser/code/cgame/cg_weapons.c' l='1328' u='r' c='CG_AddPlayerWeapon'/>
+<use f='codebrowser/code/cgame/cg_weapons.c' l='1426' u='r' c='CG_AddViewWeapon'/>
+<use f='codebrowser/code/game/bg_misc.c' l='1494' u='w' c='BG_PlayerStateToEntityState'/>
+<use f='codebrowser/code/game/bg_misc.c' l='1574' u='w' c='BG_PlayerStateToEntityStateExtraPolate'/>
+<use f='codebrowser/code/game/g_client.c' l='1222' u='w' c='ClientSpawn'/>
+<use f='codebrowser/code/game/g_client.c' l='1222' u='r' c='ClientSpawn'/>
+<use f='codebrowser/code/game/g_client.c' l='1285' u='w' c='ClientDisconnect'/>
+<use f='codebrowser/code/game/g_client.c' l='1285' u='r' c='ClientDisconnect'/>
+<use f='codebrowser/code/game/g_misc.c' l='88' u='w' c='TeleportPlayer'/>
+<use f='codebrowser/code/game/g_misc.c' l='88' u='r' c='TeleportPlayer'/>
+<use f='codebrowser/code/game/g_misc.c' l='91' u='w' c='TeleportPlayer'/>
+<use f='codebrowser/code/game/g_misc.c' l='91' u='r' c='TeleportPlayer'/>
+<use f='codebrowser/code/game/g_misc.c' l='188' u='w' c='locateCamera'/>
+<use f='codebrowser/code/game/g_misc.c' l='188' u='r' c='locateCamera'/>
+<use f='codebrowser/code/game/g_misc.c' l='237' u='w' c='SP_misc_portal_camera'/>
+<use f='codebrowser/code/game/g_target.c' l='226' u='w' c='SP_target_speaker'/>
+<use f='codebrowser/code/game/g_weapon.c' l='530' u='w' c='weapon_railgun_fire'/>
+<use f='codebrowser/code/game/g_weapon.c' l='530' u='r' c='weapon_railgun_fire'/>
+<use f='codebrowser/code/game/g_weapon.c' l='543' u='w' c='weapon_railgun_fire'/>
+<use f='codebrowser/code/game/g_weapon.c' l='543' u='r' c='weapon_railgun_fire'/>
+<use f='codebrowser/code/qcommon/msg.c' l='805' u='a'/>
+<use f='codebrowser/code/qcommon/msg.c' l='805' u='a'/>
+<use f='codebrowser/code/qcommon/msg.c' l='805' u='a'/>
+<use f='codebrowser/code/qcommon/msg.c' l='805' u='a'/>

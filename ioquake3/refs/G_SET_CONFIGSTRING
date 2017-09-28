@@ -1,0 +1,6 @@
+<dec f='codebrowser/code/game/g_public.h' l='158' type='18'/>
+<doc f='codebrowser/code/game/g_public.h' l='155'>// reliably sends a command string to be interpreted by the given
+	// client.  If clientNum is -1, it will be sent to all clients</doc>
+<doc f='codebrowser/code/game/g_public.h' l='158'>// ( int num, const char *string );</doc>
+<use f='codebrowser/code/game/g_syscalls.c' l='129' c='trap_SetConfigstring'/>
+<use f='codebrowser/code/server/sv_game.c' l='378' c='SV_GameSystemCalls'/>

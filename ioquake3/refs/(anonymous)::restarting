@@ -1,0 +1,6 @@
+<dec f='codebrowser/code/server/server.h' l='71' type='qboolean'/>
+<offset>32</offset>
+<doc f='codebrowser/code/server/server.h' l='71'>// if true, send configstring changes during SS_LOADING</doc>
+<use f='codebrowser/code/server/sv_ccmds.c' l='298' u='w' c='SV_MapRestart_f'/>
+<use f='codebrowser/code/server/sv_ccmds.c' l='311' u='w' c='SV_MapRestart_f'/>
+<use f='codebrowser/code/server/sv_init.c' l='129' u='r' c='SV_SetConfigstring'/>

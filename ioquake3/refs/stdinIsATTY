@@ -1,0 +1,14 @@
+<dec f='codebrowser/code/sys/con_tty.c' l='47' type='qboolean'/>
+<use f='codebrowser/code/sys/con_tty.c' l='305' u='r' c='CON_Init'/>
+<doc f='codebrowser/code/sys/con_tty.c' l='37'>/*
+=============================================================
+tty console routines
+
+NOTE: if the user is editing a line when something gets printed to the early
+console then it won&apos;t look good so we provide CON_Hide and CON_Show to be
+called before and after a stdout or stderr output
+=============================================================
+*/</doc>
+<def f='codebrowser/code/sys/sys_unix.c' l='42' type='qboolean'/>
+<use f='codebrowser/code/sys/sys_unix.c' l='506' u='r' c='Sys_Sleep'/>
+<use f='codebrowser/code/sys/sys_unix.c' l='865' u='w' c='Sys_PlatformInit'/>

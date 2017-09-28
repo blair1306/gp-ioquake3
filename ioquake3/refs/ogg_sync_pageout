@@ -1,0 +1,13 @@
+<dec f='codebrowser/code/libogg-1.3.2/include/ogg/ogg.h' l='177' type='int ogg_sync_pageout(ogg_sync_state * oy, ogg_page * og)'/>
+<def f='codebrowser/code/libogg-1.3.2/src/framing.c' l='775' ll='803' type='int ogg_sync_pageout(ogg_sync_state * oy, ogg_page * og)'/>
+<doc f='codebrowser/code/libogg-1.3.2/src/framing.c' l='764'>/* sync the stream and get a page.  Keep trying until we find a page.
+   Suppress &apos;sync errors&apos; after reporting the first.
+
+   return values:
+   -1) recapture (hole in data)
+    0) need more data
+    1) page returned
+
+   Returns pointers into buffered data; invalidated by next call to
+   _stream, _clear, _init, or _buffer */</doc>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='101' u='c' c='op_test'/>

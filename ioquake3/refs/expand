@@ -1,0 +1,8 @@
+<dec f='codebrowser/code/tools/lcc/cpp/cpp.h' l='113' type='void expand(Tokenrow * , Nlist * )'/>
+<use f='codebrowser/code/tools/lcc/cpp/macro.c' l='164' u='c' c='expandrow'/>
+<def f='codebrowser/code/tools/lcc/cpp/macro.c' l='177' ll='221' type='void expand(Tokenrow * trp, Nlist * np)'/>
+<doc f='codebrowser/code/tools/lcc/cpp/macro.c' l='172'>/*
+ * Expand the macro whose name is np, at token trp-&gt;tp, in the tokenrow.
+ * Return trp-&gt;tp at the first token next to be expanded
+ * (ordinarily the beginning of the expansion)
+ */</doc>

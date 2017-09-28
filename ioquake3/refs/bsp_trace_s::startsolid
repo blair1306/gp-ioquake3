@@ -1,0 +1,15 @@
+<dec f='codebrowser/code/botlib/botlib.h' l='133' type='qboolean'/>
+<offset>32</offset>
+<doc f='codebrowser/code/botlib/botlib.h' l='133'>// if true, the initial point was in a solid area</doc>
+<use f='codebrowser/code/botlib/be_aas_move.c' l='64' u='r' c='AAS_DropToFloor'/>
+<use f='codebrowser/code/botlib/be_aas_sample.c' l='432' u='r' c='AAS_AreaEntityCollision'/>
+<use f='codebrowser/code/botlib/be_ai_move.c' l='311' u='r' c='BotReachabilityArea'/>
+<use f='codebrowser/code/botlib/be_ai_move.c' l='470' u='r' c='BotOnMover'/>
+<use f='codebrowser/code/botlib/be_ai_move.c' l='555' u='r' c='BotOnTopOfEntity'/>
+<use f='codebrowser/code/botlib/be_ai_move.c' l='1295' u='r' c='BotCheckBlocked'/>
+<use f='codebrowser/code/botlib/be_ai_move.c' l='1310' u='r' c='BotCheckBlocked'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='2617' u='r' c='BotRoamGoal'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='3459' u='r' c='BotAimAtEnemy'/>
+<use f='codebrowser/code/game/ai_main.c' l='145' u='w' c='BotAI_Trace'/>
+<use f='codebrowser/code/server/sv_bot.c' l='184' u='w' c='BotImport_Trace'/>
+<use f='codebrowser/code/server/sv_bot.c' l='210' u='w' c='BotImport_EntityTrace'/>

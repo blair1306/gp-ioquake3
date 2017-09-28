@@ -1,0 +1,16 @@
+<dec f='codebrowser/code/opus-1.1.4/celt/ecintrin.h' l='82'/>
+<use f='codebrowser/code/opus-1.1.4/celt/entcode.h' l='112' u='c'/>
+<use f='codebrowser/code/opus-1.1.4/celt/bands.c' l='84' u='c'/>
+<use f='codebrowser/code/opus-1.1.4/celt/bands.c' l='85' u='c'/>
+<doc f='codebrowser/code/opus-1.1.4/celt/ecintrin.h' l='78'>/*Note that __builtin_clz is not defined when _x==0, according to the gcc
+   documentation (and that of the BSR instruction that implements it on x86).
+  The majority of the time we can never pass it zero.
+  When we need to, it can be special cased.*/</doc>
+<use f='codebrowser/code/opus-1.1.4/celt/celt_encoder.c' l='1579' u='c'/>
+<use f='codebrowser/code/opus-1.1.4/celt/entcode.c' l='78' u='c'/>
+<use f='codebrowser/code/opus-1.1.4/celt/entdec.c' l='205' u='c'/>
+<use f='codebrowser/code/opus-1.1.4/celt/entenc.c' l='182' u='c'/>
+<use f='codebrowser/code/opus-1.1.4/celt/entenc.c' l='252' u='c'/>
+<use f='codebrowser/code/opus-1.1.4/celt/mathops.c' l='51' u='c'/>
+<use f='codebrowser/code/opus-1.1.4/silk/macros.h' l='123' u='c'/>
+<use f='codebrowser/code/opus-1.1.4/silk/macros.h' l='130' u='c'/>

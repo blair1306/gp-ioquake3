@@ -1,0 +1,17 @@
+<def f='codebrowser/code/qcommon/q_shared.h' l='628' ll='637' type='void VectorNormalizeFast(vec_t * v)'/>
+<doc f='codebrowser/code/qcommon/q_shared.h' l='626'>// fast vector normalize routine that does not check to make sure
+// that length != 0, nor does it return length, uses rsqrt approximation</doc>
+<use f='codebrowser/code/renderergl1/tr_flares.c' l='142' u='c' c='RB_AddFlare'/>
+<use f='codebrowser/code/renderergl1/tr_marks.c' l='304' u='c' c='R_MarkFragments'/>
+<use f='codebrowser/code/renderergl1/tr_marks.c' l='365' u='c' c='R_MarkFragments'/>
+<use f='codebrowser/code/renderergl1/tr_marks.c' l='389' u='c' c='R_MarkFragments'/>
+<use f='codebrowser/code/renderergl1/tr_shade_calc.c' l='194' u='c' c='RB_CalcDeformNormals'/>
+<use f='codebrowser/code/renderergl1/tr_shade_calc.c' l='904' u='c' c='RB_CalcEnvironmentTexCoords'/>
+<use f='codebrowser/code/renderergl1/tr_shade_calc.c' l='1048' u='c' c='RB_CalcSpecularAlpha'/>
+<use f='codebrowser/code/renderergl1/tr_surface.c' l='603' u='c' c='VectorArrayNormalize'/>
+<use f='codebrowser/code/renderergl2/tr_flares.c' l='142' u='c' c='RB_AddFlare'/>
+<use f='codebrowser/code/renderergl2/tr_image.c' l='1401' u='c' c='R_MipMapNormalHeight'/>
+<use f='codebrowser/code/renderergl2/tr_marks.c' l='307' u='c' c='R_MarkFragments'/>
+<use f='codebrowser/code/renderergl2/tr_marks.c' l='372' u='c' c='R_MarkFragments'/>
+<use f='codebrowser/code/renderergl2/tr_marks.c' l='399' u='c' c='R_MarkFragments'/>
+<use f='codebrowser/code/renderergl2/tr_shade_calc.c' l='190' u='c' c='RB_CalcDeformNormals'/>

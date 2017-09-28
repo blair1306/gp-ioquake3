@@ -1,0 +1,10 @@
+<def f='codebrowser/code/client/snd_dma.c' l='832' ll='859' type='void S_Base_AddRealLoopingSound(int entityNum, const vec_t * origin, const vec_t * velocity, sfxHandle_t sfxHandle)'/>
+<use f='codebrowser/code/client/snd_dma.c' l='1604' u='r' c='S_Base_Init'/>
+<doc f='codebrowser/code/client/snd_dma.c' l='824'>/*
+==================
+S_AddLoopingSound
+
+Called during entity generation for a frame
+Include velocity in case I get around to doing doppler...
+==================
+*/</doc>

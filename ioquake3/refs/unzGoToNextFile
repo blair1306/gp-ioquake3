@@ -1,0 +1,14 @@
+<dec f='codebrowser/code/qcommon/unzip.h' l='188' type='int unzGoToNextFile(unzFile file)'/>
+<use f='codebrowser/code/qcommon/files.c' l='2051' u='c' c='FS_LoadZipFile'/>
+<use f='codebrowser/code/qcommon/files.c' l='2105' u='c' c='FS_LoadZipFile'/>
+<doc f='codebrowser/code/qcommon/unzip.h' l='183'>/*
+  Set the current file of the zipfile to the first file.
+  return UNZ_OK if there is no problem
+*/</doc>
+<def f='codebrowser/code/qcommon/unzip.c' l='792' ll='815' type='int unzGoToNextFile(unzFile file)'/>
+<use f='codebrowser/code/qcommon/unzip.c' l='872' u='c' c='unzLocateFile'/>
+<doc f='codebrowser/code/qcommon/unzip.c' l='787'>/*
+  Set the current file of the zipfile to the next file.
+  return UNZ_OK if there is no problem
+  return UNZ_END_OF_LIST_OF_FILE if the actual file was the latest.
+*/</doc>

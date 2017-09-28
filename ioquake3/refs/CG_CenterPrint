@@ -1,0 +1,15 @@
+<dec f='codebrowser/code/cgame/cg_local.h' l='1276' type='void CG_CenterPrint(const char * str, int y, int charWidth)'/>
+<def f='codebrowser/code/cgame/cg_draw.c' l='1760' ll='1777' type='void CG_CenterPrint(const char * str, int y, int charWidth)'/>
+<doc f='codebrowser/code/cgame/cg_draw.c' l='1752'>/*
+==============
+CG_CenterPrint
+
+Called for important messages that should stay in the center of the screen
+for a few moments
+==============
+*/</doc>
+<use f='codebrowser/code/cgame/cg_event.c' l='229' u='c' c='CG_Obituary'/>
+<use f='codebrowser/code/cgame/cg_event.c' l='360' u='c' c='CG_UseItem'/>
+<use f='codebrowser/code/cgame/cg_event.c' l='363' u='c' c='CG_UseItem'/>
+<use f='codebrowser/code/cgame/cg_servercmds.c' l='478' u='c' c='CG_MapRestart'/>
+<use f='codebrowser/code/cgame/cg_servercmds.c' l='997' u='c' c='CG_ServerCommand'/>

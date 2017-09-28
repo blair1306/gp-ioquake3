@@ -1,0 +1,161 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>be_ai_move.h source code [codebrowser/code/botlib/be_ai_move.h] - Woboq Code Browser</title>
+<meta name="woboq:interestingDefinitions" content="bot_avoidspot_s,bot_initmove_s,bot_moveresult_s "/>
+<link rel="stylesheet" href="../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'codebrowser/code/botlib/be_ai_move.h'; var root_path = '../../..'; var data_path = '../../../../data';</script>
+<script src='../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../..'>codebrowser</a>/<a href='..'>code</a>/<a href='./'>botlib</a>/<a href='be_ai_move.h.html'>be_ai_move.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/*</i></td></tr>
+<tr><th id="2">2</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="3">3</th><td><i>Copyright (C) 1999-2005 Id Software, Inc.</i></td></tr>
+<tr><th id="4">4</th><td><i></i></td></tr>
+<tr><th id="5">5</th><td><i>This file is part of Quake III Arena source code.</i></td></tr>
+<tr><th id="6">6</th><td><i></i></td></tr>
+<tr><th id="7">7</th><td><i>Quake III Arena source code is free software; you can redistribute it</i></td></tr>
+<tr><th id="8">8</th><td><i>and/or modify it under the terms of the GNU General Public License as</i></td></tr>
+<tr><th id="9">9</th><td><i>published by the Free Software Foundation; either version 2 of the License,</i></td></tr>
+<tr><th id="10">10</th><td><i>or (at your option) any later version.</i></td></tr>
+<tr><th id="11">11</th><td><i></i></td></tr>
+<tr><th id="12">12</th><td><i>Quake III Arena source code is distributed in the hope that it will be</i></td></tr>
+<tr><th id="13">13</th><td><i>useful, but WITHOUT ANY WARRANTY; without even the implied warranty of</i></td></tr>
+<tr><th id="14">14</th><td><i>MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</i></td></tr>
+<tr><th id="15">15</th><td><i>GNU General Public License for more details.</i></td></tr>
+<tr><th id="16">16</th><td><i></i></td></tr>
+<tr><th id="17">17</th><td><i>You should have received a copy of the GNU General Public License</i></td></tr>
+<tr><th id="18">18</th><td><i>along with Quake III Arena source code; if not, write to the Free Software</i></td></tr>
+<tr><th id="19">19</th><td><i>Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA</i></td></tr>
+<tr><th id="20">20</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="21">21</th><td><i>*/</i></td></tr>
+<tr><th id="22">22</th><td><i>//</i></td></tr>
+<tr><th id="23">23</th><td></td></tr>
+<tr><th id="24">24</th><td><i>/*****************************************************************************</i></td></tr>
+<tr><th id="25">25</th><td><i> * name:		be_ai_move.h</i></td></tr>
+<tr><th id="26">26</th><td><i> *</i></td></tr>
+<tr><th id="27">27</th><td><i> * desc:		movement AI</i></td></tr>
+<tr><th id="28">28</th><td><i> *</i></td></tr>
+<tr><th id="29">29</th><td><i> * $Archive: /source/code/botlib/be_ai_move.h $</i></td></tr>
+<tr><th id="30">30</th><td><i> *</i></td></tr>
+<tr><th id="31">31</th><td><i> *****************************************************************************/</i></td></tr>
+<tr><th id="32">32</th><td><i></i></td></tr>
+<tr><th id="33">33</th><td><i>//movement types</i></td></tr>
+<tr><th id="34">34</th><td><u>#define <dfn class="macro" id="_M/MOVE_WALK" data-ref="_M/MOVE_WALK">MOVE_WALK</dfn>						1</u></td></tr>
+<tr><th id="35">35</th><td><u>#define <dfn class="macro" id="_M/MOVE_CROUCH" data-ref="_M/MOVE_CROUCH">MOVE_CROUCH</dfn>						2</u></td></tr>
+<tr><th id="36">36</th><td><u>#define <dfn class="macro" id="_M/MOVE_JUMP" data-ref="_M/MOVE_JUMP">MOVE_JUMP</dfn>						4</u></td></tr>
+<tr><th id="37">37</th><td><u>#define <dfn class="macro" id="_M/MOVE_GRAPPLE" data-ref="_M/MOVE_GRAPPLE">MOVE_GRAPPLE</dfn>					8</u></td></tr>
+<tr><th id="38">38</th><td><u>#define <dfn class="macro" id="_M/MOVE_ROCKETJUMP" data-ref="_M/MOVE_ROCKETJUMP">MOVE_ROCKETJUMP</dfn>					16</u></td></tr>
+<tr><th id="39">39</th><td><u>#define <dfn class="macro" id="_M/MOVE_BFGJUMP" data-ref="_M/MOVE_BFGJUMP">MOVE_BFGJUMP</dfn>					32</u></td></tr>
+<tr><th id="40">40</th><td><i>//move flags</i></td></tr>
+<tr><th id="41">41</th><td><u>#define <dfn class="macro" id="_M/MFL_BARRIERJUMP" data-ref="_M/MFL_BARRIERJUMP">MFL_BARRIERJUMP</dfn>					1		//bot is performing a barrier jump</u></td></tr>
+<tr><th id="42">42</th><td><u>#define <dfn class="macro" id="_M/MFL_ONGROUND" data-ref="_M/MFL_ONGROUND">MFL_ONGROUND</dfn>					2		//bot is in the ground</u></td></tr>
+<tr><th id="43">43</th><td><u>#define <dfn class="macro" id="_M/MFL_SWIMMING" data-ref="_M/MFL_SWIMMING">MFL_SWIMMING</dfn>					4		//bot is swimming</u></td></tr>
+<tr><th id="44">44</th><td><u>#define <dfn class="macro" id="_M/MFL_AGAINSTLADDER" data-ref="_M/MFL_AGAINSTLADDER">MFL_AGAINSTLADDER</dfn>				8		//bot is against a ladder</u></td></tr>
+<tr><th id="45">45</th><td><u>#define <dfn class="macro" id="_M/MFL_WATERJUMP" data-ref="_M/MFL_WATERJUMP">MFL_WATERJUMP</dfn>					16		//bot is waterjumping</u></td></tr>
+<tr><th id="46">46</th><td><u>#define <dfn class="macro" id="_M/MFL_TELEPORTED" data-ref="_M/MFL_TELEPORTED">MFL_TELEPORTED</dfn>					32		//bot is being teleported</u></td></tr>
+<tr><th id="47">47</th><td><u>#define <dfn class="macro" id="_M/MFL_GRAPPLEPULL" data-ref="_M/MFL_GRAPPLEPULL">MFL_GRAPPLEPULL</dfn>					64		//bot is being pulled by the grapple</u></td></tr>
+<tr><th id="48">48</th><td><u>#define <dfn class="macro" id="_M/MFL_ACTIVEGRAPPLE" data-ref="_M/MFL_ACTIVEGRAPPLE">MFL_ACTIVEGRAPPLE</dfn>				128		//bot is using the grapple hook</u></td></tr>
+<tr><th id="49">49</th><td><u>#define <dfn class="macro" id="_M/MFL_GRAPPLERESET" data-ref="_M/MFL_GRAPPLERESET">MFL_GRAPPLERESET</dfn>				256		//bot has reset the grapple</u></td></tr>
+<tr><th id="50">50</th><td><u>#define <dfn class="macro" id="_M/MFL_WALK" data-ref="_M/MFL_WALK">MFL_WALK</dfn>						512		//bot should walk slowly</u></td></tr>
+<tr><th id="51">51</th><td><i>// move result flags</i></td></tr>
+<tr><th id="52">52</th><td><u>#define <dfn class="macro" id="_M/MOVERESULT_MOVEMENTVIEW" data-ref="_M/MOVERESULT_MOVEMENTVIEW">MOVERESULT_MOVEMENTVIEW</dfn>			1		//bot uses view for movement</u></td></tr>
+<tr><th id="53">53</th><td><u>#define <dfn class="macro" id="_M/MOVERESULT_SWIMVIEW" data-ref="_M/MOVERESULT_SWIMVIEW">MOVERESULT_SWIMVIEW</dfn>				2		//bot uses view for swimming</u></td></tr>
+<tr><th id="54">54</th><td><u>#define <dfn class="macro" id="_M/MOVERESULT_WAITING" data-ref="_M/MOVERESULT_WAITING">MOVERESULT_WAITING</dfn>				4		//bot is waiting for something</u></td></tr>
+<tr><th id="55">55</th><td><u>#define <dfn class="macro" id="_M/MOVERESULT_MOVEMENTVIEWSET" data-ref="_M/MOVERESULT_MOVEMENTVIEWSET">MOVERESULT_MOVEMENTVIEWSET</dfn>		8		//bot has set the view in movement code</u></td></tr>
+<tr><th id="56">56</th><td><u>#define <dfn class="macro" id="_M/MOVERESULT_MOVEMENTWEAPON" data-ref="_M/MOVERESULT_MOVEMENTWEAPON">MOVERESULT_MOVEMENTWEAPON</dfn>		16		//bot uses weapon for movement</u></td></tr>
+<tr><th id="57">57</th><td><u>#define <dfn class="macro" id="_M/MOVERESULT_ONTOPOFOBSTACLE" data-ref="_M/MOVERESULT_ONTOPOFOBSTACLE">MOVERESULT_ONTOPOFOBSTACLE</dfn>		32		//bot is ontop of obstacle</u></td></tr>
+<tr><th id="58">58</th><td><u>#define <dfn class="macro" id="_M/MOVERESULT_ONTOPOF_FUNCBOB" data-ref="_M/MOVERESULT_ONTOPOF_FUNCBOB">MOVERESULT_ONTOPOF_FUNCBOB</dfn>		64		//bot is ontop of a func_bobbing</u></td></tr>
+<tr><th id="59">59</th><td><u>#define <dfn class="macro" id="_M/MOVERESULT_ONTOPOF_ELEVATOR" data-ref="_M/MOVERESULT_ONTOPOF_ELEVATOR">MOVERESULT_ONTOPOF_ELEVATOR</dfn>		128		//bot is ontop of an elevator (func_plat)</u></td></tr>
+<tr><th id="60">60</th><td><u>#define <dfn class="macro" id="_M/MOVERESULT_BLOCKEDBYAVOIDSPOT" data-ref="_M/MOVERESULT_BLOCKEDBYAVOIDSPOT">MOVERESULT_BLOCKEDBYAVOIDSPOT</dfn>	256		//bot is blocked by an avoid spot</u></td></tr>
+<tr><th id="61">61</th><td><i>//</i></td></tr>
+<tr><th id="62">62</th><td><u>#define <dfn class="macro" id="_M/MAX_AVOIDREACH" data-ref="_M/MAX_AVOIDREACH">MAX_AVOIDREACH</dfn>					1</u></td></tr>
+<tr><th id="63">63</th><td><u>#define <dfn class="macro" id="_M/MAX_AVOIDSPOTS" data-ref="_M/MAX_AVOIDSPOTS">MAX_AVOIDSPOTS</dfn>					32</u></td></tr>
+<tr><th id="64">64</th><td><i>// avoid spot types</i></td></tr>
+<tr><th id="65">65</th><td><u>#define <dfn class="macro" id="_M/AVOID_CLEAR" data-ref="_M/AVOID_CLEAR">AVOID_CLEAR</dfn>						0		//clear all avoid spots</u></td></tr>
+<tr><th id="66">66</th><td><u>#define <dfn class="macro" id="_M/AVOID_ALWAYS" data-ref="_M/AVOID_ALWAYS">AVOID_ALWAYS</dfn>					1		//avoid always</u></td></tr>
+<tr><th id="67">67</th><td><u>#define <dfn class="macro" id="_M/AVOID_DONTBLOCK" data-ref="_M/AVOID_DONTBLOCK">AVOID_DONTBLOCK</dfn>					2		//never totally block</u></td></tr>
+<tr><th id="68">68</th><td><i>// restult types</i></td></tr>
+<tr><th id="69">69</th><td><u>#define <dfn class="macro" id="_M/RESULTTYPE_ELEVATORUP" data-ref="_M/RESULTTYPE_ELEVATORUP">RESULTTYPE_ELEVATORUP</dfn>			1		//elevator is up</u></td></tr>
+<tr><th id="70">70</th><td><u>#define <dfn class="macro" id="_M/RESULTTYPE_WAITFORFUNCBOBBING" data-ref="_M/RESULTTYPE_WAITFORFUNCBOBBING">RESULTTYPE_WAITFORFUNCBOBBING</dfn>	2		//waiting for func bobbing to arrive</u></td></tr>
+<tr><th id="71">71</th><td><u>#define <dfn class="macro" id="_M/RESULTTYPE_BADGRAPPLEPATH" data-ref="_M/RESULTTYPE_BADGRAPPLEPATH">RESULTTYPE_BADGRAPPLEPATH</dfn>		4		//grapple path is obstructed</u></td></tr>
+<tr><th id="72">72</th><td><u>#define <dfn class="macro" id="_M/RESULTTYPE_INSOLIDAREA" data-ref="_M/RESULTTYPE_INSOLIDAREA">RESULTTYPE_INSOLIDAREA</dfn>			8		//stuck in solid area, this is bad</u></td></tr>
+<tr><th id="73">73</th><td></td></tr>
+<tr><th id="74">74</th><td><i>//structure used to initialize the movement state</i></td></tr>
+<tr><th id="75">75</th><td><i>//the or_moveflags MFL_ONGROUND, MFL_TELEPORTED and MFL_WATERJUMP come from the playerstate</i></td></tr>
+<tr><th id="76">76</th><td><b>typedef</b> <b>struct</b> <dfn class="type def" id="bot_initmove_s" title='bot_initmove_s' data-ref="bot_initmove_s"><a class="type" href="#bot_initmove_s" title='bot_initmove_s' data-ref="bot_initmove_s">bot_initmove_s</a></dfn></td></tr>
+<tr><th id="77">77</th><td>{</td></tr>
+<tr><th id="78">78</th><td>	<a class="typedef" href="../qcommon/q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="decl" id="bot_initmove_s::origin" title='bot_initmove_s::origin' data-ref="bot_initmove_s::origin">origin</dfn>;				<i>//origin of the bot</i></td></tr>
+<tr><th id="79">79</th><td>	<a class="typedef" href="../qcommon/q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="decl" id="bot_initmove_s::velocity" title='bot_initmove_s::velocity' data-ref="bot_initmove_s::velocity">velocity</dfn>;			<i>//velocity of the bot</i></td></tr>
+<tr><th id="80">80</th><td>	<a class="typedef" href="../qcommon/q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="decl" id="bot_initmove_s::viewoffset" title='bot_initmove_s::viewoffset' data-ref="bot_initmove_s::viewoffset">viewoffset</dfn>;			<i>//view offset</i></td></tr>
+<tr><th id="81">81</th><td>	<em>int</em> <dfn class="decl" id="bot_initmove_s::entitynum" title='bot_initmove_s::entitynum' data-ref="bot_initmove_s::entitynum">entitynum</dfn>;				<i>//entity number of the bot</i></td></tr>
+<tr><th id="82">82</th><td>	<em>int</em> <dfn class="decl" id="bot_initmove_s::client" title='bot_initmove_s::client' data-ref="bot_initmove_s::client">client</dfn>;					<i>//client number of the bot</i></td></tr>
+<tr><th id="83">83</th><td>	<em>float</em> <dfn class="decl" id="bot_initmove_s::thinktime" title='bot_initmove_s::thinktime' data-ref="bot_initmove_s::thinktime">thinktime</dfn>;			<i>//time the bot thinks</i></td></tr>
+<tr><th id="84">84</th><td>	<em>int</em> <dfn class="decl" id="bot_initmove_s::presencetype" title='bot_initmove_s::presencetype' data-ref="bot_initmove_s::presencetype">presencetype</dfn>;			<i>//presencetype of the bot</i></td></tr>
+<tr><th id="85">85</th><td>	<a class="typedef" href="../qcommon/q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="decl" id="bot_initmove_s::viewangles" title='bot_initmove_s::viewangles' data-ref="bot_initmove_s::viewangles">viewangles</dfn>;			<i>//view angles of the bot</i></td></tr>
+<tr><th id="86">86</th><td>	<em>int</em> <dfn class="decl" id="bot_initmove_s::or_moveflags" title='bot_initmove_s::or_moveflags' data-ref="bot_initmove_s::or_moveflags">or_moveflags</dfn>;			<i>//values ored to the movement flags</i></td></tr>
+<tr><th id="87">87</th><td>} <dfn class="typedef" id="bot_initmove_t" title='bot_initmove_t' data-type='struct bot_initmove_s' data-ref="bot_initmove_t">bot_initmove_t</dfn>;</td></tr>
+<tr><th id="88">88</th><td></td></tr>
+<tr><th id="89">89</th><td><i>//NOTE: the ideal_viewangles are only valid if MFL_MOVEMENTVIEW is set</i></td></tr>
+<tr><th id="90">90</th><td><b>typedef</b> <b>struct</b> <dfn class="type def" id="bot_moveresult_s" title='bot_moveresult_s' data-ref="bot_moveresult_s"><a class="type" href="#bot_moveresult_s" title='bot_moveresult_s' data-ref="bot_moveresult_s">bot_moveresult_s</a></dfn></td></tr>
+<tr><th id="91">91</th><td>{</td></tr>
+<tr><th id="92">92</th><td>	<em>int</em> <dfn class="decl" id="bot_moveresult_s::failure" title='bot_moveresult_s::failure' data-ref="bot_moveresult_s::failure">failure</dfn>;				<i>//true if movement failed all together</i></td></tr>
+<tr><th id="93">93</th><td>	<em>int</em> <dfn class="decl" id="bot_moveresult_s::type" title='bot_moveresult_s::type' data-ref="bot_moveresult_s::type">type</dfn>;					<i>//failure or blocked type</i></td></tr>
+<tr><th id="94">94</th><td>	<em>int</em> <dfn class="decl" id="bot_moveresult_s::blocked" title='bot_moveresult_s::blocked' data-ref="bot_moveresult_s::blocked">blocked</dfn>;				<i>//true if blocked by an entity</i></td></tr>
+<tr><th id="95">95</th><td>	<em>int</em> <dfn class="decl" id="bot_moveresult_s::blockentity" title='bot_moveresult_s::blockentity' data-ref="bot_moveresult_s::blockentity">blockentity</dfn>;			<i>//entity blocking the bot</i></td></tr>
+<tr><th id="96">96</th><td>	<em>int</em> <dfn class="decl" id="bot_moveresult_s::traveltype" title='bot_moveresult_s::traveltype' data-ref="bot_moveresult_s::traveltype">traveltype</dfn>;				<i>//last executed travel type</i></td></tr>
+<tr><th id="97">97</th><td>	<em>int</em> <dfn class="decl" id="bot_moveresult_s::flags" title='bot_moveresult_s::flags' data-ref="bot_moveresult_s::flags">flags</dfn>;					<i>//result flags</i></td></tr>
+<tr><th id="98">98</th><td>	<em>int</em> <dfn class="decl" id="bot_moveresult_s::weapon" title='bot_moveresult_s::weapon' data-ref="bot_moveresult_s::weapon">weapon</dfn>;					<i>//weapon used for movement</i></td></tr>
+<tr><th id="99">99</th><td>	<a class="typedef" href="../qcommon/q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="decl" id="bot_moveresult_s::movedir" title='bot_moveresult_s::movedir' data-ref="bot_moveresult_s::movedir">movedir</dfn>;				<i>//movement direction</i></td></tr>
+<tr><th id="100">100</th><td>	<a class="typedef" href="../qcommon/q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="decl" id="bot_moveresult_s::ideal_viewangles" title='bot_moveresult_s::ideal_viewangles' data-ref="bot_moveresult_s::ideal_viewangles">ideal_viewangles</dfn>;	<i>//ideal viewangles for the movement</i></td></tr>
+<tr><th id="101">101</th><td>} <dfn class="typedef" id="bot_moveresult_t" title='bot_moveresult_t' data-type='struct bot_moveresult_s' data-ref="bot_moveresult_t">bot_moveresult_t</dfn>;</td></tr>
+<tr><th id="102">102</th><td></td></tr>
+<tr><th id="103">103</th><td><u>#define <dfn class="macro" id="_M/bot_moveresult_t_cleared" data-ref="_M/bot_moveresult_t_cleared">bot_moveresult_t_cleared</dfn>(x) bot_moveresult_t (x) = {0, 0, 0, 0, 0, 0, 0, {0, 0, 0}, {0, 0, 0}}</u></td></tr>
+<tr><th id="104">104</th><td></td></tr>
+<tr><th id="105">105</th><td><b>typedef</b> <b>struct</b> <dfn class="type def" id="bot_avoidspot_s" title='bot_avoidspot_s' data-ref="bot_avoidspot_s"><a class="type" href="#bot_avoidspot_s" title='bot_avoidspot_s' data-ref="bot_avoidspot_s">bot_avoidspot_s</a></dfn></td></tr>
+<tr><th id="106">106</th><td>{</td></tr>
+<tr><th id="107">107</th><td>	<a class="typedef" href="../qcommon/q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="decl" id="bot_avoidspot_s::origin" title='bot_avoidspot_s::origin' data-ref="bot_avoidspot_s::origin">origin</dfn>;</td></tr>
+<tr><th id="108">108</th><td>	<em>float</em> <dfn class="decl" id="bot_avoidspot_s::radius" title='bot_avoidspot_s::radius' data-ref="bot_avoidspot_s::radius">radius</dfn>;</td></tr>
+<tr><th id="109">109</th><td>	<em>int</em> <dfn class="decl" id="bot_avoidspot_s::type" title='bot_avoidspot_s::type' data-ref="bot_avoidspot_s::type">type</dfn>;</td></tr>
+<tr><th id="110">110</th><td>} <dfn class="typedef" id="bot_avoidspot_t" title='bot_avoidspot_t' data-type='struct bot_avoidspot_s' data-ref="bot_avoidspot_t">bot_avoidspot_t</dfn>;</td></tr>
+<tr><th id="111">111</th><td></td></tr>
+<tr><th id="112">112</th><td><i>//resets the whole move state</i></td></tr>
+<tr><th id="113">113</th><td><em>void</em> <dfn class="decl" id="BotResetMoveState" title='BotResetMoveState' data-ref="BotResetMoveState">BotResetMoveState</dfn>(<em>int</em> <dfn class="local col9 decl" id="79movestate" title='movestate' data-type='int' data-ref="79movestate">movestate</dfn>);</td></tr>
+<tr><th id="114">114</th><td><i>//moves the bot to the given goal</i></td></tr>
+<tr><th id="115">115</th><td><em>void</em> <dfn class="decl" id="BotMoveToGoal" title='BotMoveToGoal' data-ref="BotMoveToGoal">BotMoveToGoal</dfn>(<a class="typedef" href="#bot_moveresult_t" title='bot_moveresult_t' data-type='struct bot_moveresult_s' data-ref="bot_moveresult_t">bot_moveresult_t</a> *<dfn class="local col0 decl" id="80result" title='result' data-type='bot_moveresult_t *' data-ref="80result">result</dfn>, <em>int</em> <dfn class="local col1 decl" id="81movestate" title='movestate' data-type='int' data-ref="81movestate">movestate</dfn>, <a class="typedef" href="be_ai_goal.h.html#bot_goal_t" title='bot_goal_t' data-type='struct bot_goal_s' data-ref="bot_goal_t">bot_goal_t</a> *<dfn class="local col2 decl" id="82goal" title='goal' data-type='bot_goal_t *' data-ref="82goal">goal</dfn>, <em>int</em> <dfn class="local col3 decl" id="83travelflags" title='travelflags' data-type='int' data-ref="83travelflags">travelflags</dfn>);</td></tr>
+<tr><th id="116">116</th><td><i>//moves the bot in the specified direction using the specified type of movement</i></td></tr>
+<tr><th id="117">117</th><td><em>int</em> <dfn class="decl" id="BotMoveInDirection" title='BotMoveInDirection' data-ref="BotMoveInDirection">BotMoveInDirection</dfn>(<em>int</em> <dfn class="local col4 decl" id="84movestate" title='movestate' data-type='int' data-ref="84movestate">movestate</dfn>, <a class="typedef" href="../qcommon/q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="local col5 decl" id="85dir" title='dir' data-type='vec_t *' data-ref="85dir">dir</dfn>, <em>float</em> <dfn class="local col6 decl" id="86speed" title='speed' data-type='float' data-ref="86speed">speed</dfn>, <em>int</em> <dfn class="local col7 decl" id="87type" title='type' data-type='int' data-ref="87type">type</dfn>);</td></tr>
+<tr><th id="118">118</th><td><i>//reset avoid reachability</i></td></tr>
+<tr><th id="119">119</th><td><em>void</em> <dfn class="decl" id="BotResetAvoidReach" title='BotResetAvoidReach' data-ref="BotResetAvoidReach">BotResetAvoidReach</dfn>(<em>int</em> <dfn class="local col8 decl" id="88movestate" title='movestate' data-type='int' data-ref="88movestate">movestate</dfn>);</td></tr>
+<tr><th id="120">120</th><td><i>//resets the last avoid reachability</i></td></tr>
+<tr><th id="121">121</th><td><em>void</em> <dfn class="decl" id="BotResetLastAvoidReach" title='BotResetLastAvoidReach' data-ref="BotResetLastAvoidReach">BotResetLastAvoidReach</dfn>(<em>int</em> <dfn class="local col9 decl" id="89movestate" title='movestate' data-type='int' data-ref="89movestate">movestate</dfn>);</td></tr>
+<tr><th id="122">122</th><td><i>//returns a reachability area if the origin is in one</i></td></tr>
+<tr><th id="123">123</th><td><em>int</em> <dfn class="decl" id="BotReachabilityArea" title='BotReachabilityArea' data-ref="BotReachabilityArea">BotReachabilityArea</dfn>(<a class="typedef" href="../qcommon/q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="local col0 decl" id="90origin" title='origin' data-type='vec_t *' data-ref="90origin">origin</dfn>, <em>int</em> <dfn class="local col1 decl" id="91client" title='client' data-type='int' data-ref="91client">client</dfn>);</td></tr>
+<tr><th id="124">124</th><td><i>//view target based on movement</i></td></tr>
+<tr><th id="125">125</th><td><em>int</em> <dfn class="decl" id="BotMovementViewTarget" title='BotMovementViewTarget' data-ref="BotMovementViewTarget">BotMovementViewTarget</dfn>(<em>int</em> <dfn class="local col2 decl" id="92movestate" title='movestate' data-type='int' data-ref="92movestate">movestate</dfn>, <a class="typedef" href="be_ai_goal.h.html#bot_goal_t" title='bot_goal_t' data-type='struct bot_goal_s' data-ref="bot_goal_t">bot_goal_t</a> *<dfn class="local col3 decl" id="93goal" title='goal' data-type='bot_goal_t *' data-ref="93goal">goal</dfn>, <em>int</em> <dfn class="local col4 decl" id="94travelflags" title='travelflags' data-type='int' data-ref="94travelflags">travelflags</dfn>, <em>float</em> <dfn class="local col5 decl" id="95lookahead" title='lookahead' data-type='float' data-ref="95lookahead">lookahead</dfn>, <a class="typedef" href="../qcommon/q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="local col6 decl" id="96target" title='target' data-type='vec_t *' data-ref="96target">target</dfn>);</td></tr>
+<tr><th id="126">126</th><td><i>//predict the position of a player based on movement towards a goal</i></td></tr>
+<tr><th id="127">127</th><td><em>int</em> <dfn class="decl" id="BotPredictVisiblePosition" title='BotPredictVisiblePosition' data-ref="BotPredictVisiblePosition">BotPredictVisiblePosition</dfn>(<a class="typedef" href="../qcommon/q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="local col7 decl" id="97origin" title='origin' data-type='vec_t *' data-ref="97origin">origin</dfn>, <em>int</em> <dfn class="local col8 decl" id="98areanum" title='areanum' data-type='int' data-ref="98areanum">areanum</dfn>, <a class="typedef" href="be_ai_goal.h.html#bot_goal_t" title='bot_goal_t' data-type='struct bot_goal_s' data-ref="bot_goal_t">bot_goal_t</a> *<dfn class="local col9 decl" id="99goal" title='goal' data-type='bot_goal_t *' data-ref="99goal">goal</dfn>, <em>int</em> <dfn class="local col0 decl" id="100travelflags" title='travelflags' data-type='int' data-ref="100travelflags">travelflags</dfn>, <a class="typedef" href="../qcommon/q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="local col1 decl" id="101target" title='target' data-type='vec_t *' data-ref="101target">target</dfn>);</td></tr>
+<tr><th id="128">128</th><td><i>//returns the handle of a newly allocated movestate</i></td></tr>
+<tr><th id="129">129</th><td><em>int</em> <dfn class="decl" id="BotAllocMoveState" title='BotAllocMoveState' data-ref="BotAllocMoveState">BotAllocMoveState</dfn>(<em>void</em>);</td></tr>
+<tr><th id="130">130</th><td><i>//frees the movestate with the given handle</i></td></tr>
+<tr><th id="131">131</th><td><em>void</em> <dfn class="decl" id="BotFreeMoveState" title='BotFreeMoveState' data-ref="BotFreeMoveState">BotFreeMoveState</dfn>(<em>int</em> <dfn class="local col2 decl" id="102handle" title='handle' data-type='int' data-ref="102handle">handle</dfn>);</td></tr>
+<tr><th id="132">132</th><td><i>//initialize movement state before performing any movement</i></td></tr>
+<tr><th id="133">133</th><td><em>void</em> <dfn class="decl" id="BotInitMoveState" title='BotInitMoveState' data-ref="BotInitMoveState">BotInitMoveState</dfn>(<em>int</em> <dfn class="local col3 decl" id="103handle" title='handle' data-type='int' data-ref="103handle">handle</dfn>, <a class="typedef" href="#bot_initmove_t" title='bot_initmove_t' data-type='struct bot_initmove_s' data-ref="bot_initmove_t">bot_initmove_t</a> *<dfn class="local col4 decl" id="104initmove" title='initmove' data-type='bot_initmove_t *' data-ref="104initmove">initmove</dfn>);</td></tr>
+<tr><th id="134">134</th><td><i>//add a spot to avoid (if type == AVOID_CLEAR all spots are removed)</i></td></tr>
+<tr><th id="135">135</th><td><em>void</em> <dfn class="decl" id="BotAddAvoidSpot" title='BotAddAvoidSpot' data-ref="BotAddAvoidSpot">BotAddAvoidSpot</dfn>(<em>int</em> <dfn class="local col5 decl" id="105movestate" title='movestate' data-type='int' data-ref="105movestate">movestate</dfn>, <a class="typedef" href="../qcommon/q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="local col6 decl" id="106origin" title='origin' data-type='vec_t *' data-ref="106origin">origin</dfn>, <em>float</em> <dfn class="local col7 decl" id="107radius" title='radius' data-type='float' data-ref="107radius">radius</dfn>, <em>int</em> <dfn class="local col8 decl" id="108type" title='type' data-type='int' data-ref="108type">type</dfn>);</td></tr>
+<tr><th id="136">136</th><td><i>//must be called every map change</i></td></tr>
+<tr><th id="137">137</th><td><em>void</em> <dfn class="decl" id="BotSetBrushModelTypes" title='BotSetBrushModelTypes' data-ref="BotSetBrushModelTypes">BotSetBrushModelTypes</dfn>(<em>void</em>);</td></tr>
+<tr><th id="138">138</th><td><i>//setup movement AI</i></td></tr>
+<tr><th id="139">139</th><td><em>int</em> <dfn class="decl" id="BotSetupMoveAI" title='BotSetupMoveAI' data-ref="BotSetupMoveAI">BotSetupMoveAI</dfn>(<em>void</em>);</td></tr>
+<tr><th id="140">140</th><td><i>//shutdown movement AI</i></td></tr>
+<tr><th id="141">141</th><td><em>void</em> <dfn class="decl" id="BotShutdownMoveAI" title='BotShutdownMoveAI' data-ref="BotShutdownMoveAI">BotShutdownMoveAI</dfn>(<em>void</em>);</td></tr>
+<tr><th id="142">142</th><td></td></tr>
+<tr><th id="143">143</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='be_ai_goal.c.html'>codebrowser/code/botlib/be_ai_goal.c</a><br/>Generated on <em>2017-Aug-29</em> from project codebrowser revision <em>63e07af</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

@@ -1,0 +1,360 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>opus_custom.h source code [codebrowser/code/opus-1.1.4/include/opus_custom.h] - Woboq Code Browser</title>
+<link rel="stylesheet" href="../../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'codebrowser/code/opus-1.1.4/include/opus_custom.h'; var root_path = '../../../..'; var data_path = '../../../../../data';</script>
+<script src='../../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../../..'>codebrowser</a>/<a href='../..'>code</a>/<a href='..'>opus-1.1.4</a>/<a href='./'>include</a>/<a href='opus_custom.h.html'>opus_custom.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/* Copyright (c) 2007-2008 CSIRO</i></td></tr>
+<tr><th id="2">2</th><td><i>   Copyright (c) 2007-2009 Xiph.Org Foundation</i></td></tr>
+<tr><th id="3">3</th><td><i>   Copyright (c) 2008-2012 Gregory Maxwell</i></td></tr>
+<tr><th id="4">4</th><td><i>   Written by Jean-Marc Valin and Gregory Maxwell */</i></td></tr>
+<tr><th id="5">5</th><td><i>/*</i></td></tr>
+<tr><th id="6">6</th><td><i>   Redistribution and use in source and binary forms, with or without</i></td></tr>
+<tr><th id="7">7</th><td><i>   modification, are permitted provided that the following conditions</i></td></tr>
+<tr><th id="8">8</th><td><i>   are met:</i></td></tr>
+<tr><th id="9">9</th><td><i></i></td></tr>
+<tr><th id="10">10</th><td><i>   - Redistributions of source code must retain the above copyright</i></td></tr>
+<tr><th id="11">11</th><td><i>   notice, this list of conditions and the following disclaimer.</i></td></tr>
+<tr><th id="12">12</th><td><i></i></td></tr>
+<tr><th id="13">13</th><td><i>   - Redistributions in binary form must reproduce the above copyright</i></td></tr>
+<tr><th id="14">14</th><td><i>   notice, this list of conditions and the following disclaimer in the</i></td></tr>
+<tr><th id="15">15</th><td><i>   documentation and/or other materials provided with the distribution.</i></td></tr>
+<tr><th id="16">16</th><td><i></i></td></tr>
+<tr><th id="17">17</th><td><i>   THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS</i></td></tr>
+<tr><th id="18">18</th><td><i>   ``AS IS'' AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT</i></td></tr>
+<tr><th id="19">19</th><td><i>   LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR</i></td></tr>
+<tr><th id="20">20</th><td><i>   A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER</i></td></tr>
+<tr><th id="21">21</th><td><i>   OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,</i></td></tr>
+<tr><th id="22">22</th><td><i>   EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,</i></td></tr>
+<tr><th id="23">23</th><td><i>   PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR</i></td></tr>
+<tr><th id="24">24</th><td><i>   PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF</i></td></tr>
+<tr><th id="25">25</th><td><i>   LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING</i></td></tr>
+<tr><th id="26">26</th><td><i>   NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS</i></td></tr>
+<tr><th id="27">27</th><td><i>   SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</i></td></tr>
+<tr><th id="28">28</th><td><i>*/</i></td></tr>
+<tr><th id="29">29</th><td></td></tr>
+<tr><th id="30">30</th><td><i class="doc">/**</i></td></tr>
+<tr><th id="31">31</th><td><i class="doc"> <span class="command"> @file</span> opus_custom.h</i></td></tr>
+<tr><th id="32">32</th><td><i class="doc">  <span class="command">@brief</span> Opus-Custom reference implementation API</i></td></tr>
+<tr><th id="33">33</th><td><i class="doc"> */</i></td></tr>
+<tr><th id="34">34</th><td></td></tr>
+<tr><th id="35">35</th><td><u>#<span data-ppcond="35">ifndef</span> <span class="macro" data-ref="_M/OPUS_CUSTOM_H">OPUS_CUSTOM_H</span></u></td></tr>
+<tr><th id="36">36</th><td><u>#define <dfn class="macro" id="_M/OPUS_CUSTOM_H" data-ref="_M/OPUS_CUSTOM_H">OPUS_CUSTOM_H</dfn></u></td></tr>
+<tr><th id="37">37</th><td></td></tr>
+<tr><th id="38">38</th><td><u>#include <a href="opus_defines.h.html">"opus_defines.h"</a></u></td></tr>
+<tr><th id="39">39</th><td></td></tr>
+<tr><th id="40">40</th><td><u>#<span data-ppcond="40">ifdef</span> <span class="macro" data-ref="_M/__cplusplus">__cplusplus</span></u></td></tr>
+<tr><th id="41">41</th><td><b>extern</b> <q>"C"</q> {</td></tr>
+<tr><th id="42">42</th><td><u>#<span data-ppcond="40">endif</span></u></td></tr>
+<tr><th id="43">43</th><td></td></tr>
+<tr><th id="44">44</th><td><u>#<span data-ppcond="44">ifdef</span> <span class="macro" data-ref="_M/CUSTOM_MODES">CUSTOM_MODES</span></u></td></tr>
+<tr><th id="45">45</th><td><u># define OPUS_CUSTOM_EXPORT OPUS_EXPORT</u></td></tr>
+<tr><th id="46">46</th><td><u># define OPUS_CUSTOM_EXPORT_STATIC OPUS_EXPORT</u></td></tr>
+<tr><th id="47">47</th><td><u>#<span data-ppcond="44">else</span></u></td></tr>
+<tr><th id="48">48</th><td><u># define <dfn class="macro" id="_M/OPUS_CUSTOM_EXPORT" data-ref="_M/OPUS_CUSTOM_EXPORT">OPUS_CUSTOM_EXPORT</dfn></u></td></tr>
+<tr><th id="49">49</th><td><u># <span data-ppcond="49">ifdef</span> <span class="macro" data-ref="_M/OPUS_BUILD">OPUS_BUILD</span></u></td></tr>
+<tr><th id="50">50</th><td><u>#  define <dfn class="macro" id="_M/OPUS_CUSTOM_EXPORT_STATIC" data-ref="_M/OPUS_CUSTOM_EXPORT_STATIC">OPUS_CUSTOM_EXPORT_STATIC</dfn> static OPUS_INLINE</u></td></tr>
+<tr><th id="51">51</th><td><u># <span data-ppcond="49">else</span></u></td></tr>
+<tr><th id="52">52</th><td><u>#  define OPUS_CUSTOM_EXPORT_STATIC</u></td></tr>
+<tr><th id="53">53</th><td><u># <span data-ppcond="49">endif</span></u></td></tr>
+<tr><th id="54">54</th><td><u>#<span data-ppcond="44">endif</span></u></td></tr>
+<tr><th id="55">55</th><td></td></tr>
+<tr><th id="56">56</th><td><i class="doc">/** <span class="command">@defgroup</span> <span class="verb">opus_custom Opus Custom</span></i></td></tr>
+<tr><th id="57">57</th><td><i class="doc">  * @{</i></td></tr>
+<tr><th id="58">58</th><td><i class="doc">  *  Opus Custom is an optional part of the Opus specification and</i></td></tr>
+<tr><th id="59">59</th><td><i class="doc">  * reference implementation which uses a distinct API from the regular</i></td></tr>
+<tr><th id="60">60</th><td><i class="doc">  * API and supports frame sizes that are not normally supported.\ Use</i></td></tr>
+<tr><th id="61">61</th><td><i class="doc">  * of Opus Custom is discouraged for all but very special applications</i></td></tr>
+<tr><th id="62">62</th><td><i class="doc">  * for which a frame size different from 2.5, 5, 10, or 20 ms is needed</i></td></tr>
+<tr><th id="63">63</th><td><i class="doc">  * (for either complexity or latency reasons) and where interoperability</i></td></tr>
+<tr><th id="64">64</th><td><i class="doc">  * is less important.</i></td></tr>
+<tr><th id="65">65</th><td><i class="doc">  *</i></td></tr>
+<tr><th id="66">66</th><td><i class="doc">  * In addition to the interoperability limitations the use of Opus custom</i></td></tr>
+<tr><th id="67">67</th><td><i class="doc">  * disables a substantial chunk of the codec and generally lowers the</i></td></tr>
+<tr><th id="68">68</th><td><i class="doc">  * quality available at a given bitrate. Normally when an application needs</i></td></tr>
+<tr><th id="69">69</th><td><i class="doc">  * a different frame size from the codec it should buffer to match the</i></td></tr>
+<tr><th id="70">70</th><td><i class="doc">  * sizes but this adds a small amount of delay which may be important</i></td></tr>
+<tr><th id="71">71</th><td><i class="doc">  * in some very low latency applications. Some transports (especially</i></td></tr>
+<tr><th id="72">72</th><td><i class="doc">  * constant rate RF transports) may also work best with frames of</i></td></tr>
+<tr><th id="73">73</th><td><i class="doc">  * particular durations.</i></td></tr>
+<tr><th id="74">74</th><td><i class="doc">  *</i></td></tr>
+<tr><th id="75">75</th><td><i class="doc">  * Libopus only supports custom modes if they are enabled at compile time.</i></td></tr>
+<tr><th id="76">76</th><td><i class="doc">  *</i></td></tr>
+<tr><th id="77">77</th><td><i class="doc">  * The Opus Custom API is similar to the regular API but the</i></td></tr>
+<tr><th id="78">78</th><td><i class="doc">  * <span class="command">@ref</span> <span class="verb">opus_encoder_create and @ref opus_decoder_create calls take</span></i></td></tr>
+<tr><th id="79">79</th><td><i class="doc">  * an additional mode parameter which is a structure produced by</i></td></tr>
+<tr><th id="80">80</th><td><i class="doc">  * a call to <span class="command">@ref</span> <span class="verb">opus_custom_mode_create. Both the encoder and decoder</span></i></td></tr>
+<tr><th id="81">81</th><td><i class="doc">  * must create a mode using the same sample rate (fs) and frame size</i></td></tr>
+<tr><th id="82">82</th><td><i class="doc">  * (frame size) so these parameters must either be signaled out of band</i></td></tr>
+<tr><th id="83">83</th><td><i class="doc">  * or fixed in a particular implementation.</i></td></tr>
+<tr><th id="84">84</th><td><i class="doc">  *</i></td></tr>
+<tr><th id="85">85</th><td><i class="doc">  * Similar to regular Opus the custom modes support on the fly frame size</i></td></tr>
+<tr><th id="86">86</th><td><i class="doc">  * switching, but the sizes available depend on the particular frame size in</i></td></tr>
+<tr><th id="87">87</th><td><i class="doc">  * use. For some initial frame sizes on a single on the fly size is available.</i></td></tr>
+<tr><th id="88">88</th><td><i class="doc">  */</i></td></tr>
+<tr><th id="89">89</th><td></td></tr>
+<tr><th id="90">90</th><td><i class="doc">/** Contains the state of an encoder. One encoder state is needed</i></td></tr>
+<tr><th id="91">91</th><td><i class="doc">    for each stream. It is initialized once at the beginning of the</i></td></tr>
+<tr><th id="92">92</th><td><i class="doc">    stream. Do *not* re-initialize the state for every frame.</i></td></tr>
+<tr><th id="93">93</th><td><i class="doc">   <span class="command">@brief</span> Encoder state</i></td></tr>
+<tr><th id="94">94</th><td><i class="doc"> */</i></td></tr>
+<tr><th id="95">95</th><td><b>typedef</b> <b>struct</b> <dfn class="type" id="OpusCustomEncoder" title='OpusCustomEncoder' data-ref="OpusCustomEncoder"><a class="type" href="#OpusCustomEncoder" title='OpusCustomEncoder' data-ref="OpusCustomEncoder">OpusCustomEncoder</a></dfn> <dfn class="typedef" id="OpusCustomEncoder" title='OpusCustomEncoder' data-type='struct OpusCustomEncoder' data-ref="OpusCustomEncoder">OpusCustomEncoder</dfn>;</td></tr>
+<tr><th id="96">96</th><td></td></tr>
+<tr><th id="97">97</th><td><i class="doc">/** State of the decoder. One decoder state is needed for each stream.</i></td></tr>
+<tr><th id="98">98</th><td><i class="doc">    It is initialized once at the beginning of the stream. Do *not*</i></td></tr>
+<tr><th id="99">99</th><td><i class="doc">    re-initialize the state for every frame.</i></td></tr>
+<tr><th id="100">100</th><td><i class="doc">   <span class="command">@brief</span> Decoder state</i></td></tr>
+<tr><th id="101">101</th><td><i class="doc"> */</i></td></tr>
+<tr><th id="102">102</th><td><b>typedef</b> <b>struct</b> <dfn class="type" id="OpusCustomDecoder" title='OpusCustomDecoder' data-ref="OpusCustomDecoder"><a class="type" href="#OpusCustomDecoder" title='OpusCustomDecoder' data-ref="OpusCustomDecoder">OpusCustomDecoder</a></dfn> <dfn class="typedef" id="OpusCustomDecoder" title='OpusCustomDecoder' data-type='struct OpusCustomDecoder' data-ref="OpusCustomDecoder">OpusCustomDecoder</dfn>;</td></tr>
+<tr><th id="103">103</th><td></td></tr>
+<tr><th id="104">104</th><td><i class="doc">/** The mode contains all the information necessary to create an</i></td></tr>
+<tr><th id="105">105</th><td><i class="doc">    encoder. Both the encoder and decoder need to be initialized</i></td></tr>
+<tr><th id="106">106</th><td><i class="doc">    with exactly the same mode, otherwise the output will be</i></td></tr>
+<tr><th id="107">107</th><td><i class="doc">    corrupted.</i></td></tr>
+<tr><th id="108">108</th><td><i class="doc">   <span class="command">@brief</span> Mode configuration</i></td></tr>
+<tr><th id="109">109</th><td><i class="doc"> */</i></td></tr>
+<tr><th id="110">110</th><td><b>typedef</b> <b>struct</b> <a class="type" href="../celt/modes.h.html#OpusCustomMode" title='OpusCustomMode' data-ref="OpusCustomMode" id="OpusCustomMode"><a class="type" href="../celt/modes.h.html#OpusCustomMode" title='OpusCustomMode' data-ref="OpusCustomMode">OpusCustomMode</a></a> <dfn class="typedef" id="OpusCustomMode" title='OpusCustomMode' data-type='struct OpusCustomMode' data-ref="OpusCustomMode">OpusCustomMode</dfn>;</td></tr>
+<tr><th id="111">111</th><td></td></tr>
+<tr><th id="112">112</th><td><i class="doc">/** Creates a new mode struct. This will be passed to an encoder or</i></td></tr>
+<tr><th id="113">113</th><td><i class="doc">  * decoder. The mode MUST NOT BE DESTROYED until the encoders and</i></td></tr>
+<tr><th id="114">114</th><td><i class="doc">  * decoders that use it are destroyed as well.</i></td></tr>
+<tr><th id="115">115</th><td><i class="doc">  * <span class="command">@param</span> [in] <span class="arg">Fs</span> <span class="tag">&lt;tt&gt;</span>int<span class="tag">&lt;/tt&gt;</span>: Sampling rate (8000 to 96000 Hz)</i></td></tr>
+<tr><th id="116">116</th><td><i class="doc">  * <span class="command">@param</span> [in] <span class="arg">frame_size</span> <span class="tag">&lt;tt&gt;</span>int<span class="tag">&lt;/tt&gt;</span>: Number of samples (per channel) to encode in each</i></td></tr>
+<tr><th id="117">117</th><td><i class="doc">  *        packet (64 - 1024, prime factorization must contain zero or more 2s, 3s, or 5s and no other primes)</i></td></tr>
+<tr><th id="118">118</th><td><i class="doc">  * <span class="command">@param</span> [out] <span class="arg">error</span> <span class="tag">&lt;tt&gt;</span>int*<span class="tag">&lt;/tt&gt;</span>: Returned error code (if NULL, no error will be returned)</i></td></tr>
+<tr><th id="119">119</th><td><i class="doc">  * <span class="command">@return</span> A newly created mode</i></td></tr>
+<tr><th id="120">120</th><td><i class="doc">  */</i></td></tr>
+<tr><th id="121">121</th><td><a class="macro" href="#48" title="" data-ref="_M/OPUS_CUSTOM_EXPORT">OPUS_CUSTOM_EXPORT</a> <a class="macro" href="opus_defines.h.html#117" title="__attribute__ ((__warn_unused_result__))" data-ref="_M/OPUS_WARN_UNUSED_RESULT">OPUS_WARN_UNUSED_RESULT</a> <a class="typedef" href="#OpusCustomMode" title='OpusCustomMode' data-type='struct OpusCustomMode' data-ref="OpusCustomMode">OpusCustomMode</a> *<dfn class="decl" id="opus_custom_mode_create" title='opus_custom_mode_create' data-ref="opus_custom_mode_create">opus_custom_mode_create</dfn>(<a class="typedef" href="opus_types.h.html#opus_int32" title='opus_int32' data-type='int32_t' data-ref="opus_int32">opus_int32</a> <dfn class="local col5 decl" id="5Fs" title='Fs' data-type='opus_int32' data-ref="5Fs">Fs</dfn>, <em>int</em> <dfn class="local col6 decl" id="6frame_size" title='frame_size' data-type='int' data-ref="6frame_size">frame_size</dfn>, <em>int</em> *<dfn class="local col7 decl" id="7error" title='error' data-type='int *' data-ref="7error">error</dfn>);</td></tr>
+<tr><th id="122">122</th><td></td></tr>
+<tr><th id="123">123</th><td><i class="doc">/** Destroys a mode struct. Only call this after all encoders and</i></td></tr>
+<tr><th id="124">124</th><td><i class="doc">  * decoders using this mode are destroyed as well.</i></td></tr>
+<tr><th id="125">125</th><td><i class="doc">  * <span class="command">@param</span> [in] <span class="arg">mode</span> <span class="tag">&lt;tt&gt;</span>OpusCustomMode*<span class="tag">&lt;/tt&gt;</span>: Mode to be freed.</i></td></tr>
+<tr><th id="126">126</th><td><i class="doc">  */</i></td></tr>
+<tr><th id="127">127</th><td><a class="macro" href="#48" title="" data-ref="_M/OPUS_CUSTOM_EXPORT">OPUS_CUSTOM_EXPORT</a> <em>void</em> <dfn class="decl" id="opus_custom_mode_destroy" title='opus_custom_mode_destroy' data-ref="opus_custom_mode_destroy">opus_custom_mode_destroy</dfn>(<a class="typedef" href="#OpusCustomMode" title='OpusCustomMode' data-type='struct OpusCustomMode' data-ref="OpusCustomMode">OpusCustomMode</a> *<dfn class="local col8 decl" id="8mode" title='mode' data-type='OpusCustomMode *' data-ref="8mode">mode</dfn>);</td></tr>
+<tr><th id="128">128</th><td></td></tr>
+<tr><th id="129">129</th><td></td></tr>
+<tr><th id="130">130</th><td><u>#<span data-ppcond="130">if</span> !defined(<span class="macro" data-ref="_M/OPUS_BUILD">OPUS_BUILD</span>) || defined(<span class="macro" data-ref="_M/CELT_ENCODER_C">CELT_ENCODER_C</span>)</u></td></tr>
+<tr><th id="131">131</th><td></td></tr>
+<tr><th id="132">132</th><td><i>/* Encoder */</i></td></tr>
+<tr><th id="133">133</th><td><i class="doc">/** Gets the size of an OpusCustomEncoder structure.</i></td></tr>
+<tr><th id="134">134</th><td><i class="doc">  * <span class="command">@param</span> [in] <span class="arg">mode</span> <span class="tag">&lt;tt&gt;</span>OpusCustomMode *<span class="tag">&lt;/tt&gt;</span>: Mode configuration</i></td></tr>
+<tr><th id="135">135</th><td><i class="doc">  * <span class="command">@param</span> [in] <span class="arg">channels</span> <span class="tag">&lt;tt&gt;</span>int<span class="tag">&lt;/tt&gt;</span>: Number of channels</i></td></tr>
+<tr><th id="136">136</th><td><i class="doc">  * <span class="command">@returns</span> size</i></td></tr>
+<tr><th id="137">137</th><td><i class="doc">  */</i></td></tr>
+<tr><th id="138">138</th><td>OPUS_CUSTOM_EXPORT_STATIC OPUS_WARN_UNUSED_RESULT <em>int</em> opus_custom_encoder_get_size(</td></tr>
+<tr><th id="139">139</th><td>    <em>const</em> OpusCustomMode *mode,</td></tr>
+<tr><th id="140">140</th><td>    <em>int</em> channels</td></tr>
+<tr><th id="141">141</th><td>) OPUS_ARG_NONNULL(<var>1</var>);</td></tr>
+<tr><th id="142">142</th><td></td></tr>
+<tr><th id="143">143</th><td><u># ifdef CUSTOM_MODES</u></td></tr>
+<tr><th id="144">144</th><td><i class="doc">/** Initializes a previously allocated encoder state</i></td></tr>
+<tr><th id="145">145</th><td><i class="doc">  * The memory pointed to by st must be the size returned by opus_custom_encoder_get_size.</i></td></tr>
+<tr><th id="146">146</th><td><i class="doc">  * This is intended for applications which use their own allocator instead of malloc.</i></td></tr>
+<tr><th id="147">147</th><td><i class="doc">  * <span class="command">@see</span> opus_custom_encoder_create(),opus_custom_encoder_get_size()</i></td></tr>
+<tr><th id="148">148</th><td><i class="doc">  * To reset a previously initialized state use the OPUS_RESET_STATE CTL.</i></td></tr>
+<tr><th id="149">149</th><td><i class="doc">  * <span class="command">@param</span> [in] <span class="arg">st</span> <span class="tag">&lt;tt&gt;</span>OpusCustomEncoder*<span class="tag">&lt;/tt&gt;</span>: Encoder state</i></td></tr>
+<tr><th id="150">150</th><td><i class="doc">  * <span class="command">@param</span> [in] <span class="arg">mode</span> <span class="tag">&lt;tt&gt;</span>OpusCustomMode *<span class="tag">&lt;/tt&gt;</span>: Contains all the information about the characteristics of</i></td></tr>
+<tr><th id="151">151</th><td><i class="doc">  *  the stream (must be the same characteristics as used for the</i></td></tr>
+<tr><th id="152">152</th><td><i class="doc">  *  decoder)</i></td></tr>
+<tr><th id="153">153</th><td><i class="doc">  * <span class="command">@param</span> [in] <span class="arg">channels</span> <span class="tag">&lt;tt&gt;</span>int<span class="tag">&lt;/tt&gt;</span>: Number of channels</i></td></tr>
+<tr><th id="154">154</th><td><i class="doc">  * <span class="command">@return</span> OPUS_OK Success or <span class="command">@ref</span> <span class="verb">opus_errorcodes</span></i></td></tr>
+<tr><th id="155">155</th><td><i class="doc">  */</i></td></tr>
+<tr><th id="156">156</th><td>OPUS_CUSTOM_EXPORT <em>int</em> opus_custom_encoder_init(</td></tr>
+<tr><th id="157">157</th><td>    OpusCustomEncoder *st,</td></tr>
+<tr><th id="158">158</th><td>    <em>const</em> OpusCustomMode *mode,</td></tr>
+<tr><th id="159">159</th><td>    <em>int</em> channels</td></tr>
+<tr><th id="160">160</th><td>) OPUS_ARG_NONNULL(<var>1</var>) OPUS_ARG_NONNULL(<var>2</var>);</td></tr>
+<tr><th id="161">161</th><td><u># endif</u></td></tr>
+<tr><th id="162">162</th><td><u>#<span data-ppcond="130">endif</span></u></td></tr>
+<tr><th id="163">163</th><td></td></tr>
+<tr><th id="164">164</th><td></td></tr>
+<tr><th id="165">165</th><td><i class="doc">/** Creates a new encoder state. Each stream needs its own encoder</i></td></tr>
+<tr><th id="166">166</th><td><i class="doc">  * state (can't be shared across simultaneous streams).</i></td></tr>
+<tr><th id="167">167</th><td><i class="doc">  * <span class="command">@param</span> [in] <span class="arg">mode</span> <span class="tag">&lt;tt&gt;</span>OpusCustomMode*<span class="tag">&lt;/tt&gt;</span>: Contains all the information about the characteristics of</i></td></tr>
+<tr><th id="168">168</th><td><i class="doc">  *  the stream (must be the same characteristics as used for the</i></td></tr>
+<tr><th id="169">169</th><td><i class="doc">  *  decoder)</i></td></tr>
+<tr><th id="170">170</th><td><i class="doc">  * <span class="command">@param</span> [in] <span class="arg">channels</span> <span class="tag">&lt;tt&gt;</span>int<span class="tag">&lt;/tt&gt;</span>: Number of channels</i></td></tr>
+<tr><th id="171">171</th><td><i class="doc">  * <span class="command">@param</span> [out] <span class="arg">error</span> <span class="tag">&lt;tt&gt;</span>int*<span class="tag">&lt;/tt&gt;</span>: Returns an error code</i></td></tr>
+<tr><th id="172">172</th><td><i class="doc">  * <span class="command">@return</span> Newly created encoder state.</i></td></tr>
+<tr><th id="173">173</th><td><i class="doc">*/</i></td></tr>
+<tr><th id="174">174</th><td><a class="macro" href="#48" title="" data-ref="_M/OPUS_CUSTOM_EXPORT">OPUS_CUSTOM_EXPORT</a> <a class="macro" href="opus_defines.h.html#117" title="__attribute__ ((__warn_unused_result__))" data-ref="_M/OPUS_WARN_UNUSED_RESULT">OPUS_WARN_UNUSED_RESULT</a> <a class="typedef" href="#OpusCustomEncoder" title='OpusCustomEncoder' data-type='struct OpusCustomEncoder' data-ref="OpusCustomEncoder">OpusCustomEncoder</a> *<dfn class="decl" id="opus_custom_encoder_create" title='opus_custom_encoder_create' data-ref="opus_custom_encoder_create">opus_custom_encoder_create</dfn>(</td></tr>
+<tr><th id="175">175</th><td>    <em>const</em> <a class="typedef" href="#OpusCustomMode" title='OpusCustomMode' data-type='struct OpusCustomMode' data-ref="OpusCustomMode">OpusCustomMode</a> *<dfn class="local col9 decl" id="9mode" title='mode' data-type='const OpusCustomMode *' data-ref="9mode">mode</dfn>,</td></tr>
+<tr><th id="176">176</th><td>    <em>int</em> <dfn class="local col0 decl" id="10channels" title='channels' data-type='int' data-ref="10channels">channels</dfn>,</td></tr>
+<tr><th id="177">177</th><td>    <em>int</em> *<dfn class="local col1 decl" id="11error" title='error' data-type='int *' data-ref="11error">error</dfn></td></tr>
+<tr><th id="178">178</th><td>) <a class="macro" href="opus_defines.h.html#124" title="" data-ref="_M/OPUS_ARG_NONNULL">OPUS_ARG_NONNULL</a>(<var>1</var>);</td></tr>
+<tr><th id="179">179</th><td></td></tr>
+<tr><th id="180">180</th><td></td></tr>
+<tr><th id="181">181</th><td><i class="doc">/** Destroys a an encoder state.</i></td></tr>
+<tr><th id="182">182</th><td><i class="doc">  * <span class="command">@param</span>[in] <span class="arg">st</span> <span class="tag">&lt;tt&gt;</span>OpusCustomEncoder*<span class="tag">&lt;/tt&gt;</span>: State to be freed.</i></td></tr>
+<tr><th id="183">183</th><td><i class="doc">  */</i></td></tr>
+<tr><th id="184">184</th><td><a class="macro" href="#48" title="" data-ref="_M/OPUS_CUSTOM_EXPORT">OPUS_CUSTOM_EXPORT</a> <em>void</em> <dfn class="decl" id="opus_custom_encoder_destroy" title='opus_custom_encoder_destroy' data-ref="opus_custom_encoder_destroy">opus_custom_encoder_destroy</dfn>(<a class="typedef" href="#OpusCustomEncoder" title='OpusCustomEncoder' data-type='struct OpusCustomEncoder' data-ref="OpusCustomEncoder">OpusCustomEncoder</a> *<dfn class="local col2 decl" id="12st" title='st' data-type='OpusCustomEncoder *' data-ref="12st">st</dfn>);</td></tr>
+<tr><th id="185">185</th><td></td></tr>
+<tr><th id="186">186</th><td><i class="doc">/** Encodes a frame of audio.</i></td></tr>
+<tr><th id="187">187</th><td><i class="doc">  * <span class="command">@param</span> [in] <span class="arg">st</span> <span class="tag">&lt;tt&gt;</span>OpusCustomEncoder*<span class="tag">&lt;/tt&gt;</span>: Encoder state</i></td></tr>
+<tr><th id="188">188</th><td><i class="doc">  * <span class="command">@param</span> [in] <span class="arg">pcm</span> <span class="tag">&lt;tt&gt;</span>float*<span class="tag">&lt;/tt&gt;</span>: PCM audio in float format, with a normal range of +/-1.0.</i></td></tr>
+<tr><th id="189">189</th><td><i class="doc">  *          Samples with a range beyond +/-1.0 are supported but will</i></td></tr>
+<tr><th id="190">190</th><td><i class="doc">  *          be clipped by decoders using the integer API and should</i></td></tr>
+<tr><th id="191">191</th><td><i class="doc">  *          only be used if it is known that the far end supports</i></td></tr>
+<tr><th id="192">192</th><td><i class="doc">  *          extended dynamic range. There must be exactly</i></td></tr>
+<tr><th id="193">193</th><td><i class="doc">  *          frame_size samples per channel.</i></td></tr>
+<tr><th id="194">194</th><td><i class="doc">  * <span class="command">@param</span> [in] <span class="arg">frame_size</span> <span class="tag">&lt;tt&gt;</span>int<span class="tag">&lt;/tt&gt;</span>: Number of samples per frame of input signal</i></td></tr>
+<tr><th id="195">195</th><td><i class="doc">  * <span class="command">@param</span> [out] <span class="arg">compressed</span> <span class="tag">&lt;tt&gt;</span>char *<span class="tag">&lt;/tt&gt;</span>: The compressed data is written here. This may not alias pcm and must be at least maxCompressedBytes long.</i></td></tr>
+<tr><th id="196">196</th><td><i class="doc">  * <span class="command">@param</span> [in] <span class="arg">maxCompressedBytes</span> <span class="tag">&lt;tt&gt;</span>int<span class="tag">&lt;/tt&gt;</span>: Maximum number of bytes to use for compressing the frame</i></td></tr>
+<tr><th id="197">197</th><td><i class="doc">  *          (can change from one frame to another)</i></td></tr>
+<tr><th id="198">198</th><td><i class="doc">  * <span class="command">@return</span> Number of bytes written to "compressed".</i></td></tr>
+<tr><th id="199">199</th><td><i class="doc">  *       If negative, an error has occurred (see error codes). It is IMPORTANT that</i></td></tr>
+<tr><th id="200">200</th><td><i class="doc">  *       the length returned be somehow transmitted to the decoder. Otherwise, no</i></td></tr>
+<tr><th id="201">201</th><td><i class="doc">  *       decoding is possible.</i></td></tr>
+<tr><th id="202">202</th><td><i class="doc">  */</i></td></tr>
+<tr><th id="203">203</th><td><a class="macro" href="#48" title="" data-ref="_M/OPUS_CUSTOM_EXPORT">OPUS_CUSTOM_EXPORT</a> <a class="macro" href="opus_defines.h.html#117" title="__attribute__ ((__warn_unused_result__))" data-ref="_M/OPUS_WARN_UNUSED_RESULT">OPUS_WARN_UNUSED_RESULT</a> <em>int</em> <dfn class="decl" id="opus_custom_encode_float" title='opus_custom_encode_float' data-ref="opus_custom_encode_float">opus_custom_encode_float</dfn>(</td></tr>
+<tr><th id="204">204</th><td>    <a class="typedef" href="#OpusCustomEncoder" title='OpusCustomEncoder' data-type='struct OpusCustomEncoder' data-ref="OpusCustomEncoder">OpusCustomEncoder</a> *<dfn class="local col3 decl" id="13st" title='st' data-type='OpusCustomEncoder *' data-ref="13st">st</dfn>,</td></tr>
+<tr><th id="205">205</th><td>    <em>const</em> <em>float</em> *<dfn class="local col4 decl" id="14pcm" title='pcm' data-type='const float *' data-ref="14pcm">pcm</dfn>,</td></tr>
+<tr><th id="206">206</th><td>    <em>int</em> <dfn class="local col5 decl" id="15frame_size" title='frame_size' data-type='int' data-ref="15frame_size">frame_size</dfn>,</td></tr>
+<tr><th id="207">207</th><td>    <em>unsigned</em> <em>char</em> *<dfn class="local col6 decl" id="16compressed" title='compressed' data-type='unsigned char *' data-ref="16compressed">compressed</dfn>,</td></tr>
+<tr><th id="208">208</th><td>    <em>int</em> <dfn class="local col7 decl" id="17maxCompressedBytes" title='maxCompressedBytes' data-type='int' data-ref="17maxCompressedBytes">maxCompressedBytes</dfn></td></tr>
+<tr><th id="209">209</th><td>) <a class="macro" href="opus_defines.h.html#124" title="" data-ref="_M/OPUS_ARG_NONNULL">OPUS_ARG_NONNULL</a>(<var>1</var>) <a class="macro" href="opus_defines.h.html#124" title="" data-ref="_M/OPUS_ARG_NONNULL">OPUS_ARG_NONNULL</a>(<var>2</var>) <a class="macro" href="opus_defines.h.html#124" title="" data-ref="_M/OPUS_ARG_NONNULL">OPUS_ARG_NONNULL</a>(<var>4</var>);</td></tr>
+<tr><th id="210">210</th><td></td></tr>
+<tr><th id="211">211</th><td><i class="doc">/** Encodes a frame of audio.</i></td></tr>
+<tr><th id="212">212</th><td><i class="doc">  * <span class="command">@param</span> [in] <span class="arg">st</span> <span class="tag">&lt;tt&gt;</span>OpusCustomEncoder*<span class="tag">&lt;/tt&gt;</span>: Encoder state</i></td></tr>
+<tr><th id="213">213</th><td><i class="doc">  * <span class="command">@param</span> [in] <span class="arg">pcm</span> <span class="tag">&lt;tt&gt;</span>opus_int16*<span class="tag">&lt;/tt&gt;</span>: PCM audio in signed 16-bit format (native endian).</i></td></tr>
+<tr><th id="214">214</th><td><i class="doc">  *          There must be exactly frame_size samples per channel.</i></td></tr>
+<tr><th id="215">215</th><td><i class="doc">  * <span class="command">@param</span> [in] <span class="arg">frame_size</span> <span class="tag">&lt;tt&gt;</span>int<span class="tag">&lt;/tt&gt;</span>: Number of samples per frame of input signal</i></td></tr>
+<tr><th id="216">216</th><td><i class="doc">  * <span class="command">@param</span> [out] <span class="arg">compressed</span> <span class="tag">&lt;tt&gt;</span>char *<span class="tag">&lt;/tt&gt;</span>: The compressed data is written here. This may not alias pcm and must be at least maxCompressedBytes long.</i></td></tr>
+<tr><th id="217">217</th><td><i class="doc">  * <span class="command">@param</span> [in] <span class="arg">maxCompressedBytes</span> <span class="tag">&lt;tt&gt;</span>int<span class="tag">&lt;/tt&gt;</span>: Maximum number of bytes to use for compressing the frame</i></td></tr>
+<tr><th id="218">218</th><td><i class="doc">  *          (can change from one frame to another)</i></td></tr>
+<tr><th id="219">219</th><td><i class="doc">  * <span class="command">@return</span> Number of bytes written to "compressed".</i></td></tr>
+<tr><th id="220">220</th><td><i class="doc">  *       If negative, an error has occurred (see error codes). It is IMPORTANT that</i></td></tr>
+<tr><th id="221">221</th><td><i class="doc">  *       the length returned be somehow transmitted to the decoder. Otherwise, no</i></td></tr>
+<tr><th id="222">222</th><td><i class="doc">  *       decoding is possible.</i></td></tr>
+<tr><th id="223">223</th><td><i class="doc"> */</i></td></tr>
+<tr><th id="224">224</th><td><a class="macro" href="#48" title="" data-ref="_M/OPUS_CUSTOM_EXPORT">OPUS_CUSTOM_EXPORT</a> <a class="macro" href="opus_defines.h.html#117" title="__attribute__ ((__warn_unused_result__))" data-ref="_M/OPUS_WARN_UNUSED_RESULT">OPUS_WARN_UNUSED_RESULT</a> <em>int</em> <dfn class="decl" id="opus_custom_encode" title='opus_custom_encode' data-ref="opus_custom_encode">opus_custom_encode</dfn>(</td></tr>
+<tr><th id="225">225</th><td>    <a class="typedef" href="#OpusCustomEncoder" title='OpusCustomEncoder' data-type='struct OpusCustomEncoder' data-ref="OpusCustomEncoder">OpusCustomEncoder</a> *<dfn class="local col8 decl" id="18st" title='st' data-type='OpusCustomEncoder *' data-ref="18st">st</dfn>,</td></tr>
+<tr><th id="226">226</th><td>    <em>const</em> <a class="typedef" href="opus_types.h.html#opus_int16" title='opus_int16' data-type='int16_t' data-ref="opus_int16">opus_int16</a> *<dfn class="local col9 decl" id="19pcm" title='pcm' data-type='const opus_int16 *' data-ref="19pcm">pcm</dfn>,</td></tr>
+<tr><th id="227">227</th><td>    <em>int</em> <dfn class="local col0 decl" id="20frame_size" title='frame_size' data-type='int' data-ref="20frame_size">frame_size</dfn>,</td></tr>
+<tr><th id="228">228</th><td>    <em>unsigned</em> <em>char</em> *<dfn class="local col1 decl" id="21compressed" title='compressed' data-type='unsigned char *' data-ref="21compressed">compressed</dfn>,</td></tr>
+<tr><th id="229">229</th><td>    <em>int</em> <dfn class="local col2 decl" id="22maxCompressedBytes" title='maxCompressedBytes' data-type='int' data-ref="22maxCompressedBytes">maxCompressedBytes</dfn></td></tr>
+<tr><th id="230">230</th><td>) <a class="macro" href="opus_defines.h.html#124" title="" data-ref="_M/OPUS_ARG_NONNULL">OPUS_ARG_NONNULL</a>(<var>1</var>) <a class="macro" href="opus_defines.h.html#124" title="" data-ref="_M/OPUS_ARG_NONNULL">OPUS_ARG_NONNULL</a>(<var>2</var>) <a class="macro" href="opus_defines.h.html#124" title="" data-ref="_M/OPUS_ARG_NONNULL">OPUS_ARG_NONNULL</a>(<var>4</var>);</td></tr>
+<tr><th id="231">231</th><td></td></tr>
+<tr><th id="232">232</th><td><i class="doc">/** Perform a CTL function on an Opus custom encoder.</i></td></tr>
+<tr><th id="233">233</th><td><i class="doc">  *</i></td></tr>
+<tr><th id="234">234</th><td><i class="doc">  * Generally the request and subsequent arguments are generated</i></td></tr>
+<tr><th id="235">235</th><td><i class="doc">  * by a convenience macro.</i></td></tr>
+<tr><th id="236">236</th><td><i class="doc">  * <span class="command">@see</span> opus_encoderctls</i></td></tr>
+<tr><th id="237">237</th><td><i class="doc">  */</i></td></tr>
+<tr><th id="238">238</th><td><a class="macro" href="#48" title="" data-ref="_M/OPUS_CUSTOM_EXPORT">OPUS_CUSTOM_EXPORT</a> <em>int</em> <dfn class="decl" id="opus_custom_encoder_ctl" title='opus_custom_encoder_ctl' data-ref="opus_custom_encoder_ctl">opus_custom_encoder_ctl</dfn>(<a class="typedef" href="#OpusCustomEncoder" title='OpusCustomEncoder' data-type='struct OpusCustomEncoder' data-ref="OpusCustomEncoder">OpusCustomEncoder</a> * <a class="macro" href="opus_defines.h.html#98" title="restrict" data-ref="_M/OPUS_RESTRICT">OPUS_RESTRICT</a> <dfn class="local col3 decl" id="23st" title='st' data-type='OpusCustomEncoder *restrict' data-ref="23st">st</dfn>, <em>int</em> <dfn class="local col4 decl" id="24request" title='request' data-type='int' data-ref="24request">request</dfn>, ...) <a class="macro" href="opus_defines.h.html#124" title="" data-ref="_M/OPUS_ARG_NONNULL">OPUS_ARG_NONNULL</a>(<var>1</var>);</td></tr>
+<tr><th id="239">239</th><td></td></tr>
+<tr><th id="240">240</th><td></td></tr>
+<tr><th id="241">241</th><td><u>#<span data-ppcond="241">if</span> !defined(<span class="macro" data-ref="_M/OPUS_BUILD">OPUS_BUILD</span>) || defined(<span class="macro" data-ref="_M/CELT_DECODER_C">CELT_DECODER_C</span>)</u></td></tr>
+<tr><th id="242">242</th><td><i>/* Decoder */</i></td></tr>
+<tr><th id="243">243</th><td></td></tr>
+<tr><th id="244">244</th><td><i class="doc">/** Gets the size of an OpusCustomDecoder structure.</i></td></tr>
+<tr><th id="245">245</th><td><i class="doc">  * <span class="command">@param</span> [in] <span class="arg">mode</span> <span class="tag">&lt;tt&gt;</span>OpusCustomMode *<span class="tag">&lt;/tt&gt;</span>: Mode configuration</i></td></tr>
+<tr><th id="246">246</th><td><i class="doc">  * <span class="command">@param</span> [in] <span class="arg">channels</span> <span class="tag">&lt;tt&gt;</span>int<span class="tag">&lt;/tt&gt;</span>: Number of channels</i></td></tr>
+<tr><th id="247">247</th><td><i class="doc">  * <span class="command">@returns</span> size</i></td></tr>
+<tr><th id="248">248</th><td><i class="doc">  */</i></td></tr>
+<tr><th id="249">249</th><td>OPUS_CUSTOM_EXPORT_STATIC OPUS_WARN_UNUSED_RESULT <em>int</em> opus_custom_decoder_get_size(</td></tr>
+<tr><th id="250">250</th><td>    <em>const</em> OpusCustomMode *mode,</td></tr>
+<tr><th id="251">251</th><td>    <em>int</em> channels</td></tr>
+<tr><th id="252">252</th><td>) OPUS_ARG_NONNULL(<var>1</var>);</td></tr>
+<tr><th id="253">253</th><td></td></tr>
+<tr><th id="254">254</th><td><i class="doc">/** Initializes a previously allocated decoder state</i></td></tr>
+<tr><th id="255">255</th><td><i class="doc">  * The memory pointed to by st must be the size returned by opus_custom_decoder_get_size.</i></td></tr>
+<tr><th id="256">256</th><td><i class="doc">  * This is intended for applications which use their own allocator instead of malloc.</i></td></tr>
+<tr><th id="257">257</th><td><i class="doc">  * <span class="command">@see</span> opus_custom_decoder_create(),opus_custom_decoder_get_size()</i></td></tr>
+<tr><th id="258">258</th><td><i class="doc">  * To reset a previously initialized state use the OPUS_RESET_STATE CTL.</i></td></tr>
+<tr><th id="259">259</th><td><i class="doc">  * <span class="command">@param</span> [in] <span class="arg">st</span> <span class="tag">&lt;tt&gt;</span>OpusCustomDecoder*<span class="tag">&lt;/tt&gt;</span>: Decoder state</i></td></tr>
+<tr><th id="260">260</th><td><i class="doc">  * <span class="command">@param</span> [in] <span class="arg">mode</span> <span class="tag">&lt;tt&gt;</span>OpusCustomMode *<span class="tag">&lt;/tt&gt;</span>: Contains all the information about the characteristics of</i></td></tr>
+<tr><th id="261">261</th><td><i class="doc">  *  the stream (must be the same characteristics as used for the</i></td></tr>
+<tr><th id="262">262</th><td><i class="doc">  *  encoder)</i></td></tr>
+<tr><th id="263">263</th><td><i class="doc">  * <span class="command">@param</span> [in] <span class="arg">channels</span> <span class="tag">&lt;tt&gt;</span>int<span class="tag">&lt;/tt&gt;</span>: Number of channels</i></td></tr>
+<tr><th id="264">264</th><td><i class="doc">  * <span class="command">@return</span> OPUS_OK Success or <span class="command">@ref</span> <span class="verb">opus_errorcodes</span></i></td></tr>
+<tr><th id="265">265</th><td><i class="doc">  */</i></td></tr>
+<tr><th id="266">266</th><td>OPUS_CUSTOM_EXPORT_STATIC <em>int</em> opus_custom_decoder_init(</td></tr>
+<tr><th id="267">267</th><td>    OpusCustomDecoder *st,</td></tr>
+<tr><th id="268">268</th><td>    <em>const</em> OpusCustomMode *mode,</td></tr>
+<tr><th id="269">269</th><td>    <em>int</em> channels</td></tr>
+<tr><th id="270">270</th><td>) OPUS_ARG_NONNULL(<var>1</var>) OPUS_ARG_NONNULL(<var>2</var>);</td></tr>
+<tr><th id="271">271</th><td></td></tr>
+<tr><th id="272">272</th><td><u>#<span data-ppcond="241">endif</span></u></td></tr>
+<tr><th id="273">273</th><td></td></tr>
+<tr><th id="274">274</th><td></td></tr>
+<tr><th id="275">275</th><td><i class="doc">/** Creates a new decoder state. Each stream needs its own decoder state (can't</i></td></tr>
+<tr><th id="276">276</th><td><i class="doc">  * be shared across simultaneous streams).</i></td></tr>
+<tr><th id="277">277</th><td><i class="doc">  * <span class="command">@param</span> [in] <span class="arg">mode</span> <span class="tag">&lt;tt&gt;</span>OpusCustomMode<span class="tag">&lt;/tt&gt;</span>: Contains all the information about the characteristics of the</i></td></tr>
+<tr><th id="278">278</th><td><i class="doc">  *          stream (must be the same characteristics as used for the encoder)</i></td></tr>
+<tr><th id="279">279</th><td><i class="doc">  * <span class="command">@param</span> [in] <span class="arg">channels</span> <span class="tag">&lt;tt&gt;</span>int<span class="tag">&lt;/tt&gt;</span>: Number of channels</i></td></tr>
+<tr><th id="280">280</th><td><i class="doc">  * <span class="command">@param</span> [out] <span class="arg">error</span> <span class="tag">&lt;tt&gt;</span>int*<span class="tag">&lt;/tt&gt;</span>: Returns an error code</i></td></tr>
+<tr><th id="281">281</th><td><i class="doc">  * <span class="command">@return</span> Newly created decoder state.</i></td></tr>
+<tr><th id="282">282</th><td><i class="doc">  */</i></td></tr>
+<tr><th id="283">283</th><td><a class="macro" href="#48" title="" data-ref="_M/OPUS_CUSTOM_EXPORT">OPUS_CUSTOM_EXPORT</a> <a class="macro" href="opus_defines.h.html#117" title="__attribute__ ((__warn_unused_result__))" data-ref="_M/OPUS_WARN_UNUSED_RESULT">OPUS_WARN_UNUSED_RESULT</a> <a class="typedef" href="#OpusCustomDecoder" title='OpusCustomDecoder' data-type='struct OpusCustomDecoder' data-ref="OpusCustomDecoder">OpusCustomDecoder</a> *<dfn class="decl" id="opus_custom_decoder_create" title='opus_custom_decoder_create' data-ref="opus_custom_decoder_create">opus_custom_decoder_create</dfn>(</td></tr>
+<tr><th id="284">284</th><td>    <em>const</em> <a class="typedef" href="#OpusCustomMode" title='OpusCustomMode' data-type='struct OpusCustomMode' data-ref="OpusCustomMode">OpusCustomMode</a> *<dfn class="local col5 decl" id="25mode" title='mode' data-type='const OpusCustomMode *' data-ref="25mode">mode</dfn>,</td></tr>
+<tr><th id="285">285</th><td>    <em>int</em> <dfn class="local col6 decl" id="26channels" title='channels' data-type='int' data-ref="26channels">channels</dfn>,</td></tr>
+<tr><th id="286">286</th><td>    <em>int</em> *<dfn class="local col7 decl" id="27error" title='error' data-type='int *' data-ref="27error">error</dfn></td></tr>
+<tr><th id="287">287</th><td>) <a class="macro" href="opus_defines.h.html#124" title="" data-ref="_M/OPUS_ARG_NONNULL">OPUS_ARG_NONNULL</a>(<var>1</var>);</td></tr>
+<tr><th id="288">288</th><td></td></tr>
+<tr><th id="289">289</th><td><i class="doc">/** Destroys a an decoder state.</i></td></tr>
+<tr><th id="290">290</th><td><i class="doc">  * <span class="command">@param</span>[in] <span class="arg">st</span> <span class="tag">&lt;tt&gt;</span>OpusCustomDecoder*<span class="tag">&lt;/tt&gt;</span>: State to be freed.</i></td></tr>
+<tr><th id="291">291</th><td><i class="doc">  */</i></td></tr>
+<tr><th id="292">292</th><td><a class="macro" href="#48" title="" data-ref="_M/OPUS_CUSTOM_EXPORT">OPUS_CUSTOM_EXPORT</a> <em>void</em> <dfn class="decl" id="opus_custom_decoder_destroy" title='opus_custom_decoder_destroy' data-ref="opus_custom_decoder_destroy">opus_custom_decoder_destroy</dfn>(<a class="typedef" href="#OpusCustomDecoder" title='OpusCustomDecoder' data-type='struct OpusCustomDecoder' data-ref="OpusCustomDecoder">OpusCustomDecoder</a> *<dfn class="local col8 decl" id="28st" title='st' data-type='OpusCustomDecoder *' data-ref="28st">st</dfn>);</td></tr>
+<tr><th id="293">293</th><td></td></tr>
+<tr><th id="294">294</th><td><i class="doc">/** Decode an opus custom frame with floating point output</i></td></tr>
+<tr><th id="295">295</th><td><i class="doc">  * <span class="command">@param</span> [in] <span class="arg">st</span> <span class="tag">&lt;tt&gt;</span>OpusCustomDecoder*<span class="tag">&lt;/tt&gt;</span>: Decoder state</i></td></tr>
+<tr><th id="296">296</th><td><i class="doc">  * <span class="command">@param</span> [in] <span class="arg">data</span> <span class="tag">&lt;tt&gt;</span>char*<span class="tag">&lt;/tt&gt;</span>: Input payload. Use a NULL pointer to indicate packet loss</i></td></tr>
+<tr><th id="297">297</th><td><i class="doc">  * <span class="command">@param</span> [in] <span class="arg">len</span> <span class="tag">&lt;tt&gt;</span>int<span class="tag">&lt;/tt&gt;</span>: Number of bytes in payload</i></td></tr>
+<tr><th id="298">298</th><td><i class="doc">  * <span class="command">@param</span> [out] <span class="arg">pcm</span> <span class="tag">&lt;tt&gt;</span>float*<span class="tag">&lt;/tt&gt;</span>: Output signal (interleaved if 2 channels). length</i></td></tr>
+<tr><th id="299">299</th><td><i class="doc">  *  is frame_size*channels*sizeof(float)</i></td></tr>
+<tr><th id="300">300</th><td><i class="doc">  * <span class="command">@param</span> [in] <span class="arg">frame_size</span> Number of samples per channel of available space in *pcm.</i></td></tr>
+<tr><th id="301">301</th><td><i class="doc">  * <span class="command">@returns</span> Number of decoded samples or <span class="command">@ref</span> <span class="verb">opus_errorcodes</span></i></td></tr>
+<tr><th id="302">302</th><td><i class="doc">  */</i></td></tr>
+<tr><th id="303">303</th><td><a class="macro" href="#48" title="" data-ref="_M/OPUS_CUSTOM_EXPORT">OPUS_CUSTOM_EXPORT</a> <a class="macro" href="opus_defines.h.html#117" title="__attribute__ ((__warn_unused_result__))" data-ref="_M/OPUS_WARN_UNUSED_RESULT">OPUS_WARN_UNUSED_RESULT</a> <em>int</em> <dfn class="decl" id="opus_custom_decode_float" title='opus_custom_decode_float' data-ref="opus_custom_decode_float">opus_custom_decode_float</dfn>(</td></tr>
+<tr><th id="304">304</th><td>    <a class="typedef" href="#OpusCustomDecoder" title='OpusCustomDecoder' data-type='struct OpusCustomDecoder' data-ref="OpusCustomDecoder">OpusCustomDecoder</a> *<dfn class="local col9 decl" id="29st" title='st' data-type='OpusCustomDecoder *' data-ref="29st">st</dfn>,</td></tr>
+<tr><th id="305">305</th><td>    <em>const</em> <em>unsigned</em> <em>char</em> *<dfn class="local col0 decl" id="30data" title='data' data-type='const unsigned char *' data-ref="30data">data</dfn>,</td></tr>
+<tr><th id="306">306</th><td>    <em>int</em> <dfn class="local col1 decl" id="31len" title='len' data-type='int' data-ref="31len">len</dfn>,</td></tr>
+<tr><th id="307">307</th><td>    <em>float</em> *<dfn class="local col2 decl" id="32pcm" title='pcm' data-type='float *' data-ref="32pcm">pcm</dfn>,</td></tr>
+<tr><th id="308">308</th><td>    <em>int</em> <dfn class="local col3 decl" id="33frame_size" title='frame_size' data-type='int' data-ref="33frame_size">frame_size</dfn></td></tr>
+<tr><th id="309">309</th><td>) <a class="macro" href="opus_defines.h.html#124" title="" data-ref="_M/OPUS_ARG_NONNULL">OPUS_ARG_NONNULL</a>(<var>1</var>) <a class="macro" href="opus_defines.h.html#124" title="" data-ref="_M/OPUS_ARG_NONNULL">OPUS_ARG_NONNULL</a>(<var>4</var>);</td></tr>
+<tr><th id="310">310</th><td></td></tr>
+<tr><th id="311">311</th><td><i class="doc">/** Decode an opus custom frame</i></td></tr>
+<tr><th id="312">312</th><td><i class="doc">  * <span class="command">@param</span> [in] <span class="arg">st</span> <span class="tag">&lt;tt&gt;</span>OpusCustomDecoder*<span class="tag">&lt;/tt&gt;</span>: Decoder state</i></td></tr>
+<tr><th id="313">313</th><td><i class="doc">  * <span class="command">@param</span> [in] <span class="arg">data</span> <span class="tag">&lt;tt&gt;</span>char*<span class="tag">&lt;/tt&gt;</span>: Input payload. Use a NULL pointer to indicate packet loss</i></td></tr>
+<tr><th id="314">314</th><td><i class="doc">  * <span class="command">@param</span> [in] <span class="arg">len</span> <span class="tag">&lt;tt&gt;</span>int<span class="tag">&lt;/tt&gt;</span>: Number of bytes in payload</i></td></tr>
+<tr><th id="315">315</th><td><i class="doc">  * <span class="command">@param</span> [out] <span class="arg">pcm</span> <span class="tag">&lt;tt&gt;</span>opus_int16*<span class="tag">&lt;/tt&gt;</span>: Output signal (interleaved if 2 channels). length</i></td></tr>
+<tr><th id="316">316</th><td><i class="doc">  *  is frame_size*channels*sizeof(opus_int16)</i></td></tr>
+<tr><th id="317">317</th><td><i class="doc">  * <span class="command">@param</span> [in] <span class="arg">frame_size</span> Number of samples per channel of available space in *pcm.</i></td></tr>
+<tr><th id="318">318</th><td><i class="doc">  * <span class="command">@returns</span> Number of decoded samples or <span class="command">@ref</span> <span class="verb">opus_errorcodes</span></i></td></tr>
+<tr><th id="319">319</th><td><i class="doc">  */</i></td></tr>
+<tr><th id="320">320</th><td><a class="macro" href="#48" title="" data-ref="_M/OPUS_CUSTOM_EXPORT">OPUS_CUSTOM_EXPORT</a> <a class="macro" href="opus_defines.h.html#117" title="__attribute__ ((__warn_unused_result__))" data-ref="_M/OPUS_WARN_UNUSED_RESULT">OPUS_WARN_UNUSED_RESULT</a> <em>int</em> <dfn class="decl" id="opus_custom_decode" title='opus_custom_decode' data-ref="opus_custom_decode">opus_custom_decode</dfn>(</td></tr>
+<tr><th id="321">321</th><td>    <a class="typedef" href="#OpusCustomDecoder" title='OpusCustomDecoder' data-type='struct OpusCustomDecoder' data-ref="OpusCustomDecoder">OpusCustomDecoder</a> *<dfn class="local col4 decl" id="34st" title='st' data-type='OpusCustomDecoder *' data-ref="34st">st</dfn>,</td></tr>
+<tr><th id="322">322</th><td>    <em>const</em> <em>unsigned</em> <em>char</em> *<dfn class="local col5 decl" id="35data" title='data' data-type='const unsigned char *' data-ref="35data">data</dfn>,</td></tr>
+<tr><th id="323">323</th><td>    <em>int</em> <dfn class="local col6 decl" id="36len" title='len' data-type='int' data-ref="36len">len</dfn>,</td></tr>
+<tr><th id="324">324</th><td>    <a class="typedef" href="opus_types.h.html#opus_int16" title='opus_int16' data-type='int16_t' data-ref="opus_int16">opus_int16</a> *<dfn class="local col7 decl" id="37pcm" title='pcm' data-type='opus_int16 *' data-ref="37pcm">pcm</dfn>,</td></tr>
+<tr><th id="325">325</th><td>    <em>int</em> <dfn class="local col8 decl" id="38frame_size" title='frame_size' data-type='int' data-ref="38frame_size">frame_size</dfn></td></tr>
+<tr><th id="326">326</th><td>) <a class="macro" href="opus_defines.h.html#124" title="" data-ref="_M/OPUS_ARG_NONNULL">OPUS_ARG_NONNULL</a>(<var>1</var>) <a class="macro" href="opus_defines.h.html#124" title="" data-ref="_M/OPUS_ARG_NONNULL">OPUS_ARG_NONNULL</a>(<var>4</var>);</td></tr>
+<tr><th id="327">327</th><td></td></tr>
+<tr><th id="328">328</th><td><i class="doc">/** Perform a CTL function on an Opus custom decoder.</i></td></tr>
+<tr><th id="329">329</th><td><i class="doc">  *</i></td></tr>
+<tr><th id="330">330</th><td><i class="doc">  * Generally the request and subsequent arguments are generated</i></td></tr>
+<tr><th id="331">331</th><td><i class="doc">  * by a convenience macro.</i></td></tr>
+<tr><th id="332">332</th><td><i class="doc">  * <span class="command">@see</span> opus_genericctls</i></td></tr>
+<tr><th id="333">333</th><td><i class="doc">  */</i></td></tr>
+<tr><th id="334">334</th><td><a class="macro" href="#48" title="" data-ref="_M/OPUS_CUSTOM_EXPORT">OPUS_CUSTOM_EXPORT</a> <em>int</em> <dfn class="decl" id="opus_custom_decoder_ctl" title='opus_custom_decoder_ctl' data-ref="opus_custom_decoder_ctl">opus_custom_decoder_ctl</dfn>(<a class="typedef" href="#OpusCustomDecoder" title='OpusCustomDecoder' data-type='struct OpusCustomDecoder' data-ref="OpusCustomDecoder">OpusCustomDecoder</a> * <a class="macro" href="opus_defines.h.html#98" title="restrict" data-ref="_M/OPUS_RESTRICT">OPUS_RESTRICT</a> <dfn class="local col9 decl" id="39st" title='st' data-type='OpusCustomDecoder *restrict' data-ref="39st">st</dfn>, <em>int</em> <dfn class="local col0 decl" id="40request" title='request' data-type='int' data-ref="40request">request</dfn>, ...) <a class="macro" href="opus_defines.h.html#124" title="" data-ref="_M/OPUS_ARG_NONNULL">OPUS_ARG_NONNULL</a>(<var>1</var>);</td></tr>
+<tr><th id="335">335</th><td></td></tr>
+<tr><th id="336">336</th><td><i class="doc">/**@}*/</i></td></tr>
+<tr><th id="337">337</th><td></td></tr>
+<tr><th id="338">338</th><td><u>#<span data-ppcond="338">ifdef</span> <span class="macro" data-ref="_M/__cplusplus">__cplusplus</span></u></td></tr>
+<tr><th id="339">339</th><td>}</td></tr>
+<tr><th id="340">340</th><td><u>#<span data-ppcond="338">endif</span></u></td></tr>
+<tr><th id="341">341</th><td></td></tr>
+<tr><th id="342">342</th><td><u>#<span data-ppcond="35">endif</span> /* OPUS_CUSTOM_H */</u></td></tr>
+<tr><th id="343">343</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='../celt/bands.c.html'>codebrowser/code/opus-1.1.4/celt/bands.c</a><br/>Generated on <em>2017-Aug-29</em> from project codebrowser revision <em>63e07af</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

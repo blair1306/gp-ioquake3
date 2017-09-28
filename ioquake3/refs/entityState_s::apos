@@ -1,0 +1,118 @@
+<dec f='codebrowser/code/qcommon/q_shared.h' l='1286' type='trajectory_t'/>
+<offset>384</offset>
+<doc f='codebrowser/code/qcommon/q_shared.h' l='1286'>// for calculating angles</doc>
+<use f='codebrowser/code/cgame/cg_ents.c' l='693' u='a' c='CG_AdjustPositionForMover'/>
+<use f='codebrowser/code/cgame/cg_ents.c' l='696' u='a' c='CG_AdjustPositionForMover'/>
+<use f='codebrowser/code/cgame/cg_ents.c' l='733' u='a' c='CG_InterpolateEntityPosition'/>
+<use f='codebrowser/code/cgame/cg_ents.c' l='734' u='a' c='CG_InterpolateEntityPosition'/>
+<use f='codebrowser/code/cgame/cg_ents.c' l='774' u='a' c='CG_CalcEntityLerpPositions'/>
+<use f='codebrowser/code/cgame/cg_players.c' l='2610' u='a' c='CG_ResetPlayerEntity'/>
+<use f='codebrowser/code/cgame/cg_weapons.c' l='2199' u='m' c='CG_CalcMuzzlePoint'/>
+<use f='codebrowser/code/game/ai_main.c' l='1527' u='m' c='BotAIStartFrame'/>
+<use f='codebrowser/code/game/ai_main.c' l='1527' u='m' c='BotAIStartFrame'/>
+<use f='codebrowser/code/game/ai_main.c' l='1527' u='m' c='BotAIStartFrame'/>
+<use f='codebrowser/code/game/bg_misc.c' l='1485' u='m' c='BG_PlayerStateToEntityState'/>
+<use f='codebrowser/code/game/bg_misc.c' l='1486' u='m' c='BG_PlayerStateToEntityState'/>
+<use f='codebrowser/code/game/bg_misc.c' l='1486' u='m' c='BG_PlayerStateToEntityState'/>
+<use f='codebrowser/code/game/bg_misc.c' l='1486' u='m' c='BG_PlayerStateToEntityState'/>
+<use f='codebrowser/code/game/bg_misc.c' l='1488' u='m' c='BG_PlayerStateToEntityState'/>
+<use f='codebrowser/code/game/bg_misc.c' l='1488' u='m' c='BG_PlayerStateToEntityState'/>
+<use f='codebrowser/code/game/bg_misc.c' l='1488' u='m' c='BG_PlayerStateToEntityState'/>
+<use f='codebrowser/code/game/bg_misc.c' l='1488' u='m' c='BG_PlayerStateToEntityState'/>
+<use f='codebrowser/code/game/bg_misc.c' l='1488' u='m' c='BG_PlayerStateToEntityState'/>
+<use f='codebrowser/code/game/bg_misc.c' l='1488' u='m' c='BG_PlayerStateToEntityState'/>
+<use f='codebrowser/code/game/bg_misc.c' l='1565' u='m' c='BG_PlayerStateToEntityStateExtraPolate'/>
+<use f='codebrowser/code/game/bg_misc.c' l='1566' u='m' c='BG_PlayerStateToEntityStateExtraPolate'/>
+<use f='codebrowser/code/game/bg_misc.c' l='1566' u='m' c='BG_PlayerStateToEntityStateExtraPolate'/>
+<use f='codebrowser/code/game/bg_misc.c' l='1566' u='m' c='BG_PlayerStateToEntityStateExtraPolate'/>
+<use f='codebrowser/code/game/bg_misc.c' l='1568' u='m' c='BG_PlayerStateToEntityStateExtraPolate'/>
+<use f='codebrowser/code/game/bg_misc.c' l='1568' u='m' c='BG_PlayerStateToEntityStateExtraPolate'/>
+<use f='codebrowser/code/game/bg_misc.c' l='1568' u='m' c='BG_PlayerStateToEntityStateExtraPolate'/>
+<use f='codebrowser/code/game/bg_misc.c' l='1568' u='m' c='BG_PlayerStateToEntityStateExtraPolate'/>
+<use f='codebrowser/code/game/bg_misc.c' l='1568' u='m' c='BG_PlayerStateToEntityStateExtraPolate'/>
+<use f='codebrowser/code/game/bg_misc.c' l='1568' u='m' c='BG_PlayerStateToEntityStateExtraPolate'/>
+<use f='codebrowser/code/game/g_arenas.c' l='183' u='m' c='SpawnModelOnVictoryPad'/>
+<use f='codebrowser/code/game/g_arenas.c' l='184' u='m' c='SpawnModelOnVictoryPad'/>
+<use f='codebrowser/code/game/g_arenas.c' l='185' u='m' c='SpawnModelOnVictoryPad'/>
+<use f='codebrowser/code/game/g_arenas.c' l='187' u='m' c='SpawnModelOnVictoryPad'/>
+<use f='codebrowser/code/game/g_arenas.c' l='248' u='m' c='PodiumPlacementThink'/>
+<use f='codebrowser/code/game/g_arenas.c' l='249' u='m' c='PodiumPlacementThink'/>
+<use f='codebrowser/code/game/g_arenas.c' l='250' u='m' c='PodiumPlacementThink'/>
+<use f='codebrowser/code/game/g_arenas.c' l='252' u='m' c='PodiumPlacementThink'/>
+<use f='codebrowser/code/game/g_arenas.c' l='262' u='m' c='PodiumPlacementThink'/>
+<use f='codebrowser/code/game/g_arenas.c' l='263' u='m' c='PodiumPlacementThink'/>
+<use f='codebrowser/code/game/g_arenas.c' l='264' u='m' c='PodiumPlacementThink'/>
+<use f='codebrowser/code/game/g_arenas.c' l='266' u='m' c='PodiumPlacementThink'/>
+<use f='codebrowser/code/game/g_arenas.c' l='276' u='m' c='PodiumPlacementThink'/>
+<use f='codebrowser/code/game/g_arenas.c' l='277' u='m' c='PodiumPlacementThink'/>
+<use f='codebrowser/code/game/g_arenas.c' l='278' u='m' c='PodiumPlacementThink'/>
+<use f='codebrowser/code/game/g_arenas.c' l='280' u='m' c='PodiumPlacementThink'/>
+<use f='codebrowser/code/game/g_arenas.c' l='313' u='m' c='SpawnPodium'/>
+<use f='codebrowser/code/game/g_items.c' l='625' u='m' c='Drop_Item'/>
+<use f='codebrowser/code/game/g_items.c' l='625' u='m' c='Drop_Item'/>
+<use f='codebrowser/code/game/g_items.c' l='625' u='m' c='Drop_Item'/>
+<use f='codebrowser/code/game/g_mover.c' l='135' u='m' c='G_TryPushingEntity'/>
+<use f='codebrowser/code/game/g_mover.c' l='135' u='m' c='G_TryPushingEntity'/>
+<use f='codebrowser/code/game/g_mover.c' l='135' u='m' c='G_TryPushingEntity'/>
+<use f='codebrowser/code/game/g_mover.c' l='189' u='m' c='G_TryPushingEntity'/>
+<use f='codebrowser/code/game/g_mover.c' l='189' u='m' c='G_TryPushingEntity'/>
+<use f='codebrowser/code/game/g_mover.c' l='189' u='m' c='G_TryPushingEntity'/>
+<use f='codebrowser/code/game/g_mover.c' l='387' u='m' c='G_MoverPush'/>
+<use f='codebrowser/code/game/g_mover.c' l='401' u='m' c='G_MoverPush'/>
+<use f='codebrowser/code/game/g_mover.c' l='401' u='m' c='G_MoverPush'/>
+<use f='codebrowser/code/game/g_mover.c' l='401' u='m' c='G_MoverPush'/>
+<use f='codebrowser/code/game/g_mover.c' l='434' u='a' c='G_MoverTeam'/>
+<use f='codebrowser/code/game/g_mover.c' l='446' u='m' c='G_MoverTeam'/>
+<use f='codebrowser/code/game/g_mover.c' l='448' u='a' c='G_MoverTeam'/>
+<use f='codebrowser/code/game/g_mover.c' l='486' u='m' c='G_RunMover'/>
+<use f='codebrowser/code/game/g_mover.c' l='1508' u='m' c='SP_func_rotating'/>
+<use f='codebrowser/code/game/g_mover.c' l='1510' u='m' c='SP_func_rotating'/>
+<use f='codebrowser/code/game/g_mover.c' l='1512' u='m' c='SP_func_rotating'/>
+<use f='codebrowser/code/game/g_mover.c' l='1514' u='m' c='SP_func_rotating'/>
+<use f='codebrowser/code/game/g_mover.c' l='1526' u='m' c='SP_func_rotating'/>
+<use f='codebrowser/code/game/g_mover.c' l='1526' u='m' c='SP_func_rotating'/>
+<use f='codebrowser/code/game/g_mover.c' l='1526' u='m' c='SP_func_rotating'/>
+<use f='codebrowser/code/game/g_mover.c' l='1627' u='m' c='SP_func_pendulum'/>
+<use f='codebrowser/code/game/g_mover.c' l='1627' u='m' c='SP_func_pendulum'/>
+<use f='codebrowser/code/game/g_mover.c' l='1627' u='m' c='SP_func_pendulum'/>
+<use f='codebrowser/code/game/g_mover.c' l='1629' u='m' c='SP_func_pendulum'/>
+<use f='codebrowser/code/game/g_mover.c' l='1630' u='m' c='SP_func_pendulum'/>
+<use f='codebrowser/code/game/g_mover.c' l='1630' u='m' c='SP_func_pendulum'/>
+<use f='codebrowser/code/game/g_mover.c' l='1631' u='m' c='SP_func_pendulum'/>
+<use f='codebrowser/code/game/g_mover.c' l='1632' u='m' c='SP_func_pendulum'/>
+<use f='codebrowser/code/qcommon/msg.c' l='791' u='m'/>
+<use f='codebrowser/code/qcommon/msg.c' l='791' u='m'/>
+<use f='codebrowser/code/qcommon/msg.c' l='793' u='m'/>
+<use f='codebrowser/code/qcommon/msg.c' l='793' u='m'/>
+<use f='codebrowser/code/qcommon/msg.c' l='808' u='m'/>
+<use f='codebrowser/code/qcommon/msg.c' l='808' u='m'/>
+<use f='codebrowser/code/qcommon/msg.c' l='824' u='m'/>
+<use f='codebrowser/code/qcommon/msg.c' l='824' u='m'/>
+<use f='codebrowser/code/qcommon/msg.c' l='825' u='m'/>
+<use f='codebrowser/code/qcommon/msg.c' l='825' u='m'/>
+<use f='codebrowser/code/qcommon/msg.c' l='826' u='m'/>
+<use f='codebrowser/code/qcommon/msg.c' l='826' u='m'/>
+<use f='codebrowser/code/qcommon/msg.c' l='827' u='m'/>
+<use f='codebrowser/code/qcommon/msg.c' l='827' u='m'/>
+<use f='codebrowser/code/qcommon/msg.c' l='828' u='m'/>
+<use f='codebrowser/code/qcommon/msg.c' l='828' u='m'/>
+<use f='codebrowser/code/qcommon/msg.c' l='829' u='m'/>
+<use f='codebrowser/code/qcommon/msg.c' l='829' u='m'/>
+<use f='codebrowser/code/qcommon/msg.c' l='791' u='m'/>
+<use f='codebrowser/code/qcommon/msg.c' l='791' u='m'/>
+<use f='codebrowser/code/qcommon/msg.c' l='793' u='m'/>
+<use f='codebrowser/code/qcommon/msg.c' l='793' u='m'/>
+<use f='codebrowser/code/qcommon/msg.c' l='808' u='m'/>
+<use f='codebrowser/code/qcommon/msg.c' l='808' u='m'/>
+<use f='codebrowser/code/qcommon/msg.c' l='824' u='m'/>
+<use f='codebrowser/code/qcommon/msg.c' l='824' u='m'/>
+<use f='codebrowser/code/qcommon/msg.c' l='825' u='m'/>
+<use f='codebrowser/code/qcommon/msg.c' l='825' u='m'/>
+<use f='codebrowser/code/qcommon/msg.c' l='826' u='m'/>
+<use f='codebrowser/code/qcommon/msg.c' l='826' u='m'/>
+<use f='codebrowser/code/qcommon/msg.c' l='827' u='m'/>
+<use f='codebrowser/code/qcommon/msg.c' l='827' u='m'/>
+<use f='codebrowser/code/qcommon/msg.c' l='828' u='m'/>
+<use f='codebrowser/code/qcommon/msg.c' l='828' u='m'/>
+<use f='codebrowser/code/qcommon/msg.c' l='829' u='m'/>
+<use f='codebrowser/code/qcommon/msg.c' l='829' u='m'/>

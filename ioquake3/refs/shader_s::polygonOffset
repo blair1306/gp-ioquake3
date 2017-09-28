@@ -1,0 +1,18 @@
+<dec f='codebrowser/code/renderergl1/tr_local.h' l='346' type='qboolean'/>
+<offset>1888</offset>
+<doc f='codebrowser/code/renderergl1/tr_local.h' l='346'>// set for decals and other items that must be offset </doc>
+<use f='codebrowser/code/renderergl1/tr_shade.c' l='1195' u='r' c='RB_StageIteratorGeneric'/>
+<use f='codebrowser/code/renderergl1/tr_shade.c' l='1275' u='r' c='RB_StageIteratorGeneric'/>
+<use f='codebrowser/code/renderergl1/tr_shader.c' l='1562' u='w' c='ParseShader'/>
+<use f='codebrowser/code/renderergl1/tr_shader.c' l='1722' u='r' c='ComputeStageIteratorFunc'/>
+<use f='codebrowser/code/renderergl1/tr_shader.c' l='1748' u='r' c='ComputeStageIteratorFunc'/>
+<use f='codebrowser/code/renderergl1/tr_shader.c' l='2221' u='r' c='FinishShader'/>
+<dec f='codebrowser/code/renderergl2/tr_local.h' l='458' type='qboolean'/>
+<offset>1888</offset>
+<doc f='codebrowser/code/renderergl2/tr_local.h' l='458'>// set for decals and other items that must be offset </doc>
+<use f='codebrowser/code/renderergl2/tr_shade.c' l='1480' u='r' c='RB_StageIteratorGeneric'/>
+<use f='codebrowser/code/renderergl2/tr_shade.c' l='1495' u='r' c='RB_StageIteratorGeneric'/>
+<use f='codebrowser/code/renderergl2/tr_shade.c' l='1515' u='r' c='RB_StageIteratorGeneric'/>
+<use f='codebrowser/code/renderergl2/tr_shade.c' l='1564' u='r' c='RB_StageIteratorGeneric'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='1908' u='w' c='ParseShader'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='2941' u='r' c='FinishShader'/>

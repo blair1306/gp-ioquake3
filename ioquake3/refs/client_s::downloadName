@@ -1,0 +1,30 @@
+<dec f='codebrowser/code/server/server.h' l='154' type='char [64]'/>
+<offset>541504</offset>
+<doc f='codebrowser/code/server/server.h' l='153'>// downloading</doc>
+<doc f='codebrowser/code/server/server.h' l='154'>// if not empty string, we are downloading</doc>
+<use f='codebrowser/code/server/sv_client.c' l='836' u='r' c='SV_CloseDownload'/>
+<use f='codebrowser/code/server/sv_client.c' l='856' u='r' c='SV_StopDownload_f'/>
+<use f='codebrowser/code/server/sv_client.c' l='857' c='SV_StopDownload_f'/>
+<use f='codebrowser/code/server/sv_client.c' l='895' c='SV_NextDownload_f'/>
+<use f='codebrowser/code/server/sv_client.c' l='922' u='r' c='SV_BeginDownload_f'/>
+<use f='codebrowser/code/server/sv_client.c' l='922' u='r' c='SV_BeginDownload_f'/>
+<use f='codebrowser/code/server/sv_client.c' l='941' u='r' c='SV_WriteDownloadToClient'/>
+<use f='codebrowser/code/server/sv_client.c' l='952' c='SV_WriteDownloadToClient'/>
+<use f='codebrowser/code/server/sv_client.c' l='995' u='r' c='SV_WriteDownloadToClient'/>
+<use f='codebrowser/code/server/sv_client.c' l='999' c='SV_WriteDownloadToClient'/>
+<use f='codebrowser/code/server/sv_client.c' l='1000' c='SV_WriteDownloadToClient'/>
+<use f='codebrowser/code/server/sv_client.c' l='1003' c='SV_WriteDownloadToClient'/>
+<use f='codebrowser/code/server/sv_client.c' l='1008' c='SV_WriteDownloadToClient'/>
+<use f='codebrowser/code/server/sv_client.c' l='1013' c='SV_WriteDownloadToClient'/>
+<use f='codebrowser/code/server/sv_client.c' l='1019' c='SV_WriteDownloadToClient'/>
+<use f='codebrowser/code/server/sv_client.c' l='1023' c='SV_WriteDownloadToClient'/>
+<use f='codebrowser/code/server/sv_client.c' l='1028' c='SV_WriteDownloadToClient'/>
+<use f='codebrowser/code/server/sv_client.c' l='1033' c='SV_WriteDownloadToClient'/>
+<use f='codebrowser/code/server/sv_client.c' l='1034' c='SV_WriteDownloadToClient'/>
+<use f='codebrowser/code/server/sv_client.c' l='1041' u='r' c='SV_WriteDownloadToClient'/>
+<use f='codebrowser/code/server/sv_client.c' l='1049' c='SV_WriteDownloadToClient'/>
+<use f='codebrowser/code/server/sv_client.c' l='1184' u='r' c='SV_SendDownloadMessages'/>
+<use f='codebrowser/code/server/sv_client.c' l='1852' u='r' c='SV_UserVoip'/>
+<use f='codebrowser/code/server/sv_client.c' l='1945' u='r' c='SV_ExecuteClientMessage'/>
+<use f='codebrowser/code/server/sv_snapshot.c' l='544' u='r' c='SV_WriteVoipToClient'/>
+<use f='codebrowser/code/server/sv_snapshot.c' l='656' u='r' c='SV_SendClientMessages'/>

@@ -1,0 +1,13 @@
+<dec f='codebrowser/code/qcommon/qcommon.h' l='1136' type='char ** Sys_ListFiles(const char * directory, const char * extension, char * filter, int * numfiles, qboolean wantsubs)'/>
+<use f='codebrowser/code/qcommon/files.c' l='2326' u='c' c='FS_ListFilteredFiles'/>
+<use f='codebrowser/code/qcommon/files.c' l='2538' u='c' c='FS_GetModList'/>
+<use f='codebrowser/code/qcommon/files.c' l='2570' u='c' c='FS_GetModList'/>
+<use f='codebrowser/code/qcommon/files.c' l='2571' u='c' c='FS_GetModList'/>
+<use f='codebrowser/code/qcommon/files.c' l='2930' u='c' c='FS_AddGameDirectory'/>
+<use f='codebrowser/code/qcommon/files.c' l='2939' u='c' c='FS_AddGameDirectory'/>
+<def f='codebrowser/code/sys/sys_unix.c' l='379' ll='472' type='char ** Sys_ListFiles(const char * directory, const char * extension, char * filter, int * numfiles, qboolean wantsubs)'/>
+<doc f='codebrowser/code/sys/sys_unix.c' l='374'>/*
+==================
+Sys_ListFiles
+==================
+*/</doc>

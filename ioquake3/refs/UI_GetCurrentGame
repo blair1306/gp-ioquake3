@@ -1,0 +1,12 @@
+<dec f='codebrowser/code/q3_ui/ui_local.h' l='766' type='int UI_GetCurrentGame()'/>
+<def f='codebrowser/code/q3_ui/ui_gameinfo.c' l='660' ll='687' type='int UI_GetCurrentGame()'/>
+<doc f='codebrowser/code/q3_ui/ui_gameinfo.c' l='653'>/*
+===============
+UI_GetCurrentGame
+
+Returns the next level the player has not won
+===============
+*/</doc>
+<use f='codebrowser/code/q3_ui/ui_splevel.c' l='974' u='c' c='UI_SPLevelMenu'/>
+<use f='codebrowser/code/q3_ui/ui_sppostgame.c' l='140' u='c' c='UI_SPPostgameMenu_NextEvent'/>
+<dec f='codebrowser/code/ui/ui_local.h' l='1079' type='int UI_GetCurrentGame()'/>

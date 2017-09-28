@@ -1,0 +1,11 @@
+<dec f='codebrowser/code/cgame/cg_local.h' l='1017' type='int'/>
+<offset>253440</offset>
+<use f='codebrowser/code/cgame/cg_draw.c' l='2123' u='r' c='CG_DrawVote'/>
+<use f='codebrowser/code/cgame/cg_servercmds.c' l='309' u='w' c='CG_ConfigStringModified'/>
+<dec f='codebrowser/code/game/g_local.h' l='372' type='int'/>
+<offset>19360</offset>
+<use f='codebrowser/code/game/g_cmds.c' l='1412' u='w' c='Cmd_CallVote_f'/>
+<use f='codebrowser/code/game/g_cmds.c' l='1422' u='r' c='Cmd_CallVote_f'/>
+<use f='codebrowser/code/game/g_cmds.c' l='1454' u='w' c='Cmd_Vote_f'/>
+<use f='codebrowser/code/game/g_cmds.c' l='1455' u='r' c='Cmd_Vote_f'/>
+<use f='codebrowser/code/game/g_main.c' l='1575' u='r' c='CheckVote'/>

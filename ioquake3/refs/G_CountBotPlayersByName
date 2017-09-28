@@ -1,0 +1,12 @@
+<def f='codebrowser/code/game/g_bot.c' l='240' ll='262' type='int G_CountBotPlayersByName(const char * name, int team)'/>
+<use f='codebrowser/code/game/g_bot.c' l='278' u='c' c='G_SelectRandomBotInfo'/>
+<use f='codebrowser/code/game/g_bot.c' l='290' u='c' c='G_SelectRandomBotInfo'/>
+<doc f='codebrowser/code/game/g_bot.c' l='231'>/*
+===============
+G_CountBotPlayersByName
+
+Check connected and connecting (delay join) bots.
+
+Returns number of bots with name on specified team or whole server if team is -1.
+===============
+*/</doc>

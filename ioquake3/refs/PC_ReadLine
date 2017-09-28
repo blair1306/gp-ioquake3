@@ -1,0 +1,22 @@
+<dec f='codebrowser/code/botlib/l_precomp.h' l='129' type='int PC_ReadLine(source_t * source, token_t * token)'/>
+<doc f='codebrowser/code/botlib/l_precomp.h' l='128'>//read a token only if on the same line, lines are concatenated with a slash</doc>
+<def f='codebrowser/code/botlib/l_precomp.c' l='1062' ll='1079' type='int PC_ReadLine(source_t * source, token_t * token)'/>
+<use f='codebrowser/code/botlib/l_precomp.c' l='1116' u='c' c='PC_Directive_undef'/>
+<use f='codebrowser/code/botlib/l_precomp.c' l='1183' u='c' c='PC_Directive_define'/>
+<use f='codebrowser/code/botlib/l_precomp.c' l='1225' u='c' c='PC_Directive_define'/>
+<use f='codebrowser/code/botlib/l_precomp.c' l='1235' u='c' c='PC_Directive_define'/>
+<use f='codebrowser/code/botlib/l_precomp.c' l='1261' u='c' c='PC_Directive_define'/>
+<use f='codebrowser/code/botlib/l_precomp.c' l='1276' u='c' c='PC_Directive_define'/>
+<use f='codebrowser/code/botlib/l_precomp.c' l='1293' u='c' c='PC_Directive_define'/>
+<use f='codebrowser/code/botlib/l_precomp.c' l='1514' u='c' c='PC_Directive_if_def'/>
+<use f='codebrowser/code/botlib/l_precomp.c' l='2144' u='c' c='PC_Evaluate'/>
+<use f='codebrowser/code/botlib/l_precomp.c' l='2204' u='c' c='PC_Evaluate'/>
+<use f='codebrowser/code/botlib/l_precomp.c' l='2409' u='c' c='PC_Directive_pragma'/>
+<doc f='codebrowser/code/botlib/l_precomp.c' l='1054'>//============================================================================
+// reads a token from the current line, continues reading on the next
+// line only if a backslash &apos;\&apos; is encountered.
+//
+// Parameter:				-
+// Returns:					-
+// Changes Globals:		-
+//============================================================================</doc>

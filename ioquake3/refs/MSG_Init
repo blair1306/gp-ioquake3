@@ -1,0 +1,11 @@
+<dec f='codebrowser/code/qcommon/qcommon.h' l='53' type='void MSG_Init(msg_t * buf, byte * data, int length)'/>
+<use f='codebrowser/code/client/cl_input.c' l='761' u='c' c='CL_WritePacket'/>
+<use f='codebrowser/code/client/cl_input.c' l='821' u='c' c='CL_WritePacket'/>
+<use f='codebrowser/code/client/cl_main.c' l='771' u='c' c='CL_Record_f'/>
+<use f='codebrowser/code/client/cl_main.c' l='955' u='c' c='CL_ReadDemoMessage'/>
+<use f='codebrowser/code/qcommon/common.c' l='2192' u='c' c='Com_EventLoop'/>
+<def f='codebrowser/code/qcommon/msg.c' l='44' ll='51' type='void MSG_Init(msg_t * buf, byte * data, int length)'/>
+<use f='codebrowser/code/qcommon/net_ip.c' l='1627' u='c' c='NET_Event'/>
+<use f='codebrowser/code/server/sv_client.c' l='731' u='c' c='SV_SendClientGameState'/>
+<use f='codebrowser/code/server/sv_client.c' l='1186' u='c' c='SV_SendDownloadMessages'/>
+<use f='codebrowser/code/server/sv_snapshot.c' l='610' u='c' c='SV_SendClientSnapshot'/>

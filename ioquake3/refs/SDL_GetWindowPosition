@@ -1,0 +1,13 @@
+<dec f='include/SDL2/SDL_video.h' l='547' type='void SDL_GetWindowPosition(SDL_Window * window, int * x, int * y)'/>
+<doc f='include/SDL2/SDL_video.h' l='536'>/**
+ *  \brief Get the position of a window.
+ *
+ *  \param window   The window to query.
+ *  \param x        Pointer to variable for storing the x position, in screen
+ *                  coordinates. May be NULL.
+ *  \param y        Pointer to variable for storing the y position, in screen
+ *                  coordinates. May be NULL.
+ *
+ *  \sa SDL_SetWindowPosition()
+ */</doc>
+<use f='codebrowser/code/sdl/sdl_glimp.c' l='318' u='c' c='GLimp_SetMode'/>

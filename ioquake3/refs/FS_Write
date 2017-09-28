@@ -1,0 +1,53 @@
+<dec f='codebrowser/code/qcommon/qcommon.h' l='660' type='int FS_Write(const void * buffer, int len, fileHandle_t f)'/>
+<use f='codebrowser/code/client/cl_avi.c' l='84' u='c' c='SafeFS_Write'/>
+<doc f='codebrowser/code/qcommon/qcommon.h' l='658'>// returns 1 if a file is in the PAK file, otherwise -1</doc>
+<use f='codebrowser/code/client/cl_cgame.c' l='446' u='c' c='CL_CgameSystemCalls'/>
+<use f='codebrowser/code/client/cl_console.c' l='251' u='c' c='Con_Dump_f'/>
+<use f='codebrowser/code/client/cl_curl.c' l='216' u='c' c='CL_cURL_CallbackWrite'/>
+<use f='codebrowser/code/client/cl_keys.c' l='1581' u='c' c='CL_SaveConsoleHistory'/>
+<use f='codebrowser/code/client/cl_main.c' l='623' u='c' c='CL_WriteDemoMessage'/>
+<use f='codebrowser/code/client/cl_main.c' l='627' u='c' c='CL_WriteDemoMessage'/>
+<use f='codebrowser/code/client/cl_main.c' l='628' u='c' c='CL_WriteDemoMessage'/>
+<use f='codebrowser/code/client/cl_main.c' l='649' u='c' c='CL_StopRecord_f'/>
+<use f='codebrowser/code/client/cl_main.c' l='650' u='c' c='CL_StopRecord_f'/>
+<use f='codebrowser/code/client/cl_main.c' l='816' u='c' c='CL_Record_f'/>
+<use f='codebrowser/code/client/cl_main.c' l='819' u='c' c='CL_Record_f'/>
+<use f='codebrowser/code/client/cl_main.c' l='820' u='c' c='CL_Record_f'/>
+<use f='codebrowser/code/client/cl_main.c' l='3433' u='c' c='CL_GenerateQKey'/>
+<use f='codebrowser/code/client/cl_parse.c' l='622' u='c' c='CL_ParseDownload'/>
+<use f='codebrowser/code/client/cl_ui.c' l='78' u='c' c='LAN_SaveServersToCache'/>
+<use f='codebrowser/code/client/cl_ui.c' l='79' u='c' c='LAN_SaveServersToCache'/>
+<use f='codebrowser/code/client/cl_ui.c' l='81' u='c' c='LAN_SaveServersToCache'/>
+<use f='codebrowser/code/client/cl_ui.c' l='82' u='c' c='LAN_SaveServersToCache'/>
+<use f='codebrowser/code/client/cl_ui.c' l='83' u='c' c='LAN_SaveServersToCache'/>
+<use f='codebrowser/code/client/cl_ui.c' l='797' u='c' c='CL_UISystemCalls'/>
+<use f='codebrowser/code/qcommon/common.c' l='230' u='c' c='Com_Printf'/>
+<use f='codebrowser/code/qcommon/common.c' l='1118' u='c' c='Z_LogZoneHeap'/>
+<use f='codebrowser/code/qcommon/common.c' l='1148' u='c' c='Z_LogZoneHeap'/>
+<use f='codebrowser/code/qcommon/common.c' l='1150' u='c' c='Z_LogZoneHeap'/>
+<use f='codebrowser/code/qcommon/common.c' l='1473' u='c' c='Hunk_Log'/>
+<use f='codebrowser/code/qcommon/common.c' l='1483' u='c' c='Hunk_Log'/>
+<use f='codebrowser/code/qcommon/common.c' l='1485' u='c' c='Hunk_Log'/>
+<use f='codebrowser/code/qcommon/common.c' l='1506' u='c' c='Hunk_SmallLog'/>
+<use f='codebrowser/code/qcommon/common.c' l='1531' u='c' c='Hunk_SmallLog'/>
+<use f='codebrowser/code/qcommon/common.c' l='1533' u='c' c='Hunk_SmallLog'/>
+<use f='codebrowser/code/qcommon/common.c' l='2077' u='c' c='Com_GetRealEvent'/>
+<use f='codebrowser/code/qcommon/common.c' l='2082' u='c' c='Com_GetRealEvent'/>
+<use f='codebrowser/code/qcommon/cvar.c' l='944' u='c' c='Cvar_WriteVariables'/>
+<def f='codebrowser/code/qcommon/files.c' l='1583' ll='1627' type='int FS_Write(const void * buffer, int len, fileHandle_t h)'/>
+<use f='codebrowser/code/qcommon/files.c' l='1637' u='c' c='FS_Printf'/>
+<use f='codebrowser/code/qcommon/files.c' l='1899' u='c' c='FS_ReadFileDir'/>
+<use f='codebrowser/code/qcommon/files.c' l='1908' u='c' c='FS_ReadFileDir'/>
+<use f='codebrowser/code/qcommon/files.c' l='1930' u='c' c='FS_ReadFileDir'/>
+<use f='codebrowser/code/qcommon/files.c' l='1931' u='c' c='FS_ReadFileDir'/>
+<use f='codebrowser/code/qcommon/files.c' l='1996' u='c' c='FS_WriteFile'/>
+<doc f='codebrowser/code/qcommon/files.c' l='1576'>/*
+=================
+FS_Write
+
+Properly handles partial writes
+=================
+*/</doc>
+<use f='codebrowser/code/server/sv_bot.c' l='547' u='r' c='SV_BotInitBotLib'/>
+<use f='codebrowser/code/server/sv_ccmds.c' l='744' u='c' c='SV_WriteBans'/>
+<use f='codebrowser/code/server/sv_game.c' l='331' u='c' c='SV_GameSystemCalls'/>

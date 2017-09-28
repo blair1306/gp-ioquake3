@@ -1,0 +1,12 @@
+<dec f='codebrowser/code/botlib/be_ai_goal.h' l='69' type='void BotGoalName(int number, char * name, int size)'/>
+<def f='codebrowser/code/botlib/be_ai_goal.c' l='678' ll='693' type='void BotGoalName(int number, char * name, int size)'/>
+<use f='codebrowser/code/botlib/be_ai_goal.c' l='727' u='c' c='BotDumpAvoidGoals'/>
+<use f='codebrowser/code/botlib/be_ai_goal.c' l='1189' u='c' c='BotDumpGoalStack'/>
+<doc f='codebrowser/code/botlib/be_ai_goal.c' l='672'>//===========================================================================
+//
+// Parameter:				-
+// Returns:					-
+// Changes Globals:		-
+//===========================================================================</doc>
+<doc f='codebrowser/code/botlib/be_ai_goal.h' l='68'>//get the name name of the goal with the given number</doc>
+<use f='codebrowser/code/botlib/be_interface.c' l='814' u='r' c='Init_AI_Export'/>

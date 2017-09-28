@@ -1,0 +1,10 @@
+<dec f='codebrowser/code/game/bg_public.h' l='232' type='9'/>
+<doc f='codebrowser/code/game/bg_public.h' l='231'>// player awards tracking</doc>
+<doc f='codebrowser/code/game/bg_public.h' l='232'>// two railgun hits in a row</doc>
+<use f='codebrowser/code/cgame/cg_playerstate.c' l='348' u='r' c='CG_CheckLocalSounds'/>
+<use f='codebrowser/code/cgame/cg_playerstate.c' l='348' u='r' c='CG_CheckLocalSounds'/>
+<use f='codebrowser/code/cgame/cg_playerstate.c' l='358' u='r' c='CG_CheckLocalSounds'/>
+<use f='codebrowser/code/game/g_arenas.c' l='118' u='r' c='UpdateTournamentInfo'/>
+<use f='codebrowser/code/game/g_cmds.c' l='78' u='r' c='DeathmatchScoreboardMessage'/>
+<use f='codebrowser/code/game/g_cmds.c' l='295' u='w' c='Cmd_Give_f'/>
+<use f='codebrowser/code/game/g_weapon.c' l='554' u='w' c='weapon_railgun_fire'/>

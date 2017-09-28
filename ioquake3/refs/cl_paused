@@ -1,0 +1,9 @@
+<dec f='codebrowser/code/qcommon/qcommon.h' l='873' type='cvar_t *'/>
+<doc f='codebrowser/code/qcommon/qcommon.h' l='872'>// both client and server must agree to pause</doc>
+<use f='codebrowser/code/client/cl_input.c' l='911' u='r' c='CL_SendCmd'/>
+<use f='codebrowser/code/client/cl_main.c' l='2894' u='r' c='CL_CheckPaused'/>
+<use f='codebrowser/code/client/cl_main.c' l='2894' u='r' c='CL_CheckPaused'/>
+<use f='codebrowser/code/client/cl_parse.c' l='227' u='r' c='CL_ParseSnapshot'/>
+<def f='codebrowser/code/qcommon/common.c' l='78' type='cvar_t *'/>
+<use f='codebrowser/code/qcommon/common.c' l='2768' u='w' c='Com_Init'/>
+<use f='codebrowser/code/server/sv_main.c' l='994' u='r' c='SV_CheckPaused'/>

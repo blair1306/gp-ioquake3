@@ -1,0 +1,20 @@
+<dec f='codebrowser/code/qcommon/qcommon.h' l='363' type='void VM_Free(vm_t * vm)'/>
+<doc f='codebrowser/code/qcommon/qcommon.h' l='361'>// module should be bare: &quot;cgame&quot;, not &quot;cgame.dll&quot; or &quot;vm/cgame.qvm&quot;</doc>
+<use f='codebrowser/code/client/cl_cgame.c' l='393' u='c' c='CL_ShutdownCGame'/>
+<use f='codebrowser/code/client/cl_ui.c' l='1095' u='c' c='CL_ShutdownUI'/>
+<use f='codebrowser/code/client/cl_ui.c' l='1133' u='c' c='CL_InitUI'/>
+<use f='codebrowser/code/qcommon/vm.c' l='384' u='c' c='VM_LoadQVM'/>
+<use f='codebrowser/code/qcommon/vm.c' l='409' u='c' c='VM_LoadQVM'/>
+<use f='codebrowser/code/qcommon/vm.c' l='428' u='c' c='VM_LoadQVM'/>
+<use f='codebrowser/code/qcommon/vm.c' l='435' u='c' c='VM_LoadQVM'/>
+<use f='codebrowser/code/qcommon/vm.c' l='464' u='c' c='VM_LoadQVM'/>
+<use f='codebrowser/code/qcommon/vm.c' l='501' u='c' c='VM_LoadQVM'/>
+<use f='codebrowser/code/qcommon/vm.c' l='547' u='c' c='VM_Restart'/>
+<def f='codebrowser/code/qcommon/vm.c' l='694' ll='731' type='void VM_Free(vm_t * vm)'/>
+<use f='codebrowser/code/qcommon/vm.c' l='736' u='c' c='VM_Clear'/>
+<doc f='codebrowser/code/qcommon/vm.c' l='689'>/*
+==============
+VM_Free
+==============
+*/</doc>
+<use f='codebrowser/code/server/sv_game.c' l='864' u='c' c='SV_ShutdownGameProgs'/>

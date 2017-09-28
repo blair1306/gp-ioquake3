@@ -1,0 +1,40 @@
+<dec f='codebrowser/code/game/bg_public.h' l='696' type='void BG_EvaluateTrajectory(const trajectory_t * tr, int atTime, vec_t * result)'/>
+<use f='codebrowser/code/cgame/cg_ents.c' l='692' u='c' c='CG_AdjustPositionForMover'/>
+<use f='codebrowser/code/cgame/cg_ents.c' l='693' u='c' c='CG_AdjustPositionForMover'/>
+<use f='codebrowser/code/cgame/cg_ents.c' l='695' u='c' c='CG_AdjustPositionForMover'/>
+<use f='codebrowser/code/cgame/cg_ents.c' l='696' u='c' c='CG_AdjustPositionForMover'/>
+<use f='codebrowser/code/cgame/cg_ents.c' l='726' u='c' c='CG_InterpolateEntityPosition'/>
+<use f='codebrowser/code/cgame/cg_ents.c' l='727' u='c' c='CG_InterpolateEntityPosition'/>
+<use f='codebrowser/code/cgame/cg_ents.c' l='733' u='c' c='CG_InterpolateEntityPosition'/>
+<use f='codebrowser/code/cgame/cg_ents.c' l='734' u='c' c='CG_InterpolateEntityPosition'/>
+<use f='codebrowser/code/cgame/cg_ents.c' l='773' u='c' c='CG_CalcEntityLerpPositions'/>
+<use f='codebrowser/code/cgame/cg_ents.c' l='774' u='c' c='CG_CalcEntityLerpPositions'/>
+<use f='codebrowser/code/cgame/cg_event.c' l='1277' u='c' c='CG_CheckEvents'/>
+<use f='codebrowser/code/cgame/cg_localents.c' l='133' u='c' c='CG_BloodTrail'/>
+<use f='codebrowser/code/cgame/cg_localents.c' l='273' u='c' c='CG_AddFragment'/>
+<use f='codebrowser/code/cgame/cg_localents.c' l='284' u='c' c='CG_AddFragment'/>
+<use f='codebrowser/code/cgame/cg_localents.c' l='377' u='c' c='CG_AddMoveScaleFade'/>
+<use f='codebrowser/code/cgame/cg_players.c' l='2609' u='c' c='CG_ResetPlayerEntity'/>
+<use f='codebrowser/code/cgame/cg_players.c' l='2610' u='c' c='CG_ResetPlayerEntity'/>
+<use f='codebrowser/code/cgame/cg_predict.c' l='107' u='c' c='CG_ClipMoveToEntities'/>
+<use f='codebrowser/code/cgame/cg_weapons.c' l='354' u='c' c='CG_RocketTrail'/>
+<use f='codebrowser/code/cgame/cg_weapons.c' l='363' u='c' c='CG_RocketTrail'/>
+<use f='codebrowser/code/cgame/cg_weapons.c' l='376' u='c' c='CG_RocketTrail'/>
+<use f='codebrowser/code/cgame/cg_weapons.c' l='482' u='c' c='CG_PlasmaTrail'/>
+<use f='codebrowser/code/cgame/cg_weapons.c' l='564' u='c' c='CG_GrappleTrail'/>
+<use f='codebrowser/code/game/bg_misc.c' l='1014' u='c' c='BG_PlayerTouchesItem'/>
+<def f='codebrowser/code/game/bg_misc.c' l='1197' ll='1234' type='void BG_EvaluateTrajectory(const trajectory_t * tr, int atTime, vec_t * result)'/>
+<doc f='codebrowser/code/game/bg_misc.c' l='1191'>/*
+================
+BG_EvaluateTrajectory
+
+================
+*/</doc>
+<use f='codebrowser/code/game/g_items.c' l='979' u='c' c='G_RunItem'/>
+<use f='codebrowser/code/game/g_missile.c' l='71' u='c' c='G_ExplodeMissile'/>
+<use f='codebrowser/code/game/g_missile.c' l='454' u='c' c='G_RunMissile'/>
+<use f='codebrowser/code/game/g_mover.c' l='433' u='c' c='G_MoverTeam'/>
+<use f='codebrowser/code/game/g_mover.c' l='434' u='c' c='G_MoverTeam'/>
+<use f='codebrowser/code/game/g_mover.c' l='447' u='c' c='G_MoverTeam'/>
+<use f='codebrowser/code/game/g_mover.c' l='448' u='c' c='G_MoverTeam'/>
+<use f='codebrowser/code/game/g_mover.c' l='540' u='c' c='SetMoverState'/>

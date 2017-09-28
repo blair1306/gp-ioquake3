@@ -1,0 +1,18 @@
+<dec f='codebrowser/code/renderergl2/tr_local.h' l='2008' type='void R_DrawElements(int numIndexes, glIndex_t firstIndex)'/>
+<def f='codebrowser/code/renderergl2/tr_shade.c' l='44' ll='47' type='void R_DrawElements(int numIndexes, glIndex_t firstIndex)'/>
+<use f='codebrowser/code/renderergl2/tr_shade.c' l='120' u='c' c='DrawTris'/>
+<use f='codebrowser/code/renderergl2/tr_shade.c' l='389' u='c' c='ProjectDlightTexture'/>
+<use f='codebrowser/code/renderergl2/tr_shade.c' l='803' u='c' c='ForwardDlight'/>
+<use f='codebrowser/code/renderergl2/tr_shade.c' l='873' u='c' c='ProjectPshadowVBOGLSL'/>
+<use f='codebrowser/code/renderergl2/tr_shade.c' l='949' u='c' c='RB_FogPass'/>
+<use f='codebrowser/code/renderergl2/tr_shade.c' l='1347' u='c' c='RB_IterateStagesGeneric'/>
+<use f='codebrowser/code/renderergl2/tr_shade.c' l='1405' u='c' c='RB_RenderShadowmap'/>
+<doc f='codebrowser/code/renderergl2/tr_shade.c' l='37'>/*
+==================
+R_DrawElements
+
+==================
+*/</doc>
+<use f='codebrowser/code/renderergl2/tr_sky.c' l='465' u='c' c='DrawSkySide'/>
+<use f='codebrowser/code/renderergl2/tr_surface.c' l='214' u='c' c='RB_InstantQuad2'/>
+<use f='codebrowser/code/renderergl2/tr_surface.c' l='551' u='c' c='RB_SurfaceBeam'/>

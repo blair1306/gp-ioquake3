@@ -1,0 +1,10 @@
+<dec f='codebrowser/code/game/g_local.h' l='573' type='void player_die(gentity_t * self, gentity_t * inflictor, gentity_t * attacker, int damage, int mod)'/>
+<use f='codebrowser/code/game/g_client.c' l='1157' u='r' c='ClientSpawn'/>
+<use f='codebrowser/code/game/g_cmds.c' l='483' u='c' c='Cmd_Kill_f'/>
+<use f='codebrowser/code/game/g_cmds.c' l='615' u='c' c='SetTeam'/>
+<def f='codebrowser/code/game/g_combat.c' l='434' ll='664' type='void player_die(gentity_t * self, gentity_t * inflictor, gentity_t * attacker, int damage, int meansOfDeath)'/>
+<doc f='codebrowser/code/game/g_combat.c' l='429'>/*
+==================
+player_die
+==================
+*/</doc>

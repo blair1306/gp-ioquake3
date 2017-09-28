@@ -1,0 +1,33 @@
+<dec f='codebrowser/code/qcommon/cm_local.h' l='86' type='dshader_t *'/>
+<use f='codebrowser/code/qcommon/cm_load.c' l='103' u='w' c='CMod_LoadShaders'/>
+<use f='codebrowser/code/qcommon/cm_load.c' l='103' u='r' c='CMod_LoadShaders'/>
+<use f='codebrowser/code/qcommon/cm_load.c' l='106' u='r' c='CMod_LoadShaders'/>
+<use f='codebrowser/code/qcommon/cm_load.c' l='106' u='r' c='CMod_LoadShaders'/>
+<use f='codebrowser/code/qcommon/cm_load.c' l='108' u='r' c='CMod_LoadShaders'/>
+<use f='codebrowser/code/qcommon/cm_load.c' l='257' u='r' c='CMod_LoadBrushes'/>
+<use f='codebrowser/code/qcommon/cm_load.c' l='433' u='r' c='CMod_LoadBrushSides'/>
+<use f='codebrowser/code/qcommon/cm_load.c' l='531' u='r' c='CMod_LoadPatches'/>
+<use f='codebrowser/code/qcommon/cm_load.c' l='532' u='r' c='CMod_LoadPatches'/>
+<offset>576</offset>
+<dec f='codebrowser/code/renderergl1/tr_local.h' l='691' type='dshader_t *'/>
+<dec f='codebrowser/code/renderergl1/tr_local.h' l='940' type='shader_t *[16384]'/>
+<offset>211136</offset>
+<use f='codebrowser/code/renderergl1/tr_bsp.c' l='280' u='r' c='ShaderForShaderNum'/>
+<use f='codebrowser/code/renderergl1/tr_bsp.c' l='400' u='r' c='ParseMesh'/>
+<use f='codebrowser/code/renderergl1/tr_bsp.c' l='1452' u='w' c='R_LoadShaders'/>
+<use f='codebrowser/code/renderergl1/tr_mesh.c' l='380' u='r' c='R_AddMD3Surfaces'/>
+<use f='codebrowser/code/renderergl1/tr_shader.c' l='2010' u='r' c='SortNewShader'/>
+<use f='codebrowser/code/renderergl1/tr_shader.c' l='2055' u='w' c='GeneratePermanentShader'/>
+<use f='codebrowser/code/renderergl1/tr_shader.c' l='2868' u='r' c='R_GetShaderByHandle'/>
+<use f='codebrowser/code/renderergl1/tr_shader.c' l='2891' u='r' c='R_ShaderList_f'/>
+<dec f='codebrowser/code/renderergl2/tr_local.h' l='1091' type='dshader_t *'/>
+<dec f='codebrowser/code/renderergl2/tr_local.h' l='1585' type='shader_t *[16384]'/>
+<offset>947136</offset>
+<use f='codebrowser/code/renderergl2/tr_bsp.c' l='609' u='r' c='ShaderForShaderNum'/>
+<use f='codebrowser/code/renderergl2/tr_bsp.c' l='822' u='r' c='ParseMesh'/>
+<use f='codebrowser/code/renderergl2/tr_bsp.c' l='1971' u='w' c='R_LoadShaders'/>
+<use f='codebrowser/code/renderergl2/tr_mesh.c' l='385' u='r' c='R_AddMD3Surfaces'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='2716' u='r' c='SortNewShader'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='2761' u='w' c='GeneratePermanentShader'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='3580' u='r' c='R_GetShaderByHandle'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='3603' u='r' c='R_ShaderList_f'/>

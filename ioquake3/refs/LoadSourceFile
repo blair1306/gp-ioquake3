@@ -1,0 +1,19 @@
+<dec f='codebrowser/code/botlib/l_precomp.h' l='149' type='source_t * LoadSourceFile(const char * filename)'/>
+<doc f='codebrowser/code/botlib/l_precomp.h' l='148'>//load a source file</doc>
+<use f='codebrowser/code/botlib/be_ai_char.c' l='222' u='c' c='BotLoadCharacterFromFile'/>
+<use f='codebrowser/code/botlib/be_ai_chat.c' l='629' u='c' c='BotLoadSynonyms'/>
+<use f='codebrowser/code/botlib/be_ai_chat.c' l='984' u='c' c='BotLoadRandomStrings'/>
+<use f='codebrowser/code/botlib/be_ai_chat.c' l='1286' u='c' c='BotLoadMatchTemplates'/>
+<use f='codebrowser/code/botlib/be_ai_chat.c' l='1858' u='c' c='BotLoadReplyChat'/>
+<use f='codebrowser/code/botlib/be_ai_chat.c' l='2057' u='c' c='BotLoadInitialChat'/>
+<use f='codebrowser/code/botlib/be_ai_goal.c' l='286' u='c' c='LoadItemConfig'/>
+<use f='codebrowser/code/botlib/be_ai_weap.c' l='224' u='c' c='LoadWeaponConfig'/>
+<use f='codebrowser/code/botlib/be_ai_weight.c' l='327' u='c' c='ReadWeightConfig'/>
+<def f='codebrowser/code/botlib/l_precomp.c' l='2989' ll='3016' type='source_t * LoadSourceFile(const char * filename)'/>
+<use f='codebrowser/code/botlib/l_precomp.c' l='3136' u='c' c='PC_LoadSourceHandle'/>
+<doc f='codebrowser/code/botlib/l_precomp.c' l='2983'>//============================================================================
+//
+// Parameter:			-
+// Returns:				-
+// Changes Globals:		-
+//============================================================================</doc>

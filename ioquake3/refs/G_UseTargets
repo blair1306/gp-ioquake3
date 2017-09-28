@@ -1,0 +1,22 @@
+<dec f='codebrowser/code/game/g_local.h' l='465' type='void G_UseTargets(gentity_t * ent, gentity_t * activator)'/>
+<use f='codebrowser/code/game/g_client.c' l='1208' u='c' c='ClientSpawn'/>
+<use f='codebrowser/code/game/g_items.c' l='511' u='c' c='Touch_Item'/>
+<use f='codebrowser/code/game/g_mover.c' l='607' u='c' c='Reached_BinaryMover'/>
+<use f='codebrowser/code/game/g_mover.c' l='1289' u='c' c='Reached_Train'/>
+<use f='codebrowser/code/game/g_target.c' l='95' u='c' c='Think_Target_Delay'/>
+<use f='codebrowser/code/game/g_target.c' l='395' u='c' c='target_relay_use'/>
+<use f='codebrowser/code/game/g_trigger.c' l='62' u='c' c='multi_trigger'/>
+<use f='codebrowser/code/game/g_trigger.c' l='121' u='c' c='trigger_always_think'/>
+<use f='codebrowser/code/game/g_trigger.c' l='426' u='c' c='func_timer_think'/>
+<def f='codebrowser/code/game/g_utils.c' l='235' ll='266' type='void G_UseTargets(gentity_t * ent, gentity_t * activator)'/>
+<doc f='codebrowser/code/game/g_utils.c' l='224'>/*
+==============================
+G_UseTargets
+
+&quot;activator&quot; should be set to the entity that initiated the firing.
+
+Search for (string)targetname in all entities that
+match (string)self.target and call their .use function
+
+==============================
+*/</doc>

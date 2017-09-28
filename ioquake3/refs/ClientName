@@ -1,0 +1,88 @@
+<dec f='codebrowser/code/game/ai_dmq3.h' l='74' type='char * ClientName(int client, char * name, int size)'/>
+<use f='codebrowser/code/game/ai_chat.c' l='778' u='c' c='BotChat_HitTalking'/>
+<use f='codebrowser/code/game/ai_chat.c' l='823' u='c' c='BotChat_HitNoDeath'/>
+<use f='codebrowser/code/game/ai_chat.c' l='861' u='c' c='BotChat_HitNoKill'/>
+<use f='codebrowser/code/game/ai_chat.c' l='1154' u='c' c='BotChatTest'/>
+<doc f='codebrowser/code/game/ai_dmq3.h' l='73'>//returns the name of the client</doc>
+<use f='codebrowser/code/game/ai_cmd.c' l='242' u='c' c='FindClientByName'/>
+<use f='codebrowser/code/game/ai_cmd.c' l='246' u='c' c='FindClientByName'/>
+<use f='codebrowser/code/game/ai_cmd.c' l='263' u='c' c='FindEnemyByName'/>
+<use f='codebrowser/code/game/ai_cmd.c' l='268' u='c' c='FindEnemyByName'/>
+<use f='codebrowser/code/game/ai_cmd.c' l='393' u='c' c='BotAddressedToBot'/>
+<use f='codebrowser/code/game/ai_cmd.c' l='1013' u='c' c='BotMatch_TaskPreference'/>
+<use f='codebrowser/code/game/ai_cmd.c' l='1308' u='c' c='BotMatch_StartTeamLeaderShip'/>
+<use f='codebrowser/code/game/ai_cmd.c' l='1335' u='c' c='BotMatch_StopTeamLeaderShip'/>
+<use f='codebrowser/code/game/ai_cmd.c' l='1352' u='c' c='BotMatch_WhoIsTeamLeader'/>
+<use f='codebrowser/code/game/ai_cmd.c' l='1399' u='c' c='BotMatch_WhatAreYouDoing'/>
+<use f='codebrowser/code/game/ai_cmd.c' l='1461' u='c' c='BotMatch_WhatIsMyCommand'/>
+<use f='codebrowser/code/game/ai_dmnet.c' l='85' u='c' c='BotDumpNodeSwitches'/>
+<use f='codebrowser/code/game/ai_dmnet.c' l='101' u='c' c='BotRecordNodeSwitch'/>
+<def f='codebrowser/code/game/ai_dmq3.c' l='1392' ll='1404' type='char * ClientName(int client, char * name, int size)'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='1488' u='c' c='EasyClientName'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='4384' u='c' c='BotPrintActivateGoalInfo'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='4622' u='c' c='BotCheckConsoleMessages'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='5240' u='c' c='BotDeathmatchAI'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='5295' u='c' c='BotDeathmatchAI'/>
+<doc f='codebrowser/code/game/ai_dmq3.c' l='1387'>/*
+==================
+ClientName
+==================
+*/</doc>
+<use f='codebrowser/code/game/ai_main.c' l='284' u='c' c='BotReportStatus'/>
+<use f='codebrowser/code/game/ai_main.c' l='337' u='c' c='BotReportStatus'/>
+<use f='codebrowser/code/game/ai_main.c' l='434' u='c' c='BotSetInfoConfigString'/>
+<use f='codebrowser/code/game/ai_main.c' l='485' u='c' c='BotSetInfoConfigString'/>
+<use f='codebrowser/code/game/ai_team.c' l='191' u='c' c='BotSetTeamMateTaskPreference'/>
+<use f='codebrowser/code/game/ai_team.c' l='204' u='c' c='BotGetTeamMateTaskPreference'/>
+<use f='codebrowser/code/game/ai_team.c' l='261' u='c' c='BotSayTeamOrderAlways'/>
+<use f='codebrowser/code/game/ai_team.c' l='349' u='c' c='BotCTFOrders_BothFlagsNotAtBase'/>
+<use f='codebrowser/code/game/ai_team.c' l='360' u='c' c='BotCTFOrders_BothFlagsNotAtBase'/>
+<use f='codebrowser/code/game/ai_team.c' l='362' u='c' c='BotCTFOrders_BothFlagsNotAtBase'/>
+<use f='codebrowser/code/game/ai_team.c' l='381' u='c' c='BotCTFOrders_BothFlagsNotAtBase'/>
+<use f='codebrowser/code/game/ai_team.c' l='394' u='c' c='BotCTFOrders_BothFlagsNotAtBase'/>
+<use f='codebrowser/code/game/ai_team.c' l='401' u='c' c='BotCTFOrders_BothFlagsNotAtBase'/>
+<use f='codebrowser/code/game/ai_team.c' l='420' u='c' c='BotCTFOrders_BothFlagsNotAtBase'/>
+<use f='codebrowser/code/game/ai_team.c' l='432' u='c' c='BotCTFOrders_BothFlagsNotAtBase'/>
+<use f='codebrowser/code/game/ai_team.c' l='463' u='c' c='BotCTFOrders_FlagNotAtBase'/>
+<use f='codebrowser/code/game/ai_team.c' l='468' u='c' c='BotCTFOrders_FlagNotAtBase'/>
+<use f='codebrowser/code/game/ai_team.c' l='477' u='c' c='BotCTFOrders_FlagNotAtBase'/>
+<use f='codebrowser/code/game/ai_team.c' l='482' u='c' c='BotCTFOrders_FlagNotAtBase'/>
+<use f='codebrowser/code/game/ai_team.c' l='487' u='c' c='BotCTFOrders_FlagNotAtBase'/>
+<use f='codebrowser/code/game/ai_team.c' l='502' u='c' c='BotCTFOrders_FlagNotAtBase'/>
+<use f='codebrowser/code/game/ai_team.c' l='509' u='c' c='BotCTFOrders_FlagNotAtBase'/>
+<use f='codebrowser/code/game/ai_team.c' l='526' u='c' c='BotCTFOrders_FlagNotAtBase'/>
+<use f='codebrowser/code/game/ai_team.c' l='531' u='c' c='BotCTFOrders_FlagNotAtBase'/>
+<use f='codebrowser/code/game/ai_team.c' l='540' u='c' c='BotCTFOrders_FlagNotAtBase'/>
+<use f='codebrowser/code/game/ai_team.c' l='545' u='c' c='BotCTFOrders_FlagNotAtBase'/>
+<use f='codebrowser/code/game/ai_team.c' l='550' u='c' c='BotCTFOrders_FlagNotAtBase'/>
+<use f='codebrowser/code/game/ai_team.c' l='565' u='c' c='BotCTFOrders_FlagNotAtBase'/>
+<use f='codebrowser/code/game/ai_team.c' l='572' u='c' c='BotCTFOrders_FlagNotAtBase'/>
+<use f='codebrowser/code/game/ai_team.c' l='604' u='c' c='BotCTFOrders_EnemyFlagNotAtBase'/>
+<use f='codebrowser/code/game/ai_team.c' l='615' u='c' c='BotCTFOrders_EnemyFlagNotAtBase'/>
+<use f='codebrowser/code/game/ai_team.c' l='622' u='c' c='BotCTFOrders_EnemyFlagNotAtBase'/>
+<use f='codebrowser/code/game/ai_team.c' l='641' u='c' c='BotCTFOrders_EnemyFlagNotAtBase'/>
+<use f='codebrowser/code/game/ai_team.c' l='648' u='c' c='BotCTFOrders_EnemyFlagNotAtBase'/>
+<use f='codebrowser/code/game/ai_team.c' l='655' u='c' c='BotCTFOrders_EnemyFlagNotAtBase'/>
+<use f='codebrowser/code/game/ai_team.c' l='674' u='c' c='BotCTFOrders_EnemyFlagNotAtBase'/>
+<use f='codebrowser/code/game/ai_team.c' l='709' u='c' c='BotCTFOrders_BothFlagsAtBase'/>
+<use f='codebrowser/code/game/ai_team.c' l='714' u='c' c='BotCTFOrders_BothFlagsAtBase'/>
+<use f='codebrowser/code/game/ai_team.c' l='723' u='c' c='BotCTFOrders_BothFlagsAtBase'/>
+<use f='codebrowser/code/game/ai_team.c' l='728' u='c' c='BotCTFOrders_BothFlagsAtBase'/>
+<use f='codebrowser/code/game/ai_team.c' l='733' u='c' c='BotCTFOrders_BothFlagsAtBase'/>
+<use f='codebrowser/code/game/ai_team.c' l='747' u='c' c='BotCTFOrders_BothFlagsAtBase'/>
+<use f='codebrowser/code/game/ai_team.c' l='754' u='c' c='BotCTFOrders_BothFlagsAtBase'/>
+<use f='codebrowser/code/game/ai_team.c' l='771' u='c' c='BotCTFOrders_BothFlagsAtBase'/>
+<use f='codebrowser/code/game/ai_team.c' l='776' u='c' c='BotCTFOrders_BothFlagsAtBase'/>
+<use f='codebrowser/code/game/ai_team.c' l='785' u='c' c='BotCTFOrders_BothFlagsAtBase'/>
+<use f='codebrowser/code/game/ai_team.c' l='790' u='c' c='BotCTFOrders_BothFlagsAtBase'/>
+<use f='codebrowser/code/game/ai_team.c' l='795' u='c' c='BotCTFOrders_BothFlagsAtBase'/>
+<use f='codebrowser/code/game/ai_team.c' l='809' u='c' c='BotCTFOrders_BothFlagsAtBase'/>
+<use f='codebrowser/code/game/ai_team.c' l='816' u='c' c='BotCTFOrders_BothFlagsAtBase'/>
+<use f='codebrowser/code/game/ai_team.c' l='859' u='c' c='BotCreateGroup'/>
+<use f='codebrowser/code/game/ai_team.c' l='862' u='c' c='BotCreateGroup'/>
+<use f='codebrowser/code/game/ai_team.c' l='1907' u='c' c='FindHumanTeamLeader'/>
+<use f='codebrowser/code/game/ai_team.c' l='1958' u='c' c='BotTeamAI'/>
+<use f='codebrowser/code/game/ai_team.c' l='1970' u='c' c='BotTeamAI'/>
+<use f='codebrowser/code/game/ai_vcmd.c' l='416' u='c' c='BotVoiceChat_StartLeader'/>
+<use f='codebrowser/code/game/ai_vcmd.c' l='427' u='c' c='BotVoiceChat_StopLeader'/>
+<use f='codebrowser/code/game/ai_vcmd.c' l='443' u='c' c='BotVoiceChat_WhoIsLeader'/>

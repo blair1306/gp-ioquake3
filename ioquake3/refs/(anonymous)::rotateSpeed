@@ -1,0 +1,16 @@
+<dec f='codebrowser/code/renderergl1/tr_local.h' l='245' type='float'/>
+<offset>512</offset>
+<doc f='codebrowser/code/renderergl1/tr_local.h' l='241'>// t&apos; = t + scroll[1] * time
+
+	// + = clockwise
+	// - = counterclockwise</doc>
+<use f='codebrowser/code/renderergl1/tr_shade.c' l='1094' u='r' c='ComputeTexCoords'/>
+<use f='codebrowser/code/renderergl1/tr_shader.c' l='567' u='w' c='ParseTexMod'/>
+<dec f='codebrowser/code/renderergl2/tr_local.h' l='324' type='float'/>
+<offset>512</offset>
+<doc f='codebrowser/code/renderergl2/tr_local.h' l='320'>// t&apos; = t + scroll[1] * time
+
+	// + = clockwise
+	// - = counterclockwise</doc>
+<use f='codebrowser/code/renderergl2/tr_shade.c' l='236' u='r' c='ComputeTexMods'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='579' u='w' c='ParseTexMod'/>

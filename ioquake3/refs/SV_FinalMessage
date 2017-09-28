@@ -1,0 +1,13 @@
+<dec f='codebrowser/code/server/server.h' l='335' type='void SV_FinalMessage(char * message)'/>
+<def f='codebrowser/code/server/sv_init.c' l='716' ll='735' type='void SV_FinalMessage(char * message)'/>
+<use f='codebrowser/code/server/sv_init.c' l='756' u='c' c='SV_Shutdown'/>
+<doc f='codebrowser/code/server/sv_init.c' l='706'>/*
+==================
+SV_FinalMessage
+
+Used by SV_Shutdown to send a final message to all
+connected clients before the server goes down.  The messages are sent immediately,
+not just stuck on the outgoing message list, because the server is going
+to totally exit after returning from this function.
+==================
+*/</doc>

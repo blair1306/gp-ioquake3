@@ -1,0 +1,9 @@
+<dec f='codebrowser/code/qcommon/qcommon.h' l='44' type='qboolean'/>
+<offset>32</offset>
+<doc f='codebrowser/code/qcommon/qcommon.h' l='44'>// set to true if the buffer size failed (with allowoverflow set)</doc>
+<use f='codebrowser/code/qcommon/msg.c' l='65' u='w' c='MSG_Clear'/>
+<use f='codebrowser/code/qcommon/msg.c' l='110' u='r' c='MSG_WriteBits'/>
+<use f='codebrowser/code/qcommon/msg.c' l='124' u='w' c='MSG_WriteBits'/>
+<use f='codebrowser/code/qcommon/msg.c' l='151' u='w' c='MSG_WriteBits'/>
+<use f='codebrowser/code/qcommon/msg.c' l='166' u='w' c='MSG_WriteBits'/>
+<use f='codebrowser/code/server/sv_snapshot.c' l='629' u='r' c='SV_SendClientSnapshot'/>

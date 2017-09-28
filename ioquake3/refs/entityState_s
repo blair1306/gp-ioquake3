@@ -1,0 +1,36 @@
+<def f='codebrowser/code/qcommon/q_shared.h' l='1280' ll='1322'/>
+<size>208</size>
+<doc f='codebrowser/code/qcommon/q_shared.h' l='1273'>// entityState_t is the information conveyed from the server
+// in an update message about entities that the client will
+// need to render in some way
+// Different eTypes may use the information in different ways
+// The messages are delta compressed, so it doesn&apos;t really matter if
+// the structure size is fairly large</doc>
+<mbr r='entityState_s::number' o='0' t='int'/>
+<mbr r='entityState_s::eType' o='32' t='int'/>
+<mbr r='entityState_s::eFlags' o='64' t='int'/>
+<mbr r='entityState_s::pos' o='96' t='trajectory_t'/>
+<mbr r='entityState_s::apos' o='384' t='trajectory_t'/>
+<mbr r='entityState_s::time' o='672' t='int'/>
+<mbr r='entityState_s::time2' o='704' t='int'/>
+<mbr r='entityState_s::origin' o='736' t='vec3_t'/>
+<mbr r='entityState_s::origin2' o='832' t='vec3_t'/>
+<mbr r='entityState_s::angles' o='928' t='vec3_t'/>
+<mbr r='entityState_s::angles2' o='1024' t='vec3_t'/>
+<mbr r='entityState_s::otherEntityNum' o='1120' t='int'/>
+<mbr r='entityState_s::otherEntityNum2' o='1152' t='int'/>
+<mbr r='entityState_s::groundEntityNum' o='1184' t='int'/>
+<mbr r='entityState_s::constantLight' o='1216' t='int'/>
+<mbr r='entityState_s::loopSound' o='1248' t='int'/>
+<mbr r='entityState_s::modelindex' o='1280' t='int'/>
+<mbr r='entityState_s::modelindex2' o='1312' t='int'/>
+<mbr r='entityState_s::clientNum' o='1344' t='int'/>
+<mbr r='entityState_s::frame' o='1376' t='int'/>
+<mbr r='entityState_s::solid' o='1408' t='int'/>
+<mbr r='entityState_s::event' o='1440' t='int'/>
+<mbr r='entityState_s::eventParm' o='1472' t='int'/>
+<mbr r='entityState_s::powerups' o='1504' t='int'/>
+<mbr r='entityState_s::weapon' o='1536' t='int'/>
+<mbr r='entityState_s::legsAnim' o='1568' t='int'/>
+<mbr r='entityState_s::torsoAnim' o='1600' t='int'/>
+<mbr r='entityState_s::generic1' o='1632' t='int'/>

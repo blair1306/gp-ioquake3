@@ -1,0 +1,26 @@
+<dec f='codebrowser/code/botlib/be_aas_def.h' l='140' type='struct aas_routingcache_s *'/>
+<offset>384</offset>
+<use f='codebrowser/code/botlib/be_aas_route.c' l='260' u='r' c='AAS_RemoveRoutingCacheInCluster'/>
+<use f='codebrowser/code/botlib/be_aas_route.c' l='295' u='r' c='AAS_RemoveRoutingCacheUsingArea'/>
+<use f='codebrowser/code/botlib/be_aas_route.c' l='715' u='w' c='AAS_FreeOldestCache'/>
+<use f='codebrowser/code/botlib/be_aas_route.c' l='715' u='r' c='AAS_FreeOldestCache'/>
+<use f='codebrowser/code/botlib/be_aas_route.c' l='716' u='r' c='AAS_FreeOldestCache'/>
+<use f='codebrowser/code/botlib/be_aas_route.c' l='717' u='r' c='AAS_FreeOldestCache'/>
+<use f='codebrowser/code/botlib/be_aas_route.c' l='717' u='r' c='AAS_FreeOldestCache'/>
+<use f='codebrowser/code/botlib/be_aas_route.c' l='721' u='w' c='AAS_FreeOldestCache'/>
+<use f='codebrowser/code/botlib/be_aas_route.c' l='721' u='r' c='AAS_FreeOldestCache'/>
+<use f='codebrowser/code/botlib/be_aas_route.c' l='722' u='r' c='AAS_FreeOldestCache'/>
+<use f='codebrowser/code/botlib/be_aas_route.c' l='723' u='r' c='AAS_FreeOldestCache'/>
+<use f='codebrowser/code/botlib/be_aas_route.c' l='723' u='r' c='AAS_FreeOldestCache'/>
+<use f='codebrowser/code/botlib/be_aas_route.c' l='776' u='r' c='AAS_FreeAllClusterAreaCache'/>
+<use f='codebrowser/code/botlib/be_aas_route.c' l='833' u='r' c='AAS_FreeAllPortalCache'/>
+<use f='codebrowser/code/botlib/be_aas_route.c' l='950' u='r' c='AAS_WriteRouteCache'/>
+<use f='codebrowser/code/botlib/be_aas_route.c' l='961' u='r' c='AAS_WriteRouteCache'/>
+<use f='codebrowser/code/botlib/be_aas_route.c' l='991' u='r' c='AAS_WriteRouteCache'/>
+<use f='codebrowser/code/botlib/be_aas_route.c' l='1002' u='r' c='AAS_WriteRouteCache'/>
+<use f='codebrowser/code/botlib/be_aas_route.c' l='1105' u='w' c='AAS_ReadRouteCache'/>
+<use f='codebrowser/code/botlib/be_aas_route.c' l='1116' u='w' c='AAS_ReadRouteCache'/>
+<use f='codebrowser/code/botlib/be_aas_route.c' l='1413' u='r' c='AAS_GetAreaRoutingCache'/>
+<use f='codebrowser/code/botlib/be_aas_route.c' l='1428' u='w' c='AAS_GetAreaRoutingCache'/>
+<use f='codebrowser/code/botlib/be_aas_route.c' l='1552' u='r' c='AAS_GetPortalRoutingCache'/>
+<use f='codebrowser/code/botlib/be_aas_route.c' l='1567' u='w' c='AAS_GetPortalRoutingCache'/>

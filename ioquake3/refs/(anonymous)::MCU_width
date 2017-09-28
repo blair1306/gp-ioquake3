@@ -1,0 +1,32 @@
+<dec f='codebrowser/code/jpeg-8c/jpeglib.h' l='173' type='int'/>
+<offset>448</offset>
+<doc f='codebrowser/code/jpeg-8c/jpeglib.h' l='172'>/* The decompressor output side may not use these variables. */</doc>
+<doc f='codebrowser/code/jpeg-8c/jpeglib.h' l='173'>/* number of blocks per MCU, horizontally */</doc>
+<use f='codebrowser/code/jpeg-8c/jccoefct.c' l='172' u='r' c='compress_data'/>
+<use f='codebrowser/code/jpeg-8c/jccoefct.c' l='184' u='r' c='compress_data'/>
+<use f='codebrowser/code/jpeg-8c/jccoefct.c' l='187' u='r' c='compress_data'/>
+<use f='codebrowser/code/jpeg-8c/jccoefct.c' l='188' u='r' c='compress_data'/>
+<use f='codebrowser/code/jpeg-8c/jccoefct.c' l='195' u='r' c='compress_data'/>
+<use f='codebrowser/code/jpeg-8c/jccoefct.c' l='196' u='r' c='compress_data'/>
+<use f='codebrowser/code/jpeg-8c/jccoefct.c' l='200' u='r' c='compress_data'/>
+<use f='codebrowser/code/jpeg-8c/jccoefct.c' l='376' u='r' c='compress_output'/>
+<use f='codebrowser/code/jpeg-8c/jccoefct.c' l='379' u='r' c='compress_output'/>
+<use f='codebrowser/code/jpeg-8c/jcmaster.c' l='589' u='w' c='per_scan_setup'/>
+<use f='codebrowser/code/jpeg-8c/jcmaster.c' l='625' u='w' c='per_scan_setup'/>
+<use f='codebrowser/code/jpeg-8c/jcmaster.c' l='627' u='r' c='per_scan_setup'/>
+<use f='codebrowser/code/jpeg-8c/jcmaster.c' l='628' u='r' c='per_scan_setup'/>
+<use f='codebrowser/code/jpeg-8c/jcmaster.c' l='630' u='r' c='per_scan_setup'/>
+<use f='codebrowser/code/jpeg-8c/jcmaster.c' l='631' u='r' c='per_scan_setup'/>
+<use f='codebrowser/code/jpeg-8c/jctrans.c' l='303' u='r' c='compress_output'/>
+<use f='codebrowser/code/jpeg-8c/jctrans.c' l='304' u='r' c='compress_output'/>
+<use f='codebrowser/code/jpeg-8c/jctrans.c' l='323' u='r' c='compress_output'/>
+<use f='codebrowser/code/jpeg-8c/jdcoefct.c' l='187' u='r' c='decompress_onepass'/>
+<use f='codebrowser/code/jpeg-8c/jdcoefct.c' l='203' u='r' c='decompress_onepass'/>
+<use f='codebrowser/code/jpeg-8c/jdcoefct.c' l='276' u='r' c='consume_data'/>
+<use f='codebrowser/code/jpeg-8c/jdcoefct.c' l='279' u='r' c='consume_data'/>
+<use f='codebrowser/code/jpeg-8c/jdinput.c' l='405' u='w' c='per_scan_setup'/>
+<use f='codebrowser/code/jpeg-8c/jdinput.c' l='441' u='w' c='per_scan_setup'/>
+<use f='codebrowser/code/jpeg-8c/jdinput.c' l='443' u='r' c='per_scan_setup'/>
+<use f='codebrowser/code/jpeg-8c/jdinput.c' l='444' u='r' c='per_scan_setup'/>
+<use f='codebrowser/code/jpeg-8c/jdinput.c' l='446' u='r' c='per_scan_setup'/>
+<use f='codebrowser/code/jpeg-8c/jdinput.c' l='447' u='r' c='per_scan_setup'/>

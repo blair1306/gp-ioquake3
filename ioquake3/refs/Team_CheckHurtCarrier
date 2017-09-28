@@ -1,0 +1,11 @@
+<dec f='codebrowser/code/game/g_team.h' l='77' type='void Team_CheckHurtCarrier(gentity_t * targ, gentity_t * attacker)'/>
+<use f='codebrowser/code/game/g_combat.c' l='1017' u='c' c='G_Damage'/>
+<def f='codebrowser/code/game/g_team.c' l='478' ll='505' type='void Team_CheckHurtCarrier(gentity_t * targ, gentity_t * attacker)'/>
+<doc f='codebrowser/code/game/g_team.c' l='470'>/*
+================
+Team_CheckHurtCarrier
+
+Check to see if attacker hurt the flag carrier.  Needed when handing out bonuses for assistance to flag
+carrier defense.
+================
+*/</doc>

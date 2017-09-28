@@ -1,0 +1,39 @@
+<dec f='codebrowser/code/jpeg-8c/jmorecfg.h' l='36'/>
+<use f='codebrowser/code/jpeg-8c/jpegint.h' l='112' u='c'/>
+<use f='codebrowser/code/jpeg-8c/jpegint.h' l='227' u='c'/>
+<doc f='codebrowser/code/jpeg-8c/jmorecfg.h' l='27'>/*
+ * Maximum number of components (color channels) allowed in JPEG image.
+ * To meet the letter of the JPEG spec, set this to 255.  However, darn
+ * few applications need more than 4 channels (maybe 5 for CMYK + alpha
+ * mask).  We recommend 10 as a reasonable compromise; use 4 if you are
+ * really short on memory.  (Each allowed component costs a hundred or so
+ * bytes of storage, whether actually used in an image or not.)
+ */</doc>
+<use f='codebrowser/code/jpeg-8c/jccoefct.c' l='54' u='c'/>
+<use f='codebrowser/code/jpeg-8c/jcdctmgr.c' l='26' u='c'/>
+<use f='codebrowser/code/jpeg-8c/jcdctmgr.c' l='36' u='c'/>
+<use f='codebrowser/code/jpeg-8c/jcmainct.c' l='40' u='c'/>
+<use f='codebrowser/code/jpeg-8c/jcmaster.c' l='273' u='c'/>
+<use f='codebrowser/code/jpeg-8c/jcmaster.c' l='275' u='c'/>
+<use f='codebrowser/code/jpeg-8c/jcmaster.c' l='366' u='c'/>
+<use f='codebrowser/code/jpeg-8c/jcmaster.c' l='369' u='c'/>
+<use f='codebrowser/code/jpeg-8c/jcparam.c' l='300' u='c'/>
+<use f='codebrowser/code/jpeg-8c/jcparam.c' l='481' u='c'/>
+<use f='codebrowser/code/jpeg-8c/jcparam.c' l='483' u='c'/>
+<use f='codebrowser/code/jpeg-8c/jcprepct.c' l='59' u='c'/>
+<use f='codebrowser/code/jpeg-8c/jcsample.c' l='64' u='c'/>
+<use f='codebrowser/code/jpeg-8c/jcsample.c' l='67' u='c'/>
+<use f='codebrowser/code/jpeg-8c/jcsample.c' l='72' u='c'/>
+<use f='codebrowser/code/jpeg-8c/jcsample.c' l='73' u='c'/>
+<use f='codebrowser/code/jpeg-8c/jctrans.c' l='108' u='c'/>
+<use f='codebrowser/code/jpeg-8c/jctrans.c' l='110' u='c'/>
+<use f='codebrowser/code/jpeg-8c/jdcoefct.c' l='52' u='c'/>
+<use f='codebrowser/code/jpeg-8c/jddctmgr.c' l='52' u='c'/>
+<use f='codebrowser/code/jpeg-8c/jdinput.c' l='224' u='c'/>
+<use f='codebrowser/code/jpeg-8c/jdinput.c' l='226' u='c'/>
+<use f='codebrowser/code/jpeg-8c/jdmainct.c' l='118' u='c'/>
+<use f='codebrowser/code/jpeg-8c/jdsample.c' l='44' u='c'/>
+<use f='codebrowser/code/jpeg-8c/jdsample.c' l='47' u='c'/>
+<use f='codebrowser/code/jpeg-8c/jdsample.c' l='53' u='c'/>
+<use f='codebrowser/code/jpeg-8c/jdsample.c' l='58' u='c'/>
+<use f='codebrowser/code/jpeg-8c/jdsample.c' l='59' u='c'/>

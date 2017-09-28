@@ -1,0 +1,11 @@
+<dec f='codebrowser/code/server/server.h' l='426' type='int SV_BotLibShutdown()'/>
+<def f='codebrowser/code/server/sv_bot.c' l='469' ll='476' type='int SV_BotLibShutdown()'/>
+<doc f='codebrowser/code/server/sv_bot.c' l='461'>/*
+===============
+SV_ShutdownBotLib
+
+Called when either the entire server is being killed, or
+it is changing to a different game directory.
+===============
+*/</doc>
+<use f='codebrowser/code/server/sv_game.c' l='437' u='c' c='SV_GameSystemCalls'/>

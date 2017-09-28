@@ -1,0 +1,18 @@
+<dec f='codebrowser/code/opusfile-0.8/include/opusfile.h' l='267' type='unsigned char [255]'/>
+<offset>256</offset>
+<doc f='codebrowser/code/opusfile-0.8/include/opusfile.h' l='260'>/**The mapping from coded stream channels to output channels.
+     Let &lt;code&gt;index=mapping[k]&lt;/code&gt; be the value for channel &lt;code&gt;k&lt;/code&gt;.
+     If &lt;code&gt;index&lt;2*coupled_count&lt;/code&gt;, then it refers to the left channel
+      from stream &lt;code&gt;(index/2)&lt;/code&gt; if even, and the right channel from
+      stream &lt;code&gt;(index/2)&lt;/code&gt; if odd.
+     Otherwise, it refers to the output of the uncoupled stream
+      &lt;code&gt;(index-coupled_count)&lt;/code&gt;.*/</doc>
+<use f='codebrowser/code/opusfile-0.8/src/info.c' l='59' u='w' c='opus_head_parse'/>
+<use f='codebrowser/code/opusfile-0.8/src/info.c' l='60' u='w' c='opus_head_parse'/>
+<use f='codebrowser/code/opusfile-0.8/src/info.c' l='79' u='r' c='opus_head_parse'/>
+<use f='codebrowser/code/opusfile-0.8/src/info.c' l='86' u='r' c='opus_head_parse'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='1357' u='r' c='op_make_decode_ready'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='1358' u='r' c='op_make_decode_ready'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='1365' u='r' c='op_make_decode_ready'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='1370' u='r' c='op_make_decode_ready'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='1370' u='r' c='op_make_decode_ready'/>

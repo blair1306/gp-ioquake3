@@ -1,0 +1,18 @@
+<dec f='codebrowser/code/renderergl1/tr_local.h' l='1290' type='int R_LightForPoint(vec_t * point, vec_t * ambientLight, vec_t * directedLight, vec_t * lightDir)'/>
+<use f='codebrowser/code/renderergl1/tr_init.c' l='1354' u='r' c='GetRefAPI'/>
+<def f='codebrowser/code/renderergl1/tr_light.c' l='385' ll='400' type='int R_LightForPoint(vec_t * point, vec_t * ambientLight, vec_t * directedLight, vec_t * lightDir)'/>
+<doc f='codebrowser/code/renderergl1/tr_light.c' l='380'>/*
+=================
+R_LightForPoint
+=================
+*/</doc>
+<dec f='codebrowser/code/renderergl2/tr_local.h' l='2061' type='int R_LightForPoint(vec_t * point, vec_t * ambientLight, vec_t * directedLight, vec_t * lightDir)'/>
+<use f='codebrowser/code/renderergl2/tr_init.c' l='1603' u='r' c='GetRefAPI'/>
+<def f='codebrowser/code/renderergl2/tr_light.c' l='447' ll='462' type='int R_LightForPoint(vec_t * point, vec_t * ambientLight, vec_t * directedLight, vec_t * lightDir)'/>
+<doc f='codebrowser/code/renderergl2/tr_light.c' l='442'>/*
+=================
+R_LightForPoint
+=================
+*/</doc>
+<use f='codebrowser/code/renderergl2/tr_main.c' l='2038' u='c' c='R_RenderPshadowMaps'/>
+<use f='codebrowser/code/renderergl2/tr_main.c' l='2626' u='c' c='R_RenderCubemapSide'/>

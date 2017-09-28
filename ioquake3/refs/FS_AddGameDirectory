@@ -1,0 +1,23 @@
+<dec f='codebrowser/code/qcommon/qcommon.h' l='617' type='void FS_AddGameDirectory(const char * path, const char * dir)'/>
+<doc f='codebrowser/code/qcommon/qcommon.h' l='615'>// shutdown and restart the filesystem so changes to fs_gamedir can take effect</doc>
+<def f='codebrowser/code/qcommon/files.c' l='2899' ll='3031' type='void FS_AddGameDirectory(const char * path, const char * dir)'/>
+<use f='codebrowser/code/qcommon/files.c' l='3315' u='c' c='FS_Startup'/>
+<use f='codebrowser/code/qcommon/files.c' l='3319' u='c' c='FS_Startup'/>
+<use f='codebrowser/code/qcommon/files.c' l='3322' u='c' c='FS_Startup'/>
+<use f='codebrowser/code/qcommon/files.c' l='3336' u='c' c='FS_Startup'/>
+<use f='codebrowser/code/qcommon/files.c' l='3342' u='c' c='FS_Startup'/>
+<use f='codebrowser/code/qcommon/files.c' l='3345' u='c' c='FS_Startup'/>
+<use f='codebrowser/code/qcommon/files.c' l='3348' u='c' c='FS_Startup'/>
+<use f='codebrowser/code/qcommon/files.c' l='3351' u='c' c='FS_Startup'/>
+<use f='codebrowser/code/qcommon/files.c' l='3358' u='c' c='FS_Startup'/>
+<use f='codebrowser/code/qcommon/files.c' l='3361' u='c' c='FS_Startup'/>
+<use f='codebrowser/code/qcommon/files.c' l='3364' u='c' c='FS_Startup'/>
+<use f='codebrowser/code/qcommon/files.c' l='3367' u='c' c='FS_Startup'/>
+<doc f='codebrowser/code/qcommon/files.c' l='2891'>/*
+================
+FS_AddGameDirectory
+
+Sets fs_gamedir, adds the directory to the head of the path,
+then loads the zip headers
+================
+*/</doc>

@@ -1,0 +1,23 @@
+<dec f='codebrowser/code/game/g_local.h' l='106' type='moverState_t'/>
+<offset>4832</offset>
+<doc f='codebrowser/code/game/g_local.h' l='102'>// when moving.  items and corpses do not collide against
+									// players, for instance
+
+	// movers</doc>
+<use f='codebrowser/code/game/g_combat.c' l='842' u='r' c='G_Damage'/>
+<use f='codebrowser/code/game/g_mover.c' l='513' u='w' c='SetMoverState'/>
+<use f='codebrowser/code/game/g_mover.c' l='590' u='r' c='Reached_BinaryMover'/>
+<use f='codebrowser/code/game/g_mover.c' l='608' u='r' c='Reached_BinaryMover'/>
+<use f='codebrowser/code/game/g_mover.c' l='644' u='r' c='Use_BinaryMover'/>
+<use f='codebrowser/code/game/g_mover.c' l='665' u='r' c='Use_BinaryMover'/>
+<use f='codebrowser/code/game/g_mover.c' l='671' u='r' c='Use_BinaryMover'/>
+<use f='codebrowser/code/game/g_mover.c' l='687' u='r' c='Use_BinaryMover'/>
+<use f='codebrowser/code/game/g_mover.c' l='761' u='w' c='InitMover'/>
+<use f='codebrowser/code/game/g_mover.c' l='860' u='r' c='Touch_DoorTrigger'/>
+<use f='codebrowser/code/game/g_mover.c' l='861' u='r' c='Touch_DoorTrigger'/>
+<use f='codebrowser/code/game/g_mover.c' l='865' u='r' c='Touch_DoorTrigger'/>
+<use f='codebrowser/code/game/g_mover.c' l='924' u='r' c='Think_SpawnNewDoorTrigger'/>
+<use f='codebrowser/code/game/g_mover.c' l='928' u='r' c='Think_MatchTeam'/>
+<use f='codebrowser/code/game/g_mover.c' l='1039' u='r' c='Touch_Plat'/>
+<use f='codebrowser/code/game/g_mover.c' l='1056' u='r' c='Touch_PlatCenterTrigger'/>
+<use f='codebrowser/code/game/g_mover.c' l='1181' u='r' c='Touch_Button'/>

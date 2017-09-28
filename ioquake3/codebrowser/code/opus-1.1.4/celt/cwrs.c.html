@@ -1,0 +1,733 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>cwrs.c source code [codebrowser/code/opus-1.1.4/celt/cwrs.c] - Woboq Code Browser</title>
+<link rel="stylesheet" href="../../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'codebrowser/code/opus-1.1.4/celt/cwrs.c'; var root_path = '../../../..'; var data_path = '../../../../../data';</script>
+<script src='../../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../../..'>codebrowser</a>/<a href='../..'>code</a>/<a href='..'>opus-1.1.4</a>/<a href='./'>celt</a>/<a href='cwrs.c.html'>cwrs.c</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/* Copyright (c) 2007-2008 CSIRO</i></td></tr>
+<tr><th id="2">2</th><td><i>   Copyright (c) 2007-2009 Xiph.Org Foundation</i></td></tr>
+<tr><th id="3">3</th><td><i>   Copyright (c) 2007-2009 Timothy B. Terriberry</i></td></tr>
+<tr><th id="4">4</th><td><i>   Written by Timothy B. Terriberry and Jean-Marc Valin */</i></td></tr>
+<tr><th id="5">5</th><td><i>/*</i></td></tr>
+<tr><th id="6">6</th><td><i>   Redistribution and use in source and binary forms, with or without</i></td></tr>
+<tr><th id="7">7</th><td><i>   modification, are permitted provided that the following conditions</i></td></tr>
+<tr><th id="8">8</th><td><i>   are met:</i></td></tr>
+<tr><th id="9">9</th><td><i></i></td></tr>
+<tr><th id="10">10</th><td><i>   - Redistributions of source code must retain the above copyright</i></td></tr>
+<tr><th id="11">11</th><td><i>   notice, this list of conditions and the following disclaimer.</i></td></tr>
+<tr><th id="12">12</th><td><i></i></td></tr>
+<tr><th id="13">13</th><td><i>   - Redistributions in binary form must reproduce the above copyright</i></td></tr>
+<tr><th id="14">14</th><td><i>   notice, this list of conditions and the following disclaimer in the</i></td></tr>
+<tr><th id="15">15</th><td><i>   documentation and/or other materials provided with the distribution.</i></td></tr>
+<tr><th id="16">16</th><td><i></i></td></tr>
+<tr><th id="17">17</th><td><i>   THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS</i></td></tr>
+<tr><th id="18">18</th><td><i>   ``AS IS'' AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT</i></td></tr>
+<tr><th id="19">19</th><td><i>   LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR</i></td></tr>
+<tr><th id="20">20</th><td><i>   A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER</i></td></tr>
+<tr><th id="21">21</th><td><i>   OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,</i></td></tr>
+<tr><th id="22">22</th><td><i>   EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,</i></td></tr>
+<tr><th id="23">23</th><td><i>   PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR</i></td></tr>
+<tr><th id="24">24</th><td><i>   PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF</i></td></tr>
+<tr><th id="25">25</th><td><i>   LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING</i></td></tr>
+<tr><th id="26">26</th><td><i>   NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS</i></td></tr>
+<tr><th id="27">27</th><td><i>   SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</i></td></tr>
+<tr><th id="28">28</th><td><i>*/</i></td></tr>
+<tr><th id="29">29</th><td></td></tr>
+<tr><th id="30">30</th><td><u>#<span data-ppcond="30">ifdef</span> <span class="macro" data-ref="_M/HAVE_CONFIG_H">HAVE_CONFIG_H</span></u></td></tr>
+<tr><th id="31">31</th><td><u>#include "config.h"</u></td></tr>
+<tr><th id="32">32</th><td><u>#<span data-ppcond="30">endif</span></u></td></tr>
+<tr><th id="33">33</th><td></td></tr>
+<tr><th id="34">34</th><td><u>#include <a href="os_support.h.html">"os_support.h"</a></u></td></tr>
+<tr><th id="35">35</th><td><u>#include <a href="cwrs.h.html">"cwrs.h"</a></u></td></tr>
+<tr><th id="36">36</th><td><u>#include <a href="mathops.h.html">"mathops.h"</a></u></td></tr>
+<tr><th id="37">37</th><td><u>#include <a href="arch.h.html">"arch.h"</a></u></td></tr>
+<tr><th id="38">38</th><td></td></tr>
+<tr><th id="39">39</th><td><u>#<span data-ppcond="39">ifdef</span> <span class="macro" data-ref="_M/CUSTOM_MODES">CUSTOM_MODES</span></u></td></tr>
+<tr><th id="40">40</th><td></td></tr>
+<tr><th id="41">41</th><td><i>/*Guaranteed to return a conservatively large estimate of the binary logarithm</i></td></tr>
+<tr><th id="42">42</th><td><i>   with frac bits of fractional precision.</i></td></tr>
+<tr><th id="43">43</th><td><i>  Tested for all possible 32-bit inputs with frac=4, where the maximum</i></td></tr>
+<tr><th id="44">44</th><td><i>   overestimation is 0.06254243 bits.*/</i></td></tr>
+<tr><th id="45">45</th><td><em>int</em> log2_frac(opus_uint32 val, <em>int</em> frac)</td></tr>
+<tr><th id="46">46</th><td>{</td></tr>
+<tr><th id="47">47</th><td>  <em>int</em> l;</td></tr>
+<tr><th id="48">48</th><td>  l=EC_ILOG(val);</td></tr>
+<tr><th id="49">49</th><td>  <b>if</b>(val&amp;(val-<var>1</var>)){</td></tr>
+<tr><th id="50">50</th><td>    <i>/*This is (val&gt;&gt;l-16), but guaranteed to round up, even if adding a bias</i></td></tr>
+<tr><th id="51">51</th><td><i>       before the shift would cause overflow (e.g., for 0xFFFFxxxx).</i></td></tr>
+<tr><th id="52">52</th><td><i>       Doesn't work for val=0, but that case fails the test above.*/</i></td></tr>
+<tr><th id="53">53</th><td>    <b>if</b>(l&gt;<var>16</var>)val=((val-<var>1</var>)&gt;&gt;(l-<var>16</var>))+<var>1</var>;</td></tr>
+<tr><th id="54">54</th><td>    <b>else</b> val&lt;&lt;=<var>16</var>-l;</td></tr>
+<tr><th id="55">55</th><td>    l=(l-<var>1</var>)&lt;&lt;frac;</td></tr>
+<tr><th id="56">56</th><td>    <i>/*Note that we always need one iteration, since the rounding up above means</i></td></tr>
+<tr><th id="57">57</th><td><i>       that we might need to adjust the integer part of the logarithm.*/</i></td></tr>
+<tr><th id="58">58</th><td>    <b>do</b>{</td></tr>
+<tr><th id="59">59</th><td>      <em>int</em> b;</td></tr>
+<tr><th id="60">60</th><td>      b=(<em>int</em>)(val&gt;&gt;<var>16</var>);</td></tr>
+<tr><th id="61">61</th><td>      l+=b&lt;&lt;frac;</td></tr>
+<tr><th id="62">62</th><td>      val=(val+b)&gt;&gt;b;</td></tr>
+<tr><th id="63">63</th><td>      val=(val*val+<var>0x7FFF</var>)&gt;&gt;<var>15</var>;</td></tr>
+<tr><th id="64">64</th><td>    }</td></tr>
+<tr><th id="65">65</th><td>    <b>while</b>(frac--&gt;<var>0</var>);</td></tr>
+<tr><th id="66">66</th><td>    <i>/*If val is not exactly 0x8000, then we have to round up the remainder.*/</i></td></tr>
+<tr><th id="67">67</th><td>    <b>return</b> l+(val&gt;<var>0x8000</var>);</td></tr>
+<tr><th id="68">68</th><td>  }</td></tr>
+<tr><th id="69">69</th><td>  <i>/*Exact powers of two require no rounding.*/</i></td></tr>
+<tr><th id="70">70</th><td>  <b>else</b> <b>return</b> (l-<var>1</var>)&lt;&lt;frac;</td></tr>
+<tr><th id="71">71</th><td>}</td></tr>
+<tr><th id="72">72</th><td><u>#<span data-ppcond="39">endif</span></u></td></tr>
+<tr><th id="73">73</th><td></td></tr>
+<tr><th id="74">74</th><td><i>/*Although derived separately, the pulse vector coding scheme is equivalent to</i></td></tr>
+<tr><th id="75">75</th><td><i>   a Pyramid Vector Quantizer \cite{Fis86}.</i></td></tr>
+<tr><th id="76">76</th><td><i>  Some additional notes about an early version appear at</i></td></tr>
+<tr><th id="77">77</th><td><i>   <a href="https://people.xiph.org/~tterribe/notes/cwrs.html,">https://people.xiph.org/~tterribe/notes/cwrs.html,</a> but the codebook ordering</i></td></tr>
+<tr><th id="78">78</th><td><i>   and the definitions of some terms have evolved since that was written.</i></td></tr>
+<tr><th id="79">79</th><td><i></i></td></tr>
+<tr><th id="80">80</th><td><i>  The conversion from a pulse vector to an integer index (encoding) and back</i></td></tr>
+<tr><th id="81">81</th><td><i>   (decoding) is governed by two related functions, V(N,K) and U(N,K).</i></td></tr>
+<tr><th id="82">82</th><td><i></i></td></tr>
+<tr><th id="83">83</th><td><i>  V(N,K) = the number of combinations, with replacement, of N items, taken K</i></td></tr>
+<tr><th id="84">84</th><td><i>   at a time, when a sign bit is added to each item taken at least once (i.e.,</i></td></tr>
+<tr><th id="85">85</th><td><i>   the number of N-dimensional unit pulse vectors with K pulses).</i></td></tr>
+<tr><th id="86">86</th><td><i>  One way to compute this is via</i></td></tr>
+<tr><th id="87">87</th><td><i>    V(N,K) = K&gt;0 ? sum(k=1...K,2**k*choose(N,k)*choose(K-1,k-1)) : 1,</i></td></tr>
+<tr><th id="88">88</th><td><i>   where choose() is the binomial function.</i></td></tr>
+<tr><th id="89">89</th><td><i>  A table of values for N&lt;10 and K&lt;10 looks like:</i></td></tr>
+<tr><th id="90">90</th><td><i>  V[10][10] = {</i></td></tr>
+<tr><th id="91">91</th><td><i>    {1,  0,   0,    0,    0,     0,     0,      0,      0,       0},</i></td></tr>
+<tr><th id="92">92</th><td><i>    {1,  2,   2,    2,    2,     2,     2,      2,      2,       2},</i></td></tr>
+<tr><th id="93">93</th><td><i>    {1,  4,   8,   12,   16,    20,    24,     28,     32,      36},</i></td></tr>
+<tr><th id="94">94</th><td><i>    {1,  6,  18,   38,   66,   102,   146,    198,    258,     326},</i></td></tr>
+<tr><th id="95">95</th><td><i>    {1,  8,  32,   88,  192,   360,   608,    952,   1408,    1992},</i></td></tr>
+<tr><th id="96">96</th><td><i>    {1, 10,  50,  170,  450,  1002,  1970,   3530,   5890,    9290},</i></td></tr>
+<tr><th id="97">97</th><td><i>    {1, 12,  72,  292,  912,  2364,  5336,  10836,  20256,   35436},</i></td></tr>
+<tr><th id="98">98</th><td><i>    {1, 14,  98,  462, 1666,  4942, 12642,  28814,  59906,  115598},</i></td></tr>
+<tr><th id="99">99</th><td><i>    {1, 16, 128,  688, 2816,  9424, 27008,  68464, 157184,  332688},</i></td></tr>
+<tr><th id="100">100</th><td><i>    {1, 18, 162,  978, 4482, 16722, 53154, 148626, 374274,  864146}</i></td></tr>
+<tr><th id="101">101</th><td><i>  };</i></td></tr>
+<tr><th id="102">102</th><td><i></i></td></tr>
+<tr><th id="103">103</th><td><i>  U(N,K) = the number of such combinations wherein N-1 objects are taken at</i></td></tr>
+<tr><th id="104">104</th><td><i>   most K-1 at a time.</i></td></tr>
+<tr><th id="105">105</th><td><i>  This is given by</i></td></tr>
+<tr><th id="106">106</th><td><i>    U(N,K) = sum(k=0...K-1,V(N-1,k))</i></td></tr>
+<tr><th id="107">107</th><td><i>           = K&gt;0 ? (V(N-1,K-1) + V(N,K-1))/2 : 0.</i></td></tr>
+<tr><th id="108">108</th><td><i>  The latter expression also makes clear that U(N,K) is half the number of such</i></td></tr>
+<tr><th id="109">109</th><td><i>   combinations wherein the first object is taken at least once.</i></td></tr>
+<tr><th id="110">110</th><td><i>  Although it may not be clear from either of these definitions, U(N,K) is the</i></td></tr>
+<tr><th id="111">111</th><td><i>   natural function to work with when enumerating the pulse vector codebooks,</i></td></tr>
+<tr><th id="112">112</th><td><i>   not V(N,K).</i></td></tr>
+<tr><th id="113">113</th><td><i>  U(N,K) is not well-defined for N=0, but with the extension</i></td></tr>
+<tr><th id="114">114</th><td><i>    U(0,K) = K&gt;0 ? 0 : 1,</i></td></tr>
+<tr><th id="115">115</th><td><i>   the function becomes symmetric: U(N,K) = U(K,N), with a similar table:</i></td></tr>
+<tr><th id="116">116</th><td><i>  U[10][10] = {</i></td></tr>
+<tr><th id="117">117</th><td><i>    {1, 0,  0,   0,    0,    0,     0,     0,      0,      0},</i></td></tr>
+<tr><th id="118">118</th><td><i>    {0, 1,  1,   1,    1,    1,     1,     1,      1,      1},</i></td></tr>
+<tr><th id="119">119</th><td><i>    {0, 1,  3,   5,    7,    9,    11,    13,     15,     17},</i></td></tr>
+<tr><th id="120">120</th><td><i>    {0, 1,  5,  13,   25,   41,    61,    85,    113,    145},</i></td></tr>
+<tr><th id="121">121</th><td><i>    {0, 1,  7,  25,   63,  129,   231,   377,    575,    833},</i></td></tr>
+<tr><th id="122">122</th><td><i>    {0, 1,  9,  41,  129,  321,   681,  1289,   2241,   3649},</i></td></tr>
+<tr><th id="123">123</th><td><i>    {0, 1, 11,  61,  231,  681,  1683,  3653,   7183,  13073},</i></td></tr>
+<tr><th id="124">124</th><td><i>    {0, 1, 13,  85,  377, 1289,  3653,  8989,  19825,  40081},</i></td></tr>
+<tr><th id="125">125</th><td><i>    {0, 1, 15, 113,  575, 2241,  7183, 19825,  48639, 108545},</i></td></tr>
+<tr><th id="126">126</th><td><i>    {0, 1, 17, 145,  833, 3649, 13073, 40081, 108545, 265729}</i></td></tr>
+<tr><th id="127">127</th><td><i>  };</i></td></tr>
+<tr><th id="128">128</th><td><i></i></td></tr>
+<tr><th id="129">129</th><td><i>  With this extension, V(N,K) may be written in terms of U(N,K):</i></td></tr>
+<tr><th id="130">130</th><td><i>    V(N,K) = U(N,K) + U(N,K+1)</i></td></tr>
+<tr><th id="131">131</th><td><i>   for all N&gt;=0, K&gt;=0.</i></td></tr>
+<tr><th id="132">132</th><td><i>  Thus U(N,K+1) represents the number of combinations where the first element</i></td></tr>
+<tr><th id="133">133</th><td><i>   is positive or zero, and U(N,K) represents the number of combinations where</i></td></tr>
+<tr><th id="134">134</th><td><i>   it is negative.</i></td></tr>
+<tr><th id="135">135</th><td><i>  With a large enough table of U(N,K) values, we could write O(N) encoding</i></td></tr>
+<tr><th id="136">136</th><td><i>   and O(min(N*log(K),N+K)) decoding routines, but such a table would be</i></td></tr>
+<tr><th id="137">137</th><td><i>   prohibitively large for small embedded devices (K may be as large as 32767</i></td></tr>
+<tr><th id="138">138</th><td><i>   for small N, and N may be as large as 200).</i></td></tr>
+<tr><th id="139">139</th><td><i></i></td></tr>
+<tr><th id="140">140</th><td><i>  Both functions obey the same recurrence relation:</i></td></tr>
+<tr><th id="141">141</th><td><i>    V(N,K) = V(N-1,K) + V(N,K-1) + V(N-1,K-1),</i></td></tr>
+<tr><th id="142">142</th><td><i>    U(N,K) = U(N-1,K) + U(N,K-1) + U(N-1,K-1),</i></td></tr>
+<tr><th id="143">143</th><td><i>   for all N&gt;0, K&gt;0, with different initial conditions at N=0 or K=0.</i></td></tr>
+<tr><th id="144">144</th><td><i>  This allows us to construct a row of one of the tables above given the</i></td></tr>
+<tr><th id="145">145</th><td><i>   previous row or the next row.</i></td></tr>
+<tr><th id="146">146</th><td><i>  Thus we can derive O(NK) encoding and decoding routines with O(K) memory</i></td></tr>
+<tr><th id="147">147</th><td><i>   using only addition and subtraction.</i></td></tr>
+<tr><th id="148">148</th><td><i></i></td></tr>
+<tr><th id="149">149</th><td><i>  When encoding, we build up from the U(2,K) row and work our way forwards.</i></td></tr>
+<tr><th id="150">150</th><td><i>  When decoding, we need to start at the U(N,K) row and work our way backwards,</i></td></tr>
+<tr><th id="151">151</th><td><i>   which requires a means of computing U(N,K).</i></td></tr>
+<tr><th id="152">152</th><td><i>  U(N,K) may be computed from two previous values with the same N:</i></td></tr>
+<tr><th id="153">153</th><td><i>    U(N,K) = ((2*N-1)*U(N,K-1) - U(N,K-2))/(K-1) + U(N,K-2)</i></td></tr>
+<tr><th id="154">154</th><td><i>   for all N&gt;1, and since U(N,K) is symmetric, a similar relation holds for two</i></td></tr>
+<tr><th id="155">155</th><td><i>   previous values with the same K:</i></td></tr>
+<tr><th id="156">156</th><td><i>    U(N,K&gt;1) = ((2*K-1)*U(N-1,K) - U(N-2,K))/(N-1) + U(N-2,K)</i></td></tr>
+<tr><th id="157">157</th><td><i>   for all K&gt;1.</i></td></tr>
+<tr><th id="158">158</th><td><i>  This allows us to construct an arbitrary row of the U(N,K) table by starting</i></td></tr>
+<tr><th id="159">159</th><td><i>   with the first two values, which are constants.</i></td></tr>
+<tr><th id="160">160</th><td><i>  This saves roughly 2/3 the work in our O(NK) decoding routine, but costs O(K)</i></td></tr>
+<tr><th id="161">161</th><td><i>   multiplications.</i></td></tr>
+<tr><th id="162">162</th><td><i>  Similar relations can be derived for V(N,K), but are not used here.</i></td></tr>
+<tr><th id="163">163</th><td><i></i></td></tr>
+<tr><th id="164">164</th><td><i>  For N&gt;0 and K&gt;0, U(N,K) and V(N,K) take on the form of an (N-1)-degree</i></td></tr>
+<tr><th id="165">165</th><td><i>   polynomial for fixed N.</i></td></tr>
+<tr><th id="166">166</th><td><i>  The first few are</i></td></tr>
+<tr><th id="167">167</th><td><i>    U(1,K) = 1,</i></td></tr>
+<tr><th id="168">168</th><td><i>    U(2,K) = 2*K-1,</i></td></tr>
+<tr><th id="169">169</th><td><i>    U(3,K) = (2*K-2)*K+1,</i></td></tr>
+<tr><th id="170">170</th><td><i>    U(4,K) = (((4*K-6)*K+8)*K-3)/3,</i></td></tr>
+<tr><th id="171">171</th><td><i>    U(5,K) = ((((2*K-4)*K+10)*K-8)*K+3)/3,</i></td></tr>
+<tr><th id="172">172</th><td><i>   and</i></td></tr>
+<tr><th id="173">173</th><td><i>    V(1,K) = 2,</i></td></tr>
+<tr><th id="174">174</th><td><i>    V(2,K) = 4*K,</i></td></tr>
+<tr><th id="175">175</th><td><i>    V(3,K) = 4*K*K+2,</i></td></tr>
+<tr><th id="176">176</th><td><i>    V(4,K) = 8*(K*K+2)*K/3,</i></td></tr>
+<tr><th id="177">177</th><td><i>    V(5,K) = ((4*K*K+20)*K*K+6)/3,</i></td></tr>
+<tr><th id="178">178</th><td><i>   for all K&gt;0.</i></td></tr>
+<tr><th id="179">179</th><td><i>  This allows us to derive O(N) encoding and O(N*log(K)) decoding routines for</i></td></tr>
+<tr><th id="180">180</th><td><i>   small N (and indeed decoding is also O(N) for N&lt;3).</i></td></tr>
+<tr><th id="181">181</th><td><i></i></td></tr>
+<tr><th id="182">182</th><td><i>  @ARTICLE{Fis86,</i></td></tr>
+<tr><th id="183">183</th><td><i>    author="Thomas R. Fischer",</i></td></tr>
+<tr><th id="184">184</th><td><i>    title="A Pyramid Vector Quantizer",</i></td></tr>
+<tr><th id="185">185</th><td><i>    journal="IEEE Transactions on Information Theory",</i></td></tr>
+<tr><th id="186">186</th><td><i>    volume="IT-32",</i></td></tr>
+<tr><th id="187">187</th><td><i>    number=4,</i></td></tr>
+<tr><th id="188">188</th><td><i>    pages="568--583",</i></td></tr>
+<tr><th id="189">189</th><td><i>    month=Jul,</i></td></tr>
+<tr><th id="190">190</th><td><i>    year=1986</i></td></tr>
+<tr><th id="191">191</th><td><i>  }*/</i></td></tr>
+<tr><th id="192">192</th><td></td></tr>
+<tr><th id="193">193</th><td><u>#<span data-ppcond="193">if</span> !defined(<span class="macro" data-ref="_M/SMALL_FOOTPRINT">SMALL_FOOTPRINT</span>)</u></td></tr>
+<tr><th id="194">194</th><td></td></tr>
+<tr><th id="195">195</th><td><i>/*U(N,K) = U(K,N) := N&gt;0?K&gt;0?U(N-1,K)+U(N,K-1)+U(N-1,K-1):0:K&gt;0?1:0*/</i></td></tr>
+<tr><th id="196">196</th><td><u># define <dfn class="macro" id="_M/CELT_PVQ_U" data-ref="_M/CELT_PVQ_U">CELT_PVQ_U</dfn>(_n,_k) (<a class="tu ref" href="#CELT_PVQ_U_ROW" title='CELT_PVQ_U_ROW' data-use='r' data-ref="CELT_PVQ_U_ROW">CELT_PVQ_U_ROW</a>[IMIN(_n,_k)][IMAX(_n,_k)])</u></td></tr>
+<tr><th id="197">197</th><td><i>/*V(N,K) := U(N,K)+U(N,K+1) = the number of PVQ codewords for a band of size N</i></td></tr>
+<tr><th id="198">198</th><td><i>   with K pulses allocated to it.*/</i></td></tr>
+<tr><th id="199">199</th><td><u># define <dfn class="macro" id="_M/CELT_PVQ_V" data-ref="_M/CELT_PVQ_V">CELT_PVQ_V</dfn>(_n,_k) (CELT_PVQ_U(_n,_k)+CELT_PVQ_U(_n,(_k)+1))</u></td></tr>
+<tr><th id="200">200</th><td></td></tr>
+<tr><th id="201">201</th><td><i>/*For each V(N,K) supported, we will access element U(min(N,K+1),max(N,K+1)).</i></td></tr>
+<tr><th id="202">202</th><td><i>  Thus, the number of entries in row I is the larger of the maximum number of</i></td></tr>
+<tr><th id="203">203</th><td><i>   pulses we will ever allocate for a given N=I (K=128, or however many fit in</i></td></tr>
+<tr><th id="204">204</th><td><i>   32 bits, whichever is smaller), plus one, and the maximum N for which</i></td></tr>
+<tr><th id="205">205</th><td><i>   K=I-1 pulses fit in 32 bits.</i></td></tr>
+<tr><th id="206">206</th><td><i>  The largest band size in an Opus Custom mode is 208.</i></td></tr>
+<tr><th id="207">207</th><td><i>  Otherwise, we can limit things to the set of N which can be achieved by</i></td></tr>
+<tr><th id="208">208</th><td><i>   splitting a band from a standard Opus mode: 176, 144, 96, 88, 72, 64, 48,</i></td></tr>
+<tr><th id="209">209</th><td><i>   44, 36, 32, 24, 22, 18, 16, 8, 4, 2).*/</i></td></tr>
+<tr><th id="210">210</th><td><u>#<span data-ppcond="210">if</span> defined(<span class="macro" data-ref="_M/CUSTOM_MODES">CUSTOM_MODES</span>)</u></td></tr>
+<tr><th id="211">211</th><td><em>static</em> <em>const</em> opus_uint32 CELT_PVQ_U_DATA[<var>1488</var>]={</td></tr>
+<tr><th id="212">212</th><td><u>#<span data-ppcond="210">else</span></u></td></tr>
+<tr><th id="213">213</th><td><em>static</em> <em>const</em> <a class="typedef" href="../include/opus_types.h.html#opus_uint32" title='opus_uint32' data-type='uint32_t' data-ref="opus_uint32">opus_uint32</a> <dfn class="tu decl def" id="CELT_PVQ_U_DATA" title='CELT_PVQ_U_DATA' data-type='const opus_uint32 [1272]' data-ref="CELT_PVQ_U_DATA">CELT_PVQ_U_DATA</dfn>[<var>1272</var>]={</td></tr>
+<tr><th id="214">214</th><td><u>#<span data-ppcond="210">endif</span></u></td></tr>
+<tr><th id="215">215</th><td>  <i>/*N=0, K=0...176:*/</i></td></tr>
+<tr><th id="216">216</th><td>  <var>1</var>, <var>0</var>, <var>0</var>, <var>0</var>, <var>0</var>, <var>0</var>, <var>0</var>, <var>0</var>, <var>0</var>, <var>0</var>, <var>0</var>, <var>0</var>, <var>0</var>, <var>0</var>, <var>0</var>, <var>0</var>, <var>0</var>, <var>0</var>, <var>0</var>, <var>0</var>, <var>0</var>, <var>0</var>, <var>0</var>, <var>0</var>, <var>0</var>, <var>0</var>,</td></tr>
+<tr><th id="217">217</th><td>  <var>0</var>, <var>0</var>, <var>0</var>, <var>0</var>, <var>0</var>, <var>0</var>, <var>0</var>, <var>0</var>, <var>0</var>, <var>0</var>, <var>0</var>, <var>0</var>, <var>0</var>, <var>0</var>, <var>0</var>, <var>0</var>, <var>0</var>, <var>0</var>, <var>0</var>, <var>0</var>, <var>0</var>, <var>0</var>, <var>0</var>, <var>0</var>, <var>0</var>, <var>0</var>,</td></tr>
+<tr><th id="218">218</th><td>  <var>0</var>, <var>0</var>, <var>0</var>, <var>0</var>, <var>0</var>, <var>0</var>, <var>0</var>, <var>0</var>, <var>0</var>, <var>0</var>, <var>0</var>, <var>0</var>, <var>0</var>, <var>0</var>, <var>0</var>, <var>0</var>, <var>0</var>, <var>0</var>, <var>0</var>, <var>0</var>, <var>0</var>, <var>0</var>, <var>0</var>, <var>0</var>, <var>0</var>, <var>0</var>,</td></tr>
+<tr><th id="219">219</th><td>  <var>0</var>, <var>0</var>, <var>0</var>, <var>0</var>, <var>0</var>, <var>0</var>, <var>0</var>, <var>0</var>, <var>0</var>, <var>0</var>, <var>0</var>, <var>0</var>, <var>0</var>, <var>0</var>, <var>0</var>, <var>0</var>, <var>0</var>, <var>0</var>, <var>0</var>, <var>0</var>, <var>0</var>, <var>0</var>, <var>0</var>, <var>0</var>, <var>0</var>, <var>0</var>,</td></tr>
+<tr><th id="220">220</th><td>  <var>0</var>, <var>0</var>, <var>0</var>, <var>0</var>, <var>0</var>, <var>0</var>, <var>0</var>, <var>0</var>, <var>0</var>, <var>0</var>, <var>0</var>, <var>0</var>, <var>0</var>, <var>0</var>, <var>0</var>, <var>0</var>, <var>0</var>, <var>0</var>, <var>0</var>, <var>0</var>, <var>0</var>, <var>0</var>, <var>0</var>, <var>0</var>, <var>0</var>, <var>0</var>,</td></tr>
+<tr><th id="221">221</th><td>  <var>0</var>, <var>0</var>, <var>0</var>, <var>0</var>, <var>0</var>, <var>0</var>, <var>0</var>, <var>0</var>, <var>0</var>, <var>0</var>, <var>0</var>, <var>0</var>, <var>0</var>, <var>0</var>, <var>0</var>, <var>0</var>, <var>0</var>, <var>0</var>, <var>0</var>, <var>0</var>, <var>0</var>, <var>0</var>, <var>0</var>, <var>0</var>, <var>0</var>, <var>0</var>,</td></tr>
+<tr><th id="222">222</th><td>  <var>0</var>, <var>0</var>, <var>0</var>, <var>0</var>, <var>0</var>, <var>0</var>, <var>0</var>, <var>0</var>, <var>0</var>, <var>0</var>, <var>0</var>, <var>0</var>, <var>0</var>, <var>0</var>, <var>0</var>, <var>0</var>, <var>0</var>, <var>0</var>, <var>0</var>, <var>0</var>, <var>0</var>,</td></tr>
+<tr><th id="223">223</th><td><u>#<span data-ppcond="223">if</span> defined(<span class="macro" data-ref="_M/CUSTOM_MODES">CUSTOM_MODES</span>)</u></td></tr>
+<tr><th id="224">224</th><td>  <i>/*...208:*/</i></td></tr>
+<tr><th id="225">225</th><td>  <var>0</var>, <var>0</var>, <var>0</var>, <var>0</var>, <var>0</var>, <var>0</var>, <var>0</var>, <var>0</var>, <var>0</var>, <var>0</var>, <var>0</var>, <var>0</var>, <var>0</var>, <var>0</var>, <var>0</var>, <var>0</var>, <var>0</var>, <var>0</var>, <var>0</var>, <var>0</var>, <var>0</var>, <var>0</var>, <var>0</var>, <var>0</var>, <var>0</var>, <var>0</var>,</td></tr>
+<tr><th id="226">226</th><td>  <var>0</var>, <var>0</var>, <var>0</var>, <var>0</var>, <var>0</var>, <var>0</var>,</td></tr>
+<tr><th id="227">227</th><td><u>#<span data-ppcond="223">endif</span></u></td></tr>
+<tr><th id="228">228</th><td>  <i>/*N=1, K=1...176:*/</i></td></tr>
+<tr><th id="229">229</th><td>  <var>1</var>, <var>1</var>, <var>1</var>, <var>1</var>, <var>1</var>, <var>1</var>, <var>1</var>, <var>1</var>, <var>1</var>, <var>1</var>, <var>1</var>, <var>1</var>, <var>1</var>, <var>1</var>, <var>1</var>, <var>1</var>, <var>1</var>, <var>1</var>, <var>1</var>, <var>1</var>, <var>1</var>, <var>1</var>, <var>1</var>, <var>1</var>, <var>1</var>, <var>1</var>,</td></tr>
+<tr><th id="230">230</th><td>  <var>1</var>, <var>1</var>, <var>1</var>, <var>1</var>, <var>1</var>, <var>1</var>, <var>1</var>, <var>1</var>, <var>1</var>, <var>1</var>, <var>1</var>, <var>1</var>, <var>1</var>, <var>1</var>, <var>1</var>, <var>1</var>, <var>1</var>, <var>1</var>, <var>1</var>, <var>1</var>, <var>1</var>, <var>1</var>, <var>1</var>, <var>1</var>, <var>1</var>, <var>1</var>,</td></tr>
+<tr><th id="231">231</th><td>  <var>1</var>, <var>1</var>, <var>1</var>, <var>1</var>, <var>1</var>, <var>1</var>, <var>1</var>, <var>1</var>, <var>1</var>, <var>1</var>, <var>1</var>, <var>1</var>, <var>1</var>, <var>1</var>, <var>1</var>, <var>1</var>, <var>1</var>, <var>1</var>, <var>1</var>, <var>1</var>, <var>1</var>, <var>1</var>, <var>1</var>, <var>1</var>, <var>1</var>, <var>1</var>,</td></tr>
+<tr><th id="232">232</th><td>  <var>1</var>, <var>1</var>, <var>1</var>, <var>1</var>, <var>1</var>, <var>1</var>, <var>1</var>, <var>1</var>, <var>1</var>, <var>1</var>, <var>1</var>, <var>1</var>, <var>1</var>, <var>1</var>, <var>1</var>, <var>1</var>, <var>1</var>, <var>1</var>, <var>1</var>, <var>1</var>, <var>1</var>, <var>1</var>, <var>1</var>, <var>1</var>, <var>1</var>, <var>1</var>,</td></tr>
+<tr><th id="233">233</th><td>  <var>1</var>, <var>1</var>, <var>1</var>, <var>1</var>, <var>1</var>, <var>1</var>, <var>1</var>, <var>1</var>, <var>1</var>, <var>1</var>, <var>1</var>, <var>1</var>, <var>1</var>, <var>1</var>, <var>1</var>, <var>1</var>, <var>1</var>, <var>1</var>, <var>1</var>, <var>1</var>, <var>1</var>, <var>1</var>, <var>1</var>, <var>1</var>, <var>1</var>, <var>1</var>,</td></tr>
+<tr><th id="234">234</th><td>  <var>1</var>, <var>1</var>, <var>1</var>, <var>1</var>, <var>1</var>, <var>1</var>, <var>1</var>, <var>1</var>, <var>1</var>, <var>1</var>, <var>1</var>, <var>1</var>, <var>1</var>, <var>1</var>, <var>1</var>, <var>1</var>, <var>1</var>, <var>1</var>, <var>1</var>, <var>1</var>, <var>1</var>, <var>1</var>, <var>1</var>, <var>1</var>, <var>1</var>, <var>1</var>,</td></tr>
+<tr><th id="235">235</th><td>  <var>1</var>, <var>1</var>, <var>1</var>, <var>1</var>, <var>1</var>, <var>1</var>, <var>1</var>, <var>1</var>, <var>1</var>, <var>1</var>, <var>1</var>, <var>1</var>, <var>1</var>, <var>1</var>, <var>1</var>, <var>1</var>, <var>1</var>, <var>1</var>, <var>1</var>, <var>1</var>,</td></tr>
+<tr><th id="236">236</th><td><u>#<span data-ppcond="236">if</span> defined(<span class="macro" data-ref="_M/CUSTOM_MODES">CUSTOM_MODES</span>)</u></td></tr>
+<tr><th id="237">237</th><td>  <i>/*...208:*/</i></td></tr>
+<tr><th id="238">238</th><td>  <var>1</var>, <var>1</var>, <var>1</var>, <var>1</var>, <var>1</var>, <var>1</var>, <var>1</var>, <var>1</var>, <var>1</var>, <var>1</var>, <var>1</var>, <var>1</var>, <var>1</var>, <var>1</var>, <var>1</var>, <var>1</var>, <var>1</var>, <var>1</var>, <var>1</var>, <var>1</var>, <var>1</var>, <var>1</var>, <var>1</var>, <var>1</var>, <var>1</var>, <var>1</var>,</td></tr>
+<tr><th id="239">239</th><td>  <var>1</var>, <var>1</var>, <var>1</var>, <var>1</var>, <var>1</var>, <var>1</var>,</td></tr>
+<tr><th id="240">240</th><td><u>#<span data-ppcond="236">endif</span></u></td></tr>
+<tr><th id="241">241</th><td>  <i>/*N=2, K=2...176:*/</i></td></tr>
+<tr><th id="242">242</th><td>  <var>3</var>, <var>5</var>, <var>7</var>, <var>9</var>, <var>11</var>, <var>13</var>, <var>15</var>, <var>17</var>, <var>19</var>, <var>21</var>, <var>23</var>, <var>25</var>, <var>27</var>, <var>29</var>, <var>31</var>, <var>33</var>, <var>35</var>, <var>37</var>, <var>39</var>, <var>41</var>,</td></tr>
+<tr><th id="243">243</th><td>  <var>43</var>, <var>45</var>, <var>47</var>, <var>49</var>, <var>51</var>, <var>53</var>, <var>55</var>, <var>57</var>, <var>59</var>, <var>61</var>, <var>63</var>, <var>65</var>, <var>67</var>, <var>69</var>, <var>71</var>, <var>73</var>, <var>75</var>, <var>77</var>, <var>79</var>,</td></tr>
+<tr><th id="244">244</th><td>  <var>81</var>, <var>83</var>, <var>85</var>, <var>87</var>, <var>89</var>, <var>91</var>, <var>93</var>, <var>95</var>, <var>97</var>, <var>99</var>, <var>101</var>, <var>103</var>, <var>105</var>, <var>107</var>, <var>109</var>, <var>111</var>, <var>113</var>,</td></tr>
+<tr><th id="245">245</th><td>  <var>115</var>, <var>117</var>, <var>119</var>, <var>121</var>, <var>123</var>, <var>125</var>, <var>127</var>, <var>129</var>, <var>131</var>, <var>133</var>, <var>135</var>, <var>137</var>, <var>139</var>, <var>141</var>, <var>143</var>,</td></tr>
+<tr><th id="246">246</th><td>  <var>145</var>, <var>147</var>, <var>149</var>, <var>151</var>, <var>153</var>, <var>155</var>, <var>157</var>, <var>159</var>, <var>161</var>, <var>163</var>, <var>165</var>, <var>167</var>, <var>169</var>, <var>171</var>, <var>173</var>,</td></tr>
+<tr><th id="247">247</th><td>  <var>175</var>, <var>177</var>, <var>179</var>, <var>181</var>, <var>183</var>, <var>185</var>, <var>187</var>, <var>189</var>, <var>191</var>, <var>193</var>, <var>195</var>, <var>197</var>, <var>199</var>, <var>201</var>, <var>203</var>,</td></tr>
+<tr><th id="248">248</th><td>  <var>205</var>, <var>207</var>, <var>209</var>, <var>211</var>, <var>213</var>, <var>215</var>, <var>217</var>, <var>219</var>, <var>221</var>, <var>223</var>, <var>225</var>, <var>227</var>, <var>229</var>, <var>231</var>, <var>233</var>,</td></tr>
+<tr><th id="249">249</th><td>  <var>235</var>, <var>237</var>, <var>239</var>, <var>241</var>, <var>243</var>, <var>245</var>, <var>247</var>, <var>249</var>, <var>251</var>, <var>253</var>, <var>255</var>, <var>257</var>, <var>259</var>, <var>261</var>, <var>263</var>,</td></tr>
+<tr><th id="250">250</th><td>  <var>265</var>, <var>267</var>, <var>269</var>, <var>271</var>, <var>273</var>, <var>275</var>, <var>277</var>, <var>279</var>, <var>281</var>, <var>283</var>, <var>285</var>, <var>287</var>, <var>289</var>, <var>291</var>, <var>293</var>,</td></tr>
+<tr><th id="251">251</th><td>  <var>295</var>, <var>297</var>, <var>299</var>, <var>301</var>, <var>303</var>, <var>305</var>, <var>307</var>, <var>309</var>, <var>311</var>, <var>313</var>, <var>315</var>, <var>317</var>, <var>319</var>, <var>321</var>, <var>323</var>,</td></tr>
+<tr><th id="252">252</th><td>  <var>325</var>, <var>327</var>, <var>329</var>, <var>331</var>, <var>333</var>, <var>335</var>, <var>337</var>, <var>339</var>, <var>341</var>, <var>343</var>, <var>345</var>, <var>347</var>, <var>349</var>, <var>351</var>,</td></tr>
+<tr><th id="253">253</th><td><u>#<span data-ppcond="253">if</span> defined(<span class="macro" data-ref="_M/CUSTOM_MODES">CUSTOM_MODES</span>)</u></td></tr>
+<tr><th id="254">254</th><td>  <i>/*...208:*/</i></td></tr>
+<tr><th id="255">255</th><td>  <var>353</var>, <var>355</var>, <var>357</var>, <var>359</var>, <var>361</var>, <var>363</var>, <var>365</var>, <var>367</var>, <var>369</var>, <var>371</var>, <var>373</var>, <var>375</var>, <var>377</var>, <var>379</var>, <var>381</var>,</td></tr>
+<tr><th id="256">256</th><td>  <var>383</var>, <var>385</var>, <var>387</var>, <var>389</var>, <var>391</var>, <var>393</var>, <var>395</var>, <var>397</var>, <var>399</var>, <var>401</var>, <var>403</var>, <var>405</var>, <var>407</var>, <var>409</var>, <var>411</var>,</td></tr>
+<tr><th id="257">257</th><td>  <var>413</var>, <var>415</var>,</td></tr>
+<tr><th id="258">258</th><td><u>#<span data-ppcond="253">endif</span></u></td></tr>
+<tr><th id="259">259</th><td>  <i>/*N=3, K=3...176:*/</i></td></tr>
+<tr><th id="260">260</th><td>  <var>13</var>, <var>25</var>, <var>41</var>, <var>61</var>, <var>85</var>, <var>113</var>, <var>145</var>, <var>181</var>, <var>221</var>, <var>265</var>, <var>313</var>, <var>365</var>, <var>421</var>, <var>481</var>, <var>545</var>, <var>613</var>,</td></tr>
+<tr><th id="261">261</th><td>  <var>685</var>, <var>761</var>, <var>841</var>, <var>925</var>, <var>1013</var>, <var>1105</var>, <var>1201</var>, <var>1301</var>, <var>1405</var>, <var>1513</var>, <var>1625</var>, <var>1741</var>, <var>1861</var>,</td></tr>
+<tr><th id="262">262</th><td>  <var>1985</var>, <var>2113</var>, <var>2245</var>, <var>2381</var>, <var>2521</var>, <var>2665</var>, <var>2813</var>, <var>2965</var>, <var>3121</var>, <var>3281</var>, <var>3445</var>, <var>3613</var>, <var>3785</var>,</td></tr>
+<tr><th id="263">263</th><td>  <var>3961</var>, <var>4141</var>, <var>4325</var>, <var>4513</var>, <var>4705</var>, <var>4901</var>, <var>5101</var>, <var>5305</var>, <var>5513</var>, <var>5725</var>, <var>5941</var>, <var>6161</var>, <var>6385</var>,</td></tr>
+<tr><th id="264">264</th><td>  <var>6613</var>, <var>6845</var>, <var>7081</var>, <var>7321</var>, <var>7565</var>, <var>7813</var>, <var>8065</var>, <var>8321</var>, <var>8581</var>, <var>8845</var>, <var>9113</var>, <var>9385</var>, <var>9661</var>,</td></tr>
+<tr><th id="265">265</th><td>  <var>9941</var>, <var>10225</var>, <var>10513</var>, <var>10805</var>, <var>11101</var>, <var>11401</var>, <var>11705</var>, <var>12013</var>, <var>12325</var>, <var>12641</var>, <var>12961</var>,</td></tr>
+<tr><th id="266">266</th><td>  <var>13285</var>, <var>13613</var>, <var>13945</var>, <var>14281</var>, <var>14621</var>, <var>14965</var>, <var>15313</var>, <var>15665</var>, <var>16021</var>, <var>16381</var>, <var>16745</var>,</td></tr>
+<tr><th id="267">267</th><td>  <var>17113</var>, <var>17485</var>, <var>17861</var>, <var>18241</var>, <var>18625</var>, <var>19013</var>, <var>19405</var>, <var>19801</var>, <var>20201</var>, <var>20605</var>, <var>21013</var>,</td></tr>
+<tr><th id="268">268</th><td>  <var>21425</var>, <var>21841</var>, <var>22261</var>, <var>22685</var>, <var>23113</var>, <var>23545</var>, <var>23981</var>, <var>24421</var>, <var>24865</var>, <var>25313</var>, <var>25765</var>,</td></tr>
+<tr><th id="269">269</th><td>  <var>26221</var>, <var>26681</var>, <var>27145</var>, <var>27613</var>, <var>28085</var>, <var>28561</var>, <var>29041</var>, <var>29525</var>, <var>30013</var>, <var>30505</var>, <var>31001</var>,</td></tr>
+<tr><th id="270">270</th><td>  <var>31501</var>, <var>32005</var>, <var>32513</var>, <var>33025</var>, <var>33541</var>, <var>34061</var>, <var>34585</var>, <var>35113</var>, <var>35645</var>, <var>36181</var>, <var>36721</var>,</td></tr>
+<tr><th id="271">271</th><td>  <var>37265</var>, <var>37813</var>, <var>38365</var>, <var>38921</var>, <var>39481</var>, <var>40045</var>, <var>40613</var>, <var>41185</var>, <var>41761</var>, <var>42341</var>, <var>42925</var>,</td></tr>
+<tr><th id="272">272</th><td>  <var>43513</var>, <var>44105</var>, <var>44701</var>, <var>45301</var>, <var>45905</var>, <var>46513</var>, <var>47125</var>, <var>47741</var>, <var>48361</var>, <var>48985</var>, <var>49613</var>,</td></tr>
+<tr><th id="273">273</th><td>  <var>50245</var>, <var>50881</var>, <var>51521</var>, <var>52165</var>, <var>52813</var>, <var>53465</var>, <var>54121</var>, <var>54781</var>, <var>55445</var>, <var>56113</var>, <var>56785</var>,</td></tr>
+<tr><th id="274">274</th><td>  <var>57461</var>, <var>58141</var>, <var>58825</var>, <var>59513</var>, <var>60205</var>, <var>60901</var>, <var>61601</var>,</td></tr>
+<tr><th id="275">275</th><td><u>#<span data-ppcond="275">if</span> defined(<span class="macro" data-ref="_M/CUSTOM_MODES">CUSTOM_MODES</span>)</u></td></tr>
+<tr><th id="276">276</th><td>  <i>/*...208:*/</i></td></tr>
+<tr><th id="277">277</th><td>  <var>62305</var>, <var>63013</var>, <var>63725</var>, <var>64441</var>, <var>65161</var>, <var>65885</var>, <var>66613</var>, <var>67345</var>, <var>68081</var>, <var>68821</var>, <var>69565</var>,</td></tr>
+<tr><th id="278">278</th><td>  <var>70313</var>, <var>71065</var>, <var>71821</var>, <var>72581</var>, <var>73345</var>, <var>74113</var>, <var>74885</var>, <var>75661</var>, <var>76441</var>, <var>77225</var>, <var>78013</var>,</td></tr>
+<tr><th id="279">279</th><td>  <var>78805</var>, <var>79601</var>, <var>80401</var>, <var>81205</var>, <var>82013</var>, <var>82825</var>, <var>83641</var>, <var>84461</var>, <var>85285</var>, <var>86113</var>,</td></tr>
+<tr><th id="280">280</th><td><u>#<span data-ppcond="275">endif</span></u></td></tr>
+<tr><th id="281">281</th><td>  <i>/*N=4, K=4...176:*/</i></td></tr>
+<tr><th id="282">282</th><td>  <var>63</var>, <var>129</var>, <var>231</var>, <var>377</var>, <var>575</var>, <var>833</var>, <var>1159</var>, <var>1561</var>, <var>2047</var>, <var>2625</var>, <var>3303</var>, <var>4089</var>, <var>4991</var>, <var>6017</var>,</td></tr>
+<tr><th id="283">283</th><td>  <var>7175</var>, <var>8473</var>, <var>9919</var>, <var>11521</var>, <var>13287</var>, <var>15225</var>, <var>17343</var>, <var>19649</var>, <var>22151</var>, <var>24857</var>, <var>27775</var>,</td></tr>
+<tr><th id="284">284</th><td>  <var>30913</var>, <var>34279</var>, <var>37881</var>, <var>41727</var>, <var>45825</var>, <var>50183</var>, <var>54809</var>, <var>59711</var>, <var>64897</var>, <var>70375</var>, <var>76153</var>,</td></tr>
+<tr><th id="285">285</th><td>  <var>82239</var>, <var>88641</var>, <var>95367</var>, <var>102425</var>, <var>109823</var>, <var>117569</var>, <var>125671</var>, <var>134137</var>, <var>142975</var>, <var>152193</var>,</td></tr>
+<tr><th id="286">286</th><td>  <var>161799</var>, <var>171801</var>, <var>182207</var>, <var>193025</var>, <var>204263</var>, <var>215929</var>, <var>228031</var>, <var>240577</var>, <var>253575</var>,</td></tr>
+<tr><th id="287">287</th><td>  <var>267033</var>, <var>280959</var>, <var>295361</var>, <var>310247</var>, <var>325625</var>, <var>341503</var>, <var>357889</var>, <var>374791</var>, <var>392217</var>,</td></tr>
+<tr><th id="288">288</th><td>  <var>410175</var>, <var>428673</var>, <var>447719</var>, <var>467321</var>, <var>487487</var>, <var>508225</var>, <var>529543</var>, <var>551449</var>, <var>573951</var>,</td></tr>
+<tr><th id="289">289</th><td>  <var>597057</var>, <var>620775</var>, <var>645113</var>, <var>670079</var>, <var>695681</var>, <var>721927</var>, <var>748825</var>, <var>776383</var>, <var>804609</var>,</td></tr>
+<tr><th id="290">290</th><td>  <var>833511</var>, <var>863097</var>, <var>893375</var>, <var>924353</var>, <var>956039</var>, <var>988441</var>, <var>1021567</var>, <var>1055425</var>, <var>1090023</var>,</td></tr>
+<tr><th id="291">291</th><td>  <var>1125369</var>, <var>1161471</var>, <var>1198337</var>, <var>1235975</var>, <var>1274393</var>, <var>1313599</var>, <var>1353601</var>, <var>1394407</var>,</td></tr>
+<tr><th id="292">292</th><td>  <var>1436025</var>, <var>1478463</var>, <var>1521729</var>, <var>1565831</var>, <var>1610777</var>, <var>1656575</var>, <var>1703233</var>, <var>1750759</var>,</td></tr>
+<tr><th id="293">293</th><td>  <var>1799161</var>, <var>1848447</var>, <var>1898625</var>, <var>1949703</var>, <var>2001689</var>, <var>2054591</var>, <var>2108417</var>, <var>2163175</var>,</td></tr>
+<tr><th id="294">294</th><td>  <var>2218873</var>, <var>2275519</var>, <var>2333121</var>, <var>2391687</var>, <var>2451225</var>, <var>2511743</var>, <var>2573249</var>, <var>2635751</var>,</td></tr>
+<tr><th id="295">295</th><td>  <var>2699257</var>, <var>2763775</var>, <var>2829313</var>, <var>2895879</var>, <var>2963481</var>, <var>3032127</var>, <var>3101825</var>, <var>3172583</var>,</td></tr>
+<tr><th id="296">296</th><td>  <var>3244409</var>, <var>3317311</var>, <var>3391297</var>, <var>3466375</var>, <var>3542553</var>, <var>3619839</var>, <var>3698241</var>, <var>3777767</var>,</td></tr>
+<tr><th id="297">297</th><td>  <var>3858425</var>, <var>3940223</var>, <var>4023169</var>, <var>4107271</var>, <var>4192537</var>, <var>4278975</var>, <var>4366593</var>, <var>4455399</var>,</td></tr>
+<tr><th id="298">298</th><td>  <var>4545401</var>, <var>4636607</var>, <var>4729025</var>, <var>4822663</var>, <var>4917529</var>, <var>5013631</var>, <var>5110977</var>, <var>5209575</var>,</td></tr>
+<tr><th id="299">299</th><td>  <var>5309433</var>, <var>5410559</var>, <var>5512961</var>, <var>5616647</var>, <var>5721625</var>, <var>5827903</var>, <var>5935489</var>, <var>6044391</var>,</td></tr>
+<tr><th id="300">300</th><td>  <var>6154617</var>, <var>6266175</var>, <var>6379073</var>, <var>6493319</var>, <var>6608921</var>, <var>6725887</var>, <var>6844225</var>, <var>6963943</var>,</td></tr>
+<tr><th id="301">301</th><td>  <var>7085049</var>, <var>7207551</var>,</td></tr>
+<tr><th id="302">302</th><td><u>#<span data-ppcond="302">if</span> defined(<span class="macro" data-ref="_M/CUSTOM_MODES">CUSTOM_MODES</span>)</u></td></tr>
+<tr><th id="303">303</th><td>  <i>/*...208:*/</i></td></tr>
+<tr><th id="304">304</th><td>  <var>7331457</var>, <var>7456775</var>, <var>7583513</var>, <var>7711679</var>, <var>7841281</var>, <var>7972327</var>, <var>8104825</var>, <var>8238783</var>,</td></tr>
+<tr><th id="305">305</th><td>  <var>8374209</var>, <var>8511111</var>, <var>8649497</var>, <var>8789375</var>, <var>8930753</var>, <var>9073639</var>, <var>9218041</var>, <var>9363967</var>,</td></tr>
+<tr><th id="306">306</th><td>  <var>9511425</var>, <var>9660423</var>, <var>9810969</var>, <var>9963071</var>, <var>10116737</var>, <var>10271975</var>, <var>10428793</var>, <var>10587199</var>,</td></tr>
+<tr><th id="307">307</th><td>  <var>10747201</var>, <var>10908807</var>, <var>11072025</var>, <var>11236863</var>, <var>11403329</var>, <var>11571431</var>, <var>11741177</var>,</td></tr>
+<tr><th id="308">308</th><td>  <var>11912575</var>,</td></tr>
+<tr><th id="309">309</th><td><u>#<span data-ppcond="302">endif</span></u></td></tr>
+<tr><th id="310">310</th><td>  <i>/*N=5, K=5...176:*/</i></td></tr>
+<tr><th id="311">311</th><td>  <var>321</var>, <var>681</var>, <var>1289</var>, <var>2241</var>, <var>3649</var>, <var>5641</var>, <var>8361</var>, <var>11969</var>, <var>16641</var>, <var>22569</var>, <var>29961</var>, <var>39041</var>,</td></tr>
+<tr><th id="312">312</th><td>  <var>50049</var>, <var>63241</var>, <var>78889</var>, <var>97281</var>, <var>118721</var>, <var>143529</var>, <var>172041</var>, <var>204609</var>, <var>241601</var>, <var>283401</var>,</td></tr>
+<tr><th id="313">313</th><td>  <var>330409</var>, <var>383041</var>, <var>441729</var>, <var>506921</var>, <var>579081</var>, <var>658689</var>, <var>746241</var>, <var>842249</var>, <var>947241</var>,</td></tr>
+<tr><th id="314">314</th><td>  <var>1061761</var>, <var>1186369</var>, <var>1321641</var>, <var>1468169</var>, <var>1626561</var>, <var>1797441</var>, <var>1981449</var>, <var>2179241</var>,</td></tr>
+<tr><th id="315">315</th><td>  <var>2391489</var>, <var>2618881</var>, <var>2862121</var>, <var>3121929</var>, <var>3399041</var>, <var>3694209</var>, <var>4008201</var>, <var>4341801</var>,</td></tr>
+<tr><th id="316">316</th><td>  <var>4695809</var>, <var>5071041</var>, <var>5468329</var>, <var>5888521</var>, <var>6332481</var>, <var>6801089</var>, <var>7295241</var>, <var>7815849</var>,</td></tr>
+<tr><th id="317">317</th><td>  <var>8363841</var>, <var>8940161</var>, <var>9545769</var>, <var>10181641</var>, <var>10848769</var>, <var>11548161</var>, <var>12280841</var>, <var>13047849</var>,</td></tr>
+<tr><th id="318">318</th><td>  <var>13850241</var>, <var>14689089</var>, <var>15565481</var>, <var>16480521</var>, <var>17435329</var>, <var>18431041</var>, <var>19468809</var>,</td></tr>
+<tr><th id="319">319</th><td>  <var>20549801</var>, <var>21675201</var>, <var>22846209</var>, <var>24064041</var>, <var>25329929</var>, <var>26645121</var>, <var>28010881</var>,</td></tr>
+<tr><th id="320">320</th><td>  <var>29428489</var>, <var>30899241</var>, <var>32424449</var>, <var>34005441</var>, <var>35643561</var>, <var>37340169</var>, <var>39096641</var>,</td></tr>
+<tr><th id="321">321</th><td>  <var>40914369</var>, <var>42794761</var>, <var>44739241</var>, <var>46749249</var>, <var>48826241</var>, <var>50971689</var>, <var>53187081</var>,</td></tr>
+<tr><th id="322">322</th><td>  <var>55473921</var>, <var>57833729</var>, <var>60268041</var>, <var>62778409</var>, <var>65366401</var>, <var>68033601</var>, <var>70781609</var>,</td></tr>
+<tr><th id="323">323</th><td>  <var>73612041</var>, <var>76526529</var>, <var>79526721</var>, <var>82614281</var>, <var>85790889</var>, <var>89058241</var>, <var>92418049</var>,</td></tr>
+<tr><th id="324">324</th><td>  <var>95872041</var>, <var>99421961</var>, <var>103069569</var>, <var>106816641</var>, <var>110664969</var>, <var>114616361</var>, <var>118672641</var>,</td></tr>
+<tr><th id="325">325</th><td>  <var>122835649</var>, <var>127107241</var>, <var>131489289</var>, <var>135983681</var>, <var>140592321</var>, <var>145317129</var>, <var>150160041</var>,</td></tr>
+<tr><th id="326">326</th><td>  <var>155123009</var>, <var>160208001</var>, <var>165417001</var>, <var>170752009</var>, <var>176215041</var>, <var>181808129</var>, <var>187533321</var>,</td></tr>
+<tr><th id="327">327</th><td>  <var>193392681</var>, <var>199388289</var>, <var>205522241</var>, <var>211796649</var>, <var>218213641</var>, <var>224775361</var>, <var>231483969</var>,</td></tr>
+<tr><th id="328">328</th><td>  <var>238341641</var>, <var>245350569</var>, <var>252512961</var>, <var>259831041</var>, <var>267307049</var>, <var>274943241</var>, <var>282741889</var>,</td></tr>
+<tr><th id="329">329</th><td>  <var>290705281</var>, <var>298835721</var>, <var>307135529</var>, <var>315607041</var>, <var>324252609</var>, <var>333074601</var>, <var>342075401</var>,</td></tr>
+<tr><th id="330">330</th><td>  <var>351257409</var>, <var>360623041</var>, <var>370174729</var>, <var>379914921</var>, <var>389846081</var>, <var>399970689</var>, <var>410291241</var>,</td></tr>
+<tr><th id="331">331</th><td>  <var>420810249</var>, <var>431530241</var>, <var>442453761</var>, <var>453583369</var>, <var>464921641</var>, <var>476471169</var>, <var>488234561</var>,</td></tr>
+<tr><th id="332">332</th><td>  <var>500214441</var>, <var>512413449</var>, <var>524834241</var>, <var>537479489</var>, <var>550351881</var>, <var>563454121</var>, <var>576788929</var>,</td></tr>
+<tr><th id="333">333</th><td>  <var>590359041</var>, <var>604167209</var>, <var>618216201</var>, <var>632508801</var>,</td></tr>
+<tr><th id="334">334</th><td><u>#<span data-ppcond="334">if</span> defined(<span class="macro" data-ref="_M/CUSTOM_MODES">CUSTOM_MODES</span>)</u></td></tr>
+<tr><th id="335">335</th><td>  <i>/*...208:*/</i></td></tr>
+<tr><th id="336">336</th><td>  <var>647047809</var>, <var>661836041</var>, <var>676876329</var>, <var>692171521</var>, <var>707724481</var>, <var>723538089</var>, <var>739615241</var>,</td></tr>
+<tr><th id="337">337</th><td>  <var>755958849</var>, <var>772571841</var>, <var>789457161</var>, <var>806617769</var>, <var>824056641</var>, <var>841776769</var>, <var>859781161</var>,</td></tr>
+<tr><th id="338">338</th><td>  <var>878072841</var>, <var>896654849</var>, <var>915530241</var>, <var>934702089</var>, <var>954173481</var>, <var>973947521</var>, <var>994027329</var>,</td></tr>
+<tr><th id="339">339</th><td>  <var>1014416041</var>, <var>1035116809</var>, <var>1056132801</var>, <var>1077467201</var>, <var>1099123209</var>, <var>1121104041</var>,</td></tr>
+<tr><th id="340">340</th><td>  <var>1143412929</var>, <var>1166053121</var>, <var>1189027881</var>, <var>1212340489</var>, <var>1235994241</var>,</td></tr>
+<tr><th id="341">341</th><td><u>#<span data-ppcond="334">endif</span></u></td></tr>
+<tr><th id="342">342</th><td>  <i>/*N=6, K=6...96:*/</i></td></tr>
+<tr><th id="343">343</th><td>  <var>1683</var>, <var>3653</var>, <var>7183</var>, <var>13073</var>, <var>22363</var>, <var>36365</var>, <var>56695</var>, <var>85305</var>, <var>124515</var>, <var>177045</var>, <var>246047</var>,</td></tr>
+<tr><th id="344">344</th><td>  <var>335137</var>, <var>448427</var>, <var>590557</var>, <var>766727</var>, <var>982729</var>, <var>1244979</var>, <var>1560549</var>, <var>1937199</var>, <var>2383409</var>,</td></tr>
+<tr><th id="345">345</th><td>  <var>2908411</var>, <var>3522221</var>, <var>4235671</var>, <var>5060441</var>, <var>6009091</var>, <var>7095093</var>, <var>8332863</var>, <var>9737793</var>,</td></tr>
+<tr><th id="346">346</th><td>  <var>11326283</var>, <var>13115773</var>, <var>15124775</var>, <var>17372905</var>, <var>19880915</var>, <var>22670725</var>, <var>25765455</var>,</td></tr>
+<tr><th id="347">347</th><td>  <var>29189457</var>, <var>32968347</var>, <var>37129037</var>, <var>41699767</var>, <var>46710137</var>, <var>52191139</var>, <var>58175189</var>,</td></tr>
+<tr><th id="348">348</th><td>  <var>64696159</var>, <var>71789409</var>, <var>79491819</var>, <var>87841821</var>, <var>96879431</var>, <var>106646281</var>, <var>117185651</var>,</td></tr>
+<tr><th id="349">349</th><td>  <var>128542501</var>, <var>140763503</var>, <var>153897073</var>, <var>167993403</var>, <var>183104493</var>, <var>199284183</var>, <var>216588185</var>,</td></tr>
+<tr><th id="350">350</th><td>  <var>235074115</var>, <var>254801525</var>, <var>275831935</var>, <var>298228865</var>, <var>322057867</var>, <var>347386557</var>, <var>374284647</var>,</td></tr>
+<tr><th id="351">351</th><td>  <var>402823977</var>, <var>433078547</var>, <var>465124549</var>, <var>499040399</var>, <var>534906769</var>, <var>572806619</var>, <var>612825229</var>,</td></tr>
+<tr><th id="352">352</th><td>  <var>655050231</var>, <var>699571641</var>, <var>746481891</var>, <var>795875861</var>, <var>847850911</var>, <var>902506913</var>, <var>959946283</var>,</td></tr>
+<tr><th id="353">353</th><td>  <var>1020274013</var>, <var>1083597703</var>, <var>1150027593</var>, <var>1219676595</var>, <var>1292660325</var>, <var>1369097135</var>,</td></tr>
+<tr><th id="354">354</th><td>  <var>1449108145</var>, <var>1532817275</var>, <var>1620351277</var>, <var>1711839767</var>, <var>1807415257</var>, <var>1907213187</var>,</td></tr>
+<tr><th id="355">355</th><td>  <var>2011371957</var>, <var>2120032959</var>,</td></tr>
+<tr><th id="356">356</th><td><u>#<span data-ppcond="356">if</span> defined(<span class="macro" data-ref="_M/CUSTOM_MODES">CUSTOM_MODES</span>)</u></td></tr>
+<tr><th id="357">357</th><td>  <i>/*...109:*/</i></td></tr>
+<tr><th id="358">358</th><td>  <var>2233340609U</var>, <var>2351442379U</var>, <var>2474488829U</var>, <var>2602633639U</var>, <var>2736033641U</var>, <var>2874848851U</var>,</td></tr>
+<tr><th id="359">359</th><td>  <var>3019242501U</var>, <var>3169381071U</var>, <var>3325434321U</var>, <var>3487575323U</var>, <var>3655980493U</var>, <var>3830829623U</var>,</td></tr>
+<tr><th id="360">360</th><td>  <var>4012305913U</var>,</td></tr>
+<tr><th id="361">361</th><td><u>#<span data-ppcond="356">endif</span></u></td></tr>
+<tr><th id="362">362</th><td>  <i>/*N=7, K=7...54*/</i></td></tr>
+<tr><th id="363">363</th><td>  <var>8989</var>, <var>19825</var>, <var>40081</var>, <var>75517</var>, <var>134245</var>, <var>227305</var>, <var>369305</var>, <var>579125</var>, <var>880685</var>, <var>1303777</var>,</td></tr>
+<tr><th id="364">364</th><td>  <var>1884961</var>, <var>2668525</var>, <var>3707509</var>, <var>5064793</var>, <var>6814249</var>, <var>9041957</var>, <var>11847485</var>, <var>15345233</var>,</td></tr>
+<tr><th id="365">365</th><td>  <var>19665841</var>, <var>24957661</var>, <var>31388293</var>, <var>39146185</var>, <var>48442297</var>, <var>59511829</var>, <var>72616013</var>,</td></tr>
+<tr><th id="366">366</th><td>  <var>88043969</var>, <var>106114625</var>, <var>127178701</var>, <var>151620757</var>, <var>179861305</var>, <var>212358985</var>, <var>249612805</var>,</td></tr>
+<tr><th id="367">367</th><td>  <var>292164445</var>, <var>340600625</var>, <var>395555537</var>, <var>457713341</var>, <var>527810725</var>, <var>606639529</var>, <var>695049433</var>,</td></tr>
+<tr><th id="368">368</th><td>  <var>793950709</var>, <var>904317037</var>, <var>1027188385</var>, <var>1163673953</var>, <var>1314955181</var>, <var>1482288821</var>,</td></tr>
+<tr><th id="369">369</th><td>  <var>1667010073</var>, <var>1870535785</var>, <var>2094367717</var>,</td></tr>
+<tr><th id="370">370</th><td><u>#<span data-ppcond="370">if</span> defined(<span class="macro" data-ref="_M/CUSTOM_MODES">CUSTOM_MODES</span>)</u></td></tr>
+<tr><th id="371">371</th><td>  <i>/*...60:*/</i></td></tr>
+<tr><th id="372">372</th><td>  <var>2340095869U</var>, <var>2609401873U</var>, <var>2904062449U</var>, <var>3225952925U</var>, <var>3577050821U</var>, <var>3959439497U</var>,</td></tr>
+<tr><th id="373">373</th><td><u>#<span data-ppcond="370">endif</span></u></td></tr>
+<tr><th id="374">374</th><td>  <i>/*N=8, K=8...37*/</i></td></tr>
+<tr><th id="375">375</th><td>  <var>48639</var>, <var>108545</var>, <var>224143</var>, <var>433905</var>, <var>795455</var>, <var>1392065</var>, <var>2340495</var>, <var>3800305</var>, <var>5984767</var>,</td></tr>
+<tr><th id="376">376</th><td>  <var>9173505</var>, <var>13726991</var>, <var>20103025</var>, <var>28875327</var>, <var>40754369</var>, <var>56610575</var>, <var>77500017</var>,</td></tr>
+<tr><th id="377">377</th><td>  <var>104692735</var>, <var>139703809</var>, <var>184327311</var>, <var>240673265</var>, <var>311207743</var>, <var>398796225</var>, <var>506750351</var>,</td></tr>
+<tr><th id="378">378</th><td>  <var>638878193</var>, <var>799538175</var>, <var>993696769</var>, <var>1226990095</var>, <var>1505789553</var>, <var>1837271615</var>,</td></tr>
+<tr><th id="379">379</th><td>  <var>2229491905U</var>,</td></tr>
+<tr><th id="380">380</th><td><u>#<span data-ppcond="380">if</span> defined(<span class="macro" data-ref="_M/CUSTOM_MODES">CUSTOM_MODES</span>)</u></td></tr>
+<tr><th id="381">381</th><td>  <i>/*...40:*/</i></td></tr>
+<tr><th id="382">382</th><td>  <var>2691463695U</var>, <var>3233240945U</var>, <var>3866006015U</var>,</td></tr>
+<tr><th id="383">383</th><td><u>#<span data-ppcond="380">endif</span></u></td></tr>
+<tr><th id="384">384</th><td>  <i>/*N=9, K=9...28:*/</i></td></tr>
+<tr><th id="385">385</th><td>  <var>265729</var>, <var>598417</var>, <var>1256465</var>, <var>2485825</var>, <var>4673345</var>, <var>8405905</var>, <var>14546705</var>, <var>24331777</var>,</td></tr>
+<tr><th id="386">386</th><td>  <var>39490049</var>, <var>62390545</var>, <var>96220561</var>, <var>145198913</var>, <var>214828609</var>, <var>312193553</var>, <var>446304145</var>,</td></tr>
+<tr><th id="387">387</th><td>  <var>628496897</var>, <var>872893441</var>, <var>1196924561</var>, <var>1621925137</var>, <var>2173806145U</var>,</td></tr>
+<tr><th id="388">388</th><td><u>#<span data-ppcond="388">if</span> defined(<span class="macro" data-ref="_M/CUSTOM_MODES">CUSTOM_MODES</span>)</u></td></tr>
+<tr><th id="389">389</th><td>  <i>/*...29:*/</i></td></tr>
+<tr><th id="390">390</th><td>  <var>2883810113U</var>,</td></tr>
+<tr><th id="391">391</th><td><u>#<span data-ppcond="388">endif</span></u></td></tr>
+<tr><th id="392">392</th><td>  <i>/*N=10, K=10...24:*/</i></td></tr>
+<tr><th id="393">393</th><td>  <var>1462563</var>, <var>3317445</var>, <var>7059735</var>, <var>14218905</var>, <var>27298155</var>, <var>50250765</var>, <var>89129247</var>, <var>152951073</var>,</td></tr>
+<tr><th id="394">394</th><td>  <var>254831667</var>, <var>413442773</var>, <var>654862247</var>, <var>1014889769</var>, <var>1541911931</var>, <var>2300409629U</var>,</td></tr>
+<tr><th id="395">395</th><td>  <var>3375210671U</var>,</td></tr>
+<tr><th id="396">396</th><td>  <i>/*N=11, K=11...19:*/</i></td></tr>
+<tr><th id="397">397</th><td>  <var>8097453</var>, <var>18474633</var>, <var>39753273</var>, <var>81270333</var>, <var>158819253</var>, <var>298199265</var>, <var>540279585</var>,</td></tr>
+<tr><th id="398">398</th><td>  <var>948062325</var>, <var>1616336765</var>,</td></tr>
+<tr><th id="399">399</th><td><u>#<span data-ppcond="399">if</span> defined(<span class="macro" data-ref="_M/CUSTOM_MODES">CUSTOM_MODES</span>)</u></td></tr>
+<tr><th id="400">400</th><td>  <i>/*...20:*/</i></td></tr>
+<tr><th id="401">401</th><td>  <var>2684641785U</var>,</td></tr>
+<tr><th id="402">402</th><td><u>#<span data-ppcond="399">endif</span></u></td></tr>
+<tr><th id="403">403</th><td>  <i>/*N=12, K=12...18:*/</i></td></tr>
+<tr><th id="404">404</th><td>  <var>45046719</var>, <var>103274625</var>, <var>224298231</var>, <var>464387817</var>, <var>921406335</var>, <var>1759885185</var>,</td></tr>
+<tr><th id="405">405</th><td>  <var>3248227095U</var>,</td></tr>
+<tr><th id="406">406</th><td>  <i>/*N=13, K=13...16:*/</i></td></tr>
+<tr><th id="407">407</th><td>  <var>251595969</var>, <var>579168825</var>, <var>1267854873</var>, <var>2653649025U</var>,</td></tr>
+<tr><th id="408">408</th><td>  <i>/*N=14, K=14:*/</i></td></tr>
+<tr><th id="409">409</th><td>  <var>1409933619</var></td></tr>
+<tr><th id="410">410</th><td>};</td></tr>
+<tr><th id="411">411</th><td></td></tr>
+<tr><th id="412">412</th><td><u>#<span data-ppcond="412">if</span> defined(<span class="macro" data-ref="_M/CUSTOM_MODES">CUSTOM_MODES</span>)</u></td></tr>
+<tr><th id="413">413</th><td><em>static</em> <em>const</em> opus_uint32 *<em>const</em> CELT_PVQ_U_ROW[<var>15</var>]={</td></tr>
+<tr><th id="414">414</th><td>  CELT_PVQ_U_DATA+   <var>0</var>,CELT_PVQ_U_DATA+ <var>208</var>,CELT_PVQ_U_DATA+ <var>415</var>,</td></tr>
+<tr><th id="415">415</th><td>  CELT_PVQ_U_DATA+ <var>621</var>,CELT_PVQ_U_DATA+ <var>826</var>,CELT_PVQ_U_DATA+<var>1030</var>,</td></tr>
+<tr><th id="416">416</th><td>  CELT_PVQ_U_DATA+<var>1233</var>,CELT_PVQ_U_DATA+<var>1336</var>,CELT_PVQ_U_DATA+<var>1389</var>,</td></tr>
+<tr><th id="417">417</th><td>  CELT_PVQ_U_DATA+<var>1421</var>,CELT_PVQ_U_DATA+<var>1441</var>,CELT_PVQ_U_DATA+<var>1455</var>,</td></tr>
+<tr><th id="418">418</th><td>  CELT_PVQ_U_DATA+<var>1464</var>,CELT_PVQ_U_DATA+<var>1470</var>,CELT_PVQ_U_DATA+<var>1473</var></td></tr>
+<tr><th id="419">419</th><td>};</td></tr>
+<tr><th id="420">420</th><td><u>#<span data-ppcond="412">else</span></u></td></tr>
+<tr><th id="421">421</th><td><em>static</em> <em>const</em> <a class="typedef" href="../include/opus_types.h.html#opus_uint32" title='opus_uint32' data-type='uint32_t' data-ref="opus_uint32">opus_uint32</a> *<em>const</em> <dfn class="tu decl def" id="CELT_PVQ_U_ROW" title='CELT_PVQ_U_ROW' data-type='const opus_uint32 *const [15]' data-ref="CELT_PVQ_U_ROW">CELT_PVQ_U_ROW</dfn>[<var>15</var>]={</td></tr>
+<tr><th id="422">422</th><td>  <a class="tu ref" href="#CELT_PVQ_U_DATA" title='CELT_PVQ_U_DATA' data-use='r' data-ref="CELT_PVQ_U_DATA">CELT_PVQ_U_DATA</a>+   <var>0</var>,<a class="tu ref" href="#CELT_PVQ_U_DATA" title='CELT_PVQ_U_DATA' data-use='r' data-ref="CELT_PVQ_U_DATA">CELT_PVQ_U_DATA</a>+ <var>176</var>,<a class="tu ref" href="#CELT_PVQ_U_DATA" title='CELT_PVQ_U_DATA' data-use='r' data-ref="CELT_PVQ_U_DATA">CELT_PVQ_U_DATA</a>+ <var>351</var>,</td></tr>
+<tr><th id="423">423</th><td>  <a class="tu ref" href="#CELT_PVQ_U_DATA" title='CELT_PVQ_U_DATA' data-use='r' data-ref="CELT_PVQ_U_DATA">CELT_PVQ_U_DATA</a>+ <var>525</var>,<a class="tu ref" href="#CELT_PVQ_U_DATA" title='CELT_PVQ_U_DATA' data-use='r' data-ref="CELT_PVQ_U_DATA">CELT_PVQ_U_DATA</a>+ <var>698</var>,<a class="tu ref" href="#CELT_PVQ_U_DATA" title='CELT_PVQ_U_DATA' data-use='r' data-ref="CELT_PVQ_U_DATA">CELT_PVQ_U_DATA</a>+ <var>870</var>,</td></tr>
+<tr><th id="424">424</th><td>  <a class="tu ref" href="#CELT_PVQ_U_DATA" title='CELT_PVQ_U_DATA' data-use='r' data-ref="CELT_PVQ_U_DATA">CELT_PVQ_U_DATA</a>+<var>1041</var>,<a class="tu ref" href="#CELT_PVQ_U_DATA" title='CELT_PVQ_U_DATA' data-use='r' data-ref="CELT_PVQ_U_DATA">CELT_PVQ_U_DATA</a>+<var>1131</var>,<a class="tu ref" href="#CELT_PVQ_U_DATA" title='CELT_PVQ_U_DATA' data-use='r' data-ref="CELT_PVQ_U_DATA">CELT_PVQ_U_DATA</a>+<var>1178</var>,</td></tr>
+<tr><th id="425">425</th><td>  <a class="tu ref" href="#CELT_PVQ_U_DATA" title='CELT_PVQ_U_DATA' data-use='r' data-ref="CELT_PVQ_U_DATA">CELT_PVQ_U_DATA</a>+<var>1207</var>,<a class="tu ref" href="#CELT_PVQ_U_DATA" title='CELT_PVQ_U_DATA' data-use='r' data-ref="CELT_PVQ_U_DATA">CELT_PVQ_U_DATA</a>+<var>1226</var>,<a class="tu ref" href="#CELT_PVQ_U_DATA" title='CELT_PVQ_U_DATA' data-use='r' data-ref="CELT_PVQ_U_DATA">CELT_PVQ_U_DATA</a>+<var>1240</var>,</td></tr>
+<tr><th id="426">426</th><td>  <a class="tu ref" href="#CELT_PVQ_U_DATA" title='CELT_PVQ_U_DATA' data-use='r' data-ref="CELT_PVQ_U_DATA">CELT_PVQ_U_DATA</a>+<var>1248</var>,<a class="tu ref" href="#CELT_PVQ_U_DATA" title='CELT_PVQ_U_DATA' data-use='r' data-ref="CELT_PVQ_U_DATA">CELT_PVQ_U_DATA</a>+<var>1254</var>,<a class="tu ref" href="#CELT_PVQ_U_DATA" title='CELT_PVQ_U_DATA' data-use='r' data-ref="CELT_PVQ_U_DATA">CELT_PVQ_U_DATA</a>+<var>1257</var></td></tr>
+<tr><th id="427">427</th><td>};</td></tr>
+<tr><th id="428">428</th><td><u>#<span data-ppcond="412">endif</span></u></td></tr>
+<tr><th id="429">429</th><td></td></tr>
+<tr><th id="430">430</th><td><u>#<span data-ppcond="430">if</span> defined(<span class="macro" data-ref="_M/CUSTOM_MODES">CUSTOM_MODES</span>)</u></td></tr>
+<tr><th id="431">431</th><td><em>void</em> get_required_bits(opus_int16 *_bits,<em>int</em> _n,<em>int</em> _maxk,<em>int</em> _frac){</td></tr>
+<tr><th id="432">432</th><td>  <em>int</em> k;</td></tr>
+<tr><th id="433">433</th><td>  <i>/*_maxk==0 =&gt; there's nothing to do.*/</i></td></tr>
+<tr><th id="434">434</th><td>  celt_assert(_maxk&gt;<var>0</var>);</td></tr>
+<tr><th id="435">435</th><td>  _bits[<var>0</var>]=<var>0</var>;</td></tr>
+<tr><th id="436">436</th><td>  <b>for</b>(k=<var>1</var>;k&lt;=_maxk;k++)_bits[k]=log2_frac(CELT_PVQ_V(_n,k),_frac);</td></tr>
+<tr><th id="437">437</th><td>}</td></tr>
+<tr><th id="438">438</th><td><u>#<span data-ppcond="430">endif</span></u></td></tr>
+<tr><th id="439">439</th><td></td></tr>
+<tr><th id="440">440</th><td><em>static</em> <a class="typedef" href="../include/opus_types.h.html#opus_uint32" title='opus_uint32' data-type='uint32_t' data-ref="opus_uint32">opus_uint32</a> <dfn class="tu decl def" id="icwrs" title='icwrs' data-type='opus_uint32 icwrs(int _n, const int * _y)' data-ref="icwrs">icwrs</dfn>(<em>int</em> <dfn class="local col1 decl" id="1_n" title='_n' data-type='int' data-ref="1_n">_n</dfn>,<em>const</em> <em>int</em> *<dfn class="local col2 decl" id="2_y" title='_y' data-type='const int *' data-ref="2_y">_y</dfn>){</td></tr>
+<tr><th id="441">441</th><td>  <a class="typedef" href="../include/opus_types.h.html#opus_uint32" title='opus_uint32' data-type='uint32_t' data-ref="opus_uint32">opus_uint32</a> <dfn class="local col3 decl" id="3i" title='i' data-type='opus_uint32' data-ref="3i">i</dfn>;</td></tr>
+<tr><th id="442">442</th><td>  <em>int</em>         <dfn class="local col4 decl" id="4j" title='j' data-type='int' data-ref="4j">j</dfn>;</td></tr>
+<tr><th id="443">443</th><td>  <em>int</em>         <dfn class="local col5 decl" id="5k" title='k' data-type='int' data-ref="5k">k</dfn>;</td></tr>
+<tr><th id="444">444</th><td>  <a class="macro" href="arch.h.html#66" title="" data-ref="_M/celt_assert">celt_assert</a>(_n&gt;=<var>2</var>);</td></tr>
+<tr><th id="445">445</th><td>  <a class="local col4 ref" href="#4j" title='j' data-ref="4j">j</a>=<a class="local col1 ref" href="#1_n" title='_n' data-ref="1_n">_n</a>-<var>1</var>;</td></tr>
+<tr><th id="446">446</th><td>  <a class="local col3 ref" href="#3i" title='i' data-ref="3i">i</a>=<a class="local col2 ref" href="#2_y" title='_y' data-ref="2_y">_y</a>[<a class="local col4 ref" href="#4j" title='j' data-ref="4j">j</a>]&lt;<var>0</var>;</td></tr>
+<tr><th id="447">447</th><td>  <a class="local col5 ref" href="#5k" title='k' data-ref="5k">k</a>=<a class="ref" href="../../../../include/stdlib.h.html#abs" title='abs' data-ref="abs">abs</a>(<a class="local col2 ref" href="#2_y" title='_y' data-ref="2_y">_y</a>[<a class="local col4 ref" href="#4j" title='j' data-ref="4j">j</a>]);</td></tr>
+<tr><th id="448">448</th><td>  <b>do</b>{</td></tr>
+<tr><th id="449">449</th><td>    <a class="local col4 ref" href="#4j" title='j' data-ref="4j">j</a>--;</td></tr>
+<tr><th id="450">450</th><td>    <a class="local col3 ref" href="#3i" title='i' data-ref="3i">i</a>+=<a class="macro" href="#196" title="(CELT_PVQ_U_ROW[((_n-j) &lt; (k) ? (_n-j) : (k))][((_n-j) &gt; (k) ? (_n-j) : (k))])" data-ref="_M/CELT_PVQ_U">CELT_PVQ_U</a>(<a class="local col1 ref" href="#1_n" title='_n' data-ref="1_n">_n</a>-<a class="local col4 ref" href="#4j" title='j' data-ref="4j">j</a>,<a class="local col5 ref" href="#5k" title='k' data-ref="5k">k</a>);</td></tr>
+<tr><th id="451">451</th><td>    <a class="local col5 ref" href="#5k" title='k' data-ref="5k">k</a>+=<a class="ref" href="../../../../include/stdlib.h.html#abs" title='abs' data-ref="abs">abs</a>(<a class="local col2 ref" href="#2_y" title='_y' data-ref="2_y">_y</a>[<a class="local col4 ref" href="#4j" title='j' data-ref="4j">j</a>]);</td></tr>
+<tr><th id="452">452</th><td>    <b>if</b>(<a class="local col2 ref" href="#2_y" title='_y' data-ref="2_y">_y</a>[<a class="local col4 ref" href="#4j" title='j' data-ref="4j">j</a>]&lt;<var>0</var>)<a class="local col3 ref" href="#3i" title='i' data-ref="3i">i</a>+=<a class="macro" href="#196" title="(CELT_PVQ_U_ROW[((_n-j) &lt; (k+1) ? (_n-j) : (k+1))][((_n-j) &gt; (k+1) ? (_n-j) : (k+1))])" data-ref="_M/CELT_PVQ_U">CELT_PVQ_U</a>(<a class="local col1 ref" href="#1_n" title='_n' data-ref="1_n">_n</a>-<a class="local col4 ref" href="#4j" title='j' data-ref="4j">j</a>,<a class="local col5 ref" href="#5k" title='k' data-ref="5k">k</a>+<var>1</var>);</td></tr>
+<tr><th id="453">453</th><td>  }</td></tr>
+<tr><th id="454">454</th><td>  <b>while</b>(<a class="local col4 ref" href="#4j" title='j' data-ref="4j">j</a>&gt;<var>0</var>);</td></tr>
+<tr><th id="455">455</th><td>  <b>return</b> <a class="local col3 ref" href="#3i" title='i' data-ref="3i">i</a>;</td></tr>
+<tr><th id="456">456</th><td>}</td></tr>
+<tr><th id="457">457</th><td></td></tr>
+<tr><th id="458">458</th><td><em>void</em> <dfn class="decl def" id="encode_pulses" title='encode_pulses' data-ref="encode_pulses">encode_pulses</dfn>(<em>const</em> <em>int</em> *<dfn class="local col6 decl" id="6_y" title='_y' data-type='const int *' data-ref="6_y">_y</dfn>,<em>int</em> <dfn class="local col7 decl" id="7_n" title='_n' data-type='int' data-ref="7_n">_n</dfn>,<em>int</em> <dfn class="local col8 decl" id="8_k" title='_k' data-type='int' data-ref="8_k">_k</dfn>,<a class="typedef" href="entcode.h.html#ec_enc" title='ec_enc' data-type='struct ec_ctx' data-ref="ec_enc">ec_enc</a> *<dfn class="local col9 decl" id="9_enc" title='_enc' data-type='ec_enc *' data-ref="9_enc">_enc</dfn>){</td></tr>
+<tr><th id="459">459</th><td>  <a class="macro" href="arch.h.html#66" title="" data-ref="_M/celt_assert">celt_assert</a>(_k&gt;<var>0</var>);</td></tr>
+<tr><th id="460">460</th><td>  <a class="ref" href="entenc.h.html#ec_enc_uint" title='ec_enc_uint' data-ref="ec_enc_uint">ec_enc_uint</a>(<a class="local col9 ref" href="#9_enc" title='_enc' data-ref="9_enc">_enc</a>,<a class="tu ref" href="#icwrs" title='icwrs' data-use='c' data-ref="icwrs">icwrs</a>(<a class="local col7 ref" href="#7_n" title='_n' data-ref="7_n">_n</a>,<a class="local col6 ref" href="#6_y" title='_y' data-ref="6_y">_y</a>),<a class="macro" href="#199" title="((CELT_PVQ_U_ROW[((_n) &lt; (_k) ? (_n) : (_k))][((_n) &gt; (_k) ? (_n) : (_k))])+(CELT_PVQ_U_ROW[((_n) &lt; ((_k)+1) ? (_n) : ((_k)+1))][((_n) &gt; ((_k)+1) ? (_n) : ((_k)+1))]))" data-ref="_M/CELT_PVQ_V">CELT_PVQ_V</a>(<a class="local col7 ref" href="#7_n" title='_n' data-ref="7_n">_n</a>,<a class="local col8 ref" href="#8_k" title='_k' data-ref="8_k">_k</a>));</td></tr>
+<tr><th id="461">461</th><td>}</td></tr>
+<tr><th id="462">462</th><td></td></tr>
+<tr><th id="463">463</th><td><em>static</em> <a class="typedef" href="arch.h.html#opus_val32" title='opus_val32' data-type='float' data-ref="opus_val32">opus_val32</a> <dfn class="tu decl def" id="cwrsi" title='cwrsi' data-type='opus_val32 cwrsi(int _n, int _k, opus_uint32 _i, int * _y)' data-ref="cwrsi">cwrsi</dfn>(<em>int</em> <dfn class="local col0 decl" id="10_n" title='_n' data-type='int' data-ref="10_n">_n</dfn>,<em>int</em> <dfn class="local col1 decl" id="11_k" title='_k' data-type='int' data-ref="11_k">_k</dfn>,<a class="typedef" href="../include/opus_types.h.html#opus_uint32" title='opus_uint32' data-type='uint32_t' data-ref="opus_uint32">opus_uint32</a> <dfn class="local col2 decl" id="12_i" title='_i' data-type='opus_uint32' data-ref="12_i">_i</dfn>,<em>int</em> *<dfn class="local col3 decl" id="13_y" title='_y' data-type='int *' data-ref="13_y">_y</dfn>){</td></tr>
+<tr><th id="464">464</th><td>  <a class="typedef" href="../include/opus_types.h.html#opus_uint32" title='opus_uint32' data-type='uint32_t' data-ref="opus_uint32">opus_uint32</a> <dfn class="local col4 decl" id="14p" title='p' data-type='opus_uint32' data-ref="14p">p</dfn>;</td></tr>
+<tr><th id="465">465</th><td>  <em>int</em>         <dfn class="local col5 decl" id="15s" title='s' data-type='int' data-ref="15s">s</dfn>;</td></tr>
+<tr><th id="466">466</th><td>  <em>int</em>         <dfn class="local col6 decl" id="16k0" title='k0' data-type='int' data-ref="16k0">k0</dfn>;</td></tr>
+<tr><th id="467">467</th><td>  <a class="typedef" href="../include/opus_types.h.html#opus_int16" title='opus_int16' data-type='int16_t' data-ref="opus_int16">opus_int16</a>  <dfn class="local col7 decl" id="17val" title='val' data-type='opus_int16' data-ref="17val">val</dfn>;</td></tr>
+<tr><th id="468">468</th><td>  <a class="typedef" href="arch.h.html#opus_val32" title='opus_val32' data-type='float' data-ref="opus_val32">opus_val32</a>  <dfn class="local col8 decl" id="18yy" title='yy' data-type='opus_val32' data-ref="18yy">yy</dfn>=<var>0</var>;</td></tr>
+<tr><th id="469">469</th><td>  <a class="macro" href="arch.h.html#66" title="" data-ref="_M/celt_assert">celt_assert</a>(_k&gt;<var>0</var>);</td></tr>
+<tr><th id="470">470</th><td>  <a class="macro" href="arch.h.html#66" title="" data-ref="_M/celt_assert">celt_assert</a>(_n&gt;<var>1</var>);</td></tr>
+<tr><th id="471">471</th><td>  <b>while</b>(<a class="local col0 ref" href="#10_n" title='_n' data-ref="10_n">_n</a>&gt;<var>2</var>){</td></tr>
+<tr><th id="472">472</th><td>    <a class="typedef" href="../include/opus_types.h.html#opus_uint32" title='opus_uint32' data-type='uint32_t' data-ref="opus_uint32">opus_uint32</a> <dfn class="local col9 decl" id="19q" title='q' data-type='opus_uint32' data-ref="19q">q</dfn>;</td></tr>
+<tr><th id="473">473</th><td>    <i>/*Lots of pulses case:*/</i></td></tr>
+<tr><th id="474">474</th><td>    <b>if</b>(<a class="local col1 ref" href="#11_k" title='_k' data-ref="11_k">_k</a>&gt;=<a class="local col0 ref" href="#10_n" title='_n' data-ref="10_n">_n</a>){</td></tr>
+<tr><th id="475">475</th><td>      <em>const</em> <a class="typedef" href="../include/opus_types.h.html#opus_uint32" title='opus_uint32' data-type='uint32_t' data-ref="opus_uint32">opus_uint32</a> *<dfn class="local col0 decl" id="20row" title='row' data-type='const opus_uint32 *' data-ref="20row">row</dfn>;</td></tr>
+<tr><th id="476">476</th><td>      <a class="local col0 ref" href="#20row" title='row' data-ref="20row">row</a>=<a class="tu ref" href="#CELT_PVQ_U_ROW" title='CELT_PVQ_U_ROW' data-use='r' data-ref="CELT_PVQ_U_ROW">CELT_PVQ_U_ROW</a>[<a class="local col0 ref" href="#10_n" title='_n' data-ref="10_n">_n</a>];</td></tr>
+<tr><th id="477">477</th><td>      <i>/*Are the pulses in this dimension negative?*/</i></td></tr>
+<tr><th id="478">478</th><td>      <a class="local col4 ref" href="#14p" title='p' data-ref="14p">p</a>=<a class="local col0 ref" href="#20row" title='row' data-ref="20row">row</a>[<a class="local col1 ref" href="#11_k" title='_k' data-ref="11_k">_k</a>+<var>1</var>];</td></tr>
+<tr><th id="479">479</th><td>      <a class="local col5 ref" href="#15s" title='s' data-ref="15s">s</a>=-(<a class="local col2 ref" href="#12_i" title='_i' data-ref="12_i">_i</a>&gt;=<a class="local col4 ref" href="#14p" title='p' data-ref="14p">p</a>);</td></tr>
+<tr><th id="480">480</th><td>      <a class="local col2 ref" href="#12_i" title='_i' data-ref="12_i">_i</a>-=<a class="local col4 ref" href="#14p" title='p' data-ref="14p">p</a>&amp;<a class="local col5 ref" href="#15s" title='s' data-ref="15s">s</a>;</td></tr>
+<tr><th id="481">481</th><td>      <i>/*Count how many pulses were placed in this dimension.*/</i></td></tr>
+<tr><th id="482">482</th><td>      <a class="local col6 ref" href="#16k0" title='k0' data-ref="16k0">k0</a>=<a class="local col1 ref" href="#11_k" title='_k' data-ref="11_k">_k</a>;</td></tr>
+<tr><th id="483">483</th><td>      <a class="local col9 ref" href="#19q" title='q' data-ref="19q">q</a>=<a class="local col0 ref" href="#20row" title='row' data-ref="20row">row</a>[<a class="local col0 ref" href="#10_n" title='_n' data-ref="10_n">_n</a>];</td></tr>
+<tr><th id="484">484</th><td>      <b>if</b>(<a class="local col9 ref" href="#19q" title='q' data-ref="19q">q</a>&gt;<a class="local col2 ref" href="#12_i" title='_i' data-ref="12_i">_i</a>){</td></tr>
+<tr><th id="485">485</th><td>        <a class="macro" href="arch.h.html#66" title="" data-ref="_M/celt_assert">celt_assert</a>(p&gt;q);</td></tr>
+<tr><th id="486">486</th><td>        <a class="local col1 ref" href="#11_k" title='_k' data-ref="11_k">_k</a>=<a class="local col0 ref" href="#10_n" title='_n' data-ref="10_n">_n</a>;</td></tr>
+<tr><th id="487">487</th><td>        <b>do</b> <a class="local col4 ref" href="#14p" title='p' data-ref="14p">p</a>=<a class="tu ref" href="#CELT_PVQ_U_ROW" title='CELT_PVQ_U_ROW' data-use='r' data-ref="CELT_PVQ_U_ROW">CELT_PVQ_U_ROW</a>[--<a class="local col1 ref" href="#11_k" title='_k' data-ref="11_k">_k</a>][<a class="local col0 ref" href="#10_n" title='_n' data-ref="10_n">_n</a>];</td></tr>
+<tr><th id="488">488</th><td>        <b>while</b>(<a class="local col4 ref" href="#14p" title='p' data-ref="14p">p</a>&gt;<a class="local col2 ref" href="#12_i" title='_i' data-ref="12_i">_i</a>);</td></tr>
+<tr><th id="489">489</th><td>      }</td></tr>
+<tr><th id="490">490</th><td>      <b>else</b> <b>for</b>(<a class="local col4 ref" href="#14p" title='p' data-ref="14p">p</a>=<a class="local col0 ref" href="#20row" title='row' data-ref="20row">row</a>[<a class="local col1 ref" href="#11_k" title='_k' data-ref="11_k">_k</a>];<a class="local col4 ref" href="#14p" title='p' data-ref="14p">p</a>&gt;<a class="local col2 ref" href="#12_i" title='_i' data-ref="12_i">_i</a>;<a class="local col4 ref" href="#14p" title='p' data-ref="14p">p</a>=<a class="local col0 ref" href="#20row" title='row' data-ref="20row">row</a>[<a class="local col1 ref" href="#11_k" title='_k' data-ref="11_k">_k</a>])<a class="local col1 ref" href="#11_k" title='_k' data-ref="11_k">_k</a>--;</td></tr>
+<tr><th id="491">491</th><td>      <a class="local col2 ref" href="#12_i" title='_i' data-ref="12_i">_i</a>-=<a class="local col4 ref" href="#14p" title='p' data-ref="14p">p</a>;</td></tr>
+<tr><th id="492">492</th><td>      <a class="local col7 ref" href="#17val" title='val' data-ref="17val">val</a>=(<a class="local col6 ref" href="#16k0" title='k0' data-ref="16k0">k0</a>-<a class="local col1 ref" href="#11_k" title='_k' data-ref="11_k">_k</a>+<a class="local col5 ref" href="#15s" title='s' data-ref="15s">s</a>)^<a class="local col5 ref" href="#15s" title='s' data-ref="15s">s</a>;</td></tr>
+<tr><th id="493">493</th><td>      *<a class="local col3 ref" href="#13_y" title='_y' data-ref="13_y">_y</a>++=<a class="local col7 ref" href="#17val" title='val' data-ref="17val">val</a>;</td></tr>
+<tr><th id="494">494</th><td>      <a class="local col8 ref" href="#18yy" title='yy' data-ref="18yy">yy</a>=<a class="macro" href="arch.h.html#214" title="((yy)+(opus_val32)(val)*(opus_val32)(val))" data-ref="_M/MAC16_16">MAC16_16</a>(<a class="local col8 ref" href="#18yy" title='yy' data-ref="18yy">yy</a>,<a class="local col7 ref" href="#17val" title='val' data-ref="17val">val</a>,<a class="local col7 ref" href="#17val" title='val' data-ref="17val">val</a>);</td></tr>
+<tr><th id="495">495</th><td>    }</td></tr>
+<tr><th id="496">496</th><td>    <i>/*Lots of dimensions case:*/</i></td></tr>
+<tr><th id="497">497</th><td>    <b>else</b>{</td></tr>
+<tr><th id="498">498</th><td>      <i>/*Are there any pulses in this dimension at all?*/</i></td></tr>
+<tr><th id="499">499</th><td>      <a class="local col4 ref" href="#14p" title='p' data-ref="14p">p</a>=<a class="tu ref" href="#CELT_PVQ_U_ROW" title='CELT_PVQ_U_ROW' data-use='r' data-ref="CELT_PVQ_U_ROW">CELT_PVQ_U_ROW</a>[<a class="local col1 ref" href="#11_k" title='_k' data-ref="11_k">_k</a>][<a class="local col0 ref" href="#10_n" title='_n' data-ref="10_n">_n</a>];</td></tr>
+<tr><th id="500">500</th><td>      <a class="local col9 ref" href="#19q" title='q' data-ref="19q">q</a>=<a class="tu ref" href="#CELT_PVQ_U_ROW" title='CELT_PVQ_U_ROW' data-use='r' data-ref="CELT_PVQ_U_ROW">CELT_PVQ_U_ROW</a>[<a class="local col1 ref" href="#11_k" title='_k' data-ref="11_k">_k</a>+<var>1</var>][<a class="local col0 ref" href="#10_n" title='_n' data-ref="10_n">_n</a>];</td></tr>
+<tr><th id="501">501</th><td>      <b>if</b>(<a class="local col4 ref" href="#14p" title='p' data-ref="14p">p</a>&lt;=<a class="local col2 ref" href="#12_i" title='_i' data-ref="12_i">_i</a>&amp;&amp;<a class="local col2 ref" href="#12_i" title='_i' data-ref="12_i">_i</a>&lt;<a class="local col9 ref" href="#19q" title='q' data-ref="19q">q</a>){</td></tr>
+<tr><th id="502">502</th><td>        <a class="local col2 ref" href="#12_i" title='_i' data-ref="12_i">_i</a>-=<a class="local col4 ref" href="#14p" title='p' data-ref="14p">p</a>;</td></tr>
+<tr><th id="503">503</th><td>        *<a class="local col3 ref" href="#13_y" title='_y' data-ref="13_y">_y</a>++=<var>0</var>;</td></tr>
+<tr><th id="504">504</th><td>      }</td></tr>
+<tr><th id="505">505</th><td>      <b>else</b>{</td></tr>
+<tr><th id="506">506</th><td>        <i>/*Are the pulses in this dimension negative?*/</i></td></tr>
+<tr><th id="507">507</th><td>        <a class="local col5 ref" href="#15s" title='s' data-ref="15s">s</a>=-(<a class="local col2 ref" href="#12_i" title='_i' data-ref="12_i">_i</a>&gt;=<a class="local col9 ref" href="#19q" title='q' data-ref="19q">q</a>);</td></tr>
+<tr><th id="508">508</th><td>        <a class="local col2 ref" href="#12_i" title='_i' data-ref="12_i">_i</a>-=<a class="local col9 ref" href="#19q" title='q' data-ref="19q">q</a>&amp;<a class="local col5 ref" href="#15s" title='s' data-ref="15s">s</a>;</td></tr>
+<tr><th id="509">509</th><td>        <i>/*Count how many pulses were placed in this dimension.*/</i></td></tr>
+<tr><th id="510">510</th><td>        <a class="local col6 ref" href="#16k0" title='k0' data-ref="16k0">k0</a>=<a class="local col1 ref" href="#11_k" title='_k' data-ref="11_k">_k</a>;</td></tr>
+<tr><th id="511">511</th><td>        <b>do</b> <a class="local col4 ref" href="#14p" title='p' data-ref="14p">p</a>=<a class="tu ref" href="#CELT_PVQ_U_ROW" title='CELT_PVQ_U_ROW' data-use='r' data-ref="CELT_PVQ_U_ROW">CELT_PVQ_U_ROW</a>[--<a class="local col1 ref" href="#11_k" title='_k' data-ref="11_k">_k</a>][<a class="local col0 ref" href="#10_n" title='_n' data-ref="10_n">_n</a>];</td></tr>
+<tr><th id="512">512</th><td>        <b>while</b>(<a class="local col4 ref" href="#14p" title='p' data-ref="14p">p</a>&gt;<a class="local col2 ref" href="#12_i" title='_i' data-ref="12_i">_i</a>);</td></tr>
+<tr><th id="513">513</th><td>        <a class="local col2 ref" href="#12_i" title='_i' data-ref="12_i">_i</a>-=<a class="local col4 ref" href="#14p" title='p' data-ref="14p">p</a>;</td></tr>
+<tr><th id="514">514</th><td>        <a class="local col7 ref" href="#17val" title='val' data-ref="17val">val</a>=(<a class="local col6 ref" href="#16k0" title='k0' data-ref="16k0">k0</a>-<a class="local col1 ref" href="#11_k" title='_k' data-ref="11_k">_k</a>+<a class="local col5 ref" href="#15s" title='s' data-ref="15s">s</a>)^<a class="local col5 ref" href="#15s" title='s' data-ref="15s">s</a>;</td></tr>
+<tr><th id="515">515</th><td>        *<a class="local col3 ref" href="#13_y" title='_y' data-ref="13_y">_y</a>++=<a class="local col7 ref" href="#17val" title='val' data-ref="17val">val</a>;</td></tr>
+<tr><th id="516">516</th><td>        <a class="local col8 ref" href="#18yy" title='yy' data-ref="18yy">yy</a>=<a class="macro" href="arch.h.html#214" title="((yy)+(opus_val32)(val)*(opus_val32)(val))" data-ref="_M/MAC16_16">MAC16_16</a>(<a class="local col8 ref" href="#18yy" title='yy' data-ref="18yy">yy</a>,<a class="local col7 ref" href="#17val" title='val' data-ref="17val">val</a>,<a class="local col7 ref" href="#17val" title='val' data-ref="17val">val</a>);</td></tr>
+<tr><th id="517">517</th><td>      }</td></tr>
+<tr><th id="518">518</th><td>    }</td></tr>
+<tr><th id="519">519</th><td>    <a class="local col0 ref" href="#10_n" title='_n' data-ref="10_n">_n</a>--;</td></tr>
+<tr><th id="520">520</th><td>  }</td></tr>
+<tr><th id="521">521</th><td>  <i>/*_n==2*/</i></td></tr>
+<tr><th id="522">522</th><td>  <a class="local col4 ref" href="#14p" title='p' data-ref="14p">p</a>=<var>2</var>*<a class="local col1 ref" href="#11_k" title='_k' data-ref="11_k">_k</a>+<var>1</var>;</td></tr>
+<tr><th id="523">523</th><td>  <a class="local col5 ref" href="#15s" title='s' data-ref="15s">s</a>=-(<a class="local col2 ref" href="#12_i" title='_i' data-ref="12_i">_i</a>&gt;=<a class="local col4 ref" href="#14p" title='p' data-ref="14p">p</a>);</td></tr>
+<tr><th id="524">524</th><td>  <a class="local col2 ref" href="#12_i" title='_i' data-ref="12_i">_i</a>-=<a class="local col4 ref" href="#14p" title='p' data-ref="14p">p</a>&amp;<a class="local col5 ref" href="#15s" title='s' data-ref="15s">s</a>;</td></tr>
+<tr><th id="525">525</th><td>  <a class="local col6 ref" href="#16k0" title='k0' data-ref="16k0">k0</a>=<a class="local col1 ref" href="#11_k" title='_k' data-ref="11_k">_k</a>;</td></tr>
+<tr><th id="526">526</th><td>  <a class="local col1 ref" href="#11_k" title='_k' data-ref="11_k">_k</a>=(<a class="local col2 ref" href="#12_i" title='_i' data-ref="12_i">_i</a>+<var>1</var>)&gt;&gt;<var>1</var>;</td></tr>
+<tr><th id="527">527</th><td>  <b>if</b>(<a class="local col1 ref" href="#11_k" title='_k' data-ref="11_k">_k</a>)<a class="local col2 ref" href="#12_i" title='_i' data-ref="12_i">_i</a>-=<var>2</var>*<a class="local col1 ref" href="#11_k" title='_k' data-ref="11_k">_k</a>-<var>1</var>;</td></tr>
+<tr><th id="528">528</th><td>  <a class="local col7 ref" href="#17val" title='val' data-ref="17val">val</a>=(<a class="local col6 ref" href="#16k0" title='k0' data-ref="16k0">k0</a>-<a class="local col1 ref" href="#11_k" title='_k' data-ref="11_k">_k</a>+<a class="local col5 ref" href="#15s" title='s' data-ref="15s">s</a>)^<a class="local col5 ref" href="#15s" title='s' data-ref="15s">s</a>;</td></tr>
+<tr><th id="529">529</th><td>  *<a class="local col3 ref" href="#13_y" title='_y' data-ref="13_y">_y</a>++=<a class="local col7 ref" href="#17val" title='val' data-ref="17val">val</a>;</td></tr>
+<tr><th id="530">530</th><td>  <a class="local col8 ref" href="#18yy" title='yy' data-ref="18yy">yy</a>=<a class="macro" href="arch.h.html#214" title="((yy)+(opus_val32)(val)*(opus_val32)(val))" data-ref="_M/MAC16_16">MAC16_16</a>(<a class="local col8 ref" href="#18yy" title='yy' data-ref="18yy">yy</a>,<a class="local col7 ref" href="#17val" title='val' data-ref="17val">val</a>,<a class="local col7 ref" href="#17val" title='val' data-ref="17val">val</a>);</td></tr>
+<tr><th id="531">531</th><td>  <i>/*_n==1*/</i></td></tr>
+<tr><th id="532">532</th><td>  <a class="local col5 ref" href="#15s" title='s' data-ref="15s">s</a>=-(<em>int</em>)<a class="local col2 ref" href="#12_i" title='_i' data-ref="12_i">_i</a>;</td></tr>
+<tr><th id="533">533</th><td>  <a class="local col7 ref" href="#17val" title='val' data-ref="17val">val</a>=(<a class="local col1 ref" href="#11_k" title='_k' data-ref="11_k">_k</a>+<a class="local col5 ref" href="#15s" title='s' data-ref="15s">s</a>)^<a class="local col5 ref" href="#15s" title='s' data-ref="15s">s</a>;</td></tr>
+<tr><th id="534">534</th><td>  *<a class="local col3 ref" href="#13_y" title='_y' data-ref="13_y">_y</a>=<a class="local col7 ref" href="#17val" title='val' data-ref="17val">val</a>;</td></tr>
+<tr><th id="535">535</th><td>  <a class="local col8 ref" href="#18yy" title='yy' data-ref="18yy">yy</a>=<a class="macro" href="arch.h.html#214" title="((yy)+(opus_val32)(val)*(opus_val32)(val))" data-ref="_M/MAC16_16">MAC16_16</a>(<a class="local col8 ref" href="#18yy" title='yy' data-ref="18yy">yy</a>,<a class="local col7 ref" href="#17val" title='val' data-ref="17val">val</a>,<a class="local col7 ref" href="#17val" title='val' data-ref="17val">val</a>);</td></tr>
+<tr><th id="536">536</th><td>  <b>return</b> <a class="local col8 ref" href="#18yy" title='yy' data-ref="18yy">yy</a>;</td></tr>
+<tr><th id="537">537</th><td>}</td></tr>
+<tr><th id="538">538</th><td></td></tr>
+<tr><th id="539">539</th><td><a class="typedef" href="arch.h.html#opus_val32" title='opus_val32' data-type='float' data-ref="opus_val32">opus_val32</a> <dfn class="decl def" id="decode_pulses" title='decode_pulses' data-ref="decode_pulses">decode_pulses</dfn>(<em>int</em> *<dfn class="local col1 decl" id="21_y" title='_y' data-type='int *' data-ref="21_y">_y</dfn>,<em>int</em> <dfn class="local col2 decl" id="22_n" title='_n' data-type='int' data-ref="22_n">_n</dfn>,<em>int</em> <dfn class="local col3 decl" id="23_k" title='_k' data-type='int' data-ref="23_k">_k</dfn>,<a class="typedef" href="entcode.h.html#ec_dec" title='ec_dec' data-type='struct ec_ctx' data-ref="ec_dec">ec_dec</a> *<dfn class="local col4 decl" id="24_dec" title='_dec' data-type='ec_dec *' data-ref="24_dec">_dec</dfn>){</td></tr>
+<tr><th id="540">540</th><td>  <b>return</b> <a class="tu ref" href="#cwrsi" title='cwrsi' data-use='c' data-ref="cwrsi">cwrsi</a>(<a class="local col2 ref" href="#22_n" title='_n' data-ref="22_n">_n</a>,<a class="local col3 ref" href="#23_k" title='_k' data-ref="23_k">_k</a>,<a class="ref" href="entdec.h.html#ec_dec_uint" title='ec_dec_uint' data-ref="ec_dec_uint">ec_dec_uint</a>(<a class="local col4 ref" href="#24_dec" title='_dec' data-ref="24_dec">_dec</a>,<a class="macro" href="#199" title="((CELT_PVQ_U_ROW[((_n) &lt; (_k) ? (_n) : (_k))][((_n) &gt; (_k) ? (_n) : (_k))])+(CELT_PVQ_U_ROW[((_n) &lt; ((_k)+1) ? (_n) : ((_k)+1))][((_n) &gt; ((_k)+1) ? (_n) : ((_k)+1))]))" data-ref="_M/CELT_PVQ_V">CELT_PVQ_V</a>(<a class="local col2 ref" href="#22_n" title='_n' data-ref="22_n">_n</a>,<a class="local col3 ref" href="#23_k" title='_k' data-ref="23_k">_k</a>)),<a class="local col1 ref" href="#21_y" title='_y' data-ref="21_y">_y</a>);</td></tr>
+<tr><th id="541">541</th><td>}</td></tr>
+<tr><th id="542">542</th><td></td></tr>
+<tr><th id="543">543</th><td><u>#<span data-ppcond="193">else</span> /* SMALL_FOOTPRINT */</u></td></tr>
+<tr><th id="544">544</th><td></td></tr>
+<tr><th id="545">545</th><td><i>/*Computes the next row/column of any recurrence that obeys the relation</i></td></tr>
+<tr><th id="546">546</th><td><i>   u[i][j]=u[i-1][j]+u[i][j-1]+u[i-1][j-1].</i></td></tr>
+<tr><th id="547">547</th><td><i>  _ui0 is the base case for the new row/column.*/</i></td></tr>
+<tr><th id="548">548</th><td><em>static</em> OPUS_INLINE <em>void</em> unext(opus_uint32 *_ui,<em>unsigned</em> _len,opus_uint32 _ui0){</td></tr>
+<tr><th id="549">549</th><td>  opus_uint32 ui1;</td></tr>
+<tr><th id="550">550</th><td>  <em>unsigned</em>      j;</td></tr>
+<tr><th id="551">551</th><td>  <i>/*This do-while will overrun the array if we don't have storage for at least</i></td></tr>
+<tr><th id="552">552</th><td><i>     2 values.*/</i></td></tr>
+<tr><th id="553">553</th><td>  j=<var>1</var>; <b>do</b> {</td></tr>
+<tr><th id="554">554</th><td>    ui1=UADD32(UADD32(_ui[j],_ui[j-<var>1</var>]),_ui0);</td></tr>
+<tr><th id="555">555</th><td>    _ui[j-<var>1</var>]=_ui0;</td></tr>
+<tr><th id="556">556</th><td>    _ui0=ui1;</td></tr>
+<tr><th id="557">557</th><td>  } <b>while</b> (++j&lt;_len);</td></tr>
+<tr><th id="558">558</th><td>  _ui[j-<var>1</var>]=_ui0;</td></tr>
+<tr><th id="559">559</th><td>}</td></tr>
+<tr><th id="560">560</th><td></td></tr>
+<tr><th id="561">561</th><td><i>/*Computes the previous row/column of any recurrence that obeys the relation</i></td></tr>
+<tr><th id="562">562</th><td><i>   u[i-1][j]=u[i][j]-u[i][j-1]-u[i-1][j-1].</i></td></tr>
+<tr><th id="563">563</th><td><i>  _ui0 is the base case for the new row/column.*/</i></td></tr>
+<tr><th id="564">564</th><td><em>static</em> OPUS_INLINE <em>void</em> uprev(opus_uint32 *_ui,<em>unsigned</em> _n,opus_uint32 _ui0){</td></tr>
+<tr><th id="565">565</th><td>  opus_uint32 ui1;</td></tr>
+<tr><th id="566">566</th><td>  <em>unsigned</em>      j;</td></tr>
+<tr><th id="567">567</th><td>  <i>/*This do-while will overrun the array if we don't have storage for at least</i></td></tr>
+<tr><th id="568">568</th><td><i>     2 values.*/</i></td></tr>
+<tr><th id="569">569</th><td>  j=<var>1</var>; <b>do</b> {</td></tr>
+<tr><th id="570">570</th><td>    ui1=USUB32(USUB32(_ui[j],_ui[j-<var>1</var>]),_ui0);</td></tr>
+<tr><th id="571">571</th><td>    _ui[j-<var>1</var>]=_ui0;</td></tr>
+<tr><th id="572">572</th><td>    _ui0=ui1;</td></tr>
+<tr><th id="573">573</th><td>  } <b>while</b> (++j&lt;_n);</td></tr>
+<tr><th id="574">574</th><td>  _ui[j-<var>1</var>]=_ui0;</td></tr>
+<tr><th id="575">575</th><td>}</td></tr>
+<tr><th id="576">576</th><td></td></tr>
+<tr><th id="577">577</th><td><i>/*Compute V(_n,_k), as well as U(_n,0..._k+1).</i></td></tr>
+<tr><th id="578">578</th><td><i>  _u: On exit, _u[i] contains U(_n,i) for i in [0..._k+1].*/</i></td></tr>
+<tr><th id="579">579</th><td><em>static</em> opus_uint32 ncwrs_urow(<em>unsigned</em> _n,<em>unsigned</em> _k,opus_uint32 *_u){</td></tr>
+<tr><th id="580">580</th><td>  opus_uint32 um2;</td></tr>
+<tr><th id="581">581</th><td>  <em>unsigned</em>      len;</td></tr>
+<tr><th id="582">582</th><td>  <em>unsigned</em>      k;</td></tr>
+<tr><th id="583">583</th><td>  len=_k+<var>2</var>;</td></tr>
+<tr><th id="584">584</th><td>  <i>/*We require storage at least 3 values (e.g., _k&gt;0).*/</i></td></tr>
+<tr><th id="585">585</th><td>  celt_assert(len&gt;=<var>3</var>);</td></tr>
+<tr><th id="586">586</th><td>  _u[<var>0</var>]=<var>0</var>;</td></tr>
+<tr><th id="587">587</th><td>  _u[<var>1</var>]=um2=<var>1</var>;</td></tr>
+<tr><th id="588">588</th><td>  <i>/*If _n==0, _u[0] should be 1 and the rest should be 0.*/</i></td></tr>
+<tr><th id="589">589</th><td>  <i>/*If _n==1, _u[i] should be 1 for i&gt;1.*/</i></td></tr>
+<tr><th id="590">590</th><td>  celt_assert(_n&gt;=<var>2</var>);</td></tr>
+<tr><th id="591">591</th><td>  <i>/*If _k==0, the following do-while loop will overflow the buffer.*/</i></td></tr>
+<tr><th id="592">592</th><td>  celt_assert(_k&gt;<var>0</var>);</td></tr>
+<tr><th id="593">593</th><td>  k=<var>2</var>;</td></tr>
+<tr><th id="594">594</th><td>  <b>do</b> _u[k]=(k&lt;&lt;<var>1</var>)-<var>1</var>;</td></tr>
+<tr><th id="595">595</th><td>  <b>while</b>(++k&lt;len);</td></tr>
+<tr><th id="596">596</th><td>  <b>for</b>(k=<var>2</var>;k&lt;_n;k++)unext(_u+<var>1</var>,_k+<var>1</var>,<var>1</var>);</td></tr>
+<tr><th id="597">597</th><td>  <b>return</b> _u[_k]+_u[_k+<var>1</var>];</td></tr>
+<tr><th id="598">598</th><td>}</td></tr>
+<tr><th id="599">599</th><td></td></tr>
+<tr><th id="600">600</th><td><i>/*Returns the _i'th combination of _k elements chosen from a set of size _n</i></td></tr>
+<tr><th id="601">601</th><td><i>   with associated sign bits.</i></td></tr>
+<tr><th id="602">602</th><td><i>  _y: Returns the vector of pulses.</i></td></tr>
+<tr><th id="603">603</th><td><i>  _u: Must contain entries [0..._k+1] of row _n of U() on input.</i></td></tr>
+<tr><th id="604">604</th><td><i>      Its contents will be destructively modified.*/</i></td></tr>
+<tr><th id="605">605</th><td><em>static</em> opus_val32 cwrsi(<em>int</em> _n,<em>int</em> _k,opus_uint32 _i,<em>int</em> *_y,opus_uint32 *_u){</td></tr>
+<tr><th id="606">606</th><td>  <em>int</em> j;</td></tr>
+<tr><th id="607">607</th><td>  opus_int16 val;</td></tr>
+<tr><th id="608">608</th><td>  opus_val32 yy=<var>0</var>;</td></tr>
+<tr><th id="609">609</th><td>  celt_assert(_n&gt;<var>0</var>);</td></tr>
+<tr><th id="610">610</th><td>  j=<var>0</var>;</td></tr>
+<tr><th id="611">611</th><td>  <b>do</b>{</td></tr>
+<tr><th id="612">612</th><td>    opus_uint32 p;</td></tr>
+<tr><th id="613">613</th><td>    <em>int</em>           s;</td></tr>
+<tr><th id="614">614</th><td>    <em>int</em>           yj;</td></tr>
+<tr><th id="615">615</th><td>    p=_u[_k+<var>1</var>];</td></tr>
+<tr><th id="616">616</th><td>    s=-(_i&gt;=p);</td></tr>
+<tr><th id="617">617</th><td>    _i-=p&amp;s;</td></tr>
+<tr><th id="618">618</th><td>    yj=_k;</td></tr>
+<tr><th id="619">619</th><td>    p=_u[_k];</td></tr>
+<tr><th id="620">620</th><td>    <b>while</b>(p&gt;_i)p=_u[--_k];</td></tr>
+<tr><th id="621">621</th><td>    _i-=p;</td></tr>
+<tr><th id="622">622</th><td>    yj-=_k;</td></tr>
+<tr><th id="623">623</th><td>    val=(yj+s)^s;</td></tr>
+<tr><th id="624">624</th><td>    _y[j]=val;</td></tr>
+<tr><th id="625">625</th><td>    yy=MAC16_16(yy,val,val);</td></tr>
+<tr><th id="626">626</th><td>    uprev(_u,_k+<var>2</var>,<var>0</var>);</td></tr>
+<tr><th id="627">627</th><td>  }</td></tr>
+<tr><th id="628">628</th><td>  <b>while</b>(++j&lt;_n);</td></tr>
+<tr><th id="629">629</th><td>  <b>return</b> yy;</td></tr>
+<tr><th id="630">630</th><td>}</td></tr>
+<tr><th id="631">631</th><td></td></tr>
+<tr><th id="632">632</th><td><i>/*Returns the index of the given combination of K elements chosen from a set</i></td></tr>
+<tr><th id="633">633</th><td><i>   of size 1 with associated sign bits.</i></td></tr>
+<tr><th id="634">634</th><td><i>  _y: The vector of pulses, whose sum of absolute values is K.</i></td></tr>
+<tr><th id="635">635</th><td><i>  _k: Returns K.*/</i></td></tr>
+<tr><th id="636">636</th><td><em>static</em> OPUS_INLINE opus_uint32 icwrs1(<em>const</em> <em>int</em> *_y,<em>int</em> *_k){</td></tr>
+<tr><th id="637">637</th><td>  *_k=abs(_y[<var>0</var>]);</td></tr>
+<tr><th id="638">638</th><td>  <b>return</b> _y[<var>0</var>]&lt;<var>0</var>;</td></tr>
+<tr><th id="639">639</th><td>}</td></tr>
+<tr><th id="640">640</th><td></td></tr>
+<tr><th id="641">641</th><td><i>/*Returns the index of the given combination of K elements chosen from a set</i></td></tr>
+<tr><th id="642">642</th><td><i>   of size _n with associated sign bits.</i></td></tr>
+<tr><th id="643">643</th><td><i>  _y:  The vector of pulses, whose sum of absolute values must be _k.</i></td></tr>
+<tr><th id="644">644</th><td><i>  _nc: Returns V(_n,_k).*/</i></td></tr>
+<tr><th id="645">645</th><td><em>static</em> OPUS_INLINE opus_uint32 icwrs(<em>int</em> _n,<em>int</em> _k,opus_uint32 *_nc,<em>const</em> <em>int</em> *_y,</td></tr>
+<tr><th id="646">646</th><td> opus_uint32 *_u){</td></tr>
+<tr><th id="647">647</th><td>  opus_uint32 i;</td></tr>
+<tr><th id="648">648</th><td>  <em>int</em>         j;</td></tr>
+<tr><th id="649">649</th><td>  <em>int</em>         k;</td></tr>
+<tr><th id="650">650</th><td>  <i>/*We can't unroll the first two iterations of the loop unless _n&gt;=2.*/</i></td></tr>
+<tr><th id="651">651</th><td>  celt_assert(_n&gt;=<var>2</var>);</td></tr>
+<tr><th id="652">652</th><td>  _u[<var>0</var>]=<var>0</var>;</td></tr>
+<tr><th id="653">653</th><td>  <b>for</b>(k=<var>1</var>;k&lt;=_k+<var>1</var>;k++)_u[k]=(k&lt;&lt;<var>1</var>)-<var>1</var>;</td></tr>
+<tr><th id="654">654</th><td>  i=icwrs1(_y+_n-<var>1</var>,&amp;k);</td></tr>
+<tr><th id="655">655</th><td>  j=_n-<var>2</var>;</td></tr>
+<tr><th id="656">656</th><td>  i+=_u[k];</td></tr>
+<tr><th id="657">657</th><td>  k+=abs(_y[j]);</td></tr>
+<tr><th id="658">658</th><td>  <b>if</b>(_y[j]&lt;<var>0</var>)i+=_u[k+<var>1</var>];</td></tr>
+<tr><th id="659">659</th><td>  <b>while</b>(j--&gt;<var>0</var>){</td></tr>
+<tr><th id="660">660</th><td>    unext(_u,_k+<var>2</var>,<var>0</var>);</td></tr>
+<tr><th id="661">661</th><td>    i+=_u[k];</td></tr>
+<tr><th id="662">662</th><td>    k+=abs(_y[j]);</td></tr>
+<tr><th id="663">663</th><td>    <b>if</b>(_y[j]&lt;<var>0</var>)i+=_u[k+<var>1</var>];</td></tr>
+<tr><th id="664">664</th><td>  }</td></tr>
+<tr><th id="665">665</th><td>  *_nc=_u[k]+_u[k+<var>1</var>];</td></tr>
+<tr><th id="666">666</th><td>  <b>return</b> i;</td></tr>
+<tr><th id="667">667</th><td>}</td></tr>
+<tr><th id="668">668</th><td></td></tr>
+<tr><th id="669">669</th><td><u>#ifdef CUSTOM_MODES</u></td></tr>
+<tr><th id="670">670</th><td><em>void</em> get_required_bits(opus_int16 *_bits,<em>int</em> _n,<em>int</em> _maxk,<em>int</em> _frac){</td></tr>
+<tr><th id="671">671</th><td>  <em>int</em> k;</td></tr>
+<tr><th id="672">672</th><td>  <i>/*_maxk==0 =&gt; there's nothing to do.*/</i></td></tr>
+<tr><th id="673">673</th><td>  celt_assert(_maxk&gt;<var>0</var>);</td></tr>
+<tr><th id="674">674</th><td>  _bits[<var>0</var>]=<var>0</var>;</td></tr>
+<tr><th id="675">675</th><td>  <b>if</b> (_n==<var>1</var>)</td></tr>
+<tr><th id="676">676</th><td>  {</td></tr>
+<tr><th id="677">677</th><td>    <b>for</b> (k=<var>1</var>;k&lt;=_maxk;k++)</td></tr>
+<tr><th id="678">678</th><td>      _bits[k] = <var>1</var>&lt;&lt;_frac;</td></tr>
+<tr><th id="679">679</th><td>  }</td></tr>
+<tr><th id="680">680</th><td>  <b>else</b> {</td></tr>
+<tr><th id="681">681</th><td>    VARDECL(opus_uint32,u);</td></tr>
+<tr><th id="682">682</th><td>    SAVE_STACK;</td></tr>
+<tr><th id="683">683</th><td>    ALLOC(u,_maxk+<var>2U</var>,opus_uint32);</td></tr>
+<tr><th id="684">684</th><td>    ncwrs_urow(_n,_maxk,u);</td></tr>
+<tr><th id="685">685</th><td>    <b>for</b>(k=<var>1</var>;k&lt;=_maxk;k++)</td></tr>
+<tr><th id="686">686</th><td>      _bits[k]=log2_frac(u[k]+u[k+<var>1</var>],_frac);</td></tr>
+<tr><th id="687">687</th><td>    RESTORE_STACK;</td></tr>
+<tr><th id="688">688</th><td>  }</td></tr>
+<tr><th id="689">689</th><td>}</td></tr>
+<tr><th id="690">690</th><td><u>#endif /* CUSTOM_MODES */</u></td></tr>
+<tr><th id="691">691</th><td></td></tr>
+<tr><th id="692">692</th><td><em>void</em> encode_pulses(<em>const</em> <em>int</em> *_y,<em>int</em> _n,<em>int</em> _k,ec_enc *_enc){</td></tr>
+<tr><th id="693">693</th><td>  opus_uint32 i;</td></tr>
+<tr><th id="694">694</th><td>  VARDECL(opus_uint32,u);</td></tr>
+<tr><th id="695">695</th><td>  opus_uint32 nc;</td></tr>
+<tr><th id="696">696</th><td>  SAVE_STACK;</td></tr>
+<tr><th id="697">697</th><td>  celt_assert(_k&gt;<var>0</var>);</td></tr>
+<tr><th id="698">698</th><td>  ALLOC(u,_k+<var>2U</var>,opus_uint32);</td></tr>
+<tr><th id="699">699</th><td>  i=icwrs(_n,_k,&amp;nc,_y,u);</td></tr>
+<tr><th id="700">700</th><td>  ec_enc_uint(_enc,i,nc);</td></tr>
+<tr><th id="701">701</th><td>  RESTORE_STACK;</td></tr>
+<tr><th id="702">702</th><td>}</td></tr>
+<tr><th id="703">703</th><td></td></tr>
+<tr><th id="704">704</th><td>opus_val32 decode_pulses(<em>int</em> *_y,<em>int</em> _n,<em>int</em> _k,ec_dec *_dec){</td></tr>
+<tr><th id="705">705</th><td>  VARDECL(opus_uint32,u);</td></tr>
+<tr><th id="706">706</th><td>  <em>int</em> ret;</td></tr>
+<tr><th id="707">707</th><td>  SAVE_STACK;</td></tr>
+<tr><th id="708">708</th><td>  celt_assert(_k&gt;<var>0</var>);</td></tr>
+<tr><th id="709">709</th><td>  ALLOC(u,_k+<var>2U</var>,opus_uint32);</td></tr>
+<tr><th id="710">710</th><td>  ret = cwrsi(_n,_k,ec_dec_uint(_dec,ncwrs_urow(_n,_k,u)),_y,u);</td></tr>
+<tr><th id="711">711</th><td>  RESTORE_STACK;</td></tr>
+<tr><th id="712">712</th><td>  <b>return</b> ret;</td></tr>
+<tr><th id="713">713</th><td>}</td></tr>
+<tr><th id="714">714</th><td></td></tr>
+<tr><th id="715">715</th><td><u>#<span data-ppcond="193">endif</span> /* SMALL_FOOTPRINT */</u></td></tr>
+<tr><th id="716">716</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated on <em>2017-Aug-29</em> from project codebrowser revision <em>63e07af</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

@@ -1,0 +1,9 @@
+<dec f='codebrowser/code/botlib/botlib.h' l='196' type='int (*)(const void *, int, fileHandle_t)'/>
+<offset>896</offset>
+<use f='codebrowser/code/botlib/be_aas_file.c' l='509' u='r' c='AAS_WriteAASLump'/>
+<use f='codebrowser/code/botlib/be_aas_file.c' l='544' u='r' c='AAS_WriteAASFile'/>
+<use f='codebrowser/code/botlib/be_aas_file.c' l='578' u='r' c='AAS_WriteAASFile'/>
+<use f='codebrowser/code/botlib/be_aas_route.c' l='985' u='r' c='AAS_WriteRouteCache'/>
+<use f='codebrowser/code/botlib/be_aas_route.c' l='993' u='r' c='AAS_WriteRouteCache'/>
+<use f='codebrowser/code/botlib/be_aas_route.c' l='1004' u='r' c='AAS_WriteRouteCache'/>
+<use f='codebrowser/code/server/sv_bot.c' l='547' u='w' c='SV_BotInitBotLib'/>

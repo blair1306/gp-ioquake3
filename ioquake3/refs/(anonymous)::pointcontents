@@ -1,0 +1,10 @@
+<dec f='codebrowser/code/game/bg_public.h' l='191' type='int (*)(const vec_t *, int)'/>
+<offset>1920</offset>
+<use f='codebrowser/code/cgame/cg_predict.c' l='445' u='w' c='CG_PredictPlayerState'/>
+<use f='codebrowser/code/game/bg_pmove.c' l='420' u='r' c='PM_CheckWaterJump'/>
+<use f='codebrowser/code/game/bg_pmove.c' l='426' u='r' c='PM_CheckWaterJump'/>
+<use f='codebrowser/code/game/bg_pmove.c' l='1219' u='r' c='PM_SetWaterLevel'/>
+<use f='codebrowser/code/game/bg_pmove.c' l='1228' u='r' c='PM_SetWaterLevel'/>
+<use f='codebrowser/code/game/bg_pmove.c' l='1232' u='r' c='PM_SetWaterLevel'/>
+<use f='codebrowser/code/game/g_active.c' l='338' u='w' c='SpectatorThink'/>
+<use f='codebrowser/code/game/g_active.c' l='913' u='w' c='ClientThink_real'/>

@@ -1,0 +1,12 @@
+<dec f='codebrowser/code/qcommon/unzip.h' l='136' type='unzFile unzOpen(const char * path)'/>
+<use f='codebrowser/code/qcommon/files.c' l='1285' u='c' c='FS_FOpenFileReadDir'/>
+<use f='codebrowser/code/qcommon/files.c' l='2036' u='c' c='FS_LoadZipFile'/>
+<doc f='codebrowser/code/qcommon/unzip.h' l='126'>/*
+   Compare two filename (fileName1,fileName2).
+   If iCaseSenisivity = 1, comparision is case sensitivity (like strcmp)
+   If iCaseSenisivity = 2, comparision is not case sensitivity (like strcmpi
+                                or strcasecmp)
+   If iCaseSenisivity = 0, case sensitivity is defaut of your operating system
+    (like 1 on Unix, 2 on Windows)
+*/</doc>
+<def f='codebrowser/code/qcommon/unzip.c' l='495' ll='499' type='unzFile unzOpen(const char * path)'/>

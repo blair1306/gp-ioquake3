@@ -1,0 +1,15 @@
+<dec f='codebrowser/code/renderergl1/tr_local.h' l='854' type='qboolean'/>
+<offset>9056</offset>
+<doc f='codebrowser/code/renderergl1/tr_local.h' l='854'>// if qtrue, drawstretchpic doesn&apos;t need to change modes</doc>
+<use f='codebrowser/code/renderergl1/tr_backend.c' l='432' u='w' c='RB_BeginDrawingView'/>
+<use f='codebrowser/code/renderergl1/tr_backend.c' l='699' u='w' c='RB_SetGL2D'/>
+<use f='codebrowser/code/renderergl1/tr_backend.c' l='856' u='r' c='RB_StretchPic'/>
+<use f='codebrowser/code/renderergl1/tr_backend.c' l='983' u='r' c='RB_ShowImages'/>
+<use f='codebrowser/code/renderergl1/tr_backend.c' l='1112' u='w' c='RB_SwapBuffers'/>
+<dec f='codebrowser/code/renderergl2/tr_local.h' l='1409' type='qboolean'/>
+<offset>14112</offset>
+<doc f='codebrowser/code/renderergl2/tr_local.h' l='1409'>// if qtrue, drawstretchpic doesn&apos;t need to change modes</doc>
+<use f='codebrowser/code/renderergl2/tr_backend.c' l='339' u='w' c='RB_BeginDrawingView'/>
+<use f='codebrowser/code/renderergl2/tr_backend.c' l='629' u='r' c='RB_SetGL2D'/>
+<use f='codebrowser/code/renderergl2/tr_backend.c' l='632' u='w' c='RB_SetGL2D'/>
+<use f='codebrowser/code/renderergl2/tr_backend.c' l='1411' u='w' c='RB_SwapBuffers'/>

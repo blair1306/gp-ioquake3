@@ -1,0 +1,8 @@
+<dec f='include/SDL2/SDL_joystick.h' l='180' type='void SDL_JoystickUpdate()'/>
+<doc f='include/SDL2/SDL_joystick.h' l='174'>/**
+ *  Update the current state of the open joysticks.
+ *
+ *  This is called automatically by the event loop if any joystick
+ *  events are enabled.
+ */</doc>
+<use f='codebrowser/code/sdl/sdl_input.c' l='785' u='c' c='IN_JoyMove'/>

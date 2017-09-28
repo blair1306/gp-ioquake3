@@ -1,0 +1,13 @@
+<dec f='codebrowser/code/game/g_local.h' l='428' type='void StopFollowing(gentity_t * ent)'/>
+<use f='codebrowser/code/game/g_client.c' l='1277' u='c' c='ClientDisconnect'/>
+<def f='codebrowser/code/game/g_cmds.c' l='661' ll='675' type='void StopFollowing(gentity_t * ent)'/>
+<use f='codebrowser/code/game/g_cmds.c' l='735' u='c' c='Cmd_Follow_f'/>
+<doc f='codebrowser/code/game/g_cmds.c' l='653'>/*
+=================
+StopFollowing
+
+If the client being followed leaves the game, or you just want to drop
+to free floating spectator mode
+=================
+*/</doc>
+<use f='codebrowser/code/game/g_main.c' l='934' u='c' c='MoveClientToIntermission'/>

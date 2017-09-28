@@ -1,0 +1,4 @@
+<dec f='codebrowser/code/game/bg_public.h' l='212' type='5'/>
+<doc f='codebrowser/code/game/bg_public.h' l='212'>// bit mask of clients wishing to exit the intermission (FIXME: configstring?)</doc>
+<use f='codebrowser/code/cgame/cg_scoreboard.c' l='222' u='r' c='CG_DrawClientScore'/>
+<use f='codebrowser/code/game/g_main.c' l='1268' u='w' c='CheckIntermissionExit'/>

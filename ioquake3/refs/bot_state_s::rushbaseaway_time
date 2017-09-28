@@ -1,0 +1,12 @@
+<dec f='codebrowser/code/game/ai_main.h' l='186' type='float'/>
+<offset>48128</offset>
+<doc f='codebrowser/code/game/ai_main.h' l='186'>//time away from rushing to the base</doc>
+<use f='codebrowser/code/game/ai_cmd.c' l='995' u='w' c='BotMatch_RushBase'/>
+<use f='codebrowser/code/game/ai_cmd.c' l='1084' u='w' c='BotMatch_ReturnFlag'/>
+<use f='codebrowser/code/game/ai_dmnet.c' l='785' u='r' c='BotGetLongTermGoal'/>
+<use f='codebrowser/code/game/ai_dmnet.c' l='801' u='w' c='BotGetLongTermGoal'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='509' u='w' c='BotCTFSeekGoals'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='529' u='r' c='BotCTFSeekGoals'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='534' u='w' c='BotCTFSeekGoals'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='787' u='w' c='BotCTFRetreatGoals'/>
+<use f='codebrowser/code/game/ai_vcmd.c' l='403' u='w' c='BotVoiceChat_ReturnFlag'/>

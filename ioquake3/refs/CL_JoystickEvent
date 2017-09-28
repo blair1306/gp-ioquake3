@@ -1,0 +1,11 @@
+<dec f='codebrowser/code/qcommon/qcommon.h' l='995' type='void CL_JoystickEvent(int axis, int value, int time)'/>
+<def f='codebrowser/code/client/cl_input.c' l='380' ll='385' type='void CL_JoystickEvent(int axis, int value, int time)'/>
+<doc f='codebrowser/code/client/cl_input.c' l='373'>/*
+=================
+CL_JoystickEvent
+
+Joystick values stay set until changed
+=================
+*/</doc>
+<def f='codebrowser/code/null/null_client.c' l='74' ll='75' type='void CL_JoystickEvent(int axis, int value, int time)'/>
+<use f='codebrowser/code/qcommon/common.c' l='2227' u='c' c='Com_EventLoop'/>

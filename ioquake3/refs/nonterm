@@ -1,0 +1,18 @@
+<def f='codebrowser/code/tools/lcc/lburg/lburg.h' l='20' ll='29'/>
+<dec f='codebrowser/code/tools/lcc/lburg/lburg.h' l='30' type='Nonterm nonterm(char * id)'/>
+<use f='codebrowser/code/tools/lcc/lburg/gram.c' l='32' u='c' c='yyparse'/>
+<use f='codebrowser/code/tools/lcc/lburg/gram.c' l='49' u='c' c='yyparse'/>
+<size>48</size>
+<doc f='codebrowser/code/tools/lcc/lburg/lburg.h' l='20'>/* nonterminals: */</doc>
+<mbr r='nonterm::name' o='0' t='char *'/>
+<mbr r='nonterm::kind' o='64' t='Kind'/>
+<mbr r='nonterm::number' o='96' t='int'/>
+<mbr r='nonterm::lhscount' o='128' t='int'/>
+<mbr r='nonterm::reached' o='160' t='int'/>
+<mbr r='nonterm::rules' o='192' t='Rule'/>
+<mbr r='nonterm::chain' o='256' t='Rule'/>
+<mbr r='nonterm::link' o='320' t='Nonterm'/>
+<def f='codebrowser/code/tools/lcc/lburg/lburg.c' l='170' ll='188' type='Nonterm nonterm(char * id)'/>
+<use f='codebrowser/code/tools/lcc/lburg/lburg.c' l='225' u='c' c='tree'/>
+<use f='codebrowser/code/tools/lcc/lburg/lburg.c' l='249' u='c' c='rule'/>
+<doc f='codebrowser/code/tools/lcc/lburg/lburg.c' l='169'>/* nonterm - create a new terminal id, if necessary */</doc>

@@ -1,0 +1,12 @@
+<dec f='codebrowser/code/game/g_local.h' l='576' type='qboolean SpotWouldTelefrag(gentity_t * spot)'/>
+<def f='codebrowser/code/game/g_client.c' l='81' ll='101' type='qboolean SpotWouldTelefrag(gentity_t * spot)'/>
+<use f='codebrowser/code/game/g_client.c' l='154' u='c' c='SelectRandomDeathmatchSpawnPoint'/>
+<use f='codebrowser/code/game/g_client.c' l='196' u='c' c='SelectRandomFurthestSpawnPoint'/>
+<use f='codebrowser/code/game/g_client.c' l='325' u='c' c='SelectInitialSpawnPoint'/>
+<doc f='codebrowser/code/game/g_client.c' l='75'>/*
+================
+SpotWouldTelefrag
+
+================
+*/</doc>
+<use f='codebrowser/code/game/g_team.c' l='995' u='c' c='SelectRandomTeamSpawnPoint'/>

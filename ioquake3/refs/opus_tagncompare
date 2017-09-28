@@ -1,0 +1,20 @@
+<dec f='codebrowser/code/opusfile-0.8/include/opusfile.h' l='625' type='int opus_tagncompare(const char * _tag_name, int _tag_len, const char * _comment)'/>
+<doc f='codebrowser/code/opusfile-0.8/include/opusfile.h' l='612'>/**Check if \a _comment is an instance of a \a _tag_name tag.
+   This version is slightly more efficient than opus_tagcompare() if the length
+    of the tag name is already known (e.g., because it is a constant).
+   \see opus_tagcompare
+   \param _tag_name A case-insensitive ASCII string containing the name of the
+                     tag to check for (without the terminating &apos;=&apos; character).
+   \param _tag_len  The number of characters in the tag name.
+                    This must be non-negative.
+   \param _comment  The comment string to check.
+   \return An integer less than, equal to, or greater than zero if \a _comment
+            is found respectively, to be less than, to match, or be greater
+            than a &quot;tag=value&quot; string whose tag matches the first \a _tag_len
+            characters of \a _tag_name.*/</doc>
+<use f='codebrowser/code/opusfile-0.8/src/info.c' l='340' u='c' c='opus_tagcompare'/>
+<def f='codebrowser/code/opusfile-0.8/src/info.c' l='343' ll='348' type='int opus_tagncompare(const char * _tag_name, int _tag_len, const char * _comment)'/>
+<use f='codebrowser/code/opusfile-0.8/src/info.c' l='361' u='c' c='opus_tags_query'/>
+<use f='codebrowser/code/opusfile-0.8/src/info.c' l='381' u='c' c='opus_tags_query_count'/>
+<use f='codebrowser/code/opusfile-0.8/src/info.c' l='406' u='c' c='opus_tags_get_gain'/>
+<use f='codebrowser/code/opusfile-0.8/src/info.c' l='727' u='c' c='opus_picture_tag_parse'/>

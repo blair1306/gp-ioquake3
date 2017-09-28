@@ -1,0 +1,10 @@
+<dec f='codebrowser/code/renderergl2/tr_local.h' l='1821' type='vec_t R_CalcTangentSpace(vec_t * tangent, vec_t * bitangent, const vec_t * normal, const vec_t * sdir, const vec_t * tdir)'/>
+<def f='codebrowser/code/renderergl2/tr_main.c' l='110' ll='129' type='vec_t R_CalcTangentSpace(vec_t * tangent, vec_t * bitangent, const vec_t * normal, const vec_t * sdir, const vec_t * tdir)'/>
+<doc f='codebrowser/code/renderergl2/tr_main.c' l='103'>/*
+=============
+R_CalcTangentSpace
+
+Lengyel, Eric. “Computing Tangent Space Basis Vectors for an Arbitrary Mesh”. Terathon Software 3D Graphics Library, 2001. http://www.terathon.com/code/tangent.html
+=============
+*/</doc>
+<use f='codebrowser/code/renderergl2/tr_model.c' l='653' u='c' c='R_LoadMD3'/>

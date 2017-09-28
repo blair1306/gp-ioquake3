@@ -1,0 +1,12 @@
+<dec f='codebrowser/code/botlib/be_aas_move.h' l='59' type='int AAS_AgainstLadder(vec_t * origin)'/>
+<dec f='codebrowser/code/botlib/be_aas_move.h' l='59' type='int AAS_AgainstLadder(vec_t * origin)'/>
+<doc f='codebrowser/code/botlib/be_aas_move.h' l='58'>//returns true if against a ladder at the given origin</doc>
+<def f='codebrowser/code/botlib/be_aas_move.c' l='123' ll='177' type='int AAS_AgainstLadder(vec_t * origin)'/>
+<doc f='codebrowser/code/botlib/be_aas_move.c' l='116'>//===========================================================================
+// returns qtrue if the bot is against a ladder
+//
+// Parameter:			-
+// Returns:				-
+// Changes Globals:		-
+//===========================================================================</doc>
+<use f='codebrowser/code/botlib/be_ai_move.c' l='3140' u='c' c='BotMoveToGoal'/>

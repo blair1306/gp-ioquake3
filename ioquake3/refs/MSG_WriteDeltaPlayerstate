@@ -1,0 +1,10 @@
+<dec f='codebrowser/code/qcommon/qcommon.h' l='106' type='void MSG_WriteDeltaPlayerstate(msg_t * msg, struct playerState_s * from, struct playerState_s * to)'/>
+<def f='codebrowser/code/qcommon/msg.c' l='1158' ll='1302' type='void MSG_WriteDeltaPlayerstate(msg_t * msg, struct playerState_s * from, struct playerState_s * to)'/>
+<doc f='codebrowser/code/qcommon/msg.c' l='1152'>/*
+=============
+MSG_WriteDeltaPlayerstate
+
+=============
+*/</doc>
+<use f='codebrowser/code/server/sv_snapshot.c' l='194' u='c' c='SV_WriteSnapshotToClient'/>
+<use f='codebrowser/code/server/sv_snapshot.c' l='196' u='c' c='SV_WriteSnapshotToClient'/>

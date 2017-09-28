@@ -1,0 +1,8 @@
+<dec f='codebrowser/code/client/client.h' l='167' type='int'/>
+<offset>64</offset>
+<doc f='codebrowser/code/client/client.h' l='167'>// for retransmits during connection</doc>
+<use f='codebrowser/code/client/cl_input.c' l='683' u='r' c='CL_ReadyToSendPacket'/>
+<use f='codebrowser/code/client/cl_input.c' l='692' u='r' c='CL_ReadyToSendPacket'/>
+<use f='codebrowser/code/client/cl_input.c' l='888' u='w' c='CL_WritePacket'/>
+<use f='codebrowser/code/client/cl_main.c' l='1304' u='w' c='CL_MapLoading'/>
+<use f='codebrowser/code/client/cl_main.c' l='2735' u='w' c='CL_ConnectionlessPacket'/>

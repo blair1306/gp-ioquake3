@@ -1,0 +1,13 @@
+<dec f='codebrowser/code/botlib/be_ai_goal.h' l='80' type='int BotChooseNBGItem(int goalstate, vec_t * origin, int * inventory, int travelflags, bot_goal_t * ltg, float maxtime)'/>
+<def f='codebrowser/code/botlib/be_ai_goal.c' l='1448' ll='1598' type='int BotChooseNBGItem(int goalstate, vec_t * origin, int * inventory, int travelflags, bot_goal_t * ltg, float maxtime)'/>
+<doc f='codebrowser/code/botlib/be_ai_goal.c' l='1442'>//===========================================================================
+//
+// Parameter:				-
+// Returns:					-
+// Changes Globals:		-
+//===========================================================================</doc>
+<doc f='codebrowser/code/botlib/be_ai_goal.h' l='76'>//choose the best nearby goal item for the bot
+//the item may not be further away from the current bot position than maxtime
+//also the travel time from the nearby goal towards the long term goal may not
+//be larger than the travel time towards the long term goal from the current bot position</doc>
+<use f='codebrowser/code/botlib/be_interface.c' l='818' u='r' c='Init_AI_Export'/>

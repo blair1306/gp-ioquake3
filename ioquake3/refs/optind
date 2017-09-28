@@ -1,0 +1,36 @@
+<dec f='include/getopt.h' l='71' type='int'/>
+<doc f='include/getopt.h' l='59'>/* Index in ARGV of the next element to be scanned.
+   This is used for communication to and from the caller
+   and for communication between successive calls to `getopt&apos;.
+
+   On entry to `getopt&apos;, zero means this is the first call; initialize.
+
+   When `getopt&apos; returns -1, this is the index of the first of the
+   non-option elements that the caller should itself scan.
+
+   Otherwise, `optind&apos; communicates from one call to the next
+   how much of ARGV has been scanned so far.  */</doc>
+<def f='codebrowser/code/tools/lcc/cpp/getopt.c' l='6' type='int'/>
+<use f='codebrowser/code/tools/lcc/cpp/getopt.c' l='18' u='r' c='lcc_getopt'/>
+<use f='codebrowser/code/tools/lcc/cpp/getopt.c' l='19' u='r' c='lcc_getopt'/>
+<use f='codebrowser/code/tools/lcc/cpp/getopt.c' l='19' u='r' c='lcc_getopt'/>
+<use f='codebrowser/code/tools/lcc/cpp/getopt.c' l='21' u='r' c='lcc_getopt'/>
+<use f='codebrowser/code/tools/lcc/cpp/getopt.c' l='22' u='w' c='lcc_getopt'/>
+<use f='codebrowser/code/tools/lcc/cpp/getopt.c' l='26' u='r' c='lcc_getopt'/>
+<use f='codebrowser/code/tools/lcc/cpp/getopt.c' l='29' u='r' c='lcc_getopt'/>
+<use f='codebrowser/code/tools/lcc/cpp/getopt.c' l='30' u='w' c='lcc_getopt'/>
+<use f='codebrowser/code/tools/lcc/cpp/getopt.c' l='36' u='r' c='lcc_getopt'/>
+<use f='codebrowser/code/tools/lcc/cpp/getopt.c' l='37' u='w' c='lcc_getopt'/>
+<use f='codebrowser/code/tools/lcc/cpp/getopt.c' l='38' u='w' c='lcc_getopt'/>
+<use f='codebrowser/code/tools/lcc/cpp/getopt.c' l='43' u='w' c='lcc_getopt'/>
+<use f='codebrowser/code/tools/lcc/cpp/getopt.c' l='46' u='r' c='lcc_getopt'/>
+<use f='codebrowser/code/tools/lcc/cpp/getopt.c' l='48' u='w' c='lcc_getopt'/>
+<dec f='codebrowser/code/tools/lcc/cpp/nlist.c' l='7' type='int'/>
+<dec f='codebrowser/code/tools/lcc/cpp/unix.c' l='10' type='int'/>
+<use f='codebrowser/code/tools/lcc/cpp/unix.c' l='63' u='r' c='setup'/>
+<use f='codebrowser/code/tools/lcc/cpp/unix.c' l='64' u='r' c='setup'/>
+<use f='codebrowser/code/tools/lcc/cpp/unix.c' l='65' u='r' c='setup'/>
+<use f='codebrowser/code/tools/lcc/cpp/unix.c' l='65' u='r' c='setup'/>
+<use f='codebrowser/code/tools/lcc/cpp/unix.c' l='69' u='r' c='setup'/>
+<use f='codebrowser/code/tools/lcc/cpp/unix.c' l='74' u='r' c='setup'/>
+<use f='codebrowser/code/tools/lcc/cpp/unix.c' l='77' u='r' c='setup'/>

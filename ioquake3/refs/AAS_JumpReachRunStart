@@ -1,0 +1,12 @@
+<dec f='codebrowser/code/botlib/be_aas_move.h' l='57' type='void AAS_JumpReachRunStart(struct aas_reachability_s * reach, vec_t * runstart)'/>
+<dec f='codebrowser/code/botlib/be_aas_move.h' l='57' type='void AAS_JumpReachRunStart(struct aas_reachability_s * reach, vec_t * runstart)'/>
+<doc f='codebrowser/code/botlib/be_aas_move.h' l='56'>//returns the jump reachability run start point</doc>
+<use f='codebrowser/code/botlib/be_aas_debug.c' l='636' u='c' c='AAS_ShowReachability'/>
+<def f='codebrowser/code/botlib/be_aas_move.c' l='256' ll='282' type='void AAS_JumpReachRunStart(aas_reachability_t * reach, vec_t * runstart)'/>
+<doc f='codebrowser/code/botlib/be_aas_move.c' l='250'>//===========================================================================
+//
+// Parameter:				-
+// Returns:					-
+// Changes Globals:		-
+//===========================================================================</doc>
+<use f='codebrowser/code/botlib/be_ai_move.c' l='1863' u='c' c='BotTravel_Jump'/>

@@ -1,0 +1,11 @@
+<dec f='include/stdlib.h' l='468' type='void * calloc(size_t __nmemb, size_t __size)'/>
+<doc f='include/stdlib.h' l='467'>/* Allocate NMEMB elements of SIZE bytes each, all initialized to 0.  */</doc>
+<use f='codebrowser/code/qcommon/common.c' l='1425' u='c' c='Com_InitSmallZoneMemory'/>
+<use f='codebrowser/code/qcommon/common.c' l='1450' u='c' c='Com_InitZoneMemory'/>
+<use f='codebrowser/code/qcommon/common.c' l='1575' u='c' c='Com_InitHunkMemory'/>
+<use f='codebrowser/code/sdl/sdl_snd.c' l='237' u='c' c='SNDDMA_Init'/>
+<use f='codebrowser/code/tools/asm/q3asm.c' l='252' u='c' c='hashtable_init'/>
+<use f='codebrowser/code/tools/asm/q3asm.c' l='275' u='c' c='hashtable_add'/>
+<use f='codebrowser/code/tools/asm/q3asm.c' l='282' u='c' c='hashtable_add'/>
+<use f='codebrowser/code/tools/lcc/lburg/lburg.c' l='107' u='c' c='alloc'/>
+<use f='codebrowser/code/zlib/zutil.c' l='307' u='c' c='zcalloc'/>

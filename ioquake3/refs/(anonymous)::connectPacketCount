@@ -1,0 +1,14 @@
+<dec f='codebrowser/code/ui/ui_public.h' l='30' type='int'/>
+<dec f='codebrowser/code/client/client.h' l='173' type='int'/>
+<offset>33248</offset>
+<doc f='codebrowser/code/client/client.h' l='173'>// for display on connection dialog</doc>
+<use f='codebrowser/code/client/cl_main.c' l='1776' u='w' c='CL_Connect_f'/>
+<use f='codebrowser/code/client/cl_main.c' l='2357' u='w' c='CL_CheckForResend'/>
+<use f='codebrowser/code/client/cl_main.c' l='2680' u='w' c='CL_ConnectionlessPacket'/>
+<use f='codebrowser/code/client/cl_parse.c' l='473' u='w' c='CL_ParseGamestate'/>
+<use f='codebrowser/code/client/cl_ui.c' l='37' u='w' c='GetClientState'/>
+<use f='codebrowser/code/client/cl_ui.c' l='37' u='r' c='GetClientState'/>
+<use f='codebrowser/code/q3_ui/ui_connect.c' l='226' u='r' c='UI_DrawConnectScreen'/>
+<use f='codebrowser/code/q3_ui/ui_connect.c' l='229' u='r' c='UI_DrawConnectScreen'/>
+<use f='codebrowser/code/ui/ui_main.c' l='5583' u='r' c='UI_DrawConnectScreen'/>
+<use f='codebrowser/code/ui/ui_main.c' l='5586' u='r' c='UI_DrawConnectScreen'/>

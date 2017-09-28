@@ -1,0 +1,24 @@
+<def f='codebrowser/code/renderergl1/tr_bsp.c' l='580' ll='682' type='void R_FixSharedVertexLodError_r(int start, srfGridMesh_t * grid1)'/>
+<use f='codebrowser/code/renderergl1/tr_bsp.c' l='677' u='c' c='R_FixSharedVertexLodError_r'/>
+<use f='codebrowser/code/renderergl1/tr_bsp.c' l='708' u='c' c='R_FixSharedVertexLodError'/>
+<doc f='codebrowser/code/renderergl1/tr_bsp.c' l='571'>/*
+=================
+R_FixSharedVertexLodError_r
+
+NOTE: never sync LoD through grid edges with merged points!
+
+FIXME: write generalized version that also avoids cracks between a patch and one that meets half way?
+=================
+*/</doc>
+<def f='codebrowser/code/renderergl2/tr_bsp.c' l='1030' ll='1132' type='void R_FixSharedVertexLodError_r(int start, srfBspSurface_t * grid1)'/>
+<use f='codebrowser/code/renderergl2/tr_bsp.c' l='1127' u='c' c='R_FixSharedVertexLodError_r'/>
+<use f='codebrowser/code/renderergl2/tr_bsp.c' l='1158' u='c' c='R_FixSharedVertexLodError'/>
+<doc f='codebrowser/code/renderergl2/tr_bsp.c' l='1021'>/*
+=================
+R_FixSharedVertexLodError_r
+
+NOTE: never sync LoD through grid edges with merged points!
+
+FIXME: write generalized version that also avoids cracks between a patch and one that meets half way?
+=================
+*/</doc>

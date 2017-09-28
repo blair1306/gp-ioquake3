@@ -1,0 +1,23 @@
+<dec f='codebrowser/code/botlib/be_aas_bsp.h' l='61' type='bsp_trace_t AAS_Trace(vec_t * start, vec_t * mins, vec_t * maxs, vec_t * end, int passent, int contentmask)'/>
+<dec f='codebrowser/code/botlib/be_aas_bsp.h' l='61' type='bsp_trace_t AAS_Trace(vec_t * start, vec_t * mins, vec_t * maxs, vec_t * end, int passent, int contentmask)'/>
+<def f='codebrowser/code/botlib/be_aas_bspq3.c' l='147' ll='152' type='bsp_trace_t AAS_Trace(vec_t * start, vec_t * mins, vec_t * maxs, vec_t * end, int passent, int contentmask)'/>
+<doc f='codebrowser/code/botlib/be_aas_bspq3.c' l='140'>//===========================================================================
+// traces axial boxes of any size through the world
+//
+// Parameter:				-
+// Returns:					-
+// Changes Globals:		-
+//===========================================================================</doc>
+<doc f='codebrowser/code/botlib/be_aas_bsp.h' l='60'>//trace through the world</doc>
+<use f='codebrowser/code/botlib/be_aas_move.c' l='63' u='c' c='AAS_DropToFloor'/>
+<use f='codebrowser/code/botlib/be_aas_move.c' l='313' u='c' c='AAS_WeaponJumpZVelocity'/>
+<use f='codebrowser/code/botlib/be_aas_reach.c' l='3858' u='c' c='AAS_Reachability_Grapple'/>
+<use f='codebrowser/code/botlib/be_ai_goal.c' l='602' u='c' c='BotInitLevelItems'/>
+<use f='codebrowser/code/botlib/be_ai_goal.c' l='1646' u='c' c='BotItemGoalInVisButNotVisible'/>
+<use f='codebrowser/code/botlib/be_ai_move.c' l='310' u='c' c='BotReachabilityArea'/>
+<use f='codebrowser/code/botlib/be_ai_move.c' l='469' u='c' c='BotOnMover'/>
+<use f='codebrowser/code/botlib/be_ai_move.c' l='554' u='c' c='BotOnTopOfEntity'/>
+<use f='codebrowser/code/botlib/be_ai_move.c' l='898' u='c' c='BotVisible'/>
+<use f='codebrowser/code/botlib/be_ai_move.c' l='1293' u='c' c='BotCheckBlocked'/>
+<use f='codebrowser/code/botlib/be_ai_move.c' l='1309' u='c' c='BotCheckBlocked'/>
+<use f='codebrowser/code/botlib/be_ai_move.c' l='2660' u='c' c='BotTravel_Grapple'/>

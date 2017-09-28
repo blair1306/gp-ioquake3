@@ -1,0 +1,13 @@
+<dec f='codebrowser/code/opus-1.1.4/include/opus_defines.h' l='660'/>
+<doc f='codebrowser/code/opus-1.1.4/include/opus_defines.h' l='652'>/** Gets the final state of the codec&apos;s entropy coder.
+  * This is used for testing purposes,
+  * The encoder and decoder state should be identical after coding a payload
+  * (assuming no data corruption or software bugs)
+  *
+  * @param[out] x &lt;tt&gt;opus_uint32 *&lt;/tt&gt;: Entropy coder state
+  *
+  * @hideinitializer */</doc>
+<use f='codebrowser/code/opus-1.1.4/src/opus_decoder.c' l='477' u='c'/>
+<use f='codebrowser/code/opus-1.1.4/src/opus_decoder.c' l='532' u='c'/>
+<use f='codebrowser/code/opus-1.1.4/src/opus_encoder.c' l='1867' u='c'/>
+<use f='codebrowser/code/opus-1.1.4/src/opus_encoder.c' l='1918' u='c'/>

@@ -1,0 +1,13 @@
+<def f='codebrowser/code/game/g_missile.c' l='67' ll='93' type='void G_ExplodeMissile(gentity_t * ent)'/>
+<use f='codebrowser/code/game/g_missile.c' l='530' u='r' c='fire_plasma'/>
+<use f='codebrowser/code/game/g_missile.c' l='571' u='r' c='fire_grenade'/>
+<use f='codebrowser/code/game/g_missile.c' l='613' u='r' c='fire_bfg'/>
+<use f='codebrowser/code/game/g_missile.c' l='653' u='r' c='fire_rocket'/>
+<doc f='codebrowser/code/game/g_missile.c' l='60'>/*
+================
+G_ExplodeMissile
+
+Explode a missile without an impact
+================
+*/</doc>
+<dec f='codebrowser/code/game/g_mover.c' l='253' type='void G_ExplodeMissile(gentity_t * ent)'/>

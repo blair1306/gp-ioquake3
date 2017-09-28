@@ -1,0 +1,11 @@
+<dec f='codebrowser/code/qcommon/qcommon.h' l='610' type='void FS_InitFilesystem()'/>
+<use f='codebrowser/code/qcommon/common.c' l='2714' u='c' c='Com_Init'/>
+<def f='codebrowser/code/qcommon/files.c' l='3938' ll='3968' type='void FS_InitFilesystem()'/>
+<doc f='codebrowser/code/qcommon/files.c' l='3930'>/*
+================
+FS_InitFilesystem
+
+Called only at inital startup, not when the filesystem
+is resetting due to a game change
+================
+*/</doc>

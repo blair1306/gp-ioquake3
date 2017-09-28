@@ -1,0 +1,13 @@
+<dec f='codebrowser/code/qcommon/qcommon.h' l='613' type='qboolean FS_ConditionalRestart(int checksumFeed, qboolean disconnect)'/>
+<use f='codebrowser/code/client/cl_main.c' l='1365' u='c' c='CL_OldGame'/>
+<use f='codebrowser/code/client/cl_main.c' l='1943' u='c' c='CL_Vid_Restart_f'/>
+<use f='codebrowser/code/client/cl_parse.c' l='545' u='c' c='CL_ParseGamestate'/>
+<def f='codebrowser/code/qcommon/files.c' l='4045' ll='4066' type='qboolean FS_ConditionalRestart(int checksumFeed, qboolean disconnect)'/>
+<doc f='codebrowser/code/qcommon/files.c' l='4037'>/*
+=================
+FS_ConditionalRestart
+
+Restart if necessary
+Return qtrue if restarting due to game directory changed, qfalse otherwise
+=================
+*/</doc>

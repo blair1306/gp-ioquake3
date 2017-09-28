@@ -1,0 +1,17 @@
+<dec f='codebrowser/code/opusfile-0.8/include/opusfile.h' l='1493' type='int op_channel_count(const OggOpusFile * _of, int _li)'/>
+<doc f='codebrowser/code/opusfile-0.8/include/opusfile.h' l='1478'>/**Get the channel count of the given link in a (possibly-chained) Ogg Opus
+    stream.
+   This is equivalent to &lt;code&gt;op_head(_of,_li)-&gt;channel_count&lt;/code&gt;, but
+    is provided for convenience.
+   This function may be called on partially-opened streams, but it will always
+    return the channel count of the Opus stream in the first link.
+   \param _of The \c OggOpusFile from which to retrieve the channel count.
+   \param _li The index of the link whose channel count should be retrieved.
+              Use a negative number to get the channel count of the current
+               link.
+   \return The channel count of the given link.
+           If \a _li is greater than the total number of links, this returns
+            the channel count of the last link.
+           If the source is not seekable, this always returns the channel count
+            of the current link.*/</doc>
+<def f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='1711' ll='1713' type='int op_channel_count(const OggOpusFile * _of, int _li)'/>

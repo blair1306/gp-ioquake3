@@ -1,0 +1,10 @@
+<def f='codebrowser/code/game/g_misc.c' l='208' ll='222' type='void SP_misc_portal_surface(gentity_t * ent)'/>
+<doc f='codebrowser/code/game/g_misc.c' l='204'>/*QUAKED misc_portal_surface (0 0 1) (-8 -8 -8) (8 8 8)
+The portal surface nearest this entity will show a view from the targeted misc_portal_camera, or a mirror view if untargeted.
+This must be within 64 world units of the surface!
+*/</doc>
+<dec f='codebrowser/code/game/g_spawn.c' l='165' type='void SP_misc_portal_surface(gentity_t * ent)'/>
+<use f='codebrowser/code/game/g_spawn.c' l='237'/>
+<use f='codebrowser/code/game/g_spawn.c' l='237'/>
+<use f='codebrowser/code/game/g_spawn.c' l='237'/>
+<use f='codebrowser/code/game/g_spawn.c' l='237'/>

@@ -1,0 +1,12 @@
+<dec f='codebrowser/code/qcommon/qcommon.h' l='1049' type='void SV_Frame(int msec)'/>
+<use f='codebrowser/code/client/cl_main.c' l='1736' u='c' c='CL_Connect_f'/>
+<use f='codebrowser/code/qcommon/common.c' l='3190' u='c' c='Com_Frame'/>
+<def f='codebrowser/code/server/sv_main.c' l='1049' ll='1158' type='void SV_Frame(int msec)'/>
+<doc f='codebrowser/code/server/sv_main.c' l='1041'>/*
+==================
+SV_Frame
+
+Player movement occurs as a result of packet events, which
+happen before SV_Frame is called
+==================
+*/</doc>

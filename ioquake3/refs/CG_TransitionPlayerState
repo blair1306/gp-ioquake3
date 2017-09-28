@@ -1,0 +1,10 @@
+<dec f='codebrowser/code/cgame/cg_local.h' l='1468' type='void CG_TransitionPlayerState(playerState_t * ps, playerState_t * ops)'/>
+<def f='codebrowser/code/cgame/cg_playerstate.c' l='494' ll='533' type='void CG_TransitionPlayerState(playerState_t * ps, playerState_t * ops)'/>
+<doc f='codebrowser/code/cgame/cg_playerstate.c' l='488'>/*
+===============
+CG_TransitionPlayerState
+
+===============
+*/</doc>
+<use f='codebrowser/code/cgame/cg_predict.c' l='618' u='c' c='CG_PredictPlayerState'/>
+<use f='codebrowser/code/cgame/cg_snapshot.c' l='182' u='c' c='CG_TransitionSnapshot'/>

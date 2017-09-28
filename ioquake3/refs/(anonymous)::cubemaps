@@ -1,0 +1,26 @@
+<dec f='codebrowser/code/renderergl2/tr_local.h' l='1512' type='cubemap_t *'/>
+<offset>10624</offset>
+<use f='codebrowser/code/renderergl2/tr_backend.c' l='352' u='r' c='RB_BeginDrawingView'/>
+<use f='codebrowser/code/renderergl2/tr_backend.c' l='1175' u='r' c='RB_DrawSurfs'/>
+<use f='codebrowser/code/renderergl2/tr_backend.c' l='1705' u='r' c='RB_ExportCubemaps'/>
+<use f='codebrowser/code/renderergl2/tr_bsp.c' l='2493' u='w' c='R_LoadEnvironmentJson'/>
+<use f='codebrowser/code/renderergl2/tr_bsp.c' l='2493' u='r' c='R_LoadEnvironmentJson'/>
+<use f='codebrowser/code/renderergl2/tr_bsp.c' l='2494' u='r' c='R_LoadEnvironmentJson'/>
+<use f='codebrowser/code/renderergl2/tr_bsp.c' l='2494' u='r' c='R_LoadEnvironmentJson'/>
+<use f='codebrowser/code/renderergl2/tr_bsp.c' l='2498' u='r' c='R_LoadEnvironmentJson'/>
+<use f='codebrowser/code/renderergl2/tr_bsp.c' l='2546' u='w' c='R_LoadCubemapEntities'/>
+<use f='codebrowser/code/renderergl2/tr_bsp.c' l='2546' u='r' c='R_LoadCubemapEntities'/>
+<use f='codebrowser/code/renderergl2/tr_bsp.c' l='2547' u='r' c='R_LoadCubemapEntities'/>
+<use f='codebrowser/code/renderergl2/tr_bsp.c' l='2547' u='r' c='R_LoadCubemapEntities'/>
+<use f='codebrowser/code/renderergl2/tr_bsp.c' l='2581' u='r' c='R_LoadCubemapEntities'/>
+<use f='codebrowser/code/renderergl2/tr_bsp.c' l='2632' u='r' c='R_LoadCubemaps'/>
+<use f='codebrowser/code/renderergl2/tr_bsp.c' l='2648' u='r' c='R_RenderMissingCubemaps'/>
+<use f='codebrowser/code/renderergl2/tr_bsp.c' l='2650' u='r' c='R_RenderMissingCubemaps'/>
+<use f='codebrowser/code/renderergl2/tr_light.c' l='499' u='r' c='R_CubemapForPoint'/>
+<use f='codebrowser/code/renderergl2/tr_light.c' l='499' u='r' c='R_CubemapForPoint'/>
+<use f='codebrowser/code/renderergl2/tr_light.c' l='499' u='r' c='R_CubemapForPoint'/>
+<use f='codebrowser/code/renderergl2/tr_main.c' l='2555' u='r' c='R_RenderCubemapSide'/>
+<use f='codebrowser/code/renderergl2/tr_main.c' l='2555' u='r' c='R_RenderCubemapSide'/>
+<use f='codebrowser/code/renderergl2/tr_main.c' l='2555' u='r' c='R_RenderCubemapSide'/>
+<use f='codebrowser/code/renderergl2/tr_main.c' l='2632' u='r' c='R_RenderCubemapSide'/>
+<use f='codebrowser/code/renderergl2/tr_shade.c' l='1330' u='r' c='RB_IterateStagesGeneric'/>

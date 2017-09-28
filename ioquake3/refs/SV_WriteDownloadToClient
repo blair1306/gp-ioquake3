@@ -1,0 +1,11 @@
+<dec f='codebrowser/code/server/server.h' l='384' type='int SV_WriteDownloadToClient(client_t * cl, msg_t * msg)'/>
+<def f='codebrowser/code/server/sv_client.c' l='933' ll='1129' type='int SV_WriteDownloadToClient(client_t * cl, msg_t * msg)'/>
+<use f='codebrowser/code/server/sv_client.c' l='1189' u='c' c='SV_SendDownloadMessages'/>
+<doc f='codebrowser/code/server/sv_client.c' l='925'>/*
+==================
+SV_WriteDownloadToClient
+
+Check to see if the client wants a file, open it if needed and start pumping the client
+Fill up msg with data, return number of download blocks added
+==================
+*/</doc>

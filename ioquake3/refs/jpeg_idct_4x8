@@ -1,0 +1,9 @@
+<dec f='codebrowser/code/jpeg-8c/jdct.h' l='324' type='void jpeg_idct_4x8(j_decompress_ptr cinfo, jpeg_component_info * compptr, JCOEFPTR coef_block, JSAMPARRAY output_buf, JDIMENSION output_col)'/>
+<use f='codebrowser/code/jpeg-8c/jddctmgr.c' l='213' u='r' c='start_pass'/>
+<def f='codebrowser/code/jpeg-8c/jidctint.c' l='4736' ll='4906' macro='1' type='void jpeg_idct_4x8(j_decompress_ptr cinfo, jpeg_component_info * compptr, JCOEFPTR coef_block, JSAMPARRAY output_buf, JDIMENSION output_col)'/>
+<doc f='codebrowser/code/jpeg-8c/jidctint.c' l='4729'>/*
+ * Perform dequantization and inverse DCT on one block of coefficients,
+ * producing a 4x8 output block.
+ *
+ * 8-point IDCT in pass 1 (columns), 4-point in pass 2 (rows).
+ */</doc>

@@ -1,0 +1,4 @@
+<dec f='codebrowser/code/opus-1.1.4/include/opus.h' l='606' type='void opus_pcm_soft_clip(float * pcm, int frame_size, int channels, float * softclip_mem)'/>
+<def f='codebrowser/code/opus-1.1.4/src/opus.c' l='36' ll='137' macro='1' type='void opus_pcm_soft_clip(float * _x, int N, int C, float * declip_mem)'/>
+<use f='codebrowser/code/opus-1.1.4/src/opus_decoder.c' l='704' u='c' c='opus_decode_native'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='3131' u='c' c='op_float2short_filter'/>

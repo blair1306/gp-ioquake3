@@ -1,0 +1,28 @@
+<dec f='codebrowser/code/renderergl1/tr_local.h' l='1288' type='void R_SetupEntityLighting(const trRefdef_t * refdef, trRefEntity_t * ent)'/>
+<use f='codebrowser/code/renderergl1/tr_animation.c' l='246' u='c' c='R_MDRAddAnimSurfaces'/>
+<def f='codebrowser/code/renderergl1/tr_light.c' l='288' ll='378' type='void R_SetupEntityLighting(const trRefdef_t * refdef, trRefEntity_t * ent)'/>
+<doc f='codebrowser/code/renderergl1/tr_light.c' l='280'>/*
+=================
+R_SetupEntityLighting
+
+Calculates all the lighting values that will be used
+by the Calc_* functions
+=================
+*/</doc>
+<use f='codebrowser/code/renderergl1/tr_mesh.c' l='338' u='c' c='R_AddMD3Surfaces'/>
+<use f='codebrowser/code/renderergl1/tr_model_iqm.c' l='888' u='c' c='R_AddIQMSurfaces'/>
+<use f='codebrowser/code/renderergl1/tr_world.c' l='333' u='c' c='R_AddBrushModelSurfaces'/>
+<dec f='codebrowser/code/renderergl2/tr_local.h' l='2059' type='void R_SetupEntityLighting(const trRefdef_t * refdef, trRefEntity_t * ent)'/>
+<use f='codebrowser/code/renderergl2/tr_animation.c' l='248' u='c' c='R_MDRAddAnimSurfaces'/>
+<def f='codebrowser/code/renderergl2/tr_light.c' l='319' ll='440' type='void R_SetupEntityLighting(const trRefdef_t * refdef, trRefEntity_t * ent)'/>
+<doc f='codebrowser/code/renderergl2/tr_light.c' l='311'>/*
+=================
+R_SetupEntityLighting
+
+Calculates all the lighting values that will be used
+by the Calc_* functions
+=================
+*/</doc>
+<use f='codebrowser/code/renderergl2/tr_mesh.c' l='340' u='c' c='R_AddMD3Surfaces'/>
+<use f='codebrowser/code/renderergl2/tr_model_iqm.c' l='890' u='c' c='R_AddIQMSurfaces'/>
+<use f='codebrowser/code/renderergl2/tr_world.c' l='373' u='c' c='R_AddBrushModelSurfaces'/>

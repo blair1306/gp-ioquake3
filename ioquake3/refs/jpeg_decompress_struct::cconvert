@@ -1,0 +1,8 @@
+<dec f='codebrowser/code/jpeg-8c/jpeglib.h' l='667' type='struct jpeg_color_deconverter *'/>
+<offset>5120</offset>
+<use f='codebrowser/code/jpeg-8c/jdcolor.c' l='72' u='r' c='build_ycc_rgb_table'/>
+<use f='codebrowser/code/jpeg-8c/jdcolor.c' l='124' u='r' c='ycc_rgb_convert'/>
+<use f='codebrowser/code/jpeg-8c/jdcolor.c' l='249' u='r' c='ycck_cmyk_convert'/>
+<use f='codebrowser/code/jpeg-8c/jdcolor.c' l='312' u='w' c='jinit_color_deconverter'/>
+<use f='codebrowser/code/jpeg-8c/jdmaster.c' l='444' u='r' c='prepare_for_output_pass'/>
+<use f='codebrowser/code/jpeg-8c/jdsample.c' l='129' u='r' c='sep_upsample'/>

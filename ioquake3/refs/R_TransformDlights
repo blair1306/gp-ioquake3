@@ -1,0 +1,28 @@
+<dec f='codebrowser/code/renderergl1/tr_local.h' l='1289' type='void R_TransformDlights(int count, dlight_t * dl, orientationr_t * or)'/>
+<use f='codebrowser/code/renderergl1/tr_backend.c' l='578' u='c' c='RB_RenderDrawSurfList'/>
+<use f='codebrowser/code/renderergl1/tr_backend.c' l='596' u='c' c='RB_RenderDrawSurfList'/>
+<def f='codebrowser/code/renderergl1/tr_light.c' l='42' ll='52' type='void R_TransformDlights(int count, dlight_t * dl, orientationr_t * or)'/>
+<use f='codebrowser/code/renderergl1/tr_light.c' l='68' u='c' c='R_DlightBmodel'/>
+<doc f='codebrowser/code/renderergl1/tr_light.c' l='33'>/*
+===============
+R_TransformDlights
+
+Transforms the origins of an array of dlights.
+Used by both the front end (for DlightBmodel) and
+the back end (before doing the lighting calculation)
+===============
+*/</doc>
+<dec f='codebrowser/code/renderergl2/tr_local.h' l='2060' type='void R_TransformDlights(int count, dlight_t * dl, orientationr_t * or)'/>
+<use f='codebrowser/code/renderergl2/tr_backend.c' l='514' u='c' c='RB_RenderDrawSurfList'/>
+<use f='codebrowser/code/renderergl2/tr_backend.c' l='532' u='c' c='RB_RenderDrawSurfList'/>
+<def f='codebrowser/code/renderergl2/tr_light.c' l='42' ll='52' type='void R_TransformDlights(int count, dlight_t * dl, orientationr_t * or)'/>
+<use f='codebrowser/code/renderergl2/tr_light.c' l='68' u='c' c='R_DlightBmodel'/>
+<doc f='codebrowser/code/renderergl2/tr_light.c' l='33'>/*
+===============
+R_TransformDlights
+
+Transforms the origins of an array of dlights.
+Used by both the front end (for DlightBmodel) and
+the back end (before doing the lighting calculation)
+===============
+*/</doc>

@@ -1,0 +1,10 @@
+<dec f='codebrowser/code/qcommon/qcommon.h' l='223' type='qboolean'/>
+<offset>131616</offset>
+<doc f='codebrowser/code/qcommon/qcommon.h' l='221'>// outgoing fragment buffer
+	// we need to space out the sending of large fragmented messages</doc>
+<use f='codebrowser/code/client/cl_net_chan.c' l='138' u='r' c='CL_Netchan_TransmitNextFragment'/>
+<use f='codebrowser/code/qcommon/net_chan.c' l='164' u='w' c='Netchan_TransmitNextFragment'/>
+<use f='codebrowser/code/qcommon/net_chan.c' l='188' u='w' c='Netchan_Transmit'/>
+<use f='codebrowser/code/server/sv_net_chan.c' l='198' u='r' c='SV_Netchan_TransmitNextFragment'/>
+<use f='codebrowser/code/server/sv_net_chan.c' l='228' u='r' c='SV_Netchan_Transmit'/>
+<use f='codebrowser/code/server/sv_snapshot.c' l='659' u='r' c='SV_SendClientMessages'/>

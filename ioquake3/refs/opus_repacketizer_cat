@@ -1,0 +1,6 @@
+<dec f='codebrowser/code/opus-1.1.4/include/opus.h' l='838' type='int opus_repacketizer_cat(OpusRepacketizer * rp, const unsigned char * data, opus_int32 len)'/>
+<use f='codebrowser/code/opus-1.1.4/src/opus_encoder.c' l='1414' u='c' c='opus_encode_native'/>
+<use f='codebrowser/code/opus-1.1.4/src/opus_multistream_encoder.c' l='1031' u='c' c='opus_multistream_encode_native'/>
+<def f='codebrowser/code/opus-1.1.4/src/repacketizer.c' l='92' ll='95' type='int opus_repacketizer_cat(OpusRepacketizer * rp, const unsigned char * data, opus_int32 len)'/>
+<use f='codebrowser/code/opus-1.1.4/src/repacketizer.c' l='252' u='c' c='opus_packet_pad'/>
+<use f='codebrowser/code/opus-1.1.4/src/repacketizer.c' l='269' u='c' c='opus_packet_unpad'/>

@@ -1,0 +1,12 @@
+<dec f='codebrowser/code/server/server.h' l='166' type='int'/>
+<offset>546880</offset>
+<doc f='codebrowser/code/server/server.h' l='166'>// frame last client usercmd message</doc>
+<use f='codebrowser/code/server/sv_client.c' l='801' u='w' c='SV_ClientEnterWorld'/>
+<use f='codebrowser/code/server/sv_client.c' l='1686' u='w' c='SV_UserMove'/>
+<use f='codebrowser/code/server/sv_client.c' l='1688' u='w' c='SV_UserMove'/>
+<use f='codebrowser/code/server/sv_client.c' l='1749' u='w' c='SV_UserMove'/>
+<use f='codebrowser/code/server/sv_init.c' l='551' u='w' c='SV_SpawnServer'/>
+<use f='codebrowser/code/server/sv_snapshot.c' l='132' u='r' c='SV_WriteSnapshotToClient'/>
+<use f='codebrowser/code/server/sv_snapshot.c' l='136' u='r' c='SV_WriteSnapshotToClient'/>
+<use f='codebrowser/code/server/sv_snapshot.c' l='144' u='r' c='SV_WriteSnapshotToClient'/>
+<use f='codebrowser/code/server/sv_snapshot.c' l='145' u='r' c='SV_WriteSnapshotToClient'/>

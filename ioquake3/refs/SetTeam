@@ -1,0 +1,15 @@
+<dec f='codebrowser/code/game/g_local.h' l='430' type='void SetTeam(gentity_t * ent, const char * s)'/>
+<def f='codebrowser/code/game/g_cmds.c' l='515' ll='651' type='void SetTeam(gentity_t * ent, const char * s)'/>
+<use f='codebrowser/code/game/g_cmds.c' l='718' u='c' c='Cmd_Team_f'/>
+<use f='codebrowser/code/game/g_cmds.c' l='764' u='c' c='Cmd_Follow_f'/>
+<use f='codebrowser/code/game/g_cmds.c' l='787' u='c' c='Cmd_FollowCycle_f'/>
+<doc f='codebrowser/code/game/g_cmds.c' l='510'>/*
+=================
+SetTeam
+=================
+*/</doc>
+<use f='codebrowser/code/game/g_main.c' l='622' u='c' c='AddTournamentPlayer'/>
+<use f='codebrowser/code/game/g_main.c' l='673' u='c' c='RemoveTournamentLoser'/>
+<use f='codebrowser/code/game/g_main.c' l='695' u='c' c='RemoveTournamentWinner'/>
+<use f='codebrowser/code/game/g_session.c' l='126' u='c' c='G_InitSessionData'/>
+<use f='codebrowser/code/game/g_svcmds.c' l='440' u='c' c='Svcmd_ForceTeam_f'/>

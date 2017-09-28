@@ -1,0 +1,14 @@
+<dec f='codebrowser/code/jpeg-8c/jpeglib.h' l='412' type='int'/>
+<offset>3328</offset>
+<doc f='codebrowser/code/jpeg-8c/jpeglib.h' l='412'>/* # of DCT blocks per MCU */</doc>
+<use f='codebrowser/code/jpeg-8c/jcarith.c' l='383' u='r' c='encode_mcu_DC_first'/>
+<use f='codebrowser/code/jpeg-8c/jcarith.c' l='576' u='r' c='encode_mcu_DC_refine'/>
+<use f='codebrowser/code/jpeg-8c/jcarith.c' l='710' u='r' c='encode_mcu'/>
+<use f='codebrowser/code/jpeg-8c/jchuff.c' l='561' u='r' c='encode_mcu_DC_first'/>
+<use f='codebrowser/code/jpeg-8c/jchuff.c' l='756' u='r' c='encode_mcu_DC_refine'/>
+<use f='codebrowser/code/jpeg-8c/jchuff.c' l='1037' u='r' c='encode_mcu_huff'/>
+<use f='codebrowser/code/jpeg-8c/jchuff.c' l='1215' u='r' c='encode_mcu_gather'/>
+<use f='codebrowser/code/jpeg-8c/jcmaster.c' l='602' u='w' c='per_scan_setup'/>
+<use f='codebrowser/code/jpeg-8c/jcmaster.c' l='620' u='w' c='per_scan_setup'/>
+<use f='codebrowser/code/jpeg-8c/jcmaster.c' l='638' u='r' c='per_scan_setup'/>
+<use f='codebrowser/code/jpeg-8c/jcmaster.c' l='641' u='w' c='per_scan_setup'/>

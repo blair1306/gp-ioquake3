@@ -1,0 +1,36 @@
+<def f='codebrowser/code/opusfile-0.8/include/opusfile.h' l='300' ll='310'/>
+<size>32</size>
+<doc f='codebrowser/code/opusfile-0.8/include/opusfile.h' l='270'>/**The metadata from an Ogg Opus stream.
+
+   This structure holds the in-stream metadata corresponding to the &apos;comment&apos;
+    header packet of an Ogg Opus stream.
+   The comment header is meant to be used much like someone jotting a quick
+    note on the label of a CD.
+   It should be a short, to the point text note that can be more than a couple
+    words, but not more than a short paragraph.
+
+   The metadata is stored as a series of (tag, value) pairs, in length-encoded
+    string vectors, using the same format as Vorbis (without the final &quot;framing
+    bit&quot;), Theora, and Speex, except for the packet header.
+   The first occurrence of the &apos;=&apos; character delimits the tag and value.
+   A particular tag may occur more than once, and order is significant.
+   The character set encoding for the strings is always UTF-8, but the tag
+    names are limited to ASCII, and treated as case-insensitive.
+   See &lt;a href=&quot;http://www.xiph.org/vorbis/doc/v-comment.html&quot;&gt;the Vorbis
+    comment header specification&lt;/a&gt; for details.
+
+   In filling in this structure, &lt;tt&gt;libopusfile&lt;/tt&gt; will null-terminate the
+    #user_comments strings for safety.
+   However, the bitstream format itself treats them as 8-bit clean vectors,
+    possibly containing NUL characters, so the #comment_lengths array should be
+    treated as their authoritative length.
+
+   This structure is binary and source-compatible with a
+    &lt;code&gt;vorbis_comment&lt;/code&gt;, and pointers to it may be freely cast to
+    &lt;code&gt;vorbis_comment&lt;/code&gt; pointers, and vice versa.
+   It is provided as a separate type to avoid introducing a compile-time
+    dependency on the libvorbis headers.*/</doc>
+<mbr r='OpusTags::user_comments' o='0' t='char **'/>
+<mbr r='OpusTags::comment_lengths' o='64' t='int *'/>
+<mbr r='OpusTags::comments' o='128' t='int'/>
+<mbr r='OpusTags::vendor' o='192' t='char *'/>

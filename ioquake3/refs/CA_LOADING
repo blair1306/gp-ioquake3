@@ -1,0 +1,9 @@
+<dec f='codebrowser/code/qcommon/q_shared.h' l='1331' type='6'/>
+<doc f='codebrowser/code/qcommon/q_shared.h' l='1331'>// only during cgame initialization, never during main loop</doc>
+<use f='codebrowser/code/client/cl_cgame.c' l='740' u='r' c='CL_InitCGame'/>
+<use f='codebrowser/code/client/cl_main.c' l='2123' u='r' c='CL_DownloadsComplete'/>
+<use f='codebrowser/code/client/cl_main.c' l='2130' u='r' c='CL_DownloadsComplete'/>
+<use f='codebrowser/code/client/cl_scrn.c' l='484' u='r' c='SCR_DrawScreenField'/>
+<use f='codebrowser/code/client/cl_scrn.c' l='515' c='SCR_DrawScreenField'/>
+<use f='codebrowser/code/q3_ui/ui_connect.c' l='242' c='UI_DrawConnectScreen'/>
+<use f='codebrowser/code/ui/ui_main.c' l='5599' c='UI_DrawConnectScreen'/>

@@ -1,0 +1,10 @@
+<dec f='codebrowser/code/client/client.h' l='503' type='void CL_SendCmd()'/>
+<def f='codebrowser/code/client/cl_input.c' l='904' ll='927' type='void CL_SendCmd()'/>
+<doc f='codebrowser/code/client/cl_input.c' l='897'>/*
+=================
+CL_SendCmd
+
+Called every frame to builds and sends a command packet to the server.
+=================
+*/</doc>
+<use f='codebrowser/code/client/cl_main.c' l='3039' u='c' c='CL_Frame'/>

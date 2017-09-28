@@ -1,0 +1,37 @@
+<dec f='codebrowser/code/renderergl1/tr_local.h' l='324' type='qboolean'/>
+<offset>640</offset>
+<doc f='codebrowser/code/renderergl1/tr_local.h' l='324'>// we want to return index 0 if the shader failed to</doc>
+<use f='codebrowser/code/renderergl1/tr_bsp.c' l='293' u='r' c='ShaderForShaderNum'/>
+<use f='codebrowser/code/renderergl1/tr_mesh.c' l='372' u='r' c='R_AddMD3Surfaces'/>
+<use f='codebrowser/code/renderergl1/tr_model.c' l='486' u='r' c='R_LoadMD3'/>
+<use f='codebrowser/code/renderergl1/tr_model.c' l='751' u='r' c='R_LoadMDR'/>
+<use f='codebrowser/code/renderergl1/tr_model_iqm.c' l='626' u='r' c='R_LoadIQM'/>
+<use f='codebrowser/code/renderergl1/tr_shader.c' l='2545' u='r' c='R_FindShader'/>
+<use f='codebrowser/code/renderergl1/tr_shader.c' l='2573' u='w' c='R_FindShader'/>
+<use f='codebrowser/code/renderergl1/tr_shader.c' l='2601' u='w' c='R_FindShader'/>
+<use f='codebrowser/code/renderergl1/tr_shader.c' l='2682' u='r' c='RE_RegisterShaderFromImage'/>
+<use f='codebrowser/code/renderergl1/tr_shader.c' l='2780' u='r' c='RE_RegisterShaderLightMap'/>
+<use f='codebrowser/code/renderergl1/tr_shader.c' l='2814' u='r' c='RE_RegisterShader'/>
+<use f='codebrowser/code/renderergl1/tr_shader.c' l='2844' u='r' c='RE_RegisterShaderNoMip'/>
+<use f='codebrowser/code/renderergl1/tr_shader.c' l='2928' u='r' c='R_ShaderList_f'/>
+<use f='codebrowser/code/renderergl1/tr_shader.c' l='3126' u='r' c='CreateExternalShaders'/>
+<dec f='codebrowser/code/renderergl2/tr_local.h' l='437' type='qboolean'/>
+<offset>640</offset>
+<doc f='codebrowser/code/renderergl2/tr_local.h' l='437'>// we want to return index 0 if the shader failed to</doc>
+<use f='codebrowser/code/renderergl2/tr_bsp.c' l='622' u='r' c='ShaderForShaderNum'/>
+<use f='codebrowser/code/renderergl2/tr_mesh.c' l='376' u='r' c='R_AddMD3Surfaces'/>
+<use f='codebrowser/code/renderergl2/tr_model.c' l='536' u='r' c='R_LoadMD3'/>
+<use f='codebrowser/code/renderergl2/tr_model.c' l='1041' u='r' c='R_LoadMDR'/>
+<use f='codebrowser/code/renderergl2/tr_model_iqm.c' l='626' u='r' c='R_LoadIQM'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='2075' u='r' c='ComputeVertexAttribs'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='3266' u='r' c='R_FindShader'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='3288' u='w' c='R_FindShader'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='3319' u='w' c='R_FindShader'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='3400' u='r' c='RE_RegisterShaderFromImage'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='3492' u='r' c='RE_RegisterShaderLightMap'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='3526' u='r' c='RE_RegisterShader'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='3556' u='r' c='RE_RegisterShaderNoMip'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='3627' u='r' c='R_ShaderList_f'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='3839' u='r' c='CreateExternalShaders'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='3855' u='r' c='CreateExternalShaders'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='3859' u='r' c='CreateExternalShaders'/>

@@ -1,0 +1,20 @@
+<dec f='codebrowser/code/renderergl1/tr_local.h' l='1085' type='void R_LocalNormalToWorld(vec_t * local, vec_t * world)'/>
+<def f='codebrowser/code/renderergl1/tr_main.c' l='166' ll='170' type='void R_LocalNormalToWorld(vec_t * local, vec_t * world)'/>
+<use f='codebrowser/code/renderergl1/tr_main.c' l='691' u='c' c='R_GetPortalOrientations'/>
+<use f='codebrowser/code/renderergl1/tr_main.c' l='809' u='c' c='IsMirror'/>
+<doc f='codebrowser/code/renderergl1/tr_main.c' l='160'>/*
+=================
+R_LocalNormalToWorld
+
+=================
+*/</doc>
+<dec f='codebrowser/code/renderergl2/tr_local.h' l='1827' type='void R_LocalNormalToWorld(const vec_t * local, vec_t * world)'/>
+<def f='codebrowser/code/renderergl2/tr_main.c' l='392' ll='396' type='void R_LocalNormalToWorld(const vec_t * local, vec_t * world)'/>
+<use f='codebrowser/code/renderergl2/tr_main.c' l='1041' u='c' c='R_GetPortalOrientations'/>
+<use f='codebrowser/code/renderergl2/tr_main.c' l='1159' u='c' c='IsMirror'/>
+<doc f='codebrowser/code/renderergl2/tr_main.c' l='386'>/*
+=================
+R_LocalNormalToWorld
+
+=================
+*/</doc>

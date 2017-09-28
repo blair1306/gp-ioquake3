@@ -1,0 +1,170 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>l_crc.c source code [codebrowser/code/botlib/l_crc.c] - Woboq Code Browser</title>
+<link rel="stylesheet" href="../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'codebrowser/code/botlib/l_crc.c'; var root_path = '../../..'; var data_path = '../../../../data';</script>
+<script src='../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../..'>codebrowser</a>/<a href='..'>code</a>/<a href='./'>botlib</a>/<a href='l_crc.c.html'>l_crc.c</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/*</i></td></tr>
+<tr><th id="2">2</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="3">3</th><td><i>Copyright (C) 1999-2005 Id Software, Inc.</i></td></tr>
+<tr><th id="4">4</th><td><i></i></td></tr>
+<tr><th id="5">5</th><td><i>This file is part of Quake III Arena source code.</i></td></tr>
+<tr><th id="6">6</th><td><i></i></td></tr>
+<tr><th id="7">7</th><td><i>Quake III Arena source code is free software; you can redistribute it</i></td></tr>
+<tr><th id="8">8</th><td><i>and/or modify it under the terms of the GNU General Public License as</i></td></tr>
+<tr><th id="9">9</th><td><i>published by the Free Software Foundation; either version 2 of the License,</i></td></tr>
+<tr><th id="10">10</th><td><i>or (at your option) any later version.</i></td></tr>
+<tr><th id="11">11</th><td><i></i></td></tr>
+<tr><th id="12">12</th><td><i>Quake III Arena source code is distributed in the hope that it will be</i></td></tr>
+<tr><th id="13">13</th><td><i>useful, but WITHOUT ANY WARRANTY; without even the implied warranty of</i></td></tr>
+<tr><th id="14">14</th><td><i>MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</i></td></tr>
+<tr><th id="15">15</th><td><i>GNU General Public License for more details.</i></td></tr>
+<tr><th id="16">16</th><td><i></i></td></tr>
+<tr><th id="17">17</th><td><i>You should have received a copy of the GNU General Public License</i></td></tr>
+<tr><th id="18">18</th><td><i>along with Quake III Arena source code; if not, write to the Free Software</i></td></tr>
+<tr><th id="19">19</th><td><i>Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA</i></td></tr>
+<tr><th id="20">20</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="21">21</th><td><i>*/</i></td></tr>
+<tr><th id="22">22</th><td></td></tr>
+<tr><th id="23">23</th><td><i>/*****************************************************************************</i></td></tr>
+<tr><th id="24">24</th><td><i> * name:		l_crc.c</i></td></tr>
+<tr><th id="25">25</th><td><i> *</i></td></tr>
+<tr><th id="26">26</th><td><i> * desc:		CRC calculation</i></td></tr>
+<tr><th id="27">27</th><td><i> *</i></td></tr>
+<tr><th id="28">28</th><td><i> * $Archive: /MissionPack/CODE/botlib/l_crc.c $</i></td></tr>
+<tr><th id="29">29</th><td><i> *</i></td></tr>
+<tr><th id="30">30</th><td><i> *****************************************************************************/</i></td></tr>
+<tr><th id="31">31</th><td></td></tr>
+<tr><th id="32">32</th><td><u>#include <a href="../../../include/stdlib.h.html">&lt;stdlib.h&gt;</a></u></td></tr>
+<tr><th id="33">33</th><td><u>#include <a href="../../../include/stdio.h.html">&lt;stdio.h&gt;</a></u></td></tr>
+<tr><th id="34">34</th><td><u>#include <a href="../../../include/string.h.html">&lt;string.h&gt;</a></u></td></tr>
+<tr><th id="35">35</th><td></td></tr>
+<tr><th id="36">36</th><td><u>#include <a href="../qcommon/q_shared.h.html">"../qcommon/q_shared.h"</a></u></td></tr>
+<tr><th id="37">37</th><td><u>#include <a href="botlib.h.html">"botlib.h"</a></u></td></tr>
+<tr><th id="38">38</th><td><u>#include <a href="be_interface.h.html">"be_interface.h"</a>			//for botimport.Print</u></td></tr>
+<tr><th id="39">39</th><td><u>#include <a href="l_crc.h.html">"l_crc.h"</a></u></td></tr>
+<tr><th id="40">40</th><td></td></tr>
+<tr><th id="41">41</th><td></td></tr>
+<tr><th id="42">42</th><td><i>// FIXME: byte swap?</i></td></tr>
+<tr><th id="43">43</th><td><i></i></td></tr>
+<tr><th id="44">44</th><td><i>// this is a 16 bit, non-reflected CRC using the polynomial 0x1021</i></td></tr>
+<tr><th id="45">45</th><td><i>// and the initial and final xor values shown below...  in other words, the</i></td></tr>
+<tr><th id="46">46</th><td><i>// CCITT standard CRC used by XMODEM</i></td></tr>
+<tr><th id="47">47</th><td></td></tr>
+<tr><th id="48">48</th><td><u>#define <dfn class="macro" id="_M/CRC_INIT_VALUE" data-ref="_M/CRC_INIT_VALUE">CRC_INIT_VALUE</dfn>	0xffff</u></td></tr>
+<tr><th id="49">49</th><td><u>#define <dfn class="macro" id="_M/CRC_XOR_VALUE" data-ref="_M/CRC_XOR_VALUE">CRC_XOR_VALUE</dfn>	0x0000</u></td></tr>
+<tr><th id="50">50</th><td></td></tr>
+<tr><th id="51">51</th><td><em>unsigned</em> <em>short</em> <dfn class="decl def" id="crctable" title='crctable' data-ref="crctable">crctable</dfn>[<var>257</var>] =</td></tr>
+<tr><th id="52">52</th><td>{</td></tr>
+<tr><th id="53">53</th><td>	<var>0x0000</var>,	<var>0x1021</var>,	<var>0x2042</var>,	<var>0x3063</var>,	<var>0x4084</var>,	<var>0x50a5</var>,	<var>0x60c6</var>,	<var>0x70e7</var>,</td></tr>
+<tr><th id="54">54</th><td>	<var>0x8108</var>,	<var>0x9129</var>,	<var>0xa14a</var>,	<var>0xb16b</var>,	<var>0xc18c</var>,	<var>0xd1ad</var>,	<var>0xe1ce</var>,	<var>0xf1ef</var>,</td></tr>
+<tr><th id="55">55</th><td>	<var>0x1231</var>,	<var>0x0210</var>,	<var>0x3273</var>,	<var>0x2252</var>,	<var>0x52b5</var>,	<var>0x4294</var>,	<var>0x72f7</var>,	<var>0x62d6</var>,</td></tr>
+<tr><th id="56">56</th><td>	<var>0x9339</var>,	<var>0x8318</var>,	<var>0xb37b</var>,	<var>0xa35a</var>,	<var>0xd3bd</var>,	<var>0xc39c</var>,	<var>0xf3ff</var>,	<var>0xe3de</var>,</td></tr>
+<tr><th id="57">57</th><td>	<var>0x2462</var>,	<var>0x3443</var>,	<var>0x0420</var>,	<var>0x1401</var>,	<var>0x64e6</var>,	<var>0x74c7</var>,	<var>0x44a4</var>,	<var>0x5485</var>,</td></tr>
+<tr><th id="58">58</th><td>	<var>0xa56a</var>,	<var>0xb54b</var>,	<var>0x8528</var>,	<var>0x9509</var>,	<var>0xe5ee</var>,	<var>0xf5cf</var>,	<var>0xc5ac</var>,	<var>0xd58d</var>,</td></tr>
+<tr><th id="59">59</th><td>	<var>0x3653</var>,	<var>0x2672</var>,	<var>0x1611</var>,	<var>0x0630</var>,	<var>0x76d7</var>,	<var>0x66f6</var>,	<var>0x5695</var>,	<var>0x46b4</var>,</td></tr>
+<tr><th id="60">60</th><td>	<var>0xb75b</var>,	<var>0xa77a</var>,	<var>0x9719</var>,	<var>0x8738</var>,	<var>0xf7df</var>,	<var>0xe7fe</var>,	<var>0xd79d</var>,	<var>0xc7bc</var>,</td></tr>
+<tr><th id="61">61</th><td>	<var>0x48c4</var>,	<var>0x58e5</var>,	<var>0x6886</var>,	<var>0x78a7</var>,	<var>0x0840</var>,	<var>0x1861</var>,	<var>0x2802</var>,	<var>0x3823</var>,</td></tr>
+<tr><th id="62">62</th><td>	<var>0xc9cc</var>,	<var>0xd9ed</var>,	<var>0xe98e</var>,	<var>0xf9af</var>,	<var>0x8948</var>,	<var>0x9969</var>,	<var>0xa90a</var>,	<var>0xb92b</var>,</td></tr>
+<tr><th id="63">63</th><td>	<var>0x5af5</var>,	<var>0x4ad4</var>,	<var>0x7ab7</var>,	<var>0x6a96</var>,	<var>0x1a71</var>,	<var>0x0a50</var>,	<var>0x3a33</var>,	<var>0x2a12</var>,</td></tr>
+<tr><th id="64">64</th><td>	<var>0xdbfd</var>,	<var>0xcbdc</var>,	<var>0xfbbf</var>,	<var>0xeb9e</var>,	<var>0x9b79</var>,	<var>0x8b58</var>,	<var>0xbb3b</var>,	<var>0xab1a</var>,</td></tr>
+<tr><th id="65">65</th><td>	<var>0x6ca6</var>,	<var>0x7c87</var>,	<var>0x4ce4</var>,	<var>0x5cc5</var>,	<var>0x2c22</var>,	<var>0x3c03</var>,	<var>0x0c60</var>,	<var>0x1c41</var>,</td></tr>
+<tr><th id="66">66</th><td>	<var>0xedae</var>,	<var>0xfd8f</var>,	<var>0xcdec</var>,	<var>0xddcd</var>,	<var>0xad2a</var>,	<var>0xbd0b</var>,	<var>0x8d68</var>,	<var>0x9d49</var>,</td></tr>
+<tr><th id="67">67</th><td>	<var>0x7e97</var>,	<var>0x6eb6</var>,	<var>0x5ed5</var>,	<var>0x4ef4</var>,	<var>0x3e13</var>,	<var>0x2e32</var>,	<var>0x1e51</var>,	<var>0x0e70</var>,</td></tr>
+<tr><th id="68">68</th><td>	<var>0xff9f</var>,	<var>0xefbe</var>,	<var>0xdfdd</var>,	<var>0xcffc</var>,	<var>0xbf1b</var>,	<var>0xaf3a</var>,	<var>0x9f59</var>,	<var>0x8f78</var>,</td></tr>
+<tr><th id="69">69</th><td>	<var>0x9188</var>,	<var>0x81a9</var>,	<var>0xb1ca</var>,	<var>0xa1eb</var>,	<var>0xd10c</var>,	<var>0xc12d</var>,	<var>0xf14e</var>,	<var>0xe16f</var>,</td></tr>
+<tr><th id="70">70</th><td>	<var>0x1080</var>,	<var>0x00a1</var>,	<var>0x30c2</var>,	<var>0x20e3</var>,	<var>0x5004</var>,	<var>0x4025</var>,	<var>0x7046</var>,	<var>0x6067</var>,</td></tr>
+<tr><th id="71">71</th><td>	<var>0x83b9</var>,	<var>0x9398</var>,	<var>0xa3fb</var>,	<var>0xb3da</var>,	<var>0xc33d</var>,	<var>0xd31c</var>,	<var>0xe37f</var>,	<var>0xf35e</var>,</td></tr>
+<tr><th id="72">72</th><td>	<var>0x02b1</var>,	<var>0x1290</var>,	<var>0x22f3</var>,	<var>0x32d2</var>,	<var>0x4235</var>,	<var>0x5214</var>,	<var>0x6277</var>,	<var>0x7256</var>,</td></tr>
+<tr><th id="73">73</th><td>	<var>0xb5ea</var>,	<var>0xa5cb</var>,	<var>0x95a8</var>,	<var>0x8589</var>,	<var>0xf56e</var>,	<var>0xe54f</var>,	<var>0xd52c</var>,	<var>0xc50d</var>,</td></tr>
+<tr><th id="74">74</th><td>	<var>0x34e2</var>,	<var>0x24c3</var>,	<var>0x14a0</var>,	<var>0x0481</var>,	<var>0x7466</var>,	<var>0x6447</var>,	<var>0x5424</var>,	<var>0x4405</var>,</td></tr>
+<tr><th id="75">75</th><td>	<var>0xa7db</var>,	<var>0xb7fa</var>,	<var>0x8799</var>,	<var>0x97b8</var>,	<var>0xe75f</var>,	<var>0xf77e</var>,	<var>0xc71d</var>,	<var>0xd73c</var>,</td></tr>
+<tr><th id="76">76</th><td>	<var>0x26d3</var>,	<var>0x36f2</var>,	<var>0x0691</var>,	<var>0x16b0</var>,	<var>0x6657</var>,	<var>0x7676</var>,	<var>0x4615</var>,	<var>0x5634</var>,</td></tr>
+<tr><th id="77">77</th><td>	<var>0xd94c</var>,	<var>0xc96d</var>,	<var>0xf90e</var>,	<var>0xe92f</var>,	<var>0x99c8</var>,	<var>0x89e9</var>,	<var>0xb98a</var>,	<var>0xa9ab</var>,</td></tr>
+<tr><th id="78">78</th><td>	<var>0x5844</var>,	<var>0x4865</var>,	<var>0x7806</var>,	<var>0x6827</var>,	<var>0x18c0</var>,	<var>0x08e1</var>,	<var>0x3882</var>,	<var>0x28a3</var>,</td></tr>
+<tr><th id="79">79</th><td>	<var>0xcb7d</var>,	<var>0xdb5c</var>,	<var>0xeb3f</var>,	<var>0xfb1e</var>,	<var>0x8bf9</var>,	<var>0x9bd8</var>,	<var>0xabbb</var>,	<var>0xbb9a</var>,</td></tr>
+<tr><th id="80">80</th><td>	<var>0x4a75</var>,	<var>0x5a54</var>,	<var>0x6a37</var>,	<var>0x7a16</var>,	<var>0x0af1</var>,	<var>0x1ad0</var>,	<var>0x2ab3</var>,	<var>0x3a92</var>,</td></tr>
+<tr><th id="81">81</th><td>	<var>0xfd2e</var>,	<var>0xed0f</var>,	<var>0xdd6c</var>,	<var>0xcd4d</var>,	<var>0xbdaa</var>,	<var>0xad8b</var>,	<var>0x9de8</var>,	<var>0x8dc9</var>,</td></tr>
+<tr><th id="82">82</th><td>	<var>0x7c26</var>,	<var>0x6c07</var>,	<var>0x5c64</var>,	<var>0x4c45</var>,	<var>0x3ca2</var>,	<var>0x2c83</var>,	<var>0x1ce0</var>,	<var>0x0cc1</var>,</td></tr>
+<tr><th id="83">83</th><td>	<var>0xef1f</var>,	<var>0xff3e</var>,	<var>0xcf5d</var>,	<var>0xdf7c</var>,	<var>0xaf9b</var>,	<var>0xbfba</var>,	<var>0x8fd9</var>,	<var>0x9ff8</var>,</td></tr>
+<tr><th id="84">84</th><td>	<var>0x6e17</var>,	<var>0x7e36</var>,	<var>0x4e55</var>,	<var>0x5e74</var>,	<var>0x2e93</var>,	<var>0x3eb2</var>,	<var>0x0ed1</var>,	<var>0x1ef0</var></td></tr>
+<tr><th id="85">85</th><td>};</td></tr>
+<tr><th id="86">86</th><td></td></tr>
+<tr><th id="87">87</th><td><i>//===========================================================================</i></td></tr>
+<tr><th id="88">88</th><td><i>//</i></td></tr>
+<tr><th id="89">89</th><td><i>// Parameter:				-</i></td></tr>
+<tr><th id="90">90</th><td><i>// Returns:					-</i></td></tr>
+<tr><th id="91">91</th><td><i>// Changes Globals:		-</i></td></tr>
+<tr><th id="92">92</th><td><i>//===========================================================================</i></td></tr>
+<tr><th id="93">93</th><td><em>void</em> <dfn class="decl def" id="CRC_Init" title='CRC_Init' data-ref="CRC_Init">CRC_Init</dfn>(<em>unsigned</em> <em>short</em> *<dfn class="local col1 decl" id="1crcvalue" title='crcvalue' data-type='unsigned short *' data-ref="1crcvalue">crcvalue</dfn>)</td></tr>
+<tr><th id="94">94</th><td>{</td></tr>
+<tr><th id="95">95</th><td>	*<a class="local col1 ref" href="#1crcvalue" title='crcvalue' data-ref="1crcvalue">crcvalue</a> = <a class="macro" href="#48" title="0xffff" data-ref="_M/CRC_INIT_VALUE">CRC_INIT_VALUE</a>;</td></tr>
+<tr><th id="96">96</th><td>} <i>//end of the function CRC_Init</i></td></tr>
+<tr><th id="97">97</th><td><i>//===========================================================================</i></td></tr>
+<tr><th id="98">98</th><td><i>//</i></td></tr>
+<tr><th id="99">99</th><td><i>// Parameter:				-</i></td></tr>
+<tr><th id="100">100</th><td><i>// Returns:					-</i></td></tr>
+<tr><th id="101">101</th><td><i>// Changes Globals:		-</i></td></tr>
+<tr><th id="102">102</th><td><i>//===========================================================================</i></td></tr>
+<tr><th id="103">103</th><td><em>void</em> <dfn class="decl def" id="CRC_ProcessByte" title='CRC_ProcessByte' data-ref="CRC_ProcessByte">CRC_ProcessByte</dfn>(<em>unsigned</em> <em>short</em> *<dfn class="local col2 decl" id="2crcvalue" title='crcvalue' data-type='unsigned short *' data-ref="2crcvalue">crcvalue</dfn>, <a class="typedef" href="../qcommon/q_shared.h.html#byte" title='byte' data-type='unsigned char' data-ref="byte">byte</a> <dfn class="local col3 decl" id="3data" title='data' data-type='byte' data-ref="3data">data</dfn>)</td></tr>
+<tr><th id="104">104</th><td>{</td></tr>
+<tr><th id="105">105</th><td>	*<a class="local col2 ref" href="#2crcvalue" title='crcvalue' data-ref="2crcvalue">crcvalue</a> = (*<a class="local col2 ref" href="#2crcvalue" title='crcvalue' data-ref="2crcvalue">crcvalue</a> &lt;&lt; <var>8</var>) ^ <a class="ref" href="#crctable" title='crctable' data-ref="crctable">crctable</a>[(*<a class="local col2 ref" href="#2crcvalue" title='crcvalue' data-ref="2crcvalue">crcvalue</a> &gt;&gt; <var>8</var>) ^ <a class="local col3 ref" href="#3data" title='data' data-ref="3data">data</a>];</td></tr>
+<tr><th id="106">106</th><td>} <i>//end of the function CRC_ProcessByte</i></td></tr>
+<tr><th id="107">107</th><td><i>//===========================================================================</i></td></tr>
+<tr><th id="108">108</th><td><i>//</i></td></tr>
+<tr><th id="109">109</th><td><i>// Parameter:				-</i></td></tr>
+<tr><th id="110">110</th><td><i>// Returns:					-</i></td></tr>
+<tr><th id="111">111</th><td><i>// Changes Globals:		-</i></td></tr>
+<tr><th id="112">112</th><td><i>//===========================================================================</i></td></tr>
+<tr><th id="113">113</th><td><em>unsigned</em> <em>short</em> <dfn class="decl def" id="CRC_Value" title='CRC_Value' data-ref="CRC_Value">CRC_Value</dfn>(<em>unsigned</em> <em>short</em> <dfn class="local col4 decl" id="4crcvalue" title='crcvalue' data-type='unsigned short' data-ref="4crcvalue">crcvalue</dfn>)</td></tr>
+<tr><th id="114">114</th><td>{</td></tr>
+<tr><th id="115">115</th><td>	<b>return</b> <a class="local col4 ref" href="#4crcvalue" title='crcvalue' data-ref="4crcvalue">crcvalue</a> ^ <a class="macro" href="#49" title="0x0000" data-ref="_M/CRC_XOR_VALUE">CRC_XOR_VALUE</a>;</td></tr>
+<tr><th id="116">116</th><td>} <i>//end of the function CRC_Value</i></td></tr>
+<tr><th id="117">117</th><td><i>//===========================================================================</i></td></tr>
+<tr><th id="118">118</th><td><i>//</i></td></tr>
+<tr><th id="119">119</th><td><i>// Parameter:				-</i></td></tr>
+<tr><th id="120">120</th><td><i>// Returns:					-</i></td></tr>
+<tr><th id="121">121</th><td><i>// Changes Globals:		-</i></td></tr>
+<tr><th id="122">122</th><td><i>//===========================================================================</i></td></tr>
+<tr><th id="123">123</th><td><em>unsigned</em> <em>short</em> <dfn class="decl def" id="CRC_ProcessString" title='CRC_ProcessString' data-ref="CRC_ProcessString">CRC_ProcessString</dfn>(<em>unsigned</em> <em>char</em> *<dfn class="local col5 decl" id="5data" title='data' data-type='unsigned char *' data-ref="5data">data</dfn>, <em>int</em> <dfn class="local col6 decl" id="6length" title='length' data-type='int' data-ref="6length">length</dfn>)</td></tr>
+<tr><th id="124">124</th><td>{</td></tr>
+<tr><th id="125">125</th><td>	<em>unsigned</em> <em>short</em> <dfn class="local col7 decl" id="7crcvalue" title='crcvalue' data-type='unsigned short' data-ref="7crcvalue">crcvalue</dfn>;</td></tr>
+<tr><th id="126">126</th><td>	<em>int</em> <dfn class="local col8 decl" id="8i" title='i' data-type='int' data-ref="8i">i</dfn>, <dfn class="local col9 decl" id="9ind" title='ind' data-type='int' data-ref="9ind">ind</dfn>;</td></tr>
+<tr><th id="127">127</th><td></td></tr>
+<tr><th id="128">128</th><td>	<a class="ref" href="#CRC_Init" title='CRC_Init' data-ref="CRC_Init">CRC_Init</a>(&amp;<a class="local col7 ref" href="#7crcvalue" title='crcvalue' data-ref="7crcvalue">crcvalue</a>);</td></tr>
+<tr><th id="129">129</th><td></td></tr>
+<tr><th id="130">130</th><td>	<b>for</b> (<a class="local col8 ref" href="#8i" title='i' data-ref="8i">i</a> = <var>0</var>; <a class="local col8 ref" href="#8i" title='i' data-ref="8i">i</a> &lt; <a class="local col6 ref" href="#6length" title='length' data-ref="6length">length</a>; <a class="local col8 ref" href="#8i" title='i' data-ref="8i">i</a>++)</td></tr>
+<tr><th id="131">131</th><td>	{</td></tr>
+<tr><th id="132">132</th><td>		<a class="local col9 ref" href="#9ind" title='ind' data-ref="9ind">ind</a> = (<a class="local col7 ref" href="#7crcvalue" title='crcvalue' data-ref="7crcvalue">crcvalue</a> &gt;&gt; <var>8</var>) ^ <a class="local col5 ref" href="#5data" title='data' data-ref="5data">data</a>[<a class="local col8 ref" href="#8i" title='i' data-ref="8i">i</a>];</td></tr>
+<tr><th id="133">133</th><td>		<b>if</b> (<a class="local col9 ref" href="#9ind" title='ind' data-ref="9ind">ind</a> &lt; <var>0</var> || <a class="local col9 ref" href="#9ind" title='ind' data-ref="9ind">ind</a> &gt; <var>256</var>) <a class="local col9 ref" href="#9ind" title='ind' data-ref="9ind">ind</a> = <var>0</var>;</td></tr>
+<tr><th id="134">134</th><td>		<a class="local col7 ref" href="#7crcvalue" title='crcvalue' data-ref="7crcvalue">crcvalue</a> = (<a class="local col7 ref" href="#7crcvalue" title='crcvalue' data-ref="7crcvalue">crcvalue</a> &lt;&lt; <var>8</var>) ^ <a class="ref" href="#crctable" title='crctable' data-ref="crctable">crctable</a>[<a class="local col9 ref" href="#9ind" title='ind' data-ref="9ind">ind</a>];</td></tr>
+<tr><th id="135">135</th><td>	} <i>//end for</i></td></tr>
+<tr><th id="136">136</th><td>	<b>return</b> <a class="ref" href="#CRC_Value" title='CRC_Value' data-ref="CRC_Value">CRC_Value</a>(<a class="local col7 ref" href="#7crcvalue" title='crcvalue' data-ref="7crcvalue">crcvalue</a>);</td></tr>
+<tr><th id="137">137</th><td>} <i>//end of the function CRC_ProcessString</i></td></tr>
+<tr><th id="138">138</th><td><i>//===========================================================================</i></td></tr>
+<tr><th id="139">139</th><td><i>//</i></td></tr>
+<tr><th id="140">140</th><td><i>// Parameter:				-</i></td></tr>
+<tr><th id="141">141</th><td><i>// Returns:					-</i></td></tr>
+<tr><th id="142">142</th><td><i>// Changes Globals:		-</i></td></tr>
+<tr><th id="143">143</th><td><i>//===========================================================================</i></td></tr>
+<tr><th id="144">144</th><td><em>void</em> <dfn class="decl def" id="CRC_ContinueProcessString" title='CRC_ContinueProcessString' data-ref="CRC_ContinueProcessString">CRC_ContinueProcessString</dfn>(<em>unsigned</em> <em>short</em> *<dfn class="local col0 decl" id="10crc" title='crc' data-type='unsigned short *' data-ref="10crc">crc</dfn>, <em>char</em> *<dfn class="local col1 decl" id="11data" title='data' data-type='char *' data-ref="11data">data</dfn>, <em>int</em> <dfn class="local col2 decl" id="12length" title='length' data-type='int' data-ref="12length">length</dfn>)</td></tr>
+<tr><th id="145">145</th><td>{</td></tr>
+<tr><th id="146">146</th><td>	<em>int</em> <dfn class="local col3 decl" id="13i" title='i' data-type='int' data-ref="13i">i</dfn>;</td></tr>
+<tr><th id="147">147</th><td></td></tr>
+<tr><th id="148">148</th><td>	<b>for</b> (<a class="local col3 ref" href="#13i" title='i' data-ref="13i">i</a> = <var>0</var>; <a class="local col3 ref" href="#13i" title='i' data-ref="13i">i</a> &lt; <a class="local col2 ref" href="#12length" title='length' data-ref="12length">length</a>; <a class="local col3 ref" href="#13i" title='i' data-ref="13i">i</a>++)</td></tr>
+<tr><th id="149">149</th><td>	{</td></tr>
+<tr><th id="150">150</th><td>		*<a class="local col0 ref" href="#10crc" title='crc' data-ref="10crc">crc</a> = (*<a class="local col0 ref" href="#10crc" title='crc' data-ref="10crc">crc</a> &lt;&lt; <var>8</var>) ^ <a class="ref" href="#crctable" title='crctable' data-ref="crctable">crctable</a>[(*<a class="local col0 ref" href="#10crc" title='crc' data-ref="10crc">crc</a> &gt;&gt; <var>8</var>) ^ <a class="local col1 ref" href="#11data" title='data' data-ref="11data">data</a>[<a class="local col3 ref" href="#13i" title='i' data-ref="13i">i</a>]];</td></tr>
+<tr><th id="151">151</th><td>	} <i>//end for</i></td></tr>
+<tr><th id="152">152</th><td>} <i>//end of the function CRC_ProcessString</i></td></tr>
+<tr><th id="153">153</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated on <em>2017-Aug-29</em> from project codebrowser revision <em>63e07af</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

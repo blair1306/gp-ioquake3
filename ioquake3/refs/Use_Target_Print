@@ -1,0 +1,6 @@
+<def f='codebrowser/code/game/g_target.c' l='142' ll='159' type='void Use_Target_Print(gentity_t * ent, gentity_t * other, gentity_t * activator)'/>
+<use f='codebrowser/code/game/g_target.c' l='162' u='r' c='SP_target_print'/>
+<doc f='codebrowser/code/game/g_target.c' l='138'>/*QUAKED target_print (1 0 0) (-8 -8 -8) (8 8 8) redteam blueteam private
+&quot;message&quot;	text to print
+If &quot;private&quot;, only the activator gets the message.  If no checks, all clients get the message.
+*/</doc>

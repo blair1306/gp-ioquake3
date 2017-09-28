@@ -1,0 +1,275 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>snd_local.h source code [codebrowser/code/client/snd_local.h] - Woboq Code Browser</title>
+<meta name="woboq:interestingDefinitions" content="adpcm_state,loopSound_s,sfx_s,sndBuffer_s "/>
+<link rel="stylesheet" href="../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'codebrowser/code/client/snd_local.h'; var root_path = '../../..'; var data_path = '../../../../data';</script>
+<script src='../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../..'>codebrowser</a>/<a href='..'>code</a>/<a href='./'>client</a>/<a href='snd_local.h.html'>snd_local.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/*</i></td></tr>
+<tr><th id="2">2</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="3">3</th><td><i>Copyright (C) 1999-2005 Id Software, Inc.</i></td></tr>
+<tr><th id="4">4</th><td><i></i></td></tr>
+<tr><th id="5">5</th><td><i>This file is part of Quake III Arena source code.</i></td></tr>
+<tr><th id="6">6</th><td><i></i></td></tr>
+<tr><th id="7">7</th><td><i>Quake III Arena source code is free software; you can redistribute it</i></td></tr>
+<tr><th id="8">8</th><td><i>and/or modify it under the terms of the GNU General Public License as</i></td></tr>
+<tr><th id="9">9</th><td><i>published by the Free Software Foundation; either version 2 of the License,</i></td></tr>
+<tr><th id="10">10</th><td><i>or (at your option) any later version.</i></td></tr>
+<tr><th id="11">11</th><td><i></i></td></tr>
+<tr><th id="12">12</th><td><i>Quake III Arena source code is distributed in the hope that it will be</i></td></tr>
+<tr><th id="13">13</th><td><i>useful, but WITHOUT ANY WARRANTY; without even the implied warranty of</i></td></tr>
+<tr><th id="14">14</th><td><i>MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</i></td></tr>
+<tr><th id="15">15</th><td><i>GNU General Public License for more details.</i></td></tr>
+<tr><th id="16">16</th><td><i></i></td></tr>
+<tr><th id="17">17</th><td><i>You should have received a copy of the GNU General Public License</i></td></tr>
+<tr><th id="18">18</th><td><i>along with Quake III Arena source code; if not, write to the Free Software</i></td></tr>
+<tr><th id="19">19</th><td><i>Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA</i></td></tr>
+<tr><th id="20">20</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="21">21</th><td><i>*/</i></td></tr>
+<tr><th id="22">22</th><td><i>// snd_local.h -- private sound definations</i></td></tr>
+<tr><th id="23">23</th><td></td></tr>
+<tr><th id="24">24</th><td></td></tr>
+<tr><th id="25">25</th><td><u>#include <a href="../qcommon/q_shared.h.html">"../qcommon/q_shared.h"</a></u></td></tr>
+<tr><th id="26">26</th><td><u>#include <a href="../qcommon/qcommon.h.html">"../qcommon/qcommon.h"</a></u></td></tr>
+<tr><th id="27">27</th><td><u>#include <a href="snd_public.h.html">"snd_public.h"</a></u></td></tr>
+<tr><th id="28">28</th><td></td></tr>
+<tr><th id="29">29</th><td><u>#define	<dfn class="macro" id="_M/PAINTBUFFER_SIZE" data-ref="_M/PAINTBUFFER_SIZE">PAINTBUFFER_SIZE</dfn>		4096					// this is in samples</u></td></tr>
+<tr><th id="30">30</th><td></td></tr>
+<tr><th id="31">31</th><td><u>#define <dfn class="macro" id="_M/SND_CHUNK_SIZE" data-ref="_M/SND_CHUNK_SIZE">SND_CHUNK_SIZE</dfn>			1024					// samples</u></td></tr>
+<tr><th id="32">32</th><td><u>#define <dfn class="macro" id="_M/SND_CHUNK_SIZE_FLOAT" data-ref="_M/SND_CHUNK_SIZE_FLOAT">SND_CHUNK_SIZE_FLOAT</dfn>	(SND_CHUNK_SIZE/2)		// floats</u></td></tr>
+<tr><th id="33">33</th><td><u>#define <dfn class="macro" id="_M/SND_CHUNK_SIZE_BYTE" data-ref="_M/SND_CHUNK_SIZE_BYTE">SND_CHUNK_SIZE_BYTE</dfn>		(SND_CHUNK_SIZE*2)		// floats</u></td></tr>
+<tr><th id="34">34</th><td></td></tr>
+<tr><th id="35">35</th><td><b>typedef</b> <b>struct</b> {</td></tr>
+<tr><th id="36">36</th><td>	<em>int</em>			<dfn class="decl" id="(anonymous)::left" title='(anonymous struct)::left' data-ref="(anonymous)::left">left</dfn>;	<i>// the final values will be clamped to +/- 0x00ffff00 and shifted down</i></td></tr>
+<tr><th id="37">37</th><td>	<em>int</em>			<dfn class="decl" id="(anonymous)::right" title='(anonymous struct)::right' data-ref="(anonymous)::right">right</dfn>;</td></tr>
+<tr><th id="38">38</th><td>} <dfn class="typedef" id="portable_samplepair_t" title='portable_samplepair_t' data-type='struct portable_samplepair_t' data-ref="portable_samplepair_t">portable_samplepair_t</dfn>;</td></tr>
+<tr><th id="39">39</th><td></td></tr>
+<tr><th id="40">40</th><td><b>typedef</b> <b>struct</b> <dfn class="type def" id="adpcm_state" title='adpcm_state' data-ref="adpcm_state"><a class="type" href="#adpcm_state" title='adpcm_state' data-ref="adpcm_state">adpcm_state</a></dfn> {</td></tr>
+<tr><th id="41">41</th><td>    <em>short</em>	<dfn class="decl" id="adpcm_state::sample" title='adpcm_state::sample' data-ref="adpcm_state::sample">sample</dfn>;		<i>/* Previous output value */</i></td></tr>
+<tr><th id="42">42</th><td>    <em>char</em>	<dfn class="decl" id="adpcm_state::index" title='adpcm_state::index' data-ref="adpcm_state::index">index</dfn>;		<i>/* Index into stepsize table */</i></td></tr>
+<tr><th id="43">43</th><td>} <dfn class="typedef" id="adpcm_state_t" title='adpcm_state_t' data-type='struct adpcm_state' data-ref="adpcm_state_t">adpcm_state_t</dfn>;</td></tr>
+<tr><th id="44">44</th><td></td></tr>
+<tr><th id="45">45</th><td><b>typedef</b>	<b>struct</b> <dfn class="type def" id="sndBuffer_s" title='sndBuffer_s' data-ref="sndBuffer_s"><a class="type" href="#sndBuffer_s" title='sndBuffer_s' data-ref="sndBuffer_s">sndBuffer_s</a></dfn> {</td></tr>
+<tr><th id="46">46</th><td>	<em>short</em>					<dfn class="decl" id="sndBuffer_s::sndChunk" title='sndBuffer_s::sndChunk' data-ref="sndBuffer_s::sndChunk">sndChunk</dfn>[<a class="macro" href="#31" title="1024" data-ref="_M/SND_CHUNK_SIZE">SND_CHUNK_SIZE</a>];</td></tr>
+<tr><th id="47">47</th><td>	<b>struct</b> <a class="type" href="#sndBuffer_s" title='sndBuffer_s' data-ref="sndBuffer_s">sndBuffer_s</a>		*<dfn class="decl" id="sndBuffer_s::next" title='sndBuffer_s::next' data-ref="sndBuffer_s::next">next</dfn>;</td></tr>
+<tr><th id="48">48</th><td>    <em>int</em>						<dfn class="decl" id="sndBuffer_s::size" title='sndBuffer_s::size' data-ref="sndBuffer_s::size">size</dfn>;</td></tr>
+<tr><th id="49">49</th><td>	<a class="typedef" href="#adpcm_state_t" title='adpcm_state_t' data-type='struct adpcm_state' data-ref="adpcm_state_t">adpcm_state_t</a>			<dfn class="decl" id="sndBuffer_s::adpcm" title='sndBuffer_s::adpcm' data-ref="sndBuffer_s::adpcm">adpcm</dfn>;</td></tr>
+<tr><th id="50">50</th><td>} <dfn class="typedef" id="sndBuffer" title='sndBuffer' data-type='struct sndBuffer_s' data-ref="sndBuffer">sndBuffer</dfn>;</td></tr>
+<tr><th id="51">51</th><td></td></tr>
+<tr><th id="52">52</th><td><b>typedef</b> <b>struct</b> <dfn class="type def" id="sfx_s" title='sfx_s' data-ref="sfx_s"><a class="type" href="#sfx_s" title='sfx_s' data-ref="sfx_s">sfx_s</a></dfn> {</td></tr>
+<tr><th id="53">53</th><td>	<a class="typedef" href="#sndBuffer" title='sndBuffer' data-type='struct sndBuffer_s' data-ref="sndBuffer">sndBuffer</a>		*<dfn class="decl" id="sfx_s::soundData" title='sfx_s::soundData' data-ref="sfx_s::soundData">soundData</dfn>;</td></tr>
+<tr><th id="54">54</th><td>	<a class="typedef" href="../qcommon/q_shared.h.html#qboolean" title='qboolean' data-type='enum qboolean' data-ref="qboolean">qboolean</a>		<dfn class="decl" id="sfx_s::defaultSound" title='sfx_s::defaultSound' data-ref="sfx_s::defaultSound">defaultSound</dfn>;			<i>// couldn't be loaded, so use buzz</i></td></tr>
+<tr><th id="55">55</th><td>	<a class="typedef" href="../qcommon/q_shared.h.html#qboolean" title='qboolean' data-type='enum qboolean' data-ref="qboolean">qboolean</a>		<dfn class="decl" id="sfx_s::inMemory" title='sfx_s::inMemory' data-ref="sfx_s::inMemory">inMemory</dfn>;				<i>// not in Memory</i></td></tr>
+<tr><th id="56">56</th><td>	<a class="typedef" href="../qcommon/q_shared.h.html#qboolean" title='qboolean' data-type='enum qboolean' data-ref="qboolean">qboolean</a>		<dfn class="decl" id="sfx_s::soundCompressed" title='sfx_s::soundCompressed' data-ref="sfx_s::soundCompressed">soundCompressed</dfn>;		<i>// not in Memory</i></td></tr>
+<tr><th id="57">57</th><td>	<em>int</em>				<dfn class="decl" id="sfx_s::soundCompressionMethod" title='sfx_s::soundCompressionMethod' data-ref="sfx_s::soundCompressionMethod">soundCompressionMethod</dfn>;	</td></tr>
+<tr><th id="58">58</th><td>	<em>int</em> 			<dfn class="decl" id="sfx_s::soundLength" title='sfx_s::soundLength' data-ref="sfx_s::soundLength">soundLength</dfn>;</td></tr>
+<tr><th id="59">59</th><td>	<em>int</em>			<dfn class="decl" id="sfx_s::soundChannels" title='sfx_s::soundChannels' data-ref="sfx_s::soundChannels">soundChannels</dfn>;</td></tr>
+<tr><th id="60">60</th><td>	<em>char</em> 			<dfn class="decl" id="sfx_s::soundName" title='sfx_s::soundName' data-ref="sfx_s::soundName">soundName</dfn>[<a class="macro" href="../qcommon/qfiles.h.html#43" title="64" data-ref="_M/MAX_QPATH">MAX_QPATH</a>];</td></tr>
+<tr><th id="61">61</th><td>	<em>int</em>				<dfn class="decl" id="sfx_s::lastTimeUsed" title='sfx_s::lastTimeUsed' data-ref="sfx_s::lastTimeUsed">lastTimeUsed</dfn>;</td></tr>
+<tr><th id="62">62</th><td>	<b>struct</b> <a class="type" href="#sfx_s" title='sfx_s' data-ref="sfx_s">sfx_s</a>	*<dfn class="decl" id="sfx_s::next" title='sfx_s::next' data-ref="sfx_s::next">next</dfn>;</td></tr>
+<tr><th id="63">63</th><td>} <dfn class="typedef" id="sfx_t" title='sfx_t' data-type='struct sfx_s' data-ref="sfx_t">sfx_t</dfn>;</td></tr>
+<tr><th id="64">64</th><td></td></tr>
+<tr><th id="65">65</th><td><b>typedef</b> <b>struct</b> {</td></tr>
+<tr><th id="66">66</th><td>	<em>int</em>			<dfn class="decl" id="(anonymous)::channels" title='(anonymous struct)::channels' data-ref="(anonymous)::channels">channels</dfn>;</td></tr>
+<tr><th id="67">67</th><td>	<em>int</em>			<dfn class="decl" id="(anonymous)::samples" title='(anonymous struct)::samples' data-ref="(anonymous)::samples">samples</dfn>;				<i>// mono samples in buffer</i></td></tr>
+<tr><th id="68">68</th><td>	<em>int</em>			<dfn class="decl" id="(anonymous)::submission_chunk" title='(anonymous struct)::submission_chunk' data-ref="(anonymous)::submission_chunk">submission_chunk</dfn>;		<i>// don't mix less than this #</i></td></tr>
+<tr><th id="69">69</th><td>	<em>int</em>			<dfn class="decl" id="(anonymous)::samplebits" title='(anonymous struct)::samplebits' data-ref="(anonymous)::samplebits">samplebits</dfn>;</td></tr>
+<tr><th id="70">70</th><td>	<em>int</em>			<dfn class="decl" id="(anonymous)::speed" title='(anonymous struct)::speed' data-ref="(anonymous)::speed">speed</dfn>;</td></tr>
+<tr><th id="71">71</th><td>	<a class="typedef" href="../qcommon/q_shared.h.html#byte" title='byte' data-type='unsigned char' data-ref="byte">byte</a>		*<dfn class="decl" id="(anonymous)::buffer" title='(anonymous struct)::buffer' data-ref="(anonymous)::buffer">buffer</dfn>;</td></tr>
+<tr><th id="72">72</th><td>} <dfn class="typedef" id="dma_t" title='dma_t' data-type='struct dma_t' data-ref="dma_t">dma_t</dfn>;</td></tr>
+<tr><th id="73">73</th><td></td></tr>
+<tr><th id="74">74</th><td><u>#define <dfn class="macro" id="_M/START_SAMPLE_IMMEDIATE" data-ref="_M/START_SAMPLE_IMMEDIATE">START_SAMPLE_IMMEDIATE</dfn>	0x7fffffff</u></td></tr>
+<tr><th id="75">75</th><td></td></tr>
+<tr><th id="76">76</th><td><u>#define <dfn class="macro" id="_M/MAX_DOPPLER_SCALE" data-ref="_M/MAX_DOPPLER_SCALE">MAX_DOPPLER_SCALE</dfn> 50.0f //arbitrary</u></td></tr>
+<tr><th id="77">77</th><td></td></tr>
+<tr><th id="78">78</th><td><u>#define <dfn class="macro" id="_M/THIRD_PERSON_THRESHOLD_SQ" data-ref="_M/THIRD_PERSON_THRESHOLD_SQ">THIRD_PERSON_THRESHOLD_SQ</dfn> (48.0f*48.0f)</u></td></tr>
+<tr><th id="79">79</th><td></td></tr>
+<tr><th id="80">80</th><td><b>typedef</b> <b>struct</b> <dfn class="type def" id="loopSound_s" title='loopSound_s' data-ref="loopSound_s"><a class="type" href="#loopSound_s" title='loopSound_s' data-ref="loopSound_s">loopSound_s</a></dfn> {</td></tr>
+<tr><th id="81">81</th><td>	<a class="typedef" href="../qcommon/q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a>		<dfn class="decl" id="loopSound_s::origin" title='loopSound_s::origin' data-ref="loopSound_s::origin">origin</dfn>;</td></tr>
+<tr><th id="82">82</th><td>	<a class="typedef" href="../qcommon/q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a>		<dfn class="decl" id="loopSound_s::velocity" title='loopSound_s::velocity' data-ref="loopSound_s::velocity">velocity</dfn>;</td></tr>
+<tr><th id="83">83</th><td>	<a class="typedef" href="#sfx_t" title='sfx_t' data-type='struct sfx_s' data-ref="sfx_t">sfx_t</a>		*<dfn class="decl" id="loopSound_s::sfx" title='loopSound_s::sfx' data-ref="loopSound_s::sfx">sfx</dfn>;</td></tr>
+<tr><th id="84">84</th><td>	<em>int</em>			<dfn class="decl" id="loopSound_s::mergeFrame" title='loopSound_s::mergeFrame' data-ref="loopSound_s::mergeFrame">mergeFrame</dfn>;</td></tr>
+<tr><th id="85">85</th><td>	<a class="typedef" href="../qcommon/q_shared.h.html#qboolean" title='qboolean' data-type='enum qboolean' data-ref="qboolean">qboolean</a>	<dfn class="decl" id="loopSound_s::active" title='loopSound_s::active' data-ref="loopSound_s::active">active</dfn>;</td></tr>
+<tr><th id="86">86</th><td>	<a class="typedef" href="../qcommon/q_shared.h.html#qboolean" title='qboolean' data-type='enum qboolean' data-ref="qboolean">qboolean</a>	<dfn class="decl" id="loopSound_s::kill" title='loopSound_s::kill' data-ref="loopSound_s::kill">kill</dfn>;</td></tr>
+<tr><th id="87">87</th><td>	<a class="typedef" href="../qcommon/q_shared.h.html#qboolean" title='qboolean' data-type='enum qboolean' data-ref="qboolean">qboolean</a>	<dfn class="decl" id="loopSound_s::doppler" title='loopSound_s::doppler' data-ref="loopSound_s::doppler">doppler</dfn>;</td></tr>
+<tr><th id="88">88</th><td>	<em>float</em>		<dfn class="decl" id="loopSound_s::dopplerScale" title='loopSound_s::dopplerScale' data-ref="loopSound_s::dopplerScale">dopplerScale</dfn>;</td></tr>
+<tr><th id="89">89</th><td>	<em>float</em>		<dfn class="decl" id="loopSound_s::oldDopplerScale" title='loopSound_s::oldDopplerScale' data-ref="loopSound_s::oldDopplerScale">oldDopplerScale</dfn>;</td></tr>
+<tr><th id="90">90</th><td>	<em>int</em>			<dfn class="decl" id="loopSound_s::framenum" title='loopSound_s::framenum' data-ref="loopSound_s::framenum">framenum</dfn>;</td></tr>
+<tr><th id="91">91</th><td>} <dfn class="typedef" id="loopSound_t" title='loopSound_t' data-type='struct loopSound_s' data-ref="loopSound_t">loopSound_t</dfn>;</td></tr>
+<tr><th id="92">92</th><td></td></tr>
+<tr><th id="93">93</th><td><b>typedef</b> <b>struct</b></td></tr>
+<tr><th id="94">94</th><td>{</td></tr>
+<tr><th id="95">95</th><td>	<em>int</em>			<dfn class="decl" id="(anonymous)::allocTime" title='(anonymous struct)::allocTime' data-ref="(anonymous)::allocTime">allocTime</dfn>;</td></tr>
+<tr><th id="96">96</th><td>	<em>int</em>			<dfn class="decl" id="(anonymous)::startSample" title='(anonymous struct)::startSample' data-ref="(anonymous)::startSample">startSample</dfn>;	<i>// START_SAMPLE_IMMEDIATE = set immediately on next mix</i></td></tr>
+<tr><th id="97">97</th><td>	<em>int</em>			<dfn class="decl" id="(anonymous)::entnum" title='(anonymous struct)::entnum' data-ref="(anonymous)::entnum">entnum</dfn>;			<i>// to allow overriding a specific sound</i></td></tr>
+<tr><th id="98">98</th><td>	<em>int</em>			<dfn class="decl" id="(anonymous)::entchannel" title='(anonymous struct)::entchannel' data-ref="(anonymous)::entchannel">entchannel</dfn>;		<i>// to allow overriding a specific sound</i></td></tr>
+<tr><th id="99">99</th><td>	<em>int</em>			<dfn class="decl" id="(anonymous)::leftvol" title='(anonymous struct)::leftvol' data-ref="(anonymous)::leftvol">leftvol</dfn>;		<i>// 0-255 volume after spatialization</i></td></tr>
+<tr><th id="100">100</th><td>	<em>int</em>			<dfn class="decl" id="(anonymous)::rightvol" title='(anonymous struct)::rightvol' data-ref="(anonymous)::rightvol">rightvol</dfn>;		<i>// 0-255 volume after spatialization</i></td></tr>
+<tr><th id="101">101</th><td>	<em>int</em>			<dfn class="decl" id="(anonymous)::master_vol" title='(anonymous struct)::master_vol' data-ref="(anonymous)::master_vol">master_vol</dfn>;		<i>// 0-255 volume before spatialization</i></td></tr>
+<tr><th id="102">102</th><td>	<em>float</em>		<dfn class="decl" id="(anonymous)::dopplerScale" title='(anonymous struct)::dopplerScale' data-ref="(anonymous)::dopplerScale">dopplerScale</dfn>;</td></tr>
+<tr><th id="103">103</th><td>	<em>float</em>		<dfn class="decl" id="(anonymous)::oldDopplerScale" title='(anonymous struct)::oldDopplerScale' data-ref="(anonymous)::oldDopplerScale">oldDopplerScale</dfn>;</td></tr>
+<tr><th id="104">104</th><td>	<a class="typedef" href="../qcommon/q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a>		<dfn class="decl" id="(anonymous)::origin" title='(anonymous struct)::origin' data-ref="(anonymous)::origin">origin</dfn>;			<i>// only use if fixed_origin is set</i></td></tr>
+<tr><th id="105">105</th><td>	<a class="typedef" href="../qcommon/q_shared.h.html#qboolean" title='qboolean' data-type='enum qboolean' data-ref="qboolean">qboolean</a>	<dfn class="decl" id="(anonymous)::fixed_origin" title='(anonymous struct)::fixed_origin' data-ref="(anonymous)::fixed_origin">fixed_origin</dfn>;	<i>// use origin instead of fetching entnum's origin</i></td></tr>
+<tr><th id="106">106</th><td>	<a class="typedef" href="#sfx_t" title='sfx_t' data-type='struct sfx_s' data-ref="sfx_t">sfx_t</a>		*<dfn class="decl" id="(anonymous)::thesfx" title='(anonymous struct)::thesfx' data-ref="(anonymous)::thesfx">thesfx</dfn>;		<i>// sfx structure</i></td></tr>
+<tr><th id="107">107</th><td>	<a class="typedef" href="../qcommon/q_shared.h.html#qboolean" title='qboolean' data-type='enum qboolean' data-ref="qboolean">qboolean</a>	<dfn class="decl" id="(anonymous)::doppler" title='(anonymous struct)::doppler' data-ref="(anonymous)::doppler">doppler</dfn>;</td></tr>
+<tr><th id="108">108</th><td>	<a class="typedef" href="../qcommon/q_shared.h.html#qboolean" title='qboolean' data-type='enum qboolean' data-ref="qboolean">qboolean</a>	<dfn class="decl" id="(anonymous)::fullVolume" title='(anonymous struct)::fullVolume' data-ref="(anonymous)::fullVolume">fullVolume</dfn>;</td></tr>
+<tr><th id="109">109</th><td>} <dfn class="typedef" id="channel_t" title='channel_t' data-type='struct channel_t' data-ref="channel_t">channel_t</dfn>;</td></tr>
+<tr><th id="110">110</th><td></td></tr>
+<tr><th id="111">111</th><td></td></tr>
+<tr><th id="112">112</th><td><u>#define	<dfn class="macro" id="_M/WAV_FORMAT_PCM" data-ref="_M/WAV_FORMAT_PCM">WAV_FORMAT_PCM</dfn>		1</u></td></tr>
+<tr><th id="113">113</th><td></td></tr>
+<tr><th id="114">114</th><td></td></tr>
+<tr><th id="115">115</th><td><b>typedef</b> <b>struct</b> {</td></tr>
+<tr><th id="116">116</th><td>	<em>int</em>			<dfn class="decl" id="(anonymous)::format" title='(anonymous struct)::format' data-ref="(anonymous)::format">format</dfn>;</td></tr>
+<tr><th id="117">117</th><td>	<em>int</em>			<dfn class="decl" id="(anonymous)::rate" title='(anonymous struct)::rate' data-ref="(anonymous)::rate">rate</dfn>;</td></tr>
+<tr><th id="118">118</th><td>	<em>int</em>			<dfn class="decl" id="(anonymous)::width" title='(anonymous struct)::width' data-ref="(anonymous)::width">width</dfn>;</td></tr>
+<tr><th id="119">119</th><td>	<em>int</em>			<dfn class="decl" id="(anonymous)::channels" title='(anonymous struct)::channels' data-ref="(anonymous)::channels">channels</dfn>;</td></tr>
+<tr><th id="120">120</th><td>	<em>int</em>			<dfn class="decl" id="(anonymous)::samples" title='(anonymous struct)::samples' data-ref="(anonymous)::samples">samples</dfn>;</td></tr>
+<tr><th id="121">121</th><td>	<em>int</em>			<dfn class="decl" id="(anonymous)::dataofs" title='(anonymous struct)::dataofs' data-ref="(anonymous)::dataofs">dataofs</dfn>;		<i>// chunk starts this many bytes from file start</i></td></tr>
+<tr><th id="122">122</th><td>} <dfn class="typedef" id="wavinfo_t" title='wavinfo_t' data-type='struct wavinfo_t' data-ref="wavinfo_t">wavinfo_t</dfn>;</td></tr>
+<tr><th id="123">123</th><td></td></tr>
+<tr><th id="124">124</th><td><i>// Interface between Q3 sound "api" and the sound backend</i></td></tr>
+<tr><th id="125">125</th><td><b>typedef</b> <b>struct</b></td></tr>
+<tr><th id="126">126</th><td>{</td></tr>
+<tr><th id="127">127</th><td>	<em>void</em> (*<dfn class="decl" id="(anonymous)::Shutdown" title='(anonymous struct)::Shutdown' data-ref="(anonymous)::Shutdown">Shutdown</dfn>)(<em>void</em>);</td></tr>
+<tr><th id="128">128</th><td>	<em>void</em> (*<dfn class="decl" id="(anonymous)::StartSound" title='(anonymous struct)::StartSound' data-ref="(anonymous)::StartSound">StartSound</dfn>)( <a class="typedef" href="../qcommon/q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="local col9 decl" id="1259origin" title='origin' data-type='vec_t *' data-ref="1259origin">origin</dfn>, <em>int</em> <dfn class="local col0 decl" id="1260entnum" title='entnum' data-type='int' data-ref="1260entnum">entnum</dfn>, <em>int</em> <dfn class="local col1 decl" id="1261entchannel" title='entchannel' data-type='int' data-ref="1261entchannel">entchannel</dfn>, <a class="typedef" href="../qcommon/q_shared.h.html#sfxHandle_t" title='sfxHandle_t' data-type='int' data-ref="sfxHandle_t">sfxHandle_t</a> <dfn class="local col2 decl" id="1262sfx" title='sfx' data-type='sfxHandle_t' data-ref="1262sfx">sfx</dfn> );</td></tr>
+<tr><th id="129">129</th><td>	<em>void</em> (*<dfn class="decl" id="(anonymous)::StartLocalSound" title='(anonymous struct)::StartLocalSound' data-ref="(anonymous)::StartLocalSound">StartLocalSound</dfn>)( <a class="typedef" href="../qcommon/q_shared.h.html#sfxHandle_t" title='sfxHandle_t' data-type='int' data-ref="sfxHandle_t">sfxHandle_t</a> <dfn class="local col3 decl" id="1263sfx" title='sfx' data-type='sfxHandle_t' data-ref="1263sfx">sfx</dfn>, <em>int</em> <dfn class="local col4 decl" id="1264channelNum" title='channelNum' data-type='int' data-ref="1264channelNum">channelNum</dfn> );</td></tr>
+<tr><th id="130">130</th><td>	<em>void</em> (*<dfn class="decl" id="(anonymous)::StartBackgroundTrack" title='(anonymous struct)::StartBackgroundTrack' data-ref="(anonymous)::StartBackgroundTrack">StartBackgroundTrack</dfn>)( <em>const</em> <em>char</em> *<dfn class="local col5 decl" id="1265intro" title='intro' data-type='const char *' data-ref="1265intro">intro</dfn>, <em>const</em> <em>char</em> *<dfn class="local col6 decl" id="1266loop" title='loop' data-type='const char *' data-ref="1266loop">loop</dfn> );</td></tr>
+<tr><th id="131">131</th><td>	<em>void</em> (*<dfn class="decl" id="(anonymous)::StopBackgroundTrack" title='(anonymous struct)::StopBackgroundTrack' data-ref="(anonymous)::StopBackgroundTrack">StopBackgroundTrack</dfn>)( <em>void</em> );</td></tr>
+<tr><th id="132">132</th><td>	<em>void</em> (*<dfn class="decl" id="(anonymous)::RawSamples" title='(anonymous struct)::RawSamples' data-ref="(anonymous)::RawSamples">RawSamples</dfn>)(<em>int</em> <dfn class="local col7 decl" id="1267stream" title='stream' data-type='int' data-ref="1267stream">stream</dfn>, <em>int</em> <dfn class="local col8 decl" id="1268samples" title='samples' data-type='int' data-ref="1268samples">samples</dfn>, <em>int</em> <dfn class="local col9 decl" id="1269rate" title='rate' data-type='int' data-ref="1269rate">rate</dfn>, <em>int</em> <dfn class="local col0 decl" id="1270width" title='width' data-type='int' data-ref="1270width">width</dfn>, <em>int</em> <dfn class="local col1 decl" id="1271channels" title='channels' data-type='int' data-ref="1271channels">channels</dfn>, <em>const</em> <a class="typedef" href="../qcommon/q_shared.h.html#byte" title='byte' data-type='unsigned char' data-ref="byte">byte</a> *<dfn class="local col2 decl" id="1272data" title='data' data-type='const byte *' data-ref="1272data">data</dfn>, <em>float</em> <dfn class="local col3 decl" id="1273volume" title='volume' data-type='float' data-ref="1273volume">volume</dfn>, <em>int</em> <dfn class="local col4 decl" id="1274entityNum" title='entityNum' data-type='int' data-ref="1274entityNum">entityNum</dfn>);</td></tr>
+<tr><th id="133">133</th><td>	<em>void</em> (*<dfn class="decl" id="(anonymous)::StopAllSounds" title='(anonymous struct)::StopAllSounds' data-ref="(anonymous)::StopAllSounds">StopAllSounds</dfn>)( <em>void</em> );</td></tr>
+<tr><th id="134">134</th><td>	<em>void</em> (*<dfn class="decl" id="(anonymous)::ClearLoopingSounds" title='(anonymous struct)::ClearLoopingSounds' data-ref="(anonymous)::ClearLoopingSounds">ClearLoopingSounds</dfn>)( <a class="typedef" href="../qcommon/q_shared.h.html#qboolean" title='qboolean' data-type='enum qboolean' data-ref="qboolean">qboolean</a> <dfn class="local col5 decl" id="1275killall" title='killall' data-type='qboolean' data-ref="1275killall">killall</dfn> );</td></tr>
+<tr><th id="135">135</th><td>	<em>void</em> (*<dfn class="decl" id="(anonymous)::AddLoopingSound" title='(anonymous struct)::AddLoopingSound' data-ref="(anonymous)::AddLoopingSound">AddLoopingSound</dfn>)( <em>int</em> <dfn class="local col6 decl" id="1276entityNum" title='entityNum' data-type='int' data-ref="1276entityNum">entityNum</dfn>, <em>const</em> <a class="typedef" href="../qcommon/q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="local col7 decl" id="1277origin" title='origin' data-type='const vec_t *' data-ref="1277origin">origin</dfn>, <em>const</em> <a class="typedef" href="../qcommon/q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="local col8 decl" id="1278velocity" title='velocity' data-type='const vec_t *' data-ref="1278velocity">velocity</dfn>, <a class="typedef" href="../qcommon/q_shared.h.html#sfxHandle_t" title='sfxHandle_t' data-type='int' data-ref="sfxHandle_t">sfxHandle_t</a> <dfn class="local col9 decl" id="1279sfx" title='sfx' data-type='sfxHandle_t' data-ref="1279sfx">sfx</dfn> );</td></tr>
+<tr><th id="136">136</th><td>	<em>void</em> (*<dfn class="decl" id="(anonymous)::AddRealLoopingSound" title='(anonymous struct)::AddRealLoopingSound' data-ref="(anonymous)::AddRealLoopingSound">AddRealLoopingSound</dfn>)( <em>int</em> <dfn class="local col0 decl" id="1280entityNum" title='entityNum' data-type='int' data-ref="1280entityNum">entityNum</dfn>, <em>const</em> <a class="typedef" href="../qcommon/q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="local col1 decl" id="1281origin" title='origin' data-type='const vec_t *' data-ref="1281origin">origin</dfn>, <em>const</em> <a class="typedef" href="../qcommon/q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="local col2 decl" id="1282velocity" title='velocity' data-type='const vec_t *' data-ref="1282velocity">velocity</dfn>, <a class="typedef" href="../qcommon/q_shared.h.html#sfxHandle_t" title='sfxHandle_t' data-type='int' data-ref="sfxHandle_t">sfxHandle_t</a> <dfn class="local col3 decl" id="1283sfx" title='sfx' data-type='sfxHandle_t' data-ref="1283sfx">sfx</dfn> );</td></tr>
+<tr><th id="137">137</th><td>	<em>void</em> (*<dfn class="decl" id="(anonymous)::StopLoopingSound" title='(anonymous struct)::StopLoopingSound' data-ref="(anonymous)::StopLoopingSound">StopLoopingSound</dfn>)(<em>int</em> <dfn class="local col4 decl" id="1284entityNum" title='entityNum' data-type='int' data-ref="1284entityNum">entityNum</dfn> );</td></tr>
+<tr><th id="138">138</th><td>	<em>void</em> (*<dfn class="decl" id="(anonymous)::Respatialize" title='(anonymous struct)::Respatialize' data-ref="(anonymous)::Respatialize">Respatialize</dfn>)( <em>int</em> <dfn class="local col5 decl" id="1285entityNum" title='entityNum' data-type='int' data-ref="1285entityNum">entityNum</dfn>, <em>const</em> <a class="typedef" href="../qcommon/q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="local col6 decl" id="1286origin" title='origin' data-type='const vec_t *' data-ref="1286origin">origin</dfn>, <a class="typedef" href="../qcommon/q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="local col7 decl" id="1287axis" title='axis' data-type='vec3_t *' data-ref="1287axis">axis</dfn>[<var>3</var>], <em>int</em> <dfn class="local col8 decl" id="1288inwater" title='inwater' data-type='int' data-ref="1288inwater">inwater</dfn> );</td></tr>
+<tr><th id="139">139</th><td>	<em>void</em> (*<dfn class="decl" id="(anonymous)::UpdateEntityPosition" title='(anonymous struct)::UpdateEntityPosition' data-ref="(anonymous)::UpdateEntityPosition">UpdateEntityPosition</dfn>)( <em>int</em> <dfn class="local col9 decl" id="1289entityNum" title='entityNum' data-type='int' data-ref="1289entityNum">entityNum</dfn>, <em>const</em> <a class="typedef" href="../qcommon/q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="local col0 decl" id="1290origin" title='origin' data-type='const vec_t *' data-ref="1290origin">origin</dfn> );</td></tr>
+<tr><th id="140">140</th><td>	<em>void</em> (*<dfn class="decl" id="(anonymous)::Update" title='(anonymous struct)::Update' data-ref="(anonymous)::Update">Update</dfn>)( <em>void</em> );</td></tr>
+<tr><th id="141">141</th><td>	<em>void</em> (*<dfn class="decl" id="(anonymous)::DisableSounds" title='(anonymous struct)::DisableSounds' data-ref="(anonymous)::DisableSounds">DisableSounds</dfn>)( <em>void</em> );</td></tr>
+<tr><th id="142">142</th><td>	<em>void</em> (*<dfn class="decl" id="(anonymous)::BeginRegistration" title='(anonymous struct)::BeginRegistration' data-ref="(anonymous)::BeginRegistration">BeginRegistration</dfn>)( <em>void</em> );</td></tr>
+<tr><th id="143">143</th><td>	<a class="typedef" href="../qcommon/q_shared.h.html#sfxHandle_t" title='sfxHandle_t' data-type='int' data-ref="sfxHandle_t">sfxHandle_t</a> (*<dfn class="decl" id="(anonymous)::RegisterSound" title='(anonymous struct)::RegisterSound' data-ref="(anonymous)::RegisterSound">RegisterSound</dfn>)( <em>const</em> <em>char</em> *<dfn class="local col1 decl" id="1291sample" title='sample' data-type='const char *' data-ref="1291sample">sample</dfn>, <a class="typedef" href="../qcommon/q_shared.h.html#qboolean" title='qboolean' data-type='enum qboolean' data-ref="qboolean">qboolean</a> <dfn class="local col2 decl" id="1292compressed" title='compressed' data-type='qboolean' data-ref="1292compressed">compressed</dfn> );</td></tr>
+<tr><th id="144">144</th><td>	<em>void</em> (*<dfn class="decl" id="(anonymous)::ClearSoundBuffer" title='(anonymous struct)::ClearSoundBuffer' data-ref="(anonymous)::ClearSoundBuffer">ClearSoundBuffer</dfn>)( <em>void</em> );</td></tr>
+<tr><th id="145">145</th><td>	<em>void</em> (*<dfn class="decl" id="(anonymous)::SoundInfo" title='(anonymous struct)::SoundInfo' data-ref="(anonymous)::SoundInfo">SoundInfo</dfn>)( <em>void</em> );</td></tr>
+<tr><th id="146">146</th><td>	<em>void</em> (*<dfn class="decl" id="(anonymous)::SoundList" title='(anonymous struct)::SoundList' data-ref="(anonymous)::SoundList">SoundList</dfn>)( <em>void</em> );</td></tr>
+<tr><th id="147">147</th><td><u>#<span data-ppcond="147">ifdef</span> <span class="macro" data-ref="_M/USE_VOIP">USE_VOIP</span></u></td></tr>
+<tr><th id="148">148</th><td>	<em>void</em> (*<dfn class="decl" id="(anonymous)::StartCapture" title='(anonymous struct)::StartCapture' data-ref="(anonymous)::StartCapture">StartCapture</dfn>)( <em>void</em> );</td></tr>
+<tr><th id="149">149</th><td>	<em>int</em> (*<dfn class="decl" id="(anonymous)::AvailableCaptureSamples" title='(anonymous struct)::AvailableCaptureSamples' data-ref="(anonymous)::AvailableCaptureSamples">AvailableCaptureSamples</dfn>)( <em>void</em> );</td></tr>
+<tr><th id="150">150</th><td>	<em>void</em> (*<dfn class="decl" id="(anonymous)::Capture" title='(anonymous struct)::Capture' data-ref="(anonymous)::Capture">Capture</dfn>)( <em>int</em> <dfn class="local col3 decl" id="1293samples" title='samples' data-type='int' data-ref="1293samples">samples</dfn>, <a class="typedef" href="../qcommon/q_shared.h.html#byte" title='byte' data-type='unsigned char' data-ref="byte">byte</a> *<dfn class="local col4 decl" id="1294data" title='data' data-type='byte *' data-ref="1294data">data</dfn> );</td></tr>
+<tr><th id="151">151</th><td>	<em>void</em> (*<dfn class="decl" id="(anonymous)::StopCapture" title='(anonymous struct)::StopCapture' data-ref="(anonymous)::StopCapture">StopCapture</dfn>)( <em>void</em> );</td></tr>
+<tr><th id="152">152</th><td>	<em>void</em> (*<dfn class="decl" id="(anonymous)::MasterGain" title='(anonymous struct)::MasterGain' data-ref="(anonymous)::MasterGain">MasterGain</dfn>)( <em>float</em> <dfn class="local col5 decl" id="1295gain" title='gain' data-type='float' data-ref="1295gain">gain</dfn> );</td></tr>
+<tr><th id="153">153</th><td><u>#<span data-ppcond="147">endif</span></u></td></tr>
+<tr><th id="154">154</th><td>} <dfn class="typedef" id="soundInterface_t" title='soundInterface_t' data-type='struct soundInterface_t' data-ref="soundInterface_t">soundInterface_t</dfn>;</td></tr>
+<tr><th id="155">155</th><td></td></tr>
+<tr><th id="156">156</th><td></td></tr>
+<tr><th id="157">157</th><td><i>/*</i></td></tr>
+<tr><th id="158">158</th><td><i>====================================================================</i></td></tr>
+<tr><th id="159">159</th><td><i></i></td></tr>
+<tr><th id="160">160</th><td><i>  SYSTEM SPECIFIC FUNCTIONS</i></td></tr>
+<tr><th id="161">161</th><td><i></i></td></tr>
+<tr><th id="162">162</th><td><i>====================================================================</i></td></tr>
+<tr><th id="163">163</th><td><i>*/</i></td></tr>
+<tr><th id="164">164</th><td><i></i></td></tr>
+<tr><th id="165">165</th><td><i>// initializes cycling through a DMA buffer and returns information on it</i></td></tr>
+<tr><th id="166">166</th><td><a class="typedef" href="../qcommon/q_shared.h.html#qboolean" title='qboolean' data-type='enum qboolean' data-ref="qboolean">qboolean</a> <dfn class="decl" id="SNDDMA_Init" title='SNDDMA_Init' data-ref="SNDDMA_Init">SNDDMA_Init</dfn>(<em>void</em>);</td></tr>
+<tr><th id="167">167</th><td></td></tr>
+<tr><th id="168">168</th><td><i>// gets the current DMA position</i></td></tr>
+<tr><th id="169">169</th><td><em>int</em>		<dfn class="decl" id="SNDDMA_GetDMAPos" title='SNDDMA_GetDMAPos' data-ref="SNDDMA_GetDMAPos">SNDDMA_GetDMAPos</dfn>(<em>void</em>);</td></tr>
+<tr><th id="170">170</th><td></td></tr>
+<tr><th id="171">171</th><td><i>// shutdown the DMA xfer.</i></td></tr>
+<tr><th id="172">172</th><td><em>void</em>	<dfn class="decl" id="SNDDMA_Shutdown" title='SNDDMA_Shutdown' data-ref="SNDDMA_Shutdown">SNDDMA_Shutdown</dfn>(<em>void</em>);</td></tr>
+<tr><th id="173">173</th><td></td></tr>
+<tr><th id="174">174</th><td><em>void</em>	<dfn class="decl" id="SNDDMA_BeginPainting" title='SNDDMA_BeginPainting' data-ref="SNDDMA_BeginPainting">SNDDMA_BeginPainting</dfn> (<em>void</em>);</td></tr>
+<tr><th id="175">175</th><td></td></tr>
+<tr><th id="176">176</th><td><em>void</em>	<dfn class="decl" id="SNDDMA_Submit" title='SNDDMA_Submit' data-ref="SNDDMA_Submit">SNDDMA_Submit</dfn>(<em>void</em>);</td></tr>
+<tr><th id="177">177</th><td></td></tr>
+<tr><th id="178">178</th><td><i>//====================================================================</i></td></tr>
+<tr><th id="179">179</th><td></td></tr>
+<tr><th id="180">180</th><td><u>#define	<dfn class="macro" id="_M/MAX_CHANNELS" data-ref="_M/MAX_CHANNELS">MAX_CHANNELS</dfn>			96</u></td></tr>
+<tr><th id="181">181</th><td></td></tr>
+<tr><th id="182">182</th><td><b>extern</b>	<a class="typedef" href="#channel_t" title='channel_t' data-type='struct channel_t' data-ref="channel_t">channel_t</a>   <dfn class="decl" id="s_channels" title='s_channels' data-ref="s_channels">s_channels</dfn>[<a class="macro" href="#180" title="96" data-ref="_M/MAX_CHANNELS">MAX_CHANNELS</a>];</td></tr>
+<tr><th id="183">183</th><td><b>extern</b>	<a class="typedef" href="#channel_t" title='channel_t' data-type='struct channel_t' data-ref="channel_t">channel_t</a>   <dfn class="decl" id="loop_channels" title='loop_channels' data-ref="loop_channels">loop_channels</dfn>[<a class="macro" href="#180" title="96" data-ref="_M/MAX_CHANNELS">MAX_CHANNELS</a>];</td></tr>
+<tr><th id="184">184</th><td><b>extern</b>	<em>int</em>		<dfn class="decl" id="numLoopChannels" title='numLoopChannels' data-ref="numLoopChannels">numLoopChannels</dfn>;</td></tr>
+<tr><th id="185">185</th><td></td></tr>
+<tr><th id="186">186</th><td><b>extern</b>	<em>int</em>		<dfn class="decl" id="s_paintedtime" title='s_paintedtime' data-ref="s_paintedtime">s_paintedtime</dfn>;</td></tr>
+<tr><th id="187">187</th><td><b>extern</b>	<a class="typedef" href="../qcommon/q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a>	<dfn class="decl" id="listener_forward" title='listener_forward' data-ref="listener_forward">listener_forward</dfn>;</td></tr>
+<tr><th id="188">188</th><td><b>extern</b>	<a class="typedef" href="../qcommon/q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a>	<dfn class="decl" id="listener_right" title='listener_right' data-ref="listener_right">listener_right</dfn>;</td></tr>
+<tr><th id="189">189</th><td><b>extern</b>	<a class="typedef" href="../qcommon/q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a>	<dfn class="decl" id="listener_up" title='listener_up' data-ref="listener_up">listener_up</dfn>;</td></tr>
+<tr><th id="190">190</th><td><b>extern</b>	<a class="typedef" href="#dma_t" title='dma_t' data-type='struct dma_t' data-ref="dma_t">dma_t</a>	<dfn class="decl" id="dma" title='dma' data-ref="dma">dma</dfn>;</td></tr>
+<tr><th id="191">191</th><td></td></tr>
+<tr><th id="192">192</th><td><u>#define	<dfn class="macro" id="_M/MAX_RAW_SAMPLES" data-ref="_M/MAX_RAW_SAMPLES">MAX_RAW_SAMPLES</dfn>	16384</u></td></tr>
+<tr><th id="193">193</th><td><u>#define <dfn class="macro" id="_M/MAX_RAW_STREAMS" data-ref="_M/MAX_RAW_STREAMS">MAX_RAW_STREAMS</dfn> (MAX_CLIENTS * 2 + 1)</u></td></tr>
+<tr><th id="194">194</th><td><b>extern</b>	<a class="typedef" href="#portable_samplepair_t" title='portable_samplepair_t' data-type='struct portable_samplepair_t' data-ref="portable_samplepair_t">portable_samplepair_t</a> <dfn class="decl" id="s_rawsamples" title='s_rawsamples' data-ref="s_rawsamples">s_rawsamples</dfn>[<a class="macro" href="#193" title="(64 * 2 + 1)" data-ref="_M/MAX_RAW_STREAMS">MAX_RAW_STREAMS</a>][<a class="macro" href="#192" title="16384" data-ref="_M/MAX_RAW_SAMPLES">MAX_RAW_SAMPLES</a>];</td></tr>
+<tr><th id="195">195</th><td><b>extern</b>	<em>int</em>		<dfn class="decl" id="s_rawend" title='s_rawend' data-ref="s_rawend">s_rawend</dfn>[<a class="macro" href="#193" title="(64 * 2 + 1)" data-ref="_M/MAX_RAW_STREAMS">MAX_RAW_STREAMS</a>];</td></tr>
+<tr><th id="196">196</th><td></td></tr>
+<tr><th id="197">197</th><td><b>extern</b> <a class="typedef" href="../qcommon/q_shared.h.html#cvar_t" title='cvar_t' data-type='struct cvar_s' data-ref="cvar_t">cvar_t</a> *<dfn class="decl" id="s_volume" title='s_volume' data-ref="s_volume">s_volume</dfn>;</td></tr>
+<tr><th id="198">198</th><td><b>extern</b> <a class="typedef" href="../qcommon/q_shared.h.html#cvar_t" title='cvar_t' data-type='struct cvar_s' data-ref="cvar_t">cvar_t</a> *<dfn class="decl" id="s_musicVolume" title='s_musicVolume' data-ref="s_musicVolume">s_musicVolume</dfn>;</td></tr>
+<tr><th id="199">199</th><td><b>extern</b> <a class="typedef" href="../qcommon/q_shared.h.html#cvar_t" title='cvar_t' data-type='struct cvar_s' data-ref="cvar_t">cvar_t</a> *<dfn class="decl" id="s_muted" title='s_muted' data-ref="s_muted">s_muted</dfn>;</td></tr>
+<tr><th id="200">200</th><td><b>extern</b> <a class="typedef" href="../qcommon/q_shared.h.html#cvar_t" title='cvar_t' data-type='struct cvar_s' data-ref="cvar_t">cvar_t</a> *<dfn class="decl" id="s_doppler" title='s_doppler' data-ref="s_doppler">s_doppler</dfn>;</td></tr>
+<tr><th id="201">201</th><td></td></tr>
+<tr><th id="202">202</th><td><b>extern</b> <a class="typedef" href="../qcommon/q_shared.h.html#cvar_t" title='cvar_t' data-type='struct cvar_s' data-ref="cvar_t">cvar_t</a> *<dfn class="decl" id="s_testsound" title='s_testsound' data-ref="s_testsound">s_testsound</dfn>;</td></tr>
+<tr><th id="203">203</th><td></td></tr>
+<tr><th id="204">204</th><td><a class="typedef" href="../qcommon/q_shared.h.html#qboolean" title='qboolean' data-type='enum qboolean' data-ref="qboolean">qboolean</a> <dfn class="decl" id="S_LoadSound" title='S_LoadSound' data-ref="S_LoadSound">S_LoadSound</dfn>( <a class="typedef" href="#sfx_t" title='sfx_t' data-type='struct sfx_s' data-ref="sfx_t">sfx_t</a> *<dfn class="local col6 decl" id="1296sfx" title='sfx' data-type='sfx_t *' data-ref="1296sfx">sfx</dfn> );</td></tr>
+<tr><th id="205">205</th><td></td></tr>
+<tr><th id="206">206</th><td><em>void</em>		<dfn class="decl" id="SND_free" title='SND_free' data-ref="SND_free">SND_free</dfn>(<a class="typedef" href="#sndBuffer" title='sndBuffer' data-type='struct sndBuffer_s' data-ref="sndBuffer">sndBuffer</a> *<dfn class="local col7 decl" id="1297v" title='v' data-type='sndBuffer *' data-ref="1297v">v</dfn>);</td></tr>
+<tr><th id="207">207</th><td><a class="typedef" href="#sndBuffer" title='sndBuffer' data-type='struct sndBuffer_s' data-ref="sndBuffer">sndBuffer</a>*	<dfn class="decl" id="SND_malloc" title='SND_malloc' data-ref="SND_malloc">SND_malloc</dfn>( <em>void</em> );</td></tr>
+<tr><th id="208">208</th><td><em>void</em>		<dfn class="decl" id="SND_setup" title='SND_setup' data-ref="SND_setup">SND_setup</dfn>( <em>void</em> );</td></tr>
+<tr><th id="209">209</th><td><em>void</em>		<dfn class="decl" id="SND_shutdown" title='SND_shutdown' data-ref="SND_shutdown">SND_shutdown</dfn>(<em>void</em>);</td></tr>
+<tr><th id="210">210</th><td></td></tr>
+<tr><th id="211">211</th><td><em>void</em> <dfn class="decl" id="S_PaintChannels" title='S_PaintChannels' data-ref="S_PaintChannels">S_PaintChannels</dfn>(<em>int</em> <dfn class="local col8 decl" id="1298endtime" title='endtime' data-type='int' data-ref="1298endtime">endtime</dfn>);</td></tr>
+<tr><th id="212">212</th><td></td></tr>
+<tr><th id="213">213</th><td><em>void</em> <dfn class="decl" id="S_memoryLoad" title='S_memoryLoad' data-ref="S_memoryLoad">S_memoryLoad</dfn>(<a class="typedef" href="#sfx_t" title='sfx_t' data-type='struct sfx_s' data-ref="sfx_t">sfx_t</a> *<dfn class="local col9 decl" id="1299sfx" title='sfx' data-type='sfx_t *' data-ref="1299sfx">sfx</dfn>);</td></tr>
+<tr><th id="214">214</th><td></td></tr>
+<tr><th id="215">215</th><td><i>// spatializes a channel</i></td></tr>
+<tr><th id="216">216</th><td><em>void</em> <dfn class="decl" id="S_Spatialize" title='S_Spatialize' data-ref="S_Spatialize">S_Spatialize</dfn>(<a class="typedef" href="#channel_t" title='channel_t' data-type='struct channel_t' data-ref="channel_t">channel_t</a> *<dfn class="local col0 decl" id="1300ch" title='ch' data-type='channel_t *' data-ref="1300ch">ch</dfn>);</td></tr>
+<tr><th id="217">217</th><td></td></tr>
+<tr><th id="218">218</th><td><i>// adpcm functions</i></td></tr>
+<tr><th id="219">219</th><td><em>int</em>  <dfn class="decl" id="S_AdpcmMemoryNeeded" title='S_AdpcmMemoryNeeded' data-ref="S_AdpcmMemoryNeeded">S_AdpcmMemoryNeeded</dfn>( <em>const</em> <a class="typedef" href="#wavinfo_t" title='wavinfo_t' data-type='struct wavinfo_t' data-ref="wavinfo_t">wavinfo_t</a> *<dfn class="local col1 decl" id="1301info" title='info' data-type='const wavinfo_t *' data-ref="1301info">info</dfn> );</td></tr>
+<tr><th id="220">220</th><td><em>void</em> <dfn class="decl" id="S_AdpcmEncodeSound" title='S_AdpcmEncodeSound' data-ref="S_AdpcmEncodeSound">S_AdpcmEncodeSound</dfn>( <a class="typedef" href="#sfx_t" title='sfx_t' data-type='struct sfx_s' data-ref="sfx_t">sfx_t</a> *<dfn class="local col2 decl" id="1302sfx" title='sfx' data-type='sfx_t *' data-ref="1302sfx">sfx</dfn>, <em>short</em> *<dfn class="local col3 decl" id="1303samples" title='samples' data-type='short *' data-ref="1303samples">samples</dfn> );</td></tr>
+<tr><th id="221">221</th><td><em>void</em> <dfn class="decl" id="S_AdpcmGetSamples" title='S_AdpcmGetSamples' data-ref="S_AdpcmGetSamples">S_AdpcmGetSamples</dfn>(<a class="typedef" href="#sndBuffer" title='sndBuffer' data-type='struct sndBuffer_s' data-ref="sndBuffer">sndBuffer</a> *<dfn class="local col4 decl" id="1304chunk" title='chunk' data-type='sndBuffer *' data-ref="1304chunk">chunk</dfn>, <em>short</em> *<dfn class="local col5 decl" id="1305to" title='to' data-type='short *' data-ref="1305to">to</dfn>);</td></tr>
+<tr><th id="222">222</th><td></td></tr>
+<tr><th id="223">223</th><td><i>// wavelet function</i></td></tr>
+<tr><th id="224">224</th><td></td></tr>
+<tr><th id="225">225</th><td><u>#define <dfn class="macro" id="_M/SENTINEL_MULAW_ZERO_RUN" data-ref="_M/SENTINEL_MULAW_ZERO_RUN">SENTINEL_MULAW_ZERO_RUN</dfn> 127</u></td></tr>
+<tr><th id="226">226</th><td><u>#define <dfn class="macro" id="_M/SENTINEL_MULAW_FOUR_BIT_RUN" data-ref="_M/SENTINEL_MULAW_FOUR_BIT_RUN">SENTINEL_MULAW_FOUR_BIT_RUN</dfn> 126</u></td></tr>
+<tr><th id="227">227</th><td></td></tr>
+<tr><th id="228">228</th><td><em>void</em> <dfn class="decl" id="S_FreeOldestSound" title='S_FreeOldestSound' data-ref="S_FreeOldestSound">S_FreeOldestSound</dfn>( <em>void</em> );</td></tr>
+<tr><th id="229">229</th><td></td></tr>
+<tr><th id="230">230</th><td><u>#define	<dfn class="macro" id="_M/NXStream" data-ref="_M/NXStream">NXStream</dfn> byte</u></td></tr>
+<tr><th id="231">231</th><td></td></tr>
+<tr><th id="232">232</th><td><em>void</em> <dfn class="decl" id="encodeWavelet" title='encodeWavelet' data-ref="encodeWavelet">encodeWavelet</dfn>(<a class="typedef" href="#sfx_t" title='sfx_t' data-type='struct sfx_s' data-ref="sfx_t">sfx_t</a> *<dfn class="local col6 decl" id="1306sfx" title='sfx' data-type='sfx_t *' data-ref="1306sfx">sfx</dfn>, <em>short</em> *<dfn class="local col7 decl" id="1307packets" title='packets' data-type='short *' data-ref="1307packets">packets</dfn>);</td></tr>
+<tr><th id="233">233</th><td><em>void</em> <dfn class="decl" id="decodeWavelet" title='decodeWavelet' data-ref="decodeWavelet">decodeWavelet</dfn>( <a class="typedef" href="#sndBuffer" title='sndBuffer' data-type='struct sndBuffer_s' data-ref="sndBuffer">sndBuffer</a> *<dfn class="local col8 decl" id="1308stream" title='stream' data-type='sndBuffer *' data-ref="1308stream">stream</dfn>, <em>short</em> *<dfn class="local col9 decl" id="1309packets" title='packets' data-type='short *' data-ref="1309packets">packets</dfn>);</td></tr>
+<tr><th id="234">234</th><td></td></tr>
+<tr><th id="235">235</th><td><em>void</em> <dfn class="decl" id="encodeMuLaw" title='encodeMuLaw' data-ref="encodeMuLaw">encodeMuLaw</dfn>( <a class="typedef" href="#sfx_t" title='sfx_t' data-type='struct sfx_s' data-ref="sfx_t">sfx_t</a> *<dfn class="local col0 decl" id="1310sfx" title='sfx' data-type='sfx_t *' data-ref="1310sfx">sfx</dfn>, <em>short</em> *<dfn class="local col1 decl" id="1311packets" title='packets' data-type='short *' data-ref="1311packets">packets</dfn>);</td></tr>
+<tr><th id="236">236</th><td><b>extern</b> <em>short</em> <dfn class="decl" id="mulawToShort" title='mulawToShort' data-ref="mulawToShort">mulawToShort</dfn>[<var>256</var>];</td></tr>
+<tr><th id="237">237</th><td></td></tr>
+<tr><th id="238">238</th><td><b>extern</b> <em>short</em> *<dfn class="decl" id="sfxScratchBuffer" title='sfxScratchBuffer' data-ref="sfxScratchBuffer">sfxScratchBuffer</dfn>;</td></tr>
+<tr><th id="239">239</th><td><b>extern</b> <a class="typedef" href="#sfx_t" title='sfx_t' data-type='struct sfx_s' data-ref="sfx_t">sfx_t</a> *<dfn class="decl" id="sfxScratchPointer" title='sfxScratchPointer' data-ref="sfxScratchPointer">sfxScratchPointer</dfn>;</td></tr>
+<tr><th id="240">240</th><td><b>extern</b> <em>int</em>	   <dfn class="decl" id="sfxScratchIndex" title='sfxScratchIndex' data-ref="sfxScratchIndex">sfxScratchIndex</dfn>;</td></tr>
+<tr><th id="241">241</th><td></td></tr>
+<tr><th id="242">242</th><td><a class="typedef" href="../qcommon/q_shared.h.html#qboolean" title='qboolean' data-type='enum qboolean' data-ref="qboolean">qboolean</a> <dfn class="decl" id="S_Base_Init" title='S_Base_Init' data-ref="S_Base_Init">S_Base_Init</dfn>( <a class="typedef" href="#soundInterface_t" title='soundInterface_t' data-type='struct soundInterface_t' data-ref="soundInterface_t">soundInterface_t</a> *<dfn class="local col2 decl" id="1312si" title='si' data-type='soundInterface_t *' data-ref="1312si">si</dfn> );</td></tr>
+<tr><th id="243">243</th><td></td></tr>
+<tr><th id="244">244</th><td><i>// OpenAL stuff</i></td></tr>
+<tr><th id="245">245</th><td><b>typedef</b> <b>enum</b></td></tr>
+<tr><th id="246">246</th><td>{</td></tr>
+<tr><th id="247">247</th><td>	<dfn class="enum" id="SRCPRI_AMBIENT" title='SRCPRI_AMBIENT' data-ref="SRCPRI_AMBIENT">SRCPRI_AMBIENT</dfn> = <var>0</var>,	<i>// Ambient sound effects</i></td></tr>
+<tr><th id="248">248</th><td>	<dfn class="enum" id="SRCPRI_ENTITY" title='SRCPRI_ENTITY' data-ref="SRCPRI_ENTITY">SRCPRI_ENTITY</dfn>,			<i>// Entity sound effects</i></td></tr>
+<tr><th id="249">249</th><td>	<dfn class="enum" id="SRCPRI_ONESHOT" title='SRCPRI_ONESHOT' data-ref="SRCPRI_ONESHOT">SRCPRI_ONESHOT</dfn>,			<i>// One-shot sounds</i></td></tr>
+<tr><th id="250">250</th><td>	<dfn class="enum" id="SRCPRI_LOCAL" title='SRCPRI_LOCAL' data-ref="SRCPRI_LOCAL">SRCPRI_LOCAL</dfn>,				<i>// Local sounds</i></td></tr>
+<tr><th id="251">251</th><td>	<dfn class="enum" id="SRCPRI_STREAM" title='SRCPRI_STREAM' data-ref="SRCPRI_STREAM">SRCPRI_STREAM</dfn>				<i>// Streams (music, cutscenes)</i></td></tr>
+<tr><th id="252">252</th><td>} <dfn class="typedef" id="alSrcPriority_t" title='alSrcPriority_t' data-type='enum alSrcPriority_t' data-ref="alSrcPriority_t">alSrcPriority_t</dfn>;</td></tr>
+<tr><th id="253">253</th><td></td></tr>
+<tr><th id="254">254</th><td><b>typedef</b> <em>int</em> <dfn class="typedef" id="srcHandle_t" title='srcHandle_t' data-type='int' data-ref="srcHandle_t">srcHandle_t</dfn>;</td></tr>
+<tr><th id="255">255</th><td></td></tr>
+<tr><th id="256">256</th><td><a class="typedef" href="../qcommon/q_shared.h.html#qboolean" title='qboolean' data-type='enum qboolean' data-ref="qboolean">qboolean</a> <dfn class="decl" id="S_AL_Init" title='S_AL_Init' data-ref="S_AL_Init">S_AL_Init</dfn>( <a class="typedef" href="#soundInterface_t" title='soundInterface_t' data-type='struct soundInterface_t' data-ref="soundInterface_t">soundInterface_t</a> *<dfn class="local col3 decl" id="1313si" title='si' data-type='soundInterface_t *' data-ref="1313si">si</dfn> );</td></tr>
+<tr><th id="257">257</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='cl_avi.c.html'>codebrowser/code/client/cl_avi.c</a><br/>Generated on <em>2017-Aug-29</em> from project codebrowser revision <em>63e07af</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

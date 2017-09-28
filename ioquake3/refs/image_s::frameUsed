@@ -1,0 +1,9 @@
+<dec f='codebrowser/code/renderercommon/tr_common.h' l='55' type='int'/>
+<offset>672</offset>
+<doc f='codebrowser/code/renderercommon/tr_common.h' l='55'>// for texture usage in frame statistics</doc>
+<use f='codebrowser/code/renderergl1/tr_backend.c' l='57' u='w' c='GL_Bind'/>
+<use f='codebrowser/code/renderergl1/tr_backend.c' l='110' u='w' c='GL_BindMultitexture'/>
+<use f='codebrowser/code/renderergl1/tr_backend.c' l='116' u='w' c='GL_BindMultitexture'/>
+<use f='codebrowser/code/renderergl1/tr_image.c' l='135' u='r' c='R_SumOfUsedImages'/>
+<use f='codebrowser/code/renderergl2/tr_backend.c' l='53' u='w' c='GL_BindToTMU'/>
+<use f='codebrowser/code/renderergl2/tr_image.c' l='136' u='r' c='R_SumOfUsedImages'/>

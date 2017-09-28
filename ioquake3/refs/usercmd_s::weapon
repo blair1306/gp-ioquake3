@@ -1,0 +1,17 @@
+<dec f='codebrowser/code/qcommon/q_shared.h' l='1247' type='byte'/>
+<offset>160</offset>
+<doc f='codebrowser/code/qcommon/q_shared.h' l='1247'>// weapon </doc>
+<use f='codebrowser/code/client/cl_input.c' l='561' u='w' c='CL_FinishMove'/>
+<use f='codebrowser/code/game/ai_main.c' l='850' u='w' c='BotInputToUserCommand'/>
+<use f='codebrowser/code/game/bg_pmove.c' l='1496' u='r' c='PM_FinishWeaponChange'/>
+<use f='codebrowser/code/game/bg_pmove.c' l='1583' u='r' c='PM_Weapon'/>
+<use f='codebrowser/code/game/bg_pmove.c' l='1584' u='r' c='PM_Weapon'/>
+<use f='codebrowser/code/game/g_combat.c' l='92' u='r' c='TossClientItems'/>
+<use f='codebrowser/code/qcommon/msg.c' l='693' u='r' c='MSG_WriteDeltaUsercmdKey'/>
+<use f='codebrowser/code/qcommon/msg.c' l='693' u='r' c='MSG_WriteDeltaUsercmdKey'/>
+<use f='codebrowser/code/qcommon/msg.c' l='707' u='r' c='MSG_WriteDeltaUsercmdKey'/>
+<use f='codebrowser/code/qcommon/msg.c' l='707' u='r' c='MSG_WriteDeltaUsercmdKey'/>
+<use f='codebrowser/code/qcommon/msg.c' l='737' u='w' c='MSG_ReadDeltaUsercmdKey'/>
+<use f='codebrowser/code/qcommon/msg.c' l='737' u='r' c='MSG_ReadDeltaUsercmdKey'/>
+<use f='codebrowser/code/qcommon/msg.c' l='746' u='w' c='MSG_ReadDeltaUsercmdKey'/>
+<use f='codebrowser/code/qcommon/msg.c' l='746' u='r' c='MSG_ReadDeltaUsercmdKey'/>

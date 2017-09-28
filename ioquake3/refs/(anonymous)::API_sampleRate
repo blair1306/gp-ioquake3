@@ -1,0 +1,24 @@
+<dec f='codebrowser/code/opus-1.1.4/silk/control.h' l='54' type='opus_int32'/>
+<dec f='codebrowser/code/opus-1.1.4/silk/control.h' l='126' type='opus_int32'/>
+<offset>64</offset>
+<doc f='codebrowser/code/opus-1.1.4/silk/control.h' l='53'>/* I:   Input signal sampling rate in Hertz; 8000/12000/16000/24000/32000/44100/48000   */</doc>
+<doc f='codebrowser/code/opus-1.1.4/silk/control.h' l='125'>/* I:   Output signal sampling rate in Hertz; 8000/12000/16000/24000/32000/44100/48000  */</doc>
+<use f='codebrowser/code/opus-1.1.4/silk/check_control_input.c' l='43' u='r' c='check_control_input'/>
+<use f='codebrowser/code/opus-1.1.4/silk/check_control_input.c' l='44' u='r' c='check_control_input'/>
+<use f='codebrowser/code/opus-1.1.4/silk/check_control_input.c' l='45' u='r' c='check_control_input'/>
+<use f='codebrowser/code/opus-1.1.4/silk/check_control_input.c' l='46' u='r' c='check_control_input'/>
+<use f='codebrowser/code/opus-1.1.4/silk/check_control_input.c' l='47' u='r' c='check_control_input'/>
+<use f='codebrowser/code/opus-1.1.4/silk/check_control_input.c' l='48' u='r' c='check_control_input'/>
+<use f='codebrowser/code/opus-1.1.4/silk/check_control_input.c' l='49' u='r' c='check_control_input'/>
+<use f='codebrowser/code/opus-1.1.4/silk/control_codec.c' l='78' u='r' c='silk_control_encoder'/>
+<use f='codebrowser/code/opus-1.1.4/silk/dec_API.c' l='156' u='r' c='silk_Decode'/>
+<use f='codebrowser/code/opus-1.1.4/silk/dec_API.c' l='168' u='r' c='silk_Decode'/>
+<use f='codebrowser/code/opus-1.1.4/silk/dec_API.c' l='168' u='r' c='silk_Decode'/>
+<use f='codebrowser/code/opus-1.1.4/silk/dec_API.c' l='262' u='r' c='silk_Decode'/>
+<use f='codebrowser/code/opus-1.1.4/silk/dec_API.c' l='317' u='r' c='silk_Decode'/>
+<use f='codebrowser/code/opus-1.1.4/silk/enc_API.c' l='116' u='w' c='silk_QueryEncoder'/>
+<use f='codebrowser/code/opus-1.1.4/silk/enc_API.c' l='198' u='r' c='silk_Encode'/>
+<use f='codebrowser/code/opus-1.1.4/silk/enc_API.c' l='223' u='r' c='silk_Encode'/>
+<use f='codebrowser/code/opus-1.1.4/silk/enc_API.c' l='229' u='r' c='silk_Encode'/>
+<use f='codebrowser/code/opus-1.1.4/src/opus_decoder.c' l='120' u='w' c='opus_decoder_init'/>
+<use f='codebrowser/code/opus-1.1.4/src/opus_encoder.c' l='199' u='w' c='opus_encoder_init'/>

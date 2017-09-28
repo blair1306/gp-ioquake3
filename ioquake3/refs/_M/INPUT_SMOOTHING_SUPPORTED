@@ -1,0 +1,14 @@
+<dec f='codebrowser/code/jpeg-8c/jmorecfg.h' l='289'/>
+<doc f='codebrowser/code/jpeg-8c/jmorecfg.h' l='281'>/* Note: if you selected 12-bit data precision, it is dangerous to turn off
+ * ENTROPY_OPT_SUPPORTED.  The standard Huffman tables are only good for 8-bit
+ * precision, so jchuff.c normally uses entropy optimization to compute
+ * usable tables for higher precision.  If you don&apos;t want to do optimization,
+ * you&apos;ll have to supply different default Huffman tables.
+ * The exact same statements apply for progressive JPEG: the default tables
+ * don&apos;t work for progressive mode.  (This may get fixed, however.)
+ */</doc>
+<use f='codebrowser/code/jpeg-8c/jcprepct.c' l='27' u='a'/>
+<use f='codebrowser/code/jpeg-8c/jcsample.c' l='296' u='a'/>
+<use f='codebrowser/code/jpeg-8c/jcsample.c' l='511' u='a'/>
+<use f='codebrowser/code/jpeg-8c/jcsample.c' l='524' u='a'/>
+<use f='codebrowser/code/jpeg-8c/jcsample.c' l='541' u='a'/>

@@ -1,0 +1,15 @@
+<dec f='codebrowser/code/renderergl1/tr_local.h' l='887' type='image_t *'/>
+<offset>2560</offset>
+<doc f='codebrowser/code/renderergl1/tr_local.h' l='887'>// inverse-quare highlight for projective adding</doc>
+<use f='codebrowser/code/renderergl1/tr_backend.c' l='51' u='r' c='GL_Bind'/>
+<use f='codebrowser/code/renderergl1/tr_backend.c' l='52' u='r' c='GL_Bind'/>
+<use f='codebrowser/code/renderergl1/tr_backend.c' l='104' u='r' c='GL_BindMultitexture'/>
+<use f='codebrowser/code/renderergl1/tr_backend.c' l='105' u='r' c='GL_BindMultitexture'/>
+<use f='codebrowser/code/renderergl1/tr_image.c' l='1103' u='w' c='R_CreateDlightImage'/>
+<use f='codebrowser/code/renderergl1/tr_shade.c' l='725' u='r' c='ProjectDlightTexture_scalar'/>
+<dec f='codebrowser/code/renderergl2/tr_local.h' l='1453' type='image_t *'/>
+<offset>3072</offset>
+<doc f='codebrowser/code/renderergl2/tr_local.h' l='1453'>// inverse-quare highlight for projective adding</doc>
+<use f='codebrowser/code/renderergl2/tr_image.c' l='2588' u='w' c='R_CreateDlightImage'/>
+<use f='codebrowser/code/renderergl2/tr_shade.c' l='376' u='r' c='ProjectDlightTexture'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='3862' u='r' c='CreateExternalShaders'/>

@@ -1,0 +1,18 @@
+<dec f='codebrowser/code/client/client.h' l='298' type='int'/>
+<offset>1120</offset>
+<use f='codebrowser/code/client/cl_main.c' l='2453' u='w' c='CL_InitServerInfo'/>
+<use f='codebrowser/code/client/cl_main.c' l='3787' u='w' c='CL_SetServerInfo'/>
+<use f='codebrowser/code/client/cl_ui.c' l='297' u='r' c='LAN_GetServerInfo'/>
+<use f='codebrowser/code/client/cl_ui.c' l='415' u='r' c='LAN_CompareServers'/>
+<use f='codebrowser/code/client/cl_ui.c' l='415' u='r' c='LAN_CompareServers'/>
+<use f='codebrowser/code/client/cl_ui.c' l='418' u='r' c='LAN_CompareServers'/>
+<use f='codebrowser/code/client/cl_ui.c' l='418' u='r' c='LAN_CompareServers'/>
+<dec f='codebrowser/code/ui/ui_local.h' l='664' type='const char *'/>
+<offset>0</offset>
+<use f='codebrowser/code/ui/ui_main.c' l='1054' u='r' c='UI_DrawGameType'/>
+<use f='codebrowser/code/ui/ui_main.c' l='1062' u='r' c='UI_DrawNetGameType'/>
+<use f='codebrowser/code/ui/ui_main.c' l='1069' u='r' c='UI_DrawJoinGameType'/>
+<use f='codebrowser/code/ui/ui_main.c' l='1415' u='r' c='UI_DrawTierGameType'/>
+<use f='codebrowser/code/ui/ui_main.c' l='1650' u='r' c='UI_OwnerDrawWidth'/>
+<use f='codebrowser/code/ui/ui_main.c' l='4781' u='a' c='GameType_Parse'/>
+<use f='codebrowser/code/ui/ui_main.c' l='4785' u='a' c='GameType_Parse'/>

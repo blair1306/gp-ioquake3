@@ -1,0 +1,21 @@
+<dec f='codebrowser/code/qcommon/qcommon.h' l='517' type='cvar_t * Cvar_Set2(const char * var_name, const char * value, qboolean force)'/>
+<doc f='codebrowser/code/qcommon/qcommon.h' l='515'>// will create the variable with no flags if it doesn&apos;t exist</doc>
+<use f='codebrowser/code/client/cl_main.c' l='1364' u='c' c='CL_OldGame'/>
+<use f='codebrowser/code/qcommon/common.c' l='499' u='c' c='Com_StartupVariable'/>
+<use f='codebrowser/code/qcommon/cvar.c' l='398' u='c' c='Cvar_Get'/>
+<def f='codebrowser/code/qcommon/cvar.c' l='504' ll='622' type='cvar_t * Cvar_Set2(const char * var_name, const char * value, qboolean force)'/>
+<use f='codebrowser/code/qcommon/cvar.c' l='630' u='c' c='Cvar_Set'/>
+<use f='codebrowser/code/qcommon/cvar.c' l='661' u='c' c='Cvar_SetLatched'/>
+<use f='codebrowser/code/qcommon/cvar.c' l='702' u='c' c='Cvar_Reset'/>
+<use f='codebrowser/code/qcommon/cvar.c' l='712' u='c' c='Cvar_ForceReset'/>
+<use f='codebrowser/code/qcommon/cvar.c' l='767' u='c' c='Cvar_Command'/>
+<use f='codebrowser/code/qcommon/cvar.c' l='819' u='c' c='Cvar_Toggle_f'/>
+<use f='codebrowser/code/qcommon/cvar.c' l='836' u='c' c='Cvar_Toggle_f'/>
+<use f='codebrowser/code/qcommon/cvar.c' l='842' u='c' c='Cvar_Toggle_f'/>
+<use f='codebrowser/code/qcommon/cvar.c' l='870' u='c' c='Cvar_Set_f'/>
+<use f='codebrowser/code/qcommon/cvar.c' l='1212' u='c' c='Cvar_Restart'/>
+<doc f='codebrowser/code/qcommon/cvar.c' l='499'>/*
+============
+Cvar_Set2
+============
+*/</doc>

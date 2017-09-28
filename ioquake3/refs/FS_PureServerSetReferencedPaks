@@ -1,0 +1,14 @@
+<dec f='codebrowser/code/qcommon/qcommon.h' l='721' type='void FS_PureServerSetReferencedPaks(const char * pakSums, const char * pakNames)'/>
+<doc f='codebrowser/code/qcommon/qcommon.h' l='719'>// clears referenced booleans on loaded pk3s</doc>
+<use f='codebrowser/code/client/cl_main.c' l='1449' u='c' c='CL_Disconnect'/>
+<use f='codebrowser/code/client/cl_parse.c' l='386' u='c' c='CL_SystemInfoChanged'/>
+<def f='codebrowser/code/qcommon/files.c' l='3888' ll='3928' type='void FS_PureServerSetReferencedPaks(const char * pakSums, const char * pakNames)'/>
+<doc f='codebrowser/code/qcommon/files.c' l='3879'>/*
+=====================
+FS_PureServerSetReferencedPaks
+
+The checksums and names of the pk3 files referenced at the server
+are sent to the client and stored here. The client will use these
+checksums to see if any pk3 files need to be auto-downloaded. 
+=====================
+*/</doc>

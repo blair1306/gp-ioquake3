@@ -1,0 +1,11 @@
+<dec f='include/netinet/in.h' l='242' type='in_port_t'/>
+<offset>16</offset>
+<doc f='include/netinet/in.h' l='242'>/* Port number.  */</doc>
+<use f='codebrowser/code/qcommon/net_ip.c' l='215' u='w' c='NetadrToSockadr'/>
+<use f='codebrowser/code/qcommon/net_ip.c' l='221' u='w' c='NetadrToSockadr'/>
+<use f='codebrowser/code/qcommon/net_ip.c' l='242' u='r' c='SockadrToNetadr'/>
+<use f='codebrowser/code/qcommon/net_ip.c' l='671' u='r' c='Sys_SendPacket'/>
+<use f='codebrowser/code/qcommon/net_ip.c' l='860' u='w' c='NET_IPSocket'/>
+<use f='codebrowser/code/qcommon/net_ip.c' l='863' u='w' c='NET_IPSocket'/>
+<use f='codebrowser/code/qcommon/net_ip.c' l='1094' u='w' c='NET_OpenSocks'/>
+<use f='codebrowser/code/qcommon/net_ip.c' l='1222' u='w' c='NET_OpenSocks'/>

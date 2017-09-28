@@ -1,0 +1,11 @@
+<dec f='codebrowser/code/server/server.h' l='116' type='0'/>
+<use f='codebrowser/code/server/sv_bot.c' l='53' u='r' c='SV_BotAllocateClient'/>
+<use f='codebrowser/code/server/sv_bot.c' l='84' u='r' c='SV_BotFreeClient'/>
+<doc f='codebrowser/code/server/server.h' l='116'>// can be reused for a new connection</doc>
+<use f='codebrowser/code/server/sv_client.c' l='376' u='r' c='SV_DirectConnect'/>
+<use f='codebrowser/code/server/sv_client.c' l='460' u='r' c='SV_DirectConnect'/>
+<use f='codebrowser/code/server/sv_client.c' l='501' u='r' c='SV_DirectConnect'/>
+<use f='codebrowser/code/server/sv_client.c' l='683' u='r' c='SV_DropClient'/>
+<use f='codebrowser/code/server/sv_main.c' l='846' u='r' c='SV_PacketEvent'/>
+<use f='codebrowser/code/server/sv_main.c' l='967' u='r' c='SV_CheckTimeouts'/>
+<use f='codebrowser/code/server/sv_main.c' l='975' u='r' c='SV_CheckTimeouts'/>

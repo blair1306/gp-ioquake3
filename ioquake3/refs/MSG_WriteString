@@ -1,0 +1,5 @@
+<dec f='codebrowser/code/qcommon/qcommon.h' l='76' type='void MSG_WriteString(msg_t * sb, const char * s)'/>
+<use f='codebrowser/code/client/cl_input.c' l='780' u='c' c='CL_WritePacket'/>
+<def f='codebrowser/code/qcommon/msg.c' l='314' ll='338' type='void MSG_WriteString(msg_t * sb, const char * s)'/>
+<use f='codebrowser/code/server/sv_client.c' l='1039' u='c' c='SV_WriteDownloadToClient'/>
+<use f='codebrowser/code/server/sv_snapshot.c' l='225' u='c' c='SV_UpdateServerCommandsToClient'/>

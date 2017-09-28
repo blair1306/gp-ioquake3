@@ -1,0 +1,13 @@
+<dec f='include/x86_64-linux-gnu/sys/select.h' l='106' type='int select(int __nfds, fd_set *restrict __readfds, fd_set *restrict __writefds, fd_set *restrict __exceptfds, struct timeval *restrict __timeout)'/>
+<doc f='include/x86_64-linux-gnu/sys/select.h' l='98'>/* Check the first NFDS descriptors each in READFDS (if not NULL) for read
+   readiness, in WRITEFDS (if not NULL) for write readiness, and in EXCEPTFDS
+   (if not NULL) for exceptional conditions.  If TIMEOUT is not NULL, time out
+   after waiting the interval specified therein.  Returns the number of ready
+   descriptors, or -1 for errors.
+
+   This function is a cancellation point and therefore not marked with
+   __THROW.  */</doc>
+<use f='codebrowser/code/qcommon/net_ip.c' l='1693' u='c' c='NET_Sleep'/>
+<use f='codebrowser/code/sys/con_tty.c' l='494' u='c' c='CON_Input'/>
+<use f='codebrowser/code/sys/sys_unix.c' l='514' u='c' c='Sys_Sleep'/>
+<use f='codebrowser/code/sys/sys_unix.c' l='522' u='c' c='Sys_Sleep'/>

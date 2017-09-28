@@ -1,0 +1,16 @@
+<dec f='codebrowser/code/qcommon/qcommon.h' l='88' type='int MSG_ReadShort(msg_t * sb)'/>
+<use f='codebrowser/code/client/cl_parse.c' l='493' u='c' c='CL_ParseGamestate'/>
+<use f='codebrowser/code/client/cl_parse.c' l='577' u='c' c='CL_ParseDownload'/>
+<use f='codebrowser/code/client/cl_parse.c' l='593' u='c' c='CL_ParseDownload'/>
+<use f='codebrowser/code/client/cl_parse.c' l='706' u='c' c='CL_ParseVoip'/>
+<use f='codebrowser/code/client/cl_parse.c' l='710' u='c' c='CL_ParseVoip'/>
+<def f='codebrowser/code/qcommon/msg.c' l='414' ll='423' type='int MSG_ReadShort(msg_t * msg)'/>
+<use f='codebrowser/code/qcommon/msg.c' l='532' u='c' c='MSG_ReadAngle16'/>
+<use f='codebrowser/code/qcommon/msg.c' l='1400' u='c' c='MSG_ReadDeltaPlayerstate'/>
+<use f='codebrowser/code/qcommon/msg.c' l='1411' u='c' c='MSG_ReadDeltaPlayerstate'/>
+<use f='codebrowser/code/qcommon/msg.c' l='1422' u='c' c='MSG_ReadDeltaPlayerstate'/>
+<use f='codebrowser/code/qcommon/net_chan.c' l='266' u='c' c='Netchan_Process'/>
+<use f='codebrowser/code/qcommon/net_chan.c' l='282' u='c' c='Netchan_Process'/>
+<use f='codebrowser/code/qcommon/net_chan.c' l='283' u='c' c='Netchan_Process'/>
+<use f='codebrowser/code/server/sv_client.c' l='1813' u='c' c='SV_UserVoip'/>
+<use f='codebrowser/code/server/sv_main.c' l='842' u='c' c='SV_PacketEvent'/>

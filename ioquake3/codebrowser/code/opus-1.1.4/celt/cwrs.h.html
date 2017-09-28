@@ -1,0 +1,66 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>cwrs.h source code [codebrowser/code/opus-1.1.4/celt/cwrs.h] - Woboq Code Browser</title>
+<link rel="stylesheet" href="../../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'codebrowser/code/opus-1.1.4/celt/cwrs.h'; var root_path = '../../../..'; var data_path = '../../../../../data';</script>
+<script src='../../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../../..'>codebrowser</a>/<a href='../..'>code</a>/<a href='..'>opus-1.1.4</a>/<a href='./'>celt</a>/<a href='cwrs.h.html'>cwrs.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/* Copyright (c) 2007-2008 CSIRO</i></td></tr>
+<tr><th id="2">2</th><td><i>   Copyright (c) 2007-2009 Xiph.Org Foundation</i></td></tr>
+<tr><th id="3">3</th><td><i>   Copyright (c) 2007-2009 Timothy B. Terriberry</i></td></tr>
+<tr><th id="4">4</th><td><i>   Written by Timothy B. Terriberry and Jean-Marc Valin */</i></td></tr>
+<tr><th id="5">5</th><td><i>/*</i></td></tr>
+<tr><th id="6">6</th><td><i>   Redistribution and use in source and binary forms, with or without</i></td></tr>
+<tr><th id="7">7</th><td><i>   modification, are permitted provided that the following conditions</i></td></tr>
+<tr><th id="8">8</th><td><i>   are met:</i></td></tr>
+<tr><th id="9">9</th><td><i></i></td></tr>
+<tr><th id="10">10</th><td><i>   - Redistributions of source code must retain the above copyright</i></td></tr>
+<tr><th id="11">11</th><td><i>   notice, this list of conditions and the following disclaimer.</i></td></tr>
+<tr><th id="12">12</th><td><i></i></td></tr>
+<tr><th id="13">13</th><td><i>   - Redistributions in binary form must reproduce the above copyright</i></td></tr>
+<tr><th id="14">14</th><td><i>   notice, this list of conditions and the following disclaimer in the</i></td></tr>
+<tr><th id="15">15</th><td><i>   documentation and/or other materials provided with the distribution.</i></td></tr>
+<tr><th id="16">16</th><td><i></i></td></tr>
+<tr><th id="17">17</th><td><i>   THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS</i></td></tr>
+<tr><th id="18">18</th><td><i>   ``AS IS'' AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT</i></td></tr>
+<tr><th id="19">19</th><td><i>   LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR</i></td></tr>
+<tr><th id="20">20</th><td><i>   A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER</i></td></tr>
+<tr><th id="21">21</th><td><i>   OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,</i></td></tr>
+<tr><th id="22">22</th><td><i>   EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,</i></td></tr>
+<tr><th id="23">23</th><td><i>   PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR</i></td></tr>
+<tr><th id="24">24</th><td><i>   PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF</i></td></tr>
+<tr><th id="25">25</th><td><i>   LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING</i></td></tr>
+<tr><th id="26">26</th><td><i>   NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS</i></td></tr>
+<tr><th id="27">27</th><td><i>   SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</i></td></tr>
+<tr><th id="28">28</th><td><i>*/</i></td></tr>
+<tr><th id="29">29</th><td></td></tr>
+<tr><th id="30">30</th><td><u>#<span data-ppcond="30">ifndef</span> <span class="macro" data-ref="_M/CWRS_H">CWRS_H</span></u></td></tr>
+<tr><th id="31">31</th><td><u>#define <dfn class="macro" id="_M/CWRS_H" data-ref="_M/CWRS_H">CWRS_H</dfn></u></td></tr>
+<tr><th id="32">32</th><td></td></tr>
+<tr><th id="33">33</th><td><u>#include <a href="arch.h.html">"arch.h"</a></u></td></tr>
+<tr><th id="34">34</th><td><u>#include <a href="stack_alloc.h.html">"stack_alloc.h"</a></u></td></tr>
+<tr><th id="35">35</th><td><u>#include <a href="entenc.h.html">"entenc.h"</a></u></td></tr>
+<tr><th id="36">36</th><td><u>#include <a href="entdec.h.html">"entdec.h"</a></u></td></tr>
+<tr><th id="37">37</th><td></td></tr>
+<tr><th id="38">38</th><td><u>#<span data-ppcond="38">ifdef</span> <span class="macro" data-ref="_M/CUSTOM_MODES">CUSTOM_MODES</span></u></td></tr>
+<tr><th id="39">39</th><td><em>int</em> log2_frac(opus_uint32 val, <em>int</em> frac);</td></tr>
+<tr><th id="40">40</th><td><u>#<span data-ppcond="38">endif</span></u></td></tr>
+<tr><th id="41">41</th><td></td></tr>
+<tr><th id="42">42</th><td><em>void</em> <dfn class="decl" id="get_required_bits" title='get_required_bits' data-ref="get_required_bits">get_required_bits</dfn>(<a class="typedef" href="../include/opus_types.h.html#opus_int16" title='opus_int16' data-type='int16_t' data-ref="opus_int16">opus_int16</a> *<dfn class="local col2 decl" id="192bits" title='bits' data-type='opus_int16 *' data-ref="192bits">bits</dfn>, <em>int</em> <dfn class="local col3 decl" id="193N" title='N' data-type='int' data-ref="193N">N</dfn>, <em>int</em> <dfn class="local col4 decl" id="194K" title='K' data-type='int' data-ref="194K">K</dfn>, <em>int</em> <dfn class="local col5 decl" id="195frac" title='frac' data-type='int' data-ref="195frac">frac</dfn>);</td></tr>
+<tr><th id="43">43</th><td></td></tr>
+<tr><th id="44">44</th><td><em>void</em> <dfn class="decl" id="encode_pulses" title='encode_pulses' data-ref="encode_pulses">encode_pulses</dfn>(<em>const</em> <em>int</em> *<dfn class="local col6 decl" id="196_y" title='_y' data-type='const int *' data-ref="196_y">_y</dfn>, <em>int</em> <dfn class="local col7 decl" id="197N" title='N' data-type='int' data-ref="197N">N</dfn>, <em>int</em> <dfn class="local col8 decl" id="198K" title='K' data-type='int' data-ref="198K">K</dfn>, <a class="typedef" href="entcode.h.html#ec_enc" title='ec_enc' data-type='struct ec_ctx' data-ref="ec_enc">ec_enc</a> *<dfn class="local col9 decl" id="199enc" title='enc' data-type='ec_enc *' data-ref="199enc">enc</dfn>);</td></tr>
+<tr><th id="45">45</th><td></td></tr>
+<tr><th id="46">46</th><td><a class="typedef" href="arch.h.html#opus_val32" title='opus_val32' data-type='float' data-ref="opus_val32">opus_val32</a> <dfn class="decl" id="decode_pulses" title='decode_pulses' data-ref="decode_pulses">decode_pulses</dfn>(<em>int</em> *<dfn class="local col0 decl" id="200_y" title='_y' data-type='int *' data-ref="200_y">_y</dfn>, <em>int</em> <dfn class="local col1 decl" id="201N" title='N' data-type='int' data-ref="201N">N</dfn>, <em>int</em> <dfn class="local col2 decl" id="202K" title='K' data-type='int' data-ref="202K">K</dfn>, <a class="typedef" href="entcode.h.html#ec_dec" title='ec_dec' data-type='struct ec_ctx' data-ref="ec_dec">ec_dec</a> *<dfn class="local col3 decl" id="203dec" title='dec' data-type='ec_dec *' data-ref="203dec">dec</dfn>);</td></tr>
+<tr><th id="47">47</th><td></td></tr>
+<tr><th id="48">48</th><td><u>#<span data-ppcond="30">endif</span> /* CWRS_H */</u></td></tr>
+<tr><th id="49">49</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='bands.c.html'>codebrowser/code/opus-1.1.4/celt/bands.c</a><br/>Generated on <em>2017-Aug-29</em> from project codebrowser revision <em>63e07af</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

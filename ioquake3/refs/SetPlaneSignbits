@@ -1,0 +1,16 @@
+<dec f='codebrowser/code/qcommon/q_shared.h' l='691' type='void SetPlaneSignbits(struct cplane_s * out)'/>
+<use f='codebrowser/code/qcommon/cm_load.c' l='788' u='c' c='CM_InitBoxHull'/>
+<def f='codebrowser/code/qcommon/q_math.c' l='631' ll='642' type='void SetPlaneSignbits(cplane_t * out)'/>
+<doc f='codebrowser/code/qcommon/q_math.c' l='626'>/*
+=================
+SetPlaneSignbits
+=================
+*/</doc>
+<use f='codebrowser/code/renderergl1/tr_bsp.c' l='365' u='c' c='ParseFace'/>
+<use f='codebrowser/code/renderergl1/tr_main.c' l='504' u='c' c='R_SetupFrustum'/>
+<use f='codebrowser/code/renderergl2/tr_bsp.c' l='772' u='c' c='ParseFace'/>
+<use f='codebrowser/code/renderergl2/tr_main.c' l='731' u='c' c='R_SetupFrustum'/>
+<use f='codebrowser/code/renderergl2/tr_main.c' l='743' u='c' c='R_SetupFrustum'/>
+<use f='codebrowser/code/renderergl2/tr_main.c' l='927' u='c' c='R_SetupProjectionOrtho'/>
+<use f='codebrowser/code/renderergl2/tr_main.c' l='2068' u='c' c='R_RenderPshadowMaps'/>
+<use f='codebrowser/code/renderergl2/tr_main.c' l='2177' u='c' c='R_RenderPshadowMaps'/>

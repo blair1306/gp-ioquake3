@@ -1,0 +1,23 @@
+<dec f='codebrowser/code/opusfile-0.8/include/opusfile.h' l='230' type='unsigned int'/>
+<offset>64</offset>
+<doc f='codebrowser/code/opusfile-0.8/include/opusfile.h' l='228'>/**The number of samples that should be discarded from the beginning of the
+      stream.*/</doc>
+<use f='codebrowser/code/opusfile-0.8/src/info.c' l='49' u='w' c='opus_head_parse'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='754' u='r' c='opus_granule_sample'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='857' u='r' c='op_find_initial_pcm_offset'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='866' u='r' c='op_find_initial_pcm_offset'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='922' u='r' c='op_find_initial_pcm_offset'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='953' u='r' c='op_find_initial_pcm_offset'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='989' u='r' c='op_find_final_pcm_offset'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='994' u='r' c='op_find_final_pcm_offset'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='1454' u='r' c='op_open_seekable2'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='1747' u='r' c='op_pcm_total'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='1753' u='r' c='op_pcm_total'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='1899' u='r' c='op_fetch_and_process_page'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='2000' u='r' c='op_fetch_and_process_page'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='2129' u='r' c='op_get_granulepos'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='2228' u='r' c='op_pcm_seek_page'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='2559' u='r' c='op_pcm_seek'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='2617' u='r' c='op_get_pcm_offset'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='2631' u='r' c='op_get_pcm_offset'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='2632' u='r' c='op_get_pcm_offset'/>

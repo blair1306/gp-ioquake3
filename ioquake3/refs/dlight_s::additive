@@ -1,0 +1,10 @@
+<dec f='codebrowser/code/renderergl1/tr_local.h' l='52' type='int'/>
+<offset>320</offset>
+<doc f='codebrowser/code/renderergl1/tr_local.h' l='52'>// texture detail is lost tho when the lightmap is dark</doc>
+<use f='codebrowser/code/renderergl1/tr_scene.c' l='254' u='w' c='RE_AddDynamicLightToScene'/>
+<use f='codebrowser/code/renderergl1/tr_shade.c' l='728' u='r' c='ProjectDlightTexture_scalar'/>
+<dec f='codebrowser/code/renderergl2/tr_local.h' l='71' type='int'/>
+<offset>320</offset>
+<doc f='codebrowser/code/renderergl2/tr_local.h' l='71'>// texture detail is lost tho when the lightmap is dark</doc>
+<use f='codebrowser/code/renderergl2/tr_scene.c' l='263' u='w' c='RE_AddDynamicLightToScene'/>
+<use f='codebrowser/code/renderergl2/tr_shade.c' l='380' u='r' c='ProjectDlightTexture'/>

@@ -1,0 +1,60 @@
+<dec f='codebrowser/code/cgame/cg_public.h' l='43' type='int'/>
+<offset>64</offset>
+<doc f='codebrowser/code/cgame/cg_public.h' l='43'>// server time the message is valid for (in msec)</doc>
+<use f='codebrowser/code/cgame/cg_draw.c' l='717' u='r' c='CG_DrawSnapshot'/>
+<use f='codebrowser/code/cgame/cg_ents.c' l='726' u='r' c='CG_InterpolateEntityPosition'/>
+<use f='codebrowser/code/cgame/cg_ents.c' l='727' u='r' c='CG_InterpolateEntityPosition'/>
+<use f='codebrowser/code/cgame/cg_ents.c' l='733' u='r' c='CG_InterpolateEntityPosition'/>
+<use f='codebrowser/code/cgame/cg_ents.c' l='734' u='r' c='CG_InterpolateEntityPosition'/>
+<use f='codebrowser/code/cgame/cg_ents.c' l='780' u='r' c='CG_CalcEntityLerpPositions'/>
+<use f='codebrowser/code/cgame/cg_ents.c' l='1011' u='r' c='CG_AddPacketEntities'/>
+<use f='codebrowser/code/cgame/cg_ents.c' l='1011' u='r' c='CG_AddPacketEntities'/>
+<use f='codebrowser/code/cgame/cg_ents.c' l='1015' u='r' c='CG_AddPacketEntities'/>
+<use f='codebrowser/code/cgame/cg_event.c' l='1277' u='r' c='CG_CheckEvents'/>
+<use f='codebrowser/code/cgame/cg_playerstate.c' l='178' u='r' c='CG_DamageFeedback'/>
+<use f='codebrowser/code/cgame/cg_predict.c' l='232' u='r' c='CG_InterpolatePlayerState'/>
+<use f='codebrowser/code/cgame/cg_predict.c' l='232' u='r' c='CG_InterpolatePlayerState'/>
+<use f='codebrowser/code/cgame/cg_predict.c' l='236' u='r' c='CG_InterpolatePlayerState'/>
+<use f='codebrowser/code/cgame/cg_predict.c' l='236' u='r' c='CG_InterpolatePlayerState'/>
+<use f='codebrowser/code/cgame/cg_predict.c' l='236' u='r' c='CG_InterpolatePlayerState'/>
+<use f='codebrowser/code/cgame/cg_predict.c' l='484' u='r' c='CG_PredictPlayerState'/>
+<use f='codebrowser/code/cgame/cg_predict.c' l='487' u='r' c='CG_PredictPlayerState'/>
+<use f='codebrowser/code/cgame/cg_snapshot.c' l='42' u='r' c='CG_ResetEntity'/>
+<use f='codebrowser/code/cgame/cg_snapshot.c' l='162' u='r' c='CG_TransitionSnapshot'/>
+<use f='codebrowser/code/cgame/cg_snapshot.c' l='278' u='r' c='CG_ReadNextSnapshot'/>
+<use f='codebrowser/code/cgame/cg_snapshot.c' l='278' u='r' c='CG_ReadNextSnapshot'/>
+<use f='codebrowser/code/cgame/cg_snapshot.c' l='373' u='r' c='CG_ProcessSnapshots'/>
+<use f='codebrowser/code/cgame/cg_snapshot.c' l='373' u='r' c='CG_ProcessSnapshots'/>
+<use f='codebrowser/code/cgame/cg_snapshot.c' l='379' u='r' c='CG_ProcessSnapshots'/>
+<use f='codebrowser/code/cgame/cg_snapshot.c' l='379' u='r' c='CG_ProcessSnapshots'/>
+<use f='codebrowser/code/cgame/cg_snapshot.c' l='391' u='r' c='CG_ProcessSnapshots'/>
+<use f='codebrowser/code/cgame/cg_snapshot.c' l='393' u='r' c='CG_ProcessSnapshots'/>
+<use f='codebrowser/code/cgame/cg_snapshot.c' l='395' u='r' c='CG_ProcessSnapshots'/>
+<dec f='codebrowser/code/client/client.h' l='52' type='int'/>
+<dec f='codebrowser/code/client/client.h' l='99' type='int'/>
+<offset>4352</offset>
+<doc f='codebrowser/code/client/client.h' l='52'>// server time the message is valid for (in msec)</doc>
+<doc f='codebrowser/code/client/client.h' l='99'>// may be paused during play</doc>
+<use f='codebrowser/code/client/cl_cgame.c' l='114' u='r' c='CL_GetCurrentSnapshotNumber'/>
+<use f='codebrowser/code/client/cl_cgame.c' l='151' u='w' c='CL_GetSnapshot'/>
+<use f='codebrowser/code/client/cl_cgame.c' l='151' u='r' c='CL_GetSnapshot'/>
+<use f='codebrowser/code/client/cl_cgame.c' l='796' u='r' c='CL_CGameRendering'/>
+<use f='codebrowser/code/client/cl_cgame.c' l='834' u='r' c='CL_AdjustTimeDelta'/>
+<use f='codebrowser/code/client/cl_cgame.c' l='839' u='r' c='CL_AdjustTimeDelta'/>
+<use f='codebrowser/code/client/cl_cgame.c' l='840' u='w' c='CL_AdjustTimeDelta'/>
+<use f='codebrowser/code/client/cl_cgame.c' l='840' u='r' c='CL_AdjustTimeDelta'/>
+<use f='codebrowser/code/client/cl_cgame.c' l='886' u='r' c='CL_FirstSnapshot'/>
+<use f='codebrowser/code/client/cl_cgame.c' l='887' u='r' c='CL_FirstSnapshot'/>
+<use f='codebrowser/code/client/cl_cgame.c' l='889' u='r' c='CL_FirstSnapshot'/>
+<use f='codebrowser/code/client/cl_cgame.c' l='977' u='r' c='CL_SetCGameTime'/>
+<use f='codebrowser/code/client/cl_cgame.c' l='980' u='r' c='CL_SetCGameTime'/>
+<use f='codebrowser/code/client/cl_cgame.c' l='1001' u='w' c='CL_SetCGameTime'/>
+<use f='codebrowser/code/client/cl_cgame.c' l='1005' u='r' c='CL_SetCGameTime'/>
+<use f='codebrowser/code/client/cl_cgame.c' l='1006' u='w' c='CL_SetCGameTime'/>
+<use f='codebrowser/code/client/cl_cgame.c' l='1008' u='r' c='CL_SetCGameTime'/>
+<use f='codebrowser/code/client/cl_cgame.c' l='1012' u='r' c='CL_SetCGameTime'/>
+<use f='codebrowser/code/client/cl_cgame.c' l='1067' u='w' c='CL_SetCGameTime'/>
+<use f='codebrowser/code/client/cl_cgame.c' l='1070' u='r' c='CL_SetCGameTime'/>
+<use f='codebrowser/code/client/cl_cgame.c' l='1070' u='r' c='CL_SetCGameTime'/>
+<use f='codebrowser/code/client/cl_input.c' l='565' u='r' c='CL_FinishMove'/>
+<use f='codebrowser/code/client/cl_parse.c' l='223' u='w' c='CL_ParseSnapshot'/>

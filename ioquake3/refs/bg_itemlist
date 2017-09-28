@@ -1,0 +1,58 @@
+<dec f='codebrowser/code/game/bg_public.h' l='644' type='gitem_t []'/>
+<doc f='codebrowser/code/game/bg_public.h' l='643'>// included in both the game dll and the client</doc>
+<use f='codebrowser/code/cgame/cg_draw.c' l='408' macro='1' u='r'/>
+<use f='codebrowser/code/cgame/cg_draw.c' l='1315' u='m' c='CG_DrawPickupItem'/>
+<use f='codebrowser/code/cgame/cg_ents.c' l='246' u='a' c='CG_Item'/>
+<use f='codebrowser/code/cgame/cg_event.c' l='411' u='m' c='CG_ItemPickup'/>
+<use f='codebrowser/code/cgame/cg_event.c' l='413' u='m' c='CG_ItemPickup'/>
+<use f='codebrowser/code/cgame/cg_event.c' l='415' u='m' c='CG_ItemPickup'/>
+<use f='codebrowser/code/cgame/cg_event.c' l='738' u='a' c='CG_EntityEvent'/>
+<use f='codebrowser/code/cgame/cg_event.c' l='783' u='a' c='CG_EntityEvent'/>
+<use f='codebrowser/code/cgame/cg_info.c' l='82' u='a' c='CG_LoadingItem'/>
+<use f='codebrowser/code/cgame/cg_main.c' l='492' u='a' c='CG_RegisterItemSounds'/>
+<use f='codebrowser/code/cgame/cg_predict.c' l='280' u='a' c='CG_TouchItem'/>
+<use f='codebrowser/code/cgame/cg_weapons.c' l='626' u='r' c='CG_RegisterWeapon'/>
+<use f='codebrowser/code/cgame/cg_weapons.c' l='635' u='r' c='CG_RegisterWeapon'/>
+<use f='codebrowser/code/cgame/cg_weapons.c' l='649' u='r' c='CG_RegisterWeapon'/>
+<use f='codebrowser/code/cgame/cg_weapons.c' l='840' u='a' c='CG_RegisterItemVisuals'/>
+<def f='codebrowser/code/game/bg_misc.c' l='44' ll='921' type='gitem_t [37]'/>
+<use f='codebrowser/code/game/bg_misc.c' l='923' u='r'/>
+<use f='codebrowser/code/game/bg_misc.c' l='923' u='r'/>
+<use f='codebrowser/code/game/bg_misc.c' l='935' u='m' c='BG_FindItemForPowerup'/>
+<use f='codebrowser/code/game/bg_misc.c' l='936' u='m' c='BG_FindItemForPowerup'/>
+<use f='codebrowser/code/game/bg_misc.c' l='937' u='m' c='BG_FindItemForPowerup'/>
+<use f='codebrowser/code/game/bg_misc.c' l='938' u='m' c='BG_FindItemForPowerup'/>
+<use f='codebrowser/code/game/bg_misc.c' l='939' u='a' c='BG_FindItemForPowerup'/>
+<use f='codebrowser/code/game/bg_misc.c' l='956' u='m' c='BG_FindItemForHoldable'/>
+<use f='codebrowser/code/game/bg_misc.c' l='956' u='m' c='BG_FindItemForHoldable'/>
+<use f='codebrowser/code/game/bg_misc.c' l='957' u='a' c='BG_FindItemForHoldable'/>
+<use f='codebrowser/code/game/bg_misc.c' l='976' u='r' c='BG_FindItemForWeapon'/>
+<use f='codebrowser/code/game/bg_misc.c' l='995' u='r' c='BG_FindItem'/>
+<use f='codebrowser/code/game/bg_misc.c' l='1049' u='a' c='BG_CanItemBeGrabbed'/>
+<doc f='codebrowser/code/game/bg_misc.c' l='28'>/*QUAKED item_***** ( 0 0 0 ) (-16 -16 -16) (16 16 16) suspended
+DO NOT USE THIS CLASS, IT JUST HOLDS GENERAL INFORMATION.
+The suspended flag will allow items to hang in the air, otherwise they are dropped to the next surface.
+
+If an item is the target of another entity, it will not spawn in until fired.
+
+An item fires all of its targets when it is picked up.  If the toucher can&apos;t carry it, the targets won&apos;t be fired.
+
+&quot;notfree&quot; if set to 1, don&apos;t spawn in free for all games
+&quot;notteam&quot; if set to 1, don&apos;t spawn in team games
+&quot;notsingle&quot; if set to 1, don&apos;t spawn in single player games
+&quot;wait&quot;	override the default wait before respawning.  -1 = never respawn automatically, which can be used with targeted spawning.
+&quot;random&quot; random number of plus or minus seconds varied from the respawn time
+&quot;count&quot; override quantity or duration on most items.
+*/</doc>
+<use f='codebrowser/code/game/bg_pmove.c' l='1559' u='m' c='PM_Weapon'/>
+<use f='codebrowser/code/game/bg_pmove.c' l='1564' u='m' c='PM_Weapon'/>
+<use f='codebrowser/code/game/g_items.c' l='197' u='r' c='Pickup_Holdable'/>
+<use f='codebrowser/code/game/g_items.c' l='577' u='r' c='LaunchItem'/>
+<use f='codebrowser/code/game/g_items.c' l='666' u='r' c='FinishSpawningItem'/>
+<use f='codebrowser/code/game/g_items.c' l='734' u='r' c='G_CheckTeamItems'/>
+<use f='codebrowser/code/game/g_items.c' l='738' u='r' c='G_CheckTeamItems'/>
+<use f='codebrowser/code/game/g_items.c' l='833' u='r' c='RegisterItem'/>
+<use f='codebrowser/code/game/g_spawn.c' l='278' u='r' c='G_CallSpawn'/>
+<use f='codebrowser/code/q3_ui/ui_controls2.c' l='1176' u='r' c='Controls_InitWeapons'/>
+<use f='codebrowser/code/q3_ui/ui_players.c' l='68' u='r' c='UI_PlayerInfo_SetWeapon'/>
+<use f='codebrowser/code/ui/ui_players.c' l='69' u='r' c='UI_PlayerInfo_SetWeapon'/>

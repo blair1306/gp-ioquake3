@@ -1,0 +1,31 @@
+<dec f='codebrowser/code/qcommon/q_shared.h' l='1312' type='int'/>
+<offset>1440</offset>
+<doc f='codebrowser/code/qcommon/q_shared.h' l='1312'>// impulse events -- muzzle flashes, footsteps, etc</doc>
+<use f='codebrowser/code/cgame/cg_event.c' l='352' u='r' c='CG_UseItem'/>
+<use f='codebrowser/code/cgame/cg_event.c' l='531' u='r' c='CG_EntityEvent'/>
+<use f='codebrowser/code/cgame/cg_event.c' l='1264' u='w' c='CG_CheckEvents'/>
+<use f='codebrowser/code/cgame/cg_event.c' l='1267' u='r' c='CG_CheckEvents'/>
+<use f='codebrowser/code/cgame/cg_event.c' l='1270' u='r' c='CG_CheckEvents'/>
+<use f='codebrowser/code/cgame/cg_event.c' l='1271' u='r' c='CG_CheckEvents'/>
+<use f='codebrowser/code/cgame/cg_playerstate.c' l='216' u='w' c='CG_CheckPlayerstateEvents'/>
+<use f='codebrowser/code/cgame/cg_playerstate.c' l='231' u='w' c='CG_CheckPlayerstateEvents'/>
+<use f='codebrowser/code/cgame/cg_playerstate.c' l='264' u='w' c='CG_CheckChangedPredictableEvents'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='4793' u='r' c='BotCheckEvents'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='5051' u='w' c='BotCheckSnapshot'/>
+<use f='codebrowser/code/game/ai_main.c' l='1542' u='r' c='BotAIStartFrame'/>
+<use f='codebrowser/code/game/bg_misc.c' l='1504' u='w' c='BG_PlayerStateToEntityState'/>
+<use f='codebrowser/code/game/bg_misc.c' l='1513' u='w' c='BG_PlayerStateToEntityState'/>
+<use f='codebrowser/code/game/bg_misc.c' l='1584' u='w' c='BG_PlayerStateToEntityStateExtraPolate'/>
+<use f='codebrowser/code/game/bg_misc.c' l='1593' u='w' c='BG_PlayerStateToEntityStateExtraPolate'/>
+<use f='codebrowser/code/game/g_arenas.c' l='160' u='w' c='SpawnModelOnVictoryPad'/>
+<use f='codebrowser/code/game/g_arenas.c' l='171' u='w' c='SpawnModelOnVictoryPad'/>
+<use f='codebrowser/code/game/g_client.c' l='455' u='w' c='CopyToBodyQue'/>
+<use f='codebrowser/code/game/g_main.c' l='952' u='w' c='MoveClientToIntermission'/>
+<use f='codebrowser/code/game/g_main.c' l='1794' u='r' c='G_RunFrame'/>
+<use f='codebrowser/code/game/g_main.c' l='1795' u='w' c='G_RunFrame'/>
+<use f='codebrowser/code/game/g_utils.c' l='594' u='r' c='G_AddEvent'/>
+<use f='codebrowser/code/game/g_utils.c' l='596' u='w' c='G_AddEvent'/>
+<use f='codebrowser/code/qcommon/msg.c' l='794' u='a'/>
+<use f='codebrowser/code/qcommon/msg.c' l='794' u='a'/>
+<use f='codebrowser/code/qcommon/msg.c' l='794' u='a'/>
+<use f='codebrowser/code/qcommon/msg.c' l='794' u='a'/>

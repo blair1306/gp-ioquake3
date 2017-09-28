@@ -1,0 +1,18 @@
+<def f='codebrowser/code/server/sv_world.c' l='64' ll='69'/>
+<size>32</size>
+<doc f='codebrowser/code/server/sv_world.c' l='51'>/*
+===============================================================================
+
+ENTITY CHECKING
+
+To avoid linearly searching through lists of entities during environment testing,
+the world is carved up with an evenly spaced, axially aligned bsp tree.  Entities
+are kept in chains either at the final leafs, or at the first node that splits
+them, which prevents having to deal with multiple fragments of a single entity.
+
+===============================================================================
+*/</doc>
+<mbr r='worldSector_s::axis' o='0' t='int'/>
+<mbr r='worldSector_s::dist' o='32' t='float'/>
+<mbr r='worldSector_s::children' o='64' t='struct worldSector_s *[2]'/>
+<mbr r='worldSector_s::entities' o='192' t='svEntity_t *'/>

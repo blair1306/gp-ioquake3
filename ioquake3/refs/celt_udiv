@@ -1,0 +1,17 @@
+<def f='codebrowser/code/opus-1.1.4/celt/entcode.h' l='124' ll='138' type='opus_uint32 celt_udiv(opus_uint32 n, opus_uint32 d)'/>
+<use f='codebrowser/code/opus-1.1.4/celt/bands.c' l='285' u='c' c='anti_collapse'/>
+<use f='codebrowser/code/opus-1.1.4/celt/bands.c' l='495' u='c' c='spreading_decision'/>
+<use f='codebrowser/code/opus-1.1.4/celt/bands.c' l='505' u='c' c='spreading_decision'/>
+<use f='codebrowser/code/opus-1.1.4/celt/bands.c' l='522' u='c' c='spreading_decision'/>
+<use f='codebrowser/code/opus-1.1.4/celt/bands.c' l='783' u='c' c='compute_theta'/>
+<use f='codebrowser/code/opus-1.1.4/celt/bands.c' l='1097' u='c' c='quant_band'/>
+<doc f='codebrowser/code/opus-1.1.4/celt/entcode.h' l='123'>/* Tested exhaustively for all n and for 1&lt;=d&lt;=256 */</doc>
+<use f='codebrowser/code/opus-1.1.4/celt/entdec.c' l='141' u='c' c='ec_decode'/>
+<use f='codebrowser/code/opus-1.1.4/celt/entenc.c' l='130' u='c' c='ec_encode'/>
+<use f='codebrowser/code/opus-1.1.4/celt/pitch.c' l='496' u='c' c='remove_doubling'/>
+<use f='codebrowser/code/opus-1.1.4/celt/pitch.c' l='508' u='c' c='remove_doubling'/>
+<use f='codebrowser/code/opus-1.1.4/celt/rate.c' l='336' u='c' c='interp_bits2pulses'/>
+<use f='codebrowser/code/opus-1.1.4/celt/rate.c' l='417' u='c' c='interp_bits2pulses'/>
+<use f='codebrowser/code/opus-1.1.4/celt/rate.c' l='469' u='c' c='interp_bits2pulses'/>
+<use f='codebrowser/code/opus-1.1.4/celt/vq.c' l='99' u='c' c='exp_rotation'/>
+<use f='codebrowser/code/opus-1.1.4/celt/vq.c' l='148' u='c' c='extract_collapse_mask'/>

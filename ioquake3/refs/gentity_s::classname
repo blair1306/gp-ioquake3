@@ -1,0 +1,193 @@
+<dec f='codebrowser/code/game/g_local.h' l='82' type='char *'/>
+<offset>4288</offset>
+<doc f='codebrowser/code/game/g_local.h' l='82'>// set in QuakeEd</doc>
+<use f='codebrowser/code/game/ai_dmq3.c' l='5348' u='r' c='BotSetEntityNumForGoal'/>
+<use f='codebrowser/code/game/g_arenas.c' l='149' u='w' c='SpawnModelOnVictoryPad'/>
+<use f='codebrowser/code/game/g_arenas.c' l='300' u='w' c='SpawnPodium'/>
+<use f='codebrowser/code/game/g_client.c' l='54' u='w' c='SP_info_player_start'/>
+<use f='codebrowser/code/game/g_client.c' l='121' u='a' c='SelectNearestDeathmatchSpawnPoint'/>
+<use f='codebrowser/code/game/g_client.c' l='152' u='a' c='SelectRandomDeathmatchSpawnPoint'/>
+<use f='codebrowser/code/game/g_client.c' l='169' u='a' c='SelectRandomDeathmatchSpawnPoint'/>
+<use f='codebrowser/code/game/g_client.c' l='194' u='a' c='SelectRandomFurthestSpawnPoint'/>
+<use f='codebrowser/code/game/g_client.c' l='240' u='a' c='SelectRandomFurthestSpawnPoint'/>
+<use f='codebrowser/code/game/g_client.c' l='313' u='a' c='SelectInitialSpawnPoint'/>
+<use f='codebrowser/code/game/g_client.c' l='370' u='w' c='InitBodyQue'/>
+<use f='codebrowser/code/game/g_client.c' l='1154' u='w' c='ClientSpawn'/>
+<use f='codebrowser/code/game/g_client.c' l='1322' u='w' c='ClientDisconnect'/>
+<use f='codebrowser/code/game/g_cmds.c' l='320' u='w' c='Cmd_Give_f'/>
+<use f='codebrowser/code/game/g_combat.c' l='250' c='GibEntity'/>
+<use f='codebrowser/code/game/g_combat.c' l='250' u='r' c='GibEntity'/>
+<use f='codebrowser/code/game/g_combat.c' l='250' u='r' c='GibEntity'/>
+<use f='codebrowser/code/game/g_combat.c' l='250' u='r' c='GibEntity'/>
+<use f='codebrowser/code/game/g_combat.c' l='250' u='r' c='GibEntity'/>
+<use f='codebrowser/code/game/g_combat.c' l='250' c='GibEntity'/>
+<use f='codebrowser/code/game/g_combat.c' l='250' u='r' c='GibEntity'/>
+<use f='codebrowser/code/game/g_combat.c' l='250' u='r' c='GibEntity'/>
+<use f='codebrowser/code/game/g_combat.c' l='250' u='r' c='GibEntity'/>
+<use f='codebrowser/code/game/g_combat.c' l='250' u='r' c='GibEntity'/>
+<use f='codebrowser/code/game/g_combat.c' l='250' u='r' c='GibEntity'/>
+<use f='codebrowser/code/game/g_combat.c' l='250' u='r' c='GibEntity'/>
+<use f='codebrowser/code/game/g_combat.c' l='250' u='r' c='GibEntity'/>
+<use f='codebrowser/code/game/g_combat.c' l='250' u='r' c='GibEntity'/>
+<use f='codebrowser/code/game/g_combat.c' l='250' c='GibEntity'/>
+<use f='codebrowser/code/game/g_combat.c' l='250' u='r' c='GibEntity'/>
+<use f='codebrowser/code/game/g_combat.c' l='250' u='r' c='GibEntity'/>
+<use f='codebrowser/code/game/g_combat.c' l='250' u='r' c='GibEntity'/>
+<use f='codebrowser/code/game/g_combat.c' l='250' u='r' c='GibEntity'/>
+<use f='codebrowser/code/game/g_combat.c' l='250' u='r' c='GibEntity'/>
+<use f='codebrowser/code/game/g_combat.c' l='380' u='a' c='CheckAlmostCapture'/>
+<use f='codebrowser/code/game/g_combat.c' l='414' u='a' c='CheckAlmostScored'/>
+<use f='codebrowser/code/game/g_items.c' l='580' u='w' c='LaunchItem'/>
+<use f='codebrowser/code/game/g_items.c' l='682' u='r' c='FinishSpawningItem'/>
+<use f='codebrowser/code/game/g_main.c' l='472' u='w' c='G_InitGame'/>
+<use f='codebrowser/code/game/g_main.c' l='968' u='a' c='FindIntermissionPoint'/>
+<use f='codebrowser/code/game/g_main.c' l='1875' u='r' c='G_RunFrame'/>
+<use f='codebrowser/code/game/g_missile.c' l='364' c='G_MissileImpact'/>
+<use f='codebrowser/code/game/g_missile.c' l='364' u='r' c='G_MissileImpact'/>
+<use f='codebrowser/code/game/g_missile.c' l='364' u='r' c='G_MissileImpact'/>
+<use f='codebrowser/code/game/g_missile.c' l='364' u='r' c='G_MissileImpact'/>
+<use f='codebrowser/code/game/g_missile.c' l='364' u='r' c='G_MissileImpact'/>
+<use f='codebrowser/code/game/g_missile.c' l='364' c='G_MissileImpact'/>
+<use f='codebrowser/code/game/g_missile.c' l='364' u='r' c='G_MissileImpact'/>
+<use f='codebrowser/code/game/g_missile.c' l='364' u='r' c='G_MissileImpact'/>
+<use f='codebrowser/code/game/g_missile.c' l='364' u='r' c='G_MissileImpact'/>
+<use f='codebrowser/code/game/g_missile.c' l='364' u='r' c='G_MissileImpact'/>
+<use f='codebrowser/code/game/g_missile.c' l='364' u='r' c='G_MissileImpact'/>
+<use f='codebrowser/code/game/g_missile.c' l='364' u='r' c='G_MissileImpact'/>
+<use f='codebrowser/code/game/g_missile.c' l='364' u='r' c='G_MissileImpact'/>
+<use f='codebrowser/code/game/g_missile.c' l='364' u='r' c='G_MissileImpact'/>
+<use f='codebrowser/code/game/g_missile.c' l='364' c='G_MissileImpact'/>
+<use f='codebrowser/code/game/g_missile.c' l='364' u='r' c='G_MissileImpact'/>
+<use f='codebrowser/code/game/g_missile.c' l='364' u='r' c='G_MissileImpact'/>
+<use f='codebrowser/code/game/g_missile.c' l='364' u='r' c='G_MissileImpact'/>
+<use f='codebrowser/code/game/g_missile.c' l='364' u='r' c='G_MissileImpact'/>
+<use f='codebrowser/code/game/g_missile.c' l='364' u='r' c='G_MissileImpact'/>
+<use f='codebrowser/code/game/g_missile.c' l='528' u='w' c='fire_plasma'/>
+<use f='codebrowser/code/game/g_missile.c' l='569' u='w' c='fire_grenade'/>
+<use f='codebrowser/code/game/g_missile.c' l='611' u='w' c='fire_bfg'/>
+<use f='codebrowser/code/game/g_missile.c' l='651' u='w' c='fire_rocket'/>
+<use f='codebrowser/code/game/g_missile.c' l='688' u='w' c='fire_grapple'/>
+<use f='codebrowser/code/game/g_mover.c' l='914' u='w' c='Think_SpawnNewDoorTrigger'/>
+<use f='codebrowser/code/game/g_mover.c' l='1078' u='w' c='SpawnPlatTrigger'/>
+<use f='codebrowser/code/game/g_mover.c' l='1387' c='Think_SetupTrainTargets'/>
+<use f='codebrowser/code/game/g_mover.c' l='1387' u='r' c='Think_SetupTrainTargets'/>
+<use f='codebrowser/code/game/g_mover.c' l='1387' u='r' c='Think_SetupTrainTargets'/>
+<use f='codebrowser/code/game/g_mover.c' l='1387' u='r' c='Think_SetupTrainTargets'/>
+<use f='codebrowser/code/game/g_mover.c' l='1387' u='r' c='Think_SetupTrainTargets'/>
+<use f='codebrowser/code/game/g_mover.c' l='1387' c='Think_SetupTrainTargets'/>
+<use f='codebrowser/code/game/g_mover.c' l='1387' u='r' c='Think_SetupTrainTargets'/>
+<use f='codebrowser/code/game/g_mover.c' l='1387' u='r' c='Think_SetupTrainTargets'/>
+<use f='codebrowser/code/game/g_mover.c' l='1387' u='r' c='Think_SetupTrainTargets'/>
+<use f='codebrowser/code/game/g_mover.c' l='1387' u='r' c='Think_SetupTrainTargets'/>
+<use f='codebrowser/code/game/g_mover.c' l='1387' u='r' c='Think_SetupTrainTargets'/>
+<use f='codebrowser/code/game/g_mover.c' l='1387' u='r' c='Think_SetupTrainTargets'/>
+<use f='codebrowser/code/game/g_mover.c' l='1387' u='r' c='Think_SetupTrainTargets'/>
+<use f='codebrowser/code/game/g_mover.c' l='1387' u='r' c='Think_SetupTrainTargets'/>
+<use f='codebrowser/code/game/g_mover.c' l='1387' c='Think_SetupTrainTargets'/>
+<use f='codebrowser/code/game/g_mover.c' l='1387' u='r' c='Think_SetupTrainTargets'/>
+<use f='codebrowser/code/game/g_mover.c' l='1387' u='r' c='Think_SetupTrainTargets'/>
+<use f='codebrowser/code/game/g_mover.c' l='1387' u='r' c='Think_SetupTrainTargets'/>
+<use f='codebrowser/code/game/g_mover.c' l='1387' u='r' c='Think_SetupTrainTargets'/>
+<use f='codebrowser/code/game/g_mover.c' l='1387' u='r' c='Think_SetupTrainTargets'/>
+<use f='codebrowser/code/game/g_spawn.c' l='93' u='a'/>
+<use f='codebrowser/code/game/g_spawn.c' l='93' u='a'/>
+<use f='codebrowser/code/game/g_spawn.c' l='93' u='a'/>
+<use f='codebrowser/code/game/g_spawn.c' l='93' u='a'/>
+<use f='codebrowser/code/game/g_spawn.c' l='272' u='r' c='G_CallSpawn'/>
+<use f='codebrowser/code/game/g_spawn.c' l='279' c='G_CallSpawn'/>
+<use f='codebrowser/code/game/g_spawn.c' l='279' u='r' c='G_CallSpawn'/>
+<use f='codebrowser/code/game/g_spawn.c' l='279' u='r' c='G_CallSpawn'/>
+<use f='codebrowser/code/game/g_spawn.c' l='279' u='r' c='G_CallSpawn'/>
+<use f='codebrowser/code/game/g_spawn.c' l='279' u='r' c='G_CallSpawn'/>
+<use f='codebrowser/code/game/g_spawn.c' l='279' c='G_CallSpawn'/>
+<use f='codebrowser/code/game/g_spawn.c' l='279' u='r' c='G_CallSpawn'/>
+<use f='codebrowser/code/game/g_spawn.c' l='279' u='r' c='G_CallSpawn'/>
+<use f='codebrowser/code/game/g_spawn.c' l='279' u='r' c='G_CallSpawn'/>
+<use f='codebrowser/code/game/g_spawn.c' l='279' u='r' c='G_CallSpawn'/>
+<use f='codebrowser/code/game/g_spawn.c' l='279' c='G_CallSpawn'/>
+<use f='codebrowser/code/game/g_spawn.c' l='279' u='r' c='G_CallSpawn'/>
+<use f='codebrowser/code/game/g_spawn.c' l='279' u='r' c='G_CallSpawn'/>
+<use f='codebrowser/code/game/g_spawn.c' l='279' u='r' c='G_CallSpawn'/>
+<use f='codebrowser/code/game/g_spawn.c' l='279' u='r' c='G_CallSpawn'/>
+<use f='codebrowser/code/game/g_spawn.c' l='279' u='r' c='G_CallSpawn'/>
+<use f='codebrowser/code/game/g_spawn.c' l='279' u='r' c='G_CallSpawn'/>
+<use f='codebrowser/code/game/g_spawn.c' l='279' u='r' c='G_CallSpawn'/>
+<use f='codebrowser/code/game/g_spawn.c' l='279' u='r' c='G_CallSpawn'/>
+<use f='codebrowser/code/game/g_spawn.c' l='279' u='r' c='G_CallSpawn'/>
+<use f='codebrowser/code/game/g_spawn.c' l='287' c='G_CallSpawn'/>
+<use f='codebrowser/code/game/g_spawn.c' l='287' u='r' c='G_CallSpawn'/>
+<use f='codebrowser/code/game/g_spawn.c' l='287' u='r' c='G_CallSpawn'/>
+<use f='codebrowser/code/game/g_spawn.c' l='287' u='r' c='G_CallSpawn'/>
+<use f='codebrowser/code/game/g_spawn.c' l='287' u='r' c='G_CallSpawn'/>
+<use f='codebrowser/code/game/g_spawn.c' l='287' c='G_CallSpawn'/>
+<use f='codebrowser/code/game/g_spawn.c' l='287' u='r' c='G_CallSpawn'/>
+<use f='codebrowser/code/game/g_spawn.c' l='287' u='r' c='G_CallSpawn'/>
+<use f='codebrowser/code/game/g_spawn.c' l='287' u='r' c='G_CallSpawn'/>
+<use f='codebrowser/code/game/g_spawn.c' l='287' u='r' c='G_CallSpawn'/>
+<use f='codebrowser/code/game/g_spawn.c' l='287' c='G_CallSpawn'/>
+<use f='codebrowser/code/game/g_spawn.c' l='287' u='r' c='G_CallSpawn'/>
+<use f='codebrowser/code/game/g_spawn.c' l='287' u='r' c='G_CallSpawn'/>
+<use f='codebrowser/code/game/g_spawn.c' l='287' u='r' c='G_CallSpawn'/>
+<use f='codebrowser/code/game/g_spawn.c' l='287' u='r' c='G_CallSpawn'/>
+<use f='codebrowser/code/game/g_spawn.c' l='287' u='r' c='G_CallSpawn'/>
+<use f='codebrowser/code/game/g_spawn.c' l='287' u='r' c='G_CallSpawn'/>
+<use f='codebrowser/code/game/g_spawn.c' l='287' u='r' c='G_CallSpawn'/>
+<use f='codebrowser/code/game/g_spawn.c' l='287' u='r' c='G_CallSpawn'/>
+<use f='codebrowser/code/game/g_spawn.c' l='287' u='r' c='G_CallSpawn'/>
+<use f='codebrowser/code/game/g_spawn.c' l='293' u='r' c='G_CallSpawn'/>
+<use f='codebrowser/code/game/g_spawn.c' l='596' u='w' c='SP_worldspawn'/>
+<use f='codebrowser/code/game/g_spawn.c' l='600' u='w' c='SP_worldspawn'/>
+<use f='codebrowser/code/game/g_svcmds.c' l='371' u='r' c='Svcmd_EntityList_f'/>
+<use f='codebrowser/code/game/g_svcmds.c' l='372' u='r' c='Svcmd_EntityList_f'/>
+<use f='codebrowser/code/game/g_target.c' l='315' u='r' c='target_laser_start'/>
+<use f='codebrowser/code/game/g_target.c' l='364' u='r' c='SP_target_teleporter'/>
+<use f='codebrowser/code/game/g_target.c' l='440' u='r' c='target_location_linkup'/>
+<use f='codebrowser/code/game/g_target.c' l='440' u='r' c='target_location_linkup'/>
+<use f='codebrowser/code/game/g_team.c' l='414' u='a' c='Team_FragBonuses'/>
+<use f='codebrowser/code/game/g_team.c' l='527' u='a' c='Team_ResetFlag'/>
+<use f='codebrowser/code/game/g_team.c' l='857' c='Pickup_Team'/>
+<use f='codebrowser/code/game/g_team.c' l='857' u='r' c='Pickup_Team'/>
+<use f='codebrowser/code/game/g_team.c' l='857' u='r' c='Pickup_Team'/>
+<use f='codebrowser/code/game/g_team.c' l='857' u='r' c='Pickup_Team'/>
+<use f='codebrowser/code/game/g_team.c' l='857' u='r' c='Pickup_Team'/>
+<use f='codebrowser/code/game/g_team.c' l='857' c='Pickup_Team'/>
+<use f='codebrowser/code/game/g_team.c' l='857' u='r' c='Pickup_Team'/>
+<use f='codebrowser/code/game/g_team.c' l='857' u='r' c='Pickup_Team'/>
+<use f='codebrowser/code/game/g_team.c' l='857' u='r' c='Pickup_Team'/>
+<use f='codebrowser/code/game/g_team.c' l='857' u='r' c='Pickup_Team'/>
+<use f='codebrowser/code/game/g_team.c' l='857' u='r' c='Pickup_Team'/>
+<use f='codebrowser/code/game/g_team.c' l='857' u='r' c='Pickup_Team'/>
+<use f='codebrowser/code/game/g_team.c' l='857' u='r' c='Pickup_Team'/>
+<use f='codebrowser/code/game/g_team.c' l='857' u='r' c='Pickup_Team'/>
+<use f='codebrowser/code/game/g_team.c' l='857' c='Pickup_Team'/>
+<use f='codebrowser/code/game/g_team.c' l='857' u='r' c='Pickup_Team'/>
+<use f='codebrowser/code/game/g_team.c' l='857' u='r' c='Pickup_Team'/>
+<use f='codebrowser/code/game/g_team.c' l='857' u='r' c='Pickup_Team'/>
+<use f='codebrowser/code/game/g_team.c' l='857' u='r' c='Pickup_Team'/>
+<use f='codebrowser/code/game/g_team.c' l='857' u='r' c='Pickup_Team'/>
+<use f='codebrowser/code/game/g_team.c' l='860' c='Pickup_Team'/>
+<use f='codebrowser/code/game/g_team.c' l='860' u='r' c='Pickup_Team'/>
+<use f='codebrowser/code/game/g_team.c' l='860' u='r' c='Pickup_Team'/>
+<use f='codebrowser/code/game/g_team.c' l='860' u='r' c='Pickup_Team'/>
+<use f='codebrowser/code/game/g_team.c' l='860' u='r' c='Pickup_Team'/>
+<use f='codebrowser/code/game/g_team.c' l='860' c='Pickup_Team'/>
+<use f='codebrowser/code/game/g_team.c' l='860' u='r' c='Pickup_Team'/>
+<use f='codebrowser/code/game/g_team.c' l='860' u='r' c='Pickup_Team'/>
+<use f='codebrowser/code/game/g_team.c' l='860' u='r' c='Pickup_Team'/>
+<use f='codebrowser/code/game/g_team.c' l='860' u='r' c='Pickup_Team'/>
+<use f='codebrowser/code/game/g_team.c' l='860' u='r' c='Pickup_Team'/>
+<use f='codebrowser/code/game/g_team.c' l='860' u='r' c='Pickup_Team'/>
+<use f='codebrowser/code/game/g_team.c' l='860' u='r' c='Pickup_Team'/>
+<use f='codebrowser/code/game/g_team.c' l='860' u='r' c='Pickup_Team'/>
+<use f='codebrowser/code/game/g_team.c' l='860' c='Pickup_Team'/>
+<use f='codebrowser/code/game/g_team.c' l='860' u='r' c='Pickup_Team'/>
+<use f='codebrowser/code/game/g_team.c' l='860' u='r' c='Pickup_Team'/>
+<use f='codebrowser/code/game/g_team.c' l='860' u='r' c='Pickup_Team'/>
+<use f='codebrowser/code/game/g_team.c' l='860' u='r' c='Pickup_Team'/>
+<use f='codebrowser/code/game/g_team.c' l='860' u='r' c='Pickup_Team'/>
+<use f='codebrowser/code/game/g_team.c' l='994' u='a' c='SelectRandomTeamSpawnPoint'/>
+<use f='codebrowser/code/game/g_team.c' l='1004' u='a' c='SelectRandomTeamSpawnPoint'/>
+<use f='codebrowser/code/game/g_utils.c' l='369' u='w' c='G_InitGentity'/>
+<use f='codebrowser/code/game/g_utils.c' l='419' u='r' c='G_Spawn'/>
+<use f='codebrowser/code/game/g_utils.c' l='476' u='w' c='G_FreeEntity'/>
+<use f='codebrowser/code/game/g_utils.c' l='497' u='w' c='G_TempEntity'/>

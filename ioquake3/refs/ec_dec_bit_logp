@@ -1,0 +1,19 @@
+<dec f='codebrowser/code/opus-1.1.4/celt/entdec.h' l='72' type='int ec_dec_bit_logp(ec_dec * _this, unsigned int _logp)'/>
+<use f='codebrowser/code/opus-1.1.4/celt/bands.c' l='810' u='c' c='compute_theta'/>
+<doc f='codebrowser/code/opus-1.1.4/celt/entdec.h' l='71'>/* Decode a bit that has a 1/(1&lt;&lt;_logp) probability of being a one */</doc>
+<use f='codebrowser/code/opus-1.1.4/celt/celt_decoder.c' l='370' u='c' c='tf_decode'/>
+<use f='codebrowser/code/opus-1.1.4/celt/celt_decoder.c' l='382' u='c' c='tf_decode'/>
+<use f='codebrowser/code/opus-1.1.4/celt/celt_decoder.c' l='856' u='c' c='celt_decode_with_ec'/>
+<use f='codebrowser/code/opus-1.1.4/celt/celt_decoder.c' l='871' u='c' c='celt_decode_with_ec'/>
+<use f='codebrowser/code/opus-1.1.4/celt/celt_decoder.c' l='886' u='c' c='celt_decode_with_ec'/>
+<use f='codebrowser/code/opus-1.1.4/celt/celt_decoder.c' l='898' u='c' c='celt_decode_with_ec'/>
+<use f='codebrowser/code/opus-1.1.4/celt/celt_decoder.c' l='934' u='c' c='celt_decode_with_ec'/>
+<def f='codebrowser/code/opus-1.1.4/celt/entdec.c' l='162' ll='175' type='int ec_dec_bit_logp(ec_dec * _this, unsigned int _logp)'/>
+<doc f='codebrowser/code/opus-1.1.4/celt/entdec.c' l='161'>/*The probability of having a &quot;one&quot; is 1/(1&lt;&lt;_logp).*/</doc>
+<use f='codebrowser/code/opus-1.1.4/celt/quant_bands.c' l='475' u='c' c='unquant_coarse_energy'/>
+<use f='codebrowser/code/opus-1.1.4/celt/rate.c' l='363' u='c' c='interp_bits2pulses'/>
+<use f='codebrowser/code/opus-1.1.4/celt/rate.c' l='410' u='c' c='interp_bits2pulses'/>
+<use f='codebrowser/code/opus-1.1.4/silk/dec_API.c' l='179' u='c' c='silk_Decode'/>
+<use f='codebrowser/code/opus-1.1.4/silk/dec_API.c' l='181' u='c' c='silk_Decode'/>
+<use f='codebrowser/code/opus-1.1.4/src/opus_decoder.c' l='403' u='c' c='opus_decode_frame'/>
+<use f='codebrowser/code/opus-1.1.4/src/opus_decoder.c' l='408' u='c' c='opus_decode_frame'/>

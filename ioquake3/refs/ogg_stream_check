@@ -1,0 +1,13 @@
+<dec f='codebrowser/code/libogg-1.3.2/include/ogg/ogg.h' l='189' type='int ogg_stream_check(ogg_stream_state * os)'/>
+<def f='codebrowser/code/libogg-1.3.2/src/framing.c' l='212' ll='215' type='int ogg_stream_check(ogg_stream_state * os)'/>
+<use f='codebrowser/code/libogg-1.3.2/src/framing.c' l='323' u='c' c='ogg_stream_iovecin'/>
+<use f='codebrowser/code/libogg-1.3.2/src/framing.c' l='398' u='c' c='ogg_stream_flush_i'/>
+<use f='codebrowser/code/libogg-1.3.2/src/framing.c' l='553' u='c' c='ogg_stream_pageout'/>
+<use f='codebrowser/code/libogg-1.3.2/src/framing.c' l='568' u='c' c='ogg_stream_pageout_fill'/>
+<use f='codebrowser/code/libogg-1.3.2/src/framing.c' l='578' u='c' c='ogg_stream_eos'/>
+<use f='codebrowser/code/libogg-1.3.2/src/framing.c' l='823' u='c' c='ogg_stream_pagein'/>
+<use f='codebrowser/code/libogg-1.3.2/src/framing.c' l='949' u='c' c='ogg_stream_reset'/>
+<use f='codebrowser/code/libogg-1.3.2/src/framing.c' l='970' u='c' c='ogg_stream_reset_serialno'/>
+<use f='codebrowser/code/libogg-1.3.2/src/framing.c' l='1031' u='c' c='ogg_stream_packetout'/>
+<use f='codebrowser/code/libogg-1.3.2/src/framing.c' l='1036' u='c' c='ogg_stream_packetpeek'/>
+<doc f='codebrowser/code/libogg-1.3.2/src/framing.c' l='211'>/* async/delayed error detection for the ogg_stream_state */</doc>

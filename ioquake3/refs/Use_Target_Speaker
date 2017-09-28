@@ -1,0 +1,14 @@
+<def f='codebrowser/code/game/g_target.c' l='181' ll='196' type='void Use_Target_Speaker(gentity_t * ent, gentity_t * other, gentity_t * activator)'/>
+<use f='codebrowser/code/game/g_target.c' l='234' u='r' c='SP_target_speaker'/>
+<doc f='codebrowser/code/game/g_target.c' l='169'>/*QUAKED target_speaker (1 0 0) (-8 -8 -8) (8 8 8) looped-on looped-off global activator
+&quot;noise&quot;		wav file to play
+
+A global sound will play full volume throughout the level.
+Activator sounds will play on the player that activated the target.
+Global and activator sounds can&apos;t be combined with looping.
+Normal sounds play each time the target is used.
+Looped sounds will be toggled by use functions.
+Multiple identical looping sounds will just increase volume without any speed cost.
+&quot;wait&quot; : Seconds between auto triggerings, 0 = don&apos;t auto trigger
+&quot;random&quot;	wait variance, default is 0
+*/</doc>

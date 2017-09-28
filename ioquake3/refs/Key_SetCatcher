@@ -1,0 +1,26 @@
+<dec f='codebrowser/code/client/client.h' l='618' type='void Key_SetCatcher(int catcher)'/>
+<use f='codebrowser/code/client/cl_cgame.c' l='387' u='c' c='CL_ShutdownCGame'/>
+<use f='codebrowser/code/client/cl_cgame.c' l='607' u='c' c='CL_CgameSystemCalls'/>
+<use f='codebrowser/code/client/cl_console.c' l='83' u='c' c='Con_ToggleConsole_f'/>
+<use f='codebrowser/code/client/cl_console.c' l='107' u='c' c='Con_MessageMode_f'/>
+<use f='codebrowser/code/client/cl_console.c' l='120' u='c' c='Con_MessageMode2_f'/>
+<use f='codebrowser/code/client/cl_console.c' l='137' u='c' c='Con_MessageMode3_f'/>
+<use f='codebrowser/code/client/cl_console.c' l='154' u='c' c='Con_MessageMode4_f'/>
+<use f='codebrowser/code/client/cl_console.c' l='840' u='c' c='Con_Close'/>
+<use f='codebrowser/code/client/cl_keys.c' l='757' u='c' c='Message_Key'/>
+<use f='codebrowser/code/client/cl_keys.c' l='779' u='c' c='Message_Key'/>
+<use f='codebrowser/code/client/cl_keys.c' l='1284' u='c' c='CL_KeyDownEvent'/>
+<def f='codebrowser/code/client/cl_keys.c' l='1447' ll='1453' type='void Key_SetCatcher(int catcher)'/>
+<doc f='codebrowser/code/client/cl_keys.c' l='1442'>/*
+====================
+Key_SetCatcher
+====================
+*/</doc>
+<use f='codebrowser/code/client/cl_main.c' l='1170' u='c' c='CL_StartDemoLoop'/>
+<use f='codebrowser/code/client/cl_main.c' l='1287' u='c' c='CL_MapLoading'/>
+<use f='codebrowser/code/client/cl_main.c' l='1296' u='c' c='CL_MapLoading'/>
+<use f='codebrowser/code/client/cl_main.c' l='1312' u='c' c='CL_MapLoading'/>
+<use f='codebrowser/code/client/cl_main.c' l='1774' u='c' c='CL_Connect_f'/>
+<use f='codebrowser/code/client/cl_main.c' l='3773' u='c' c='CL_Shutdown'/>
+<use f='codebrowser/code/client/cl_ui.c' l='897' u='c' c='CL_UISystemCalls'/>
+<use f='codebrowser/code/client/cl_ui.c' l='1089' u='c' c='CL_ShutdownUI'/>

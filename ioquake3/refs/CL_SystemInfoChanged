@@ -1,0 +1,13 @@
+<dec f='codebrowser/code/client/client.h' l='526' type='void CL_SystemInfoChanged()'/>
+<use f='codebrowser/code/client/cl_cgame.c' l='246' u='c' c='CL_ConfigstringModified'/>
+<def f='codebrowser/code/client/cl_parse.c' l='342' ll='436' type='void CL_SystemInfoChanged()'/>
+<use f='codebrowser/code/client/cl_parse.c' l='532' u='c' c='CL_ParseGamestate'/>
+<doc f='codebrowser/code/client/cl_parse.c' l='333'>/*
+==================
+CL_SystemInfoChanged
+
+The systeminfo configstring has been changed, so parse
+new information out of it.  This will happen at every
+gamestate, and possibly during gameplay.
+==================
+*/</doc>

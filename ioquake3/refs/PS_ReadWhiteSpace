@@ -1,0 +1,12 @@
+<def f='codebrowser/code/botlib/l_script.c' l='300' ll='350' type='int PS_ReadWhiteSpace(script_t * script)'/>
+<use f='codebrowser/code/botlib/l_script.c' l='479' u='c' c='PS_ReadString'/>
+<use f='codebrowser/code/botlib/l_script.c' l='869' u='c' c='PS_ReadToken'/>
+<use f='codebrowser/code/botlib/l_script.c' l='1289' u='c' c='ScriptSkipTo'/>
+<doc f='codebrowser/code/botlib/l_script.c' l='292'>//============================================================================
+// Reads spaces, tabs, C-like comments etc.
+// When a newline character is found the scripts line counter is increased.
+//
+// Parameter:				-
+// Returns:					-
+// Changes Globals:		-
+//============================================================================</doc>

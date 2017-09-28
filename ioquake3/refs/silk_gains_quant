@@ -1,0 +1,6 @@
+<dec f='codebrowser/code/opus-1.1.4/silk/main.h' l='174' type='void silk_gains_quant(signed char * ind, opus_int32 * gain_Q16, signed char * prev_ind, const int conditional, const int nb_subfr)'/>
+<doc f='codebrowser/code/opus-1.1.4/silk/main.h' l='173'>/* Gain scalar quantization with hysteresis, uniform on log scale */</doc>
+<use f='codebrowser/code/opus-1.1.4/silk/float/encode_frame_FLP.c' l='280' u='c' c='silk_encode_frame_FLP'/>
+<use f='codebrowser/code/opus-1.1.4/silk/float/process_gains_FLP.c' l='75' u='c' c='silk_process_gains_FLP'/>
+<def f='codebrowser/code/opus-1.1.4/silk/gain_quant.c' l='39' ll='90' type='void silk_gains_quant(signed char * ind, opus_int32 * gain_Q16, signed char * prev_ind, const int conditional, const int nb_subfr)'/>
+<doc f='codebrowser/code/opus-1.1.4/silk/gain_quant.c' l='38'>/* Gain scalar quantization with hysteresis, uniform on log scale */</doc>

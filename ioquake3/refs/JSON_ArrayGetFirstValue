@@ -1,0 +1,15 @@
+<dec f='codebrowser/code/qcommon/json.h' l='40' type='const char * JSON_ArrayGetFirstValue(const char * json, const char * jsonEnd)'/>
+<def f='codebrowser/code/qcommon/json.h' l='170' ll='178' type='const char * JSON_ArrayGetFirstValue(const char * json, const char * jsonEnd)'/>
+<use f='codebrowser/code/qcommon/json.h' l='194' u='c' c='JSON_ArrayGetIndex'/>
+<use f='codebrowser/code/qcommon/json.h' l='209' u='c' c='JSON_ArrayGetValue'/>
+<use f='codebrowser/code/qcommon/json.h' l='223' u='c' c='JSON_ObjectGetNamedValue'/>
+<doc f='codebrowser/code/qcommon/json.h' l='33'>// --------------------------------------------------------------------------
+//   Array Functions
+// --------------------------------------------------------------------------
+
+// Get pointer to first value in array
+// When given pointer to an array, returns pointer to the first
+// returns NULL if array is empty or not an array.</doc>
+<doc f='codebrowser/code/qcommon/json.h' l='166'>// --------------------------------------------------------------------------
+//   Array Functions
+// --------------------------------------------------------------------------</doc>

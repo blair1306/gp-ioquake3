@@ -1,0 +1,9 @@
+<dec f='codebrowser/code/opus-1.1.4/src/opus_private.h' l='129' type='opus_int32 opus_repacketizer_out_range_impl(OpusRepacketizer * rp, int begin, int end, unsigned char * data, opus_int32 maxlen, int self_delimited, int pad)'/>
+<use f='codebrowser/code/opus-1.1.4/src/opus_encoder.c' l='1425' u='c' c='opus_encode_native'/>
+<use f='codebrowser/code/opus-1.1.4/src/opus_multistream_encoder.c' l='1039' u='c' c='opus_multistream_encode_native'/>
+<def f='codebrowser/code/opus-1.1.4/src/repacketizer.c' l='102' ll='227' type='opus_int32 opus_repacketizer_out_range_impl(OpusRepacketizer * rp, int begin, int end, unsigned char * data, opus_int32 maxlen, int self_delimited, int pad)'/>
+<use f='codebrowser/code/opus-1.1.4/src/repacketizer.c' l='231' u='c' c='opus_repacketizer_out_range'/>
+<use f='codebrowser/code/opus-1.1.4/src/repacketizer.c' l='236' u='c' c='opus_repacketizer_out'/>
+<use f='codebrowser/code/opus-1.1.4/src/repacketizer.c' l='255' u='c' c='opus_packet_pad'/>
+<use f='codebrowser/code/opus-1.1.4/src/repacketizer.c' l='272' u='c' c='opus_packet_unpad'/>
+<use f='codebrowser/code/opus-1.1.4/src/repacketizer.c' l='337' u='c' c='opus_multistream_packet_unpad'/>

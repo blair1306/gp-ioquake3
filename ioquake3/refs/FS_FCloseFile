@@ -1,0 +1,63 @@
+<dec f='codebrowser/code/qcommon/qcommon.h' l='665' type='void FS_FCloseFile(fileHandle_t f)'/>
+<use f='codebrowser/code/client/cl_avi.c' l='344' u='c' c='CL_OpenAVIForWriting'/>
+<use f='codebrowser/code/client/cl_avi.c' l='606' u='c' c='CL_CloseAVI'/>
+<use f='codebrowser/code/client/cl_avi.c' l='614' u='c' c='CL_CloseAVI'/>
+<use f='codebrowser/code/client/cl_avi.c' l='631' u='c' c='CL_CloseAVI'/>
+<use f='codebrowser/code/client/cl_avi.c' l='650' u='c' c='CL_CloseAVI'/>
+<doc f='codebrowser/code/qcommon/qcommon.h' l='663'>// properly handles partial reads and reads from other dlls</doc>
+<use f='codebrowser/code/client/cl_cgame.c' l='449' u='c' c='CL_CgameSystemCalls'/>
+<use f='codebrowser/code/client/cl_cin.c' l='1083' u='c' c='RoQReset'/>
+<use f='codebrowser/code/client/cl_cin.c' l='1279' u='c' c='RoQShutdown'/>
+<use f='codebrowser/code/client/cl_console.c' l='255' u='c' c='Con_Dump_f'/>
+<use f='codebrowser/code/client/cl_curl.c' l='349' u='c' c='CL_cURL_PerformDownload'/>
+<use f='codebrowser/code/client/cl_keys.c' l='1526' u='c' c='CL_LoadConsoleHistory'/>
+<use f='codebrowser/code/client/cl_keys.c' l='1584' u='c' c='CL_SaveConsoleHistory'/>
+<use f='codebrowser/code/client/cl_main.c' l='651' u='c' c='CL_StopRecord_f'/>
+<use f='codebrowser/code/client/cl_main.c' l='914' u='c' c='CL_DemoCompleted'/>
+<use f='codebrowser/code/client/cl_main.c' l='1349' u='c' c='CL_UpdateGUID'/>
+<use f='codebrowser/code/client/cl_main.c' l='1392' u='c' c='CL_Disconnect'/>
+<use f='codebrowser/code/client/cl_main.c' l='1427' u='c' c='CL_Disconnect'/>
+<use f='codebrowser/code/client/cl_main.c' l='3413' u='c' c='CL_GenerateQKey'/>
+<use f='codebrowser/code/client/cl_main.c' l='3434' u='c' c='CL_GenerateQKey'/>
+<use f='codebrowser/code/client/cl_parse.c' l='634' u='c' c='CL_ParseDownload'/>
+<use f='codebrowser/code/client/cl_ui.c' l='66' u='c' c='LAN_LoadCachedServers'/>
+<use f='codebrowser/code/client/cl_ui.c' l='84' u='c' c='LAN_SaveServersToCache'/>
+<use f='codebrowser/code/client/cl_ui.c' l='801' u='c' c='CL_UISystemCalls'/>
+<use f='codebrowser/code/client/snd_codec.c' l='216' u='c' c='S_CodecUtilOpen'/>
+<use f='codebrowser/code/client/snd_codec.c' l='234' u='c' c='S_CodecUtilClose'/>
+<use f='codebrowser/code/client/snd_codec_wav.c' l='213' u='c' c='S_WAV_CodecLoad'/>
+<use f='codebrowser/code/client/snd_codec_wav.c' l='223' u='c' c='S_WAV_CodecLoad'/>
+<use f='codebrowser/code/client/snd_codec_wav.c' l='234' u='c' c='S_WAV_CodecLoad'/>
+<use f='codebrowser/code/qcommon/common.c' l='2489' u='c' c='Com_ReadCDKey'/>
+<use f='codebrowser/code/qcommon/common.c' l='2519' u='c' c='Com_AppendCDKey'/>
+<use f='codebrowser/code/qcommon/common.c' l='2934' u='c' c='Com_WriteConfigToFile'/>
+<use f='codebrowser/code/qcommon/common.c' l='3289' u='c' c='Com_Shutdown'/>
+<use f='codebrowser/code/qcommon/common.c' l='3294' u='c' c='Com_Shutdown'/>
+<use f='codebrowser/code/qcommon/common.c' l='3299' u='c' c='Com_Shutdown'/>
+<def f='codebrowser/code/qcommon/files.c' l='873' ll='892' type='void FS_FCloseFile(fileHandle_t f)'/>
+<use f='codebrowser/code/qcommon/files.c' l='1911' u='c' c='FS_ReadFileDir'/>
+<use f='codebrowser/code/qcommon/files.c' l='1925' u='c' c='FS_ReadFileDir'/>
+<use f='codebrowser/code/qcommon/files.c' l='1998' u='c' c='FS_WriteFile'/>
+<use f='codebrowser/code/qcommon/files.c' l='2504' u='c' c='FS_GetModDescription'/>
+<use f='codebrowser/code/qcommon/files.c' l='2816' u='c' c='FS_TouchFile_f'/>
+<use f='codebrowser/code/qcommon/files.c' l='3211' u='c' c='FS_Shutdown'/>
+<doc f='codebrowser/code/qcommon/files.c' l='863'>/*
+==============
+FS_FCloseFile
+
+If the FILE pointer is an open pak file, leave it open.
+
+For some reason, other dll&apos;s can&apos;t just cal fclose()
+on files returned by FS_FOpenFile...
+==============
+*/</doc>
+<use f='codebrowser/code/qcommon/md5.c' l='280' u='c' c='Com_MD5File'/>
+<use f='codebrowser/code/qcommon/md5.c' l='303' u='c' c='Com_MD5File'/>
+<use f='codebrowser/code/server/sv_bot.c' l='548' u='r' c='SV_BotInitBotLib'/>
+<use f='codebrowser/code/server/sv_ccmds.c' l='659' u='c' c='SV_RehashBans_f'/>
+<use f='codebrowser/code/server/sv_ccmds.c' l='666' u='c' c='SV_RehashBans_f'/>
+<use f='codebrowser/code/server/sv_ccmds.c' l='747' u='c' c='SV_WriteBans'/>
+<use f='codebrowser/code/server/sv_client.c' l='833' u='c' c='SV_CloseDownload'/>
+<use f='codebrowser/code/server/sv_client.c' l='1044' u='c' c='SV_WriteDownloadToClient'/>
+<use f='codebrowser/code/server/sv_game.c' l='334' u='c' c='SV_GameSystemCalls'/>
+<use f='codebrowser/code/server/sv_init.c' l='389' u='c' c='SV_TouchCGame'/>

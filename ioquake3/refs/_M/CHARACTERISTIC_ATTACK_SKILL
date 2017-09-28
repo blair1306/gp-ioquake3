@@ -1,0 +1,10 @@
+<dec f='codebrowser/code/game/chars.h' l='35'/>
+<doc f='codebrowser/code/game/chars.h' l='29'>//attack skill
+// &gt;  0.0 &amp;&amp; &lt;  0.2 = don&apos;t move
+// &gt;  0.3 &amp;&amp; &lt;  1.0 = aim at enemy during retreat
+// &gt;  0.0 &amp;&amp; &lt;  0.4 = only move forward/backward
+// &gt;= 0.4 &amp;&amp; &lt;  1.0 = circle strafing
+// &gt;  0.7 &amp;&amp; &lt;  1.0 = random strafe direction change</doc>
+<use f='codebrowser/code/game/ai_dmnet.c' l='2452' u='c'/>
+<use f='codebrowser/code/game/ai_dmnet.c' l='2598' u='c'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='2662' u='c'/>

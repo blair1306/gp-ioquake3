@@ -1,0 +1,14 @@
+<dec f='codebrowser/code/qcommon/qcommon.h' l='511' type='void Cvar_Update(vmCvar_t * vmCvar)'/>
+<doc f='codebrowser/code/qcommon/qcommon.h' l='509'>// basically a slightly modified Cvar_Get for the interpreted modules</doc>
+<use f='codebrowser/code/client/cl_cgame.c' l='424' u='c' c='CL_CgameSystemCalls'/>
+<use f='codebrowser/code/client/cl_ui.c' l='740' u='c' c='CL_UISystemCalls'/>
+<use f='codebrowser/code/qcommon/cvar.c' l='1347' u='c' c='Cvar_Register'/>
+<def f='codebrowser/code/qcommon/cvar.c' l='1358' ll='1383' type='void Cvar_Update(vmCvar_t * vmCvar)'/>
+<doc f='codebrowser/code/qcommon/cvar.c' l='1351'>/*
+=====================
+Cvar_Update
+
+updates an interpreted modules&apos; version of a cvar
+=====================
+*/</doc>
+<use f='codebrowser/code/server/sv_game.c' l='306' u='c' c='SV_GameSystemCalls'/>

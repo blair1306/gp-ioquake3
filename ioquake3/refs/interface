@@ -1,0 +1,45 @@
+<def f='codebrowser/code/tools/lcc/src/c.h' l='111' ll='155'/>
+<size>368</size>
+<mbr r='interface::charmetric' o='0' t='Metrics'/>
+<mbr r='interface::shortmetric' o='24' t='Metrics'/>
+<mbr r='interface::intmetric' o='48' t='Metrics'/>
+<mbr r='interface::longmetric' o='72' t='Metrics'/>
+<mbr r='interface::longlongmetric' o='96' t='Metrics'/>
+<mbr r='interface::floatmetric' o='120' t='Metrics'/>
+<mbr r='interface::doublemetric' o='144' t='Metrics'/>
+<mbr r='interface::longdoublemetric' o='168' t='Metrics'/>
+<mbr r='interface::ptrmetric' o='192' t='Metrics'/>
+<mbr r='interface::structmetric' o='216' t='Metrics'/>
+<mbr r='interface::little_endian' o='240' t='unsigned int'/>
+<mbr r='interface::mulops_calls' o='241' t='unsigned int'/>
+<mbr r='interface::wants_callb' o='242' t='unsigned int'/>
+<mbr r='interface::wants_argb' o='243' t='unsigned int'/>
+<mbr r='interface::left_to_right' o='244' t='unsigned int'/>
+<mbr r='interface::wants_dag' o='245' t='unsigned int'/>
+<mbr r='interface::unsigned_char' o='246' t='unsigned int'/>
+<mbr r='interface::address' o='256' t='void (*)(Symbol, Symbol, long)'/>
+<mbr r='interface::blockbeg' o='320' t='void (*)(Env *)'/>
+<mbr r='interface::blockend' o='384' t='void (*)(Env *)'/>
+<mbr r='interface::defaddress' o='448' t='void (*)(Symbol)'/>
+<mbr r='interface::defconst' o='512' t='void (*)(int, int, Value)'/>
+<mbr r='interface::defstring' o='576' t='void (*)(int, char *)'/>
+<mbr r='interface::defsymbol' o='640' t='void (*)(Symbol)'/>
+<mbr r='interface::emit' o='704' t='void (*)(Node)'/>
+<mbr r='interface::export' o='768' t='void (*)(Symbol)'/>
+<mbr r='interface::function' o='832' t='void (*)(Symbol, Symbol *, Symbol *, int)'/>
+<mbr r='interface::gen' o='896' t='Node (*)(Node)'/>
+<mbr r='interface::global' o='960' t='void (*)(Symbol)'/>
+<mbr r='interface::import' o='1024' t='void (*)(Symbol)'/>
+<mbr r='interface::local' o='1088' t='void (*)(Symbol)'/>
+<mbr r='interface::progbeg' o='1152' t='void (*)(int, char **)'/>
+<mbr r='interface::progend' o='1216' t='void (*)(void)'/>
+<mbr r='interface::segment' o='1280' t='void (*)(int)'/>
+<mbr r='interface::space' o='1344' t='void (*)(int)'/>
+<mbr r='interface::stabblock' o='1408' t='void (*)(int, int, Symbol *)'/>
+<mbr r='interface::stabend' o='1472' t='void (*)(Coordinate *, Symbol, Coordinate **, Symbol *, Symbol *)'/>
+<mbr r='interface::stabfend' o='1536' t='void (*)(Symbol, int)'/>
+<mbr r='interface::stabinit' o='1600' t='void (*)(char *, int, char **)'/>
+<mbr r='interface::stabline' o='1664' t='void (*)(Coordinate *)'/>
+<mbr r='interface::stabsym' o='1728' t='void (*)(Symbol)'/>
+<mbr r='interface::stabtype' o='1792' t='void (*)(Symbol)'/>
+<mbr r='interface::x' o='1856' t='Xinterface'/>

@@ -1,0 +1,29 @@
+<dec f='codebrowser/code/jpeg-8c/jpeglib.h' l='754' type='size_t'/>
+<offset>64</offset>
+<doc f='codebrowser/code/jpeg-8c/jpeglib.h' l='754'>/* # of byte spaces remaining in buffer */</doc>
+<use f='codebrowser/code/jpeg-8c/jcarith.c' l='122' u='w' c='emit_byte'/>
+<use f='codebrowser/code/jpeg-8c/jchuff.c' l='278' u='r' c='dump_buffer_s'/>
+<use f='codebrowser/code/jpeg-8c/jchuff.c' l='293' u='r' c='dump_buffer_e'/>
+<use f='codebrowser/code/jpeg-8c/jchuff.c' l='553' u='r' c='encode_mcu_DC_first'/>
+<use f='codebrowser/code/jpeg-8c/jchuff.c' l='606' u='w' c='encode_mcu_DC_first'/>
+<use f='codebrowser/code/jpeg-8c/jchuff.c' l='639' u='r' c='encode_mcu_AC_first'/>
+<use f='codebrowser/code/jpeg-8c/jchuff.c' l='716' u='w' c='encode_mcu_AC_first'/>
+<use f='codebrowser/code/jpeg-8c/jchuff.c' l='748' u='r' c='encode_mcu_DC_refine'/>
+<use f='codebrowser/code/jpeg-8c/jchuff.c' l='765' u='w' c='encode_mcu_DC_refine'/>
+<use f='codebrowser/code/jpeg-8c/jchuff.c' l='800' u='r' c='encode_mcu_AC_refine'/>
+<use f='codebrowser/code/jpeg-8c/jchuff.c' l='897' u='w' c='encode_mcu_AC_refine'/>
+<use f='codebrowser/code/jpeg-8c/jchuff.c' l='1025' u='r' c='encode_mcu_huff'/>
+<use f='codebrowser/code/jpeg-8c/jchuff.c' l='1051' u='w' c='encode_mcu_huff'/>
+<use f='codebrowser/code/jpeg-8c/jchuff.c' l='1080' u='r' c='finish_pass_huff'/>
+<use f='codebrowser/code/jpeg-8c/jchuff.c' l='1087' u='w' c='finish_pass_huff'/>
+<use f='codebrowser/code/jpeg-8c/jchuff.c' l='1091' u='r' c='finish_pass_huff'/>
+<use f='codebrowser/code/jpeg-8c/jchuff.c' l='1101' u='w' c='finish_pass_huff'/>
+<use f='codebrowser/code/jpeg-8c/jcmarker.c' l='115' u='w' c='emit_byte'/>
+<use f='codebrowser/code/jpeg-8c/jdatadst.c' l='74' u='w' c='init_destination'/>
+<use f='codebrowser/code/jpeg-8c/jdatadst.c' l='117' u='w' c='empty_output_buffer'/>
+<use f='codebrowser/code/jpeg-8c/jdatadst.c' l='144' u='w' c='empty_mem_output_buffer'/>
+<use f='codebrowser/code/jpeg-8c/jdatadst.c' l='166' u='r' c='term_destination'/>
+<use f='codebrowser/code/jpeg-8c/jdatadst.c' l='185' u='r' c='term_mem_destination'/>
+<use f='codebrowser/code/jpeg-8c/jdatadst.c' l='266' u='w' c='jpeg_mem_dest'/>
+<use f='codebrowser/code/renderercommon/tr_image_jpg.c' l='293' u='w' c='init_destination'/>
+<use f='codebrowser/code/renderercommon/tr_image_jpg.c' l='455' u='r' c='RE_SaveJPGToBuffer'/>

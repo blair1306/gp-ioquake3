@@ -1,0 +1,13 @@
+<dec f='codebrowser/code/opus-1.1.4/celt/entdec.h' l='90' type='opus_uint32 ec_dec_uint(ec_dec * _this, opus_uint32 _ft)'/>
+<use f='codebrowser/code/opus-1.1.4/celt/bands.c' l='746' u='c' c='compute_theta'/>
+<doc f='codebrowser/code/opus-1.1.4/celt/entdec.h' l='84'>/*Extracts a raw unsigned integer with a non-power-of-2 range from the stream.
+  The bits must have been encoded with ec_enc_uint().
+  No call to ec_dec_update() is necessary after this call.
+  _ft: The number of integers that can be decoded (one more than the max).
+       This must be at least one, and no more than 2**32-1.
+  Return: The decoded bits.*/</doc>
+<use f='codebrowser/code/opus-1.1.4/celt/celt_decoder.c' l='874' u='c' c='celt_decode_with_ec'/>
+<use f='codebrowser/code/opus-1.1.4/celt/cwrs.c' l='540' u='c' c='decode_pulses'/>
+<def f='codebrowser/code/opus-1.1.4/celt/entdec.c' l='198' ll='223' type='opus_uint32 ec_dec_uint(ec_dec * _this, opus_uint32 _ft)'/>
+<use f='codebrowser/code/opus-1.1.4/celt/rate.c' l='396' u='c' c='interp_bits2pulses'/>
+<use f='codebrowser/code/opus-1.1.4/src/opus_decoder.c' l='412' u='c' c='opus_decode_frame'/>

@@ -1,0 +1,14 @@
+<dec f='codebrowser/code/qcommon/qcommon.h' l='1058' type='qboolean UI_GameCommand()'/>
+<doc f='codebrowser/code/qcommon/qcommon.h' l='1055'>//
+// UI interface
+//</doc>
+<def f='codebrowser/code/client/cl_ui.c' l='1162' ll='1168' type='qboolean UI_GameCommand()'/>
+<doc f='codebrowser/code/client/cl_ui.c' l='1155'>/*
+====================
+UI_GameCommand
+
+See if the current console command is claimed by the ui
+====================
+*/</doc>
+<def f='codebrowser/code/null/null_client.c' l='64' ll='66' type='qboolean UI_GameCommand()'/>
+<use f='codebrowser/code/qcommon/cmd.c' l='810' u='c' c='Cmd_ExecuteString'/>

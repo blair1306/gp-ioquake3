@@ -1,0 +1,10 @@
+<dec f='codebrowser/code/renderercommon/tr_types.h' l='214' type='qboolean'/>
+<offset>90560</offset>
+<doc f='codebrowser/code/renderercommon/tr_types.h' l='211'>// synonymous with &quot;does rendering consume the entire screen?&quot;, therefore
+	// a Voodoo or Voodoo2 will have this set to TRUE, as will a Win32 ICD that
+	// used CDS.</doc>
+<use f='codebrowser/code/renderergl1/tr_image.c' l='1283' u='r' c='R_SetColorMappings'/>
+<use f='codebrowser/code/sdl/sdl_glimp.c' l='327' u='w' c='GLimp_SetMode'/>
+<use f='codebrowser/code/sdl/sdl_glimp.c' l='334' u='w' c='GLimp_SetMode'/>
+<use f='codebrowser/code/sdl/sdl_input.c' l='1169' u='r' c='IN_Frame'/>
+<use f='codebrowser/code/sdl/sdl_input.c' l='1174' u='r' c='IN_Frame'/>

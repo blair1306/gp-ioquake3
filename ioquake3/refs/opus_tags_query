@@ -1,0 +1,17 @@
+<dec f='codebrowser/code/opusfile-0.8/include/opusfile.h' l='537' type='const char * opus_tags_query(const OpusTags * _tags, const char * _tag, int _count)'/>
+<doc f='codebrowser/code/opusfile-0.8/include/opusfile.h' l='522'>/**Look up a comment value by its tag.
+   \param _tags  An initialized #OpusTags structure.
+   \param _tag   The tag to look up.
+   \param _count The instance of the tag.
+                 The same tag can appear multiple times, each with a distinct
+                  value, so an index is required to retrieve them all.
+                 The order in which these values appear is significant and
+                  should be preserved.
+                 Use opus_tags_query_count() to get the legal range for the
+                  \a _count parameter.
+   \return A pointer to the queried tag&apos;s value.
+           This points directly to data in the #OpusTags structure.
+           It should not be modified or freed by the application, and
+            modifications to the structure may invalidate the pointer.
+   \retval NULL If no matching tag is found.*/</doc>
+<def f='codebrowser/code/opusfile-0.8/src/info.c' l='350' ll='368' type='const char * opus_tags_query(const OpusTags * _tags, const char * _tag, int _count)'/>

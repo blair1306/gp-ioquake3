@@ -1,0 +1,11 @@
+<dec f='codebrowser/code/qcommon/qcommon.h' l='729' type='qboolean FS_idPak(char * pak, char * base, int numPaks)'/>
+<def f='codebrowser/code/qcommon/files.c' l='3038' ll='3051' type='qboolean FS_idPak(char * pak, char * base, int numPaks)'/>
+<use f='codebrowser/code/qcommon/files.c' l='3113' u='c' c='FS_ComparePaks'/>
+<use f='codebrowser/code/qcommon/files.c' l='3115' u='c' c='FS_ComparePaks'/>
+<doc f='codebrowser/code/qcommon/files.c' l='3033'>/*
+================
+FS_idPak
+================
+*/</doc>
+<use f='codebrowser/code/server/sv_client.c' l='978' u='c' c='SV_WriteDownloadToClient'/>
+<use f='codebrowser/code/server/sv_client.c' l='981' u='c' c='SV_WriteDownloadToClient'/>

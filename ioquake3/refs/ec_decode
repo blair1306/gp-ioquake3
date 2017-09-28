@@ -1,0 +1,19 @@
+<dec f='codebrowser/code/opus-1.1.4/celt/entdec.h' l='51' type='unsigned int ec_decode(ec_dec * _this, unsigned int _ft)'/>
+<use f='codebrowser/code/opus-1.1.4/celt/bands.c' l='733' u='c' c='compute_theta'/>
+<use f='codebrowser/code/opus-1.1.4/celt/bands.c' l='763' u='c' c='compute_theta'/>
+<doc f='codebrowser/code/opus-1.1.4/celt/entdec.h' l='38'>/*Calculates the cumulative frequency for the next symbol.
+  This can then be fed into the probability model to determine what that
+   symbol is, and the additional frequency information required to advance to
+   the next symbol.
+  This function cannot be called more than once without a corresponding call to
+   ec_dec_update(), or decoding will not proceed correctly.
+  _ft: The total frequency of the symbols in the alphabet the next symbol was
+        encoded with.
+  Return: A cumulative frequency representing the encoded symbol.
+          If the cumulative frequency of all the symbols before the one that
+           was encoded was fl, and the cumulative frequency of all the symbols
+           up to and including the one encoded is fh, then the returned value
+           will fall in the range [fl,fh).*/</doc>
+<def f='codebrowser/code/opus-1.1.4/celt/entdec.c' l='139' ll='144' type='unsigned int ec_decode(ec_dec * _this, unsigned int _ft)'/>
+<use f='codebrowser/code/opus-1.1.4/celt/entdec.c' l='210' u='c' c='ec_dec_uint'/>
+<use f='codebrowser/code/opus-1.1.4/celt/entdec.c' l='219' u='c' c='ec_dec_uint'/>

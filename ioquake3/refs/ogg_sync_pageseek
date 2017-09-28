@@ -1,0 +1,13 @@
+<dec f='codebrowser/code/libogg-1.3.2/include/ogg/ogg.h' l='176' type='long ogg_sync_pageseek(ogg_sync_state * oy, ogg_page * og)'/>
+<def f='codebrowser/code/libogg-1.3.2/src/framing.c' l='677' ll='762' type='long ogg_sync_pageseek(ogg_sync_state * oy, ogg_page * og)'/>
+<use f='codebrowser/code/libogg-1.3.2/src/framing.c' l='784' u='c' c='ogg_sync_pageout'/>
+<doc f='codebrowser/code/libogg-1.3.2/src/framing.c' l='667'>/* sync the stream.  This is meant to be useful for finding page
+   boundaries.
+
+   return values for this:
+  -n) skipped n bytes
+   0) page not ready; more data (no bytes skipped)
+   n) page synced at current location; page length n bytes
+
+*/</doc>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='191' u='c' c='op_get_next_page'/>

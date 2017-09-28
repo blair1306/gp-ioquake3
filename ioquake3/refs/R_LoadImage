@@ -1,0 +1,20 @@
+<def f='codebrowser/code/renderergl1/tr_image.c' l='948' ll='1020' type='void R_LoadImage(const char * name, byte ** pic, int * width, int * height)'/>
+<use f='codebrowser/code/renderergl1/tr_image.c' l='1062' u='c' c='R_FindImageFile'/>
+<doc f='codebrowser/code/renderergl1/tr_image.c' l='940'>/*
+=================
+R_LoadImage
+
+Loads any of the supported image types into a cannonical
+32 bit format.
+=================
+*/</doc>
+<def f='codebrowser/code/renderergl2/tr_image.c' l='2293' ll='2382' type='void R_LoadImage(const char * name, byte ** pic, int * width, int * height, GLenum * picFormat, int * numMips)'/>
+<use f='codebrowser/code/renderergl2/tr_image.c' l='2427' u='c' c='R_FindImageFile'/>
+<doc f='codebrowser/code/renderergl2/tr_image.c' l='2285'>/*
+=================
+R_LoadImage
+
+Loads any of the supported image types into a cannonical
+32 bit format.
+=================
+*/</doc>

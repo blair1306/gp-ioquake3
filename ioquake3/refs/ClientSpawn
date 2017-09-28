@@ -1,0 +1,13 @@
+<dec f='codebrowser/code/game/g_local.h' l='572' type='void ClientSpawn(gentity_t * ent)'/>
+<use f='codebrowser/code/game/g_client.c' l='533' u='c' c='ClientRespawn'/>
+<use f='codebrowser/code/game/g_client.c' l='1022' u='c' c='ClientBegin'/>
+<def f='codebrowser/code/game/g_client.c' l='1044' ll='1243' type='void ClientSpawn(gentity_t * ent)'/>
+<doc f='codebrowser/code/game/g_client.c' l='1035'>/*
+===========
+ClientSpawn
+
+Called every time a client is placed fresh in the world:
+after the first ClientBegin, and after each respawn
+Initializes all non-persistant parts of playerState
+============
+*/</doc>

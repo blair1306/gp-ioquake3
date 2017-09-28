@@ -1,0 +1,12 @@
+<dec f='codebrowser/code/qcommon/qcommon.h' l='764' type='void Field_CompleteCommand(char * cmd, qboolean doCommands, qboolean doCvars)'/>
+<use f='codebrowser/code/client/cl_keys.c' l='1134' u='c' c='Key_CompleteBind'/>
+<use f='codebrowser/code/client/cl_main.c' l='1797' u='c' c='CL_CompleteRcon'/>
+<def f='codebrowser/code/qcommon/common.c' l='3475' ll='3560' type='void Field_CompleteCommand(char * cmd, qboolean doCommands, qboolean doCvars)'/>
+<use f='codebrowser/code/qcommon/common.c' l='3529' u='c' c='Field_CompleteCommand'/>
+<use f='codebrowser/code/qcommon/common.c' l='3573' u='c' c='Field_AutoComplete'/>
+<doc f='codebrowser/code/qcommon/common.c' l='3470'>/*
+===============
+Field_CompleteCommand
+===============
+*/</doc>
+<use f='codebrowser/code/qcommon/cvar.c' l='1398' u='c' c='Cvar_CompleteCvarName'/>

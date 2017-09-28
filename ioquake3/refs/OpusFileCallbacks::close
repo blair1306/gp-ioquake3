@@ -1,0 +1,12 @@
+<dec f='codebrowser/code/opusfile-0.8/include/opusfile.h' l='912' type='op_close_func'/>
+<offset>192</offset>
+<doc f='codebrowser/code/opusfile-0.8/include/opusfile.h' l='910'>/**Used to close the stream when the decoder is freed.
+     This may be &lt;code&gt;NULL&lt;/code&gt; to leave the stream open.*/</doc>
+<use f='codebrowser/code/opusfile-0.8/src/http.c' l='3422' u='r' c='op_vopen_url'/>
+<use f='codebrowser/code/opusfile-0.8/src/http.c' l='3452' u='r' c='op_vtest_url'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='1496' u='r' c='op_clear'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='1496' u='r' c='op_clear'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='1588' u='w' c='op_open2'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='1606' u='w' c='op_test_callbacks'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='1638' u='r' c='op_open_close_on_failure'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='1664' u='r' c='op_test_close_on_failure'/>

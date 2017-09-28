@@ -1,0 +1,8 @@
+<dec f='codebrowser/code/cgame/cg_local.h' l='1520' type='void trap_SendClientCommand(const char * s)'/>
+<use f='codebrowser/code/cgame/cg_consolecmds.c' l='44' u='c' c='CG_TargetCommand_f'/>
+<use f='codebrowser/code/cgame/cg_consolecmds.c' l='96' u='c' c='CG_ScoresDown_f'/>
+<use f='codebrowser/code/cgame/cg_consolecmds.c' l='195' u='c' c='CG_TellTarget_f'/>
+<use f='codebrowser/code/cgame/cg_consolecmds.c' l='210' u='c' c='CG_TellAttacker_f'/>
+<doc f='codebrowser/code/cgame/cg_local.h' l='1519'>// send a string to the server over the network</doc>
+<use f='codebrowser/code/cgame/cg_scoreboard.c' l='463' u='c' c='CG_DrawTourneyScoreboard'/>
+<def f='codebrowser/code/cgame/cg_syscalls.c' l='120' ll='122' type='void trap_SendClientCommand(const char * s)'/>

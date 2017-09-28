@@ -1,0 +1,11 @@
+<dec f='codebrowser/code/opusfile-0.8/include/opusfile.h' l='610' type='int opus_tagcompare(const char * _tag_name, const char * _comment)'/>
+<doc f='codebrowser/code/opusfile-0.8/include/opusfile.h' l='601'>/**Check if \a _comment is an instance of a \a _tag_name tag.
+   \see opus_tagncompare
+   \param _tag_name A NUL-terminated, case-insensitive, ASCII string containing
+                     the name of the tag to check for (without the terminating
+                     &apos;=&apos; character).
+   \param _comment  The comment string to check.
+   \return An integer less than, equal to, or greater than zero if \a _comment
+            is found respectively, to be less than, to match, or be greater
+            than a &quot;tag=value&quot; string whose tag matches \a _tag_name.*/</doc>
+<def f='codebrowser/code/opusfile-0.8/src/info.c' l='339' ll='341' type='int opus_tagcompare(const char * _tag_name, const char * _comment)'/>

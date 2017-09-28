@@ -1,0 +1,14 @@
+<dec f='codebrowser/code/client/client.h' l='642' type='void CL_WriteDemoMessage(msg_t * msg, int headerBytes)'/>
+<doc f='codebrowser/code/client/client.h' l='639'>//
+// cl_main.c
+//</doc>
+<use f='codebrowser/code/client/cl_input.c' l='833' u='c' c='CL_WritePacket'/>
+<def f='codebrowser/code/client/cl_main.c' l='617' ll='629' type='void CL_WriteDemoMessage(msg_t * msg, int headerBytes)'/>
+<use f='codebrowser/code/client/cl_main.c' l='2856' u='c' c='CL_PacketEvent'/>
+<doc f='codebrowser/code/client/cl_main.c' l='609'>/*
+====================
+CL_WriteDemoMessage
+
+Dumps the current net message, prefixed by the length
+====================
+*/</doc>

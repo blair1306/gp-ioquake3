@@ -1,0 +1,34 @@
+<dec f='codebrowser/code/game/ai_main.h' l='251' type='char [36]'/>
+<offset>54080</offset>
+<doc f='codebrowser/code/game/ai_main.h' l='250'>//</doc>
+<doc f='codebrowser/code/game/ai_main.h' l='251'>//netname of the team leader</doc>
+<use f='codebrowser/code/game/ai_cmd.c' l='1014' u='r' c='BotMatch_TaskPreference'/>
+<use f='codebrowser/code/game/ai_cmd.c' l='1300' u='r' c='BotMatch_StartTeamLeaderShip'/>
+<use f='codebrowser/code/game/ai_cmd.c' l='1300' u='r' c='BotMatch_StartTeamLeaderShip'/>
+<use f='codebrowser/code/game/ai_cmd.c' l='1301' u='w' c='BotMatch_StartTeamLeaderShip'/>
+<use f='codebrowser/code/game/ai_cmd.c' l='1301' u='r' c='BotMatch_StartTeamLeaderShip'/>
+<use f='codebrowser/code/game/ai_cmd.c' l='1308' u='r' c='BotMatch_StartTeamLeaderShip'/>
+<use f='codebrowser/code/game/ai_cmd.c' l='1308' u='r' c='BotMatch_StartTeamLeaderShip'/>
+<use f='codebrowser/code/game/ai_cmd.c' l='1335' u='r' c='BotMatch_StopTeamLeaderShip'/>
+<use f='codebrowser/code/game/ai_cmd.c' l='1336' u='w' c='BotMatch_StopTeamLeaderShip'/>
+<use f='codebrowser/code/game/ai_cmd.c' l='1354' u='r' c='BotMatch_WhoIsTeamLeader'/>
+<use f='codebrowser/code/game/ai_cmd.c' l='1462' u='r' c='BotMatch_WhatIsMyCommand'/>
+<use f='codebrowser/code/game/ai_cmd.c' l='1781' u='r' c='BotMatch_NewLeader'/>
+<use f='codebrowser/code/game/ai_cmd.c' l='1781' u='r' c='BotMatch_NewLeader'/>
+<use f='codebrowser/code/game/ai_main.c' l='285' u='r' c='BotReportStatus'/>
+<use f='codebrowser/code/game/ai_main.c' l='435' u='r' c='BotSetInfoConfigString'/>
+<use f='codebrowser/code/game/ai_main.c' l='708' u='r' c='BotTeamLeader'/>
+<use f='codebrowser/code/game/ai_team.c' l='73' u='r' c='BotValidTeamLeader'/>
+<use f='codebrowser/code/game/ai_team.c' l='74' u='r' c='BotValidTeamLeader'/>
+<use f='codebrowser/code/game/ai_team.c' l='1907' u='r' c='FindHumanTeamLeader'/>
+<use f='codebrowser/code/game/ai_team.c' l='1907' u='r' c='FindHumanTeamLeader'/>
+<use f='codebrowser/code/game/ai_team.c' l='1959' u='r' c='BotTeamAI'/>
+<use f='codebrowser/code/game/ai_team.c' l='1959' u='r' c='BotTeamAI'/>
+<use f='codebrowser/code/game/ai_team.c' l='1960' u='w' c='BotTeamAI'/>
+<use f='codebrowser/code/game/ai_team.c' l='1960' u='r' c='BotTeamAI'/>
+<use f='codebrowser/code/game/ai_team.c' l='1971' u='r' c='BotTeamAI'/>
+<use f='codebrowser/code/game/ai_vcmd.c' l='416' u='r' c='BotVoiceChat_StartLeader'/>
+<use f='codebrowser/code/game/ai_vcmd.c' l='416' u='r' c='BotVoiceChat_StartLeader'/>
+<use f='codebrowser/code/game/ai_vcmd.c' l='427' u='r' c='BotVoiceChat_StopLeader'/>
+<use f='codebrowser/code/game/ai_vcmd.c' l='428' u='w' c='BotVoiceChat_StopLeader'/>
+<use f='codebrowser/code/game/ai_vcmd.c' l='445' u='r' c='BotVoiceChat_WhoIsLeader'/>

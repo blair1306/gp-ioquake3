@@ -1,0 +1,14 @@
+<dec f='codebrowser/code/game/bg_public.h' l='697' type='void BG_EvaluateTrajectoryDelta(const trajectory_t * tr, int atTime, vec_t * result)'/>
+<use f='codebrowser/code/cgame/cg_ents.c' l='461' u='c' c='CG_Missile'/>
+<use f='codebrowser/code/cgame/cg_localents.c' l='220' u='c' c='CG_ReflectVelocity'/>
+<def f='codebrowser/code/game/bg_misc.c' l='1243' ll='1277' type='void BG_EvaluateTrajectoryDelta(const trajectory_t * tr, int atTime, vec_t * result)'/>
+<doc f='codebrowser/code/game/bg_misc.c' l='1236'>/*
+================
+BG_EvaluateTrajectoryDelta
+
+For determining velocity at a given time
+================
+*/</doc>
+<use f='codebrowser/code/game/g_items.c' l='930' u='c' c='G_BounceItem'/>
+<use f='codebrowser/code/game/g_missile.c' l='40' u='c' c='G_BounceMissile'/>
+<use f='codebrowser/code/game/g_missile.c' l='317' u='c' c='G_MissileImpact'/>

@@ -1,0 +1,43 @@
+<def f='codebrowser/code/opusfile-0.8/src/internal.h' l='152' ll='250'/>
+<size>13200</size>
+<mbr r='OggOpusFile::callbacks' o='0' t='OpusFileCallbacks'/>
+<mbr r='OggOpusFile::source' o='256' t='void *'/>
+<mbr r='OggOpusFile::seekable' o='320' t='int'/>
+<mbr r='OggOpusFile::nlinks' o='352' t='int'/>
+<mbr r='OggOpusFile::links' o='384' t='OggOpusLink *'/>
+<mbr r='OggOpusFile::nserialnos' o='448' t='int'/>
+<mbr r='OggOpusFile::cserialnos' o='480' t='int'/>
+<mbr r='OggOpusFile::serialnos' o='512' t='ogg_uint32_t *'/>
+<mbr r='OggOpusFile::offset' o='576' t='long long'/>
+<mbr r='OggOpusFile::end' o='640' t='long long'/>
+<mbr r='OggOpusFile::oy' o='704' t='ogg_sync_state'/>
+<mbr r='OggOpusFile::ready_state' o='960' t='int'/>
+<mbr r='OggOpusFile::cur_link' o='992' t='int'/>
+<mbr r='OggOpusFile::cur_discard_count' o='1024' t='opus_int32'/>
+<mbr r='OggOpusFile::prev_packet_gp' o='1088' t='ogg_int64_t'/>
+<mbr r='OggOpusFile::prev_page_offset' o='1152' t='long long'/>
+<mbr r='OggOpusFile::bytes_tracked' o='1216' t='long long'/>
+<mbr r='OggOpusFile::samples_tracked' o='1280' t='ogg_int64_t'/>
+<mbr r='OggOpusFile::os' o='1344' t='ogg_stream_state'/>
+<mbr r='OggOpusFile::op' o='4608' t='ogg_packet [255]'/>
+<mbr r='OggOpusFile::op_pos' o='102528' t='int'/>
+<mbr r='OggOpusFile::op_count' o='102560' t='int'/>
+<mbr r='OggOpusFile::od' o='102592' t='OpusMSDecoder *'/>
+<mbr r='OggOpusFile::decode_cb' o='102656' t='op_decode_cb_func'/>
+<mbr r='OggOpusFile::decode_cb_ctx' o='102720' t='void *'/>
+<mbr r='OggOpusFile::od_stream_count' o='102784' t='int'/>
+<mbr r='OggOpusFile::od_coupled_count' o='102816' t='int'/>
+<mbr r='OggOpusFile::od_channel_count' o='102848' t='int'/>
+<mbr r='OggOpusFile::od_mapping' o='102880' t='unsigned char [8]'/>
+<mbr r='OggOpusFile::od_buffer' o='102976' t='op_sample *'/>
+<mbr r='OggOpusFile::od_buffer_pos' o='103040' t='int'/>
+<mbr r='OggOpusFile::od_buffer_size' o='103072' t='int'/>
+<mbr r='OggOpusFile::gain_type' o='103104' t='int'/>
+<mbr r='OggOpusFile::gain_offset_q8' o='103136' t='opus_int32'/>
+<mbr r='OggOpusFile::clip_state' o='103168' t='float [8]'/>
+<mbr r='OggOpusFile::dither_a' o='103424' t='float [32]'/>
+<mbr r='OggOpusFile::dither_b' o='104448' t='float [32]'/>
+<mbr r='OggOpusFile::dither_seed' o='105472' t='opus_uint32'/>
+<mbr r='OggOpusFile::dither_mute' o='105504' t='int'/>
+<mbr r='OggOpusFile::dither_disabled' o='105536' t='int'/>
+<mbr r='OggOpusFile::state_channel_count' o='105568' t='int'/>

@@ -1,0 +1,10 @@
+<dec f='codebrowser/code/qcommon/qcommon.h' l='176' type='void NET_OutOfBandData(netsrc_t sock, netadr_t adr, byte * format, int len)'/>
+<use f='codebrowser/code/client/cl_main.c' l='2395' u='c' c='CL_CheckForResend'/>
+<def f='codebrowser/code/qcommon/net_chan.c' l='599' ll='619' type='void NET_OutOfBandData(netsrc_t sock, netadr_t adr, byte * format, int len)'/>
+<doc f='codebrowser/code/qcommon/net_chan.c' l='592'>/*
+===============
+NET_OutOfBandPrint
+
+Sends a data message in an out-of-band datagram (only used for &quot;connect&quot;)
+================
+*/</doc>

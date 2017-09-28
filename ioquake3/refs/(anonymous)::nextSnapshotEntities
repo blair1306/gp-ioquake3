@@ -1,0 +1,10 @@
+<dec f='codebrowser/code/server/server.h' l='239' type='int'/>
+<offset>224</offset>
+<doc f='codebrowser/code/server/server.h' l='239'>// next snapshotEntities to use</doc>
+<use f='codebrowser/code/server/sv_init.c' l='443' u='w' c='SV_SpawnServer'/>
+<use f='codebrowser/code/server/sv_main.c' l='1103' u='r' c='SV_Frame'/>
+<use f='codebrowser/code/server/sv_snapshot.c' l='148' u='r' c='SV_WriteSnapshotToClient'/>
+<use f='codebrowser/code/server/sv_snapshot.c' l='509' u='r' c='SV_BuildClientSnapshot'/>
+<use f='codebrowser/code/server/sv_snapshot.c' l='512' u='r' c='SV_BuildClientSnapshot'/>
+<use f='codebrowser/code/server/sv_snapshot.c' l='514' u='w' c='SV_BuildClientSnapshot'/>
+<use f='codebrowser/code/server/sv_snapshot.c' l='516' u='r' c='SV_BuildClientSnapshot'/>

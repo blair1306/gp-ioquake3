@@ -1,0 +1,27 @@
+<dec f='codebrowser/code/game/g_local.h' l='146' type='qboolean'/>
+<offset>6720</offset>
+<use f='codebrowser/code/game/g_arenas.c' l='180' u='w' c='SpawnModelOnVictoryPad'/>
+<use f='codebrowser/code/game/g_client.c' l='492' u='w' c='CopyToBodyQue'/>
+<use f='codebrowser/code/game/g_client.c' l='494' u='w' c='CopyToBodyQue'/>
+<use f='codebrowser/code/game/g_client.c' l='1152' u='w' c='ClientSpawn'/>
+<use f='codebrowser/code/game/g_combat.c' l='257' u='w' c='GibEntity'/>
+<use f='codebrowser/code/game/g_combat.c' l='590' u='w' c='player_die'/>
+<use f='codebrowser/code/game/g_combat.c' l='814' u='r' c='G_Damage'/>
+<use f='codebrowser/code/game/g_combat.c' l='1188' u='r' c='G_RadiusDamage'/>
+<use f='codebrowser/code/game/g_missile.c' l='280' u='r' c='G_MissileImpact'/>
+<use f='codebrowser/code/game/g_missile.c' l='308' u='r' c='G_MissileImpact'/>
+<use f='codebrowser/code/game/g_missile.c' l='369' u='r' c='G_MissileImpact'/>
+<use f='codebrowser/code/game/g_missile.c' l='412' u='r' c='G_MissileImpact'/>
+<use f='codebrowser/code/game/g_mover.c' l='890' u='w' c='Think_SpawnNewDoorTrigger'/>
+<use f='codebrowser/code/game/g_mover.c' l='1005' u='w' c='SP_func_door'/>
+<use f='codebrowser/code/game/g_mover.c' l='1235' u='w' c='SP_func_button'/>
+<use f='codebrowser/code/game/g_trigger.c' l='357' u='r' c='hurt_touch'/>
+<use f='codebrowser/code/game/g_weapon.c' l='95' u='r' c='CheckGauntletAttack'/>
+<use f='codebrowser/code/game/g_weapon.c' l='102' u='r' c='CheckGauntletAttack'/>
+<use f='codebrowser/code/game/g_weapon.c' l='199' u='r' c='Bullet_Fire'/>
+<use f='codebrowser/code/game/g_weapon.c' l='211' u='r' c='Bullet_Fire'/>
+<use f='codebrowser/code/game/g_weapon.c' l='291' u='r' c='ShotgunPellet'/>
+<use f='codebrowser/code/game/g_weapon.c' l='472' u='r' c='weapon_railgun_fire'/>
+<use f='codebrowser/code/game/g_weapon.c' l='649' u='r' c='Weapon_LightningFire'/>
+<use f='codebrowser/code/game/g_weapon.c' l='676' u='r' c='Weapon_LightningFire'/>
+<use f='codebrowser/code/game/g_weapon.c' l='749' u='r' c='LogAccuracyHit'/>

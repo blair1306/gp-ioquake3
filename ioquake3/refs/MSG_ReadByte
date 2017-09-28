@@ -1,0 +1,23 @@
+<dec f='codebrowser/code/qcommon/qcommon.h' l='87' type='int MSG_ReadByte(msg_t * sb)'/>
+<use f='codebrowser/code/client/cl_parse.c' l='231' u='c' c='CL_ParseSnapshot'/>
+<use f='codebrowser/code/client/cl_parse.c' l='237' u='c' c='CL_ParseSnapshot'/>
+<use f='codebrowser/code/client/cl_parse.c' l='264' u='c' c='CL_ParseSnapshot'/>
+<use f='codebrowser/code/client/cl_parse.c' l='484' u='c' c='CL_ParseGamestate'/>
+<use f='codebrowser/code/client/cl_parse.c' l='707' u='c' c='CL_ParseVoip'/>
+<use f='codebrowser/code/client/cl_parse.c' l='709' u='c' c='CL_ParseVoip'/>
+<use f='codebrowser/code/client/cl_parse.c' l='885' u='c' c='CL_ParseServerMessage'/>
+<def f='codebrowser/code/qcommon/msg.c' l='393' ll='401' type='int MSG_ReadByte(msg_t * msg)'/>
+<use f='codebrowser/code/qcommon/msg.c' l='407' u='c' c='MSG_LookaheadByte'/>
+<use f='codebrowser/code/qcommon/msg.c' l='453' u='c' c='MSG_ReadString'/>
+<use f='codebrowser/code/qcommon/msg.c' l='481' u='c' c='MSG_ReadBigString'/>
+<use f='codebrowser/code/qcommon/msg.c' l='509' u='c' c='MSG_ReadStringLine'/>
+<use f='codebrowser/code/qcommon/msg.c' l='539' u='c' c='MSG_ReadData'/>
+<use f='codebrowser/code/qcommon/msg.c' l='1010' u='c' c='MSG_ReadDeltaEntity'/>
+<use f='codebrowser/code/qcommon/msg.c' l='1343' u='c' c='MSG_ReadDeltaPlayerstate'/>
+<use f='codebrowser/code/server/sv_client.c' l='1691' u='c' c='SV_UserMove'/>
+<use f='codebrowser/code/server/sv_client.c' l='1808' u='c' c='SV_UserVoip'/>
+<use f='codebrowser/code/server/sv_client.c' l='1810' u='c' c='SV_UserVoip'/>
+<use f='codebrowser/code/server/sv_client.c' l='1812' u='c' c='SV_UserVoip'/>
+<use f='codebrowser/code/server/sv_client.c' l='1969' u='c' c='SV_ExecuteClientMessage'/>
+<use f='codebrowser/code/server/sv_client.c' l='1990' u='c' c='SV_ExecuteClientMessage'/>
+<use f='codebrowser/code/server/sv_client.c' l='1998' u='c' c='SV_ExecuteClientMessage'/>

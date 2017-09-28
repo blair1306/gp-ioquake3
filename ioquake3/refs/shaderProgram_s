@@ -1,0 +1,12 @@
+<def f='codebrowser/code/renderergl2/tr_local.h' l='681' ll='694'/>
+<size>488</size>
+<doc f='codebrowser/code/renderergl2/tr_local.h' l='679'>// shaderProgram_t represents a pair of one
+// GLSL vertex and one GLSL fragment shader</doc>
+<mbr r='shaderProgram_s::name' o='0' t='char [64]'/>
+<mbr r='shaderProgram_s::program' o='512' t='GLuint'/>
+<mbr r='shaderProgram_s::vertexShader' o='544' t='GLuint'/>
+<mbr r='shaderProgram_s::fragmentShader' o='576' t='GLuint'/>
+<mbr r='shaderProgram_s::attribs' o='608' t='uint32_t'/>
+<mbr r='shaderProgram_s::uniforms' o='640' t='GLint [66]'/>
+<mbr r='shaderProgram_s::uniformBufferOffsets' o='2752' t='short [66]'/>
+<mbr r='shaderProgram_s::uniformBuffer' o='3840' t='char *'/>

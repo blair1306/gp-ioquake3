@@ -1,0 +1,32 @@
+<dec f='codebrowser/code/qcommon/q_shared.h' l='1016' type='qboolean'/>
+<offset>0</offset>
+<doc f='codebrowser/code/qcommon/q_shared.h' l='1016'>// if true, plane is not valid</doc>
+<use f='codebrowser/code/cgame/cg_localents.c' l='231' u='r' c='CG_ReflectVelocity'/>
+<use f='codebrowser/code/cgame/cg_players.c' l='2028' u='r' c='CG_PlayerShadow'/>
+<use f='codebrowser/code/cgame/cg_predict.c' l='128' u='r' c='CG_ClipMoveToEntities'/>
+<use f='codebrowser/code/cgame/cg_predict.c' l='134' u='r' c='CG_ClipMoveToEntities'/>
+<use f='codebrowser/code/game/ai_main.c' l='144' u='r' c='BotAI_Trace'/>
+<use f='codebrowser/code/game/bg_pmove.c' l='1040' u='r' c='PM_CorrectAllSolid'/>
+<use f='codebrowser/code/game/bg_pmove.c' l='1118' u='r' c='PM_GroundTrace'/>
+<use f='codebrowser/code/game/bg_pmove.c' l='1294' u='r' c='PM_CheckDuck'/>
+<use f='codebrowser/code/game/bg_slidemove.c' l='99' u='r' c='PM_SlideMove'/>
+<use f='codebrowser/code/game/bg_slidemove.c' l='278' u='r' c='PM_StepSlideMove'/>
+<use f='codebrowser/code/game/bg_slidemove.c' l='296' u='r' c='PM_StepSlideMove'/>
+<use f='codebrowser/code/game/g_missile.c' l='473' u='r' c='G_RunMissile'/>
+<use f='codebrowser/code/qcommon/cm_trace.c' l='230' u='w' c='CM_TestBoxInBrush'/>
+<use f='codebrowser/code/qcommon/cm_trace.c' l='262' u='r' c='CM_TestInLeaf'/>
+<use f='codebrowser/code/qcommon/cm_trace.c' l='288' u='w' c='CM_TestInLeaf'/>
+<use f='codebrowser/code/qcommon/cm_trace.c' l='332' u='w' c='CM_TestCapsuleInCapsule'/>
+<use f='codebrowser/code/qcommon/cm_trace.c' l='337' u='w' c='CM_TestCapsuleInCapsule'/>
+<use f='codebrowser/code/qcommon/cm_trace.c' l='344' u='w' c='CM_TestCapsuleInCapsule'/>
+<use f='codebrowser/code/qcommon/cm_trace.c' l='349' u='w' c='CM_TestCapsuleInCapsule'/>
+<use f='codebrowser/code/qcommon/cm_trace.c' l='360' u='w' c='CM_TestCapsuleInCapsule'/>
+<use f='codebrowser/code/qcommon/cm_trace.c' l='441' u='r' c='CM_PositionTest'/>
+<use f='codebrowser/code/qcommon/cm_trace.c' l='640' u='w' c='CM_TraceThroughBrush'/>
+<use f='codebrowser/code/qcommon/cm_trace.c' l='753' u='w' c='CM_TraceThroughSphere'/>
+<use f='codebrowser/code/qcommon/cm_trace.c' l='848' u='w' c='CM_TraceThroughVerticalCylinder'/>
+<use f='codebrowser/code/server/sv_bot.c' l='183' u='r' c='BotImport_Trace'/>
+<use f='codebrowser/code/server/sv_bot.c' l='209' u='r' c='BotImport_EntityTrace'/>
+<use f='codebrowser/code/server/sv_world.c' l='527' u='r' c='SV_ClipMoveToEntities'/>
+<use f='codebrowser/code/server/sv_world.c' l='566' u='r' c='SV_ClipMoveToEntities'/>
+<use f='codebrowser/code/server/sv_world.c' l='567' u='w' c='SV_ClipMoveToEntities'/>

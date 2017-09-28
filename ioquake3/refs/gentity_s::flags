@@ -1,0 +1,41 @@
+<dec f='codebrowser/code/game/g_local.h' l='88' type='int'/>
+<offset>4416</offset>
+<doc f='codebrowser/code/game/g_local.h' l='86'>// bodyque uses this</doc>
+<doc f='codebrowser/code/game/g_local.h' l='88'>// FL_* variables</doc>
+<use f='codebrowser/code/game/ai_dmq3.c' l='2992' u='r' c='BotFindEnemy'/>
+<use f='codebrowser/code/game/g_active.c' l='73' u='r' c='P_DamageFeedback'/>
+<use f='codebrowser/code/game/g_active.c' l='869' u='r' c='ClientThink_real'/>
+<use f='codebrowser/code/game/g_active.c' l='870' u='w' c='ClientThink_real'/>
+<use f='codebrowser/code/game/g_client.c' l='42' u='w' c='SP_info_player_deathmatch'/>
+<use f='codebrowser/code/game/g_client.c' l='46' u='w' c='SP_info_player_deathmatch'/>
+<use f='codebrowser/code/game/g_client.c' l='157' u='r' c='SelectRandomDeathmatchSpawnPoint'/>
+<use f='codebrowser/code/game/g_client.c' l='158' u='r' c='SelectRandomDeathmatchSpawnPoint'/>
+<use f='codebrowser/code/game/g_client.c' l='199' u='r' c='SelectRandomFurthestSpawnPoint'/>
+<use f='codebrowser/code/game/g_client.c' l='200' u='r' c='SelectRandomFurthestSpawnPoint'/>
+<use f='codebrowser/code/game/g_client.c' l='315' u='r' c='SelectInitialSpawnPoint'/>
+<use f='codebrowser/code/game/g_client.c' l='316' u='r' c='SelectInitialSpawnPoint'/>
+<use f='codebrowser/code/game/g_client.c' l='1160' u='w' c='ClientSpawn'/>
+<use f='codebrowser/code/game/g_cmds.c' l='349' u='w' c='Cmd_God_f'/>
+<use f='codebrowser/code/game/g_cmds.c' l='350' u='r' c='Cmd_God_f'/>
+<use f='codebrowser/code/game/g_cmds.c' l='375' u='w' c='Cmd_Notarget_f'/>
+<use f='codebrowser/code/game/g_cmds.c' l='376' u='r' c='Cmd_Notarget_f'/>
+<use f='codebrowser/code/game/g_cmds.c' l='481' u='w' c='Cmd_Kill_f'/>
+<use f='codebrowser/code/game/g_cmds.c' l='613' u='w' c='SetTeam'/>
+<use f='codebrowser/code/game/g_combat.c' l='381' u='r' c='CheckAlmostCapture'/>
+<use f='codebrowser/code/game/g_combat.c' l='882' u='r' c='G_Damage'/>
+<use f='codebrowser/code/game/g_combat.c' l='942' u='r' c='G_Damage'/>
+<use f='codebrowser/code/game/g_combat.c' l='1035' u='w' c='G_Damage'/>
+<use f='codebrowser/code/game/g_items.c' l='248' u='r' c='Pickup_Weapon'/>
+<use f='codebrowser/code/game/g_items.c' l='536' u='r' c='Touch_Item'/>
+<use f='codebrowser/code/game/g_items.c' l='607' u='w' c='LaunchItem'/>
+<use f='codebrowser/code/game/g_items.c' l='694' u='r' c='FinishSpawningItem'/>
+<use f='codebrowser/code/game/g_main.c' l='285' u='r' c='G_FindTeams'/>
+<use f='codebrowser/code/game/g_main.c' l='296' u='r' c='G_FindTeams'/>
+<use f='codebrowser/code/game/g_main.c' l='304' u='w' c='G_FindTeams'/>
+<use f='codebrowser/code/game/g_mover.c' l='481' u='r' c='G_RunMover'/>
+<use f='codebrowser/code/game/g_mover.c' l='637' u='r' c='Use_BinaryMover'/>
+<use f='codebrowser/code/game/g_mover.c' l='1000' u='r' c='SP_func_door'/>
+<use f='codebrowser/code/game/g_team.c' l='258' u='w' c='Team_ForceGesture'/>
+<use f='codebrowser/code/game/g_team.c' l='415' u='r' c='Team_FragBonuses'/>
+<use f='codebrowser/code/game/g_team.c' l='528' u='r' c='Team_ResetFlag'/>
+<use f='codebrowser/code/game/g_team.c' l='699' u='r' c='Team_TouchOurFlag'/>

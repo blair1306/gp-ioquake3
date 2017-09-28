@@ -1,0 +1,9 @@
+<dec f='codebrowser/code/jpeg-8c/jpeglib.h' l='1060' type='void jpeg_calc_output_dimensions(j_decompress_ptr cinfo)'/>
+<def f='codebrowser/code/jpeg-8c/jdmaster.c' l='87' ll='184' macro='1' type='void jpeg_calc_output_dimensions(j_decompress_ptr cinfo)'/>
+<use f='codebrowser/code/jpeg-8c/jdmaster.c' l='279' u='c' c='master_selection'/>
+<doc f='codebrowser/code/jpeg-8c/jdmaster.c' l='80'>/*
+ * Compute output image dimensions and related values.
+ * NOTE: this is exported for possible use by application.
+ * Hence it mustn&apos;t do anything that can&apos;t be done twice.
+ * Also note that it may be called before the master module is initialized!
+ */</doc>

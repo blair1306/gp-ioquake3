@@ -1,0 +1,28 @@
+<dec f='codebrowser/code/renderergl1/tr_local.h' l='746' type='void *'/>
+<use f='codebrowser/code/renderergl1/tr_animation.c' l='193' u='r' c='R_MDRAddAnimSurfaces'/>
+<offset>896</offset>
+<doc f='codebrowser/code/renderergl1/tr_local.h' l='746'>// only if type == (MOD_MDR | MOD_IQM)</doc>
+<use f='codebrowser/code/renderergl1/tr_mesh.c' l='188' u='r' c='R_ComputeLOD'/>
+<use f='codebrowser/code/renderergl1/tr_model.c' l='590' u='w' c='R_LoadMDR'/>
+<use f='codebrowser/code/renderergl1/tr_model.c' l='1029' u='r' c='R_LerpTag'/>
+<use f='codebrowser/code/renderergl1/tr_model.c' l='1030' u='r' c='R_LerpTag'/>
+<use f='codebrowser/code/renderergl1/tr_model.c' l='1033' u='r' c='R_LerpTag'/>
+<use f='codebrowser/code/renderergl1/tr_model.c' l='1098' u='r' c='R_ModelBounds'/>
+<use f='codebrowser/code/renderergl1/tr_model.c' l='1108' u='r' c='R_ModelBounds'/>
+<use f='codebrowser/code/renderergl1/tr_model_iqm.c' l='487' u='w' c='R_LoadIQM'/>
+<use f='codebrowser/code/renderergl1/tr_model_iqm.c' l='847' u='r' c='R_AddIQMSurfaces'/>
+<dec f='codebrowser/code/renderergl2/tr_local.h' l='1225' type='void *'/>
+<use f='codebrowser/code/renderergl2/tr_animation.c' l='194' u='r' c='R_MDRAddAnimSurfaces'/>
+<offset>896</offset>
+<doc f='codebrowser/code/renderergl2/tr_local.h' l='1225'>// only if type == (MOD_MDR | MOD_IQM)</doc>
+<use f='codebrowser/code/renderergl2/tr_main.c' l='1903' u='r' c='R_RenderPshadowMaps'/>
+<use f='codebrowser/code/renderergl2/tr_main.c' l='1913' u='r' c='R_RenderPshadowMaps'/>
+<use f='codebrowser/code/renderergl2/tr_mesh.c' l='188' u='r' c='R_ComputeLOD'/>
+<use f='codebrowser/code/renderergl2/tr_model.c' l='880' u='w' c='R_LoadMDR'/>
+<use f='codebrowser/code/renderergl2/tr_model.c' l='1327' u='r' c='R_LerpTag'/>
+<use f='codebrowser/code/renderergl2/tr_model.c' l='1328' u='r' c='R_LerpTag'/>
+<use f='codebrowser/code/renderergl2/tr_model.c' l='1331' u='r' c='R_LerpTag'/>
+<use f='codebrowser/code/renderergl2/tr_model.c' l='1396' u='r' c='R_ModelBounds'/>
+<use f='codebrowser/code/renderergl2/tr_model.c' l='1406' u='r' c='R_ModelBounds'/>
+<use f='codebrowser/code/renderergl2/tr_model_iqm.c' l='487' u='w' c='R_LoadIQM'/>
+<use f='codebrowser/code/renderergl2/tr_model_iqm.c' l='848' u='r' c='R_AddIQMSurfaces'/>

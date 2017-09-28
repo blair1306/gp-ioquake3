@@ -1,0 +1,41 @@
+<dec f='codebrowser/code/renderergl1/tr_local.h' l='1220' type='double'/>
+<offset>832064</offset>
+<use f='codebrowser/code/renderergl1/tr_backend.c' l='571' u='w' c='RB_RenderDrawSurfList'/>
+<use f='codebrowser/code/renderergl1/tr_backend.c' l='595' u='w' c='RB_RenderDrawSurfList'/>
+<use f='codebrowser/code/renderergl1/tr_shade.c' l='236' u='r' c='R_BindAnimatedImage'/>
+<use f='codebrowser/code/renderergl1/tr_shade.c' l='330' u='w' c='RB_BeginSurface'/>
+<use f='codebrowser/code/renderergl1/tr_shade.c' l='331' u='r' c='RB_BeginSurface'/>
+<use f='codebrowser/code/renderergl1/tr_shade.c' l='332' u='w' c='RB_BeginSurface'/>
+<use f='codebrowser/code/renderergl1/tr_shade_calc.c' l='30' u='r' c='EvalWaveForm'/>
+<use f='codebrowser/code/renderergl1/tr_shade_calc.c' l='30' u='r' c='RB_CalcDeformVertexes'/>
+<use f='codebrowser/code/renderergl1/tr_shade_calc.c' l='181' u='r' c='RB_CalcDeformNormals'/>
+<use f='codebrowser/code/renderergl1/tr_shade_calc.c' l='186' u='r' c='RB_CalcDeformNormals'/>
+<use f='codebrowser/code/renderergl1/tr_shade_calc.c' l='191' u='r' c='RB_CalcDeformNormals'/>
+<use f='codebrowser/code/renderergl1/tr_shade_calc.c' l='30' u='r' c='RB_CalcMoveVertexes'/>
+<use f='codebrowser/code/renderergl1/tr_shade_calc.c' l='690' u='r' c='RB_CalcWaveColor'/>
+<use f='codebrowser/code/renderergl1/tr_shade_calc.c' l='925' u='r' c='RB_CalcTurbulentTexCoords'/>
+<use f='codebrowser/code/renderergl1/tr_shade_calc.c' l='957' u='r' c='RB_CalcScrollTexCoords'/>
+<use f='codebrowser/code/renderergl1/tr_shade_calc.c' l='997' u='r' c='RB_CalcRotateTexCoords'/>
+<dec f='codebrowser/code/renderergl2/tr_local.h' l='1984' type='double'/>
+<offset>1185088</offset>
+<use f='codebrowser/code/renderergl2/tr_backend.c' l='507' u='w' c='RB_RenderDrawSurfList'/>
+<use f='codebrowser/code/renderergl2/tr_backend.c' l='531' u='w' c='RB_RenderDrawSurfList'/>
+<use f='codebrowser/code/renderergl2/tr_shade.c' l='84' u='r' c='R_BindAnimatedImageToTMU'/>
+<use f='codebrowser/code/renderergl2/tr_shade.c' l='165' u='w' c='RB_BeginSurface'/>
+<use f='codebrowser/code/renderergl2/tr_shade.c' l='166' u='r' c='RB_BeginSurface'/>
+<use f='codebrowser/code/renderergl2/tr_shade.c' l='167' u='w' c='RB_BeginSurface'/>
+<use f='codebrowser/code/renderergl2/tr_shade.c' l='361' u='r' c='ProjectDlightTexture'/>
+<use f='codebrowser/code/renderergl2/tr_shade.c' l='702' u='r' c='ForwardDlight'/>
+<use f='codebrowser/code/renderergl2/tr_shade.c' l='927' u='r' c='RB_FogPass'/>
+<use f='codebrowser/code/renderergl2/tr_shade.c' l='1080' u='r' c='RB_IterateStagesGeneric'/>
+<use f='codebrowser/code/renderergl2/tr_shade.c' l='1385' u='r' c='RB_RenderShadowmap'/>
+<use f='codebrowser/code/renderergl2/tr_shade_calc.c' l='30' u='r' c='EvalWaveForm'/>
+<use f='codebrowser/code/renderergl2/tr_shade_calc.c' l='30' u='r' c='RB_CalcDeformVertexes'/>
+<use f='codebrowser/code/renderergl2/tr_shade_calc.c' l='177' u='r' c='RB_CalcDeformNormals'/>
+<use f='codebrowser/code/renderergl2/tr_shade_calc.c' l='182' u='r' c='RB_CalcDeformNormals'/>
+<use f='codebrowser/code/renderergl2/tr_shade_calc.c' l='187' u='r' c='RB_CalcDeformNormals'/>
+<use f='codebrowser/code/renderergl2/tr_shade_calc.c' l='30' u='r' c='RB_CalcMoveVertexes'/>
+<use f='codebrowser/code/renderergl2/tr_shade_calc.c' l='617' u='r' c='RB_CalcWaveColorSingle'/>
+<use f='codebrowser/code/renderergl2/tr_shade_calc.c' l='761' u='r' c='RB_CalcTurbulentFactors'/>
+<use f='codebrowser/code/renderergl2/tr_shade_calc.c' l='779' u='r' c='RB_CalcScrollTexMatrix'/>
+<use f='codebrowser/code/renderergl2/tr_shade_calc.c' l='808' u='r' c='RB_CalcRotateTexMatrix'/>

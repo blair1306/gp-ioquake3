@@ -1,0 +1,35 @@
+<dec f='codebrowser/code/qcommon/q_shared.h' l='1184' type='int'/>
+<offset>1152</offset>
+<doc f='codebrowser/code/qcommon/q_shared.h' l='1184'>// copied to entityState_t-&gt;weapon</doc>
+<use f='codebrowser/code/cgame/cg_draw.c' l='601' u='r' c='CG_DrawStatusBar'/>
+<use f='codebrowser/code/cgame/cg_newdraw.c' l='211' u='r' c='CG_DrawPlayerAmmoIcon'/>
+<use f='codebrowser/code/cgame/cg_playerstate.c' l='199' u='r' c='CG_Respawn'/>
+<use f='codebrowser/code/cgame/cg_weapons.c' l='1405' u='r' c='CG_AddViewWeapon'/>
+<use f='codebrowser/code/cgame/cg_weapons.c' l='1406' u='r' c='CG_AddViewWeapon'/>
+<use f='codebrowser/code/game/ai_dmnet.c' l='1359' u='r' c='BotClearPath'/>
+<use f='codebrowser/code/game/ai_dmnet.c' l='1416' u='r' c='BotClearPath'/>
+<use f='codebrowser/code/game/ai_dmnet.c' l='1500' u='r' c='AINode_Seek_ActivateEntity'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='2699' u='r' c='BotAttackMove'/>
+<use f='codebrowser/code/game/bg_misc.c' l='1518' u='r' c='BG_PlayerStateToEntityState'/>
+<use f='codebrowser/code/game/bg_misc.c' l='1598' u='r' c='BG_PlayerStateToEntityStateExtraPolate'/>
+<use f='codebrowser/code/game/bg_pmove.c' l='1505' u='w' c='PM_FinishWeaponChange'/>
+<use f='codebrowser/code/game/bg_pmove.c' l='1520' u='r' c='PM_TorsoAnimation'/>
+<use f='codebrowser/code/game/bg_pmove.c' l='1552' u='w' c='PM_Weapon'/>
+<use f='codebrowser/code/game/bg_pmove.c' l='1583' u='r' c='PM_Weapon'/>
+<use f='codebrowser/code/game/bg_pmove.c' l='1600' u='r' c='PM_Weapon'/>
+<use f='codebrowser/code/game/bg_pmove.c' l='1616' u='r' c='PM_Weapon'/>
+<use f='codebrowser/code/game/bg_pmove.c' l='1631' u='r' c='PM_Weapon'/>
+<use f='codebrowser/code/game/bg_pmove.c' l='1638' u='r' c='PM_Weapon'/>
+<use f='codebrowser/code/game/bg_pmove.c' l='1639' u='r' c='PM_Weapon'/>
+<use f='codebrowser/code/game/bg_pmove.c' l='1645' u='r' c='PM_Weapon'/>
+<use f='codebrowser/code/game/bg_pmove.c' l='1866' u='r' c='PmoveSingle'/>
+<use f='codebrowser/code/game/g_active.c' l='852' u='r' c='ClientThink_real'/>
+<use f='codebrowser/code/game/g_active.c' l='864' u='r' c='ClientThink_real'/>
+<use f='codebrowser/code/game/g_client.c' l='1205' u='w' c='ClientSpawn'/>
+<use f='codebrowser/code/game/g_client.c' l='1210' u='w' c='ClientSpawn'/>
+<use f='codebrowser/code/game/g_client.c' l='1214' u='w' c='ClientSpawn'/>
+<use f='codebrowser/code/game/g_team.c' l='1109' u='r' c='TeamplayInfoMessage'/>
+<use f='codebrowser/code/qcommon/msg.c' l='1143' u='a'/>
+<use f='codebrowser/code/qcommon/msg.c' l='1143' u='a'/>
+<use f='codebrowser/code/qcommon/msg.c' l='1143' u='a'/>
+<use f='codebrowser/code/qcommon/msg.c' l='1143' u='a'/>

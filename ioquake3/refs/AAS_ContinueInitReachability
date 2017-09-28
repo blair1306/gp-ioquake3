@@ -1,0 +1,28 @@
+<dec f='codebrowser/code/botlib/be_aas_reach.h' l='36' type='int AAS_ContinueInitReachability(float time)'/>
+<use f='codebrowser/code/botlib/be_aas_main.c' l='117' u='c' c='AAS_ContinueInit'/>
+<def f='codebrowser/code/botlib/be_aas_reach.c' l='4359' ll='4499' type='int AAS_ContinueInitReachability(float time)'/>
+<doc f='codebrowser/code/botlib/be_aas_reach.c' l='4334'>//===========================================================================
+//
+// TRAVEL_WALK					100%	equal floor height + steps
+// TRAVEL_CROUCH				100%
+// TRAVEL_BARRIERJUMP			100%
+// TRAVEL_JUMP					 80%
+// TRAVEL_LADDER				100%	+ fall down from ladder + jump up to ladder
+// TRAVEL_WALKOFFLEDGE			 90%	walk off very steep walls?
+// TRAVEL_SWIM					100%
+// TRAVEL_WATERJUMP				100%
+// TRAVEL_TELEPORT				100%
+// TRAVEL_ELEVATOR				100%
+// TRAVEL_GRAPPLEHOOK			100%
+// TRAVEL_DOUBLEJUMP			  0%
+// TRAVEL_RAMPJUMP				  0%
+// TRAVEL_STRAFEJUMP			  0%
+// TRAVEL_ROCKETJUMP			100%	(currently limited towards areas with items)
+// TRAVEL_BFGJUMP				  0%	(currently disabled)
+// TRAVEL_JUMPPAD				100%
+// TRAVEL_FUNCBOB				100%
+//
+// Parameter:			-
+// Returns:				true if NOT finished
+// Changes Globals:		-
+//===========================================================================</doc>

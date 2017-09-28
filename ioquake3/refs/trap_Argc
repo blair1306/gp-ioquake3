@@ -1,0 +1,24 @@
+<dec f='codebrowser/code/cgame/cg_local.h' l='1496' type='int trap_Argc()'/>
+<doc f='codebrowser/code/cgame/cg_local.h' l='1495'>// ServerCommand and ConsoleCommand parameter access</doc>
+<use f='codebrowser/code/cgame/cg_servercmds.c' l='1075' u='c' c='CG_ServerCommand'/>
+<def f='codebrowser/code/cgame/cg_syscalls.c' l='76' ll='78' type='int trap_Argc()'/>
+<use f='codebrowser/code/cgame/cg_view.c' l='75' u='c' c='CG_TestModel_f'/>
+<use f='codebrowser/code/cgame/cg_view.c' l='82' u='c' c='CG_TestModel_f'/>
+<dec f='codebrowser/code/game/g_local.h' l='753' type='int trap_Argc()'/>
+<use f='codebrowser/code/game/g_cmds.c' l='141' u='c' c='ConcatArgs'/>
+<use f='codebrowser/code/game/g_cmds.c' l='456' u='c' c='Cmd_TeamTask_f'/>
+<use f='codebrowser/code/game/g_cmds.c' l='686' u='c' c='Cmd_Team_f'/>
+<use f='codebrowser/code/game/g_cmds.c' l='733' u='c' c='Cmd_Follow_f'/>
+<use f='codebrowser/code/game/g_cmds.c' l='950' u='c' c='Cmd_Say_f'/>
+<use f='codebrowser/code/game/g_cmds.c' l='979' u='c' c='Cmd_Tell_f'/>
+<use f='codebrowser/code/game/g_cmds.c' l='1232' u='c' c='Cmd_GameCommand_f'/>
+<use f='codebrowser/code/game/g_cmds.c' l='1505' u='c' c='Cmd_CallTeamVote_f'/>
+<use f='codebrowser/code/game/g_cmds.c' l='1663' u='c' c='Cmd_SetViewpos_f'/>
+<use f='codebrowser/code/game/g_svcmds.c' l='268' u='c' c='Svcmd_AddIP_f'/>
+<use f='codebrowser/code/game/g_svcmds.c' l='290' u='c' c='Svcmd_RemoveIP_f'/>
+<use f='codebrowser/code/game/g_svcmds.c' l='426' u='c' c='Svcmd_ForceTeam_f'/>
+<def f='codebrowser/code/game/g_syscalls.c' l='58' ll='60' type='int trap_Argc()'/>
+<dec f='codebrowser/code/q3_ui/ui_local.h' l='637' type='int trap_Argc()'/>
+<dec f='codebrowser/code/ui/ui_local.h' l='928' type='int trap_Argc()'/>
+<use f='codebrowser/code/ui/ui_atoms.c' l='368' u='c' c='UI_ConsoleCommand'/>
+<def f='codebrowser/code/ui/ui_syscalls.c' l='96' ll='98' type='int trap_Argc()'/>

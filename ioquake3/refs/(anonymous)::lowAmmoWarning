@@ -1,0 +1,11 @@
+<dec f='codebrowser/code/cgame/cg_local.h' l='562' type='int'/>
+<offset>931968</offset>
+<doc f='codebrowser/code/cgame/cg_local.h' l='561'>// low ammo warning state</doc>
+<doc f='codebrowser/code/cgame/cg_local.h' l='562'>// 1 = low, 2 = empty</doc>
+<use f='codebrowser/code/cgame/cg_draw.c' l='2294' u='r' c='CG_DrawAmmoWarning'/>
+<use f='codebrowser/code/cgame/cg_draw.c' l='2298' u='r' c='CG_DrawAmmoWarning'/>
+<use f='codebrowser/code/cgame/cg_playerstate.c' l='65' u='w' c='CG_CheckAmmo'/>
+<use f='codebrowser/code/cgame/cg_playerstate.c' l='70' u='r' c='CG_CheckAmmo'/>
+<use f='codebrowser/code/cgame/cg_playerstate.c' l='73' u='w' c='CG_CheckAmmo'/>
+<use f='codebrowser/code/cgame/cg_playerstate.c' l='75' u='w' c='CG_CheckAmmo'/>
+<use f='codebrowser/code/cgame/cg_playerstate.c' l='79' u='r' c='CG_CheckAmmo'/>

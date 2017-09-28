@@ -1,0 +1,11 @@
+<dec f='codebrowser/code/qcommon/qcommon.h' l='828' type='void Com_GameRestart(int checksumFeed, qboolean disconnect)'/>
+<def f='codebrowser/code/qcommon/common.c' l='2387' ll='2430' type='void Com_GameRestart(int checksumFeed, qboolean disconnect)'/>
+<use f='codebrowser/code/qcommon/common.c' l='2453' u='c' c='Com_GameRestart_f'/>
+<doc f='codebrowser/code/qcommon/common.c' l='2379'>/*
+==================
+Com_GameRestart
+
+Change to a new mod properly with cleaning up cvars before switching.
+==================
+*/</doc>
+<use f='codebrowser/code/qcommon/files.c' l='4053' u='c' c='FS_ConditionalRestart'/>

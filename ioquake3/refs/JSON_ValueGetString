@@ -1,0 +1,10 @@
+<dec f='codebrowser/code/qcommon/json.h' l='76' type='unsigned int JSON_ValueGetString(const char * json, const char * jsonEnd, char * outString, unsigned int stringLen)'/>
+<def f='codebrowser/code/qcommon/json.h' l='261' ll='296' type='unsigned int JSON_ValueGetString(const char * json, const char * jsonEnd, char * outString, unsigned int stringLen)'/>
+<use f='codebrowser/code/qcommon/json.h' l='307' u='c' c='JSON_ValueGetDouble'/>
+<use f='codebrowser/code/qcommon/json.h' l='324' u='c' c='JSON_ValueGetFloat'/>
+<use f='codebrowser/code/qcommon/json.h' l='341' u='c' c='JSON_ValueGetInt'/>
+<use f='codebrowser/code/renderergl2/tr_bsp.c' l='2505' u='c' c='R_LoadEnvironmentJson'/>
+<doc f='codebrowser/code/qcommon/json.h' l='72'>// Get value as string
+// returns 0 if out of data
+// returns length and copies into string if successful, including terminating nul.
+// string values are stripped of enclosing quotes but not escaped</doc>

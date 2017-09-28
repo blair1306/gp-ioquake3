@@ -1,0 +1,28 @@
+<dec f='codebrowser/code/renderergl1/tr_local.h' l='492' type='unsigned int'/>
+<offset>0</offset>
+<doc f='codebrowser/code/renderergl1/tr_local.h' l='492'>// bit combination for fast compares</doc>
+<use f='codebrowser/code/renderergl1/tr_backend.c' l='534' u='r' c='RB_RenderDrawSurfList'/>
+<use f='codebrowser/code/renderergl1/tr_backend.c' l='539' u='r' c='RB_RenderDrawSurfList'/>
+<use f='codebrowser/code/renderergl1/tr_backend.c' l='540' u='r' c='RB_RenderDrawSurfList'/>
+<use f='codebrowser/code/renderergl1/tr_main.c' l='863' u='r' c='SurfIsOffscreen'/>
+<use f='codebrowser/code/renderergl1/tr_main.c' l='1057' u='a' c='R_Radix'/>
+<use f='codebrowser/code/renderergl1/tr_main.c' l='1067' u='a' c='R_Radix'/>
+<use f='codebrowser/code/renderergl1/tr_main.c' l='1111' u='w' c='R_AddDrawSurf'/>
+<use f='codebrowser/code/renderergl1/tr_main.c' l='1155' u='r' c='R_SortDrawSurfs'/>
+<use f='codebrowser/code/renderergl1/tr_shader.c' l='1964' u='r' c='FixRenderCommandList'/>
+<use f='codebrowser/code/renderergl1/tr_shader.c' l='1965' u='r' c='FixRenderCommandList'/>
+<use f='codebrowser/code/renderergl1/tr_shader.c' l='1968' u='w' c='FixRenderCommandList'/>
+<dec f='codebrowser/code/renderergl2/tr_local.h' l='845' type='unsigned int'/>
+<offset>0</offset>
+<doc f='codebrowser/code/renderergl2/tr_local.h' l='845'>// bit combination for fast compares</doc>
+<use f='codebrowser/code/renderergl2/tr_backend.c' l='460' u='r' c='RB_RenderDrawSurfList'/>
+<use f='codebrowser/code/renderergl2/tr_backend.c' l='468' u='r' c='RB_RenderDrawSurfList'/>
+<use f='codebrowser/code/renderergl2/tr_backend.c' l='469' u='r' c='RB_RenderDrawSurfList'/>
+<use f='codebrowser/code/renderergl2/tr_main.c' l='1214' u='r' c='SurfIsOffscreen'/>
+<use f='codebrowser/code/renderergl2/tr_main.c' l='1416' u='a' c='R_Radix'/>
+<use f='codebrowser/code/renderergl2/tr_main.c' l='1426' u='a' c='R_Radix'/>
+<use f='codebrowser/code/renderergl2/tr_main.c' l='1470' u='w' c='R_AddDrawSurf'/>
+<use f='codebrowser/code/renderergl2/tr_main.c' l='1527' u='r' c='R_SortDrawSurfs'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='2670' u='r' c='FixRenderCommandList'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='2671' u='r' c='FixRenderCommandList'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='2674' u='w' c='FixRenderCommandList'/>

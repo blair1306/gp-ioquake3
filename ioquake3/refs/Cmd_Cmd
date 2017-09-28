@@ -1,0 +1,13 @@
+<dec f='codebrowser/code/qcommon/qcommon.h' l='459' type='char * Cmd_Cmd()'/>
+<use f='codebrowser/code/client/cl_main.c' l='1875' u='c' c='CL_Rcon_f'/>
+<def f='codebrowser/code/qcommon/cmd.c' l='457' ll='460' type='char * Cmd_Cmd()'/>
+<doc f='codebrowser/code/qcommon/cmd.c' l='448'>/*
+============
+Cmd_Cmd
+
+Retrieve the unmodified command string
+For rcon use when you want to transmit without altering quoting
+https://zerowing.idsoftware.com/bugzilla/show_bug.cgi?id=543
+============
+*/</doc>
+<use f='codebrowser/code/server/sv_main.c' l='751' u='c' c='SVC_RemoteCommand'/>

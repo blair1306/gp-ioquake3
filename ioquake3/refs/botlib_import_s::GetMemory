@@ -1,0 +1,6 @@
+<dec f='codebrowser/code/botlib/botlib.h' l='189' type='void *(*)(int)'/>
+<offset>512</offset>
+<doc f='codebrowser/code/botlib/botlib.h' l='188'>//memory allocation</doc>
+<doc f='codebrowser/code/botlib/botlib.h' l='189'>// allocate from Zone</doc>
+<use f='codebrowser/code/botlib/l_memory.c' l='349' u='r' c='GetMemory'/>
+<use f='codebrowser/code/server/sv_bot.c' l='539' u='w' c='SV_BotInitBotLib'/>

@@ -1,0 +1,11 @@
+<dec f='codebrowser/code/server/server.h' l='443' type='void SV_UnlinkEntity(sharedEntity_t * ent)'/>
+<doc f='codebrowser/code/server/server.h' l='441'>// called after the world model has been loaded, before linking any entities</doc>
+<use f='codebrowser/code/server/sv_game.c' l='354' u='c' c='SV_GameSystemCalls'/>
+<def f='codebrowser/code/server/sv_world.c' l='167' ll='195' type='void SV_UnlinkEntity(sharedEntity_t * gEnt)'/>
+<use f='codebrowser/code/server/sv_world.c' l='219' u='c' c='SV_LinkEntity'/>
+<doc f='codebrowser/code/server/sv_world.c' l='161'>/*
+===============
+SV_UnlinkEntity
+
+===============
+*/</doc>

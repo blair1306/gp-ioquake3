@@ -1,0 +1,12 @@
+<dec f='codebrowser/code/opus-1.1.4/include/opus_defines.h' l='723'/>
+<doc f='codebrowser/code/opus-1.1.4/include/opus_defines.h' l='713'>/** Gets the pitch of the last decoded frame, if available.
+  * This can be used for any post-processing algorithm requiring the use of pitch,
+  * e.g. time stretching/shortening. If the last frame was not voiced, or if the
+  * pitch was not coded in the frame, then zero is returned.
+  *
+  * This CTL is only implemented for decoder instances.
+  *
+  * @param[out] x &lt;tt&gt;opus_int32 *&lt;/tt&gt;: pitch period at 48 kHz (or 0 if not available)
+  *
+  * @hideinitializer */</doc>
+<use f='codebrowser/code/opus-1.1.4/src/opus_decoder.c' l='867' u='c'/>

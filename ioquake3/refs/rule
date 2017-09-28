@@ -1,0 +1,19 @@
+<def f='codebrowser/code/tools/lcc/lburg/lburg.h' l='41' ll='54'/>
+<dec f='codebrowser/code/tools/lcc/lburg/lburg.h' l='55' type='Rule rule(char * id, Tree pattern, char * template, char * code)'/>
+<use f='codebrowser/code/tools/lcc/lburg/gram.c' l='44' u='c' c='yyparse'/>
+<size>88</size>
+<doc f='codebrowser/code/tools/lcc/lburg/lburg.h' l='41'>/* rules: */</doc>
+<mbr r='rule::lhs' o='0' t='Nonterm'/>
+<mbr r='rule::pattern' o='64' t='Tree'/>
+<mbr r='rule::ern' o='128' t='int'/>
+<mbr r='rule::packed' o='160' t='int'/>
+<mbr r='rule::cost' o='192' t='int'/>
+<mbr r='rule::code' o='256' t='char *'/>
+<mbr r='rule::template' o='320' t='char *'/>
+<mbr r='rule::link' o='384' t='Rule'/>
+<mbr r='rule::next' o='448' t='Rule'/>
+<mbr r='rule::chain' o='512' t='Rule'/>
+<mbr r='rule::decode' o='576' t='Rule'/>
+<mbr r='rule::kids' o='640' t='Rule'/>
+<def f='codebrowser/code/tools/lcc/lburg/lburg.c' l='244' ll='279' type='Rule rule(char * id, Tree pattern, char * template, char * code)'/>
+<doc f='codebrowser/code/tools/lcc/lburg/lburg.c' l='243'>/* rule - create &amp; initialize a rule with the given fields */</doc>

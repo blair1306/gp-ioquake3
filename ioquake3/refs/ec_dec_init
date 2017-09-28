@@ -1,0 +1,7 @@
+<dec f='codebrowser/code/opus-1.1.4/celt/entdec.h' l='36' type='void ec_dec_init(ec_dec * _this, unsigned char * _buf, opus_uint32 _storage)'/>
+<doc f='codebrowser/code/opus-1.1.4/celt/entdec.h' l='33'>/*Initializes the decoder.
+  _buf: The input buffer to use.
+  Return: 0 on success, or a negative value on error.*/</doc>
+<use f='codebrowser/code/opus-1.1.4/celt/celt_decoder.c' l='840' u='c' c='celt_decode_with_ec'/>
+<def f='codebrowser/code/opus-1.1.4/celt/entdec.c' l='119' ll='137' type='void ec_dec_init(ec_dec * _this, unsigned char * _buf, opus_uint32 _storage)'/>
+<use f='codebrowser/code/opus-1.1.4/src/opus_decoder.c' l='256' u='c' c='opus_decode_frame'/>

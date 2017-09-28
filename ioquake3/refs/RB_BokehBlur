@@ -1,0 +1,13 @@
+<dec f='codebrowser/code/renderergl2/tr_postprocess.h' l='29' type='void RB_BokehBlur(FBO_t * src, int * srcBox, FBO_t * dst, int * dstBox, float blur)'/>
+<use f='codebrowser/code/renderergl2/tr_backend.c' l='1538' u='c' c='RB_PostProcess'/>
+<def f='codebrowser/code/renderergl2/tr_postprocess.c' l='106' ll='224' type='void RB_BokehBlur(FBO_t * src, int * srcBox, FBO_t * dst, int * dstBox, float blur)'/>
+<doc f='codebrowser/code/renderergl2/tr_postprocess.c' l='96'>/*
+=============
+RB_BokehBlur
+
+
+Blurs a part of one framebuffer to another.
+
+Framebuffers can be identical. 
+=============
+*/</doc>

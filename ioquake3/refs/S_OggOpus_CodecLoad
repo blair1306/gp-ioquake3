@@ -1,0 +1,12 @@
+<dec f='codebrowser/code/client/snd_codec.h' l='101' type='void * S_OggOpus_CodecLoad(const char * filename, snd_info_t * info)'/>
+<use f='codebrowser/code/client/snd_codec_opus.c' l='43' u='r'/>
+<use f='codebrowser/code/client/snd_codec_opus.c' l='43' u='r'/>
+<def f='codebrowser/code/client/snd_codec_opus.c' l='395' ll='447' type='void * S_OggOpus_CodecLoad(const char * filename, snd_info_t * info)'/>
+<doc f='codebrowser/code/client/snd_codec_opus.c' l='387'>/*
+=====================================================================
+S_OggOpus_CodecLoad
+
+We handle S_OggOpus_CodecLoad as a special case of the streaming functions 
+where we read the whole stream at once.
+======================================================================
+*/</doc>

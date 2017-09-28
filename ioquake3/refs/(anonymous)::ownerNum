@@ -1,0 +1,29 @@
+<dec f='codebrowser/code/game/g_public.h' l='89' type='int'/>
+<offset>2432</offset>
+<doc f='codebrowser/code/game/g_public.h' l='84'>// when a trace call is made and passEntityNum != ENTITYNUM_NONE,
+	// an ent will be excluded from testing if:
+	// ent-&gt;s.number == passEntityNum	(don&apos;t interact with self)
+	// ent-&gt;r.ownerNum == passEntityNum	(don&apos;t interact with your own missiles)
+	// entity[ent-&gt;r.ownerNum].r.ownerNum == passEntityNum	(don&apos;t interact with other missiles from owner)</doc>
+<use f='codebrowser/code/game/g_arenas.c' l='179' u='w' c='SpawnModelOnVictoryPad'/>
+<use f='codebrowser/code/game/g_arenas.c' l='179' u='r' c='SpawnModelOnVictoryPad'/>
+<use f='codebrowser/code/game/g_client.c' l='483' u='w' c='CopyToBodyQue'/>
+<use f='codebrowser/code/game/g_items.c' l='988' u='r' c='G_RunItem'/>
+<use f='codebrowser/code/game/g_misc.c' l='169' u='w' c='locateCamera'/>
+<use f='codebrowser/code/game/g_missile.c' l='88' u='r' c='G_ExplodeMissile'/>
+<use f='codebrowser/code/game/g_missile.c' l='313' u='r' c='G_MissileImpact'/>
+<use f='codebrowser/code/game/g_missile.c' l='314' u='r' c='G_MissileImpact'/>
+<use f='codebrowser/code/game/g_missile.c' l='321' u='r' c='G_MissileImpact'/>
+<use f='codebrowser/code/game/g_missile.c' l='435' u='r' c='G_MissileImpact'/>
+<use f='codebrowser/code/game/g_missile.c' l='468' u='r' c='G_RunMissile'/>
+<use f='codebrowser/code/game/g_missile.c' l='534' u='w' c='fire_plasma'/>
+<use f='codebrowser/code/game/g_missile.c' l='576' u='w' c='fire_grenade'/>
+<use f='codebrowser/code/game/g_missile.c' l='617' u='w' c='fire_bfg'/>
+<use f='codebrowser/code/game/g_missile.c' l='657' u='w' c='fire_rocket'/>
+<use f='codebrowser/code/game/g_missile.c' l='694' u='w' c='fire_grapple'/>
+<use f='codebrowser/code/game/g_spawn.c' l='595' u='w' c='SP_worldspawn'/>
+<use f='codebrowser/code/game/g_spawn.c' l='599' u='w' c='SP_worldspawn'/>
+<use f='codebrowser/code/game/g_utils.c' l='371' u='w' c='G_InitGentity'/>
+<use f='codebrowser/code/server/sv_world.c' l='518' u='r' c='SV_ClipMoveToEntities'/>
+<use f='codebrowser/code/server/sv_world.c' l='537' u='r' c='SV_ClipMoveToEntities'/>
+<use f='codebrowser/code/server/sv_world.c' l='540' u='r' c='SV_ClipMoveToEntities'/>

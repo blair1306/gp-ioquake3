@@ -1,0 +1,6 @@
+<dec f='codebrowser/code/server/server.h' l='130' type='struct netchan_buffer_s *'/>
+<offset>139584</offset>
+<use f='codebrowser/code/server/sv_net_chan.c' l='147' u='r' c='SV_Netchan_FreeQueue'/>
+<use f='codebrowser/code/server/sv_net_chan.c' l='175' u='r' c='SV_Netchan_TransmitNextInQueue'/>
+<use f='codebrowser/code/server/sv_net_chan.c' l='242' u='w' c='SV_Netchan_Transmit'/>
+<use f='codebrowser/code/server/sv_net_chan.c' l='245' u='a' c='SV_Netchan_Transmit'/>

@@ -1,0 +1,27 @@
+<dec f='codebrowser/code/game/ai_dmq3.h' l='138' type='int BotTeam(bot_state_t * bs)'/>
+<doc f='codebrowser/code/game/ai_dmq3.h' l='137'>//returns the team the bot is in</doc>
+<use f='codebrowser/code/game/ai_cmd.c' l='1722' u='c' c='BotMatch_CTF'/>
+<use f='codebrowser/code/game/ai_cmd.c' l='1729' u='c' c='BotMatch_CTF'/>
+<use f='codebrowser/code/game/ai_dmnet.c' l='763' u='c' c='BotGetLongTermGoal'/>
+<use f='codebrowser/code/game/ai_dmnet.c' l='771' u='c' c='BotGetLongTermGoal'/>
+<use f='codebrowser/code/game/ai_dmnet.c' l='786' u='c' c='BotGetLongTermGoal'/>
+<use f='codebrowser/code/game/ai_dmnet.c' l='821' u='c' c='BotGetLongTermGoal'/>
+<def f='codebrowser/code/game/ai_dmq3.c' l='142' ll='155' type='int BotTeam(bot_state_t * bs)'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='163' u='c' c='BotOppositeTeam'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='176' u='c' c='BotEnemyFlag'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='190' u='c' c='BotTeamFlag'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='432' u='c' c='BotSetLastOrderedTask'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='513' u='c' c='BotCTFSeekGoals'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='530' u='c' c='BotCTFSeekGoals'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='548' u='c' c='BotCTFSeekGoals'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='753' u='c' c='BotCTFSeekGoals'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='1543' u='c' c='BotSynonymContext'/>
+<doc f='codebrowser/code/game/ai_dmq3.c' l='137'>/*
+==================
+BotTeam
+==================
+*/</doc>
+<use f='codebrowser/code/game/ai_main.c' l='291' u='c' c='BotReportStatus'/>
+<use f='codebrowser/code/game/ai_team.c' l='139' u='c' c='BotSortTeamMatesByBaseTravelTime'/>
+<use f='codebrowser/code/game/ai_team.c' l='837' u='c' c='BotCTFOrders'/>
+<use f='codebrowser/code/game/ai_vcmd.c' l='190' u='c' c='BotVoiceChat_Defend'/>

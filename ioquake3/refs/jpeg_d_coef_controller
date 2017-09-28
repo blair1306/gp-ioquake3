@@ -1,0 +1,8 @@
+<def f='codebrowser/code/jpeg-8c/jpegint.h' l='169' ll='177'/>
+<size>40</size>
+<doc f='codebrowser/code/jpeg-8c/jpegint.h' l='168'>/* Coefficient buffer control */</doc>
+<mbr r='jpeg_d_coef_controller::start_input_pass' o='0' t='void (*)(j_decompress_ptr)'/>
+<mbr r='jpeg_d_coef_controller::consume_data' o='64' t='int (*)(j_decompress_ptr)'/>
+<mbr r='jpeg_d_coef_controller::start_output_pass' o='128' t='void (*)(j_decompress_ptr)'/>
+<mbr r='jpeg_d_coef_controller::decompress_data' o='192' t='int (*)(j_decompress_ptr, JSAMPIMAGE)'/>
+<mbr r='jpeg_d_coef_controller::coef_arrays' o='256' t='jvirt_barray_ptr *'/>

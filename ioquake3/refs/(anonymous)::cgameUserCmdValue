@@ -1,0 +1,6 @@
+<dec f='codebrowser/code/client/client.h' l='118' type='int'/>
+<offset>166560</offset>
+<doc f='codebrowser/code/client/client.h' l='117'>// cgame communicates a few values to the client system</doc>
+<doc f='codebrowser/code/client/client.h' l='118'>// current weapon to add to usercmd_t</doc>
+<use f='codebrowser/code/client/cl_cgame.c' l='176' u='w' c='CL_SetUserCmdValue'/>
+<use f='codebrowser/code/client/cl_input.c' l='561' u='r' c='CL_FinishMove'/>

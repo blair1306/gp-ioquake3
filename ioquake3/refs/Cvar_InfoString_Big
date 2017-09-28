@@ -1,0 +1,12 @@
+<dec f='codebrowser/code/qcommon/qcommon.h' l='562' type='char * Cvar_InfoString_Big(int bit)'/>
+<def f='codebrowser/code/qcommon/cvar.c' l='1260' ll='1273' type='char * Cvar_InfoString_Big(int bit)'/>
+<doc f='codebrowser/code/qcommon/cvar.c' l='1253'>/*
+=====================
+Cvar_InfoString_Big
+
+  handles large info strings ( CS_SYSTEMINFO )
+=====================
+*/</doc>
+<use f='codebrowser/code/server/sv_ccmds.c' l='1420' u='c' c='SV_Systeminfo_f'/>
+<use f='codebrowser/code/server/sv_init.c' l='595' u='c' c='SV_SpawnServer'/>
+<use f='codebrowser/code/server/sv_main.c' l='1121' u='c' c='SV_Frame'/>

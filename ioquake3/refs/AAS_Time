@@ -1,0 +1,49 @@
+<dec f='codebrowser/code/botlib/be_aas_main.h' l='55' type='float AAS_Time()'/>
+<dec f='codebrowser/code/botlib/be_aas_main.h' l='55' type='float AAS_Time()'/>
+<doc f='codebrowser/code/botlib/be_aas_main.h' l='54'>//returns the current time</doc>
+<use f='codebrowser/code/botlib/be_aas_debug.c' l='702' u='c' c='AAS_ShowReachableAreas'/>
+<use f='codebrowser/code/botlib/be_aas_debug.c' l='706' u='c' c='AAS_ShowReachableAreas'/>
+<use f='codebrowser/code/botlib/be_aas_entity.c' l='89' u='c' c='AAS_UpdateEntity'/>
+<use f='codebrowser/code/botlib/be_aas_entity.c' l='92' u='c' c='AAS_UpdateEntity'/>
+<def f='codebrowser/code/botlib/be_aas_main.c' l='194' ll='197' type='float AAS_Time()'/>
+<doc f='codebrowser/code/botlib/be_aas_main.c' l='188'>//===========================================================================
+//
+// Parameter:				-
+// Returns:					-
+// Changes Globals:		-
+//===========================================================================</doc>
+<use f='codebrowser/code/botlib/be_aas_route.c' l='343' u='c' c='AAS_RoutingTime'/>
+<use f='codebrowser/code/botlib/be_ai_chat.c' l='343' u='c' c='BotQueueConsoleMessage'/>
+<use f='codebrowser/code/botlib/be_ai_chat.c' l='2445' u='c' c='BotChooseInitialChatMessage'/>
+<use f='codebrowser/code/botlib/be_ai_chat.c' l='2468' u='c' c='BotChooseInitialChatMessage'/>
+<use f='codebrowser/code/botlib/be_ai_chat.c' l='2471' u='c' c='BotChooseInitialChatMessage'/>
+<use f='codebrowser/code/botlib/be_ai_chat.c' l='2697' u='c' c='BotReplyChat'/>
+<use f='codebrowser/code/botlib/be_ai_chat.c' l='2704' u='c' c='BotReplyChat'/>
+<use f='codebrowser/code/botlib/be_ai_chat.c' l='2778' u='c' c='BotReplyChat'/>
+<use f='codebrowser/code/botlib/be_ai_goal.c' l='725' u='c' c='BotDumpAvoidGoals'/>
+<use f='codebrowser/code/botlib/be_ai_goal.c' l='729' u='c' c='BotDumpAvoidGoals'/>
+<use f='codebrowser/code/botlib/be_ai_goal.c' l='749' u='c' c='BotAddToAvoidGoals'/>
+<use f='codebrowser/code/botlib/be_ai_goal.c' l='757' u='c' c='BotAddToAvoidGoals'/>
+<use f='codebrowser/code/botlib/be_ai_goal.c' l='760' u='c' c='BotAddToAvoidGoals'/>
+<use f='codebrowser/code/botlib/be_ai_goal.c' l='781' u='c' c='BotRemoveFromAvoidGoals'/>
+<use f='codebrowser/code/botlib/be_ai_goal.c' l='804' u='c' c='BotAvoidGoalTime'/>
+<use f='codebrowser/code/botlib/be_ai_goal.c' l='806' u='c' c='BotAvoidGoalTime'/>
+<use f='codebrowser/code/botlib/be_ai_goal.c' l='1022' u='c' c='BotUpdateEntityItems'/>
+<use f='codebrowser/code/botlib/be_ai_goal.c' l='1159' u='c' c='BotUpdateEntityItems'/>
+<use f='codebrowser/code/botlib/be_ai_goal.c' l='1660' u='c' c='BotItemGoalInVisButNotVisible'/>
+<use f='codebrowser/code/botlib/be_ai_move.c' l='589' u='c' c='BotAddToAvoidReach'/>
+<use f='codebrowser/code/botlib/be_ai_move.c' l='591' u='c' c='BotAddToAvoidReach'/>
+<use f='codebrowser/code/botlib/be_ai_move.c' l='598' u='c' c='BotAddToAvoidReach'/>
+<use f='codebrowser/code/botlib/be_ai_move.c' l='601' u='c' c='BotAddToAvoidReach'/>
+<use f='codebrowser/code/botlib/be_ai_move.c' l='769' u='c' c='BotGetReachabilityToGoal'/>
+<use f='codebrowser/code/botlib/be_ai_move.c' l='2609' u='c' c='BotTravel_Grapple'/>
+<use f='codebrowser/code/botlib/be_ai_move.c' l='2624' u='c' c='BotTravel_Grapple'/>
+<use f='codebrowser/code/botlib/be_ai_move.c' l='2640' u='c' c='BotTravel_Grapple'/>
+<use f='codebrowser/code/botlib/be_ai_move.c' l='3068' u='c' c='BotMoveToGoal'/>
+<use f='codebrowser/code/botlib/be_ai_move.c' l='3098' u='c' c='BotMoveToGoal'/>
+<use f='codebrowser/code/botlib/be_ai_move.c' l='3179' u='c' c='BotMoveToGoal'/>
+<use f='codebrowser/code/botlib/be_ai_move.c' l='3192' u='c' c='BotMoveToGoal'/>
+<use f='codebrowser/code/botlib/be_ai_move.c' l='3196' u='c' c='BotMoveToGoal'/>
+<use f='codebrowser/code/botlib/be_ai_move.c' l='3222' u='c' c='BotMoveToGoal'/>
+<use f='codebrowser/code/botlib/be_ai_move.c' l='3260' u='c' c='BotMoveToGoal'/>
+<use f='codebrowser/code/botlib/be_interface.c' l='688' u='r' c='Init_AAS_Export'/>

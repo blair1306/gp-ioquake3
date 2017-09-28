@@ -1,0 +1,12 @@
+<dec f='codebrowser/code/game/bg_public.h' l='704' type='void BG_PlayerStateToEntityStateExtraPolate(playerState_t * ps, entityState_t * s, int time, qboolean snap)'/>
+<def f='codebrowser/code/game/bg_misc.c' l='1540' ll='1610' type='void BG_PlayerStateToEntityStateExtraPolate(playerState_t * ps, entityState_t * s, int time, qboolean snap)'/>
+<doc f='codebrowser/code/game/bg_misc.c' l='1532'>/*
+========================
+BG_PlayerStateToEntityStateExtraPolate
+
+This is done after each set of usercmd_t on the server,
+and after local prediction on the client
+========================
+*/</doc>
+<use f='codebrowser/code/game/g_active.c' l='945' u='c' c='ClientThink_real'/>
+<use f='codebrowser/code/game/g_active.c' l='1172' u='c' c='ClientEndFrame'/>

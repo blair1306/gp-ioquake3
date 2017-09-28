@@ -1,0 +1,44 @@
+<dec f='codebrowser/code/cgame/cg_local.h' l='1596' type='void trap_R_DrawStretchPic(float x, float y, float w, float h, float s1, float t1, float s2, float t2, qhandle_t hShader)'/>
+<use f='codebrowser/code/cgame/cg_draw.c' l='1685' u='c' c='CG_DrawLagometer'/>
+<use f='codebrowser/code/cgame/cg_draw.c' l='1695' u='c' c='CG_DrawLagometer'/>
+<use f='codebrowser/code/cgame/cg_draw.c' l='1722' u='c' c='CG_DrawLagometer'/>
+<use f='codebrowser/code/cgame/cg_draw.c' l='1728' u='c' c='CG_DrawLagometer'/>
+<use f='codebrowser/code/cgame/cg_draw.c' l='1914' u='c' c='CG_DrawCrosshair'/>
+<use f='codebrowser/code/cgame/cg_drawtools.c' l='58' u='c' c='CG_FillRect'/>
+<use f='codebrowser/code/cgame/cg_drawtools.c' l='73' u='c' c='CG_DrawSides'/>
+<use f='codebrowser/code/cgame/cg_drawtools.c' l='74' u='c' c='CG_DrawSides'/>
+<use f='codebrowser/code/cgame/cg_drawtools.c' l='80' u='c' c='CG_DrawTopBottom'/>
+<use f='codebrowser/code/cgame/cg_drawtools.c' l='81' u='c' c='CG_DrawTopBottom'/>
+<use f='codebrowser/code/cgame/cg_drawtools.c' l='110' u='c' c='CG_DrawPic'/>
+<use f='codebrowser/code/cgame/cg_drawtools.c' l='147' u='c' c='CG_DrawChar'/>
+<use f='codebrowser/code/cgame/cg_drawtools.c' l='279' u='c' c='CG_TileClearBox'/>
+<use f='codebrowser/code/cgame/cg_drawtools.c' l='624' u='c' c='UI_DrawBannerString2'/>
+<use f='codebrowser/code/cgame/cg_drawtools.c' l='732' u='c' c='UI_DrawProportionalString2'/>
+<use f='codebrowser/code/cgame/cg_info.c' l='171' u='c' c='CG_DrawInformation'/>
+<def f='codebrowser/code/cgame/cg_syscalls.c' l='289' ll='292' type='void trap_R_DrawStretchPic(float x, float y, float w, float h, float s1, float t1, float s2, float t2, qhandle_t hShader)'/>
+<dec f='codebrowser/code/q3_ui/ui_local.h' l='655' type='void trap_R_DrawStretchPic(float x, float y, float w, float h, float s1, float t1, float s2, float t2, qhandle_t hShader)'/>
+<use f='codebrowser/code/q3_ui/ui_atoms.c' l='372' u='c' c='UI_DrawBannerString2'/>
+<use f='codebrowser/code/q3_ui/ui_atoms.c' l='481' u='c' c='UI_DrawProportionalString2'/>
+<use f='codebrowser/code/q3_ui/ui_atoms.c' l='680' u='c' c='UI_DrawString2'/>
+<use f='codebrowser/code/q3_ui/ui_atoms.c' l='1114' u='c' c='UI_DrawNamedPic'/>
+<use f='codebrowser/code/q3_ui/ui_atoms.c' l='1144' u='c' c='UI_DrawHandlePic'/>
+<use f='codebrowser/code/q3_ui/ui_atoms.c' l='1158' u='c' c='UI_FillRect'/>
+<use f='codebrowser/code/q3_ui/ui_atoms.c' l='1175' u='c' c='UI_DrawRect'/>
+<use f='codebrowser/code/q3_ui/ui_atoms.c' l='1176' u='c' c='UI_DrawRect'/>
+<use f='codebrowser/code/q3_ui/ui_atoms.c' l='1177' u='c' c='UI_DrawRect'/>
+<use f='codebrowser/code/q3_ui/ui_atoms.c' l='1178' u='c' c='UI_DrawRect'/>
+<dec f='codebrowser/code/ui/ui_local.h' l='946' type='void trap_R_DrawStretchPic(float x, float y, float w, float h, float s1, float t1, float s2, float t2, qhandle_t hShader)'/>
+<use f='codebrowser/code/ui/ui_atoms.c' l='434' u='c' c='UI_DrawNamedPic'/>
+<use f='codebrowser/code/ui/ui_atoms.c' l='464' u='c' c='UI_DrawHandlePic'/>
+<use f='codebrowser/code/ui/ui_atoms.c' l='478' u='c' c='UI_FillRect'/>
+<use f='codebrowser/code/ui/ui_atoms.c' l='485' u='c' c='UI_DrawSides'/>
+<use f='codebrowser/code/ui/ui_atoms.c' l='486' u='c' c='UI_DrawSides'/>
+<use f='codebrowser/code/ui/ui_atoms.c' l='491' u='c' c='UI_DrawTopBottom'/>
+<use f='codebrowser/code/ui/ui_atoms.c' l='492' u='c' c='UI_DrawTopBottom'/>
+<use f='codebrowser/code/ui/ui_main.c' l='239' u='c' c='_UI_DrawSides'/>
+<use f='codebrowser/code/ui/ui_main.c' l='240' u='c' c='_UI_DrawSides'/>
+<use f='codebrowser/code/ui/ui_main.c' l='246' u='c' c='_UI_DrawTopBottom'/>
+<use f='codebrowser/code/ui/ui_main.c' l='247' u='c' c='_UI_DrawTopBottom'/>
+<use f='codebrowser/code/ui/ui_main.c' l='342' u='c' c='Text_PaintChar'/>
+<use f='codebrowser/code/ui/ui_main.c' l='5101' u='a' c='_UI_Init'/>
+<def f='codebrowser/code/ui/ui_syscalls.c' l='172' ll='174' type='void trap_R_DrawStretchPic(float x, float y, float w, float h, float s1, float t1, float s2, float t2, qhandle_t hShader)'/>

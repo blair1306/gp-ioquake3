@@ -1,0 +1,6 @@
+<def f='codebrowser/code/jpeg-8c/jpegint.h' l='116' ll='120'/>
+<size>24</size>
+<doc f='codebrowser/code/jpeg-8c/jpegint.h' l='115'>/* Entropy encoding */</doc>
+<mbr r='jpeg_entropy_encoder::start_pass' o='0' t='void (*)(j_compress_ptr, boolean)'/>
+<mbr r='jpeg_entropy_encoder::encode_mcu' o='64' t='boolean (*)(j_compress_ptr, JBLOCKROW *)'/>
+<mbr r='jpeg_entropy_encoder::finish_pass' o='128' t='void (*)(j_compress_ptr)'/>

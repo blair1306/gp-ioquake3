@@ -1,0 +1,17 @@
+<dec f='codebrowser/code/q3_ui/ui_local.h' l='529' type='qboolean UI_RegisterClientModelname(playerInfo_t * pi, const char * modelSkinName)'/>
+<def f='codebrowser/code/q3_ui/ui_players.c' l='1055' ll='1119' type='qboolean UI_RegisterClientModelname(playerInfo_t * pi, const char * modelSkinName)'/>
+<use f='codebrowser/code/q3_ui/ui_players.c' l='1129' u='c' c='UI_PlayerInfo_SetModel'/>
+<doc f='codebrowser/code/q3_ui/ui_players.c' l='1050'>/*
+==========================
+UI_RegisterClientModelname
+==========================
+*/</doc>
+<dec f='codebrowser/code/ui/ui_local.h' l='573' type='qboolean UI_RegisterClientModelname(playerInfo_t * pi, const char * modelSkinName, const char * headName, const char * teamName)'/>
+<use f='codebrowser/code/ui/ui_main.c' l='1504' u='c' c='UI_DrawOpponent'/>
+<def f='codebrowser/code/ui/ui_players.c' l='1141' ll='1237' type='qboolean UI_RegisterClientModelname(playerInfo_t * pi, const char * modelSkinName, const char * headModelSkinName, const char * teamName)'/>
+<use f='codebrowser/code/ui/ui_players.c' l='1247' u='c' c='UI_PlayerInfo_SetModel'/>
+<doc f='codebrowser/code/ui/ui_players.c' l='1136'>/*
+==========================
+UI_RegisterClientModelname
+==========================
+*/</doc>

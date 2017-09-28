@@ -1,0 +1,23 @@
+<dec f='codebrowser/code/game/g_local.h' l='773' type='void trap_GetConfigstring(int num, char * buffer, int bufferSize)'/>
+<use f='codebrowser/code/game/ai_chat.c' l='74' u='c' c='BotNumActivePlayers'/>
+<use f='codebrowser/code/game/ai_chat.c' l='97' u='c' c='BotIsFirstInRankings'/>
+<use f='codebrowser/code/game/ai_chat.c' l='120' u='c' c='BotIsLastInRankings'/>
+<use f='codebrowser/code/game/ai_chat.c' l='145' u='c' c='BotFirstClientInRankings'/>
+<use f='codebrowser/code/game/ai_chat.c' l='174' u='c' c='BotLastClientInRankings'/>
+<use f='codebrowser/code/game/ai_chat.c' l='205' u='c' c='BotRandomOpponentName'/>
+<use f='codebrowser/code/game/ai_cmd.c' l='285' u='c' c='NumPlayersOnSameTeam'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='1399' u='c' c='ClientName'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='1418' u='c' c='ClientSkin'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='1434' u='c' c='ClientFromName'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='1453' u='c' c='ClientOnSameTeamFromName'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='2084' u='c' c='BotIsObserver'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='4849' u='c' c='BotCheckEvents'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='4960' u='c' c='BotCheckEvents'/>
+<use f='codebrowser/code/game/ai_main.c' l='399' u='c' c='BotTeamplayReport'/>
+<use f='codebrowser/code/game/ai_main.c' l='412' u='c' c='BotTeamplayReport'/>
+<use f='codebrowser/code/game/ai_main.c' l='554' u='c' c='BotUpdateInfoConfigStrings'/>
+<use f='codebrowser/code/game/ai_team.c' l='89' u='c' c='BotNumTeamMates'/>
+<use f='codebrowser/code/game/ai_team.c' l='154' u='c' c='BotSortTeamMatesByBaseTravelTime'/>
+<use f='codebrowser/code/game/ai_team.c' l='887' u='c' c='BotTeamOrders'/>
+<def f='codebrowser/code/game/g_syscalls.c' l='132' ll='134' type='void trap_GetConfigstring(int num, char * buffer, int bufferSize)'/>
+<use f='codebrowser/code/game/g_utils.c' l='93' u='c' c='G_FindConfigstringIndex'/>

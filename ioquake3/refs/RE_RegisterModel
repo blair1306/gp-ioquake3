@@ -1,0 +1,30 @@
+<dec f='codebrowser/code/renderergl1/tr_local.h' l='1148' type='qhandle_t RE_RegisterModel(const char * name)'/>
+<use f='codebrowser/code/renderergl1/tr_init.c' l='1336' u='r' c='GetRefAPI'/>
+<def f='codebrowser/code/renderergl1/tr_model.c' l='252' ll='365' type='qhandle_t RE_RegisterModel(const char * name)'/>
+<doc f='codebrowser/code/renderergl1/tr_model.c' l='240'>/*
+====================
+RE_RegisterModel
+
+Loads in a model for the given name
+
+Zero will be returned if the model fails to load.
+An entry will be retained for failed models as an
+optimization to prevent disk rescanning if they are
+asked for again.
+====================
+*/</doc>
+<dec f='codebrowser/code/renderergl2/tr_local.h' l='1895' type='qhandle_t RE_RegisterModel(const char * name)'/>
+<use f='codebrowser/code/renderergl2/tr_init.c' l='1585' u='r' c='GetRefAPI'/>
+<def f='codebrowser/code/renderergl2/tr_model.c' l='253' ll='366' type='qhandle_t RE_RegisterModel(const char * name)'/>
+<doc f='codebrowser/code/renderergl2/tr_model.c' l='241'>/*
+====================
+RE_RegisterModel
+
+Loads in a model for the given name
+
+Zero will be returned if the model fails to load.
+An entry will be retained for failed models as an
+optimization to prevent disk rescanning if they are
+asked for again.
+====================
+*/</doc>

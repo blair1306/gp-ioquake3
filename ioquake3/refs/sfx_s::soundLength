@@ -1,0 +1,21 @@
+<dec f='codebrowser/code/client/snd_local.h' l='58' type='int'/>
+<offset>192</offset>
+<use f='codebrowser/code/client/snd_adpcm.c' l='299' u='r' c='S_AdpcmEncodeSound'/>
+<use f='codebrowser/code/client/snd_dma.c' l='173' u='r' c='S_Base_SoundList'/>
+<use f='codebrowser/code/client/snd_dma.c' l='323' u='w' c='S_DefaultSound'/>
+<use f='codebrowser/code/client/snd_dma.c' l='328' u='r' c='S_DefaultSound'/>
+<use f='codebrowser/code/client/snd_dma.c' l='754' u='r' c='S_Base_ClearLoopingSounds'/>
+<use f='codebrowser/code/client/snd_dma.c' l='787' u='r' c='S_Base_AddLoopingSound'/>
+<use f='codebrowser/code/client/snd_dma.c' l='850' u='r' c='S_Base_AddRealLoopingSound'/>
+<use f='codebrowser/code/client/snd_dma.c' l='1193' u='r' c='S_ScanChannelStarts'/>
+<use f='codebrowser/code/client/snd_mem.c' l='248' u='w' c='S_LoadSound'/>
+<use f='codebrowser/code/client/snd_mem.c' l='265' u='w' c='S_LoadSound'/>
+<use f='codebrowser/code/client/snd_mix.c' l='722' u='r' c='S_PaintChannels'/>
+<use f='codebrowser/code/client/snd_mix.c' l='728' u='r' c='S_PaintChannels'/>
+<use f='codebrowser/code/client/snd_mix.c' l='729' u='r' c='S_PaintChannels'/>
+<use f='codebrowser/code/client/snd_mix.c' l='755' u='r' c='S_PaintChannels'/>
+<use f='codebrowser/code/client/snd_mix.c' l='762' u='r' c='S_PaintChannels'/>
+<use f='codebrowser/code/client/snd_mix.c' l='765' u='r' c='S_PaintChannels'/>
+<use f='codebrowser/code/client/snd_mix.c' l='766' u='r' c='S_PaintChannels'/>
+<use f='codebrowser/code/client/snd_wavelet.c' l='136' u='r' c='encodeWavelet'/>
+<use f='codebrowser/code/client/snd_wavelet.c' l='207' u='r' c='encodeMuLaw'/>

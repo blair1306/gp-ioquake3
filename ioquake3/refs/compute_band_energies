@@ -1,0 +1,12 @@
+<dec f='codebrowser/code/opus-1.1.4/celt/bands.h' l='44' type='void compute_band_energies(const OpusCustomMode * m, const celt_sig * X, celt_ener * bandE, int end, int C, int LM)'/>
+<def f='codebrowser/code/opus-1.1.4/celt/bands.c' l='158' ll='173' type='void compute_band_energies(const OpusCustomMode * m, const celt_sig * X, celt_ener * bandE, int end, int C, int LM)'/>
+<doc f='codebrowser/code/opus-1.1.4/celt/bands.c' l='157'>/* Compute the amplitude (sqrt energy) in each of the bands */</doc>
+<doc f='codebrowser/code/opus-1.1.4/celt/bands.h' l='39'>/** Compute the amplitude (sqrt energy) in each of the bands
+ * @param m Mode data
+ * @param X Spectrum
+ * @param bandE Square root of the energy for each band (returned)
+ */</doc>
+<use f='codebrowser/code/opus-1.1.4/celt/celt_encoder.c' l='1613' u='c' c='celt_encode_with_ec'/>
+<use f='codebrowser/code/opus-1.1.4/celt/celt_encoder.c' l='1622' u='c' c='celt_encode_with_ec'/>
+<use f='codebrowser/code/opus-1.1.4/celt/celt_encoder.c' l='1746' u='c' c='celt_encode_with_ec'/>
+<use f='codebrowser/code/opus-1.1.4/src/opus_multistream_encoder.c' l='298' u='c' c='surround_analysis'/>

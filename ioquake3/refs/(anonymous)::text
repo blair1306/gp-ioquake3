@@ -1,0 +1,25 @@
+<dec f='codebrowser/code/renderercommon/tr_types.h' l='141' type='char [8][32]'/>
+<offset>896</offset>
+<doc f='codebrowser/code/renderercommon/tr_types.h' l='140'>// text messages for deform text shaders</doc>
+<dec f='include/SDL2/SDL_messagebox.h' l='60' type='const char *'/>
+<offset>64</offset>
+<doc f='include/SDL2/SDL_messagebox.h' l='60'>/**&lt; The UTF-8 button text */</doc>
+<dec f='codebrowser/code/renderergl1/tr_local.h' l='394' type='char [8][32]'/>
+<offset>1024</offset>
+<doc f='codebrowser/code/renderergl1/tr_local.h' l='393'>// text messages for deform text shaders</doc>
+<use f='codebrowser/code/renderergl1/tr_scene.c' l='307' u='r' c='RE_RenderScene'/>
+<use f='codebrowser/code/renderergl1/tr_scene.c' l='307' u='r' c='RE_RenderScene'/>
+<use f='codebrowser/code/renderergl1/tr_scene.c' l='307' u='r' c='RE_RenderScene'/>
+<use f='codebrowser/code/renderergl1/tr_shade_calc.c' l='580' u='r' c='RB_DeformTessGeometry'/>
+<dec f='codebrowser/code/renderergl2/tr_local.h' l='718' type='char [8][32]'/>
+<offset>1056</offset>
+<doc f='codebrowser/code/renderergl2/tr_local.h' l='717'>// text messages for deform text shaders</doc>
+<use f='codebrowser/code/renderergl2/tr_scene.c' l='289' u='r' c='RE_BeginScene'/>
+<use f='codebrowser/code/renderergl2/tr_scene.c' l='289' u='r' c='RE_BeginScene'/>
+<use f='codebrowser/code/renderergl2/tr_scene.c' l='289' u='r' c='RE_BeginScene'/>
+<use f='codebrowser/code/renderergl2/tr_shade_calc.c' l='594' u='r' c='RB_DeformTessGeometry'/>
+<dec f='codebrowser/code/ui/ui_local.h' l='745' type='char [1024]'/>
+<offset>33280</offset>
+<use f='codebrowser/code/ui/ui_main.c' l='3942' u='r' c='UI_GetServerStatusInfo'/>
+<use f='codebrowser/code/ui/ui_main.c' l='3942' u='r' c='UI_GetServerStatusInfo'/>
+<use f='codebrowser/code/ui/ui_main.c' l='3944' u='r' c='UI_GetServerStatusInfo'/>

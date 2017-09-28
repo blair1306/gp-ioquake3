@@ -1,0 +1,29 @@
+<dec f='codebrowser/code/botlib/l_libvar.h' l='50' type='float LibVarGetValue(const char * var_name)'/>
+<use f='codebrowser/code/botlib/be_aas_cluster.c' l='1470' u='c' c='AAS_InitClustering'/>
+<use f='codebrowser/code/botlib/be_aas_cluster.c' l='1471' u='c' c='AAS_InitClustering'/>
+<doc f='codebrowser/code/botlib/l_libvar.h' l='49'>//gets the value of the library variable with the given name</doc>
+<use f='codebrowser/code/botlib/be_aas_main.c' l='122' u='c' c='AAS_ContinueInit'/>
+<use f='codebrowser/code/botlib/be_aas_main.c' l='162' u='c' c='AAS_StartFrame'/>
+<use f='codebrowser/code/botlib/be_aas_main.c' l='167' u='c' c='AAS_StartFrame'/>
+<use f='codebrowser/code/botlib/be_aas_main.c' l='172' u='c' c='AAS_StartFrame'/>
+<use f='codebrowser/code/botlib/be_aas_reach.c' l='4513' u='c' c='AAS_InitReachability'/>
+<use f='codebrowser/code/botlib/be_aas_reach.c' l='4524' u='c' c='AAS_InitReachability'/>
+<use f='codebrowser/code/botlib/be_ai_char.c' l='171' u='c' c='BotFreeCharacter'/>
+<use f='codebrowser/code/botlib/be_ai_char.c' l='501' u='c' c='BotLoadCharacterSkill'/>
+<use f='codebrowser/code/botlib/be_ai_chat.c' l='2231' u='c' c='BotLoadChatFile'/>
+<use f='codebrowser/code/botlib/be_ai_chat.c' l='2264' u='c' c='BotLoadChatFile'/>
+<use f='codebrowser/code/botlib/be_ai_chat.c' l='2499' u='c' c='BotNumInitialChats'/>
+<use f='codebrowser/code/botlib/be_ai_chat.c' l='2767' u='c' c='BotReplyChat'/>
+<use f='codebrowser/code/botlib/be_ai_chat.c' l='2815' u='c' c='BotEnterChat'/>
+<use f='codebrowser/code/botlib/be_ai_chat.c' l='2950' u='c' c='BotFreeChatState'/>
+<use f='codebrowser/code/botlib/be_ai_weight.c' l='151' u='c' c='FreeWeightConfig'/>
+<use f='codebrowser/code/botlib/be_ai_weight.c' l='298' u='c' c='ReadWeightConfig'/>
+<use f='codebrowser/code/botlib/be_ai_weight.c' l='437' u='c' c='ReadWeightConfig'/>
+<use f='codebrowser/code/botlib/be_interface.c' l='140' u='c' c='Export_BotLibSetup'/>
+<def f='codebrowser/code/botlib/l_libvar.c' l='170' ll='183' type='float LibVarGetValue(const char * var_name)'/>
+<doc f='codebrowser/code/botlib/l_libvar.c' l='164'>//===========================================================================
+//
+// Parameter:				-
+// Returns:					-
+// Changes Globals:		-
+//===========================================================================</doc>

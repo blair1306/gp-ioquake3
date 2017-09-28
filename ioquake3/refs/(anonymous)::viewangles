@@ -1,0 +1,28 @@
+<dec f='codebrowser/code/client/client.h' l='134' type='vec3_t'/>
+<offset>182016</offset>
+<doc f='codebrowser/code/client/client.h' l='129'>// the client maintains its own idea of view angles, which are
+	// sent to the server each frame.  It is cleared to 0 upon entering each level.
+	// the server sends a delta each frame which is added to the locally
+	// tracked view angles to account for standing on rotating objects,
+	// and teleport direction changes</doc>
+<use f='codebrowser/code/client/cl_input.c' l='271' u='w' c='IN_CenterView'/>
+<use f='codebrowser/code/client/cl_input.c' l='302' u='w' c='CL_AdjustAngles'/>
+<use f='codebrowser/code/client/cl_input.c' l='303' u='w' c='CL_AdjustAngles'/>
+<use f='codebrowser/code/client/cl_input.c' l='306' u='w' c='CL_AdjustAngles'/>
+<use f='codebrowser/code/client/cl_input.c' l='307' u='w' c='CL_AdjustAngles'/>
+<use f='codebrowser/code/client/cl_input.c' l='412' u='w' c='CL_JoystickMove'/>
+<use f='codebrowser/code/client/cl_input.c' l='415' u='w' c='CL_JoystickMove'/>
+<use f='codebrowser/code/client/cl_input.c' l='420' u='w' c='CL_JoystickMove'/>
+<use f='codebrowser/code/client/cl_input.c' l='423' u='w' c='CL_JoystickMove'/>
+<use f='codebrowser/code/client/cl_input.c' l='511' u='w' c='CL_MouseMove'/>
+<use f='codebrowser/code/client/cl_input.c' l='514' u='w' c='CL_MouseMove'/>
+<use f='codebrowser/code/client/cl_input.c' l='568' u='r' c='CL_FinishMove'/>
+<use f='codebrowser/code/client/cl_input.c' l='582' u='r' c='CL_CreateCmd'/>
+<use f='codebrowser/code/client/cl_input.c' l='582' u='r' c='CL_CreateCmd'/>
+<use f='codebrowser/code/client/cl_input.c' l='582' u='r' c='CL_CreateCmd'/>
+<use f='codebrowser/code/client/cl_input.c' l='601' u='r' c='CL_CreateCmd'/>
+<use f='codebrowser/code/client/cl_input.c' l='602' u='w' c='CL_CreateCmd'/>
+<use f='codebrowser/code/client/cl_input.c' l='603' u='r' c='CL_CreateCmd'/>
+<use f='codebrowser/code/client/cl_input.c' l='604' u='w' c='CL_CreateCmd'/>
+<use f='codebrowser/code/client/cl_input.c' l='613' u='r' c='CL_CreateCmd'/>
+<use f='codebrowser/code/client/cl_input.c' l='616' u='r' c='CL_CreateCmd'/>

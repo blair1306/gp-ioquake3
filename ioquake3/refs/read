@@ -1,0 +1,12 @@
+<dec f='include/unistd.h' l='363' type='ssize_t read(int __fd, void * __buf, size_t __nbytes)'/>
+<doc f='include/unistd.h' l='358'>/* Read NBYTES into BUF from FD.  Return the
+   number read, -1 for errors or 0 for EOF.
+
+   This function is a cancellation point and therefore not marked with
+   __THROW.  */</doc>
+<use f='codebrowser/code/sys/con_tty.c' l='87' u='c' c='CON_FlushIn'/>
+<use f='codebrowser/code/sys/con_tty.c' l='358' u='c' c='CON_Input'/>
+<use f='codebrowser/code/sys/con_tty.c' l='425' u='c' c='CON_Input'/>
+<use f='codebrowser/code/sys/con_tty.c' l='431' u='c' c='CON_Input'/>
+<use f='codebrowser/code/sys/con_tty.c' l='497' u='c' c='CON_Input'/>
+<use f='codebrowser/code/tools/lcc/cpp/lex.c' l='522' u='c' c='fillbuf'/>

@@ -1,0 +1,12 @@
+<dec f='codebrowser/code/qcommon/unzip.h' l='161' type='int unzGetGlobalInfo(unzFile file, unz_global_info * pglobal_info)'/>
+<use f='codebrowser/code/qcommon/files.c' l='2037' u='c' c='FS_LoadZipFile'/>
+<doc f='codebrowser/code/qcommon/unzip.h' l='155'>/*
+  Close a ZipFile opened with unzipOpen.
+  If there is files inside the .Zip opened with unzOpenCurrentFile (see later),
+    these files MUST be closed with unzipCloseCurrentFile before call unzipClose.
+  return UNZ_OK if there is no problem. */</doc>
+<def f='codebrowser/code/qcommon/unzip.c' l='527' ll='537' type='int unzGetGlobalInfo(unzFile file, unz_global_info * pglobal_info)'/>
+<doc f='codebrowser/code/qcommon/unzip.c' l='523'>/*
+  Write info about the ZipFile in the *pglobal_info structure.
+  No preparation of the structure is needed
+  return UNZ_OK if there is no problem. */</doc>

@@ -1,0 +1,6 @@
+<def f='codebrowser/code/jpeg-8c/jpegint.h' l='231' ll='242'/>
+<size>24</size>
+<doc f='codebrowser/code/jpeg-8c/jpegint.h' l='230'>/* Upsampling (note that upsampler must also call color converter) */</doc>
+<mbr r='jpeg_upsampler::start_pass' o='0' t='void (*)(j_decompress_ptr)'/>
+<mbr r='jpeg_upsampler::upsample' o='64' t='void (*)(j_decompress_ptr, JSAMPIMAGE, JDIMENSION *, JDIMENSION, JSAMPARRAY, JDIMENSION *, JDIMENSION)'/>
+<mbr r='jpeg_upsampler::need_context_rows' o='128' t='boolean'/>

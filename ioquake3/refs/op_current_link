@@ -1,0 +1,17 @@
+<dec f='codebrowser/code/opusfile-0.8/include/opusfile.h' l='1584' type='int op_current_link(const OggOpusFile * _of)'/>
+<doc f='codebrowser/code/opusfile-0.8/include/opusfile.h' l='1569'>/**Retrieve the index of the current link.
+   This is the link that produced the data most recently read by
+    op_read_float() or its associated functions, or, after a seek, the link
+    that the seek target landed in.
+   Reading more data may advance the link index (even on the first read after a
+    seek).
+   \param _of The \c OggOpusFile from which to retrieve the current link index.
+   \return The index of the current link on success, or a negative value on
+            failure.
+           For seekable streams, this is a number between 0 and the value
+            returned by op_link_count().
+           For unseekable streams, this value starts at 0 and increments by one
+            each time a new link is encountered (even though op_link_count()
+            always returns 1).
+   \retval #OP_EINVAL The stream was only partially open.*/</doc>
+<def f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='1774' ll='1777' type='int op_current_link(const OggOpusFile * _of)'/>

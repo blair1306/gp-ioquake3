@@ -1,0 +1,44 @@
+<dec f='codebrowser/code/qcommon/qcommon.h' l='175' type='void NET_OutOfBandPrint(netsrc_t net_socket, netadr_t adr, const char * format)'/>
+<use f='codebrowser/code/client/cl_main.c' l='1548' u='c' c='CL_RequestMotd'/>
+<use f='codebrowser/code/client/cl_main.c' l='1632' u='c' c='CL_RequestAuthorization'/>
+<use f='codebrowser/code/client/cl_main.c' l='2373' u='c' c='CL_CheckForResend'/>
+<use f='codebrowser/code/client/cl_main.c' l='2755' u='c' c='CL_ConnectionlessPacket'/>
+<use f='codebrowser/code/client/cl_main.c' l='4010' u='c' c='CL_ServerStatus'/>
+<use f='codebrowser/code/client/cl_main.c' l='4022' u='c' c='CL_ServerStatus'/>
+<use f='codebrowser/code/client/cl_main.c' l='4264' u='c' c='CL_GlobalServers_f'/>
+<use f='codebrowser/code/client/cl_main.c' l='4469' u='c' c='CL_Ping_f'/>
+<use f='codebrowser/code/client/cl_main.c' l='4537' u='c' c='CL_UpdateVisiblePings_f'/>
+<use f='codebrowser/code/client/cl_main.c' l='4625' u='c' c='CL_ServerStatus_f'/>
+<def f='codebrowser/code/qcommon/net_chan.c' l='573' ll='590' type='void NET_OutOfBandPrint(netsrc_t sock, netadr_t adr, const char * format)'/>
+<doc f='codebrowser/code/qcommon/net_chan.c' l='566'>/*
+===============
+NET_OutOfBandPrint
+
+Sends a text message in an out-of-band datagram
+================
+*/</doc>
+<use f='codebrowser/code/server/sv_ccmds.c' l='566' u='c' c='SV_Ban_f'/>
+<use f='codebrowser/code/server/sv_ccmds.c' l='620' u='c' c='SV_BanNum_f'/>
+<use f='codebrowser/code/server/sv_client.c' l='97' u='c' c='SV_GetChallenge'/>
+<use f='codebrowser/code/server/sv_client.c' l='192' u='c' c='SV_GetChallenge'/>
+<use f='codebrowser/code/server/sv_client.c' l='202' u='c' c='SV_GetChallenge'/>
+<use f='codebrowser/code/server/sv_client.c' l='249' u='c' c='SV_AuthorizeIpPacket'/>
+<use f='codebrowser/code/server/sv_client.c' l='255' u='c' c='SV_AuthorizeIpPacket'/>
+<use f='codebrowser/code/server/sv_client.c' l='261' u='c' c='SV_AuthorizeIpPacket'/>
+<use f='codebrowser/code/server/sv_client.c' l='263' u='c' c='SV_AuthorizeIpPacket'/>
+<use f='codebrowser/code/server/sv_client.c' l='272' u='c' c='SV_AuthorizeIpPacket'/>
+<use f='codebrowser/code/server/sv_client.c' l='274' u='c' c='SV_AuthorizeIpPacket'/>
+<use f='codebrowser/code/server/sv_client.c' l='348' u='c' c='SV_DirectConnect'/>
+<use f='codebrowser/code/server/sv_client.c' l='364' u='c' c='SV_DirectConnect'/>
+<use f='codebrowser/code/server/sv_client.c' l='397' u='c' c='SV_DirectConnect'/>
+<use f='codebrowser/code/server/sv_client.c' l='421' u='c' c='SV_DirectConnect'/>
+<use f='codebrowser/code/server/sv_client.c' l='438' u='c' c='SV_DirectConnect'/>
+<use f='codebrowser/code/server/sv_client.c' l='444' u='c' c='SV_DirectConnect'/>
+<use f='codebrowser/code/server/sv_client.c' l='527' u='c' c='SV_DirectConnect'/>
+<use f='codebrowser/code/server/sv_client.c' l='568' u='c' c='SV_DirectConnect'/>
+<use f='codebrowser/code/server/sv_client.c' l='576' u='c' c='SV_DirectConnect'/>
+<use f='codebrowser/code/server/sv_main.c' l='322' u='c' c='SV_MasterHeartbeat'/>
+<use f='codebrowser/code/server/sv_main.c' l='324' u='c' c='SV_MasterHeartbeat'/>
+<use f='codebrowser/code/server/sv_main.c' l='584' u='c' c='SVC_Status'/>
+<use f='codebrowser/code/server/sv_main.c' l='681' u='c' c='SVC_Info'/>
+<use f='codebrowser/code/server/sv_main.c' l='691' u='c' c='SV_FlushRedirect'/>

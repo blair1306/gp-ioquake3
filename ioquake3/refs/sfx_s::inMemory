@@ -1,0 +1,11 @@
+<dec f='codebrowser/code/client/snd_local.h' l='55' type='qboolean'/>
+<offset>96</offset>
+<doc f='codebrowser/code/client/snd_local.h' l='55'>// not in Memory</doc>
+<use f='codebrowser/code/client/snd_dma.c' l='176' u='r' c='S_Base_SoundList'/>
+<use f='codebrowser/code/client/snd_dma.c' l='375' u='w' c='S_Base_RegisterSound'/>
+<use f='codebrowser/code/client/snd_dma.c' l='413' u='w' c='S_memoryLoad'/>
+<use f='codebrowser/code/client/snd_dma.c' l='550' u='r' c='S_Base_StartSoundEx'/>
+<use f='codebrowser/code/client/snd_dma.c' l='783' u='r' c='S_Base_AddLoopingSound'/>
+<use f='codebrowser/code/client/snd_dma.c' l='846' u='r' c='S_Base_AddRealLoopingSound'/>
+<use f='codebrowser/code/client/snd_dma.c' l='1523' u='r' c='S_FreeOldestSound'/>
+<use f='codebrowser/code/client/snd_dma.c' l='1539' u='w' c='S_FreeOldestSound'/>

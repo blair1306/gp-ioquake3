@@ -1,0 +1,6 @@
+<dec f='codebrowser/code/opus-1.1.4/silk/resampler_private.h' l='77' type='void silk_resampler_private_AR2(opus_int32 * S, opus_int32 * out_Q8, const opus_int16 * in, const opus_int16 * A_Q14, opus_int32 len)'/>
+<doc f='codebrowser/code/opus-1.1.4/silk/resampler_private.h' l='76'>/* Second order AR filter */</doc>
+<use f='codebrowser/code/opus-1.1.4/silk/resampler_down2_3.c' l='61' u='c' c='silk_resampler_down2_3'/>
+<def f='codebrowser/code/opus-1.1.4/silk/resampler_private_AR2.c' l='36' ll='54' type='void silk_resampler_private_AR2(opus_int32 * S, opus_int32 * out_Q8, const opus_int16 * in, const opus_int16 * A_Q14, opus_int32 len)'/>
+<doc f='codebrowser/code/opus-1.1.4/silk/resampler_private_AR2.c' l='35'>/* Second order AR filter with single delay elements */</doc>
+<use f='codebrowser/code/opus-1.1.4/silk/resampler_private_down_FIR.c' l='172' u='c' c='silk_resampler_private_down_FIR'/>

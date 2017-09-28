@@ -1,0 +1,24 @@
+<dec f='codebrowser/code/qcommon/qcommon.h' l='984' type='void CL_Disconnect(qboolean showMainMenu)'/>
+<use f='codebrowser/code/client/cl_main.c' l='926' u='c' c='CL_DemoCompleted'/>
+<use f='codebrowser/code/client/cl_main.c' l='1089' u='c' c='CL_PlayDemo_f'/>
+<use f='codebrowser/code/client/cl_main.c' l='1309' u='c' c='CL_MapLoading'/>
+<def f='codebrowser/code/client/cl_main.c' l='1379' ll='1482' type='void CL_Disconnect(qboolean showMainMenu)'/>
+<use f='codebrowser/code/client/cl_main.c' l='1739' u='c' c='CL_Connect_f'/>
+<use f='codebrowser/code/client/cl_main.c' l='2875' u='c' c='CL_CheckTimeout'/>
+<use f='codebrowser/code/client/cl_main.c' l='3736' u='c' c='CL_Shutdown'/>
+<doc f='codebrowser/code/client/cl_main.c' l='1369'>/*
+=====================
+CL_Disconnect
+
+Called when a connection, demo, or cinematic is being terminated.
+Goes from a connected state to either a menu state or a console state
+Sends a disconnect message to the server
+This is also called on Com_Error and Com_Quit, so it shouldn&apos;t cause any errors
+=====================
+*/</doc>
+<def f='codebrowser/code/null/null_client.c' l='51' ll='52' type='void CL_Disconnect(qboolean showMainMenu)'/>
+<use f='codebrowser/code/qcommon/common.c' l='315' u='c' c='Com_Error'/>
+<use f='codebrowser/code/qcommon/common.c' l='329' u='c' c='Com_Error'/>
+<use f='codebrowser/code/qcommon/common.c' l='342' u='c' c='Com_Error'/>
+<use f='codebrowser/code/qcommon/common.c' l='2402' u='c' c='Com_GameRestart'/>
+<use f='codebrowser/code/server/sv_init.c' l='785' u='c' c='SV_Shutdown'/>

@@ -1,0 +1,14 @@
+<dec f='codebrowser/code/server/server.h' l='138' type='int'/>
+<use f='codebrowser/code/server/sv_bot.c' l='582' u='r' c='SV_BotGetConsoleMessage'/>
+<offset>532512</offset>
+<doc f='codebrowser/code/server/server.h' l='138'>// last added reliable message, not necesarily sent or acknowledged yet</doc>
+<use f='codebrowser/code/server/sv_client.c' l='535' u='w' c='SV_DirectConnect'/>
+<use f='codebrowser/code/server/sv_client.c' l='745' u='r' c='SV_SendClientGameState'/>
+<use f='codebrowser/code/server/sv_client.c' l='1924' u='r' c='SV_ExecuteClientMessage'/>
+<use f='codebrowser/code/server/sv_client.c' l='1930' u='r' c='SV_ExecuteClientMessage'/>
+<use f='codebrowser/code/server/sv_main.c' l='156' u='w' c='SV_AddServerCommand'/>
+<use f='codebrowser/code/server/sv_main.c' l='161' u='r' c='SV_AddServerCommand'/>
+<use f='codebrowser/code/server/sv_main.c' l='163' u='r' c='SV_AddServerCommand'/>
+<use f='codebrowser/code/server/sv_main.c' l='170' u='r' c='SV_AddServerCommand'/>
+<use f='codebrowser/code/server/sv_snapshot.c' l='222' u='r' c='SV_UpdateServerCommandsToClient'/>
+<use f='codebrowser/code/server/sv_snapshot.c' l='227' u='r' c='SV_UpdateServerCommandsToClient'/>

@@ -1,0 +1,11 @@
+<dec f='codebrowser/code/qcommon/qcommon.h' l='638' type='int FS_GetModList(char * listbuf, int bufsize)'/>
+<use f='codebrowser/code/qcommon/files.c' l='2400' u='c' c='FS_GetFileList'/>
+<def f='codebrowser/code/qcommon/files.c' l='2518' ll='2609' type='int FS_GetModList(char * listbuf, int bufsize)'/>
+<doc f='codebrowser/code/qcommon/files.c' l='2510'>/*
+================
+FS_GetModList
+
+Returns a list of mod directory names
+A mod directory is a peer to baseq3 with a pk3 or pk3dir in it
+================
+*/</doc>

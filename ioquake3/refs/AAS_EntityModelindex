@@ -1,0 +1,14 @@
+<dec f='codebrowser/code/botlib/be_aas_entity.h' l='62' type='int AAS_EntityModelindex(int entnum)'/>
+<dec f='codebrowser/code/botlib/be_aas_entity.h' l='62' type='int AAS_EntityModelindex(int entnum)'/>
+<doc f='codebrowser/code/botlib/be_aas_entity.h' l='61'>//returns the model index of the entity</doc>
+<def f='codebrowser/code/botlib/be_aas_entity.c' l='212' ll='220' type='int AAS_EntityModelindex(int entnum)'/>
+<doc f='codebrowser/code/botlib/be_aas_entity.c' l='206'>//===========================================================================
+//
+// Parameter:				-
+// Returns:					-
+// Changes Globals:		-
+//===========================================================================</doc>
+<use f='codebrowser/code/botlib/be_ai_goal.c' l='974' u='c' c='BotFindEntityForLevelItem'/>
+<use f='codebrowser/code/botlib/be_ai_goal.c' l='1037' u='c' c='BotUpdateEntityItems'/>
+<use f='codebrowser/code/botlib/be_ai_move.c' l='319' u='c' c='BotReachabilityArea'/>
+<use f='codebrowser/code/botlib/be_ai_move.c' l='3049' u='c' c='BotMoveToGoal'/>

@@ -1,0 +1,40 @@
+<def f='codebrowser/code/renderergl1/tr_init.c' l='369' ll='390' type='byte * RB_ReadPixels(int x, int y, int width, int height, size_t * offset, int * padlen)'/>
+<use f='codebrowser/code/renderergl1/tr_init.c' l='407' u='c' c='RB_TakeScreenshot'/>
+<use f='codebrowser/code/renderergl1/tr_init.c' l='465' u='c' c='RB_TakeScreenshotJPEG'/>
+<use f='codebrowser/code/renderergl1/tr_init.c' l='590' u='c' c='R_LevelShot'/>
+<doc f='codebrowser/code/renderergl1/tr_init.c' l='352'>/* 
+================== 
+RB_ReadPixels
+
+Reads an image but takes care of alignment issues for reading RGB images.
+
+Reads a minimum offset for where the RGB data starts in the image from
+integer stored at pointer offset. When the function has returned the actual
+offset was written back to address offset. This address will always have an
+alignment of packAlign to ensure efficient copying.
+
+Stores the length of padding after a line of pixels to address padlen
+
+Return value must be freed with ri.Hunk_FreeTempMemory()
+================== 
+*/</doc>
+<def f='codebrowser/code/renderergl2/tr_init.c' l='434' ll='456' type='byte * RB_ReadPixels(int x, int y, int width, int height, size_t * offset, int * padlen)'/>
+<use f='codebrowser/code/renderergl2/tr_init.c' l='473' u='c' c='RB_TakeScreenshot'/>
+<use f='codebrowser/code/renderergl2/tr_init.c' l='531' u='c' c='RB_TakeScreenshotJPEG'/>
+<use f='codebrowser/code/renderergl2/tr_init.c' l='660' u='c' c='R_LevelShot'/>
+<doc f='codebrowser/code/renderergl2/tr_init.c' l='417'>/* 
+================== 
+RB_ReadPixels
+
+Reads an image but takes care of alignment issues for reading RGB images.
+
+Reads a minimum offset for where the RGB data starts in the image from
+integer stored at pointer offset. When the function has returned the actual
+offset was written back to address offset. This address will always have an
+alignment of packAlign to ensure efficient copying.
+
+Stores the length of padding after a line of pixels to address padlen
+
+Return value must be freed with ri.Hunk_FreeTempMemory()
+================== 
+*/</doc>

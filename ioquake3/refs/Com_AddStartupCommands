@@ -1,0 +1,13 @@
+<def f='codebrowser/code/qcommon/common.c' l='516' ll='538' type='qboolean Com_AddStartupCommands()'/>
+<use f='codebrowser/code/qcommon/common.c' l='2829' u='c' c='Com_Init'/>
+<doc f='codebrowser/code/qcommon/common.c' l='505'>/*
+=================
+Com_AddStartupCommands
+
+Adds command line parameters as script statements
+Commands are seperated by + signs
+
+Returns qtrue if any late commands were added, which
+will keep the demoloop from immediately starting
+=================
+*/</doc>

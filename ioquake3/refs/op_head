@@ -1,0 +1,18 @@
+<dec f='codebrowser/code/opusfile-0.8/include/opusfile.h' l='1549' type='const OpusHead * op_head(const OggOpusFile * _of, int _li)'/>
+<use f='codebrowser/code/client/snd_codec_opus.c' l='261' u='c' c='S_OggOpus_CodecOpenStream'/>
+<doc f='codebrowser/code/opusfile-0.8/include/opusfile.h' l='1535'>/**Get the ID header information for the given link in a (possibly chained) Ogg
+    Opus stream.
+   This function may be called on partially-opened streams, but it will always
+    return the ID header information of the Opus stream in the first link.
+   \param _of The \c OggOpusFile from which to retrieve the ID header
+               information.
+   \param _li The index of the link whose ID header information should be
+               retrieved.
+              Use a negative number to get the ID header information of the
+               current link.
+              For an unseekable stream, \a _li is ignored, and the ID header
+               information for the current link is always returned, if
+               available.
+   \return The contents of the ID header for the given link.*/</doc>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='1712' u='c' c='op_channel_count'/>
+<def f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='1756' ll='1760' type='const OpusHead * op_head(const OggOpusFile * _of, int _li)'/>

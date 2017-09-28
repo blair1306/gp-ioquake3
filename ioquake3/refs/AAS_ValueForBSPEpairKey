@@ -1,0 +1,39 @@
+<dec f='codebrowser/code/botlib/be_aas_bsp.h' l='82' type='int AAS_ValueForBSPEpairKey(int ent, char * key, char * value, int size)'/>
+<dec f='codebrowser/code/botlib/be_aas_bsp.h' l='82' type='int AAS_ValueForBSPEpairKey(int ent, char * key, char * value, int size)'/>
+<def f='codebrowser/code/botlib/be_aas_bspq3.c' l='279' ll='295' type='int AAS_ValueForBSPEpairKey(int ent, char * key, char * value, int size)'/>
+<use f='codebrowser/code/botlib/be_aas_bspq3.c' l='308' u='c' c='AAS_VectorForBSPEpairKey'/>
+<use f='codebrowser/code/botlib/be_aas_bspq3.c' l='328' u='c' c='AAS_FloatForBSPEpairKey'/>
+<use f='codebrowser/code/botlib/be_aas_bspq3.c' l='343' u='c' c='AAS_IntForBSPEpairKey'/>
+<doc f='codebrowser/code/botlib/be_aas_bspq3.c' l='273'>//===========================================================================
+//
+// Parameter:			-
+// Returns:				-
+// Changes Globals:		-
+//===========================================================================</doc>
+<doc f='codebrowser/code/botlib/be_aas_bsp.h' l='81'>//return the value of the BSP epair key</doc>
+<use f='codebrowser/code/botlib/be_aas_reach.c' l='227' u='c' c='AAS_GetJumpPadInfo'/>
+<use f='codebrowser/code/botlib/be_aas_reach.c' l='253' u='c' c='AAS_GetJumpPadInfo'/>
+<use f='codebrowser/code/botlib/be_aas_reach.c' l='256' u='c' c='AAS_GetJumpPadInfo'/>
+<use f='codebrowser/code/botlib/be_aas_reach.c' l='309' u='c' c='AAS_BestReachableFromJumpPadArea'/>
+<use f='codebrowser/code/botlib/be_aas_reach.c' l='2756' u='c' c='AAS_Reachability_Teleport'/>
+<use f='codebrowser/code/botlib/be_aas_reach.c' l='2759' u='c' c='AAS_Reachability_Teleport'/>
+<use f='codebrowser/code/botlib/be_aas_reach.c' l='2766' u='c' c='AAS_Reachability_Teleport'/>
+<use f='codebrowser/code/botlib/be_aas_reach.c' l='2774' u='c' c='AAS_Reachability_Teleport'/>
+<use f='codebrowser/code/botlib/be_aas_reach.c' l='2777' u='c' c='AAS_Reachability_Teleport'/>
+<use f='codebrowser/code/botlib/be_aas_reach.c' l='2788' u='c' c='AAS_Reachability_Teleport'/>
+<use f='codebrowser/code/botlib/be_aas_reach.c' l='2796' u='c' c='AAS_Reachability_Teleport'/>
+<use f='codebrowser/code/botlib/be_aas_reach.c' l='2803' u='c' c='AAS_Reachability_Teleport'/>
+<use f='codebrowser/code/botlib/be_aas_reach.c' l='2820' u='c' c='AAS_Reachability_Teleport'/>
+<use f='codebrowser/code/botlib/be_aas_reach.c' l='2952' u='c' c='AAS_Reachability_Elevator'/>
+<use f='codebrowser/code/botlib/be_aas_reach.c' l='2958' u='c' c='AAS_Reachability_Elevator'/>
+<use f='codebrowser/code/botlib/be_aas_reach.c' l='3290' u='c' c='AAS_Reachability_FuncBobbing'/>
+<use f='codebrowser/code/botlib/be_aas_reach.c' l='3295' u='c' c='AAS_Reachability_FuncBobbing'/>
+<use f='codebrowser/code/botlib/be_aas_reach.c' l='3513' u='c' c='AAS_Reachability_JumpPad'/>
+<use f='codebrowser/code/botlib/be_aas_reach.c' l='3934' u='c' c='AAS_SetWeaponJumpAreaFlags'/>
+<use f='codebrowser/code/botlib/be_ai_goal.c' l='488' u='c' c='BotInitInfoEntities'/>
+<use f='codebrowser/code/botlib/be_ai_goal.c' l='495' u='c' c='BotInitInfoEntities'/>
+<use f='codebrowser/code/botlib/be_ai_goal.c' l='507' u='c' c='BotInitInfoEntities'/>
+<use f='codebrowser/code/botlib/be_ai_goal.c' l='572' u='c' c='BotInitLevelItems'/>
+<use f='codebrowser/code/botlib/be_ai_move.c' l='520' u='c' c='BotSetBrushModelTypes'/>
+<use f='codebrowser/code/botlib/be_ai_move.c' l='521' u='c' c='BotSetBrushModelTypes'/>
+<use f='codebrowser/code/botlib/be_interface.c' l='702' u='r' c='Init_AAS_Export'/>

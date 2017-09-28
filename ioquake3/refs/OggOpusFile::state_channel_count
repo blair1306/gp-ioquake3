@@ -1,0 +1,12 @@
+<dec f='codebrowser/code/opusfile-0.8/src/internal.h' l='248' type='int'/>
+<offset>105568</offset>
+<doc f='codebrowser/code/opusfile-0.8/src/internal.h' l='244'>/*The number of channels represented by the internal state.
+    This gets set to 0 whenever anything that would prevent state propagation
+     occurs (switching between the float/short APIs, or between the
+     stereo/multistream APIs).*/</doc>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='1376' u='w' c='op_make_decode_ready'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='3128' u='r' c='op_float2short_filter'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='3143' u='r' c='op_float2short_filter'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='3193' u='w' c='op_float2short_filter'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='3202' u='w' c='op_read_float'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='3262' u='w' c='op_read_float_stereo'/>

@@ -1,0 +1,11 @@
+<dec f='codebrowser/code/qcommon/qcommon.h' l='1018' type='void CL_ShutdownAll(qboolean shutdownRef)'/>
+<doc f='codebrowser/code/qcommon/qcommon.h' l='1016'>// dump all memory on an error</doc>
+<def f='codebrowser/code/client/cl_main.c' l='1205' ll='1233' type='void CL_ShutdownAll(qboolean shutdownRef)'/>
+<use f='codebrowser/code/client/cl_main.c' l='1245' u='c' c='CL_ClearMemory'/>
+<doc f='codebrowser/code/client/cl_main.c' l='1200'>/*
+=====================
+CL_ShutdownAll
+=====================
+*/</doc>
+<def f='codebrowser/code/null/null_client.c' l='87' ll='89' type='void CL_ShutdownAll(qboolean shutdownRef)'/>
+<use f='codebrowser/code/server/sv_init.c' l='420' u='c' c='SV_SpawnServer'/>

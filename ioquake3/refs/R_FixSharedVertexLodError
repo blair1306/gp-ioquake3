@@ -1,0 +1,20 @@
+<def f='codebrowser/code/renderergl1/tr_bsp.c' l='692' ll='710' type='void R_FixSharedVertexLodError()'/>
+<use f='codebrowser/code/renderergl1/tr_bsp.c' l='1288' u='c' c='R_LoadSurfaces'/>
+<doc f='codebrowser/code/renderergl1/tr_bsp.c' l='684'>/*
+=================
+R_FixSharedVertexLodError
+
+This function assumes that all patches in one group are nicely stitched together for the highest LoD.
+If this is not the case this function will still do its job but won&apos;t fix the highest LoD cracks.
+=================
+*/</doc>
+<def f='codebrowser/code/renderergl2/tr_bsp.c' l='1142' ll='1160' type='void R_FixSharedVertexLodError()'/>
+<use f='codebrowser/code/renderergl2/tr_bsp.c' l='1801' u='c' c='R_LoadSurfaces'/>
+<doc f='codebrowser/code/renderergl2/tr_bsp.c' l='1134'>/*
+=================
+R_FixSharedVertexLodError
+
+This function assumes that all patches in one group are nicely stitched together for the highest LoD.
+If this is not the case this function will still do its job but won&apos;t fix the highest LoD cracks.
+=================
+*/</doc>

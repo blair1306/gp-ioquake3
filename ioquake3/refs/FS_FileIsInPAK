@@ -1,0 +1,17 @@
+<dec f='codebrowser/code/qcommon/qcommon.h' l='657' type='int FS_FileIsInPAK(const char * filename, int * pChecksum)'/>
+<doc f='codebrowser/code/qcommon/qcommon.h' l='651'>// if uniqueFILE is true, then a new FILE will be fopened even if the file
+// is found in an already open pak file.  If uniqueFILE is false, you must call
+// FS_FCloseFile instead of fclose, otherwise the pak FILE would be improperly closed
+// It is generally safe to always set uniqueFILE to true, because the majority of
+// file IO goes through FS_ReadFile, which Does The Right Thing already.</doc>
+<use f='codebrowser/code/client/cl_main.c' l='3262' u='r' c='CL_InitRef'/>
+<def f='codebrowser/code/qcommon/files.c' l='1746' ll='1804' type='int FS_FileIsInPAK(const char * filename, int * pChecksum)'/>
+<doc f='codebrowser/code/qcommon/files.c' l='1738'>/*
+======================================================================================
+
+CONVENIENCE FUNCTIONS FOR ENTIRE FILES
+
+======================================================================================
+*/</doc>
+<use f='codebrowser/code/server/sv_client.c' l='1242' u='c' c='SV_VerifyPaks_f'/>
+<use f='codebrowser/code/server/sv_client.c' l='1244' u='c' c='SV_VerifyPaks_f'/>

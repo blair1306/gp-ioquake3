@@ -1,0 +1,11 @@
+<dec f='codebrowser/code/cgame/cg_local.h' l='1607' type='void trap_GetGlconfig(glconfig_t * glconfig)'/>
+<doc f='codebrowser/code/cgame/cg_local.h' l='1604'>// The glconfig_t will not change during the life of a cgame.
+// If it needs to change, the entire cgame will be restarted, because
+// all the qhandle_t are then invalid.</doc>
+<use f='codebrowser/code/cgame/cg_main.c' l='1875' u='c' c='CG_Init'/>
+<def f='codebrowser/code/cgame/cg_syscalls.c' l='307' ll='309' type='void trap_GetGlconfig(glconfig_t * glconfig)'/>
+<dec f='codebrowser/code/q3_ui/ui_local.h' l='671' type='void trap_GetGlconfig(glconfig_t * glconfig)'/>
+<use f='codebrowser/code/q3_ui/ui_atoms.c' l='1072' u='c' c='UI_Init'/>
+<dec f='codebrowser/code/ui/ui_local.h' l='963' type='void trap_GetGlconfig(glconfig_t * glconfig)'/>
+<use f='codebrowser/code/ui/ui_main.c' l='5081' u='c' c='_UI_Init'/>
+<def f='codebrowser/code/ui/ui_syscalls.c' l='240' ll='242' type='void trap_GetGlconfig(glconfig_t * glconfig)'/>

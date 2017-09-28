@@ -1,0 +1,45 @@
+<dec f='codebrowser/code/qcommon/q_shared.h' l='1352' type='float'/>
+<offset>224</offset>
+<doc f='codebrowser/code/qcommon/q_shared.h' l='1352'>// x offset in image where glyph starts</doc>
+<use f='codebrowser/code/cgame/cg_newdraw.c' l='1230' u='r' c='CG_Text_Paint_Limit'/>
+<dec f='codebrowser/code/game/g_public.h' l='96' type='entityState_t'/>
+<offset>0</offset>
+<doc f='codebrowser/code/game/g_public.h' l='96'>// communicated by server to clients</doc>
+<use f='codebrowser/code/renderercommon/tr_font.c' l='387' u='w' c='RE_RegisterFont'/>
+<use f='codebrowser/code/server/sv_bot.c' l='63' u='m' c='SV_BotAllocateClient'/>
+<use f='codebrowser/code/server/sv_client.c' l='798' u='m' c='SV_ClientEnterWorld'/>
+<use f='codebrowser/code/server/sv_game.c' l='57' u='m' c='SV_SvEntityForGentity'/>
+<use f='codebrowser/code/server/sv_game.c' l='57' u='m' c='SV_SvEntityForGentity'/>
+<use f='codebrowser/code/server/sv_game.c' l='60' u='m' c='SV_SvEntityForGentity'/>
+<use f='codebrowser/code/server/sv_game.c' l='124' u='m' c='SV_SetBrushModel'/>
+<use f='codebrowser/code/server/sv_game.c' l='126' u='m' c='SV_SetBrushModel'/>
+<use f='codebrowser/code/server/sv_init.c' l='226' u='m' c='SV_CreateBaseline'/>
+<use f='codebrowser/code/server/sv_init.c' l='231' u='r' c='SV_CreateBaseline'/>
+<use f='codebrowser/code/server/sv_init.c' l='548' u='m' c='SV_SpawnServer'/>
+<use f='codebrowser/code/server/sv_snapshot.c' l='283' u='m' c='SV_AddEntToSnapshot'/>
+<use f='codebrowser/code/server/sv_snapshot.c' l='327' u='m' c='SV_AddEntitiesVisibleFromPoint'/>
+<use f='codebrowser/code/server/sv_snapshot.c' l='329' u='m' c='SV_AddEntitiesVisibleFromPoint'/>
+<use f='codebrowser/code/server/sv_snapshot.c' l='416' u='m' c='SV_AddEntitiesVisibleFromPoint'/>
+<use f='codebrowser/code/server/sv_snapshot.c' l='418' u='m' c='SV_AddEntitiesVisibleFromPoint'/>
+<use f='codebrowser/code/server/sv_snapshot.c' l='418' u='m' c='SV_AddEntitiesVisibleFromPoint'/>
+<use f='codebrowser/code/server/sv_snapshot.c' l='418' u='m' c='SV_AddEntitiesVisibleFromPoint'/>
+<use f='codebrowser/code/server/sv_snapshot.c' l='419' u='m' c='SV_AddEntitiesVisibleFromPoint'/>
+<use f='codebrowser/code/server/sv_snapshot.c' l='419' u='m' c='SV_AddEntitiesVisibleFromPoint'/>
+<use f='codebrowser/code/server/sv_snapshot.c' l='423' u='m' c='SV_AddEntitiesVisibleFromPoint'/>
+<use f='codebrowser/code/server/sv_snapshot.c' l='513' u='r' c='SV_BuildClientSnapshot'/>
+<use f='codebrowser/code/server/sv_world.c' l='38' u='m' c='SV_ClipHandleForEntity'/>
+<use f='codebrowser/code/server/sv_world.c' l='224' u='m' c='SV_LinkEntity'/>
+<use f='codebrowser/code/server/sv_world.c' l='247' u='m' c='SV_LinkEntity'/>
+<use f='codebrowser/code/server/sv_world.c' l='249' u='m' c='SV_LinkEntity'/>
+<use f='codebrowser/code/server/sv_world.c' l='306' u='m' c='SV_LinkEntity'/>
+<use f='codebrowser/code/server/sv_world.c' l='495' u='m' c='SV_ClipToEntity'/>
+<use f='codebrowser/code/server/sv_world.c' l='568' u='m' c='SV_ClipMoveToEntities'/>
+<use f='codebrowser/code/server/sv_world.c' l='571' u='m' c='SV_ClipMoveToEntities'/>
+<use f='codebrowser/code/server/sv_world.c' l='580' u='m' c='SV_ClipMoveToEntities'/>
+<use f='codebrowser/code/ui/ui_main.c' l='386' u='r' c='Text_Paint'/>
+<use f='codebrowser/code/ui/ui_main.c' l='398' u='r' c='Text_Paint'/>
+<use f='codebrowser/code/ui/ui_main.c' l='456' u='r' c='Text_PaintWithCursor'/>
+<use f='codebrowser/code/ui/ui_main.c' l='468' u='r' c='Text_PaintWithCursor'/>
+<use f='codebrowser/code/ui/ui_main.c' l='480' u='r' c='Text_PaintWithCursor'/>
+<use f='codebrowser/code/ui/ui_main.c' l='499' u='r' c='Text_PaintWithCursor'/>
+<use f='codebrowser/code/ui/ui_main.c' l='551' u='r' c='Text_Paint_Limit'/>

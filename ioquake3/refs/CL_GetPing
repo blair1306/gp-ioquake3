@@ -1,0 +1,9 @@
+<dec f='codebrowser/code/client/client.h' l='478' type='void CL_GetPing(int n, char * buf, int buflen, int * pingtime)'/>
+<def f='codebrowser/code/client/cl_main.c' l='4273' ll='4309' type='void CL_GetPing(int n, char * buf, int buflen, int * pingtime)'/>
+<use f='codebrowser/code/client/cl_main.c' l='4566' u='c' c='CL_UpdateVisiblePings_f'/>
+<doc f='codebrowser/code/client/cl_main.c' l='4268'>/*
+==================
+CL_GetPing
+==================
+*/</doc>
+<use f='codebrowser/code/client/cl_ui.c' l='472' u='c' c='LAN_GetPing'/>

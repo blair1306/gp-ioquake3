@@ -1,0 +1,14 @@
+<def f='codebrowser/code/opus-1.1.4/celt/pitch.h' l='160' ll='168' type='opus_val32 celt_inner_prod_c(const opus_val16 * x, const opus_val16 * y, int N)'/>
+<use f='codebrowser/code/opus-1.1.4/celt/bands.c' l='167' u='c' c='compute_band_energies'/>
+<doc f='codebrowser/code/opus-1.1.4/celt/pitch.h' l='158'>/*We make sure a C version is always available for cases where the overhead of
+  vectorization and passing around an arch flag aren&apos;t worth it.*/</doc>
+<use f='codebrowser/code/opus-1.1.4/celt/celt_encoder.c' l='773' macro='1' u='c'/>
+<use f='codebrowser/code/opus-1.1.4/celt/celt_encoder.c' l='783' macro='1' u='c'/>
+<use f='codebrowser/code/opus-1.1.4/celt/pitch.c' l='291' macro='1' u='c'/>
+<use f='codebrowser/code/opus-1.1.4/celt/pitch.c' l='381' u='c' c='pitch_search'/>
+<use f='codebrowser/code/opus-1.1.4/celt/pitch.c' l='542' macro='1' u='c'/>
+<use f='codebrowser/code/opus-1.1.4/celt/vq.c' l='359' macro='1' u='c'/>
+<use f='codebrowser/code/opus-1.1.4/celt/vq.c' l='395' macro='1' u='c'/>
+<use f='codebrowser/code/opus-1.1.4/celt/vq.c' l='396' macro='1' u='c'/>
+<use f='codebrowser/code/opus-1.1.4/src/opus_encoder.c' l='1478' macro='1' u='c'/>
+<use f='codebrowser/code/opus-1.1.4/src/opus_multistream_encoder.c' l='277' macro='1' u='c'/>

@@ -1,0 +1,16 @@
+<dec f='codebrowser/code/tools/lcc/cpp/cpp.h' l='135' type='uchar * newstring(uchar * , int , int )'/>
+<use f='codebrowser/code/tools/lcc/cpp/cpp.c' l='232' u='c' c='control'/>
+<use f='codebrowser/code/tools/lcc/cpp/include.c' l='15' u='c' c='appendDirToIncludeList'/>
+<use f='codebrowser/code/tools/lcc/cpp/include.c' l='102' u='c' c='doinclude'/>
+<use f='codebrowser/code/tools/lcc/cpp/macro.c' l='448' u='c' c='stringify'/>
+<use f='codebrowser/code/tools/lcc/cpp/nlist.c' l='97' u='c' c='lookup'/>
+<use f='codebrowser/code/tools/lcc/cpp/tokens.c' l='166' u='c' c='makespace'/>
+<use f='codebrowser/code/tools/lcc/cpp/tokens.c' l='245' u='c' c='normtokenrow'/>
+<def f='codebrowser/code/tools/lcc/cpp/tokens.c' l='363' ll='370' type='uchar * newstring(uchar * s, int l, int o)'/>
+<doc f='codebrowser/code/tools/lcc/cpp/tokens.c' l='359'>/*
+ * allocate and initialize a new string from s, of length l, at offset o
+ * Null terminated.
+ */</doc>
+<use f='codebrowser/code/tools/lcc/cpp/unix.c' l='35' u='c' c='setup'/>
+<use f='codebrowser/code/tools/lcc/cpp/unix.c' l='65' u='c' c='setup'/>
+<use f='codebrowser/code/tools/lcc/cpp/unix.c' l='98' u='c' c='basepath'/>

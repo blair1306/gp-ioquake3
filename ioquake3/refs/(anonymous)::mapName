@@ -1,0 +1,15 @@
+<dec f='codebrowser/code/client/client.h' l='295' type='char [32]'/>
+<offset>576</offset>
+<use f='codebrowser/code/client/cl_main.c' l='2447' u='w' c='CL_InitServerInfo'/>
+<use f='codebrowser/code/client/cl_main.c' l='3784' u='r' c='CL_SetServerInfo'/>
+<use f='codebrowser/code/client/cl_ui.c' l='290' u='r' c='LAN_GetServerInfo'/>
+<use f='codebrowser/code/client/cl_ui.c' l='392' u='r' c='LAN_CompareServers'/>
+<use f='codebrowser/code/client/cl_ui.c' l='392' u='r' c='LAN_CompareServers'/>
+<dec f='codebrowser/code/ui/ui_local.h' l='669' type='const char *'/>
+<offset>0</offset>
+<use f='codebrowser/code/ui/ui_gameinfo.c' l='175' u='w' c='UI_LoadArenas'/>
+<use f='codebrowser/code/ui/ui_main.c' l='1384' u='r' c='UI_EnglishMapName'/>
+<use f='codebrowser/code/ui/ui_main.c' l='1626' u='r' c='UI_DrawAllMapsSelection'/>
+<use f='codebrowser/code/ui/ui_main.c' l='2965' u='r' c='UI_StartSkirmish'/>
+<use f='codebrowser/code/ui/ui_main.c' l='4261' u='r' c='UI_SelectedMap'/>
+<use f='codebrowser/code/ui/ui_main.c' l='4836' u='a' c='MapList_Parse'/>

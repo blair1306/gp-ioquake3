@@ -1,0 +1,11 @@
+<dec f='codebrowser/code/qcommon/qcommon.h' l='712' type='const char * FS_ReferencedPakChecksums()'/>
+<def f='codebrowser/code/qcommon/files.c' l='3699' ll='3716' type='const char * FS_ReferencedPakChecksums()'/>
+<doc f='codebrowser/code/qcommon/files.c' l='3691'>/*
+=====================
+FS_ReferencedPakChecksums
+
+Returns a space separated string containing the checksums of all referenced pk3 files.
+The server will send this to the clients so they can check which files should be auto-downloaded. 
+=====================
+*/</doc>
+<use f='codebrowser/code/server/sv_init.c' l='589' u='c' c='SV_SpawnServer'/>

@@ -1,0 +1,12 @@
+<dec f='codebrowser/code/qcommon/q_shared.h' l='876' type='void Info_NextPair(const char ** s, char * key, char * value)'/>
+<use f='codebrowser/code/client/cl_parse.c' l='394' u='c' c='CL_SystemInfoChanged'/>
+<use f='codebrowser/code/q3_ui/ui_serverinfo.c' l='136' u='c' c='ServerInfo_MenuDraw'/>
+<use f='codebrowser/code/q3_ui/ui_serverinfo.c' l='254' u='c' c='UI_ServerInfoMenu'/>
+<def f='codebrowser/code/qcommon/q_shared.c' l='1124' ll='1155' type='void Info_NextPair(const char ** head, char * key, char * value)'/>
+<doc f='codebrowser/code/qcommon/q_shared.c' l='1117'>/*
+===================
+Info_NextPair
+
+Used to itterate through all the key/value pairs in an info string
+===================
+*/</doc>

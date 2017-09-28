@@ -1,0 +1,20 @@
+<def f='codebrowser/code/renderergl1/tr_main.c' l='453' ll='506' type='void R_SetupFrustum(viewParms_t * dest, float xmin, float xmax, float ymax, float zProj, float stereoSep)'/>
+<use f='codebrowser/code/renderergl1/tr_main.c' l='559' u='c' c='R_SetupProjection'/>
+<doc f='codebrowser/code/renderergl1/tr_main.c' l='445'>/*
+=================
+R_SetupFrustum
+
+Set up the culling frustum planes for the current view using the results we got from computing the first two rows of
+the projection matrix.
+=================
+*/</doc>
+<def f='codebrowser/code/renderergl2/tr_main.c' l='680' ll='746' type='void R_SetupFrustum(viewParms_t * dest, float xmin, float xmax, float ymax, float zProj, float zFar, float stereoSep)'/>
+<use f='codebrowser/code/renderergl2/tr_main.c' l='799' u='c' c='R_SetupProjection'/>
+<doc f='codebrowser/code/renderergl2/tr_main.c' l='672'>/*
+=================
+R_SetupFrustum
+
+Set up the culling frustum planes for the current view using the results we got from computing the first two rows of
+the projection matrix.
+=================
+*/</doc>

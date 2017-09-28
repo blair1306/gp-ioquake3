@@ -1,0 +1,46 @@
+<dec f='codebrowser/code/cgame/cg_local.h' l='1490' type='void trap_Cvar_Register(vmCvar_t * vmCvar, const char * varName, const char * defaultValue, int flags)'/>
+<doc f='codebrowser/code/cgame/cg_local.h' l='1489'>// console variable interaction</doc>
+<use f='codebrowser/code/cgame/cg_main.c' l='336' u='c' c='CG_RegisterCvars'/>
+<use f='codebrowser/code/cgame/cg_main.c' l='346' u='c' c='CG_RegisterCvars'/>
+<use f='codebrowser/code/cgame/cg_main.c' l='347' u='c' c='CG_RegisterCvars'/>
+<use f='codebrowser/code/cgame/cg_main.c' l='348' u='c' c='CG_RegisterCvars'/>
+<use f='codebrowser/code/cgame/cg_main.c' l='349' u='c' c='CG_RegisterCvars'/>
+<def f='codebrowser/code/cgame/cg_syscalls.c' l='60' ll='62' type='void trap_Cvar_Register(vmCvar_t * vmCvar, const char * varName, const char * defaultValue, int flags)'/>
+<dec f='codebrowser/code/game/g_local.h' l='763' type='void trap_Cvar_Register(vmCvar_t * cvar, const char * var_name, const char * value, int flags)'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='5402' u='c' c='BotSetupDeathmatchAI'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='5403' u='c' c='BotSetupDeathmatchAI'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='5404' u='c' c='BotSetupDeathmatchAI'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='5405' u='c' c='BotSetupDeathmatchAI'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='5406' u='c' c='BotSetupDeathmatchAI'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='5407' u='c' c='BotSetupDeathmatchAI'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='5408' u='c' c='BotSetupDeathmatchAI'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='5409' u='c' c='BotSetupDeathmatchAI'/>
+<use f='codebrowser/code/game/ai_main.c' l='1380' u='c' c='BotAILoadMap'/>
+<use f='codebrowser/code/game/ai_main.c' l='1673' u='c' c='BotAISetup'/>
+<use f='codebrowser/code/game/ai_main.c' l='1674' u='c' c='BotAISetup'/>
+<use f='codebrowser/code/game/ai_main.c' l='1675' u='c' c='BotAISetup'/>
+<use f='codebrowser/code/game/ai_main.c' l='1676' u='c' c='BotAISetup'/>
+<use f='codebrowser/code/game/ai_main.c' l='1677' u='c' c='BotAISetup'/>
+<use f='codebrowser/code/game/ai_main.c' l='1678' u='c' c='BotAISetup'/>
+<use f='codebrowser/code/game/ai_main.c' l='1679' u='c' c='BotAISetup'/>
+<use f='codebrowser/code/game/ai_main.c' l='1680' u='c' c='BotAISetup'/>
+<use f='codebrowser/code/game/ai_main.c' l='1681' u='c' c='BotAISetup'/>
+<use f='codebrowser/code/game/ai_main.c' l='1682' u='c' c='BotAISetup'/>
+<use f='codebrowser/code/game/ai_main.c' l='1683' u='c' c='BotAISetup'/>
+<use f='codebrowser/code/game/ai_main.c' l='1684' u='c' c='BotAISetup'/>
+<use f='codebrowser/code/game/g_bot.c' l='163' u='c' c='G_LoadArenas'/>
+<use f='codebrowser/code/game/g_bot.c' l='944' u='c' c='G_LoadBots'/>
+<use f='codebrowser/code/game/g_bot.c' l='1016' u='c' c='G_InitBots'/>
+<use f='codebrowser/code/game/g_main.c' l='344' u='c' c='G_RegisterCvars'/>
+<def f='codebrowser/code/game/g_syscalls.c' l='94' ll='96' type='void trap_Cvar_Register(vmCvar_t * cvar, const char * var_name, const char * value, int flags)'/>
+<dec f='codebrowser/code/q3_ui/ui_local.h' l='628' type='void trap_Cvar_Register(vmCvar_t * vmCvar, const char * varName, const char * defaultValue, int flags)'/>
+<use f='codebrowser/code/q3_ui/ui_gameinfo.c' l='182' u='c' c='UI_LoadArenas'/>
+<use f='codebrowser/code/q3_ui/ui_gameinfo.c' l='369' u='c' c='UI_LoadBots'/>
+<use f='codebrowser/code/q3_ui/ui_main.c' l='234' u='c' c='UI_RegisterCvars'/>
+<use f='codebrowser/code/q3_ui/ui_servers2.c' l='1600' u='c' c='ArenaServers_MenuInit'/>
+<dec f='codebrowser/code/ui/ui_local.h' l='919' type='void trap_Cvar_Register(vmCvar_t * vmCvar, const char * varName, const char * defaultValue, int flags)'/>
+<use f='codebrowser/code/ui/ui_gameinfo.c' l='148' u='c' c='UI_LoadArenas'/>
+<use f='codebrowser/code/ui/ui_gameinfo.c' l='259' u='c' c='UI_LoadBots'/>
+<use f='codebrowser/code/ui/ui_main.c' l='5207' u='c' c='_UI_Init'/>
+<use f='codebrowser/code/ui/ui_main.c' l='5887' u='c' c='UI_RegisterCvars'/>
+<def f='codebrowser/code/ui/ui_syscalls.c' l='58' ll='60' type='void trap_Cvar_Register(vmCvar_t * cvar, const char * var_name, const char * value, int flags)'/>

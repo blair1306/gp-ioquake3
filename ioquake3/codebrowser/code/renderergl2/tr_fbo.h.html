@@ -1,0 +1,84 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>tr_fbo.h source code [codebrowser/code/renderergl2/tr_fbo.h] - Woboq Code Browser</title>
+<meta name="woboq:interestingDefinitions" content="FBO_s "/>
+<link rel="stylesheet" href="../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'codebrowser/code/renderergl2/tr_fbo.h'; var root_path = '../../..'; var data_path = '../../../../data';</script>
+<script src='../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../..'>codebrowser</a>/<a href='..'>code</a>/<a href='./'>renderergl2</a>/<a href='tr_fbo.h.html'>tr_fbo.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/*</i></td></tr>
+<tr><th id="2">2</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="3">3</th><td><i>Copyright (C) 2010 James Canete (use.less01@gmail.com)</i></td></tr>
+<tr><th id="4">4</th><td><i></i></td></tr>
+<tr><th id="5">5</th><td><i>This file is part of Quake III Arena source code.</i></td></tr>
+<tr><th id="6">6</th><td><i></i></td></tr>
+<tr><th id="7">7</th><td><i>Quake III Arena source code is free software; you can redistribute it</i></td></tr>
+<tr><th id="8">8</th><td><i>and/or modify it under the terms of the GNU General Public License as</i></td></tr>
+<tr><th id="9">9</th><td><i>published by the Free Software Foundation; either version 2 of the License,</i></td></tr>
+<tr><th id="10">10</th><td><i>or (at your option) any later version.</i></td></tr>
+<tr><th id="11">11</th><td><i></i></td></tr>
+<tr><th id="12">12</th><td><i>Quake III Arena source code is distributed in the hope that it will be</i></td></tr>
+<tr><th id="13">13</th><td><i>useful, but WITHOUT ANY WARRANTY; without even the implied warranty of</i></td></tr>
+<tr><th id="14">14</th><td><i>MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</i></td></tr>
+<tr><th id="15">15</th><td><i>GNU General Public License for more details.</i></td></tr>
+<tr><th id="16">16</th><td><i></i></td></tr>
+<tr><th id="17">17</th><td><i>You should have received a copy of the GNU General Public License</i></td></tr>
+<tr><th id="18">18</th><td><i>along with Quake III Arena source code; if not, write to the Free Software</i></td></tr>
+<tr><th id="19">19</th><td><i>Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA</i></td></tr>
+<tr><th id="20">20</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="21">21</th><td><i>*/</i></td></tr>
+<tr><th id="22">22</th><td><i>// tr_fbo.h</i></td></tr>
+<tr><th id="23">23</th><td></td></tr>
+<tr><th id="24">24</th><td><u>#<span data-ppcond="24">ifndef</span> <span class="macro" data-ref="_M/__TR_FBO_H__">__TR_FBO_H__</span></u></td></tr>
+<tr><th id="25">25</th><td><u>#define <dfn class="macro" id="_M/__TR_FBO_H__" data-ref="_M/__TR_FBO_H__">__TR_FBO_H__</dfn></u></td></tr>
+<tr><th id="26">26</th><td></td></tr>
+<tr><th id="27">27</th><td><b>struct</b> <a class="type" href="../renderercommon/tr_common.h.html#image_s" title='image_s' data-ref="image_s" id="image_s">image_s</a>;</td></tr>
+<tr><th id="28">28</th><td><b>struct</b> <a class="type" href="tr_local.h.html#shaderProgram_s" title='shaderProgram_s' data-ref="shaderProgram_s" id="shaderProgram_s">shaderProgram_s</a>;</td></tr>
+<tr><th id="29">29</th><td></td></tr>
+<tr><th id="30">30</th><td><b>typedef</b> <b>struct</b> <dfn class="type def" id="FBO_s" title='FBO_s' data-ref="FBO_s"><a class="type" href="#FBO_s" title='FBO_s' data-ref="FBO_s">FBO_s</a></dfn></td></tr>
+<tr><th id="31">31</th><td>{</td></tr>
+<tr><th id="32">32</th><td>	<em>char</em>            <dfn class="decl" id="FBO_s::name" title='FBO_s::name' data-ref="FBO_s::name">name</dfn>[<a class="macro" href="../qcommon/qfiles.h.html#43" title="64" data-ref="_M/MAX_QPATH">MAX_QPATH</a>];</td></tr>
+<tr><th id="33">33</th><td></td></tr>
+<tr><th id="34">34</th><td>	<em>int</em>             <dfn class="decl" id="FBO_s::index" title='FBO_s::index' data-ref="FBO_s::index">index</dfn>;</td></tr>
+<tr><th id="35">35</th><td></td></tr>
+<tr><th id="36">36</th><td>	<a class="typedef" href="../../../include/stdint.h.html#uint32_t" title='uint32_t' data-type='unsigned int' data-ref="uint32_t">uint32_t</a>        <dfn class="decl" id="FBO_s::frameBuffer" title='FBO_s::frameBuffer' data-ref="FBO_s::frameBuffer">frameBuffer</dfn>;</td></tr>
+<tr><th id="37">37</th><td></td></tr>
+<tr><th id="38">38</th><td>	<a class="typedef" href="../../../include/stdint.h.html#uint32_t" title='uint32_t' data-type='unsigned int' data-ref="uint32_t">uint32_t</a>        <dfn class="decl" id="FBO_s::colorBuffers" title='FBO_s::colorBuffers' data-ref="FBO_s::colorBuffers">colorBuffers</dfn>[<var>16</var>];</td></tr>
+<tr><th id="39">39</th><td>	<em>int</em>             <dfn class="decl" id="FBO_s::colorFormat" title='FBO_s::colorFormat' data-ref="FBO_s::colorFormat">colorFormat</dfn>;</td></tr>
+<tr><th id="40">40</th><td>	<b>struct</b> <a class="type" href="../renderercommon/tr_common.h.html#image_s" title='image_s' data-ref="image_s">image_s</a>  *<dfn class="decl" id="FBO_s::colorImage" title='FBO_s::colorImage' data-ref="FBO_s::colorImage">colorImage</dfn>[<var>16</var>];</td></tr>
+<tr><th id="41">41</th><td></td></tr>
+<tr><th id="42">42</th><td>	<a class="typedef" href="../../../include/stdint.h.html#uint32_t" title='uint32_t' data-type='unsigned int' data-ref="uint32_t">uint32_t</a>        <dfn class="decl" id="FBO_s::depthBuffer" title='FBO_s::depthBuffer' data-ref="FBO_s::depthBuffer">depthBuffer</dfn>;</td></tr>
+<tr><th id="43">43</th><td>	<em>int</em>             <dfn class="decl" id="FBO_s::depthFormat" title='FBO_s::depthFormat' data-ref="FBO_s::depthFormat">depthFormat</dfn>;</td></tr>
+<tr><th id="44">44</th><td></td></tr>
+<tr><th id="45">45</th><td>	<a class="typedef" href="../../../include/stdint.h.html#uint32_t" title='uint32_t' data-type='unsigned int' data-ref="uint32_t">uint32_t</a>        <dfn class="decl" id="FBO_s::stencilBuffer" title='FBO_s::stencilBuffer' data-ref="FBO_s::stencilBuffer">stencilBuffer</dfn>;</td></tr>
+<tr><th id="46">46</th><td>	<em>int</em>             <dfn class="decl" id="FBO_s::stencilFormat" title='FBO_s::stencilFormat' data-ref="FBO_s::stencilFormat">stencilFormat</dfn>;</td></tr>
+<tr><th id="47">47</th><td></td></tr>
+<tr><th id="48">48</th><td>	<a class="typedef" href="../../../include/stdint.h.html#uint32_t" title='uint32_t' data-type='unsigned int' data-ref="uint32_t">uint32_t</a>        <dfn class="decl" id="FBO_s::packedDepthStencilBuffer" title='FBO_s::packedDepthStencilBuffer' data-ref="FBO_s::packedDepthStencilBuffer">packedDepthStencilBuffer</dfn>;</td></tr>
+<tr><th id="49">49</th><td>	<em>int</em>             <dfn class="decl" id="FBO_s::packedDepthStencilFormat" title='FBO_s::packedDepthStencilFormat' data-ref="FBO_s::packedDepthStencilFormat">packedDepthStencilFormat</dfn>;</td></tr>
+<tr><th id="50">50</th><td></td></tr>
+<tr><th id="51">51</th><td>	<em>int</em>             <dfn class="decl" id="FBO_s::width" title='FBO_s::width' data-ref="FBO_s::width">width</dfn>;</td></tr>
+<tr><th id="52">52</th><td>	<em>int</em>             <dfn class="decl" id="FBO_s::height" title='FBO_s::height' data-ref="FBO_s::height">height</dfn>;</td></tr>
+<tr><th id="53">53</th><td>} <dfn class="typedef" id="FBO_t" title='FBO_t' data-type='struct FBO_s' data-ref="FBO_t">FBO_t</dfn>;</td></tr>
+<tr><th id="54">54</th><td></td></tr>
+<tr><th id="55">55</th><td><em>void</em> <dfn class="decl" id="FBO_AttachImage" title='FBO_AttachImage' data-ref="FBO_AttachImage">FBO_AttachImage</dfn>(<a class="typedef" href="#FBO_t" title='FBO_t' data-type='struct FBO_s' data-ref="FBO_t">FBO_t</a> *<dfn class="local col9 decl" id="49fbo" title='fbo' data-type='FBO_t *' data-ref="49fbo">fbo</dfn>, <a class="typedef" href="../renderercommon/tr_common.h.html#image_t" title='image_t' data-type='struct image_s' data-ref="image_t">image_t</a> *<dfn class="local col0 decl" id="50image" title='image' data-type='image_t *' data-ref="50image">image</dfn>, <a class="typedef" href="../../../include/SDL2/SDL_opengl.h.html#GLenum" title='GLenum' data-type='unsigned int' data-ref="GLenum">GLenum</a> <dfn class="local col1 decl" id="51attachment" title='attachment' data-type='GLenum' data-ref="51attachment">attachment</dfn>, <a class="typedef" href="../../../include/SDL2/SDL_opengl.h.html#GLuint" title='GLuint' data-type='unsigned int' data-ref="GLuint">GLuint</a> <dfn class="local col2 decl" id="52cubemapside" title='cubemapside' data-type='GLuint' data-ref="52cubemapside">cubemapside</dfn>);</td></tr>
+<tr><th id="56">56</th><td><em>void</em> <dfn class="decl" id="FBO_Bind" title='FBO_Bind' data-ref="FBO_Bind">FBO_Bind</dfn>(<a class="typedef" href="#FBO_t" title='FBO_t' data-type='struct FBO_s' data-ref="FBO_t">FBO_t</a> *<dfn class="local col3 decl" id="53fbo" title='fbo' data-type='FBO_t *' data-ref="53fbo">fbo</dfn>);</td></tr>
+<tr><th id="57">57</th><td><em>void</em> <dfn class="decl" id="FBO_Init" title='FBO_Init' data-ref="FBO_Init">FBO_Init</dfn>(<em>void</em>);</td></tr>
+<tr><th id="58">58</th><td><em>void</em> <dfn class="decl" id="FBO_Shutdown" title='FBO_Shutdown' data-ref="FBO_Shutdown">FBO_Shutdown</dfn>(<em>void</em>);</td></tr>
+<tr><th id="59">59</th><td></td></tr>
+<tr><th id="60">60</th><td><em>void</em> <dfn class="decl" id="FBO_BlitFromTexture" title='FBO_BlitFromTexture' data-ref="FBO_BlitFromTexture">FBO_BlitFromTexture</dfn>(<b>struct</b> <a class="type" href="../renderercommon/tr_common.h.html#image_s" title='image_s' data-ref="image_s">image_s</a> *<dfn class="local col4 decl" id="54src" title='src' data-type='struct image_s *' data-ref="54src">src</dfn>, <a class="typedef" href="../qcommon/q_shared.h.html#vec4_t" title='vec4_t' data-type='vec_t [4]' data-ref="vec4_t">vec4_t</a> <dfn class="local col5 decl" id="55inSrcTexCorners" title='inSrcTexCorners' data-type='vec_t *' data-ref="55inSrcTexCorners">inSrcTexCorners</dfn>, <a class="typedef" href="../qcommon/q_shared.h.html#vec2_t" title='vec2_t' data-type='vec_t [2]' data-ref="vec2_t">vec2_t</a> <dfn class="local col6 decl" id="56inSrcTexScale" title='inSrcTexScale' data-type='vec_t *' data-ref="56inSrcTexScale">inSrcTexScale</dfn>, <a class="typedef" href="#FBO_t" title='FBO_t' data-type='struct FBO_s' data-ref="FBO_t">FBO_t</a> *<dfn class="local col7 decl" id="57dst" title='dst' data-type='FBO_t *' data-ref="57dst">dst</dfn>, <a class="typedef" href="tr_extramath.h.html#ivec4_t" title='ivec4_t' data-type='int [4]' data-ref="ivec4_t">ivec4_t</a> <dfn class="local col8 decl" id="58inDstBox" title='inDstBox' data-type='int *' data-ref="58inDstBox">inDstBox</dfn>, <b>struct</b> <a class="type" href="tr_local.h.html#shaderProgram_s" title='shaderProgram_s' data-ref="shaderProgram_s">shaderProgram_s</a> *<dfn class="local col9 decl" id="59shaderProgram" title='shaderProgram' data-type='struct shaderProgram_s *' data-ref="59shaderProgram">shaderProgram</dfn>, <a class="typedef" href="../qcommon/q_shared.h.html#vec4_t" title='vec4_t' data-type='vec_t [4]' data-ref="vec4_t">vec4_t</a> <dfn class="local col0 decl" id="60inColor" title='inColor' data-type='vec_t *' data-ref="60inColor">inColor</dfn>, <em>int</em> <dfn class="local col1 decl" id="61blend" title='blend' data-type='int' data-ref="61blend">blend</dfn>);</td></tr>
+<tr><th id="61">61</th><td><em>void</em> <dfn class="decl" id="FBO_Blit" title='FBO_Blit' data-ref="FBO_Blit">FBO_Blit</dfn>(<a class="typedef" href="#FBO_t" title='FBO_t' data-type='struct FBO_s' data-ref="FBO_t">FBO_t</a> *<dfn class="local col2 decl" id="62src" title='src' data-type='FBO_t *' data-ref="62src">src</dfn>, <a class="typedef" href="tr_extramath.h.html#ivec4_t" title='ivec4_t' data-type='int [4]' data-ref="ivec4_t">ivec4_t</a> <dfn class="local col3 decl" id="63srcBox" title='srcBox' data-type='int *' data-ref="63srcBox">srcBox</dfn>, <a class="typedef" href="../qcommon/q_shared.h.html#vec2_t" title='vec2_t' data-type='vec_t [2]' data-ref="vec2_t">vec2_t</a> <dfn class="local col4 decl" id="64srcTexScale" title='srcTexScale' data-type='vec_t *' data-ref="64srcTexScale">srcTexScale</dfn>, <a class="typedef" href="#FBO_t" title='FBO_t' data-type='struct FBO_s' data-ref="FBO_t">FBO_t</a> *<dfn class="local col5 decl" id="65dst" title='dst' data-type='FBO_t *' data-ref="65dst">dst</dfn>, <a class="typedef" href="tr_extramath.h.html#ivec4_t" title='ivec4_t' data-type='int [4]' data-ref="ivec4_t">ivec4_t</a> <dfn class="local col6 decl" id="66dstBox" title='dstBox' data-type='int *' data-ref="66dstBox">dstBox</dfn>, <b>struct</b> <a class="type" href="tr_local.h.html#shaderProgram_s" title='shaderProgram_s' data-ref="shaderProgram_s">shaderProgram_s</a> *<dfn class="local col7 decl" id="67shaderProgram" title='shaderProgram' data-type='struct shaderProgram_s *' data-ref="67shaderProgram">shaderProgram</dfn>, <a class="typedef" href="../qcommon/q_shared.h.html#vec4_t" title='vec4_t' data-type='vec_t [4]' data-ref="vec4_t">vec4_t</a> <dfn class="local col8 decl" id="68color" title='color' data-type='vec_t *' data-ref="68color">color</dfn>, <em>int</em> <dfn class="local col9 decl" id="69blend" title='blend' data-type='int' data-ref="69blend">blend</dfn>);</td></tr>
+<tr><th id="62">62</th><td><em>void</em> <dfn class="decl" id="FBO_FastBlit" title='FBO_FastBlit' data-ref="FBO_FastBlit">FBO_FastBlit</dfn>(<a class="typedef" href="#FBO_t" title='FBO_t' data-type='struct FBO_s' data-ref="FBO_t">FBO_t</a> *<dfn class="local col0 decl" id="70src" title='src' data-type='FBO_t *' data-ref="70src">src</dfn>, <a class="typedef" href="tr_extramath.h.html#ivec4_t" title='ivec4_t' data-type='int [4]' data-ref="ivec4_t">ivec4_t</a> <dfn class="local col1 decl" id="71srcBox" title='srcBox' data-type='int *' data-ref="71srcBox">srcBox</dfn>, <a class="typedef" href="#FBO_t" title='FBO_t' data-type='struct FBO_s' data-ref="FBO_t">FBO_t</a> *<dfn class="local col2 decl" id="72dst" title='dst' data-type='FBO_t *' data-ref="72dst">dst</dfn>, <a class="typedef" href="tr_extramath.h.html#ivec4_t" title='ivec4_t' data-type='int [4]' data-ref="ivec4_t">ivec4_t</a> <dfn class="local col3 decl" id="73dstBox" title='dstBox' data-type='int *' data-ref="73dstBox">dstBox</dfn>, <em>int</em> <dfn class="local col4 decl" id="74buffers" title='buffers' data-type='int' data-ref="74buffers">buffers</dfn>, <em>int</em> <dfn class="local col5 decl" id="75filter" title='filter' data-type='int' data-ref="75filter">filter</dfn>);</td></tr>
+<tr><th id="63">63</th><td></td></tr>
+<tr><th id="64">64</th><td></td></tr>
+<tr><th id="65">65</th><td><u>#<span data-ppcond="24">endif</span></u></td></tr>
+<tr><th id="66">66</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='tr_animation.c.html'>codebrowser/code/renderergl2/tr_animation.c</a><br/>Generated on <em>2017-Aug-29</em> from project codebrowser revision <em>63e07af</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

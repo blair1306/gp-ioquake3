@@ -1,0 +1,49 @@
+<dec f='codebrowser/code/jpeg-8c/jpeglib.h' l='155' type='int'/>
+<offset>288</offset>
+<doc f='codebrowser/code/jpeg-8c/jpeglib.h' l='150'>/* Size of a DCT block in samples,
+   * reflecting any scaling we choose to apply during the DCT step.
+   * Values from 1 to 16 are supported.
+   * Note that different components may receive different DCT scalings.
+   */</doc>
+<use f='codebrowser/code/jpeg-8c/jcdctmgr.c' l='80' u='r' c='forward_DCT'/>
+<use f='codebrowser/code/jpeg-8c/jcdctmgr.c' l='143' u='r' c='forward_DCT_float'/>
+<use f='codebrowser/code/jpeg-8c/jcdctmgr.c' l='192' u='r' c='start_pass_fdctmgr'/>
+<use f='codebrowser/code/jpeg-8c/jcdctmgr.c' l='346' u='r' c='start_pass_fdctmgr'/>
+<use f='codebrowser/code/jpeg-8c/jcmainct.c' l='289' u='r' c='jinit_c_main_controller'/>
+<use f='codebrowser/code/jpeg-8c/jcmaster.c' l='309' u='w' c='initial_setup'/>
+<use f='codebrowser/code/jpeg-8c/jcmaster.c' l='321' u='r' c='initial_setup'/>
+<use f='codebrowser/code/jpeg-8c/jcmaster.c' l='322' u='w' c='initial_setup'/>
+<use f='codebrowser/code/jpeg-8c/jcmaster.c' l='323' u='r' c='initial_setup'/>
+<use f='codebrowser/code/jpeg-8c/jcmaster.c' l='324' u='r' c='initial_setup'/>
+<use f='codebrowser/code/jpeg-8c/jcmaster.c' l='336' u='r' c='initial_setup'/>
+<use f='codebrowser/code/jpeg-8c/jcmaster.c' l='592' u='r' c='per_scan_setup'/>
+<use f='codebrowser/code/jpeg-8c/jcmaster.c' l='628' u='r' c='per_scan_setup'/>
+<use f='codebrowser/code/jpeg-8c/jcprepct.c' l='179' u='r' c='pre_process_data'/>
+<use f='codebrowser/code/jpeg-8c/jcsample.c' l='156' u='r' c='int_downsample'/>
+<use f='codebrowser/code/jpeg-8c/jcsample.c' l='207' u='r' c='fullsize_downsample'/>
+<use f='codebrowser/code/jpeg-8c/jcsample.c' l='229' u='r' c='h2v1_downsample'/>
+<use f='codebrowser/code/jpeg-8c/jcsample.c' l='266' u='r' c='h2v2_downsample'/>
+<use f='codebrowser/code/jpeg-8c/jcsample.c' l='310' u='r' c='h2v2_smooth_downsample'/>
+<use f='codebrowser/code/jpeg-8c/jcsample.c' l='411' u='r' c='fullsize_smooth_downsample'/>
+<use f='codebrowser/code/jpeg-8c/jcsample.c' l='503' u='r' c='jinit_downsampler'/>
+<use f='codebrowser/code/jpeg-8c/jdcoefct.c' l='200' u='r' c='decompress_onepass'/>
+<use f='codebrowser/code/jpeg-8c/jdcoefct.c' l='365' u='r' c='decompress_data'/>
+<use f='codebrowser/code/jpeg-8c/jdcoefct.c' l='657' u='r' c='decompress_smooth_data'/>
+<use f='codebrowser/code/jpeg-8c/jddctmgr.c' l='102' u='r' c='start_pass'/>
+<use f='codebrowser/code/jpeg-8c/jddctmgr.c' l='256' u='r' c='start_pass'/>
+<use f='codebrowser/code/jpeg-8c/jdhuff.c' l='1447' u='r' c='start_pass_huff_decoder'/>
+<use f='codebrowser/code/jpeg-8c/jdinput.c' l='190' u='w' c='jpeg_core_output_dimensions'/>
+<use f='codebrowser/code/jpeg-8c/jdinput.c' l='348' u='w' c='initial_setup'/>
+<use f='codebrowser/code/jpeg-8c/jdinput.c' l='408' u='r' c='per_scan_setup'/>
+<use f='codebrowser/code/jpeg-8c/jdinput.c' l='444' u='r' c='per_scan_setup'/>
+<use f='codebrowser/code/jpeg-8c/jdmainct.c' l='509' u='r' c='jinit_d_main_controller'/>
+<use f='codebrowser/code/jpeg-8c/jdmaster.c' l='65' u='r' c='use_merged_upsample'/>
+<use f='codebrowser/code/jpeg-8c/jdmaster.c' l='66' u='r' c='use_merged_upsample'/>
+<use f='codebrowser/code/jpeg-8c/jdmaster.c' l='67' u='r' c='use_merged_upsample'/>
+<use f='codebrowser/code/jpeg-8c/jdmaster.c' l='120' u='w' c='jpeg_calc_output_dimensions'/>
+<use f='codebrowser/code/jpeg-8c/jdmaster.c' l='130' u='r' c='jpeg_calc_output_dimensions'/>
+<use f='codebrowser/code/jpeg-8c/jdmaster.c' l='131' u='w' c='jpeg_calc_output_dimensions'/>
+<use f='codebrowser/code/jpeg-8c/jdmaster.c' l='132' u='r' c='jpeg_calc_output_dimensions'/>
+<use f='codebrowser/code/jpeg-8c/jdmaster.c' l='133' u='r' c='jpeg_calc_output_dimensions'/>
+<use f='codebrowser/code/jpeg-8c/jdmaster.c' l='144' u='r' c='jpeg_calc_output_dimensions'/>
+<use f='codebrowser/code/jpeg-8c/jdsample.c' l='321' u='r' c='jinit_upsampler'/>

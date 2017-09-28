@@ -1,0 +1,49 @@
+<dec f='codebrowser/code/opus-1.1.4/celt/entenc.h' l='65' type='void ec_enc_icdf(ec_enc * _this, int _s, const unsigned char * _icdf, unsigned int _ftb)'/>
+<doc f='codebrowser/code/opus-1.1.4/celt/entenc.h' l='58'>/*Encodes a symbol given an &quot;inverse&quot; CDF table.
+  _s:    The index of the symbol to encode.
+  _icdf: The &quot;inverse&quot; CDF, such that symbol _s falls in the range
+          [_s&gt;0?ft-_icdf[_s-1]:0,ft-_icdf[_s]), where ft=1&lt;&lt;_ftb.
+         The values must be monotonically non-increasing, and the last value
+          must be 0.
+  _ftb: The number of bits of precision in the cumulative distribution.*/</doc>
+<use f='codebrowser/code/opus-1.1.4/celt/celt_encoder.c' l='1584' u='c' c='celt_encode_with_ec'/>
+<use f='codebrowser/code/opus-1.1.4/celt/celt_encoder.c' l='1830' u='c' c='celt_encode_with_ec'/>
+<use f='codebrowser/code/opus-1.1.4/celt/celt_encoder.c' l='1905' u='c' c='celt_encode_with_ec'/>
+<def f='codebrowser/code/opus-1.1.4/celt/entenc.c' l='164' ll='173' type='void ec_enc_icdf(ec_enc * _this, int _s, const unsigned char * _icdf, unsigned int _ftb)'/>
+<use f='codebrowser/code/opus-1.1.4/celt/quant_bands.c' l='237' u='c' c='quant_coarse_energy_impl'/>
+<use f='codebrowser/code/opus-1.1.4/silk/code_signs.c' l='66' u='c' c='silk_encode_signs'/>
+<use f='codebrowser/code/opus-1.1.4/silk/enc_API.c' l='334' u='c' c='silk_Encode'/>
+<use f='codebrowser/code/opus-1.1.4/silk/enc_API.c' l='345' u='c' c='silk_Encode'/>
+<use f='codebrowser/code/opus-1.1.4/silk/encode_indices.c' l='62' u='c' c='silk_encode_indices'/>
+<use f='codebrowser/code/opus-1.1.4/silk/encode_indices.c' l='64' u='c' c='silk_encode_indices'/>
+<use f='codebrowser/code/opus-1.1.4/silk/encode_indices.c' l='74' u='c' c='silk_encode_indices'/>
+<use f='codebrowser/code/opus-1.1.4/silk/encode_indices.c' l='78' u='c' c='silk_encode_indices'/>
+<use f='codebrowser/code/opus-1.1.4/silk/encode_indices.c' l='79' u='c' c='silk_encode_indices'/>
+<use f='codebrowser/code/opus-1.1.4/silk/encode_indices.c' l='85' u='c' c='silk_encode_indices'/>
+<use f='codebrowser/code/opus-1.1.4/silk/encode_indices.c' l='91' u='c' c='silk_encode_indices'/>
+<use f='codebrowser/code/opus-1.1.4/silk/encode_indices.c' l='96' u='c' c='silk_encode_indices'/>
+<use f='codebrowser/code/opus-1.1.4/silk/encode_indices.c' l='97' u='c' c='silk_encode_indices'/>
+<use f='codebrowser/code/opus-1.1.4/silk/encode_indices.c' l='99' u='c' c='silk_encode_indices'/>
+<use f='codebrowser/code/opus-1.1.4/silk/encode_indices.c' l='100' u='c' c='silk_encode_indices'/>
+<use f='codebrowser/code/opus-1.1.4/silk/encode_indices.c' l='102' u='c' c='silk_encode_indices'/>
+<use f='codebrowser/code/opus-1.1.4/silk/encode_indices.c' l='109' u='c' c='silk_encode_indices'/>
+<use f='codebrowser/code/opus-1.1.4/silk/encode_indices.c' l='129' u='c' c='silk_encode_indices'/>
+<use f='codebrowser/code/opus-1.1.4/silk/encode_indices.c' l='138' u='c' c='silk_encode_indices'/>
+<use f='codebrowser/code/opus-1.1.4/silk/encode_indices.c' l='139' u='c' c='silk_encode_indices'/>
+<use f='codebrowser/code/opus-1.1.4/silk/encode_indices.c' l='149' u='c' c='silk_encode_indices'/>
+<use f='codebrowser/code/opus-1.1.4/silk/encode_indices.c' l='156' u='c' c='silk_encode_indices'/>
+<use f='codebrowser/code/opus-1.1.4/silk/encode_indices.c' l='161' u='c' c='silk_encode_indices'/>
+<use f='codebrowser/code/opus-1.1.4/silk/encode_indices.c' l='169' u='c' c='silk_encode_indices'/>
+<use f='codebrowser/code/opus-1.1.4/silk/encode_indices.c' l='180' u='c' c='silk_encode_indices'/>
+<use f='codebrowser/code/opus-1.1.4/silk/encode_pulses.c' l='155' u='c' c='silk_encode_pulses'/>
+<use f='codebrowser/code/opus-1.1.4/silk/encode_pulses.c' l='163' u='c' c='silk_encode_pulses'/>
+<use f='codebrowser/code/opus-1.1.4/silk/encode_pulses.c' l='165' u='c' c='silk_encode_pulses'/>
+<use f='codebrowser/code/opus-1.1.4/silk/encode_pulses.c' l='167' u='c' c='silk_encode_pulses'/>
+<use f='codebrowser/code/opus-1.1.4/silk/encode_pulses.c' l='169' u='c' c='silk_encode_pulses'/>
+<use f='codebrowser/code/opus-1.1.4/silk/encode_pulses.c' l='193' u='c' c='silk_encode_pulses'/>
+<use f='codebrowser/code/opus-1.1.4/silk/encode_pulses.c' l='196' u='c' c='silk_encode_pulses'/>
+<use f='codebrowser/code/opus-1.1.4/silk/shell_coder.c' l='56' u='c' c='encode_split'/>
+<use f='codebrowser/code/opus-1.1.4/silk/stereo_encode_pred.c' l='45' u='c' c='silk_stereo_encode_pred'/>
+<use f='codebrowser/code/opus-1.1.4/silk/stereo_encode_pred.c' l='49' u='c' c='silk_stereo_encode_pred'/>
+<use f='codebrowser/code/opus-1.1.4/silk/stereo_encode_pred.c' l='50' u='c' c='silk_stereo_encode_pred'/>
+<use f='codebrowser/code/opus-1.1.4/silk/stereo_encode_pred.c' l='61' u='c' c='silk_stereo_encode_mid_only'/>

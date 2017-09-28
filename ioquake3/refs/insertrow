@@ -1,0 +1,12 @@
+<dec f='codebrowser/code/tools/lcc/cpp/cpp.h' l='124' type='void insertrow(Tokenrow * , int , Tokenrow * )'/>
+<use f='codebrowser/code/tools/lcc/cpp/macro.c' l='218' u='c' c='expand'/>
+<use f='codebrowser/code/tools/lcc/cpp/macro.c' l='335' u='c' c='substargs'/>
+<use f='codebrowser/code/tools/lcc/cpp/macro.c' l='342' u='c' c='substargs'/>
+<use f='codebrowser/code/tools/lcc/cpp/macro.c' l='346' u='c' c='substargs'/>
+<use f='codebrowser/code/tools/lcc/cpp/macro.c' l='389' u='c' c='doconcat'/>
+<def f='codebrowser/code/tools/lcc/cpp/tokens.c' l='130' ll='142' type='void insertrow(Tokenrow * dtr, int ntok, Tokenrow * str)'/>
+<doc f='codebrowser/code/tools/lcc/cpp/tokens.c' l='125'>/*
+ * replace ntok tokens starting at dtr-&gt;tp with the contents of str.
+ * tp ends up pointing just beyond the replacement.
+ * Canonical whitespace is assured on each side.
+ */</doc>

@@ -1,0 +1,131 @@
+<dec f='codebrowser/code/qcommon/q_shared.h' l='297' type='0'/>
+<doc f='codebrowser/code/qcommon/q_shared.h' l='297'>// exit the entire game with a popup window</doc>
+<use f='codebrowser/code/botlib/l_precomp.c' l='274' u='r' c='PC_CopyToken'/>
+<use f='codebrowser/code/client/cl_main.c' l='2402' u='r' c='CL_CheckForResend'/>
+<use f='codebrowser/code/client/cl_main.c' l='3226' u='r' c='CL_InitRef'/>
+<use f='codebrowser/code/client/cl_main.c' l='3232' u='r' c='CL_InitRef'/>
+<use f='codebrowser/code/client/cl_main.c' l='3299' u='r' c='CL_InitRef'/>
+<use f='codebrowser/code/client/cl_scrn.c' l='497' u='r' c='SCR_DrawScreenField'/>
+<use f='codebrowser/code/client/cl_scrn.c' l='567' u='r' c='SCR_UpdateScreen'/>
+<use f='codebrowser/code/client/cl_ui.c' l='1121' u='r' c='CL_InitUI'/>
+<use f='codebrowser/code/client/snd_dma.c' l='261' u='r' c='S_FindName'/>
+<use f='codebrowser/code/client/snd_dma.c' l='299' u='r' c='S_FindName'/>
+<use f='codebrowser/code/client/snd_main.c' l='515' u='r' c='S_Init'/>
+<use f='codebrowser/code/client/snd_openal.c' l='180' u='r' c='S_AL_BufferFindFree'/>
+<use f='codebrowser/code/client/snd_openal.c' l='198' u='r' c='S_AL_BufferFind'/>
+<use f='codebrowser/code/client/snd_openal.c' l='251' u='r' c='S_AL_BufferUseDefault'/>
+<use f='codebrowser/code/qcommon/cm_patch.c' l='723' u='r' c='CM_SetBorderInward'/>
+<use f='codebrowser/code/qcommon/cm_polylib.c' l='69' u='r' c='FreeWinding'/>
+<use f='codebrowser/code/qcommon/cmd.c' l='163' u='r' c='Cbuf_ExecuteText'/>
+<use f='codebrowser/code/qcommon/common.c' l='283' u='r' c='Com_Error'/>
+<use f='codebrowser/code/qcommon/common.c' l='290' u='r' c='Com_Error'/>
+<use f='codebrowser/code/qcommon/common.c' l='862' u='r' c='Z_Free'/>
+<use f='codebrowser/code/qcommon/common.c' l='865' u='r' c='Z_Free'/>
+<use f='codebrowser/code/qcommon/common.c' l='874' u='r' c='Z_Free'/>
+<use f='codebrowser/code/qcommon/common.c' l='958' u='r' c='Z_TagMalloc'/>
+<use f='codebrowser/code/qcommon/common.c' l='991' u='r' c='Z_TagMalloc'/>
+<use f='codebrowser/code/qcommon/common.c' l='1087' u='r' c='Z_CheckHeap'/>
+<use f='codebrowser/code/qcommon/common.c' l='1089' u='r' c='Z_CheckHeap'/>
+<use f='codebrowser/code/qcommon/common.c' l='1092' u='r' c='Z_CheckHeap'/>
+<use f='codebrowser/code/qcommon/common.c' l='1427' u='r' c='Com_InitSmallZoneMemory'/>
+<use f='codebrowser/code/qcommon/common.c' l='1452' u='r' c='Com_InitZoneMemory'/>
+<use f='codebrowser/code/qcommon/common.c' l='1551' u='r' c='Com_InitHunkMemory'/>
+<use f='codebrowser/code/qcommon/common.c' l='1577' u='r' c='Com_InitHunkMemory'/>
+<use f='codebrowser/code/qcommon/common.c' l='1718' u='r' c='Hunk_Alloc'/>
+<use f='codebrowser/code/qcommon/common.c' l='1853' u='r' c='Hunk_FreeTempMemory'/>
+<use f='codebrowser/code/qcommon/common.c' l='2063' u='r' c='Com_GetRealEvent'/>
+<use f='codebrowser/code/qcommon/common.c' l='2069' u='r' c='Com_GetRealEvent'/>
+<use f='codebrowser/code/qcommon/common.c' l='2079' u='r' c='Com_GetRealEvent'/>
+<use f='codebrowser/code/qcommon/common.c' l='2084' u='r' c='Com_GetRealEvent'/>
+<use f='codebrowser/code/qcommon/common.c' l='2234' u='r' c='Com_EventLoop'/>
+<use f='codebrowser/code/qcommon/common.c' l='2283' u='r' c='Com_Error_f'/>
+<use f='codebrowser/code/qcommon/cvar.c' l='316' u='r' c='Cvar_Get'/>
+<use f='codebrowser/code/qcommon/cvar.c' l='423' u='r' c='Cvar_Get'/>
+<use f='codebrowser/code/qcommon/files.c' l='550' u='r' c='FS_CreatePath'/>
+<use f='codebrowser/code/qcommon/files.c' l='575' u='r' c='FS_CheckFilenameIsMutable'/>
+<use f='codebrowser/code/qcommon/files.c' l='671' u='r' c='FS_SV_FOpenFileWrite'/>
+<use f='codebrowser/code/qcommon/files.c' l='716' u='r' c='FS_SV_FOpenFileRead'/>
+<use f='codebrowser/code/qcommon/files.c' l='811' u='r' c='FS_SV_Rename'/>
+<use f='codebrowser/code/qcommon/files.c' l='845' u='r' c='FS_Rename'/>
+<use f='codebrowser/code/qcommon/files.c' l='875' u='r' c='FS_FCloseFile'/>
+<use f='codebrowser/code/qcommon/files.c' l='905' u='r' c='FS_FOpenFileWrite'/>
+<use f='codebrowser/code/qcommon/files.c' l='948' u='r' c='FS_FOpenFileAppend'/>
+<use f='codebrowser/code/qcommon/files.c' l='991' u='r' c='FS_FCreateOpenPipeFile'/>
+<use f='codebrowser/code/qcommon/files.c' l='1140' u='r' c='FS_FOpenFileReadDir'/>
+<use f='codebrowser/code/qcommon/files.c' l='1288' u='r' c='FS_FOpenFileReadDir'/>
+<use f='codebrowser/code/qcommon/files.c' l='1387' u='r' c='FS_FOpenFileRead'/>
+<use f='codebrowser/code/qcommon/files.c' l='1455' u='r' c='FS_FindVM'/>
+<use f='codebrowser/code/qcommon/files.c' l='1537' u='r' c='FS_Read'/>
+<use f='codebrowser/code/qcommon/files.c' l='1564' u='r' c='FS_Read'/>
+<use f='codebrowser/code/qcommon/files.c' l='1591' u='r' c='FS_Write'/>
+<use f='codebrowser/code/qcommon/files.c' l='1652' u='r' c='FS_Seek'/>
+<use f='codebrowser/code/qcommon/files.c' l='1712' u='r' c='FS_Seek'/>
+<use f='codebrowser/code/qcommon/files.c' l='1729' u='r' c='FS_Seek'/>
+<use f='codebrowser/code/qcommon/files.c' l='1753' u='r' c='FS_FileIsInPAK'/>
+<use f='codebrowser/code/qcommon/files.c' l='1757' u='r' c='FS_FileIsInPAK'/>
+<use f='codebrowser/code/qcommon/files.c' l='1824' u='r' c='FS_ReadFileDir'/>
+<use f='codebrowser/code/qcommon/files.c' l='1828' u='r' c='FS_ReadFileDir'/>
+<use f='codebrowser/code/qcommon/files.c' l='1863' u='r' c='FS_ReadFileDir'/>
+<use f='codebrowser/code/qcommon/files.c' l='1957' u='r' c='FS_FreeFile'/>
+<use f='codebrowser/code/qcommon/files.c' l='1960' u='r' c='FS_FreeFile'/>
+<use f='codebrowser/code/qcommon/files.c' l='1983' u='r' c='FS_WriteFile'/>
+<use f='codebrowser/code/qcommon/files.c' l='1987' u='r' c='FS_WriteFile'/>
+<use f='codebrowser/code/qcommon/files.c' l='2240' u='r' c='FS_ListFilteredFiles'/>
+<use f='codebrowser/code/qcommon/files.c' l='2371' u='r' c='FS_FreeFileList'/>
+<use f='codebrowser/code/qcommon/files.c' l='3583' u='r' c='FS_CheckPak0'/>
+<use f='codebrowser/code/qcommon/files.c' l='3604' u='r' c='FS_CheckPak0'/>
+<use f='codebrowser/code/qcommon/files.c' l='3961' u='r' c='FS_InitFilesystem'/>
+<use f='codebrowser/code/qcommon/files.c' l='4015' u='r' c='FS_Restart'/>
+<use f='codebrowser/code/qcommon/files.c' l='4103' u='r' c='FS_FOpenFileByMode'/>
+<use f='codebrowser/code/qcommon/msg.c' l='883' u='r' c='MSG_WriteDeltaEntity'/>
+<use f='codebrowser/code/qcommon/net_ip.c' l='649' u='r' c='Sys_SendPacket'/>
+<use f='codebrowser/code/qcommon/q_shared.c' l='791' u='r' c='Q_strncpyz'/>
+<use f='codebrowser/code/qcommon/q_shared.c' l='794' u='r' c='Q_strncpyz'/>
+<use f='codebrowser/code/qcommon/q_shared.c' l='797' u='r' c='Q_strncpyz'/>
+<use f='codebrowser/code/qcommon/q_shared.c' l='895' u='r' c='Q_strcat'/>
+<use f='codebrowser/code/qcommon/vm.c' l='585' u='r' c='VM_Create'/>
+<use f='codebrowser/code/qcommon/vm.c' l='606' u='r' c='VM_Create'/>
+<use f='codebrowser/code/qcommon/vm.c' l='702' u='r' c='VM_Free'/>
+<use f='codebrowser/code/qcommon/vm.c' l='814' u='r' c='VM_Call'/>
+<use f='codebrowser/code/qcommon/vm_x86.c' l='1653' u='r' c='VM_Compile'/>
+<use f='codebrowser/code/qcommon/vm_x86.c' l='1669' u='r' c='VM_Compile'/>
+<use f='codebrowser/code/renderercommon/tr_image_jpg.c' l='328' c='empty_output_buffer'/>
+<use f='codebrowser/code/renderergl1/tr_cmds.c' l='131' c='R_GetCommandBufferReserved'/>
+<use f='codebrowser/code/renderergl1/tr_cmds.c' l='364' c='RE_BeginFrame'/>
+<use f='codebrowser/code/renderergl1/tr_cmds.c' l='378' c='RE_BeginFrame'/>
+<use f='codebrowser/code/renderergl1/tr_cmds.c' l='420' c='RE_BeginFrame'/>
+<use f='codebrowser/code/renderergl1/tr_cmds.c' l='428' c='RE_BeginFrame'/>
+<use f='codebrowser/code/renderergl1/tr_init.c' l='258' c='GL_CheckErrors'/>
+<use f='codebrowser/code/renderergl1/tr_init.c' l='1175' c='R_Init'/>
+<use f='codebrowser/code/renderergl2/tr_cmds.c' l='138' c='R_GetCommandBufferReserved'/>
+<use f='codebrowser/code/renderergl2/tr_cmds.c' l='410' c='RE_BeginFrame'/>
+<use f='codebrowser/code/renderergl2/tr_cmds.c' l='424' c='RE_BeginFrame'/>
+<use f='codebrowser/code/renderergl2/tr_cmds.c' l='487' c='RE_BeginFrame'/>
+<use f='codebrowser/code/renderergl2/tr_cmds.c' l='495' c='RE_BeginFrame'/>
+<use f='codebrowser/code/renderergl2/tr_extensions.c' l='53' c='GLimp_InitExtraExtensions'/>
+<use f='codebrowser/code/renderergl2/tr_glsl.c' l='926' c='GLSL_InitGPUShaders'/>
+<use f='codebrowser/code/renderergl2/tr_glsl.c' l='944' c='GLSL_InitGPUShaders'/>
+<use f='codebrowser/code/renderergl2/tr_glsl.c' l='968' c='GLSL_InitGPUShaders'/>
+<use f='codebrowser/code/renderergl2/tr_glsl.c' l='990' c='GLSL_InitGPUShaders'/>
+<use f='codebrowser/code/renderergl2/tr_glsl.c' l='1118' c='GLSL_InitGPUShaders'/>
+<use f='codebrowser/code/renderergl2/tr_glsl.c' l='1142' c='GLSL_InitGPUShaders'/>
+<use f='codebrowser/code/renderergl2/tr_glsl.c' l='1157' c='GLSL_InitGPUShaders'/>
+<use f='codebrowser/code/renderergl2/tr_glsl.c' l='1174' c='GLSL_InitGPUShaders'/>
+<use f='codebrowser/code/renderergl2/tr_glsl.c' l='1191' c='GLSL_InitGPUShaders'/>
+<use f='codebrowser/code/renderergl2/tr_glsl.c' l='1208' c='GLSL_InitGPUShaders'/>
+<use f='codebrowser/code/renderergl2/tr_glsl.c' l='1231' c='GLSL_InitGPUShaders'/>
+<use f='codebrowser/code/renderergl2/tr_glsl.c' l='1262' c='GLSL_InitGPUShaders'/>
+<use f='codebrowser/code/renderergl2/tr_glsl.c' l='1283' c='GLSL_InitGPUShaders'/>
+<use f='codebrowser/code/renderergl2/tr_glsl.c' l='1311' c='GLSL_InitGPUShaders'/>
+<use f='codebrowser/code/renderergl2/tr_init.c' l='323' c='GL_CheckErrs'/>
+<use f='codebrowser/code/renderergl2/tr_init.c' l='1408' c='R_Init'/>
+<use f='codebrowser/code/renderergl2/tr_vbo.c' l='118' u='r' c='R_CreateVao'/>
+<use f='codebrowser/code/sdl/sdl_glimp.c' l='155' c='GLimp_DetectAvailableModes'/>
+<use f='codebrowser/code/sdl/sdl_glimp.c' l='743' c='GLimp_InitExtensions'/>
+<use f='codebrowser/code/sdl/sdl_glimp.c' l='832' c='GLimp_Init'/>
+<use f='codebrowser/code/sdl/sdl_input.c' l='1211' u='r' c='IN_Init'/>
+<use f='codebrowser/code/server/sv_client.c' l='522' u='r' c='SV_DirectConnect'/>
+<use f='codebrowser/code/server/sv_game.c' l='912' u='r' c='SV_RestartGameProgs'/>
+<use f='codebrowser/code/server/sv_game.c' l='942' u='r' c='SV_InitGameProgs'/>
+<use f='codebrowser/code/server/sv_init.c' l='268' u='r' c='SV_Startup'/>
+<use f='codebrowser/code/server/sv_snapshot.c' l='517' u='r' c='SV_BuildClientSnapshot'/>

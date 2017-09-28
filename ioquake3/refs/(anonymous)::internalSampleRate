@@ -1,0 +1,18 @@
+<dec f='codebrowser/code/opus-1.1.4/silk/control.h' l='99' type='opus_int32'/>
+<dec f='codebrowser/code/opus-1.1.4/silk/control.h' l='129' type='opus_int32'/>
+<offset>96</offset>
+<doc f='codebrowser/code/opus-1.1.4/silk/control.h' l='98'>/* O:   Internal sampling rate used, in Hertz; 8000/12000/16000                         */</doc>
+<doc f='codebrowser/code/opus-1.1.4/silk/control.h' l='128'>/* I:   Internal sampling rate used, in Hertz; 8000/12000/16000                         */</doc>
+<use f='codebrowser/code/opus-1.1.4/silk/dec_API.c' l='124' u='r' c='silk_Decode'/>
+<use f='codebrowser/code/opus-1.1.4/silk/dec_API.c' l='150' u='r' c='silk_Decode'/>
+<use f='codebrowser/code/opus-1.1.4/silk/dec_API.c' l='261' u='r' c='silk_Decode'/>
+<use f='codebrowser/code/opus-1.1.4/silk/enc_API.c' l='127' u='w' c='silk_QueryEncoder'/>
+<use f='codebrowser/code/opus-1.1.4/silk/enc_API.c' l='549' u='w' c='silk_Encode'/>
+<use f='codebrowser/code/opus-1.1.4/src/opus_decoder.c' l='359' u='w' c='opus_decode_frame'/>
+<use f='codebrowser/code/opus-1.1.4/src/opus_decoder.c' l='361' u='w' c='opus_decode_frame'/>
+<use f='codebrowser/code/opus-1.1.4/src/opus_decoder.c' l='363' u='w' c='opus_decode_frame'/>
+<use f='codebrowser/code/opus-1.1.4/src/opus_decoder.c' l='365' u='w' c='opus_decode_frame'/>
+<use f='codebrowser/code/opus-1.1.4/src/opus_decoder.c' l='370' u='w' c='opus_decode_frame'/>
+<use f='codebrowser/code/opus-1.1.4/src/opus_encoder.c' l='1674' u='r' c='opus_encode_native'/>
+<use f='codebrowser/code/opus-1.1.4/src/opus_encoder.c' l='1676' u='r' c='opus_encode_native'/>
+<use f='codebrowser/code/opus-1.1.4/src/opus_encoder.c' l='1678' u='r' c='opus_encode_native'/>

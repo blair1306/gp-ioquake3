@@ -1,0 +1,34 @@
+<dec f='codebrowser/code/renderergl1/tr_local.h' l='1287' type='void R_DlightBmodel(bmodel_t * bmodel)'/>
+<doc f='codebrowser/code/renderergl1/tr_local.h' l='1279'>/*
+============================================================
+
+LIGHTS
+
+============================================================
+*/</doc>
+<def f='codebrowser/code/renderergl1/tr_light.c' l='61' ll='105' type='void R_DlightBmodel(bmodel_t * bmodel)'/>
+<doc f='codebrowser/code/renderergl1/tr_light.c' l='54'>/*
+=============
+R_DlightBmodel
+
+Determine which dynamic lights may effect this bmodel
+=============
+*/</doc>
+<use f='codebrowser/code/renderergl1/tr_world.c' l='334' u='c' c='R_AddBrushModelSurfaces'/>
+<dec f='codebrowser/code/renderergl2/tr_local.h' l='2058' type='void R_DlightBmodel(bmodel_t * bmodel)'/>
+<doc f='codebrowser/code/renderergl2/tr_local.h' l='2050'>/*
+============================================================
+
+LIGHTS
+
+============================================================
+*/</doc>
+<def f='codebrowser/code/renderergl2/tr_light.c' l='61' ll='109' type='void R_DlightBmodel(bmodel_t * bmodel)'/>
+<doc f='codebrowser/code/renderergl2/tr_light.c' l='54'>/*
+=============
+R_DlightBmodel
+
+Determine which dynamic lights may effect this bmodel
+=============
+*/</doc>
+<use f='codebrowser/code/renderergl2/tr_world.c' l='374' u='c' c='R_AddBrushModelSurfaces'/>

@@ -1,0 +1,44 @@
+<dec f='codebrowser/code/renderergl1/tr_local.h' l='1301' type='void RB_ShadowTessEnd()'/>
+<doc f='codebrowser/code/renderergl1/tr_local.h' l='1293'>/*
+============================================================
+
+SHADOWS
+
+============================================================
+*/</doc>
+<use f='codebrowser/code/renderergl1/tr_shade.c' l='1486' u='c' c='RB_EndSurface'/>
+<def f='codebrowser/code/renderergl1/tr_shadows.c' l='155' ll='233' type='void RB_ShadowTessEnd()'/>
+<doc f='codebrowser/code/renderergl1/tr_shadows.c' l='143'>/*
+=================
+RB_ShadowTessEnd
+
+triangleFromEdge[ v1 ][ v2 ]
+
+
+  set triangle from edge( v1, v2, tri )
+  if ( facing[ triangleFromEdge[ v1 ][ v2 ] ] &amp;&amp; !facing[ triangleFromEdge[ v2 ][ v1 ] ) {
+  }
+=================
+*/</doc>
+<dec f='codebrowser/code/renderergl2/tr_local.h' l='2074' type='void RB_ShadowTessEnd()'/>
+<doc f='codebrowser/code/renderergl2/tr_local.h' l='2066'>/*
+============================================================
+
+SHADOWS
+
+============================================================
+*/</doc>
+<use f='codebrowser/code/renderergl2/tr_shade.c' l='1590' u='c' c='RB_EndSurface'/>
+<def f='codebrowser/code/renderergl2/tr_shadows.c' l='155' ll='233' type='void RB_ShadowTessEnd()'/>
+<doc f='codebrowser/code/renderergl2/tr_shadows.c' l='143'>/*
+=================
+RB_ShadowTessEnd
+
+triangleFromEdge[ v1 ][ v2 ]
+
+
+  set triangle from edge( v1, v2, tri )
+  if ( facing[ triangleFromEdge[ v1 ][ v2 ] ] &amp;&amp; !facing[ triangleFromEdge[ v2 ][ v1 ] ) {
+  }
+=================
+*/</doc>

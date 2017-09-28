@@ -1,0 +1,7 @@
+<def f='codebrowser/code/jpeg-8c/jpegint.h' l='253' ll='260'/>
+<size>32</size>
+<doc f='codebrowser/code/jpeg-8c/jpegint.h' l='252'>/* Color quantization or color precision reduction */</doc>
+<mbr r='jpeg_color_quantizer::start_pass' o='0' t='void (*)(j_decompress_ptr, boolean)'/>
+<mbr r='jpeg_color_quantizer::color_quantize' o='64' t='void (*)(j_decompress_ptr, JSAMPARRAY, JSAMPARRAY, int)'/>
+<mbr r='jpeg_color_quantizer::finish_pass' o='128' t='void (*)(j_decompress_ptr)'/>
+<mbr r='jpeg_color_quantizer::new_color_map' o='192' t='void (*)(j_decompress_ptr)'/>

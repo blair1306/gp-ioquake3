@@ -1,0 +1,10 @@
+<dec f='include/SDL2/SDL_gamecontroller.h' l='256' type='Sint16 SDL_GameControllerGetAxis(SDL_GameController * gamecontroller, SDL_GameControllerAxis axis)'/>
+<doc f='include/SDL2/SDL_gamecontroller.h' l='247'>/**
+ *  Get the current state of an axis control on a game controller.
+ *
+ *  The state is a value ranging from -32768 to 32767 (except for the triggers,
+ *  which range from 0 to 32767).
+ *
+ *  The axis indices start at index 0.
+ */</doc>
+<use f='codebrowser/code/sdl/sdl_input.c' l='673' u='c' c='IN_GamepadMove'/>

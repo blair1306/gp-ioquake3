@@ -1,0 +1,9 @@
+<dec f='codebrowser/code/curl-7.54.0/include/curl/multi.h' l='168' type='CURLMcode curl_multi_wait(CURLM * multi_handle, struct curl_waitfd * extra_fds, unsigned int extra_nfds, int timeout_ms, int * ret)'/>
+<doc f='codebrowser/code/curl-7.54.0/include/curl/multi.h' l='160'>/*
+ * Name:     curl_multi_wait()
+ *
+ * Desc:     Poll on all fds within a CURLM set as well as any
+ *           additional fds passed to the function.
+ *
+ * Returns:  CURLMcode type, general multi error code.
+ */</doc>

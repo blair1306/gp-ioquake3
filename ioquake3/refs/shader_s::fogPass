@@ -1,0 +1,16 @@
+<dec f='codebrowser/code/renderergl1/tr_local.h' l='350' type='fogPass_t'/>
+<offset>1984</offset>
+<doc f='codebrowser/code/renderergl1/tr_local.h' l='350'>// draw a blended pass, possibly with depth test equals</doc>
+<use f='codebrowser/code/renderergl1/tr_shade.c' l='779' u='r' c='RB_FogPass'/>
+<use f='codebrowser/code/renderergl1/tr_shade.c' l='1259' u='r' c='RB_StageIteratorGeneric'/>
+<use f='codebrowser/code/renderergl1/tr_shade.c' l='1346' u='r' c='RB_StageIteratorVertexLitTexture'/>
+<use f='codebrowser/code/renderergl1/tr_shade.c' l='1453' u='r' c='RB_StageIteratorLightmappedMultitexture'/>
+<use f='codebrowser/code/renderergl1/tr_shader.c' l='2050' u='w' c='GeneratePermanentShader'/>
+<use f='codebrowser/code/renderergl1/tr_shader.c' l='2052' u='w' c='GeneratePermanentShader'/>
+<dec f='codebrowser/code/renderergl2/tr_local.h' l='462' type='fogPass_t'/>
+<offset>1984</offset>
+<doc f='codebrowser/code/renderergl2/tr_local.h' l='462'>// draw a blended pass, possibly with depth test equals</doc>
+<use f='codebrowser/code/renderergl2/tr_shade.c' l='942' u='r' c='RB_FogPass'/>
+<use f='codebrowser/code/renderergl2/tr_shade.c' l='1557' u='r' c='RB_StageIteratorGeneric'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='2756' u='w' c='GeneratePermanentShader'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='2758' u='w' c='GeneratePermanentShader'/>

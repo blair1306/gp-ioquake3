@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>l_log.h source code [codebrowser/code/botlib/l_log.h] - Woboq Code Browser</title>
+<link rel="stylesheet" href="../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'codebrowser/code/botlib/l_log.h'; var root_path = '../../..'; var data_path = '../../../../data';</script>
+<script src='../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../..'>codebrowser</a>/<a href='..'>code</a>/<a href='./'>botlib</a>/<a href='l_log.h.html'>l_log.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/*</i></td></tr>
+<tr><th id="2">2</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="3">3</th><td><i>Copyright (C) 1999-2005 Id Software, Inc.</i></td></tr>
+<tr><th id="4">4</th><td><i></i></td></tr>
+<tr><th id="5">5</th><td><i>This file is part of Quake III Arena source code.</i></td></tr>
+<tr><th id="6">6</th><td><i></i></td></tr>
+<tr><th id="7">7</th><td><i>Quake III Arena source code is free software; you can redistribute it</i></td></tr>
+<tr><th id="8">8</th><td><i>and/or modify it under the terms of the GNU General Public License as</i></td></tr>
+<tr><th id="9">9</th><td><i>published by the Free Software Foundation; either version 2 of the License,</i></td></tr>
+<tr><th id="10">10</th><td><i>or (at your option) any later version.</i></td></tr>
+<tr><th id="11">11</th><td><i></i></td></tr>
+<tr><th id="12">12</th><td><i>Quake III Arena source code is distributed in the hope that it will be</i></td></tr>
+<tr><th id="13">13</th><td><i>useful, but WITHOUT ANY WARRANTY; without even the implied warranty of</i></td></tr>
+<tr><th id="14">14</th><td><i>MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</i></td></tr>
+<tr><th id="15">15</th><td><i>GNU General Public License for more details.</i></td></tr>
+<tr><th id="16">16</th><td><i></i></td></tr>
+<tr><th id="17">17</th><td><i>You should have received a copy of the GNU General Public License</i></td></tr>
+<tr><th id="18">18</th><td><i>along with Quake III Arena source code; if not, write to the Free Software</i></td></tr>
+<tr><th id="19">19</th><td><i>Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA</i></td></tr>
+<tr><th id="20">20</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="21">21</th><td><i>*/</i></td></tr>
+<tr><th id="22">22</th><td></td></tr>
+<tr><th id="23">23</th><td><i>/*****************************************************************************</i></td></tr>
+<tr><th id="24">24</th><td><i> * name:		l_log.h</i></td></tr>
+<tr><th id="25">25</th><td><i> *</i></td></tr>
+<tr><th id="26">26</th><td><i> * desc:		log file</i></td></tr>
+<tr><th id="27">27</th><td><i> *</i></td></tr>
+<tr><th id="28">28</th><td><i> * $Archive: /source/code/botlib/l_log.h $</i></td></tr>
+<tr><th id="29">29</th><td><i> *</i></td></tr>
+<tr><th id="30">30</th><td><i> *****************************************************************************/</i></td></tr>
+<tr><th id="31">31</th><td><i></i></td></tr>
+<tr><th id="32">32</th><td><i>//open a log file</i></td></tr>
+<tr><th id="33">33</th><td><em>void</em> <dfn class="decl" id="Log_Open" title='Log_Open' data-ref="Log_Open">Log_Open</dfn>(<em>char</em> *<dfn class="local col1 decl" id="1filename" title='filename' data-type='char *' data-ref="1filename">filename</dfn>);</td></tr>
+<tr><th id="34">34</th><td><i>//close the current log file</i></td></tr>
+<tr><th id="35">35</th><td><em>void</em> <dfn class="decl" id="Log_Close" title='Log_Close' data-ref="Log_Close">Log_Close</dfn>(<em>void</em>);</td></tr>
+<tr><th id="36">36</th><td><i>//close log file if present</i></td></tr>
+<tr><th id="37">37</th><td><em>void</em> <dfn class="decl" id="Log_Shutdown" title='Log_Shutdown' data-ref="Log_Shutdown">Log_Shutdown</dfn>(<em>void</em>);</td></tr>
+<tr><th id="38">38</th><td><i>//write to the current opened log file</i></td></tr>
+<tr><th id="39">39</th><td><em>void</em> <a class="macro" href="../qcommon/q_platform.h.html#75" title="" data-ref="_M/QDECL">QDECL</a> <dfn class="decl" id="Log_Write" title='Log_Write' data-ref="Log_Write">Log_Write</dfn>(<em>char</em> *<dfn class="local col2 decl" id="2fmt" title='fmt' data-type='char *' data-ref="2fmt">fmt</dfn>, ...) <b>__attribute__</b> ((format (printf, <var>1</var>, <var>2</var>)));</td></tr>
+<tr><th id="40">40</th><td><i>//write to the current opened log file with a time stamp</i></td></tr>
+<tr><th id="41">41</th><td><em>void</em> <a class="macro" href="../qcommon/q_platform.h.html#75" title="" data-ref="_M/QDECL">QDECL</a> <dfn class="decl" id="Log_WriteTimeStamped" title='Log_WriteTimeStamped' data-ref="Log_WriteTimeStamped">Log_WriteTimeStamped</dfn>(<em>char</em> *<dfn class="local col3 decl" id="3fmt" title='fmt' data-type='char *' data-ref="3fmt">fmt</dfn>, ...) <b>__attribute__</b> ((format (printf, <var>1</var>, <var>2</var>)));</td></tr>
+<tr><th id="42">42</th><td><i>//returns a pointer to the log file</i></td></tr>
+<tr><th id="43">43</th><td><a class="typedef" href="../../../include/stdio.h.html#FILE" title='FILE' data-type='struct _IO_FILE' data-ref="FILE">FILE</a> *<dfn class="decl" id="Log_FilePointer" title='Log_FilePointer' data-ref="Log_FilePointer">Log_FilePointer</dfn>(<em>void</em>);</td></tr>
+<tr><th id="44">44</th><td><i>//flush log file</i></td></tr>
+<tr><th id="45">45</th><td><em>void</em> <dfn class="decl" id="Log_Flush" title='Log_Flush' data-ref="Log_Flush">Log_Flush</dfn>(<em>void</em>);</td></tr>
+<tr><th id="46">46</th><td></td></tr>
+<tr><th id="47">47</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='be_aas_cluster.c.html'>codebrowser/code/botlib/be_aas_cluster.c</a><br/>Generated on <em>2017-Aug-29</em> from project codebrowser revision <em>63e07af</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

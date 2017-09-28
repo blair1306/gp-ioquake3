@@ -1,0 +1,8 @@
+<dec f='codebrowser/code/tools/lcc/src/c.h' l='642' type='void vfprint(FILE * , char * , const char * , struct __va_list_tag * )'/>
+<use f='codebrowser/code/tools/lcc/src/error.c' l='45' u='c' c='error'/>
+<use f='codebrowser/code/tools/lcc/src/error.c' l='134' u='c' c='warning'/>
+<use f='codebrowser/code/tools/lcc/src/output.c' l='43' u='c' c='print'/>
+<use f='codebrowser/code/tools/lcc/src/output.c' l='51' u='c' c='fprint'/>
+<use f='codebrowser/code/tools/lcc/src/output.c' l='61' u='c' c='stringf'/>
+<def f='codebrowser/code/tools/lcc/src/output.c' l='67' ll='135' type='void vfprint(FILE * f, char * bp, const char * fmt, struct __va_list_tag * ap)'/>
+<doc f='codebrowser/code/tools/lcc/src/output.c' l='66'>/* vfprint - formatted output to f or string bp */</doc>

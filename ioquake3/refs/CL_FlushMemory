@@ -1,0 +1,18 @@
+<dec f='codebrowser/code/qcommon/qcommon.h' l='1015' type='void CL_FlushMemory()'/>
+<doc f='codebrowser/code/qcommon/qcommon.h' l='1013'>// bring up the &quot;need a cd to play&quot; dialog</doc>
+<def f='codebrowser/code/client/cl_main.c' l='1269' ll='1273' type='void CL_FlushMemory()'/>
+<use f='codebrowser/code/client/cl_main.c' l='2141' u='c' c='CL_DownloadsComplete'/>
+<doc f='codebrowser/code/client/cl_main.c' l='1260'>/*
+=================
+CL_FlushMemory
+
+Called by CL_MapLoading, CL_Connect_f, CL_PlayDemo_f, and CL_ParseGamestate the only
+ways a client gets into a game
+Also called by Com_Error
+=================
+*/</doc>
+<def f='codebrowser/code/null/null_client.c' l='83' ll='85' type='void CL_FlushMemory()'/>
+<use f='codebrowser/code/qcommon/common.c' l='316' u='c' c='Com_Error'/>
+<use f='codebrowser/code/qcommon/common.c' l='330' u='c' c='Com_Error'/>
+<use f='codebrowser/code/qcommon/common.c' l='343' u='c' c='Com_Error'/>
+<use f='codebrowser/code/qcommon/common.c' l='3202' u='c' c='Com_Frame'/>

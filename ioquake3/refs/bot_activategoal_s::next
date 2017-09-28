@@ -1,0 +1,6 @@
+<dec f='codebrowser/code/game/ai_main.h' l='118' type='struct bot_activategoal_s *'/>
+<offset>1920</offset>
+<doc f='codebrowser/code/game/ai_main.h' l='118'>//next activate goal on stack</doc>
+<use f='codebrowser/code/game/ai_dmq3.c' l='4066' u='r' c='BotPopFromActivateGoalStack'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='4093' u='w' c='BotPushOntoActivateGoalStack'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='4134' u='r' c='BotIsGoingToActivateEntity'/>

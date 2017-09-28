@@ -1,0 +1,12 @@
+<dec f='codebrowser/code/renderergl2/tr_local.h' l='1316' type='uint32_t'/>
+<offset>288</offset>
+<doc f='codebrowser/code/renderergl2/tr_local.h' l='1316'>// global if no VAOs, tess only otherwise</doc>
+<use f='codebrowser/code/renderergl2/tr_init.c' l='972' u='w' c='GL_SetDefaultState'/>
+<use f='codebrowser/code/renderergl2/tr_vbo.c' l='78' u='r' c='Vao_SetVertexPointers'/>
+<use f='codebrowser/code/renderergl2/tr_vbo.c' l='82' u='w' c='Vao_SetVertexPointers'/>
+<use f='codebrowser/code/renderergl2/tr_vbo.c' l='88' u='r' c='Vao_SetVertexPointers'/>
+<use f='codebrowser/code/renderergl2/tr_vbo.c' l='92' u='w' c='Vao_SetVertexPointers'/>
+<use f='codebrowser/code/renderergl2/tr_vbo.c' l='633' u='r' c='RB_UpdateTessVao'/>
+<use f='codebrowser/code/renderergl2/tr_vbo.c' l='636' u='w' c='RB_UpdateTessVao'/>
+<use f='codebrowser/code/renderergl2/tr_vbo.c' l='641' u='r' c='RB_UpdateTessVao'/>
+<use f='codebrowser/code/renderergl2/tr_vbo.c' l='644' u='w' c='RB_UpdateTessVao'/>

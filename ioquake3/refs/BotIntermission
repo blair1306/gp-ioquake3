@@ -1,0 +1,18 @@
+<dec f='codebrowser/code/game/ai_dmq3.h' l='56' type='qboolean BotIntermission(bot_state_t * bs)'/>
+<doc f='codebrowser/code/game/ai_dmq3.h' l='55'>//returns true if the bot is in the intermission</doc>
+<use f='codebrowser/code/game/ai_dmnet.c' l='1149' u='c' c='AINode_Intermission'/>
+<use f='codebrowser/code/game/ai_dmnet.c' l='1462' u='c' c='AINode_Seek_ActivateEntity'/>
+<use f='codebrowser/code/game/ai_dmnet.c' l='1677' u='c' c='AINode_Seek_NBG'/>
+<use f='codebrowser/code/game/ai_dmnet.c' l='1814' u='c' c='AINode_Seek_LTG'/>
+<use f='codebrowser/code/game/ai_dmnet.c' l='2004' u='c' c='AINode_Battle_Fight'/>
+<use f='codebrowser/code/game/ai_dmnet.c' l='2175' u='c' c='AINode_Battle_Chase'/>
+<use f='codebrowser/code/game/ai_dmnet.c' l='2315' u='c' c='AINode_Battle_Retreat'/>
+<use f='codebrowser/code/game/ai_dmnet.c' l='2504' u='c' c='AINode_Battle_NBG'/>
+<def f='codebrowser/code/game/ai_dmq3.c' l='2094' ll='2098' type='qboolean BotIntermission(bot_state_t * bs)'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='5253' u='c' c='BotDeathmatchAI'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='5266' u='c' c='BotDeathmatchAI'/>
+<doc f='codebrowser/code/game/ai_dmq3.c' l='2089'>/*
+==================
+BotIntermission
+==================
+*/</doc>

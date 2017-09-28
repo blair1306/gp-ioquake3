@@ -1,0 +1,11 @@
+<dec f='codebrowser/code/opusfile-0.8/include/opusfile.h' l='808'/>
+<doc f='codebrowser/code/opusfile-0.8/include/opusfile.h' l='798'>/**Use the given user name for authentication when proxying connections.
+   All proxy parameters are ignored for non-http and non-https URLs.
+   \param _user const char *: The proxy server user name.
+                              This may be &lt;code&gt;NULL&lt;/code&gt; to disable proxy
+                               authentication.
+                              A non-&lt;code&gt;NULL&lt;/code&gt; value only has an effect
+                               if #OP_HTTP_PROXY_HOST and #OP_HTTP_PROXY_PASS
+                               are also specified with non-&lt;code&gt;NULL&lt;/code&gt;
+                               arguments.
+   \hideinitializer*/</doc>

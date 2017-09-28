@@ -1,0 +1,4 @@
+<dec f='codebrowser/code/opus-1.1.4/celt/bands.h' l='110' type='void anti_collapse(const OpusCustomMode * m, celt_norm * X_, unsigned char * collapse_masks, int LM, int C, int size, int start, int end, const opus_val16 * logE, const opus_val16 * prev1logE, const opus_val16 * prev2logE, const int * pulses, opus_uint32 seed, int arch)'/>
+<def f='codebrowser/code/opus-1.1.4/celt/bands.c' l='267' ll='361' type='void anti_collapse(const OpusCustomMode * m, celt_norm * X_, unsigned char * collapse_masks, int LM, int C, int size, int start, int end, const opus_val16 * logE, const opus_val16 * prev1logE, const opus_val16 * prev2logE, const int * pulses, opus_uint32 seed, int arch)'/>
+<doc f='codebrowser/code/opus-1.1.4/celt/bands.c' l='266'>/* This prevents energy collapse for transients with multiple short MDCTs */</doc>
+<use f='codebrowser/code/opus-1.1.4/celt/celt_decoder.c' l='993' u='c' c='celt_decode_with_ec'/>

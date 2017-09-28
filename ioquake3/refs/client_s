@@ -1,0 +1,53 @@
+<def f='codebrowser/code/server/server.h' l='133' ll='202'/>
+<size>122944</size>
+<mbr r='client_s::state' o='0' t='clientState_t'/>
+<mbr r='client_s::userinfo' o='32' t='char [1024]'/>
+<mbr r='client_s::reliableCommands' o='8224' t='char [64][1024]'/>
+<mbr r='client_s::reliableSequence' o='532512' t='int'/>
+<mbr r='client_s::reliableAcknowledge' o='532544' t='int'/>
+<mbr r='client_s::reliableSent' o='532576' t='int'/>
+<mbr r='client_s::messageAcknowledge' o='532608' t='int'/>
+<mbr r='client_s::gamestateMessageNum' o='532640' t='int'/>
+<mbr r='client_s::challenge' o='532672' t='int'/>
+<mbr r='client_s::lastUsercmd' o='532704' t='usercmd_t'/>
+<mbr r='client_s::lastMessageNum' o='532896' t='int'/>
+<mbr r='client_s::lastClientCommand' o='532928' t='int'/>
+<mbr r='client_s::lastClientCommandString' o='532960' t='char [1024]'/>
+<mbr r='client_s::gentity' o='541184' t='sharedEntity_t *'/>
+<mbr r='client_s::name' o='541248' t='char [32]'/>
+<mbr r='client_s::downloadName' o='541504' t='char [64]'/>
+<mbr r='client_s::download' o='542016' t='fileHandle_t'/>
+<mbr r='client_s::downloadSize' o='542048' t='int'/>
+<mbr r='client_s::downloadCount' o='542080' t='int'/>
+<mbr r='client_s::downloadClientBlock' o='542112' t='int'/>
+<mbr r='client_s::downloadCurrentBlock' o='542144' t='int'/>
+<mbr r='client_s::downloadXmitBlock' o='542176' t='int'/>
+<mbr r='client_s::downloadBlocks' o='542208' t='unsigned char *[48]'/>
+<mbr r='client_s::downloadBlockSize' o='545280' t='int [48]'/>
+<mbr r='client_s::downloadEOF' o='546816' t='qboolean'/>
+<mbr r='client_s::downloadSendTime' o='546848' t='int'/>
+<mbr r='client_s::deltaMessage' o='546880' t='int'/>
+<mbr r='client_s::nextReliableTime' o='546912' t='int'/>
+<mbr r='client_s::lastPacketTime' o='546944' t='int'/>
+<mbr r='client_s::lastConnectTime' o='546976' t='int'/>
+<mbr r='client_s::lastSnapshotTime' o='547008' t='int'/>
+<mbr r='client_s::rateDelayed' o='547040' t='qboolean'/>
+<mbr r='client_s::timeoutCount' o='547072' t='int'/>
+<mbr r='client_s::frames' o='547104' t='clientSnapshot_t [32]'/>
+<mbr r='client_s::ping' o='681248' t='int'/>
+<mbr r='client_s::rate' o='681280' t='int'/>
+<mbr r='client_s::snapshotMsec' o='681312' t='int'/>
+<mbr r='client_s::pureAuthentic' o='681344' t='int'/>
+<mbr r='client_s::gotCP' o='681376' t='qboolean'/>
+<mbr r='client_s::netchan' o='681408' t='netchan_t'/>
+<mbr r='client_s::netchan_start_queue' o='944320' t='netchan_buffer_t *'/>
+<mbr r='client_s::netchan_end_queue' o='944384' t='netchan_buffer_t **'/>
+<mbr r='client_s::hasVoip' o='944448' t='qboolean'/>
+<mbr r='client_s::muteAllVoip' o='944480' t='qboolean'/>
+<mbr r='client_s::ignoreVoipFromClient' o='944512' t='qboolean [64]'/>
+<mbr r='client_s::voipPacket' o='946560' t='voipServerPacket_t *[64]'/>
+<mbr r='client_s::queuedVoipPackets' o='950656' t='int'/>
+<mbr r='client_s::queuedVoipIndex' o='950688' t='int'/>
+<mbr r='client_s::oldServerTime' o='950720' t='int'/>
+<mbr r='client_s::csUpdated' o='950752' t='qboolean [1024]'/>
+<mbr r='client_s::compat' o='983520' t='qboolean'/>

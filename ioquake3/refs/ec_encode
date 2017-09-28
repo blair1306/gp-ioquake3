@@ -1,0 +1,19 @@
+<dec f='codebrowser/code/opus-1.1.4/celt/entenc.h' l='50' type='void ec_encode(ec_enc * _this, unsigned int _fl, unsigned int _fh, unsigned int _ft)'/>
+<use f='codebrowser/code/opus-1.1.4/celt/bands.c' l='730' u='c' c='compute_theta'/>
+<use f='codebrowser/code/opus-1.1.4/celt/bands.c' l='758' u='c' c='compute_theta'/>
+<doc f='codebrowser/code/opus-1.1.4/celt/entenc.h' l='37'>/*Encodes a symbol given its frequency information.
+  The frequency information must be discernable by the decoder, assuming it
+   has read only the previous symbols from the stream.
+  It is allowable to change the frequency information, or even the entire
+   source alphabet, so long as the decoder can tell from the context of the
+   previously encoded information that it is supposed to do so as well.
+  _fl: The cumulative frequency of all symbols that come before the one to be
+        encoded.
+  _fh: The cumulative frequency of all symbols up to and including the one to
+        be encoded.
+       Together with _fl, this defines the range [_fl,_fh) in which the
+        decoded value will fall.
+  _ft: The sum of the frequencies of all the symbols*/</doc>
+<def f='codebrowser/code/opus-1.1.4/celt/entenc.c' l='128' ll='137' type='void ec_encode(ec_enc * _this, unsigned int _fl, unsigned int _fh, unsigned int _ft)'/>
+<use f='codebrowser/code/opus-1.1.4/celt/entenc.c' l='187' u='c' c='ec_enc_uint'/>
+<use f='codebrowser/code/opus-1.1.4/celt/entenc.c' l='190' u='c' c='ec_enc_uint'/>

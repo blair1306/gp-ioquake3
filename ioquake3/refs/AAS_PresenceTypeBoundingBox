@@ -1,0 +1,19 @@
+<dec f='codebrowser/code/botlib/be_aas_sample.h' l='48' type='void AAS_PresenceTypeBoundingBox(int presencetype, vec_t * mins, vec_t * maxs)'/>
+<dec f='codebrowser/code/botlib/be_aas_sample.h' l='48' type='void AAS_PresenceTypeBoundingBox(int presencetype, vec_t * mins, vec_t * maxs)'/>
+<doc f='codebrowser/code/botlib/be_aas_sample.h' l='47'>//returns the mins and maxs of the bounding box for the given presence type</doc>
+<use f='codebrowser/code/botlib/be_aas_move.c' l='420' u='c' c='AAS_ClipToBBox'/>
+<def f='codebrowser/code/botlib/be_aas_sample.c' l='72' ll='88' type='void AAS_PresenceTypeBoundingBox(int presencetype, vec_t * mins, vec_t * maxs)'/>
+<use f='codebrowser/code/botlib/be_aas_sample.c' l='413' u='c' c='AAS_AreaEntityCollision'/>
+<use f='codebrowser/code/botlib/be_aas_sample.c' l='1327' u='c' c='AAS_LinkEntityClientBBox'/>
+<doc f='codebrowser/code/botlib/be_aas_sample.c' l='66'>//===========================================================================
+//
+// Parameter:				-
+// Returns:					-
+// Changes Globals:		-
+//===========================================================================</doc>
+<use f='codebrowser/code/botlib/be_ai_goal.c' l='1613' u='c' c='BotTouchingGoal'/>
+<use f='codebrowser/code/botlib/be_ai_move.c' l='308' u='c' c='BotReachabilityArea'/>
+<use f='codebrowser/code/botlib/be_ai_move.c' l='552' u='c' c='BotOnTopOfEntity'/>
+<use f='codebrowser/code/botlib/be_ai_move.c' l='1285' u='c' c='BotCheckBlocked'/>
+<use f='codebrowser/code/botlib/be_ai_move.c' l='1307' u='c' c='BotCheckBlocked'/>
+<use f='codebrowser/code/botlib/be_interface.c' l='687' u='r' c='Init_AAS_Export'/>

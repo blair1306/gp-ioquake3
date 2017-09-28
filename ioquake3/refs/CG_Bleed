@@ -1,0 +1,11 @@
+<dec f='codebrowser/code/cgame/cg_local.h' l='1420' type='void CG_Bleed(vec_t * origin, int entityNum)'/>
+<def f='codebrowser/code/cgame/cg_effects.c' l='496' ll='520' type='void CG_Bleed(vec_t * origin, int entityNum)'/>
+<doc f='codebrowser/code/cgame/cg_effects.c' l='489'>/*
+=================
+CG_Bleed
+
+This is the spurt of blood when a character gets hit
+=================
+*/</doc>
+<use f='codebrowser/code/cgame/cg_weapons.c' l='1946' u='c' c='CG_MissileHitPlayer'/>
+<use f='codebrowser/code/cgame/cg_weapons.c' l='2256' u='c' c='CG_Bullet'/>

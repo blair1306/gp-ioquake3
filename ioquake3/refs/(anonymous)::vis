@@ -1,0 +1,14 @@
+<dec f='codebrowser/code/renderergl1/tr_local.h' l='720' type='const byte *'/>
+<offset>2368</offset>
+<doc f='codebrowser/code/renderergl1/tr_local.h' l='720'>// may be passed in by CM_LoadMap to save space</doc>
+<use f='codebrowser/code/renderergl1/tr_bsp.c' l='254' u='w' c='R_LoadVisibility'/>
+<use f='codebrowser/code/renderergl1/tr_bsp.c' l='260' u='w' c='R_LoadVisibility'/>
+<use f='codebrowser/code/renderergl1/tr_world.c' l='533' u='r' c='R_ClusterPVS'/>
+<use f='codebrowser/code/renderergl1/tr_world.c' l='537' u='r' c='R_ClusterPVS'/>
+<dec f='codebrowser/code/renderergl2/tr_local.h' l='1127' type='const byte *'/>
+<offset>2688</offset>
+<doc f='codebrowser/code/renderergl2/tr_local.h' l='1127'>// may be passed in by CM_LoadMap to save space</doc>
+<use f='codebrowser/code/renderergl2/tr_bsp.c' l='583' u='w' c='R_LoadVisibility'/>
+<use f='codebrowser/code/renderergl2/tr_bsp.c' l='589' u='w' c='R_LoadVisibility'/>
+<use f='codebrowser/code/renderergl2/tr_world.c' l='624' u='r' c='R_ClusterPVS'/>
+<use f='codebrowser/code/renderergl2/tr_world.c' l='628' u='r' c='R_ClusterPVS'/>

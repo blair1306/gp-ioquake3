@@ -1,0 +1,17 @@
+<dec f='codebrowser/code/game/g_local.h' l='575' type='void CalculateRanks()'/>
+<use f='codebrowser/code/game/g_arenas.c' l='69' u='c' c='UpdateTournamentInfo'/>
+<use f='codebrowser/code/game/g_client.c' l='972' u='c' c='ClientConnect'/>
+<use f='codebrowser/code/game/g_client.c' l='1032' u='c' c='ClientBegin'/>
+<use f='codebrowser/code/game/g_client.c' l='1329' u='c' c='ClientDisconnect'/>
+<use f='codebrowser/code/game/g_combat.c' l='66' u='c' c='AddScore'/>
+<def f='codebrowser/code/game/g_main.c' l='787' ll='894' type='void CalculateRanks()'/>
+<doc f='codebrowser/code/game/g_main.c' l='778'>/*
+============
+CalculateRanks
+
+Recalculates the score ranks of all players
+This will be called on every client connect, begin, disconnect, death,
+and team change.
+============
+*/</doc>
+<use f='codebrowser/code/game/g_team.c' l='793' u='c' c='Team_TouchOurFlag'/>

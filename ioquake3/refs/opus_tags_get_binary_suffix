@@ -1,0 +1,7 @@
+<dec f='codebrowser/code/opusfile-0.8/include/opusfile.h' l='555' type='const unsigned char * opus_tags_get_binary_suffix(const OpusTags * _tags, int * _len)'/>
+<doc f='codebrowser/code/opusfile-0.8/include/opusfile.h' l='550'>/**Retrieve the binary suffix data at the end of the packet (if any).
+   \param      _tags An initialized #OpusTags structure.
+   \param[out] _len  Returns the number of bytes of binary suffix data returned.
+   \return A pointer to the binary suffix data, or &lt;code&gt;NULL&lt;/code&gt; if none
+            was present.*/</doc>
+<def f='codebrowser/code/opusfile-0.8/src/info.c' l='386' ll='395' type='const unsigned char * opus_tags_get_binary_suffix(const OpusTags * _tags, int * _len)'/>

@@ -1,0 +1,29 @@
+<dec f='include/SDL2/SDL_video.h' l='436' type='SDL_Window * SDL_CreateWindow(const char * title, int x, int y, int w, int h, Uint32 flags)'/>
+<doc f='include/SDL2/SDL_video.h' l='409'>/**
+ *  \brief Create a window with the specified position, dimensions, and flags.
+ *
+ *  \param title The title of the window, in UTF-8 encoding.
+ *  \param x     The x position of the window, ::SDL_WINDOWPOS_CENTERED, or
+ *               ::SDL_WINDOWPOS_UNDEFINED.
+ *  \param y     The y position of the window, ::SDL_WINDOWPOS_CENTERED, or
+ *               ::SDL_WINDOWPOS_UNDEFINED.
+ *  \param w     The width of the window, in screen coordinates.
+ *  \param h     The height of the window, in screen coordinates.
+ *  \param flags The flags for the window, a mask of any of the following:
+ *               ::SDL_WINDOW_FULLSCREEN,    ::SDL_WINDOW_OPENGL,
+ *               ::SDL_WINDOW_HIDDEN,        ::SDL_WINDOW_BORDERLESS,
+ *               ::SDL_WINDOW_RESIZABLE,     ::SDL_WINDOW_MAXIMIZED,
+ *               ::SDL_WINDOW_MINIMIZED,     ::SDL_WINDOW_INPUT_GRABBED,
+ *               ::SDL_WINDOW_ALLOW_HIGHDPI.
+ *
+ *  \return The id of the window created, or zero if window creation failed.
+ *
+ *  If the window is created with the SDL_WINDOW_ALLOW_HIGHDPI flag, its size
+ *  in pixels may differ from its size in screen coordinates on platforms with
+ *  high-DPI support (e.g. iOS and Mac OS X). Use SDL_GetWindowSize() to query
+ *  the client area&apos;s size in screen coordinates, and SDL_GL_GetDrawableSize()
+ *  or SDL_GetRendererOutputSize() to query the drawable size in pixels.
+ *
+ *  \sa SDL_DestroyWindow()
+ */</doc>
+<use f='codebrowser/code/sdl/sdl_glimp.c' l='448' u='c' c='GLimp_SetMode'/>

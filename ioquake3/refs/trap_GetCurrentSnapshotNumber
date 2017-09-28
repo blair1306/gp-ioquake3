@@ -1,0 +1,6 @@
+<dec f='codebrowser/code/cgame/cg_local.h' l='1616' type='void trap_GetCurrentSnapshotNumber(int * snapshotNumber, int * serverTime)'/>
+<doc f='codebrowser/code/cgame/cg_local.h' l='1613'>// cgame will poll each frame to see if a newer snapshot has arrived
+// that it is interested in.  The time is returned seperately so that
+// snapshot latency can be calculated.</doc>
+<use f='codebrowser/code/cgame/cg_snapshot.c' l='329' u='c' c='CG_ProcessSnapshots'/>
+<def f='codebrowser/code/cgame/cg_syscalls.c' l='315' ll='317' type='void trap_GetCurrentSnapshotNumber(int * snapshotNumber, int * serverTime)'/>

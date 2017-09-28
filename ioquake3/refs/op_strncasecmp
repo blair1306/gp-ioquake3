@@ -1,0 +1,10 @@
+<dec f='codebrowser/code/opusfile-0.8/src/internal.h' l='252' type='int op_strncasecmp(const char * _a, const char * _b, int _n)'/>
+<use f='codebrowser/code/opusfile-0.8/src/http.c' l='163' u='c' c='op_parse_file_url'/>
+<use f='codebrowser/code/opusfile-0.8/src/info.c' l='346' u='c' c='opus_tagncompare'/>
+<use f='codebrowser/code/opusfile-0.8/src/info.c' l='657' u='c' c='opus_picture_tag_parse_impl'/>
+<use f='codebrowser/code/opusfile-0.8/src/info.c' l='661' u='c' c='opus_picture_tag_parse_impl'/>
+<use f='codebrowser/code/opusfile-0.8/src/info.c' l='665' u='c' c='opus_picture_tag_parse_impl'/>
+<use f='codebrowser/code/opusfile-0.8/src/info.c' l='669' u='c' c='opus_picture_tag_parse_impl'/>
+<def f='codebrowser/code/opusfile-0.8/src/internal.c' l='28' ll='42' type='int op_strncasecmp(const char * _a, const char * _b, int _n)'/>
+<doc f='codebrowser/code/opusfile-0.8/src/internal.c' l='26'>/*A version of strncasecmp() that is guaranteed to only ignore the case of
+   ASCII characters.*/</doc>

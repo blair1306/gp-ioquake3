@@ -1,0 +1,20 @@
+<dec f='codebrowser/code/tools/asm/cmdlib.h' l='81' type='char [1024]'/>
+<def f='codebrowser/code/tools/asm/cmdlib.c' l='217' type='char [1024]'/>
+<use f='codebrowser/code/tools/asm/cmdlib.c' l='256' u='r' c='SetQdirFromPath'/>
+<use f='codebrowser/code/tools/asm/cmdlib.c' l='257' c='SetQdirFromPath'/>
+<use f='codebrowser/code/tools/asm/cmdlib.c' l='258' u='r' c='SetQdirFromPath'/>
+<use f='codebrowser/code/tools/asm/cmdlib.c' l='260' u='r' c='SetQdirFromPath'/>
+<use f='codebrowser/code/tools/asm/cmdlib.c' l='261' u='w' c='SetQdirFromPath'/>
+<use f='codebrowser/code/tools/asm/cmdlib.c' l='315' u='r' c='ExpandPath'/>
+<use f='codebrowser/code/tools/asm/cmdlib.c' l='321' c='ExpandPath'/>
+<use f='codebrowser/code/tools/asm/cmdlib.c' l='328' u='r' c='ExpandGamePath'/>
+<doc f='codebrowser/code/tools/asm/cmdlib.c' l='206'>/*
+
+qdir will hold the path up to the quake directory, including the slash
+
+  f:\quake\
+  /raid/quake/
+
+gamedir will hold qdir + the game directory (id1, id2, etc)
+
+  */</doc>

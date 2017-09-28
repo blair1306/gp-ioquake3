@@ -1,0 +1,8 @@
+<dec f='codebrowser/code/opusfile-0.8/src/internal.h' l='108'/>
+<doc f='codebrowser/code/opusfile-0.8/src/internal.h' l='104'>/*Advance a file offset by the given amount, clamping against OP_INT64_MAX.
+  This is used to advance a known offset by things like OP_CHUNK_SIZE or
+   OP_PAGE_SIZE_MAX, while making sure to avoid signed overflow.
+  It assumes that both _offset and _amount are non-negative.*/</doc>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='514' u='c'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='530' u='c'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='577' u='c'/>

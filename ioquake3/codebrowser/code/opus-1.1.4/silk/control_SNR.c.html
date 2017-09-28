@@ -1,0 +1,94 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>control_SNR.c source code [codebrowser/code/opus-1.1.4/silk/control_SNR.c] - Woboq Code Browser</title>
+<link rel="stylesheet" href="../../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'codebrowser/code/opus-1.1.4/silk/control_SNR.c'; var root_path = '../../../..'; var data_path = '../../../../../data';</script>
+<script src='../../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../../..'>codebrowser</a>/<a href='../..'>code</a>/<a href='..'>opus-1.1.4</a>/<a href='./'>silk</a>/<a href='control_SNR.c.html'>control_SNR.c</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/***********************************************************************</i></td></tr>
+<tr><th id="2">2</th><td><i>Copyright (c) 2006-2011, Skype Limited. All rights reserved.</i></td></tr>
+<tr><th id="3">3</th><td><i>Redistribution and use in source and binary forms, with or without</i></td></tr>
+<tr><th id="4">4</th><td><i>modification, are permitted provided that the following conditions</i></td></tr>
+<tr><th id="5">5</th><td><i>are met:</i></td></tr>
+<tr><th id="6">6</th><td><i>- Redistributions of source code must retain the above copyright notice,</i></td></tr>
+<tr><th id="7">7</th><td><i>this list of conditions and the following disclaimer.</i></td></tr>
+<tr><th id="8">8</th><td><i>- Redistributions in binary form must reproduce the above copyright</i></td></tr>
+<tr><th id="9">9</th><td><i>notice, this list of conditions and the following disclaimer in the</i></td></tr>
+<tr><th id="10">10</th><td><i>documentation and/or other materials provided with the distribution.</i></td></tr>
+<tr><th id="11">11</th><td><i>- Neither the name of Internet Society, IETF or IETF Trust, nor the</i></td></tr>
+<tr><th id="12">12</th><td><i>names of specific contributors, may be used to endorse or promote</i></td></tr>
+<tr><th id="13">13</th><td><i>products derived from this software without specific prior written</i></td></tr>
+<tr><th id="14">14</th><td><i>permission.</i></td></tr>
+<tr><th id="15">15</th><td><i>THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"</i></td></tr>
+<tr><th id="16">16</th><td><i>AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE</i></td></tr>
+<tr><th id="17">17</th><td><i>IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE</i></td></tr>
+<tr><th id="18">18</th><td><i>ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE</i></td></tr>
+<tr><th id="19">19</th><td><i>LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR</i></td></tr>
+<tr><th id="20">20</th><td><i>CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF</i></td></tr>
+<tr><th id="21">21</th><td><i>SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS</i></td></tr>
+<tr><th id="22">22</th><td><i>INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN</i></td></tr>
+<tr><th id="23">23</th><td><i>CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)</i></td></tr>
+<tr><th id="24">24</th><td><i>ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE</i></td></tr>
+<tr><th id="25">25</th><td><i>POSSIBILITY OF SUCH DAMAGE.</i></td></tr>
+<tr><th id="26">26</th><td><i>***********************************************************************/</i></td></tr>
+<tr><th id="27">27</th><td></td></tr>
+<tr><th id="28">28</th><td><u>#<span data-ppcond="28">ifdef</span> <span class="macro" data-ref="_M/HAVE_CONFIG_H">HAVE_CONFIG_H</span></u></td></tr>
+<tr><th id="29">29</th><td><u>#include "config.h"</u></td></tr>
+<tr><th id="30">30</th><td><u>#<span data-ppcond="28">endif</span></u></td></tr>
+<tr><th id="31">31</th><td></td></tr>
+<tr><th id="32">32</th><td><u>#include <a href="main.h.html">"main.h"</a></u></td></tr>
+<tr><th id="33">33</th><td><u>#include <a href="tuning_parameters.h.html">"tuning_parameters.h"</a></u></td></tr>
+<tr><th id="34">34</th><td></td></tr>
+<tr><th id="35">35</th><td><i>/* Control SNR of redidual quantizer */</i></td></tr>
+<tr><th id="36">36</th><td><a class="macro" href="../include/opus_types.h.html#151" title="int" data-ref="_M/opus_int">opus_int</a> <dfn class="decl def" id="silk_control_SNR" title='silk_control_SNR' data-ref="silk_control_SNR">silk_control_SNR</dfn>(</td></tr>
+<tr><th id="37">37</th><td>    <a class="typedef" href="structs.h.html#silk_encoder_state" title='silk_encoder_state' data-type='struct silk_encoder_state' data-ref="silk_encoder_state">silk_encoder_state</a>          *<dfn class="local col1 decl" id="1psEncC" title='psEncC' data-type='silk_encoder_state *' data-ref="1psEncC">psEncC</dfn>,                        <i>/* I/O  Pointer to Silk encoder state               */</i></td></tr>
+<tr><th id="38">38</th><td>    <a class="typedef" href="../include/opus_types.h.html#opus_int32" title='opus_int32' data-type='int32_t' data-ref="opus_int32">opus_int32</a>                  <dfn class="local col2 decl" id="2TargetRate_bps" title='TargetRate_bps' data-type='opus_int32' data-ref="2TargetRate_bps">TargetRate_bps</dfn>                  <i>/* I    Target max bitrate (bps)                    */</i></td></tr>
+<tr><th id="39">39</th><td>)</td></tr>
+<tr><th id="40">40</th><td>{</td></tr>
+<tr><th id="41">41</th><td>    <a class="macro" href="../include/opus_types.h.html#151" title="int" data-ref="_M/opus_int">opus_int</a> <dfn class="local col3 decl" id="3k" title='k' data-type='int' data-ref="3k">k</dfn>, <dfn class="local col4 decl" id="4ret" title='ret' data-type='int' data-ref="4ret">ret</dfn> = <a class="macro" href="errors.h.html#39" title="0" data-ref="_M/SILK_NO_ERROR">SILK_NO_ERROR</a>;</td></tr>
+<tr><th id="42">42</th><td>    <a class="typedef" href="../include/opus_types.h.html#opus_int32" title='opus_int32' data-type='int32_t' data-ref="opus_int32">opus_int32</a> <dfn class="local col5 decl" id="5frac_Q6" title='frac_Q6' data-type='opus_int32' data-ref="5frac_Q6">frac_Q6</dfn>;</td></tr>
+<tr><th id="43">43</th><td>    <em>const</em> <a class="typedef" href="../include/opus_types.h.html#opus_int32" title='opus_int32' data-type='int32_t' data-ref="opus_int32">opus_int32</a> *<dfn class="local col6 decl" id="6rateTable" title='rateTable' data-type='const opus_int32 *' data-ref="6rateTable">rateTable</dfn>;</td></tr>
+<tr><th id="44">44</th><td></td></tr>
+<tr><th id="45">45</th><td>    <i>/* Set bitrate/coding quality */</i></td></tr>
+<tr><th id="46">46</th><td>    <a class="local col2 ref" href="#2TargetRate_bps" title='TargetRate_bps' data-ref="2TargetRate_bps">TargetRate_bps</a> = <a class="macro" href="SigProc_FIX.h.html#557" title="((5000) &gt; (80000) ? ((TargetRate_bps) &gt; (5000) ? (5000) : ((TargetRate_bps) &lt; (80000) ? (80000) : (TargetRate_bps))) : ((TargetRate_bps) &gt; (80000) ? (80000) : ((TargetRate_bps) &lt; (5000) ? (5000) : (TargetRate_bps))))" data-ref="_M/silk_LIMIT">silk_LIMIT</a>( <a class="local col2 ref" href="#2TargetRate_bps" title='TargetRate_bps' data-ref="2TargetRate_bps">TargetRate_bps</a>, <a class="macro" href="define.h.html#47" title="5000" data-ref="_M/MIN_TARGET_RATE_BPS">MIN_TARGET_RATE_BPS</a>, <a class="macro" href="define.h.html#48" title="80000" data-ref="_M/MAX_TARGET_RATE_BPS">MAX_TARGET_RATE_BPS</a> );</td></tr>
+<tr><th id="47">47</th><td>    <b>if</b>( <a class="local col2 ref" href="#2TargetRate_bps" title='TargetRate_bps' data-ref="2TargetRate_bps">TargetRate_bps</a> != <a class="local col1 ref" href="#1psEncC" title='psEncC' data-ref="1psEncC">psEncC</a>-&gt;<a class="ref" href="structs.h.html#(anonymous)::TargetRate_bps" title='(anonymous struct)::TargetRate_bps' data-ref="(anonymous)::TargetRate_bps">TargetRate_bps</a> ) {</td></tr>
+<tr><th id="48">48</th><td>        <a class="local col1 ref" href="#1psEncC" title='psEncC' data-ref="1psEncC">psEncC</a>-&gt;<a class="ref" href="structs.h.html#(anonymous)::TargetRate_bps" title='(anonymous struct)::TargetRate_bps' data-ref="(anonymous)::TargetRate_bps">TargetRate_bps</a> = <a class="local col2 ref" href="#2TargetRate_bps" title='TargetRate_bps' data-ref="2TargetRate_bps">TargetRate_bps</a>;</td></tr>
+<tr><th id="49">49</th><td></td></tr>
+<tr><th id="50">50</th><td>        <i>/* If new TargetRate_bps, translate to SNR_dB value */</i></td></tr>
+<tr><th id="51">51</th><td>        <b>if</b>( <a class="local col1 ref" href="#1psEncC" title='psEncC' data-ref="1psEncC">psEncC</a>-&gt;<a class="ref" href="structs.h.html#(anonymous)::fs_kHz" title='(anonymous struct)::fs_kHz' data-ref="(anonymous)::fs_kHz">fs_kHz</a> == <var>8</var> ) {</td></tr>
+<tr><th id="52">52</th><td>            <a class="local col6 ref" href="#6rateTable" title='rateTable' data-ref="6rateTable">rateTable</a> = <a class="ref" href="tables.h.html#silk_TargetRate_table_NB" title='silk_TargetRate_table_NB' data-ref="silk_TargetRate_table_NB">silk_TargetRate_table_NB</a>;</td></tr>
+<tr><th id="53">53</th><td>        } <b>else</b> <b>if</b>( <a class="local col1 ref" href="#1psEncC" title='psEncC' data-ref="1psEncC">psEncC</a>-&gt;<a class="ref" href="structs.h.html#(anonymous)::fs_kHz" title='(anonymous struct)::fs_kHz' data-ref="(anonymous)::fs_kHz">fs_kHz</a> == <var>12</var> ) {</td></tr>
+<tr><th id="54">54</th><td>            <a class="local col6 ref" href="#6rateTable" title='rateTable' data-ref="6rateTable">rateTable</a> = <a class="ref" href="tables.h.html#silk_TargetRate_table_MB" title='silk_TargetRate_table_MB' data-ref="silk_TargetRate_table_MB">silk_TargetRate_table_MB</a>;</td></tr>
+<tr><th id="55">55</th><td>        } <b>else</b> {</td></tr>
+<tr><th id="56">56</th><td>            <a class="local col6 ref" href="#6rateTable" title='rateTable' data-ref="6rateTable">rateTable</a> = <a class="ref" href="tables.h.html#silk_TargetRate_table_WB" title='silk_TargetRate_table_WB' data-ref="silk_TargetRate_table_WB">silk_TargetRate_table_WB</a>;</td></tr>
+<tr><th id="57">57</th><td>        }</td></tr>
+<tr><th id="58">58</th><td></td></tr>
+<tr><th id="59">59</th><td>        <i>/* Reduce bitrate for 10 ms modes in these calculations */</i></td></tr>
+<tr><th id="60">60</th><td>        <b>if</b>( <a class="local col1 ref" href="#1psEncC" title='psEncC' data-ref="1psEncC">psEncC</a>-&gt;<a class="ref" href="structs.h.html#(anonymous)::nb_subfr" title='(anonymous struct)::nb_subfr' data-ref="(anonymous)::nb_subfr">nb_subfr</a> == <var>2</var> ) {</td></tr>
+<tr><th id="61">61</th><td>            <a class="local col2 ref" href="#2TargetRate_bps" title='TargetRate_bps' data-ref="2TargetRate_bps">TargetRate_bps</a> -= <a class="macro" href="tuning_parameters.h.html#162" title="2200" data-ref="_M/REDUCE_BITRATE_10_MS_BPS">REDUCE_BITRATE_10_MS_BPS</a>;</td></tr>
+<tr><th id="62">62</th><td>        }</td></tr>
+<tr><th id="63">63</th><td></td></tr>
+<tr><th id="64">64</th><td>        <i>/* Find bitrate interval in table and interpolate */</i></td></tr>
+<tr><th id="65">65</th><td>        <b>for</b>( <a class="local col3 ref" href="#3k" title='k' data-ref="3k">k</a> = <var>1</var>; <a class="local col3 ref" href="#3k" title='k' data-ref="3k">k</a> &lt; <a class="macro" href="define.h.html#49" title="8" data-ref="_M/TARGET_RATE_TAB_SZ">TARGET_RATE_TAB_SZ</a>; <a class="local col3 ref" href="#3k" title='k' data-ref="3k">k</a>++ ) {</td></tr>
+<tr><th id="66">66</th><td>            <b>if</b>( <a class="local col2 ref" href="#2TargetRate_bps" title='TargetRate_bps' data-ref="2TargetRate_bps">TargetRate_bps</a> &lt;= <a class="local col6 ref" href="#6rateTable" title='rateTable' data-ref="6rateTable">rateTable</a>[ <a class="local col3 ref" href="#3k" title='k' data-ref="3k">k</a> ] ) {</td></tr>
+<tr><th id="67">67</th><td>                <a class="local col5 ref" href="#5frac_Q6" title='frac_Q6' data-ref="5frac_Q6">frac_Q6</a> = <a class="macro" href="SigProc_FIX.h.html#436" title="((opus_int32)((((opus_int32)((opus_uint32)(TargetRate_bps - rateTable[ k - 1 ])&lt;&lt;(6)))) / (rateTable[ k ] - rateTable[ k - 1 ])))" data-ref="_M/silk_DIV32">silk_DIV32</a>( <a class="macro" href="SigProc_FIX.h.html#481" title="((opus_int32)((opus_uint32)(TargetRate_bps - rateTable[ k - 1 ])&lt;&lt;(6)))" data-ref="_M/silk_LSHIFT">silk_LSHIFT</a>( <a class="local col2 ref" href="#2TargetRate_bps" title='TargetRate_bps' data-ref="2TargetRate_bps">TargetRate_bps</a> - <a class="local col6 ref" href="#6rateTable" title='rateTable' data-ref="6rateTable">rateTable</a>[ <a class="local col3 ref" href="#3k" title='k' data-ref="3k">k</a> - <var>1</var> ], <var>6</var> ),</td></tr>
+<tr><th id="68">68</th><td>                                                 <a class="local col6 ref" href="#6rateTable" title='rateTable' data-ref="6rateTable">rateTable</a>[ <a class="local col3 ref" href="#3k" title='k' data-ref="3k">k</a> ] - <a class="local col6 ref" href="#6rateTable" title='rateTable' data-ref="6rateTable">rateTable</a>[ <a class="local col3 ref" href="#3k" title='k' data-ref="3k">k</a> - <var>1</var> ] );</td></tr>
+<tr><th id="69">69</th><td>                <a class="local col1 ref" href="#1psEncC" title='psEncC' data-ref="1psEncC">psEncC</a>-&gt;<a class="ref" href="structs.h.html#(anonymous)::SNR_dB_Q7" title='(anonymous struct)::SNR_dB_Q7' data-ref="(anonymous)::SNR_dB_Q7">SNR_dB_Q7</a> = <a class="macro" href="SigProc_FIX.h.html#481" title="((opus_int32)((opus_uint32)(silk_SNR_table_Q1[ k - 1 ])&lt;&lt;(6)))" data-ref="_M/silk_LSHIFT">silk_LSHIFT</a>( <a class="ref" href="tables.h.html#silk_SNR_table_Q1" title='silk_SNR_table_Q1' data-ref="silk_SNR_table_Q1">silk_SNR_table_Q1</a>[ <a class="local col3 ref" href="#3k" title='k' data-ref="3k">k</a> - <var>1</var> ], <var>6</var> ) + <a class="macro" href="SigProc_FIX.h.html#402" title="((frac_Q6) * (silk_SNR_table_Q1[ k ] - silk_SNR_table_Q1[ k - 1 ]))" data-ref="_M/silk_MUL">silk_MUL</a>( <a class="local col5 ref" href="#5frac_Q6" title='frac_Q6' data-ref="5frac_Q6">frac_Q6</a>, <a class="ref" href="tables.h.html#silk_SNR_table_Q1" title='silk_SNR_table_Q1' data-ref="silk_SNR_table_Q1">silk_SNR_table_Q1</a>[ <a class="local col3 ref" href="#3k" title='k' data-ref="3k">k</a> ] - <a class="ref" href="tables.h.html#silk_SNR_table_Q1" title='silk_SNR_table_Q1' data-ref="silk_SNR_table_Q1">silk_SNR_table_Q1</a>[ <a class="local col3 ref" href="#3k" title='k' data-ref="3k">k</a> - <var>1</var> ] );</td></tr>
+<tr><th id="70">70</th><td>                <b>break</b>;</td></tr>
+<tr><th id="71">71</th><td>            }</td></tr>
+<tr><th id="72">72</th><td>        }</td></tr>
+<tr><th id="73">73</th><td>    }</td></tr>
+<tr><th id="74">74</th><td></td></tr>
+<tr><th id="75">75</th><td>    <b>return</b> <a class="local col4 ref" href="#4ret" title='ret' data-ref="4ret">ret</a>;</td></tr>
+<tr><th id="76">76</th><td>}</td></tr>
+<tr><th id="77">77</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated on <em>2017-Aug-29</em> from project codebrowser revision <em>63e07af</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

@@ -1,0 +1,10 @@
+<dec f='codebrowser/code/botlib/botlib.h' l='200' type='int (*)(void)'/>
+<offset>1088</offset>
+<doc f='codebrowser/code/botlib/botlib.h' l='199'>//debug visualisation stuff</doc>
+<use f='codebrowser/code/botlib/be_aas_debug.c' l='133' u='r' c='AAS_DebugLine'/>
+<use f='codebrowser/code/botlib/be_aas_debug.c' l='155' u='r' c='AAS_PermanentLine'/>
+<use f='codebrowser/code/botlib/be_aas_debug.c' l='176' u='r' c='AAS_DrawPermanentCross'/>
+<use f='codebrowser/code/botlib/be_aas_debug.c' l='222' u='r' c='AAS_DrawPlaneCross'/>
+<use f='codebrowser/code/botlib/be_aas_debug.c' l='274' u='r' c='AAS_ShowBoundingBox'/>
+<use f='codebrowser/code/botlib/be_aas_debug.c' l='458' u='r' c='AAS_ShowArea'/>
+<use f='codebrowser/code/server/sv_bot.c' l='552' u='w' c='SV_BotInitBotLib'/>

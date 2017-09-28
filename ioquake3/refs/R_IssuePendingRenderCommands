@@ -1,0 +1,51 @@
+<dec f='codebrowser/code/renderercommon/tr_common.h' l='125' type='void R_IssuePendingRenderCommands()'/>
+<use f='codebrowser/code/renderercommon/tr_font.c' l='359' u='c' c='RE_RegisterFont'/>
+<dec f='codebrowser/code/renderergl1/tr_local.h' l='1570' type='void R_IssuePendingRenderCommands()'/>
+<use f='codebrowser/code/renderergl1/tr_backend.c' l='739' u='c' c='RE_StretchRaw'/>
+<use f='codebrowser/code/renderergl1/tr_bsp.c' l='150' u='c' c='R_LoadLightmaps'/>
+<def f='codebrowser/code/renderergl1/tr_cmds.c' l='108' ll='113' type='void R_IssuePendingRenderCommands()'/>
+<use f='codebrowser/code/renderergl1/tr_cmds.c' l='319' u='c' c='RE_BeginFrame'/>
+<use f='codebrowser/code/renderergl1/tr_cmds.c' l='332' u='c' c='RE_BeginFrame'/>
+<use f='codebrowser/code/renderergl1/tr_cmds.c' l='342' u='c' c='RE_BeginFrame'/>
+<use f='codebrowser/code/renderergl1/tr_cmds.c' l='353' u='c' c='RE_BeginFrame'/>
+<use f='codebrowser/code/renderergl1/tr_cmds.c' l='362' u='c' c='RE_BeginFrame'/>
+<doc f='codebrowser/code/renderergl1/tr_cmds.c' l='101'>/*
+====================
+R_IssuePendingRenderCommands
+
+Issue any pending commands and wait for them to complete.
+====================
+*/</doc>
+<use f='codebrowser/code/renderergl1/tr_image.c' l='1557' u='c' c='RE_RegisterSkin'/>
+<use f='codebrowser/code/renderergl1/tr_init.c' l='1274' u='c' c='RE_Shutdown'/>
+<use f='codebrowser/code/renderergl1/tr_init.c' l='1300' u='c' c='RE_EndRegistration'/>
+<use f='codebrowser/code/renderergl1/tr_main.c' l='1339' u='c' c='R_DebugGraphics'/>
+<use f='codebrowser/code/renderergl1/tr_model.c' l='296' u='c' c='RE_RegisterModel'/>
+<use f='codebrowser/code/renderergl1/tr_model.c' l='882' u='c' c='RE_BeginRegistration'/>
+<dec f='codebrowser/code/renderergl2/tr_local.h' l='2417' type='void R_IssuePendingRenderCommands()'/>
+<use f='codebrowser/code/renderergl2/tr_backend.c' l='686' u='c' c='RE_StretchRaw'/>
+<use f='codebrowser/code/renderergl2/tr_bsp.c' l='220' u='c' c='R_LoadLightmaps'/>
+<use f='codebrowser/code/renderergl2/tr_bsp.c' l='2656' u='c' c='R_RenderMissingCubemaps'/>
+<def f='codebrowser/code/renderergl2/tr_cmds.c' l='115' ll='120' type='void R_IssuePendingRenderCommands()'/>
+<use f='codebrowser/code/renderergl2/tr_cmds.c' l='365' u='c' c='RE_BeginFrame'/>
+<use f='codebrowser/code/renderergl2/tr_cmds.c' l='378' u='c' c='RE_BeginFrame'/>
+<use f='codebrowser/code/renderergl2/tr_cmds.c' l='388' u='c' c='RE_BeginFrame'/>
+<use f='codebrowser/code/renderergl2/tr_cmds.c' l='399' u='c' c='RE_BeginFrame'/>
+<use f='codebrowser/code/renderergl2/tr_cmds.c' l='408' u='c' c='RE_BeginFrame'/>
+<doc f='codebrowser/code/renderergl2/tr_cmds.c' l='108'>/*
+====================
+R_IssuePendingRenderCommands
+
+Issue any pending commands and wait for them to complete.
+====================
+*/</doc>
+<use f='codebrowser/code/renderergl2/tr_fbo.c' l='261' u='c' c='FBO_Init'/>
+<use f='codebrowser/code/renderergl2/tr_glsl.c' l='894' u='c' c='GLSL_InitGPUShaders'/>
+<use f='codebrowser/code/renderergl2/tr_image.c' l='3108' u='c' c='RE_RegisterSkin'/>
+<use f='codebrowser/code/renderergl2/tr_init.c' l='1518' u='c' c='RE_Shutdown'/>
+<use f='codebrowser/code/renderergl2/tr_init.c' l='1549' u='c' c='RE_EndRegistration'/>
+<use f='codebrowser/code/renderergl2/tr_main.c' l='1722' u='c' c='R_DebugGraphics'/>
+<use f='codebrowser/code/renderergl2/tr_model.c' l='297' u='c' c='RE_RegisterModel'/>
+<use f='codebrowser/code/renderergl2/tr_model.c' l='1173' u='c' c='RE_BeginRegistration'/>
+<use f='codebrowser/code/renderergl2/tr_vbo.c' l='131' u='c' c='R_CreateVao'/>
+<use f='codebrowser/code/renderergl2/tr_vbo.c' l='199' u='c' c='R_CreateVao2'/>

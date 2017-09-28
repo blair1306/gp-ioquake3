@@ -1,0 +1,13 @@
+<dec f='codebrowser/code/cgame/cg_local.h' l='1329' type='void CG_CheckEvents(centity_t * cent)'/>
+<doc f='codebrowser/code/cgame/cg_local.h' l='1326'>//
+// cg_events.c
+//</doc>
+<def f='codebrowser/code/cgame/cg_event.c' l='1251' ll='1281' type='void CG_CheckEvents(centity_t * cent)'/>
+<doc f='codebrowser/code/cgame/cg_event.c' l='1245'>/*
+==============
+CG_CheckEvents
+
+==============
+*/</doc>
+<use f='codebrowser/code/cgame/cg_snapshot.c' l='71' u='c' c='CG_TransitionEntity'/>
+<use f='codebrowser/code/cgame/cg_snapshot.c' l='113' u='c' c='CG_SetInitialSnapshot'/>

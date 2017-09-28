@@ -1,0 +1,13 @@
+<dec f='codebrowser/code/q3_ui/ui_local.h' l='309' type='void MField_Draw(mfield_t * edit, int x, int y, int style, vec_t * color)'/>
+<def f='codebrowser/code/q3_ui/ui_mfield.c' l='33' ll='109' type='void MField_Draw(mfield_t * edit, int x, int y, int style, vec_t * color)'/>
+<use f='codebrowser/code/q3_ui/ui_mfield.c' l='381' u='c' c='MenuField_Draw'/>
+<doc f='codebrowser/code/q3_ui/ui_mfield.c' l='25'>/*
+===================
+MField_Draw
+
+Handles horizontal scrolling and cursor blinking
+x, y, are in pixels
+===================
+*/</doc>
+<use f='codebrowser/code/q3_ui/ui_saveconfig.c' l='117' u='c' c='UI_SaveConfigMenu_SavenameDraw'/>
+<dec f='codebrowser/code/ui/ui_local.h' l='346' type='void MField_Draw(mfield_t * edit, int x, int y, int style, vec_t * color)'/>

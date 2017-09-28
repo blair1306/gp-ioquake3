@@ -1,0 +1,13 @@
+<dec f='codebrowser/code/game/g_local.h' l='625' type='void ClientEndFrame(gentity_t * ent)'/>
+<def f='codebrowser/code/game/g_active.c' l='1103' ll='1182' type='void ClientEndFrame(gentity_t * ent)'/>
+<doc f='codebrowser/code/game/g_active.c' l='1094'>/*
+==============
+ClientEndFrame
+
+Called at the end of each server frame for each connected client
+A fast client will have multiple ClientThink for each ClientEdFrame,
+while a slow client may have multiple ClientEndFrame between ClientThink.
+==============
+*/</doc>
+<use f='codebrowser/code/game/g_client.c' l='1238' u='c' c='ClientSpawn'/>
+<use f='codebrowser/code/game/g_main.c' l='1850' u='c' c='G_RunFrame'/>

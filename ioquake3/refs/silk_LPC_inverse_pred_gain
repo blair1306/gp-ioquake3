@@ -1,0 +1,8 @@
+<dec f='codebrowser/code/opus-1.1.4/silk/SigProc_FIX.h' l='135' type='opus_int32 silk_LPC_inverse_pred_gain(const opus_int16 * A_Q12, const int order)'/>
+<doc f='codebrowser/code/opus-1.1.4/silk/SigProc_FIX.h' l='134'>/* test if LPC coefficients are stable (all poles within unit circle)    */</doc>
+<doc f='codebrowser/code/opus-1.1.4/silk/SigProc_FIX.h' l='135'>/* O   Returns inverse prediction gain in energy domain, Q30        */</doc>
+<def f='codebrowser/code/opus-1.1.4/silk/LPC_inv_pred_gain.c' l='109' ll='131' type='opus_int32 silk_LPC_inverse_pred_gain(const opus_int16 * A_Q12, const int order)'/>
+<doc f='codebrowser/code/opus-1.1.4/silk/LPC_inv_pred_gain.c' l='108'>/* For input in Q12 domain */</doc>
+<doc f='codebrowser/code/opus-1.1.4/silk/LPC_inv_pred_gain.c' l='109'>/* O   Returns inverse prediction gain in energy domain, Q30        */</doc>
+<use f='codebrowser/code/opus-1.1.4/silk/NLSF2A.c' l='166' u='c' c='silk_NLSF2A'/>
+<use f='codebrowser/code/opus-1.1.4/silk/PLC.c' l='278' u='c' c='silk_PLC_conceal'/>

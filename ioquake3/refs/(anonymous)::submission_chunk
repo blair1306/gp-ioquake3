@@ -1,0 +1,9 @@
+<dec f='codebrowser/code/client/snd_local.h' l='68' type='int'/>
+<offset>64</offset>
+<doc f='codebrowser/code/client/snd_local.h' l='68'>// don&apos;t mix less than this #</doc>
+<use f='codebrowser/code/client/snd_dma.c' l='104' u='r' c='S_Base_SoundInfo'/>
+<use f='codebrowser/code/client/snd_dma.c' l='1289' u='r' c='S_GetSoundtime'/>
+<use f='codebrowser/code/client/snd_dma.c' l='1292' u='r' c='S_GetSoundtime'/>
+<use f='codebrowser/code/client/snd_dma.c' l='1339' u='r' c='S_Update_'/>
+<use f='codebrowser/code/client/snd_dma.c' l='1340' u='r' c='S_Update_'/>
+<use f='codebrowser/code/sdl/sdl_snd.c' l='234' u='w' c='SNDDMA_Init'/>

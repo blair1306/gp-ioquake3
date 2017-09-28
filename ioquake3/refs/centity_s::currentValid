@@ -1,0 +1,8 @@
+<dec f='codebrowser/code/cgame/cg_local.h' l='167' type='qboolean'/>
+<offset>3360</offset>
+<doc f='codebrowser/code/cgame/cg_local.h' l='167'>// true if cg.frame holds this entity</doc>
+<use f='codebrowser/code/cgame/cg_snapshot.c' l='60' u='w' c='CG_TransitionEntity'/>
+<use f='codebrowser/code/cgame/cg_snapshot.c' l='108' u='w' c='CG_SetInitialSnapshot'/>
+<use f='codebrowser/code/cgame/cg_snapshot.c' l='147' u='w' c='CG_TransitionSnapshot'/>
+<use f='codebrowser/code/cgame/cg_snapshot.c' l='216' u='r' c='CG_SetNextSnap'/>
+<use f='codebrowser/code/cgame/cg_weapons.c' l='2193' u='r' c='CG_CalcMuzzlePoint'/>

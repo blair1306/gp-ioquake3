@@ -1,0 +1,16 @@
+<dec f='codebrowser/code/game/ai_dmq3.h' l='130' type='int BotAIPredictObstacles(bot_state_t * bs, bot_goal_t * goal)'/>
+<doc f='codebrowser/code/game/ai_dmq3.h' l='129'>//AI to predict obstacles</doc>
+<use f='codebrowser/code/game/ai_dmnet.c' l='1561' u='c' c='AINode_Seek_ActivateEntity'/>
+<use f='codebrowser/code/game/ai_dmnet.c' l='1718' u='c' c='AINode_Seek_NBG'/>
+<use f='codebrowser/code/game/ai_dmnet.c' l='1910' u='c' c='AINode_Seek_LTG'/>
+<def f='codebrowser/code/game/ai_dmq3.c' l='4547' ll='4607' type='int BotAIPredictObstacles(bot_state_t * bs, bot_goal_t * goal)'/>
+<doc f='codebrowser/code/game/ai_dmq3.c' l='4537'>/*
+==================
+BotAIPredictObstacles
+
+Predict the route towards the goal and check if the bot
+will be blocked by certain obstacles. When the bot has obstacles
+on its path the bot should figure out if they can be removed
+by activating certain entities.
+==================
+*/</doc>

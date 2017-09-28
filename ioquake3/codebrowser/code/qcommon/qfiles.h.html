@@ -1,0 +1,510 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>qfiles.h source code [codebrowser/code/qcommon/qfiles.h] - Woboq Code Browser</title>
+<meta name="woboq:interestingDefinitions" content="md3Frame_s,md3Tag_s "/>
+<link rel="stylesheet" href="../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'codebrowser/code/qcommon/qfiles.h'; var root_path = '../../..'; var data_path = '../../../../data';</script>
+<script src='../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../..'>codebrowser</a>/<a href='..'>code</a>/<a href='./'>qcommon</a>/<a href='qfiles.h.html'>qfiles.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/*</i></td></tr>
+<tr><th id="2">2</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="3">3</th><td><i>Copyright (C) 1999-2005 Id Software, Inc.</i></td></tr>
+<tr><th id="4">4</th><td><i></i></td></tr>
+<tr><th id="5">5</th><td><i>This file is part of Quake III Arena source code.</i></td></tr>
+<tr><th id="6">6</th><td><i></i></td></tr>
+<tr><th id="7">7</th><td><i>Quake III Arena source code is free software; you can redistribute it</i></td></tr>
+<tr><th id="8">8</th><td><i>and/or modify it under the terms of the GNU General Public License as</i></td></tr>
+<tr><th id="9">9</th><td><i>published by the Free Software Foundation; either version 2 of the License,</i></td></tr>
+<tr><th id="10">10</th><td><i>or (at your option) any later version.</i></td></tr>
+<tr><th id="11">11</th><td><i></i></td></tr>
+<tr><th id="12">12</th><td><i>Quake III Arena source code is distributed in the hope that it will be</i></td></tr>
+<tr><th id="13">13</th><td><i>useful, but WITHOUT ANY WARRANTY; without even the implied warranty of</i></td></tr>
+<tr><th id="14">14</th><td><i>MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</i></td></tr>
+<tr><th id="15">15</th><td><i>GNU General Public License for more details.</i></td></tr>
+<tr><th id="16">16</th><td><i></i></td></tr>
+<tr><th id="17">17</th><td><i>You should have received a copy of the GNU General Public License</i></td></tr>
+<tr><th id="18">18</th><td><i>along with Quake III Arena source code; if not, write to the Free Software</i></td></tr>
+<tr><th id="19">19</th><td><i>Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA</i></td></tr>
+<tr><th id="20">20</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="21">21</th><td><i>*/</i></td></tr>
+<tr><th id="22">22</th><td><u>#<span data-ppcond="22">ifndef</span> <span class="macro" data-ref="_M/__QFILES_H__">__QFILES_H__</span></u></td></tr>
+<tr><th id="23">23</th><td><u>#define <dfn class="macro" id="_M/__QFILES_H__" data-ref="_M/__QFILES_H__">__QFILES_H__</dfn></u></td></tr>
+<tr><th id="24">24</th><td></td></tr>
+<tr><th id="25">25</th><td><i>//</i></td></tr>
+<tr><th id="26">26</th><td><i>// qfiles.h: quake file formats</i></td></tr>
+<tr><th id="27">27</th><td><i>// This file must be identical in the quake and utils directories</i></td></tr>
+<tr><th id="28">28</th><td><i>//</i></td></tr>
+<tr><th id="29">29</th><td><i></i></td></tr>
+<tr><th id="30">30</th><td><i>//Ignore __attribute__ on non-gcc platforms</i></td></tr>
+<tr><th id="31">31</th><td><u>#<span data-ppcond="31">ifndef</span> <span class="macro" data-ref="_M/__GNUC__">__GNUC__</span></u></td></tr>
+<tr><th id="32">32</th><td><u>#ifndef __attribute__</u></td></tr>
+<tr><th id="33">33</th><td><u>#define __attribute__(x)</u></td></tr>
+<tr><th id="34">34</th><td><u>#endif</u></td></tr>
+<tr><th id="35">35</th><td><u>#<span data-ppcond="31">endif</span></u></td></tr>
+<tr><th id="36">36</th><td></td></tr>
+<tr><th id="37">37</th><td><i>// surface geometry should not exceed these limits</i></td></tr>
+<tr><th id="38">38</th><td><u>#define	<dfn class="macro" id="_M/SHADER_MAX_VERTEXES" data-ref="_M/SHADER_MAX_VERTEXES">SHADER_MAX_VERTEXES</dfn>	1000</u></td></tr>
+<tr><th id="39">39</th><td><u>#define	<dfn class="macro" id="_M/SHADER_MAX_INDEXES" data-ref="_M/SHADER_MAX_INDEXES">SHADER_MAX_INDEXES</dfn>	(6*SHADER_MAX_VERTEXES)</u></td></tr>
+<tr><th id="40">40</th><td></td></tr>
+<tr><th id="41">41</th><td></td></tr>
+<tr><th id="42">42</th><td><i>// the maximum size of game relative pathnames</i></td></tr>
+<tr><th id="43">43</th><td><u>#define	<dfn class="macro" id="_M/MAX_QPATH" data-ref="_M/MAX_QPATH">MAX_QPATH</dfn>		64</u></td></tr>
+<tr><th id="44">44</th><td></td></tr>
+<tr><th id="45">45</th><td><i>/*</i></td></tr>
+<tr><th id="46">46</th><td><i>========================================================================</i></td></tr>
+<tr><th id="47">47</th><td><i></i></td></tr>
+<tr><th id="48">48</th><td><i>QVM files</i></td></tr>
+<tr><th id="49">49</th><td><i></i></td></tr>
+<tr><th id="50">50</th><td><i>========================================================================</i></td></tr>
+<tr><th id="51">51</th><td><i>*/</i></td></tr>
+<tr><th id="52">52</th><td></td></tr>
+<tr><th id="53">53</th><td><u>#define	<dfn class="macro" id="_M/VM_MAGIC" data-ref="_M/VM_MAGIC">VM_MAGIC</dfn>			0x12721444</u></td></tr>
+<tr><th id="54">54</th><td><u>#define	<dfn class="macro" id="_M/VM_MAGIC_VER2" data-ref="_M/VM_MAGIC_VER2">VM_MAGIC_VER2</dfn>	0x12721445</u></td></tr>
+<tr><th id="55">55</th><td><b>typedef</b> <b>struct</b> {</td></tr>
+<tr><th id="56">56</th><td>	<em>int</em>		<dfn class="decl" id="(anonymous)::vmMagic" title='(anonymous struct)::vmMagic' data-ref="(anonymous)::vmMagic">vmMagic</dfn>;</td></tr>
+<tr><th id="57">57</th><td></td></tr>
+<tr><th id="58">58</th><td>	<em>int</em>		<dfn class="decl" id="(anonymous)::instructionCount" title='(anonymous struct)::instructionCount' data-ref="(anonymous)::instructionCount">instructionCount</dfn>;</td></tr>
+<tr><th id="59">59</th><td></td></tr>
+<tr><th id="60">60</th><td>	<em>int</em>		<dfn class="decl" id="(anonymous)::codeOffset" title='(anonymous struct)::codeOffset' data-ref="(anonymous)::codeOffset">codeOffset</dfn>;</td></tr>
+<tr><th id="61">61</th><td>	<em>int</em>		<dfn class="decl" id="(anonymous)::codeLength" title='(anonymous struct)::codeLength' data-ref="(anonymous)::codeLength">codeLength</dfn>;</td></tr>
+<tr><th id="62">62</th><td></td></tr>
+<tr><th id="63">63</th><td>	<em>int</em>		<dfn class="decl" id="(anonymous)::dataOffset" title='(anonymous struct)::dataOffset' data-ref="(anonymous)::dataOffset">dataOffset</dfn>;</td></tr>
+<tr><th id="64">64</th><td>	<em>int</em>		<dfn class="decl" id="(anonymous)::dataLength" title='(anonymous struct)::dataLength' data-ref="(anonymous)::dataLength">dataLength</dfn>;</td></tr>
+<tr><th id="65">65</th><td>	<em>int</em>		<dfn class="decl" id="(anonymous)::litLength" title='(anonymous struct)::litLength' data-ref="(anonymous)::litLength">litLength</dfn>;			<i>// ( dataLength - litLength ) should be byteswapped on load</i></td></tr>
+<tr><th id="66">66</th><td>	<em>int</em>		<dfn class="decl" id="(anonymous)::bssLength" title='(anonymous struct)::bssLength' data-ref="(anonymous)::bssLength">bssLength</dfn>;			<i>// zero filled memory appended to datalength</i></td></tr>
+<tr><th id="67">67</th><td></td></tr>
+<tr><th id="68">68</th><td>	<i class="doc">//!!! below here is VM_MAGIC_VER2 !!!</i></td></tr>
+<tr><th id="69">69</th><td>	<em>int</em>		<dfn class="decl" id="(anonymous)::jtrgLength" title='(anonymous struct)::jtrgLength' data-ref="(anonymous)::jtrgLength">jtrgLength</dfn>;			<i>// number of jump table targets</i></td></tr>
+<tr><th id="70">70</th><td>} <dfn class="typedef" id="vmHeader_t" title='vmHeader_t' data-type='struct vmHeader_t' data-ref="vmHeader_t">vmHeader_t</dfn>;</td></tr>
+<tr><th id="71">71</th><td></td></tr>
+<tr><th id="72">72</th><td><i>/*</i></td></tr>
+<tr><th id="73">73</th><td><i>========================================================================</i></td></tr>
+<tr><th id="74">74</th><td><i></i></td></tr>
+<tr><th id="75">75</th><td><i>.MD3 triangle model file format</i></td></tr>
+<tr><th id="76">76</th><td><i></i></td></tr>
+<tr><th id="77">77</th><td><i>========================================================================</i></td></tr>
+<tr><th id="78">78</th><td><i>*/</i></td></tr>
+<tr><th id="79">79</th><td></td></tr>
+<tr><th id="80">80</th><td><u>#define <dfn class="macro" id="_M/MD3_IDENT" data-ref="_M/MD3_IDENT">MD3_IDENT</dfn>			(('3'&lt;&lt;24)+('P'&lt;&lt;16)+('D'&lt;&lt;8)+'I')</u></td></tr>
+<tr><th id="81">81</th><td><u>#define <dfn class="macro" id="_M/MD3_VERSION" data-ref="_M/MD3_VERSION">MD3_VERSION</dfn>			15</u></td></tr>
+<tr><th id="82">82</th><td></td></tr>
+<tr><th id="83">83</th><td><i>// limits</i></td></tr>
+<tr><th id="84">84</th><td><u>#define <dfn class="macro" id="_M/MD3_MAX_LODS" data-ref="_M/MD3_MAX_LODS">MD3_MAX_LODS</dfn>		3</u></td></tr>
+<tr><th id="85">85</th><td><u>#define	<dfn class="macro" id="_M/MD3_MAX_TRIANGLES" data-ref="_M/MD3_MAX_TRIANGLES">MD3_MAX_TRIANGLES</dfn>	8192	// per surface</u></td></tr>
+<tr><th id="86">86</th><td><u>#define <dfn class="macro" id="_M/MD3_MAX_VERTS" data-ref="_M/MD3_MAX_VERTS">MD3_MAX_VERTS</dfn>		4096	// per surface</u></td></tr>
+<tr><th id="87">87</th><td><u>#define <dfn class="macro" id="_M/MD3_MAX_SHADERS" data-ref="_M/MD3_MAX_SHADERS">MD3_MAX_SHADERS</dfn>		256		// per surface</u></td></tr>
+<tr><th id="88">88</th><td><u>#define <dfn class="macro" id="_M/MD3_MAX_FRAMES" data-ref="_M/MD3_MAX_FRAMES">MD3_MAX_FRAMES</dfn>		1024	// per model</u></td></tr>
+<tr><th id="89">89</th><td><u>#define	<dfn class="macro" id="_M/MD3_MAX_SURFACES" data-ref="_M/MD3_MAX_SURFACES">MD3_MAX_SURFACES</dfn>	32		// per model</u></td></tr>
+<tr><th id="90">90</th><td><u>#define <dfn class="macro" id="_M/MD3_MAX_TAGS" data-ref="_M/MD3_MAX_TAGS">MD3_MAX_TAGS</dfn>		16		// per frame</u></td></tr>
+<tr><th id="91">91</th><td></td></tr>
+<tr><th id="92">92</th><td><i>// vertex scales</i></td></tr>
+<tr><th id="93">93</th><td><u>#define	<dfn class="macro" id="_M/MD3_XYZ_SCALE" data-ref="_M/MD3_XYZ_SCALE">MD3_XYZ_SCALE</dfn>		(1.0/64)</u></td></tr>
+<tr><th id="94">94</th><td></td></tr>
+<tr><th id="95">95</th><td><b>typedef</b> <b>struct</b> <dfn class="type def" id="md3Frame_s" title='md3Frame_s' data-ref="md3Frame_s"><a class="type" href="#md3Frame_s" title='md3Frame_s' data-ref="md3Frame_s">md3Frame_s</a></dfn> {</td></tr>
+<tr><th id="96">96</th><td>	<a class="typedef" href="q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a>		<dfn class="decl" id="md3Frame_s::bounds" title='md3Frame_s::bounds' data-ref="md3Frame_s::bounds">bounds</dfn>[<var>2</var>];</td></tr>
+<tr><th id="97">97</th><td>	<a class="typedef" href="q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a>		<dfn class="decl" id="md3Frame_s::localOrigin" title='md3Frame_s::localOrigin' data-ref="md3Frame_s::localOrigin">localOrigin</dfn>;</td></tr>
+<tr><th id="98">98</th><td>	<em>float</em>		<dfn class="decl" id="md3Frame_s::radius" title='md3Frame_s::radius' data-ref="md3Frame_s::radius">radius</dfn>;</td></tr>
+<tr><th id="99">99</th><td>	<em>char</em>		<dfn class="decl" id="md3Frame_s::name" title='md3Frame_s::name' data-ref="md3Frame_s::name">name</dfn>[<var>16</var>];</td></tr>
+<tr><th id="100">100</th><td>} <dfn class="typedef" id="md3Frame_t" title='md3Frame_t' data-type='struct md3Frame_s' data-ref="md3Frame_t">md3Frame_t</dfn>;</td></tr>
+<tr><th id="101">101</th><td></td></tr>
+<tr><th id="102">102</th><td><b>typedef</b> <b>struct</b> <dfn class="type def" id="md3Tag_s" title='md3Tag_s' data-ref="md3Tag_s"><a class="type" href="#md3Tag_s" title='md3Tag_s' data-ref="md3Tag_s">md3Tag_s</a></dfn> {</td></tr>
+<tr><th id="103">103</th><td>	<em>char</em>		<dfn class="decl" id="md3Tag_s::name" title='md3Tag_s::name' data-ref="md3Tag_s::name">name</dfn>[<a class="macro" href="#43" title="64" data-ref="_M/MAX_QPATH">MAX_QPATH</a>];	<i>// tag name</i></td></tr>
+<tr><th id="104">104</th><td>	<a class="typedef" href="q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a>		<dfn class="decl" id="md3Tag_s::origin" title='md3Tag_s::origin' data-ref="md3Tag_s::origin">origin</dfn>;</td></tr>
+<tr><th id="105">105</th><td>	<a class="typedef" href="q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a>		<dfn class="decl" id="md3Tag_s::axis" title='md3Tag_s::axis' data-ref="md3Tag_s::axis">axis</dfn>[<var>3</var>];</td></tr>
+<tr><th id="106">106</th><td>} <dfn class="typedef" id="md3Tag_t" title='md3Tag_t' data-type='struct md3Tag_s' data-ref="md3Tag_t">md3Tag_t</dfn>;</td></tr>
+<tr><th id="107">107</th><td></td></tr>
+<tr><th id="108">108</th><td><i>/*</i></td></tr>
+<tr><th id="109">109</th><td><i>** md3Surface_t</i></td></tr>
+<tr><th id="110">110</th><td><i>**</i></td></tr>
+<tr><th id="111">111</th><td><i>** CHUNK			SIZE</i></td></tr>
+<tr><th id="112">112</th><td><i>** header			sizeof( md3Surface_t )</i></td></tr>
+<tr><th id="113">113</th><td><i>** shaders			sizeof( md3Shader_t ) * numShaders</i></td></tr>
+<tr><th id="114">114</th><td><i>** triangles[0]		sizeof( md3Triangle_t ) * numTriangles</i></td></tr>
+<tr><th id="115">115</th><td><i>** st				sizeof( md3St_t ) * numVerts</i></td></tr>
+<tr><th id="116">116</th><td><i>** XyzNormals		sizeof( md3XyzNormal_t ) * numVerts * numFrames</i></td></tr>
+<tr><th id="117">117</th><td><i>*/</i></td></tr>
+<tr><th id="118">118</th><td><b>typedef</b> <b>struct</b> {</td></tr>
+<tr><th id="119">119</th><td>	<em>int</em>		<dfn class="decl" id="(anonymous)::ident" title='(anonymous struct)::ident' data-ref="(anonymous)::ident">ident</dfn>;				<i>// </i></td></tr>
+<tr><th id="120">120</th><td></td></tr>
+<tr><th id="121">121</th><td>	<em>char</em>	<dfn class="decl" id="(anonymous)::name" title='(anonymous struct)::name' data-ref="(anonymous)::name">name</dfn>[<a class="macro" href="#43" title="64" data-ref="_M/MAX_QPATH">MAX_QPATH</a>];	<i>// polyset name</i></td></tr>
+<tr><th id="122">122</th><td></td></tr>
+<tr><th id="123">123</th><td>	<em>int</em>		<dfn class="decl" id="(anonymous)::flags" title='(anonymous struct)::flags' data-ref="(anonymous)::flags">flags</dfn>;</td></tr>
+<tr><th id="124">124</th><td>	<em>int</em>		<dfn class="decl" id="(anonymous)::numFrames" title='(anonymous struct)::numFrames' data-ref="(anonymous)::numFrames">numFrames</dfn>;			<i>// all surfaces in a model should have the same</i></td></tr>
+<tr><th id="125">125</th><td></td></tr>
+<tr><th id="126">126</th><td>	<em>int</em>		<dfn class="decl" id="(anonymous)::numShaders" title='(anonymous struct)::numShaders' data-ref="(anonymous)::numShaders">numShaders</dfn>;			<i>// all surfaces in a model should have the same</i></td></tr>
+<tr><th id="127">127</th><td>	<em>int</em>		<dfn class="decl" id="(anonymous)::numVerts" title='(anonymous struct)::numVerts' data-ref="(anonymous)::numVerts">numVerts</dfn>;</td></tr>
+<tr><th id="128">128</th><td></td></tr>
+<tr><th id="129">129</th><td>	<em>int</em>		<dfn class="decl" id="(anonymous)::numTriangles" title='(anonymous struct)::numTriangles' data-ref="(anonymous)::numTriangles">numTriangles</dfn>;</td></tr>
+<tr><th id="130">130</th><td>	<em>int</em>		<dfn class="decl" id="(anonymous)::ofsTriangles" title='(anonymous struct)::ofsTriangles' data-ref="(anonymous)::ofsTriangles">ofsTriangles</dfn>;</td></tr>
+<tr><th id="131">131</th><td></td></tr>
+<tr><th id="132">132</th><td>	<em>int</em>		<dfn class="decl" id="(anonymous)::ofsShaders" title='(anonymous struct)::ofsShaders' data-ref="(anonymous)::ofsShaders">ofsShaders</dfn>;			<i>// offset from start of md3Surface_t</i></td></tr>
+<tr><th id="133">133</th><td>	<em>int</em>		<dfn class="decl" id="(anonymous)::ofsSt" title='(anonymous struct)::ofsSt' data-ref="(anonymous)::ofsSt">ofsSt</dfn>;				<i>// texture coords are common for all frames</i></td></tr>
+<tr><th id="134">134</th><td>	<em>int</em>		<dfn class="decl" id="(anonymous)::ofsXyzNormals" title='(anonymous struct)::ofsXyzNormals' data-ref="(anonymous)::ofsXyzNormals">ofsXyzNormals</dfn>;		<i>// numVerts * numFrames</i></td></tr>
+<tr><th id="135">135</th><td></td></tr>
+<tr><th id="136">136</th><td>	<em>int</em>		<dfn class="decl" id="(anonymous)::ofsEnd" title='(anonymous struct)::ofsEnd' data-ref="(anonymous)::ofsEnd">ofsEnd</dfn>;				<i>// next surface follows</i></td></tr>
+<tr><th id="137">137</th><td>} <dfn class="typedef" id="md3Surface_t" title='md3Surface_t' data-type='struct md3Surface_t' data-ref="md3Surface_t">md3Surface_t</dfn>;</td></tr>
+<tr><th id="138">138</th><td></td></tr>
+<tr><th id="139">139</th><td><b>typedef</b> <b>struct</b> {</td></tr>
+<tr><th id="140">140</th><td>	<em>char</em>			<dfn class="decl" id="(anonymous)::name" title='(anonymous struct)::name' data-ref="(anonymous)::name">name</dfn>[<a class="macro" href="#43" title="64" data-ref="_M/MAX_QPATH">MAX_QPATH</a>];</td></tr>
+<tr><th id="141">141</th><td>	<em>int</em>				<dfn class="decl" id="(anonymous)::shaderIndex" title='(anonymous struct)::shaderIndex' data-ref="(anonymous)::shaderIndex">shaderIndex</dfn>;	<i>// for in-game use</i></td></tr>
+<tr><th id="142">142</th><td>} <dfn class="typedef" id="md3Shader_t" title='md3Shader_t' data-type='struct md3Shader_t' data-ref="md3Shader_t">md3Shader_t</dfn>;</td></tr>
+<tr><th id="143">143</th><td></td></tr>
+<tr><th id="144">144</th><td><b>typedef</b> <b>struct</b> {</td></tr>
+<tr><th id="145">145</th><td>	<em>int</em>			<dfn class="decl" id="(anonymous)::indexes" title='(anonymous struct)::indexes' data-ref="(anonymous)::indexes">indexes</dfn>[<var>3</var>];</td></tr>
+<tr><th id="146">146</th><td>} <dfn class="typedef" id="md3Triangle_t" title='md3Triangle_t' data-type='struct md3Triangle_t' data-ref="md3Triangle_t">md3Triangle_t</dfn>;</td></tr>
+<tr><th id="147">147</th><td></td></tr>
+<tr><th id="148">148</th><td><b>typedef</b> <b>struct</b> {</td></tr>
+<tr><th id="149">149</th><td>	<em>float</em>		<dfn class="decl" id="(anonymous)::st" title='(anonymous struct)::st' data-ref="(anonymous)::st">st</dfn>[<var>2</var>];</td></tr>
+<tr><th id="150">150</th><td>} <dfn class="typedef" id="md3St_t" title='md3St_t' data-type='struct md3St_t' data-ref="md3St_t">md3St_t</dfn>;</td></tr>
+<tr><th id="151">151</th><td></td></tr>
+<tr><th id="152">152</th><td><b>typedef</b> <b>struct</b> {</td></tr>
+<tr><th id="153">153</th><td>	<em>short</em>		<dfn class="decl" id="(anonymous)::xyz" title='(anonymous struct)::xyz' data-ref="(anonymous)::xyz">xyz</dfn>[<var>3</var>];</td></tr>
+<tr><th id="154">154</th><td>	<em>short</em>		<dfn class="decl" id="(anonymous)::normal" title='(anonymous struct)::normal' data-ref="(anonymous)::normal">normal</dfn>;</td></tr>
+<tr><th id="155">155</th><td>} <dfn class="typedef" id="md3XyzNormal_t" title='md3XyzNormal_t' data-type='struct md3XyzNormal_t' data-ref="md3XyzNormal_t">md3XyzNormal_t</dfn>;</td></tr>
+<tr><th id="156">156</th><td></td></tr>
+<tr><th id="157">157</th><td><b>typedef</b> <b>struct</b> {</td></tr>
+<tr><th id="158">158</th><td>	<em>int</em>			<dfn class="decl" id="(anonymous)::ident" title='(anonymous struct)::ident' data-ref="(anonymous)::ident">ident</dfn>;</td></tr>
+<tr><th id="159">159</th><td>	<em>int</em>			<dfn class="decl" id="(anonymous)::version" title='(anonymous struct)::version' data-ref="(anonymous)::version">version</dfn>;</td></tr>
+<tr><th id="160">160</th><td></td></tr>
+<tr><th id="161">161</th><td>	<em>char</em>		<dfn class="decl" id="(anonymous)::name" title='(anonymous struct)::name' data-ref="(anonymous)::name">name</dfn>[<a class="macro" href="#43" title="64" data-ref="_M/MAX_QPATH">MAX_QPATH</a>];	<i>// model name</i></td></tr>
+<tr><th id="162">162</th><td></td></tr>
+<tr><th id="163">163</th><td>	<em>int</em>			<dfn class="decl" id="(anonymous)::flags" title='(anonymous struct)::flags' data-ref="(anonymous)::flags">flags</dfn>;</td></tr>
+<tr><th id="164">164</th><td></td></tr>
+<tr><th id="165">165</th><td>	<em>int</em>			<dfn class="decl" id="(anonymous)::numFrames" title='(anonymous struct)::numFrames' data-ref="(anonymous)::numFrames">numFrames</dfn>;</td></tr>
+<tr><th id="166">166</th><td>	<em>int</em>			<dfn class="decl" id="(anonymous)::numTags" title='(anonymous struct)::numTags' data-ref="(anonymous)::numTags">numTags</dfn>;			</td></tr>
+<tr><th id="167">167</th><td>	<em>int</em>			<dfn class="decl" id="(anonymous)::numSurfaces" title='(anonymous struct)::numSurfaces' data-ref="(anonymous)::numSurfaces">numSurfaces</dfn>;</td></tr>
+<tr><th id="168">168</th><td></td></tr>
+<tr><th id="169">169</th><td>	<em>int</em>			<dfn class="decl" id="(anonymous)::numSkins" title='(anonymous struct)::numSkins' data-ref="(anonymous)::numSkins">numSkins</dfn>;</td></tr>
+<tr><th id="170">170</th><td></td></tr>
+<tr><th id="171">171</th><td>	<em>int</em>			<dfn class="decl" id="(anonymous)::ofsFrames" title='(anonymous struct)::ofsFrames' data-ref="(anonymous)::ofsFrames">ofsFrames</dfn>;			<i>// offset for first frame</i></td></tr>
+<tr><th id="172">172</th><td>	<em>int</em>			<dfn class="decl" id="(anonymous)::ofsTags" title='(anonymous struct)::ofsTags' data-ref="(anonymous)::ofsTags">ofsTags</dfn>;			<i>// numFrames * numTags</i></td></tr>
+<tr><th id="173">173</th><td>	<em>int</em>			<dfn class="decl" id="(anonymous)::ofsSurfaces" title='(anonymous struct)::ofsSurfaces' data-ref="(anonymous)::ofsSurfaces">ofsSurfaces</dfn>;		<i>// first surface, others follow</i></td></tr>
+<tr><th id="174">174</th><td></td></tr>
+<tr><th id="175">175</th><td>	<em>int</em>			<dfn class="decl" id="(anonymous)::ofsEnd" title='(anonymous struct)::ofsEnd' data-ref="(anonymous)::ofsEnd">ofsEnd</dfn>;				<i>// end of file</i></td></tr>
+<tr><th id="176">176</th><td>} <dfn class="typedef" id="md3Header_t" title='md3Header_t' data-type='struct md3Header_t' data-ref="md3Header_t">md3Header_t</dfn>;</td></tr>
+<tr><th id="177">177</th><td></td></tr>
+<tr><th id="178">178</th><td><i>/*</i></td></tr>
+<tr><th id="179">179</th><td><i>==============================================================================</i></td></tr>
+<tr><th id="180">180</th><td><i></i></td></tr>
+<tr><th id="181">181</th><td><i>MDR file format</i></td></tr>
+<tr><th id="182">182</th><td><i></i></td></tr>
+<tr><th id="183">183</th><td><i>==============================================================================</i></td></tr>
+<tr><th id="184">184</th><td><i>*/</i></td></tr>
+<tr><th id="185">185</th><td></td></tr>
+<tr><th id="186">186</th><td><i>/*</i></td></tr>
+<tr><th id="187">187</th><td><i> * Here are the definitions for Ravensoft's model format of md4. Raven stores their</i></td></tr>
+<tr><th id="188">188</th><td><i> * playermodels in .mdr files, in some games, which are pretty much like the md4</i></td></tr>
+<tr><th id="189">189</th><td><i> * format implemented by ID soft. It seems like ID's original md4 stuff is not used at all.</i></td></tr>
+<tr><th id="190">190</th><td><i> * MDR is being used in EliteForce, JediKnight2 and Soldiers of Fortune2 (I think).</i></td></tr>
+<tr><th id="191">191</th><td><i> * So this comes in handy for anyone who wants to make it possible to load player</i></td></tr>
+<tr><th id="192">192</th><td><i> * models from these games.</i></td></tr>
+<tr><th id="193">193</th><td><i> * This format has bone tags, which is similar to the thing you have in md3 I suppose.</i></td></tr>
+<tr><th id="194">194</th><td><i> * Raven has released their version of md3view under GPL enabling me to add support</i></td></tr>
+<tr><th id="195">195</th><td><i> * to this codebase. Thanks to Steven Howes aka Skinner for helping with example</i></td></tr>
+<tr><th id="196">196</th><td><i> * source code.</i></td></tr>
+<tr><th id="197">197</th><td><i> *</i></td></tr>
+<tr><th id="198">198</th><td><i> * - Thilo Schulz (arny@ats.s.bawue.de)</i></td></tr>
+<tr><th id="199">199</th><td><i> */</i></td></tr>
+<tr><th id="200">200</th><td></td></tr>
+<tr><th id="201">201</th><td><u>#define <dfn class="macro" id="_M/MDR_IDENT" data-ref="_M/MDR_IDENT">MDR_IDENT</dfn>	(('5'&lt;&lt;24)+('M'&lt;&lt;16)+('D'&lt;&lt;8)+'R')</u></td></tr>
+<tr><th id="202">202</th><td><u>#define <dfn class="macro" id="_M/MDR_VERSION" data-ref="_M/MDR_VERSION">MDR_VERSION</dfn>	2</u></td></tr>
+<tr><th id="203">203</th><td><u>#define	<dfn class="macro" id="_M/MDR_MAX_BONES" data-ref="_M/MDR_MAX_BONES">MDR_MAX_BONES</dfn>	128</u></td></tr>
+<tr><th id="204">204</th><td></td></tr>
+<tr><th id="205">205</th><td><b>typedef</b> <b>struct</b> {</td></tr>
+<tr><th id="206">206</th><td>	<em>int</em>			<dfn class="decl" id="(anonymous)::boneIndex" title='(anonymous struct)::boneIndex' data-ref="(anonymous)::boneIndex">boneIndex</dfn>;	<i>// these are indexes into the boneReferences,</i></td></tr>
+<tr><th id="207">207</th><td>	<em>float</em>		   <dfn class="decl" id="(anonymous)::boneWeight" title='(anonymous struct)::boneWeight' data-ref="(anonymous)::boneWeight">boneWeight</dfn>;		<i>// not the global per-frame bone list</i></td></tr>
+<tr><th id="208">208</th><td>	<a class="typedef" href="q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a>		<dfn class="decl" id="(anonymous)::offset" title='(anonymous struct)::offset' data-ref="(anonymous)::offset">offset</dfn>;</td></tr>
+<tr><th id="209">209</th><td>} <dfn class="typedef" id="mdrWeight_t" title='mdrWeight_t' data-type='struct mdrWeight_t' data-ref="mdrWeight_t">mdrWeight_t</dfn>;</td></tr>
+<tr><th id="210">210</th><td></td></tr>
+<tr><th id="211">211</th><td><b>typedef</b> <b>struct</b> {</td></tr>
+<tr><th id="212">212</th><td>	<a class="typedef" href="q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a>		<dfn class="decl" id="(anonymous)::normal" title='(anonymous struct)::normal' data-ref="(anonymous)::normal">normal</dfn>;</td></tr>
+<tr><th id="213">213</th><td>	<a class="typedef" href="q_shared.h.html#vec2_t" title='vec2_t' data-type='vec_t [2]' data-ref="vec2_t">vec2_t</a>		<dfn class="decl" id="(anonymous)::texCoords" title='(anonymous struct)::texCoords' data-ref="(anonymous)::texCoords">texCoords</dfn>;</td></tr>
+<tr><th id="214">214</th><td>	<em>int</em>			<dfn class="decl" id="(anonymous)::numWeights" title='(anonymous struct)::numWeights' data-ref="(anonymous)::numWeights">numWeights</dfn>;</td></tr>
+<tr><th id="215">215</th><td>	<a class="typedef" href="#mdrWeight_t" title='mdrWeight_t' data-type='struct mdrWeight_t' data-ref="mdrWeight_t">mdrWeight_t</a>	<dfn class="decl" id="(anonymous)::weights" title='(anonymous struct)::weights' data-ref="(anonymous)::weights">weights</dfn>[<var>1</var>];		<i>// variable sized</i></td></tr>
+<tr><th id="216">216</th><td>} <dfn class="typedef" id="mdrVertex_t" title='mdrVertex_t' data-type='struct mdrVertex_t' data-ref="mdrVertex_t">mdrVertex_t</dfn>;</td></tr>
+<tr><th id="217">217</th><td></td></tr>
+<tr><th id="218">218</th><td><b>typedef</b> <b>struct</b> {</td></tr>
+<tr><th id="219">219</th><td>	<em>int</em>			<dfn class="decl" id="(anonymous)::indexes" title='(anonymous struct)::indexes' data-ref="(anonymous)::indexes">indexes</dfn>[<var>3</var>];</td></tr>
+<tr><th id="220">220</th><td>} <dfn class="typedef" id="mdrTriangle_t" title='mdrTriangle_t' data-type='struct mdrTriangle_t' data-ref="mdrTriangle_t">mdrTriangle_t</dfn>;</td></tr>
+<tr><th id="221">221</th><td></td></tr>
+<tr><th id="222">222</th><td><b>typedef</b> <b>struct</b> {</td></tr>
+<tr><th id="223">223</th><td>	<em>int</em>			<dfn class="decl" id="(anonymous)::ident" title='(anonymous struct)::ident' data-ref="(anonymous)::ident">ident</dfn>;</td></tr>
+<tr><th id="224">224</th><td></td></tr>
+<tr><th id="225">225</th><td>	<em>char</em>		<dfn class="decl" id="(anonymous)::name" title='(anonymous struct)::name' data-ref="(anonymous)::name">name</dfn>[<a class="macro" href="#43" title="64" data-ref="_M/MAX_QPATH">MAX_QPATH</a>];	<i>// polyset name</i></td></tr>
+<tr><th id="226">226</th><td>	<em>char</em>		<dfn class="decl" id="(anonymous)::shader" title='(anonymous struct)::shader' data-ref="(anonymous)::shader">shader</dfn>[<a class="macro" href="#43" title="64" data-ref="_M/MAX_QPATH">MAX_QPATH</a>];</td></tr>
+<tr><th id="227">227</th><td>	<em>int</em>			<dfn class="decl" id="(anonymous)::shaderIndex" title='(anonymous struct)::shaderIndex' data-ref="(anonymous)::shaderIndex">shaderIndex</dfn>;	<i>// for in-game use</i></td></tr>
+<tr><th id="228">228</th><td></td></tr>
+<tr><th id="229">229</th><td>	<em>int</em>			<dfn class="decl" id="(anonymous)::ofsHeader" title='(anonymous struct)::ofsHeader' data-ref="(anonymous)::ofsHeader">ofsHeader</dfn>;	<i>// this will be a negative number</i></td></tr>
+<tr><th id="230">230</th><td></td></tr>
+<tr><th id="231">231</th><td>	<em>int</em>			<dfn class="decl" id="(anonymous)::numVerts" title='(anonymous struct)::numVerts' data-ref="(anonymous)::numVerts">numVerts</dfn>;</td></tr>
+<tr><th id="232">232</th><td>	<em>int</em>			<dfn class="decl" id="(anonymous)::ofsVerts" title='(anonymous struct)::ofsVerts' data-ref="(anonymous)::ofsVerts">ofsVerts</dfn>;</td></tr>
+<tr><th id="233">233</th><td></td></tr>
+<tr><th id="234">234</th><td>	<em>int</em>			<dfn class="decl" id="(anonymous)::numTriangles" title='(anonymous struct)::numTriangles' data-ref="(anonymous)::numTriangles">numTriangles</dfn>;</td></tr>
+<tr><th id="235">235</th><td>	<em>int</em>			<dfn class="decl" id="(anonymous)::ofsTriangles" title='(anonymous struct)::ofsTriangles' data-ref="(anonymous)::ofsTriangles">ofsTriangles</dfn>;</td></tr>
+<tr><th id="236">236</th><td></td></tr>
+<tr><th id="237">237</th><td>	<i>// Bone references are a set of ints representing all the bones</i></td></tr>
+<tr><th id="238">238</th><td><i>	// present in any vertex weights for this surface.  This is</i></td></tr>
+<tr><th id="239">239</th><td><i>	// needed because a model may have surfaces that need to be</i></td></tr>
+<tr><th id="240">240</th><td><i>	// drawn at different sort times, and we don't want to have</i></td></tr>
+<tr><th id="241">241</th><td><i>	// to re-interpolate all the bones for each surface.</i></td></tr>
+<tr><th id="242">242</th><td>	<em>int</em>			<dfn class="decl" id="(anonymous)::numBoneReferences" title='(anonymous struct)::numBoneReferences' data-ref="(anonymous)::numBoneReferences">numBoneReferences</dfn>;</td></tr>
+<tr><th id="243">243</th><td>	<em>int</em>			<dfn class="decl" id="(anonymous)::ofsBoneReferences" title='(anonymous struct)::ofsBoneReferences' data-ref="(anonymous)::ofsBoneReferences">ofsBoneReferences</dfn>;</td></tr>
+<tr><th id="244">244</th><td></td></tr>
+<tr><th id="245">245</th><td>	<em>int</em>			<dfn class="decl" id="(anonymous)::ofsEnd" title='(anonymous struct)::ofsEnd' data-ref="(anonymous)::ofsEnd">ofsEnd</dfn>;		<i>// next surface follows</i></td></tr>
+<tr><th id="246">246</th><td>} <dfn class="typedef" id="mdrSurface_t" title='mdrSurface_t' data-type='struct mdrSurface_t' data-ref="mdrSurface_t">mdrSurface_t</dfn>;</td></tr>
+<tr><th id="247">247</th><td></td></tr>
+<tr><th id="248">248</th><td><b>typedef</b> <b>struct</b> {</td></tr>
+<tr><th id="249">249</th><td>	<em>float</em>		<dfn class="decl" id="(anonymous)::matrix" title='(anonymous struct)::matrix' data-ref="(anonymous)::matrix">matrix</dfn>[<var>3</var>][<var>4</var>];</td></tr>
+<tr><th id="250">250</th><td>} <dfn class="typedef" id="mdrBone_t" title='mdrBone_t' data-type='struct mdrBone_t' data-ref="mdrBone_t">mdrBone_t</dfn>;</td></tr>
+<tr><th id="251">251</th><td></td></tr>
+<tr><th id="252">252</th><td><b>typedef</b> <b>struct</b> {</td></tr>
+<tr><th id="253">253</th><td>	<a class="typedef" href="q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a>		<dfn class="decl" id="(anonymous)::bounds" title='(anonymous struct)::bounds' data-ref="(anonymous)::bounds">bounds</dfn>[<var>2</var>];		<i>// bounds of all surfaces of all LOD's for this frame</i></td></tr>
+<tr><th id="254">254</th><td>	<a class="typedef" href="q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a>		<dfn class="decl" id="(anonymous)::localOrigin" title='(anonymous struct)::localOrigin' data-ref="(anonymous)::localOrigin">localOrigin</dfn>;		<i>// midpoint of bounds, used for sphere cull</i></td></tr>
+<tr><th id="255">255</th><td>	<em>float</em>		<dfn class="decl" id="(anonymous)::radius" title='(anonymous struct)::radius' data-ref="(anonymous)::radius">radius</dfn>;			<i>// dist from localOrigin to corner</i></td></tr>
+<tr><th id="256">256</th><td>	<em>char</em>		<dfn class="decl" id="(anonymous)::name" title='(anonymous struct)::name' data-ref="(anonymous)::name">name</dfn>[<var>16</var>];</td></tr>
+<tr><th id="257">257</th><td>	<a class="typedef" href="#mdrBone_t" title='mdrBone_t' data-type='struct mdrBone_t' data-ref="mdrBone_t">mdrBone_t</a>	<dfn class="decl" id="(anonymous)::bones" title='(anonymous struct)::bones' data-ref="(anonymous)::bones">bones</dfn>[<var>1</var>];		<i>// [numBones]</i></td></tr>
+<tr><th id="258">258</th><td>} <dfn class="typedef" id="mdrFrame_t" title='mdrFrame_t' data-type='struct mdrFrame_t' data-ref="mdrFrame_t">mdrFrame_t</dfn>;</td></tr>
+<tr><th id="259">259</th><td></td></tr>
+<tr><th id="260">260</th><td><b>typedef</b> <b>struct</b> {</td></tr>
+<tr><th id="261">261</th><td>        <em>unsigned</em> <em>char</em> <dfn class="decl" id="(anonymous)::Comp" title='(anonymous struct)::Comp' data-ref="(anonymous)::Comp">Comp</dfn>[<var>24</var>]; <i>// MC_COMP_BYTES is in MatComp.h, but don't want to couple</i></td></tr>
+<tr><th id="262">262</th><td>} <dfn class="typedef" id="mdrCompBone_t" title='mdrCompBone_t' data-type='struct mdrCompBone_t' data-ref="mdrCompBone_t">mdrCompBone_t</dfn>;</td></tr>
+<tr><th id="263">263</th><td></td></tr>
+<tr><th id="264">264</th><td><b>typedef</b> <b>struct</b> {</td></tr>
+<tr><th id="265">265</th><td>        <a class="typedef" href="q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a>          <dfn class="decl" id="(anonymous)::bounds" title='(anonymous struct)::bounds' data-ref="(anonymous)::bounds">bounds</dfn>[<var>2</var>];		<i>// bounds of all surfaces of all LOD's for this frame</i></td></tr>
+<tr><th id="266">266</th><td>        <a class="typedef" href="q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a>          <dfn class="decl" id="(anonymous)::localOrigin" title='(anonymous struct)::localOrigin' data-ref="(anonymous)::localOrigin">localOrigin</dfn>;		<i>// midpoint of bounds, used for sphere cull</i></td></tr>
+<tr><th id="267">267</th><td>        <em>float</em>           <dfn class="decl" id="(anonymous)::radius" title='(anonymous struct)::radius' data-ref="(anonymous)::radius">radius</dfn>;			<i>// dist from localOrigin to corner</i></td></tr>
+<tr><th id="268">268</th><td>        <a class="typedef" href="#mdrCompBone_t" title='mdrCompBone_t' data-type='struct mdrCompBone_t' data-ref="mdrCompBone_t">mdrCompBone_t</a>   <dfn class="decl" id="(anonymous)::bones" title='(anonymous struct)::bones' data-ref="(anonymous)::bones">bones</dfn>[<var>1</var>];		<i>// [numBones]</i></td></tr>
+<tr><th id="269">269</th><td>} <dfn class="typedef" id="mdrCompFrame_t" title='mdrCompFrame_t' data-type='struct mdrCompFrame_t' data-ref="mdrCompFrame_t">mdrCompFrame_t</dfn>;</td></tr>
+<tr><th id="270">270</th><td></td></tr>
+<tr><th id="271">271</th><td><b>typedef</b> <b>struct</b> {</td></tr>
+<tr><th id="272">272</th><td>	<em>int</em>			<dfn class="decl" id="(anonymous)::numSurfaces" title='(anonymous struct)::numSurfaces' data-ref="(anonymous)::numSurfaces">numSurfaces</dfn>;</td></tr>
+<tr><th id="273">273</th><td>	<em>int</em>			<dfn class="decl" id="(anonymous)::ofsSurfaces" title='(anonymous struct)::ofsSurfaces' data-ref="(anonymous)::ofsSurfaces">ofsSurfaces</dfn>;		<i>// first surface, others follow</i></td></tr>
+<tr><th id="274">274</th><td>	<em>int</em>			<dfn class="decl" id="(anonymous)::ofsEnd" title='(anonymous struct)::ofsEnd' data-ref="(anonymous)::ofsEnd">ofsEnd</dfn>;				<i>// next lod follows</i></td></tr>
+<tr><th id="275">275</th><td>} <dfn class="typedef" id="mdrLOD_t" title='mdrLOD_t' data-type='struct mdrLOD_t' data-ref="mdrLOD_t">mdrLOD_t</dfn>;</td></tr>
+<tr><th id="276">276</th><td></td></tr>
+<tr><th id="277">277</th><td><b>typedef</b> <b>struct</b> {</td></tr>
+<tr><th id="278">278</th><td>        <em>int</em>                     <dfn class="decl" id="(anonymous)::boneIndex" title='(anonymous struct)::boneIndex' data-ref="(anonymous)::boneIndex">boneIndex</dfn>;</td></tr>
+<tr><th id="279">279</th><td>        <em>char</em>            <dfn class="decl" id="(anonymous)::name" title='(anonymous struct)::name' data-ref="(anonymous)::name">name</dfn>[<var>32</var>];</td></tr>
+<tr><th id="280">280</th><td>} <dfn class="typedef" id="mdrTag_t" title='mdrTag_t' data-type='struct mdrTag_t' data-ref="mdrTag_t">mdrTag_t</dfn>;</td></tr>
+<tr><th id="281">281</th><td></td></tr>
+<tr><th id="282">282</th><td><b>typedef</b> <b>struct</b> {</td></tr>
+<tr><th id="283">283</th><td>	<em>int</em>			<dfn class="decl" id="(anonymous)::ident" title='(anonymous struct)::ident' data-ref="(anonymous)::ident">ident</dfn>;</td></tr>
+<tr><th id="284">284</th><td>	<em>int</em>			<dfn class="decl" id="(anonymous)::version" title='(anonymous struct)::version' data-ref="(anonymous)::version">version</dfn>;</td></tr>
+<tr><th id="285">285</th><td></td></tr>
+<tr><th id="286">286</th><td>	<em>char</em>		<dfn class="decl" id="(anonymous)::name" title='(anonymous struct)::name' data-ref="(anonymous)::name">name</dfn>[<a class="macro" href="#43" title="64" data-ref="_M/MAX_QPATH">MAX_QPATH</a>];	<i>// model name</i></td></tr>
+<tr><th id="287">287</th><td></td></tr>
+<tr><th id="288">288</th><td>	<i>// frames and bones are shared by all levels of detail</i></td></tr>
+<tr><th id="289">289</th><td>	<em>int</em>			<dfn class="decl" id="(anonymous)::numFrames" title='(anonymous struct)::numFrames' data-ref="(anonymous)::numFrames">numFrames</dfn>;</td></tr>
+<tr><th id="290">290</th><td>	<em>int</em>			<dfn class="decl" id="(anonymous)::numBones" title='(anonymous struct)::numBones' data-ref="(anonymous)::numBones">numBones</dfn>;</td></tr>
+<tr><th id="291">291</th><td>	<em>int</em>			<dfn class="decl" id="(anonymous)::ofsFrames" title='(anonymous struct)::ofsFrames' data-ref="(anonymous)::ofsFrames">ofsFrames</dfn>;			<i>// mdrFrame_t[numFrames]</i></td></tr>
+<tr><th id="292">292</th><td></td></tr>
+<tr><th id="293">293</th><td>	<i>// each level of detail has completely separate sets of surfaces</i></td></tr>
+<tr><th id="294">294</th><td>	<em>int</em>			<dfn class="decl" id="(anonymous)::numLODs" title='(anonymous struct)::numLODs' data-ref="(anonymous)::numLODs">numLODs</dfn>;</td></tr>
+<tr><th id="295">295</th><td>	<em>int</em>			<dfn class="decl" id="(anonymous)::ofsLODs" title='(anonymous struct)::ofsLODs' data-ref="(anonymous)::ofsLODs">ofsLODs</dfn>;</td></tr>
+<tr><th id="296">296</th><td></td></tr>
+<tr><th id="297">297</th><td>        <em>int</em>                     <dfn class="decl" id="(anonymous)::numTags" title='(anonymous struct)::numTags' data-ref="(anonymous)::numTags">numTags</dfn>;</td></tr>
+<tr><th id="298">298</th><td>        <em>int</em>                     <dfn class="decl" id="(anonymous)::ofsTags" title='(anonymous struct)::ofsTags' data-ref="(anonymous)::ofsTags">ofsTags</dfn>;</td></tr>
+<tr><th id="299">299</th><td></td></tr>
+<tr><th id="300">300</th><td>	<em>int</em>			<dfn class="decl" id="(anonymous)::ofsEnd" title='(anonymous struct)::ofsEnd' data-ref="(anonymous)::ofsEnd">ofsEnd</dfn>;				<i>// end of file</i></td></tr>
+<tr><th id="301">301</th><td>} <dfn class="typedef" id="mdrHeader_t" title='mdrHeader_t' data-type='struct mdrHeader_t' data-ref="mdrHeader_t">mdrHeader_t</dfn>;</td></tr>
+<tr><th id="302">302</th><td></td></tr>
+<tr><th id="303">303</th><td></td></tr>
+<tr><th id="304">304</th><td><i>/*</i></td></tr>
+<tr><th id="305">305</th><td><i>==============================================================================</i></td></tr>
+<tr><th id="306">306</th><td><i></i></td></tr>
+<tr><th id="307">307</th><td><i>  .BSP file format</i></td></tr>
+<tr><th id="308">308</th><td><i></i></td></tr>
+<tr><th id="309">309</th><td><i>==============================================================================</i></td></tr>
+<tr><th id="310">310</th><td><i>*/</i></td></tr>
+<tr><th id="311">311</th><td></td></tr>
+<tr><th id="312">312</th><td></td></tr>
+<tr><th id="313">313</th><td><u>#define <dfn class="macro" id="_M/BSP_IDENT" data-ref="_M/BSP_IDENT">BSP_IDENT</dfn>	(('P'&lt;&lt;24)+('S'&lt;&lt;16)+('B'&lt;&lt;8)+'I')</u></td></tr>
+<tr><th id="314">314</th><td>		<i>// little-endian "IBSP"</i></td></tr>
+<tr><th id="315">315</th><td></td></tr>
+<tr><th id="316">316</th><td><u>#define <dfn class="macro" id="_M/BSP_VERSION" data-ref="_M/BSP_VERSION">BSP_VERSION</dfn>			46</u></td></tr>
+<tr><th id="317">317</th><td></td></tr>
+<tr><th id="318">318</th><td></td></tr>
+<tr><th id="319">319</th><td><i>// there shouldn't be any problem with increasing these values at the</i></td></tr>
+<tr><th id="320">320</th><td><i>// expense of more memory allocation in the utilities</i></td></tr>
+<tr><th id="321">321</th><td><u>#define	<dfn class="macro" id="_M/MAX_MAP_MODELS" data-ref="_M/MAX_MAP_MODELS">MAX_MAP_MODELS</dfn>		0x400</u></td></tr>
+<tr><th id="322">322</th><td><u>#define	<dfn class="macro" id="_M/MAX_MAP_BRUSHES" data-ref="_M/MAX_MAP_BRUSHES">MAX_MAP_BRUSHES</dfn>		0x8000</u></td></tr>
+<tr><th id="323">323</th><td><u>#define	<dfn class="macro" id="_M/MAX_MAP_ENTITIES" data-ref="_M/MAX_MAP_ENTITIES">MAX_MAP_ENTITIES</dfn>	0x800</u></td></tr>
+<tr><th id="324">324</th><td><u>#define	<dfn class="macro" id="_M/MAX_MAP_ENTSTRING" data-ref="_M/MAX_MAP_ENTSTRING">MAX_MAP_ENTSTRING</dfn>	0x40000</u></td></tr>
+<tr><th id="325">325</th><td><u>#define	<dfn class="macro" id="_M/MAX_MAP_SHADERS" data-ref="_M/MAX_MAP_SHADERS">MAX_MAP_SHADERS</dfn>		0x400</u></td></tr>
+<tr><th id="326">326</th><td></td></tr>
+<tr><th id="327">327</th><td><u>#define	<dfn class="macro" id="_M/MAX_MAP_AREAS" data-ref="_M/MAX_MAP_AREAS">MAX_MAP_AREAS</dfn>		0x100	// MAX_MAP_AREA_BYTES in q_shared must match!</u></td></tr>
+<tr><th id="328">328</th><td><u>#define	<dfn class="macro" id="_M/MAX_MAP_FOGS" data-ref="_M/MAX_MAP_FOGS">MAX_MAP_FOGS</dfn>		0x100</u></td></tr>
+<tr><th id="329">329</th><td><u>#define	<dfn class="macro" id="_M/MAX_MAP_PLANES" data-ref="_M/MAX_MAP_PLANES">MAX_MAP_PLANES</dfn>		0x20000</u></td></tr>
+<tr><th id="330">330</th><td><u>#define	<dfn class="macro" id="_M/MAX_MAP_NODES" data-ref="_M/MAX_MAP_NODES">MAX_MAP_NODES</dfn>		0x20000</u></td></tr>
+<tr><th id="331">331</th><td><u>#define	<dfn class="macro" id="_M/MAX_MAP_BRUSHSIDES" data-ref="_M/MAX_MAP_BRUSHSIDES">MAX_MAP_BRUSHSIDES</dfn>	0x20000</u></td></tr>
+<tr><th id="332">332</th><td><u>#define	<dfn class="macro" id="_M/MAX_MAP_LEAFS" data-ref="_M/MAX_MAP_LEAFS">MAX_MAP_LEAFS</dfn>		0x20000</u></td></tr>
+<tr><th id="333">333</th><td><u>#define	<dfn class="macro" id="_M/MAX_MAP_LEAFFACES" data-ref="_M/MAX_MAP_LEAFFACES">MAX_MAP_LEAFFACES</dfn>	0x20000</u></td></tr>
+<tr><th id="334">334</th><td><u>#define	<dfn class="macro" id="_M/MAX_MAP_LEAFBRUSHES" data-ref="_M/MAX_MAP_LEAFBRUSHES">MAX_MAP_LEAFBRUSHES</dfn> 0x40000</u></td></tr>
+<tr><th id="335">335</th><td><u>#define	<dfn class="macro" id="_M/MAX_MAP_PORTALS" data-ref="_M/MAX_MAP_PORTALS">MAX_MAP_PORTALS</dfn>		0x20000</u></td></tr>
+<tr><th id="336">336</th><td><u>#define	<dfn class="macro" id="_M/MAX_MAP_LIGHTING" data-ref="_M/MAX_MAP_LIGHTING">MAX_MAP_LIGHTING</dfn>	0x800000</u></td></tr>
+<tr><th id="337">337</th><td><u>#define	<dfn class="macro" id="_M/MAX_MAP_LIGHTGRID" data-ref="_M/MAX_MAP_LIGHTGRID">MAX_MAP_LIGHTGRID</dfn>	0x800000</u></td></tr>
+<tr><th id="338">338</th><td><u>#define	<dfn class="macro" id="_M/MAX_MAP_VISIBILITY" data-ref="_M/MAX_MAP_VISIBILITY">MAX_MAP_VISIBILITY</dfn>	0x200000</u></td></tr>
+<tr><th id="339">339</th><td></td></tr>
+<tr><th id="340">340</th><td><u>#define	<dfn class="macro" id="_M/MAX_MAP_DRAW_SURFS" data-ref="_M/MAX_MAP_DRAW_SURFS">MAX_MAP_DRAW_SURFS</dfn>	0x20000</u></td></tr>
+<tr><th id="341">341</th><td><u>#define	<dfn class="macro" id="_M/MAX_MAP_DRAW_VERTS" data-ref="_M/MAX_MAP_DRAW_VERTS">MAX_MAP_DRAW_VERTS</dfn>	0x80000</u></td></tr>
+<tr><th id="342">342</th><td><u>#define	<dfn class="macro" id="_M/MAX_MAP_DRAW_INDEXES" data-ref="_M/MAX_MAP_DRAW_INDEXES">MAX_MAP_DRAW_INDEXES</dfn>	0x80000</u></td></tr>
+<tr><th id="343">343</th><td></td></tr>
+<tr><th id="344">344</th><td></td></tr>
+<tr><th id="345">345</th><td><i>// key / value pair sizes in the entities lump</i></td></tr>
+<tr><th id="346">346</th><td><u>#define	<dfn class="macro" id="_M/MAX_KEY" data-ref="_M/MAX_KEY">MAX_KEY</dfn>				32</u></td></tr>
+<tr><th id="347">347</th><td><u>#define	<dfn class="macro" id="_M/MAX_VALUE" data-ref="_M/MAX_VALUE">MAX_VALUE</dfn>			1024</u></td></tr>
+<tr><th id="348">348</th><td></td></tr>
+<tr><th id="349">349</th><td><i>// the editor uses these predefined yaw angles to orient entities up or down</i></td></tr>
+<tr><th id="350">350</th><td><u>#define	<dfn class="macro" id="_M/ANGLE_UP" data-ref="_M/ANGLE_UP">ANGLE_UP</dfn>			-1</u></td></tr>
+<tr><th id="351">351</th><td><u>#define	<dfn class="macro" id="_M/ANGLE_DOWN" data-ref="_M/ANGLE_DOWN">ANGLE_DOWN</dfn>			-2</u></td></tr>
+<tr><th id="352">352</th><td></td></tr>
+<tr><th id="353">353</th><td><u>#define	<dfn class="macro" id="_M/LIGHTMAP_WIDTH" data-ref="_M/LIGHTMAP_WIDTH">LIGHTMAP_WIDTH</dfn>		128</u></td></tr>
+<tr><th id="354">354</th><td><u>#define	<dfn class="macro" id="_M/LIGHTMAP_HEIGHT" data-ref="_M/LIGHTMAP_HEIGHT">LIGHTMAP_HEIGHT</dfn>		128</u></td></tr>
+<tr><th id="355">355</th><td></td></tr>
+<tr><th id="356">356</th><td><u>#define <dfn class="macro" id="_M/MAX_WORLD_COORD" data-ref="_M/MAX_WORLD_COORD">MAX_WORLD_COORD</dfn>		( 128*1024 )</u></td></tr>
+<tr><th id="357">357</th><td><u>#define <dfn class="macro" id="_M/MIN_WORLD_COORD" data-ref="_M/MIN_WORLD_COORD">MIN_WORLD_COORD</dfn>		( -128*1024 )</u></td></tr>
+<tr><th id="358">358</th><td><u>#define <dfn class="macro" id="_M/WORLD_SIZE" data-ref="_M/WORLD_SIZE">WORLD_SIZE</dfn>			( MAX_WORLD_COORD - MIN_WORLD_COORD )</u></td></tr>
+<tr><th id="359">359</th><td></td></tr>
+<tr><th id="360">360</th><td><i>//=============================================================================</i></td></tr>
+<tr><th id="361">361</th><td></td></tr>
+<tr><th id="362">362</th><td></td></tr>
+<tr><th id="363">363</th><td><b>typedef</b> <b>struct</b> {</td></tr>
+<tr><th id="364">364</th><td>	<em>int</em>		<dfn class="decl" id="(anonymous)::fileofs" title='(anonymous struct)::fileofs' data-ref="(anonymous)::fileofs">fileofs</dfn>, <dfn class="decl" id="(anonymous)::filelen" title='(anonymous struct)::filelen' data-ref="(anonymous)::filelen">filelen</dfn>;</td></tr>
+<tr><th id="365">365</th><td>} <dfn class="typedef" id="lump_t" title='lump_t' data-type='struct lump_t' data-ref="lump_t">lump_t</dfn>;</td></tr>
+<tr><th id="366">366</th><td></td></tr>
+<tr><th id="367">367</th><td><u>#define	<dfn class="macro" id="_M/LUMP_ENTITIES" data-ref="_M/LUMP_ENTITIES">LUMP_ENTITIES</dfn>		0</u></td></tr>
+<tr><th id="368">368</th><td><u>#define	<dfn class="macro" id="_M/LUMP_SHADERS" data-ref="_M/LUMP_SHADERS">LUMP_SHADERS</dfn>		1</u></td></tr>
+<tr><th id="369">369</th><td><u>#define	<dfn class="macro" id="_M/LUMP_PLANES" data-ref="_M/LUMP_PLANES">LUMP_PLANES</dfn>			2</u></td></tr>
+<tr><th id="370">370</th><td><u>#define	<dfn class="macro" id="_M/LUMP_NODES" data-ref="_M/LUMP_NODES">LUMP_NODES</dfn>			3</u></td></tr>
+<tr><th id="371">371</th><td><u>#define	<dfn class="macro" id="_M/LUMP_LEAFS" data-ref="_M/LUMP_LEAFS">LUMP_LEAFS</dfn>			4</u></td></tr>
+<tr><th id="372">372</th><td><u>#define	<dfn class="macro" id="_M/LUMP_LEAFSURFACES" data-ref="_M/LUMP_LEAFSURFACES">LUMP_LEAFSURFACES</dfn>	5</u></td></tr>
+<tr><th id="373">373</th><td><u>#define	<dfn class="macro" id="_M/LUMP_LEAFBRUSHES" data-ref="_M/LUMP_LEAFBRUSHES">LUMP_LEAFBRUSHES</dfn>	6</u></td></tr>
+<tr><th id="374">374</th><td><u>#define	<dfn class="macro" id="_M/LUMP_MODELS" data-ref="_M/LUMP_MODELS">LUMP_MODELS</dfn>			7</u></td></tr>
+<tr><th id="375">375</th><td><u>#define	<dfn class="macro" id="_M/LUMP_BRUSHES" data-ref="_M/LUMP_BRUSHES">LUMP_BRUSHES</dfn>		8</u></td></tr>
+<tr><th id="376">376</th><td><u>#define	<dfn class="macro" id="_M/LUMP_BRUSHSIDES" data-ref="_M/LUMP_BRUSHSIDES">LUMP_BRUSHSIDES</dfn>		9</u></td></tr>
+<tr><th id="377">377</th><td><u>#define	<dfn class="macro" id="_M/LUMP_DRAWVERTS" data-ref="_M/LUMP_DRAWVERTS">LUMP_DRAWVERTS</dfn>		10</u></td></tr>
+<tr><th id="378">378</th><td><u>#define	<dfn class="macro" id="_M/LUMP_DRAWINDEXES" data-ref="_M/LUMP_DRAWINDEXES">LUMP_DRAWINDEXES</dfn>	11</u></td></tr>
+<tr><th id="379">379</th><td><u>#define	<dfn class="macro" id="_M/LUMP_FOGS" data-ref="_M/LUMP_FOGS">LUMP_FOGS</dfn>			12</u></td></tr>
+<tr><th id="380">380</th><td><u>#define	<dfn class="macro" id="_M/LUMP_SURFACES" data-ref="_M/LUMP_SURFACES">LUMP_SURFACES</dfn>		13</u></td></tr>
+<tr><th id="381">381</th><td><u>#define	<dfn class="macro" id="_M/LUMP_LIGHTMAPS" data-ref="_M/LUMP_LIGHTMAPS">LUMP_LIGHTMAPS</dfn>		14</u></td></tr>
+<tr><th id="382">382</th><td><u>#define	<dfn class="macro" id="_M/LUMP_LIGHTGRID" data-ref="_M/LUMP_LIGHTGRID">LUMP_LIGHTGRID</dfn>		15</u></td></tr>
+<tr><th id="383">383</th><td><u>#define	<dfn class="macro" id="_M/LUMP_VISIBILITY" data-ref="_M/LUMP_VISIBILITY">LUMP_VISIBILITY</dfn>		16</u></td></tr>
+<tr><th id="384">384</th><td><u>#define	<dfn class="macro" id="_M/HEADER_LUMPS" data-ref="_M/HEADER_LUMPS">HEADER_LUMPS</dfn>		17</u></td></tr>
+<tr><th id="385">385</th><td></td></tr>
+<tr><th id="386">386</th><td><b>typedef</b> <b>struct</b> {</td></tr>
+<tr><th id="387">387</th><td>	<em>int</em>			<dfn class="decl" id="(anonymous)::ident" title='(anonymous struct)::ident' data-ref="(anonymous)::ident">ident</dfn>;</td></tr>
+<tr><th id="388">388</th><td>	<em>int</em>			<dfn class="decl" id="(anonymous)::version" title='(anonymous struct)::version' data-ref="(anonymous)::version">version</dfn>;</td></tr>
+<tr><th id="389">389</th><td></td></tr>
+<tr><th id="390">390</th><td>	<a class="typedef" href="#lump_t" title='lump_t' data-type='struct lump_t' data-ref="lump_t">lump_t</a>		<dfn class="decl" id="(anonymous)::lumps" title='(anonymous struct)::lumps' data-ref="(anonymous)::lumps">lumps</dfn>[<a class="macro" href="#384" title="17" data-ref="_M/HEADER_LUMPS">HEADER_LUMPS</a>];</td></tr>
+<tr><th id="391">391</th><td>} <dfn class="typedef" id="dheader_t" title='dheader_t' data-type='struct dheader_t' data-ref="dheader_t">dheader_t</dfn>;</td></tr>
+<tr><th id="392">392</th><td></td></tr>
+<tr><th id="393">393</th><td><b>typedef</b> <b>struct</b> {</td></tr>
+<tr><th id="394">394</th><td>	<em>float</em>		<dfn class="decl" id="(anonymous)::mins" title='(anonymous struct)::mins' data-ref="(anonymous)::mins">mins</dfn>[<var>3</var>], <dfn class="decl" id="(anonymous)::maxs" title='(anonymous struct)::maxs' data-ref="(anonymous)::maxs">maxs</dfn>[<var>3</var>];</td></tr>
+<tr><th id="395">395</th><td>	<em>int</em>			<dfn class="decl" id="(anonymous)::firstSurface" title='(anonymous struct)::firstSurface' data-ref="(anonymous)::firstSurface">firstSurface</dfn>, <dfn class="decl" id="(anonymous)::numSurfaces" title='(anonymous struct)::numSurfaces' data-ref="(anonymous)::numSurfaces">numSurfaces</dfn>;</td></tr>
+<tr><th id="396">396</th><td>	<em>int</em>			<dfn class="decl" id="(anonymous)::firstBrush" title='(anonymous struct)::firstBrush' data-ref="(anonymous)::firstBrush">firstBrush</dfn>, <dfn class="decl" id="(anonymous)::numBrushes" title='(anonymous struct)::numBrushes' data-ref="(anonymous)::numBrushes">numBrushes</dfn>;</td></tr>
+<tr><th id="397">397</th><td>} <dfn class="typedef" id="dmodel_t" title='dmodel_t' data-type='struct dmodel_t' data-ref="dmodel_t">dmodel_t</dfn>;</td></tr>
+<tr><th id="398">398</th><td></td></tr>
+<tr><th id="399">399</th><td><b>typedef</b> <b>struct</b> {</td></tr>
+<tr><th id="400">400</th><td>	<em>char</em>		<dfn class="decl" id="(anonymous)::shader" title='(anonymous struct)::shader' data-ref="(anonymous)::shader">shader</dfn>[<a class="macro" href="#43" title="64" data-ref="_M/MAX_QPATH">MAX_QPATH</a>];</td></tr>
+<tr><th id="401">401</th><td>	<em>int</em>			<dfn class="decl" id="(anonymous)::surfaceFlags" title='(anonymous struct)::surfaceFlags' data-ref="(anonymous)::surfaceFlags">surfaceFlags</dfn>;</td></tr>
+<tr><th id="402">402</th><td>	<em>int</em>			<dfn class="decl" id="(anonymous)::contentFlags" title='(anonymous struct)::contentFlags' data-ref="(anonymous)::contentFlags">contentFlags</dfn>;</td></tr>
+<tr><th id="403">403</th><td>} <dfn class="typedef" id="dshader_t" title='dshader_t' data-type='struct dshader_t' data-ref="dshader_t">dshader_t</dfn>;</td></tr>
+<tr><th id="404">404</th><td></td></tr>
+<tr><th id="405">405</th><td><i>// planes x^1 is allways the opposite of plane x</i></td></tr>
+<tr><th id="406">406</th><td></td></tr>
+<tr><th id="407">407</th><td><b>typedef</b> <b>struct</b> {</td></tr>
+<tr><th id="408">408</th><td>	<em>float</em>		<dfn class="decl" id="(anonymous)::normal" title='(anonymous struct)::normal' data-ref="(anonymous)::normal">normal</dfn>[<var>3</var>];</td></tr>
+<tr><th id="409">409</th><td>	<em>float</em>		<dfn class="decl" id="(anonymous)::dist" title='(anonymous struct)::dist' data-ref="(anonymous)::dist">dist</dfn>;</td></tr>
+<tr><th id="410">410</th><td>} <dfn class="typedef" id="dplane_t" title='dplane_t' data-type='struct dplane_t' data-ref="dplane_t">dplane_t</dfn>;</td></tr>
+<tr><th id="411">411</th><td></td></tr>
+<tr><th id="412">412</th><td><b>typedef</b> <b>struct</b> {</td></tr>
+<tr><th id="413">413</th><td>	<em>int</em>			<dfn class="decl" id="(anonymous)::planeNum" title='(anonymous struct)::planeNum' data-ref="(anonymous)::planeNum">planeNum</dfn>;</td></tr>
+<tr><th id="414">414</th><td>	<em>int</em>			<dfn class="decl" id="(anonymous)::children" title='(anonymous struct)::children' data-ref="(anonymous)::children">children</dfn>[<var>2</var>];	<i>// negative numbers are -(leafs+1), not nodes</i></td></tr>
+<tr><th id="415">415</th><td>	<em>int</em>			<dfn class="decl" id="(anonymous)::mins" title='(anonymous struct)::mins' data-ref="(anonymous)::mins">mins</dfn>[<var>3</var>];		<i>// for frustom culling</i></td></tr>
+<tr><th id="416">416</th><td>	<em>int</em>			<dfn class="decl" id="(anonymous)::maxs" title='(anonymous struct)::maxs' data-ref="(anonymous)::maxs">maxs</dfn>[<var>3</var>];</td></tr>
+<tr><th id="417">417</th><td>} <dfn class="typedef" id="dnode_t" title='dnode_t' data-type='struct dnode_t' data-ref="dnode_t">dnode_t</dfn>;</td></tr>
+<tr><th id="418">418</th><td></td></tr>
+<tr><th id="419">419</th><td><b>typedef</b> <b>struct</b> {</td></tr>
+<tr><th id="420">420</th><td>	<em>int</em>			<dfn class="decl" id="(anonymous)::cluster" title='(anonymous struct)::cluster' data-ref="(anonymous)::cluster">cluster</dfn>;			<i>// -1 = opaque cluster (do I still store these?)</i></td></tr>
+<tr><th id="421">421</th><td>	<em>int</em>			<dfn class="decl" id="(anonymous)::area" title='(anonymous struct)::area' data-ref="(anonymous)::area">area</dfn>;</td></tr>
+<tr><th id="422">422</th><td></td></tr>
+<tr><th id="423">423</th><td>	<em>int</em>			<dfn class="decl" id="(anonymous)::mins" title='(anonymous struct)::mins' data-ref="(anonymous)::mins">mins</dfn>[<var>3</var>];			<i>// for frustum culling</i></td></tr>
+<tr><th id="424">424</th><td>	<em>int</em>			<dfn class="decl" id="(anonymous)::maxs" title='(anonymous struct)::maxs' data-ref="(anonymous)::maxs">maxs</dfn>[<var>3</var>];</td></tr>
+<tr><th id="425">425</th><td></td></tr>
+<tr><th id="426">426</th><td>	<em>int</em>			<dfn class="decl" id="(anonymous)::firstLeafSurface" title='(anonymous struct)::firstLeafSurface' data-ref="(anonymous)::firstLeafSurface">firstLeafSurface</dfn>;</td></tr>
+<tr><th id="427">427</th><td>	<em>int</em>			<dfn class="decl" id="(anonymous)::numLeafSurfaces" title='(anonymous struct)::numLeafSurfaces' data-ref="(anonymous)::numLeafSurfaces">numLeafSurfaces</dfn>;</td></tr>
+<tr><th id="428">428</th><td></td></tr>
+<tr><th id="429">429</th><td>	<em>int</em>			<dfn class="decl" id="(anonymous)::firstLeafBrush" title='(anonymous struct)::firstLeafBrush' data-ref="(anonymous)::firstLeafBrush">firstLeafBrush</dfn>;</td></tr>
+<tr><th id="430">430</th><td>	<em>int</em>			<dfn class="decl" id="(anonymous)::numLeafBrushes" title='(anonymous struct)::numLeafBrushes' data-ref="(anonymous)::numLeafBrushes">numLeafBrushes</dfn>;</td></tr>
+<tr><th id="431">431</th><td>} <dfn class="typedef" id="dleaf_t" title='dleaf_t' data-type='struct dleaf_t' data-ref="dleaf_t">dleaf_t</dfn>;</td></tr>
+<tr><th id="432">432</th><td></td></tr>
+<tr><th id="433">433</th><td><b>typedef</b> <b>struct</b> {</td></tr>
+<tr><th id="434">434</th><td>	<em>int</em>			<dfn class="decl" id="(anonymous)::planeNum" title='(anonymous struct)::planeNum' data-ref="(anonymous)::planeNum">planeNum</dfn>;			<i>// positive plane side faces out of the leaf</i></td></tr>
+<tr><th id="435">435</th><td>	<em>int</em>			<dfn class="decl" id="(anonymous)::shaderNum" title='(anonymous struct)::shaderNum' data-ref="(anonymous)::shaderNum">shaderNum</dfn>;</td></tr>
+<tr><th id="436">436</th><td>} <dfn class="typedef" id="dbrushside_t" title='dbrushside_t' data-type='struct dbrushside_t' data-ref="dbrushside_t">dbrushside_t</dfn>;</td></tr>
+<tr><th id="437">437</th><td></td></tr>
+<tr><th id="438">438</th><td><b>typedef</b> <b>struct</b> {</td></tr>
+<tr><th id="439">439</th><td>	<em>int</em>			<dfn class="decl" id="(anonymous)::firstSide" title='(anonymous struct)::firstSide' data-ref="(anonymous)::firstSide">firstSide</dfn>;</td></tr>
+<tr><th id="440">440</th><td>	<em>int</em>			<dfn class="decl" id="(anonymous)::numSides" title='(anonymous struct)::numSides' data-ref="(anonymous)::numSides">numSides</dfn>;</td></tr>
+<tr><th id="441">441</th><td>	<em>int</em>			<dfn class="decl" id="(anonymous)::shaderNum" title='(anonymous struct)::shaderNum' data-ref="(anonymous)::shaderNum">shaderNum</dfn>;		<i>// the shader that determines the contents flags</i></td></tr>
+<tr><th id="442">442</th><td>} <dfn class="typedef" id="dbrush_t" title='dbrush_t' data-type='struct dbrush_t' data-ref="dbrush_t">dbrush_t</dfn>;</td></tr>
+<tr><th id="443">443</th><td></td></tr>
+<tr><th id="444">444</th><td><b>typedef</b> <b>struct</b> {</td></tr>
+<tr><th id="445">445</th><td>	<em>char</em>		<dfn class="decl" id="(anonymous)::shader" title='(anonymous struct)::shader' data-ref="(anonymous)::shader">shader</dfn>[<a class="macro" href="#43" title="64" data-ref="_M/MAX_QPATH">MAX_QPATH</a>];</td></tr>
+<tr><th id="446">446</th><td>	<em>int</em>			<dfn class="decl" id="(anonymous)::brushNum" title='(anonymous struct)::brushNum' data-ref="(anonymous)::brushNum">brushNum</dfn>;</td></tr>
+<tr><th id="447">447</th><td>	<em>int</em>			<dfn class="decl" id="(anonymous)::visibleSide" title='(anonymous struct)::visibleSide' data-ref="(anonymous)::visibleSide">visibleSide</dfn>;	<i>// the brush side that ray tests need to clip against (-1 == none)</i></td></tr>
+<tr><th id="448">448</th><td>} <dfn class="typedef" id="dfog_t" title='dfog_t' data-type='struct dfog_t' data-ref="dfog_t">dfog_t</dfn>;</td></tr>
+<tr><th id="449">449</th><td></td></tr>
+<tr><th id="450">450</th><td><b>typedef</b> <b>struct</b> {</td></tr>
+<tr><th id="451">451</th><td>	<a class="typedef" href="q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a>		<dfn class="decl" id="(anonymous)::xyz" title='(anonymous struct)::xyz' data-ref="(anonymous)::xyz">xyz</dfn>;</td></tr>
+<tr><th id="452">452</th><td>	<em>float</em>		<dfn class="decl" id="(anonymous)::st" title='(anonymous struct)::st' data-ref="(anonymous)::st">st</dfn>[<var>2</var>];</td></tr>
+<tr><th id="453">453</th><td>	<em>float</em>		<dfn class="decl" id="(anonymous)::lightmap" title='(anonymous struct)::lightmap' data-ref="(anonymous)::lightmap">lightmap</dfn>[<var>2</var>];</td></tr>
+<tr><th id="454">454</th><td>	<a class="typedef" href="q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a>		<dfn class="decl" id="(anonymous)::normal" title='(anonymous struct)::normal' data-ref="(anonymous)::normal">normal</dfn>;</td></tr>
+<tr><th id="455">455</th><td>	<a class="typedef" href="q_shared.h.html#byte" title='byte' data-type='unsigned char' data-ref="byte">byte</a>		<dfn class="decl" id="(anonymous)::color" title='(anonymous struct)::color' data-ref="(anonymous)::color">color</dfn>[<var>4</var>];</td></tr>
+<tr><th id="456">456</th><td>} <dfn class="typedef" id="drawVert_t" title='drawVert_t' data-type='struct drawVert_t' data-ref="drawVert_t">drawVert_t</dfn>;</td></tr>
+<tr><th id="457">457</th><td></td></tr>
+<tr><th id="458">458</th><td><u>#define <dfn class="macro" id="_M/drawVert_t_cleared" data-ref="_M/drawVert_t_cleared">drawVert_t_cleared</dfn>(x) drawVert_t (x) = {{0, 0, 0}, {0, 0}, {0, 0}, {0, 0, 0}, {0, 0, 0, 0}}</u></td></tr>
+<tr><th id="459">459</th><td></td></tr>
+<tr><th id="460">460</th><td><b>typedef</b> <b>enum</b> {</td></tr>
+<tr><th id="461">461</th><td>	<dfn class="enum" id="MST_BAD" title='MST_BAD' data-ref="MST_BAD">MST_BAD</dfn>,</td></tr>
+<tr><th id="462">462</th><td>	<dfn class="enum" id="MST_PLANAR" title='MST_PLANAR' data-ref="MST_PLANAR">MST_PLANAR</dfn>,</td></tr>
+<tr><th id="463">463</th><td>	<dfn class="enum" id="MST_PATCH" title='MST_PATCH' data-ref="MST_PATCH">MST_PATCH</dfn>,</td></tr>
+<tr><th id="464">464</th><td>	<dfn class="enum" id="MST_TRIANGLE_SOUP" title='MST_TRIANGLE_SOUP' data-ref="MST_TRIANGLE_SOUP">MST_TRIANGLE_SOUP</dfn>,</td></tr>
+<tr><th id="465">465</th><td>	<dfn class="enum" id="MST_FLARE" title='MST_FLARE' data-ref="MST_FLARE">MST_FLARE</dfn></td></tr>
+<tr><th id="466">466</th><td>} <dfn class="typedef" id="mapSurfaceType_t" title='mapSurfaceType_t' data-type='enum mapSurfaceType_t' data-ref="mapSurfaceType_t">mapSurfaceType_t</dfn>;</td></tr>
+<tr><th id="467">467</th><td></td></tr>
+<tr><th id="468">468</th><td><b>typedef</b> <b>struct</b> {</td></tr>
+<tr><th id="469">469</th><td>	<em>int</em>			<dfn class="decl" id="(anonymous)::shaderNum" title='(anonymous struct)::shaderNum' data-ref="(anonymous)::shaderNum">shaderNum</dfn>;</td></tr>
+<tr><th id="470">470</th><td>	<em>int</em>			<dfn class="decl" id="(anonymous)::fogNum" title='(anonymous struct)::fogNum' data-ref="(anonymous)::fogNum">fogNum</dfn>;</td></tr>
+<tr><th id="471">471</th><td>	<em>int</em>			<dfn class="decl" id="(anonymous)::surfaceType" title='(anonymous struct)::surfaceType' data-ref="(anonymous)::surfaceType">surfaceType</dfn>;</td></tr>
+<tr><th id="472">472</th><td></td></tr>
+<tr><th id="473">473</th><td>	<em>int</em>			<dfn class="decl" id="(anonymous)::firstVert" title='(anonymous struct)::firstVert' data-ref="(anonymous)::firstVert">firstVert</dfn>;</td></tr>
+<tr><th id="474">474</th><td>	<em>int</em>			<dfn class="decl" id="(anonymous)::numVerts" title='(anonymous struct)::numVerts' data-ref="(anonymous)::numVerts">numVerts</dfn>;</td></tr>
+<tr><th id="475">475</th><td></td></tr>
+<tr><th id="476">476</th><td>	<em>int</em>			<dfn class="decl" id="(anonymous)::firstIndex" title='(anonymous struct)::firstIndex' data-ref="(anonymous)::firstIndex">firstIndex</dfn>;</td></tr>
+<tr><th id="477">477</th><td>	<em>int</em>			<dfn class="decl" id="(anonymous)::numIndexes" title='(anonymous struct)::numIndexes' data-ref="(anonymous)::numIndexes">numIndexes</dfn>;</td></tr>
+<tr><th id="478">478</th><td></td></tr>
+<tr><th id="479">479</th><td>	<em>int</em>			<dfn class="decl" id="(anonymous)::lightmapNum" title='(anonymous struct)::lightmapNum' data-ref="(anonymous)::lightmapNum">lightmapNum</dfn>;</td></tr>
+<tr><th id="480">480</th><td>	<em>int</em>			<dfn class="decl" id="(anonymous)::lightmapX" title='(anonymous struct)::lightmapX' data-ref="(anonymous)::lightmapX">lightmapX</dfn>, <dfn class="decl" id="(anonymous)::lightmapY" title='(anonymous struct)::lightmapY' data-ref="(anonymous)::lightmapY">lightmapY</dfn>;</td></tr>
+<tr><th id="481">481</th><td>	<em>int</em>			<dfn class="decl" id="(anonymous)::lightmapWidth" title='(anonymous struct)::lightmapWidth' data-ref="(anonymous)::lightmapWidth">lightmapWidth</dfn>, <dfn class="decl" id="(anonymous)::lightmapHeight" title='(anonymous struct)::lightmapHeight' data-ref="(anonymous)::lightmapHeight">lightmapHeight</dfn>;</td></tr>
+<tr><th id="482">482</th><td></td></tr>
+<tr><th id="483">483</th><td>	<a class="typedef" href="q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a>		<dfn class="decl" id="(anonymous)::lightmapOrigin" title='(anonymous struct)::lightmapOrigin' data-ref="(anonymous)::lightmapOrigin">lightmapOrigin</dfn>;</td></tr>
+<tr><th id="484">484</th><td>	<a class="typedef" href="q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a>		<dfn class="decl" id="(anonymous)::lightmapVecs" title='(anonymous struct)::lightmapVecs' data-ref="(anonymous)::lightmapVecs">lightmapVecs</dfn>[<var>3</var>];	<i>// for patches, [0] and [1] are lodbounds</i></td></tr>
+<tr><th id="485">485</th><td></td></tr>
+<tr><th id="486">486</th><td>	<em>int</em>			<dfn class="decl" id="(anonymous)::patchWidth" title='(anonymous struct)::patchWidth' data-ref="(anonymous)::patchWidth">patchWidth</dfn>;</td></tr>
+<tr><th id="487">487</th><td>	<em>int</em>			<dfn class="decl" id="(anonymous)::patchHeight" title='(anonymous struct)::patchHeight' data-ref="(anonymous)::patchHeight">patchHeight</dfn>;</td></tr>
+<tr><th id="488">488</th><td>} <dfn class="typedef" id="dsurface_t" title='dsurface_t' data-type='struct dsurface_t' data-ref="dsurface_t">dsurface_t</dfn>;</td></tr>
+<tr><th id="489">489</th><td></td></tr>
+<tr><th id="490">490</th><td></td></tr>
+<tr><th id="491">491</th><td><u>#<span data-ppcond="22">endif</span></u></td></tr>
+<tr><th id="492">492</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='../client/cl_avi.c.html'>codebrowser/code/client/cl_avi.c</a><br/>Generated on <em>2017-Aug-29</em> from project codebrowser revision <em>63e07af</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

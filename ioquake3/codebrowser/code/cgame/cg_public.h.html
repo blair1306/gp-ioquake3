@@ -1,0 +1,256 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>cg_public.h source code [codebrowser/code/cgame/cg_public.h] - Woboq Code Browser</title>
+<link rel="stylesheet" href="../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'codebrowser/code/cgame/cg_public.h'; var root_path = '../../..'; var data_path = '../../../../data';</script>
+<script src='../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../..'>codebrowser</a>/<a href='..'>code</a>/<a href='./'>cgame</a>/<a href='cg_public.h.html'>cg_public.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/*</i></td></tr>
+<tr><th id="2">2</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="3">3</th><td><i>Copyright (C) 1999-2005 Id Software, Inc.</i></td></tr>
+<tr><th id="4">4</th><td><i></i></td></tr>
+<tr><th id="5">5</th><td><i>This file is part of Quake III Arena source code.</i></td></tr>
+<tr><th id="6">6</th><td><i></i></td></tr>
+<tr><th id="7">7</th><td><i>Quake III Arena source code is free software; you can redistribute it</i></td></tr>
+<tr><th id="8">8</th><td><i>and/or modify it under the terms of the GNU General Public License as</i></td></tr>
+<tr><th id="9">9</th><td><i>published by the Free Software Foundation; either version 2 of the License,</i></td></tr>
+<tr><th id="10">10</th><td><i>or (at your option) any later version.</i></td></tr>
+<tr><th id="11">11</th><td><i></i></td></tr>
+<tr><th id="12">12</th><td><i>Quake III Arena source code is distributed in the hope that it will be</i></td></tr>
+<tr><th id="13">13</th><td><i>useful, but WITHOUT ANY WARRANTY; without even the implied warranty of</i></td></tr>
+<tr><th id="14">14</th><td><i>MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</i></td></tr>
+<tr><th id="15">15</th><td><i>GNU General Public License for more details.</i></td></tr>
+<tr><th id="16">16</th><td><i></i></td></tr>
+<tr><th id="17">17</th><td><i>You should have received a copy of the GNU General Public License</i></td></tr>
+<tr><th id="18">18</th><td><i>along with Quake III Arena source code; if not, write to the Free Software</i></td></tr>
+<tr><th id="19">19</th><td><i>Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA</i></td></tr>
+<tr><th id="20">20</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="21">21</th><td><i>*/</i></td></tr>
+<tr><th id="22">22</th><td><i>//</i></td></tr>
+<tr><th id="23">23</th><td></td></tr>
+<tr><th id="24">24</th><td></td></tr>
+<tr><th id="25">25</th><td><u>#define	<dfn class="macro" id="_M/CMD_BACKUP" data-ref="_M/CMD_BACKUP">CMD_BACKUP</dfn>			64</u>	</td></tr>
+<tr><th id="26">26</th><td><u>#define	<dfn class="macro" id="_M/CMD_MASK" data-ref="_M/CMD_MASK">CMD_MASK</dfn>			(CMD_BACKUP - 1)</u></td></tr>
+<tr><th id="27">27</th><td><i>// allow a lot of command backups for very fast systems</i></td></tr>
+<tr><th id="28">28</th><td><i>// multiple commands may be combined into a single packet, so this</i></td></tr>
+<tr><th id="29">29</th><td><i>// needs to be larger than PACKET_BACKUP</i></td></tr>
+<tr><th id="30">30</th><td></td></tr>
+<tr><th id="31">31</th><td></td></tr>
+<tr><th id="32">32</th><td><u>#define	<dfn class="macro" id="_M/MAX_ENTITIES_IN_SNAPSHOT" data-ref="_M/MAX_ENTITIES_IN_SNAPSHOT">MAX_ENTITIES_IN_SNAPSHOT</dfn>	256</u></td></tr>
+<tr><th id="33">33</th><td></td></tr>
+<tr><th id="34">34</th><td><i>// snapshots are a view of the server at a given time</i></td></tr>
+<tr><th id="35">35</th><td><i></i></td></tr>
+<tr><th id="36">36</th><td><i>// Snapshots are generated at regular time intervals by the server,</i></td></tr>
+<tr><th id="37">37</th><td><i>// but they may not be sent if a client's rate level is exceeded, or</i></td></tr>
+<tr><th id="38">38</th><td><i>// they may be dropped by the network.</i></td></tr>
+<tr><th id="39">39</th><td><b>typedef</b> <b>struct</b> {</td></tr>
+<tr><th id="40">40</th><td>	<em>int</em>				<dfn class="decl" id="(anonymous)::snapFlags" title='(anonymous struct)::snapFlags' data-ref="(anonymous)::snapFlags">snapFlags</dfn>;			<i>// SNAPFLAG_RATE_DELAYED, etc</i></td></tr>
+<tr><th id="41">41</th><td>	<em>int</em>				<dfn class="decl" id="(anonymous)::ping" title='(anonymous struct)::ping' data-ref="(anonymous)::ping">ping</dfn>;</td></tr>
+<tr><th id="42">42</th><td></td></tr>
+<tr><th id="43">43</th><td>	<em>int</em>				<dfn class="decl" id="(anonymous)::serverTime" title='(anonymous struct)::serverTime' data-ref="(anonymous)::serverTime">serverTime</dfn>;		<i>// server time the message is valid for (in msec)</i></td></tr>
+<tr><th id="44">44</th><td></td></tr>
+<tr><th id="45">45</th><td>	<a class="typedef" href="../qcommon/q_shared.h.html#byte" title='byte' data-type='unsigned char' data-ref="byte">byte</a>			<dfn class="decl" id="(anonymous)::areamask" title='(anonymous struct)::areamask' data-ref="(anonymous)::areamask">areamask</dfn>[<a class="macro" href="../qcommon/q_shared.h.html#279" title="32" data-ref="_M/MAX_MAP_AREA_BYTES">MAX_MAP_AREA_BYTES</a>];		<i>// portalarea visibility bits</i></td></tr>
+<tr><th id="46">46</th><td></td></tr>
+<tr><th id="47">47</th><td>	<a class="typedef" href="../qcommon/q_shared.h.html#playerState_t" title='playerState_t' data-type='struct playerState_s' data-ref="playerState_t">playerState_t</a>	<dfn class="decl" id="(anonymous)::ps" title='(anonymous struct)::ps' data-ref="(anonymous)::ps">ps</dfn>;						<i>// complete information about the current player at this time</i></td></tr>
+<tr><th id="48">48</th><td></td></tr>
+<tr><th id="49">49</th><td>	<em>int</em>				<dfn class="decl" id="(anonymous)::numEntities" title='(anonymous struct)::numEntities' data-ref="(anonymous)::numEntities">numEntities</dfn>;			<i>// all of the entities that need to be presented</i></td></tr>
+<tr><th id="50">50</th><td>	<a class="typedef" href="../qcommon/q_shared.h.html#entityState_t" title='entityState_t' data-type='struct entityState_s' data-ref="entityState_t">entityState_t</a>	<dfn class="decl" id="(anonymous)::entities" title='(anonymous struct)::entities' data-ref="(anonymous)::entities">entities</dfn>[<a class="macro" href="#32" title="256" data-ref="_M/MAX_ENTITIES_IN_SNAPSHOT">MAX_ENTITIES_IN_SNAPSHOT</a>];	<i>// at the time of this snapshot</i></td></tr>
+<tr><th id="51">51</th><td></td></tr>
+<tr><th id="52">52</th><td>	<em>int</em>				<dfn class="decl" id="(anonymous)::numServerCommands" title='(anonymous struct)::numServerCommands' data-ref="(anonymous)::numServerCommands">numServerCommands</dfn>;		<i>// text based server commands to execute when this</i></td></tr>
+<tr><th id="53">53</th><td>	<em>int</em>				<dfn class="decl" id="(anonymous)::serverCommandSequence" title='(anonymous struct)::serverCommandSequence' data-ref="(anonymous)::serverCommandSequence">serverCommandSequence</dfn>;	<i>// snapshot becomes current</i></td></tr>
+<tr><th id="54">54</th><td>} <dfn class="typedef" id="snapshot_t" title='snapshot_t' data-type='struct snapshot_t' data-ref="snapshot_t">snapshot_t</dfn>;</td></tr>
+<tr><th id="55">55</th><td></td></tr>
+<tr><th id="56">56</th><td><b>enum</b> {</td></tr>
+<tr><th id="57">57</th><td>  <dfn class="enum" id="CGAME_EVENT_NONE" title='CGAME_EVENT_NONE' data-ref="CGAME_EVENT_NONE">CGAME_EVENT_NONE</dfn>,</td></tr>
+<tr><th id="58">58</th><td>  <dfn class="enum" id="CGAME_EVENT_TEAMMENU" title='CGAME_EVENT_TEAMMENU' data-ref="CGAME_EVENT_TEAMMENU">CGAME_EVENT_TEAMMENU</dfn>,</td></tr>
+<tr><th id="59">59</th><td>  <dfn class="enum" id="CGAME_EVENT_SCOREBOARD" title='CGAME_EVENT_SCOREBOARD' data-ref="CGAME_EVENT_SCOREBOARD">CGAME_EVENT_SCOREBOARD</dfn>,</td></tr>
+<tr><th id="60">60</th><td>  <dfn class="enum" id="CGAME_EVENT_EDITHUD" title='CGAME_EVENT_EDITHUD' data-ref="CGAME_EVENT_EDITHUD">CGAME_EVENT_EDITHUD</dfn></td></tr>
+<tr><th id="61">61</th><td>};</td></tr>
+<tr><th id="62">62</th><td></td></tr>
+<tr><th id="63">63</th><td></td></tr>
+<tr><th id="64">64</th><td><i>/*</i></td></tr>
+<tr><th id="65">65</th><td><i>==================================================================</i></td></tr>
+<tr><th id="66">66</th><td><i></i></td></tr>
+<tr><th id="67">67</th><td><i>functions imported from the main executable</i></td></tr>
+<tr><th id="68">68</th><td><i></i></td></tr>
+<tr><th id="69">69</th><td><i>==================================================================</i></td></tr>
+<tr><th id="70">70</th><td><i>*/</i></td></tr>
+<tr><th id="71">71</th><td></td></tr>
+<tr><th id="72">72</th><td><u>#define	<dfn class="macro" id="_M/CGAME_IMPORT_API_VERSION" data-ref="_M/CGAME_IMPORT_API_VERSION">CGAME_IMPORT_API_VERSION</dfn>	4</u></td></tr>
+<tr><th id="73">73</th><td></td></tr>
+<tr><th id="74">74</th><td><b>typedef</b> <b>enum</b> {</td></tr>
+<tr><th id="75">75</th><td>	<dfn class="enum" id="CG_PRINT" title='CG_PRINT' data-ref="CG_PRINT">CG_PRINT</dfn>,</td></tr>
+<tr><th id="76">76</th><td>	<dfn class="enum" id="CG_ERROR" title='CG_ERROR' data-ref="CG_ERROR">CG_ERROR</dfn>,</td></tr>
+<tr><th id="77">77</th><td>	<dfn class="enum" id="CG_MILLISECONDS" title='CG_MILLISECONDS' data-ref="CG_MILLISECONDS">CG_MILLISECONDS</dfn>,</td></tr>
+<tr><th id="78">78</th><td>	<dfn class="enum" id="CG_CVAR_REGISTER" title='CG_CVAR_REGISTER' data-ref="CG_CVAR_REGISTER">CG_CVAR_REGISTER</dfn>,</td></tr>
+<tr><th id="79">79</th><td>	<dfn class="enum" id="CG_CVAR_UPDATE" title='CG_CVAR_UPDATE' data-ref="CG_CVAR_UPDATE">CG_CVAR_UPDATE</dfn>,</td></tr>
+<tr><th id="80">80</th><td>	<dfn class="enum" id="CG_CVAR_SET" title='CG_CVAR_SET' data-ref="CG_CVAR_SET">CG_CVAR_SET</dfn>,</td></tr>
+<tr><th id="81">81</th><td>	<dfn class="enum" id="CG_CVAR_VARIABLESTRINGBUFFER" title='CG_CVAR_VARIABLESTRINGBUFFER' data-ref="CG_CVAR_VARIABLESTRINGBUFFER">CG_CVAR_VARIABLESTRINGBUFFER</dfn>,</td></tr>
+<tr><th id="82">82</th><td>	<dfn class="enum" id="CG_ARGC" title='CG_ARGC' data-ref="CG_ARGC">CG_ARGC</dfn>,</td></tr>
+<tr><th id="83">83</th><td>	<dfn class="enum" id="CG_ARGV" title='CG_ARGV' data-ref="CG_ARGV">CG_ARGV</dfn>,</td></tr>
+<tr><th id="84">84</th><td>	<dfn class="enum" id="CG_ARGS" title='CG_ARGS' data-ref="CG_ARGS">CG_ARGS</dfn>,</td></tr>
+<tr><th id="85">85</th><td>	<dfn class="enum" id="CG_FS_FOPENFILE" title='CG_FS_FOPENFILE' data-ref="CG_FS_FOPENFILE">CG_FS_FOPENFILE</dfn>,</td></tr>
+<tr><th id="86">86</th><td>	<dfn class="enum" id="CG_FS_READ" title='CG_FS_READ' data-ref="CG_FS_READ">CG_FS_READ</dfn>,</td></tr>
+<tr><th id="87">87</th><td>	<dfn class="enum" id="CG_FS_WRITE" title='CG_FS_WRITE' data-ref="CG_FS_WRITE">CG_FS_WRITE</dfn>,</td></tr>
+<tr><th id="88">88</th><td>	<dfn class="enum" id="CG_FS_FCLOSEFILE" title='CG_FS_FCLOSEFILE' data-ref="CG_FS_FCLOSEFILE">CG_FS_FCLOSEFILE</dfn>,</td></tr>
+<tr><th id="89">89</th><td>	<dfn class="enum" id="CG_SENDCONSOLECOMMAND" title='CG_SENDCONSOLECOMMAND' data-ref="CG_SENDCONSOLECOMMAND">CG_SENDCONSOLECOMMAND</dfn>,</td></tr>
+<tr><th id="90">90</th><td>	<dfn class="enum" id="CG_ADDCOMMAND" title='CG_ADDCOMMAND' data-ref="CG_ADDCOMMAND">CG_ADDCOMMAND</dfn>,</td></tr>
+<tr><th id="91">91</th><td>	<dfn class="enum" id="CG_SENDCLIENTCOMMAND" title='CG_SENDCLIENTCOMMAND' data-ref="CG_SENDCLIENTCOMMAND">CG_SENDCLIENTCOMMAND</dfn>,</td></tr>
+<tr><th id="92">92</th><td>	<dfn class="enum" id="CG_UPDATESCREEN" title='CG_UPDATESCREEN' data-ref="CG_UPDATESCREEN">CG_UPDATESCREEN</dfn>,</td></tr>
+<tr><th id="93">93</th><td>	<dfn class="enum" id="CG_CM_LOADMAP" title='CG_CM_LOADMAP' data-ref="CG_CM_LOADMAP">CG_CM_LOADMAP</dfn>,</td></tr>
+<tr><th id="94">94</th><td>	<dfn class="enum" id="CG_CM_NUMINLINEMODELS" title='CG_CM_NUMINLINEMODELS' data-ref="CG_CM_NUMINLINEMODELS">CG_CM_NUMINLINEMODELS</dfn>,</td></tr>
+<tr><th id="95">95</th><td>	<dfn class="enum" id="CG_CM_INLINEMODEL" title='CG_CM_INLINEMODEL' data-ref="CG_CM_INLINEMODEL">CG_CM_INLINEMODEL</dfn>,</td></tr>
+<tr><th id="96">96</th><td>	<dfn class="enum" id="CG_CM_LOADMODEL" title='CG_CM_LOADMODEL' data-ref="CG_CM_LOADMODEL">CG_CM_LOADMODEL</dfn>,</td></tr>
+<tr><th id="97">97</th><td>	<dfn class="enum" id="CG_CM_TEMPBOXMODEL" title='CG_CM_TEMPBOXMODEL' data-ref="CG_CM_TEMPBOXMODEL">CG_CM_TEMPBOXMODEL</dfn>,</td></tr>
+<tr><th id="98">98</th><td>	<dfn class="enum" id="CG_CM_POINTCONTENTS" title='CG_CM_POINTCONTENTS' data-ref="CG_CM_POINTCONTENTS">CG_CM_POINTCONTENTS</dfn>,</td></tr>
+<tr><th id="99">99</th><td>	<dfn class="enum" id="CG_CM_TRANSFORMEDPOINTCONTENTS" title='CG_CM_TRANSFORMEDPOINTCONTENTS' data-ref="CG_CM_TRANSFORMEDPOINTCONTENTS">CG_CM_TRANSFORMEDPOINTCONTENTS</dfn>,</td></tr>
+<tr><th id="100">100</th><td>	<dfn class="enum" id="CG_CM_BOXTRACE" title='CG_CM_BOXTRACE' data-ref="CG_CM_BOXTRACE">CG_CM_BOXTRACE</dfn>,</td></tr>
+<tr><th id="101">101</th><td>	<dfn class="enum" id="CG_CM_TRANSFORMEDBOXTRACE" title='CG_CM_TRANSFORMEDBOXTRACE' data-ref="CG_CM_TRANSFORMEDBOXTRACE">CG_CM_TRANSFORMEDBOXTRACE</dfn>,</td></tr>
+<tr><th id="102">102</th><td>	<dfn class="enum" id="CG_CM_MARKFRAGMENTS" title='CG_CM_MARKFRAGMENTS' data-ref="CG_CM_MARKFRAGMENTS">CG_CM_MARKFRAGMENTS</dfn>,</td></tr>
+<tr><th id="103">103</th><td>	<dfn class="enum" id="CG_S_STARTSOUND" title='CG_S_STARTSOUND' data-ref="CG_S_STARTSOUND">CG_S_STARTSOUND</dfn>,</td></tr>
+<tr><th id="104">104</th><td>	<dfn class="enum" id="CG_S_STARTLOCALSOUND" title='CG_S_STARTLOCALSOUND' data-ref="CG_S_STARTLOCALSOUND">CG_S_STARTLOCALSOUND</dfn>,</td></tr>
+<tr><th id="105">105</th><td>	<dfn class="enum" id="CG_S_CLEARLOOPINGSOUNDS" title='CG_S_CLEARLOOPINGSOUNDS' data-ref="CG_S_CLEARLOOPINGSOUNDS">CG_S_CLEARLOOPINGSOUNDS</dfn>,</td></tr>
+<tr><th id="106">106</th><td>	<dfn class="enum" id="CG_S_ADDLOOPINGSOUND" title='CG_S_ADDLOOPINGSOUND' data-ref="CG_S_ADDLOOPINGSOUND">CG_S_ADDLOOPINGSOUND</dfn>,</td></tr>
+<tr><th id="107">107</th><td>	<dfn class="enum" id="CG_S_UPDATEENTITYPOSITION" title='CG_S_UPDATEENTITYPOSITION' data-ref="CG_S_UPDATEENTITYPOSITION">CG_S_UPDATEENTITYPOSITION</dfn>,</td></tr>
+<tr><th id="108">108</th><td>	<dfn class="enum" id="CG_S_RESPATIALIZE" title='CG_S_RESPATIALIZE' data-ref="CG_S_RESPATIALIZE">CG_S_RESPATIALIZE</dfn>,</td></tr>
+<tr><th id="109">109</th><td>	<dfn class="enum" id="CG_S_REGISTERSOUND" title='CG_S_REGISTERSOUND' data-ref="CG_S_REGISTERSOUND">CG_S_REGISTERSOUND</dfn>,</td></tr>
+<tr><th id="110">110</th><td>	<dfn class="enum" id="CG_S_STARTBACKGROUNDTRACK" title='CG_S_STARTBACKGROUNDTRACK' data-ref="CG_S_STARTBACKGROUNDTRACK">CG_S_STARTBACKGROUNDTRACK</dfn>,</td></tr>
+<tr><th id="111">111</th><td>	<dfn class="enum" id="CG_R_LOADWORLDMAP" title='CG_R_LOADWORLDMAP' data-ref="CG_R_LOADWORLDMAP">CG_R_LOADWORLDMAP</dfn>,</td></tr>
+<tr><th id="112">112</th><td>	<dfn class="enum" id="CG_R_REGISTERMODEL" title='CG_R_REGISTERMODEL' data-ref="CG_R_REGISTERMODEL">CG_R_REGISTERMODEL</dfn>,</td></tr>
+<tr><th id="113">113</th><td>	<dfn class="enum" id="CG_R_REGISTERSKIN" title='CG_R_REGISTERSKIN' data-ref="CG_R_REGISTERSKIN">CG_R_REGISTERSKIN</dfn>,</td></tr>
+<tr><th id="114">114</th><td>	<dfn class="enum" id="CG_R_REGISTERSHADER" title='CG_R_REGISTERSHADER' data-ref="CG_R_REGISTERSHADER">CG_R_REGISTERSHADER</dfn>,</td></tr>
+<tr><th id="115">115</th><td>	<dfn class="enum" id="CG_R_CLEARSCENE" title='CG_R_CLEARSCENE' data-ref="CG_R_CLEARSCENE">CG_R_CLEARSCENE</dfn>,</td></tr>
+<tr><th id="116">116</th><td>	<dfn class="enum" id="CG_R_ADDREFENTITYTOSCENE" title='CG_R_ADDREFENTITYTOSCENE' data-ref="CG_R_ADDREFENTITYTOSCENE">CG_R_ADDREFENTITYTOSCENE</dfn>,</td></tr>
+<tr><th id="117">117</th><td>	<dfn class="enum" id="CG_R_ADDPOLYTOSCENE" title='CG_R_ADDPOLYTOSCENE' data-ref="CG_R_ADDPOLYTOSCENE">CG_R_ADDPOLYTOSCENE</dfn>,</td></tr>
+<tr><th id="118">118</th><td>	<dfn class="enum" id="CG_R_ADDLIGHTTOSCENE" title='CG_R_ADDLIGHTTOSCENE' data-ref="CG_R_ADDLIGHTTOSCENE">CG_R_ADDLIGHTTOSCENE</dfn>,</td></tr>
+<tr><th id="119">119</th><td>	<dfn class="enum" id="CG_R_RENDERSCENE" title='CG_R_RENDERSCENE' data-ref="CG_R_RENDERSCENE">CG_R_RENDERSCENE</dfn>,</td></tr>
+<tr><th id="120">120</th><td>	<dfn class="enum" id="CG_R_SETCOLOR" title='CG_R_SETCOLOR' data-ref="CG_R_SETCOLOR">CG_R_SETCOLOR</dfn>,</td></tr>
+<tr><th id="121">121</th><td>	<dfn class="enum" id="CG_R_DRAWSTRETCHPIC" title='CG_R_DRAWSTRETCHPIC' data-ref="CG_R_DRAWSTRETCHPIC">CG_R_DRAWSTRETCHPIC</dfn>,</td></tr>
+<tr><th id="122">122</th><td>	<dfn class="enum" id="CG_R_MODELBOUNDS" title='CG_R_MODELBOUNDS' data-ref="CG_R_MODELBOUNDS">CG_R_MODELBOUNDS</dfn>,</td></tr>
+<tr><th id="123">123</th><td>	<dfn class="enum" id="CG_R_LERPTAG" title='CG_R_LERPTAG' data-ref="CG_R_LERPTAG">CG_R_LERPTAG</dfn>,</td></tr>
+<tr><th id="124">124</th><td>	<dfn class="enum" id="CG_GETGLCONFIG" title='CG_GETGLCONFIG' data-ref="CG_GETGLCONFIG">CG_GETGLCONFIG</dfn>,</td></tr>
+<tr><th id="125">125</th><td>	<dfn class="enum" id="CG_GETGAMESTATE" title='CG_GETGAMESTATE' data-ref="CG_GETGAMESTATE">CG_GETGAMESTATE</dfn>,</td></tr>
+<tr><th id="126">126</th><td>	<dfn class="enum" id="CG_GETCURRENTSNAPSHOTNUMBER" title='CG_GETCURRENTSNAPSHOTNUMBER' data-ref="CG_GETCURRENTSNAPSHOTNUMBER">CG_GETCURRENTSNAPSHOTNUMBER</dfn>,</td></tr>
+<tr><th id="127">127</th><td>	<dfn class="enum" id="CG_GETSNAPSHOT" title='CG_GETSNAPSHOT' data-ref="CG_GETSNAPSHOT">CG_GETSNAPSHOT</dfn>,</td></tr>
+<tr><th id="128">128</th><td>	<dfn class="enum" id="CG_GETSERVERCOMMAND" title='CG_GETSERVERCOMMAND' data-ref="CG_GETSERVERCOMMAND">CG_GETSERVERCOMMAND</dfn>,</td></tr>
+<tr><th id="129">129</th><td>	<dfn class="enum" id="CG_GETCURRENTCMDNUMBER" title='CG_GETCURRENTCMDNUMBER' data-ref="CG_GETCURRENTCMDNUMBER">CG_GETCURRENTCMDNUMBER</dfn>,</td></tr>
+<tr><th id="130">130</th><td>	<dfn class="enum" id="CG_GETUSERCMD" title='CG_GETUSERCMD' data-ref="CG_GETUSERCMD">CG_GETUSERCMD</dfn>,</td></tr>
+<tr><th id="131">131</th><td>	<dfn class="enum" id="CG_SETUSERCMDVALUE" title='CG_SETUSERCMDVALUE' data-ref="CG_SETUSERCMDVALUE">CG_SETUSERCMDVALUE</dfn>,</td></tr>
+<tr><th id="132">132</th><td>	<dfn class="enum" id="CG_R_REGISTERSHADERNOMIP" title='CG_R_REGISTERSHADERNOMIP' data-ref="CG_R_REGISTERSHADERNOMIP">CG_R_REGISTERSHADERNOMIP</dfn>,</td></tr>
+<tr><th id="133">133</th><td>	<dfn class="enum" id="CG_MEMORY_REMAINING" title='CG_MEMORY_REMAINING' data-ref="CG_MEMORY_REMAINING">CG_MEMORY_REMAINING</dfn>,</td></tr>
+<tr><th id="134">134</th><td>	<dfn class="enum" id="CG_R_REGISTERFONT" title='CG_R_REGISTERFONT' data-ref="CG_R_REGISTERFONT">CG_R_REGISTERFONT</dfn>,</td></tr>
+<tr><th id="135">135</th><td>	<dfn class="enum" id="CG_KEY_ISDOWN" title='CG_KEY_ISDOWN' data-ref="CG_KEY_ISDOWN">CG_KEY_ISDOWN</dfn>,</td></tr>
+<tr><th id="136">136</th><td>	<dfn class="enum" id="CG_KEY_GETCATCHER" title='CG_KEY_GETCATCHER' data-ref="CG_KEY_GETCATCHER">CG_KEY_GETCATCHER</dfn>,</td></tr>
+<tr><th id="137">137</th><td>	<dfn class="enum" id="CG_KEY_SETCATCHER" title='CG_KEY_SETCATCHER' data-ref="CG_KEY_SETCATCHER">CG_KEY_SETCATCHER</dfn>,</td></tr>
+<tr><th id="138">138</th><td>	<dfn class="enum" id="CG_KEY_GETKEY" title='CG_KEY_GETKEY' data-ref="CG_KEY_GETKEY">CG_KEY_GETKEY</dfn>,</td></tr>
+<tr><th id="139">139</th><td> 	<dfn class="enum" id="CG_PC_ADD_GLOBAL_DEFINE" title='CG_PC_ADD_GLOBAL_DEFINE' data-ref="CG_PC_ADD_GLOBAL_DEFINE">CG_PC_ADD_GLOBAL_DEFINE</dfn>,</td></tr>
+<tr><th id="140">140</th><td>	<dfn class="enum" id="CG_PC_LOAD_SOURCE" title='CG_PC_LOAD_SOURCE' data-ref="CG_PC_LOAD_SOURCE">CG_PC_LOAD_SOURCE</dfn>,</td></tr>
+<tr><th id="141">141</th><td>	<dfn class="enum" id="CG_PC_FREE_SOURCE" title='CG_PC_FREE_SOURCE' data-ref="CG_PC_FREE_SOURCE">CG_PC_FREE_SOURCE</dfn>,</td></tr>
+<tr><th id="142">142</th><td>	<dfn class="enum" id="CG_PC_READ_TOKEN" title='CG_PC_READ_TOKEN' data-ref="CG_PC_READ_TOKEN">CG_PC_READ_TOKEN</dfn>,</td></tr>
+<tr><th id="143">143</th><td>	<dfn class="enum" id="CG_PC_SOURCE_FILE_AND_LINE" title='CG_PC_SOURCE_FILE_AND_LINE' data-ref="CG_PC_SOURCE_FILE_AND_LINE">CG_PC_SOURCE_FILE_AND_LINE</dfn>,</td></tr>
+<tr><th id="144">144</th><td>	<dfn class="enum" id="CG_S_STOPBACKGROUNDTRACK" title='CG_S_STOPBACKGROUNDTRACK' data-ref="CG_S_STOPBACKGROUNDTRACK">CG_S_STOPBACKGROUNDTRACK</dfn>,</td></tr>
+<tr><th id="145">145</th><td>	<dfn class="enum" id="CG_REAL_TIME" title='CG_REAL_TIME' data-ref="CG_REAL_TIME">CG_REAL_TIME</dfn>,</td></tr>
+<tr><th id="146">146</th><td>	<dfn class="enum" id="CG_SNAPVECTOR" title='CG_SNAPVECTOR' data-ref="CG_SNAPVECTOR">CG_SNAPVECTOR</dfn>,</td></tr>
+<tr><th id="147">147</th><td>	<dfn class="enum" id="CG_REMOVECOMMAND" title='CG_REMOVECOMMAND' data-ref="CG_REMOVECOMMAND">CG_REMOVECOMMAND</dfn>,</td></tr>
+<tr><th id="148">148</th><td>	<dfn class="enum" id="CG_R_LIGHTFORPOINT" title='CG_R_LIGHTFORPOINT' data-ref="CG_R_LIGHTFORPOINT">CG_R_LIGHTFORPOINT</dfn>,</td></tr>
+<tr><th id="149">149</th><td>	<dfn class="enum" id="CG_CIN_PLAYCINEMATIC" title='CG_CIN_PLAYCINEMATIC' data-ref="CG_CIN_PLAYCINEMATIC">CG_CIN_PLAYCINEMATIC</dfn>,</td></tr>
+<tr><th id="150">150</th><td>	<dfn class="enum" id="CG_CIN_STOPCINEMATIC" title='CG_CIN_STOPCINEMATIC' data-ref="CG_CIN_STOPCINEMATIC">CG_CIN_STOPCINEMATIC</dfn>,</td></tr>
+<tr><th id="151">151</th><td>	<dfn class="enum" id="CG_CIN_RUNCINEMATIC" title='CG_CIN_RUNCINEMATIC' data-ref="CG_CIN_RUNCINEMATIC">CG_CIN_RUNCINEMATIC</dfn>,</td></tr>
+<tr><th id="152">152</th><td>	<dfn class="enum" id="CG_CIN_DRAWCINEMATIC" title='CG_CIN_DRAWCINEMATIC' data-ref="CG_CIN_DRAWCINEMATIC">CG_CIN_DRAWCINEMATIC</dfn>,</td></tr>
+<tr><th id="153">153</th><td>	<dfn class="enum" id="CG_CIN_SETEXTENTS" title='CG_CIN_SETEXTENTS' data-ref="CG_CIN_SETEXTENTS">CG_CIN_SETEXTENTS</dfn>,</td></tr>
+<tr><th id="154">154</th><td>	<dfn class="enum" id="CG_R_REMAP_SHADER" title='CG_R_REMAP_SHADER' data-ref="CG_R_REMAP_SHADER">CG_R_REMAP_SHADER</dfn>,</td></tr>
+<tr><th id="155">155</th><td>	<dfn class="enum" id="CG_S_ADDREALLOOPINGSOUND" title='CG_S_ADDREALLOOPINGSOUND' data-ref="CG_S_ADDREALLOOPINGSOUND">CG_S_ADDREALLOOPINGSOUND</dfn>,</td></tr>
+<tr><th id="156">156</th><td>	<dfn class="enum" id="CG_S_STOPLOOPINGSOUND" title='CG_S_STOPLOOPINGSOUND' data-ref="CG_S_STOPLOOPINGSOUND">CG_S_STOPLOOPINGSOUND</dfn>,</td></tr>
+<tr><th id="157">157</th><td></td></tr>
+<tr><th id="158">158</th><td>	<dfn class="enum" id="CG_CM_TEMPCAPSULEMODEL" title='CG_CM_TEMPCAPSULEMODEL' data-ref="CG_CM_TEMPCAPSULEMODEL">CG_CM_TEMPCAPSULEMODEL</dfn>,</td></tr>
+<tr><th id="159">159</th><td>	<dfn class="enum" id="CG_CM_CAPSULETRACE" title='CG_CM_CAPSULETRACE' data-ref="CG_CM_CAPSULETRACE">CG_CM_CAPSULETRACE</dfn>,</td></tr>
+<tr><th id="160">160</th><td>	<dfn class="enum" id="CG_CM_TRANSFORMEDCAPSULETRACE" title='CG_CM_TRANSFORMEDCAPSULETRACE' data-ref="CG_CM_TRANSFORMEDCAPSULETRACE">CG_CM_TRANSFORMEDCAPSULETRACE</dfn>,</td></tr>
+<tr><th id="161">161</th><td>	<dfn class="enum" id="CG_R_ADDADDITIVELIGHTTOSCENE" title='CG_R_ADDADDITIVELIGHTTOSCENE' data-ref="CG_R_ADDADDITIVELIGHTTOSCENE">CG_R_ADDADDITIVELIGHTTOSCENE</dfn>,</td></tr>
+<tr><th id="162">162</th><td>	<dfn class="enum" id="CG_GET_ENTITY_TOKEN" title='CG_GET_ENTITY_TOKEN' data-ref="CG_GET_ENTITY_TOKEN">CG_GET_ENTITY_TOKEN</dfn>,</td></tr>
+<tr><th id="163">163</th><td>	<dfn class="enum" id="CG_R_ADDPOLYSTOSCENE" title='CG_R_ADDPOLYSTOSCENE' data-ref="CG_R_ADDPOLYSTOSCENE">CG_R_ADDPOLYSTOSCENE</dfn>,</td></tr>
+<tr><th id="164">164</th><td>	<dfn class="enum" id="CG_R_INPVS" title='CG_R_INPVS' data-ref="CG_R_INPVS">CG_R_INPVS</dfn>,</td></tr>
+<tr><th id="165">165</th><td>	<i>// 1.32</i></td></tr>
+<tr><th id="166">166</th><td>	<dfn class="enum" id="CG_FS_SEEK" title='CG_FS_SEEK' data-ref="CG_FS_SEEK">CG_FS_SEEK</dfn>,</td></tr>
+<tr><th id="167">167</th><td></td></tr>
+<tr><th id="168">168</th><td><i>/*</i></td></tr>
+<tr><th id="169">169</th><td><i>	CG_LOADCAMERA,</i></td></tr>
+<tr><th id="170">170</th><td><i>	CG_STARTCAMERA,</i></td></tr>
+<tr><th id="171">171</th><td><i>	CG_GETCAMERAINFO,</i></td></tr>
+<tr><th id="172">172</th><td><i>*/</i></td></tr>
+<tr><th id="173">173</th><td></td></tr>
+<tr><th id="174">174</th><td>	<dfn class="enum" id="CG_MEMSET" title='CG_MEMSET' data-ref="CG_MEMSET">CG_MEMSET</dfn> = <var>100</var>,</td></tr>
+<tr><th id="175">175</th><td>	<dfn class="enum" id="CG_MEMCPY" title='CG_MEMCPY' data-ref="CG_MEMCPY">CG_MEMCPY</dfn>,</td></tr>
+<tr><th id="176">176</th><td>	<dfn class="enum" id="CG_STRNCPY" title='CG_STRNCPY' data-ref="CG_STRNCPY">CG_STRNCPY</dfn>,</td></tr>
+<tr><th id="177">177</th><td>	<dfn class="enum" id="CG_SIN" title='CG_SIN' data-ref="CG_SIN">CG_SIN</dfn>,</td></tr>
+<tr><th id="178">178</th><td>	<dfn class="enum" id="CG_COS" title='CG_COS' data-ref="CG_COS">CG_COS</dfn>,</td></tr>
+<tr><th id="179">179</th><td>	<dfn class="enum" id="CG_ATAN2" title='CG_ATAN2' data-ref="CG_ATAN2">CG_ATAN2</dfn>,</td></tr>
+<tr><th id="180">180</th><td>	<dfn class="enum" id="CG_SQRT" title='CG_SQRT' data-ref="CG_SQRT">CG_SQRT</dfn>,</td></tr>
+<tr><th id="181">181</th><td>	<dfn class="enum" id="CG_FLOOR" title='CG_FLOOR' data-ref="CG_FLOOR">CG_FLOOR</dfn>,</td></tr>
+<tr><th id="182">182</th><td>	<dfn class="enum" id="CG_CEIL" title='CG_CEIL' data-ref="CG_CEIL">CG_CEIL</dfn>,</td></tr>
+<tr><th id="183">183</th><td>	<dfn class="enum" id="CG_TESTPRINTINT" title='CG_TESTPRINTINT' data-ref="CG_TESTPRINTINT">CG_TESTPRINTINT</dfn>,</td></tr>
+<tr><th id="184">184</th><td>	<dfn class="enum" id="CG_TESTPRINTFLOAT" title='CG_TESTPRINTFLOAT' data-ref="CG_TESTPRINTFLOAT">CG_TESTPRINTFLOAT</dfn>,</td></tr>
+<tr><th id="185">185</th><td>	<dfn class="enum" id="CG_ACOS" title='CG_ACOS' data-ref="CG_ACOS">CG_ACOS</dfn></td></tr>
+<tr><th id="186">186</th><td>} <dfn class="typedef" id="cgameImport_t" title='cgameImport_t' data-type='enum cgameImport_t' data-ref="cgameImport_t">cgameImport_t</dfn>;</td></tr>
+<tr><th id="187">187</th><td></td></tr>
+<tr><th id="188">188</th><td></td></tr>
+<tr><th id="189">189</th><td><i>/*</i></td></tr>
+<tr><th id="190">190</th><td><i>==================================================================</i></td></tr>
+<tr><th id="191">191</th><td><i></i></td></tr>
+<tr><th id="192">192</th><td><i>functions exported to the main executable</i></td></tr>
+<tr><th id="193">193</th><td><i></i></td></tr>
+<tr><th id="194">194</th><td><i>==================================================================</i></td></tr>
+<tr><th id="195">195</th><td><i>*/</i></td></tr>
+<tr><th id="196">196</th><td></td></tr>
+<tr><th id="197">197</th><td><b>typedef</b> <b>enum</b> {</td></tr>
+<tr><th id="198">198</th><td>	<dfn class="enum" id="CG_INIT" title='CG_INIT' data-ref="CG_INIT">CG_INIT</dfn>,</td></tr>
+<tr><th id="199">199</th><td><i>//	void CG_Init( int serverMessageNum, int serverCommandSequence, int clientNum )</i></td></tr>
+<tr><th id="200">200</th><td><i>	// called when the level loads or when the renderer is restarted</i></td></tr>
+<tr><th id="201">201</th><td><i>	// all media should be registered at this time</i></td></tr>
+<tr><th id="202">202</th><td><i>	// cgame will display loading status by calling SCR_Update, which</i></td></tr>
+<tr><th id="203">203</th><td><i>	// will call CG_DrawInformation during the loading process</i></td></tr>
+<tr><th id="204">204</th><td><i>	// reliableCommandSequence will be 0 on fresh loads, but higher for</i></td></tr>
+<tr><th id="205">205</th><td><i>	// demos, tourney restarts, or vid_restarts</i></td></tr>
+<tr><th id="206">206</th><td></td></tr>
+<tr><th id="207">207</th><td>	<dfn class="enum" id="CG_SHUTDOWN" title='CG_SHUTDOWN' data-ref="CG_SHUTDOWN">CG_SHUTDOWN</dfn>,</td></tr>
+<tr><th id="208">208</th><td><i>//	void (*CG_Shutdown)( void );</i></td></tr>
+<tr><th id="209">209</th><td><i>	// oportunity to flush and close any open files</i></td></tr>
+<tr><th id="210">210</th><td></td></tr>
+<tr><th id="211">211</th><td>	<dfn class="enum" id="CG_CONSOLE_COMMAND" title='CG_CONSOLE_COMMAND' data-ref="CG_CONSOLE_COMMAND">CG_CONSOLE_COMMAND</dfn>,</td></tr>
+<tr><th id="212">212</th><td><i>//	qboolean (*CG_ConsoleCommand)( void );</i></td></tr>
+<tr><th id="213">213</th><td><i>	// a console command has been issued locally that is not recognized by the</i></td></tr>
+<tr><th id="214">214</th><td><i>	// main game system.</i></td></tr>
+<tr><th id="215">215</th><td><i>	// use Cmd_Argc() / Cmd_Argv() to read the command, return qfalse if the</i></td></tr>
+<tr><th id="216">216</th><td><i>	// command is not known to the game</i></td></tr>
+<tr><th id="217">217</th><td></td></tr>
+<tr><th id="218">218</th><td>	<dfn class="enum" id="CG_DRAW_ACTIVE_FRAME" title='CG_DRAW_ACTIVE_FRAME' data-ref="CG_DRAW_ACTIVE_FRAME">CG_DRAW_ACTIVE_FRAME</dfn>,</td></tr>
+<tr><th id="219">219</th><td><i>//	void (*CG_DrawActiveFrame)( int serverTime, stereoFrame_t stereoView, qboolean demoPlayback );</i></td></tr>
+<tr><th id="220">220</th><td><i>	// Generates and draws a game scene and status information at the given time.</i></td></tr>
+<tr><th id="221">221</th><td><i>	// If demoPlayback is set, local movement prediction will not be enabled</i></td></tr>
+<tr><th id="222">222</th><td></td></tr>
+<tr><th id="223">223</th><td>	<dfn class="enum" id="CG_CROSSHAIR_PLAYER" title='CG_CROSSHAIR_PLAYER' data-ref="CG_CROSSHAIR_PLAYER">CG_CROSSHAIR_PLAYER</dfn>,</td></tr>
+<tr><th id="224">224</th><td><i>//	int (*CG_CrosshairPlayer)( void );</i></td></tr>
+<tr><th id="225">225</th><td></td></tr>
+<tr><th id="226">226</th><td>	<dfn class="enum" id="CG_LAST_ATTACKER" title='CG_LAST_ATTACKER' data-ref="CG_LAST_ATTACKER">CG_LAST_ATTACKER</dfn>,</td></tr>
+<tr><th id="227">227</th><td><i>//	int (*CG_LastAttacker)( void );</i></td></tr>
+<tr><th id="228">228</th><td></td></tr>
+<tr><th id="229">229</th><td>	<dfn class="enum" id="CG_KEY_EVENT" title='CG_KEY_EVENT' data-ref="CG_KEY_EVENT">CG_KEY_EVENT</dfn>, </td></tr>
+<tr><th id="230">230</th><td><i>//	void	(*CG_KeyEvent)( int key, qboolean down );</i></td></tr>
+<tr><th id="231">231</th><td></td></tr>
+<tr><th id="232">232</th><td>	<dfn class="enum" id="CG_MOUSE_EVENT" title='CG_MOUSE_EVENT' data-ref="CG_MOUSE_EVENT">CG_MOUSE_EVENT</dfn>,</td></tr>
+<tr><th id="233">233</th><td><i>//	void	(*CG_MouseEvent)( int dx, int dy );</i></td></tr>
+<tr><th id="234">234</th><td>	<dfn class="enum" id="CG_EVENT_HANDLING" title='CG_EVENT_HANDLING' data-ref="CG_EVENT_HANDLING">CG_EVENT_HANDLING</dfn></td></tr>
+<tr><th id="235">235</th><td><i>//	void (*CG_EventHandling)(int type);</i></td></tr>
+<tr><th id="236">236</th><td>} <dfn class="typedef" id="cgameExport_t" title='cgameExport_t' data-type='enum cgameExport_t' data-ref="cgameExport_t">cgameExport_t</dfn>;</td></tr>
+<tr><th id="237">237</th><td></td></tr>
+<tr><th id="238">238</th><td><i>//----------------------------------------------</i></td></tr>
+<tr><th id="239">239</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='cg_consolecmds.c.html'>codebrowser/code/cgame/cg_consolecmds.c</a><br/>Generated on <em>2017-Aug-29</em> from project codebrowser revision <em>63e07af</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

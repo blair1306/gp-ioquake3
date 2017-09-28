@@ -1,0 +1,8 @@
+<dec f='codebrowser/code/game/g_local.h' l='277' type='int'/>
+<offset>5440</offset>
+<doc f='codebrowser/code/game/g_local.h' l='275'>// sum up damage over an entire frame, so
+	// shotgun blasts give a single big kick</doc>
+<doc f='codebrowser/code/game/g_local.h' l='277'>// damage absorbed by armor</doc>
+<use f='codebrowser/code/game/g_active.c' l='48' u='r' c='P_DamageFeedback'/>
+<use f='codebrowser/code/game/g_active.c' l='86' u='w' c='P_DamageFeedback'/>
+<use f='codebrowser/code/game/g_combat.c' l='999' u='w' c='G_Damage'/>

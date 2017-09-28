@@ -1,0 +1,327 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>keycodes.h source code [codebrowser/code/client/keycodes.h] - Woboq Code Browser</title>
+<link rel="stylesheet" href="../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'codebrowser/code/client/keycodes.h'; var root_path = '../../..'; var data_path = '../../../../data';</script>
+<script src='../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../..'>codebrowser</a>/<a href='..'>code</a>/<a href='./'>client</a>/<a href='keycodes.h.html'>keycodes.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/*</i></td></tr>
+<tr><th id="2">2</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="3">3</th><td><i>Copyright (C) 1999-2005 Id Software, Inc.</i></td></tr>
+<tr><th id="4">4</th><td><i></i></td></tr>
+<tr><th id="5">5</th><td><i>This file is part of Quake III Arena source code.</i></td></tr>
+<tr><th id="6">6</th><td><i></i></td></tr>
+<tr><th id="7">7</th><td><i>Quake III Arena source code is free software; you can redistribute it</i></td></tr>
+<tr><th id="8">8</th><td><i>and/or modify it under the terms of the GNU General Public License as</i></td></tr>
+<tr><th id="9">9</th><td><i>published by the Free Software Foundation; either version 2 of the License,</i></td></tr>
+<tr><th id="10">10</th><td><i>or (at your option) any later version.</i></td></tr>
+<tr><th id="11">11</th><td><i></i></td></tr>
+<tr><th id="12">12</th><td><i>Quake III Arena source code is distributed in the hope that it will be</i></td></tr>
+<tr><th id="13">13</th><td><i>useful, but WITHOUT ANY WARRANTY; without even the implied warranty of</i></td></tr>
+<tr><th id="14">14</th><td><i>MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</i></td></tr>
+<tr><th id="15">15</th><td><i>GNU General Public License for more details.</i></td></tr>
+<tr><th id="16">16</th><td><i></i></td></tr>
+<tr><th id="17">17</th><td><i>You should have received a copy of the GNU General Public License</i></td></tr>
+<tr><th id="18">18</th><td><i>along with Quake III Arena source code; if not, write to the Free Software</i></td></tr>
+<tr><th id="19">19</th><td><i>Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA</i></td></tr>
+<tr><th id="20">20</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="21">21</th><td><i>*/</i></td></tr>
+<tr><th id="22">22</th><td><i>//</i></td></tr>
+<tr><th id="23">23</th><td><u>#<span data-ppcond="23">ifndef</span> <span class="macro" data-ref="_M/__KEYCODES_H__">__KEYCODES_H__</span></u></td></tr>
+<tr><th id="24">24</th><td><u>#define <dfn class="macro" id="_M/__KEYCODES_H__" data-ref="_M/__KEYCODES_H__">__KEYCODES_H__</dfn></u></td></tr>
+<tr><th id="25">25</th><td></td></tr>
+<tr><th id="26">26</th><td><i>//</i></td></tr>
+<tr><th id="27">27</th><td><i>// these are the key numbers that should be passed to KeyEvent</i></td></tr>
+<tr><th id="28">28</th><td><i>//</i></td></tr>
+<tr><th id="29">29</th><td><i></i></td></tr>
+<tr><th id="30">30</th><td><i>// normal keys should be passed as lowercased ascii</i></td></tr>
+<tr><th id="31">31</th><td></td></tr>
+<tr><th id="32">32</th><td><b>typedef</b> <b>enum</b> {</td></tr>
+<tr><th id="33">33</th><td>	<dfn class="enum" id="K_TAB" title='K_TAB' data-ref="K_TAB">K_TAB</dfn> = <var>9</var>,</td></tr>
+<tr><th id="34">34</th><td>	<dfn class="enum" id="K_ENTER" title='K_ENTER' data-ref="K_ENTER">K_ENTER</dfn> = <var>13</var>,</td></tr>
+<tr><th id="35">35</th><td>	<dfn class="enum" id="K_ESCAPE" title='K_ESCAPE' data-ref="K_ESCAPE">K_ESCAPE</dfn> = <var>27</var>,</td></tr>
+<tr><th id="36">36</th><td>	<dfn class="enum" id="K_SPACE" title='K_SPACE' data-ref="K_SPACE">K_SPACE</dfn> = <var>32</var>,</td></tr>
+<tr><th id="37">37</th><td></td></tr>
+<tr><th id="38">38</th><td>	<dfn class="enum" id="K_BACKSPACE" title='K_BACKSPACE' data-ref="K_BACKSPACE">K_BACKSPACE</dfn> = <var>127</var>,</td></tr>
+<tr><th id="39">39</th><td></td></tr>
+<tr><th id="40">40</th><td>	<dfn class="enum" id="K_COMMAND" title='K_COMMAND' data-ref="K_COMMAND">K_COMMAND</dfn> = <var>128</var>,</td></tr>
+<tr><th id="41">41</th><td>	<dfn class="enum" id="K_CAPSLOCK" title='K_CAPSLOCK' data-ref="K_CAPSLOCK">K_CAPSLOCK</dfn>,</td></tr>
+<tr><th id="42">42</th><td>	<dfn class="enum" id="K_POWER" title='K_POWER' data-ref="K_POWER">K_POWER</dfn>,</td></tr>
+<tr><th id="43">43</th><td>	<dfn class="enum" id="K_PAUSE" title='K_PAUSE' data-ref="K_PAUSE">K_PAUSE</dfn>,</td></tr>
+<tr><th id="44">44</th><td></td></tr>
+<tr><th id="45">45</th><td>	<dfn class="enum" id="K_UPARROW" title='K_UPARROW' data-ref="K_UPARROW">K_UPARROW</dfn>,</td></tr>
+<tr><th id="46">46</th><td>	<dfn class="enum" id="K_DOWNARROW" title='K_DOWNARROW' data-ref="K_DOWNARROW">K_DOWNARROW</dfn>,</td></tr>
+<tr><th id="47">47</th><td>	<dfn class="enum" id="K_LEFTARROW" title='K_LEFTARROW' data-ref="K_LEFTARROW">K_LEFTARROW</dfn>,</td></tr>
+<tr><th id="48">48</th><td>	<dfn class="enum" id="K_RIGHTARROW" title='K_RIGHTARROW' data-ref="K_RIGHTARROW">K_RIGHTARROW</dfn>,</td></tr>
+<tr><th id="49">49</th><td></td></tr>
+<tr><th id="50">50</th><td>	<dfn class="enum" id="K_ALT" title='K_ALT' data-ref="K_ALT">K_ALT</dfn>,</td></tr>
+<tr><th id="51">51</th><td>	<dfn class="enum" id="K_CTRL" title='K_CTRL' data-ref="K_CTRL">K_CTRL</dfn>,</td></tr>
+<tr><th id="52">52</th><td>	<dfn class="enum" id="K_SHIFT" title='K_SHIFT' data-ref="K_SHIFT">K_SHIFT</dfn>,</td></tr>
+<tr><th id="53">53</th><td>	<dfn class="enum" id="K_INS" title='K_INS' data-ref="K_INS">K_INS</dfn>,</td></tr>
+<tr><th id="54">54</th><td>	<dfn class="enum" id="K_DEL" title='K_DEL' data-ref="K_DEL">K_DEL</dfn>,</td></tr>
+<tr><th id="55">55</th><td>	<dfn class="enum" id="K_PGDN" title='K_PGDN' data-ref="K_PGDN">K_PGDN</dfn>,</td></tr>
+<tr><th id="56">56</th><td>	<dfn class="enum" id="K_PGUP" title='K_PGUP' data-ref="K_PGUP">K_PGUP</dfn>,</td></tr>
+<tr><th id="57">57</th><td>	<dfn class="enum" id="K_HOME" title='K_HOME' data-ref="K_HOME">K_HOME</dfn>,</td></tr>
+<tr><th id="58">58</th><td>	<dfn class="enum" id="K_END" title='K_END' data-ref="K_END">K_END</dfn>,</td></tr>
+<tr><th id="59">59</th><td></td></tr>
+<tr><th id="60">60</th><td>	<dfn class="enum" id="K_F1" title='K_F1' data-ref="K_F1">K_F1</dfn>,</td></tr>
+<tr><th id="61">61</th><td>	<dfn class="enum" id="K_F2" title='K_F2' data-ref="K_F2">K_F2</dfn>,</td></tr>
+<tr><th id="62">62</th><td>	<dfn class="enum" id="K_F3" title='K_F3' data-ref="K_F3">K_F3</dfn>,</td></tr>
+<tr><th id="63">63</th><td>	<dfn class="enum" id="K_F4" title='K_F4' data-ref="K_F4">K_F4</dfn>,</td></tr>
+<tr><th id="64">64</th><td>	<dfn class="enum" id="K_F5" title='K_F5' data-ref="K_F5">K_F5</dfn>,</td></tr>
+<tr><th id="65">65</th><td>	<dfn class="enum" id="K_F6" title='K_F6' data-ref="K_F6">K_F6</dfn>,</td></tr>
+<tr><th id="66">66</th><td>	<dfn class="enum" id="K_F7" title='K_F7' data-ref="K_F7">K_F7</dfn>,</td></tr>
+<tr><th id="67">67</th><td>	<dfn class="enum" id="K_F8" title='K_F8' data-ref="K_F8">K_F8</dfn>,</td></tr>
+<tr><th id="68">68</th><td>	<dfn class="enum" id="K_F9" title='K_F9' data-ref="K_F9">K_F9</dfn>,</td></tr>
+<tr><th id="69">69</th><td>	<dfn class="enum" id="K_F10" title='K_F10' data-ref="K_F10">K_F10</dfn>,</td></tr>
+<tr><th id="70">70</th><td>	<dfn class="enum" id="K_F11" title='K_F11' data-ref="K_F11">K_F11</dfn>,</td></tr>
+<tr><th id="71">71</th><td>	<dfn class="enum" id="K_F12" title='K_F12' data-ref="K_F12">K_F12</dfn>,</td></tr>
+<tr><th id="72">72</th><td>	<dfn class="enum" id="K_F13" title='K_F13' data-ref="K_F13">K_F13</dfn>,</td></tr>
+<tr><th id="73">73</th><td>	<dfn class="enum" id="K_F14" title='K_F14' data-ref="K_F14">K_F14</dfn>,</td></tr>
+<tr><th id="74">74</th><td>	<dfn class="enum" id="K_F15" title='K_F15' data-ref="K_F15">K_F15</dfn>,</td></tr>
+<tr><th id="75">75</th><td></td></tr>
+<tr><th id="76">76</th><td>	<dfn class="enum" id="K_KP_HOME" title='K_KP_HOME' data-ref="K_KP_HOME">K_KP_HOME</dfn>,</td></tr>
+<tr><th id="77">77</th><td>	<dfn class="enum" id="K_KP_UPARROW" title='K_KP_UPARROW' data-ref="K_KP_UPARROW">K_KP_UPARROW</dfn>,</td></tr>
+<tr><th id="78">78</th><td>	<dfn class="enum" id="K_KP_PGUP" title='K_KP_PGUP' data-ref="K_KP_PGUP">K_KP_PGUP</dfn>,</td></tr>
+<tr><th id="79">79</th><td>	<dfn class="enum" id="K_KP_LEFTARROW" title='K_KP_LEFTARROW' data-ref="K_KP_LEFTARROW">K_KP_LEFTARROW</dfn>,</td></tr>
+<tr><th id="80">80</th><td>	<dfn class="enum" id="K_KP_5" title='K_KP_5' data-ref="K_KP_5">K_KP_5</dfn>,</td></tr>
+<tr><th id="81">81</th><td>	<dfn class="enum" id="K_KP_RIGHTARROW" title='K_KP_RIGHTARROW' data-ref="K_KP_RIGHTARROW">K_KP_RIGHTARROW</dfn>,</td></tr>
+<tr><th id="82">82</th><td>	<dfn class="enum" id="K_KP_END" title='K_KP_END' data-ref="K_KP_END">K_KP_END</dfn>,</td></tr>
+<tr><th id="83">83</th><td>	<dfn class="enum" id="K_KP_DOWNARROW" title='K_KP_DOWNARROW' data-ref="K_KP_DOWNARROW">K_KP_DOWNARROW</dfn>,</td></tr>
+<tr><th id="84">84</th><td>	<dfn class="enum" id="K_KP_PGDN" title='K_KP_PGDN' data-ref="K_KP_PGDN">K_KP_PGDN</dfn>,</td></tr>
+<tr><th id="85">85</th><td>	<dfn class="enum" id="K_KP_ENTER" title='K_KP_ENTER' data-ref="K_KP_ENTER">K_KP_ENTER</dfn>,</td></tr>
+<tr><th id="86">86</th><td>	<dfn class="enum" id="K_KP_INS" title='K_KP_INS' data-ref="K_KP_INS">K_KP_INS</dfn>,</td></tr>
+<tr><th id="87">87</th><td>	<dfn class="enum" id="K_KP_DEL" title='K_KP_DEL' data-ref="K_KP_DEL">K_KP_DEL</dfn>,</td></tr>
+<tr><th id="88">88</th><td>	<dfn class="enum" id="K_KP_SLASH" title='K_KP_SLASH' data-ref="K_KP_SLASH">K_KP_SLASH</dfn>,</td></tr>
+<tr><th id="89">89</th><td>	<dfn class="enum" id="K_KP_MINUS" title='K_KP_MINUS' data-ref="K_KP_MINUS">K_KP_MINUS</dfn>,</td></tr>
+<tr><th id="90">90</th><td>	<dfn class="enum" id="K_KP_PLUS" title='K_KP_PLUS' data-ref="K_KP_PLUS">K_KP_PLUS</dfn>,</td></tr>
+<tr><th id="91">91</th><td>	<dfn class="enum" id="K_KP_NUMLOCK" title='K_KP_NUMLOCK' data-ref="K_KP_NUMLOCK">K_KP_NUMLOCK</dfn>,</td></tr>
+<tr><th id="92">92</th><td>	<dfn class="enum" id="K_KP_STAR" title='K_KP_STAR' data-ref="K_KP_STAR">K_KP_STAR</dfn>,</td></tr>
+<tr><th id="93">93</th><td>	<dfn class="enum" id="K_KP_EQUALS" title='K_KP_EQUALS' data-ref="K_KP_EQUALS">K_KP_EQUALS</dfn>,</td></tr>
+<tr><th id="94">94</th><td></td></tr>
+<tr><th id="95">95</th><td>	<dfn class="enum" id="K_MOUSE1" title='K_MOUSE1' data-ref="K_MOUSE1">K_MOUSE1</dfn>,</td></tr>
+<tr><th id="96">96</th><td>	<dfn class="enum" id="K_MOUSE2" title='K_MOUSE2' data-ref="K_MOUSE2">K_MOUSE2</dfn>,</td></tr>
+<tr><th id="97">97</th><td>	<dfn class="enum" id="K_MOUSE3" title='K_MOUSE3' data-ref="K_MOUSE3">K_MOUSE3</dfn>,</td></tr>
+<tr><th id="98">98</th><td>	<dfn class="enum" id="K_MOUSE4" title='K_MOUSE4' data-ref="K_MOUSE4">K_MOUSE4</dfn>,</td></tr>
+<tr><th id="99">99</th><td>	<dfn class="enum" id="K_MOUSE5" title='K_MOUSE5' data-ref="K_MOUSE5">K_MOUSE5</dfn>,</td></tr>
+<tr><th id="100">100</th><td></td></tr>
+<tr><th id="101">101</th><td>	<dfn class="enum" id="K_MWHEELDOWN" title='K_MWHEELDOWN' data-ref="K_MWHEELDOWN">K_MWHEELDOWN</dfn>,</td></tr>
+<tr><th id="102">102</th><td>	<dfn class="enum" id="K_MWHEELUP" title='K_MWHEELUP' data-ref="K_MWHEELUP">K_MWHEELUP</dfn>,</td></tr>
+<tr><th id="103">103</th><td></td></tr>
+<tr><th id="104">104</th><td>	<dfn class="enum" id="K_JOY1" title='K_JOY1' data-ref="K_JOY1">K_JOY1</dfn>,</td></tr>
+<tr><th id="105">105</th><td>	<dfn class="enum" id="K_JOY2" title='K_JOY2' data-ref="K_JOY2">K_JOY2</dfn>,</td></tr>
+<tr><th id="106">106</th><td>	<dfn class="enum" id="K_JOY3" title='K_JOY3' data-ref="K_JOY3">K_JOY3</dfn>,</td></tr>
+<tr><th id="107">107</th><td>	<dfn class="enum" id="K_JOY4" title='K_JOY4' data-ref="K_JOY4">K_JOY4</dfn>,</td></tr>
+<tr><th id="108">108</th><td>	<dfn class="enum" id="K_JOY5" title='K_JOY5' data-ref="K_JOY5">K_JOY5</dfn>,</td></tr>
+<tr><th id="109">109</th><td>	<dfn class="enum" id="K_JOY6" title='K_JOY6' data-ref="K_JOY6">K_JOY6</dfn>,</td></tr>
+<tr><th id="110">110</th><td>	<dfn class="enum" id="K_JOY7" title='K_JOY7' data-ref="K_JOY7">K_JOY7</dfn>,</td></tr>
+<tr><th id="111">111</th><td>	<dfn class="enum" id="K_JOY8" title='K_JOY8' data-ref="K_JOY8">K_JOY8</dfn>,</td></tr>
+<tr><th id="112">112</th><td>	<dfn class="enum" id="K_JOY9" title='K_JOY9' data-ref="K_JOY9">K_JOY9</dfn>,</td></tr>
+<tr><th id="113">113</th><td>	<dfn class="enum" id="K_JOY10" title='K_JOY10' data-ref="K_JOY10">K_JOY10</dfn>,</td></tr>
+<tr><th id="114">114</th><td>	<dfn class="enum" id="K_JOY11" title='K_JOY11' data-ref="K_JOY11">K_JOY11</dfn>,</td></tr>
+<tr><th id="115">115</th><td>	<dfn class="enum" id="K_JOY12" title='K_JOY12' data-ref="K_JOY12">K_JOY12</dfn>,</td></tr>
+<tr><th id="116">116</th><td>	<dfn class="enum" id="K_JOY13" title='K_JOY13' data-ref="K_JOY13">K_JOY13</dfn>,</td></tr>
+<tr><th id="117">117</th><td>	<dfn class="enum" id="K_JOY14" title='K_JOY14' data-ref="K_JOY14">K_JOY14</dfn>,</td></tr>
+<tr><th id="118">118</th><td>	<dfn class="enum" id="K_JOY15" title='K_JOY15' data-ref="K_JOY15">K_JOY15</dfn>,</td></tr>
+<tr><th id="119">119</th><td>	<dfn class="enum" id="K_JOY16" title='K_JOY16' data-ref="K_JOY16">K_JOY16</dfn>,</td></tr>
+<tr><th id="120">120</th><td>	<dfn class="enum" id="K_JOY17" title='K_JOY17' data-ref="K_JOY17">K_JOY17</dfn>,</td></tr>
+<tr><th id="121">121</th><td>	<dfn class="enum" id="K_JOY18" title='K_JOY18' data-ref="K_JOY18">K_JOY18</dfn>,</td></tr>
+<tr><th id="122">122</th><td>	<dfn class="enum" id="K_JOY19" title='K_JOY19' data-ref="K_JOY19">K_JOY19</dfn>,</td></tr>
+<tr><th id="123">123</th><td>	<dfn class="enum" id="K_JOY20" title='K_JOY20' data-ref="K_JOY20">K_JOY20</dfn>,</td></tr>
+<tr><th id="124">124</th><td>	<dfn class="enum" id="K_JOY21" title='K_JOY21' data-ref="K_JOY21">K_JOY21</dfn>,</td></tr>
+<tr><th id="125">125</th><td>	<dfn class="enum" id="K_JOY22" title='K_JOY22' data-ref="K_JOY22">K_JOY22</dfn>,</td></tr>
+<tr><th id="126">126</th><td>	<dfn class="enum" id="K_JOY23" title='K_JOY23' data-ref="K_JOY23">K_JOY23</dfn>,</td></tr>
+<tr><th id="127">127</th><td>	<dfn class="enum" id="K_JOY24" title='K_JOY24' data-ref="K_JOY24">K_JOY24</dfn>,</td></tr>
+<tr><th id="128">128</th><td>	<dfn class="enum" id="K_JOY25" title='K_JOY25' data-ref="K_JOY25">K_JOY25</dfn>,</td></tr>
+<tr><th id="129">129</th><td>	<dfn class="enum" id="K_JOY26" title='K_JOY26' data-ref="K_JOY26">K_JOY26</dfn>,</td></tr>
+<tr><th id="130">130</th><td>	<dfn class="enum" id="K_JOY27" title='K_JOY27' data-ref="K_JOY27">K_JOY27</dfn>,</td></tr>
+<tr><th id="131">131</th><td>	<dfn class="enum" id="K_JOY28" title='K_JOY28' data-ref="K_JOY28">K_JOY28</dfn>,</td></tr>
+<tr><th id="132">132</th><td>	<dfn class="enum" id="K_JOY29" title='K_JOY29' data-ref="K_JOY29">K_JOY29</dfn>,</td></tr>
+<tr><th id="133">133</th><td>	<dfn class="enum" id="K_JOY30" title='K_JOY30' data-ref="K_JOY30">K_JOY30</dfn>,</td></tr>
+<tr><th id="134">134</th><td>	<dfn class="enum" id="K_JOY31" title='K_JOY31' data-ref="K_JOY31">K_JOY31</dfn>,</td></tr>
+<tr><th id="135">135</th><td>	<dfn class="enum" id="K_JOY32" title='K_JOY32' data-ref="K_JOY32">K_JOY32</dfn>,</td></tr>
+<tr><th id="136">136</th><td></td></tr>
+<tr><th id="137">137</th><td>	<dfn class="enum" id="K_AUX1" title='K_AUX1' data-ref="K_AUX1">K_AUX1</dfn>,</td></tr>
+<tr><th id="138">138</th><td>	<dfn class="enum" id="K_AUX2" title='K_AUX2' data-ref="K_AUX2">K_AUX2</dfn>,</td></tr>
+<tr><th id="139">139</th><td>	<dfn class="enum" id="K_AUX3" title='K_AUX3' data-ref="K_AUX3">K_AUX3</dfn>,</td></tr>
+<tr><th id="140">140</th><td>	<dfn class="enum" id="K_AUX4" title='K_AUX4' data-ref="K_AUX4">K_AUX4</dfn>,</td></tr>
+<tr><th id="141">141</th><td>	<dfn class="enum" id="K_AUX5" title='K_AUX5' data-ref="K_AUX5">K_AUX5</dfn>,</td></tr>
+<tr><th id="142">142</th><td>	<dfn class="enum" id="K_AUX6" title='K_AUX6' data-ref="K_AUX6">K_AUX6</dfn>,</td></tr>
+<tr><th id="143">143</th><td>	<dfn class="enum" id="K_AUX7" title='K_AUX7' data-ref="K_AUX7">K_AUX7</dfn>,</td></tr>
+<tr><th id="144">144</th><td>	<dfn class="enum" id="K_AUX8" title='K_AUX8' data-ref="K_AUX8">K_AUX8</dfn>,</td></tr>
+<tr><th id="145">145</th><td>	<dfn class="enum" id="K_AUX9" title='K_AUX9' data-ref="K_AUX9">K_AUX9</dfn>,</td></tr>
+<tr><th id="146">146</th><td>	<dfn class="enum" id="K_AUX10" title='K_AUX10' data-ref="K_AUX10">K_AUX10</dfn>,</td></tr>
+<tr><th id="147">147</th><td>	<dfn class="enum" id="K_AUX11" title='K_AUX11' data-ref="K_AUX11">K_AUX11</dfn>,</td></tr>
+<tr><th id="148">148</th><td>	<dfn class="enum" id="K_AUX12" title='K_AUX12' data-ref="K_AUX12">K_AUX12</dfn>,</td></tr>
+<tr><th id="149">149</th><td>	<dfn class="enum" id="K_AUX13" title='K_AUX13' data-ref="K_AUX13">K_AUX13</dfn>,</td></tr>
+<tr><th id="150">150</th><td>	<dfn class="enum" id="K_AUX14" title='K_AUX14' data-ref="K_AUX14">K_AUX14</dfn>,</td></tr>
+<tr><th id="151">151</th><td>	<dfn class="enum" id="K_AUX15" title='K_AUX15' data-ref="K_AUX15">K_AUX15</dfn>,</td></tr>
+<tr><th id="152">152</th><td>	<dfn class="enum" id="K_AUX16" title='K_AUX16' data-ref="K_AUX16">K_AUX16</dfn>,</td></tr>
+<tr><th id="153">153</th><td></td></tr>
+<tr><th id="154">154</th><td>	<dfn class="enum" id="K_WORLD_0" title='K_WORLD_0' data-ref="K_WORLD_0">K_WORLD_0</dfn>,</td></tr>
+<tr><th id="155">155</th><td>	<dfn class="enum" id="K_WORLD_1" title='K_WORLD_1' data-ref="K_WORLD_1">K_WORLD_1</dfn>,</td></tr>
+<tr><th id="156">156</th><td>	<dfn class="enum" id="K_WORLD_2" title='K_WORLD_2' data-ref="K_WORLD_2">K_WORLD_2</dfn>,</td></tr>
+<tr><th id="157">157</th><td>	<dfn class="enum" id="K_WORLD_3" title='K_WORLD_3' data-ref="K_WORLD_3">K_WORLD_3</dfn>,</td></tr>
+<tr><th id="158">158</th><td>	<dfn class="enum" id="K_WORLD_4" title='K_WORLD_4' data-ref="K_WORLD_4">K_WORLD_4</dfn>,</td></tr>
+<tr><th id="159">159</th><td>	<dfn class="enum" id="K_WORLD_5" title='K_WORLD_5' data-ref="K_WORLD_5">K_WORLD_5</dfn>,</td></tr>
+<tr><th id="160">160</th><td>	<dfn class="enum" id="K_WORLD_6" title='K_WORLD_6' data-ref="K_WORLD_6">K_WORLD_6</dfn>,</td></tr>
+<tr><th id="161">161</th><td>	<dfn class="enum" id="K_WORLD_7" title='K_WORLD_7' data-ref="K_WORLD_7">K_WORLD_7</dfn>,</td></tr>
+<tr><th id="162">162</th><td>	<dfn class="enum" id="K_WORLD_8" title='K_WORLD_8' data-ref="K_WORLD_8">K_WORLD_8</dfn>,</td></tr>
+<tr><th id="163">163</th><td>	<dfn class="enum" id="K_WORLD_9" title='K_WORLD_9' data-ref="K_WORLD_9">K_WORLD_9</dfn>,</td></tr>
+<tr><th id="164">164</th><td>	<dfn class="enum" id="K_WORLD_10" title='K_WORLD_10' data-ref="K_WORLD_10">K_WORLD_10</dfn>,</td></tr>
+<tr><th id="165">165</th><td>	<dfn class="enum" id="K_WORLD_11" title='K_WORLD_11' data-ref="K_WORLD_11">K_WORLD_11</dfn>,</td></tr>
+<tr><th id="166">166</th><td>	<dfn class="enum" id="K_WORLD_12" title='K_WORLD_12' data-ref="K_WORLD_12">K_WORLD_12</dfn>,</td></tr>
+<tr><th id="167">167</th><td>	<dfn class="enum" id="K_WORLD_13" title='K_WORLD_13' data-ref="K_WORLD_13">K_WORLD_13</dfn>,</td></tr>
+<tr><th id="168">168</th><td>	<dfn class="enum" id="K_WORLD_14" title='K_WORLD_14' data-ref="K_WORLD_14">K_WORLD_14</dfn>,</td></tr>
+<tr><th id="169">169</th><td>	<dfn class="enum" id="K_WORLD_15" title='K_WORLD_15' data-ref="K_WORLD_15">K_WORLD_15</dfn>,</td></tr>
+<tr><th id="170">170</th><td>	<dfn class="enum" id="K_WORLD_16" title='K_WORLD_16' data-ref="K_WORLD_16">K_WORLD_16</dfn>,</td></tr>
+<tr><th id="171">171</th><td>	<dfn class="enum" id="K_WORLD_17" title='K_WORLD_17' data-ref="K_WORLD_17">K_WORLD_17</dfn>,</td></tr>
+<tr><th id="172">172</th><td>	<dfn class="enum" id="K_WORLD_18" title='K_WORLD_18' data-ref="K_WORLD_18">K_WORLD_18</dfn>,</td></tr>
+<tr><th id="173">173</th><td>	<dfn class="enum" id="K_WORLD_19" title='K_WORLD_19' data-ref="K_WORLD_19">K_WORLD_19</dfn>,</td></tr>
+<tr><th id="174">174</th><td>	<dfn class="enum" id="K_WORLD_20" title='K_WORLD_20' data-ref="K_WORLD_20">K_WORLD_20</dfn>,</td></tr>
+<tr><th id="175">175</th><td>	<dfn class="enum" id="K_WORLD_21" title='K_WORLD_21' data-ref="K_WORLD_21">K_WORLD_21</dfn>,</td></tr>
+<tr><th id="176">176</th><td>	<dfn class="enum" id="K_WORLD_22" title='K_WORLD_22' data-ref="K_WORLD_22">K_WORLD_22</dfn>,</td></tr>
+<tr><th id="177">177</th><td>	<dfn class="enum" id="K_WORLD_23" title='K_WORLD_23' data-ref="K_WORLD_23">K_WORLD_23</dfn>,</td></tr>
+<tr><th id="178">178</th><td>	<dfn class="enum" id="K_WORLD_24" title='K_WORLD_24' data-ref="K_WORLD_24">K_WORLD_24</dfn>,</td></tr>
+<tr><th id="179">179</th><td>	<dfn class="enum" id="K_WORLD_25" title='K_WORLD_25' data-ref="K_WORLD_25">K_WORLD_25</dfn>,</td></tr>
+<tr><th id="180">180</th><td>	<dfn class="enum" id="K_WORLD_26" title='K_WORLD_26' data-ref="K_WORLD_26">K_WORLD_26</dfn>,</td></tr>
+<tr><th id="181">181</th><td>	<dfn class="enum" id="K_WORLD_27" title='K_WORLD_27' data-ref="K_WORLD_27">K_WORLD_27</dfn>,</td></tr>
+<tr><th id="182">182</th><td>	<dfn class="enum" id="K_WORLD_28" title='K_WORLD_28' data-ref="K_WORLD_28">K_WORLD_28</dfn>,</td></tr>
+<tr><th id="183">183</th><td>	<dfn class="enum" id="K_WORLD_29" title='K_WORLD_29' data-ref="K_WORLD_29">K_WORLD_29</dfn>,</td></tr>
+<tr><th id="184">184</th><td>	<dfn class="enum" id="K_WORLD_30" title='K_WORLD_30' data-ref="K_WORLD_30">K_WORLD_30</dfn>,</td></tr>
+<tr><th id="185">185</th><td>	<dfn class="enum" id="K_WORLD_31" title='K_WORLD_31' data-ref="K_WORLD_31">K_WORLD_31</dfn>,</td></tr>
+<tr><th id="186">186</th><td>	<dfn class="enum" id="K_WORLD_32" title='K_WORLD_32' data-ref="K_WORLD_32">K_WORLD_32</dfn>,</td></tr>
+<tr><th id="187">187</th><td>	<dfn class="enum" id="K_WORLD_33" title='K_WORLD_33' data-ref="K_WORLD_33">K_WORLD_33</dfn>,</td></tr>
+<tr><th id="188">188</th><td>	<dfn class="enum" id="K_WORLD_34" title='K_WORLD_34' data-ref="K_WORLD_34">K_WORLD_34</dfn>,</td></tr>
+<tr><th id="189">189</th><td>	<dfn class="enum" id="K_WORLD_35" title='K_WORLD_35' data-ref="K_WORLD_35">K_WORLD_35</dfn>,</td></tr>
+<tr><th id="190">190</th><td>	<dfn class="enum" id="K_WORLD_36" title='K_WORLD_36' data-ref="K_WORLD_36">K_WORLD_36</dfn>,</td></tr>
+<tr><th id="191">191</th><td>	<dfn class="enum" id="K_WORLD_37" title='K_WORLD_37' data-ref="K_WORLD_37">K_WORLD_37</dfn>,</td></tr>
+<tr><th id="192">192</th><td>	<dfn class="enum" id="K_WORLD_38" title='K_WORLD_38' data-ref="K_WORLD_38">K_WORLD_38</dfn>,</td></tr>
+<tr><th id="193">193</th><td>	<dfn class="enum" id="K_WORLD_39" title='K_WORLD_39' data-ref="K_WORLD_39">K_WORLD_39</dfn>,</td></tr>
+<tr><th id="194">194</th><td>	<dfn class="enum" id="K_WORLD_40" title='K_WORLD_40' data-ref="K_WORLD_40">K_WORLD_40</dfn>,</td></tr>
+<tr><th id="195">195</th><td>	<dfn class="enum" id="K_WORLD_41" title='K_WORLD_41' data-ref="K_WORLD_41">K_WORLD_41</dfn>,</td></tr>
+<tr><th id="196">196</th><td>	<dfn class="enum" id="K_WORLD_42" title='K_WORLD_42' data-ref="K_WORLD_42">K_WORLD_42</dfn>,</td></tr>
+<tr><th id="197">197</th><td>	<dfn class="enum" id="K_WORLD_43" title='K_WORLD_43' data-ref="K_WORLD_43">K_WORLD_43</dfn>,</td></tr>
+<tr><th id="198">198</th><td>	<dfn class="enum" id="K_WORLD_44" title='K_WORLD_44' data-ref="K_WORLD_44">K_WORLD_44</dfn>,</td></tr>
+<tr><th id="199">199</th><td>	<dfn class="enum" id="K_WORLD_45" title='K_WORLD_45' data-ref="K_WORLD_45">K_WORLD_45</dfn>,</td></tr>
+<tr><th id="200">200</th><td>	<dfn class="enum" id="K_WORLD_46" title='K_WORLD_46' data-ref="K_WORLD_46">K_WORLD_46</dfn>,</td></tr>
+<tr><th id="201">201</th><td>	<dfn class="enum" id="K_WORLD_47" title='K_WORLD_47' data-ref="K_WORLD_47">K_WORLD_47</dfn>,</td></tr>
+<tr><th id="202">202</th><td>	<dfn class="enum" id="K_WORLD_48" title='K_WORLD_48' data-ref="K_WORLD_48">K_WORLD_48</dfn>,</td></tr>
+<tr><th id="203">203</th><td>	<dfn class="enum" id="K_WORLD_49" title='K_WORLD_49' data-ref="K_WORLD_49">K_WORLD_49</dfn>,</td></tr>
+<tr><th id="204">204</th><td>	<dfn class="enum" id="K_WORLD_50" title='K_WORLD_50' data-ref="K_WORLD_50">K_WORLD_50</dfn>,</td></tr>
+<tr><th id="205">205</th><td>	<dfn class="enum" id="K_WORLD_51" title='K_WORLD_51' data-ref="K_WORLD_51">K_WORLD_51</dfn>,</td></tr>
+<tr><th id="206">206</th><td>	<dfn class="enum" id="K_WORLD_52" title='K_WORLD_52' data-ref="K_WORLD_52">K_WORLD_52</dfn>,</td></tr>
+<tr><th id="207">207</th><td>	<dfn class="enum" id="K_WORLD_53" title='K_WORLD_53' data-ref="K_WORLD_53">K_WORLD_53</dfn>,</td></tr>
+<tr><th id="208">208</th><td>	<dfn class="enum" id="K_WORLD_54" title='K_WORLD_54' data-ref="K_WORLD_54">K_WORLD_54</dfn>,</td></tr>
+<tr><th id="209">209</th><td>	<dfn class="enum" id="K_WORLD_55" title='K_WORLD_55' data-ref="K_WORLD_55">K_WORLD_55</dfn>,</td></tr>
+<tr><th id="210">210</th><td>	<dfn class="enum" id="K_WORLD_56" title='K_WORLD_56' data-ref="K_WORLD_56">K_WORLD_56</dfn>,</td></tr>
+<tr><th id="211">211</th><td>	<dfn class="enum" id="K_WORLD_57" title='K_WORLD_57' data-ref="K_WORLD_57">K_WORLD_57</dfn>,</td></tr>
+<tr><th id="212">212</th><td>	<dfn class="enum" id="K_WORLD_58" title='K_WORLD_58' data-ref="K_WORLD_58">K_WORLD_58</dfn>,</td></tr>
+<tr><th id="213">213</th><td>	<dfn class="enum" id="K_WORLD_59" title='K_WORLD_59' data-ref="K_WORLD_59">K_WORLD_59</dfn>,</td></tr>
+<tr><th id="214">214</th><td>	<dfn class="enum" id="K_WORLD_60" title='K_WORLD_60' data-ref="K_WORLD_60">K_WORLD_60</dfn>,</td></tr>
+<tr><th id="215">215</th><td>	<dfn class="enum" id="K_WORLD_61" title='K_WORLD_61' data-ref="K_WORLD_61">K_WORLD_61</dfn>,</td></tr>
+<tr><th id="216">216</th><td>	<dfn class="enum" id="K_WORLD_62" title='K_WORLD_62' data-ref="K_WORLD_62">K_WORLD_62</dfn>,</td></tr>
+<tr><th id="217">217</th><td>	<dfn class="enum" id="K_WORLD_63" title='K_WORLD_63' data-ref="K_WORLD_63">K_WORLD_63</dfn>,</td></tr>
+<tr><th id="218">218</th><td>	<dfn class="enum" id="K_WORLD_64" title='K_WORLD_64' data-ref="K_WORLD_64">K_WORLD_64</dfn>,</td></tr>
+<tr><th id="219">219</th><td>	<dfn class="enum" id="K_WORLD_65" title='K_WORLD_65' data-ref="K_WORLD_65">K_WORLD_65</dfn>,</td></tr>
+<tr><th id="220">220</th><td>	<dfn class="enum" id="K_WORLD_66" title='K_WORLD_66' data-ref="K_WORLD_66">K_WORLD_66</dfn>,</td></tr>
+<tr><th id="221">221</th><td>	<dfn class="enum" id="K_WORLD_67" title='K_WORLD_67' data-ref="K_WORLD_67">K_WORLD_67</dfn>,</td></tr>
+<tr><th id="222">222</th><td>	<dfn class="enum" id="K_WORLD_68" title='K_WORLD_68' data-ref="K_WORLD_68">K_WORLD_68</dfn>,</td></tr>
+<tr><th id="223">223</th><td>	<dfn class="enum" id="K_WORLD_69" title='K_WORLD_69' data-ref="K_WORLD_69">K_WORLD_69</dfn>,</td></tr>
+<tr><th id="224">224</th><td>	<dfn class="enum" id="K_WORLD_70" title='K_WORLD_70' data-ref="K_WORLD_70">K_WORLD_70</dfn>,</td></tr>
+<tr><th id="225">225</th><td>	<dfn class="enum" id="K_WORLD_71" title='K_WORLD_71' data-ref="K_WORLD_71">K_WORLD_71</dfn>,</td></tr>
+<tr><th id="226">226</th><td>	<dfn class="enum" id="K_WORLD_72" title='K_WORLD_72' data-ref="K_WORLD_72">K_WORLD_72</dfn>,</td></tr>
+<tr><th id="227">227</th><td>	<dfn class="enum" id="K_WORLD_73" title='K_WORLD_73' data-ref="K_WORLD_73">K_WORLD_73</dfn>,</td></tr>
+<tr><th id="228">228</th><td>	<dfn class="enum" id="K_WORLD_74" title='K_WORLD_74' data-ref="K_WORLD_74">K_WORLD_74</dfn>,</td></tr>
+<tr><th id="229">229</th><td>	<dfn class="enum" id="K_WORLD_75" title='K_WORLD_75' data-ref="K_WORLD_75">K_WORLD_75</dfn>,</td></tr>
+<tr><th id="230">230</th><td>	<dfn class="enum" id="K_WORLD_76" title='K_WORLD_76' data-ref="K_WORLD_76">K_WORLD_76</dfn>,</td></tr>
+<tr><th id="231">231</th><td>	<dfn class="enum" id="K_WORLD_77" title='K_WORLD_77' data-ref="K_WORLD_77">K_WORLD_77</dfn>,</td></tr>
+<tr><th id="232">232</th><td>	<dfn class="enum" id="K_WORLD_78" title='K_WORLD_78' data-ref="K_WORLD_78">K_WORLD_78</dfn>,</td></tr>
+<tr><th id="233">233</th><td>	<dfn class="enum" id="K_WORLD_79" title='K_WORLD_79' data-ref="K_WORLD_79">K_WORLD_79</dfn>,</td></tr>
+<tr><th id="234">234</th><td>	<dfn class="enum" id="K_WORLD_80" title='K_WORLD_80' data-ref="K_WORLD_80">K_WORLD_80</dfn>,</td></tr>
+<tr><th id="235">235</th><td>	<dfn class="enum" id="K_WORLD_81" title='K_WORLD_81' data-ref="K_WORLD_81">K_WORLD_81</dfn>,</td></tr>
+<tr><th id="236">236</th><td>	<dfn class="enum" id="K_WORLD_82" title='K_WORLD_82' data-ref="K_WORLD_82">K_WORLD_82</dfn>,</td></tr>
+<tr><th id="237">237</th><td>	<dfn class="enum" id="K_WORLD_83" title='K_WORLD_83' data-ref="K_WORLD_83">K_WORLD_83</dfn>,</td></tr>
+<tr><th id="238">238</th><td>	<dfn class="enum" id="K_WORLD_84" title='K_WORLD_84' data-ref="K_WORLD_84">K_WORLD_84</dfn>,</td></tr>
+<tr><th id="239">239</th><td>	<dfn class="enum" id="K_WORLD_85" title='K_WORLD_85' data-ref="K_WORLD_85">K_WORLD_85</dfn>,</td></tr>
+<tr><th id="240">240</th><td>	<dfn class="enum" id="K_WORLD_86" title='K_WORLD_86' data-ref="K_WORLD_86">K_WORLD_86</dfn>,</td></tr>
+<tr><th id="241">241</th><td>	<dfn class="enum" id="K_WORLD_87" title='K_WORLD_87' data-ref="K_WORLD_87">K_WORLD_87</dfn>,</td></tr>
+<tr><th id="242">242</th><td>	<dfn class="enum" id="K_WORLD_88" title='K_WORLD_88' data-ref="K_WORLD_88">K_WORLD_88</dfn>,</td></tr>
+<tr><th id="243">243</th><td>	<dfn class="enum" id="K_WORLD_89" title='K_WORLD_89' data-ref="K_WORLD_89">K_WORLD_89</dfn>,</td></tr>
+<tr><th id="244">244</th><td>	<dfn class="enum" id="K_WORLD_90" title='K_WORLD_90' data-ref="K_WORLD_90">K_WORLD_90</dfn>,</td></tr>
+<tr><th id="245">245</th><td>	<dfn class="enum" id="K_WORLD_91" title='K_WORLD_91' data-ref="K_WORLD_91">K_WORLD_91</dfn>,</td></tr>
+<tr><th id="246">246</th><td>	<dfn class="enum" id="K_WORLD_92" title='K_WORLD_92' data-ref="K_WORLD_92">K_WORLD_92</dfn>,</td></tr>
+<tr><th id="247">247</th><td>	<dfn class="enum" id="K_WORLD_93" title='K_WORLD_93' data-ref="K_WORLD_93">K_WORLD_93</dfn>,</td></tr>
+<tr><th id="248">248</th><td>	<dfn class="enum" id="K_WORLD_94" title='K_WORLD_94' data-ref="K_WORLD_94">K_WORLD_94</dfn>,</td></tr>
+<tr><th id="249">249</th><td>	<dfn class="enum" id="K_WORLD_95" title='K_WORLD_95' data-ref="K_WORLD_95">K_WORLD_95</dfn>,</td></tr>
+<tr><th id="250">250</th><td></td></tr>
+<tr><th id="251">251</th><td>	<dfn class="enum" id="K_SUPER" title='K_SUPER' data-ref="K_SUPER">K_SUPER</dfn>,</td></tr>
+<tr><th id="252">252</th><td>	<dfn class="enum" id="K_COMPOSE" title='K_COMPOSE' data-ref="K_COMPOSE">K_COMPOSE</dfn>,</td></tr>
+<tr><th id="253">253</th><td>	<dfn class="enum" id="K_MODE" title='K_MODE' data-ref="K_MODE">K_MODE</dfn>,</td></tr>
+<tr><th id="254">254</th><td>	<dfn class="enum" id="K_HELP" title='K_HELP' data-ref="K_HELP">K_HELP</dfn>,</td></tr>
+<tr><th id="255">255</th><td>	<dfn class="enum" id="K_PRINT" title='K_PRINT' data-ref="K_PRINT">K_PRINT</dfn>,</td></tr>
+<tr><th id="256">256</th><td>	<dfn class="enum" id="K_SYSREQ" title='K_SYSREQ' data-ref="K_SYSREQ">K_SYSREQ</dfn>,</td></tr>
+<tr><th id="257">257</th><td>	<dfn class="enum" id="K_SCROLLOCK" title='K_SCROLLOCK' data-ref="K_SCROLLOCK">K_SCROLLOCK</dfn>,</td></tr>
+<tr><th id="258">258</th><td>	<dfn class="enum" id="K_BREAK" title='K_BREAK' data-ref="K_BREAK">K_BREAK</dfn>,</td></tr>
+<tr><th id="259">259</th><td>	<dfn class="enum" id="K_MENU" title='K_MENU' data-ref="K_MENU">K_MENU</dfn>,</td></tr>
+<tr><th id="260">260</th><td>	<dfn class="enum" id="K_EURO" title='K_EURO' data-ref="K_EURO">K_EURO</dfn>,</td></tr>
+<tr><th id="261">261</th><td>	<dfn class="enum" id="K_UNDO" title='K_UNDO' data-ref="K_UNDO">K_UNDO</dfn>,</td></tr>
+<tr><th id="262">262</th><td></td></tr>
+<tr><th id="263">263</th><td>	<i>// Gamepad controls</i></td></tr>
+<tr><th id="264">264</th><td><i>	// Ordered to match SDL2 game controller buttons and axes</i></td></tr>
+<tr><th id="265">265</th><td><i>	// Do not change this order without also changing IN_GamepadMove() in SDL_input.c</i></td></tr>
+<tr><th id="266">266</th><td>	<dfn class="enum" id="K_PAD0_A" title='K_PAD0_A' data-ref="K_PAD0_A">K_PAD0_A</dfn>,</td></tr>
+<tr><th id="267">267</th><td>	<dfn class="enum" id="K_PAD0_B" title='K_PAD0_B' data-ref="K_PAD0_B">K_PAD0_B</dfn>,</td></tr>
+<tr><th id="268">268</th><td>	<dfn class="enum" id="K_PAD0_X" title='K_PAD0_X' data-ref="K_PAD0_X">K_PAD0_X</dfn>,</td></tr>
+<tr><th id="269">269</th><td>	<dfn class="enum" id="K_PAD0_Y" title='K_PAD0_Y' data-ref="K_PAD0_Y">K_PAD0_Y</dfn>,</td></tr>
+<tr><th id="270">270</th><td>	<dfn class="enum" id="K_PAD0_BACK" title='K_PAD0_BACK' data-ref="K_PAD0_BACK">K_PAD0_BACK</dfn>,</td></tr>
+<tr><th id="271">271</th><td>	<dfn class="enum" id="K_PAD0_GUIDE" title='K_PAD0_GUIDE' data-ref="K_PAD0_GUIDE">K_PAD0_GUIDE</dfn>,</td></tr>
+<tr><th id="272">272</th><td>	<dfn class="enum" id="K_PAD0_START" title='K_PAD0_START' data-ref="K_PAD0_START">K_PAD0_START</dfn>,</td></tr>
+<tr><th id="273">273</th><td>	<dfn class="enum" id="K_PAD0_LEFTSTICK_CLICK" title='K_PAD0_LEFTSTICK_CLICK' data-ref="K_PAD0_LEFTSTICK_CLICK">K_PAD0_LEFTSTICK_CLICK</dfn>,</td></tr>
+<tr><th id="274">274</th><td>	<dfn class="enum" id="K_PAD0_RIGHTSTICK_CLICK" title='K_PAD0_RIGHTSTICK_CLICK' data-ref="K_PAD0_RIGHTSTICK_CLICK">K_PAD0_RIGHTSTICK_CLICK</dfn>,</td></tr>
+<tr><th id="275">275</th><td>	<dfn class="enum" id="K_PAD0_LEFTSHOULDER" title='K_PAD0_LEFTSHOULDER' data-ref="K_PAD0_LEFTSHOULDER">K_PAD0_LEFTSHOULDER</dfn>,</td></tr>
+<tr><th id="276">276</th><td>	<dfn class="enum" id="K_PAD0_RIGHTSHOULDER" title='K_PAD0_RIGHTSHOULDER' data-ref="K_PAD0_RIGHTSHOULDER">K_PAD0_RIGHTSHOULDER</dfn>,</td></tr>
+<tr><th id="277">277</th><td>	<dfn class="enum" id="K_PAD0_DPAD_UP" title='K_PAD0_DPAD_UP' data-ref="K_PAD0_DPAD_UP">K_PAD0_DPAD_UP</dfn>,</td></tr>
+<tr><th id="278">278</th><td>	<dfn class="enum" id="K_PAD0_DPAD_DOWN" title='K_PAD0_DPAD_DOWN' data-ref="K_PAD0_DPAD_DOWN">K_PAD0_DPAD_DOWN</dfn>,</td></tr>
+<tr><th id="279">279</th><td>	<dfn class="enum" id="K_PAD0_DPAD_LEFT" title='K_PAD0_DPAD_LEFT' data-ref="K_PAD0_DPAD_LEFT">K_PAD0_DPAD_LEFT</dfn>,</td></tr>
+<tr><th id="280">280</th><td>	<dfn class="enum" id="K_PAD0_DPAD_RIGHT" title='K_PAD0_DPAD_RIGHT' data-ref="K_PAD0_DPAD_RIGHT">K_PAD0_DPAD_RIGHT</dfn>,</td></tr>
+<tr><th id="281">281</th><td></td></tr>
+<tr><th id="282">282</th><td>	<dfn class="enum" id="K_PAD0_LEFTSTICK_LEFT" title='K_PAD0_LEFTSTICK_LEFT' data-ref="K_PAD0_LEFTSTICK_LEFT">K_PAD0_LEFTSTICK_LEFT</dfn>,</td></tr>
+<tr><th id="283">283</th><td>	<dfn class="enum" id="K_PAD0_LEFTSTICK_RIGHT" title='K_PAD0_LEFTSTICK_RIGHT' data-ref="K_PAD0_LEFTSTICK_RIGHT">K_PAD0_LEFTSTICK_RIGHT</dfn>,</td></tr>
+<tr><th id="284">284</th><td>	<dfn class="enum" id="K_PAD0_LEFTSTICK_UP" title='K_PAD0_LEFTSTICK_UP' data-ref="K_PAD0_LEFTSTICK_UP">K_PAD0_LEFTSTICK_UP</dfn>,</td></tr>
+<tr><th id="285">285</th><td>	<dfn class="enum" id="K_PAD0_LEFTSTICK_DOWN" title='K_PAD0_LEFTSTICK_DOWN' data-ref="K_PAD0_LEFTSTICK_DOWN">K_PAD0_LEFTSTICK_DOWN</dfn>,</td></tr>
+<tr><th id="286">286</th><td>	<dfn class="enum" id="K_PAD0_RIGHTSTICK_LEFT" title='K_PAD0_RIGHTSTICK_LEFT' data-ref="K_PAD0_RIGHTSTICK_LEFT">K_PAD0_RIGHTSTICK_LEFT</dfn>,</td></tr>
+<tr><th id="287">287</th><td>	<dfn class="enum" id="K_PAD0_RIGHTSTICK_RIGHT" title='K_PAD0_RIGHTSTICK_RIGHT' data-ref="K_PAD0_RIGHTSTICK_RIGHT">K_PAD0_RIGHTSTICK_RIGHT</dfn>,</td></tr>
+<tr><th id="288">288</th><td>	<dfn class="enum" id="K_PAD0_RIGHTSTICK_UP" title='K_PAD0_RIGHTSTICK_UP' data-ref="K_PAD0_RIGHTSTICK_UP">K_PAD0_RIGHTSTICK_UP</dfn>,</td></tr>
+<tr><th id="289">289</th><td>	<dfn class="enum" id="K_PAD0_RIGHTSTICK_DOWN" title='K_PAD0_RIGHTSTICK_DOWN' data-ref="K_PAD0_RIGHTSTICK_DOWN">K_PAD0_RIGHTSTICK_DOWN</dfn>,</td></tr>
+<tr><th id="290">290</th><td>	<dfn class="enum" id="K_PAD0_LEFTTRIGGER" title='K_PAD0_LEFTTRIGGER' data-ref="K_PAD0_LEFTTRIGGER">K_PAD0_LEFTTRIGGER</dfn>,</td></tr>
+<tr><th id="291">291</th><td>	<dfn class="enum" id="K_PAD0_RIGHTTRIGGER" title='K_PAD0_RIGHTTRIGGER' data-ref="K_PAD0_RIGHTTRIGGER">K_PAD0_RIGHTTRIGGER</dfn>,</td></tr>
+<tr><th id="292">292</th><td></td></tr>
+<tr><th id="293">293</th><td>	<i>// Pseudo-key that brings the console down</i></td></tr>
+<tr><th id="294">294</th><td>	<dfn class="enum" id="K_CONSOLE" title='K_CONSOLE' data-ref="K_CONSOLE">K_CONSOLE</dfn>,</td></tr>
+<tr><th id="295">295</th><td></td></tr>
+<tr><th id="296">296</th><td>	<dfn class="enum" id="MAX_KEYS" title='MAX_KEYS' data-ref="MAX_KEYS">MAX_KEYS</dfn></td></tr>
+<tr><th id="297">297</th><td>} <dfn class="typedef" id="keyNum_t" title='keyNum_t' data-type='enum keyNum_t' data-ref="keyNum_t">keyNum_t</dfn>;</td></tr>
+<tr><th id="298">298</th><td></td></tr>
+<tr><th id="299">299</th><td><i>// MAX_KEYS replaces K_LAST_KEY, however some mods may have used K_LAST_KEY</i></td></tr>
+<tr><th id="300">300</th><td><i>// in detecting binds, so we leave it defined to the old hardcoded value</i></td></tr>
+<tr><th id="301">301</th><td><i>// of maxiumum keys to prevent mods from crashing older versions of the engine</i></td></tr>
+<tr><th id="302">302</th><td><u>#define <dfn class="macro" id="_M/K_LAST_KEY" data-ref="_M/K_LAST_KEY">K_LAST_KEY</dfn>              256</u></td></tr>
+<tr><th id="303">303</th><td></td></tr>
+<tr><th id="304">304</th><td><i>// The menu code needs to get both key and char events, but</i></td></tr>
+<tr><th id="305">305</th><td><i>// to avoid duplicating the paths, the char events are just</i></td></tr>
+<tr><th id="306">306</th><td><i>// distinguished by or'ing in K_CHAR_FLAG (ugly)</i></td></tr>
+<tr><th id="307">307</th><td><u>#define	<dfn class="macro" id="_M/K_CHAR_FLAG" data-ref="_M/K_CHAR_FLAG">K_CHAR_FLAG</dfn>		1024</u></td></tr>
+<tr><th id="308">308</th><td></td></tr>
+<tr><th id="309">309</th><td><u>#<span data-ppcond="23">endif</span></u></td></tr>
+<tr><th id="310">310</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='../cgame/cg_newdraw.c.html'>codebrowser/code/cgame/cg_newdraw.c</a><br/>Generated on <em>2017-Aug-29</em> from project codebrowser revision <em>63e07af</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

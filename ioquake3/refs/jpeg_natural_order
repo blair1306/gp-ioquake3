@@ -1,0 +1,31 @@
+<dec f='codebrowser/code/jpeg-8c/jpegint.h' l='389' type='const int []'/>
+<doc f='codebrowser/code/jpeg-8c/jpegint.h' l='389'>/* zigzag coef order to natural order */</doc>
+<use f='codebrowser/code/jpeg-8c/jcapimin.c' l='79' u='r' c='jpeg_CreateCompress'/>
+<use f='codebrowser/code/jpeg-8c/jcmaster.c' l='245' u='r' c='initial_setup'/>
+<use f='codebrowser/code/jpeg-8c/jdhuff.c' l='1257' u='r' c='decode_mcu'/>
+<use f='codebrowser/code/jpeg-8c/jdinput.c' l='246' u='r' c='initial_setup'/>
+<use f='codebrowser/code/jpeg-8c/jdinput.c' l='252' u='r' c='initial_setup'/>
+<use f='codebrowser/code/jpeg-8c/jdinput.c' l='287' u='r' c='initial_setup'/>
+<use f='codebrowser/code/jpeg-8c/jdinput.c' l='292' u='r' c='initial_setup'/>
+<use f='codebrowser/code/jpeg-8c/jdinput.c' l='297' u='r' c='initial_setup'/>
+<use f='codebrowser/code/jpeg-8c/jdinput.c' l='302' u='r' c='initial_setup'/>
+<use f='codebrowser/code/jpeg-8c/jdinput.c' l='307' u='r' c='initial_setup'/>
+<use f='codebrowser/code/jpeg-8c/jdinput.c' l='312' u='r' c='initial_setup'/>
+<use f='codebrowser/code/jpeg-8c/jdinput.c' l='317' u='r' c='initial_setup'/>
+<use f='codebrowser/code/jpeg-8c/jdinput.c' l='322' u='r' c='initial_setup'/>
+<use f='codebrowser/code/jpeg-8c/jdinput.c' l='327' u='r' c='initial_setup'/>
+<use f='codebrowser/code/jpeg-8c/jdmarker.c' l='550' u='r' c='get_dqt'/>
+<def f='codebrowser/code/jpeg-8c/jutils.c' l='54' ll='65' type='const int [80]'/>
+<doc f='codebrowser/code/jpeg-8c/jutils.c' l='40'>/*
+ * jpeg_natural_order[i] is the natural-order position of the i&apos;th element
+ * of zigzag order.
+ *
+ * When reading corrupted data, the Huffman decoders could attempt
+ * to reference an entry beyond the end of this array (if the decoded
+ * zero run length reaches past the end of the block).  To prevent
+ * wild stores without adding an inner-loop test, we put some extra
+ * &quot;63&quot;s after the real entries.  This will cause the extra coefficient
+ * to be stored in location 63 of the block, not somewhere random.
+ * The worst case would be a run-length of 15, which means we need 16
+ * fake entries.
+ */</doc>

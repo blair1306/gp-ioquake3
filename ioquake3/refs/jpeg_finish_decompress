@@ -1,0 +1,11 @@
+<dec f='codebrowser/code/jpeg-8c/jpeglib.h' l='1036' type='boolean jpeg_finish_decompress(j_decompress_ptr cinfo)'/>
+<def f='codebrowser/code/jpeg-8c/jdapimin.c' l='369' ll='396' macro='1' type='boolean jpeg_finish_decompress(j_decompress_ptr cinfo)'/>
+<doc f='codebrowser/code/jpeg-8c/jdapimin.c' l='360'>/*
+ * Finish JPEG decompression.
+ *
+ * This will normally just verify the file trailer and release temp storage.
+ *
+ * Returns FALSE if suspended.  The return value need be inspected only if
+ * a suspending data source is used.
+ */</doc>
+<use f='codebrowser/code/renderercommon/tr_image_jpg.c' l='245' u='c' c='R_LoadJPG'/>

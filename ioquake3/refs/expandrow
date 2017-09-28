@@ -1,0 +1,11 @@
+<dec f='codebrowser/code/tools/lcc/cpp/cpp.h' l='117' type='void expandrow(Tokenrow * , char * )'/>
+<use f='codebrowser/code/tools/lcc/cpp/cpp.c' l='77' u='c' c='process'/>
+<use f='codebrowser/code/tools/lcc/cpp/cpp.c' l='219' u='c' c='control'/>
+<use f='codebrowser/code/tools/lcc/cpp/eval.c' l='119' u='c' c='eval'/>
+<use f='codebrowser/code/tools/lcc/cpp/include.c' l='50' u='c' c='doinclude'/>
+<def f='codebrowser/code/tools/lcc/cpp/macro.c' l='131' ll='170' type='void expandrow(Tokenrow * trp, char * flag)'/>
+<use f='codebrowser/code/tools/lcc/cpp/macro.c' l='345' u='c' c='substargs'/>
+<doc f='codebrowser/code/tools/lcc/cpp/macro.c' l='127'>/*
+ * Do macro expansion in a row of tokens.
+ * Flag is NULL if more input can be gathered.
+ */</doc>

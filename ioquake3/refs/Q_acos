@@ -1,0 +1,19 @@
+<dec f='codebrowser/code/qcommon/q_shared.h' l='676' type='float Q_acos(float c)'/>
+<use f='codebrowser/code/client/cl_cgame.c' l='636' u='c' c='CL_CgameSystemCalls'/>
+<def f='codebrowser/code/qcommon/q_math.c' l='1029' ll='1041' type='float Q_acos(float c)'/>
+<doc f='codebrowser/code/qcommon/q_math.c' l='1017'>/*
+=====================
+Q_acos
+
+the msvc acos doesn&apos;t always return a value between -PI and PI:
+
+int i;
+i = 1065353246;
+acos(*(float*) &amp;i) == -1.#IND0
+
+=====================
+*/</doc>
+<use f='codebrowser/code/renderergl1/tr_sky.c' l='684' u='c' c='R_InitSkyTexCoords'/>
+<use f='codebrowser/code/renderergl1/tr_sky.c' l='685' u='c' c='R_InitSkyTexCoords'/>
+<use f='codebrowser/code/renderergl2/tr_sky.c' l='775' u='c' c='R_InitSkyTexCoords'/>
+<use f='codebrowser/code/renderergl2/tr_sky.c' l='776' u='c' c='R_InitSkyTexCoords'/>

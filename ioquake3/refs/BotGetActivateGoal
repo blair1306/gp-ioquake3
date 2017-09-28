@@ -1,0 +1,12 @@
+<def f='codebrowser/code/game/ai_dmq3.c' l='4163' ll='4345' type='int BotGetActivateGoal(bot_state_t * bs, int entitynum, bot_activategoal_t * activategoal)'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='4466' u='c' c='BotAIBlocked'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='4579' u='c' c='BotAIPredictObstacles'/>
+<doc f='codebrowser/code/game/ai_dmq3.c' l='4153'>/*
+==================
+BotGetActivateGoal
+
+  returns the number of the bsp entity to activate
+  goal-&gt;entitynum will be set to the game entity to activate
+==================
+*/
+//#define OBSTACLEDEBUG</doc>

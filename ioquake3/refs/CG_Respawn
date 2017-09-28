@@ -1,0 +1,15 @@
+<dec f='codebrowser/code/cgame/cg_local.h' l='1467' type='void CG_Respawn()'/>
+<doc f='codebrowser/code/cgame/cg_local.h' l='1464'>//
+// cg_playerstate.c
+//</doc>
+<def f='codebrowser/code/cgame/cg_playerstate.c' l='191' ll='200' type='void CG_Respawn()'/>
+<use f='codebrowser/code/cgame/cg_playerstate.c' l='509' u='c' c='CG_TransitionPlayerState'/>
+<use f='codebrowser/code/cgame/cg_playerstate.c' l='513' u='c' c='CG_TransitionPlayerState'/>
+<doc f='codebrowser/code/cgame/cg_playerstate.c' l='184'>/*
+================
+CG_Respawn
+
+A respawn happened this snapshot
+================
+*/</doc>
+<use f='codebrowser/code/cgame/cg_snapshot.c' l='99' u='c' c='CG_SetInitialSnapshot'/>

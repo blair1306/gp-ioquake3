@@ -1,0 +1,8 @@
+<dec f='codebrowser/code/game/g_public.h' l='428' type='10'/>
+<doc f='codebrowser/code/game/g_public.h' l='423'>// ConsoleCommand will be called when a command has been issued
+	// that is not recognized as a builtin function.
+	// The game can issue trap_argc() / trap_argv() commands to get the command
+	// and parameters.  Return qfalse if the game doesn&apos;t recognize it as a command.</doc>
+<doc f='codebrowser/code/game/g_public.h' l='428'>// ( int time );</doc>
+<use f='codebrowser/code/game/g_main.c' l='232' c='vmMain'/>
+<use f='codebrowser/code/server/sv_bot.c' l='438' u='r' c='SV_BotFrame'/>

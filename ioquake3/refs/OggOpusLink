@@ -1,0 +1,13 @@
+<def f='codebrowser/code/opusfile-0.8/src/internal.h' l='128' ll='150'/>
+<size>368</size>
+<doc f='codebrowser/code/opusfile-0.8/src/internal.h' l='125'>/*Information cached for a single link in a chained Ogg Opus file.
+  We choose the first Opus stream encountered in each link to play back (and
+   require at least one).*/</doc>
+<mbr r='OggOpusLink::offset' o='0' t='long long'/>
+<mbr r='OggOpusLink::data_offset' o='64' t='long long'/>
+<mbr r='OggOpusLink::end_offset' o='128' t='long long'/>
+<mbr r='OggOpusLink::pcm_end' o='192' t='ogg_int64_t'/>
+<mbr r='OggOpusLink::pcm_start' o='256' t='ogg_int64_t'/>
+<mbr r='OggOpusLink::serialno' o='320' t='ogg_uint32_t'/>
+<mbr r='OggOpusLink::head' o='352' t='OpusHead'/>
+<mbr r='OggOpusLink::tags' o='2688' t='OpusTags'/>

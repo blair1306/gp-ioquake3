@@ -1,0 +1,10 @@
+<dec f='codebrowser/code/jpeg-8c/jdct.h' l='285' type='void jpeg_idct_16x16(j_decompress_ptr cinfo, jpeg_component_info * compptr, JCOEFPTR coef_block, JSAMPARRAY output_buf, JDIMENSION output_col)'/>
+<use f='codebrowser/code/jpeg-8c/jddctmgr.c' l='161' u='r' c='start_pass'/>
+<def f='codebrowser/code/jpeg-8c/jidctint.c' l='2560' ll='2811' macro='1' type='void jpeg_idct_16x16(j_decompress_ptr cinfo, jpeg_component_info * compptr, JCOEFPTR coef_block, JSAMPARRAY output_buf, JDIMENSION output_col)'/>
+<doc f='codebrowser/code/jpeg-8c/jidctint.c' l='2552'>/*
+ * Perform dequantization and inverse DCT on one block of coefficients,
+ * producing a 16x16 output block.
+ *
+ * Optimized algorithm with 28 multiplications in the 1-D kernel.
+ * cK represents sqrt(2) * cos(K*pi/32).
+ */</doc>

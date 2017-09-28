@@ -1,0 +1,9 @@
+<dec f='codebrowser/code/server/server.h' l='117' type='1'/>
+<doc f='codebrowser/code/server/server.h' l='117'>// client has been disconnected, but don&apos;t reuse</doc>
+<use f='codebrowser/code/server/sv_ccmds.c' l='1195' u='r' c='SV_Status_f'/>
+<use f='codebrowser/code/server/sv_client.c' l='643' u='r' c='SV_DropClient'/>
+<use f='codebrowser/code/server/sv_client.c' l='686' u='r' c='SV_DropClient'/>
+<use f='codebrowser/code/server/sv_client.c' l='1981' u='r' c='SV_ExecuteClientMessage'/>
+<use f='codebrowser/code/server/sv_main.c' l='871' u='r' c='SV_PacketEvent'/>
+<use f='codebrowser/code/server/sv_main.c' l='963' u='r' c='SV_CheckTimeouts'/>
+<use f='codebrowser/code/server/sv_snapshot.c' l='468' u='r' c='SV_BuildClientSnapshot'/>

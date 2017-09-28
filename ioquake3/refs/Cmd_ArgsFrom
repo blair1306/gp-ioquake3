@@ -1,0 +1,20 @@
+<dec f='codebrowser/code/qcommon/qcommon.h' l='457' type='char * Cmd_ArgsFrom(int arg)'/>
+<use f='codebrowser/code/client/cl_cgame.c' l='207' u='c' c='CL_ConfigstringModified'/>
+<use f='codebrowser/code/client/cl_main.c' l='3479' u='c' c='CL_Sayto_f'/>
+<use f='codebrowser/code/client/cl_main.c' l='4198' u='c' c='CL_GlobalServers_f'/>
+<def f='codebrowser/code/qcommon/cmd.c' l='419' ll='434' type='char * Cmd_ArgsFrom(int arg)'/>
+<doc f='codebrowser/code/qcommon/cmd.c' l='412'>/*
+============
+Cmd_Args
+
+Returns a single string containing argv(arg) to argv(argc()-1)
+============
+*/</doc>
+<use f='codebrowser/code/qcommon/common.c' l='497' u='c' c='Com_StartupVariable'/>
+<use f='codebrowser/code/qcommon/common.c' l='499' u='c' c='Com_StartupVariable'/>
+<use f='codebrowser/code/qcommon/common.c' l='2341' u='c' c='Com_Setenv_f'/>
+<use f='codebrowser/code/qcommon/cvar.c' l='870' u='c' c='Cvar_Set_f'/>
+<use f='codebrowser/code/server/sv_ccmds.c' l='1294' u='c' c='SV_ConTell_f'/>
+<use f='codebrowser/code/server/sv_ccmds.c' l='1360' u='c' c='SV_ConSayto_f'/>
+<use f='codebrowser/code/server/sv_main.c' l='730' u='c' c='SVC_RemoteCommand'/>
+<use f='codebrowser/code/server/sv_main.c' l='733' u='c' c='SVC_RemoteCommand'/>

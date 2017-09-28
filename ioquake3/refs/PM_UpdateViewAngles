@@ -1,0 +1,14 @@
+<dec f='codebrowser/code/game/bg_public.h' l='195' type='void PM_UpdateViewAngles(playerState_t * ps, const usercmd_t * cmd)'/>
+<doc f='codebrowser/code/game/bg_public.h' l='194'>// if a full pmove isn&apos;t done on the client, you can just update the angles</doc>
+<use f='codebrowser/code/cgame/cg_predict.c' l='224' u='c' c='CG_InterpolatePlayerState'/>
+<use f='codebrowser/code/cgame/cg_predict.c' l='509' u='c' c='CG_PredictPlayerState'/>
+<def f='codebrowser/code/game/bg_pmove.c' l='1796' ll='1824' type='void PM_UpdateViewAngles(playerState_t * ps, const usercmd_t * cmd)'/>
+<use f='codebrowser/code/game/bg_pmove.c' l='1911' u='c' c='PmoveSingle'/>
+<doc f='codebrowser/code/game/bg_pmove.c' l='1788'>/*
+================
+PM_UpdateViewAngles
+
+This can be used as another entry point when only the viewangles
+are being updated instead of a full move
+================
+*/</doc>

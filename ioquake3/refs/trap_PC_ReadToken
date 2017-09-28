@@ -1,0 +1,25 @@
+<dec f='codebrowser/code/ui/ui_shared.h' l='448' type='int trap_PC_ReadToken(int handle, pc_token_t * pc_token)'/>
+<def f='codebrowser/code/cgame/cg_syscalls.c' l='379' ll='381' type='int trap_PC_ReadToken(int handle, pc_token_t * pc_token)'/>
+<def f='codebrowser/code/game/g_syscalls.c' l='786' ll='788' type='int trap_PC_ReadToken(int handle, pc_token_t * pc_token)'/>
+<use f='codebrowser/code/ui/ui_main.c' l='689' u='c' c='Asset_Parse'/>
+<use f='codebrowser/code/ui/ui_main.c' l='699' u='c' c='Asset_Parse'/>
+<use f='codebrowser/code/ui/ui_main.c' l='864' u='c' c='UI_ParseMenu'/>
+<use f='codebrowser/code/ui/ui_main.c' l='901' u='c' c='Load_Menu'/>
+<use f='codebrowser/code/ui/ui_main.c' l='909' u='c' c='Load_Menu'/>
+<use f='codebrowser/code/ui/ui_main.c' l='948' u='c' c='UI_LoadMenus'/>
+<use f='codebrowser/code/ui/ui_shared.c' l='340' u='c' c='PC_Float_Parse'/>
+<use f='codebrowser/code/ui/ui_shared.c' l='343' u='c' c='PC_Float_Parse'/>
+<use f='codebrowser/code/ui/ui_shared.c' l='422' u='c' c='PC_Int_Parse'/>
+<use f='codebrowser/code/ui/ui_shared.c' l='425' u='c' c='PC_Int_Parse'/>
+<use f='codebrowser/code/ui/ui_shared.c' l='499' u='c' c='PC_String_Parse'/>
+<use f='codebrowser/code/ui/ui_shared.c' l='519' u='c' c='PC_Script_Parse'/>
+<use f='codebrowser/code/ui/ui_shared.c' l='526' u='c' c='PC_Script_Parse'/>
+<use f='codebrowser/code/ui/ui_shared.c' l='4998' u='c' c='ItemParse_cvarStrList'/>
+<use f='codebrowser/code/ui/ui_shared.c' l='5006' u='c' c='ItemParse_cvarStrList'/>
+<use f='codebrowser/code/ui/ui_shared.c' l='5046' u='c' c='ItemParse_cvarFloatList'/>
+<use f='codebrowser/code/ui/ui_shared.c' l='5053' u='c' c='ItemParse_cvarFloatList'/>
+<use f='codebrowser/code/ui/ui_shared.c' l='5267' u='c' c='Item_Parse'/>
+<use f='codebrowser/code/ui/ui_shared.c' l='5273' u='c' c='Item_Parse'/>
+<use f='codebrowser/code/ui/ui_shared.c' l='5678' u='c' c='Menu_Parse'/>
+<use f='codebrowser/code/ui/ui_shared.c' l='5687' u='c' c='Menu_Parse'/>
+<def f='codebrowser/code/ui/ui_syscalls.c' l='344' ll='346' type='int trap_PC_ReadToken(int handle, pc_token_t * pc_token)'/>

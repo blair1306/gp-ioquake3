@@ -1,0 +1,10 @@
+<dec f='codebrowser/code/qcommon/qcommon.h' l='993' type='void CL_MouseEvent(int dx, int dy, int time)'/>
+<doc f='codebrowser/code/qcommon/qcommon.h' l='991'>// char events are for field typing, not game control</doc>
+<def f='codebrowser/code/client/cl_input.c' l='362' ll='371' type='void CL_MouseEvent(int dx, int dy, int time)'/>
+<doc f='codebrowser/code/client/cl_input.c' l='357'>/*
+=================
+CL_MouseEvent
+=================
+*/</doc>
+<def f='codebrowser/code/null/null_client.c' l='36' ll='37' type='void CL_MouseEvent(int dx, int dy, int time)'/>
+<use f='codebrowser/code/qcommon/common.c' l='2224' u='c' c='Com_EventLoop'/>

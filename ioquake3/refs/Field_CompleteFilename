@@ -1,0 +1,11 @@
+<dec f='codebrowser/code/qcommon/qcommon.h' l='762' type='void Field_CompleteFilename(const char * dir, const char * ext, qboolean stripExt, qboolean allowNonPureFilesOnDisk)'/>
+<use f='codebrowser/code/client/cl_console.c' l='346' u='c' c='Cmd_CompleteTxtName'/>
+<use f='codebrowser/code/client/cl_main.c' l='1058' u='c' c='CL_CompleteDemoName'/>
+<use f='codebrowser/code/qcommon/cmd.c' l='853' u='c' c='Cmd_CompleteCfgName'/>
+<def f='codebrowser/code/qcommon/common.c' l='3458' ll='3468' type='void Field_CompleteFilename(const char * dir, const char * ext, qboolean stripExt, qboolean allowNonPureFilesOnDisk)'/>
+<doc f='codebrowser/code/qcommon/common.c' l='3453'>/*
+===============
+Field_CompleteFilename
+===============
+*/</doc>
+<use f='codebrowser/code/server/sv_ccmds.c' l='1474' u='c' c='SV_CompleteMapName'/>

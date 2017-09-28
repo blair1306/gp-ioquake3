@@ -1,0 +1,9 @@
+<dec f='codebrowser/code/opus-1.1.4/src/analysis.h' l='89' type='void tonality_analysis_init(TonalityAnalysisState * analysis)'/>
+<def f='codebrowser/code/opus-1.1.4/src/analysis.c' l='141' ll='147' type='void tonality_analysis_init(TonalityAnalysisState * tonal)'/>
+<doc f='codebrowser/code/opus-1.1.4/src/analysis.h' l='83'>/** Initialize a TonalityAnalysisState struct.
+ *
+ * This performs some possibly slow initialization steps which should
+ * not be repeated every analysis step. No allocated memory is retained
+ * by the state struct, so no cleanup call is required.
+ */</doc>
+<use f='codebrowser/code/opus-1.1.4/src/opus_encoder.c' l='248' u='c' c='opus_encoder_init'/>

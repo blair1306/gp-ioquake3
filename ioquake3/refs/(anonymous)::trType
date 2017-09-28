@@ -1,0 +1,65 @@
+<dec f='codebrowser/code/qcommon/q_shared.h' l='1266' type='trType_t'/>
+<offset>0</offset>
+<use f='codebrowser/code/cgame/cg_effects.c' l='81' u='w' c='CG_BubbleTrail'/>
+<use f='codebrowser/code/cgame/cg_effects.c' l='137' u='w' c='CG_SmokePuff'/>
+<use f='codebrowser/code/cgame/cg_effects.c' l='544' u='w' c='CG_LaunchGib'/>
+<use f='codebrowser/code/cgame/cg_effects.c' l='661' u='w' c='CG_LaunchExplode'/>
+<use f='codebrowser/code/cgame/cg_ents.c' l='499' u='r' c='CG_Missile'/>
+<use f='codebrowser/code/cgame/cg_ents.c' l='754' u='w' c='CG_CalcEntityLerpPositions'/>
+<use f='codebrowser/code/cgame/cg_ents.c' l='755' u='w' c='CG_CalcEntityLerpPositions'/>
+<use f='codebrowser/code/cgame/cg_ents.c' l='759' u='r' c='CG_CalcEntityLerpPositions'/>
+<use f='codebrowser/code/cgame/cg_ents.c' l='766' u='r' c='CG_CalcEntityLerpPositions'/>
+<use f='codebrowser/code/cgame/cg_localents.c' l='234' u='w' c='CG_ReflectVelocity'/>
+<use f='codebrowser/code/cgame/cg_localents.c' l='249' u='r' c='CG_AddFragment'/>
+<use f='codebrowser/code/cgame/cg_weapons.c' l='54' u='w' c='CG_MachineGunEjectBrass'/>
+<use f='codebrowser/code/cgame/cg_weapons.c' l='84' u='w' c='CG_MachineGunEjectBrass'/>
+<use f='codebrowser/code/cgame/cg_weapons.c' l='133' u='w' c='CG_ShotgunEjectBrass'/>
+<use f='codebrowser/code/cgame/cg_weapons.c' l='160' u='w' c='CG_ShotgunEjectBrass'/>
+<use f='codebrowser/code/cgame/cg_weapons.c' l='307' u='w' c='CG_RailTrail'/>
+<use f='codebrowser/code/cgame/cg_weapons.c' l='358' u='r' c='CG_RocketTrail'/>
+<use f='codebrowser/code/cgame/cg_weapons.c' l='499' u='w' c='CG_PlasmaTrail'/>
+<use f='codebrowser/code/cgame/cg_weapons.c' l='541' u='w' c='CG_PlasmaTrail'/>
+<use f='codebrowser/code/game/bg_misc.c' l='1201' u='r' c='BG_EvaluateTrajectory'/>
+<use f='codebrowser/code/game/bg_misc.c' l='1231' u='r' c='BG_EvaluateTrajectory'/>
+<use f='codebrowser/code/game/bg_misc.c' l='1247' u='r' c='BG_EvaluateTrajectoryDelta'/>
+<use f='codebrowser/code/game/bg_misc.c' l='1274' u='r' c='BG_EvaluateTrajectoryDelta'/>
+<use f='codebrowser/code/game/bg_misc.c' l='1477' u='w' c='BG_PlayerStateToEntityState'/>
+<use f='codebrowser/code/game/bg_misc.c' l='1485' u='w' c='BG_PlayerStateToEntityState'/>
+<use f='codebrowser/code/game/bg_misc.c' l='1553' u='w' c='BG_PlayerStateToEntityStateExtraPolate'/>
+<use f='codebrowser/code/game/bg_misc.c' l='1565' u='w' c='BG_PlayerStateToEntityStateExtraPolate'/>
+<use f='codebrowser/code/game/g_arenas.c' l='161' u='w' c='SpawnModelOnVictoryPad'/>
+<use f='codebrowser/code/game/g_client.c' l='449' u='w' c='CopyToBodyQue'/>
+<use f='codebrowser/code/game/g_client.c' l='453' u='w' c='CopyToBodyQue'/>
+<use f='codebrowser/code/game/g_items.c' l='589' u='w' c='LaunchItem'/>
+<use f='codebrowser/code/game/g_items.c' l='966' u='r' c='G_RunItem'/>
+<use f='codebrowser/code/game/g_items.c' l='967' u='w' c='G_RunItem'/>
+<use f='codebrowser/code/game/g_items.c' l='972' u='r' c='G_RunItem'/>
+<use f='codebrowser/code/game/g_missile.c' l='544' u='w' c='fire_plasma'/>
+<use f='codebrowser/code/game/g_missile.c' l='586' u='w' c='fire_grenade'/>
+<use f='codebrowser/code/game/g_missile.c' l='627' u='w' c='fire_bfg'/>
+<use f='codebrowser/code/game/g_missile.c' l='667' u='w' c='fire_rocket'/>
+<use f='codebrowser/code/game/g_missile.c' l='700' u='w' c='fire_grapple'/>
+<use f='codebrowser/code/game/g_mover.c' l='387' u='r' c='G_MoverPush'/>
+<use f='codebrowser/code/game/g_mover.c' l='387' u='r' c='G_MoverPush'/>
+<use f='codebrowser/code/game/g_mover.c' l='462' u='r' c='G_MoverTeam'/>
+<use f='codebrowser/code/game/g_mover.c' l='486' u='r' c='G_RunMover'/>
+<use f='codebrowser/code/game/g_mover.c' l='486' u='r' c='G_RunMover'/>
+<use f='codebrowser/code/game/g_mover.c' l='519' u='w' c='SetMoverState'/>
+<use f='codebrowser/code/game/g_mover.c' l='523' u='w' c='SetMoverState'/>
+<use f='codebrowser/code/game/g_mover.c' l='530' u='w' c='SetMoverState'/>
+<use f='codebrowser/code/game/g_mover.c' l='537' u='w' c='SetMoverState'/>
+<use f='codebrowser/code/game/g_mover.c' l='767' u='w' c='InitMover'/>
+<use f='codebrowser/code/game/g_mover.c' l='1268' u='w' c='Think_BeginMoving'/>
+<use f='codebrowser/code/game/g_mover.c' l='1342' u='w' c='Reached_Train'/>
+<use f='codebrowser/code/game/g_mover.c' l='1508' u='w' c='SP_func_rotating'/>
+<use f='codebrowser/code/game/g_mover.c' l='1568' u='w' c='SP_func_bobbing'/>
+<use f='codebrowser/code/game/g_mover.c' l='1631' u='w' c='SP_func_pendulum'/>
+<use f='codebrowser/code/game/g_utils.c' l='628' u='w' c='G_SetOrigin'/>
+<use f='codebrowser/code/qcommon/msg.c' l='801' u='a'/>
+<use f='codebrowser/code/qcommon/msg.c' l='801' u='a'/>
+<use f='codebrowser/code/qcommon/msg.c' l='808' u='a'/>
+<use f='codebrowser/code/qcommon/msg.c' l='808' u='a'/>
+<use f='codebrowser/code/qcommon/msg.c' l='801' u='a'/>
+<use f='codebrowser/code/qcommon/msg.c' l='801' u='a'/>
+<use f='codebrowser/code/qcommon/msg.c' l='808' u='a'/>
+<use f='codebrowser/code/qcommon/msg.c' l='808' u='a'/>

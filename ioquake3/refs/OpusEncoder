@@ -1,0 +1,42 @@
+<def f='codebrowser/code/opus-1.1.4/src/opus_encoder.c' l='62' ll='110'/>
+<size>18232</size>
+<mbr r='OpusEncoder::celt_enc_offset' o='0' t='int'/>
+<mbr r='OpusEncoder::silk_enc_offset' o='32' t='int'/>
+<mbr r='OpusEncoder::silk_mode' o='64' t='silk_EncControlStruct'/>
+<mbr r='OpusEncoder::application' o='768' t='int'/>
+<mbr r='OpusEncoder::channels' o='800' t='int'/>
+<mbr r='OpusEncoder::delay_compensation' o='832' t='int'/>
+<mbr r='OpusEncoder::force_channels' o='864' t='int'/>
+<mbr r='OpusEncoder::signal_type' o='896' t='int'/>
+<mbr r='OpusEncoder::user_bandwidth' o='928' t='int'/>
+<mbr r='OpusEncoder::max_bandwidth' o='960' t='int'/>
+<mbr r='OpusEncoder::user_forced_mode' o='992' t='int'/>
+<mbr r='OpusEncoder::voice_ratio' o='1024' t='int'/>
+<mbr r='OpusEncoder::Fs' o='1056' t='opus_int32'/>
+<mbr r='OpusEncoder::use_vbr' o='1088' t='int'/>
+<mbr r='OpusEncoder::vbr_constraint' o='1120' t='int'/>
+<mbr r='OpusEncoder::variable_duration' o='1152' t='int'/>
+<mbr r='OpusEncoder::bitrate_bps' o='1184' t='opus_int32'/>
+<mbr r='OpusEncoder::user_bitrate_bps' o='1216' t='opus_int32'/>
+<mbr r='OpusEncoder::lsb_depth' o='1248' t='int'/>
+<mbr r='OpusEncoder::encoder_buffer' o='1280' t='int'/>
+<mbr r='OpusEncoder::lfe' o='1312' t='int'/>
+<mbr r='OpusEncoder::arch' o='1344' t='int'/>
+<mbr r='OpusEncoder::analysis' o='1376' t='TonalityAnalysisState'/>
+<mbr r='OpusEncoder::stream_channels' o='114304' t='int'/>
+<mbr r='OpusEncoder::hybrid_stereo_width_Q14' o='114336' t='opus_int16'/>
+<mbr r='OpusEncoder::variable_HP_smth2_Q15' o='114368' t='opus_int32'/>
+<mbr r='OpusEncoder::prev_HB_gain' o='114400' t='opus_val16'/>
+<mbr r='OpusEncoder::hp_mem' o='114432' t='opus_val32 [4]'/>
+<mbr r='OpusEncoder::mode' o='114560' t='int'/>
+<mbr r='OpusEncoder::prev_mode' o='114592' t='int'/>
+<mbr r='OpusEncoder::prev_channels' o='114624' t='int'/>
+<mbr r='OpusEncoder::prev_framesize' o='114656' t='int'/>
+<mbr r='OpusEncoder::bandwidth' o='114688' t='int'/>
+<mbr r='OpusEncoder::silk_bw_switch' o='114720' t='int'/>
+<mbr r='OpusEncoder::first' o='114752' t='int'/>
+<mbr r='OpusEncoder::energy_masking' o='114816' t='opus_val16 *'/>
+<mbr r='OpusEncoder::width_mem' o='114880' t='StereoWidthState'/>
+<mbr r='OpusEncoder::delay_buffer' o='115040' t='opus_val16 [960]'/>
+<mbr r='OpusEncoder::detected_bandwidth' o='145760' t='int'/>
+<mbr r='OpusEncoder::rangeFinal' o='145792' t='opus_uint32'/>

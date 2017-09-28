@@ -1,0 +1,43 @@
+<dec f='codebrowser/code/cgame/cg_local.h' l='1559' type='void trap_S_StartLocalSound(sfxHandle_t sfx, int channelNum)'/>
+<doc f='codebrowser/code/cgame/cg_local.h' l='1558'>// a local sound is always played full volume</doc>
+<use f='codebrowser/code/cgame/cg_draw.c' l='1475' u='c' c='CG_DrawReward'/>
+<use f='codebrowser/code/cgame/cg_draw.c' l='2110' u='c' c='CG_DrawVote'/>
+<use f='codebrowser/code/cgame/cg_draw.c' l='2151' u='c' c='CG_DrawTeamVote'/>
+<use f='codebrowser/code/cgame/cg_draw.c' l='2446' u='c' c='CG_DrawWarmup'/>
+<use f='codebrowser/code/cgame/cg_draw.c' l='2449' u='c' c='CG_DrawWarmup'/>
+<use f='codebrowser/code/cgame/cg_draw.c' l='2452' u='c' c='CG_DrawWarmup'/>
+<use f='codebrowser/code/cgame/cg_playerstate.c' l='80' u='c' c='CG_CheckAmmo'/>
+<use f='codebrowser/code/cgame/cg_playerstate.c' l='322' u='c' c='CG_CheckLocalSounds'/>
+<use f='codebrowser/code/cgame/cg_playerstate.c' l='325' u='c' c='CG_CheckLocalSounds'/>
+<use f='codebrowser/code/cgame/cg_playerstate.c' l='404' u='c' c='CG_CheckLocalSounds'/>
+<use f='codebrowser/code/cgame/cg_playerstate.c' l='408' u='c' c='CG_CheckLocalSounds'/>
+<use f='codebrowser/code/cgame/cg_playerstate.c' l='412' u='c' c='CG_CheckLocalSounds'/>
+<use f='codebrowser/code/cgame/cg_playerstate.c' l='423' u='c' c='CG_CheckLocalSounds'/>
+<use f='codebrowser/code/cgame/cg_playerstate.c' l='453' u='c' c='CG_CheckLocalSounds'/>
+<use f='codebrowser/code/cgame/cg_playerstate.c' l='457' u='c' c='CG_CheckLocalSounds'/>
+<use f='codebrowser/code/cgame/cg_playerstate.c' l='461' u='c' c='CG_CheckLocalSounds'/>
+<use f='codebrowser/code/cgame/cg_servercmds.c' l='199' u='c' c='CG_ParseWarmup'/>
+<use f='codebrowser/code/cgame/cg_servercmds.c' l='477' u='c' c='CG_MapRestart'/>
+<use f='codebrowser/code/cgame/cg_servercmds.c' l='1025' u='c' c='CG_ServerCommand'/>
+<use f='codebrowser/code/cgame/cg_servercmds.c' l='1033' u='c' c='CG_ServerCommand'/>
+<def f='codebrowser/code/cgame/cg_syscalls.c' l='193' ll='195' type='void trap_S_StartLocalSound(sfxHandle_t sfx, int channelNum)'/>
+<use f='codebrowser/code/cgame/cg_view.c' l='739' u='c' c='CG_PlayBufferedSounds'/>
+<dec f='codebrowser/code/q3_ui/ui_local.h' l='658' type='void trap_S_StartLocalSound(sfxHandle_t sfx, int channelNum)'/>
+<use f='codebrowser/code/q3_ui/ui_atoms.c' l='136' u='c' c='UI_PopMenu'/>
+<use f='codebrowser/code/q3_ui/ui_atoms.c' l='864' u='c' c='UI_KeyEvent'/>
+<use f='codebrowser/code/q3_ui/ui_atoms.c' l='921' u='c' c='UI_MouseEvent'/>
+<use f='codebrowser/code/q3_ui/ui_atoms.c' l='1248' u='c' c='UI_Refresh'/>
+<use f='codebrowser/code/q3_ui/ui_players.c' l='715' u='c' c='UI_DrawPlayer'/>
+<use f='codebrowser/code/q3_ui/ui_splevel.c' l='479' u='c' c='UI_SPLevelMenu_AwardEvent'/>
+<use f='codebrowser/code/q3_ui/ui_sppostgame.c' l='255' u='c' c='UI_SPPostgameMenu_DrawAwardsPresentation'/>
+<use f='codebrowser/code/q3_ui/ui_sppostgame.c' l='320' u='c' c='UI_SPPostgameMenu_MenuDraw'/>
+<use f='codebrowser/code/q3_ui/ui_spskill.c' l='124' u='c' c='UI_SPSkillMenu_SkillEvent'/>
+<use f='codebrowser/code/q3_ui/ui_spskill.c' l='127' u='c' c='UI_SPSkillMenu_SkillEvent'/>
+<use f='codebrowser/code/q3_ui/ui_spskill.c' l='155' u='c' c='UI_SPSkillMenu_BackEvent'/>
+<use f='codebrowser/code/q3_ui/ui_spskill.c' l='167' u='c' c='UI_SPSkillMenu_Key'/>
+<use f='codebrowser/code/q3_ui/ui_spskill.c' l='319' u='c' c='UI_SPSkillMenu_Init'/>
+<dec f='codebrowser/code/ui/ui_local.h' l='950' type='void trap_S_StartLocalSound(sfxHandle_t sfx, int channelNum)'/>
+<use f='codebrowser/code/ui/ui_main.c' l='2237' u='c' c='UI_OwnerDrawVisible'/>
+<use f='codebrowser/code/ui/ui_main.c' l='5126' u='a' c='_UI_Init'/>
+<use f='codebrowser/code/ui/ui_players.c' l='721' u='c' c='UI_DrawPlayer'/>
+<def f='codebrowser/code/ui/ui_syscalls.c' l='188' ll='190' type='void trap_S_StartLocalSound(sfxHandle_t sfx, int channelNum)'/>

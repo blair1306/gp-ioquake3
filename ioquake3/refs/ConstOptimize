@@ -1,0 +1,9 @@
+<def f='codebrowser/code/qcommon/vm_x86.c' l='730' ll='1063' type='qboolean ConstOptimize(vm_t * vm, int callProcOfsSyscall)'/>
+<use f='codebrowser/code/qcommon/vm_x86.c' l='1160' u='c' c='VM_Compile'/>
+<doc f='codebrowser/code/qcommon/vm_x86.c' l='722'>/*
+=================
+ConstOptimize
+Constant values for immediately following instructions may be translated to immediate values
+instead of opStack operations, which will save expensive operations on memory
+=================
+*/</doc>

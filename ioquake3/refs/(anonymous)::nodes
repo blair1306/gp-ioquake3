@@ -1,0 +1,30 @@
+<dec f='codebrowser/code/qcommon/cm_local.h' l='95' type='cNode_t *'/>
+<use f='codebrowser/code/qcommon/cm_load.c' l='192' u='w' c='CMod_LoadNodes'/>
+<use f='codebrowser/code/qcommon/cm_load.c' l='192' u='r' c='CMod_LoadNodes'/>
+<use f='codebrowser/code/qcommon/cm_load.c' l='195' u='r' c='CMod_LoadNodes'/>
+<offset>960</offset>
+<use f='codebrowser/code/qcommon/cm_test.c' l='38' u='r' c='CM_PointLeafnum_r'/>
+<use f='codebrowser/code/qcommon/cm_test.c' l='151' u='r' c='CM_BoxLeafnums_r'/>
+<use f='codebrowser/code/qcommon/cm_trace.c' l='1059' u='r' c='CM_TraceThroughTree'/>
+<dec f='codebrowser/code/renderergl1/tr_local.h' l='700' type='mnode_t *'/>
+<offset>1408</offset>
+<use f='codebrowser/code/renderergl1/tr_bsp.c' l='1381' u='w' c='R_LoadNodesAndLeafs'/>
+<use f='codebrowser/code/renderergl1/tr_bsp.c' l='1403' u='r' c='R_LoadNodesAndLeafs'/>
+<use f='codebrowser/code/renderergl1/tr_bsp.c' l='1405' u='r' c='R_LoadNodesAndLeafs'/>
+<use f='codebrowser/code/renderergl1/tr_bsp.c' l='1432' u='r' c='R_LoadNodesAndLeafs'/>
+<use f='codebrowser/code/renderergl1/tr_marks.c' l='316' u='r' c='R_MarkFragments'/>
+<use f='codebrowser/code/renderergl1/tr_world.c' l='510' u='r' c='R_PointInLeaf'/>
+<use f='codebrowser/code/renderergl1/tr_world.c' l='604' u='r' c='R_MarkLeaves'/>
+<use f='codebrowser/code/renderergl1/tr_world.c' l='605' u='r' c='R_MarkLeaves'/>
+<use f='codebrowser/code/renderergl1/tr_world.c' l='613' u='r' c='R_MarkLeaves'/>
+<use f='codebrowser/code/renderergl1/tr_world.c' l='667' u='r' c='R_AddWorldSurfaces'/>
+<dec f='codebrowser/code/renderergl2/tr_local.h' l='1101' type='mnode_t *'/>
+<offset>1472</offset>
+<use f='codebrowser/code/renderergl2/tr_bsp.c' l='1901' u='w' c='R_LoadNodesAndLeafs'/>
+<use f='codebrowser/code/renderergl2/tr_bsp.c' l='1923' u='r' c='R_LoadNodesAndLeafs'/>
+<use f='codebrowser/code/renderergl2/tr_bsp.c' l='1925' u='r' c='R_LoadNodesAndLeafs'/>
+<use f='codebrowser/code/renderergl2/tr_bsp.c' l='1951' u='r' c='R_LoadNodesAndLeafs'/>
+<use f='codebrowser/code/renderergl2/tr_marks.c' l='319' u='r' c='R_MarkFragments'/>
+<use f='codebrowser/code/renderergl2/tr_world.c' l='601' u='r' c='R_PointInLeaf'/>
+<use f='codebrowser/code/renderergl2/tr_world.c' l='709' u='r' c='R_MarkLeaves'/>
+<use f='codebrowser/code/renderergl2/tr_world.c' l='789' u='r' c='R_AddWorldSurfaces'/>

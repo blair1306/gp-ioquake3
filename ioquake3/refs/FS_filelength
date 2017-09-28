@@ -1,0 +1,13 @@
+<dec f='codebrowser/code/qcommon/qcommon.h' l='686' type='long FS_filelength(fileHandle_t f)'/>
+<doc f='codebrowser/code/qcommon/qcommon.h' l='684'>// writes a complete file, creating any subdirectories needed</doc>
+<def f='codebrowser/code/qcommon/files.c' l='455' ll='465' type='long FS_filelength(fileHandle_t f)'/>
+<use f='codebrowser/code/qcommon/files.c' l='794' u='c' c='FS_SV_FOpenFileRead'/>
+<doc f='codebrowser/code/qcommon/files.c' l='446'>/*
+================
+FS_filelength
+
+If this is called on a non-unique FILE (from a pak file),
+it will return the size of the pak file, not the expected
+size of the file.
+================
+*/</doc>

@@ -1,0 +1,12 @@
+<dec f='codebrowser/code/qcommon/qcommon.h' l='997' type='void CL_PacketEvent(netadr_t from, msg_t * msg)'/>
+<def f='codebrowser/code/client/cl_main.c' l='2807' ll='2858' type='void CL_PacketEvent(netadr_t from, msg_t * msg)'/>
+<doc f='codebrowser/code/client/cl_main.c' l='2800'>/*
+=================
+CL_PacketEvent
+
+A packet has arrived from the main event loop
+=================
+*/</doc>
+<def f='codebrowser/code/null/null_client.c' l='45' ll='46' type='void CL_PacketEvent(netadr_t from, msg_t * msg)'/>
+<use f='codebrowser/code/qcommon/common.c' l='2201' u='c' c='Com_EventLoop'/>
+<use f='codebrowser/code/qcommon/net_ip.c' l='1641' u='c' c='NET_Event'/>

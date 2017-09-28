@@ -1,0 +1,14 @@
+<dec f='codebrowser/code/game/g_local.h' l='286' type='int'/>
+<offset>5728</offset>
+<doc f='codebrowser/code/game/g_local.h' l='286'>// total number of hits</doc>
+<use f='codebrowser/code/game/g_arenas.c' l='80' u='r' c='UpdateTournamentInfo'/>
+<use f='codebrowser/code/game/g_client.c' l='1113' u='r' c='ClientSpawn'/>
+<use f='codebrowser/code/game/g_client.c' l='1126' u='w' c='ClientSpawn'/>
+<use f='codebrowser/code/game/g_cmds.c' l='67' u='r' c='DeathmatchScoreboardMessage'/>
+<use f='codebrowser/code/game/g_missile.c' l='88' u='w' c='G_ExplodeMissile'/>
+<use f='codebrowser/code/game/g_missile.c' l='314' u='w' c='G_MissileImpact'/>
+<use f='codebrowser/code/game/g_missile.c' l='435' u='w' c='G_MissileImpact'/>
+<use f='codebrowser/code/game/g_weapon.c' l='203' u='w' c='Bullet_Fire'/>
+<use f='codebrowser/code/game/g_weapon.c' l='349' u='w' c='ShotgunPattern'/>
+<use f='codebrowser/code/game/g_weapon.c' l='560' u='w' c='weapon_railgun_fire'/>
+<use f='codebrowser/code/game/g_weapon.c' l='682' u='w' c='Weapon_LightningFire'/>

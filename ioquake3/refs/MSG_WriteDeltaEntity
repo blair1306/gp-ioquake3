@@ -1,0 +1,18 @@
+<dec f='codebrowser/code/qcommon/qcommon.h' l='101' type='void MSG_WriteDeltaEntity(msg_t * msg, struct entityState_s * from, struct entityState_s * to, qboolean force)'/>
+<use f='codebrowser/code/client/cl_main.c' l='799' u='c' c='CL_Record_f'/>
+<def f='codebrowser/code/qcommon/msg.c' l='855' ll='958' type='void MSG_WriteDeltaEntity(msg_t * msg, struct entityState_s * from, struct entityState_s * to, qboolean force)'/>
+<doc f='codebrowser/code/qcommon/msg.c' l='844'>/*
+==================
+MSG_WriteDeltaEntity
+
+Writes part of a packetentities message, including the entity number.
+Can delta from either a baseline or a previous packet_entity
+If to is NULL, a remove entity update will be sent
+If force is not set, then nothing at all will be generated if the entity is
+identical, under the assumption that the in-order delta code will catch it.
+==================
+*/</doc>
+<use f='codebrowser/code/server/sv_client.c' l='764' u='c' c='SV_SendClientGameState'/>
+<use f='codebrowser/code/server/sv_snapshot.c' l='91' u='c' c='SV_EmitPacketEntities'/>
+<use f='codebrowser/code/server/sv_snapshot.c' l='99' u='c' c='SV_EmitPacketEntities'/>
+<use f='codebrowser/code/server/sv_snapshot.c' l='106' u='c' c='SV_EmitPacketEntities'/>

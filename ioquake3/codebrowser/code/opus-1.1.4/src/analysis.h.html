@@ -1,0 +1,121 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>analysis.h source code [codebrowser/code/opus-1.1.4/src/analysis.h] - Woboq Code Browser</title>
+<link rel="stylesheet" href="../../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'codebrowser/code/opus-1.1.4/src/analysis.h'; var root_path = '../../../..'; var data_path = '../../../../../data';</script>
+<script src='../../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../../..'>codebrowser</a>/<a href='../..'>code</a>/<a href='..'>opus-1.1.4</a>/<a href='./'>src</a>/<a href='analysis.h.html'>analysis.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/* Copyright (c) 2011 Xiph.Org Foundation</i></td></tr>
+<tr><th id="2">2</th><td><i>   Written by Jean-Marc Valin */</i></td></tr>
+<tr><th id="3">3</th><td><i>/*</i></td></tr>
+<tr><th id="4">4</th><td><i>   Redistribution and use in source and binary forms, with or without</i></td></tr>
+<tr><th id="5">5</th><td><i>   modification, are permitted provided that the following conditions</i></td></tr>
+<tr><th id="6">6</th><td><i>   are met:</i></td></tr>
+<tr><th id="7">7</th><td><i></i></td></tr>
+<tr><th id="8">8</th><td><i>   - Redistributions of source code must retain the above copyright</i></td></tr>
+<tr><th id="9">9</th><td><i>   notice, this list of conditions and the following disclaimer.</i></td></tr>
+<tr><th id="10">10</th><td><i></i></td></tr>
+<tr><th id="11">11</th><td><i>   - Redistributions in binary form must reproduce the above copyright</i></td></tr>
+<tr><th id="12">12</th><td><i>   notice, this list of conditions and the following disclaimer in the</i></td></tr>
+<tr><th id="13">13</th><td><i>   documentation and/or other materials provided with the distribution.</i></td></tr>
+<tr><th id="14">14</th><td><i></i></td></tr>
+<tr><th id="15">15</th><td><i>   THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS</i></td></tr>
+<tr><th id="16">16</th><td><i>   ``AS IS'' AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT</i></td></tr>
+<tr><th id="17">17</th><td><i>   LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR</i></td></tr>
+<tr><th id="18">18</th><td><i>   A PARTICULAR PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL THE FOUNDATION OR</i></td></tr>
+<tr><th id="19">19</th><td><i>   CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,</i></td></tr>
+<tr><th id="20">20</th><td><i>   EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,</i></td></tr>
+<tr><th id="21">21</th><td><i>   PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR</i></td></tr>
+<tr><th id="22">22</th><td><i>   PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF</i></td></tr>
+<tr><th id="23">23</th><td><i>   LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING</i></td></tr>
+<tr><th id="24">24</th><td><i>   NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS</i></td></tr>
+<tr><th id="25">25</th><td><i>   SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</i></td></tr>
+<tr><th id="26">26</th><td><i>*/</i></td></tr>
+<tr><th id="27">27</th><td></td></tr>
+<tr><th id="28">28</th><td><u>#<span data-ppcond="28">ifndef</span> <span class="macro" data-ref="_M/ANALYSIS_H">ANALYSIS_H</span></u></td></tr>
+<tr><th id="29">29</th><td><u>#define <dfn class="macro" id="_M/ANALYSIS_H" data-ref="_M/ANALYSIS_H">ANALYSIS_H</dfn></u></td></tr>
+<tr><th id="30">30</th><td></td></tr>
+<tr><th id="31">31</th><td><u>#include <a href="../celt/celt.h.html">"celt.h"</a></u></td></tr>
+<tr><th id="32">32</th><td><u>#include <a href="opus_private.h.html">"opus_private.h"</a></u></td></tr>
+<tr><th id="33">33</th><td></td></tr>
+<tr><th id="34">34</th><td><u>#define <dfn class="macro" id="_M/NB_FRAMES" data-ref="_M/NB_FRAMES">NB_FRAMES</dfn> 8</u></td></tr>
+<tr><th id="35">35</th><td><u>#define <dfn class="macro" id="_M/NB_TBANDS" data-ref="_M/NB_TBANDS">NB_TBANDS</dfn> 18</u></td></tr>
+<tr><th id="36">36</th><td><u>#define <dfn class="macro" id="_M/NB_TOT_BANDS" data-ref="_M/NB_TOT_BANDS">NB_TOT_BANDS</dfn> 21</u></td></tr>
+<tr><th id="37">37</th><td><u>#define <dfn class="macro" id="_M/ANALYSIS_BUF_SIZE" data-ref="_M/ANALYSIS_BUF_SIZE">ANALYSIS_BUF_SIZE</dfn> 720 /* 15 ms at 48 kHz */</u></td></tr>
+<tr><th id="38">38</th><td></td></tr>
+<tr><th id="39">39</th><td><u>#define <dfn class="macro" id="_M/DETECT_SIZE" data-ref="_M/DETECT_SIZE">DETECT_SIZE</dfn> 200</u></td></tr>
+<tr><th id="40">40</th><td></td></tr>
+<tr><th id="41">41</th><td><b>typedef</b> <b>struct</b> {</td></tr>
+<tr><th id="42">42</th><td>   <em>int</em> <dfn class="decl" id="(anonymous)::arch" title='(anonymous struct)::arch' data-ref="(anonymous)::arch">arch</dfn>;</td></tr>
+<tr><th id="43">43</th><td><u>#define <dfn class="macro" id="_M/TONALITY_ANALYSIS_RESET_START" data-ref="_M/TONALITY_ANALYSIS_RESET_START">TONALITY_ANALYSIS_RESET_START</dfn> angle</u></td></tr>
+<tr><th id="44">44</th><td>   <em>float</em> <dfn class="decl" id="(anonymous)::angle" title='(anonymous struct)::angle' data-ref="(anonymous)::angle">angle</dfn>[<var>240</var>];</td></tr>
+<tr><th id="45">45</th><td>   <em>float</em> <dfn class="decl" id="(anonymous)::d_angle" title='(anonymous struct)::d_angle' data-ref="(anonymous)::d_angle">d_angle</dfn>[<var>240</var>];</td></tr>
+<tr><th id="46">46</th><td>   <em>float</em> <dfn class="decl" id="(anonymous)::d2_angle" title='(anonymous struct)::d2_angle' data-ref="(anonymous)::d2_angle">d2_angle</dfn>[<var>240</var>];</td></tr>
+<tr><th id="47">47</th><td>   <a class="typedef" href="../celt/arch.h.html#opus_val32" title='opus_val32' data-type='float' data-ref="opus_val32">opus_val32</a> <dfn class="decl" id="(anonymous)::inmem" title='(anonymous struct)::inmem' data-ref="(anonymous)::inmem">inmem</dfn>[<a class="macro" href="#37" title="720" data-ref="_M/ANALYSIS_BUF_SIZE">ANALYSIS_BUF_SIZE</a>];</td></tr>
+<tr><th id="48">48</th><td>   <em>int</em>   <dfn class="decl" id="(anonymous)::mem_fill" title='(anonymous struct)::mem_fill' data-ref="(anonymous)::mem_fill">mem_fill</dfn>;                      <i>/* number of usable samples in the buffer */</i></td></tr>
+<tr><th id="49">49</th><td>   <em>float</em> <dfn class="decl" id="(anonymous)::prev_band_tonality" title='(anonymous struct)::prev_band_tonality' data-ref="(anonymous)::prev_band_tonality">prev_band_tonality</dfn>[<a class="macro" href="#35" title="18" data-ref="_M/NB_TBANDS">NB_TBANDS</a>];</td></tr>
+<tr><th id="50">50</th><td>   <em>float</em> <dfn class="decl" id="(anonymous)::prev_tonality" title='(anonymous struct)::prev_tonality' data-ref="(anonymous)::prev_tonality">prev_tonality</dfn>;</td></tr>
+<tr><th id="51">51</th><td>   <em>float</em> <dfn class="decl" id="(anonymous)::E" title='(anonymous struct)::E' data-ref="(anonymous)::E">E</dfn>[<a class="macro" href="#34" title="8" data-ref="_M/NB_FRAMES">NB_FRAMES</a>][<a class="macro" href="#35" title="18" data-ref="_M/NB_TBANDS">NB_TBANDS</a>];</td></tr>
+<tr><th id="52">52</th><td>   <em>float</em> <dfn class="decl" id="(anonymous)::lowE" title='(anonymous struct)::lowE' data-ref="(anonymous)::lowE">lowE</dfn>[<a class="macro" href="#35" title="18" data-ref="_M/NB_TBANDS">NB_TBANDS</a>];</td></tr>
+<tr><th id="53">53</th><td>   <em>float</em> <dfn class="decl" id="(anonymous)::highE" title='(anonymous struct)::highE' data-ref="(anonymous)::highE">highE</dfn>[<a class="macro" href="#35" title="18" data-ref="_M/NB_TBANDS">NB_TBANDS</a>];</td></tr>
+<tr><th id="54">54</th><td>   <em>float</em> <dfn class="decl" id="(anonymous)::meanE" title='(anonymous struct)::meanE' data-ref="(anonymous)::meanE">meanE</dfn>[<a class="macro" href="#36" title="21" data-ref="_M/NB_TOT_BANDS">NB_TOT_BANDS</a>];</td></tr>
+<tr><th id="55">55</th><td>   <em>float</em> <dfn class="decl" id="(anonymous)::mem" title='(anonymous struct)::mem' data-ref="(anonymous)::mem">mem</dfn>[<var>32</var>];</td></tr>
+<tr><th id="56">56</th><td>   <em>float</em> <dfn class="decl" id="(anonymous)::cmean" title='(anonymous struct)::cmean' data-ref="(anonymous)::cmean">cmean</dfn>[<var>8</var>];</td></tr>
+<tr><th id="57">57</th><td>   <em>float</em> <dfn class="decl" id="(anonymous)::std" title='(anonymous struct)::std' data-ref="(anonymous)::std">std</dfn>[<var>9</var>];</td></tr>
+<tr><th id="58">58</th><td>   <em>float</em> <dfn class="decl" id="(anonymous)::music_prob" title='(anonymous struct)::music_prob' data-ref="(anonymous)::music_prob">music_prob</dfn>;</td></tr>
+<tr><th id="59">59</th><td>   <em>float</em> <dfn class="decl" id="(anonymous)::Etracker" title='(anonymous struct)::Etracker' data-ref="(anonymous)::Etracker">Etracker</dfn>;</td></tr>
+<tr><th id="60">60</th><td>   <em>float</em> <dfn class="decl" id="(anonymous)::lowECount" title='(anonymous struct)::lowECount' data-ref="(anonymous)::lowECount">lowECount</dfn>;</td></tr>
+<tr><th id="61">61</th><td>   <em>int</em> <dfn class="decl" id="(anonymous)::E_count" title='(anonymous struct)::E_count' data-ref="(anonymous)::E_count">E_count</dfn>;</td></tr>
+<tr><th id="62">62</th><td>   <em>int</em> <dfn class="decl" id="(anonymous)::last_music" title='(anonymous struct)::last_music' data-ref="(anonymous)::last_music">last_music</dfn>;</td></tr>
+<tr><th id="63">63</th><td>   <em>int</em> <dfn class="decl" id="(anonymous)::last_transition" title='(anonymous struct)::last_transition' data-ref="(anonymous)::last_transition">last_transition</dfn>;</td></tr>
+<tr><th id="64">64</th><td>   <em>int</em> <dfn class="decl" id="(anonymous)::count" title='(anonymous struct)::count' data-ref="(anonymous)::count">count</dfn>;</td></tr>
+<tr><th id="65">65</th><td>   <em>float</em> <dfn class="decl" id="(anonymous)::subframe_mem" title='(anonymous struct)::subframe_mem' data-ref="(anonymous)::subframe_mem">subframe_mem</dfn>[<var>3</var>];</td></tr>
+<tr><th id="66">66</th><td>   <em>int</em> <dfn class="decl" id="(anonymous)::analysis_offset" title='(anonymous struct)::analysis_offset' data-ref="(anonymous)::analysis_offset">analysis_offset</dfn>;</td></tr>
+<tr><th id="67">67</th><td>   <i class="doc">/** Probability of having speech for time i to DETECT_SIZE-1 (and music before).</i></td></tr>
+<tr><th id="68">68</th><td><i class="doc">       pspeech[0] is the probability that all frames in the window are speech. */</i></td></tr>
+<tr><th id="69">69</th><td>   <em>float</em> <dfn class="decl" id="(anonymous)::pspeech" title='(anonymous struct)::pspeech' data-ref="(anonymous)::pspeech">pspeech</dfn>[<a class="macro" href="#39" title="200" data-ref="_M/DETECT_SIZE">DETECT_SIZE</a>];</td></tr>
+<tr><th id="70">70</th><td>   <i class="doc">/** Probability of having music for time i to DETECT_SIZE-1 (and speech before).</i></td></tr>
+<tr><th id="71">71</th><td><i class="doc">       pmusic[0] is the probability that all frames in the window are music. */</i></td></tr>
+<tr><th id="72">72</th><td>   <em>float</em> <dfn class="decl" id="(anonymous)::pmusic" title='(anonymous struct)::pmusic' data-ref="(anonymous)::pmusic">pmusic</dfn>[<a class="macro" href="#39" title="200" data-ref="_M/DETECT_SIZE">DETECT_SIZE</a>];</td></tr>
+<tr><th id="73">73</th><td>   <em>float</em> <dfn class="decl" id="(anonymous)::speech_confidence" title='(anonymous struct)::speech_confidence' data-ref="(anonymous)::speech_confidence">speech_confidence</dfn>;</td></tr>
+<tr><th id="74">74</th><td>   <em>float</em> <dfn class="decl" id="(anonymous)::music_confidence" title='(anonymous struct)::music_confidence' data-ref="(anonymous)::music_confidence">music_confidence</dfn>;</td></tr>
+<tr><th id="75">75</th><td>   <em>int</em> <dfn class="decl" id="(anonymous)::speech_confidence_count" title='(anonymous struct)::speech_confidence_count' data-ref="(anonymous)::speech_confidence_count">speech_confidence_count</dfn>;</td></tr>
+<tr><th id="76">76</th><td>   <em>int</em> <dfn class="decl" id="(anonymous)::music_confidence_count" title='(anonymous struct)::music_confidence_count' data-ref="(anonymous)::music_confidence_count">music_confidence_count</dfn>;</td></tr>
+<tr><th id="77">77</th><td>   <em>int</em> <dfn class="decl" id="(anonymous)::write_pos" title='(anonymous struct)::write_pos' data-ref="(anonymous)::write_pos">write_pos</dfn>;</td></tr>
+<tr><th id="78">78</th><td>   <em>int</em> <dfn class="decl" id="(anonymous)::read_pos" title='(anonymous struct)::read_pos' data-ref="(anonymous)::read_pos">read_pos</dfn>;</td></tr>
+<tr><th id="79">79</th><td>   <em>int</em> <dfn class="decl" id="(anonymous)::read_subframe" title='(anonymous struct)::read_subframe' data-ref="(anonymous)::read_subframe">read_subframe</dfn>;</td></tr>
+<tr><th id="80">80</th><td>   <a class="typedef" href="../celt/celt.h.html#AnalysisInfo" title='AnalysisInfo' data-type='struct AnalysisInfo' data-ref="AnalysisInfo">AnalysisInfo</a> <dfn class="decl" id="(anonymous)::info" title='(anonymous struct)::info' data-ref="(anonymous)::info">info</dfn>[<a class="macro" href="#39" title="200" data-ref="_M/DETECT_SIZE">DETECT_SIZE</a>];</td></tr>
+<tr><th id="81">81</th><td>} <dfn class="typedef" id="TonalityAnalysisState" title='TonalityAnalysisState' data-type='struct TonalityAnalysisState' data-ref="TonalityAnalysisState">TonalityAnalysisState</dfn>;</td></tr>
+<tr><th id="82">82</th><td></td></tr>
+<tr><th id="83">83</th><td><i class="doc">/** Initialize a TonalityAnalysisState struct.</i></td></tr>
+<tr><th id="84">84</th><td><i class="doc"> *</i></td></tr>
+<tr><th id="85">85</th><td><i class="doc"> * This performs some possibly slow initialization steps which should</i></td></tr>
+<tr><th id="86">86</th><td><i class="doc"> * not be repeated every analysis step. No allocated memory is retained</i></td></tr>
+<tr><th id="87">87</th><td><i class="doc"> * by the state struct, so no cleanup call is required.</i></td></tr>
+<tr><th id="88">88</th><td><i class="doc"> */</i></td></tr>
+<tr><th id="89">89</th><td><em>void</em> <a class="decl" href="analysis.c.html#tonality_analysis_init" title='tonality_analysis_init' data-ref="tonality_analysis_init" id="tonality_analysis_init">tonality_analysis_init</a>(<a class="typedef" href="#TonalityAnalysisState" title='TonalityAnalysisState' data-type='struct TonalityAnalysisState' data-ref="TonalityAnalysisState">TonalityAnalysisState</a> *<dfn class="local col7 decl" id="87analysis" title='analysis' data-type='TonalityAnalysisState *' data-ref="87analysis">analysis</dfn>);</td></tr>
+<tr><th id="90">90</th><td></td></tr>
+<tr><th id="91">91</th><td><i class="doc">/** Reset a TonalityAnalysisState stuct.</i></td></tr>
+<tr><th id="92">92</th><td><i class="doc"> *</i></td></tr>
+<tr><th id="93">93</th><td><i class="doc"> * Call this when there's a discontinuity in the data.</i></td></tr>
+<tr><th id="94">94</th><td><i class="doc"> */</i></td></tr>
+<tr><th id="95">95</th><td><em>void</em> <a class="decl" href="analysis.c.html#tonality_analysis_reset" title='tonality_analysis_reset' data-ref="tonality_analysis_reset" id="tonality_analysis_reset">tonality_analysis_reset</a>(<a class="typedef" href="#TonalityAnalysisState" title='TonalityAnalysisState' data-type='struct TonalityAnalysisState' data-ref="TonalityAnalysisState">TonalityAnalysisState</a> *<dfn class="local col8 decl" id="88analysis" title='analysis' data-type='TonalityAnalysisState *' data-ref="88analysis">analysis</dfn>);</td></tr>
+<tr><th id="96">96</th><td></td></tr>
+<tr><th id="97">97</th><td><em>void</em> <a class="decl" href="analysis.c.html#tonality_get_info" title='tonality_get_info' data-ref="tonality_get_info" id="tonality_get_info">tonality_get_info</a>(<a class="typedef" href="#TonalityAnalysisState" title='TonalityAnalysisState' data-type='struct TonalityAnalysisState' data-ref="TonalityAnalysisState">TonalityAnalysisState</a> *<dfn class="local col9 decl" id="89tonal" title='tonal' data-type='TonalityAnalysisState *' data-ref="89tonal">tonal</dfn>, <a class="typedef" href="../celt/celt.h.html#AnalysisInfo" title='AnalysisInfo' data-type='struct AnalysisInfo' data-ref="AnalysisInfo">AnalysisInfo</a> *<dfn class="local col0 decl" id="90info_out" title='info_out' data-type='AnalysisInfo *' data-ref="90info_out">info_out</dfn>, <em>int</em> <dfn class="local col1 decl" id="91len" title='len' data-type='int' data-ref="91len">len</dfn>);</td></tr>
+<tr><th id="98">98</th><td></td></tr>
+<tr><th id="99">99</th><td><em>void</em> <a class="decl" href="analysis.c.html#run_analysis" title='run_analysis' data-ref="run_analysis" id="run_analysis">run_analysis</a>(<a class="typedef" href="#TonalityAnalysisState" title='TonalityAnalysisState' data-type='struct TonalityAnalysisState' data-ref="TonalityAnalysisState">TonalityAnalysisState</a> *<dfn class="local col2 decl" id="92analysis" title='analysis' data-type='TonalityAnalysisState *' data-ref="92analysis">analysis</dfn>, <em>const</em> <a class="macro" href="../celt/celt.h.html#51" title="OpusCustomMode" data-ref="_M/CELTMode">CELTMode</a> *<dfn class="local col3 decl" id="93celt_mode" title='celt_mode' data-type='const OpusCustomMode *' data-ref="93celt_mode">celt_mode</dfn>, <em>const</em> <em>void</em> *<dfn class="local col4 decl" id="94analysis_pcm" title='analysis_pcm' data-type='const void *' data-ref="94analysis_pcm">analysis_pcm</dfn>,</td></tr>
+<tr><th id="100">100</th><td>                 <em>int</em> <dfn class="local col5 decl" id="95analysis_frame_size" title='analysis_frame_size' data-type='int' data-ref="95analysis_frame_size">analysis_frame_size</dfn>, <em>int</em> <dfn class="local col6 decl" id="96frame_size" title='frame_size' data-type='int' data-ref="96frame_size">frame_size</dfn>, <em>int</em> <dfn class="local col7 decl" id="97c1" title='c1' data-type='int' data-ref="97c1">c1</dfn>, <em>int</em> <dfn class="local col8 decl" id="98c2" title='c2' data-type='int' data-ref="98c2">c2</dfn>, <em>int</em> <dfn class="local col9 decl" id="99C" title='C' data-type='int' data-ref="99C">C</dfn>, <a class="typedef" href="../include/opus_types.h.html#opus_int32" title='opus_int32' data-type='int32_t' data-ref="opus_int32">opus_int32</a> <dfn class="local col0 decl" id="100Fs" title='Fs' data-type='opus_int32' data-ref="100Fs">Fs</dfn>,</td></tr>
+<tr><th id="101">101</th><td>                 <em>int</em> <dfn class="local col1 decl" id="101lsb_depth" title='lsb_depth' data-type='int' data-ref="101lsb_depth">lsb_depth</dfn>, <a class="typedef" href="opus_private.h.html#downmix_func" title='downmix_func' data-type='void (*)(const void *, opus_val32 *, int, int, int, int, int)' data-ref="downmix_func">downmix_func</a> <dfn class="local col2 decl" id="102downmix" title='downmix' data-type='downmix_func' data-ref="102downmix">downmix</dfn>, <a class="typedef" href="../celt/celt.h.html#AnalysisInfo" title='AnalysisInfo' data-type='struct AnalysisInfo' data-ref="AnalysisInfo">AnalysisInfo</a> *<dfn class="local col3 decl" id="103analysis_info" title='analysis_info' data-type='AnalysisInfo *' data-ref="103analysis_info">analysis_info</dfn>);</td></tr>
+<tr><th id="102">102</th><td></td></tr>
+<tr><th id="103">103</th><td><u>#<span data-ppcond="28">endif</span></u></td></tr>
+<tr><th id="104">104</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='analysis.c.html'>codebrowser/code/opus-1.1.4/src/analysis.c</a><br/>Generated on <em>2017-Aug-29</em> from project codebrowser revision <em>63e07af</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

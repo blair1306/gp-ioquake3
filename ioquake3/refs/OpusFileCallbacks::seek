@@ -1,0 +1,10 @@
+<dec f='codebrowser/code/opusfile-0.8/include/opusfile.h' l='906' type='op_seek_func'/>
+<offset>64</offset>
+<doc f='codebrowser/code/opusfile-0.8/include/opusfile.h' l='904'>/**Used to seek in the stream.
+     This may be &lt;code&gt;NULL&lt;/code&gt; if seeking is not implemented.*/</doc>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='159' u='r' c='op_seek_helper'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='160' u='r' c='op_seek_helper'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='1393' u='r' c='op_open_seekable2_impl'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='1457' u='r' c='op_open_seekable2'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='1529' u='r' c='op_open1'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='1529' u='r' c='op_open1'/>

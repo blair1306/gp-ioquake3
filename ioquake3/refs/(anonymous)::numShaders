@@ -1,0 +1,56 @@
+<dec f='codebrowser/code/qcommon/qfiles.h' l='126' type='int'/>
+<offset>608</offset>
+<doc f='codebrowser/code/qcommon/qfiles.h' l='126'>// all surfaces in a model should have the same</doc>
+<dec f='codebrowser/code/qcommon/cm_local.h' l='85' type='int'/>
+<use f='codebrowser/code/qcommon/cm_load.c' l='104' u='w' c='CMod_LoadShaders'/>
+<use f='codebrowser/code/qcommon/cm_load.c' l='254' u='r' c='CMod_LoadBrushes'/>
+<use f='codebrowser/code/qcommon/cm_load.c' l='430' u='r' c='CMod_LoadBrushSides'/>
+<offset>512</offset>
+<dec f='codebrowser/code/renderergl1/tr_local.h' l='690' type='int'/>
+<dec f='codebrowser/code/renderergl1/tr_local.h' l='939' type='int'/>
+<offset>211072</offset>
+<doc f='codebrowser/code/renderergl1/tr_local.h' l='936'>// shader indexes from other modules will be looked up in tr.shaders[]
+	// shader indexes from drawsurfs will be looked up in sortedShaders[]
+	// lower indexed sortedShaders must be rendered first (opaque surfaces before translucent)</doc>
+<use f='codebrowser/code/renderergl1/tr_bsp.c' l='277' u='r' c='ShaderForShaderNum'/>
+<use f='codebrowser/code/renderergl1/tr_bsp.c' l='1453' u='w' c='R_LoadShaders'/>
+<use f='codebrowser/code/renderergl1/tr_mesh.c' l='375' u='r' c='R_AddMD3Surfaces'/>
+<use f='codebrowser/code/renderergl1/tr_mesh.c' l='379' u='r' c='R_AddMD3Surfaces'/>
+<use f='codebrowser/code/renderergl1/tr_model.c' l='445' u='w' c='R_LoadMD3'/>
+<use f='codebrowser/code/renderergl1/tr_model.c' l='445' u='r' c='R_LoadMD3'/>
+<use f='codebrowser/code/renderergl1/tr_model.c' l='482' u='r' c='R_LoadMD3'/>
+<use f='codebrowser/code/renderergl1/tr_shader.c' l='2010' u='r' c='SortNewShader'/>
+<use f='codebrowser/code/renderergl1/tr_shader.c' l='2013' u='r' c='SortNewShader'/>
+<use f='codebrowser/code/renderergl1/tr_shader.c' l='2040' u='r' c='GeneratePermanentShader'/>
+<use f='codebrowser/code/renderergl1/tr_shader.c' l='2055' u='r' c='GeneratePermanentShader'/>
+<use f='codebrowser/code/renderergl1/tr_shader.c' l='2056' u='r' c='GeneratePermanentShader'/>
+<use f='codebrowser/code/renderergl1/tr_shader.c' l='2058' u='r' c='GeneratePermanentShader'/>
+<use f='codebrowser/code/renderergl1/tr_shader.c' l='2059' u='r' c='GeneratePermanentShader'/>
+<use f='codebrowser/code/renderergl1/tr_shader.c' l='2061' u='w' c='GeneratePermanentShader'/>
+<use f='codebrowser/code/renderergl1/tr_shader.c' l='2864' u='r' c='R_GetShaderByHandle'/>
+<use f='codebrowser/code/renderergl1/tr_shader.c' l='2887' u='r' c='R_ShaderList_f'/>
+<use f='codebrowser/code/renderergl1/tr_shader.c' l='3105' u='w' c='CreateInternalShaders'/>
+<dec f='codebrowser/code/renderergl2/tr_local.h' l='1090' type='int'/>
+<dec f='codebrowser/code/renderergl2/tr_local.h' l='1584' type='int'/>
+<offset>947072</offset>
+<doc f='codebrowser/code/renderergl2/tr_local.h' l='1581'>// shader indexes from other modules will be looked up in tr.shaders[]
+	// shader indexes from drawsurfs will be looked up in sortedShaders[]
+	// lower indexed sortedShaders must be rendered first (opaque surfaces before translucent)</doc>
+<use f='codebrowser/code/renderergl2/tr_bsp.c' l='606' u='r' c='ShaderForShaderNum'/>
+<use f='codebrowser/code/renderergl2/tr_bsp.c' l='1972' u='w' c='R_LoadShaders'/>
+<use f='codebrowser/code/renderergl2/tr_model.c' l='482' u='w' c='R_LoadMD3'/>
+<use f='codebrowser/code/renderergl2/tr_model.c' l='482' u='r' c='R_LoadMD3'/>
+<use f='codebrowser/code/renderergl2/tr_model.c' l='527' u='r' c='R_LoadMD3'/>
+<use f='codebrowser/code/renderergl2/tr_model.c' l='528' u='r' c='R_LoadMD3'/>
+<use f='codebrowser/code/renderergl2/tr_model.c' l='531' u='r' c='R_LoadMD3'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='2716' u='r' c='SortNewShader'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='2719' u='r' c='SortNewShader'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='2746' u='r' c='GeneratePermanentShader'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='2761' u='r' c='GeneratePermanentShader'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='2762' u='r' c='GeneratePermanentShader'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='2764' u='r' c='GeneratePermanentShader'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='2765' u='r' c='GeneratePermanentShader'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='2767' u='w' c='GeneratePermanentShader'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='3576' u='r' c='R_GetShaderByHandle'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='3599' u='r' c='R_ShaderList_f'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='3818' u='w' c='CreateInternalShaders'/>

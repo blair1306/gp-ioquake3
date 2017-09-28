@@ -1,0 +1,13 @@
+<dec f='codebrowser/code/opusfile-0.8/include/opusfile.h' l='1619' type='opus_int32 op_bitrate_instant(OggOpusFile * _of)'/>
+<doc f='codebrowser/code/opusfile-0.8/include/opusfile.h' l='1608'>/**Compute the instantaneous bitrate, measured as the ratio of bits to playable
+    samples decoded since a) the last call to op_bitrate_instant(), b) the last
+    seek, or c) the start of playback, whichever was most recent.
+   This will spike somewhat after a seek or at the start/end of a chain
+    boundary, as pre-skip, pre-roll, and end-trimming causes samples to be
+    decoded but not played.
+   \param _of The \c OggOpusFile from which to retrieve the bitrate.
+   \return The bitrate, in bits per second, or a negative value on error.
+   \retval #OP_FALSE  No data has been decoded since any of the events
+                       described above.
+   \retval #OP_EINVAL The stream was only partially open.*/</doc>
+<def f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='1811' ll='1821' type='opus_int32 op_bitrate_instant(OggOpusFile * _of)'/>

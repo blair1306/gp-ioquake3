@@ -1,0 +1,11 @@
+<dec f='codebrowser/code/client/snd_local.h' l='204' type='qboolean S_LoadSound(sfx_t * sfx)'/>
+<use f='codebrowser/code/client/snd_dma.c' l='409' u='c' c='S_memoryLoad'/>
+<def f='codebrowser/code/client/snd_mem.c' l='215' ll='274' type='qboolean S_LoadSound(sfx_t * sfx)'/>
+<doc f='codebrowser/code/client/snd_mem.c' l='207'>/*
+==============
+S_LoadSound
+
+The filename may be different than sfx-&gt;name in the case
+of a forced fallback of a player specific sound
+==============
+*/</doc>

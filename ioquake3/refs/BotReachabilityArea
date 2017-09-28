@@ -1,0 +1,12 @@
+<dec f='codebrowser/code/botlib/be_ai_move.h' l='123' type='int BotReachabilityArea(vec_t * origin, int client)'/>
+<use f='codebrowser/code/botlib/be_ai_goal.c' l='1297' u='c' c='BotChooseLTGItem'/>
+<use f='codebrowser/code/botlib/be_ai_goal.c' l='1465' u='c' c='BotChooseNBGItem'/>
+<doc f='codebrowser/code/botlib/be_ai_move.h' l='122'>//returns a reachability area if the origin is in one</doc>
+<def f='codebrowser/code/botlib/be_ai_move.c' l='299' ll='357' type='int BotReachabilityArea(vec_t * origin, int client)'/>
+<doc f='codebrowser/code/botlib/be_ai_move.c' l='293'>//===========================================================================
+//
+// Parameter:			-
+// Returns:				-
+// Changes Globals:		-
+//===========================================================================</doc>
+<use f='codebrowser/code/botlib/be_interface.c' l='843' u='r' c='Init_AI_Export'/>

@@ -1,0 +1,4 @@
+<dec f='codebrowser/code/libogg-1.3.2/include/ogg/ogg.h' l='170' type='int ogg_sync_reset(ogg_sync_state * oy)'/>
+<def f='codebrowser/code/libogg-1.3.2/src/framing.c' l='937' ll='946' type='int ogg_sync_reset(ogg_sync_state * oy)'/>
+<doc f='codebrowser/code/libogg-1.3.2/src/framing.c' l='936'>/* clear things to an initial state.  Good to call, eg, before seeking */</doc>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='164' u='c' c='op_seek_helper'/>

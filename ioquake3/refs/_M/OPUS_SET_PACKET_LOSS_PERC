@@ -1,0 +1,9 @@
+<dec f='codebrowser/code/opus-1.1.4/include/opus_defines.h' l='498'/>
+<doc f='codebrowser/code/opus-1.1.4/include/opus_defines.h' l='491'>/** Configures the encoder&apos;s expected packet loss percentage.
+  * Higher values trigger progressively more loss resistant behavior in the encoder
+  * at the expense of quality at a given bitrate in the absence of packet loss, but
+  * greater quality under loss.
+  * @see OPUS_GET_PACKET_LOSS_PERC
+  * @param[in] x &lt;tt&gt;opus_int32&lt;/tt&gt;:   Loss percentage in the range 0-100, inclusive (default: 0).
+  * @hideinitializer */</doc>
+<use f='codebrowser/code/opus-1.1.4/src/opus_encoder.c' l='2276' u='c'/>

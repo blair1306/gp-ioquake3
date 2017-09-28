@@ -1,0 +1,9 @@
+<dec f='codebrowser/code/qcommon/vm_local.h' l='148' type='intptr_t (*)(intptr_t *)'/>
+<use f='codebrowser/code/qcommon/vm.c' l='352' u='r' c='VM_DllSyscall'/>
+<use f='codebrowser/code/qcommon/vm.c' l='544' u='r' c='VM_Restart'/>
+<use f='codebrowser/code/qcommon/vm.c' l='625' u='w' c='VM_Create'/>
+<use f='codebrowser/code/qcommon/vm.c' l='645' u='w' c='VM_Create'/>
+<offset>64</offset>
+<use f='codebrowser/code/qcommon/vm_interpreted.c' l='511' u='r' c='VM_CallInterpreted'/>
+<use f='codebrowser/code/qcommon/vm_interpreted.c' l='514' u='r' c='VM_CallInterpreted'/>
+<use f='codebrowser/code/qcommon/vm_x86.c' l='435' u='r' c='DoSyscall'/>

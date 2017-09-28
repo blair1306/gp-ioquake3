@@ -1,0 +1,28 @@
+<dec f='codebrowser/code/qcommon/q_shared.h' l='1155' type='int [3]'/>
+<offset>448</offset>
+<doc f='codebrowser/code/qcommon/q_shared.h' l='1155'>// add to command angles to get view direction</doc>
+<use f='codebrowser/code/client/cl_input.c' l='271' u='r' c='IN_CenterView'/>
+<use f='codebrowser/code/game/ai_main.c' l='923' u='r' c='BotUpdateInput'/>
+<use f='codebrowser/code/game/ai_main.c' l='934' u='r' c='BotUpdateInput'/>
+<use f='codebrowser/code/game/ai_main.c' l='937' u='r' c='BotUpdateInput'/>
+<use f='codebrowser/code/game/ai_main.c' l='1047' u='r' c='BotAI'/>
+<use f='codebrowser/code/game/ai_main.c' l='1066' u='r' c='BotAI'/>
+<use f='codebrowser/code/game/bg_pmove.c' l='1810' u='r' c='PM_UpdateViewAngles'/>
+<use f='codebrowser/code/game/bg_pmove.c' l='1814' u='w' c='PM_UpdateViewAngles'/>
+<use f='codebrowser/code/game/bg_pmove.c' l='1817' u='w' c='PM_UpdateViewAngles'/>
+<use f='codebrowser/code/game/g_client.c' l='519' u='w' c='SetClientViewAngle'/>
+<use f='codebrowser/code/game/g_mover.c' l='137' u='r' c='G_TryPushingEntity'/>
+<use f='codebrowser/code/game/g_mover.c' l='162' u='w' c='G_TryPushingEntity'/>
+<use f='codebrowser/code/game/g_mover.c' l='403' u='w' c='G_MoverPush'/>
+<use f='codebrowser/code/qcommon/msg.c' l='1128' u='a'/>
+<use f='codebrowser/code/qcommon/msg.c' l='1128' u='a'/>
+<use f='codebrowser/code/qcommon/msg.c' l='1137' u='a'/>
+<use f='codebrowser/code/qcommon/msg.c' l='1137' u='a'/>
+<use f='codebrowser/code/qcommon/msg.c' l='1138' u='a'/>
+<use f='codebrowser/code/qcommon/msg.c' l='1138' u='a'/>
+<use f='codebrowser/code/qcommon/msg.c' l='1128' u='a'/>
+<use f='codebrowser/code/qcommon/msg.c' l='1128' u='a'/>
+<use f='codebrowser/code/qcommon/msg.c' l='1137' u='a'/>
+<use f='codebrowser/code/qcommon/msg.c' l='1137' u='a'/>
+<use f='codebrowser/code/qcommon/msg.c' l='1138' u='a'/>
+<use f='codebrowser/code/qcommon/msg.c' l='1138' u='a'/>

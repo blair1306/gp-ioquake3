@@ -1,0 +1,293 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>sv_net_chan.c source code [codebrowser/code/server/sv_net_chan.c] - Woboq Code Browser</title>
+<link rel="stylesheet" href="../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'codebrowser/code/server/sv_net_chan.c'; var root_path = '../../..'; var data_path = '../../../../data';</script>
+<script src='../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../..'>codebrowser</a>/<a href='..'>code</a>/<a href='./'>server</a>/<a href='sv_net_chan.c.html'>sv_net_chan.c</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/*</i></td></tr>
+<tr><th id="2">2</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="3">3</th><td><i>Copyright (C) 1999-2005 Id Software, Inc.</i></td></tr>
+<tr><th id="4">4</th><td><i></i></td></tr>
+<tr><th id="5">5</th><td><i>This file is part of Quake III Arena source code.</i></td></tr>
+<tr><th id="6">6</th><td><i></i></td></tr>
+<tr><th id="7">7</th><td><i>Quake III Arena source code is free software; you can redistribute it</i></td></tr>
+<tr><th id="8">8</th><td><i>and/or modify it under the terms of the GNU General Public License as</i></td></tr>
+<tr><th id="9">9</th><td><i>published by the Free Software Foundation; either version 2 of the License,</i></td></tr>
+<tr><th id="10">10</th><td><i>or (at your option) any later version.</i></td></tr>
+<tr><th id="11">11</th><td><i></i></td></tr>
+<tr><th id="12">12</th><td><i>Quake III Arena source code is distributed in the hope that it will be</i></td></tr>
+<tr><th id="13">13</th><td><i>useful, but WITHOUT ANY WARRANTY; without even the implied warranty of</i></td></tr>
+<tr><th id="14">14</th><td><i>MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</i></td></tr>
+<tr><th id="15">15</th><td><i>GNU General Public License for more details.</i></td></tr>
+<tr><th id="16">16</th><td><i></i></td></tr>
+<tr><th id="17">17</th><td><i>You should have received a copy of the GNU General Public License</i></td></tr>
+<tr><th id="18">18</th><td><i>along with Quake III Arena source code; if not, write to the Free Software</i></td></tr>
+<tr><th id="19">19</th><td><i>Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA</i></td></tr>
+<tr><th id="20">20</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="21">21</th><td><i>*/</i></td></tr>
+<tr><th id="22">22</th><td></td></tr>
+<tr><th id="23">23</th><td><u>#include <a href="../qcommon/q_shared.h.html">"../qcommon/q_shared.h"</a></u></td></tr>
+<tr><th id="24">24</th><td><u>#include <a href="../qcommon/qcommon.h.html">"../qcommon/qcommon.h"</a></u></td></tr>
+<tr><th id="25">25</th><td><u>#include <a href="server.h.html">"server.h"</a></u></td></tr>
+<tr><th id="26">26</th><td></td></tr>
+<tr><th id="27">27</th><td><u>#<span data-ppcond="27">ifdef</span> <a class="macro" href="../qcommon/q_shared.h.html#57" data-ref="_M/LEGACY_PROTOCOL">LEGACY_PROTOCOL</a></u></td></tr>
+<tr><th id="28">28</th><td><i  data-doc="SV_Netchan_Encode">/*</i></td></tr>
+<tr><th id="29">29</th><td><i  data-doc="SV_Netchan_Encode">==============</i></td></tr>
+<tr><th id="30">30</th><td><i  data-doc="SV_Netchan_Encode">SV_Netchan_Encode</i></td></tr>
+<tr><th id="31">31</th><td><i  data-doc="SV_Netchan_Encode"></i></td></tr>
+<tr><th id="32">32</th><td><i  data-doc="SV_Netchan_Encode">	// first four bytes of the data are always:</i></td></tr>
+<tr><th id="33">33</th><td><i  data-doc="SV_Netchan_Encode">	long reliableAcknowledge;</i></td></tr>
+<tr><th id="34">34</th><td><i  data-doc="SV_Netchan_Encode"></i></td></tr>
+<tr><th id="35">35</th><td><i  data-doc="SV_Netchan_Encode">==============</i></td></tr>
+<tr><th id="36">36</th><td><i  data-doc="SV_Netchan_Encode">*/</i></td></tr>
+<tr><th id="37">37</th><td><em>static</em> <em>void</em> <dfn class="tu decl def" id="SV_Netchan_Encode" title='SV_Netchan_Encode' data-type='void SV_Netchan_Encode(client_t * client, msg_t * msg, const char * clientCommandString)' data-ref="SV_Netchan_Encode">SV_Netchan_Encode</dfn>(<a class="typedef" href="server.h.html#client_t" title='client_t' data-type='struct client_s' data-ref="client_t">client_t</a> *<dfn class="local col1 decl" id="1client" title='client' data-type='client_t *' data-ref="1client">client</dfn>, <a class="typedef" href="../qcommon/qcommon.h.html#msg_t" title='msg_t' data-type='struct msg_t' data-ref="msg_t">msg_t</a> *<dfn class="local col2 decl" id="2msg" title='msg' data-type='msg_t *' data-ref="2msg">msg</dfn>, <em>const</em> <em>char</em> *<dfn class="local col3 decl" id="3clientCommandString" title='clientCommandString' data-type='const char *' data-ref="3clientCommandString">clientCommandString</dfn>)</td></tr>
+<tr><th id="38">38</th><td>{</td></tr>
+<tr><th id="39">39</th><td>	<em>long</em> <dfn class="local col4 decl" id="4i" title='i' data-type='long' data-ref="4i">i</dfn>, <dfn class="local col5 decl" id="5index" title='index' data-type='long' data-ref="5index">index</dfn>;</td></tr>
+<tr><th id="40">40</th><td>	<a class="typedef" href="../qcommon/q_shared.h.html#byte" title='byte' data-type='unsigned char' data-ref="byte">byte</a> <dfn class="local col6 decl" id="6key" title='key' data-type='byte' data-ref="6key">key</dfn>, *<dfn class="local col7 decl" id="7string" title='string' data-type='byte *' data-ref="7string">string</dfn>;</td></tr>
+<tr><th id="41">41</th><td>	<em>int</em>	<dfn class="local col8 decl" id="8srdc" title='srdc' data-type='int' data-ref="8srdc">srdc</dfn>, <dfn class="local col9 decl" id="9sbit" title='sbit' data-type='int' data-ref="9sbit">sbit</dfn>;</td></tr>
+<tr><th id="42">42</th><td>	<a class="typedef" href="../qcommon/q_shared.h.html#qboolean" title='qboolean' data-type='enum qboolean' data-ref="qboolean">qboolean</a> <dfn class="local col0 decl" id="10soob" title='soob' data-type='qboolean' data-ref="10soob">soob</dfn>;</td></tr>
+<tr><th id="43">43</th><td></td></tr>
+<tr><th id="44">44</th><td>	<b>if</b> ( <a class="local col2 ref" href="#2msg" title='msg' data-ref="2msg">msg</a>-&gt;<a class="ref" href="../qcommon/qcommon.h.html#(anonymous)::cursize" title='(anonymous struct)::cursize' data-ref="(anonymous)::cursize">cursize</a> &lt; <a class="macro" href="../qcommon/qcommon.h.html#1220" title="4" data-ref="_M/SV_ENCODE_START">SV_ENCODE_START</a> ) {</td></tr>
+<tr><th id="45">45</th><td>		<b>return</b>;</td></tr>
+<tr><th id="46">46</th><td>	}</td></tr>
+<tr><th id="47">47</th><td></td></tr>
+<tr><th id="48">48</th><td>	<a class="local col8 ref" href="#8srdc" title='srdc' data-ref="8srdc">srdc</a> = <a class="local col2 ref" href="#2msg" title='msg' data-ref="2msg">msg</a>-&gt;<a class="ref" href="../qcommon/qcommon.h.html#(anonymous)::readcount" title='(anonymous struct)::readcount' data-ref="(anonymous)::readcount">readcount</a>;</td></tr>
+<tr><th id="49">49</th><td>	<a class="local col9 ref" href="#9sbit" title='sbit' data-ref="9sbit">sbit</a> = <a class="local col2 ref" href="#2msg" title='msg' data-ref="2msg">msg</a>-&gt;<a class="ref" href="../qcommon/qcommon.h.html#(anonymous)::bit" title='(anonymous struct)::bit' data-ref="(anonymous)::bit">bit</a>;</td></tr>
+<tr><th id="50">50</th><td>	<a class="local col0 ref" href="#10soob" title='soob' data-ref="10soob">soob</a> = <a class="local col2 ref" href="#2msg" title='msg' data-ref="2msg">msg</a>-&gt;<a class="ref" href="../qcommon/qcommon.h.html#(anonymous)::oob" title='(anonymous struct)::oob' data-ref="(anonymous)::oob">oob</a>;</td></tr>
+<tr><th id="51">51</th><td></td></tr>
+<tr><th id="52">52</th><td>	<a class="local col2 ref" href="#2msg" title='msg' data-ref="2msg">msg</a>-&gt;<a class="ref" href="../qcommon/qcommon.h.html#(anonymous)::bit" title='(anonymous struct)::bit' data-ref="(anonymous)::bit">bit</a> = <var>0</var>;</td></tr>
+<tr><th id="53">53</th><td>	<a class="local col2 ref" href="#2msg" title='msg' data-ref="2msg">msg</a>-&gt;<a class="ref" href="../qcommon/qcommon.h.html#(anonymous)::readcount" title='(anonymous struct)::readcount' data-ref="(anonymous)::readcount">readcount</a> = <var>0</var>;</td></tr>
+<tr><th id="54">54</th><td>	<a class="local col2 ref" href="#2msg" title='msg' data-ref="2msg">msg</a>-&gt;<a class="ref" href="../qcommon/qcommon.h.html#(anonymous)::oob" title='(anonymous struct)::oob' data-ref="(anonymous)::oob">oob</a> = <a class="enum" href="../qcommon/q_shared.h.html#qfalse" title='qfalse' data-ref="qfalse">qfalse</a>;</td></tr>
+<tr><th id="55">55</th><td></td></tr>
+<tr><th id="56">56</th><td>	<i>/* reliableAcknowledge = */</i> <a class="ref" href="../qcommon/qcommon.h.html#MSG_ReadLong" title='MSG_ReadLong' data-ref="MSG_ReadLong">MSG_ReadLong</a>(<a class="local col2 ref" href="#2msg" title='msg' data-ref="2msg">msg</a>);</td></tr>
+<tr><th id="57">57</th><td></td></tr>
+<tr><th id="58">58</th><td>	<a class="local col2 ref" href="#2msg" title='msg' data-ref="2msg">msg</a>-&gt;<a class="ref" href="../qcommon/qcommon.h.html#(anonymous)::oob" title='(anonymous struct)::oob' data-ref="(anonymous)::oob">oob</a> = <a class="local col0 ref" href="#10soob" title='soob' data-ref="10soob">soob</a>;</td></tr>
+<tr><th id="59">59</th><td>	<a class="local col2 ref" href="#2msg" title='msg' data-ref="2msg">msg</a>-&gt;<a class="ref" href="../qcommon/qcommon.h.html#(anonymous)::bit" title='(anonymous struct)::bit' data-ref="(anonymous)::bit">bit</a> = <a class="local col9 ref" href="#9sbit" title='sbit' data-ref="9sbit">sbit</a>;</td></tr>
+<tr><th id="60">60</th><td>	<a class="local col2 ref" href="#2msg" title='msg' data-ref="2msg">msg</a>-&gt;<a class="ref" href="../qcommon/qcommon.h.html#(anonymous)::readcount" title='(anonymous struct)::readcount' data-ref="(anonymous)::readcount">readcount</a> = <a class="local col8 ref" href="#8srdc" title='srdc' data-ref="8srdc">srdc</a>;</td></tr>
+<tr><th id="61">61</th><td></td></tr>
+<tr><th id="62">62</th><td>	<a class="local col7 ref" href="#7string" title='string' data-ref="7string">string</a> = (<a class="typedef" href="../qcommon/q_shared.h.html#byte" title='byte' data-type='unsigned char' data-ref="byte">byte</a> *) <a class="local col3 ref" href="#3clientCommandString" title='clientCommandString' data-ref="3clientCommandString">clientCommandString</a>;</td></tr>
+<tr><th id="63">63</th><td>	<a class="local col5 ref" href="#5index" title='index' data-ref="5index">index</a> = <var>0</var>;</td></tr>
+<tr><th id="64">64</th><td>	<i>// xor the client challenge with the netchan sequence number</i></td></tr>
+<tr><th id="65">65</th><td>	<a class="local col6 ref" href="#6key" title='key' data-ref="6key">key</a> = <a class="local col1 ref" href="#1client" title='client' data-ref="1client">client</a>-&gt;<a class="ref" href="server.h.html#client_s::challenge" title='client_s::challenge' data-ref="client_s::challenge">challenge</a> ^ <a class="local col1 ref" href="#1client" title='client' data-ref="1client">client</a>-&gt;<a class="ref" href="server.h.html#client_s::netchan" title='client_s::netchan' data-ref="client_s::netchan">netchan</a>.<a class="ref" href="../qcommon/qcommon.h.html#(anonymous)::outgoingSequence" title='(anonymous struct)::outgoingSequence' data-ref="(anonymous)::outgoingSequence">outgoingSequence</a>;</td></tr>
+<tr><th id="66">66</th><td>	<b>for</b> (<a class="local col4 ref" href="#4i" title='i' data-ref="4i">i</a> = <a class="macro" href="../qcommon/qcommon.h.html#1220" title="4" data-ref="_M/SV_ENCODE_START">SV_ENCODE_START</a>; <a class="local col4 ref" href="#4i" title='i' data-ref="4i">i</a> &lt; <a class="local col2 ref" href="#2msg" title='msg' data-ref="2msg">msg</a>-&gt;<a class="ref" href="../qcommon/qcommon.h.html#(anonymous)::cursize" title='(anonymous struct)::cursize' data-ref="(anonymous)::cursize">cursize</a>; <a class="local col4 ref" href="#4i" title='i' data-ref="4i">i</a>++) {</td></tr>
+<tr><th id="67">67</th><td>		<i>// modify the key with the last received and with this message acknowledged client command</i></td></tr>
+<tr><th id="68">68</th><td>		<b>if</b> (!<a class="local col7 ref" href="#7string" title='string' data-ref="7string">string</a>[<a class="local col5 ref" href="#5index" title='index' data-ref="5index">index</a>])</td></tr>
+<tr><th id="69">69</th><td>			<a class="local col5 ref" href="#5index" title='index' data-ref="5index">index</a> = <var>0</var>;</td></tr>
+<tr><th id="70">70</th><td>		<b>if</b> (<a class="local col7 ref" href="#7string" title='string' data-ref="7string">string</a>[<a class="local col5 ref" href="#5index" title='index' data-ref="5index">index</a>] &gt; <var>127</var> || <a class="local col7 ref" href="#7string" title='string' data-ref="7string">string</a>[<a class="local col5 ref" href="#5index" title='index' data-ref="5index">index</a>] == <kbd>'%'</kbd>) {</td></tr>
+<tr><th id="71">71</th><td>			<a class="local col6 ref" href="#6key" title='key' data-ref="6key">key</a> ^= <kbd>'.'</kbd> &lt;&lt; (<a class="local col4 ref" href="#4i" title='i' data-ref="4i">i</a> &amp; <var>1</var>);</td></tr>
+<tr><th id="72">72</th><td>		}</td></tr>
+<tr><th id="73">73</th><td>		<b>else</b> {</td></tr>
+<tr><th id="74">74</th><td>			<a class="local col6 ref" href="#6key" title='key' data-ref="6key">key</a> ^= <a class="local col7 ref" href="#7string" title='string' data-ref="7string">string</a>[<a class="local col5 ref" href="#5index" title='index' data-ref="5index">index</a>] &lt;&lt; (<a class="local col4 ref" href="#4i" title='i' data-ref="4i">i</a> &amp; <var>1</var>);</td></tr>
+<tr><th id="75">75</th><td>		}</td></tr>
+<tr><th id="76">76</th><td>		<a class="local col5 ref" href="#5index" title='index' data-ref="5index">index</a>++;</td></tr>
+<tr><th id="77">77</th><td>		<i>// encode the data with this key</i></td></tr>
+<tr><th id="78">78</th><td>		*(<a class="local col2 ref" href="#2msg" title='msg' data-ref="2msg">msg</a>-&gt;<a class="ref" href="../qcommon/qcommon.h.html#(anonymous)::data" title='(anonymous struct)::data' data-ref="(anonymous)::data">data</a> + <a class="local col4 ref" href="#4i" title='i' data-ref="4i">i</a>) = *(<a class="local col2 ref" href="#2msg" title='msg' data-ref="2msg">msg</a>-&gt;<a class="ref" href="../qcommon/qcommon.h.html#(anonymous)::data" title='(anonymous struct)::data' data-ref="(anonymous)::data">data</a> + <a class="local col4 ref" href="#4i" title='i' data-ref="4i">i</a>) ^ <a class="local col6 ref" href="#6key" title='key' data-ref="6key">key</a>;</td></tr>
+<tr><th id="79">79</th><td>	}</td></tr>
+<tr><th id="80">80</th><td>}</td></tr>
+<tr><th id="81">81</th><td></td></tr>
+<tr><th id="82">82</th><td><i  data-doc="SV_Netchan_Decode">/*</i></td></tr>
+<tr><th id="83">83</th><td><i  data-doc="SV_Netchan_Decode">==============</i></td></tr>
+<tr><th id="84">84</th><td><i  data-doc="SV_Netchan_Decode">SV_Netchan_Decode</i></td></tr>
+<tr><th id="85">85</th><td><i  data-doc="SV_Netchan_Decode"></i></td></tr>
+<tr><th id="86">86</th><td><i  data-doc="SV_Netchan_Decode">	// first 12 bytes of the data are always:</i></td></tr>
+<tr><th id="87">87</th><td><i  data-doc="SV_Netchan_Decode">	long serverId;</i></td></tr>
+<tr><th id="88">88</th><td><i  data-doc="SV_Netchan_Decode">	long messageAcknowledge;</i></td></tr>
+<tr><th id="89">89</th><td><i  data-doc="SV_Netchan_Decode">	long reliableAcknowledge;</i></td></tr>
+<tr><th id="90">90</th><td><i  data-doc="SV_Netchan_Decode"></i></td></tr>
+<tr><th id="91">91</th><td><i  data-doc="SV_Netchan_Decode">==============</i></td></tr>
+<tr><th id="92">92</th><td><i  data-doc="SV_Netchan_Decode">*/</i></td></tr>
+<tr><th id="93">93</th><td><em>static</em> <em>void</em> <dfn class="tu decl def" id="SV_Netchan_Decode" title='SV_Netchan_Decode' data-type='void SV_Netchan_Decode(client_t * client, msg_t * msg)' data-ref="SV_Netchan_Decode">SV_Netchan_Decode</dfn>( <a class="typedef" href="server.h.html#client_t" title='client_t' data-type='struct client_s' data-ref="client_t">client_t</a> *<dfn class="local col1 decl" id="11client" title='client' data-type='client_t *' data-ref="11client">client</dfn>, <a class="typedef" href="../qcommon/qcommon.h.html#msg_t" title='msg_t' data-type='struct msg_t' data-ref="msg_t">msg_t</a> *<dfn class="local col2 decl" id="12msg" title='msg' data-type='msg_t *' data-ref="12msg">msg</dfn> ) {</td></tr>
+<tr><th id="94">94</th><td>	<em>int</em> <dfn class="local col3 decl" id="13serverId" title='serverId' data-type='int' data-ref="13serverId">serverId</dfn>, <dfn class="local col4 decl" id="14messageAcknowledge" title='messageAcknowledge' data-type='int' data-ref="14messageAcknowledge">messageAcknowledge</dfn>, <dfn class="local col5 decl" id="15reliableAcknowledge" title='reliableAcknowledge' data-type='int' data-ref="15reliableAcknowledge">reliableAcknowledge</dfn>;</td></tr>
+<tr><th id="95">95</th><td>	<em>int</em> <dfn class="local col6 decl" id="16i" title='i' data-type='int' data-ref="16i">i</dfn>, <dfn class="local col7 decl" id="17index" title='index' data-type='int' data-ref="17index">index</dfn>, <dfn class="local col8 decl" id="18srdc" title='srdc' data-type='int' data-ref="18srdc">srdc</dfn>, <dfn class="local col9 decl" id="19sbit" title='sbit' data-type='int' data-ref="19sbit">sbit</dfn>;</td></tr>
+<tr><th id="96">96</th><td>	<a class="typedef" href="../qcommon/q_shared.h.html#qboolean" title='qboolean' data-type='enum qboolean' data-ref="qboolean">qboolean</a> <dfn class="local col0 decl" id="20soob" title='soob' data-type='qboolean' data-ref="20soob">soob</dfn>;</td></tr>
+<tr><th id="97">97</th><td>	<a class="typedef" href="../qcommon/q_shared.h.html#byte" title='byte' data-type='unsigned char' data-ref="byte">byte</a> <dfn class="local col1 decl" id="21key" title='key' data-type='byte' data-ref="21key">key</dfn>, *<dfn class="local col2 decl" id="22string" title='string' data-type='byte *' data-ref="22string">string</dfn>;</td></tr>
+<tr><th id="98">98</th><td></td></tr>
+<tr><th id="99">99</th><td>	<a class="local col8 ref" href="#18srdc" title='srdc' data-ref="18srdc">srdc</a> = <a class="local col2 ref" href="#12msg" title='msg' data-ref="12msg">msg</a>-&gt;<a class="ref" href="../qcommon/qcommon.h.html#(anonymous)::readcount" title='(anonymous struct)::readcount' data-ref="(anonymous)::readcount">readcount</a>;</td></tr>
+<tr><th id="100">100</th><td>	<a class="local col9 ref" href="#19sbit" title='sbit' data-ref="19sbit">sbit</a> = <a class="local col2 ref" href="#12msg" title='msg' data-ref="12msg">msg</a>-&gt;<a class="ref" href="../qcommon/qcommon.h.html#(anonymous)::bit" title='(anonymous struct)::bit' data-ref="(anonymous)::bit">bit</a>;</td></tr>
+<tr><th id="101">101</th><td>	<a class="local col0 ref" href="#20soob" title='soob' data-ref="20soob">soob</a> = <a class="local col2 ref" href="#12msg" title='msg' data-ref="12msg">msg</a>-&gt;<a class="ref" href="../qcommon/qcommon.h.html#(anonymous)::oob" title='(anonymous struct)::oob' data-ref="(anonymous)::oob">oob</a>;</td></tr>
+<tr><th id="102">102</th><td></td></tr>
+<tr><th id="103">103</th><td>	<a class="local col2 ref" href="#12msg" title='msg' data-ref="12msg">msg</a>-&gt;<a class="ref" href="../qcommon/qcommon.h.html#(anonymous)::oob" title='(anonymous struct)::oob' data-ref="(anonymous)::oob">oob</a> = <a class="enum" href="../qcommon/q_shared.h.html#qfalse" title='qfalse' data-ref="qfalse">qfalse</a>;</td></tr>
+<tr><th id="104">104</th><td></td></tr>
+<tr><th id="105">105</th><td>	<a class="local col3 ref" href="#13serverId" title='serverId' data-ref="13serverId">serverId</a> = <a class="ref" href="../qcommon/qcommon.h.html#MSG_ReadLong" title='MSG_ReadLong' data-ref="MSG_ReadLong">MSG_ReadLong</a>(<a class="local col2 ref" href="#12msg" title='msg' data-ref="12msg">msg</a>);</td></tr>
+<tr><th id="106">106</th><td>	<a class="local col4 ref" href="#14messageAcknowledge" title='messageAcknowledge' data-ref="14messageAcknowledge">messageAcknowledge</a> = <a class="ref" href="../qcommon/qcommon.h.html#MSG_ReadLong" title='MSG_ReadLong' data-ref="MSG_ReadLong">MSG_ReadLong</a>(<a class="local col2 ref" href="#12msg" title='msg' data-ref="12msg">msg</a>);</td></tr>
+<tr><th id="107">107</th><td>	<a class="local col5 ref" href="#15reliableAcknowledge" title='reliableAcknowledge' data-ref="15reliableAcknowledge">reliableAcknowledge</a> = <a class="ref" href="../qcommon/qcommon.h.html#MSG_ReadLong" title='MSG_ReadLong' data-ref="MSG_ReadLong">MSG_ReadLong</a>(<a class="local col2 ref" href="#12msg" title='msg' data-ref="12msg">msg</a>);</td></tr>
+<tr><th id="108">108</th><td></td></tr>
+<tr><th id="109">109</th><td>	<a class="local col2 ref" href="#12msg" title='msg' data-ref="12msg">msg</a>-&gt;<a class="ref" href="../qcommon/qcommon.h.html#(anonymous)::oob" title='(anonymous struct)::oob' data-ref="(anonymous)::oob">oob</a> = <a class="local col0 ref" href="#20soob" title='soob' data-ref="20soob">soob</a>;</td></tr>
+<tr><th id="110">110</th><td>	<a class="local col2 ref" href="#12msg" title='msg' data-ref="12msg">msg</a>-&gt;<a class="ref" href="../qcommon/qcommon.h.html#(anonymous)::bit" title='(anonymous struct)::bit' data-ref="(anonymous)::bit">bit</a> = <a class="local col9 ref" href="#19sbit" title='sbit' data-ref="19sbit">sbit</a>;</td></tr>
+<tr><th id="111">111</th><td>	<a class="local col2 ref" href="#12msg" title='msg' data-ref="12msg">msg</a>-&gt;<a class="ref" href="../qcommon/qcommon.h.html#(anonymous)::readcount" title='(anonymous struct)::readcount' data-ref="(anonymous)::readcount">readcount</a> = <a class="local col8 ref" href="#18srdc" title='srdc' data-ref="18srdc">srdc</a>;</td></tr>
+<tr><th id="112">112</th><td></td></tr>
+<tr><th id="113">113</th><td>	<a class="local col2 ref" href="#22string" title='string' data-ref="22string">string</a> = (<a class="typedef" href="../qcommon/q_shared.h.html#byte" title='byte' data-type='unsigned char' data-ref="byte">byte</a> *)<a class="local col1 ref" href="#11client" title='client' data-ref="11client">client</a>-&gt;<a class="ref" href="server.h.html#client_s::reliableCommands" title='client_s::reliableCommands' data-ref="client_s::reliableCommands">reliableCommands</a>[ <a class="local col5 ref" href="#15reliableAcknowledge" title='reliableAcknowledge' data-ref="15reliableAcknowledge">reliableAcknowledge</a> &amp; (<a class="macro" href="../qcommon/qcommon.h.html#140" title="64" data-ref="_M/MAX_RELIABLE_COMMANDS">MAX_RELIABLE_COMMANDS</a>-<var>1</var>) ];</td></tr>
+<tr><th id="114">114</th><td>	<a class="local col7 ref" href="#17index" title='index' data-ref="17index">index</a> = <var>0</var>;</td></tr>
+<tr><th id="115">115</th><td>	<i>//</i></td></tr>
+<tr><th id="116">116</th><td>	<a class="local col1 ref" href="#21key" title='key' data-ref="21key">key</a> = <a class="local col1 ref" href="#11client" title='client' data-ref="11client">client</a>-&gt;<a class="ref" href="server.h.html#client_s::challenge" title='client_s::challenge' data-ref="client_s::challenge">challenge</a> ^ <a class="local col3 ref" href="#13serverId" title='serverId' data-ref="13serverId">serverId</a> ^ <a class="local col4 ref" href="#14messageAcknowledge" title='messageAcknowledge' data-ref="14messageAcknowledge">messageAcknowledge</a>;</td></tr>
+<tr><th id="117">117</th><td>	<b>for</b> (<a class="local col6 ref" href="#16i" title='i' data-ref="16i">i</a> = <a class="local col2 ref" href="#12msg" title='msg' data-ref="12msg">msg</a>-&gt;<a class="ref" href="../qcommon/qcommon.h.html#(anonymous)::readcount" title='(anonymous struct)::readcount' data-ref="(anonymous)::readcount">readcount</a> + <a class="macro" href="../qcommon/qcommon.h.html#1221" title="12" data-ref="_M/SV_DECODE_START">SV_DECODE_START</a>; <a class="local col6 ref" href="#16i" title='i' data-ref="16i">i</a> &lt; <a class="local col2 ref" href="#12msg" title='msg' data-ref="12msg">msg</a>-&gt;<a class="ref" href="../qcommon/qcommon.h.html#(anonymous)::cursize" title='(anonymous struct)::cursize' data-ref="(anonymous)::cursize">cursize</a>; <a class="local col6 ref" href="#16i" title='i' data-ref="16i">i</a>++) {</td></tr>
+<tr><th id="118">118</th><td>		<i>// modify the key with the last sent and acknowledged server command</i></td></tr>
+<tr><th id="119">119</th><td>		<b>if</b> (!<a class="local col2 ref" href="#22string" title='string' data-ref="22string">string</a>[<a class="local col7 ref" href="#17index" title='index' data-ref="17index">index</a>])</td></tr>
+<tr><th id="120">120</th><td>			<a class="local col7 ref" href="#17index" title='index' data-ref="17index">index</a> = <var>0</var>;</td></tr>
+<tr><th id="121">121</th><td>		<b>if</b> (<a class="local col2 ref" href="#22string" title='string' data-ref="22string">string</a>[<a class="local col7 ref" href="#17index" title='index' data-ref="17index">index</a>] &gt; <var>127</var> || <a class="local col2 ref" href="#22string" title='string' data-ref="22string">string</a>[<a class="local col7 ref" href="#17index" title='index' data-ref="17index">index</a>] == <kbd>'%'</kbd>) {</td></tr>
+<tr><th id="122">122</th><td>			<a class="local col1 ref" href="#21key" title='key' data-ref="21key">key</a> ^= <kbd>'.'</kbd> &lt;&lt; (<a class="local col6 ref" href="#16i" title='i' data-ref="16i">i</a> &amp; <var>1</var>);</td></tr>
+<tr><th id="123">123</th><td>		}</td></tr>
+<tr><th id="124">124</th><td>		<b>else</b> {</td></tr>
+<tr><th id="125">125</th><td>			<a class="local col1 ref" href="#21key" title='key' data-ref="21key">key</a> ^= <a class="local col2 ref" href="#22string" title='string' data-ref="22string">string</a>[<a class="local col7 ref" href="#17index" title='index' data-ref="17index">index</a>] &lt;&lt; (<a class="local col6 ref" href="#16i" title='i' data-ref="16i">i</a> &amp; <var>1</var>);</td></tr>
+<tr><th id="126">126</th><td>		}</td></tr>
+<tr><th id="127">127</th><td>		<a class="local col7 ref" href="#17index" title='index' data-ref="17index">index</a>++;</td></tr>
+<tr><th id="128">128</th><td>		<i>// decode the data with this key</i></td></tr>
+<tr><th id="129">129</th><td>		*(<a class="local col2 ref" href="#12msg" title='msg' data-ref="12msg">msg</a>-&gt;<a class="ref" href="../qcommon/qcommon.h.html#(anonymous)::data" title='(anonymous struct)::data' data-ref="(anonymous)::data">data</a> + <a class="local col6 ref" href="#16i" title='i' data-ref="16i">i</a>) = *(<a class="local col2 ref" href="#12msg" title='msg' data-ref="12msg">msg</a>-&gt;<a class="ref" href="../qcommon/qcommon.h.html#(anonymous)::data" title='(anonymous struct)::data' data-ref="(anonymous)::data">data</a> + <a class="local col6 ref" href="#16i" title='i' data-ref="16i">i</a>) ^ <a class="local col1 ref" href="#21key" title='key' data-ref="21key">key</a>;</td></tr>
+<tr><th id="130">130</th><td>	}</td></tr>
+<tr><th id="131">131</th><td>}</td></tr>
+<tr><th id="132">132</th><td><u>#<span data-ppcond="27">endif</span></u></td></tr>
+<tr><th id="133">133</th><td></td></tr>
+<tr><th id="134">134</th><td></td></tr>
+<tr><th id="135">135</th><td></td></tr>
+<tr><th id="136">136</th><td><i>/*</i></td></tr>
+<tr><th id="137">137</th><td><i>=================</i></td></tr>
+<tr><th id="138">138</th><td><i>SV_Netchan_FreeQueue</i></td></tr>
+<tr><th id="139">139</th><td><i>=================</i></td></tr>
+<tr><th id="140">140</th><td><i>*/</i></td></tr>
+<tr><th id="141">141</th><td><em>void</em> <dfn class="decl def" id="SV_Netchan_FreeQueue" title='SV_Netchan_FreeQueue' data-ref="SV_Netchan_FreeQueue">SV_Netchan_FreeQueue</dfn>(<a class="typedef" href="server.h.html#client_t" title='client_t' data-type='struct client_s' data-ref="client_t">client_t</a> *<dfn class="local col3 decl" id="23client" title='client' data-type='client_t *' data-ref="23client">client</dfn>)</td></tr>
+<tr><th id="142">142</th><td>{</td></tr>
+<tr><th id="143">143</th><td>	<a class="typedef" href="server.h.html#netchan_buffer_t" title='netchan_buffer_t' data-type='struct netchan_buffer_s' data-ref="netchan_buffer_t">netchan_buffer_t</a> *<dfn class="local col4 decl" id="24netbuf" title='netbuf' data-type='netchan_buffer_t *' data-ref="24netbuf">netbuf</dfn>, *<dfn class="local col5 decl" id="25next" title='next' data-type='netchan_buffer_t *' data-ref="25next">next</dfn>;</td></tr>
+<tr><th id="144">144</th><td>	</td></tr>
+<tr><th id="145">145</th><td>	<b>for</b>(<a class="local col4 ref" href="#24netbuf" title='netbuf' data-ref="24netbuf">netbuf</a> = <a class="local col3 ref" href="#23client" title='client' data-ref="23client">client</a>-&gt;<a class="ref" href="server.h.html#client_s::netchan_start_queue" title='client_s::netchan_start_queue' data-ref="client_s::netchan_start_queue">netchan_start_queue</a>; <a class="local col4 ref" href="#24netbuf" title='netbuf' data-ref="24netbuf">netbuf</a>; <a class="local col4 ref" href="#24netbuf" title='netbuf' data-ref="24netbuf">netbuf</a> = <a class="local col5 ref" href="#25next" title='next' data-ref="25next">next</a>)</td></tr>
+<tr><th id="146">146</th><td>	{</td></tr>
+<tr><th id="147">147</th><td>		<a class="local col5 ref" href="#25next" title='next' data-ref="25next">next</a> = <a class="local col4 ref" href="#24netbuf" title='netbuf' data-ref="24netbuf">netbuf</a>-&gt;<a class="ref" href="server.h.html#netchan_buffer_s::next" title='netchan_buffer_s::next' data-ref="netchan_buffer_s::next">next</a>;</td></tr>
+<tr><th id="148">148</th><td>		<a class="ref" href="../qcommon/qcommon.h.html#Z_Free" title='Z_Free' data-ref="Z_Free">Z_Free</a>(<a class="local col4 ref" href="#24netbuf" title='netbuf' data-ref="24netbuf">netbuf</a>);</td></tr>
+<tr><th id="149">149</th><td>	}</td></tr>
+<tr><th id="150">150</th><td>	</td></tr>
+<tr><th id="151">151</th><td>	<a class="local col3 ref" href="#23client" title='client' data-ref="23client">client</a>-&gt;<a class="ref" href="server.h.html#client_s::netchan_start_queue" title='client_s::netchan_start_queue' data-ref="client_s::netchan_start_queue">netchan_start_queue</a> = <span class="macro" title="((void*)0)" data-ref="_M/NULL">NULL</span>;</td></tr>
+<tr><th id="152">152</th><td>	<a class="local col3 ref" href="#23client" title='client' data-ref="23client">client</a>-&gt;<a class="ref" href="server.h.html#client_s::netchan_end_queue" title='client_s::netchan_end_queue' data-ref="client_s::netchan_end_queue">netchan_end_queue</a> = &amp;<a class="local col3 ref" href="#23client" title='client' data-ref="23client">client</a>-&gt;<a class="ref" href="server.h.html#client_s::netchan_start_queue" title='client_s::netchan_start_queue' data-ref="client_s::netchan_start_queue">netchan_start_queue</a>;</td></tr>
+<tr><th id="153">153</th><td>}</td></tr>
+<tr><th id="154">154</th><td></td></tr>
+<tr><th id="155">155</th><td><i>/*</i></td></tr>
+<tr><th id="156">156</th><td><i>=================</i></td></tr>
+<tr><th id="157">157</th><td><i>SV_Netchan_TransmitNextInQueue</i></td></tr>
+<tr><th id="158">158</th><td><i>=================</i></td></tr>
+<tr><th id="159">159</th><td><i>*/</i></td></tr>
+<tr><th id="160">160</th><td><em>void</em> <dfn class="decl def" id="SV_Netchan_TransmitNextInQueue" title='SV_Netchan_TransmitNextInQueue' data-ref="SV_Netchan_TransmitNextInQueue">SV_Netchan_TransmitNextInQueue</dfn>(<a class="typedef" href="server.h.html#client_t" title='client_t' data-type='struct client_s' data-ref="client_t">client_t</a> *<dfn class="local col6 decl" id="26client" title='client' data-type='client_t *' data-ref="26client">client</dfn>)</td></tr>
+<tr><th id="161">161</th><td>{</td></tr>
+<tr><th id="162">162</th><td>	<a class="typedef" href="server.h.html#netchan_buffer_t" title='netchan_buffer_t' data-type='struct netchan_buffer_s' data-ref="netchan_buffer_t">netchan_buffer_t</a> *<dfn class="local col7 decl" id="27netbuf" title='netbuf' data-type='netchan_buffer_t *' data-ref="27netbuf">netbuf</dfn>;</td></tr>
+<tr><th id="163">163</th><td>		</td></tr>
+<tr><th id="164">164</th><td>	<a class="ref" href="../qcommon/qcommon.h.html#Com_DPrintf" title='Com_DPrintf' data-ref="Com_DPrintf">Com_DPrintf</a>(<q>"#462 Netchan_TransmitNextFragment: popping a queued message for transmit\n"</q>);</td></tr>
+<tr><th id="165">165</th><td>	<a class="local col7 ref" href="#27netbuf" title='netbuf' data-ref="27netbuf">netbuf</a> = <a class="local col6 ref" href="#26client" title='client' data-ref="26client">client</a>-&gt;<a class="ref" href="server.h.html#client_s::netchan_start_queue" title='client_s::netchan_start_queue' data-ref="client_s::netchan_start_queue">netchan_start_queue</a>;</td></tr>
+<tr><th id="166">166</th><td></td></tr>
+<tr><th id="167">167</th><td><u>#<span data-ppcond="167">ifdef</span> <a class="macro" href="../qcommon/q_shared.h.html#57" data-ref="_M/LEGACY_PROTOCOL">LEGACY_PROTOCOL</a></u></td></tr>
+<tr><th id="168">168</th><td>	<b>if</b>(<a class="local col6 ref" href="#26client" title='client' data-ref="26client">client</a>-&gt;<a class="ref" href="server.h.html#client_s::compat" title='client_s::compat' data-ref="client_s::compat">compat</a>)</td></tr>
+<tr><th id="169">169</th><td>		<a class="tu ref" href="#SV_Netchan_Encode" title='SV_Netchan_Encode' data-use='c' data-ref="SV_Netchan_Encode">SV_Netchan_Encode</a>(<a class="local col6 ref" href="#26client" title='client' data-ref="26client">client</a>, &amp;<a class="local col7 ref" href="#27netbuf" title='netbuf' data-ref="27netbuf">netbuf</a>-&gt;<a class="ref" href="server.h.html#netchan_buffer_s::msg" title='netchan_buffer_s::msg' data-ref="netchan_buffer_s::msg">msg</a>, <a class="local col7 ref" href="#27netbuf" title='netbuf' data-ref="27netbuf">netbuf</a>-&gt;<a class="ref" href="server.h.html#netchan_buffer_s::clientCommandString" title='netchan_buffer_s::clientCommandString' data-ref="netchan_buffer_s::clientCommandString">clientCommandString</a>);</td></tr>
+<tr><th id="170">170</th><td><u>#<span data-ppcond="167">endif</span></u></td></tr>
+<tr><th id="171">171</th><td></td></tr>
+<tr><th id="172">172</th><td>	<a class="ref" href="../qcommon/qcommon.h.html#Netchan_Transmit" title='Netchan_Transmit' data-ref="Netchan_Transmit">Netchan_Transmit</a>(&amp;<a class="local col6 ref" href="#26client" title='client' data-ref="26client">client</a>-&gt;<a class="ref" href="server.h.html#client_s::netchan" title='client_s::netchan' data-ref="client_s::netchan">netchan</a>, <a class="local col7 ref" href="#27netbuf" title='netbuf' data-ref="27netbuf">netbuf</a>-&gt;<a class="ref" href="server.h.html#netchan_buffer_s::msg" title='netchan_buffer_s::msg' data-ref="netchan_buffer_s::msg">msg</a>.<a class="ref" href="../qcommon/qcommon.h.html#(anonymous)::cursize" title='(anonymous struct)::cursize' data-ref="(anonymous)::cursize">cursize</a>, <a class="local col7 ref" href="#27netbuf" title='netbuf' data-ref="27netbuf">netbuf</a>-&gt;<a class="ref" href="server.h.html#netchan_buffer_s::msg" title='netchan_buffer_s::msg' data-ref="netchan_buffer_s::msg">msg</a>.<a class="ref" href="../qcommon/qcommon.h.html#(anonymous)::data" title='(anonymous struct)::data' data-ref="(anonymous)::data">data</a>);</td></tr>
+<tr><th id="173">173</th><td></td></tr>
+<tr><th id="174">174</th><td>	<i>// pop from queue</i></td></tr>
+<tr><th id="175">175</th><td>	<a class="local col6 ref" href="#26client" title='client' data-ref="26client">client</a>-&gt;<a class="ref" href="server.h.html#client_s::netchan_start_queue" title='client_s::netchan_start_queue' data-ref="client_s::netchan_start_queue">netchan_start_queue</a> = <a class="local col7 ref" href="#27netbuf" title='netbuf' data-ref="27netbuf">netbuf</a>-&gt;<a class="ref" href="server.h.html#netchan_buffer_s::next" title='netchan_buffer_s::next' data-ref="netchan_buffer_s::next">next</a>;</td></tr>
+<tr><th id="176">176</th><td>	<b>if</b>(!<a class="local col6 ref" href="#26client" title='client' data-ref="26client">client</a>-&gt;<a class="ref" href="server.h.html#client_s::netchan_start_queue" title='client_s::netchan_start_queue' data-ref="client_s::netchan_start_queue">netchan_start_queue</a>)</td></tr>
+<tr><th id="177">177</th><td>	{</td></tr>
+<tr><th id="178">178</th><td>		<a class="ref" href="../qcommon/qcommon.h.html#Com_DPrintf" title='Com_DPrintf' data-ref="Com_DPrintf">Com_DPrintf</a>(<q>"#462 Netchan_TransmitNextFragment: emptied queue\n"</q>);</td></tr>
+<tr><th id="179">179</th><td>		<a class="local col6 ref" href="#26client" title='client' data-ref="26client">client</a>-&gt;<a class="ref" href="server.h.html#client_s::netchan_end_queue" title='client_s::netchan_end_queue' data-ref="client_s::netchan_end_queue">netchan_end_queue</a> = &amp;<a class="local col6 ref" href="#26client" title='client' data-ref="26client">client</a>-&gt;<a class="ref" href="server.h.html#client_s::netchan_start_queue" title='client_s::netchan_start_queue' data-ref="client_s::netchan_start_queue">netchan_start_queue</a>;</td></tr>
+<tr><th id="180">180</th><td>	}</td></tr>
+<tr><th id="181">181</th><td>	<b>else</b></td></tr>
+<tr><th id="182">182</th><td>		<a class="ref" href="../qcommon/qcommon.h.html#Com_DPrintf" title='Com_DPrintf' data-ref="Com_DPrintf">Com_DPrintf</a>(<q>"#462 Netchan_TransmitNextFragment: remaining queued message\n"</q>);</td></tr>
+<tr><th id="183">183</th><td></td></tr>
+<tr><th id="184">184</th><td>	<a class="ref" href="../qcommon/qcommon.h.html#Z_Free" title='Z_Free' data-ref="Z_Free">Z_Free</a>(<a class="local col7 ref" href="#27netbuf" title='netbuf' data-ref="27netbuf">netbuf</a>);</td></tr>
+<tr><th id="185">185</th><td>}</td></tr>
+<tr><th id="186">186</th><td></td></tr>
+<tr><th id="187">187</th><td><i>/*</i></td></tr>
+<tr><th id="188">188</th><td><i>=================</i></td></tr>
+<tr><th id="189">189</th><td><i>SV_Netchan_TransmitNextFragment</i></td></tr>
+<tr><th id="190">190</th><td><i>Transmit the next fragment and the next queued packet</i></td></tr>
+<tr><th id="191">191</th><td><i>Return number of ms until next message can be sent based on throughput given by client rate,</i></td></tr>
+<tr><th id="192">192</th><td><i>-1 if no packet was sent.</i></td></tr>
+<tr><th id="193">193</th><td><i>=================</i></td></tr>
+<tr><th id="194">194</th><td><i>*/</i></td></tr>
+<tr><th id="195">195</th><td></td></tr>
+<tr><th id="196">196</th><td><em>int</em> <dfn class="decl def" id="SV_Netchan_TransmitNextFragment" title='SV_Netchan_TransmitNextFragment' data-ref="SV_Netchan_TransmitNextFragment">SV_Netchan_TransmitNextFragment</dfn>(<a class="typedef" href="server.h.html#client_t" title='client_t' data-type='struct client_s' data-ref="client_t">client_t</a> *<dfn class="local col8 decl" id="28client" title='client' data-type='client_t *' data-ref="28client">client</dfn>)</td></tr>
+<tr><th id="197">197</th><td>{</td></tr>
+<tr><th id="198">198</th><td>	<b>if</b>(<a class="local col8 ref" href="#28client" title='client' data-ref="28client">client</a>-&gt;<a class="ref" href="server.h.html#client_s::netchan" title='client_s::netchan' data-ref="client_s::netchan">netchan</a>.<a class="ref" href="../qcommon/qcommon.h.html#(anonymous)::unsentFragments" title='(anonymous struct)::unsentFragments' data-ref="(anonymous)::unsentFragments">unsentFragments</a>)</td></tr>
+<tr><th id="199">199</th><td>	{</td></tr>
+<tr><th id="200">200</th><td>		<a class="ref" href="../qcommon/qcommon.h.html#Netchan_TransmitNextFragment" title='Netchan_TransmitNextFragment' data-ref="Netchan_TransmitNextFragment">Netchan_TransmitNextFragment</a>(&amp;<a class="local col8 ref" href="#28client" title='client' data-ref="28client">client</a>-&gt;<a class="ref" href="server.h.html#client_s::netchan" title='client_s::netchan' data-ref="client_s::netchan">netchan</a>);</td></tr>
+<tr><th id="201">201</th><td>		<b>return</b> <a class="ref" href="server.h.html#SV_RateMsec" title='SV_RateMsec' data-ref="SV_RateMsec">SV_RateMsec</a>(<a class="local col8 ref" href="#28client" title='client' data-ref="28client">client</a>);</td></tr>
+<tr><th id="202">202</th><td>	}</td></tr>
+<tr><th id="203">203</th><td>	<b>else</b> <b>if</b>(<a class="local col8 ref" href="#28client" title='client' data-ref="28client">client</a>-&gt;<a class="ref" href="server.h.html#client_s::netchan_start_queue" title='client_s::netchan_start_queue' data-ref="client_s::netchan_start_queue">netchan_start_queue</a>)</td></tr>
+<tr><th id="204">204</th><td>	{</td></tr>
+<tr><th id="205">205</th><td>		<a class="ref" href="#SV_Netchan_TransmitNextInQueue" title='SV_Netchan_TransmitNextInQueue' data-ref="SV_Netchan_TransmitNextInQueue">SV_Netchan_TransmitNextInQueue</a>(<a class="local col8 ref" href="#28client" title='client' data-ref="28client">client</a>);</td></tr>
+<tr><th id="206">206</th><td>		<b>return</b> <a class="ref" href="server.h.html#SV_RateMsec" title='SV_RateMsec' data-ref="SV_RateMsec">SV_RateMsec</a>(<a class="local col8 ref" href="#28client" title='client' data-ref="28client">client</a>);</td></tr>
+<tr><th id="207">207</th><td>	}</td></tr>
+<tr><th id="208">208</th><td>	</td></tr>
+<tr><th id="209">209</th><td>	<b>return</b> -<var>1</var>;</td></tr>
+<tr><th id="210">210</th><td>}</td></tr>
+<tr><th id="211">211</th><td></td></tr>
+<tr><th id="212">212</th><td></td></tr>
+<tr><th id="213">213</th><td><i>/*</i></td></tr>
+<tr><th id="214">214</th><td><i>===============</i></td></tr>
+<tr><th id="215">215</th><td><i>SV_Netchan_Transmit</i></td></tr>
+<tr><th id="216">216</th><td><i>TTimo</i></td></tr>
+<tr><th id="217">217</th><td><i>https://zerowing.idsoftware.com/bugzilla/show_bug.cgi?id=462</i></td></tr>
+<tr><th id="218">218</th><td><i>if there are some unsent fragments (which may happen if the snapshots</i></td></tr>
+<tr><th id="219">219</th><td><i>and the gamestate are fragmenting, and collide on send for instance)</i></td></tr>
+<tr><th id="220">220</th><td><i>then buffer them and make sure they get sent in correct order</i></td></tr>
+<tr><th id="221">221</th><td><i>================</i></td></tr>
+<tr><th id="222">222</th><td><i>*/</i></td></tr>
+<tr><th id="223">223</th><td></td></tr>
+<tr><th id="224">224</th><td><em>void</em> <dfn class="decl def" id="SV_Netchan_Transmit" title='SV_Netchan_Transmit' data-ref="SV_Netchan_Transmit">SV_Netchan_Transmit</dfn>( <a class="typedef" href="server.h.html#client_t" title='client_t' data-type='struct client_s' data-ref="client_t">client_t</a> *<dfn class="local col9 decl" id="29client" title='client' data-type='client_t *' data-ref="29client">client</dfn>, <a class="typedef" href="../qcommon/qcommon.h.html#msg_t" title='msg_t' data-type='struct msg_t' data-ref="msg_t">msg_t</a> *<dfn class="local col0 decl" id="30msg" title='msg' data-type='msg_t *' data-ref="30msg">msg</dfn>)</td></tr>
+<tr><th id="225">225</th><td>{</td></tr>
+<tr><th id="226">226</th><td>	<a class="ref" href="../qcommon/qcommon.h.html#MSG_WriteByte" title='MSG_WriteByte' data-ref="MSG_WriteByte">MSG_WriteByte</a>( <a class="local col0 ref" href="#30msg" title='msg' data-ref="30msg">msg</a>, <a class="enum" href="../qcommon/qcommon.h.html#svc_ops_e::svc_EOF" title='svc_ops_e::svc_EOF' data-ref="svc_ops_e::svc_EOF">svc_EOF</a> );</td></tr>
+<tr><th id="227">227</th><td></td></tr>
+<tr><th id="228">228</th><td>	<b>if</b>(<a class="local col9 ref" href="#29client" title='client' data-ref="29client">client</a>-&gt;<a class="ref" href="server.h.html#client_s::netchan" title='client_s::netchan' data-ref="client_s::netchan">netchan</a>.<a class="ref" href="../qcommon/qcommon.h.html#(anonymous)::unsentFragments" title='(anonymous struct)::unsentFragments' data-ref="(anonymous)::unsentFragments">unsentFragments</a> || <a class="local col9 ref" href="#29client" title='client' data-ref="29client">client</a>-&gt;<a class="ref" href="server.h.html#client_s::netchan_start_queue" title='client_s::netchan_start_queue' data-ref="client_s::netchan_start_queue">netchan_start_queue</a>)</td></tr>
+<tr><th id="229">229</th><td>	{</td></tr>
+<tr><th id="230">230</th><td>		<a class="typedef" href="server.h.html#netchan_buffer_t" title='netchan_buffer_t' data-type='struct netchan_buffer_s' data-ref="netchan_buffer_t">netchan_buffer_t</a> *<dfn class="local col1 decl" id="31netbuf" title='netbuf' data-type='netchan_buffer_t *' data-ref="31netbuf">netbuf</dfn>;</td></tr>
+<tr><th id="231">231</th><td>		<a class="ref" href="../qcommon/qcommon.h.html#Com_DPrintf" title='Com_DPrintf' data-ref="Com_DPrintf">Com_DPrintf</a>(<q>"#462 SV_Netchan_Transmit: unsent fragments, stacked\n"</q>);</td></tr>
+<tr><th id="232">232</th><td>		<a class="local col1 ref" href="#31netbuf" title='netbuf' data-ref="31netbuf">netbuf</a> = (<a class="typedef" href="server.h.html#netchan_buffer_t" title='netchan_buffer_t' data-type='struct netchan_buffer_s' data-ref="netchan_buffer_t">netchan_buffer_t</a> *) <a class="ref" href="../qcommon/qcommon.h.html#Z_Malloc" title='Z_Malloc' data-ref="Z_Malloc">Z_Malloc</a>(<b>sizeof</b>(<a class="typedef" href="server.h.html#netchan_buffer_t" title='netchan_buffer_t' data-type='struct netchan_buffer_s' data-ref="netchan_buffer_t">netchan_buffer_t</a>));</td></tr>
+<tr><th id="233">233</th><td>		<i>// store the msg, we can't store it encoded, as the encoding depends on stuff we still have to finish sending</i></td></tr>
+<tr><th id="234">234</th><td>		<a class="ref" href="../qcommon/qcommon.h.html#MSG_Copy" title='MSG_Copy' data-ref="MSG_Copy">MSG_Copy</a>(&amp;<a class="local col1 ref" href="#31netbuf" title='netbuf' data-ref="31netbuf">netbuf</a>-&gt;<a class="ref" href="server.h.html#netchan_buffer_s::msg" title='netchan_buffer_s::msg' data-ref="netchan_buffer_s::msg">msg</a>, <a class="local col1 ref" href="#31netbuf" title='netbuf' data-ref="31netbuf">netbuf</a>-&gt;<a class="ref" href="server.h.html#netchan_buffer_s::msgBuffer" title='netchan_buffer_s::msgBuffer' data-ref="netchan_buffer_s::msgBuffer">msgBuffer</a>, <b>sizeof</b>( <a class="local col1 ref" href="#31netbuf" title='netbuf' data-ref="31netbuf">netbuf</a>-&gt;<a class="ref" href="server.h.html#netchan_buffer_s::msgBuffer" title='netchan_buffer_s::msgBuffer' data-ref="netchan_buffer_s::msgBuffer">msgBuffer</a> ), <a class="local col0 ref" href="#30msg" title='msg' data-ref="30msg">msg</a>);</td></tr>
+<tr><th id="235">235</th><td><u>#<span data-ppcond="235">ifdef</span> <a class="macro" href="../qcommon/q_shared.h.html#57" data-ref="_M/LEGACY_PROTOCOL">LEGACY_PROTOCOL</a></u></td></tr>
+<tr><th id="236">236</th><td>		<b>if</b>(<a class="local col9 ref" href="#29client" title='client' data-ref="29client">client</a>-&gt;<a class="ref" href="server.h.html#client_s::compat" title='client_s::compat' data-ref="client_s::compat">compat</a>)</td></tr>
+<tr><th id="237">237</th><td>		{</td></tr>
+<tr><th id="238">238</th><td>			<a class="ref" href="../qcommon/q_shared.h.html#Q_strncpyz" title='Q_strncpyz' data-ref="Q_strncpyz">Q_strncpyz</a>(<a class="local col1 ref" href="#31netbuf" title='netbuf' data-ref="31netbuf">netbuf</a>-&gt;<a class="ref" href="server.h.html#netchan_buffer_s::clientCommandString" title='netchan_buffer_s::clientCommandString' data-ref="netchan_buffer_s::clientCommandString">clientCommandString</a>, <a class="local col9 ref" href="#29client" title='client' data-ref="29client">client</a>-&gt;<a class="ref" href="server.h.html#client_s::lastClientCommandString" title='client_s::lastClientCommandString' data-ref="client_s::lastClientCommandString">lastClientCommandString</a>,</td></tr>
+<tr><th id="239">239</th><td>				   <b>sizeof</b>(<a class="local col1 ref" href="#31netbuf" title='netbuf' data-ref="31netbuf">netbuf</a>-&gt;<a class="ref" href="server.h.html#netchan_buffer_s::clientCommandString" title='netchan_buffer_s::clientCommandString' data-ref="netchan_buffer_s::clientCommandString">clientCommandString</a>));</td></tr>
+<tr><th id="240">240</th><td>		}</td></tr>
+<tr><th id="241">241</th><td><u>#<span data-ppcond="235">endif</span></u></td></tr>
+<tr><th id="242">242</th><td>		<a class="local col1 ref" href="#31netbuf" title='netbuf' data-ref="31netbuf">netbuf</a>-&gt;<a class="ref" href="server.h.html#netchan_buffer_s::next" title='netchan_buffer_s::next' data-ref="netchan_buffer_s::next">next</a> = <span class="macro" title="((void*)0)" data-ref="_M/NULL">NULL</span>;</td></tr>
+<tr><th id="243">243</th><td>		<i>// insert it in the queue, the message will be encoded and sent later</i></td></tr>
+<tr><th id="244">244</th><td>		*<a class="local col9 ref" href="#29client" title='client' data-ref="29client">client</a>-&gt;<a class="ref" href="server.h.html#client_s::netchan_end_queue" title='client_s::netchan_end_queue' data-ref="client_s::netchan_end_queue">netchan_end_queue</a> = <a class="local col1 ref" href="#31netbuf" title='netbuf' data-ref="31netbuf">netbuf</a>;</td></tr>
+<tr><th id="245">245</th><td>		<a class="local col9 ref" href="#29client" title='client' data-ref="29client">client</a>-&gt;<a class="ref" href="server.h.html#client_s::netchan_end_queue" title='client_s::netchan_end_queue' data-ref="client_s::netchan_end_queue">netchan_end_queue</a> = &amp;(*<a class="local col9 ref" href="#29client" title='client' data-ref="29client">client</a>-&gt;<a class="ref" href="server.h.html#client_s::netchan_end_queue" title='client_s::netchan_end_queue' data-ref="client_s::netchan_end_queue">netchan_end_queue</a>)-&gt;<a class="ref" href="server.h.html#netchan_buffer_s::next" title='netchan_buffer_s::next' data-ref="netchan_buffer_s::next">next</a>;</td></tr>
+<tr><th id="246">246</th><td>	}</td></tr>
+<tr><th id="247">247</th><td>	<b>else</b></td></tr>
+<tr><th id="248">248</th><td>	{</td></tr>
+<tr><th id="249">249</th><td><u>#<span data-ppcond="249">ifdef</span> <a class="macro" href="../qcommon/q_shared.h.html#57" data-ref="_M/LEGACY_PROTOCOL">LEGACY_PROTOCOL</a></u></td></tr>
+<tr><th id="250">250</th><td>		<b>if</b>(<a class="local col9 ref" href="#29client" title='client' data-ref="29client">client</a>-&gt;<a class="ref" href="server.h.html#client_s::compat" title='client_s::compat' data-ref="client_s::compat">compat</a>)</td></tr>
+<tr><th id="251">251</th><td>			<a class="tu ref" href="#SV_Netchan_Encode" title='SV_Netchan_Encode' data-use='c' data-ref="SV_Netchan_Encode">SV_Netchan_Encode</a>(<a class="local col9 ref" href="#29client" title='client' data-ref="29client">client</a>, <a class="local col0 ref" href="#30msg" title='msg' data-ref="30msg">msg</a>, <a class="local col9 ref" href="#29client" title='client' data-ref="29client">client</a>-&gt;<a class="ref" href="server.h.html#client_s::lastClientCommandString" title='client_s::lastClientCommandString' data-ref="client_s::lastClientCommandString">lastClientCommandString</a>);</td></tr>
+<tr><th id="252">252</th><td><u>#<span data-ppcond="249">endif</span></u></td></tr>
+<tr><th id="253">253</th><td>		<a class="ref" href="../qcommon/qcommon.h.html#Netchan_Transmit" title='Netchan_Transmit' data-ref="Netchan_Transmit">Netchan_Transmit</a>( &amp;<a class="local col9 ref" href="#29client" title='client' data-ref="29client">client</a>-&gt;<a class="ref" href="server.h.html#client_s::netchan" title='client_s::netchan' data-ref="client_s::netchan">netchan</a>, <a class="local col0 ref" href="#30msg" title='msg' data-ref="30msg">msg</a>-&gt;<a class="ref" href="../qcommon/qcommon.h.html#(anonymous)::cursize" title='(anonymous struct)::cursize' data-ref="(anonymous)::cursize">cursize</a>, <a class="local col0 ref" href="#30msg" title='msg' data-ref="30msg">msg</a>-&gt;<a class="ref" href="../qcommon/qcommon.h.html#(anonymous)::data" title='(anonymous struct)::data' data-ref="(anonymous)::data">data</a> );</td></tr>
+<tr><th id="254">254</th><td>	}</td></tr>
+<tr><th id="255">255</th><td>}</td></tr>
+<tr><th id="256">256</th><td></td></tr>
+<tr><th id="257">257</th><td><i>/*</i></td></tr>
+<tr><th id="258">258</th><td><i>=================</i></td></tr>
+<tr><th id="259">259</th><td><i>Netchan_SV_Process</i></td></tr>
+<tr><th id="260">260</th><td><i>=================</i></td></tr>
+<tr><th id="261">261</th><td><i>*/</i></td></tr>
+<tr><th id="262">262</th><td><a class="typedef" href="../qcommon/q_shared.h.html#qboolean" title='qboolean' data-type='enum qboolean' data-ref="qboolean">qboolean</a> <dfn class="decl def" id="SV_Netchan_Process" title='SV_Netchan_Process' data-ref="SV_Netchan_Process">SV_Netchan_Process</dfn>( <a class="typedef" href="server.h.html#client_t" title='client_t' data-type='struct client_s' data-ref="client_t">client_t</a> *<dfn class="local col2 decl" id="32client" title='client' data-type='client_t *' data-ref="32client">client</dfn>, <a class="typedef" href="../qcommon/qcommon.h.html#msg_t" title='msg_t' data-type='struct msg_t' data-ref="msg_t">msg_t</a> *<dfn class="local col3 decl" id="33msg" title='msg' data-type='msg_t *' data-ref="33msg">msg</dfn> ) {</td></tr>
+<tr><th id="263">263</th><td>	<em>int</em> <dfn class="local col4 decl" id="34ret" title='ret' data-type='int' data-ref="34ret">ret</dfn>;</td></tr>
+<tr><th id="264">264</th><td>	<a class="local col4 ref" href="#34ret" title='ret' data-ref="34ret">ret</a> = <a class="ref" href="../qcommon/qcommon.h.html#Netchan_Process" title='Netchan_Process' data-ref="Netchan_Process">Netchan_Process</a>( &amp;<a class="local col2 ref" href="#32client" title='client' data-ref="32client">client</a>-&gt;<a class="ref" href="server.h.html#client_s::netchan" title='client_s::netchan' data-ref="client_s::netchan">netchan</a>, <a class="local col3 ref" href="#33msg" title='msg' data-ref="33msg">msg</a> );</td></tr>
+<tr><th id="265">265</th><td>	<b>if</b> (!<a class="local col4 ref" href="#34ret" title='ret' data-ref="34ret">ret</a>)</td></tr>
+<tr><th id="266">266</th><td>		<b>return</b> <a class="enum" href="../qcommon/q_shared.h.html#qfalse" title='qfalse' data-ref="qfalse">qfalse</a>;</td></tr>
+<tr><th id="267">267</th><td></td></tr>
+<tr><th id="268">268</th><td><u>#<span data-ppcond="268">ifdef</span> <a class="macro" href="../qcommon/q_shared.h.html#57" data-ref="_M/LEGACY_PROTOCOL">LEGACY_PROTOCOL</a></u></td></tr>
+<tr><th id="269">269</th><td>	<b>if</b>(<a class="local col2 ref" href="#32client" title='client' data-ref="32client">client</a>-&gt;<a class="ref" href="server.h.html#client_s::compat" title='client_s::compat' data-ref="client_s::compat">compat</a>)</td></tr>
+<tr><th id="270">270</th><td>		<a class="tu ref" href="#SV_Netchan_Decode" title='SV_Netchan_Decode' data-use='c' data-ref="SV_Netchan_Decode">SV_Netchan_Decode</a>(<a class="local col2 ref" href="#32client" title='client' data-ref="32client">client</a>, <a class="local col3 ref" href="#33msg" title='msg' data-ref="33msg">msg</a>);</td></tr>
+<tr><th id="271">271</th><td><u>#<span data-ppcond="268">endif</span></u></td></tr>
+<tr><th id="272">272</th><td></td></tr>
+<tr><th id="273">273</th><td>	<b>return</b> <a class="enum" href="../qcommon/q_shared.h.html#qtrue" title='qtrue' data-ref="qtrue">qtrue</a>;</td></tr>
+<tr><th id="274">274</th><td>}</td></tr>
+<tr><th id="275">275</th><td></td></tr>
+<tr><th id="276">276</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated on <em>2017-Aug-29</em> from project codebrowser revision <em>63e07af</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

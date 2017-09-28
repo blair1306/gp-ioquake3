@@ -1,0 +1,9 @@
+<dec f='codebrowser/code/qcommon/qcommon.h' l='1109' type='void Sys_SendPacket(int length, const void * data, netadr_t to)'/>
+<use f='codebrowser/code/qcommon/net_chan.c' l='528' u='c' c='NET_FlushPacketQueue'/>
+<use f='codebrowser/code/qcommon/net_chan.c' l='562' u='c' c='NET_SendPacket'/>
+<def f='codebrowser/code/qcommon/net_ip.c' l='643' ll='696' type='void Sys_SendPacket(int length, const void * data, netadr_t to)'/>
+<doc f='codebrowser/code/qcommon/net_ip.c' l='638'>/*
+==================
+Sys_SendPacket
+==================
+*/</doc>

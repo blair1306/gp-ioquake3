@@ -1,0 +1,16 @@
+<dec f='codebrowser/code/client/snd_local.h' l='99' type='int'/>
+<offset>128</offset>
+<doc f='codebrowser/code/client/snd_local.h' l='99'>// 0-255 volume after spatialization</doc>
+<use f='codebrowser/code/client/snd_dma.c' l='645' u='w' c='S_Base_StartSoundEx'/>
+<use f='codebrowser/code/client/snd_dma.c' l='931' u='w' c='S_AddLoopSounds'/>
+<use f='codebrowser/code/client/snd_dma.c' l='1146' u='w' c='S_Base_Respatialize'/>
+<use f='codebrowser/code/client/snd_dma.c' l='1155' u='a' c='S_Base_Respatialize'/>
+<use f='codebrowser/code/client/snd_dma.c' l='1225' u='r' c='S_Base_Update'/>
+<use f='codebrowser/code/client/snd_dma.c' l='1226' u='r' c='S_Base_Update'/>
+<use f='codebrowser/code/client/snd_mix.c' l='457' u='r' c='S_PaintChannelFrom16_scalar'/>
+<use f='codebrowser/code/client/snd_mix.c' l='476' u='r' c='S_PaintChannelFrom16_scalar'/>
+<use f='codebrowser/code/client/snd_mix.c' l='534' u='r' c='S_PaintChannelFromWavelet'/>
+<use f='codebrowser/code/client/snd_mix.c' l='576' u='r' c='S_PaintChannelFromADPCM'/>
+<use f='codebrowser/code/client/snd_mix.c' l='624' u='r' c='S_PaintChannelFromMuLaw'/>
+<use f='codebrowser/code/client/snd_mix.c' l='715' u='r' c='S_PaintChannels'/>
+<use f='codebrowser/code/client/snd_mix.c' l='748' u='r' c='S_PaintChannels'/>

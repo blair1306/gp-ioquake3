@@ -1,0 +1,17 @@
+<dec f='codebrowser/code/client/client.h' l='485' type='qboolean CL_CDKeyValidate(const char * key, const char * checksum)'/>
+<def f='codebrowser/code/client/cl_main.c' l='4647' ll='4708' type='qboolean CL_CDKeyValidate(const char * key, const char * checksum)'/>
+<doc f='codebrowser/code/client/cl_main.c' l='4642'>/*
+=================
+CL_CDKeyValidate
+=================
+*/</doc>
+<use f='codebrowser/code/client/cl_ui.c' l='1073' u='c' c='CL_UISystemCalls'/>
+<def f='codebrowser/code/null/null_client.c' l='102' type='qboolean CL_CDKeyValidate(const char * key, const char * checksum)'/>
+<dec f='codebrowser/code/qcommon/common.c' l='2472' type='qboolean CL_CDKeyValidate(const char * key, const char * checksum)'/>
+<use f='codebrowser/code/qcommon/common.c' l='2491' u='c' c='Com_ReadCDKey'/>
+<use f='codebrowser/code/qcommon/common.c' l='2521' u='c' c='Com_AppendCDKey'/>
+<doc f='codebrowser/code/qcommon/common.c' l='2467'>/*
+=================
+Com_ReadCDKey
+=================
+*/</doc>

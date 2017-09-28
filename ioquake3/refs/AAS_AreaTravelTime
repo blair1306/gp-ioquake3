@@ -1,0 +1,18 @@
+<dec f='codebrowser/code/botlib/be_aas_route.h' l='59' type='unsigned short AAS_AreaTravelTime(int areanum, vec_t * start, vec_t * end)'/>
+<dec f='codebrowser/code/botlib/be_aas_route.h' l='38' type='unsigned short AAS_AreaTravelTime(int areanum, vec_t * start, vec_t * end)'/>
+<dec f='codebrowser/code/botlib/be_aas_route.h' l='59' type='unsigned short AAS_AreaTravelTime(int areanum, vec_t * start, vec_t * end)'/>
+<doc f='codebrowser/code/botlib/be_aas_route.h' l='58'>//returns the travel time within the given area from start to end</doc>
+<def f='codebrowser/code/botlib/be_aas_route.c' l='473' ll='492' type='unsigned short AAS_AreaTravelTime(int areanum, vec_t * start, vec_t * end)'/>
+<use f='codebrowser/code/botlib/be_aas_route.c' l='554' u='c' c='AAS_CalculateAreaTravelTimes'/>
+<use f='codebrowser/code/botlib/be_aas_route.c' l='1688' u='c' c='AAS_AreaRouteToGoalArea'/>
+<use f='codebrowser/code/botlib/be_aas_route.c' l='1749' u='c' c='AAS_AreaRouteToGoalArea'/>
+<use f='codebrowser/code/botlib/be_aas_route.c' l='1852' u='c' c='AAS_PredictRoute'/>
+<use f='codebrowser/code/botlib/be_aas_route.c' l='1872' u='c' c='AAS_PredictRoute'/>
+<use f='codebrowser/code/botlib/be_aas_route.c' l='1890' u='c' c='AAS_PredictRoute'/>
+<use f='codebrowser/code/botlib/be_aas_route.c' l='2148' u='c' c='AAS_NearestHideArea'/>
+<doc f='codebrowser/code/botlib/be_aas_route.c' l='467'>//===========================================================================
+//
+// Parameter:			-
+// Returns:				-
+// Changes Globals:		-
+//===========================================================================</doc>

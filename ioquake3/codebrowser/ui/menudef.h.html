@@ -1,0 +1,326 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>menudef.h source code [codebrowser/ui/menudef.h] - Woboq Code Browser</title>
+<link rel="stylesheet" href="../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'codebrowser/ui/menudef.h'; var root_path = '../..'; var data_path = '../../../data';</script>
+<script src='../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='..'>codebrowser</a>/<a href='./'>ui</a>/<a href='menudef.h.html'>menudef.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/*</i></td></tr>
+<tr><th id="2">2</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="3">3</th><td><i>Copyright (C) 1999-2005 Id Software, Inc.</i></td></tr>
+<tr><th id="4">4</th><td><i></i></td></tr>
+<tr><th id="5">5</th><td><i>This file is part of Quake III Arena source code.</i></td></tr>
+<tr><th id="6">6</th><td><i></i></td></tr>
+<tr><th id="7">7</th><td><i>Quake III Arena source code is free software; you can redistribute it</i></td></tr>
+<tr><th id="8">8</th><td><i>and/or modify it under the terms of the GNU General Public License as</i></td></tr>
+<tr><th id="9">9</th><td><i>published by the Free Software Foundation; either version 2 of the License,</i></td></tr>
+<tr><th id="10">10</th><td><i>or (at your option) any later version.</i></td></tr>
+<tr><th id="11">11</th><td><i></i></td></tr>
+<tr><th id="12">12</th><td><i>Quake III Arena source code is distributed in the hope that it will be</i></td></tr>
+<tr><th id="13">13</th><td><i>useful, but WITHOUT ANY WARRANTY; without even the implied warranty of</i></td></tr>
+<tr><th id="14">14</th><td><i>MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</i></td></tr>
+<tr><th id="15">15</th><td><i>GNU General Public License for more details.</i></td></tr>
+<tr><th id="16">16</th><td><i></i></td></tr>
+<tr><th id="17">17</th><td><i>You should have received a copy of the GNU General Public License</i></td></tr>
+<tr><th id="18">18</th><td><i>along with Quake III Arena source code; if not, write to the Free Software</i></td></tr>
+<tr><th id="19">19</th><td><i>Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA</i></td></tr>
+<tr><th id="20">20</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="21">21</th><td><i>*/</i></td></tr>
+<tr><th id="22">22</th><td></td></tr>
+<tr><th id="23">23</th><td><u>#define <dfn class="macro" id="_M/ITEM_TYPE_TEXT" data-ref="_M/ITEM_TYPE_TEXT">ITEM_TYPE_TEXT</dfn> 0                  // simple text</u></td></tr>
+<tr><th id="24">24</th><td><u>#define <dfn class="macro" id="_M/ITEM_TYPE_BUTTON" data-ref="_M/ITEM_TYPE_BUTTON">ITEM_TYPE_BUTTON</dfn> 1                // button, basically text with a border </u></td></tr>
+<tr><th id="25">25</th><td><u>#define <dfn class="macro" id="_M/ITEM_TYPE_RADIOBUTTON" data-ref="_M/ITEM_TYPE_RADIOBUTTON">ITEM_TYPE_RADIOBUTTON</dfn> 2           // toggle button, may be grouped </u></td></tr>
+<tr><th id="26">26</th><td><u>#define <dfn class="macro" id="_M/ITEM_TYPE_CHECKBOX" data-ref="_M/ITEM_TYPE_CHECKBOX">ITEM_TYPE_CHECKBOX</dfn> 3              // check box</u></td></tr>
+<tr><th id="27">27</th><td><u>#define <dfn class="macro" id="_M/ITEM_TYPE_EDITFIELD" data-ref="_M/ITEM_TYPE_EDITFIELD">ITEM_TYPE_EDITFIELD</dfn> 4             // editable text, associated with a cvar</u></td></tr>
+<tr><th id="28">28</th><td><u>#define <dfn class="macro" id="_M/ITEM_TYPE_COMBO" data-ref="_M/ITEM_TYPE_COMBO">ITEM_TYPE_COMBO</dfn> 5                 // drop down list</u></td></tr>
+<tr><th id="29">29</th><td><u>#define <dfn class="macro" id="_M/ITEM_TYPE_LISTBOX" data-ref="_M/ITEM_TYPE_LISTBOX">ITEM_TYPE_LISTBOX</dfn> 6               // scrollable list  </u></td></tr>
+<tr><th id="30">30</th><td><u>#define <dfn class="macro" id="_M/ITEM_TYPE_MODEL" data-ref="_M/ITEM_TYPE_MODEL">ITEM_TYPE_MODEL</dfn> 7                 // model</u></td></tr>
+<tr><th id="31">31</th><td><u>#define <dfn class="macro" id="_M/ITEM_TYPE_OWNERDRAW" data-ref="_M/ITEM_TYPE_OWNERDRAW">ITEM_TYPE_OWNERDRAW</dfn> 8             // owner draw, name specs what it is</u></td></tr>
+<tr><th id="32">32</th><td><u>#define <dfn class="macro" id="_M/ITEM_TYPE_NUMERICFIELD" data-ref="_M/ITEM_TYPE_NUMERICFIELD">ITEM_TYPE_NUMERICFIELD</dfn> 9          // editable text, associated with a cvar</u></td></tr>
+<tr><th id="33">33</th><td><u>#define <dfn class="macro" id="_M/ITEM_TYPE_SLIDER" data-ref="_M/ITEM_TYPE_SLIDER">ITEM_TYPE_SLIDER</dfn> 10               // mouse speed, volume, etc.</u></td></tr>
+<tr><th id="34">34</th><td><u>#define <dfn class="macro" id="_M/ITEM_TYPE_YESNO" data-ref="_M/ITEM_TYPE_YESNO">ITEM_TYPE_YESNO</dfn> 11                // yes no cvar setting</u></td></tr>
+<tr><th id="35">35</th><td><u>#define <dfn class="macro" id="_M/ITEM_TYPE_MULTI" data-ref="_M/ITEM_TYPE_MULTI">ITEM_TYPE_MULTI</dfn> 12                // multiple list setting, enumerated</u></td></tr>
+<tr><th id="36">36</th><td><u>#define <dfn class="macro" id="_M/ITEM_TYPE_BIND" data-ref="_M/ITEM_TYPE_BIND">ITEM_TYPE_BIND</dfn> 13		              // multiple list setting, enumerated</u></td></tr>
+<tr><th id="37">37</th><td>    </td></tr>
+<tr><th id="38">38</th><td><u>#define <dfn class="macro" id="_M/ITEM_ALIGN_LEFT" data-ref="_M/ITEM_ALIGN_LEFT">ITEM_ALIGN_LEFT</dfn> 0                 // left alignment</u></td></tr>
+<tr><th id="39">39</th><td><u>#define <dfn class="macro" id="_M/ITEM_ALIGN_CENTER" data-ref="_M/ITEM_ALIGN_CENTER">ITEM_ALIGN_CENTER</dfn> 1               // center alignment</u></td></tr>
+<tr><th id="40">40</th><td><u>#define <dfn class="macro" id="_M/ITEM_ALIGN_RIGHT" data-ref="_M/ITEM_ALIGN_RIGHT">ITEM_ALIGN_RIGHT</dfn> 2                // right alignment</u></td></tr>
+<tr><th id="41">41</th><td></td></tr>
+<tr><th id="42">42</th><td><u>#define <dfn class="macro" id="_M/ITEM_TEXTSTYLE_NORMAL" data-ref="_M/ITEM_TEXTSTYLE_NORMAL">ITEM_TEXTSTYLE_NORMAL</dfn> 0           // normal text</u></td></tr>
+<tr><th id="43">43</th><td><u>#define <dfn class="macro" id="_M/ITEM_TEXTSTYLE_BLINK" data-ref="_M/ITEM_TEXTSTYLE_BLINK">ITEM_TEXTSTYLE_BLINK</dfn> 1            // fast blinking</u></td></tr>
+<tr><th id="44">44</th><td><u>#define <dfn class="macro" id="_M/ITEM_TEXTSTYLE_PULSE" data-ref="_M/ITEM_TEXTSTYLE_PULSE">ITEM_TEXTSTYLE_PULSE</dfn> 2            // slow pulsing</u></td></tr>
+<tr><th id="45">45</th><td><u>#define <dfn class="macro" id="_M/ITEM_TEXTSTYLE_SHADOWED" data-ref="_M/ITEM_TEXTSTYLE_SHADOWED">ITEM_TEXTSTYLE_SHADOWED</dfn> 3         // drop shadow ( need a color for this )</u></td></tr>
+<tr><th id="46">46</th><td><u>#define <dfn class="macro" id="_M/ITEM_TEXTSTYLE_OUTLINED" data-ref="_M/ITEM_TEXTSTYLE_OUTLINED">ITEM_TEXTSTYLE_OUTLINED</dfn> 4         // drop shadow ( need a color for this )</u></td></tr>
+<tr><th id="47">47</th><td><u>#define <dfn class="macro" id="_M/ITEM_TEXTSTYLE_OUTLINESHADOWED" data-ref="_M/ITEM_TEXTSTYLE_OUTLINESHADOWED">ITEM_TEXTSTYLE_OUTLINESHADOWED</dfn> 5  // drop shadow ( need a color for this )</u></td></tr>
+<tr><th id="48">48</th><td><u>#define <dfn class="macro" id="_M/ITEM_TEXTSTYLE_SHADOWEDMORE" data-ref="_M/ITEM_TEXTSTYLE_SHADOWEDMORE">ITEM_TEXTSTYLE_SHADOWEDMORE</dfn> 6         // drop shadow ( need a color for this )</u></td></tr>
+<tr><th id="49">49</th><td>                          </td></tr>
+<tr><th id="50">50</th><td><u>#define <dfn class="macro" id="_M/WINDOW_BORDER_NONE" data-ref="_M/WINDOW_BORDER_NONE">WINDOW_BORDER_NONE</dfn> 0              // no border</u></td></tr>
+<tr><th id="51">51</th><td><u>#define <dfn class="macro" id="_M/WINDOW_BORDER_FULL" data-ref="_M/WINDOW_BORDER_FULL">WINDOW_BORDER_FULL</dfn> 1              // full border based on border color ( single pixel )</u></td></tr>
+<tr><th id="52">52</th><td><u>#define <dfn class="macro" id="_M/WINDOW_BORDER_HORZ" data-ref="_M/WINDOW_BORDER_HORZ">WINDOW_BORDER_HORZ</dfn> 2              // horizontal borders only</u></td></tr>
+<tr><th id="53">53</th><td><u>#define <dfn class="macro" id="_M/WINDOW_BORDER_VERT" data-ref="_M/WINDOW_BORDER_VERT">WINDOW_BORDER_VERT</dfn> 3              // vertical borders only </u></td></tr>
+<tr><th id="54">54</th><td><u>#define <dfn class="macro" id="_M/WINDOW_BORDER_KCGRADIENT" data-ref="_M/WINDOW_BORDER_KCGRADIENT">WINDOW_BORDER_KCGRADIENT</dfn> 4        // horizontal border using the gradient bars</u></td></tr>
+<tr><th id="55">55</th><td>  </td></tr>
+<tr><th id="56">56</th><td><u>#define <dfn class="macro" id="_M/WINDOW_STYLE_EMPTY" data-ref="_M/WINDOW_STYLE_EMPTY">WINDOW_STYLE_EMPTY</dfn> 0              // no background</u></td></tr>
+<tr><th id="57">57</th><td><u>#define <dfn class="macro" id="_M/WINDOW_STYLE_FILLED" data-ref="_M/WINDOW_STYLE_FILLED">WINDOW_STYLE_FILLED</dfn> 1             // filled with background color</u></td></tr>
+<tr><th id="58">58</th><td><u>#define <dfn class="macro" id="_M/WINDOW_STYLE_GRADIENT" data-ref="_M/WINDOW_STYLE_GRADIENT">WINDOW_STYLE_GRADIENT</dfn> 2           // gradient bar based on background color </u></td></tr>
+<tr><th id="59">59</th><td><u>#define <dfn class="macro" id="_M/WINDOW_STYLE_SHADER" data-ref="_M/WINDOW_STYLE_SHADER">WINDOW_STYLE_SHADER</dfn>   3           // gradient bar based on background color </u></td></tr>
+<tr><th id="60">60</th><td><u>#define <dfn class="macro" id="_M/WINDOW_STYLE_TEAMCOLOR" data-ref="_M/WINDOW_STYLE_TEAMCOLOR">WINDOW_STYLE_TEAMCOLOR</dfn> 4          // team color</u></td></tr>
+<tr><th id="61">61</th><td><u>#define <dfn class="macro" id="_M/WINDOW_STYLE_CINEMATIC" data-ref="_M/WINDOW_STYLE_CINEMATIC">WINDOW_STYLE_CINEMATIC</dfn> 5          // cinematic</u></td></tr>
+<tr><th id="62">62</th><td></td></tr>
+<tr><th id="63">63</th><td><u>#define <dfn class="macro" id="_M/MENU_TRUE" data-ref="_M/MENU_TRUE">MENU_TRUE</dfn> 1                       // uh.. true</u></td></tr>
+<tr><th id="64">64</th><td><u>#define <dfn class="macro" id="_M/MENU_FALSE" data-ref="_M/MENU_FALSE">MENU_FALSE</dfn> 0                      // and false</u></td></tr>
+<tr><th id="65">65</th><td></td></tr>
+<tr><th id="66">66</th><td><u>#define <dfn class="macro" id="_M/HUD_VERTICAL" data-ref="_M/HUD_VERTICAL">HUD_VERTICAL</dfn>				0x00</u></td></tr>
+<tr><th id="67">67</th><td><u>#define <dfn class="macro" id="_M/HUD_HORIZONTAL" data-ref="_M/HUD_HORIZONTAL">HUD_HORIZONTAL</dfn>				0x01</u></td></tr>
+<tr><th id="68">68</th><td></td></tr>
+<tr><th id="69">69</th><td><i>// list box element types</i></td></tr>
+<tr><th id="70">70</th><td><u>#define <dfn class="macro" id="_M/LISTBOX_TEXT" data-ref="_M/LISTBOX_TEXT">LISTBOX_TEXT</dfn>  0x00</u></td></tr>
+<tr><th id="71">71</th><td><u>#define <dfn class="macro" id="_M/LISTBOX_IMAGE" data-ref="_M/LISTBOX_IMAGE">LISTBOX_IMAGE</dfn> 0x01</u></td></tr>
+<tr><th id="72">72</th><td></td></tr>
+<tr><th id="73">73</th><td><i>// list feeders</i></td></tr>
+<tr><th id="74">74</th><td><u>#define <dfn class="macro" id="_M/FEEDER_HEADS" data-ref="_M/FEEDER_HEADS">FEEDER_HEADS</dfn>						0x00			// model heads</u></td></tr>
+<tr><th id="75">75</th><td><u>#define <dfn class="macro" id="_M/FEEDER_MAPS" data-ref="_M/FEEDER_MAPS">FEEDER_MAPS</dfn>							0x01			// text maps based on game type</u></td></tr>
+<tr><th id="76">76</th><td><u>#define <dfn class="macro" id="_M/FEEDER_SERVERS" data-ref="_M/FEEDER_SERVERS">FEEDER_SERVERS</dfn>						0x02			// servers</u></td></tr>
+<tr><th id="77">77</th><td><u>#define <dfn class="macro" id="_M/FEEDER_CLANS" data-ref="_M/FEEDER_CLANS">FEEDER_CLANS</dfn>						0x03			// clan names</u></td></tr>
+<tr><th id="78">78</th><td><u>#define <dfn class="macro" id="_M/FEEDER_ALLMAPS" data-ref="_M/FEEDER_ALLMAPS">FEEDER_ALLMAPS</dfn>						0x04			// all maps available, in graphic format</u></td></tr>
+<tr><th id="79">79</th><td><u>#define <dfn class="macro" id="_M/FEEDER_REDTEAM_LIST" data-ref="_M/FEEDER_REDTEAM_LIST">FEEDER_REDTEAM_LIST</dfn>					0x05			// red team members</u></td></tr>
+<tr><th id="80">80</th><td><u>#define <dfn class="macro" id="_M/FEEDER_BLUETEAM_LIST" data-ref="_M/FEEDER_BLUETEAM_LIST">FEEDER_BLUETEAM_LIST</dfn>				0x06			// blue team members</u></td></tr>
+<tr><th id="81">81</th><td><u>#define <dfn class="macro" id="_M/FEEDER_PLAYER_LIST" data-ref="_M/FEEDER_PLAYER_LIST">FEEDER_PLAYER_LIST</dfn>					0x07			// players</u></td></tr>
+<tr><th id="82">82</th><td><u>#define <dfn class="macro" id="_M/FEEDER_TEAM_LIST" data-ref="_M/FEEDER_TEAM_LIST">FEEDER_TEAM_LIST</dfn>					0x08			// team members for team voting</u></td></tr>
+<tr><th id="83">83</th><td><u>#define <dfn class="macro" id="_M/FEEDER_MODS" data-ref="_M/FEEDER_MODS">FEEDER_MODS</dfn>							0x09			// team members for team voting</u></td></tr>
+<tr><th id="84">84</th><td><u>#define <dfn class="macro" id="_M/FEEDER_DEMOS" data-ref="_M/FEEDER_DEMOS">FEEDER_DEMOS</dfn> 						0x0a			// team members for team voting</u></td></tr>
+<tr><th id="85">85</th><td><u>#define <dfn class="macro" id="_M/FEEDER_SCOREBOARD" data-ref="_M/FEEDER_SCOREBOARD">FEEDER_SCOREBOARD</dfn>					0x0b			// team members for team voting</u></td></tr>
+<tr><th id="86">86</th><td><u>#define <dfn class="macro" id="_M/FEEDER_Q3HEADS" data-ref="_M/FEEDER_Q3HEADS">FEEDER_Q3HEADS</dfn>		 				0x0c			// model heads</u></td></tr>
+<tr><th id="87">87</th><td><u>#define <dfn class="macro" id="_M/FEEDER_SERVERSTATUS" data-ref="_M/FEEDER_SERVERSTATUS">FEEDER_SERVERSTATUS</dfn>					0x0d			// server status</u></td></tr>
+<tr><th id="88">88</th><td><u>#define <dfn class="macro" id="_M/FEEDER_FINDPLAYER" data-ref="_M/FEEDER_FINDPLAYER">FEEDER_FINDPLAYER</dfn>					0x0e			// find player</u></td></tr>
+<tr><th id="89">89</th><td><u>#define <dfn class="macro" id="_M/FEEDER_CINEMATICS" data-ref="_M/FEEDER_CINEMATICS">FEEDER_CINEMATICS</dfn>					0x0f			// cinematics</u></td></tr>
+<tr><th id="90">90</th><td></td></tr>
+<tr><th id="91">91</th><td><i>// display flags</i></td></tr>
+<tr><th id="92">92</th><td><u>#define <dfn class="macro" id="_M/CG_SHOW_BLUE_TEAM_HAS_REDFLAG" data-ref="_M/CG_SHOW_BLUE_TEAM_HAS_REDFLAG">CG_SHOW_BLUE_TEAM_HAS_REDFLAG</dfn>     0x00000001</u></td></tr>
+<tr><th id="93">93</th><td><u>#define <dfn class="macro" id="_M/CG_SHOW_RED_TEAM_HAS_BLUEFLAG" data-ref="_M/CG_SHOW_RED_TEAM_HAS_BLUEFLAG">CG_SHOW_RED_TEAM_HAS_BLUEFLAG</dfn>     0x00000002</u></td></tr>
+<tr><th id="94">94</th><td><u>#define <dfn class="macro" id="_M/CG_SHOW_ANYTEAMGAME" data-ref="_M/CG_SHOW_ANYTEAMGAME">CG_SHOW_ANYTEAMGAME</dfn>               0x00000004</u></td></tr>
+<tr><th id="95">95</th><td><u>#define <dfn class="macro" id="_M/CG_SHOW_HARVESTER" data-ref="_M/CG_SHOW_HARVESTER">CG_SHOW_HARVESTER</dfn>                 0x00000008</u></td></tr>
+<tr><th id="96">96</th><td><u>#define <dfn class="macro" id="_M/CG_SHOW_ONEFLAG" data-ref="_M/CG_SHOW_ONEFLAG">CG_SHOW_ONEFLAG</dfn>                   0x00000010</u></td></tr>
+<tr><th id="97">97</th><td><u>#define <dfn class="macro" id="_M/CG_SHOW_CTF" data-ref="_M/CG_SHOW_CTF">CG_SHOW_CTF</dfn>                       0x00000020</u></td></tr>
+<tr><th id="98">98</th><td><u>#define <dfn class="macro" id="_M/CG_SHOW_OBELISK" data-ref="_M/CG_SHOW_OBELISK">CG_SHOW_OBELISK</dfn>                   0x00000040</u></td></tr>
+<tr><th id="99">99</th><td><u>#define <dfn class="macro" id="_M/CG_SHOW_HEALTHCRITICAL" data-ref="_M/CG_SHOW_HEALTHCRITICAL">CG_SHOW_HEALTHCRITICAL</dfn>            0x00000080</u></td></tr>
+<tr><th id="100">100</th><td><u>#define <dfn class="macro" id="_M/CG_SHOW_SINGLEPLAYER" data-ref="_M/CG_SHOW_SINGLEPLAYER">CG_SHOW_SINGLEPLAYER</dfn>              0x00000100</u></td></tr>
+<tr><th id="101">101</th><td><u>#define <dfn class="macro" id="_M/CG_SHOW_TOURNAMENT" data-ref="_M/CG_SHOW_TOURNAMENT">CG_SHOW_TOURNAMENT</dfn>                0x00000200</u></td></tr>
+<tr><th id="102">102</th><td><u>#define <dfn class="macro" id="_M/CG_SHOW_DURINGINCOMINGVOICE" data-ref="_M/CG_SHOW_DURINGINCOMINGVOICE">CG_SHOW_DURINGINCOMINGVOICE</dfn>       0x00000400</u></td></tr>
+<tr><th id="103">103</th><td><u>#define <dfn class="macro" id="_M/CG_SHOW_IF_PLAYER_HAS_FLAG" data-ref="_M/CG_SHOW_IF_PLAYER_HAS_FLAG">CG_SHOW_IF_PLAYER_HAS_FLAG</dfn>				0x00000800</u></td></tr>
+<tr><th id="104">104</th><td><u>#define <dfn class="macro" id="_M/CG_SHOW_LANPLAYONLY" data-ref="_M/CG_SHOW_LANPLAYONLY">CG_SHOW_LANPLAYONLY</dfn>								0x00001000</u></td></tr>
+<tr><th id="105">105</th><td><u>#define <dfn class="macro" id="_M/CG_SHOW_MINED" data-ref="_M/CG_SHOW_MINED">CG_SHOW_MINED</dfn>											0x00002000</u></td></tr>
+<tr><th id="106">106</th><td><u>#define <dfn class="macro" id="_M/CG_SHOW_HEALTHOK" data-ref="_M/CG_SHOW_HEALTHOK">CG_SHOW_HEALTHOK</dfn>			            0x00004000</u></td></tr>
+<tr><th id="107">107</th><td><u>#define <dfn class="macro" id="_M/CG_SHOW_TEAMINFO" data-ref="_M/CG_SHOW_TEAMINFO">CG_SHOW_TEAMINFO</dfn>			            0x00008000</u></td></tr>
+<tr><th id="108">108</th><td><u>#define <dfn class="macro" id="_M/CG_SHOW_NOTEAMINFO" data-ref="_M/CG_SHOW_NOTEAMINFO">CG_SHOW_NOTEAMINFO</dfn>		            0x00010000</u></td></tr>
+<tr><th id="109">109</th><td><u>#define <dfn class="macro" id="_M/CG_SHOW_OTHERTEAMHASFLAG" data-ref="_M/CG_SHOW_OTHERTEAMHASFLAG">CG_SHOW_OTHERTEAMHASFLAG</dfn>          0x00020000</u></td></tr>
+<tr><th id="110">110</th><td><u>#define <dfn class="macro" id="_M/CG_SHOW_YOURTEAMHASENEMYFLAG" data-ref="_M/CG_SHOW_YOURTEAMHASENEMYFLAG">CG_SHOW_YOURTEAMHASENEMYFLAG</dfn>      0x00040000</u></td></tr>
+<tr><th id="111">111</th><td><u>#define <dfn class="macro" id="_M/CG_SHOW_ANYNONTEAMGAME" data-ref="_M/CG_SHOW_ANYNONTEAMGAME">CG_SHOW_ANYNONTEAMGAME</dfn>            0x00080000</u></td></tr>
+<tr><th id="112">112</th><td><u>#define <dfn class="macro" id="_M/CG_SHOW_2DONLY" data-ref="_M/CG_SHOW_2DONLY">CG_SHOW_2DONLY</dfn>										0x10000000</u></td></tr>
+<tr><th id="113">113</th><td></td></tr>
+<tr><th id="114">114</th><td></td></tr>
+<tr><th id="115">115</th><td><u>#define <dfn class="macro" id="_M/UI_SHOW_LEADER" data-ref="_M/UI_SHOW_LEADER">UI_SHOW_LEADER</dfn>				            0x00000001</u></td></tr>
+<tr><th id="116">116</th><td><u>#define <dfn class="macro" id="_M/UI_SHOW_NOTLEADER" data-ref="_M/UI_SHOW_NOTLEADER">UI_SHOW_NOTLEADER</dfn>			            0x00000002</u></td></tr>
+<tr><th id="117">117</th><td><u>#define <dfn class="macro" id="_M/UI_SHOW_FAVORITESERVERS" data-ref="_M/UI_SHOW_FAVORITESERVERS">UI_SHOW_FAVORITESERVERS</dfn>						0x00000004</u></td></tr>
+<tr><th id="118">118</th><td><u>#define <dfn class="macro" id="_M/UI_SHOW_ANYNONTEAMGAME" data-ref="_M/UI_SHOW_ANYNONTEAMGAME">UI_SHOW_ANYNONTEAMGAME</dfn>						0x00000008</u></td></tr>
+<tr><th id="119">119</th><td><u>#define <dfn class="macro" id="_M/UI_SHOW_ANYTEAMGAME" data-ref="_M/UI_SHOW_ANYTEAMGAME">UI_SHOW_ANYTEAMGAME</dfn>								0x00000010</u></td></tr>
+<tr><th id="120">120</th><td><u>#define <dfn class="macro" id="_M/UI_SHOW_NEWHIGHSCORE" data-ref="_M/UI_SHOW_NEWHIGHSCORE">UI_SHOW_NEWHIGHSCORE</dfn>							0x00000020</u></td></tr>
+<tr><th id="121">121</th><td><u>#define <dfn class="macro" id="_M/UI_SHOW_DEMOAVAILABLE" data-ref="_M/UI_SHOW_DEMOAVAILABLE">UI_SHOW_DEMOAVAILABLE</dfn>							0x00000040</u></td></tr>
+<tr><th id="122">122</th><td><u>#define <dfn class="macro" id="_M/UI_SHOW_NEWBESTTIME" data-ref="_M/UI_SHOW_NEWBESTTIME">UI_SHOW_NEWBESTTIME</dfn>								0x00000080</u></td></tr>
+<tr><th id="123">123</th><td><u>#define <dfn class="macro" id="_M/UI_SHOW_FFA" data-ref="_M/UI_SHOW_FFA">UI_SHOW_FFA</dfn>												0x00000100</u></td></tr>
+<tr><th id="124">124</th><td><u>#define <dfn class="macro" id="_M/UI_SHOW_NOTFFA" data-ref="_M/UI_SHOW_NOTFFA">UI_SHOW_NOTFFA</dfn>										0x00000200</u></td></tr>
+<tr><th id="125">125</th><td><u>#define <dfn class="macro" id="_M/UI_SHOW_NETANYNONTEAMGAME" data-ref="_M/UI_SHOW_NETANYNONTEAMGAME">UI_SHOW_NETANYNONTEAMGAME</dfn>	 				0x00000400</u></td></tr>
+<tr><th id="126">126</th><td><u>#define <dfn class="macro" id="_M/UI_SHOW_NETANYTEAMGAME" data-ref="_M/UI_SHOW_NETANYTEAMGAME">UI_SHOW_NETANYTEAMGAME</dfn>		 				0x00000800</u></td></tr>
+<tr><th id="127">127</th><td><u>#define <dfn class="macro" id="_M/UI_SHOW_NOTFAVORITESERVERS" data-ref="_M/UI_SHOW_NOTFAVORITESERVERS">UI_SHOW_NOTFAVORITESERVERS</dfn>				0x00001000</u></td></tr>
+<tr><th id="128">128</th><td></td></tr>
+<tr><th id="129">129</th><td></td></tr>
+<tr><th id="130">130</th><td></td></tr>
+<tr><th id="131">131</th><td></td></tr>
+<tr><th id="132">132</th><td><i>// owner draw types</i></td></tr>
+<tr><th id="133">133</th><td><i>// ideally these should be done outside of this file but</i></td></tr>
+<tr><th id="134">134</th><td><i>// this makes it much easier for the macro expansion to </i></td></tr>
+<tr><th id="135">135</th><td><i>// convert them for the designers ( from the .menu files )</i></td></tr>
+<tr><th id="136">136</th><td><u>#define <dfn class="macro" id="_M/CG_OWNERDRAW_BASE" data-ref="_M/CG_OWNERDRAW_BASE">CG_OWNERDRAW_BASE</dfn> 1</u></td></tr>
+<tr><th id="137">137</th><td><u>#define <dfn class="macro" id="_M/CG_PLAYER_ARMOR_ICON" data-ref="_M/CG_PLAYER_ARMOR_ICON">CG_PLAYER_ARMOR_ICON</dfn> 1</u>              </td></tr>
+<tr><th id="138">138</th><td><u>#define <dfn class="macro" id="_M/CG_PLAYER_ARMOR_VALUE" data-ref="_M/CG_PLAYER_ARMOR_VALUE">CG_PLAYER_ARMOR_VALUE</dfn> 2</u></td></tr>
+<tr><th id="139">139</th><td><u>#define <dfn class="macro" id="_M/CG_PLAYER_HEAD" data-ref="_M/CG_PLAYER_HEAD">CG_PLAYER_HEAD</dfn> 3</u></td></tr>
+<tr><th id="140">140</th><td><u>#define <dfn class="macro" id="_M/CG_PLAYER_HEALTH" data-ref="_M/CG_PLAYER_HEALTH">CG_PLAYER_HEALTH</dfn> 4</u></td></tr>
+<tr><th id="141">141</th><td><u>#define <dfn class="macro" id="_M/CG_PLAYER_AMMO_ICON" data-ref="_M/CG_PLAYER_AMMO_ICON">CG_PLAYER_AMMO_ICON</dfn> 5</u></td></tr>
+<tr><th id="142">142</th><td><u>#define <dfn class="macro" id="_M/CG_PLAYER_AMMO_VALUE" data-ref="_M/CG_PLAYER_AMMO_VALUE">CG_PLAYER_AMMO_VALUE</dfn> 6</u></td></tr>
+<tr><th id="143">143</th><td><u>#define <dfn class="macro" id="_M/CG_SELECTEDPLAYER_HEAD" data-ref="_M/CG_SELECTEDPLAYER_HEAD">CG_SELECTEDPLAYER_HEAD</dfn> 7</u></td></tr>
+<tr><th id="144">144</th><td><u>#define <dfn class="macro" id="_M/CG_SELECTEDPLAYER_NAME" data-ref="_M/CG_SELECTEDPLAYER_NAME">CG_SELECTEDPLAYER_NAME</dfn> 8</u></td></tr>
+<tr><th id="145">145</th><td><u>#define <dfn class="macro" id="_M/CG_SELECTEDPLAYER_LOCATION" data-ref="_M/CG_SELECTEDPLAYER_LOCATION">CG_SELECTEDPLAYER_LOCATION</dfn> 9</u></td></tr>
+<tr><th id="146">146</th><td><u>#define <dfn class="macro" id="_M/CG_SELECTEDPLAYER_STATUS" data-ref="_M/CG_SELECTEDPLAYER_STATUS">CG_SELECTEDPLAYER_STATUS</dfn> 10</u></td></tr>
+<tr><th id="147">147</th><td><u>#define <dfn class="macro" id="_M/CG_SELECTEDPLAYER_WEAPON" data-ref="_M/CG_SELECTEDPLAYER_WEAPON">CG_SELECTEDPLAYER_WEAPON</dfn> 11</u></td></tr>
+<tr><th id="148">148</th><td><u>#define <dfn class="macro" id="_M/CG_SELECTEDPLAYER_POWERUP" data-ref="_M/CG_SELECTEDPLAYER_POWERUP">CG_SELECTEDPLAYER_POWERUP</dfn> 12</u></td></tr>
+<tr><th id="149">149</th><td></td></tr>
+<tr><th id="150">150</th><td><u>#define <dfn class="macro" id="_M/CG_FLAGCARRIER_HEAD" data-ref="_M/CG_FLAGCARRIER_HEAD">CG_FLAGCARRIER_HEAD</dfn> 13</u></td></tr>
+<tr><th id="151">151</th><td><u>#define <dfn class="macro" id="_M/CG_FLAGCARRIER_NAME" data-ref="_M/CG_FLAGCARRIER_NAME">CG_FLAGCARRIER_NAME</dfn> 14</u></td></tr>
+<tr><th id="152">152</th><td><u>#define <dfn class="macro" id="_M/CG_FLAGCARRIER_LOCATION" data-ref="_M/CG_FLAGCARRIER_LOCATION">CG_FLAGCARRIER_LOCATION</dfn> 15</u></td></tr>
+<tr><th id="153">153</th><td><u>#define <dfn class="macro" id="_M/CG_FLAGCARRIER_STATUS" data-ref="_M/CG_FLAGCARRIER_STATUS">CG_FLAGCARRIER_STATUS</dfn> 16</u></td></tr>
+<tr><th id="154">154</th><td><u>#define <dfn class="macro" id="_M/CG_FLAGCARRIER_WEAPON" data-ref="_M/CG_FLAGCARRIER_WEAPON">CG_FLAGCARRIER_WEAPON</dfn> 17</u></td></tr>
+<tr><th id="155">155</th><td><u>#define <dfn class="macro" id="_M/CG_FLAGCARRIER_POWERUP" data-ref="_M/CG_FLAGCARRIER_POWERUP">CG_FLAGCARRIER_POWERUP</dfn> 18</u></td></tr>
+<tr><th id="156">156</th><td></td></tr>
+<tr><th id="157">157</th><td><u>#define <dfn class="macro" id="_M/CG_PLAYER_ITEM" data-ref="_M/CG_PLAYER_ITEM">CG_PLAYER_ITEM</dfn> 19</u></td></tr>
+<tr><th id="158">158</th><td><u>#define <dfn class="macro" id="_M/CG_PLAYER_SCORE" data-ref="_M/CG_PLAYER_SCORE">CG_PLAYER_SCORE</dfn> 20</u></td></tr>
+<tr><th id="159">159</th><td></td></tr>
+<tr><th id="160">160</th><td><u>#define <dfn class="macro" id="_M/CG_BLUE_FLAGHEAD" data-ref="_M/CG_BLUE_FLAGHEAD">CG_BLUE_FLAGHEAD</dfn> 21</u></td></tr>
+<tr><th id="161">161</th><td><u>#define <dfn class="macro" id="_M/CG_BLUE_FLAGSTATUS" data-ref="_M/CG_BLUE_FLAGSTATUS">CG_BLUE_FLAGSTATUS</dfn> 22</u></td></tr>
+<tr><th id="162">162</th><td><u>#define <dfn class="macro" id="_M/CG_BLUE_FLAGNAME" data-ref="_M/CG_BLUE_FLAGNAME">CG_BLUE_FLAGNAME</dfn> 23</u></td></tr>
+<tr><th id="163">163</th><td><u>#define <dfn class="macro" id="_M/CG_RED_FLAGHEAD" data-ref="_M/CG_RED_FLAGHEAD">CG_RED_FLAGHEAD</dfn> 24</u></td></tr>
+<tr><th id="164">164</th><td><u>#define <dfn class="macro" id="_M/CG_RED_FLAGSTATUS" data-ref="_M/CG_RED_FLAGSTATUS">CG_RED_FLAGSTATUS</dfn> 25</u></td></tr>
+<tr><th id="165">165</th><td><u>#define <dfn class="macro" id="_M/CG_RED_FLAGNAME" data-ref="_M/CG_RED_FLAGNAME">CG_RED_FLAGNAME</dfn> 26</u></td></tr>
+<tr><th id="166">166</th><td></td></tr>
+<tr><th id="167">167</th><td><u>#define <dfn class="macro" id="_M/CG_BLUE_SCORE" data-ref="_M/CG_BLUE_SCORE">CG_BLUE_SCORE</dfn> 27</u></td></tr>
+<tr><th id="168">168</th><td><u>#define <dfn class="macro" id="_M/CG_RED_SCORE" data-ref="_M/CG_RED_SCORE">CG_RED_SCORE</dfn> 28</u></td></tr>
+<tr><th id="169">169</th><td><u>#define <dfn class="macro" id="_M/CG_RED_NAME" data-ref="_M/CG_RED_NAME">CG_RED_NAME</dfn> 29</u></td></tr>
+<tr><th id="170">170</th><td><u>#define <dfn class="macro" id="_M/CG_BLUE_NAME" data-ref="_M/CG_BLUE_NAME">CG_BLUE_NAME</dfn> 30</u></td></tr>
+<tr><th id="171">171</th><td><u>#define <dfn class="macro" id="_M/CG_HARVESTER_SKULLS" data-ref="_M/CG_HARVESTER_SKULLS">CG_HARVESTER_SKULLS</dfn> 31					// only shows in harvester</u></td></tr>
+<tr><th id="172">172</th><td><u>#define <dfn class="macro" id="_M/CG_ONEFLAG_STATUS" data-ref="_M/CG_ONEFLAG_STATUS">CG_ONEFLAG_STATUS</dfn> 32						// only shows in one flag</u></td></tr>
+<tr><th id="173">173</th><td><u>#define <dfn class="macro" id="_M/CG_PLAYER_LOCATION" data-ref="_M/CG_PLAYER_LOCATION">CG_PLAYER_LOCATION</dfn> 33</u></td></tr>
+<tr><th id="174">174</th><td><u>#define <dfn class="macro" id="_M/CG_TEAM_COLOR" data-ref="_M/CG_TEAM_COLOR">CG_TEAM_COLOR</dfn> 34</u></td></tr>
+<tr><th id="175">175</th><td><u>#define <dfn class="macro" id="_M/CG_CTF_POWERUP" data-ref="_M/CG_CTF_POWERUP">CG_CTF_POWERUP</dfn> 35</u></td></tr>
+<tr><th id="176">176</th><td>                                        </td></tr>
+<tr><th id="177">177</th><td><u>#define <dfn class="macro" id="_M/CG_AREA_POWERUP" data-ref="_M/CG_AREA_POWERUP">CG_AREA_POWERUP</dfn>	36</u></td></tr>
+<tr><th id="178">178</th><td><u>#define <dfn class="macro" id="_M/CG_AREA_LAGOMETER" data-ref="_M/CG_AREA_LAGOMETER">CG_AREA_LAGOMETER</dfn>	37            // painted with old system</u></td></tr>
+<tr><th id="179">179</th><td><u>#define <dfn class="macro" id="_M/CG_PLAYER_HASFLAG" data-ref="_M/CG_PLAYER_HASFLAG">CG_PLAYER_HASFLAG</dfn> 38</u>            </td></tr>
+<tr><th id="180">180</th><td><u>#define <dfn class="macro" id="_M/CG_GAME_TYPE" data-ref="_M/CG_GAME_TYPE">CG_GAME_TYPE</dfn> 39                 // not done</u></td></tr>
+<tr><th id="181">181</th><td></td></tr>
+<tr><th id="182">182</th><td><u>#define <dfn class="macro" id="_M/CG_SELECTEDPLAYER_ARMOR" data-ref="_M/CG_SELECTEDPLAYER_ARMOR">CG_SELECTEDPLAYER_ARMOR</dfn> 40</u>      </td></tr>
+<tr><th id="183">183</th><td><u>#define <dfn class="macro" id="_M/CG_SELECTEDPLAYER_HEALTH" data-ref="_M/CG_SELECTEDPLAYER_HEALTH">CG_SELECTEDPLAYER_HEALTH</dfn> 41</u></td></tr>
+<tr><th id="184">184</th><td><u>#define <dfn class="macro" id="_M/CG_PLAYER_STATUS" data-ref="_M/CG_PLAYER_STATUS">CG_PLAYER_STATUS</dfn> 42</u></td></tr>
+<tr><th id="185">185</th><td><u>#define <dfn class="macro" id="_M/CG_FRAGGED_MSG" data-ref="_M/CG_FRAGGED_MSG">CG_FRAGGED_MSG</dfn> 43               // painted with old system</u></td></tr>
+<tr><th id="186">186</th><td><u>#define <dfn class="macro" id="_M/CG_PROXMINED_MSG" data-ref="_M/CG_PROXMINED_MSG">CG_PROXMINED_MSG</dfn> 44             // painted with old system</u></td></tr>
+<tr><th id="187">187</th><td><u>#define <dfn class="macro" id="_M/CG_AREA_FPSINFO" data-ref="_M/CG_AREA_FPSINFO">CG_AREA_FPSINFO</dfn> 45              // painted with old system</u></td></tr>
+<tr><th id="188">188</th><td><u>#define <dfn class="macro" id="_M/CG_AREA_SYSTEMCHAT" data-ref="_M/CG_AREA_SYSTEMCHAT">CG_AREA_SYSTEMCHAT</dfn> 46           // painted with old system</u></td></tr>
+<tr><th id="189">189</th><td><u>#define <dfn class="macro" id="_M/CG_AREA_TEAMCHAT" data-ref="_M/CG_AREA_TEAMCHAT">CG_AREA_TEAMCHAT</dfn> 47             // painted with old system</u></td></tr>
+<tr><th id="190">190</th><td><u>#define <dfn class="macro" id="_M/CG_AREA_CHAT" data-ref="_M/CG_AREA_CHAT">CG_AREA_CHAT</dfn> 48                 // painted with old system</u></td></tr>
+<tr><th id="191">191</th><td><u>#define <dfn class="macro" id="_M/CG_GAME_STATUS" data-ref="_M/CG_GAME_STATUS">CG_GAME_STATUS</dfn> 49</u></td></tr>
+<tr><th id="192">192</th><td><u>#define <dfn class="macro" id="_M/CG_KILLER" data-ref="_M/CG_KILLER">CG_KILLER</dfn> 50</u></td></tr>
+<tr><th id="193">193</th><td><u>#define <dfn class="macro" id="_M/CG_PLAYER_ARMOR_ICON2D" data-ref="_M/CG_PLAYER_ARMOR_ICON2D">CG_PLAYER_ARMOR_ICON2D</dfn> 51</u>              </td></tr>
+<tr><th id="194">194</th><td><u>#define <dfn class="macro" id="_M/CG_PLAYER_AMMO_ICON2D" data-ref="_M/CG_PLAYER_AMMO_ICON2D">CG_PLAYER_AMMO_ICON2D</dfn> 52</u></td></tr>
+<tr><th id="195">195</th><td><u>#define <dfn class="macro" id="_M/CG_ACCURACY" data-ref="_M/CG_ACCURACY">CG_ACCURACY</dfn> 53</u></td></tr>
+<tr><th id="196">196</th><td><u>#define <dfn class="macro" id="_M/CG_ASSISTS" data-ref="_M/CG_ASSISTS">CG_ASSISTS</dfn> 54</u></td></tr>
+<tr><th id="197">197</th><td><u>#define <dfn class="macro" id="_M/CG_DEFEND" data-ref="_M/CG_DEFEND">CG_DEFEND</dfn> 55</u></td></tr>
+<tr><th id="198">198</th><td><u>#define <dfn class="macro" id="_M/CG_EXCELLENT" data-ref="_M/CG_EXCELLENT">CG_EXCELLENT</dfn> 56</u></td></tr>
+<tr><th id="199">199</th><td><u>#define <dfn class="macro" id="_M/CG_IMPRESSIVE" data-ref="_M/CG_IMPRESSIVE">CG_IMPRESSIVE</dfn> 57</u></td></tr>
+<tr><th id="200">200</th><td><u>#define <dfn class="macro" id="_M/CG_PERFECT" data-ref="_M/CG_PERFECT">CG_PERFECT</dfn> 58</u></td></tr>
+<tr><th id="201">201</th><td><u>#define <dfn class="macro" id="_M/CG_GAUNTLET" data-ref="_M/CG_GAUNTLET">CG_GAUNTLET</dfn> 59</u></td></tr>
+<tr><th id="202">202</th><td><u>#define <dfn class="macro" id="_M/CG_SPECTATORS" data-ref="_M/CG_SPECTATORS">CG_SPECTATORS</dfn> 60</u></td></tr>
+<tr><th id="203">203</th><td><u>#define <dfn class="macro" id="_M/CG_TEAMINFO" data-ref="_M/CG_TEAMINFO">CG_TEAMINFO</dfn> 61</u></td></tr>
+<tr><th id="204">204</th><td><u>#define <dfn class="macro" id="_M/CG_VOICE_HEAD" data-ref="_M/CG_VOICE_HEAD">CG_VOICE_HEAD</dfn> 62</u></td></tr>
+<tr><th id="205">205</th><td><u>#define <dfn class="macro" id="_M/CG_VOICE_NAME" data-ref="_M/CG_VOICE_NAME">CG_VOICE_NAME</dfn> 63</u></td></tr>
+<tr><th id="206">206</th><td><u>#define <dfn class="macro" id="_M/CG_PLAYER_HASFLAG2D" data-ref="_M/CG_PLAYER_HASFLAG2D">CG_PLAYER_HASFLAG2D</dfn> 64</u>            </td></tr>
+<tr><th id="207">207</th><td><u>#define <dfn class="macro" id="_M/CG_HARVESTER_SKULLS2D" data-ref="_M/CG_HARVESTER_SKULLS2D">CG_HARVESTER_SKULLS2D</dfn> 65					// only shows in harvester</u></td></tr>
+<tr><th id="208">208</th><td><u>#define <dfn class="macro" id="_M/CG_CAPFRAGLIMIT" data-ref="_M/CG_CAPFRAGLIMIT">CG_CAPFRAGLIMIT</dfn> 66</u>	 </td></tr>
+<tr><th id="209">209</th><td><u>#define <dfn class="macro" id="_M/CG_1STPLACE" data-ref="_M/CG_1STPLACE">CG_1STPLACE</dfn> 67</u></td></tr>
+<tr><th id="210">210</th><td><u>#define <dfn class="macro" id="_M/CG_2NDPLACE" data-ref="_M/CG_2NDPLACE">CG_2NDPLACE</dfn> 68</u></td></tr>
+<tr><th id="211">211</th><td><u>#define <dfn class="macro" id="_M/CG_CAPTURES" data-ref="_M/CG_CAPTURES">CG_CAPTURES</dfn> 69</u></td></tr>
+<tr><th id="212">212</th><td></td></tr>
+<tr><th id="213">213</th><td></td></tr>
+<tr><th id="214">214</th><td></td></tr>
+<tr><th id="215">215</th><td></td></tr>
+<tr><th id="216">216</th><td><u>#define <dfn class="macro" id="_M/UI_OWNERDRAW_BASE" data-ref="_M/UI_OWNERDRAW_BASE">UI_OWNERDRAW_BASE</dfn> 200</u></td></tr>
+<tr><th id="217">217</th><td><u>#define <dfn class="macro" id="_M/UI_HANDICAP" data-ref="_M/UI_HANDICAP">UI_HANDICAP</dfn> 200</u></td></tr>
+<tr><th id="218">218</th><td><u>#define <dfn class="macro" id="_M/UI_EFFECTS" data-ref="_M/UI_EFFECTS">UI_EFFECTS</dfn> 201</u></td></tr>
+<tr><th id="219">219</th><td><u>#define <dfn class="macro" id="_M/UI_PLAYERMODEL" data-ref="_M/UI_PLAYERMODEL">UI_PLAYERMODEL</dfn> 202</u></td></tr>
+<tr><th id="220">220</th><td><u>#define <dfn class="macro" id="_M/UI_CLANNAME" data-ref="_M/UI_CLANNAME">UI_CLANNAME</dfn> 203</u></td></tr>
+<tr><th id="221">221</th><td><u>#define <dfn class="macro" id="_M/UI_CLANLOGO" data-ref="_M/UI_CLANLOGO">UI_CLANLOGO</dfn> 204</u></td></tr>
+<tr><th id="222">222</th><td><u>#define <dfn class="macro" id="_M/UI_GAMETYPE" data-ref="_M/UI_GAMETYPE">UI_GAMETYPE</dfn> 205</u></td></tr>
+<tr><th id="223">223</th><td><u>#define <dfn class="macro" id="_M/UI_MAPPREVIEW" data-ref="_M/UI_MAPPREVIEW">UI_MAPPREVIEW</dfn> 206</u></td></tr>
+<tr><th id="224">224</th><td><u>#define <dfn class="macro" id="_M/UI_SKILL" data-ref="_M/UI_SKILL">UI_SKILL</dfn> 207</u></td></tr>
+<tr><th id="225">225</th><td><u>#define <dfn class="macro" id="_M/UI_BLUETEAMNAME" data-ref="_M/UI_BLUETEAMNAME">UI_BLUETEAMNAME</dfn> 208</u></td></tr>
+<tr><th id="226">226</th><td><u>#define <dfn class="macro" id="_M/UI_REDTEAMNAME" data-ref="_M/UI_REDTEAMNAME">UI_REDTEAMNAME</dfn> 209</u></td></tr>
+<tr><th id="227">227</th><td><u>#define <dfn class="macro" id="_M/UI_BLUETEAM1" data-ref="_M/UI_BLUETEAM1">UI_BLUETEAM1</dfn> 210</u></td></tr>
+<tr><th id="228">228</th><td><u>#define <dfn class="macro" id="_M/UI_BLUETEAM2" data-ref="_M/UI_BLUETEAM2">UI_BLUETEAM2</dfn> 211</u></td></tr>
+<tr><th id="229">229</th><td><u>#define <dfn class="macro" id="_M/UI_BLUETEAM3" data-ref="_M/UI_BLUETEAM3">UI_BLUETEAM3</dfn> 212</u></td></tr>
+<tr><th id="230">230</th><td><u>#define <dfn class="macro" id="_M/UI_BLUETEAM4" data-ref="_M/UI_BLUETEAM4">UI_BLUETEAM4</dfn> 213</u></td></tr>
+<tr><th id="231">231</th><td><u>#define <dfn class="macro" id="_M/UI_BLUETEAM5" data-ref="_M/UI_BLUETEAM5">UI_BLUETEAM5</dfn> 214</u></td></tr>
+<tr><th id="232">232</th><td><u>#define <dfn class="macro" id="_M/UI_REDTEAM1" data-ref="_M/UI_REDTEAM1">UI_REDTEAM1</dfn> 215</u></td></tr>
+<tr><th id="233">233</th><td><u>#define <dfn class="macro" id="_M/UI_REDTEAM2" data-ref="_M/UI_REDTEAM2">UI_REDTEAM2</dfn> 216</u></td></tr>
+<tr><th id="234">234</th><td><u>#define <dfn class="macro" id="_M/UI_REDTEAM3" data-ref="_M/UI_REDTEAM3">UI_REDTEAM3</dfn> 217</u></td></tr>
+<tr><th id="235">235</th><td><u>#define <dfn class="macro" id="_M/UI_REDTEAM4" data-ref="_M/UI_REDTEAM4">UI_REDTEAM4</dfn> 218</u></td></tr>
+<tr><th id="236">236</th><td><u>#define <dfn class="macro" id="_M/UI_REDTEAM5" data-ref="_M/UI_REDTEAM5">UI_REDTEAM5</dfn> 219</u></td></tr>
+<tr><th id="237">237</th><td><u>#define <dfn class="macro" id="_M/UI_NETSOURCE" data-ref="_M/UI_NETSOURCE">UI_NETSOURCE</dfn> 220</u></td></tr>
+<tr><th id="238">238</th><td><u>#define <dfn class="macro" id="_M/UI_NETMAPPREVIEW" data-ref="_M/UI_NETMAPPREVIEW">UI_NETMAPPREVIEW</dfn> 221</u></td></tr>
+<tr><th id="239">239</th><td><u>#define <dfn class="macro" id="_M/UI_NETFILTER" data-ref="_M/UI_NETFILTER">UI_NETFILTER</dfn> 222</u></td></tr>
+<tr><th id="240">240</th><td><u>#define <dfn class="macro" id="_M/UI_TIER" data-ref="_M/UI_TIER">UI_TIER</dfn> 223</u></td></tr>
+<tr><th id="241">241</th><td><u>#define <dfn class="macro" id="_M/UI_OPPONENTMODEL" data-ref="_M/UI_OPPONENTMODEL">UI_OPPONENTMODEL</dfn> 224</u></td></tr>
+<tr><th id="242">242</th><td><u>#define <dfn class="macro" id="_M/UI_TIERMAP1" data-ref="_M/UI_TIERMAP1">UI_TIERMAP1</dfn> 225</u></td></tr>
+<tr><th id="243">243</th><td><u>#define <dfn class="macro" id="_M/UI_TIERMAP2" data-ref="_M/UI_TIERMAP2">UI_TIERMAP2</dfn> 226</u></td></tr>
+<tr><th id="244">244</th><td><u>#define <dfn class="macro" id="_M/UI_TIERMAP3" data-ref="_M/UI_TIERMAP3">UI_TIERMAP3</dfn> 227</u></td></tr>
+<tr><th id="245">245</th><td><u>#define <dfn class="macro" id="_M/UI_PLAYERLOGO" data-ref="_M/UI_PLAYERLOGO">UI_PLAYERLOGO</dfn> 228</u></td></tr>
+<tr><th id="246">246</th><td><u>#define <dfn class="macro" id="_M/UI_OPPONENTLOGO" data-ref="_M/UI_OPPONENTLOGO">UI_OPPONENTLOGO</dfn> 229</u></td></tr>
+<tr><th id="247">247</th><td><u>#define <dfn class="macro" id="_M/UI_PLAYERLOGO_METAL" data-ref="_M/UI_PLAYERLOGO_METAL">UI_PLAYERLOGO_METAL</dfn> 230</u></td></tr>
+<tr><th id="248">248</th><td><u>#define <dfn class="macro" id="_M/UI_OPPONENTLOGO_METAL" data-ref="_M/UI_OPPONENTLOGO_METAL">UI_OPPONENTLOGO_METAL</dfn> 231</u></td></tr>
+<tr><th id="249">249</th><td><u>#define <dfn class="macro" id="_M/UI_PLAYERLOGO_NAME" data-ref="_M/UI_PLAYERLOGO_NAME">UI_PLAYERLOGO_NAME</dfn> 232</u></td></tr>
+<tr><th id="250">250</th><td><u>#define <dfn class="macro" id="_M/UI_OPPONENTLOGO_NAME" data-ref="_M/UI_OPPONENTLOGO_NAME">UI_OPPONENTLOGO_NAME</dfn> 233</u></td></tr>
+<tr><th id="251">251</th><td><u>#define <dfn class="macro" id="_M/UI_TIER_MAPNAME" data-ref="_M/UI_TIER_MAPNAME">UI_TIER_MAPNAME</dfn> 234</u></td></tr>
+<tr><th id="252">252</th><td><u>#define <dfn class="macro" id="_M/UI_TIER_GAMETYPE" data-ref="_M/UI_TIER_GAMETYPE">UI_TIER_GAMETYPE</dfn> 235</u></td></tr>
+<tr><th id="253">253</th><td><u>#define <dfn class="macro" id="_M/UI_ALLMAPS_SELECTION" data-ref="_M/UI_ALLMAPS_SELECTION">UI_ALLMAPS_SELECTION</dfn> 236</u></td></tr>
+<tr><th id="254">254</th><td><u>#define <dfn class="macro" id="_M/UI_OPPONENT_NAME" data-ref="_M/UI_OPPONENT_NAME">UI_OPPONENT_NAME</dfn> 237</u></td></tr>
+<tr><th id="255">255</th><td><u>#define <dfn class="macro" id="_M/UI_VOTE_KICK" data-ref="_M/UI_VOTE_KICK">UI_VOTE_KICK</dfn> 238</u></td></tr>
+<tr><th id="256">256</th><td><u>#define <dfn class="macro" id="_M/UI_BOTNAME" data-ref="_M/UI_BOTNAME">UI_BOTNAME</dfn> 239</u></td></tr>
+<tr><th id="257">257</th><td><u>#define <dfn class="macro" id="_M/UI_BOTSKILL" data-ref="_M/UI_BOTSKILL">UI_BOTSKILL</dfn> 240</u></td></tr>
+<tr><th id="258">258</th><td><u>#define <dfn class="macro" id="_M/UI_REDBLUE" data-ref="_M/UI_REDBLUE">UI_REDBLUE</dfn> 241</u></td></tr>
+<tr><th id="259">259</th><td><u>#define <dfn class="macro" id="_M/UI_CROSSHAIR" data-ref="_M/UI_CROSSHAIR">UI_CROSSHAIR</dfn> 242</u></td></tr>
+<tr><th id="260">260</th><td><u>#define <dfn class="macro" id="_M/UI_SELECTEDPLAYER" data-ref="_M/UI_SELECTEDPLAYER">UI_SELECTEDPLAYER</dfn> 243</u></td></tr>
+<tr><th id="261">261</th><td><u>#define <dfn class="macro" id="_M/UI_MAPCINEMATIC" data-ref="_M/UI_MAPCINEMATIC">UI_MAPCINEMATIC</dfn> 244</u></td></tr>
+<tr><th id="262">262</th><td><u>#define <dfn class="macro" id="_M/UI_NETGAMETYPE" data-ref="_M/UI_NETGAMETYPE">UI_NETGAMETYPE</dfn> 245</u></td></tr>
+<tr><th id="263">263</th><td><u>#define <dfn class="macro" id="_M/UI_NETMAPCINEMATIC" data-ref="_M/UI_NETMAPCINEMATIC">UI_NETMAPCINEMATIC</dfn> 246</u></td></tr>
+<tr><th id="264">264</th><td><u>#define <dfn class="macro" id="_M/UI_SERVERREFRESHDATE" data-ref="_M/UI_SERVERREFRESHDATE">UI_SERVERREFRESHDATE</dfn> 247</u></td></tr>
+<tr><th id="265">265</th><td><u>#define <dfn class="macro" id="_M/UI_SERVERMOTD" data-ref="_M/UI_SERVERMOTD">UI_SERVERMOTD</dfn> 248</u></td></tr>
+<tr><th id="266">266</th><td><u>#define <dfn class="macro" id="_M/UI_GLINFO" data-ref="_M/UI_GLINFO">UI_GLINFO</dfn>  249</u></td></tr>
+<tr><th id="267">267</th><td><u>#define <dfn class="macro" id="_M/UI_KEYBINDSTATUS" data-ref="_M/UI_KEYBINDSTATUS">UI_KEYBINDSTATUS</dfn> 250</u></td></tr>
+<tr><th id="268">268</th><td><u>#define <dfn class="macro" id="_M/UI_CLANCINEMATIC" data-ref="_M/UI_CLANCINEMATIC">UI_CLANCINEMATIC</dfn> 251</u></td></tr>
+<tr><th id="269">269</th><td><u>#define <dfn class="macro" id="_M/UI_MAP_TIMETOBEAT" data-ref="_M/UI_MAP_TIMETOBEAT">UI_MAP_TIMETOBEAT</dfn> 252</u></td></tr>
+<tr><th id="270">270</th><td><u>#define <dfn class="macro" id="_M/UI_JOINGAMETYPE" data-ref="_M/UI_JOINGAMETYPE">UI_JOINGAMETYPE</dfn> 253</u></td></tr>
+<tr><th id="271">271</th><td><u>#define <dfn class="macro" id="_M/UI_PREVIEWCINEMATIC" data-ref="_M/UI_PREVIEWCINEMATIC">UI_PREVIEWCINEMATIC</dfn> 254</u></td></tr>
+<tr><th id="272">272</th><td><u>#define <dfn class="macro" id="_M/UI_STARTMAPCINEMATIC" data-ref="_M/UI_STARTMAPCINEMATIC">UI_STARTMAPCINEMATIC</dfn> 255</u></td></tr>
+<tr><th id="273">273</th><td><u>#define <dfn class="macro" id="_M/UI_MAPS_SELECTION" data-ref="_M/UI_MAPS_SELECTION">UI_MAPS_SELECTION</dfn> 256</u></td></tr>
+<tr><th id="274">274</th><td></td></tr>
+<tr><th id="275">275</th><td><u>#define <dfn class="macro" id="_M/VOICECHAT_GETFLAG" data-ref="_M/VOICECHAT_GETFLAG">VOICECHAT_GETFLAG</dfn>			"getflag"				// command someone to get the flag</u></td></tr>
+<tr><th id="276">276</th><td><u>#define <dfn class="macro" id="_M/VOICECHAT_OFFENSE" data-ref="_M/VOICECHAT_OFFENSE">VOICECHAT_OFFENSE</dfn>			"offense"				// command someone to go on offense</u></td></tr>
+<tr><th id="277">277</th><td><u>#define <dfn class="macro" id="_M/VOICECHAT_DEFEND" data-ref="_M/VOICECHAT_DEFEND">VOICECHAT_DEFEND</dfn>			"defend"				// command someone to go on defense</u></td></tr>
+<tr><th id="278">278</th><td><u>#define <dfn class="macro" id="_M/VOICECHAT_DEFENDFLAG" data-ref="_M/VOICECHAT_DEFENDFLAG">VOICECHAT_DEFENDFLAG</dfn>		"defendflag"			// command someone to defend the flag</u></td></tr>
+<tr><th id="279">279</th><td><u>#define <dfn class="macro" id="_M/VOICECHAT_PATROL" data-ref="_M/VOICECHAT_PATROL">VOICECHAT_PATROL</dfn>			"patrol"				// command someone to go on patrol (roam)</u></td></tr>
+<tr><th id="280">280</th><td><u>#define <dfn class="macro" id="_M/VOICECHAT_CAMP" data-ref="_M/VOICECHAT_CAMP">VOICECHAT_CAMP</dfn>				"camp"					// command someone to camp (we don't have sounds for this one)</u></td></tr>
+<tr><th id="281">281</th><td><u>#define <dfn class="macro" id="_M/VOICECHAT_FOLLOWME" data-ref="_M/VOICECHAT_FOLLOWME">VOICECHAT_FOLLOWME</dfn>			"followme"				// command someone to follow you</u></td></tr>
+<tr><th id="282">282</th><td><u>#define <dfn class="macro" id="_M/VOICECHAT_RETURNFLAG" data-ref="_M/VOICECHAT_RETURNFLAG">VOICECHAT_RETURNFLAG</dfn>		"returnflag"			// command someone to return our flag</u></td></tr>
+<tr><th id="283">283</th><td><u>#define <dfn class="macro" id="_M/VOICECHAT_FOLLOWFLAGCARRIER" data-ref="_M/VOICECHAT_FOLLOWFLAGCARRIER">VOICECHAT_FOLLOWFLAGCARRIER</dfn>	"followflagcarrier"		// command someone to follow the flag carrier</u></td></tr>
+<tr><th id="284">284</th><td><u>#define <dfn class="macro" id="_M/VOICECHAT_YES" data-ref="_M/VOICECHAT_YES">VOICECHAT_YES</dfn>				"yes"					// yes, affirmative, etc.</u></td></tr>
+<tr><th id="285">285</th><td><u>#define <dfn class="macro" id="_M/VOICECHAT_NO" data-ref="_M/VOICECHAT_NO">VOICECHAT_NO</dfn>				"no"					// no, negative, etc.</u></td></tr>
+<tr><th id="286">286</th><td><u>#define <dfn class="macro" id="_M/VOICECHAT_ONGETFLAG" data-ref="_M/VOICECHAT_ONGETFLAG">VOICECHAT_ONGETFLAG</dfn>			"ongetflag"				// I'm getting the flag</u></td></tr>
+<tr><th id="287">287</th><td><u>#define <dfn class="macro" id="_M/VOICECHAT_ONOFFENSE" data-ref="_M/VOICECHAT_ONOFFENSE">VOICECHAT_ONOFFENSE</dfn>			"onoffense"				// I'm on offense</u></td></tr>
+<tr><th id="288">288</th><td><u>#define <dfn class="macro" id="_M/VOICECHAT_ONDEFENSE" data-ref="_M/VOICECHAT_ONDEFENSE">VOICECHAT_ONDEFENSE</dfn>			"ondefense"				// I'm on defense</u></td></tr>
+<tr><th id="289">289</th><td><u>#define <dfn class="macro" id="_M/VOICECHAT_ONPATROL" data-ref="_M/VOICECHAT_ONPATROL">VOICECHAT_ONPATROL</dfn>			"onpatrol"				// I'm on patrol (roaming)</u></td></tr>
+<tr><th id="290">290</th><td><u>#define <dfn class="macro" id="_M/VOICECHAT_ONCAMPING" data-ref="_M/VOICECHAT_ONCAMPING">VOICECHAT_ONCAMPING</dfn>			"oncamp"				// I'm camping somewhere</u></td></tr>
+<tr><th id="291">291</th><td><u>#define <dfn class="macro" id="_M/VOICECHAT_ONFOLLOW" data-ref="_M/VOICECHAT_ONFOLLOW">VOICECHAT_ONFOLLOW</dfn>			"onfollow"				// I'm following</u></td></tr>
+<tr><th id="292">292</th><td><u>#define <dfn class="macro" id="_M/VOICECHAT_ONFOLLOWCARRIER" data-ref="_M/VOICECHAT_ONFOLLOWCARRIER">VOICECHAT_ONFOLLOWCARRIER</dfn>	"onfollowcarrier"		// I'm following the flag carrier</u></td></tr>
+<tr><th id="293">293</th><td><u>#define <dfn class="macro" id="_M/VOICECHAT_ONRETURNFLAG" data-ref="_M/VOICECHAT_ONRETURNFLAG">VOICECHAT_ONRETURNFLAG</dfn>		"onreturnflag"			// I'm returning our flag</u></td></tr>
+<tr><th id="294">294</th><td><u>#define <dfn class="macro" id="_M/VOICECHAT_INPOSITION" data-ref="_M/VOICECHAT_INPOSITION">VOICECHAT_INPOSITION</dfn>		"inposition"			// I'm in position</u></td></tr>
+<tr><th id="295">295</th><td><u>#define <dfn class="macro" id="_M/VOICECHAT_IHAVEFLAG" data-ref="_M/VOICECHAT_IHAVEFLAG">VOICECHAT_IHAVEFLAG</dfn>			"ihaveflag"				// I have the flag</u></td></tr>
+<tr><th id="296">296</th><td><u>#define <dfn class="macro" id="_M/VOICECHAT_BASEATTACK" data-ref="_M/VOICECHAT_BASEATTACK">VOICECHAT_BASEATTACK</dfn>		"baseattack"			// the base is under attack</u></td></tr>
+<tr><th id="297">297</th><td><u>#define <dfn class="macro" id="_M/VOICECHAT_ENEMYHASFLAG" data-ref="_M/VOICECHAT_ENEMYHASFLAG">VOICECHAT_ENEMYHASFLAG</dfn>		"enemyhasflag"			// the enemy has our flag (CTF)</u></td></tr>
+<tr><th id="298">298</th><td><u>#define <dfn class="macro" id="_M/VOICECHAT_STARTLEADER" data-ref="_M/VOICECHAT_STARTLEADER">VOICECHAT_STARTLEADER</dfn>		"startleader"			// I'm the leader</u></td></tr>
+<tr><th id="299">299</th><td><u>#define <dfn class="macro" id="_M/VOICECHAT_STOPLEADER" data-ref="_M/VOICECHAT_STOPLEADER">VOICECHAT_STOPLEADER</dfn>		"stopleader"			// I resign leadership</u></td></tr>
+<tr><th id="300">300</th><td><u>#define <dfn class="macro" id="_M/VOICECHAT_TRASH" data-ref="_M/VOICECHAT_TRASH">VOICECHAT_TRASH</dfn>				"trash"					// lots of trash talk</u></td></tr>
+<tr><th id="301">301</th><td><u>#define <dfn class="macro" id="_M/VOICECHAT_WHOISLEADER" data-ref="_M/VOICECHAT_WHOISLEADER">VOICECHAT_WHOISLEADER</dfn>		"whoisleader"			// who is the team leader</u></td></tr>
+<tr><th id="302">302</th><td><u>#define <dfn class="macro" id="_M/VOICECHAT_WANTONDEFENSE" data-ref="_M/VOICECHAT_WANTONDEFENSE">VOICECHAT_WANTONDEFENSE</dfn>		"wantondefense"			// I want to be on defense</u></td></tr>
+<tr><th id="303">303</th><td><u>#define <dfn class="macro" id="_M/VOICECHAT_WANTONOFFENSE" data-ref="_M/VOICECHAT_WANTONOFFENSE">VOICECHAT_WANTONOFFENSE</dfn>		"wantonoffense"			// I want to be on offense</u></td></tr>
+<tr><th id="304">304</th><td><u>#define <dfn class="macro" id="_M/VOICECHAT_KILLINSULT" data-ref="_M/VOICECHAT_KILLINSULT">VOICECHAT_KILLINSULT</dfn>		"kill_insult"			// I just killed you</u></td></tr>
+<tr><th id="305">305</th><td><u>#define <dfn class="macro" id="_M/VOICECHAT_TAUNT" data-ref="_M/VOICECHAT_TAUNT">VOICECHAT_TAUNT</dfn>				"taunt"					// I want to taunt you</u></td></tr>
+<tr><th id="306">306</th><td><u>#define <dfn class="macro" id="_M/VOICECHAT_DEATHINSULT" data-ref="_M/VOICECHAT_DEATHINSULT">VOICECHAT_DEATHINSULT</dfn>		"death_insult"			// you just killed me</u></td></tr>
+<tr><th id="307">307</th><td><u>#define <dfn class="macro" id="_M/VOICECHAT_KILLGAUNTLET" data-ref="_M/VOICECHAT_KILLGAUNTLET">VOICECHAT_KILLGAUNTLET</dfn>		"kill_gauntlet"			// I just killed you with the gauntlet</u></td></tr>
+<tr><th id="308">308</th><td><u>#define <dfn class="macro" id="_M/VOICECHAT_PRAISE" data-ref="_M/VOICECHAT_PRAISE">VOICECHAT_PRAISE</dfn>			"praise"				// you did something good</u></td></tr>
+<tr><th id="309">309</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='../code/cgame/cg_newdraw.c.html'>codebrowser/code/cgame/cg_newdraw.c</a><br/>Generated on <em>2017-Aug-29</em> from project codebrowser revision <em>63e07af</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

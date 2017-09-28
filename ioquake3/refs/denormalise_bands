@@ -1,0 +1,12 @@
+<dec f='codebrowser/code/opus-1.1.4/celt/bands.h' l='61' type='void denormalise_bands(const OpusCustomMode * m, const celt_norm *restrict X, celt_sig *restrict freq, const opus_val16 * bandE, int start, int end, int M, int downsample, int silence)'/>
+<def f='codebrowser/code/opus-1.1.4/celt/bands.c' l='195' ll='264' type='void denormalise_bands(const OpusCustomMode * m, const celt_norm *restrict X, celt_sig *restrict freq, const opus_val16 * bandLogE, int start, int end, int M, int downsample, int silence)'/>
+<doc f='codebrowser/code/opus-1.1.4/celt/bands.c' l='194'>/* De-normalise the energy to produce the synthesis from the unit-energy bands */</doc>
+<doc f='codebrowser/code/opus-1.1.4/celt/bands.h' l='56'>/** Denormalise each band of X to restore full amplitude
+ * @param m Mode data
+ * @param X Spectrum (returned de-normalised)
+ * @param bandE Square root of the energy for each band
+ */</doc>
+<use f='codebrowser/code/opus-1.1.4/celt/celt_decoder.c' l='316' u='c' c='celt_synthesis'/>
+<use f='codebrowser/code/opus-1.1.4/celt/celt_decoder.c' l='330' u='c' c='celt_synthesis'/>
+<use f='codebrowser/code/opus-1.1.4/celt/celt_decoder.c' l='333' u='c' c='celt_synthesis'/>
+<use f='codebrowser/code/opus-1.1.4/celt/celt_decoder.c' l='342' u='c' c='celt_synthesis'/>

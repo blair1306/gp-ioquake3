@@ -1,0 +1,14 @@
+<dec f='codebrowser/code/client/snd_public.h' l='64' type='sfxHandle_t S_RegisterSound(const char * sample, qboolean compressed)'/>
+<dec f='codebrowser/code/client/snd_public.h' l='64' type='sfxHandle_t S_RegisterSound(const char * sample, qboolean compressed)'/>
+<doc f='codebrowser/code/client/snd_public.h' l='61'>// RegisterSound will allways return a valid sample, even if it
+// has to create a placeholder.  This prevents continuous filesystem
+// checks for missing files</doc>
+<use f='codebrowser/code/client/cl_cgame.c' l='527' u='c' c='CL_CgameSystemCalls'/>
+<use f='codebrowser/code/client/cl_ui.c' l='860' u='c' c='CL_UISystemCalls'/>
+<def f='codebrowser/code/client/snd_main.c' l='285' ll='292' type='sfxHandle_t S_RegisterSound(const char * sample, qboolean compressed)'/>
+<doc f='codebrowser/code/client/snd_main.c' l='280'>/*
+=================
+S_RegisterSound
+=================
+*/</doc>
+<def f='codebrowser/code/null/null_snddma.c' l='51' ll='54' type='sfxHandle_t S_RegisterSound(const char * name, qboolean compressed)'/>

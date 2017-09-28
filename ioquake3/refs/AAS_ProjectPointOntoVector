@@ -1,0 +1,13 @@
+<dec f='codebrowser/code/botlib/be_aas_main.h' l='57' type='void AAS_ProjectPointOntoVector(vec_t * point, vec_t * vStart, vec_t * vEnd, vec_t * vProj)'/>
+<dec f='codebrowser/code/botlib/be_aas_main.h' l='57' type='void AAS_ProjectPointOntoVector(vec_t * point, vec_t * vStart, vec_t * vEnd, vec_t * vProj)'/>
+<doc f='codebrowser/code/botlib/be_aas_main.h' l='56'>//</doc>
+<def f='codebrowser/code/botlib/be_aas_main.c' l='204' ll='213' type='void AAS_ProjectPointOntoVector(vec_t * point, vec_t * vStart, vec_t * vEnd, vec_t * vProj)'/>
+<doc f='codebrowser/code/botlib/be_aas_main.c' l='198'>//===========================================================================
+//
+// Parameter:			-
+// Returns:				-
+// Changes Globals:		-
+//===========================================================================</doc>
+<use f='codebrowser/code/botlib/be_aas_route.c' l='2074' u='c' c='DistancePointToLine'/>
+<use f='codebrowser/code/botlib/be_aas_route.c' l='2152' u='c' c='AAS_NearestHideArea'/>
+<use f='codebrowser/code/botlib/be_ai_move.c' l='618' u='c' c='DistanceFromLineSquared'/>

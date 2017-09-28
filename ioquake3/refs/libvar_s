@@ -1,0 +1,18 @@
+<def f='codebrowser/code/botlib/l_libvar.h' l='33' ll='41'/>
+<size>40</size>
+<doc f='codebrowser/code/botlib/l_libvar.h' l='23'>/*****************************************************************************
+ * name:		l_libvar.h
+ *
+ * desc:		botlib vars
+ *
+ * $Archive: /source/code/botlib/l_libvar.h $
+ *
+ *****************************************************************************/
+
+//library variable</doc>
+<mbr r='libvar_s::name' o='0' t='char *'/>
+<mbr r='libvar_s::string' o='64' t='char *'/>
+<mbr r='libvar_s::flags' o='128' t='int'/>
+<mbr r='libvar_s::modified' o='160' t='qboolean'/>
+<mbr r='libvar_s::value' o='192' t='float'/>
+<mbr r='libvar_s::next' o='256' t='struct libvar_s *'/>

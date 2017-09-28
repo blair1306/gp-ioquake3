@@ -1,0 +1,6 @@
+<dec f='codebrowser/code/opus-1.1.4/silk/main.h' l='183' type='void silk_gains_dequant(opus_int32 * gain_Q16, const signed char * ind, signed char * prev_ind, const int conditional, const int nb_subfr)'/>
+<doc f='codebrowser/code/opus-1.1.4/silk/main.h' l='182'>/* Gains scalar dequantization, uniform on log scale */</doc>
+<use f='codebrowser/code/opus-1.1.4/silk/decode_parameters.c' l='46' u='c' c='silk_decode_parameters'/>
+<use f='codebrowser/code/opus-1.1.4/silk/float/encode_frame_FLP.c' l='355' u='c' c='silk_LBRR_encode_FLP'/>
+<def f='codebrowser/code/opus-1.1.4/silk/gain_quant.c' l='93' ll='124' type='void silk_gains_dequant(opus_int32 * gain_Q16, const signed char * ind, signed char * prev_ind, const int conditional, const int nb_subfr)'/>
+<doc f='codebrowser/code/opus-1.1.4/silk/gain_quant.c' l='92'>/* Gains scalar dequantization, uniform on log scale */</doc>

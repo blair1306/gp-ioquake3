@@ -1,0 +1,63 @@
+<dec f='codebrowser/code/jpeg-8c/jpeglib.h' l='111' type='UINT8 [17]'/>
+<offset>0</offset>
+<doc f='codebrowser/code/jpeg-8c/jpeglib.h' l='110'>/* These two fields directly represent the contents of a JPEG DHT marker */</doc>
+<doc f='codebrowser/code/jpeg-8c/jpeglib.h' l='111'>/* bits[k] = # of symbols with codes of */</doc>
+<use f='codebrowser/code/jpeg-8c/jchuff.c' l='194' u='r' c='jpeg_make_c_derived_tbl'/>
+<use f='codebrowser/code/jpeg-8c/jchuff.c' l='1371' u='r' c='jpeg_gen_optimal_table'/>
+<use f='codebrowser/code/jpeg-8c/jchuff.c' l='1371' u='r' c='jpeg_gen_optimal_table'/>
+<use f='codebrowser/code/jpeg-8c/jcmarker.c' l='207' u='r' c='emit_dht'/>
+<use f='codebrowser/code/jpeg-8c/jcmarker.c' l='213' u='r' c='emit_dht'/>
+<use f='codebrowser/code/jpeg-8c/jcparam.c' l='179' u='r' c='add_huff_table'/>
+<use f='codebrowser/code/jpeg-8c/jcparam.c' l='179' u='r' c='add_huff_table'/>
+<use f='codebrowser/code/jpeg-8c/jdhuff.c' l='358' u='r' c='jpeg_make_d_derived_tbl'/>
+<use f='codebrowser/code/jpeg-8c/jdhuff.c' l='391' u='r' c='jpeg_make_d_derived_tbl'/>
+<use f='codebrowser/code/jpeg-8c/jdhuff.c' l='396' u='r' c='jpeg_make_d_derived_tbl'/>
+<use f='codebrowser/code/jpeg-8c/jdhuff.c' l='415' u='r' c='jpeg_make_d_derived_tbl'/>
+<use f='codebrowser/code/jpeg-8c/jdmarker.c' l='482' u='r' c='get_dht'/>
+<use f='codebrowser/code/jpeg-8c/jdmarker.c' l='482' u='r' c='get_dht'/>
+<dec f='codebrowser/code/opus-1.1.4/celt/modes.h' l='45' type='const unsigned char *'/>
+<use f='codebrowser/code/opus-1.1.4/celt/rate.h' l='60' u='r' c='bits2pulses'/>
+<use f='codebrowser/code/opus-1.1.4/celt/rate.h' l='85' u='r' c='pulses2bits'/>
+<use f='codebrowser/code/opus-1.1.4/celt/bands.c' l='921' u='r' c='quant_partition'/>
+<offset>128</offset>
+<dec f='codebrowser/code/zlib/inftrees.h' l='26' type='unsigned char'/>
+<use f='codebrowser/code/zlib/inffast.c' l='129' u='r' c='inflate_fast'/>
+<use f='codebrowser/code/zlib/inffast.c' l='160' u='r' c='inflate_fast'/>
+<offset>8</offset>
+<doc f='codebrowser/code/zlib/inftrees.h' l='26'>/* bits in this part of the code */</doc>
+<use f='codebrowser/code/zlib/inflate.c' l='880' u='r' c='inflate'/>
+<use f='codebrowser/code/zlib/inflate.c' l='884' u='r' c='inflate'/>
+<use f='codebrowser/code/zlib/inflate.c' l='885' u='r' c='inflate'/>
+<use f='codebrowser/code/zlib/inflate.c' l='885' u='r' c='inflate'/>
+<use f='codebrowser/code/zlib/inflate.c' l='890' u='r' c='inflate'/>
+<use f='codebrowser/code/zlib/inflate.c' l='891' u='r' c='inflate'/>
+<use f='codebrowser/code/zlib/inflate.c' l='891' u='r' c='inflate'/>
+<use f='codebrowser/code/zlib/inflate.c' l='902' u='r' c='inflate'/>
+<use f='codebrowser/code/zlib/inflate.c' l='903' u='r' c='inflate'/>
+<use f='codebrowser/code/zlib/inflate.c' l='903' u='r' c='inflate'/>
+<use f='codebrowser/code/zlib/inflate.c' l='909' u='r' c='inflate'/>
+<use f='codebrowser/code/zlib/inflate.c' l='910' u='r' c='inflate'/>
+<use f='codebrowser/code/zlib/inflate.c' l='910' u='r' c='inflate'/>
+<use f='codebrowser/code/zlib/inflate.c' l='959' u='r' c='inflate'/>
+<use f='codebrowser/code/zlib/inflate.c' l='966' u='r' c='inflate'/>
+<use f='codebrowser/code/zlib/inflate.c' l='966' u='r' c='inflate'/>
+<use f='codebrowser/code/zlib/inflate.c' l='967' u='r' c='inflate'/>
+<use f='codebrowser/code/zlib/inflate.c' l='967' u='r' c='inflate'/>
+<use f='codebrowser/code/zlib/inflate.c' l='970' u='r' c='inflate'/>
+<use f='codebrowser/code/zlib/inflate.c' l='970' u='r' c='inflate'/>
+<use f='codebrowser/code/zlib/inflate.c' l='972' u='r' c='inflate'/>
+<use f='codebrowser/code/zlib/inflate.c' l='972' u='r' c='inflate'/>
+<use f='codebrowser/code/zlib/inflate.c' l='1004' u='r' c='inflate'/>
+<use f='codebrowser/code/zlib/inflate.c' l='1011' u='r' c='inflate'/>
+<use f='codebrowser/code/zlib/inflate.c' l='1011' u='r' c='inflate'/>
+<use f='codebrowser/code/zlib/inflate.c' l='1012' u='r' c='inflate'/>
+<use f='codebrowser/code/zlib/inflate.c' l='1012' u='r' c='inflate'/>
+<use f='codebrowser/code/zlib/inflate.c' l='1015' u='r' c='inflate'/>
+<use f='codebrowser/code/zlib/inflate.c' l='1015' u='r' c='inflate'/>
+<use f='codebrowser/code/zlib/inflate.c' l='1017' u='r' c='inflate'/>
+<use f='codebrowser/code/zlib/inflate.c' l='1017' u='r' c='inflate'/>
+<use f='codebrowser/code/zlib/inftrees.c' l='119' u='w' c='inflate_table'/>
+<use f='codebrowser/code/zlib/inftrees.c' l='218' u='w' c='inflate_table'/>
+<use f='codebrowser/code/zlib/inftrees.c' l='286' u='w' c='inflate_table'/>
+<use f='codebrowser/code/zlib/inftrees.c' l='299' u='w' c='inflate_table'/>
+<use f='codebrowser/code/zlib/inftrees.c' l='307' u='w' c='inflate_table'/>

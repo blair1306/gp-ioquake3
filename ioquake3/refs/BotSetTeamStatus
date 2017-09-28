@@ -1,0 +1,34 @@
+<dec f='codebrowser/code/game/ai_dmq3.h' l='72' type='void BotSetTeamStatus(bot_state_t * bs)'/>
+<doc f='codebrowser/code/game/ai_dmq3.h' l='71'>// set the team status (offense, defense etc.)</doc>
+<use f='codebrowser/code/game/ai_cmd.c' l='586' u='c' c='BotMatch_HelpAccompany'/>
+<use f='codebrowser/code/game/ai_cmd.c' l='635' u='c' c='BotMatch_DefendKeyArea'/>
+<use f='codebrowser/code/game/ai_cmd.c' l='677' u='c' c='BotMatch_GetItem'/>
+<use f='codebrowser/code/game/ai_cmd.c' l='767' u='c' c='BotMatch_Camp'/>
+<use f='codebrowser/code/game/ai_cmd.c' l='806' u='c' c='BotMatch_Patrol'/>
+<use f='codebrowser/code/game/ai_cmd.c' l='858' u='c' c='BotMatch_GetFlag'/>
+<use f='codebrowser/code/game/ai_cmd.c' l='905' u='c' c='BotMatch_AttackEnemyBase'/>
+<use f='codebrowser/code/game/ai_cmd.c' l='997' u='c' c='BotMatch_RushBase'/>
+<use f='codebrowser/code/game/ai_cmd.c' l='1086' u='c' c='BotMatch_ReturnFlag'/>
+<use f='codebrowser/code/game/ai_cmd.c' l='1702' u='c' c='BotMatch_Kill'/>
+<def f='codebrowser/code/game/ai_dmq3.c' l='363' ll='420' type='void BotSetTeamStatus(bot_state_t * bs)'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='452' u='c' c='BotSetLastOrderedTask'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='582' u='c' c='BotCTFSeekGoals'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='625' u='c' c='BotCTFSeekGoals'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='660' u='c' c='BotCTFSeekGoals'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='676' u='c' c='BotCTFSeekGoals'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='747' u='c' c='BotCTFSeekGoals'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='760' u='c' c='BotCTFSeekGoals'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='766' u='c' c='BotCTFSeekGoals'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='790' u='c' c='BotCTFRetreatGoals'/>
+<doc f='codebrowser/code/game/ai_dmq3.c' l='358'>/*
+==================
+BotSetTeamStatus
+==================
+*/</doc>
+<use f='codebrowser/code/game/ai_vcmd.c' l='103' u='c' c='BotVoiceChat_GetFlag'/>
+<use f='codebrowser/code/game/ai_vcmd.c' l='158' u='c' c='BotVoiceChat_Offense'/>
+<use f='codebrowser/code/game/ai_vcmd.c' l='212' u='c' c='BotVoiceChat_Defend'/>
+<use f='codebrowser/code/game/ai_vcmd.c' l='246' u='c' c='BotVoiceChat_Patrol'/>
+<use f='codebrowser/code/game/ai_vcmd.c' l='300' u='c' c='BotVoiceChat_Camp'/>
+<use f='codebrowser/code/game/ai_vcmd.c' l='354' u='c' c='BotVoiceChat_FollowMe'/>
+<use f='codebrowser/code/game/ai_vcmd.c' l='404' u='c' c='BotVoiceChat_ReturnFlag'/>

@@ -1,0 +1,12 @@
+<dec f='codebrowser/code/game/g_local.h' l='482' type='void G_AddPredictableEvent(gentity_t * ent, int event, int eventParm)'/>
+<use f='codebrowser/code/game/g_items.c' l='485' u='c' c='Touch_Item'/>
+<def f='codebrowser/code/game/g_utils.c' l='563' ll='568' type='void G_AddPredictableEvent(gentity_t * ent, int event, int eventParm)'/>
+<doc f='codebrowser/code/game/g_utils.c' l='554'>/*
+===============
+G_AddPredictableEvent
+
+Use for non-pmove events that would also be predicted on the
+client side: jumppads and item pickups
+Adds an event+parm and twiddles the event counter
+===============
+*/</doc>

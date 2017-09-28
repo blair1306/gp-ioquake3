@@ -1,0 +1,8 @@
+<dec f='include/SDL2/SDL_hints.h' l='631'/>
+<doc f='include/SDL2/SDL_hints.h' l='624'>/**
+ *  \brief Tell SDL not to generate window-close events for Alt+F4 on Windows.
+ *
+ * The variable can be set to the following values:
+ *   &quot;0&quot;       - SDL will generate a window-close event when it sees Alt+F4.
+ *   &quot;1&quot;       - SDL will only do normal key handling for Alt+F4.
+ */</doc>

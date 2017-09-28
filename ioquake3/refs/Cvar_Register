@@ -1,0 +1,17 @@
+<dec f='codebrowser/code/qcommon/qcommon.h' l='508' type='void Cvar_Register(vmCvar_t * vmCvar, const char * varName, const char * defaultValue, int flags)'/>
+<doc f='codebrowser/code/qcommon/qcommon.h' l='503'>// creates the variable if it doesn&apos;t exist, or returns the existing one
+// if it exists, the value will not be changed, but flags will be ORed in
+// that allows variables to be unarchived without needing bitflags
+// if value is &quot;&quot;, the value will not override a previously set value.</doc>
+<use f='codebrowser/code/client/cl_cgame.c' l='421' u='c' c='CL_CgameSystemCalls'/>
+<use f='codebrowser/code/client/cl_ui.c' l='736' u='c' c='CL_UISystemCalls'/>
+<use f='codebrowser/code/client/cl_ui.c' l='763' u='c' c='CL_UISystemCalls'/>
+<def f='codebrowser/code/qcommon/cvar.c' l='1326' ll='1348' type='void Cvar_Register(vmCvar_t * vmCvar, const char * varName, const char * defaultValue, int flags)'/>
+<doc f='codebrowser/code/qcommon/cvar.c' l='1319'>/*
+=====================
+Cvar_Register
+
+basically a slightly modified Cvar_Get for the interpreted modules
+=====================
+*/</doc>
+<use f='codebrowser/code/server/sv_game.c' l='303' u='c' c='SV_GameSystemCalls'/>

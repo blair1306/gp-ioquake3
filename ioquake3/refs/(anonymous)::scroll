@@ -1,0 +1,62 @@
+<dec f='codebrowser/code/qcommon/qcommon.h' l='754' type='int'/>
+<offset>32</offset>
+<use f='codebrowser/code/client/cl_keys.c' l='355' u='r' c='Field_VariableSizeDraw'/>
+<use f='codebrowser/code/client/cl_keys.c' l='356' u='w' c='Field_VariableSizeDraw'/>
+<use f='codebrowser/code/client/cl_keys.c' l='357' u='r' c='Field_VariableSizeDraw'/>
+<use f='codebrowser/code/client/cl_keys.c' l='358' u='w' c='Field_VariableSizeDraw'/>
+<use f='codebrowser/code/client/cl_keys.c' l='361' u='r' c='Field_VariableSizeDraw'/>
+<use f='codebrowser/code/client/cl_keys.c' l='505' u='r' c='Field_KeyDownEvent'/>
+<use f='codebrowser/code/client/cl_keys.c' l='506' u='w' c='Field_KeyDownEvent'/>
+<use f='codebrowser/code/client/cl_keys.c' l='507' u='r' c='Field_KeyDownEvent'/>
+<use f='codebrowser/code/client/cl_keys.c' l='508' u='w' c='Field_KeyDownEvent'/>
+<use f='codebrowser/code/client/cl_keys.c' l='537' u='r' c='Field_CharEvent'/>
+<use f='codebrowser/code/client/cl_keys.c' l='539' u='w' c='Field_CharEvent'/>
+<use f='codebrowser/code/client/cl_keys.c' l='547' u='w' c='Field_CharEvent'/>
+<use f='codebrowser/code/client/cl_keys.c' l='553' u='w' c='Field_CharEvent'/>
+<use f='codebrowser/code/client/cl_keys.c' l='583' u='w' c='Field_CharEvent'/>
+<use f='codebrowser/code/client/cl_keys.c' l='1496' u='w' c='CL_LoadConsoleHistory'/>
+<use f='codebrowser/code/client/cl_keys.c' l='1561' u='r' c='CL_SaveConsoleHistory'/>
+<dec f='codebrowser/code/q3_ui/ui_local.h' l='187' type='int'/>
+<offset>32</offset>
+<use f='codebrowser/code/q3_ui/ui_mfield.c' l='48' u='r' c='MField_Draw'/>
+<use f='codebrowser/code/q3_ui/ui_mfield.c' l='49' u='w' c='MField_Draw'/>
+<use f='codebrowser/code/q3_ui/ui_mfield.c' l='50' u='r' c='MField_Draw'/>
+<use f='codebrowser/code/q3_ui/ui_mfield.c' l='51' u='w' c='MField_Draw'/>
+<use f='codebrowser/code/q3_ui/ui_mfield.c' l='54' u='r' c='MField_Draw'/>
+<use f='codebrowser/code/q3_ui/ui_mfield.c' l='163' u='r' c='MField_KeyDownEvent'/>
+<use f='codebrowser/code/q3_ui/ui_mfield.c' l='165' u='w' c='MField_KeyDownEvent'/>
+<use f='codebrowser/code/q3_ui/ui_mfield.c' l='175' u='r' c='MField_KeyDownEvent'/>
+<use f='codebrowser/code/q3_ui/ui_mfield.c' l='177' u='w' c='MField_KeyDownEvent'/>
+<use f='codebrowser/code/q3_ui/ui_mfield.c' l='184' u='w' c='MField_KeyDownEvent'/>
+<use f='codebrowser/code/q3_ui/ui_mfield.c' l='190' u='w' c='MField_KeyDownEvent'/>
+<use f='codebrowser/code/q3_ui/ui_mfield.c' l='191' u='r' c='MField_KeyDownEvent'/>
+<use f='codebrowser/code/q3_ui/ui_mfield.c' l='192' u='w' c='MField_KeyDownEvent'/>
+<use f='codebrowser/code/q3_ui/ui_mfield.c' l='227' u='r' c='MField_CharEvent'/>
+<use f='codebrowser/code/q3_ui/ui_mfield.c' l='229' u='w' c='MField_CharEvent'/>
+<use f='codebrowser/code/q3_ui/ui_mfield.c' l='237' u='w' c='MField_CharEvent'/>
+<use f='codebrowser/code/q3_ui/ui_mfield.c' l='243' u='w' c='MField_CharEvent'/>
+<use f='codebrowser/code/q3_ui/ui_mfield.c' l='244' u='r' c='MField_CharEvent'/>
+<use f='codebrowser/code/q3_ui/ui_mfield.c' l='245' u='w' c='MField_CharEvent'/>
+<use f='codebrowser/code/q3_ui/ui_mfield.c' l='272' u='w' c='MField_CharEvent'/>
+<use f='codebrowser/code/q3_ui/ui_mfield.c' l='288' u='w' c='MField_Clear'/>
+<use f='codebrowser/code/qcommon/common.c' l='3319' u='w' c='Field_Clear'/>
+<dec f='codebrowser/code/renderergl1/tr_local.h' l='240' type='float [2]'/>
+<offset>448</offset>
+<doc f='codebrowser/code/renderergl1/tr_local.h' l='237'>// t *= scale[1]
+
+	// used for TMOD_SCROLL</doc>
+<doc f='codebrowser/code/renderergl1/tr_local.h' l='240'>// s&apos; = s + scroll[0] * time</doc>
+<use f='codebrowser/code/renderergl1/tr_shade.c' l='1074' u='r' c='ComputeTexCoords'/>
+<use f='codebrowser/code/renderergl1/tr_shader.c' l='444' u='w' c='ParseTexMod'/>
+<use f='codebrowser/code/renderergl1/tr_shader.c' l='451' u='w' c='ParseTexMod'/>
+<dec f='codebrowser/code/renderergl2/tr_local.h' l='319' type='float [2]'/>
+<offset>448</offset>
+<doc f='codebrowser/code/renderergl2/tr_local.h' l='316'>// t *= scale[1]
+
+	// used for TMOD_SCROLL</doc>
+<doc f='codebrowser/code/renderergl2/tr_local.h' l='319'>// s&apos; = s + scroll[0] * time</doc>
+<use f='codebrowser/code/renderergl2/tr_shade.c' l='216' u='r' c='ComputeTexMods'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='456' u='w' c='ParseTexMod'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='463' u='w' c='ParseTexMod'/>
+<dec f='codebrowser/code/ui/ui_local.h' l='224' type='int'/>
+<offset>32</offset>

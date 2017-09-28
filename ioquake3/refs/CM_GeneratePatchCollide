@@ -1,0 +1,15 @@
+<dec f='codebrowser/code/qcommon/cm_local.h' l='193' type='struct patchCollide_s * CM_GeneratePatchCollide(int width, int height, vec3_t * points)'/>
+<use f='codebrowser/code/qcommon/cm_load.c' l='535' u='c' c='CMod_LoadPatches'/>
+<doc f='codebrowser/code/qcommon/cm_local.h' l='191'>// cm_patch.c</doc>
+<dec f='codebrowser/code/qcommon/cm_patch.h' l='103' type='struct patchCollide_s * CM_GeneratePatchCollide(int width, int height, vec3_t * points)'/>
+<def f='codebrowser/code/qcommon/cm_patch.c' l='1176' ll='1242' type='struct patchCollide_s * CM_GeneratePatchCollide(int width, int height, vec3_t * points)'/>
+<doc f='codebrowser/code/qcommon/cm_patch.c' l='1166'>/*
+===================
+CM_GeneratePatchCollide
+
+Creates an internal structure that will be used to perform
+collision detection with a patch mesh.
+
+Points is packed as concatenated rows.
+===================
+*/</doc>

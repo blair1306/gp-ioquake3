@@ -1,0 +1,17 @@
+<dec f='codebrowser/code/qcommon/qcommon.h' l='1007' type='void CL_ForwardCommandToServer(const char * string)'/>
+<doc f='codebrowser/code/qcommon/qcommon.h' l='1002'>// do a screen update before starting to load a map
+// when the server is going to load a new map, the entire hunk
+// will be cleared, so the client must shutdown cgame, ui, and
+// the renderer</doc>
+<def f='codebrowser/code/client/cl_main.c' l='1494' ll='1514' type='void CL_ForwardCommandToServer(const char * string)'/>
+<doc f='codebrowser/code/client/cl_main.c' l='1485'>/*
+===================
+CL_ForwardCommandToServer
+
+adds the current command line as a clientCommand
+things like godmode, noclip, etc, are commands directed to the server,
+so when they are typed in at the console, they will need to be forwarded.
+===================
+*/</doc>
+<def f='codebrowser/code/null/null_client.c' l='68' ll='69' type='void CL_ForwardCommandToServer(const char * string)'/>
+<use f='codebrowser/code/qcommon/cmd.c' l='816' u='c' c='Cmd_ExecuteString'/>

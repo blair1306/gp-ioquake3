@@ -1,0 +1,8 @@
+<dec f='include/dirent.h' l='149' type='int closedir(DIR * __dirp)'/>
+<use f='codebrowser/code/sys/sys_unix.c' l='371' u='c' c='Sys_ListFilteredFiles'/>
+<use f='codebrowser/code/sys/sys_unix.c' l='456' u='c' c='Sys_ListFiles'/>
+<doc f='include/dirent.h' l='144'>/* Close the directory stream DIRP.
+   Return 0 if successful, -1 if not.
+
+   This function is a possible cancellation point and therefore not
+   marked with __THROW.  */</doc>

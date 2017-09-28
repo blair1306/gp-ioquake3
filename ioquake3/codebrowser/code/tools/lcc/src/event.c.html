@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>event.c source code [codebrowser/code/tools/lcc/src/event.c] - Woboq Code Browser</title>
+<meta name="woboq:interestingDefinitions" content="entry "/>
+<link rel="stylesheet" href="../../../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'codebrowser/code/tools/lcc/src/event.c'; var root_path = '../../../../..'; var data_path = '../../../../../../data';</script>
+<script src='../../../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../../../..'>codebrowser</a>/<a href='../../..'>code</a>/<a href='../..'>tools</a>/<a href='..'>lcc</a>/<a href='./'>src</a>/<a href='event.c.html'>event.c</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><u>#include <a href="c.h.html">"c.h"</a></u></td></tr>
+<tr><th id="2">2</th><td></td></tr>
+<tr><th id="3">3</th><td></td></tr>
+<tr><th id="4">4</th><td><b>struct</b> <dfn class="type def" id="entry" title='entry' data-ref="entry">entry</dfn> {</td></tr>
+<tr><th id="5">5</th><td>	<a class="typedef" href="c.h.html#Apply" title='Apply' data-type='void (*)(void *, void *, void *)' data-ref="Apply">Apply</a> <dfn class="tu decl" id="entry::func" title='entry::func' data-type='Apply' data-ref="entry::func">func</dfn>;</td></tr>
+<tr><th id="6">6</th><td>	<em>void</em> *<dfn class="tu decl" id="entry::cl" title='entry::cl' data-type='void *' data-ref="entry::cl">cl</dfn>;</td></tr>
+<tr><th id="7">7</th><td>};</td></tr>
+<tr><th id="8">8</th><td></td></tr>
+<tr><th id="9">9</th><td><a class="typedef" href="c.h.html#Events" title='Events' data-type='struct Events' data-ref="Events">Events</a> <dfn class="decl def" id="events" title='events' data-ref="events">events</dfn>;</td></tr>
+<tr><th id="10">10</th><td><em>void</em> <dfn class="decl def" id="attach" title='attach' data-ref="attach">attach</dfn>(<a class="typedef" href="c.h.html#Apply" title='Apply' data-type='void (*)(void *, void *, void *)' data-ref="Apply">Apply</a> <dfn class="local col1 decl" id="1func" title='func' data-type='Apply' data-ref="1func">func</dfn>, <em>void</em> *<dfn class="local col2 decl" id="2cl" title='cl' data-type='void *' data-ref="2cl">cl</dfn>, <a class="typedef" href="c.h.html#List" title='List' data-type='struct list *' data-ref="List">List</a> *<dfn class="local col3 decl" id="3list" title='list' data-type='List *' data-ref="3list">list</dfn>) {</td></tr>
+<tr><th id="11">11</th><td>	<b>struct</b> <a class="type" href="#entry" title='entry' data-ref="entry">entry</a> *<dfn class="local col4 decl" id="4p" title='p' data-type='struct entry *' data-ref="4p">p</dfn>;</td></tr>
+<tr><th id="12">12</th><td></td></tr>
+<tr><th id="13">13</th><td>	<a class="macro" href="c.h.html#8" title="((p) = allocate(sizeof *(p), (PERM)))" data-ref="_M/NEW">NEW</a>(<a class="local col4 ref" href="#4p" title='p' data-ref="4p">p</a>, <a class="enum" href="c.h.html#PERM" title='PERM' data-ref="PERM">PERM</a>);</td></tr>
+<tr><th id="14">14</th><td>	<a class="local col4 ref" href="#4p" title='p' data-ref="4p">p</a>-&gt;<a class="tu ref" href="#entry::func" title='entry::func' data-use='w' data-ref="entry::func">func</a> = <a class="local col1 ref" href="#1func" title='func' data-ref="1func">func</a>;</td></tr>
+<tr><th id="15">15</th><td>	<a class="local col4 ref" href="#4p" title='p' data-ref="4p">p</a>-&gt;<a class="tu ref" href="#entry::cl" title='entry::cl' data-use='w' data-ref="entry::cl">cl</a> = <a class="local col2 ref" href="#2cl" title='cl' data-ref="2cl">cl</a>;</td></tr>
+<tr><th id="16">16</th><td>	*<a class="local col3 ref" href="#3list" title='list' data-ref="3list">list</a> = <a class="ref" href="c.h.html#append" title='append' data-ref="append">append</a>(<a class="local col4 ref" href="#4p" title='p' data-ref="4p">p</a>, *<a class="local col3 ref" href="#3list" title='list' data-ref="3list">list</a>);</td></tr>
+<tr><th id="17">17</th><td>}</td></tr>
+<tr><th id="18">18</th><td><em>void</em> <dfn class="decl def" id="apply" title='apply' data-ref="apply">apply</dfn>(<a class="typedef" href="c.h.html#List" title='List' data-type='struct list *' data-ref="List">List</a> <dfn class="local col5 decl" id="5event" title='event' data-type='List' data-ref="5event">event</dfn>, <em>void</em> *<dfn class="local col6 decl" id="6arg1" title='arg1' data-type='void *' data-ref="6arg1">arg1</dfn>, <em>void</em> *<dfn class="local col7 decl" id="7arg2" title='arg2' data-type='void *' data-ref="7arg2">arg2</dfn>) {</td></tr>
+<tr><th id="19">19</th><td>	<b>if</b> (<a class="local col5 ref" href="#5event" title='event' data-ref="5event">event</a>) {</td></tr>
+<tr><th id="20">20</th><td>		<a class="typedef" href="c.h.html#List" title='List' data-type='struct list *' data-ref="List">List</a> <dfn class="local col8 decl" id="8lp" title='lp' data-type='List' data-ref="8lp">lp</dfn> = <a class="local col5 ref" href="#5event" title='event' data-ref="5event">event</a>;</td></tr>
+<tr><th id="21">21</th><td>		<b>do</b> {</td></tr>
+<tr><th id="22">22</th><td>			<b>struct</b> <a class="type" href="#entry" title='entry' data-ref="entry">entry</a> *<dfn class="local col9 decl" id="9p" title='p' data-type='struct entry *' data-ref="9p">p</dfn> = <a class="local col8 ref" href="#8lp" title='lp' data-ref="8lp">lp</a>-&gt;<a class="ref" href="c.h.html#list::x" title='list::x' data-ref="list::x">x</a>;</td></tr>
+<tr><th id="23">23</th><td>			(*<a class="local col9 ref" href="#9p" title='p' data-ref="9p">p</a>-&gt;<a class="tu ref" href="#entry::func" title='entry::func' data-use='r' data-ref="entry::func">func</a>)(<a class="local col9 ref" href="#9p" title='p' data-ref="9p">p</a>-&gt;<a class="tu ref" href="#entry::cl" title='entry::cl' data-use='r' data-ref="entry::cl">cl</a>, <a class="local col6 ref" href="#6arg1" title='arg1' data-ref="6arg1">arg1</a>, <a class="local col7 ref" href="#7arg2" title='arg2' data-ref="7arg2">arg2</a>);</td></tr>
+<tr><th id="24">24</th><td>			<a class="local col8 ref" href="#8lp" title='lp' data-ref="8lp">lp</a> = <a class="local col8 ref" href="#8lp" title='lp' data-ref="8lp">lp</a>-&gt;<a class="ref" href="c.h.html#list::link" title='list::link' data-ref="list::link">link</a>;</td></tr>
+<tr><th id="25">25</th><td>		} <b>while</b> (<a class="local col8 ref" href="#8lp" title='lp' data-ref="8lp">lp</a> != <a class="local col5 ref" href="#5event" title='event' data-ref="5event">event</a>);</td></tr>
+<tr><th id="26">26</th><td>	}</td></tr>
+<tr><th id="27">27</th><td>}</td></tr>
+<tr><th id="28">28</th><td></td></tr>
+<tr><th id="29">29</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated on <em>2017-Aug-29</em> from project codebrowser revision <em>63e07af</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

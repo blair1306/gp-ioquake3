@@ -1,0 +1,47 @@
+<dec f='codebrowser/code/cgame/cg_local.h' l='1195' type='const char * CG_ConfigString(int index)'/>
+<doc f='codebrowser/code/cgame/cg_local.h' l='1192'>//
+// cg_main.c
+//</doc>
+<use f='codebrowser/code/cgame/cg_draw.c' l='700' u='c' c='CG_DrawAttacker'/>
+<use f='codebrowser/code/cgame/cg_draw.c' l='848' u='c' c='CG_DrawTeamOverlay'/>
+<use f='codebrowser/code/cgame/cg_draw.c' l='903' u='c' c='CG_DrawTeamOverlay'/>
+<use f='codebrowser/code/cgame/cg_event.c' l='107' u='c' c='CG_Obituary'/>
+<use f='codebrowser/code/cgame/cg_event.c' l='110' u='c' c='CG_Obituary'/>
+<use f='codebrowser/code/cgame/cg_event.c' l='1025' u='c' c='CG_EntityEvent'/>
+<use f='codebrowser/code/cgame/cg_event.c' l='1035' u='c' c='CG_EntityEvent'/>
+<use f='codebrowser/code/cgame/cg_info.c' l='103' u='c' c='CG_LoadingClient'/>
+<use f='codebrowser/code/cgame/cg_info.c' l='158' u='c' c='CG_DrawInformation'/>
+<use f='codebrowser/code/cgame/cg_info.c' l='159' u='c' c='CG_DrawInformation'/>
+<use f='codebrowser/code/cgame/cg_info.c' l='209' u='c' c='CG_DrawInformation'/>
+<use f='codebrowser/code/cgame/cg_info.c' l='221' u='c' c='CG_DrawInformation'/>
+<use f='codebrowser/code/cgame/cg_main.c' l='363' u='c' c='CG_ForceModelChange'/>
+<use f='codebrowser/code/cgame/cg_main.c' l='703' u='c' c='CG_RegisterSounds'/>
+<use f='codebrowser/code/cgame/cg_main.c' l='712' u='c' c='CG_RegisterSounds'/>
+<use f='codebrowser/code/cgame/cg_main.c' l='1011' u='c' c='CG_RegisterGraphics'/>
+<use f='codebrowser/code/cgame/cg_main.c' l='1048' u='c' c='CG_RegisterGraphics'/>
+<use f='codebrowser/code/cgame/cg_main.c' l='1138' u='c' c='CG_RegisterClients'/>
+<def f='codebrowser/code/cgame/cg_main.c' l='1155' ll='1160' type='const char * CG_ConfigString(int index)'/>
+<use f='codebrowser/code/cgame/cg_main.c' l='1175' u='c' c='CG_StartMusic'/>
+<use f='codebrowser/code/cgame/cg_main.c' l='1883' u='c' c='CG_Init'/>
+<use f='codebrowser/code/cgame/cg_main.c' l='1888' u='c' c='CG_Init'/>
+<doc f='codebrowser/code/cgame/cg_main.c' l='1150'>/*
+=================
+CG_ConfigString
+=================
+*/</doc>
+<use f='codebrowser/code/cgame/cg_newdraw.c' l='413' u='c' c='CG_DrawSelectedPlayerLocation'/>
+<use f='codebrowser/code/cgame/cg_newdraw.c' l='424' u='c' c='CG_DrawPlayerLocation'/>
+<use f='codebrowser/code/cgame/cg_newdraw.c' l='1276' u='c' c='CG_DrawNewTeamInfo'/>
+<use f='codebrowser/code/cgame/cg_newdraw.c' l='1350' u='c' c='CG_DrawNewTeamInfo'/>
+<use f='codebrowser/code/cgame/cg_particles.c' l='1335' u='c' c='CG_NewParticleArea'/>
+<use f='codebrowser/code/cgame/cg_players.c' l='885' u='c' c='CG_NewClientInfo'/>
+<use f='codebrowser/code/cgame/cg_scoreboard.c' l='477' u='c' c='CG_DrawTourneyScoreboard'/>
+<use f='codebrowser/code/cgame/cg_servercmds.c' l='159' u='c' c='CG_ParseServerinfo'/>
+<use f='codebrowser/code/cgame/cg_servercmds.c' l='185' u='c' c='CG_ParseWarmup'/>
+<use f='codebrowser/code/cgame/cg_servercmds.c' l='216' u='c' c='CG_SetConfigValues'/>
+<use f='codebrowser/code/cgame/cg_servercmds.c' l='217' u='c' c='CG_SetConfigValues'/>
+<use f='codebrowser/code/cgame/cg_servercmds.c' l='218' u='c' c='CG_SetConfigValues'/>
+<use f='codebrowser/code/cgame/cg_servercmds.c' l='220' u='c' c='CG_SetConfigValues'/>
+<use f='codebrowser/code/cgame/cg_servercmds.c' l='230' u='c' c='CG_SetConfigValues'/>
+<use f='codebrowser/code/cgame/cg_servercmds.c' l='245' u='c' c='CG_ShaderStateChanged'/>
+<use f='codebrowser/code/cgame/cg_servercmds.c' l='290' u='c' c='CG_ConfigStringModified'/>

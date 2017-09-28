@@ -1,0 +1,57 @@
+<def f='codebrowser/code/qcommon/q_shared.h' l='1143' ll='1210'/>
+<size>468</size>
+<doc f='codebrowser/code/qcommon/q_shared.h' l='1133'>// playerState_t is the information needed by both the client and server
+// to predict player motion and actions
+// nothing outside of pmove should modify these, or some degree of prediction error
+// will occur
+
+// you can&apos;t add anything to this without modifying the code in msg.c
+
+// playerState_t is a full superset of entityState_t as it is used by players,
+// so if a playerState_t is transmitted, the entityState_t can be fully derived
+// from it.</doc>
+<mbr r='playerState_s::commandTime' o='0' t='int'/>
+<mbr r='playerState_s::pm_type' o='32' t='int'/>
+<mbr r='playerState_s::bobCycle' o='64' t='int'/>
+<mbr r='playerState_s::pm_flags' o='96' t='int'/>
+<mbr r='playerState_s::pm_time' o='128' t='int'/>
+<mbr r='playerState_s::origin' o='160' t='vec3_t'/>
+<mbr r='playerState_s::velocity' o='256' t='vec3_t'/>
+<mbr r='playerState_s::weaponTime' o='352' t='int'/>
+<mbr r='playerState_s::gravity' o='384' t='int'/>
+<mbr r='playerState_s::speed' o='416' t='int'/>
+<mbr r='playerState_s::delta_angles' o='448' t='int [3]'/>
+<mbr r='playerState_s::groundEntityNum' o='544' t='int'/>
+<mbr r='playerState_s::legsTimer' o='576' t='int'/>
+<mbr r='playerState_s::legsAnim' o='608' t='int'/>
+<mbr r='playerState_s::torsoTimer' o='640' t='int'/>
+<mbr r='playerState_s::torsoAnim' o='672' t='int'/>
+<mbr r='playerState_s::movementDir' o='704' t='int'/>
+<mbr r='playerState_s::grapplePoint' o='736' t='vec3_t'/>
+<mbr r='playerState_s::eFlags' o='832' t='int'/>
+<mbr r='playerState_s::eventSequence' o='864' t='int'/>
+<mbr r='playerState_s::events' o='896' t='int [2]'/>
+<mbr r='playerState_s::eventParms' o='960' t='int [2]'/>
+<mbr r='playerState_s::externalEvent' o='1024' t='int'/>
+<mbr r='playerState_s::externalEventParm' o='1056' t='int'/>
+<mbr r='playerState_s::externalEventTime' o='1088' t='int'/>
+<mbr r='playerState_s::clientNum' o='1120' t='int'/>
+<mbr r='playerState_s::weapon' o='1152' t='int'/>
+<mbr r='playerState_s::weaponstate' o='1184' t='int'/>
+<mbr r='playerState_s::viewangles' o='1216' t='vec3_t'/>
+<mbr r='playerState_s::viewheight' o='1312' t='int'/>
+<mbr r='playerState_s::damageEvent' o='1344' t='int'/>
+<mbr r='playerState_s::damageYaw' o='1376' t='int'/>
+<mbr r='playerState_s::damagePitch' o='1408' t='int'/>
+<mbr r='playerState_s::damageCount' o='1440' t='int'/>
+<mbr r='playerState_s::stats' o='1472' t='int [16]'/>
+<mbr r='playerState_s::persistant' o='1984' t='int [16]'/>
+<mbr r='playerState_s::powerups' o='2496' t='int [16]'/>
+<mbr r='playerState_s::ammo' o='3008' t='int [16]'/>
+<mbr r='playerState_s::generic1' o='3520' t='int'/>
+<mbr r='playerState_s::loopSound' o='3552' t='int'/>
+<mbr r='playerState_s::jumppad_ent' o='3584' t='int'/>
+<mbr r='playerState_s::ping' o='3616' t='int'/>
+<mbr r='playerState_s::pmove_framecount' o='3648' t='int'/>
+<mbr r='playerState_s::jumppad_frame' o='3680' t='int'/>
+<mbr r='playerState_s::entityEventSequence' o='3712' t='int'/>

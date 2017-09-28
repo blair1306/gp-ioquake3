@@ -1,0 +1,23 @@
+<dec f='codebrowser/code/ui/ui_shared.h' l='420' type='int UI_SelectForKey(int key)'/>
+<use f='codebrowser/code/ui/ui_main.c' l='2263' u='c' c='UI_Handicap_HandleKey'/>
+<use f='codebrowser/code/ui/ui_main.c' l='2283' u='c' c='UI_Effects_HandleKey'/>
+<use f='codebrowser/code/ui/ui_main.c' l='2300' u='c' c='UI_ClanName_HandleKey'/>
+<use f='codebrowser/code/ui/ui_main.c' l='2329' u='c' c='UI_GameType_HandleKey'/>
+<use f='codebrowser/code/ui/ui_main.c' l='2369' u='c' c='UI_NetGameType_HandleKey'/>
+<use f='codebrowser/code/ui/ui_main.c' l='2390' u='c' c='UI_JoinGameType_HandleKey'/>
+<use f='codebrowser/code/ui/ui_main.c' l='2410' u='c' c='UI_Skill_HandleKey'/>
+<use f='codebrowser/code/ui/ui_main.c' l='2429' u='c' c='UI_TeamName_HandleKey'/>
+<use f='codebrowser/code/ui/ui_main.c' l='2449' u='c' c='UI_TeamMember_HandleKey'/>
+<use f='codebrowser/code/ui/ui_main.c' l='2480' u='c' c='UI_NetSource_HandleKey'/>
+<use f='codebrowser/code/ui/ui_main.c' l='2514' u='c' c='UI_NetFilter_HandleKey'/>
+<use f='codebrowser/code/ui/ui_main.c' l='2530' u='c' c='UI_OpponentName_HandleKey'/>
+<use f='codebrowser/code/ui/ui_main.c' l='2543' u='c' c='UI_BotName_HandleKey'/>
+<use f='codebrowser/code/ui/ui_main.c' l='2570' u='c' c='UI_BotSkill_HandleKey'/>
+<use f='codebrowser/code/ui/ui_main.c' l='2585' u='c' c='UI_RedBlue_HandleKey'/>
+<use f='codebrowser/code/ui/ui_main.c' l='2594' u='c' c='UI_Crosshair_HandleKey'/>
+<use f='codebrowser/code/ui/ui_main.c' l='2612' u='c' c='UI_SelectedPlayer_HandleKey'/>
+<use f='codebrowser/code/ui/ui_shared.c' l='1962' u='c' c='Item_YesNo_HandleKey'/>
+<use f='codebrowser/code/ui/ui_shared.c' l='2045' u='c' c='Item_Multi_HandleKey'/>
+<use f='codebrowser/code/ui/ui_shared.c' l='2407' u='c' c='Item_Slider_HandleKey'/>
+<def f='codebrowser/code/ui/ui_shared.c' l='2654' ll='2677' type='int UI_SelectForKey(int key)'/>
+<doc f='codebrowser/code/ui/ui_shared.c' l='2653'>// menu item key horizontal action: -1 = previous value, 1 = next value, 0 = no change</doc>

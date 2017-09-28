@@ -1,0 +1,12 @@
+<dec f='codebrowser/code/cgame/cg_local.h' l='1330' type='const char * CG_PlaceString(int rank)'/>
+<def f='codebrowser/code/cgame/cg_event.c' l='40' ll='75' type='const char * CG_PlaceString(int rank)'/>
+<use f='codebrowser/code/cgame/cg_event.c' l='219' u='c' c='CG_Obituary'/>
+<doc f='codebrowser/code/cgame/cg_event.c' l='33'>/*
+===================
+CG_PlaceString
+
+Also called by scoreboard drawing
+===================
+*/</doc>
+<use f='codebrowser/code/cgame/cg_newdraw.c' l='1153' u='c' c='CG_GetGameStatusText'/>
+<use f='codebrowser/code/cgame/cg_scoreboard.c' l='321' u='c' c='CG_DrawOldScoreboard'/>

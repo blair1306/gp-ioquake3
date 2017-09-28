@@ -1,0 +1,7 @@
+<dec f='codebrowser/code/game/g_public.h' l='172' type='21'/>
+<doc f='codebrowser/code/game/g_public.h' l='168'>// userinfo strings are maintained by the server system, so they
+	// are persistant across level loads, while all other game visible
+	// data is completely reset</doc>
+<doc f='codebrowser/code/game/g_public.h' l='172'>// ( int num, const char *buffer );</doc>
+<use f='codebrowser/code/game/g_syscalls.c' l='141' c='trap_SetUserinfo'/>
+<use f='codebrowser/code/server/sv_game.c' l='384' c='SV_GameSystemCalls'/>

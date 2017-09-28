@@ -1,0 +1,29 @@
+<dec f='codebrowser/code/renderergl1/tr_local.h' l='1087' type='int R_CullLocalBox(vec3_t * bounds)'/>
+<use f='codebrowser/code/renderergl1/tr_animation.c' l='116' u='c' c='R_MDRCullModel'/>
+<def f='codebrowser/code/renderergl1/tr_main.c' l='53' ll='107' type='int R_CullLocalBox(vec3_t * bounds)'/>
+<doc f='codebrowser/code/renderergl1/tr_main.c' l='46'>/*
+=================
+R_CullLocalBox
+
+Returns CULL_IN, CULL_CLIP, or CULL_OUT
+=================
+*/</doc>
+<use f='codebrowser/code/renderergl1/tr_mesh.c' l='144' u='c' c='R_CullModel'/>
+<use f='codebrowser/code/renderergl1/tr_model_iqm.c' l='767' u='c' c='R_CullIQM'/>
+<use f='codebrowser/code/renderergl1/tr_world.c' l='37' u='c' c='R_CullTriSurf'/>
+<use f='codebrowser/code/renderergl1/tr_world.c' l='78' u='c' c='R_CullGrid'/>
+<use f='codebrowser/code/renderergl1/tr_world.c' l='328' u='c' c='R_AddBrushModelSurfaces'/>
+<dec f='codebrowser/code/renderergl2/tr_local.h' l='1830' type='int R_CullLocalBox(vec3_t * bounds)'/>
+<use f='codebrowser/code/renderergl2/tr_animation.c' l='116' u='c' c='R_MDRCullModel'/>
+<def f='codebrowser/code/renderergl2/tr_main.c' l='200' ll='282' type='int R_CullLocalBox(vec3_t * localBounds)'/>
+<doc f='codebrowser/code/renderergl2/tr_main.c' l='193'>/*
+=================
+R_CullLocalBox
+
+Returns CULL_IN, CULL_CLIP, or CULL_OUT
+=================
+*/</doc>
+<use f='codebrowser/code/renderergl2/tr_mesh.c' l='144' u='c' c='R_CullModel'/>
+<use f='codebrowser/code/renderergl2/tr_model_iqm.c' l='767' u='c' c='R_CullIQM'/>
+<use f='codebrowser/code/renderergl2/tr_world.c' l='133' u='c' c='R_CullSurface'/>
+<use f='codebrowser/code/renderergl2/tr_world.c' l='368' u='c' c='R_AddBrushModelSurfaces'/>

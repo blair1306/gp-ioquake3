@@ -1,0 +1,29 @@
+<dec f='codebrowser/code/opusfile-0.8/include/opusfile.h' l='357' type='opus_int32'/>
+<offset>0</offset>
+<doc f='codebrowser/code/opusfile-0.8/include/opusfile.h' l='331'>/**The picture type according to the ID3v2 APIC frame:
+     &lt;ol start=&quot;0&quot;&gt;
+     &lt;li&gt;Other&lt;/li&gt;
+     &lt;li&gt;32x32 pixels &apos;file icon&apos; (PNG only)&lt;/li&gt;
+     &lt;li&gt;Other file icon&lt;/li&gt;
+     &lt;li&gt;Cover (front)&lt;/li&gt;
+     &lt;li&gt;Cover (back)&lt;/li&gt;
+     &lt;li&gt;Leaflet page&lt;/li&gt;
+     &lt;li&gt;Media (e.g. label side of CD)&lt;/li&gt;
+     &lt;li&gt;Lead artist/lead performer/soloist&lt;/li&gt;
+     &lt;li&gt;Artist/performer&lt;/li&gt;
+     &lt;li&gt;Conductor&lt;/li&gt;
+     &lt;li&gt;Band/Orchestra&lt;/li&gt;
+     &lt;li&gt;Composer&lt;/li&gt;
+     &lt;li&gt;Lyricist/text writer&lt;/li&gt;
+     &lt;li&gt;Recording Location&lt;/li&gt;
+     &lt;li&gt;During recording&lt;/li&gt;
+     &lt;li&gt;During performance&lt;/li&gt;
+     &lt;li&gt;Movie/video screen capture&lt;/li&gt;
+     &lt;li&gt;A bright colored fish&lt;/li&gt;
+     &lt;li&gt;Illustration&lt;/li&gt;
+     &lt;li&gt;Band/artist logotype&lt;/li&gt;
+     &lt;li&gt;Publisher/Studio logotype&lt;/li&gt;
+     &lt;/ol&gt;
+     Others are reserved and should not be used.
+     There may only be one each of picture type 1 and 2 in a file.*/</doc>
+<use f='codebrowser/code/opusfile-0.8/src/info.c' l='709' u='w' c='opus_picture_tag_parse_impl'/>

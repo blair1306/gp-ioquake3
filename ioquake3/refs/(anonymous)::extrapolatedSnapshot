@@ -1,0 +1,7 @@
+<dec f='codebrowser/code/client/client.h' l='104' type='qboolean'/>
+<offset>4480</offset>
+<doc f='codebrowser/code/client/client.h' l='103'>// this value changes as net lag varies</doc>
+<doc f='codebrowser/code/client/client.h' l='104'>// set if any cgame frame has been forced to extrapolate</doc>
+<use f='codebrowser/code/client/cl_cgame.c' l='857' u='r' c='CL_AdjustTimeDelta'/>
+<use f='codebrowser/code/client/cl_cgame.c' l='858' u='w' c='CL_AdjustTimeDelta'/>
+<use f='codebrowser/code/client/cl_cgame.c' l='1013' u='w' c='CL_SetCGameTime'/>

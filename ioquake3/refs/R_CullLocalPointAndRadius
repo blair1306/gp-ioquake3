@@ -1,0 +1,24 @@
+<dec f='codebrowser/code/renderergl1/tr_local.h' l='1089' type='int R_CullLocalPointAndRadius(vec_t * origin, float radius)'/>
+<use f='codebrowser/code/renderergl1/tr_animation.c' l='61' u='c' c='R_MDRCullModel'/>
+<use f='codebrowser/code/renderergl1/tr_animation.c' l='83' u='c' c='R_MDRCullModel'/>
+<use f='codebrowser/code/renderergl1/tr_animation.c' l='87' u='c' c='R_MDRCullModel'/>
+<def f='codebrowser/code/renderergl1/tr_main.c' l='112' ll='119' type='int R_CullLocalPointAndRadius(vec_t * pt, float radius)'/>
+<doc f='codebrowser/code/renderergl1/tr_main.c' l='109'>/*
+** R_CullLocalPointAndRadius
+*/</doc>
+<use f='codebrowser/code/renderergl1/tr_mesh.c' l='92' u='c' c='R_CullModel'/>
+<use f='codebrowser/code/renderergl1/tr_mesh.c' l='111' u='c' c='R_CullModel'/>
+<use f='codebrowser/code/renderergl1/tr_mesh.c' l='115' u='c' c='R_CullModel'/>
+<use f='codebrowser/code/renderergl1/tr_world.c' l='62' u='c' c='R_CullGrid'/>
+<dec f='codebrowser/code/renderergl2/tr_local.h' l='1833' type='int R_CullLocalPointAndRadius(const vec_t * origin, float radius)'/>
+<use f='codebrowser/code/renderergl2/tr_animation.c' l='61' u='c' c='R_MDRCullModel'/>
+<use f='codebrowser/code/renderergl2/tr_animation.c' l='83' u='c' c='R_MDRCullModel'/>
+<use f='codebrowser/code/renderergl2/tr_animation.c' l='87' u='c' c='R_MDRCullModel'/>
+<def f='codebrowser/code/renderergl2/tr_main.c' l='331' ll='338' type='int R_CullLocalPointAndRadius(const vec_t * pt, float radius)'/>
+<doc f='codebrowser/code/renderergl2/tr_main.c' l='328'>/*
+** R_CullLocalPointAndRadius
+*/</doc>
+<use f='codebrowser/code/renderergl2/tr_mesh.c' l='92' u='c' c='R_CullModel'/>
+<use f='codebrowser/code/renderergl2/tr_mesh.c' l='111' u='c' c='R_CullModel'/>
+<use f='codebrowser/code/renderergl2/tr_mesh.c' l='115' u='c' c='R_CullModel'/>
+<use f='codebrowser/code/renderergl2/tr_world.c' l='117' u='c' c='R_CullSurface'/>

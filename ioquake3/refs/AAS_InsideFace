@@ -1,0 +1,13 @@
+<dec f='codebrowser/code/botlib/be_aas_sample.h' l='43' type='qboolean AAS_InsideFace(aas_face_t * face, vec_t * pnormal, vec_t * point, float epsilon)'/>
+<def f='codebrowser/code/botlib/be_aas_sample.c' l='925' ll='970' type='qboolean AAS_InsideFace(aas_face_t * face, vec_t * pnormal, vec_t * point, float epsilon)'/>
+<use f='codebrowser/code/botlib/be_aas_sample.c' l='1039' u='c' c='AAS_AreaGroundFace'/>
+<use f='codebrowser/code/botlib/be_aas_sample.c' l='1114' u='c' c='AAS_TraceEndFace'/>
+<doc f='codebrowser/code/botlib/be_aas_sample.c' l='916'>//===========================================================================
+// tests if the given point is within the face boundaries
+//
+// Parameter:				face		: face to test if the point is in it
+//								pnormal	: normal of the plane to use for the face
+//								point		: point to test if inside face boundaries
+// Returns:					qtrue if the point is within the face boundaries
+// Changes Globals:		-
+//===========================================================================</doc>

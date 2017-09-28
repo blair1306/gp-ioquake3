@@ -1,0 +1,10 @@
+<dec f='include/SDL2/SDL_mouse.h' l='144' type='int SDL_WarpMouseGlobal(int x, int y)'/>
+<doc f='include/SDL2/SDL_mouse.h' l='135'>/**
+ *  \brief Moves the mouse to the given position in global screen space.
+ *
+ *  \param x The x coordinate
+ *  \param y The y coordinate
+ *  \return 0 on success, -1 on error (usually: unsupported by a platform).
+ *
+ *  \note This function generates a mouse motion event
+ */</doc>

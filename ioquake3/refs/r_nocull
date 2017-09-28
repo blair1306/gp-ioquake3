@@ -1,0 +1,14 @@
+<dec f='codebrowser/code/renderergl1/tr_local.h' l='1001' type='cvar_t *'/>
+<def f='codebrowser/code/renderergl1/tr_init.c' l='85' type='cvar_t *'/>
+<use f='codebrowser/code/renderergl1/tr_init.c' l='1117' u='w' c='R_Register'/>
+<use f='codebrowser/code/renderergl1/tr_main.c' l='62' u='r' c='R_CullLocalBox'/>
+<use f='codebrowser/code/renderergl1/tr_main.c' l='131' u='r' c='R_CullPointAndRadius'/>
+<use f='codebrowser/code/renderergl1/tr_world.c' l='117' u='r' c='R_CullSurface'/>
+<use f='codebrowser/code/renderergl1/tr_world.c' l='369' u='r' c='R_RecursiveWorldNode'/>
+<dec f='codebrowser/code/renderergl2/tr_local.h' l='1645' type='cvar_t *'/>
+<def f='codebrowser/code/renderergl2/tr_init.c' l='87' type='cvar_t *'/>
+<use f='codebrowser/code/renderergl2/tr_init.c' l='1330' u='w' c='R_Register'/>
+<use f='codebrowser/code/renderergl2/tr_main.c' l='261' u='r' c='R_CullLocalBox'/>
+<use f='codebrowser/code/renderergl2/tr_main.c' l='350' u='r' c='R_CullPointAndRadiusEx'/>
+<use f='codebrowser/code/renderergl2/tr_world.c' l='35' u='r' c='R_CullSurface'/>
+<use f='codebrowser/code/renderergl2/tr_world.c' l='417' u='r' c='R_RecursiveWorldNode'/>

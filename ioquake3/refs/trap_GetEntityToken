@@ -1,0 +1,20 @@
+<dec f='codebrowser/code/cgame/cg_local.h' l='1671' type='qboolean trap_GetEntityToken(char * buffer, int bufferSize)'/>
+<def f='codebrowser/code/cgame/cg_syscalls.c' l='442' ll='444' type='qboolean trap_GetEntityToken(char * buffer, int bufferSize)'/>
+<doc f='codebrowser/code/cgame/cg_syscalls.c' l='428'>/*
+qboolean trap_loadCamera( const char *name ) {
+	return syscall( CG_LOADCAMERA, name );
+}
+
+void trap_startCamera(int time) {
+	syscall(CG_STARTCAMERA, time);
+}
+
+qboolean trap_getCameraInfo( int time, vec3_t *origin, vec3_t *angles) {
+	return syscall( CG_GETCAMERAINFO, time, origin, angles );
+}
+*/</doc>
+<dec f='codebrowser/code/game/g_local.h' l='791' type='qboolean trap_GetEntityToken(char * buffer, int bufferSize)'/>
+<use f='codebrowser/code/game/g_spawn.c' l='517' u='c' c='G_ParseSpawnVars'/>
+<use f='codebrowser/code/game/g_spawn.c' l='528' u='c' c='G_ParseSpawnVars'/>
+<use f='codebrowser/code/game/g_spawn.c' l='537' u='c' c='G_ParseSpawnVars'/>
+<def f='codebrowser/code/game/g_syscalls.c' l='213' ll='215' type='qboolean trap_GetEntityToken(char * buffer, int bufferSize)'/>

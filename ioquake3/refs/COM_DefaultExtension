@@ -1,0 +1,13 @@
+<dec f='codebrowser/code/qcommon/q_shared.h' l='739' type='void COM_DefaultExtension(char * path, int maxSize, const char * extension)'/>
+<use f='codebrowser/code/client/cl_console.c' l='196' u='c' c='Con_Dump_f'/>
+<use f='codebrowser/code/qcommon/cmd.c' l='284' u='c' c='Cmd_Exec_f'/>
+<use f='codebrowser/code/qcommon/common.c' l='2994' u='c' c='Com_WriteConfig_f'/>
+<def f='codebrowser/code/qcommon/q_shared.c' l='122' ll='129' type='void COM_DefaultExtension(char * path, int maxSize, const char * extension)'/>
+<doc f='codebrowser/code/qcommon/q_shared.c' l='114'>/*
+==================
+COM_DefaultExtension
+
+if path doesn&apos;t have an extension, then append
+ the specified one (which should include the .)
+==================
+*/</doc>

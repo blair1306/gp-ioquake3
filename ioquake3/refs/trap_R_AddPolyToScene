@@ -1,0 +1,13 @@
+<dec f='codebrowser/code/cgame/cg_local.h' l='1589' type='void trap_R_AddPolyToScene(qhandle_t hShader, int numVerts, const polyVert_t * verts)'/>
+<doc f='codebrowser/code/cgame/cg_local.h' l='1587'>// polys are intended for simple wall marks, not really for doing
+// significant construction</doc>
+<use f='codebrowser/code/cgame/cg_marks.c' l='205' u='c' c='CG_ImpactMark'/>
+<use f='codebrowser/code/cgame/cg_marks.c' l='291' u='c' c='CG_AddMarks'/>
+<use f='codebrowser/code/cgame/cg_particles.c' l='840' u='c' c='CG_AddParticleToScene'/>
+<use f='codebrowser/code/cgame/cg_particles.c' l='842' u='c' c='CG_AddParticleToScene'/>
+<use f='codebrowser/code/cgame/cg_players.c' l='2137' u='c' c='CG_PlayerSplash'/>
+<def f='codebrowser/code/cgame/cg_syscalls.c' l='261' ll='263' type='void trap_R_AddPolyToScene(qhandle_t hShader, int numVerts, const polyVert_t * verts)'/>
+<use f='codebrowser/code/cgame/cg_weapons.c' l='2162' u='c' c='CG_Tracer'/>
+<dec f='codebrowser/code/q3_ui/ui_local.h' l='651' type='void trap_R_AddPolyToScene(qhandle_t hShader, int numVerts, const polyVert_t * verts)'/>
+<dec f='codebrowser/code/ui/ui_local.h' l='942' type='void trap_R_AddPolyToScene(qhandle_t hShader, int numVerts, const polyVert_t * verts)'/>
+<def f='codebrowser/code/ui/ui_syscalls.c' l='156' ll='158' type='void trap_R_AddPolyToScene(qhandle_t hShader, int numVerts, const polyVert_t * verts)'/>

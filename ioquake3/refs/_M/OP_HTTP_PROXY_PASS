@@ -1,0 +1,11 @@
+<dec f='codebrowser/code/opusfile-0.8/include/opusfile.h' l='821'/>
+<doc f='codebrowser/code/opusfile-0.8/include/opusfile.h' l='811'>/**Use the given password for authentication when proxying connections.
+   All proxy parameters are ignored for non-http and non-https URLs.
+   \param _pass const char *: The proxy server password.
+                              This may be &lt;code&gt;NULL&lt;/code&gt; to disable proxy
+                               authentication.
+                              A non-&lt;code&gt;NULL&lt;/code&gt; value only has an effect
+                               if #OP_HTTP_PROXY_HOST and #OP_HTTP_PROXY_USER
+                               are also specified with non-&lt;code&gt;NULL&lt;/code&gt;
+                               arguments.
+   \hideinitializer*/</doc>

@@ -1,0 +1,13 @@
+<dec f='codebrowser/code/qcommon/vm_local.h' l='147' type='int'/>
+<use f='codebrowser/code/qcommon/vm.c' l='681' u='w' c='VM_Create'/>
+<use f='codebrowser/code/qcommon/vm.c' l='682' u='r' c='VM_Create'/>
+<offset>0</offset>
+<doc f='codebrowser/code/qcommon/vm_local.h' l='145'>// DO NOT MOVE OR CHANGE THESE WITHOUT CHANGING THE VM_OFFSET_* DEFINES
+    // USED BY THE ASM CODE</doc>
+<doc f='codebrowser/code/qcommon/vm_local.h' l='147'>// the vm may be recursively entered</doc>
+<use f='codebrowser/code/qcommon/vm_interpreted.c' l='338' u='r' c='VM_CallInterpreted'/>
+<use f='codebrowser/code/qcommon/vm_interpreted.c' l='494' u='w' c='VM_CallInterpreted'/>
+<use f='codebrowser/code/qcommon/vm_interpreted.c' l='897' u='w' c='VM_CallInterpreted'/>
+<use f='codebrowser/code/qcommon/vm_x86.c' l='417' u='w' c='DoSyscall'/>
+<use f='codebrowser/code/qcommon/vm_x86.c' l='1732' u='r' c='VM_CallCompiled'/>
+<use f='codebrowser/code/qcommon/vm_x86.c' l='1806' u='w' c='VM_CallCompiled'/>

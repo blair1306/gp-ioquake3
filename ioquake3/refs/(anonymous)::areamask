@@ -1,0 +1,32 @@
+<dec f='codebrowser/code/renderercommon/tr_types.h' l='138' type='byte [32]'/>
+<dec f='codebrowser/code/cgame/cg_public.h' l='45' type='byte [32]'/>
+<offset>96</offset>
+<doc f='codebrowser/code/renderercommon/tr_types.h' l='137'>// 1 bits will prevent the associated area from rendering at all</doc>
+<doc f='codebrowser/code/cgame/cg_public.h' l='45'>// portalarea visibility bits</doc>
+<use f='codebrowser/code/cgame/cg_view.c' l='832' u='r' c='CG_DrawActiveFrame'/>
+<use f='codebrowser/code/cgame/cg_view.c' l='832' u='r' c='CG_DrawActiveFrame'/>
+<use f='codebrowser/code/cgame/cg_view.c' l='832' u='r' c='CG_DrawActiveFrame'/>
+<dec f='codebrowser/code/client/client.h' l='57' type='byte [32]'/>
+<offset>192</offset>
+<doc f='codebrowser/code/client/client.h' l='57'>// portalarea visibility bits</doc>
+<use f='codebrowser/code/client/cl_cgame.c' l='152' u='r' c='CL_GetSnapshot'/>
+<use f='codebrowser/code/client/cl_cgame.c' l='152' u='r' c='CL_GetSnapshot'/>
+<use f='codebrowser/code/client/cl_cgame.c' l='152' u='r' c='CL_GetSnapshot'/>
+<use f='codebrowser/code/client/cl_parse.c' l='266' u='r' c='CL_ParseSnapshot'/>
+<use f='codebrowser/code/client/cl_parse.c' l='272' u='a' c='CL_ParseSnapshot'/>
+<dec f='codebrowser/code/renderergl1/tr_local.h' l='388' type='byte [32]'/>
+<offset>672</offset>
+<doc f='codebrowser/code/renderergl1/tr_local.h' l='387'>// 1 bits will prevent the associated area from rendering at all</doc>
+<use f='codebrowser/code/renderergl1/tr_scene.c' l='334' u='r' c='RE_RenderScene'/>
+<use f='codebrowser/code/renderergl1/tr_scene.c' l='334' u='r' c='RE_RenderScene'/>
+<use f='codebrowser/code/renderergl1/tr_scene.c' l='335' u='w' c='RE_RenderScene'/>
+<use f='codebrowser/code/renderergl1/tr_scene.c' l='335' u='r' c='RE_RenderScene'/>
+<use f='codebrowser/code/renderergl1/tr_world.c' l='625' u='r' c='R_MarkLeaves'/>
+<dec f='codebrowser/code/renderergl2/tr_local.h' l='710' type='byte [32]'/>
+<offset>672</offset>
+<doc f='codebrowser/code/renderergl2/tr_local.h' l='709'>// 1 bits will prevent the associated area from rendering at all</doc>
+<use f='codebrowser/code/renderergl2/tr_scene.c' l='316' u='r' c='RE_BeginScene'/>
+<use f='codebrowser/code/renderergl2/tr_scene.c' l='316' u='r' c='RE_BeginScene'/>
+<use f='codebrowser/code/renderergl2/tr_scene.c' l='317' u='w' c='RE_BeginScene'/>
+<use f='codebrowser/code/renderergl2/tr_scene.c' l='317' u='r' c='RE_BeginScene'/>
+<use f='codebrowser/code/renderergl2/tr_world.c' l='721' u='r' c='R_MarkLeaves'/>

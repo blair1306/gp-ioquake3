@@ -1,0 +1,22 @@
+<dec f='codebrowser/code/renderercommon/tr_public.h' l='126' type='void (*)(void *)'/>
+<offset>320</offset>
+<use f='codebrowser/code/client/cl_main.c' l='3252' u='w' c='CL_InitRef'/>
+<use f='codebrowser/code/renderercommon/tr_image_jpg.c' l='475' u='r' c='RE_SaveJPG'/>
+<use f='codebrowser/code/renderergl1/tr_backend.c' l='1100' u='r' c='RB_SwapBuffers'/>
+<use f='codebrowser/code/renderergl1/tr_image.c' l='454' u='r' c='R_MipMap2'/>
+<use f='codebrowser/code/renderergl1/tr_image.c' l='832' u='r' c='Upload32'/>
+<use f='codebrowser/code/renderergl1/tr_image.c' l='834' u='r' c='Upload32'/>
+<use f='codebrowser/code/renderergl1/tr_image.c' l='1187' u='r' c='R_CreateFogImage'/>
+<use f='codebrowser/code/renderergl1/tr_init.c' l='450' u='r' c='RB_TakeScreenshot'/>
+<use f='codebrowser/code/renderergl1/tr_init.c' l='473' u='r' c='RB_TakeScreenshotJPEG'/>
+<use f='codebrowser/code/renderergl1/tr_init.c' l='629' u='r' c='R_LevelShot'/>
+<use f='codebrowser/code/renderergl1/tr_init.c' l='630' u='r' c='R_LevelShot'/>
+<use f='codebrowser/code/renderergl2/tr_backend.c' l='1382' u='r' c='RB_SwapBuffers'/>
+<use f='codebrowser/code/renderergl2/tr_image.c' l='1890' u='r' c='RawImage_UploadToRgtc2Texture'/>
+<use f='codebrowser/code/renderergl2/tr_image.c' l='2201' u='r' c='R_CreateImage2'/>
+<use f='codebrowser/code/renderergl2/tr_image.c' l='2672' u='r' c='R_CreateFogImage'/>
+<use f='codebrowser/code/renderergl2/tr_init.c' l='516' u='r' c='RB_TakeScreenshot'/>
+<use f='codebrowser/code/renderergl2/tr_init.c' l='539' u='r' c='RB_TakeScreenshotJPEG'/>
+<use f='codebrowser/code/renderergl2/tr_init.c' l='699' u='r' c='R_LevelShot'/>
+<use f='codebrowser/code/renderergl2/tr_init.c' l='700' u='r' c='R_LevelShot'/>
+<use f='codebrowser/code/renderergl2/tr_vbo.c' l='325' u='r' c='R_CreateVao2'/>

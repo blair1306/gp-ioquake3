@@ -1,0 +1,26 @@
+<dec f='codebrowser/code/jpeg-8c/jpeglib.h' l='753' type='JOCTET *'/>
+<offset>0</offset>
+<doc f='codebrowser/code/jpeg-8c/jpeglib.h' l='753'>/* =&gt; next byte to write in buffer */</doc>
+<use f='codebrowser/code/jpeg-8c/jcarith.c' l='121' u='w' c='emit_byte'/>
+<use f='codebrowser/code/jpeg-8c/jchuff.c' l='277' u='r' c='dump_buffer_s'/>
+<use f='codebrowser/code/jpeg-8c/jchuff.c' l='292' u='r' c='dump_buffer_e'/>
+<use f='codebrowser/code/jpeg-8c/jchuff.c' l='552' u='r' c='encode_mcu_DC_first'/>
+<use f='codebrowser/code/jpeg-8c/jchuff.c' l='605' u='w' c='encode_mcu_DC_first'/>
+<use f='codebrowser/code/jpeg-8c/jchuff.c' l='638' u='r' c='encode_mcu_AC_first'/>
+<use f='codebrowser/code/jpeg-8c/jchuff.c' l='715' u='w' c='encode_mcu_AC_first'/>
+<use f='codebrowser/code/jpeg-8c/jchuff.c' l='747' u='r' c='encode_mcu_DC_refine'/>
+<use f='codebrowser/code/jpeg-8c/jchuff.c' l='764' u='w' c='encode_mcu_DC_refine'/>
+<use f='codebrowser/code/jpeg-8c/jchuff.c' l='799' u='r' c='encode_mcu_AC_refine'/>
+<use f='codebrowser/code/jpeg-8c/jchuff.c' l='896' u='w' c='encode_mcu_AC_refine'/>
+<use f='codebrowser/code/jpeg-8c/jchuff.c' l='1024' u='r' c='encode_mcu_huff'/>
+<use f='codebrowser/code/jpeg-8c/jchuff.c' l='1050' u='w' c='encode_mcu_huff'/>
+<use f='codebrowser/code/jpeg-8c/jchuff.c' l='1079' u='r' c='finish_pass_huff'/>
+<use f='codebrowser/code/jpeg-8c/jchuff.c' l='1086' u='w' c='finish_pass_huff'/>
+<use f='codebrowser/code/jpeg-8c/jchuff.c' l='1090' u='r' c='finish_pass_huff'/>
+<use f='codebrowser/code/jpeg-8c/jchuff.c' l='1100' u='w' c='finish_pass_huff'/>
+<use f='codebrowser/code/jpeg-8c/jcmarker.c' l='114' u='w' c='emit_byte'/>
+<use f='codebrowser/code/jpeg-8c/jdatadst.c' l='73' u='w' c='init_destination'/>
+<use f='codebrowser/code/jpeg-8c/jdatadst.c' l='116' u='w' c='empty_output_buffer'/>
+<use f='codebrowser/code/jpeg-8c/jdatadst.c' l='143' u='w' c='empty_mem_output_buffer'/>
+<use f='codebrowser/code/jpeg-8c/jdatadst.c' l='265' u='w' c='jpeg_mem_dest'/>
+<use f='codebrowser/code/renderercommon/tr_image_jpg.c' l='292' u='w' c='init_destination'/>

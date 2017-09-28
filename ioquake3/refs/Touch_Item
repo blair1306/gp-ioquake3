@@ -1,0 +1,11 @@
+<dec f='codebrowser/code/game/g_local.h' l='450' type='void Touch_Item(gentity_t * ent, gentity_t * other, trace_t * trace)'/>
+<use f='codebrowser/code/game/g_cmds.c' l='324' u='c' c='Cmd_Give_f'/>
+<def f='codebrowser/code/game/g_items.c' l='426' ll='559' type='void Touch_Item(gentity_t * ent, gentity_t * other, trace_t * trace)'/>
+<use f='codebrowser/code/game/g_items.c' l='586' u='r' c='LaunchItem'/>
+<use f='codebrowser/code/game/g_items.c' l='670' u='r' c='FinishSpawningItem'/>
+<doc f='codebrowser/code/game/g_items.c' l='421'>/*
+===============
+Touch_Item
+===============
+*/</doc>
+<use f='codebrowser/code/game/g_target.c' l='48' u='c' c='Use_Target_Give'/>

@@ -1,0 +1,19 @@
+<dec f='codebrowser/code/botlib/be_ea.h' l='34' type='void EA_Say(int client, char * str)'/>
+<doc f='codebrowser/code/botlib/be_ea.h' l='24'>/*****************************************************************************
+ * name:		be_ea.h
+ *
+ * desc:		elementary actions
+ *
+ * $Archive: /source/code/botlib/be_ea.h $
+ *
+ *****************************************************************************/
+
+//ClientCommand elementary actions</doc>
+<def f='codebrowser/code/botlib/be_ea.c' l='51' ll='54' type='void EA_Say(int client, char * str)'/>
+<doc f='codebrowser/code/botlib/be_ea.c' l='45'>//===========================================================================
+//
+// Parameter:				-
+// Returns:					-
+// Changes Globals:		-
+//===========================================================================</doc>
+<use f='codebrowser/code/botlib/be_interface.c' l='736' u='r' c='Init_EA_Export'/>

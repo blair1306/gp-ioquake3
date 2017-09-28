@@ -1,0 +1,20 @@
+<dec f='codebrowser/code/game/bg_public.h' l='166' type='int'/>
+<offset>256</offset>
+<doc f='codebrowser/code/game/bg_public.h' l='166'>// collide against these types of surfaces</doc>
+<use f='codebrowser/code/cgame/cg_predict.c' l='447' u='w' c='CG_PredictPlayerState'/>
+<use f='codebrowser/code/cgame/cg_predict.c' l='450' u='w' c='CG_PredictPlayerState'/>
+<use f='codebrowser/code/cgame/cg_predict.c' l='453' u='w' c='CG_PredictPlayerState'/>
+<use f='codebrowser/code/game/bg_pmove.c' l='1039' u='r' c='PM_CorrectAllSolid'/>
+<use f='codebrowser/code/game/bg_pmove.c' l='1045' u='r' c='PM_CorrectAllSolid'/>
+<use f='codebrowser/code/game/bg_pmove.c' l='1083' u='r' c='PM_GroundTraceMissed'/>
+<use f='codebrowser/code/game/bg_pmove.c' l='1114' u='r' c='PM_GroundTrace'/>
+<use f='codebrowser/code/game/bg_pmove.c' l='1293' u='r' c='PM_CheckDuck'/>
+<use f='codebrowser/code/game/bg_pmove.c' l='1848' u='w' c='PmoveSingle'/>
+<use f='codebrowser/code/game/bg_slidemove.c' l='97' u='r' c='PM_SlideMove'/>
+<use f='codebrowser/code/game/bg_slidemove.c' l='262' u='r' c='PM_StepSlideMove'/>
+<use f='codebrowser/code/game/bg_slidemove.c' l='277' u='r' c='PM_StepSlideMove'/>
+<use f='codebrowser/code/game/bg_slidemove.c' l='295' u='r' c='PM_StepSlideMove'/>
+<use f='codebrowser/code/game/g_active.c' l='336' u='w' c='SpectatorThink'/>
+<use f='codebrowser/code/game/g_active.c' l='904' u='w' c='ClientThink_real'/>
+<use f='codebrowser/code/game/g_active.c' l='907' u='w' c='ClientThink_real'/>
+<use f='codebrowser/code/game/g_active.c' l='910' u='w' c='ClientThink_real'/>

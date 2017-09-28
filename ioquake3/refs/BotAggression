@@ -1,0 +1,12 @@
+<dec f='codebrowser/code/game/ai_dmq3.h' l='86' type='float BotAggression(bot_state_t * bs)'/>
+<doc f='codebrowser/code/game/ai_dmq3.h' l='85'>//returns the aggression of the bot in the range [0, 100]</doc>
+<use f='codebrowser/code/game/ai_dmq3.c' l='719' u='c' c='BotCTFSeekGoals'/>
+<def f='codebrowser/code/game/ai_dmq3.c' l='2197' ll='2238' type='float BotAggression(bot_state_t * bs)'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='2312' u='c' c='BotWantsToRetreat'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='2366' u='c' c='BotWantsToChase'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='2515' u='c' c='BotWantsToCamp'/>
+<doc f='codebrowser/code/game/ai_dmq3.c' l='2192'>/*
+==================
+BotAggression
+==================
+*/</doc>

@@ -1,0 +1,14 @@
+<def f='codebrowser/code/botlib/botlib.h' l='130' ll='142'/>
+<size>84</size>
+<doc f='codebrowser/code/botlib/botlib.h' l='128'>//remove the bsp_trace_s structure definition l8r on
+//a trace is returned when a box is swept through the world</doc>
+<mbr r='bsp_trace_s::allsolid' o='0' t='qboolean'/>
+<mbr r='bsp_trace_s::startsolid' o='32' t='qboolean'/>
+<mbr r='bsp_trace_s::fraction' o='64' t='float'/>
+<mbr r='bsp_trace_s::endpos' o='96' t='vec3_t'/>
+<mbr r='bsp_trace_s::plane' o='192' t='cplane_t'/>
+<mbr r='bsp_trace_s::exp_dist' o='352' t='float'/>
+<mbr r='bsp_trace_s::sidenum' o='384' t='int'/>
+<mbr r='bsp_trace_s::surface' o='416' t='bsp_surface_t'/>
+<mbr r='bsp_trace_s::contents' o='608' t='int'/>
+<mbr r='bsp_trace_s::ent' o='640' t='int'/>

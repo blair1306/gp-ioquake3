@@ -1,0 +1,29 @@
+<dec f='codebrowser/code/opus-1.1.4/celt/entcode.h' l='83' type='opus_uint32'/>
+<offset>288</offset>
+<doc f='codebrowser/code/opus-1.1.4/celt/entcode.h' l='80'>/*In the decoder: the difference between the top of the current range and
+      the input value, minus one.
+     In the encoder: the low end of the current range.*/</doc>
+<use f='codebrowser/code/opus-1.1.4/celt/entdec.c' l='115' u='w' c='ec_dec_normalize'/>
+<use f='codebrowser/code/opus-1.1.4/celt/entdec.c' l='115' u='r' c='ec_dec_normalize'/>
+<use f='codebrowser/code/opus-1.1.4/celt/entdec.c' l='133' u='w' c='ec_dec_init'/>
+<use f='codebrowser/code/opus-1.1.4/celt/entdec.c' l='142' u='r' c='ec_decode'/>
+<use f='codebrowser/code/opus-1.1.4/celt/entdec.c' l='149' u='r' c='ec_decode_bin'/>
+<use f='codebrowser/code/opus-1.1.4/celt/entdec.c' l='156' u='w' c='ec_dec_update'/>
+<use f='codebrowser/code/opus-1.1.4/celt/entdec.c' l='168' u='r' c='ec_dec_bit_logp'/>
+<use f='codebrowser/code/opus-1.1.4/celt/entdec.c' l='171' u='w' c='ec_dec_bit_logp'/>
+<use f='codebrowser/code/opus-1.1.4/celt/entdec.c' l='184' u='r' c='ec_dec_icdf'/>
+<use f='codebrowser/code/opus-1.1.4/celt/entdec.c' l='192' u='w' c='ec_dec_icdf'/>
+<use f='codebrowser/code/opus-1.1.4/celt/entenc.c' l='104' u='r' c='ec_enc_normalize'/>
+<use f='codebrowser/code/opus-1.1.4/celt/entenc.c' l='106' u='w' c='ec_enc_normalize'/>
+<use f='codebrowser/code/opus-1.1.4/celt/entenc.c' l='106' u='r' c='ec_enc_normalize'/>
+<use f='codebrowser/code/opus-1.1.4/celt/entenc.c' l='122' u='w' c='ec_enc_init'/>
+<use f='codebrowser/code/opus-1.1.4/celt/entenc.c' l='132' u='w' c='ec_encode'/>
+<use f='codebrowser/code/opus-1.1.4/celt/entenc.c' l='143' u='w' c='ec_encode_bin'/>
+<use f='codebrowser/code/opus-1.1.4/celt/entenc.c' l='156' u='r' c='ec_enc_bit_logp'/>
+<use f='codebrowser/code/opus-1.1.4/celt/entenc.c' l='159' u='w' c='ec_enc_bit_logp'/>
+<use f='codebrowser/code/opus-1.1.4/celt/entenc.c' l='168' u='w' c='ec_enc_icdf'/>
+<use f='codebrowser/code/opus-1.1.4/celt/entenc.c' l='230' u='w' c='ec_enc_patch_initial_bits'/>
+<use f='codebrowser/code/opus-1.1.4/celt/entenc.c' l='230' u='r' c='ec_enc_patch_initial_bits'/>
+<use f='codebrowser/code/opus-1.1.4/celt/entenc.c' l='254' u='r' c='ec_enc_done'/>
+<use f='codebrowser/code/opus-1.1.4/celt/entenc.c' l='255' u='r' c='ec_enc_done'/>
+<use f='codebrowser/code/opus-1.1.4/celt/entenc.c' l='258' u='r' c='ec_enc_done'/>

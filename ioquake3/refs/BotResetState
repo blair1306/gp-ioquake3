@@ -1,0 +1,14 @@
+<dec f='codebrowser/code/game/ai_main.h' l='277' type='void BotResetState(bot_state_t * bs)'/>
+<doc f='codebrowser/code/game/ai_main.h' l='276'>//resets the whole bot state</doc>
+<use f='codebrowser/code/game/ai_dmnet.c' l='1134' u='c' c='AIEnter_Intermission'/>
+<use f='codebrowser/code/game/ai_dmnet.c' l='1169' u='c' c='AIEnter_Observer'/>
+<def f='codebrowser/code/game/ai_main.c' l='1325' ll='1368' type='void BotResetState(bot_state_t * bs)'/>
+<use f='codebrowser/code/game/ai_main.c' l='1386' u='c' c='BotAILoadMap'/>
+<doc f='codebrowser/code/game/ai_main.c' l='1317'>/*
+==============
+BotResetState
+
+called when a bot enters the intermission or observer mode and
+when the level is changed
+==============
+*/</doc>

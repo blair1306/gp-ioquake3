@@ -1,0 +1,148 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>iqm.h source code [codebrowser/code/renderercommon/iqm.h] - Woboq Code Browser</title>
+<meta name="woboq:interestingDefinitions" content="iqmanim,iqmbounds,iqmheader,iqmjoint,iqmmesh,iqmpose,iqmtriangle,iqmvertexarray "/>
+<link rel="stylesheet" href="../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'codebrowser/code/renderercommon/iqm.h'; var root_path = '../../..'; var data_path = '../../../../data';</script>
+<script src='../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../..'>codebrowser</a>/<a href='..'>code</a>/<a href='./'>renderercommon</a>/<a href='iqm.h.html'>iqm.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/*</i></td></tr>
+<tr><th id="2">2</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="3">3</th><td><i>This file is part of Quake III Arena source code.</i></td></tr>
+<tr><th id="4">4</th><td><i></i></td></tr>
+<tr><th id="5">5</th><td><i>Quake III Arena source code is free software; you can redistribute it</i></td></tr>
+<tr><th id="6">6</th><td><i>and/or modify it under the terms of the GNU General Public License as</i></td></tr>
+<tr><th id="7">7</th><td><i>published by the Free Software Foundation; either version 2 of the License,</i></td></tr>
+<tr><th id="8">8</th><td><i>or (at your option) any later version.</i></td></tr>
+<tr><th id="9">9</th><td><i></i></td></tr>
+<tr><th id="10">10</th><td><i>Quake III Arena source code is distributed in the hope that it will be</i></td></tr>
+<tr><th id="11">11</th><td><i>useful, but WITHOUT ANY WARRANTY; without even the implied warranty of</i></td></tr>
+<tr><th id="12">12</th><td><i>MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</i></td></tr>
+<tr><th id="13">13</th><td><i>GNU General Public License for more details.</i></td></tr>
+<tr><th id="14">14</th><td><i></i></td></tr>
+<tr><th id="15">15</th><td><i>You should have received a copy of the GNU General Public License</i></td></tr>
+<tr><th id="16">16</th><td><i>along with Quake III Arena source code; if not, write to the Free Software</i></td></tr>
+<tr><th id="17">17</th><td><i>Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA</i></td></tr>
+<tr><th id="18">18</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="19">19</th><td><i>*/</i></td></tr>
+<tr><th id="20">20</th><td></td></tr>
+<tr><th id="21">21</th><td><u>#<span data-ppcond="21">ifndef</span> <span class="macro" data-ref="_M/__IQM_H__">__IQM_H__</span></u></td></tr>
+<tr><th id="22">22</th><td><u>#define <dfn class="macro" id="_M/__IQM_H__" data-ref="_M/__IQM_H__">__IQM_H__</dfn></u></td></tr>
+<tr><th id="23">23</th><td></td></tr>
+<tr><th id="24">24</th><td><u>#define <dfn class="macro" id="_M/IQM_MAGIC" data-ref="_M/IQM_MAGIC">IQM_MAGIC</dfn> "INTERQUAKEMODEL"</u></td></tr>
+<tr><th id="25">25</th><td><u>#define <dfn class="macro" id="_M/IQM_VERSION" data-ref="_M/IQM_VERSION">IQM_VERSION</dfn> 2</u></td></tr>
+<tr><th id="26">26</th><td></td></tr>
+<tr><th id="27">27</th><td><u>#define	<dfn class="macro" id="_M/IQM_MAX_JOINTS" data-ref="_M/IQM_MAX_JOINTS">IQM_MAX_JOINTS</dfn>		128</u></td></tr>
+<tr><th id="28">28</th><td></td></tr>
+<tr><th id="29">29</th><td><b>typedef</b> <b>struct</b> <dfn class="type def" id="iqmheader" title='iqmheader' data-ref="iqmheader"><a class="type" href="#iqmheader" title='iqmheader' data-ref="iqmheader">iqmheader</a></dfn></td></tr>
+<tr><th id="30">30</th><td>{</td></tr>
+<tr><th id="31">31</th><td>    <em>char</em> <dfn class="decl" id="iqmheader::magic" title='iqmheader::magic' data-ref="iqmheader::magic">magic</dfn>[<var>16</var>];</td></tr>
+<tr><th id="32">32</th><td>    <em>unsigned</em> <em>int</em> <dfn class="decl" id="iqmheader::version" title='iqmheader::version' data-ref="iqmheader::version">version</dfn>;</td></tr>
+<tr><th id="33">33</th><td>    <em>unsigned</em> <em>int</em> <dfn class="decl" id="iqmheader::filesize" title='iqmheader::filesize' data-ref="iqmheader::filesize">filesize</dfn>;</td></tr>
+<tr><th id="34">34</th><td>    <em>unsigned</em> <em>int</em> <dfn class="decl" id="iqmheader::flags" title='iqmheader::flags' data-ref="iqmheader::flags">flags</dfn>;</td></tr>
+<tr><th id="35">35</th><td>    <em>unsigned</em> <em>int</em> <dfn class="decl" id="iqmheader::num_text" title='iqmheader::num_text' data-ref="iqmheader::num_text">num_text</dfn>, <dfn class="decl" id="iqmheader::ofs_text" title='iqmheader::ofs_text' data-ref="iqmheader::ofs_text">ofs_text</dfn>;</td></tr>
+<tr><th id="36">36</th><td>    <em>unsigned</em> <em>int</em> <dfn class="decl" id="iqmheader::num_meshes" title='iqmheader::num_meshes' data-ref="iqmheader::num_meshes">num_meshes</dfn>, <dfn class="decl" id="iqmheader::ofs_meshes" title='iqmheader::ofs_meshes' data-ref="iqmheader::ofs_meshes">ofs_meshes</dfn>;</td></tr>
+<tr><th id="37">37</th><td>    <em>unsigned</em> <em>int</em> <dfn class="decl" id="iqmheader::num_vertexarrays" title='iqmheader::num_vertexarrays' data-ref="iqmheader::num_vertexarrays">num_vertexarrays</dfn>, <dfn class="decl" id="iqmheader::num_vertexes" title='iqmheader::num_vertexes' data-ref="iqmheader::num_vertexes">num_vertexes</dfn>, <dfn class="decl" id="iqmheader::ofs_vertexarrays" title='iqmheader::ofs_vertexarrays' data-ref="iqmheader::ofs_vertexarrays">ofs_vertexarrays</dfn>;</td></tr>
+<tr><th id="38">38</th><td>    <em>unsigned</em> <em>int</em> <dfn class="decl" id="iqmheader::num_triangles" title='iqmheader::num_triangles' data-ref="iqmheader::num_triangles">num_triangles</dfn>, <dfn class="decl" id="iqmheader::ofs_triangles" title='iqmheader::ofs_triangles' data-ref="iqmheader::ofs_triangles">ofs_triangles</dfn>, <dfn class="decl" id="iqmheader::ofs_adjacency" title='iqmheader::ofs_adjacency' data-ref="iqmheader::ofs_adjacency">ofs_adjacency</dfn>;</td></tr>
+<tr><th id="39">39</th><td>    <em>unsigned</em> <em>int</em> <dfn class="decl" id="iqmheader::num_joints" title='iqmheader::num_joints' data-ref="iqmheader::num_joints">num_joints</dfn>, <dfn class="decl" id="iqmheader::ofs_joints" title='iqmheader::ofs_joints' data-ref="iqmheader::ofs_joints">ofs_joints</dfn>;</td></tr>
+<tr><th id="40">40</th><td>    <em>unsigned</em> <em>int</em> <dfn class="decl" id="iqmheader::num_poses" title='iqmheader::num_poses' data-ref="iqmheader::num_poses">num_poses</dfn>, <dfn class="decl" id="iqmheader::ofs_poses" title='iqmheader::ofs_poses' data-ref="iqmheader::ofs_poses">ofs_poses</dfn>;</td></tr>
+<tr><th id="41">41</th><td>    <em>unsigned</em> <em>int</em> <dfn class="decl" id="iqmheader::num_anims" title='iqmheader::num_anims' data-ref="iqmheader::num_anims">num_anims</dfn>, <dfn class="decl" id="iqmheader::ofs_anims" title='iqmheader::ofs_anims' data-ref="iqmheader::ofs_anims">ofs_anims</dfn>;</td></tr>
+<tr><th id="42">42</th><td>    <em>unsigned</em> <em>int</em> <dfn class="decl" id="iqmheader::num_frames" title='iqmheader::num_frames' data-ref="iqmheader::num_frames">num_frames</dfn>, <dfn class="decl" id="iqmheader::num_framechannels" title='iqmheader::num_framechannels' data-ref="iqmheader::num_framechannels">num_framechannels</dfn>, <dfn class="decl" id="iqmheader::ofs_frames" title='iqmheader::ofs_frames' data-ref="iqmheader::ofs_frames">ofs_frames</dfn>, <dfn class="decl" id="iqmheader::ofs_bounds" title='iqmheader::ofs_bounds' data-ref="iqmheader::ofs_bounds">ofs_bounds</dfn>;</td></tr>
+<tr><th id="43">43</th><td>    <em>unsigned</em> <em>int</em> <dfn class="decl" id="iqmheader::num_comment" title='iqmheader::num_comment' data-ref="iqmheader::num_comment">num_comment</dfn>, <dfn class="decl" id="iqmheader::ofs_comment" title='iqmheader::ofs_comment' data-ref="iqmheader::ofs_comment">ofs_comment</dfn>;</td></tr>
+<tr><th id="44">44</th><td>    <em>unsigned</em> <em>int</em> <dfn class="decl" id="iqmheader::num_extensions" title='iqmheader::num_extensions' data-ref="iqmheader::num_extensions">num_extensions</dfn>, <dfn class="decl" id="iqmheader::ofs_extensions" title='iqmheader::ofs_extensions' data-ref="iqmheader::ofs_extensions">ofs_extensions</dfn>;</td></tr>
+<tr><th id="45">45</th><td>} <dfn class="typedef" id="iqmHeader_t" title='iqmHeader_t' data-type='struct iqmheader' data-ref="iqmHeader_t">iqmHeader_t</dfn>;</td></tr>
+<tr><th id="46">46</th><td></td></tr>
+<tr><th id="47">47</th><td><b>typedef</b> <b>struct</b> <dfn class="type def" id="iqmmesh" title='iqmmesh' data-ref="iqmmesh"><a class="type" href="#iqmmesh" title='iqmmesh' data-ref="iqmmesh">iqmmesh</a></dfn></td></tr>
+<tr><th id="48">48</th><td>{</td></tr>
+<tr><th id="49">49</th><td>    <em>unsigned</em> <em>int</em> <dfn class="decl" id="iqmmesh::name" title='iqmmesh::name' data-ref="iqmmesh::name">name</dfn>;</td></tr>
+<tr><th id="50">50</th><td>    <em>unsigned</em> <em>int</em> <dfn class="decl" id="iqmmesh::material" title='iqmmesh::material' data-ref="iqmmesh::material">material</dfn>;</td></tr>
+<tr><th id="51">51</th><td>    <em>unsigned</em> <em>int</em> <dfn class="decl" id="iqmmesh::first_vertex" title='iqmmesh::first_vertex' data-ref="iqmmesh::first_vertex">first_vertex</dfn>, <dfn class="decl" id="iqmmesh::num_vertexes" title='iqmmesh::num_vertexes' data-ref="iqmmesh::num_vertexes">num_vertexes</dfn>;</td></tr>
+<tr><th id="52">52</th><td>    <em>unsigned</em> <em>int</em> <dfn class="decl" id="iqmmesh::first_triangle" title='iqmmesh::first_triangle' data-ref="iqmmesh::first_triangle">first_triangle</dfn>, <dfn class="decl" id="iqmmesh::num_triangles" title='iqmmesh::num_triangles' data-ref="iqmmesh::num_triangles">num_triangles</dfn>;</td></tr>
+<tr><th id="53">53</th><td>} <dfn class="typedef" id="iqmMesh_t" title='iqmMesh_t' data-type='struct iqmmesh' data-ref="iqmMesh_t">iqmMesh_t</dfn>;</td></tr>
+<tr><th id="54">54</th><td></td></tr>
+<tr><th id="55">55</th><td><b>enum</b></td></tr>
+<tr><th id="56">56</th><td>{</td></tr>
+<tr><th id="57">57</th><td>    <dfn class="enum" id="IQM_POSITION" title='IQM_POSITION' data-ref="IQM_POSITION">IQM_POSITION</dfn>     = <var>0</var>,</td></tr>
+<tr><th id="58">58</th><td>    <dfn class="enum" id="IQM_TEXCOORD" title='IQM_TEXCOORD' data-ref="IQM_TEXCOORD">IQM_TEXCOORD</dfn>     = <var>1</var>,</td></tr>
+<tr><th id="59">59</th><td>    <dfn class="enum" id="IQM_NORMAL" title='IQM_NORMAL' data-ref="IQM_NORMAL">IQM_NORMAL</dfn>       = <var>2</var>,</td></tr>
+<tr><th id="60">60</th><td>    <dfn class="enum" id="IQM_TANGENT" title='IQM_TANGENT' data-ref="IQM_TANGENT">IQM_TANGENT</dfn>      = <var>3</var>,</td></tr>
+<tr><th id="61">61</th><td>    <dfn class="enum" id="IQM_BLENDINDEXES" title='IQM_BLENDINDEXES' data-ref="IQM_BLENDINDEXES">IQM_BLENDINDEXES</dfn> = <var>4</var>,</td></tr>
+<tr><th id="62">62</th><td>    <dfn class="enum" id="IQM_BLENDWEIGHTS" title='IQM_BLENDWEIGHTS' data-ref="IQM_BLENDWEIGHTS">IQM_BLENDWEIGHTS</dfn> = <var>5</var>,</td></tr>
+<tr><th id="63">63</th><td>    <dfn class="enum" id="IQM_COLOR" title='IQM_COLOR' data-ref="IQM_COLOR">IQM_COLOR</dfn>        = <var>6</var>,</td></tr>
+<tr><th id="64">64</th><td>    <dfn class="enum" id="IQM_CUSTOM" title='IQM_CUSTOM' data-ref="IQM_CUSTOM">IQM_CUSTOM</dfn>       = <var>0x10</var></td></tr>
+<tr><th id="65">65</th><td>};</td></tr>
+<tr><th id="66">66</th><td></td></tr>
+<tr><th id="67">67</th><td><b>enum</b></td></tr>
+<tr><th id="68">68</th><td>{</td></tr>
+<tr><th id="69">69</th><td>    <dfn class="enum" id="IQM_BYTE" title='IQM_BYTE' data-ref="IQM_BYTE">IQM_BYTE</dfn>   = <var>0</var>,</td></tr>
+<tr><th id="70">70</th><td>    <dfn class="enum" id="IQM_UBYTE" title='IQM_UBYTE' data-ref="IQM_UBYTE">IQM_UBYTE</dfn>  = <var>1</var>,</td></tr>
+<tr><th id="71">71</th><td>    <dfn class="enum" id="IQM_SHORT" title='IQM_SHORT' data-ref="IQM_SHORT">IQM_SHORT</dfn>  = <var>2</var>,</td></tr>
+<tr><th id="72">72</th><td>    <dfn class="enum" id="IQM_USHORT" title='IQM_USHORT' data-ref="IQM_USHORT">IQM_USHORT</dfn> = <var>3</var>,</td></tr>
+<tr><th id="73">73</th><td>    <dfn class="enum" id="IQM_INT" title='IQM_INT' data-ref="IQM_INT">IQM_INT</dfn>    = <var>4</var>,</td></tr>
+<tr><th id="74">74</th><td>    <dfn class="enum" id="IQM_UINT" title='IQM_UINT' data-ref="IQM_UINT">IQM_UINT</dfn>   = <var>5</var>,</td></tr>
+<tr><th id="75">75</th><td>    <dfn class="enum" id="IQM_HALF" title='IQM_HALF' data-ref="IQM_HALF">IQM_HALF</dfn>   = <var>6</var>,</td></tr>
+<tr><th id="76">76</th><td>    <dfn class="enum" id="IQM_FLOAT" title='IQM_FLOAT' data-ref="IQM_FLOAT">IQM_FLOAT</dfn>  = <var>7</var>,</td></tr>
+<tr><th id="77">77</th><td>    <dfn class="enum" id="IQM_DOUBLE" title='IQM_DOUBLE' data-ref="IQM_DOUBLE">IQM_DOUBLE</dfn> = <var>8</var>,</td></tr>
+<tr><th id="78">78</th><td>};</td></tr>
+<tr><th id="79">79</th><td></td></tr>
+<tr><th id="80">80</th><td><b>typedef</b> <b>struct</b> <dfn class="type def" id="iqmtriangle" title='iqmtriangle' data-ref="iqmtriangle"><a class="type" href="#iqmtriangle" title='iqmtriangle' data-ref="iqmtriangle">iqmtriangle</a></dfn></td></tr>
+<tr><th id="81">81</th><td>{</td></tr>
+<tr><th id="82">82</th><td>    <em>unsigned</em> <em>int</em> <dfn class="decl" id="iqmtriangle::vertex" title='iqmtriangle::vertex' data-ref="iqmtriangle::vertex">vertex</dfn>[<var>3</var>];</td></tr>
+<tr><th id="83">83</th><td>} <dfn class="typedef" id="iqmTriangle_t" title='iqmTriangle_t' data-type='struct iqmtriangle' data-ref="iqmTriangle_t">iqmTriangle_t</dfn>;</td></tr>
+<tr><th id="84">84</th><td></td></tr>
+<tr><th id="85">85</th><td><b>typedef</b> <b>struct</b> <dfn class="type def" id="iqmjoint" title='iqmjoint' data-ref="iqmjoint"><a class="type" href="#iqmjoint" title='iqmjoint' data-ref="iqmjoint">iqmjoint</a></dfn></td></tr>
+<tr><th id="86">86</th><td>{</td></tr>
+<tr><th id="87">87</th><td>    <em>unsigned</em> <em>int</em> <dfn class="decl" id="iqmjoint::name" title='iqmjoint::name' data-ref="iqmjoint::name">name</dfn>;</td></tr>
+<tr><th id="88">88</th><td>    <em>int</em> <dfn class="decl" id="iqmjoint::parent" title='iqmjoint::parent' data-ref="iqmjoint::parent">parent</dfn>;</td></tr>
+<tr><th id="89">89</th><td>    <em>float</em> <dfn class="decl" id="iqmjoint::translate" title='iqmjoint::translate' data-ref="iqmjoint::translate">translate</dfn>[<var>3</var>], <dfn class="decl" id="iqmjoint::rotate" title='iqmjoint::rotate' data-ref="iqmjoint::rotate">rotate</dfn>[<var>4</var>], <dfn class="decl" id="iqmjoint::scale" title='iqmjoint::scale' data-ref="iqmjoint::scale">scale</dfn>[<var>3</var>];</td></tr>
+<tr><th id="90">90</th><td>} <dfn class="typedef" id="iqmJoint_t" title='iqmJoint_t' data-type='struct iqmjoint' data-ref="iqmJoint_t">iqmJoint_t</dfn>;</td></tr>
+<tr><th id="91">91</th><td></td></tr>
+<tr><th id="92">92</th><td><b>typedef</b> <b>struct</b> <dfn class="type def" id="iqmpose" title='iqmpose' data-ref="iqmpose"><a class="type" href="#iqmpose" title='iqmpose' data-ref="iqmpose">iqmpose</a></dfn></td></tr>
+<tr><th id="93">93</th><td>{</td></tr>
+<tr><th id="94">94</th><td>    <em>int</em> <dfn class="decl" id="iqmpose::parent" title='iqmpose::parent' data-ref="iqmpose::parent">parent</dfn>;</td></tr>
+<tr><th id="95">95</th><td>    <em>unsigned</em> <em>int</em> <dfn class="decl" id="iqmpose::mask" title='iqmpose::mask' data-ref="iqmpose::mask">mask</dfn>;</td></tr>
+<tr><th id="96">96</th><td>    <em>float</em> <dfn class="decl" id="iqmpose::channeloffset" title='iqmpose::channeloffset' data-ref="iqmpose::channeloffset">channeloffset</dfn>[<var>10</var>];</td></tr>
+<tr><th id="97">97</th><td>    <em>float</em> <dfn class="decl" id="iqmpose::channelscale" title='iqmpose::channelscale' data-ref="iqmpose::channelscale">channelscale</dfn>[<var>10</var>];</td></tr>
+<tr><th id="98">98</th><td>} <dfn class="typedef" id="iqmPose_t" title='iqmPose_t' data-type='struct iqmpose' data-ref="iqmPose_t">iqmPose_t</dfn>;</td></tr>
+<tr><th id="99">99</th><td></td></tr>
+<tr><th id="100">100</th><td><b>typedef</b> <b>struct</b> <dfn class="type def" id="iqmanim" title='iqmanim' data-ref="iqmanim"><a class="type" href="#iqmanim" title='iqmanim' data-ref="iqmanim">iqmanim</a></dfn></td></tr>
+<tr><th id="101">101</th><td>{</td></tr>
+<tr><th id="102">102</th><td>    <em>unsigned</em> <em>int</em> <dfn class="decl" id="iqmanim::name" title='iqmanim::name' data-ref="iqmanim::name">name</dfn>;</td></tr>
+<tr><th id="103">103</th><td>    <em>unsigned</em> <em>int</em> <dfn class="decl" id="iqmanim::first_frame" title='iqmanim::first_frame' data-ref="iqmanim::first_frame">first_frame</dfn>, <dfn class="decl" id="iqmanim::num_frames" title='iqmanim::num_frames' data-ref="iqmanim::num_frames">num_frames</dfn>;</td></tr>
+<tr><th id="104">104</th><td>    <em>float</em> <dfn class="decl" id="iqmanim::framerate" title='iqmanim::framerate' data-ref="iqmanim::framerate">framerate</dfn>;</td></tr>
+<tr><th id="105">105</th><td>    <em>unsigned</em> <em>int</em> <dfn class="decl" id="iqmanim::flags" title='iqmanim::flags' data-ref="iqmanim::flags">flags</dfn>;</td></tr>
+<tr><th id="106">106</th><td>} <dfn class="typedef" id="iqmAnim_t" title='iqmAnim_t' data-type='struct iqmanim' data-ref="iqmAnim_t">iqmAnim_t</dfn>;</td></tr>
+<tr><th id="107">107</th><td></td></tr>
+<tr><th id="108">108</th><td><b>enum</b></td></tr>
+<tr><th id="109">109</th><td>{</td></tr>
+<tr><th id="110">110</th><td>    <dfn class="enum" id="IQM_LOOP" title='IQM_LOOP' data-ref="IQM_LOOP">IQM_LOOP</dfn> = <var>1</var>&lt;&lt;<var>0</var></td></tr>
+<tr><th id="111">111</th><td>};</td></tr>
+<tr><th id="112">112</th><td></td></tr>
+<tr><th id="113">113</th><td><b>typedef</b> <b>struct</b> <dfn class="type def" id="iqmvertexarray" title='iqmvertexarray' data-ref="iqmvertexarray"><a class="type" href="#iqmvertexarray" title='iqmvertexarray' data-ref="iqmvertexarray">iqmvertexarray</a></dfn></td></tr>
+<tr><th id="114">114</th><td>{</td></tr>
+<tr><th id="115">115</th><td>    <em>unsigned</em> <em>int</em> <dfn class="decl" id="iqmvertexarray::type" title='iqmvertexarray::type' data-ref="iqmvertexarray::type">type</dfn>;</td></tr>
+<tr><th id="116">116</th><td>    <em>unsigned</em> <em>int</em> <dfn class="decl" id="iqmvertexarray::flags" title='iqmvertexarray::flags' data-ref="iqmvertexarray::flags">flags</dfn>;</td></tr>
+<tr><th id="117">117</th><td>    <em>unsigned</em> <em>int</em> <dfn class="decl" id="iqmvertexarray::format" title='iqmvertexarray::format' data-ref="iqmvertexarray::format">format</dfn>;</td></tr>
+<tr><th id="118">118</th><td>    <em>unsigned</em> <em>int</em> <dfn class="decl" id="iqmvertexarray::size" title='iqmvertexarray::size' data-ref="iqmvertexarray::size">size</dfn>;</td></tr>
+<tr><th id="119">119</th><td>    <em>unsigned</em> <em>int</em> <dfn class="decl" id="iqmvertexarray::offset" title='iqmvertexarray::offset' data-ref="iqmvertexarray::offset">offset</dfn>;</td></tr>
+<tr><th id="120">120</th><td>} <dfn class="typedef" id="iqmVertexArray_t" title='iqmVertexArray_t' data-type='struct iqmvertexarray' data-ref="iqmVertexArray_t">iqmVertexArray_t</dfn>;</td></tr>
+<tr><th id="121">121</th><td></td></tr>
+<tr><th id="122">122</th><td><b>typedef</b> <b>struct</b> <dfn class="type def" id="iqmbounds" title='iqmbounds' data-ref="iqmbounds"><a class="type" href="#iqmbounds" title='iqmbounds' data-ref="iqmbounds">iqmbounds</a></dfn></td></tr>
+<tr><th id="123">123</th><td>{</td></tr>
+<tr><th id="124">124</th><td>    <em>float</em> <dfn class="decl" id="iqmbounds::bbmin" title='iqmbounds::bbmin' data-ref="iqmbounds::bbmin">bbmin</dfn>[<var>3</var>], <dfn class="decl" id="iqmbounds::bbmax" title='iqmbounds::bbmax' data-ref="iqmbounds::bbmax">bbmax</dfn>[<var>3</var>];</td></tr>
+<tr><th id="125">125</th><td>    <em>float</em> <dfn class="decl" id="iqmbounds::xyradius" title='iqmbounds::xyradius' data-ref="iqmbounds::xyradius">xyradius</dfn>, <dfn class="decl" id="iqmbounds::radius" title='iqmbounds::radius' data-ref="iqmbounds::radius">radius</dfn>;</td></tr>
+<tr><th id="126">126</th><td>} <dfn class="typedef" id="iqmBounds_t" title='iqmBounds_t' data-type='struct iqmbounds' data-ref="iqmBounds_t">iqmBounds_t</dfn>;</td></tr>
+<tr><th id="127">127</th><td></td></tr>
+<tr><th id="128">128</th><td><u>#<span data-ppcond="21">endif</span></u></td></tr>
+<tr><th id="129">129</th><td></td></tr>
+<tr><th id="130">130</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='../renderergl1/tr_animation.c.html'>codebrowser/code/renderergl1/tr_animation.c</a><br/>Generated on <em>2017-Aug-29</em> from project codebrowser revision <em>63e07af</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

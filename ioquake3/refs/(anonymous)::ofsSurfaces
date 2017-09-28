@@ -1,0 +1,18 @@
+<dec f='codebrowser/code/qcommon/qfiles.h' l='173' type='int'/>
+<dec f='codebrowser/code/qcommon/qfiles.h' l='273' type='int'/>
+<offset>32</offset>
+<doc f='codebrowser/code/qcommon/qfiles.h' l='173'>// first surface, others follow</doc>
+<doc f='codebrowser/code/qcommon/qfiles.h' l='273'>// first surface, others follow</doc>
+<use f='codebrowser/code/renderergl1/tr_animation.c' l='252' u='r' c='R_MDRAddAnimSurfaces'/>
+<use f='codebrowser/code/renderergl1/tr_mesh.c' l='349' u='r' c='R_AddMD3Surfaces'/>
+<use f='codebrowser/code/renderergl1/tr_model.c' l='408' u='w' c='R_LoadMD3'/>
+<use f='codebrowser/code/renderergl1/tr_model.c' l='408' u='r' c='R_LoadMD3'/>
+<use f='codebrowser/code/renderergl1/tr_model.c' l='439' u='r' c='R_LoadMD3'/>
+<use f='codebrowser/code/renderergl1/tr_model.c' l='707' u='w' c='R_LoadMDR'/>
+<use f='codebrowser/code/renderergl1/tr_model.c' l='708' u='r' c='R_LoadMDR'/>
+<use f='codebrowser/code/renderergl2/tr_animation.c' l='256' u='r' c='R_MDRAddAnimSurfaces'/>
+<use f='codebrowser/code/renderergl2/tr_model.c' l='422' u='w' c='R_LoadMD3'/>
+<use f='codebrowser/code/renderergl2/tr_model.c' l='422' u='r' c='R_LoadMD3'/>
+<use f='codebrowser/code/renderergl2/tr_model.c' l='476' u='r' c='R_LoadMD3'/>
+<use f='codebrowser/code/renderergl2/tr_model.c' l='997' u='w' c='R_LoadMDR'/>
+<use f='codebrowser/code/renderergl2/tr_model.c' l='998' u='r' c='R_LoadMDR'/>

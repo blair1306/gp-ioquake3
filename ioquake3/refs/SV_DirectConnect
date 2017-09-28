@@ -1,0 +1,10 @@
+<dec f='codebrowser/code/server/server.h' l='368' type='void SV_DirectConnect(netadr_t from)'/>
+<def f='codebrowser/code/server/sv_client.c' l='324' ll='601' type='void SV_DirectConnect(netadr_t from)'/>
+<doc f='codebrowser/code/server/sv_client.c' l='316'>/*
+==================
+SV_DirectConnect
+
+A &quot;connect&quot; OOB command has been received
+==================
+*/</doc>
+<use f='codebrowser/code/server/sv_main.c' l='803' u='c' c='SV_ConnectionlessPacket'/>

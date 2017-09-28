@@ -1,0 +1,26 @@
+<dec f='codebrowser/code/jpeg-8c/jpeglib.h' l='787'/>
+<doc f='codebrowser/code/jpeg-8c/jpeglib.h' l='776'>/* Memory manager object.
+ * Allocates &quot;small&quot; objects (a few K total), &quot;large&quot; objects (tens of K),
+ * and &quot;really big&quot; objects (virtual arrays with backing store if needed).
+ * The memory manager does not allow individual objects to be freed; rather,
+ * each created object is assigned to a pool, and whole pools can be freed
+ * at once.  This is faster and more convenient than remembering exactly what
+ * to free, especially where malloc()/free() are not too speedy.
+ * NB: alloc routines never return NULL.  They exit to error_exit if not
+ * successful.
+ */</doc>
+<use f='codebrowser/code/jpeg-8c/jcomapi.c' l='40' u='c'/>
+<use f='codebrowser/code/jpeg-8c/jcomapi.c' l='91' u='c'/>
+<use f='codebrowser/code/jpeg-8c/jcomapi.c' l='103' u='c'/>
+<use f='codebrowser/code/jpeg-8c/jcparam.c' l='299' u='c'/>
+<use f='codebrowser/code/jpeg-8c/jcparam.c' l='591' u='c'/>
+<use f='codebrowser/code/jpeg-8c/jdatadst.c' l='208' u='c'/>
+<use f='codebrowser/code/jpeg-8c/jdatadst.c' l='245' u='c'/>
+<use f='codebrowser/code/jpeg-8c/jdatasrc.c' l='222' u='c'/>
+<use f='codebrowser/code/jpeg-8c/jdatasrc.c' l='226' u='c'/>
+<use f='codebrowser/code/jpeg-8c/jdatasrc.c' l='262' u='c'/>
+<use f='codebrowser/code/jpeg-8c/jdinput.c' l='647' u='c'/>
+<use f='codebrowser/code/jpeg-8c/jdmarker.c' l='1315' u='c'/>
+<use f='codebrowser/code/jpeg-8c/jmemmgr.c' l='1010' u='c'/>
+<use f='codebrowser/code/jpeg-8c/jmemmgr.c' l='1085' u='c'/>
+<use f='codebrowser/code/renderercommon/tr_image_jpg.c' l='367' u='c'/>

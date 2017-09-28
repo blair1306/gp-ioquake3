@@ -1,0 +1,16 @@
+<def f='codebrowser/code/botlib/be_aas_sample.c' l='365' ll='398' type='vec_t AAS_BoxOriginDistanceFromPlane(vec_t * normal, vec_t * mins, vec_t * maxs, int side)'/>
+<doc f='codebrowser/code/botlib/be_aas_sample.c' l='350'>//===========================================================================
+// calculates the minimum distance between the origin of the box and the
+// given plane when both will collide on the given side of the plane
+//
+// normal	=	normal vector of plane to calculate distance from
+// mins		=	minimums of box relative to origin
+// maxs		=	maximums of box relative to origin
+// side		=	side of the plane we want to calculate the distance from
+//					0 normal vector side
+//					1 not normal vector side
+//
+// Parameter:				-
+// Returns:					-
+// Changes Globals:		-
+//===========================================================================</doc>

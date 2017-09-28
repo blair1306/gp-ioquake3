@@ -1,0 +1,11 @@
+<dec f='codebrowser/code/qcommon/unzip.h' l='182' type='int unzGoToFirstFile(unzFile file)'/>
+<use f='codebrowser/code/qcommon/files.c' l='2043' u='c' c='FS_LoadZipFile'/>
+<use f='codebrowser/code/qcommon/files.c' l='2084' u='c' c='FS_LoadZipFile'/>
+<doc f='codebrowser/code/qcommon/unzip.h' l='180'>/* Unzip package allow you browse the directory of the zipfile */</doc>
+<use f='codebrowser/code/qcommon/unzip.c' l='490' u='c' c='unzOpen2'/>
+<def f='codebrowser/code/qcommon/unzip.c' l='770' ll='785' type='int unzGoToFirstFile(unzFile file)'/>
+<use f='codebrowser/code/qcommon/unzip.c' l='859' u='c' c='unzLocateFile'/>
+<doc f='codebrowser/code/qcommon/unzip.c' l='766'>/*
+  Set the current file of the zipfile to the first file.
+  return UNZ_OK if there is no problem
+*/</doc>

@@ -1,0 +1,14 @@
+<dec f='codebrowser/code/cgame/cg_local.h' l='1210' type='void CG_EventHandling(int type)'/>
+<use f='codebrowser/code/cgame/cg_main.c' l='75' u='c' c='vmMain'/>
+<def f='codebrowser/code/cgame/cg_main.c' l='1969' ll='1970' type='void CG_EventHandling(int type)'/>
+<def f='codebrowser/code/cgame/cg_newdraw.c' l='1750' ll='1759' type='void CG_EventHandling(int type)'/>
+<use f='codebrowser/code/cgame/cg_newdraw.c' l='1770' u='c' c='CG_KeyEvent'/>
+<doc f='codebrowser/code/cgame/cg_newdraw.c' l='1741'>/*
+==================
+CG_EventHandling
+==================
+ type 0 - no event handling
+      1 - team menu
+      2 - hud editor
+
+*/</doc>

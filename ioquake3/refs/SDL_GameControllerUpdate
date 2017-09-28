@@ -1,0 +1,8 @@
+<dec f='include/SDL2/SDL_gamecontroller.h' l='212' type='void SDL_GameControllerUpdate()'/>
+<doc f='include/SDL2/SDL_gamecontroller.h' l='206'>/**
+ *  Update the current state of the open game controllers.
+ *
+ *  This is called automatically by the event loop if any game controller
+ *  events are enabled.
+ */</doc>
+<use f='codebrowser/code/sdl/sdl_input.c' l='646' u='c' c='IN_GamepadMove'/>

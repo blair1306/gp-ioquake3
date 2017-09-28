@@ -1,0 +1,15 @@
+<dec f='codebrowser/code/game/ai_dmq3.h' l='64' type='qboolean EntityIsShooting(aas_entityinfo_t * entinfo)'/>
+<use f='codebrowser/code/game/ai_chat.c' l='331' u='c' c='BotVisibleEnemies'/>
+<use f='codebrowser/code/game/ai_chat.c' l='821' u='c' c='BotChat_HitNoDeath'/>
+<use f='codebrowser/code/game/ai_chat.c' l='859' u='c' c='BotChat_HitNoKill'/>
+<doc f='codebrowser/code/game/ai_dmq3.h' l='63'>//returns true if the entity is shooting</doc>
+<use f='codebrowser/code/game/ai_dmnet.c' l='2050' u='c' c='AINode_Battle_Fight'/>
+<def f='codebrowser/code/game/ai_dmq3.c' l='256' ll='261' type='qboolean EntityIsShooting(aas_entityinfo_t * entinfo)'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='3002' u='c' c='BotFindEnemy'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='3026' u='c' c='BotFindEnemy'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='3034' u='c' c='BotFindEnemy'/>
+<doc f='codebrowser/code/game/ai_dmq3.c' l='251'>/*
+==================
+EntityIsShooting
+==================
+*/</doc>

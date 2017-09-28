@@ -1,0 +1,15 @@
+<dec f='codebrowser/code/qcommon/qcommon.h' l='179' type='qboolean NET_CompareBaseAdrMask(netadr_t a, netadr_t b, int netmask)'/>
+<def f='codebrowser/code/qcommon/net_ip.c' l='390' ll='441' type='qboolean NET_CompareBaseAdrMask(netadr_t a, netadr_t b, int netmask)'/>
+<use f='codebrowser/code/qcommon/net_ip.c' l='453' u='c' c='NET_CompareBaseAdr'/>
+<doc f='codebrowser/code/qcommon/net_ip.c' l='383'>/*
+===================
+NET_CompareBaseAdrMask
+
+Compare without port, and up to the bit number given in netmask.
+===================
+*/</doc>
+<use f='codebrowser/code/server/sv_ccmds.c' l='915' u='c' c='SV_AddBanToList'/>
+<use f='codebrowser/code/server/sv_ccmds.c' l='927' u='c' c='SV_AddBanToList'/>
+<use f='codebrowser/code/server/sv_ccmds.c' l='945' u='c' c='SV_AddBanToList'/>
+<use f='codebrowser/code/server/sv_ccmds.c' l='1009' u='c' c='SV_DelBanFromList'/>
+<use f='codebrowser/code/server/sv_client.c' l='308' u='c' c='SV_IsBanned'/>

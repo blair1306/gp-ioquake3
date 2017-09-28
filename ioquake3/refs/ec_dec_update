@@ -1,0 +1,20 @@
+<dec f='codebrowser/code/opus-1.1.4/celt/entdec.h' l='69' type='void ec_dec_update(ec_dec * _this, unsigned int _fl, unsigned int _fh, unsigned int _ft)'/>
+<use f='codebrowser/code/opus-1.1.4/celt/bands.c' l='738' u='c' c='compute_theta'/>
+<use f='codebrowser/code/opus-1.1.4/celt/bands.c' l='779' u='c' c='compute_theta'/>
+<doc f='codebrowser/code/opus-1.1.4/celt/entdec.h' l='56'>/*Advance the decoder past the next symbol using the frequency information the
+   symbol was encoded with.
+  Exactly one call to ec_decode() must have been made so that all necessary
+   intermediate calculations are performed.
+  _fl:  The cumulative frequency of all symbols that come before the symbol
+         decoded.
+  _fh:  The cumulative frequency of all symbols up to and including the symbol
+         decoded.
+        Together with _fl, this defines the range [_fl,_fh) in which the value
+         returned above must fall.
+  _ft:  The total frequency of the symbols in the alphabet the symbol decoded
+         was encoded in.
+        This must be the same as passed to the preceding call to ec_decode().*/</doc>
+<def f='codebrowser/code/opus-1.1.4/celt/entdec.c' l='153' ll='159' type='void ec_dec_update(ec_dec * _this, unsigned int _fl, unsigned int _fh, unsigned int _ft)'/>
+<use f='codebrowser/code/opus-1.1.4/celt/entdec.c' l='211' u='c' c='ec_dec_uint'/>
+<use f='codebrowser/code/opus-1.1.4/celt/entdec.c' l='220' u='c' c='ec_dec_uint'/>
+<use f='codebrowser/code/opus-1.1.4/celt/laplace.c' l='132' u='c' c='ec_laplace_decode'/>

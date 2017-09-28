@@ -1,0 +1,12 @@
+<dec f='codebrowser/code/game/bg_public.h' l='706' type='qboolean BG_PlayerTouchesItem(playerState_t * ps, entityState_t * item, int atTime)'/>
+<use f='codebrowser/code/cgame/cg_predict.c' l='267' u='c' c='CG_TouchItem'/>
+<def f='codebrowser/code/game/bg_misc.c' l='1011' ll='1027' type='qboolean BG_PlayerTouchesItem(playerState_t * ps, entityState_t * item, int atTime)'/>
+<doc f='codebrowser/code/game/bg_misc.c' l='1003'>/*
+============
+BG_PlayerTouchesItem
+
+Items can be picked up without actually touching their physical bounds to make
+grabbing them easier
+============
+*/</doc>
+<use f='codebrowser/code/game/g_active.c' l='285' u='c' c='G_TouchTriggers'/>

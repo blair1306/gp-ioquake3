@@ -1,0 +1,8 @@
+<dec f='codebrowser/code/qcommon/vm_local.h' l='166' type='int'/>
+<use f='codebrowser/code/qcommon/vm.c' l='652' u='w' c='VM_Create'/>
+<use f='codebrowser/code/qcommon/vm.c' l='965' u='r' c='VM_VmInfo_f'/>
+<offset>1056</offset>
+<use f='codebrowser/code/qcommon/vm_interpreted.c' l='178' u='r' c='VM_PrepareInterpreter'/>
+<use f='codebrowser/code/qcommon/vm_interpreted.c' l='592' u='r' c='VM_CallInterpreted'/>
+<use f='codebrowser/code/qcommon/vm_x86.c' l='1649' u='w' c='VM_Compile'/>
+<use f='codebrowser/code/qcommon/vm_x86.c' l='1696' u='r' c='VM_Destroy_Compiled'/>

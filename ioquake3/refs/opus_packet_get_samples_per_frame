@@ -1,0 +1,7 @@
+<dec f='codebrowser/code/opus-1.1.4/include/opus.h' l='556' type='int opus_packet_get_samples_per_frame(const unsigned char * data, opus_int32 Fs)'/>
+<def f='codebrowser/code/opus-1.1.4/src/opus.c' l='173' ll='192' type='int opus_packet_get_samples_per_frame(const unsigned char * data, opus_int32 Fs)'/>
+<use f='codebrowser/code/opus-1.1.4/src/opus.c' l='213' u='c' c='opus_packet_parse_impl'/>
+<use f='codebrowser/code/opus-1.1.4/src/opus_decoder.c' l='633' u='c' c='opus_decode_native'/>
+<use f='codebrowser/code/opus-1.1.4/src/opus_decoder.c' l='969' u='c' c='opus_packet_get_nb_samples'/>
+<use f='codebrowser/code/opus-1.1.4/src/repacketizer.c' l='70' u='c' c='opus_repacketizer_cat_impl'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='744' u='c' c='op_get_packet_duration'/>

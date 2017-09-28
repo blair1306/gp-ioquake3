@@ -1,0 +1,13 @@
+<dec f='codebrowser/code/qcommon/qcommon.h' l='950' type='void Hunk_Clear()'/>
+<use f='codebrowser/code/client/cl_main.c' l='1250' u='c' c='CL_ClearMemory'/>
+<use f='codebrowser/code/client/cl_main.c' l='1954' u='c' c='CL_Vid_Restart_f'/>
+<use f='codebrowser/code/qcommon/common.c' l='1581' u='c' c='Com_InitHunkMemory'/>
+<def f='codebrowser/code/qcommon/common.c' l='1654' ll='1682' type='void Hunk_Clear()'/>
+<doc f='codebrowser/code/qcommon/common.c' l='1647'>/*
+=================
+Hunk_Clear
+
+The server calls this before shutting down or loading a new map
+=================
+*/</doc>
+<use f='codebrowser/code/server/sv_init.c' l='423' u='c' c='SV_SpawnServer'/>

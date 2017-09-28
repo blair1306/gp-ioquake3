@@ -1,0 +1,53 @@
+<dec f='codebrowser/code/renderergl1/tr_local.h' l='1102' type='void GL_State(unsigned long stateVector)'/>
+<def f='codebrowser/code/renderergl1/tr_backend.c' l='191' ll='372' type='void GL_State(unsigned long stateBits)'/>
+<use f='codebrowser/code/renderergl1/tr_backend.c' l='440' u='c' c='RB_BeginDrawingView'/>
+<use f='codebrowser/code/renderergl1/tr_backend.c' l='710' u='c' c='RB_SetGL2D'/>
+<doc f='codebrowser/code/renderergl1/tr_backend.c' l='185'>/*
+** GL_State
+**
+** This routine is responsible for setting the most commonly changed state
+** in Q3.
+*/</doc>
+<use f='codebrowser/code/renderergl1/tr_main.c' l='1304' u='c' c='R_DebugPolygon'/>
+<use f='codebrowser/code/renderergl1/tr_main.c' l='1316' u='c' c='R_DebugPolygon'/>
+<use f='codebrowser/code/renderergl1/tr_shade.c' l='258' u='c' c='DrawTris'/>
+<use f='codebrowser/code/renderergl1/tr_shade.c' l='295' u='c' c='DrawNormals'/>
+<use f='codebrowser/code/renderergl1/tr_shade.c' l='353' u='c' c='DrawMultitextured'/>
+<use f='codebrowser/code/renderergl1/tr_shade.c' l='729' u='c' c='ProjectDlightTexture_scalar'/>
+<use f='codebrowser/code/renderergl1/tr_shade.c' l='732' u='c' c='ProjectDlightTexture_scalar'/>
+<use f='codebrowser/code/renderergl1/tr_shade.c' l='780' u='c' c='RB_FogPass'/>
+<use f='codebrowser/code/renderergl1/tr_shade.c' l='782' u='c' c='RB_FogPass'/>
+<use f='codebrowser/code/renderergl1/tr_shade.c' l='1150' u='c' c='RB_IterateStagesGeneric'/>
+<use f='codebrowser/code/renderergl1/tr_shade.c' l='1333' u='c' c='RB_StageIteratorVertexLitTexture'/>
+<use f='codebrowser/code/renderergl1/tr_shade.c' l='1386' u='c' c='RB_StageIteratorLightmappedMultitexture'/>
+<use f='codebrowser/code/renderergl1/tr_shadows.c' l='210' u='c' c='RB_ShadowTessEnd'/>
+<use f='codebrowser/code/renderergl1/tr_shadows.c' l='264' u='c' c='RB_ShadowFinish'/>
+<use f='codebrowser/code/renderergl1/tr_sky.c' l='771' u='c' c='RB_StageIteratorSky'/>
+<use f='codebrowser/code/renderergl1/tr_surface.c' l='327' u='c' c='RB_SurfaceBeam'/>
+<use f='codebrowser/code/renderergl1/tr_surface.c' l='1163' u='c' c='RB_SurfaceAxis'/>
+<dec f='codebrowser/code/renderergl2/tr_local.h' l='1846' type='void GL_State(unsigned long stateVector)'/>
+<def f='codebrowser/code/renderergl2/tr_backend.c' l='99' ll='267' type='void GL_State(unsigned long stateBits)'/>
+<use f='codebrowser/code/renderergl2/tr_backend.c' l='365' u='c' c='RB_BeginDrawingView'/>
+<use f='codebrowser/code/renderergl2/tr_backend.c' l='655' u='c' c='RB_SetGL2D'/>
+<use f='codebrowser/code/renderergl2/tr_backend.c' l='980' u='c' c='RB_DrawSurfs'/>
+<use f='codebrowser/code/renderergl2/tr_backend.c' l='1077' u='c' c='RB_DrawSurfs'/>
+<doc f='codebrowser/code/renderergl2/tr_backend.c' l='93'>/*
+** GL_State
+**
+** This routine is responsible for setting the most commonly changed state
+** in Q3.
+*/</doc>
+<use f='codebrowser/code/renderergl2/tr_fbo.c' l='576' u='c' c='FBO_BlitFromTexture'/>
+<use f='codebrowser/code/renderergl2/tr_shade.c' l='106' u='c' c='DrawTris'/>
+<use f='codebrowser/code/renderergl2/tr_shade.c' l='381' u='c' c='ProjectDlightTexture'/>
+<use f='codebrowser/code/renderergl2/tr_shade.c' l='384' u='c' c='ProjectDlightTexture'/>
+<use f='codebrowser/code/renderergl2/tr_shade.c' l='751' u='c' c='ForwardDlight'/>
+<use f='codebrowser/code/renderergl2/tr_shade.c' l='864' u='c' c='ProjectPshadowVBOGLSL'/>
+<use f='codebrowser/code/renderergl2/tr_shade.c' l='943' u='c' c='RB_FogPass'/>
+<use f='codebrowser/code/renderergl2/tr_shade.c' l='945' u='c' c='RB_FogPass'/>
+<use f='codebrowser/code/renderergl2/tr_shade.c' l='1089' u='c' c='RB_IterateStagesGeneric'/>
+<use f='codebrowser/code/renderergl2/tr_shade.c' l='1393' u='c' c='RB_RenderShadowmap'/>
+<use f='codebrowser/code/renderergl2/tr_shadows.c' l='210' u='c' c='RB_ShadowTessEnd'/>
+<use f='codebrowser/code/renderergl2/tr_shadows.c' l='264' u='c' c='RB_ShadowFinish'/>
+<use f='codebrowser/code/renderergl2/tr_sky.c' l='868' u='c' c='RB_StageIteratorSky'/>
+<use f='codebrowser/code/renderergl2/tr_surface.c' l='518' u='c' c='RB_SurfaceBeam'/>

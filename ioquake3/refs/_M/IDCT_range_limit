@@ -1,0 +1,42 @@
+<dec f='codebrowser/code/jpeg-8c/jdct.h' l='85'/>
+<doc f='codebrowser/code/jpeg-8c/jdct.h' l='76'>/*
+ * Each IDCT routine is responsible for range-limiting its results and
+ * converting them to unsigned form (0..MAXJSAMPLE).  The raw outputs could
+ * be quite far out of range if the input data is corrupt, so a bulletproof
+ * range-limiting step is required.  We use a mask-and-table-lookup method
+ * to do the combined operations quickly.  See the comments with
+ * prepare_range_limit_table (in jdmaster.c) for more info.
+ */</doc>
+<use f='codebrowser/code/jpeg-8c/jidctfst.c' l='179' u='c'/>
+<use f='codebrowser/code/jpeg-8c/jidctint.c' l='182' u='c'/>
+<use f='codebrowser/code/jpeg-8c/jidctint.c' l='438' u='c'/>
+<use f='codebrowser/code/jpeg-8c/jidctint.c' l='587' u='c'/>
+<use f='codebrowser/code/jpeg-8c/jidctint.c' l='708' u='c'/>
+<use f='codebrowser/code/jpeg-8c/jidctint.c' l='823' u='c'/>
+<use f='codebrowser/code/jpeg-8c/jidctint.c' l='927' u='c'/>
+<use f='codebrowser/code/jpeg-8c/jidctint.c' l='1014' u='c'/>
+<use f='codebrowser/code/jpeg-8c/jidctint.c' l='1068' u='c'/>
+<use f='codebrowser/code/jpeg-8c/jidctint.c' l='1099' u='c'/>
+<use f='codebrowser/code/jpeg-8c/jidctint.c' l='1271' u='c'/>
+<use f='codebrowser/code/jpeg-8c/jidctint.c' l='1466' u='c'/>
+<use f='codebrowser/code/jpeg-8c/jidctint.c' l='1660' u='c'/>
+<use f='codebrowser/code/jpeg-8c/jidctint.c' l='1876' u='c'/>
+<use f='codebrowser/code/jpeg-8c/jidctint.c' l='2104' u='c'/>
+<use f='codebrowser/code/jpeg-8c/jidctint.c' l='2330' u='c'/>
+<use f='codebrowser/code/jpeg-8c/jidctint.c' l='2572' u='c'/>
+<use f='codebrowser/code/jpeg-8c/jidctint.c' l='2833' u='c'/>
+<use f='codebrowser/code/jpeg-8c/jidctint.c' l='3104' u='c'/>
+<use f='codebrowser/code/jpeg-8c/jidctint.c' l='3299' u='c'/>
+<use f='codebrowser/code/jpeg-8c/jidctint.c' l='3475' u='c'/>
+<use f='codebrowser/code/jpeg-8c/jidctint.c' l='3636' u='c'/>
+<use f='codebrowser/code/jpeg-8c/jidctint.c' l='3788' u='c'/>
+<use f='codebrowser/code/jpeg-8c/jidctint.c' l='3898' u='c'/>
+<use f='codebrowser/code/jpeg-8c/jidctint.c' l='3985' u='c'/>
+<use f='codebrowser/code/jpeg-8c/jidctint.c' l='4031' u='c'/>
+<use f='codebrowser/code/jpeg-8c/jidctint.c' l='4249' u='c'/>
+<use f='codebrowser/code/jpeg-8c/jidctint.c' l='4432' u='c'/>
+<use f='codebrowser/code/jpeg-8c/jidctint.c' l='4596' u='c'/>
+<use f='codebrowser/code/jpeg-8c/jidctint.c' l='4748' u='c'/>
+<use f='codebrowser/code/jpeg-8c/jidctint.c' l='4927' u='c'/>
+<use f='codebrowser/code/jpeg-8c/jidctint.c' l='5031' u='c'/>
+<use f='codebrowser/code/jpeg-8c/jidctint.c' l='5111' u='c'/>

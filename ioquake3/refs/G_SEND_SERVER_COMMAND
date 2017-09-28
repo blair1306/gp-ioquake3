@@ -1,0 +1,5 @@
+<dec f='codebrowser/code/game/g_public.h' l='154' type='17'/>
+<doc f='codebrowser/code/game/g_public.h' l='152'>// kick a client off the server with a message</doc>
+<doc f='codebrowser/code/game/g_public.h' l='154'>// ( int clientNum, const char *fmt, ... );</doc>
+<use f='codebrowser/code/game/g_syscalls.c' l='125' c='trap_SendServerCommand'/>
+<use f='codebrowser/code/server/sv_game.c' l='347' c='SV_GameSystemCalls'/>

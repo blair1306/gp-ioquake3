@@ -1,0 +1,9 @@
+<dec f='codebrowser/code/jpeg-8c/jpeglib.h' l='978' type='void jpeg_add_quant_table(j_compress_ptr cinfo, int which_tbl, const unsigned int * basic_table, int scale_factor, boolean force_baseline)'/>
+<def f='codebrowser/code/jpeg-8c/jcparam.c' l='23' ll='61' macro='1' type='void jpeg_add_quant_table(j_compress_ptr cinfo, int which_tbl, const unsigned int * basic_table, int scale_factor, boolean force_baseline)'/>
+<use f='codebrowser/code/jpeg-8c/jcparam.c' l='98' u='c' c='jpeg_default_qtables'/>
+<use f='codebrowser/code/jpeg-8c/jcparam.c' l='100' u='c' c='jpeg_default_qtables'/>
+<use f='codebrowser/code/jpeg-8c/jcparam.c' l='115' u='c' c='jpeg_set_linear_quality'/>
+<use f='codebrowser/code/jpeg-8c/jcparam.c' l='117' u='c' c='jpeg_set_linear_quality'/>
+<doc f='codebrowser/code/jpeg-8c/jcparam.c' l='19'>/*
+ * Quantization table setup routines
+ */</doc>

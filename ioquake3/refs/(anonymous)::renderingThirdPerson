@@ -1,0 +1,14 @@
+<dec f='codebrowser/code/cgame/cg_local.h' l='487' type='qboolean'/>
+<offset>861120</offset>
+<doc f='codebrowser/code/cgame/cg_local.h' l='487'>// during deaths, chasecams, etc</doc>
+<use f='codebrowser/code/cgame/cg_draw.c' l='1880' u='r' c='CG_DrawCrosshair'/>
+<use f='codebrowser/code/cgame/cg_draw.c' l='1947' u='r' c='CG_DrawCrosshair3D'/>
+<use f='codebrowser/code/cgame/cg_draw.c' l='2050' u='r' c='CG_DrawCrosshairNames'/>
+<use f='codebrowser/code/cgame/cg_event.c' l='987' u='r' c='CG_EntityEvent'/>
+<use f='codebrowser/code/cgame/cg_players.c' l='1912' u='r' c='CG_PlayerFloatSprite'/>
+<use f='codebrowser/code/cgame/cg_players.c' l='2277' u='r' c='CG_Player'/>
+<use f='codebrowser/code/cgame/cg_view.c' l='672' u='r' c='CG_CalcViewValues'/>
+<use f='codebrowser/code/cgame/cg_view.c' l='799' u='w' c='CG_DrawActiveFrame'/>
+<use f='codebrowser/code/cgame/cg_view.c' l='806' u='r' c='CG_DrawActiveFrame'/>
+<use f='codebrowser/code/cgame/cg_weapons.c' l='1337' u='r' c='CG_AddPlayerWeapon'/>
+<use f='codebrowser/code/cgame/cg_weapons.c' l='1374' u='r' c='CG_AddViewWeapon'/>

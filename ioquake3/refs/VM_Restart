@@ -1,0 +1,14 @@
+<dec f='codebrowser/code/qcommon/qcommon.h' l='367' type='vm_t * VM_Restart(vm_t * vm, qboolean unpure)'/>
+<def f='codebrowser/code/qcommon/vm.c' l='535' ll='566' type='vm_t * VM_Restart(vm_t * vm, qboolean unpure)'/>
+<doc f='codebrowser/code/qcommon/vm.c' l='524'>/*
+=================
+VM_Restart
+
+Reload the data, but leave everything else in place
+This allows a server to do a map_restart without changing memory allocation
+
+We need to make sure that servers can access unpure QVMs (not contained in any pak)
+even if the client is pure, so take &quot;unpure&quot; as argument.
+=================
+*/</doc>
+<use f='codebrowser/code/server/sv_game.c' l='910' u='c' c='SV_RestartGameProgs'/>

@@ -1,0 +1,9 @@
+<dec f='codebrowser/code/jpeg-8c/jpeglib.h' l='986' type='JQUANT_TBL * jpeg_alloc_quant_table(j_common_ptr cinfo)'/>
+<def f='codebrowser/code/jpeg-8c/jcomapi.c' l='85' ll='94' macro='1' type='JQUANT_TBL * jpeg_alloc_quant_table(j_common_ptr cinfo)'/>
+<doc f='codebrowser/code/jpeg-8c/jcomapi.c' l='80'>/*
+ * Convenience routines for allocating quantization and Huffman tables.
+ * (Would jutils.c be a more reasonable place to put these?)
+ */</doc>
+<use f='codebrowser/code/jpeg-8c/jcparam.c' l='47' u='c' c='jpeg_add_quant_table'/>
+<use f='codebrowser/code/jpeg-8c/jctrans.c' l='97' u='c' c='jpeg_copy_critical_parameters'/>
+<use f='codebrowser/code/jpeg-8c/jdmarker.c' l='520' u='c' c='get_dqt'/>

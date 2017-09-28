@@ -1,0 +1,9 @@
+<def f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='278' ll='290'/>
+<size>32</size>
+<doc f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='271'>/*We use this to remember the pages we found while enumerating the links of a
+   chained stream.
+  We keep track of the starting and ending offsets, as well as the point we
+   started searching from, so we know where to bisect.
+  We also keep the serial number, so we can tell if the page belonged to the
+   current link or not, as well as the granule position, to aid in estimating
+   the start of the link.*/</doc>

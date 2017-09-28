@@ -1,0 +1,10 @@
+<dec f='codebrowser/code/jpeg-8c/jpegint.h' l='205' type='boolean'/>
+<offset>192</offset>
+<doc f='codebrowser/code/jpeg-8c/jpegint.h' l='202'>/* State of marker reader --- nominally internal, but applications
+   * supplying COM or APPn handlers might like to know the state.
+   */</doc>
+<doc f='codebrowser/code/jpeg-8c/jpegint.h' l='205'>/* found SOI? */</doc>
+<use f='codebrowser/code/jpeg-8c/jdmarker.c' l='205' u='r' c='get_soi'/>
+<use f='codebrowser/code/jpeg-8c/jdmarker.c' l='231' u='w' c='get_soi'/>
+<use f='codebrowser/code/jpeg-8c/jdmarker.c' l='1001' u='r' c='read_markers'/>
+<use f='codebrowser/code/jpeg-8c/jdmarker.c' l='1295' u='w' c='reset_marker_reader'/>

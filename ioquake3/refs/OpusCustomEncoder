@@ -1,0 +1,48 @@
+<def f='codebrowser/code/opus-1.1.4/celt/celt_encoder.c' l='58' ll='126'/>
+<size>216</size>
+<doc f='codebrowser/code/opus-1.1.4/celt/celt_encoder.c' l='55'>/** Encoder state
+ @brief Encoder state
+ */</doc>
+<mbr r='OpusCustomEncoder::mode' o='0' t='const OpusCustomMode *'/>
+<mbr r='OpusCustomEncoder::channels' o='64' t='int'/>
+<mbr r='OpusCustomEncoder::stream_channels' o='96' t='int'/>
+<mbr r='OpusCustomEncoder::force_intra' o='128' t='int'/>
+<mbr r='OpusCustomEncoder::clip' o='160' t='int'/>
+<mbr r='OpusCustomEncoder::disable_pf' o='192' t='int'/>
+<mbr r='OpusCustomEncoder::complexity' o='224' t='int'/>
+<mbr r='OpusCustomEncoder::upsample' o='256' t='int'/>
+<mbr r='OpusCustomEncoder::start' o='288' t='int'/>
+<mbr r='OpusCustomEncoder::end' o='320' t='int'/>
+<mbr r='OpusCustomEncoder::bitrate' o='352' t='opus_int32'/>
+<mbr r='OpusCustomEncoder::vbr' o='384' t='int'/>
+<mbr r='OpusCustomEncoder::signalling' o='416' t='int'/>
+<mbr r='OpusCustomEncoder::constrained_vbr' o='448' t='int'/>
+<mbr r='OpusCustomEncoder::loss_rate' o='480' t='int'/>
+<mbr r='OpusCustomEncoder::lsb_depth' o='512' t='int'/>
+<mbr r='OpusCustomEncoder::variable_duration' o='544' t='int'/>
+<mbr r='OpusCustomEncoder::lfe' o='576' t='int'/>
+<mbr r='OpusCustomEncoder::arch' o='608' t='int'/>
+<mbr r='OpusCustomEncoder::rng' o='640' t='opus_uint32'/>
+<mbr r='OpusCustomEncoder::spread_decision' o='672' t='int'/>
+<mbr r='OpusCustomEncoder::delayedIntra' o='704' t='opus_val32'/>
+<mbr r='OpusCustomEncoder::tonal_average' o='736' t='int'/>
+<mbr r='OpusCustomEncoder::lastCodedBands' o='768' t='int'/>
+<mbr r='OpusCustomEncoder::hf_average' o='800' t='int'/>
+<mbr r='OpusCustomEncoder::tapset_decision' o='832' t='int'/>
+<mbr r='OpusCustomEncoder::prefilter_period' o='864' t='int'/>
+<mbr r='OpusCustomEncoder::prefilter_gain' o='896' t='opus_val16'/>
+<mbr r='OpusCustomEncoder::prefilter_tapset' o='928' t='int'/>
+<mbr r='OpusCustomEncoder::consec_transient' o='960' t='int'/>
+<mbr r='OpusCustomEncoder::analysis' o='992' t='AnalysisInfo'/>
+<mbr r='OpusCustomEncoder::preemph_memE' o='1216' t='opus_val32 [2]'/>
+<mbr r='OpusCustomEncoder::preemph_memD' o='1280' t='opus_val32 [2]'/>
+<mbr r='OpusCustomEncoder::vbr_reservoir' o='1344' t='opus_int32'/>
+<mbr r='OpusCustomEncoder::vbr_drift' o='1376' t='opus_int32'/>
+<mbr r='OpusCustomEncoder::vbr_offset' o='1408' t='opus_int32'/>
+<mbr r='OpusCustomEncoder::vbr_count' o='1440' t='opus_int32'/>
+<mbr r='OpusCustomEncoder::overlap_max' o='1472' t='opus_val32'/>
+<mbr r='OpusCustomEncoder::stereo_saving' o='1504' t='opus_val16'/>
+<mbr r='OpusCustomEncoder::intensity' o='1536' t='int'/>
+<mbr r='OpusCustomEncoder::energy_mask' o='1600' t='opus_val16 *'/>
+<mbr r='OpusCustomEncoder::spec_avg' o='1664' t='opus_val16'/>
+<mbr r='OpusCustomEncoder::in_mem' o='1696' t='celt_sig [1]'/>

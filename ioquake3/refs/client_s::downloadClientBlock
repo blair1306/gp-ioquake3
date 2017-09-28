@@ -1,0 +1,11 @@
+<dec f='codebrowser/code/server/server.h' l='158' type='int'/>
+<offset>542112</offset>
+<doc f='codebrowser/code/server/server.h' l='158'>// last block we sent to the client, awaiting ack</doc>
+<use f='codebrowser/code/server/sv_client.c' l='890' u='r' c='SV_NextDownload_f'/>
+<use f='codebrowser/code/server/sv_client.c' l='894' u='r' c='SV_NextDownload_f'/>
+<use f='codebrowser/code/server/sv_client.c' l='901' u='w' c='SV_NextDownload_f'/>
+<use f='codebrowser/code/server/sv_client.c' l='1052' u='w' c='SV_WriteDownloadToClient'/>
+<use f='codebrowser/code/server/sv_client.c' l='1058' u='r' c='SV_WriteDownloadToClient'/>
+<use f='codebrowser/code/server/sv_client.c' l='1083' u='r' c='SV_WriteDownloadToClient'/>
+<use f='codebrowser/code/server/sv_client.c' l='1091' u='r' c='SV_WriteDownloadToClient'/>
+<use f='codebrowser/code/server/sv_client.c' l='1100' u='r' c='SV_WriteDownloadToClient'/>

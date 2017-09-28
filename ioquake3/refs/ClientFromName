@@ -1,0 +1,29 @@
+<dec f='codebrowser/code/game/ai_dmq3.h' l='174' type='int ClientFromName(char * name)'/>
+<doc f='codebrowser/code/game/ai_dmq3.h' l='173'>//returns the number of the client with the given name</doc>
+<use f='codebrowser/code/game/ai_cmd.c' l='493' u='c' c='BotMatch_HelpAccompany'/>
+<use f='codebrowser/code/game/ai_cmd.c' l='515' u='c' c='BotMatch_HelpAccompany'/>
+<use f='codebrowser/code/game/ai_cmd.c' l='555' u='c' c='BotMatch_HelpAccompany'/>
+<use f='codebrowser/code/game/ai_cmd.c' l='564' u='c' c='BotMatch_HelpAccompany'/>
+<use f='codebrowser/code/game/ai_cmd.c' l='619' u='c' c='BotMatch_DefendKeyArea'/>
+<use f='codebrowser/code/game/ai_cmd.c' l='741' u='c' c='BotMatch_Camp'/>
+<use f='codebrowser/code/game/ai_cmd.c' l='1017' u='c' c='BotMatch_TaskPreference'/>
+<use f='codebrowser/code/game/ai_cmd.c' l='1113' u='c' c='BotMatch_JoinSubteam'/>
+<use f='codebrowser/code/game/ai_cmd.c' l='1134' u='c' c='BotMatch_LeaveSubteam'/>
+<use f='codebrowser/code/game/ai_cmd.c' l='1177' u='c' c='BotMatch_CheckPoint'/>
+<use f='codebrowser/code/game/ai_cmd.c' l='1252' u='c' c='BotMatch_Dismiss'/>
+<use f='codebrowser/code/game/ai_cmd.c' l='1280' u='c' c='BotMatch_Suicide'/>
+<use f='codebrowser/code/game/ai_cmd.c' l='1449' u='c' c='BotMatch_WhatAreYouDoing'/>
+<use f='codebrowser/code/game/ai_cmd.c' l='1596' u='c' c='BotMatch_WhereAreYou'/>
+<use f='codebrowser/code/game/ai_cmd.c' l='1634' u='c' c='BotMatch_LeadTheWay'/>
+<use f='codebrowser/code/game/ai_cmd.c' l='1690' u='c' c='BotMatch_Kill'/>
+<use f='codebrowser/code/game/ai_cmd.c' l='1724' u='c' c='BotMatch_CTF'/>
+<use f='codebrowser/code/game/ai_cmd.c' l='1731' u='c' c='BotMatch_CTF'/>
+<def f='codebrowser/code/game/ai_dmq3.c' l='1429' ll='1439' type='int ClientFromName(char * name)'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='4663' u='c' c='BotCheckConsoleMessages'/>
+<doc f='codebrowser/code/game/ai_dmq3.c' l='1424'>/*
+==================
+ClientFromName
+==================
+*/</doc>
+<use f='codebrowser/code/game/ai_main.c' l='708' u='c' c='BotTeamLeader'/>
+<use f='codebrowser/code/game/ai_team.c' l='74' u='c' c='BotValidTeamLeader'/>

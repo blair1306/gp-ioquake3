@@ -1,0 +1,17 @@
+<def f='codebrowser/code/botlib/be_aas_reach.c' l='2105' ll='2368' type='int AAS_Reachability_Jump(int area1num, int area2num)'/>
+<use f='codebrowser/code/botlib/be_aas_reach.c' l='4411' u='c' c='AAS_ContinueInitReachability'/>
+<doc f='codebrowser/code/botlib/be_aas_reach.c' l='2090'>//===========================================================================
+// creates possible jump reachabilities between the areas
+//
+// The two closest points on the ground of the areas are calculated
+// One of the points will be on an edge of a ground face of area1 and
+// one on an edge of a ground face of area2.
+// If there is a range of closest points the point in the middle of this range
+// is selected.
+// Between these two points there must be one or more gaps.
+// If the gaps exist a potential jump is predicted.
+//
+// Parameter:				-
+// Returns:					-
+// Changes Globals:		-
+//===========================================================================</doc>

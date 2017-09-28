@@ -1,0 +1,19 @@
+<dec f='codebrowser/code/renderergl1/tr_local.h' l='1099' type='void GL_SelectTexture(int unit)'/>
+<def f='codebrowser/code/renderergl1/tr_backend.c' l='67' ll='92' type='void GL_SelectTexture(int unit)'/>
+<use f='codebrowser/code/renderergl1/tr_backend.c' l='109' u='c' c='GL_BindMultitexture'/>
+<use f='codebrowser/code/renderergl1/tr_backend.c' l='115' u='c' c='GL_BindMultitexture'/>
+<doc f='codebrowser/code/renderergl1/tr_backend.c' l='64'>/*
+** GL_SelectTexture
+*/</doc>
+<use f='codebrowser/code/renderergl1/tr_image.c' l='887' u='c' c='R_CreateImage'/>
+<use f='codebrowser/code/renderergl1/tr_image.c' l='908' u='c' c='R_CreateImage'/>
+<use f='codebrowser/code/renderergl1/tr_image.c' l='1381' u='c' c='R_DeleteTextures'/>
+<use f='codebrowser/code/renderergl1/tr_image.c' l='1383' u='c' c='R_DeleteTextures'/>
+<use f='codebrowser/code/renderergl1/tr_init.c' l='848' u='c' c='GL_SetDefaultState'/>
+<use f='codebrowser/code/renderergl1/tr_init.c' l='852' u='c' c='GL_SetDefaultState'/>
+<use f='codebrowser/code/renderergl1/tr_shade.c' l='364' u='c' c='DrawMultitextured'/>
+<use f='codebrowser/code/renderergl1/tr_shade.c' l='371' u='c' c='DrawMultitextured'/>
+<use f='codebrowser/code/renderergl1/tr_shade.c' l='393' u='c' c='DrawMultitextured'/>
+<use f='codebrowser/code/renderergl1/tr_shade.c' l='1401' u='c' c='RB_StageIteratorLightmappedMultitexture'/>
+<use f='codebrowser/code/renderergl1/tr_shade.c' l='1410' u='c' c='RB_StageIteratorLightmappedMultitexture'/>
+<use f='codebrowser/code/renderergl1/tr_shade.c' l='1437' u='c' c='RB_StageIteratorLightmappedMultitexture'/>

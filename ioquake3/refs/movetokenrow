@@ -1,0 +1,9 @@
+<dec f='codebrowser/code/tools/lcc/cpp/cpp.h' l='123' type='void movetokenrow(Tokenrow * , Tokenrow * )'/>
+<use f='codebrowser/code/tools/lcc/cpp/tokens.c' l='138' u='c' c='insertrow'/>
+<def f='codebrowser/code/tools/lcc/cpp/tokens.c' l='178' ll='186' type='void movetokenrow(Tokenrow * dtr, Tokenrow * str)'/>
+<use f='codebrowser/code/tools/lcc/cpp/tokens.c' l='221' u='c' c='copytokenrow'/>
+<doc f='codebrowser/code/tools/lcc/cpp/tokens.c' l='173'>/*
+ * Copy an entire tokenrow into another, at tp.
+ * It is assumed that there is enough space.
+ *  Not strictly conforming.
+ */</doc>

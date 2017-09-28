@@ -1,0 +1,34 @@
+<dec f='codebrowser/code/q3_ui/ui_local.h' l='583' type='void UI_AdjustFrom640(float * x, float * y, float * w, float * h)'/>
+<def f='codebrowser/code/q3_ui/ui_atoms.c' l='1101' ll='1107' type='void UI_AdjustFrom640(float * x, float * y, float * w, float * h)'/>
+<use f='codebrowser/code/q3_ui/ui_atoms.c' l='1113' u='c' c='UI_DrawNamedPic'/>
+<use f='codebrowser/code/q3_ui/ui_atoms.c' l='1143' u='c' c='UI_DrawHandlePic'/>
+<use f='codebrowser/code/q3_ui/ui_atoms.c' l='1157' u='c' c='UI_FillRect'/>
+<use f='codebrowser/code/q3_ui/ui_atoms.c' l='1173' u='c' c='UI_DrawRect'/>
+<doc f='codebrowser/code/q3_ui/ui_atoms.c' l='1094'>/*
+================
+UI_AdjustFrom640
+
+Adjusted for resolution and screen aspect ratio
+================
+*/</doc>
+<use f='codebrowser/code/q3_ui/ui_menu.c' l='179' u='c' c='Main_MenuDraw'/>
+<use f='codebrowser/code/q3_ui/ui_players.c' l='719' u='c' c='UI_DrawPlayer'/>
+<dec f='codebrowser/code/ui/ui_local.h' l='872' type='void UI_AdjustFrom640(float * x, float * y, float * w, float * h)'/>
+<def f='codebrowser/code/ui/ui_atoms.c' l='421' ll='427' type='void UI_AdjustFrom640(float * x, float * y, float * w, float * h)'/>
+<use f='codebrowser/code/ui/ui_atoms.c' l='433' u='c' c='UI_DrawNamedPic'/>
+<use f='codebrowser/code/ui/ui_atoms.c' l='463' u='c' c='UI_DrawHandlePic'/>
+<use f='codebrowser/code/ui/ui_atoms.c' l='477' u='c' c='UI_FillRect'/>
+<use f='codebrowser/code/ui/ui_atoms.c' l='484' u='c' c='UI_DrawSides'/>
+<use f='codebrowser/code/ui/ui_atoms.c' l='490' u='c' c='UI_DrawTopBottom'/>
+<doc f='codebrowser/code/ui/ui_atoms.c' l='414'>/*
+================
+UI_AdjustFrom640
+
+Adjusted for resolution and screen aspect ratio
+================
+*/</doc>
+<use f='codebrowser/code/ui/ui_main.c' l='237' u='c' c='_UI_DrawSides'/>
+<use f='codebrowser/code/ui/ui_main.c' l='244' u='c' c='_UI_DrawTopBottom'/>
+<use f='codebrowser/code/ui/ui_main.c' l='341' u='c' c='Text_PaintChar'/>
+<use f='codebrowser/code/ui/ui_main.c' l='4978' u='c' c='UI_DrawCinematic'/>
+<use f='codebrowser/code/ui/ui_players.c' l='725' u='c' c='UI_DrawPlayer'/>

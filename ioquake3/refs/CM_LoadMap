@@ -1,0 +1,11 @@
+<dec f='codebrowser/code/qcommon/cm_public.h' l='26' type='void CM_LoadMap(const char * name, qboolean clientload, int * checksum)'/>
+<use f='codebrowser/code/client/cl_cgame.c' l='377' u='c' c='CL_CM_LoadMap'/>
+<def f='codebrowser/code/qcommon/cm_load.c' l='569' ll='661' type='void CM_LoadMap(const char * name, qboolean clientload, int * checksum)'/>
+<doc f='codebrowser/code/qcommon/cm_load.c' l='562'>/*
+==================
+CM_LoadMap
+
+Loads in the map and all submodels
+==================
+*/</doc>
+<use f='codebrowser/code/server/sv_init.c' l='474' u='c' c='SV_SpawnServer'/>

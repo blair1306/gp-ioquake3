@@ -1,0 +1,16 @@
+<dec f='codebrowser/code/game/g_local.h' l='785' type='void trap_UnlinkEntity(gentity_t * ent)'/>
+<use f='codebrowser/code/game/g_active.c' l='346' u='c' c='SpectatorThink'/>
+<use f='codebrowser/code/game/g_client.c' l='386' u='c' c='BodySink'/>
+<use f='codebrowser/code/game/g_client.c' l='410' u='c' c='CopyToBodyQue'/>
+<use f='codebrowser/code/game/g_client.c' l='1001' u='c' c='ClientBegin'/>
+<use f='codebrowser/code/game/g_client.c' l='1319' u='c' c='ClientDisconnect'/>
+<use f='codebrowser/code/game/g_main.c' l='1810' u='c' c='G_RunFrame'/>
+<use f='codebrowser/code/game/g_misc.c' l='95' u='c' c='TeleportPlayer'/>
+<use f='codebrowser/code/game/g_mover.c' l='307' u='c' c='G_MoverPush'/>
+<def f='codebrowser/code/game/g_syscalls.c' l='185' ll='187' type='void trap_UnlinkEntity(gentity_t * ent)'/>
+<use f='codebrowser/code/game/g_target.c' l='52' u='c' c='Use_Target_Give'/>
+<use f='codebrowser/code/game/g_target.c' l='293' u='c' c='target_laser_off'/>
+<use f='codebrowser/code/game/g_trigger.c' l='348' u='c' c='hurt_use'/>
+<use f='codebrowser/code/game/g_trigger.c' l='397' u='c' c='SP_trigger_hurt'/>
+<use f='codebrowser/code/game/g_utils.c' l='469' u='c' c='G_FreeEntity'/>
+<use f='codebrowser/code/game/g_weapon.c' l='511' u='c' c='weapon_railgun_fire'/>

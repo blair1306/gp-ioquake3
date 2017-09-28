@@ -1,0 +1,539 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>cm_test.c source code [codebrowser/code/qcommon/cm_test.c] - Woboq Code Browser</title>
+<link rel="stylesheet" href="../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'codebrowser/code/qcommon/cm_test.c'; var root_path = '../../..'; var data_path = '../../../../data';</script>
+<script src='../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../..'>codebrowser</a>/<a href='..'>code</a>/<a href='./'>qcommon</a>/<a href='cm_test.c.html'>cm_test.c</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/*</i></td></tr>
+<tr><th id="2">2</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="3">3</th><td><i>Copyright (C) 1999-2005 Id Software, Inc.</i></td></tr>
+<tr><th id="4">4</th><td><i></i></td></tr>
+<tr><th id="5">5</th><td><i>This file is part of Quake III Arena source code.</i></td></tr>
+<tr><th id="6">6</th><td><i></i></td></tr>
+<tr><th id="7">7</th><td><i>Quake III Arena source code is free software; you can redistribute it</i></td></tr>
+<tr><th id="8">8</th><td><i>and/or modify it under the terms of the GNU General Public License as</i></td></tr>
+<tr><th id="9">9</th><td><i>published by the Free Software Foundation; either version 2 of the License,</i></td></tr>
+<tr><th id="10">10</th><td><i>or (at your option) any later version.</i></td></tr>
+<tr><th id="11">11</th><td><i></i></td></tr>
+<tr><th id="12">12</th><td><i>Quake III Arena source code is distributed in the hope that it will be</i></td></tr>
+<tr><th id="13">13</th><td><i>useful, but WITHOUT ANY WARRANTY; without even the implied warranty of</i></td></tr>
+<tr><th id="14">14</th><td><i>MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</i></td></tr>
+<tr><th id="15">15</th><td><i>GNU General Public License for more details.</i></td></tr>
+<tr><th id="16">16</th><td><i></i></td></tr>
+<tr><th id="17">17</th><td><i>You should have received a copy of the GNU General Public License</i></td></tr>
+<tr><th id="18">18</th><td><i>along with Quake III Arena source code; if not, write to the Free Software</i></td></tr>
+<tr><th id="19">19</th><td><i>Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA</i></td></tr>
+<tr><th id="20">20</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="21">21</th><td><i>*/</i></td></tr>
+<tr><th id="22">22</th><td><u>#include <a href="cm_local.h.html">"cm_local.h"</a></u></td></tr>
+<tr><th id="23">23</th><td></td></tr>
+<tr><th id="24">24</th><td></td></tr>
+<tr><th id="25">25</th><td><i>/*</i></td></tr>
+<tr><th id="26">26</th><td><i>==================</i></td></tr>
+<tr><th id="27">27</th><td><i>CM_PointLeafnum_r</i></td></tr>
+<tr><th id="28">28</th><td><i></i></td></tr>
+<tr><th id="29">29</th><td><i>==================</i></td></tr>
+<tr><th id="30">30</th><td><i>*/</i></td></tr>
+<tr><th id="31">31</th><td><em>int</em> <dfn class="decl def" id="CM_PointLeafnum_r" title='CM_PointLeafnum_r' data-ref="CM_PointLeafnum_r">CM_PointLeafnum_r</dfn>( <em>const</em> <a class="typedef" href="q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="local col1 decl" id="1p" title='p' data-type='const vec_t *' data-ref="1p">p</dfn>, <em>int</em> <dfn class="local col2 decl" id="2num" title='num' data-type='int' data-ref="2num">num</dfn> ) {</td></tr>
+<tr><th id="32">32</th><td>	<em>float</em>		<dfn class="local col3 decl" id="3d" title='d' data-type='float' data-ref="3d">d</dfn>;</td></tr>
+<tr><th id="33">33</th><td>	<a class="typedef" href="cm_local.h.html#cNode_t" title='cNode_t' data-type='struct cNode_t' data-ref="cNode_t">cNode_t</a>		*<dfn class="local col4 decl" id="4node" title='node' data-type='cNode_t *' data-ref="4node">node</dfn>;</td></tr>
+<tr><th id="34">34</th><td>	<a class="typedef" href="q_shared.h.html#cplane_t" title='cplane_t' data-type='struct cplane_s' data-ref="cplane_t">cplane_t</a>	*<dfn class="local col5 decl" id="5plane" title='plane' data-type='cplane_t *' data-ref="5plane">plane</dfn>;</td></tr>
+<tr><th id="35">35</th><td></td></tr>
+<tr><th id="36">36</th><td>	<b>while</b> (<a class="local col2 ref" href="#2num" title='num' data-ref="2num">num</a> &gt;= <var>0</var>)</td></tr>
+<tr><th id="37">37</th><td>	{</td></tr>
+<tr><th id="38">38</th><td>		<a class="local col4 ref" href="#4node" title='node' data-ref="4node">node</a> = <a class="ref" href="cm_local.h.html#cm" title='cm' data-ref="cm">cm</a>.<a class="ref" href="cm_local.h.html#(anonymous)::nodes" title='(anonymous struct)::nodes' data-ref="(anonymous)::nodes">nodes</a> + <a class="local col2 ref" href="#2num" title='num' data-ref="2num">num</a>;</td></tr>
+<tr><th id="39">39</th><td>		<a class="local col5 ref" href="#5plane" title='plane' data-ref="5plane">plane</a> = <a class="local col4 ref" href="#4node" title='node' data-ref="4node">node</a>-&gt;<a class="ref" href="cm_local.h.html#(anonymous)::plane" title='(anonymous struct)::plane' data-ref="(anonymous)::plane">plane</a>;</td></tr>
+<tr><th id="40">40</th><td>		</td></tr>
+<tr><th id="41">41</th><td>		<b>if</b> (<a class="local col5 ref" href="#5plane" title='plane' data-ref="5plane">plane</a>-&gt;<a class="ref" href="q_shared.h.html#cplane_s::type" title='cplane_s::type' data-ref="cplane_s::type">type</a> &lt; <var>3</var>)</td></tr>
+<tr><th id="42">42</th><td>			<a class="local col3 ref" href="#3d" title='d' data-ref="3d">d</a> = <a class="local col1 ref" href="#1p" title='p' data-ref="1p">p</a>[<a class="local col5 ref" href="#5plane" title='plane' data-ref="5plane">plane</a>-&gt;<a class="ref" href="q_shared.h.html#cplane_s::type" title='cplane_s::type' data-ref="cplane_s::type">type</a>] - <a class="local col5 ref" href="#5plane" title='plane' data-ref="5plane">plane</a>-&gt;<a class="ref" href="q_shared.h.html#cplane_s::dist" title='cplane_s::dist' data-ref="cplane_s::dist">dist</a>;</td></tr>
+<tr><th id="43">43</th><td>		<b>else</b></td></tr>
+<tr><th id="44">44</th><td>			<a class="local col3 ref" href="#3d" title='d' data-ref="3d">d</a> = <a class="macro" href="q_shared.h.html#542" title="((plane-&gt;normal)[0]*(p)[0]+(plane-&gt;normal)[1]*(p)[1]+(plane-&gt;normal)[2]*(p)[2])" data-ref="_M/DotProduct">DotProduct</a> (<a class="local col5 ref" href="#5plane" title='plane' data-ref="5plane">plane</a>-&gt;<a class="ref" href="q_shared.h.html#cplane_s::normal" title='cplane_s::normal' data-ref="cplane_s::normal">normal</a>, <a class="local col1 ref" href="#1p" title='p' data-ref="1p">p</a>) - <a class="local col5 ref" href="#5plane" title='plane' data-ref="5plane">plane</a>-&gt;<a class="ref" href="q_shared.h.html#cplane_s::dist" title='cplane_s::dist' data-ref="cplane_s::dist">dist</a>;</td></tr>
+<tr><th id="45">45</th><td>		<b>if</b> (<a class="local col3 ref" href="#3d" title='d' data-ref="3d">d</a> &lt; <var>0</var>)</td></tr>
+<tr><th id="46">46</th><td>			<a class="local col2 ref" href="#2num" title='num' data-ref="2num">num</a> = <a class="local col4 ref" href="#4node" title='node' data-ref="4node">node</a>-&gt;<a class="ref" href="cm_local.h.html#(anonymous)::children" title='(anonymous struct)::children' data-ref="(anonymous)::children">children</a>[<var>1</var>];</td></tr>
+<tr><th id="47">47</th><td>		<b>else</b></td></tr>
+<tr><th id="48">48</th><td>			<a class="local col2 ref" href="#2num" title='num' data-ref="2num">num</a> = <a class="local col4 ref" href="#4node" title='node' data-ref="4node">node</a>-&gt;<a class="ref" href="cm_local.h.html#(anonymous)::children" title='(anonymous struct)::children' data-ref="(anonymous)::children">children</a>[<var>0</var>];</td></tr>
+<tr><th id="49">49</th><td>	}</td></tr>
+<tr><th id="50">50</th><td></td></tr>
+<tr><th id="51">51</th><td>	<a class="ref" href="cm_local.h.html#c_pointcontents" title='c_pointcontents' data-ref="c_pointcontents">c_pointcontents</a>++;		<i>// optimize counter</i></td></tr>
+<tr><th id="52">52</th><td></td></tr>
+<tr><th id="53">53</th><td>	<b>return</b> -<var>1</var> - <a class="local col2 ref" href="#2num" title='num' data-ref="2num">num</a>;</td></tr>
+<tr><th id="54">54</th><td>}</td></tr>
+<tr><th id="55">55</th><td></td></tr>
+<tr><th id="56">56</th><td><em>int</em> <dfn class="decl def" id="CM_PointLeafnum" title='CM_PointLeafnum' data-ref="CM_PointLeafnum">CM_PointLeafnum</dfn>( <em>const</em> <a class="typedef" href="q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="local col6 decl" id="6p" title='p' data-type='const vec_t *' data-ref="6p">p</dfn> ) {</td></tr>
+<tr><th id="57">57</th><td>	<b>if</b> ( !<a class="ref" href="cm_local.h.html#cm" title='cm' data-ref="cm">cm</a>.<a class="ref" href="cm_local.h.html#(anonymous)::numNodes" title='(anonymous struct)::numNodes' data-ref="(anonymous)::numNodes">numNodes</a> ) {	<i>// map not loaded</i></td></tr>
+<tr><th id="58">58</th><td>		<b>return</b> <var>0</var>;</td></tr>
+<tr><th id="59">59</th><td>	}</td></tr>
+<tr><th id="60">60</th><td>	<b>return</b> <a class="ref" href="#CM_PointLeafnum_r" title='CM_PointLeafnum_r' data-ref="CM_PointLeafnum_r">CM_PointLeafnum_r</a> (<a class="local col6 ref" href="#6p" title='p' data-ref="6p">p</a>, <var>0</var>);</td></tr>
+<tr><th id="61">61</th><td>}</td></tr>
+<tr><th id="62">62</th><td></td></tr>
+<tr><th id="63">63</th><td></td></tr>
+<tr><th id="64">64</th><td><i>/*</i></td></tr>
+<tr><th id="65">65</th><td><i>======================================================================</i></td></tr>
+<tr><th id="66">66</th><td><i></i></td></tr>
+<tr><th id="67">67</th><td><i>LEAF LISTING</i></td></tr>
+<tr><th id="68">68</th><td><i></i></td></tr>
+<tr><th id="69">69</th><td><i>======================================================================</i></td></tr>
+<tr><th id="70">70</th><td><i>*/</i></td></tr>
+<tr><th id="71">71</th><td></td></tr>
+<tr><th id="72">72</th><td></td></tr>
+<tr><th id="73">73</th><td><em>void</em> <dfn class="decl def" id="CM_StoreLeafs" title='CM_StoreLeafs' data-ref="CM_StoreLeafs">CM_StoreLeafs</dfn>( <a class="typedef" href="cm_local.h.html#leafList_t" title='leafList_t' data-type='struct leafList_s' data-ref="leafList_t">leafList_t</a> *<dfn class="local col7 decl" id="7ll" title='ll' data-type='leafList_t *' data-ref="7ll">ll</dfn>, <em>int</em> <dfn class="local col8 decl" id="8nodenum" title='nodenum' data-type='int' data-ref="8nodenum">nodenum</dfn> ) {</td></tr>
+<tr><th id="74">74</th><td>	<em>int</em>		<dfn class="local col9 decl" id="9leafNum" title='leafNum' data-type='int' data-ref="9leafNum">leafNum</dfn>;</td></tr>
+<tr><th id="75">75</th><td></td></tr>
+<tr><th id="76">76</th><td>	<a class="local col9 ref" href="#9leafNum" title='leafNum' data-ref="9leafNum">leafNum</a> = -<var>1</var> - <a class="local col8 ref" href="#8nodenum" title='nodenum' data-ref="8nodenum">nodenum</a>;</td></tr>
+<tr><th id="77">77</th><td></td></tr>
+<tr><th id="78">78</th><td>	<i>// store the lastLeaf even if the list is overflowed</i></td></tr>
+<tr><th id="79">79</th><td>	<b>if</b> ( <a class="ref" href="cm_local.h.html#cm" title='cm' data-ref="cm">cm</a>.<a class="ref" href="cm_local.h.html#(anonymous)::leafs" title='(anonymous struct)::leafs' data-ref="(anonymous)::leafs">leafs</a>[ <a class="local col9 ref" href="#9leafNum" title='leafNum' data-ref="9leafNum">leafNum</a> ].<a class="ref" href="cm_local.h.html#(anonymous)::cluster" title='(anonymous struct)::cluster' data-ref="(anonymous)::cluster">cluster</a> != -<var>1</var> ) {</td></tr>
+<tr><th id="80">80</th><td>		<a class="local col7 ref" href="#7ll" title='ll' data-ref="7ll">ll</a>-&gt;<a class="ref" href="cm_local.h.html#leafList_s::lastLeaf" title='leafList_s::lastLeaf' data-ref="leafList_s::lastLeaf">lastLeaf</a> = <a class="local col9 ref" href="#9leafNum" title='leafNum' data-ref="9leafNum">leafNum</a>;</td></tr>
+<tr><th id="81">81</th><td>	}</td></tr>
+<tr><th id="82">82</th><td></td></tr>
+<tr><th id="83">83</th><td>	<b>if</b> ( <a class="local col7 ref" href="#7ll" title='ll' data-ref="7ll">ll</a>-&gt;<a class="ref" href="cm_local.h.html#leafList_s::count" title='leafList_s::count' data-ref="leafList_s::count">count</a> &gt;= <a class="local col7 ref" href="#7ll" title='ll' data-ref="7ll">ll</a>-&gt;<a class="ref" href="cm_local.h.html#leafList_s::maxcount" title='leafList_s::maxcount' data-ref="leafList_s::maxcount">maxcount</a>) {</td></tr>
+<tr><th id="84">84</th><td>		<a class="local col7 ref" href="#7ll" title='ll' data-ref="7ll">ll</a>-&gt;<a class="ref" href="cm_local.h.html#leafList_s::overflowed" title='leafList_s::overflowed' data-ref="leafList_s::overflowed">overflowed</a> = <a class="enum" href="q_shared.h.html#qtrue" title='qtrue' data-ref="qtrue">qtrue</a>;</td></tr>
+<tr><th id="85">85</th><td>		<b>return</b>;</td></tr>
+<tr><th id="86">86</th><td>	}</td></tr>
+<tr><th id="87">87</th><td>	<a class="local col7 ref" href="#7ll" title='ll' data-ref="7ll">ll</a>-&gt;<a class="ref" href="cm_local.h.html#leafList_s::list" title='leafList_s::list' data-ref="leafList_s::list">list</a>[ <a class="local col7 ref" href="#7ll" title='ll' data-ref="7ll">ll</a>-&gt;<a class="ref" href="cm_local.h.html#leafList_s::count" title='leafList_s::count' data-ref="leafList_s::count">count</a>++ ] = <a class="local col9 ref" href="#9leafNum" title='leafNum' data-ref="9leafNum">leafNum</a>;</td></tr>
+<tr><th id="88">88</th><td>}</td></tr>
+<tr><th id="89">89</th><td></td></tr>
+<tr><th id="90">90</th><td><em>void</em> <dfn class="decl def" id="CM_StoreBrushes" title='CM_StoreBrushes' data-ref="CM_StoreBrushes">CM_StoreBrushes</dfn>( <a class="typedef" href="cm_local.h.html#leafList_t" title='leafList_t' data-type='struct leafList_s' data-ref="leafList_t">leafList_t</a> *<dfn class="local col0 decl" id="10ll" title='ll' data-type='leafList_t *' data-ref="10ll">ll</dfn>, <em>int</em> <dfn class="local col1 decl" id="11nodenum" title='nodenum' data-type='int' data-ref="11nodenum">nodenum</dfn> ) {</td></tr>
+<tr><th id="91">91</th><td>	<em>int</em>			<dfn class="local col2 decl" id="12i" title='i' data-type='int' data-ref="12i">i</dfn>, <dfn class="local col3 decl" id="13k" title='k' data-type='int' data-ref="13k">k</dfn>;</td></tr>
+<tr><th id="92">92</th><td>	<em>int</em>			<dfn class="local col4 decl" id="14leafnum" title='leafnum' data-type='int' data-ref="14leafnum">leafnum</dfn>;</td></tr>
+<tr><th id="93">93</th><td>	<em>int</em>			<dfn class="local col5 decl" id="15brushnum" title='brushnum' data-type='int' data-ref="15brushnum">brushnum</dfn>;</td></tr>
+<tr><th id="94">94</th><td>	<a class="typedef" href="cm_local.h.html#cLeaf_t" title='cLeaf_t' data-type='struct cLeaf_t' data-ref="cLeaf_t">cLeaf_t</a>		*<dfn class="local col6 decl" id="16leaf" title='leaf' data-type='cLeaf_t *' data-ref="16leaf">leaf</dfn>;</td></tr>
+<tr><th id="95">95</th><td>	<a class="typedef" href="cm_local.h.html#cbrush_t" title='cbrush_t' data-type='struct cbrush_t' data-ref="cbrush_t">cbrush_t</a>	*<dfn class="local col7 decl" id="17b" title='b' data-type='cbrush_t *' data-ref="17b">b</dfn>;</td></tr>
+<tr><th id="96">96</th><td></td></tr>
+<tr><th id="97">97</th><td>	<a class="local col4 ref" href="#14leafnum" title='leafnum' data-ref="14leafnum">leafnum</a> = -<var>1</var> - <a class="local col1 ref" href="#11nodenum" title='nodenum' data-ref="11nodenum">nodenum</a>;</td></tr>
+<tr><th id="98">98</th><td></td></tr>
+<tr><th id="99">99</th><td>	<a class="local col6 ref" href="#16leaf" title='leaf' data-ref="16leaf">leaf</a> = &amp;<a class="ref" href="cm_local.h.html#cm" title='cm' data-ref="cm">cm</a>.<a class="ref" href="cm_local.h.html#(anonymous)::leafs" title='(anonymous struct)::leafs' data-ref="(anonymous)::leafs">leafs</a>[<a class="local col4 ref" href="#14leafnum" title='leafnum' data-ref="14leafnum">leafnum</a>];</td></tr>
+<tr><th id="100">100</th><td></td></tr>
+<tr><th id="101">101</th><td>	<b>for</b> ( <a class="local col3 ref" href="#13k" title='k' data-ref="13k">k</a> = <var>0</var> ; <a class="local col3 ref" href="#13k" title='k' data-ref="13k">k</a> &lt; <a class="local col6 ref" href="#16leaf" title='leaf' data-ref="16leaf">leaf</a>-&gt;<a class="ref" href="cm_local.h.html#(anonymous)::numLeafBrushes" title='(anonymous struct)::numLeafBrushes' data-ref="(anonymous)::numLeafBrushes">numLeafBrushes</a> ; <a class="local col3 ref" href="#13k" title='k' data-ref="13k">k</a>++ ) {</td></tr>
+<tr><th id="102">102</th><td>		<a class="local col5 ref" href="#15brushnum" title='brushnum' data-ref="15brushnum">brushnum</a> = <a class="ref" href="cm_local.h.html#cm" title='cm' data-ref="cm">cm</a>.<a class="ref" href="cm_local.h.html#(anonymous)::leafbrushes" title='(anonymous struct)::leafbrushes' data-ref="(anonymous)::leafbrushes">leafbrushes</a>[<a class="local col6 ref" href="#16leaf" title='leaf' data-ref="16leaf">leaf</a>-&gt;<a class="ref" href="cm_local.h.html#(anonymous)::firstLeafBrush" title='(anonymous struct)::firstLeafBrush' data-ref="(anonymous)::firstLeafBrush">firstLeafBrush</a>+<a class="local col3 ref" href="#13k" title='k' data-ref="13k">k</a>];</td></tr>
+<tr><th id="103">103</th><td>		<a class="local col7 ref" href="#17b" title='b' data-ref="17b">b</a> = &amp;<a class="ref" href="cm_local.h.html#cm" title='cm' data-ref="cm">cm</a>.<a class="ref" href="cm_local.h.html#(anonymous)::brushes" title='(anonymous struct)::brushes' data-ref="(anonymous)::brushes">brushes</a>[<a class="local col5 ref" href="#15brushnum" title='brushnum' data-ref="15brushnum">brushnum</a>];</td></tr>
+<tr><th id="104">104</th><td>		<b>if</b> ( <a class="local col7 ref" href="#17b" title='b' data-ref="17b">b</a>-&gt;<a class="ref" href="cm_local.h.html#(anonymous)::checkcount" title='(anonymous struct)::checkcount' data-ref="(anonymous)::checkcount">checkcount</a> == <a class="ref" href="cm_local.h.html#cm" title='cm' data-ref="cm">cm</a>.<a class="ref" href="cm_local.h.html#(anonymous)::checkcount" title='(anonymous struct)::checkcount' data-ref="(anonymous)::checkcount">checkcount</a> ) {</td></tr>
+<tr><th id="105">105</th><td>			<b>continue</b>;	<i>// already checked this brush in another leaf</i></td></tr>
+<tr><th id="106">106</th><td>		}</td></tr>
+<tr><th id="107">107</th><td>		<a class="local col7 ref" href="#17b" title='b' data-ref="17b">b</a>-&gt;<a class="ref" href="cm_local.h.html#(anonymous)::checkcount" title='(anonymous struct)::checkcount' data-ref="(anonymous)::checkcount">checkcount</a> = <a class="ref" href="cm_local.h.html#cm" title='cm' data-ref="cm">cm</a>.<a class="ref" href="cm_local.h.html#(anonymous)::checkcount" title='(anonymous struct)::checkcount' data-ref="(anonymous)::checkcount">checkcount</a>;</td></tr>
+<tr><th id="108">108</th><td>		<b>for</b> ( <a class="local col2 ref" href="#12i" title='i' data-ref="12i">i</a> = <var>0</var> ; <a class="local col2 ref" href="#12i" title='i' data-ref="12i">i</a> &lt; <var>3</var> ; <a class="local col2 ref" href="#12i" title='i' data-ref="12i">i</a>++ ) {</td></tr>
+<tr><th id="109">109</th><td>			<b>if</b> ( <a class="local col7 ref" href="#17b" title='b' data-ref="17b">b</a>-&gt;<a class="ref" href="cm_local.h.html#(anonymous)::bounds" title='(anonymous struct)::bounds' data-ref="(anonymous)::bounds">bounds</a>[<var>0</var>][<a class="local col2 ref" href="#12i" title='i' data-ref="12i">i</a>] &gt;= <a class="local col0 ref" href="#10ll" title='ll' data-ref="10ll">ll</a>-&gt;<a class="ref" href="cm_local.h.html#leafList_s::bounds" title='leafList_s::bounds' data-ref="leafList_s::bounds">bounds</a>[<var>1</var>][<a class="local col2 ref" href="#12i" title='i' data-ref="12i">i</a>] || <a class="local col7 ref" href="#17b" title='b' data-ref="17b">b</a>-&gt;<a class="ref" href="cm_local.h.html#(anonymous)::bounds" title='(anonymous struct)::bounds' data-ref="(anonymous)::bounds">bounds</a>[<var>1</var>][<a class="local col2 ref" href="#12i" title='i' data-ref="12i">i</a>] &lt;= <a class="local col0 ref" href="#10ll" title='ll' data-ref="10ll">ll</a>-&gt;<a class="ref" href="cm_local.h.html#leafList_s::bounds" title='leafList_s::bounds' data-ref="leafList_s::bounds">bounds</a>[<var>0</var>][<a class="local col2 ref" href="#12i" title='i' data-ref="12i">i</a>] ) {</td></tr>
+<tr><th id="110">110</th><td>				<b>break</b>;</td></tr>
+<tr><th id="111">111</th><td>			}</td></tr>
+<tr><th id="112">112</th><td>		}</td></tr>
+<tr><th id="113">113</th><td>		<b>if</b> ( <a class="local col2 ref" href="#12i" title='i' data-ref="12i">i</a> != <var>3</var> ) {</td></tr>
+<tr><th id="114">114</th><td>			<b>continue</b>;</td></tr>
+<tr><th id="115">115</th><td>		}</td></tr>
+<tr><th id="116">116</th><td>		<b>if</b> ( <a class="local col0 ref" href="#10ll" title='ll' data-ref="10ll">ll</a>-&gt;<a class="ref" href="cm_local.h.html#leafList_s::count" title='leafList_s::count' data-ref="leafList_s::count">count</a> &gt;= <a class="local col0 ref" href="#10ll" title='ll' data-ref="10ll">ll</a>-&gt;<a class="ref" href="cm_local.h.html#leafList_s::maxcount" title='leafList_s::maxcount' data-ref="leafList_s::maxcount">maxcount</a>) {</td></tr>
+<tr><th id="117">117</th><td>			<a class="local col0 ref" href="#10ll" title='ll' data-ref="10ll">ll</a>-&gt;<a class="ref" href="cm_local.h.html#leafList_s::overflowed" title='leafList_s::overflowed' data-ref="leafList_s::overflowed">overflowed</a> = <a class="enum" href="q_shared.h.html#qtrue" title='qtrue' data-ref="qtrue">qtrue</a>;</td></tr>
+<tr><th id="118">118</th><td>			<b>return</b>;</td></tr>
+<tr><th id="119">119</th><td>		}</td></tr>
+<tr><th id="120">120</th><td>		((<a class="typedef" href="cm_local.h.html#cbrush_t" title='cbrush_t' data-type='struct cbrush_t' data-ref="cbrush_t">cbrush_t</a> **)<a class="local col0 ref" href="#10ll" title='ll' data-ref="10ll">ll</a>-&gt;<a class="ref" href="cm_local.h.html#leafList_s::list" title='leafList_s::list' data-ref="leafList_s::list">list</a>)[ <a class="local col0 ref" href="#10ll" title='ll' data-ref="10ll">ll</a>-&gt;<a class="ref" href="cm_local.h.html#leafList_s::count" title='leafList_s::count' data-ref="leafList_s::count">count</a>++ ] = <a class="local col7 ref" href="#17b" title='b' data-ref="17b">b</a>;</td></tr>
+<tr><th id="121">121</th><td>	}</td></tr>
+<tr><th id="122">122</th><td><u>#<span data-ppcond="122">if</span> 0</u></td></tr>
+<tr><th id="123">123</th><td>	<i>// store patches?</i></td></tr>
+<tr><th id="124">124</th><td>	<b>for</b> ( k = <var>0</var> ; k &lt; leaf-&gt;numLeafSurfaces ; k++ ) {</td></tr>
+<tr><th id="125">125</th><td>		patch = cm.surfaces[ cm.leafsurfaces[ leaf-&gt;firstleafsurface + k ] ];</td></tr>
+<tr><th id="126">126</th><td>		<b>if</b> ( !patch ) {</td></tr>
+<tr><th id="127">127</th><td>			<b>continue</b>;</td></tr>
+<tr><th id="128">128</th><td>		}</td></tr>
+<tr><th id="129">129</th><td>	}</td></tr>
+<tr><th id="130">130</th><td><u>#<span data-ppcond="122">endif</span></u></td></tr>
+<tr><th id="131">131</th><td>}</td></tr>
+<tr><th id="132">132</th><td></td></tr>
+<tr><th id="133">133</th><td><i>/*</i></td></tr>
+<tr><th id="134">134</th><td><i>=============</i></td></tr>
+<tr><th id="135">135</th><td><i>CM_BoxLeafnums</i></td></tr>
+<tr><th id="136">136</th><td><i></i></td></tr>
+<tr><th id="137">137</th><td><i>Fills in a list of all the leafs touched</i></td></tr>
+<tr><th id="138">138</th><td><i>=============</i></td></tr>
+<tr><th id="139">139</th><td><i>*/</i></td></tr>
+<tr><th id="140">140</th><td><em>void</em> <dfn class="decl def" id="CM_BoxLeafnums_r" title='CM_BoxLeafnums_r' data-ref="CM_BoxLeafnums_r">CM_BoxLeafnums_r</dfn>( <a class="typedef" href="cm_local.h.html#leafList_t" title='leafList_t' data-type='struct leafList_s' data-ref="leafList_t">leafList_t</a> *<dfn class="local col8 decl" id="18ll" title='ll' data-type='leafList_t *' data-ref="18ll">ll</dfn>, <em>int</em> <dfn class="local col9 decl" id="19nodenum" title='nodenum' data-type='int' data-ref="19nodenum">nodenum</dfn> ) {</td></tr>
+<tr><th id="141">141</th><td>	<a class="typedef" href="q_shared.h.html#cplane_t" title='cplane_t' data-type='struct cplane_s' data-ref="cplane_t">cplane_t</a>	*<dfn class="local col0 decl" id="20plane" title='plane' data-type='cplane_t *' data-ref="20plane">plane</dfn>;</td></tr>
+<tr><th id="142">142</th><td>	<a class="typedef" href="cm_local.h.html#cNode_t" title='cNode_t' data-type='struct cNode_t' data-ref="cNode_t">cNode_t</a>		*<dfn class="local col1 decl" id="21node" title='node' data-type='cNode_t *' data-ref="21node">node</dfn>;</td></tr>
+<tr><th id="143">143</th><td>	<em>int</em>			<dfn class="local col2 decl" id="22s" title='s' data-type='int' data-ref="22s">s</dfn>;</td></tr>
+<tr><th id="144">144</th><td></td></tr>
+<tr><th id="145">145</th><td>	<b>while</b> (<var>1</var>) {</td></tr>
+<tr><th id="146">146</th><td>		<b>if</b> (<a class="local col9 ref" href="#19nodenum" title='nodenum' data-ref="19nodenum">nodenum</a> &lt; <var>0</var>) {</td></tr>
+<tr><th id="147">147</th><td>			<a class="local col8 ref" href="#18ll" title='ll' data-ref="18ll">ll</a>-&gt;<a class="ref" href="cm_local.h.html#leafList_s::storeLeafs" title='leafList_s::storeLeafs' data-ref="leafList_s::storeLeafs">storeLeafs</a>( <a class="local col8 ref" href="#18ll" title='ll' data-ref="18ll">ll</a>, <a class="local col9 ref" href="#19nodenum" title='nodenum' data-ref="19nodenum">nodenum</a> );</td></tr>
+<tr><th id="148">148</th><td>			<b>return</b>;</td></tr>
+<tr><th id="149">149</th><td>		}</td></tr>
+<tr><th id="150">150</th><td>	</td></tr>
+<tr><th id="151">151</th><td>		<a class="local col1 ref" href="#21node" title='node' data-ref="21node">node</a> = &amp;<a class="ref" href="cm_local.h.html#cm" title='cm' data-ref="cm">cm</a>.<a class="ref" href="cm_local.h.html#(anonymous)::nodes" title='(anonymous struct)::nodes' data-ref="(anonymous)::nodes">nodes</a>[<a class="local col9 ref" href="#19nodenum" title='nodenum' data-ref="19nodenum">nodenum</a>];</td></tr>
+<tr><th id="152">152</th><td>		<a class="local col0 ref" href="#20plane" title='plane' data-ref="20plane">plane</a> = <a class="local col1 ref" href="#21node" title='node' data-ref="21node">node</a>-&gt;<a class="ref" href="cm_local.h.html#(anonymous)::plane" title='(anonymous struct)::plane' data-ref="(anonymous)::plane">plane</a>;</td></tr>
+<tr><th id="153">153</th><td>		<a class="local col2 ref" href="#22s" title='s' data-ref="22s">s</a> = <a class="ref" href="q_shared.h.html#BoxOnPlaneSide" title='BoxOnPlaneSide' data-ref="BoxOnPlaneSide">BoxOnPlaneSide</a>( <a class="local col8 ref" href="#18ll" title='ll' data-ref="18ll">ll</a>-&gt;<a class="ref" href="cm_local.h.html#leafList_s::bounds" title='leafList_s::bounds' data-ref="leafList_s::bounds">bounds</a>[<var>0</var>], <a class="local col8 ref" href="#18ll" title='ll' data-ref="18ll">ll</a>-&gt;<a class="ref" href="cm_local.h.html#leafList_s::bounds" title='leafList_s::bounds' data-ref="leafList_s::bounds">bounds</a>[<var>1</var>], <a class="local col0 ref" href="#20plane" title='plane' data-ref="20plane">plane</a> );</td></tr>
+<tr><th id="154">154</th><td>		<b>if</b> (<a class="local col2 ref" href="#22s" title='s' data-ref="22s">s</a> == <var>1</var>) {</td></tr>
+<tr><th id="155">155</th><td>			<a class="local col9 ref" href="#19nodenum" title='nodenum' data-ref="19nodenum">nodenum</a> = <a class="local col1 ref" href="#21node" title='node' data-ref="21node">node</a>-&gt;<a class="ref" href="cm_local.h.html#(anonymous)::children" title='(anonymous struct)::children' data-ref="(anonymous)::children">children</a>[<var>0</var>];</td></tr>
+<tr><th id="156">156</th><td>		} <b>else</b> <b>if</b> (<a class="local col2 ref" href="#22s" title='s' data-ref="22s">s</a> == <var>2</var>) {</td></tr>
+<tr><th id="157">157</th><td>			<a class="local col9 ref" href="#19nodenum" title='nodenum' data-ref="19nodenum">nodenum</a> = <a class="local col1 ref" href="#21node" title='node' data-ref="21node">node</a>-&gt;<a class="ref" href="cm_local.h.html#(anonymous)::children" title='(anonymous struct)::children' data-ref="(anonymous)::children">children</a>[<var>1</var>];</td></tr>
+<tr><th id="158">158</th><td>		} <b>else</b> {</td></tr>
+<tr><th id="159">159</th><td>			<i>// go down both</i></td></tr>
+<tr><th id="160">160</th><td>			<a class="ref" href="#CM_BoxLeafnums_r" title='CM_BoxLeafnums_r' data-ref="CM_BoxLeafnums_r">CM_BoxLeafnums_r</a>( <a class="local col8 ref" href="#18ll" title='ll' data-ref="18ll">ll</a>, <a class="local col1 ref" href="#21node" title='node' data-ref="21node">node</a>-&gt;<a class="ref" href="cm_local.h.html#(anonymous)::children" title='(anonymous struct)::children' data-ref="(anonymous)::children">children</a>[<var>0</var>] );</td></tr>
+<tr><th id="161">161</th><td>			<a class="local col9 ref" href="#19nodenum" title='nodenum' data-ref="19nodenum">nodenum</a> = <a class="local col1 ref" href="#21node" title='node' data-ref="21node">node</a>-&gt;<a class="ref" href="cm_local.h.html#(anonymous)::children" title='(anonymous struct)::children' data-ref="(anonymous)::children">children</a>[<var>1</var>];</td></tr>
+<tr><th id="162">162</th><td>		}</td></tr>
+<tr><th id="163">163</th><td></td></tr>
+<tr><th id="164">164</th><td>	}</td></tr>
+<tr><th id="165">165</th><td>}</td></tr>
+<tr><th id="166">166</th><td></td></tr>
+<tr><th id="167">167</th><td><i>/*</i></td></tr>
+<tr><th id="168">168</th><td><i>==================</i></td></tr>
+<tr><th id="169">169</th><td><i>CM_BoxLeafnums</i></td></tr>
+<tr><th id="170">170</th><td><i>==================</i></td></tr>
+<tr><th id="171">171</th><td><i>*/</i></td></tr>
+<tr><th id="172">172</th><td><em>int</em>	<dfn class="decl def" id="CM_BoxLeafnums" title='CM_BoxLeafnums' data-ref="CM_BoxLeafnums">CM_BoxLeafnums</dfn>( <em>const</em> <a class="typedef" href="q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="local col3 decl" id="23mins" title='mins' data-type='const vec_t *' data-ref="23mins">mins</dfn>, <em>const</em> <a class="typedef" href="q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="local col4 decl" id="24maxs" title='maxs' data-type='const vec_t *' data-ref="24maxs">maxs</dfn>, <em>int</em> *<dfn class="local col5 decl" id="25list" title='list' data-type='int *' data-ref="25list">list</dfn>, <em>int</em> <dfn class="local col6 decl" id="26listsize" title='listsize' data-type='int' data-ref="26listsize">listsize</dfn>, <em>int</em> *<dfn class="local col7 decl" id="27lastLeaf" title='lastLeaf' data-type='int *' data-ref="27lastLeaf">lastLeaf</dfn>) {</td></tr>
+<tr><th id="173">173</th><td>	<a class="typedef" href="cm_local.h.html#leafList_t" title='leafList_t' data-type='struct leafList_s' data-ref="leafList_t">leafList_t</a>	<dfn class="local col8 decl" id="28ll" title='ll' data-type='leafList_t' data-ref="28ll">ll</dfn>;</td></tr>
+<tr><th id="174">174</th><td></td></tr>
+<tr><th id="175">175</th><td>	<a class="ref" href="cm_local.h.html#cm" title='cm' data-ref="cm">cm</a>.<a class="ref" href="cm_local.h.html#(anonymous)::checkcount" title='(anonymous struct)::checkcount' data-ref="(anonymous)::checkcount">checkcount</a>++;</td></tr>
+<tr><th id="176">176</th><td></td></tr>
+<tr><th id="177">177</th><td>	<a class="macro" href="q_shared.h.html#545" title="((ll.bounds[0])[0]=(mins)[0],(ll.bounds[0])[1]=(mins)[1],(ll.bounds[0])[2]=(mins)[2])" data-ref="_M/VectorCopy">VectorCopy</a>( <a class="local col3 ref" href="#23mins" title='mins' data-ref="23mins">mins</a>, <a class="local col8 ref" href="#28ll" title='ll' data-ref="28ll">ll</a>.<a class="ref" href="cm_local.h.html#leafList_s::bounds" title='leafList_s::bounds' data-ref="leafList_s::bounds">bounds</a>[<var>0</var>] );</td></tr>
+<tr><th id="178">178</th><td>	<a class="macro" href="q_shared.h.html#545" title="((ll.bounds[1])[0]=(maxs)[0],(ll.bounds[1])[1]=(maxs)[1],(ll.bounds[1])[2]=(maxs)[2])" data-ref="_M/VectorCopy">VectorCopy</a>( <a class="local col4 ref" href="#24maxs" title='maxs' data-ref="24maxs">maxs</a>, <a class="local col8 ref" href="#28ll" title='ll' data-ref="28ll">ll</a>.<a class="ref" href="cm_local.h.html#leafList_s::bounds" title='leafList_s::bounds' data-ref="leafList_s::bounds">bounds</a>[<var>1</var>] );</td></tr>
+<tr><th id="179">179</th><td>	<a class="local col8 ref" href="#28ll" title='ll' data-ref="28ll">ll</a>.<a class="ref" href="cm_local.h.html#leafList_s::count" title='leafList_s::count' data-ref="leafList_s::count">count</a> = <var>0</var>;</td></tr>
+<tr><th id="180">180</th><td>	<a class="local col8 ref" href="#28ll" title='ll' data-ref="28ll">ll</a>.<a class="ref" href="cm_local.h.html#leafList_s::maxcount" title='leafList_s::maxcount' data-ref="leafList_s::maxcount">maxcount</a> = <a class="local col6 ref" href="#26listsize" title='listsize' data-ref="26listsize">listsize</a>;</td></tr>
+<tr><th id="181">181</th><td>	<a class="local col8 ref" href="#28ll" title='ll' data-ref="28ll">ll</a>.<a class="ref" href="cm_local.h.html#leafList_s::list" title='leafList_s::list' data-ref="leafList_s::list">list</a> = <a class="local col5 ref" href="#25list" title='list' data-ref="25list">list</a>;</td></tr>
+<tr><th id="182">182</th><td>	<a class="local col8 ref" href="#28ll" title='ll' data-ref="28ll">ll</a>.<a class="ref" href="cm_local.h.html#leafList_s::storeLeafs" title='leafList_s::storeLeafs' data-ref="leafList_s::storeLeafs">storeLeafs</a> = <a class="ref" href="#CM_StoreLeafs" title='CM_StoreLeafs' data-ref="CM_StoreLeafs">CM_StoreLeafs</a>;</td></tr>
+<tr><th id="183">183</th><td>	<a class="local col8 ref" href="#28ll" title='ll' data-ref="28ll">ll</a>.<a class="ref" href="cm_local.h.html#leafList_s::lastLeaf" title='leafList_s::lastLeaf' data-ref="leafList_s::lastLeaf">lastLeaf</a> = <var>0</var>;</td></tr>
+<tr><th id="184">184</th><td>	<a class="local col8 ref" href="#28ll" title='ll' data-ref="28ll">ll</a>.<a class="ref" href="cm_local.h.html#leafList_s::overflowed" title='leafList_s::overflowed' data-ref="leafList_s::overflowed">overflowed</a> = <a class="enum" href="q_shared.h.html#qfalse" title='qfalse' data-ref="qfalse">qfalse</a>;</td></tr>
+<tr><th id="185">185</th><td></td></tr>
+<tr><th id="186">186</th><td>	<a class="ref" href="#CM_BoxLeafnums_r" title='CM_BoxLeafnums_r' data-ref="CM_BoxLeafnums_r">CM_BoxLeafnums_r</a>( &amp;<a class="local col8 ref" href="#28ll" title='ll' data-ref="28ll">ll</a>, <var>0</var> );</td></tr>
+<tr><th id="187">187</th><td></td></tr>
+<tr><th id="188">188</th><td>	*<a class="local col7 ref" href="#27lastLeaf" title='lastLeaf' data-ref="27lastLeaf">lastLeaf</a> = <a class="local col8 ref" href="#28ll" title='ll' data-ref="28ll">ll</a>.<a class="ref" href="cm_local.h.html#leafList_s::lastLeaf" title='leafList_s::lastLeaf' data-ref="leafList_s::lastLeaf">lastLeaf</a>;</td></tr>
+<tr><th id="189">189</th><td>	<b>return</b> <a class="local col8 ref" href="#28ll" title='ll' data-ref="28ll">ll</a>.<a class="ref" href="cm_local.h.html#leafList_s::count" title='leafList_s::count' data-ref="leafList_s::count">count</a>;</td></tr>
+<tr><th id="190">190</th><td>}</td></tr>
+<tr><th id="191">191</th><td></td></tr>
+<tr><th id="192">192</th><td><i>/*</i></td></tr>
+<tr><th id="193">193</th><td><i>==================</i></td></tr>
+<tr><th id="194">194</th><td><i>CM_BoxBrushes</i></td></tr>
+<tr><th id="195">195</th><td><i>==================</i></td></tr>
+<tr><th id="196">196</th><td><i>*/</i></td></tr>
+<tr><th id="197">197</th><td><em>int</em> <dfn class="decl def" id="CM_BoxBrushes" title='CM_BoxBrushes' data-ref="CM_BoxBrushes">CM_BoxBrushes</dfn>( <em>const</em> <a class="typedef" href="q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="local col9 decl" id="29mins" title='mins' data-type='const vec_t *' data-ref="29mins">mins</dfn>, <em>const</em> <a class="typedef" href="q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="local col0 decl" id="30maxs" title='maxs' data-type='const vec_t *' data-ref="30maxs">maxs</dfn>, <a class="typedef" href="cm_local.h.html#cbrush_t" title='cbrush_t' data-type='struct cbrush_t' data-ref="cbrush_t">cbrush_t</a> **<dfn class="local col1 decl" id="31list" title='list' data-type='cbrush_t **' data-ref="31list">list</dfn>, <em>int</em> <dfn class="local col2 decl" id="32listsize" title='listsize' data-type='int' data-ref="32listsize">listsize</dfn> ) {</td></tr>
+<tr><th id="198">198</th><td>	<a class="typedef" href="cm_local.h.html#leafList_t" title='leafList_t' data-type='struct leafList_s' data-ref="leafList_t">leafList_t</a>	<dfn class="local col3 decl" id="33ll" title='ll' data-type='leafList_t' data-ref="33ll">ll</dfn>;</td></tr>
+<tr><th id="199">199</th><td></td></tr>
+<tr><th id="200">200</th><td>	<a class="ref" href="cm_local.h.html#cm" title='cm' data-ref="cm">cm</a>.<a class="ref" href="cm_local.h.html#(anonymous)::checkcount" title='(anonymous struct)::checkcount' data-ref="(anonymous)::checkcount">checkcount</a>++;</td></tr>
+<tr><th id="201">201</th><td></td></tr>
+<tr><th id="202">202</th><td>	<a class="macro" href="q_shared.h.html#545" title="((ll.bounds[0])[0]=(mins)[0],(ll.bounds[0])[1]=(mins)[1],(ll.bounds[0])[2]=(mins)[2])" data-ref="_M/VectorCopy">VectorCopy</a>( <a class="local col9 ref" href="#29mins" title='mins' data-ref="29mins">mins</a>, <a class="local col3 ref" href="#33ll" title='ll' data-ref="33ll">ll</a>.<a class="ref" href="cm_local.h.html#leafList_s::bounds" title='leafList_s::bounds' data-ref="leafList_s::bounds">bounds</a>[<var>0</var>] );</td></tr>
+<tr><th id="203">203</th><td>	<a class="macro" href="q_shared.h.html#545" title="((ll.bounds[1])[0]=(maxs)[0],(ll.bounds[1])[1]=(maxs)[1],(ll.bounds[1])[2]=(maxs)[2])" data-ref="_M/VectorCopy">VectorCopy</a>( <a class="local col0 ref" href="#30maxs" title='maxs' data-ref="30maxs">maxs</a>, <a class="local col3 ref" href="#33ll" title='ll' data-ref="33ll">ll</a>.<a class="ref" href="cm_local.h.html#leafList_s::bounds" title='leafList_s::bounds' data-ref="leafList_s::bounds">bounds</a>[<var>1</var>] );</td></tr>
+<tr><th id="204">204</th><td>	<a class="local col3 ref" href="#33ll" title='ll' data-ref="33ll">ll</a>.<a class="ref" href="cm_local.h.html#leafList_s::count" title='leafList_s::count' data-ref="leafList_s::count">count</a> = <var>0</var>;</td></tr>
+<tr><th id="205">205</th><td>	<a class="local col3 ref" href="#33ll" title='ll' data-ref="33ll">ll</a>.<a class="ref" href="cm_local.h.html#leafList_s::maxcount" title='leafList_s::maxcount' data-ref="leafList_s::maxcount">maxcount</a> = <a class="local col2 ref" href="#32listsize" title='listsize' data-ref="32listsize">listsize</a>;</td></tr>
+<tr><th id="206">206</th><td>	<a class="local col3 ref" href="#33ll" title='ll' data-ref="33ll">ll</a>.<a class="ref" href="cm_local.h.html#leafList_s::list" title='leafList_s::list' data-ref="leafList_s::list">list</a> = (<em>void</em> *)<a class="local col1 ref" href="#31list" title='list' data-ref="31list">list</a>;</td></tr>
+<tr><th id="207">207</th><td>	<a class="local col3 ref" href="#33ll" title='ll' data-ref="33ll">ll</a>.<a class="ref" href="cm_local.h.html#leafList_s::storeLeafs" title='leafList_s::storeLeafs' data-ref="leafList_s::storeLeafs">storeLeafs</a> = <a class="ref" href="#CM_StoreBrushes" title='CM_StoreBrushes' data-ref="CM_StoreBrushes">CM_StoreBrushes</a>;</td></tr>
+<tr><th id="208">208</th><td>	<a class="local col3 ref" href="#33ll" title='ll' data-ref="33ll">ll</a>.<a class="ref" href="cm_local.h.html#leafList_s::lastLeaf" title='leafList_s::lastLeaf' data-ref="leafList_s::lastLeaf">lastLeaf</a> = <var>0</var>;</td></tr>
+<tr><th id="209">209</th><td>	<a class="local col3 ref" href="#33ll" title='ll' data-ref="33ll">ll</a>.<a class="ref" href="cm_local.h.html#leafList_s::overflowed" title='leafList_s::overflowed' data-ref="leafList_s::overflowed">overflowed</a> = <a class="enum" href="q_shared.h.html#qfalse" title='qfalse' data-ref="qfalse">qfalse</a>;</td></tr>
+<tr><th id="210">210</th><td>	</td></tr>
+<tr><th id="211">211</th><td>	<a class="ref" href="#CM_BoxLeafnums_r" title='CM_BoxLeafnums_r' data-ref="CM_BoxLeafnums_r">CM_BoxLeafnums_r</a>( &amp;<a class="local col3 ref" href="#33ll" title='ll' data-ref="33ll">ll</a>, <var>0</var> );</td></tr>
+<tr><th id="212">212</th><td></td></tr>
+<tr><th id="213">213</th><td>	<b>return</b> <a class="local col3 ref" href="#33ll" title='ll' data-ref="33ll">ll</a>.<a class="ref" href="cm_local.h.html#leafList_s::count" title='leafList_s::count' data-ref="leafList_s::count">count</a>;</td></tr>
+<tr><th id="214">214</th><td>}</td></tr>
+<tr><th id="215">215</th><td></td></tr>
+<tr><th id="216">216</th><td></td></tr>
+<tr><th id="217">217</th><td><i>//====================================================================</i></td></tr>
+<tr><th id="218">218</th><td></td></tr>
+<tr><th id="219">219</th><td></td></tr>
+<tr><th id="220">220</th><td><i>/*</i></td></tr>
+<tr><th id="221">221</th><td><i>==================</i></td></tr>
+<tr><th id="222">222</th><td><i>CM_PointContents</i></td></tr>
+<tr><th id="223">223</th><td><i></i></td></tr>
+<tr><th id="224">224</th><td><i>==================</i></td></tr>
+<tr><th id="225">225</th><td><i>*/</i></td></tr>
+<tr><th id="226">226</th><td><em>int</em> <dfn class="decl def" id="CM_PointContents" title='CM_PointContents' data-ref="CM_PointContents">CM_PointContents</dfn>( <em>const</em> <a class="typedef" href="q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="local col4 decl" id="34p" title='p' data-type='const vec_t *' data-ref="34p">p</dfn>, <a class="typedef" href="q_shared.h.html#clipHandle_t" title='clipHandle_t' data-type='int' data-ref="clipHandle_t">clipHandle_t</a> <dfn class="local col5 decl" id="35model" title='model' data-type='clipHandle_t' data-ref="35model">model</dfn> ) {</td></tr>
+<tr><th id="227">227</th><td>	<em>int</em>			<dfn class="local col6 decl" id="36leafnum" title='leafnum' data-type='int' data-ref="36leafnum">leafnum</dfn>;</td></tr>
+<tr><th id="228">228</th><td>	<em>int</em>			<dfn class="local col7 decl" id="37i" title='i' data-type='int' data-ref="37i">i</dfn>, <dfn class="local col8 decl" id="38k" title='k' data-type='int' data-ref="38k">k</dfn>;</td></tr>
+<tr><th id="229">229</th><td>	<em>int</em>			<dfn class="local col9 decl" id="39brushnum" title='brushnum' data-type='int' data-ref="39brushnum">brushnum</dfn>;</td></tr>
+<tr><th id="230">230</th><td>	<a class="typedef" href="cm_local.h.html#cLeaf_t" title='cLeaf_t' data-type='struct cLeaf_t' data-ref="cLeaf_t">cLeaf_t</a>		*<dfn class="local col0 decl" id="40leaf" title='leaf' data-type='cLeaf_t *' data-ref="40leaf">leaf</dfn>;</td></tr>
+<tr><th id="231">231</th><td>	<a class="typedef" href="cm_local.h.html#cbrush_t" title='cbrush_t' data-type='struct cbrush_t' data-ref="cbrush_t">cbrush_t</a>	*<dfn class="local col1 decl" id="41b" title='b' data-type='cbrush_t *' data-ref="41b">b</dfn>;</td></tr>
+<tr><th id="232">232</th><td>	<em>int</em>			<dfn class="local col2 decl" id="42contents" title='contents' data-type='int' data-ref="42contents">contents</dfn>;</td></tr>
+<tr><th id="233">233</th><td>	<em>float</em>		<dfn class="local col3 decl" id="43d" title='d' data-type='float' data-ref="43d">d</dfn>;</td></tr>
+<tr><th id="234">234</th><td>	<a class="typedef" href="cm_local.h.html#cmodel_t" title='cmodel_t' data-type='struct cmodel_s' data-ref="cmodel_t">cmodel_t</a>	*<dfn class="local col4 decl" id="44clipm" title='clipm' data-type='cmodel_t *' data-ref="44clipm">clipm</dfn>;</td></tr>
+<tr><th id="235">235</th><td></td></tr>
+<tr><th id="236">236</th><td>	<b>if</b> (!<a class="ref" href="cm_local.h.html#cm" title='cm' data-ref="cm">cm</a>.<a class="ref" href="cm_local.h.html#(anonymous)::numNodes" title='(anonymous struct)::numNodes' data-ref="(anonymous)::numNodes">numNodes</a>) {	<i>// map not loaded</i></td></tr>
+<tr><th id="237">237</th><td>		<b>return</b> <var>0</var>;</td></tr>
+<tr><th id="238">238</th><td>	}</td></tr>
+<tr><th id="239">239</th><td></td></tr>
+<tr><th id="240">240</th><td>	<b>if</b> ( <a class="local col5 ref" href="#35model" title='model' data-ref="35model">model</a> ) {</td></tr>
+<tr><th id="241">241</th><td>		<a class="local col4 ref" href="#44clipm" title='clipm' data-ref="44clipm">clipm</a> = <a class="ref" href="cm_local.h.html#CM_ClipHandleToModel" title='CM_ClipHandleToModel' data-ref="CM_ClipHandleToModel">CM_ClipHandleToModel</a>( <a class="local col5 ref" href="#35model" title='model' data-ref="35model">model</a> );</td></tr>
+<tr><th id="242">242</th><td>		<a class="local col0 ref" href="#40leaf" title='leaf' data-ref="40leaf">leaf</a> = &amp;<a class="local col4 ref" href="#44clipm" title='clipm' data-ref="44clipm">clipm</a>-&gt;<a class="ref" href="cm_local.h.html#cmodel_s::leaf" title='cmodel_s::leaf' data-ref="cmodel_s::leaf">leaf</a>;</td></tr>
+<tr><th id="243">243</th><td>	} <b>else</b> {</td></tr>
+<tr><th id="244">244</th><td>		<a class="local col6 ref" href="#36leafnum" title='leafnum' data-ref="36leafnum">leafnum</a> = <a class="ref" href="#CM_PointLeafnum_r" title='CM_PointLeafnum_r' data-ref="CM_PointLeafnum_r">CM_PointLeafnum_r</a> (<a class="local col4 ref" href="#34p" title='p' data-ref="34p">p</a>, <var>0</var>);</td></tr>
+<tr><th id="245">245</th><td>		<a class="local col0 ref" href="#40leaf" title='leaf' data-ref="40leaf">leaf</a> = &amp;<a class="ref" href="cm_local.h.html#cm" title='cm' data-ref="cm">cm</a>.<a class="ref" href="cm_local.h.html#(anonymous)::leafs" title='(anonymous struct)::leafs' data-ref="(anonymous)::leafs">leafs</a>[<a class="local col6 ref" href="#36leafnum" title='leafnum' data-ref="36leafnum">leafnum</a>];</td></tr>
+<tr><th id="246">246</th><td>	}</td></tr>
+<tr><th id="247">247</th><td></td></tr>
+<tr><th id="248">248</th><td>	<a class="local col2 ref" href="#42contents" title='contents' data-ref="42contents">contents</a> = <var>0</var>;</td></tr>
+<tr><th id="249">249</th><td>	<b>for</b> (<a class="local col8 ref" href="#38k" title='k' data-ref="38k">k</a>=<var>0</var> ; <a class="local col8 ref" href="#38k" title='k' data-ref="38k">k</a>&lt;<a class="local col0 ref" href="#40leaf" title='leaf' data-ref="40leaf">leaf</a>-&gt;<a class="ref" href="cm_local.h.html#(anonymous)::numLeafBrushes" title='(anonymous struct)::numLeafBrushes' data-ref="(anonymous)::numLeafBrushes">numLeafBrushes</a> ; <a class="local col8 ref" href="#38k" title='k' data-ref="38k">k</a>++) {</td></tr>
+<tr><th id="250">250</th><td>		<a class="local col9 ref" href="#39brushnum" title='brushnum' data-ref="39brushnum">brushnum</a> = <a class="ref" href="cm_local.h.html#cm" title='cm' data-ref="cm">cm</a>.<a class="ref" href="cm_local.h.html#(anonymous)::leafbrushes" title='(anonymous struct)::leafbrushes' data-ref="(anonymous)::leafbrushes">leafbrushes</a>[<a class="local col0 ref" href="#40leaf" title='leaf' data-ref="40leaf">leaf</a>-&gt;<a class="ref" href="cm_local.h.html#(anonymous)::firstLeafBrush" title='(anonymous struct)::firstLeafBrush' data-ref="(anonymous)::firstLeafBrush">firstLeafBrush</a>+<a class="local col8 ref" href="#38k" title='k' data-ref="38k">k</a>];</td></tr>
+<tr><th id="251">251</th><td>		<a class="local col1 ref" href="#41b" title='b' data-ref="41b">b</a> = &amp;<a class="ref" href="cm_local.h.html#cm" title='cm' data-ref="cm">cm</a>.<a class="ref" href="cm_local.h.html#(anonymous)::brushes" title='(anonymous struct)::brushes' data-ref="(anonymous)::brushes">brushes</a>[<a class="local col9 ref" href="#39brushnum" title='brushnum' data-ref="39brushnum">brushnum</a>];</td></tr>
+<tr><th id="252">252</th><td></td></tr>
+<tr><th id="253">253</th><td>		<b>if</b> ( !<a class="ref" href="#CM_BoundsIntersectPoint" title='CM_BoundsIntersectPoint' data-ref="CM_BoundsIntersectPoint">CM_BoundsIntersectPoint</a>( <a class="local col1 ref" href="#41b" title='b' data-ref="41b">b</a>-&gt;<a class="ref" href="cm_local.h.html#(anonymous)::bounds" title='(anonymous struct)::bounds' data-ref="(anonymous)::bounds">bounds</a>[<var>0</var>], <a class="local col1 ref" href="#41b" title='b' data-ref="41b">b</a>-&gt;<a class="ref" href="cm_local.h.html#(anonymous)::bounds" title='(anonymous struct)::bounds' data-ref="(anonymous)::bounds">bounds</a>[<var>1</var>], <a class="local col4 ref" href="#34p" title='p' data-ref="34p">p</a> ) ) {</td></tr>
+<tr><th id="254">254</th><td>			<b>continue</b>;</td></tr>
+<tr><th id="255">255</th><td>		}</td></tr>
+<tr><th id="256">256</th><td></td></tr>
+<tr><th id="257">257</th><td>		<i>// see if the point is in the brush</i></td></tr>
+<tr><th id="258">258</th><td>		<b>for</b> ( <a class="local col7 ref" href="#37i" title='i' data-ref="37i">i</a> = <var>0</var> ; <a class="local col7 ref" href="#37i" title='i' data-ref="37i">i</a> &lt; <a class="local col1 ref" href="#41b" title='b' data-ref="41b">b</a>-&gt;<a class="ref" href="cm_local.h.html#(anonymous)::numsides" title='(anonymous struct)::numsides' data-ref="(anonymous)::numsides">numsides</a> ; <a class="local col7 ref" href="#37i" title='i' data-ref="37i">i</a>++ ) {</td></tr>
+<tr><th id="259">259</th><td>			<a class="local col3 ref" href="#43d" title='d' data-ref="43d">d</a> = <a class="macro" href="q_shared.h.html#542" title="((p)[0]*(b-&gt;sides[i].plane-&gt;normal)[0]+(p)[1]*(b-&gt;sides[i].plane-&gt;normal)[1]+(p)[2]*(b-&gt;sides[i].plane-&gt;normal)[2])" data-ref="_M/DotProduct">DotProduct</a>( <a class="local col4 ref" href="#34p" title='p' data-ref="34p">p</a>, <a class="local col1 ref" href="#41b" title='b' data-ref="41b">b</a>-&gt;<a class="ref" href="cm_local.h.html#(anonymous)::sides" title='(anonymous struct)::sides' data-ref="(anonymous)::sides">sides</a>[<a class="local col7 ref" href="#37i" title='i' data-ref="37i">i</a>].<a class="ref" href="cm_local.h.html#(anonymous)::plane" title='(anonymous struct)::plane' data-ref="(anonymous)::plane">plane</a>-&gt;<a class="ref" href="q_shared.h.html#cplane_s::normal" title='cplane_s::normal' data-ref="cplane_s::normal">normal</a> );</td></tr>
+<tr><th id="260">260</th><td><i>// FIXME test for Cash</i></td></tr>
+<tr><th id="261">261</th><td><i>//			if ( d &gt;= b-&gt;sides[i].plane-&gt;dist ) {</i></td></tr>
+<tr><th id="262">262</th><td>			<b>if</b> ( <a class="local col3 ref" href="#43d" title='d' data-ref="43d">d</a> &gt; <a class="local col1 ref" href="#41b" title='b' data-ref="41b">b</a>-&gt;<a class="ref" href="cm_local.h.html#(anonymous)::sides" title='(anonymous struct)::sides' data-ref="(anonymous)::sides">sides</a>[<a class="local col7 ref" href="#37i" title='i' data-ref="37i">i</a>].<a class="ref" href="cm_local.h.html#(anonymous)::plane" title='(anonymous struct)::plane' data-ref="(anonymous)::plane">plane</a>-&gt;<a class="ref" href="q_shared.h.html#cplane_s::dist" title='cplane_s::dist' data-ref="cplane_s::dist">dist</a> ) {</td></tr>
+<tr><th id="263">263</th><td>				<b>break</b>;</td></tr>
+<tr><th id="264">264</th><td>			}</td></tr>
+<tr><th id="265">265</th><td>		}</td></tr>
+<tr><th id="266">266</th><td></td></tr>
+<tr><th id="267">267</th><td>		<b>if</b> ( <a class="local col7 ref" href="#37i" title='i' data-ref="37i">i</a> == <a class="local col1 ref" href="#41b" title='b' data-ref="41b">b</a>-&gt;<a class="ref" href="cm_local.h.html#(anonymous)::numsides" title='(anonymous struct)::numsides' data-ref="(anonymous)::numsides">numsides</a> ) {</td></tr>
+<tr><th id="268">268</th><td>			<a class="local col2 ref" href="#42contents" title='contents' data-ref="42contents">contents</a> |= <a class="local col1 ref" href="#41b" title='b' data-ref="41b">b</a>-&gt;<a class="ref" href="cm_local.h.html#(anonymous)::contents" title='(anonymous struct)::contents' data-ref="(anonymous)::contents">contents</a>;</td></tr>
+<tr><th id="269">269</th><td>		}</td></tr>
+<tr><th id="270">270</th><td>	}</td></tr>
+<tr><th id="271">271</th><td></td></tr>
+<tr><th id="272">272</th><td>	<b>return</b> <a class="local col2 ref" href="#42contents" title='contents' data-ref="42contents">contents</a>;</td></tr>
+<tr><th id="273">273</th><td>}</td></tr>
+<tr><th id="274">274</th><td></td></tr>
+<tr><th id="275">275</th><td><i>/*</i></td></tr>
+<tr><th id="276">276</th><td><i>==================</i></td></tr>
+<tr><th id="277">277</th><td><i>CM_TransformedPointContents</i></td></tr>
+<tr><th id="278">278</th><td><i></i></td></tr>
+<tr><th id="279">279</th><td><i>Handles offseting and rotation of the end points for moving and</i></td></tr>
+<tr><th id="280">280</th><td><i>rotating entities</i></td></tr>
+<tr><th id="281">281</th><td><i>==================</i></td></tr>
+<tr><th id="282">282</th><td><i>*/</i></td></tr>
+<tr><th id="283">283</th><td><em>int</em>	<dfn class="decl def" id="CM_TransformedPointContents" title='CM_TransformedPointContents' data-ref="CM_TransformedPointContents">CM_TransformedPointContents</dfn>( <em>const</em> <a class="typedef" href="q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="local col5 decl" id="45p" title='p' data-type='const vec_t *' data-ref="45p">p</dfn>, <a class="typedef" href="q_shared.h.html#clipHandle_t" title='clipHandle_t' data-type='int' data-ref="clipHandle_t">clipHandle_t</a> <dfn class="local col6 decl" id="46model" title='model' data-type='clipHandle_t' data-ref="46model">model</dfn>, <em>const</em> <a class="typedef" href="q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="local col7 decl" id="47origin" title='origin' data-type='const vec_t *' data-ref="47origin">origin</dfn>, <em>const</em> <a class="typedef" href="q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="local col8 decl" id="48angles" title='angles' data-type='const vec_t *' data-ref="48angles">angles</dfn>) {</td></tr>
+<tr><th id="284">284</th><td>	<a class="typedef" href="q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a>		<dfn class="local col9 decl" id="49p_l" title='p_l' data-type='vec3_t' data-ref="49p_l">p_l</dfn>;</td></tr>
+<tr><th id="285">285</th><td>	<a class="typedef" href="q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a>		<dfn class="local col0 decl" id="50temp" title='temp' data-type='vec3_t' data-ref="50temp">temp</dfn>;</td></tr>
+<tr><th id="286">286</th><td>	<a class="typedef" href="q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a>		<dfn class="local col1 decl" id="51forward" title='forward' data-type='vec3_t' data-ref="51forward">forward</dfn>, <dfn class="local col2 decl" id="52right" title='right' data-type='vec3_t' data-ref="52right">right</dfn>, <dfn class="local col3 decl" id="53up" title='up' data-type='vec3_t' data-ref="53up">up</dfn>;</td></tr>
+<tr><th id="287">287</th><td></td></tr>
+<tr><th id="288">288</th><td>	<i>// subtract origin offset</i></td></tr>
+<tr><th id="289">289</th><td>	<a class="macro" href="q_shared.h.html#543" title="((p_l)[0]=(p)[0]-(origin)[0],(p_l)[1]=(p)[1]-(origin)[1],(p_l)[2]=(p)[2]-(origin)[2])" data-ref="_M/VectorSubtract">VectorSubtract</a> (<a class="local col5 ref" href="#45p" title='p' data-ref="45p">p</a>, <a class="local col7 ref" href="#47origin" title='origin' data-ref="47origin">origin</a>, <a class="local col9 ref" href="#49p_l" title='p_l' data-ref="49p_l">p_l</a>);</td></tr>
+<tr><th id="290">290</th><td></td></tr>
+<tr><th id="291">291</th><td>	<i>// rotate start and end into the models frame of reference</i></td></tr>
+<tr><th id="292">292</th><td>	<b>if</b> ( <a class="local col6 ref" href="#46model" title='model' data-ref="46model">model</a> != <a class="macro" href="cm_local.h.html#28" title="255" data-ref="_M/BOX_MODEL_HANDLE">BOX_MODEL_HANDLE</a> &amp;&amp; </td></tr>
+<tr><th id="293">293</th><td>	(<a class="local col8 ref" href="#48angles" title='angles' data-ref="48angles">angles</a>[<var>0</var>] || <a class="local col8 ref" href="#48angles" title='angles' data-ref="48angles">angles</a>[<var>1</var>] || <a class="local col8 ref" href="#48angles" title='angles' data-ref="48angles">angles</a>[<var>2</var>]) )</td></tr>
+<tr><th id="294">294</th><td>	{</td></tr>
+<tr><th id="295">295</th><td>		<a class="ref" href="q_shared.h.html#AngleVectors" title='AngleVectors' data-ref="AngleVectors">AngleVectors</a> (<a class="local col8 ref" href="#48angles" title='angles' data-ref="48angles">angles</a>, <a class="local col1 ref" href="#51forward" title='forward' data-ref="51forward">forward</a>, <a class="local col2 ref" href="#52right" title='right' data-ref="52right">right</a>, <a class="local col3 ref" href="#53up" title='up' data-ref="53up">up</a>);</td></tr>
+<tr><th id="296">296</th><td></td></tr>
+<tr><th id="297">297</th><td>		<a class="macro" href="q_shared.h.html#545" title="((temp)[0]=(p_l)[0],(temp)[1]=(p_l)[1],(temp)[2]=(p_l)[2])" data-ref="_M/VectorCopy">VectorCopy</a> (<a class="local col9 ref" href="#49p_l" title='p_l' data-ref="49p_l">p_l</a>, <a class="local col0 ref" href="#50temp" title='temp' data-ref="50temp">temp</a>);</td></tr>
+<tr><th id="298">298</th><td>		<a class="local col9 ref" href="#49p_l" title='p_l' data-ref="49p_l">p_l</a>[<var>0</var>] = <a class="macro" href="q_shared.h.html#542" title="((temp)[0]*(forward)[0]+(temp)[1]*(forward)[1]+(temp)[2]*(forward)[2])" data-ref="_M/DotProduct">DotProduct</a> (<a class="local col0 ref" href="#50temp" title='temp' data-ref="50temp">temp</a>, <a class="local col1 ref" href="#51forward" title='forward' data-ref="51forward">forward</a>);</td></tr>
+<tr><th id="299">299</th><td>		<a class="local col9 ref" href="#49p_l" title='p_l' data-ref="49p_l">p_l</a>[<var>1</var>] = -<a class="macro" href="q_shared.h.html#542" title="((temp)[0]*(right)[0]+(temp)[1]*(right)[1]+(temp)[2]*(right)[2])" data-ref="_M/DotProduct">DotProduct</a> (<a class="local col0 ref" href="#50temp" title='temp' data-ref="50temp">temp</a>, <a class="local col2 ref" href="#52right" title='right' data-ref="52right">right</a>);</td></tr>
+<tr><th id="300">300</th><td>		<a class="local col9 ref" href="#49p_l" title='p_l' data-ref="49p_l">p_l</a>[<var>2</var>] = <a class="macro" href="q_shared.h.html#542" title="((temp)[0]*(up)[0]+(temp)[1]*(up)[1]+(temp)[2]*(up)[2])" data-ref="_M/DotProduct">DotProduct</a> (<a class="local col0 ref" href="#50temp" title='temp' data-ref="50temp">temp</a>, <a class="local col3 ref" href="#53up" title='up' data-ref="53up">up</a>);</td></tr>
+<tr><th id="301">301</th><td>	}</td></tr>
+<tr><th id="302">302</th><td></td></tr>
+<tr><th id="303">303</th><td>	<b>return</b> <a class="ref" href="#CM_PointContents" title='CM_PointContents' data-ref="CM_PointContents">CM_PointContents</a>( <a class="local col9 ref" href="#49p_l" title='p_l' data-ref="49p_l">p_l</a>, <a class="local col6 ref" href="#46model" title='model' data-ref="46model">model</a> );</td></tr>
+<tr><th id="304">304</th><td>}</td></tr>
+<tr><th id="305">305</th><td></td></tr>
+<tr><th id="306">306</th><td></td></tr>
+<tr><th id="307">307</th><td></td></tr>
+<tr><th id="308">308</th><td><i>/*</i></td></tr>
+<tr><th id="309">309</th><td><i>===============================================================================</i></td></tr>
+<tr><th id="310">310</th><td><i></i></td></tr>
+<tr><th id="311">311</th><td><i>PVS</i></td></tr>
+<tr><th id="312">312</th><td><i></i></td></tr>
+<tr><th id="313">313</th><td><i>===============================================================================</i></td></tr>
+<tr><th id="314">314</th><td><i>*/</i></td></tr>
+<tr><th id="315">315</th><td></td></tr>
+<tr><th id="316">316</th><td><a class="typedef" href="q_shared.h.html#byte" title='byte' data-type='unsigned char' data-ref="byte">byte</a>	*<dfn class="decl def" id="CM_ClusterPVS" title='CM_ClusterPVS' data-ref="CM_ClusterPVS">CM_ClusterPVS</dfn> (<em>int</em> <dfn class="local col4 decl" id="54cluster" title='cluster' data-type='int' data-ref="54cluster">cluster</dfn>) {</td></tr>
+<tr><th id="317">317</th><td>	<b>if</b> (<a class="local col4 ref" href="#54cluster" title='cluster' data-ref="54cluster">cluster</a> &lt; <var>0</var> || <a class="local col4 ref" href="#54cluster" title='cluster' data-ref="54cluster">cluster</a> &gt;= <a class="ref" href="cm_local.h.html#cm" title='cm' data-ref="cm">cm</a>.<a class="ref" href="cm_local.h.html#(anonymous)::numClusters" title='(anonymous struct)::numClusters' data-ref="(anonymous)::numClusters">numClusters</a> || !<a class="ref" href="cm_local.h.html#cm" title='cm' data-ref="cm">cm</a>.<a class="ref" href="cm_local.h.html#(anonymous)::vised" title='(anonymous struct)::vised' data-ref="(anonymous)::vised">vised</a> ) {</td></tr>
+<tr><th id="318">318</th><td>		<b>return</b> <a class="ref" href="cm_local.h.html#cm" title='cm' data-ref="cm">cm</a>.<a class="ref" href="cm_local.h.html#(anonymous)::visibility" title='(anonymous struct)::visibility' data-ref="(anonymous)::visibility">visibility</a>;</td></tr>
+<tr><th id="319">319</th><td>	}</td></tr>
+<tr><th id="320">320</th><td></td></tr>
+<tr><th id="321">321</th><td>	<b>return</b> <a class="ref" href="cm_local.h.html#cm" title='cm' data-ref="cm">cm</a>.<a class="ref" href="cm_local.h.html#(anonymous)::visibility" title='(anonymous struct)::visibility' data-ref="(anonymous)::visibility">visibility</a> + <a class="local col4 ref" href="#54cluster" title='cluster' data-ref="54cluster">cluster</a> * <a class="ref" href="cm_local.h.html#cm" title='cm' data-ref="cm">cm</a>.<a class="ref" href="cm_local.h.html#(anonymous)::clusterBytes" title='(anonymous struct)::clusterBytes' data-ref="(anonymous)::clusterBytes">clusterBytes</a>;</td></tr>
+<tr><th id="322">322</th><td>}</td></tr>
+<tr><th id="323">323</th><td></td></tr>
+<tr><th id="324">324</th><td></td></tr>
+<tr><th id="325">325</th><td></td></tr>
+<tr><th id="326">326</th><td><i>/*</i></td></tr>
+<tr><th id="327">327</th><td><i>===============================================================================</i></td></tr>
+<tr><th id="328">328</th><td><i></i></td></tr>
+<tr><th id="329">329</th><td><i>AREAPORTALS</i></td></tr>
+<tr><th id="330">330</th><td><i></i></td></tr>
+<tr><th id="331">331</th><td><i>===============================================================================</i></td></tr>
+<tr><th id="332">332</th><td><i>*/</i></td></tr>
+<tr><th id="333">333</th><td></td></tr>
+<tr><th id="334">334</th><td><em>void</em> <dfn class="decl def" id="CM_FloodArea_r" title='CM_FloodArea_r' data-ref="CM_FloodArea_r">CM_FloodArea_r</dfn>( <em>int</em> <dfn class="local col5 decl" id="55areaNum" title='areaNum' data-type='int' data-ref="55areaNum">areaNum</dfn>, <em>int</em> <dfn class="local col6 decl" id="56floodnum" title='floodnum' data-type='int' data-ref="56floodnum">floodnum</dfn>) {</td></tr>
+<tr><th id="335">335</th><td>	<em>int</em>		<dfn class="local col7 decl" id="57i" title='i' data-type='int' data-ref="57i">i</dfn>;</td></tr>
+<tr><th id="336">336</th><td>	<a class="typedef" href="cm_local.h.html#cArea_t" title='cArea_t' data-type='struct cArea_t' data-ref="cArea_t">cArea_t</a> *<dfn class="local col8 decl" id="58area" title='area' data-type='cArea_t *' data-ref="58area">area</dfn>;</td></tr>
+<tr><th id="337">337</th><td>	<em>int</em>		*<dfn class="local col9 decl" id="59con" title='con' data-type='int *' data-ref="59con">con</dfn>;</td></tr>
+<tr><th id="338">338</th><td></td></tr>
+<tr><th id="339">339</th><td>	<a class="local col8 ref" href="#58area" title='area' data-ref="58area">area</a> = &amp;<a class="ref" href="cm_local.h.html#cm" title='cm' data-ref="cm">cm</a>.<a class="ref" href="cm_local.h.html#(anonymous)::areas" title='(anonymous struct)::areas' data-ref="(anonymous)::areas">areas</a>[ <a class="local col5 ref" href="#55areaNum" title='areaNum' data-ref="55areaNum">areaNum</a> ];</td></tr>
+<tr><th id="340">340</th><td></td></tr>
+<tr><th id="341">341</th><td>	<b>if</b> ( <a class="local col8 ref" href="#58area" title='area' data-ref="58area">area</a>-&gt;<a class="ref" href="cm_local.h.html#(anonymous)::floodvalid" title='(anonymous struct)::floodvalid' data-ref="(anonymous)::floodvalid">floodvalid</a> == <a class="ref" href="cm_local.h.html#cm" title='cm' data-ref="cm">cm</a>.<a class="ref" href="cm_local.h.html#(anonymous)::floodvalid" title='(anonymous struct)::floodvalid' data-ref="(anonymous)::floodvalid">floodvalid</a> ) {</td></tr>
+<tr><th id="342">342</th><td>		<b>if</b> (<a class="local col8 ref" href="#58area" title='area' data-ref="58area">area</a>-&gt;<a class="ref" href="cm_local.h.html#(anonymous)::floodnum" title='(anonymous struct)::floodnum' data-ref="(anonymous)::floodnum">floodnum</a> == <a class="local col6 ref" href="#56floodnum" title='floodnum' data-ref="56floodnum">floodnum</a>)</td></tr>
+<tr><th id="343">343</th><td>			<b>return</b>;</td></tr>
+<tr><th id="344">344</th><td>		<a class="ref" href="q_shared.h.html#Com_Error" title='Com_Error' data-ref="Com_Error">Com_Error</a> (<a class="enum" href="q_shared.h.html#ERR_DROP" title='ERR_DROP' data-ref="ERR_DROP">ERR_DROP</a>, <q>"FloodArea_r: reflooded"</q>);</td></tr>
+<tr><th id="345">345</th><td>	}</td></tr>
+<tr><th id="346">346</th><td></td></tr>
+<tr><th id="347">347</th><td>	<a class="local col8 ref" href="#58area" title='area' data-ref="58area">area</a>-&gt;<a class="ref" href="cm_local.h.html#(anonymous)::floodnum" title='(anonymous struct)::floodnum' data-ref="(anonymous)::floodnum">floodnum</a> = <a class="local col6 ref" href="#56floodnum" title='floodnum' data-ref="56floodnum">floodnum</a>;</td></tr>
+<tr><th id="348">348</th><td>	<a class="local col8 ref" href="#58area" title='area' data-ref="58area">area</a>-&gt;<a class="ref" href="cm_local.h.html#(anonymous)::floodvalid" title='(anonymous struct)::floodvalid' data-ref="(anonymous)::floodvalid">floodvalid</a> = <a class="ref" href="cm_local.h.html#cm" title='cm' data-ref="cm">cm</a>.<a class="ref" href="cm_local.h.html#(anonymous)::floodvalid" title='(anonymous struct)::floodvalid' data-ref="(anonymous)::floodvalid">floodvalid</a>;</td></tr>
+<tr><th id="349">349</th><td>	<a class="local col9 ref" href="#59con" title='con' data-ref="59con">con</a> = <a class="ref" href="cm_local.h.html#cm" title='cm' data-ref="cm">cm</a>.<a class="ref" href="cm_local.h.html#(anonymous)::areaPortals" title='(anonymous struct)::areaPortals' data-ref="(anonymous)::areaPortals">areaPortals</a> + <a class="local col5 ref" href="#55areaNum" title='areaNum' data-ref="55areaNum">areaNum</a> * <a class="ref" href="cm_local.h.html#cm" title='cm' data-ref="cm">cm</a>.<a class="ref" href="cm_local.h.html#(anonymous)::numAreas" title='(anonymous struct)::numAreas' data-ref="(anonymous)::numAreas">numAreas</a>;</td></tr>
+<tr><th id="350">350</th><td>	<b>for</b> ( <a class="local col7 ref" href="#57i" title='i' data-ref="57i">i</a>=<var>0</var> ; <a class="local col7 ref" href="#57i" title='i' data-ref="57i">i</a> &lt; <a class="ref" href="cm_local.h.html#cm" title='cm' data-ref="cm">cm</a>.<a class="ref" href="cm_local.h.html#(anonymous)::numAreas" title='(anonymous struct)::numAreas' data-ref="(anonymous)::numAreas">numAreas</a>  ; <a class="local col7 ref" href="#57i" title='i' data-ref="57i">i</a>++ ) {</td></tr>
+<tr><th id="351">351</th><td>		<b>if</b> ( <a class="local col9 ref" href="#59con" title='con' data-ref="59con">con</a>[<a class="local col7 ref" href="#57i" title='i' data-ref="57i">i</a>] &gt; <var>0</var> ) {</td></tr>
+<tr><th id="352">352</th><td>			<a class="ref" href="#CM_FloodArea_r" title='CM_FloodArea_r' data-ref="CM_FloodArea_r">CM_FloodArea_r</a>( <a class="local col7 ref" href="#57i" title='i' data-ref="57i">i</a>, <a class="local col6 ref" href="#56floodnum" title='floodnum' data-ref="56floodnum">floodnum</a> );</td></tr>
+<tr><th id="353">353</th><td>		}</td></tr>
+<tr><th id="354">354</th><td>	}</td></tr>
+<tr><th id="355">355</th><td>}</td></tr>
+<tr><th id="356">356</th><td></td></tr>
+<tr><th id="357">357</th><td><i>/*</i></td></tr>
+<tr><th id="358">358</th><td><i>====================</i></td></tr>
+<tr><th id="359">359</th><td><i>CM_FloodAreaConnections</i></td></tr>
+<tr><th id="360">360</th><td><i></i></td></tr>
+<tr><th id="361">361</th><td><i>====================</i></td></tr>
+<tr><th id="362">362</th><td><i>*/</i></td></tr>
+<tr><th id="363">363</th><td><em>void</em>	<dfn class="decl def" id="CM_FloodAreaConnections" title='CM_FloodAreaConnections' data-ref="CM_FloodAreaConnections">CM_FloodAreaConnections</dfn>( <em>void</em> ) {</td></tr>
+<tr><th id="364">364</th><td>	<em>int</em>		<dfn class="local col0 decl" id="60i" title='i' data-type='int' data-ref="60i">i</dfn>;</td></tr>
+<tr><th id="365">365</th><td>	<a class="typedef" href="cm_local.h.html#cArea_t" title='cArea_t' data-type='struct cArea_t' data-ref="cArea_t">cArea_t</a>	*<dfn class="local col1 decl" id="61area" title='area' data-type='cArea_t *' data-ref="61area">area</dfn>;</td></tr>
+<tr><th id="366">366</th><td>	<em>int</em>		<dfn class="local col2 decl" id="62floodnum" title='floodnum' data-type='int' data-ref="62floodnum">floodnum</dfn>;</td></tr>
+<tr><th id="367">367</th><td></td></tr>
+<tr><th id="368">368</th><td>	<i>// all current floods are now invalid</i></td></tr>
+<tr><th id="369">369</th><td>	<a class="ref" href="cm_local.h.html#cm" title='cm' data-ref="cm">cm</a>.<a class="ref" href="cm_local.h.html#(anonymous)::floodvalid" title='(anonymous struct)::floodvalid' data-ref="(anonymous)::floodvalid">floodvalid</a>++;</td></tr>
+<tr><th id="370">370</th><td>	<a class="local col2 ref" href="#62floodnum" title='floodnum' data-ref="62floodnum">floodnum</a> = <var>0</var>;</td></tr>
+<tr><th id="371">371</th><td></td></tr>
+<tr><th id="372">372</th><td>	<b>for</b> (<a class="local col0 ref" href="#60i" title='i' data-ref="60i">i</a> = <var>0</var> ; <a class="local col0 ref" href="#60i" title='i' data-ref="60i">i</a> &lt; <a class="ref" href="cm_local.h.html#cm" title='cm' data-ref="cm">cm</a>.<a class="ref" href="cm_local.h.html#(anonymous)::numAreas" title='(anonymous struct)::numAreas' data-ref="(anonymous)::numAreas">numAreas</a> ; <a class="local col0 ref" href="#60i" title='i' data-ref="60i">i</a>++) {</td></tr>
+<tr><th id="373">373</th><td>		<a class="local col1 ref" href="#61area" title='area' data-ref="61area">area</a> = &amp;<a class="ref" href="cm_local.h.html#cm" title='cm' data-ref="cm">cm</a>.<a class="ref" href="cm_local.h.html#(anonymous)::areas" title='(anonymous struct)::areas' data-ref="(anonymous)::areas">areas</a>[<a class="local col0 ref" href="#60i" title='i' data-ref="60i">i</a>];</td></tr>
+<tr><th id="374">374</th><td>		<b>if</b> (<a class="local col1 ref" href="#61area" title='area' data-ref="61area">area</a>-&gt;<a class="ref" href="cm_local.h.html#(anonymous)::floodvalid" title='(anonymous struct)::floodvalid' data-ref="(anonymous)::floodvalid">floodvalid</a> == <a class="ref" href="cm_local.h.html#cm" title='cm' data-ref="cm">cm</a>.<a class="ref" href="cm_local.h.html#(anonymous)::floodvalid" title='(anonymous struct)::floodvalid' data-ref="(anonymous)::floodvalid">floodvalid</a>) {</td></tr>
+<tr><th id="375">375</th><td>			<b>continue</b>;		<i>// already flooded into</i></td></tr>
+<tr><th id="376">376</th><td>		}</td></tr>
+<tr><th id="377">377</th><td>		<a class="local col2 ref" href="#62floodnum" title='floodnum' data-ref="62floodnum">floodnum</a>++;</td></tr>
+<tr><th id="378">378</th><td>		<a class="ref" href="#CM_FloodArea_r" title='CM_FloodArea_r' data-ref="CM_FloodArea_r">CM_FloodArea_r</a> (<a class="local col0 ref" href="#60i" title='i' data-ref="60i">i</a>, <a class="local col2 ref" href="#62floodnum" title='floodnum' data-ref="62floodnum">floodnum</a>);</td></tr>
+<tr><th id="379">379</th><td>	}</td></tr>
+<tr><th id="380">380</th><td></td></tr>
+<tr><th id="381">381</th><td>}</td></tr>
+<tr><th id="382">382</th><td></td></tr>
+<tr><th id="383">383</th><td><i>/*</i></td></tr>
+<tr><th id="384">384</th><td><i>====================</i></td></tr>
+<tr><th id="385">385</th><td><i>CM_AdjustAreaPortalState</i></td></tr>
+<tr><th id="386">386</th><td><i></i></td></tr>
+<tr><th id="387">387</th><td><i>====================</i></td></tr>
+<tr><th id="388">388</th><td><i>*/</i></td></tr>
+<tr><th id="389">389</th><td><em>void</em>	<dfn class="decl def" id="CM_AdjustAreaPortalState" title='CM_AdjustAreaPortalState' data-ref="CM_AdjustAreaPortalState">CM_AdjustAreaPortalState</dfn>( <em>int</em> <dfn class="local col3 decl" id="63area1" title='area1' data-type='int' data-ref="63area1">area1</dfn>, <em>int</em> <dfn class="local col4 decl" id="64area2" title='area2' data-type='int' data-ref="64area2">area2</dfn>, <a class="typedef" href="q_shared.h.html#qboolean" title='qboolean' data-type='enum qboolean' data-ref="qboolean">qboolean</a> <dfn class="local col5 decl" id="65open" title='open' data-type='qboolean' data-ref="65open">open</dfn> ) {</td></tr>
+<tr><th id="390">390</th><td>	<b>if</b> ( <a class="local col3 ref" href="#63area1" title='area1' data-ref="63area1">area1</a> &lt; <var>0</var> || <a class="local col4 ref" href="#64area2" title='area2' data-ref="64area2">area2</a> &lt; <var>0</var> ) {</td></tr>
+<tr><th id="391">391</th><td>		<b>return</b>;</td></tr>
+<tr><th id="392">392</th><td>	}</td></tr>
+<tr><th id="393">393</th><td></td></tr>
+<tr><th id="394">394</th><td>	<b>if</b> ( <a class="local col3 ref" href="#63area1" title='area1' data-ref="63area1">area1</a> &gt;= <a class="ref" href="cm_local.h.html#cm" title='cm' data-ref="cm">cm</a>.<a class="ref" href="cm_local.h.html#(anonymous)::numAreas" title='(anonymous struct)::numAreas' data-ref="(anonymous)::numAreas">numAreas</a> || <a class="local col4 ref" href="#64area2" title='area2' data-ref="64area2">area2</a> &gt;= <a class="ref" href="cm_local.h.html#cm" title='cm' data-ref="cm">cm</a>.<a class="ref" href="cm_local.h.html#(anonymous)::numAreas" title='(anonymous struct)::numAreas' data-ref="(anonymous)::numAreas">numAreas</a> ) {</td></tr>
+<tr><th id="395">395</th><td>		<a class="ref" href="q_shared.h.html#Com_Error" title='Com_Error' data-ref="Com_Error">Com_Error</a> (<a class="enum" href="q_shared.h.html#ERR_DROP" title='ERR_DROP' data-ref="ERR_DROP">ERR_DROP</a>, <q>"CM_ChangeAreaPortalState: bad area number"</q>);</td></tr>
+<tr><th id="396">396</th><td>	}</td></tr>
+<tr><th id="397">397</th><td></td></tr>
+<tr><th id="398">398</th><td>	<b>if</b> ( <a class="local col5 ref" href="#65open" title='open' data-ref="65open">open</a> ) {</td></tr>
+<tr><th id="399">399</th><td>		<a class="ref" href="cm_local.h.html#cm" title='cm' data-ref="cm">cm</a>.<a class="ref" href="cm_local.h.html#(anonymous)::areaPortals" title='(anonymous struct)::areaPortals' data-ref="(anonymous)::areaPortals">areaPortals</a>[ <a class="local col3 ref" href="#63area1" title='area1' data-ref="63area1">area1</a> * <a class="ref" href="cm_local.h.html#cm" title='cm' data-ref="cm">cm</a>.<a class="ref" href="cm_local.h.html#(anonymous)::numAreas" title='(anonymous struct)::numAreas' data-ref="(anonymous)::numAreas">numAreas</a> + <a class="local col4 ref" href="#64area2" title='area2' data-ref="64area2">area2</a> ]++;</td></tr>
+<tr><th id="400">400</th><td>		<a class="ref" href="cm_local.h.html#cm" title='cm' data-ref="cm">cm</a>.<a class="ref" href="cm_local.h.html#(anonymous)::areaPortals" title='(anonymous struct)::areaPortals' data-ref="(anonymous)::areaPortals">areaPortals</a>[ <a class="local col4 ref" href="#64area2" title='area2' data-ref="64area2">area2</a> * <a class="ref" href="cm_local.h.html#cm" title='cm' data-ref="cm">cm</a>.<a class="ref" href="cm_local.h.html#(anonymous)::numAreas" title='(anonymous struct)::numAreas' data-ref="(anonymous)::numAreas">numAreas</a> + <a class="local col3 ref" href="#63area1" title='area1' data-ref="63area1">area1</a> ]++;</td></tr>
+<tr><th id="401">401</th><td>	} <b>else</b> {</td></tr>
+<tr><th id="402">402</th><td>		<a class="ref" href="cm_local.h.html#cm" title='cm' data-ref="cm">cm</a>.<a class="ref" href="cm_local.h.html#(anonymous)::areaPortals" title='(anonymous struct)::areaPortals' data-ref="(anonymous)::areaPortals">areaPortals</a>[ <a class="local col3 ref" href="#63area1" title='area1' data-ref="63area1">area1</a> * <a class="ref" href="cm_local.h.html#cm" title='cm' data-ref="cm">cm</a>.<a class="ref" href="cm_local.h.html#(anonymous)::numAreas" title='(anonymous struct)::numAreas' data-ref="(anonymous)::numAreas">numAreas</a> + <a class="local col4 ref" href="#64area2" title='area2' data-ref="64area2">area2</a> ]--;</td></tr>
+<tr><th id="403">403</th><td>		<a class="ref" href="cm_local.h.html#cm" title='cm' data-ref="cm">cm</a>.<a class="ref" href="cm_local.h.html#(anonymous)::areaPortals" title='(anonymous struct)::areaPortals' data-ref="(anonymous)::areaPortals">areaPortals</a>[ <a class="local col4 ref" href="#64area2" title='area2' data-ref="64area2">area2</a> * <a class="ref" href="cm_local.h.html#cm" title='cm' data-ref="cm">cm</a>.<a class="ref" href="cm_local.h.html#(anonymous)::numAreas" title='(anonymous struct)::numAreas' data-ref="(anonymous)::numAreas">numAreas</a> + <a class="local col3 ref" href="#63area1" title='area1' data-ref="63area1">area1</a> ]--;</td></tr>
+<tr><th id="404">404</th><td>		<b>if</b> ( <a class="ref" href="cm_local.h.html#cm" title='cm' data-ref="cm">cm</a>.<a class="ref" href="cm_local.h.html#(anonymous)::areaPortals" title='(anonymous struct)::areaPortals' data-ref="(anonymous)::areaPortals">areaPortals</a>[ <a class="local col4 ref" href="#64area2" title='area2' data-ref="64area2">area2</a> * <a class="ref" href="cm_local.h.html#cm" title='cm' data-ref="cm">cm</a>.<a class="ref" href="cm_local.h.html#(anonymous)::numAreas" title='(anonymous struct)::numAreas' data-ref="(anonymous)::numAreas">numAreas</a> + <a class="local col3 ref" href="#63area1" title='area1' data-ref="63area1">area1</a> ] &lt; <var>0</var> ) {</td></tr>
+<tr><th id="405">405</th><td>			<a class="ref" href="q_shared.h.html#Com_Error" title='Com_Error' data-ref="Com_Error">Com_Error</a> (<a class="enum" href="q_shared.h.html#ERR_DROP" title='ERR_DROP' data-ref="ERR_DROP">ERR_DROP</a>, <q>"CM_AdjustAreaPortalState: negative reference count"</q>);</td></tr>
+<tr><th id="406">406</th><td>		}</td></tr>
+<tr><th id="407">407</th><td>	}</td></tr>
+<tr><th id="408">408</th><td></td></tr>
+<tr><th id="409">409</th><td>	<a class="ref" href="#CM_FloodAreaConnections" title='CM_FloodAreaConnections' data-ref="CM_FloodAreaConnections">CM_FloodAreaConnections</a> ();</td></tr>
+<tr><th id="410">410</th><td>}</td></tr>
+<tr><th id="411">411</th><td></td></tr>
+<tr><th id="412">412</th><td><i>/*</i></td></tr>
+<tr><th id="413">413</th><td><i>====================</i></td></tr>
+<tr><th id="414">414</th><td><i>CM_AreasConnected</i></td></tr>
+<tr><th id="415">415</th><td><i></i></td></tr>
+<tr><th id="416">416</th><td><i>====================</i></td></tr>
+<tr><th id="417">417</th><td><i>*/</i></td></tr>
+<tr><th id="418">418</th><td><a class="typedef" href="q_shared.h.html#qboolean" title='qboolean' data-type='enum qboolean' data-ref="qboolean">qboolean</a>	<dfn class="decl def" id="CM_AreasConnected" title='CM_AreasConnected' data-ref="CM_AreasConnected">CM_AreasConnected</dfn>( <em>int</em> <dfn class="local col6 decl" id="66area1" title='area1' data-type='int' data-ref="66area1">area1</dfn>, <em>int</em> <dfn class="local col7 decl" id="67area2" title='area2' data-type='int' data-ref="67area2">area2</dfn> ) {</td></tr>
+<tr><th id="419">419</th><td><u>#<span data-ppcond="419">ifndef</span> <span class="macro" data-ref="_M/BSPC">BSPC</span></u></td></tr>
+<tr><th id="420">420</th><td>	<b>if</b> ( <a class="ref" href="cm_local.h.html#cm_noAreas" title='cm_noAreas' data-ref="cm_noAreas">cm_noAreas</a>-&gt;<a class="ref" href="q_shared.h.html#cvar_s::integer" title='cvar_s::integer' data-ref="cvar_s::integer">integer</a> ) {</td></tr>
+<tr><th id="421">421</th><td>		<b>return</b> <a class="enum" href="q_shared.h.html#qtrue" title='qtrue' data-ref="qtrue">qtrue</a>;</td></tr>
+<tr><th id="422">422</th><td>	}</td></tr>
+<tr><th id="423">423</th><td><u>#<span data-ppcond="419">endif</span></u></td></tr>
+<tr><th id="424">424</th><td></td></tr>
+<tr><th id="425">425</th><td>	<b>if</b> ( <a class="local col6 ref" href="#66area1" title='area1' data-ref="66area1">area1</a> &lt; <var>0</var> || <a class="local col7 ref" href="#67area2" title='area2' data-ref="67area2">area2</a> &lt; <var>0</var> ) {</td></tr>
+<tr><th id="426">426</th><td>		<b>return</b> <a class="enum" href="q_shared.h.html#qfalse" title='qfalse' data-ref="qfalse">qfalse</a>;</td></tr>
+<tr><th id="427">427</th><td>	}</td></tr>
+<tr><th id="428">428</th><td></td></tr>
+<tr><th id="429">429</th><td>	<b>if</b> (<a class="local col6 ref" href="#66area1" title='area1' data-ref="66area1">area1</a> &gt;= <a class="ref" href="cm_local.h.html#cm" title='cm' data-ref="cm">cm</a>.<a class="ref" href="cm_local.h.html#(anonymous)::numAreas" title='(anonymous struct)::numAreas' data-ref="(anonymous)::numAreas">numAreas</a> || <a class="local col7 ref" href="#67area2" title='area2' data-ref="67area2">area2</a> &gt;= <a class="ref" href="cm_local.h.html#cm" title='cm' data-ref="cm">cm</a>.<a class="ref" href="cm_local.h.html#(anonymous)::numAreas" title='(anonymous struct)::numAreas' data-ref="(anonymous)::numAreas">numAreas</a>) {</td></tr>
+<tr><th id="430">430</th><td>		<a class="ref" href="q_shared.h.html#Com_Error" title='Com_Error' data-ref="Com_Error">Com_Error</a> (<a class="enum" href="q_shared.h.html#ERR_DROP" title='ERR_DROP' data-ref="ERR_DROP">ERR_DROP</a>, <q>"area &gt;= cm.numAreas"</q>);</td></tr>
+<tr><th id="431">431</th><td>	}</td></tr>
+<tr><th id="432">432</th><td></td></tr>
+<tr><th id="433">433</th><td>	<b>if</b> (<a class="ref" href="cm_local.h.html#cm" title='cm' data-ref="cm">cm</a>.<a class="ref" href="cm_local.h.html#(anonymous)::areas" title='(anonymous struct)::areas' data-ref="(anonymous)::areas">areas</a>[<a class="local col6 ref" href="#66area1" title='area1' data-ref="66area1">area1</a>].<a class="ref" href="cm_local.h.html#(anonymous)::floodnum" title='(anonymous struct)::floodnum' data-ref="(anonymous)::floodnum">floodnum</a> == <a class="ref" href="cm_local.h.html#cm" title='cm' data-ref="cm">cm</a>.<a class="ref" href="cm_local.h.html#(anonymous)::areas" title='(anonymous struct)::areas' data-ref="(anonymous)::areas">areas</a>[<a class="local col7 ref" href="#67area2" title='area2' data-ref="67area2">area2</a>].<a class="ref" href="cm_local.h.html#(anonymous)::floodnum" title='(anonymous struct)::floodnum' data-ref="(anonymous)::floodnum">floodnum</a>) {</td></tr>
+<tr><th id="434">434</th><td>		<b>return</b> <a class="enum" href="q_shared.h.html#qtrue" title='qtrue' data-ref="qtrue">qtrue</a>;</td></tr>
+<tr><th id="435">435</th><td>	}</td></tr>
+<tr><th id="436">436</th><td>	<b>return</b> <a class="enum" href="q_shared.h.html#qfalse" title='qfalse' data-ref="qfalse">qfalse</a>;</td></tr>
+<tr><th id="437">437</th><td>}</td></tr>
+<tr><th id="438">438</th><td></td></tr>
+<tr><th id="439">439</th><td></td></tr>
+<tr><th id="440">440</th><td><i>/*</i></td></tr>
+<tr><th id="441">441</th><td><i>=================</i></td></tr>
+<tr><th id="442">442</th><td><i>CM_WriteAreaBits</i></td></tr>
+<tr><th id="443">443</th><td><i></i></td></tr>
+<tr><th id="444">444</th><td><i>Writes a bit vector of all the areas</i></td></tr>
+<tr><th id="445">445</th><td><i>that are in the same flood as the area parameter</i></td></tr>
+<tr><th id="446">446</th><td><i>Returns the number of bytes needed to hold all the bits.</i></td></tr>
+<tr><th id="447">447</th><td><i></i></td></tr>
+<tr><th id="448">448</th><td><i>The bits are OR'd in, so you can CM_WriteAreaBits from multiple</i></td></tr>
+<tr><th id="449">449</th><td><i>viewpoints and get the union of all visible areas.</i></td></tr>
+<tr><th id="450">450</th><td><i></i></td></tr>
+<tr><th id="451">451</th><td><i>This is used to cull non-visible entities from snapshots</i></td></tr>
+<tr><th id="452">452</th><td><i>=================</i></td></tr>
+<tr><th id="453">453</th><td><i>*/</i></td></tr>
+<tr><th id="454">454</th><td><em>int</em> <dfn class="decl def" id="CM_WriteAreaBits" title='CM_WriteAreaBits' data-ref="CM_WriteAreaBits">CM_WriteAreaBits</dfn> (<a class="typedef" href="q_shared.h.html#byte" title='byte' data-type='unsigned char' data-ref="byte">byte</a> *<dfn class="local col8 decl" id="68buffer" title='buffer' data-type='byte *' data-ref="68buffer">buffer</dfn>, <em>int</em> <dfn class="local col9 decl" id="69area" title='area' data-type='int' data-ref="69area">area</dfn>)</td></tr>
+<tr><th id="455">455</th><td>{</td></tr>
+<tr><th id="456">456</th><td>	<em>int</em>		<dfn class="local col0 decl" id="70i" title='i' data-type='int' data-ref="70i">i</dfn>;</td></tr>
+<tr><th id="457">457</th><td>	<em>int</em>		<dfn class="local col1 decl" id="71floodnum" title='floodnum' data-type='int' data-ref="71floodnum">floodnum</dfn>;</td></tr>
+<tr><th id="458">458</th><td>	<em>int</em>		<dfn class="local col2 decl" id="72bytes" title='bytes' data-type='int' data-ref="72bytes">bytes</dfn>;</td></tr>
+<tr><th id="459">459</th><td></td></tr>
+<tr><th id="460">460</th><td>	<a class="local col2 ref" href="#72bytes" title='bytes' data-ref="72bytes">bytes</a> = (<a class="ref" href="cm_local.h.html#cm" title='cm' data-ref="cm">cm</a>.<a class="ref" href="cm_local.h.html#(anonymous)::numAreas" title='(anonymous struct)::numAreas' data-ref="(anonymous)::numAreas">numAreas</a>+<var>7</var>)&gt;&gt;<var>3</var>;</td></tr>
+<tr><th id="461">461</th><td></td></tr>
+<tr><th id="462">462</th><td><u>#<span data-ppcond="462">ifndef</span> <span class="macro" data-ref="_M/BSPC">BSPC</span></u></td></tr>
+<tr><th id="463">463</th><td>	<b>if</b> (<a class="ref" href="cm_local.h.html#cm_noAreas" title='cm_noAreas' data-ref="cm_noAreas">cm_noAreas</a>-&gt;<a class="ref" href="q_shared.h.html#cvar_s::integer" title='cvar_s::integer' data-ref="cvar_s::integer">integer</a> || <a class="local col9 ref" href="#69area" title='area' data-ref="69area">area</a> == -<var>1</var>)</td></tr>
+<tr><th id="464">464</th><td><u>#<span data-ppcond="462">else</span></u></td></tr>
+<tr><th id="465">465</th><td>	<b>if</b> ( area == -<var>1</var>)</td></tr>
+<tr><th id="466">466</th><td><u>#<span data-ppcond="462">endif</span></u></td></tr>
+<tr><th id="467">467</th><td>	{	<i>// for debugging, send everything</i></td></tr>
+<tr><th id="468">468</th><td>		<a class="macro" href="q_shared.h.html#344" title="memset" data-ref="_M/Com_Memset">Com_Memset</a> (<a class="local col8 ref" href="#68buffer" title='buffer' data-ref="68buffer">buffer</a>, <var>255</var>, <a class="local col2 ref" href="#72bytes" title='bytes' data-ref="72bytes">bytes</a>);</td></tr>
+<tr><th id="469">469</th><td>	}</td></tr>
+<tr><th id="470">470</th><td>	<b>else</b></td></tr>
+<tr><th id="471">471</th><td>	{</td></tr>
+<tr><th id="472">472</th><td>		<a class="local col1 ref" href="#71floodnum" title='floodnum' data-ref="71floodnum">floodnum</a> = <a class="ref" href="cm_local.h.html#cm" title='cm' data-ref="cm">cm</a>.<a class="ref" href="cm_local.h.html#(anonymous)::areas" title='(anonymous struct)::areas' data-ref="(anonymous)::areas">areas</a>[<a class="local col9 ref" href="#69area" title='area' data-ref="69area">area</a>].<a class="ref" href="cm_local.h.html#(anonymous)::floodnum" title='(anonymous struct)::floodnum' data-ref="(anonymous)::floodnum">floodnum</a>;</td></tr>
+<tr><th id="473">473</th><td>		<b>for</b> (<a class="local col0 ref" href="#70i" title='i' data-ref="70i">i</a>=<var>0</var> ; <a class="local col0 ref" href="#70i" title='i' data-ref="70i">i</a>&lt;<a class="ref" href="cm_local.h.html#cm" title='cm' data-ref="cm">cm</a>.<a class="ref" href="cm_local.h.html#(anonymous)::numAreas" title='(anonymous struct)::numAreas' data-ref="(anonymous)::numAreas">numAreas</a> ; <a class="local col0 ref" href="#70i" title='i' data-ref="70i">i</a>++)</td></tr>
+<tr><th id="474">474</th><td>		{</td></tr>
+<tr><th id="475">475</th><td>			<b>if</b> (<a class="ref" href="cm_local.h.html#cm" title='cm' data-ref="cm">cm</a>.<a class="ref" href="cm_local.h.html#(anonymous)::areas" title='(anonymous struct)::areas' data-ref="(anonymous)::areas">areas</a>[<a class="local col0 ref" href="#70i" title='i' data-ref="70i">i</a>].<a class="ref" href="cm_local.h.html#(anonymous)::floodnum" title='(anonymous struct)::floodnum' data-ref="(anonymous)::floodnum">floodnum</a> == <a class="local col1 ref" href="#71floodnum" title='floodnum' data-ref="71floodnum">floodnum</a> || <a class="local col9 ref" href="#69area" title='area' data-ref="69area">area</a> == -<var>1</var>)</td></tr>
+<tr><th id="476">476</th><td>				<a class="local col8 ref" href="#68buffer" title='buffer' data-ref="68buffer">buffer</a>[<a class="local col0 ref" href="#70i" title='i' data-ref="70i">i</a>&gt;&gt;<var>3</var>] |= <var>1</var>&lt;&lt;(<a class="local col0 ref" href="#70i" title='i' data-ref="70i">i</a>&amp;<var>7</var>);</td></tr>
+<tr><th id="477">477</th><td>		}</td></tr>
+<tr><th id="478">478</th><td>	}</td></tr>
+<tr><th id="479">479</th><td></td></tr>
+<tr><th id="480">480</th><td>	<b>return</b> <a class="local col2 ref" href="#72bytes" title='bytes' data-ref="72bytes">bytes</a>;</td></tr>
+<tr><th id="481">481</th><td>}</td></tr>
+<tr><th id="482">482</th><td></td></tr>
+<tr><th id="483">483</th><td><i>/*</i></td></tr>
+<tr><th id="484">484</th><td><i>====================</i></td></tr>
+<tr><th id="485">485</th><td><i>CM_BoundsIntersect</i></td></tr>
+<tr><th id="486">486</th><td><i>====================</i></td></tr>
+<tr><th id="487">487</th><td><i>*/</i></td></tr>
+<tr><th id="488">488</th><td><a class="typedef" href="q_shared.h.html#qboolean" title='qboolean' data-type='enum qboolean' data-ref="qboolean">qboolean</a> <dfn class="decl def" id="CM_BoundsIntersect" title='CM_BoundsIntersect' data-ref="CM_BoundsIntersect">CM_BoundsIntersect</dfn>( <em>const</em> <a class="typedef" href="q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="local col3 decl" id="73mins" title='mins' data-type='const vec_t *' data-ref="73mins">mins</dfn>, <em>const</em> <a class="typedef" href="q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="local col4 decl" id="74maxs" title='maxs' data-type='const vec_t *' data-ref="74maxs">maxs</dfn>, <em>const</em> <a class="typedef" href="q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="local col5 decl" id="75mins2" title='mins2' data-type='const vec_t *' data-ref="75mins2">mins2</dfn>, <em>const</em> <a class="typedef" href="q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="local col6 decl" id="76maxs2" title='maxs2' data-type='const vec_t *' data-ref="76maxs2">maxs2</dfn> )</td></tr>
+<tr><th id="489">489</th><td>{</td></tr>
+<tr><th id="490">490</th><td>	<b>if</b> (<a class="local col4 ref" href="#74maxs" title='maxs' data-ref="74maxs">maxs</a>[<var>0</var>] &lt; <a class="local col5 ref" href="#75mins2" title='mins2' data-ref="75mins2">mins2</a>[<var>0</var>] - <a class="macro" href="cm_local.h.html#134" title="(0.125)" data-ref="_M/SURFACE_CLIP_EPSILON">SURFACE_CLIP_EPSILON</a> ||</td></tr>
+<tr><th id="491">491</th><td>		<a class="local col4 ref" href="#74maxs" title='maxs' data-ref="74maxs">maxs</a>[<var>1</var>] &lt; <a class="local col5 ref" href="#75mins2" title='mins2' data-ref="75mins2">mins2</a>[<var>1</var>] - <a class="macro" href="cm_local.h.html#134" title="(0.125)" data-ref="_M/SURFACE_CLIP_EPSILON">SURFACE_CLIP_EPSILON</a> ||</td></tr>
+<tr><th id="492">492</th><td>		<a class="local col4 ref" href="#74maxs" title='maxs' data-ref="74maxs">maxs</a>[<var>2</var>] &lt; <a class="local col5 ref" href="#75mins2" title='mins2' data-ref="75mins2">mins2</a>[<var>2</var>] - <a class="macro" href="cm_local.h.html#134" title="(0.125)" data-ref="_M/SURFACE_CLIP_EPSILON">SURFACE_CLIP_EPSILON</a> ||</td></tr>
+<tr><th id="493">493</th><td>		<a class="local col3 ref" href="#73mins" title='mins' data-ref="73mins">mins</a>[<var>0</var>] &gt; <a class="local col6 ref" href="#76maxs2" title='maxs2' data-ref="76maxs2">maxs2</a>[<var>0</var>] + <a class="macro" href="cm_local.h.html#134" title="(0.125)" data-ref="_M/SURFACE_CLIP_EPSILON">SURFACE_CLIP_EPSILON</a> ||</td></tr>
+<tr><th id="494">494</th><td>		<a class="local col3 ref" href="#73mins" title='mins' data-ref="73mins">mins</a>[<var>1</var>] &gt; <a class="local col6 ref" href="#76maxs2" title='maxs2' data-ref="76maxs2">maxs2</a>[<var>1</var>] + <a class="macro" href="cm_local.h.html#134" title="(0.125)" data-ref="_M/SURFACE_CLIP_EPSILON">SURFACE_CLIP_EPSILON</a> ||</td></tr>
+<tr><th id="495">495</th><td>		<a class="local col3 ref" href="#73mins" title='mins' data-ref="73mins">mins</a>[<var>2</var>] &gt; <a class="local col6 ref" href="#76maxs2" title='maxs2' data-ref="76maxs2">maxs2</a>[<var>2</var>] + <a class="macro" href="cm_local.h.html#134" title="(0.125)" data-ref="_M/SURFACE_CLIP_EPSILON">SURFACE_CLIP_EPSILON</a>)</td></tr>
+<tr><th id="496">496</th><td>	{</td></tr>
+<tr><th id="497">497</th><td>		<b>return</b> <a class="enum" href="q_shared.h.html#qfalse" title='qfalse' data-ref="qfalse">qfalse</a>;</td></tr>
+<tr><th id="498">498</th><td>	}</td></tr>
+<tr><th id="499">499</th><td></td></tr>
+<tr><th id="500">500</th><td>	<b>return</b> <a class="enum" href="q_shared.h.html#qtrue" title='qtrue' data-ref="qtrue">qtrue</a>;</td></tr>
+<tr><th id="501">501</th><td>}</td></tr>
+<tr><th id="502">502</th><td></td></tr>
+<tr><th id="503">503</th><td><i>/*</i></td></tr>
+<tr><th id="504">504</th><td><i>====================</i></td></tr>
+<tr><th id="505">505</th><td><i>CM_BoundsIntersectPoint</i></td></tr>
+<tr><th id="506">506</th><td><i>====================</i></td></tr>
+<tr><th id="507">507</th><td><i>*/</i></td></tr>
+<tr><th id="508">508</th><td><a class="typedef" href="q_shared.h.html#qboolean" title='qboolean' data-type='enum qboolean' data-ref="qboolean">qboolean</a> <dfn class="decl def" id="CM_BoundsIntersectPoint" title='CM_BoundsIntersectPoint' data-ref="CM_BoundsIntersectPoint">CM_BoundsIntersectPoint</dfn>( <em>const</em> <a class="typedef" href="q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="local col7 decl" id="77mins" title='mins' data-type='const vec_t *' data-ref="77mins">mins</dfn>, <em>const</em> <a class="typedef" href="q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="local col8 decl" id="78maxs" title='maxs' data-type='const vec_t *' data-ref="78maxs">maxs</dfn>, <em>const</em> <a class="typedef" href="q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="local col9 decl" id="79point" title='point' data-type='const vec_t *' data-ref="79point">point</dfn> )</td></tr>
+<tr><th id="509">509</th><td>{</td></tr>
+<tr><th id="510">510</th><td>	<b>if</b> (<a class="local col8 ref" href="#78maxs" title='maxs' data-ref="78maxs">maxs</a>[<var>0</var>] &lt; <a class="local col9 ref" href="#79point" title='point' data-ref="79point">point</a>[<var>0</var>] - <a class="macro" href="cm_local.h.html#134" title="(0.125)" data-ref="_M/SURFACE_CLIP_EPSILON">SURFACE_CLIP_EPSILON</a> ||</td></tr>
+<tr><th id="511">511</th><td>		<a class="local col8 ref" href="#78maxs" title='maxs' data-ref="78maxs">maxs</a>[<var>1</var>] &lt; <a class="local col9 ref" href="#79point" title='point' data-ref="79point">point</a>[<var>1</var>] - <a class="macro" href="cm_local.h.html#134" title="(0.125)" data-ref="_M/SURFACE_CLIP_EPSILON">SURFACE_CLIP_EPSILON</a> ||</td></tr>
+<tr><th id="512">512</th><td>		<a class="local col8 ref" href="#78maxs" title='maxs' data-ref="78maxs">maxs</a>[<var>2</var>] &lt; <a class="local col9 ref" href="#79point" title='point' data-ref="79point">point</a>[<var>2</var>] - <a class="macro" href="cm_local.h.html#134" title="(0.125)" data-ref="_M/SURFACE_CLIP_EPSILON">SURFACE_CLIP_EPSILON</a> ||</td></tr>
+<tr><th id="513">513</th><td>		<a class="local col7 ref" href="#77mins" title='mins' data-ref="77mins">mins</a>[<var>0</var>] &gt; <a class="local col9 ref" href="#79point" title='point' data-ref="79point">point</a>[<var>0</var>] + <a class="macro" href="cm_local.h.html#134" title="(0.125)" data-ref="_M/SURFACE_CLIP_EPSILON">SURFACE_CLIP_EPSILON</a> ||</td></tr>
+<tr><th id="514">514</th><td>		<a class="local col7 ref" href="#77mins" title='mins' data-ref="77mins">mins</a>[<var>1</var>] &gt; <a class="local col9 ref" href="#79point" title='point' data-ref="79point">point</a>[<var>1</var>] + <a class="macro" href="cm_local.h.html#134" title="(0.125)" data-ref="_M/SURFACE_CLIP_EPSILON">SURFACE_CLIP_EPSILON</a> ||</td></tr>
+<tr><th id="515">515</th><td>		<a class="local col7 ref" href="#77mins" title='mins' data-ref="77mins">mins</a>[<var>2</var>] &gt; <a class="local col9 ref" href="#79point" title='point' data-ref="79point">point</a>[<var>2</var>] + <a class="macro" href="cm_local.h.html#134" title="(0.125)" data-ref="_M/SURFACE_CLIP_EPSILON">SURFACE_CLIP_EPSILON</a>)</td></tr>
+<tr><th id="516">516</th><td>	{</td></tr>
+<tr><th id="517">517</th><td>		<b>return</b> <a class="enum" href="q_shared.h.html#qfalse" title='qfalse' data-ref="qfalse">qfalse</a>;</td></tr>
+<tr><th id="518">518</th><td>	}</td></tr>
+<tr><th id="519">519</th><td></td></tr>
+<tr><th id="520">520</th><td>	<b>return</b> <a class="enum" href="q_shared.h.html#qtrue" title='qtrue' data-ref="qtrue">qtrue</a>;</td></tr>
+<tr><th id="521">521</th><td>}</td></tr>
+<tr><th id="522">522</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated on <em>2017-Aug-29</em> from project codebrowser revision <em>63e07af</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

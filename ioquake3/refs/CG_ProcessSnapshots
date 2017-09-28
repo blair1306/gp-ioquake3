@@ -1,0 +1,25 @@
+<dec f='codebrowser/code/cgame/cg_local.h' l='1429' type='void CG_ProcessSnapshots()'/>
+<doc f='codebrowser/code/cgame/cg_local.h' l='1426'>//
+// cg_snapshot.c
+//</doc>
+<def f='codebrowser/code/cgame/cg_snapshot.c' l='324' ll='399' type='void CG_ProcessSnapshots()'/>
+<doc f='codebrowser/code/cgame/cg_snapshot.c' l='305'>/*
+============
+CG_ProcessSnapshots
+
+We are trying to set up a renderable view, so determine
+what the simulated time is, and try to get snapshots
+both before and after that time if available.
+
+If we don&apos;t have a valid cg.snap after exiting this function,
+then a 3D game view cannot be rendered.  This should only happen
+right after the initial connection.  After cg.snap has been valid
+once, it will never turn invalid.
+
+Even if cg.snap is valid, cg.nextSnap may not be, if the snapshot
+hasn&apos;t arrived yet (it becomes an extrapolating situation instead
+of an interpolating one)
+
+============
+*/</doc>
+<use f='codebrowser/code/cgame/cg_view.c' l='780' u='c' c='CG_DrawActiveFrame'/>

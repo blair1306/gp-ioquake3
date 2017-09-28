@@ -1,0 +1,14 @@
+<dec f='codebrowser/code/game/ai_cmd.h' l='33' type='int [64]'/>
+<doc f='codebrowser/code/game/ai_cmd.h' l='24'>/*****************************************************************************
+ * name:		ai_cmd.h
+ *
+ * desc:		Quake3 bot AI
+ *
+ * $Archive: /source/code/botai/ai_chat.c $
+ *
+ *****************************************************************************/</doc>
+<def f='codebrowser/code/game/ai_cmd.c' l='59' type='int [64]'/>
+<use f='codebrowser/code/game/ai_cmd.c' l='1337' u='w' c='BotMatch_StopTeamLeaderShip'/>
+<use f='codebrowser/code/game/ai_cmd.c' l='1766' u='w' c='BotMatch_EnterGame'/>
+<use f='codebrowser/code/game/ai_team.c' l='1904' u='r' c='FindHumanTeamLeader'/>
+<use f='codebrowser/code/game/ai_vcmd.c' l='429' u='w' c='BotVoiceChat_StopLeader'/>

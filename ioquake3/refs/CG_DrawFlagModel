@@ -1,0 +1,19 @@
+<dec f='codebrowser/code/cgame/cg_local.h' l='1279' type='void CG_DrawFlagModel(float x, float y, float w, float h, int team, qboolean force2D)'/>
+<def f='codebrowser/code/cgame/cg_draw.c' l='359' ll='411' type='void CG_DrawFlagModel(float x, float y, float w, float h, int team, qboolean force2D)'/>
+<use f='codebrowser/code/cgame/cg_draw.c' l='481' u='c' c='CG_DrawStatusBarFlag'/>
+<doc f='codebrowser/code/cgame/cg_draw.c' l='352'>/*
+================
+CG_DrawFlagModel
+
+Used for both the status bar and the scoreboard
+================
+*/</doc>
+<use f='codebrowser/code/cgame/cg_newdraw.c' l='1093' u='c' c='CG_DrawPlayerHasFlag'/>
+<use f='codebrowser/code/cgame/cg_newdraw.c' l='1095' u='c' c='CG_DrawPlayerHasFlag'/>
+<use f='codebrowser/code/cgame/cg_newdraw.c' l='1097' u='c' c='CG_DrawPlayerHasFlag'/>
+<use f='codebrowser/code/cgame/cg_scoreboard.c' l='100' u='c' c='CG_DrawClientScore'/>
+<use f='codebrowser/code/cgame/cg_scoreboard.c' l='103' u='c' c='CG_DrawClientScore'/>
+<use f='codebrowser/code/cgame/cg_scoreboard.c' l='107' u='c' c='CG_DrawClientScore'/>
+<use f='codebrowser/code/cgame/cg_scoreboard.c' l='110' u='c' c='CG_DrawClientScore'/>
+<use f='codebrowser/code/cgame/cg_scoreboard.c' l='114' u='c' c='CG_DrawClientScore'/>
+<use f='codebrowser/code/cgame/cg_scoreboard.c' l='117' u='c' c='CG_DrawClientScore'/>

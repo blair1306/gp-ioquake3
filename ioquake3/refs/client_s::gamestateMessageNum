@@ -1,0 +1,6 @@
+<dec f='codebrowser/code/server/server.h' l='143' type='int'/>
+<offset>532640</offset>
+<doc f='codebrowser/code/server/server.h' l='143'>// netchan-&gt;outgoingSequence of gamestate</doc>
+<use f='codebrowser/code/server/sv_client.c' l='588' u='w' c='SV_DirectConnect'/>
+<use f='codebrowser/code/server/sv_client.c' l='729' u='w' c='SV_SendClientGameState'/>
+<use f='codebrowser/code/server/sv_client.c' l='1953' u='r' c='SV_ExecuteClientMessage'/>

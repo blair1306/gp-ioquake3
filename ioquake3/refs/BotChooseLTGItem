@@ -1,0 +1,11 @@
+<dec f='codebrowser/code/botlib/be_ai_goal.h' l='75' type='int BotChooseLTGItem(int goalstate, vec_t * origin, int * inventory, int travelflags)'/>
+<def f='codebrowser/code/botlib/be_ai_goal.c' l='1281' ll='1441' type='int BotChooseLTGItem(int goalstate, vec_t * origin, int * inventory, int travelflags)'/>
+<doc f='codebrowser/code/botlib/be_ai_goal.c' l='1274'>//===========================================================================
+// pops a new long term goal on the goal stack in the goalstate
+//
+// Parameter:				-
+// Returns:					-
+// Changes Globals:		-
+//===========================================================================</doc>
+<doc f='codebrowser/code/botlib/be_ai_goal.h' l='74'>//choose the best long term goal item for the bot</doc>
+<use f='codebrowser/code/botlib/be_interface.c' l='817' u='r' c='Init_AI_Export'/>

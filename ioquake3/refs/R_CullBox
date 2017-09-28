@@ -1,0 +1,11 @@
+<dec f='codebrowser/code/renderergl2/tr_local.h' l='1829' type='int R_CullBox(vec3_t * bounds)'/>
+<use f='codebrowser/code/renderergl2/tr_main.c' l='280' u='c' c='R_CullLocalBox'/>
+<def f='codebrowser/code/renderergl2/tr_main.c' l='291' ll='326' type='int R_CullBox(vec3_t * worldBounds)'/>
+<doc f='codebrowser/code/renderergl2/tr_main.c' l='284'>/*
+=================
+R_CullBox
+
+Returns CULL_IN, CULL_CLIP, or CULL_OUT
+=================
+*/</doc>
+<use f='codebrowser/code/renderergl2/tr_world.c' l='135' u='c' c='R_CullSurface'/>

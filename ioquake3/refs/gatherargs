@@ -1,0 +1,8 @@
+<dec f='codebrowser/code/tools/lcc/cpp/cpp.h' l='115' type='int gatherargs(Tokenrow * , Tokenrow ** , int * )'/>
+<use f='codebrowser/code/tools/lcc/cpp/macro.c' l='190' u='c' c='expand'/>
+<def f='codebrowser/code/tools/lcc/cpp/macro.c' l='228' ll='312' type='int gatherargs(Tokenrow * trp, Tokenrow ** atr, int * narg)'/>
+<doc f='codebrowser/code/tools/lcc/cpp/macro.c' l='223'>/*
+ * Gather an arglist, starting in trp with tp pointing at the macro name.
+ * Return total number of tokens passed, stash number of args found.
+ * trp-&gt;tp is not changed relative to the tokenrow.
+ */</doc>

@@ -1,0 +1,16 @@
+<dec f='codebrowser/code/qcommon/q_shared.h' l='269' type='0'/>
+<doc f='codebrowser/code/qcommon/q_shared.h' l='269'>// don&apos;t return until completed, a VM should NEVER use this,</doc>
+<use f='codebrowser/code/client/cl_main.c' l='3010' u='r' c='CL_Frame'/>
+<use f='codebrowser/code/client/cl_ui.c' l='778' u='r' c='CL_UISystemCalls'/>
+<use f='codebrowser/code/game/g_svcmds.c' l='497' u='r' c='ConsoleCommand'/>
+<use f='codebrowser/code/q3_ui/ui_servers2.c' l='963' u='r' c='ArenaServers_DoRefresh'/>
+<use f='codebrowser/code/qcommon/cmd.c' l='147' c='Cbuf_ExecuteText'/>
+<use f='codebrowser/code/qcommon/common.c' l='2366' u='r' c='Com_ExecuteCfg'/>
+<use f='codebrowser/code/qcommon/common.c' l='2372' u='r' c='Com_ExecuteCfg'/>
+<use f='codebrowser/code/qcommon/common.c' l='2374' u='r' c='Com_ExecuteCfg'/>
+<use f='codebrowser/code/sdl/sdl_input.c' l='1111' u='r' c='IN_ProcessEvents'/>
+<use f='codebrowser/code/ui/ui_main.c' l='3361' u='r' c='UI_RunMenuScript'/>
+<use f='codebrowser/code/ui/ui_main.c' l='5993' u='r' c='UI_DoServerRefresh'/>
+<use f='codebrowser/code/ui/ui_main.c' l='6041' u='r' c='UI_StartServerRefresh'/>
+<use f='codebrowser/code/ui/ui_main.c' l='6051' u='r' c='UI_StartServerRefresh'/>
+<use f='codebrowser/code/ui/ui_main.c' l='6054' u='r' c='UI_StartServerRefresh'/>

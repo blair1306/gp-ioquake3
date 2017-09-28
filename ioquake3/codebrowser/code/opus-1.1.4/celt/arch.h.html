@@ -1,0 +1,270 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>arch.h source code [codebrowser/code/opus-1.1.4/celt/arch.h] - Woboq Code Browser</title>
+<link rel="stylesheet" href="../../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'codebrowser/code/opus-1.1.4/celt/arch.h'; var root_path = '../../../..'; var data_path = '../../../../../data';</script>
+<script src='../../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../../..'>codebrowser</a>/<a href='../..'>code</a>/<a href='..'>opus-1.1.4</a>/<a href='./'>celt</a>/<a href='arch.h.html'>arch.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/* Copyright (c) 2003-2008 Jean-Marc Valin</i></td></tr>
+<tr><th id="2">2</th><td><i>   Copyright (c) 2007-2008 CSIRO</i></td></tr>
+<tr><th id="3">3</th><td><i>   Copyright (c) 2007-2009 Xiph.Org Foundation</i></td></tr>
+<tr><th id="4">4</th><td><i>   Written by Jean-Marc Valin */</i></td></tr>
+<tr><th id="5">5</th><td><i class="doc">/**</i></td></tr>
+<tr><th id="6">6</th><td><i class="doc">  <span class="command"> @file</span> arch.h</i></td></tr>
+<tr><th id="7">7</th><td><i class="doc">   <span class="command">@brief</span> Various architecture definitions for CELT</i></td></tr>
+<tr><th id="8">8</th><td><i class="doc">*/</i></td></tr>
+<tr><th id="9">9</th><td><i>/*</i></td></tr>
+<tr><th id="10">10</th><td><i>   Redistribution and use in source and binary forms, with or without</i></td></tr>
+<tr><th id="11">11</th><td><i>   modification, are permitted provided that the following conditions</i></td></tr>
+<tr><th id="12">12</th><td><i>   are met:</i></td></tr>
+<tr><th id="13">13</th><td><i></i></td></tr>
+<tr><th id="14">14</th><td><i>   - Redistributions of source code must retain the above copyright</i></td></tr>
+<tr><th id="15">15</th><td><i>   notice, this list of conditions and the following disclaimer.</i></td></tr>
+<tr><th id="16">16</th><td><i></i></td></tr>
+<tr><th id="17">17</th><td><i>   - Redistributions in binary form must reproduce the above copyright</i></td></tr>
+<tr><th id="18">18</th><td><i>   notice, this list of conditions and the following disclaimer in the</i></td></tr>
+<tr><th id="19">19</th><td><i>   documentation and/or other materials provided with the distribution.</i></td></tr>
+<tr><th id="20">20</th><td><i></i></td></tr>
+<tr><th id="21">21</th><td><i>   THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS</i></td></tr>
+<tr><th id="22">22</th><td><i>   ``AS IS'' AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT</i></td></tr>
+<tr><th id="23">23</th><td><i>   LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR</i></td></tr>
+<tr><th id="24">24</th><td><i>   A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER</i></td></tr>
+<tr><th id="25">25</th><td><i>   OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,</i></td></tr>
+<tr><th id="26">26</th><td><i>   EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,</i></td></tr>
+<tr><th id="27">27</th><td><i>   PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR</i></td></tr>
+<tr><th id="28">28</th><td><i>   PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF</i></td></tr>
+<tr><th id="29">29</th><td><i>   LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING</i></td></tr>
+<tr><th id="30">30</th><td><i>   NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS</i></td></tr>
+<tr><th id="31">31</th><td><i>   SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</i></td></tr>
+<tr><th id="32">32</th><td><i>*/</i></td></tr>
+<tr><th id="33">33</th><td></td></tr>
+<tr><th id="34">34</th><td><u>#<span data-ppcond="34">ifndef</span> <span class="macro" data-ref="_M/ARCH_H">ARCH_H</span></u></td></tr>
+<tr><th id="35">35</th><td><u>#define <dfn class="macro" id="_M/ARCH_H" data-ref="_M/ARCH_H">ARCH_H</dfn></u></td></tr>
+<tr><th id="36">36</th><td></td></tr>
+<tr><th id="37">37</th><td><u>#include <a href="../include/opus_types.h.html">"opus_types.h"</a></u></td></tr>
+<tr><th id="38">38</th><td><u>#include <a href="../include/opus_defines.h.html">"opus_defines.h"</a></u></td></tr>
+<tr><th id="39">39</th><td></td></tr>
+<tr><th id="40">40</th><td><u># <span data-ppcond="40">if</span> !defined(<a class="macro" href="../../../../include/features.h.html#136" data-ref="_M/__GNUC_PREREQ">__GNUC_PREREQ</a>)</u></td></tr>
+<tr><th id="41">41</th><td><u>#  if defined(__GNUC__)&amp;&amp;defined(__GNUC_MINOR__)</u></td></tr>
+<tr><th id="42">42</th><td><u>#   define __GNUC_PREREQ(_maj,_min) \</u></td></tr>
+<tr><th id="43">43</th><td><u> ((__GNUC__&lt;&lt;16)+__GNUC_MINOR__&gt;=((_maj)&lt;&lt;16)+(_min))</u></td></tr>
+<tr><th id="44">44</th><td><u>#  else</u></td></tr>
+<tr><th id="45">45</th><td><u>#   define __GNUC_PREREQ(_maj,_min) 0</u></td></tr>
+<tr><th id="46">46</th><td><u>#  endif</u></td></tr>
+<tr><th id="47">47</th><td><u># <span data-ppcond="40">endif</span></u></td></tr>
+<tr><th id="48">48</th><td></td></tr>
+<tr><th id="49">49</th><td><u>#define <dfn class="macro" id="_M/CELT_SIG_SCALE" data-ref="_M/CELT_SIG_SCALE">CELT_SIG_SCALE</dfn> 32768.f</u></td></tr>
+<tr><th id="50">50</th><td></td></tr>
+<tr><th id="51">51</th><td><u>#define <dfn class="macro" id="_M/celt_fatal" data-ref="_M/celt_fatal">celt_fatal</dfn>(str) _celt_fatal(str, __FILE__, __LINE__);</u></td></tr>
+<tr><th id="52">52</th><td><u>#<span data-ppcond="52">ifdef</span> <span class="macro" data-ref="_M/ENABLE_ASSERTIONS">ENABLE_ASSERTIONS</span></u></td></tr>
+<tr><th id="53">53</th><td><u>#include &lt;stdio.h&gt;</u></td></tr>
+<tr><th id="54">54</th><td><u>#include &lt;stdlib.h&gt;</u></td></tr>
+<tr><th id="55">55</th><td><u>#ifdef __GNUC__</u></td></tr>
+<tr><th id="56">56</th><td><b>__attribute__</b>((noreturn))</td></tr>
+<tr><th id="57">57</th><td><u>#endif</u></td></tr>
+<tr><th id="58">58</th><td><em>static</em> OPUS_INLINE <em>void</em> _celt_fatal(<em>const</em> <em>char</em> *str, <em>const</em> <em>char</em> *file, <em>int</em> line)</td></tr>
+<tr><th id="59">59</th><td>{</td></tr>
+<tr><th id="60">60</th><td>   fprintf (stderr, <q>"Fatal (internal) error in %s, line %d: %s\n"</q>, file, line, str);</td></tr>
+<tr><th id="61">61</th><td>   abort();</td></tr>
+<tr><th id="62">62</th><td>}</td></tr>
+<tr><th id="63">63</th><td><u>#define celt_assert(cond) {if (!(cond)) {celt_fatal("assertion failed: " #cond);}}</u></td></tr>
+<tr><th id="64">64</th><td><u>#define celt_assert2(cond, message) {if (!(cond)) {celt_fatal("assertion failed: " #cond "\n" message);}}</u></td></tr>
+<tr><th id="65">65</th><td><u>#<span data-ppcond="52">else</span></u></td></tr>
+<tr><th id="66">66</th><td><u>#define <dfn class="macro" id="_M/celt_assert" data-ref="_M/celt_assert">celt_assert</dfn>(cond)</u></td></tr>
+<tr><th id="67">67</th><td><u>#define <dfn class="macro" id="_M/celt_assert2" data-ref="_M/celt_assert2">celt_assert2</dfn>(cond, message)</u></td></tr>
+<tr><th id="68">68</th><td><u>#<span data-ppcond="52">endif</span></u></td></tr>
+<tr><th id="69">69</th><td></td></tr>
+<tr><th id="70">70</th><td><u>#define <dfn class="macro" id="_M/IMUL32" data-ref="_M/IMUL32">IMUL32</dfn>(a,b) ((a)*(b))</u></td></tr>
+<tr><th id="71">71</th><td></td></tr>
+<tr><th id="72">72</th><td><u>#define <dfn class="macro" id="_M/MIN16" data-ref="_M/MIN16">MIN16</dfn>(a,b) ((a) &lt; (b) ? (a) : (b))   /**&lt; Minimum 16-bit value.   */</u></td></tr>
+<tr><th id="73">73</th><td><u>#define <dfn class="macro" id="_M/MAX16" data-ref="_M/MAX16">MAX16</dfn>(a,b) ((a) &gt; (b) ? (a) : (b))   /**&lt; Maximum 16-bit value.   */</u></td></tr>
+<tr><th id="74">74</th><td><u>#define <dfn class="macro" id="_M/MIN32" data-ref="_M/MIN32">MIN32</dfn>(a,b) ((a) &lt; (b) ? (a) : (b))   /**&lt; Minimum 32-bit value.   */</u></td></tr>
+<tr><th id="75">75</th><td><u>#define <dfn class="macro" id="_M/MAX32" data-ref="_M/MAX32">MAX32</dfn>(a,b) ((a) &gt; (b) ? (a) : (b))   /**&lt; Maximum 32-bit value.   */</u></td></tr>
+<tr><th id="76">76</th><td><u>#define <dfn class="macro" id="_M/IMIN" data-ref="_M/IMIN">IMIN</dfn>(a,b) ((a) &lt; (b) ? (a) : (b))   /**&lt; Minimum int value.   */</u></td></tr>
+<tr><th id="77">77</th><td><u>#define <dfn class="macro" id="_M/IMAX" data-ref="_M/IMAX">IMAX</dfn>(a,b) ((a) &gt; (b) ? (a) : (b))   /**&lt; Maximum int value.   */</u></td></tr>
+<tr><th id="78">78</th><td><u>#define <dfn class="macro" id="_M/UADD32" data-ref="_M/UADD32">UADD32</dfn>(a,b) ((a)+(b))</u></td></tr>
+<tr><th id="79">79</th><td><u>#define <dfn class="macro" id="_M/USUB32" data-ref="_M/USUB32">USUB32</dfn>(a,b) ((a)-(b))</u></td></tr>
+<tr><th id="80">80</th><td></td></tr>
+<tr><th id="81">81</th><td><i>/* Set this if opus_int64 is a native type of the CPU. */</i></td></tr>
+<tr><th id="82">82</th><td><i>/* Assume that all LP64 architectures have fast 64-bit types; also x86_64</i></td></tr>
+<tr><th id="83">83</th><td><i>   (which can be ILP32 for x32) and Win64 (which is LLP64). */</i></td></tr>
+<tr><th id="84">84</th><td><u>#<span data-ppcond="84">if</span> defined(<span class="macro" data-ref="_M/__x86_64__">__x86_64__</span>) || defined(<span class="macro" data-ref="_M/__LP64__">__LP64__</span>) || defined(<span class="macro" data-ref="_M/_WIN64">_WIN64</span>)</u></td></tr>
+<tr><th id="85">85</th><td><u>#define <dfn class="macro" id="_M/OPUS_FAST_INT64" data-ref="_M/OPUS_FAST_INT64">OPUS_FAST_INT64</dfn> 1</u></td></tr>
+<tr><th id="86">86</th><td><u>#<span data-ppcond="84">else</span></u></td></tr>
+<tr><th id="87">87</th><td><u>#define OPUS_FAST_INT64 0</u></td></tr>
+<tr><th id="88">88</th><td><u>#<span data-ppcond="84">endif</span></u></td></tr>
+<tr><th id="89">89</th><td></td></tr>
+<tr><th id="90">90</th><td><u>#define <dfn class="macro" id="_M/PRINT_MIPS" data-ref="_M/PRINT_MIPS">PRINT_MIPS</dfn>(file)</u></td></tr>
+<tr><th id="91">91</th><td></td></tr>
+<tr><th id="92">92</th><td><u>#<span data-ppcond="92">ifdef</span> <span class="macro" data-ref="_M/FIXED_POINT">FIXED_POINT</span></u></td></tr>
+<tr><th id="93">93</th><td></td></tr>
+<tr><th id="94">94</th><td><b>typedef</b> opus_int16 opus_val16;</td></tr>
+<tr><th id="95">95</th><td><b>typedef</b> opus_int32 opus_val32;</td></tr>
+<tr><th id="96">96</th><td></td></tr>
+<tr><th id="97">97</th><td><b>typedef</b> opus_val32 celt_sig;</td></tr>
+<tr><th id="98">98</th><td><b>typedef</b> opus_val16 celt_norm;</td></tr>
+<tr><th id="99">99</th><td><b>typedef</b> opus_val32 celt_ener;</td></tr>
+<tr><th id="100">100</th><td></td></tr>
+<tr><th id="101">101</th><td><u>#define Q15ONE 32767</u></td></tr>
+<tr><th id="102">102</th><td></td></tr>
+<tr><th id="103">103</th><td><u>#define SIG_SHIFT 12</u></td></tr>
+<tr><th id="104">104</th><td></td></tr>
+<tr><th id="105">105</th><td><u>#define NORM_SCALING 16384</u></td></tr>
+<tr><th id="106">106</th><td></td></tr>
+<tr><th id="107">107</th><td><u>#define DB_SHIFT 10</u></td></tr>
+<tr><th id="108">108</th><td></td></tr>
+<tr><th id="109">109</th><td><u>#define EPSILON 1</u></td></tr>
+<tr><th id="110">110</th><td><u>#define VERY_SMALL 0</u></td></tr>
+<tr><th id="111">111</th><td><u>#define VERY_LARGE16 ((opus_val16)32767)</u></td></tr>
+<tr><th id="112">112</th><td><u>#define Q15_ONE ((opus_val16)32767)</u></td></tr>
+<tr><th id="113">113</th><td></td></tr>
+<tr><th id="114">114</th><td><u>#define SCALEIN(a)      (a)</u></td></tr>
+<tr><th id="115">115</th><td><u>#define SCALEOUT(a)     (a)</u></td></tr>
+<tr><th id="116">116</th><td></td></tr>
+<tr><th id="117">117</th><td><u>#define ABS16(x) ((x) &lt; 0 ? (-(x)) : (x))</u></td></tr>
+<tr><th id="118">118</th><td><u>#define ABS32(x) ((x) &lt; 0 ? (-(x)) : (x))</u></td></tr>
+<tr><th id="119">119</th><td></td></tr>
+<tr><th id="120">120</th><td><em>static</em> OPUS_INLINE opus_int16 SAT16(opus_int32 x) {</td></tr>
+<tr><th id="121">121</th><td>   <b>return</b> x &gt; <var>32767</var> ? <var>32767</var> : x &lt; -<var>32768</var> ? -<var>32768</var> : (opus_int16)x;</td></tr>
+<tr><th id="122">122</th><td>}</td></tr>
+<tr><th id="123">123</th><td></td></tr>
+<tr><th id="124">124</th><td><u>#ifdef FIXED_DEBUG</u></td></tr>
+<tr><th id="125">125</th><td><u>#include "fixed_debug.h"</u></td></tr>
+<tr><th id="126">126</th><td><u>#else</u></td></tr>
+<tr><th id="127">127</th><td></td></tr>
+<tr><th id="128">128</th><td><u>#include "fixed_generic.h"</u></td></tr>
+<tr><th id="129">129</th><td></td></tr>
+<tr><th id="130">130</th><td><u>#ifdef OPUS_ARM_PRESUME_AARCH64_NEON_INTR</u></td></tr>
+<tr><th id="131">131</th><td><u>#include "arm/fixed_arm64.h"</u></td></tr>
+<tr><th id="132">132</th><td><u>#elif OPUS_ARM_INLINE_EDSP</u></td></tr>
+<tr><th id="133">133</th><td><u>#include "arm/fixed_armv5e.h"</u></td></tr>
+<tr><th id="134">134</th><td><u>#elif defined (OPUS_ARM_INLINE_ASM)</u></td></tr>
+<tr><th id="135">135</th><td><u>#include "arm/fixed_armv4.h"</u></td></tr>
+<tr><th id="136">136</th><td><u>#elif defined (BFIN_ASM)</u></td></tr>
+<tr><th id="137">137</th><td><u>#include "fixed_bfin.h"</u></td></tr>
+<tr><th id="138">138</th><td><u>#elif defined (TI_C5X_ASM)</u></td></tr>
+<tr><th id="139">139</th><td><u>#include "fixed_c5x.h"</u></td></tr>
+<tr><th id="140">140</th><td><u>#elif defined (TI_C6X_ASM)</u></td></tr>
+<tr><th id="141">141</th><td><u>#include "fixed_c6x.h"</u></td></tr>
+<tr><th id="142">142</th><td><u>#endif</u></td></tr>
+<tr><th id="143">143</th><td></td></tr>
+<tr><th id="144">144</th><td><u>#endif</u></td></tr>
+<tr><th id="145">145</th><td></td></tr>
+<tr><th id="146">146</th><td><u>#<span data-ppcond="92">else</span> /* FIXED_POINT */</u></td></tr>
+<tr><th id="147">147</th><td></td></tr>
+<tr><th id="148">148</th><td><b>typedef</b> <em>float</em> <dfn class="typedef" id="opus_val16" title='opus_val16' data-type='float' data-ref="opus_val16">opus_val16</dfn>;</td></tr>
+<tr><th id="149">149</th><td><b>typedef</b> <em>float</em> <dfn class="typedef" id="opus_val32" title='opus_val32' data-type='float' data-ref="opus_val32">opus_val32</dfn>;</td></tr>
+<tr><th id="150">150</th><td></td></tr>
+<tr><th id="151">151</th><td><b>typedef</b> <em>float</em> <dfn class="typedef" id="celt_sig" title='celt_sig' data-type='float' data-ref="celt_sig">celt_sig</dfn>;</td></tr>
+<tr><th id="152">152</th><td><b>typedef</b> <em>float</em> <dfn class="typedef" id="celt_norm" title='celt_norm' data-type='float' data-ref="celt_norm">celt_norm</dfn>;</td></tr>
+<tr><th id="153">153</th><td><b>typedef</b> <em>float</em> <dfn class="typedef" id="celt_ener" title='celt_ener' data-type='float' data-ref="celt_ener">celt_ener</dfn>;</td></tr>
+<tr><th id="154">154</th><td></td></tr>
+<tr><th id="155">155</th><td><u>#<span data-ppcond="155">ifdef</span> <span class="macro" data-ref="_M/FLOAT_APPROX">FLOAT_APPROX</span></u></td></tr>
+<tr><th id="156">156</th><td><i>/* This code should reliably detect NaN/inf even when -ffast-math is used.</i></td></tr>
+<tr><th id="157">157</th><td><i>   Assumes IEEE 754 format. */</i></td></tr>
+<tr><th id="158">158</th><td><em>static</em> <a class="macro" href="../include/opus_defines.h.html#110" title="inline" data-ref="_M/OPUS_INLINE">OPUS_INLINE</a> <em>int</em> <dfn class="decl def" id="celt_isnan" title='celt_isnan' data-ref="celt_isnan">celt_isnan</dfn>(<em>float</em> <dfn class="local col1 decl" id="1x" title='x' data-type='float' data-ref="1x">x</dfn>)</td></tr>
+<tr><th id="159">159</th><td>{</td></tr>
+<tr><th id="160">160</th><td>   <b>union</b> {<em>float</em> <dfn class="local col2 decl" id="2f" title='f' data-type='float' data-ref="2f">f</dfn>; <a class="typedef" href="../include/opus_types.h.html#opus_uint32" title='opus_uint32' data-type='uint32_t' data-ref="opus_uint32">opus_uint32</a> <dfn class="local col3 decl" id="3i" title='i' data-type='opus_uint32' data-ref="3i">i</dfn>;} <dfn class="local col4 decl" id="4in" title='in' data-type='union (anonymous union at /home/jon/workspace/ioq3/code/opus-1.1.4/celt/arch.h:160:4)' data-ref="4in">in</dfn>;</td></tr>
+<tr><th id="161">161</th><td>   <a class="local col4 ref" href="#4in" title='in' data-ref="4in">in</a>.<a class="local col2 ref" href="#2f" title='f' data-ref="2f">f</a> = <a class="local col1 ref" href="#1x" title='x' data-ref="1x">x</a>;</td></tr>
+<tr><th id="162">162</th><td>   <b>return</b> ((<a class="local col4 ref" href="#4in" title='in' data-ref="4in">in</a>.<a class="local col3 ref" href="#3i" title='i' data-ref="3i">i</a>&gt;&gt;<var>23</var>)&amp;<var>0xFF</var>)==<var>0xFF</var> &amp;&amp; (<a class="local col4 ref" href="#4in" title='in' data-ref="4in">in</a>.<a class="local col3 ref" href="#3i" title='i' data-ref="3i">i</a>&amp;<var>0x007FFFFF</var>)!=<var>0</var>;</td></tr>
+<tr><th id="163">163</th><td>}</td></tr>
+<tr><th id="164">164</th><td><u>#<span data-ppcond="155">else</span></u></td></tr>
+<tr><th id="165">165</th><td><u>#ifdef __FAST_MATH__</u></td></tr>
+<tr><th id="166">166</th><td><u>#error Cannot build libopus with -ffast-math unless FLOAT_APPROX is defined. This could result in crashes on extreme (e.g. NaN) input</u></td></tr>
+<tr><th id="167">167</th><td><u>#endif</u></td></tr>
+<tr><th id="168">168</th><td><u>#define celt_isnan(x) ((x)!=(x))</u></td></tr>
+<tr><th id="169">169</th><td><u>#<span data-ppcond="155">endif</span></u></td></tr>
+<tr><th id="170">170</th><td></td></tr>
+<tr><th id="171">171</th><td><u>#define <dfn class="macro" id="_M/Q15ONE" data-ref="_M/Q15ONE">Q15ONE</dfn> 1.0f</u></td></tr>
+<tr><th id="172">172</th><td></td></tr>
+<tr><th id="173">173</th><td><u>#define <dfn class="macro" id="_M/NORM_SCALING" data-ref="_M/NORM_SCALING">NORM_SCALING</dfn> 1.f</u></td></tr>
+<tr><th id="174">174</th><td></td></tr>
+<tr><th id="175">175</th><td><u>#define <dfn class="macro" id="_M/EPSILON" data-ref="_M/EPSILON">EPSILON</dfn> 1e-15f</u></td></tr>
+<tr><th id="176">176</th><td><u>#define <dfn class="macro" id="_M/VERY_SMALL" data-ref="_M/VERY_SMALL">VERY_SMALL</dfn> 1e-30f</u></td></tr>
+<tr><th id="177">177</th><td><u>#define <dfn class="macro" id="_M/VERY_LARGE16" data-ref="_M/VERY_LARGE16">VERY_LARGE16</dfn> 1e15f</u></td></tr>
+<tr><th id="178">178</th><td><u>#define <dfn class="macro" id="_M/Q15_ONE" data-ref="_M/Q15_ONE">Q15_ONE</dfn> ((opus_val16)1.f)</u></td></tr>
+<tr><th id="179">179</th><td></td></tr>
+<tr><th id="180">180</th><td><i>/* This appears to be the same speed as C99's fabsf() but it's more portable. */</i></td></tr>
+<tr><th id="181">181</th><td><u>#define <dfn class="macro" id="_M/ABS16" data-ref="_M/ABS16">ABS16</dfn>(x) ((float)fabs(x))</u></td></tr>
+<tr><th id="182">182</th><td><u>#define <dfn class="macro" id="_M/ABS32" data-ref="_M/ABS32">ABS32</dfn>(x) ((float)fabs(x))</u></td></tr>
+<tr><th id="183">183</th><td></td></tr>
+<tr><th id="184">184</th><td><u>#define <dfn class="macro" id="_M/QCONST16" data-ref="_M/QCONST16">QCONST16</dfn>(x,bits) (x)</u></td></tr>
+<tr><th id="185">185</th><td><u>#define <dfn class="macro" id="_M/QCONST32" data-ref="_M/QCONST32">QCONST32</dfn>(x,bits) (x)</u></td></tr>
+<tr><th id="186">186</th><td></td></tr>
+<tr><th id="187">187</th><td><u>#define <dfn class="macro" id="_M/NEG16" data-ref="_M/NEG16">NEG16</dfn>(x) (-(x))</u></td></tr>
+<tr><th id="188">188</th><td><u>#define <dfn class="macro" id="_M/NEG32" data-ref="_M/NEG32">NEG32</dfn>(x) (-(x))</u></td></tr>
+<tr><th id="189">189</th><td><u>#define <dfn class="macro" id="_M/EXTRACT16" data-ref="_M/EXTRACT16">EXTRACT16</dfn>(x) (x)</u></td></tr>
+<tr><th id="190">190</th><td><u>#define <dfn class="macro" id="_M/EXTEND32" data-ref="_M/EXTEND32">EXTEND32</dfn>(x) (x)</u></td></tr>
+<tr><th id="191">191</th><td><u>#define <dfn class="macro" id="_M/SHR16" data-ref="_M/SHR16">SHR16</dfn>(a,shift) (a)</u></td></tr>
+<tr><th id="192">192</th><td><u>#define <dfn class="macro" id="_M/SHL16" data-ref="_M/SHL16">SHL16</dfn>(a,shift) (a)</u></td></tr>
+<tr><th id="193">193</th><td><u>#define <dfn class="macro" id="_M/SHR32" data-ref="_M/SHR32">SHR32</dfn>(a,shift) (a)</u></td></tr>
+<tr><th id="194">194</th><td><u>#define <dfn class="macro" id="_M/SHL32" data-ref="_M/SHL32">SHL32</dfn>(a,shift) (a)</u></td></tr>
+<tr><th id="195">195</th><td><u>#define <dfn class="macro" id="_M/PSHR32" data-ref="_M/PSHR32">PSHR32</dfn>(a,shift) (a)</u></td></tr>
+<tr><th id="196">196</th><td><u>#define <dfn class="macro" id="_M/VSHR32" data-ref="_M/VSHR32">VSHR32</dfn>(a,shift) (a)</u></td></tr>
+<tr><th id="197">197</th><td></td></tr>
+<tr><th id="198">198</th><td><u>#define <dfn class="macro" id="_M/PSHR" data-ref="_M/PSHR">PSHR</dfn>(a,shift)   (a)</u></td></tr>
+<tr><th id="199">199</th><td><u>#define <dfn class="macro" id="_M/SHR" data-ref="_M/SHR">SHR</dfn>(a,shift)    (a)</u></td></tr>
+<tr><th id="200">200</th><td><u>#define <dfn class="macro" id="_M/SHL" data-ref="_M/SHL">SHL</dfn>(a,shift)    (a)</u></td></tr>
+<tr><th id="201">201</th><td><u>#define <dfn class="macro" id="_M/SATURATE" data-ref="_M/SATURATE">SATURATE</dfn>(x,a)   (x)</u></td></tr>
+<tr><th id="202">202</th><td><u>#define <dfn class="macro" id="_M/SATURATE16" data-ref="_M/SATURATE16">SATURATE16</dfn>(x)   (x)</u></td></tr>
+<tr><th id="203">203</th><td></td></tr>
+<tr><th id="204">204</th><td><u>#define <dfn class="macro" id="_M/ROUND16" data-ref="_M/ROUND16">ROUND16</dfn>(a,shift)  (a)</u></td></tr>
+<tr><th id="205">205</th><td><u>#define <dfn class="macro" id="_M/HALF16" data-ref="_M/HALF16">HALF16</dfn>(x)       (.5f*(x))</u></td></tr>
+<tr><th id="206">206</th><td><u>#define <dfn class="macro" id="_M/HALF32" data-ref="_M/HALF32">HALF32</dfn>(x)       (.5f*(x))</u></td></tr>
+<tr><th id="207">207</th><td></td></tr>
+<tr><th id="208">208</th><td><u>#define <dfn class="macro" id="_M/ADD16" data-ref="_M/ADD16">ADD16</dfn>(a,b) ((a)+(b))</u></td></tr>
+<tr><th id="209">209</th><td><u>#define <dfn class="macro" id="_M/SUB16" data-ref="_M/SUB16">SUB16</dfn>(a,b) ((a)-(b))</u></td></tr>
+<tr><th id="210">210</th><td><u>#define <dfn class="macro" id="_M/ADD32" data-ref="_M/ADD32">ADD32</dfn>(a,b) ((a)+(b))</u></td></tr>
+<tr><th id="211">211</th><td><u>#define <dfn class="macro" id="_M/SUB32" data-ref="_M/SUB32">SUB32</dfn>(a,b) ((a)-(b))</u></td></tr>
+<tr><th id="212">212</th><td><u>#define <dfn class="macro" id="_M/MULT16_16_16" data-ref="_M/MULT16_16_16">MULT16_16_16</dfn>(a,b)     ((a)*(b))</u></td></tr>
+<tr><th id="213">213</th><td><u>#define <dfn class="macro" id="_M/MULT16_16" data-ref="_M/MULT16_16">MULT16_16</dfn>(a,b)     ((opus_val32)(a)*(opus_val32)(b))</u></td></tr>
+<tr><th id="214">214</th><td><u>#define <dfn class="macro" id="_M/MAC16_16" data-ref="_M/MAC16_16">MAC16_16</dfn>(c,a,b)     ((c)+(opus_val32)(a)*(opus_val32)(b))</u></td></tr>
+<tr><th id="215">215</th><td></td></tr>
+<tr><th id="216">216</th><td><u>#define <dfn class="macro" id="_M/MULT16_32_Q15" data-ref="_M/MULT16_32_Q15">MULT16_32_Q15</dfn>(a,b)     ((a)*(b))</u></td></tr>
+<tr><th id="217">217</th><td><u>#define <dfn class="macro" id="_M/MULT16_32_Q16" data-ref="_M/MULT16_32_Q16">MULT16_32_Q16</dfn>(a,b)     ((a)*(b))</u></td></tr>
+<tr><th id="218">218</th><td></td></tr>
+<tr><th id="219">219</th><td><u>#define <dfn class="macro" id="_M/MULT32_32_Q31" data-ref="_M/MULT32_32_Q31">MULT32_32_Q31</dfn>(a,b)     ((a)*(b))</u></td></tr>
+<tr><th id="220">220</th><td></td></tr>
+<tr><th id="221">221</th><td><u>#define <dfn class="macro" id="_M/MAC16_32_Q15" data-ref="_M/MAC16_32_Q15">MAC16_32_Q15</dfn>(c,a,b)     ((c)+(a)*(b))</u></td></tr>
+<tr><th id="222">222</th><td><u>#define <dfn class="macro" id="_M/MAC16_32_Q16" data-ref="_M/MAC16_32_Q16">MAC16_32_Q16</dfn>(c,a,b)     ((c)+(a)*(b))</u></td></tr>
+<tr><th id="223">223</th><td></td></tr>
+<tr><th id="224">224</th><td><u>#define <dfn class="macro" id="_M/MULT16_16_Q11_32" data-ref="_M/MULT16_16_Q11_32">MULT16_16_Q11_32</dfn>(a,b)     ((a)*(b))</u></td></tr>
+<tr><th id="225">225</th><td><u>#define <dfn class="macro" id="_M/MULT16_16_Q11" data-ref="_M/MULT16_16_Q11">MULT16_16_Q11</dfn>(a,b)     ((a)*(b))</u></td></tr>
+<tr><th id="226">226</th><td><u>#define <dfn class="macro" id="_M/MULT16_16_Q13" data-ref="_M/MULT16_16_Q13">MULT16_16_Q13</dfn>(a,b)     ((a)*(b))</u></td></tr>
+<tr><th id="227">227</th><td><u>#define <dfn class="macro" id="_M/MULT16_16_Q14" data-ref="_M/MULT16_16_Q14">MULT16_16_Q14</dfn>(a,b)     ((a)*(b))</u></td></tr>
+<tr><th id="228">228</th><td><u>#define <dfn class="macro" id="_M/MULT16_16_Q15" data-ref="_M/MULT16_16_Q15">MULT16_16_Q15</dfn>(a,b)     ((a)*(b))</u></td></tr>
+<tr><th id="229">229</th><td><u>#define <dfn class="macro" id="_M/MULT16_16_P15" data-ref="_M/MULT16_16_P15">MULT16_16_P15</dfn>(a,b)     ((a)*(b))</u></td></tr>
+<tr><th id="230">230</th><td><u>#define <dfn class="macro" id="_M/MULT16_16_P13" data-ref="_M/MULT16_16_P13">MULT16_16_P13</dfn>(a,b)     ((a)*(b))</u></td></tr>
+<tr><th id="231">231</th><td><u>#define <dfn class="macro" id="_M/MULT16_16_P14" data-ref="_M/MULT16_16_P14">MULT16_16_P14</dfn>(a,b)     ((a)*(b))</u></td></tr>
+<tr><th id="232">232</th><td><u>#define <dfn class="macro" id="_M/MULT16_32_P16" data-ref="_M/MULT16_32_P16">MULT16_32_P16</dfn>(a,b)     ((a)*(b))</u></td></tr>
+<tr><th id="233">233</th><td></td></tr>
+<tr><th id="234">234</th><td><u>#define <dfn class="macro" id="_M/DIV32_16" data-ref="_M/DIV32_16">DIV32_16</dfn>(a,b)     (((opus_val32)(a))/(opus_val16)(b))</u></td></tr>
+<tr><th id="235">235</th><td><u>#define <dfn class="macro" id="_M/DIV32" data-ref="_M/DIV32">DIV32</dfn>(a,b)     (((opus_val32)(a))/(opus_val32)(b))</u></td></tr>
+<tr><th id="236">236</th><td></td></tr>
+<tr><th id="237">237</th><td><u>#define <dfn class="macro" id="_M/SCALEIN" data-ref="_M/SCALEIN">SCALEIN</dfn>(a)      ((a)*CELT_SIG_SCALE)</u></td></tr>
+<tr><th id="238">238</th><td><u>#define <dfn class="macro" id="_M/SCALEOUT" data-ref="_M/SCALEOUT">SCALEOUT</dfn>(a)     ((a)*(1/CELT_SIG_SCALE))</u></td></tr>
+<tr><th id="239">239</th><td></td></tr>
+<tr><th id="240">240</th><td><u>#define <dfn class="macro" id="_M/SIG2WORD16" data-ref="_M/SIG2WORD16">SIG2WORD16</dfn>(x) (x)</u></td></tr>
+<tr><th id="241">241</th><td></td></tr>
+<tr><th id="242">242</th><td><u>#<span data-ppcond="92">endif</span> /* !FIXED_POINT */</u></td></tr>
+<tr><th id="243">243</th><td></td></tr>
+<tr><th id="244">244</th><td><u>#<span data-ppcond="244">ifndef</span> <span class="macro" data-ref="_M/GLOBAL_STACK_SIZE">GLOBAL_STACK_SIZE</span></u></td></tr>
+<tr><th id="245">245</th><td><u>#<span data-ppcond="245">ifdef</span> <span class="macro" data-ref="_M/FIXED_POINT">FIXED_POINT</span></u></td></tr>
+<tr><th id="246">246</th><td><u>#define GLOBAL_STACK_SIZE 100000</u></td></tr>
+<tr><th id="247">247</th><td><u>#<span data-ppcond="245">else</span></u></td></tr>
+<tr><th id="248">248</th><td><u>#define <dfn class="macro" id="_M/GLOBAL_STACK_SIZE" data-ref="_M/GLOBAL_STACK_SIZE">GLOBAL_STACK_SIZE</dfn> 100000</u></td></tr>
+<tr><th id="249">249</th><td><u>#<span data-ppcond="245">endif</span></u></td></tr>
+<tr><th id="250">250</th><td><u>#<span data-ppcond="244">endif</span></u></td></tr>
+<tr><th id="251">251</th><td></td></tr>
+<tr><th id="252">252</th><td><u>#<span data-ppcond="34">endif</span> /* ARCH_H */</u></td></tr>
+<tr><th id="253">253</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='bands.c.html'>codebrowser/code/opus-1.1.4/celt/bands.c</a><br/>Generated on <em>2017-Aug-29</em> from project codebrowser revision <em>63e07af</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

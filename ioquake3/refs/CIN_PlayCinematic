@@ -1,0 +1,11 @@
+<dec f='codebrowser/code/client/client.h' l='592' type='int CIN_PlayCinematic(const char * arg0, int xpos, int ypos, int width, int height, int bits)'/>
+<use f='codebrowser/code/client/cl_cgame.c' l='660' u='c' c='CL_CgameSystemCalls'/>
+<def f='codebrowser/code/client/cl_cin.c' l='1407' ll='1493' type='int CIN_PlayCinematic(const char * arg, int x, int y, int w, int h, int systemBits)'/>
+<use f='codebrowser/code/client/cl_cin.c' l='1629' u='c' c='CL_PlayCinematic_f'/>
+<doc f='codebrowser/code/client/cl_cin.c' l='1402'>/*
+==================
+CIN_PlayCinematic
+==================
+*/</doc>
+<use f='codebrowser/code/client/cl_main.c' l='3274' u='r' c='CL_InitRef'/>
+<use f='codebrowser/code/client/cl_ui.c' l='1052' u='c' c='CL_UISystemCalls'/>

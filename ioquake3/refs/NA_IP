@@ -1,0 +1,37 @@
+<dec f='codebrowser/code/qcommon/qcommon.h' l='147' type='4'/>
+<use f='codebrowser/code/client/cl_main.c' l='1530' u='r' c='CL_RequestMotd'/>
+<use f='codebrowser/code/client/cl_main.c' l='1598' u='r' c='CL_RequestAuthorization'/>
+<use f='codebrowser/code/client/cl_main.c' l='1709' u='r' c='CL_Connect_f'/>
+<use f='codebrowser/code/client/cl_main.c' l='2364' u='r' c='CL_CheckForResend'/>
+<use f='codebrowser/code/client/cl_main.c' l='2509' u='r' c='CL_ServersResponsePacket'/>
+<use f='codebrowser/code/client/cl_main.c' l='3884' c='CL_ServerInfoPacket'/>
+<use f='codebrowser/code/client/cl_main.c' l='4446' u='r' c='CL_Ping_f'/>
+<use f='codebrowser/code/client/cl_main.c' l='4611' u='r' c='CL_ServerStatus_f'/>
+<use f='codebrowser/code/qcommon/net_ip.c' l='218' u='r' c='NetadrToSockadr'/>
+<use f='codebrowser/code/qcommon/net_ip.c' l='240' u='r' c='SockadrToNetadr'/>
+<use f='codebrowser/code/qcommon/net_ip.c' l='365' c='Sys_StringToAdr'/>
+<use f='codebrowser/code/qcommon/net_ip.c' l='401' u='r' c='NET_CompareBaseAdrMask'/>
+<use f='codebrowser/code/qcommon/net_ip.c' l='464' u='r' c='NET_AdrToString'/>
+<use f='codebrowser/code/qcommon/net_ip.c' l='484' u='r' c='NET_AdrToStringwPort'/>
+<use f='codebrowser/code/qcommon/net_ip.c' l='498' u='r' c='NET_CompareAdr'/>
+<use f='codebrowser/code/qcommon/net_ip.c' l='551' u='r' c='NET_GetPacket'/>
+<use f='codebrowser/code/qcommon/net_ip.c' l='647' u='r' c='Sys_SendPacket'/>
+<use f='codebrowser/code/qcommon/net_ip.c' l='653' u='r' c='Sys_SendPacket'/>
+<use f='codebrowser/code/qcommon/net_ip.c' l='665' u='r' c='Sys_SendPacket'/>
+<use f='codebrowser/code/qcommon/net_ip.c' l='717' u='r' c='Sys_IsLANAddress'/>
+<use f='codebrowser/code/qcommon/net_ip.c' l='746' u='r' c='Sys_IsLANAddress'/>
+<use f='codebrowser/code/qcommon/net_ip.c' l='797' u='r' c='Sys_ShowIP'/>
+<use f='codebrowser/code/qcommon/net_ip.c' l='1250' u='r' c='NET_AddLocalAddress'/>
+<use f='codebrowser/code/server/sv_ccmds.c' l='553' u='r' c='SV_Ban_f'/>
+<use f='codebrowser/code/server/sv_ccmds.c' l='607' u='r' c='SV_BanNum_f'/>
+<use f='codebrowser/code/server/sv_ccmds.c' l='694' u='r' c='SV_RehashBans_f'/>
+<use f='codebrowser/code/server/sv_ccmds.c' l='800' u='r' c='SV_ParseCIDRNotation'/>
+<use f='codebrowser/code/server/sv_ccmds.c' l='811' u='r' c='SV_ParseCIDRNotation'/>
+<use f='codebrowser/code/server/sv_ccmds.c' l='887' u='r' c='SV_AddBanToList'/>
+<use f='codebrowser/code/server/sv_ccmds.c' l='902' u='r' c='SV_AddBanToList'/>
+<use f='codebrowser/code/server/sv_client.c' l='150' u='r' c='SV_GetChallenge'/>
+<use f='codebrowser/code/server/sv_client.c' l='157' u='r' c='SV_GetChallenge'/>
+<use f='codebrowser/code/server/sv_main.c' l='278' u='r' c='SV_MasterHeartbeat'/>
+<use f='codebrowser/code/server/sv_main.c' l='377' c='SVC_HashForAddress'/>
+<use f='codebrowser/code/server/sv_main.c' l='407' c='SVC_BucketForAddress'/>
+<use f='codebrowser/code/server/sv_main.c' l='449' c='SVC_BucketForAddress'/>

@@ -1,0 +1,53 @@
+<def f='codebrowser/code/botlib/be_aas.h' l='123' ll='148'/>
+<size>140</size>
+<doc f='codebrowser/code/botlib/be_aas.h' l='95'>/* Defined in botlib.h
+
+//bsp_trace_t hit surface
+typedef struct bsp_surface_s
+{
+	char name[16];
+	int flags;
+	int value;
+} bsp_surface_t;
+
+//a trace is returned when a box is swept through the BSP world
+typedef struct bsp_trace_s
+{
+	qboolean		allsolid;	// if true, plane is not valid
+	qboolean		startsolid;	// if true, the initial point was in a solid area
+	float			fraction;	// time completed, 1.0 = didn&apos;t hit anything
+	vec3_t			endpos;		// final position
+	cplane_t		plane;		// surface normal at impact
+	float			exp_dist;	// expanded plane distance
+	int				sidenum;	// number of the brush side hit
+	bsp_surface_t	surface;	// hit surface
+	int				contents;	// contents on other side of surface hit
+	int				ent;		// number of entity hit
+} bsp_trace_t;
+//
+*/
+
+//entity info</doc>
+<mbr r='aas_entityinfo_s::valid' o='0' t='int'/>
+<mbr r='aas_entityinfo_s::type' o='32' t='int'/>
+<mbr r='aas_entityinfo_s::flags' o='64' t='int'/>
+<mbr r='aas_entityinfo_s::ltime' o='96' t='float'/>
+<mbr r='aas_entityinfo_s::update_time' o='128' t='float'/>
+<mbr r='aas_entityinfo_s::number' o='160' t='int'/>
+<mbr r='aas_entityinfo_s::origin' o='192' t='vec3_t'/>
+<mbr r='aas_entityinfo_s::angles' o='288' t='vec3_t'/>
+<mbr r='aas_entityinfo_s::old_origin' o='384' t='vec3_t'/>
+<mbr r='aas_entityinfo_s::lastvisorigin' o='480' t='vec3_t'/>
+<mbr r='aas_entityinfo_s::mins' o='576' t='vec3_t'/>
+<mbr r='aas_entityinfo_s::maxs' o='672' t='vec3_t'/>
+<mbr r='aas_entityinfo_s::groundent' o='768' t='int'/>
+<mbr r='aas_entityinfo_s::solid' o='800' t='int'/>
+<mbr r='aas_entityinfo_s::modelindex' o='832' t='int'/>
+<mbr r='aas_entityinfo_s::modelindex2' o='864' t='int'/>
+<mbr r='aas_entityinfo_s::frame' o='896' t='int'/>
+<mbr r='aas_entityinfo_s::event' o='928' t='int'/>
+<mbr r='aas_entityinfo_s::eventParm' o='960' t='int'/>
+<mbr r='aas_entityinfo_s::powerups' o='992' t='int'/>
+<mbr r='aas_entityinfo_s::weapon' o='1024' t='int'/>
+<mbr r='aas_entityinfo_s::legsAnim' o='1056' t='int'/>
+<mbr r='aas_entityinfo_s::torsoAnim' o='1088' t='int'/>

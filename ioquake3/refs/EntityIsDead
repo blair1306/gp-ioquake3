@@ -1,0 +1,14 @@
+<dec f='codebrowser/code/game/ai_dmq3.h' l='60' type='qboolean EntityIsDead(aas_entityinfo_t * entinfo)'/>
+<use f='codebrowser/code/game/ai_chat.c' l='329' u='c' c='BotVisibleEnemies'/>
+<doc f='codebrowser/code/game/ai_dmq3.h' l='59'>//returns true if the entity is dead</doc>
+<use f='codebrowser/code/game/ai_dmnet.c' l='2045' u='c' c='AINode_Battle_Fight'/>
+<use f='codebrowser/code/game/ai_dmnet.c' l='2331' u='c' c='AINode_Battle_Retreat'/>
+<use f='codebrowser/code/game/ai_dmnet.c' l='2520' u='c' c='AINode_Battle_NBG'/>
+<def f='codebrowser/code/game/ai_dmq3.c' l='204' ll='216' type='qboolean EntityIsDead(aas_entityinfo_t * entinfo)'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='3000' u='c' c='BotFindEnemy'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='3721' u='c' c='BotMapScripts'/>
+<doc f='codebrowser/code/game/ai_dmq3.c' l='199'>/*
+==================
+EntityIsDead
+==================
+*/</doc>

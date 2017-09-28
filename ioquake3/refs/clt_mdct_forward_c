@@ -1,0 +1,5 @@
+<dec f='codebrowser/code/opus-1.1.4/celt/mdct.h' l='65' type='void clt_mdct_forward_c(const mdct_lookup * l, float * in, float *restrict out, const opus_val16 * window, int overlap, int shift, int stride, int arch)'/>
+<doc f='codebrowser/code/opus-1.1.4/celt/mdct.h' l='64'>/** Compute a forward MDCT and scale by 4/N, trashes the input array */</doc>
+<use f='codebrowser/code/opus-1.1.4/celt/celt_encoder.c' l='439' macro='1' u='c'/>
+<def f='codebrowser/code/opus-1.1.4/celt/mdct.c' l='119' ll='238' type='void clt_mdct_forward_c(const mdct_lookup * l, float * in, float *restrict out, const opus_val16 * window, int overlap, int shift, int stride, int arch)'/>
+<use f='codebrowser/code/opus-1.1.4/src/opus_multistream_encoder.c' l='287' macro='1' u='c'/>

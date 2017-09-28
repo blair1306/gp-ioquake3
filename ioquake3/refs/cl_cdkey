@@ -1,0 +1,31 @@
+<dec f='codebrowser/code/qcommon/qcommon.h' l='778' type='char [34]'/>
+<doc f='codebrowser/code/qcommon/qcommon.h' l='768'>/*
+==============================================================
+
+MISC
+
+==============================================================
+*/
+
+// centralizing the declarations for cl_cdkey
+// https://zerowing.idsoftware.com/bugzilla/show_bug.cgi?id=470</doc>
+<use f='codebrowser/code/client/cl_main.c' l='1615' u='r' c='CL_RequestAuthorization'/>
+<use f='codebrowser/code/client/cl_main.c' l='1620' u='r' c='CL_RequestAuthorization'/>
+<use f='codebrowser/code/client/cl_main.c' l='1620' u='r' c='CL_RequestAuthorization'/>
+<use f='codebrowser/code/client/cl_main.c' l='1621' u='r' c='CL_RequestAuthorization'/>
+<use f='codebrowser/code/client/cl_main.c' l='1621' u='r' c='CL_RequestAuthorization'/>
+<use f='codebrowser/code/client/cl_main.c' l='1622' u='r' c='CL_RequestAuthorization'/>
+<use f='codebrowser/code/client/cl_main.c' l='1622' u='r' c='CL_RequestAuthorization'/>
+<use f='codebrowser/code/client/cl_main.c' l='1624' u='r' c='CL_RequestAuthorization'/>
+<use f='codebrowser/code/client/cl_ui.c' l='645' u='a' c='CLUI_GetCDKey'/>
+<use f='codebrowser/code/client/cl_ui.c' l='648' u='r' c='CLUI_GetCDKey'/>
+<use f='codebrowser/code/client/cl_ui.c' l='667' u='a' c='CLUI_SetCDKey'/>
+<use f='codebrowser/code/client/cl_ui.c' l='668' u='w' c='CLUI_SetCDKey'/>
+<use f='codebrowser/code/client/cl_ui.c' l='672' u='r' c='CLUI_SetCDKey'/>
+<def f='codebrowser/code/qcommon/common.c' l='2464' type='char [34]'/>
+<use f='codebrowser/code/qcommon/common.c' l='2482' u='r' c='Com_ReadCDKey'/>
+<use f='codebrowser/code/qcommon/common.c' l='2492' u='r' c='Com_ReadCDKey'/>
+<use f='codebrowser/code/qcommon/common.c' l='2494' u='r' c='Com_ReadCDKey'/>
+<use f='codebrowser/code/qcommon/common.c' l='2512' u='a' c='Com_AppendCDKey'/>
+<use f='codebrowser/code/qcommon/common.c' l='2522' u='a' c='Com_AppendCDKey'/>
+<use f='codebrowser/code/qcommon/common.c' l='2524' u='a' c='Com_AppendCDKey'/>

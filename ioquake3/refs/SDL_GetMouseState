@@ -1,0 +1,9 @@
+<dec f='include/SDL2/SDL_mouse.h' l='87' type='Uint32 SDL_GetMouseState(int * x, int * y)'/>
+<doc f='include/SDL2/SDL_mouse.h' l='79'>/**
+ *  \brief Retrieve the current state of the mouse.
+ *
+ *  The current button state is returned as a button bitmask, which can
+ *  be tested using the SDL_BUTTON(X) macros, and x and y are set to the
+ *  mouse cursor position relative to the focus window for the currently
+ *  selected mouse.  You can pass NULL for either x or y.
+ */</doc>

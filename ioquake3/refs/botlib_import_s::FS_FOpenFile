@@ -1,0 +1,9 @@
+<dec f='codebrowser/code/botlib/botlib.h' l='194' type='int (*)(const char *, fileHandle_t *, fsMode_t)'/>
+<offset>768</offset>
+<doc f='codebrowser/code/botlib/botlib.h' l='193'>//file system access</doc>
+<use f='codebrowser/code/botlib/be_aas_file.c' l='353' u='r' c='AAS_LoadAASFile'/>
+<use f='codebrowser/code/botlib/be_aas_file.c' l='537' u='r' c='AAS_WriteAASFile'/>
+<use f='codebrowser/code/botlib/be_aas_route.c' l='969' u='r' c='AAS_WriteRouteCache'/>
+<use f='codebrowser/code/botlib/be_aas_route.c' l='1063' u='r' c='AAS_ReadRouteCache'/>
+<use f='codebrowser/code/botlib/l_script.c' l='1343' u='r' c='LoadScriptFile'/>
+<use f='codebrowser/code/server/sv_bot.c' l='545' u='w' c='SV_BotInitBotLib'/>

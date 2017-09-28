@@ -1,0 +1,10 @@
+<dec f='codebrowser/code/qcommon/vm_local.h' l='200' type='const char * VM_ValueToSymbol(vm_t * vm, int value)'/>
+<def f='codebrowser/code/qcommon/vm.c' l='91' ll='112' type='const char * VM_ValueToSymbol(vm_t * vm, int value)'/>
+<doc f='codebrowser/code/qcommon/vm.c' l='84'>/*
+===============
+VM_ValueToSymbol
+
+Assumes a program counter value
+===============
+*/</doc>
+<use f='codebrowser/code/qcommon/vm_interpreted.c' l='157' u='c' c='VM_StackTrace'/>

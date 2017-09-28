@@ -1,0 +1,28 @@
+<dec f='codebrowser/code/qcommon/qcommon.h' l='184' type='int NET_StringToAdr(const char * s, netadr_t * a, netadrtype_t family)'/>
+<use f='codebrowser/code/client/cl_main.c' l='1315' u='c' c='CL_MapLoading'/>
+<use f='codebrowser/code/client/cl_main.c' l='1530' u='c' c='CL_RequestMotd'/>
+<use f='codebrowser/code/client/cl_main.c' l='1598' u='c' c='CL_RequestAuthorization'/>
+<use f='codebrowser/code/client/cl_main.c' l='1744' u='c' c='CL_Connect_f'/>
+<use f='codebrowser/code/client/cl_main.c' l='1887' u='c' c='CL_Rcon_f'/>
+<use f='codebrowser/code/client/cl_main.c' l='3984' u='c' c='CL_ServerStatus'/>
+<use f='codebrowser/code/client/cl_main.c' l='4220' u='c' c='CL_GlobalServers_f'/>
+<use f='codebrowser/code/client/cl_main.c' l='4457' u='c' c='CL_Ping_f'/>
+<use f='codebrowser/code/client/cl_main.c' l='4621' u='c' c='CL_ServerStatus_f'/>
+<use f='codebrowser/code/client/cl_ui.c' l='149' u='c' c='LAN_AddServer'/>
+<use f='codebrowser/code/client/cl_ui.c' l='193' u='c' c='LAN_RemoveServer'/>
+<def f='codebrowser/code/qcommon/net_chan.c' l='629' ll='690' type='int NET_StringToAdr(const char * s, netadr_t * a, netadrtype_t family)'/>
+<doc f='codebrowser/code/qcommon/net_chan.c' l='621'>/*
+=============
+NET_StringToAdr
+
+Traps &quot;localhost&quot; for loopback, passes everything else to system
+return 0 on address not found, 1 on address found with port, 2 on address found without port.
+=============
+*/</doc>
+<use f='codebrowser/code/server/sv_ccmds.c' l='553' u='c' c='SV_Ban_f'/>
+<use f='codebrowser/code/server/sv_ccmds.c' l='607' u='c' c='SV_BanNum_f'/>
+<use f='codebrowser/code/server/sv_ccmds.c' l='689' u='c' c='SV_RehashBans_f'/>
+<use f='codebrowser/code/server/sv_ccmds.c' l='793' u='c' c='SV_ParseCIDRNotation'/>
+<use f='codebrowser/code/server/sv_client.c' l='157' u='c' c='SV_GetChallenge'/>
+<use f='codebrowser/code/server/sv_main.c' l='278' u='c' c='SV_MasterHeartbeat'/>
+<use f='codebrowser/code/server/sv_main.c' l='295' u='c' c='SV_MasterHeartbeat'/>

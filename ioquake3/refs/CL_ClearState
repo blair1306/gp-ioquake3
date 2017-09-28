@@ -1,0 +1,12 @@
+<dec f='codebrowser/code/client/client.h' l='504' type='void CL_ClearState()'/>
+<def f='codebrowser/code/client/cl_main.c' l='1329' ll='1334' type='void CL_ClearState()'/>
+<use f='codebrowser/code/client/cl_main.c' l='1451' u='c' c='CL_Disconnect'/>
+<use f='codebrowser/code/client/cl_main.c' l='3501' u='c' c='CL_Init'/>
+<doc f='codebrowser/code/client/cl_main.c' l='1322'>/*
+=====================
+CL_ClearState
+
+Called before parsing a gamestate
+=====================
+*/</doc>
+<use f='codebrowser/code/client/cl_parse.c' l='476' u='c' c='CL_ParseGamestate'/>

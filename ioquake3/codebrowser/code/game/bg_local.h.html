@@ -1,0 +1,100 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>bg_local.h source code [codebrowser/code/game/bg_local.h] - Woboq Code Browser</title>
+<link rel="stylesheet" href="../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'codebrowser/code/game/bg_local.h'; var root_path = '../../..'; var data_path = '../../../../data';</script>
+<script src='../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../..'>codebrowser</a>/<a href='..'>code</a>/<a href='./'>game</a>/<a href='bg_local.h.html'>bg_local.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/*</i></td></tr>
+<tr><th id="2">2</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="3">3</th><td><i>Copyright (C) 1999-2005 Id Software, Inc.</i></td></tr>
+<tr><th id="4">4</th><td><i></i></td></tr>
+<tr><th id="5">5</th><td><i>This file is part of Quake III Arena source code.</i></td></tr>
+<tr><th id="6">6</th><td><i></i></td></tr>
+<tr><th id="7">7</th><td><i>Quake III Arena source code is free software; you can redistribute it</i></td></tr>
+<tr><th id="8">8</th><td><i>and/or modify it under the terms of the GNU General Public License as</i></td></tr>
+<tr><th id="9">9</th><td><i>published by the Free Software Foundation; either version 2 of the License,</i></td></tr>
+<tr><th id="10">10</th><td><i>or (at your option) any later version.</i></td></tr>
+<tr><th id="11">11</th><td><i></i></td></tr>
+<tr><th id="12">12</th><td><i>Quake III Arena source code is distributed in the hope that it will be</i></td></tr>
+<tr><th id="13">13</th><td><i>useful, but WITHOUT ANY WARRANTY; without even the implied warranty of</i></td></tr>
+<tr><th id="14">14</th><td><i>MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</i></td></tr>
+<tr><th id="15">15</th><td><i>GNU General Public License for more details.</i></td></tr>
+<tr><th id="16">16</th><td><i></i></td></tr>
+<tr><th id="17">17</th><td><i>You should have received a copy of the GNU General Public License</i></td></tr>
+<tr><th id="18">18</th><td><i>along with Quake III Arena source code; if not, write to the Free Software</i></td></tr>
+<tr><th id="19">19</th><td><i>Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA</i></td></tr>
+<tr><th id="20">20</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="21">21</th><td><i>*/</i></td></tr>
+<tr><th id="22">22</th><td><i>//</i></td></tr>
+<tr><th id="23">23</th><td><i>// bg_local.h -- local definitions for the bg (both games) files</i></td></tr>
+<tr><th id="24">24</th><td></td></tr>
+<tr><th id="25">25</th><td><u>#define	<dfn class="macro" id="_M/MIN_WALK_NORMAL" data-ref="_M/MIN_WALK_NORMAL">MIN_WALK_NORMAL</dfn>	0.7f		// can't walk on very steep slopes</u></td></tr>
+<tr><th id="26">26</th><td></td></tr>
+<tr><th id="27">27</th><td><u>#define	<dfn class="macro" id="_M/STEPSIZE" data-ref="_M/STEPSIZE">STEPSIZE</dfn>		18</u></td></tr>
+<tr><th id="28">28</th><td></td></tr>
+<tr><th id="29">29</th><td><u>#define	<dfn class="macro" id="_M/JUMP_VELOCITY" data-ref="_M/JUMP_VELOCITY">JUMP_VELOCITY</dfn>	270</u></td></tr>
+<tr><th id="30">30</th><td></td></tr>
+<tr><th id="31">31</th><td><u>#define	<dfn class="macro" id="_M/TIMER_LAND" data-ref="_M/TIMER_LAND">TIMER_LAND</dfn>		130</u></td></tr>
+<tr><th id="32">32</th><td><u>#define	<dfn class="macro" id="_M/TIMER_GESTURE" data-ref="_M/TIMER_GESTURE">TIMER_GESTURE</dfn>	(34*66+50)</u></td></tr>
+<tr><th id="33">33</th><td></td></tr>
+<tr><th id="34">34</th><td><u>#define	<dfn class="macro" id="_M/OVERCLIP" data-ref="_M/OVERCLIP">OVERCLIP</dfn>		1.001f</u></td></tr>
+<tr><th id="35">35</th><td></td></tr>
+<tr><th id="36">36</th><td><i>// all of the locals will be zeroed before each</i></td></tr>
+<tr><th id="37">37</th><td><i>// pmove, just to make damn sure we don't have</i></td></tr>
+<tr><th id="38">38</th><td><i>// any differences when running on client or server</i></td></tr>
+<tr><th id="39">39</th><td><b>typedef</b> <b>struct</b> {</td></tr>
+<tr><th id="40">40</th><td>	<a class="typedef" href="../qcommon/q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a>		<dfn class="decl" id="(anonymous)::forward" title='(anonymous struct)::forward' data-ref="(anonymous)::forward">forward</dfn>, <dfn class="decl" id="(anonymous)::right" title='(anonymous struct)::right' data-ref="(anonymous)::right">right</dfn>, <dfn class="decl" id="(anonymous)::up" title='(anonymous struct)::up' data-ref="(anonymous)::up">up</dfn>;</td></tr>
+<tr><th id="41">41</th><td>	<em>float</em>		<dfn class="decl" id="(anonymous)::frametime" title='(anonymous struct)::frametime' data-ref="(anonymous)::frametime">frametime</dfn>;</td></tr>
+<tr><th id="42">42</th><td></td></tr>
+<tr><th id="43">43</th><td>	<em>int</em>			<dfn class="decl" id="(anonymous)::msec" title='(anonymous struct)::msec' data-ref="(anonymous)::msec">msec</dfn>;</td></tr>
+<tr><th id="44">44</th><td></td></tr>
+<tr><th id="45">45</th><td>	<a class="typedef" href="../qcommon/q_shared.h.html#qboolean" title='qboolean' data-type='enum qboolean' data-ref="qboolean">qboolean</a>	<dfn class="decl" id="(anonymous)::walking" title='(anonymous struct)::walking' data-ref="(anonymous)::walking">walking</dfn>;</td></tr>
+<tr><th id="46">46</th><td>	<a class="typedef" href="../qcommon/q_shared.h.html#qboolean" title='qboolean' data-type='enum qboolean' data-ref="qboolean">qboolean</a>	<dfn class="decl" id="(anonymous)::groundPlane" title='(anonymous struct)::groundPlane' data-ref="(anonymous)::groundPlane">groundPlane</dfn>;</td></tr>
+<tr><th id="47">47</th><td>	<a class="typedef" href="../qcommon/q_shared.h.html#trace_t" title='trace_t' data-type='struct trace_t' data-ref="trace_t">trace_t</a>		<dfn class="decl" id="(anonymous)::groundTrace" title='(anonymous struct)::groundTrace' data-ref="(anonymous)::groundTrace">groundTrace</dfn>;</td></tr>
+<tr><th id="48">48</th><td></td></tr>
+<tr><th id="49">49</th><td>	<em>float</em>		<dfn class="decl" id="(anonymous)::impactSpeed" title='(anonymous struct)::impactSpeed' data-ref="(anonymous)::impactSpeed">impactSpeed</dfn>;</td></tr>
+<tr><th id="50">50</th><td></td></tr>
+<tr><th id="51">51</th><td>	<a class="typedef" href="../qcommon/q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a>		<dfn class="decl" id="(anonymous)::previous_origin" title='(anonymous struct)::previous_origin' data-ref="(anonymous)::previous_origin">previous_origin</dfn>;</td></tr>
+<tr><th id="52">52</th><td>	<a class="typedef" href="../qcommon/q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a>		<dfn class="decl" id="(anonymous)::previous_velocity" title='(anonymous struct)::previous_velocity' data-ref="(anonymous)::previous_velocity">previous_velocity</dfn>;</td></tr>
+<tr><th id="53">53</th><td>	<em>int</em>			<dfn class="decl" id="(anonymous)::previous_waterlevel" title='(anonymous struct)::previous_waterlevel' data-ref="(anonymous)::previous_waterlevel">previous_waterlevel</dfn>;</td></tr>
+<tr><th id="54">54</th><td>} <dfn class="typedef" id="pml_t" title='pml_t' data-type='struct pml_t' data-ref="pml_t">pml_t</dfn>;</td></tr>
+<tr><th id="55">55</th><td></td></tr>
+<tr><th id="56">56</th><td><b>extern</b>	<a class="typedef" href="bg_public.h.html#pmove_t" title='pmove_t' data-type='struct pmove_t' data-ref="pmove_t">pmove_t</a>		*<dfn class="decl" id="pm" title='pm' data-ref="pm">pm</dfn>;</td></tr>
+<tr><th id="57">57</th><td><b>extern</b>	<a class="typedef" href="#pml_t" title='pml_t' data-type='struct pml_t' data-ref="pml_t">pml_t</a>		<dfn class="decl" id="pml" title='pml' data-ref="pml">pml</dfn>;</td></tr>
+<tr><th id="58">58</th><td></td></tr>
+<tr><th id="59">59</th><td><i>// movement parameters</i></td></tr>
+<tr><th id="60">60</th><td><b>extern</b>	<em>float</em>	<dfn class="decl" id="pm_stopspeed" title='pm_stopspeed' data-ref="pm_stopspeed">pm_stopspeed</dfn>;</td></tr>
+<tr><th id="61">61</th><td><b>extern</b>	<em>float</em>	<dfn class="decl" id="pm_duckScale" title='pm_duckScale' data-ref="pm_duckScale">pm_duckScale</dfn>;</td></tr>
+<tr><th id="62">62</th><td><b>extern</b>	<em>float</em>	<dfn class="decl" id="pm_swimScale" title='pm_swimScale' data-ref="pm_swimScale">pm_swimScale</dfn>;</td></tr>
+<tr><th id="63">63</th><td></td></tr>
+<tr><th id="64">64</th><td><b>extern</b>	<em>float</em>	<dfn class="decl" id="pm_accelerate" title='pm_accelerate' data-ref="pm_accelerate">pm_accelerate</dfn>;</td></tr>
+<tr><th id="65">65</th><td><b>extern</b>	<em>float</em>	<dfn class="decl" id="pm_airaccelerate" title='pm_airaccelerate' data-ref="pm_airaccelerate">pm_airaccelerate</dfn>;</td></tr>
+<tr><th id="66">66</th><td><b>extern</b>	<em>float</em>	<dfn class="decl" id="pm_wateraccelerate" title='pm_wateraccelerate' data-ref="pm_wateraccelerate">pm_wateraccelerate</dfn>;</td></tr>
+<tr><th id="67">67</th><td><b>extern</b>	<em>float</em>	<dfn class="decl" id="pm_flyaccelerate" title='pm_flyaccelerate' data-ref="pm_flyaccelerate">pm_flyaccelerate</dfn>;</td></tr>
+<tr><th id="68">68</th><td></td></tr>
+<tr><th id="69">69</th><td><b>extern</b>	<em>float</em>	<dfn class="decl" id="pm_friction" title='pm_friction' data-ref="pm_friction">pm_friction</dfn>;</td></tr>
+<tr><th id="70">70</th><td><b>extern</b>	<em>float</em>	<dfn class="decl" id="pm_waterfriction" title='pm_waterfriction' data-ref="pm_waterfriction">pm_waterfriction</dfn>;</td></tr>
+<tr><th id="71">71</th><td><b>extern</b>	<em>float</em>	<dfn class="decl" id="pm_flightfriction" title='pm_flightfriction' data-ref="pm_flightfriction">pm_flightfriction</dfn>;</td></tr>
+<tr><th id="72">72</th><td></td></tr>
+<tr><th id="73">73</th><td><b>extern</b>	<em>int</em>		<dfn class="decl" id="c_pmove" title='c_pmove' data-ref="c_pmove">c_pmove</dfn>;</td></tr>
+<tr><th id="74">74</th><td></td></tr>
+<tr><th id="75">75</th><td><em>void</em> <a class="decl" href="bg_pmove.c.html#PM_ClipVelocity" title='PM_ClipVelocity' data-ref="PM_ClipVelocity" id="PM_ClipVelocity">PM_ClipVelocity</a>( <a class="typedef" href="../qcommon/q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="local col1 decl" id="1in" title='in' data-type='vec_t *' data-ref="1in">in</dfn>, <a class="typedef" href="../qcommon/q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="local col2 decl" id="2normal" title='normal' data-type='vec_t *' data-ref="2normal">normal</dfn>, <a class="typedef" href="../qcommon/q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="local col3 decl" id="3out" title='out' data-type='vec_t *' data-ref="3out">out</dfn>, <em>float</em> <dfn class="local col4 decl" id="4overbounce" title='overbounce' data-type='float' data-ref="4overbounce">overbounce</dfn> );</td></tr>
+<tr><th id="76">76</th><td><em>void</em> <a class="decl" href="bg_pmove.c.html#PM_AddTouchEnt" title='PM_AddTouchEnt' data-ref="PM_AddTouchEnt" id="PM_AddTouchEnt">PM_AddTouchEnt</a>( <em>int</em> <dfn class="local col5 decl" id="5entityNum" title='entityNum' data-type='int' data-ref="5entityNum">entityNum</dfn> );</td></tr>
+<tr><th id="77">77</th><td><em>void</em> <a class="decl" href="bg_pmove.c.html#PM_AddEvent" title='PM_AddEvent' data-ref="PM_AddEvent" id="PM_AddEvent">PM_AddEvent</a>( <em>int</em> <dfn class="local col6 decl" id="6newEvent" title='newEvent' data-type='int' data-ref="6newEvent">newEvent</dfn> );</td></tr>
+<tr><th id="78">78</th><td></td></tr>
+<tr><th id="79">79</th><td><a class="typedef" href="../qcommon/q_shared.h.html#qboolean" title='qboolean' data-type='enum qboolean' data-ref="qboolean">qboolean</a>	<dfn class="decl" id="PM_SlideMove" title='PM_SlideMove' data-ref="PM_SlideMove">PM_SlideMove</dfn>( <a class="typedef" href="../qcommon/q_shared.h.html#qboolean" title='qboolean' data-type='enum qboolean' data-ref="qboolean">qboolean</a> <dfn class="local col7 decl" id="7gravity" title='gravity' data-type='qboolean' data-ref="7gravity">gravity</dfn> );</td></tr>
+<tr><th id="80">80</th><td><em>void</em>		<dfn class="decl" id="PM_StepSlideMove" title='PM_StepSlideMove' data-ref="PM_StepSlideMove">PM_StepSlideMove</dfn>( <a class="typedef" href="../qcommon/q_shared.h.html#qboolean" title='qboolean' data-type='enum qboolean' data-ref="qboolean">qboolean</a> <dfn class="local col8 decl" id="8gravity" title='gravity' data-type='qboolean' data-ref="8gravity">gravity</dfn> );</td></tr>
+<tr><th id="81">81</th><td></td></tr>
+<tr><th id="82">82</th><td></td></tr>
+<tr><th id="83">83</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='bg_pmove.c.html'>codebrowser/code/game/bg_pmove.c</a><br/>Generated on <em>2017-Aug-29</em> from project codebrowser revision <em>63e07af</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

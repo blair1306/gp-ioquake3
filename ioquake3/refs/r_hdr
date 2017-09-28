@@ -1,0 +1,13 @@
+<dec f='codebrowser/code/renderergl2/tr_local.h' l='1698' type='cvar_t *'/>
+<use f='codebrowser/code/renderergl2/tr_backend.c' l='1389' u='r' c='RB_SwapBuffers'/>
+<use f='codebrowser/code/renderergl2/tr_backend.c' l='1512' u='r' c='RB_PostProcess'/>
+<use f='codebrowser/code/renderergl2/tr_bsp.c' l='279' u='r' c='R_LoadLightmaps'/>
+<use f='codebrowser/code/renderergl2/tr_bsp.c' l='669' u='r' c='LoadDrawVertToSrfVert'/>
+<use f='codebrowser/code/renderergl2/tr_bsp.c' l='1724' u='r' c='R_LoadSurfaces'/>
+<use f='codebrowser/code/renderergl2/tr_bsp.c' l='2208' u='r' c='R_LoadLightGrid'/>
+<use f='codebrowser/code/renderergl2/tr_fbo.c' l='264' u='r' c='FBO_Init'/>
+<use f='codebrowser/code/renderergl2/tr_fbo.c' l='293' u='r' c='FBO_Init'/>
+<use f='codebrowser/code/renderergl2/tr_image.c' l='2764' u='r' c='R_CreateBuiltinImages'/>
+<def f='codebrowser/code/renderergl2/tr_init.c' l='112' type='cvar_t *'/>
+<use f='codebrowser/code/renderergl2/tr_init.c' l='1206' u='w' c='R_Register'/>
+<use f='codebrowser/code/renderergl2/tr_light.c' l='359' u='r' c='R_SetupEntityLighting'/>

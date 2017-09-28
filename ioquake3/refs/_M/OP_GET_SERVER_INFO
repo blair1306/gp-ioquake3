@@ -1,0 +1,19 @@
+<dec f='codebrowser/code/opusfile-0.8/include/opusfile.h' l='842'/>
+<doc f='codebrowser/code/opusfile-0.8/include/opusfile.h' l='824'>/**Parse information about the streaming server (if any) and return it.
+   Very little validation is done.
+   In particular, OpusServerInfo::url may not be a valid URL,
+    OpusServerInfo::bitrate_kbps may not really be in kbps, and
+    OpusServerInfo::content_type may not be a valid MIME type.
+   The character set of the string fields is not specified anywhere, and should
+    not be assumed to be valid UTF-8.
+   \param _info OpusServerInfo *: Returns information about the server.
+                                  If there is any error opening the stream, the
+                                   contents of this structure remain
+                                   unmodified.
+                                  On success, fills in the structure with the
+                                   server information that was available, if
+                                   any.
+                                  After a successful return, the contents of
+                                   this structure should be freed by calling
+                                   opus_server_info_clear().
+   \hideinitializer*/</doc>

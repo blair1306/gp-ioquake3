@@ -1,0 +1,19 @@
+<dec f='codebrowser/code/renderergl2/tr_local.h' l='2018' type='void RB_InstantQuad2(vec4_t * quadVerts, vec2_t * texCoords)'/>
+<doc f='codebrowser/code/renderergl2/tr_local.h' l='2017'>//void RB_InstantQuad2(vec4_t quadVerts[4], vec2_t texCoords[4], vec4_t color, shaderProgram_t *sp, vec2_t invTexRes);</doc>
+<use f='codebrowser/code/renderergl2/tr_backend.c' l='740' u='c' c='RE_StretchRaw'/>
+<use f='codebrowser/code/renderergl2/tr_backend.c' l='1022' u='c' c='RB_DrawSurfs'/>
+<use f='codebrowser/code/renderergl2/tr_backend.c' l='1038' u='c' c='RB_DrawSurfs'/>
+<use f='codebrowser/code/renderergl2/tr_backend.c' l='1049' u='c' c='RB_DrawSurfs'/>
+<use f='codebrowser/code/renderergl2/tr_backend.c' l='1085' u='c' c='RB_DrawSurfs'/>
+<use f='codebrowser/code/renderergl2/tr_backend.c' l='1103' u='c' c='RB_DrawSurfs'/>
+<use f='codebrowser/code/renderergl2/tr_backend.c' l='1119' u='c' c='RB_DrawSurfs'/>
+<use f='codebrowser/code/renderergl2/tr_fbo.c' l='586' u='c' c='FBO_BlitFromTexture'/>
+<def f='codebrowser/code/renderergl2/tr_surface.c' l='181' ll='219' type='void RB_InstantQuad2(vec4_t * quadVerts, vec2_t * texCoords)'/>
+<use f='codebrowser/code/renderergl2/tr_surface.c' l='236' u='c' c='RB_InstantQuad'/>
+<doc f='codebrowser/code/renderergl2/tr_surface.c' l='174'>/*
+==============
+RB_InstantQuad
+
+based on Tess_InstantQuad from xreal
+==============
+*/</doc>

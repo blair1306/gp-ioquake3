@@ -1,0 +1,9 @@
+<dec f='codebrowser/code/opusfile-0.8/include/opusfile.h' l='547' type='int opus_tags_query_count(const OpusTags * _tags, const char * _tag)'/>
+<doc f='codebrowser/code/opusfile-0.8/include/opusfile.h' l='540'>/**Look up the number of instances of a tag.
+   Call this first when querying for a specific tag and then iterate over the
+    number of instances with separate calls to opus_tags_query() to retrieve
+    all the values for that tag in order.
+   \param _tags An initialized #OpusTags structure.
+   \param _tag  The tag to look up.
+   \return The number of instances of this particular tag.*/</doc>
+<def f='codebrowser/code/opusfile-0.8/src/info.c' l='370' ll='384' type='int opus_tags_query_count(const OpusTags * _tags, const char * _tag)'/>

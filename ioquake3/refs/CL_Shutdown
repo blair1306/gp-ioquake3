@@ -1,0 +1,12 @@
+<dec f='codebrowser/code/qcommon/qcommon.h' l='985' type='void CL_Shutdown(char * finalmsg, qboolean disconnect, qboolean quit)'/>
+<def f='codebrowser/code/client/cl_main.c' l='3717' ll='3777' type='void CL_Shutdown(char * finalmsg, qboolean disconnect, qboolean quit)'/>
+<doc f='codebrowser/code/client/cl_main.c' l='3711'>/*
+===============
+CL_Shutdown
+
+===============
+*/</doc>
+<def f='codebrowser/code/null/null_client.c' l='28' ll='30' type='void CL_Shutdown(char * finalmsg, qboolean disconnect, qboolean quit)'/>
+<use f='codebrowser/code/qcommon/common.c' l='357' u='c' c='Com_Error'/>
+<use f='codebrowser/code/qcommon/common.c' l='386' u='c' c='Com_Quit_f'/>
+<use f='codebrowser/code/qcommon/common.c' l='2404' u='c' c='Com_GameRestart'/>

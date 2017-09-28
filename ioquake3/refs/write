@@ -1,0 +1,21 @@
+<dec f='include/unistd.h' l='369' type='ssize_t write(int __fd, const void * __buf, size_t __n)'/>
+<doc f='include/unistd.h' l='365'>/* Write N bytes of BUF to FD.  Return the number written, or -1.
+
+   This function is a cancellation point and therefore not marked with
+   __THROW.  */</doc>
+<use f='codebrowser/code/sys/con_tty.c' l='107' u='c' c='CON_Back'/>
+<use f='codebrowser/code/sys/con_tty.c' l='109' u='c' c='CON_Back'/>
+<use f='codebrowser/code/sys/con_tty.c' l='111' u='c' c='CON_Back'/>
+<use f='codebrowser/code/sys/con_tty.c' l='166' u='c' c='CON_Show'/>
+<use f='codebrowser/code/sys/con_tty.c' l='171' u='c' c='CON_Show'/>
+<use f='codebrowser/code/sys/con_tty.c' l='413' u='c' c='CON_Input'/>
+<use f='codebrowser/code/sys/con_tty.c' l='414' u='c' c='CON_Input'/>
+<use f='codebrowser/code/sys/con_tty.c' l='479' u='c' c='CON_Input'/>
+<use f='codebrowser/code/sys/sys_unix.c' l='585' u='c' c='Sys_ErrorDialog'/>
+<use f='codebrowser/code/tools/lcc/cpp/include.c' l='95' u='c' c='doinclude'/>
+<use f='codebrowser/code/tools/lcc/cpp/include.c' l='96' u='c' c='doinclude'/>
+<use f='codebrowser/code/tools/lcc/cpp/include.c' l='97' u='c' c='doinclude'/>
+<use f='codebrowser/code/tools/lcc/cpp/tokens.c' l='308' u='c' c='puttokens'/>
+<use f='codebrowser/code/tools/lcc/cpp/tokens.c' l='309' u='c' c='puttokens'/>
+<use f='codebrowser/code/tools/lcc/cpp/tokens.c' l='316' u='c' c='puttokens'/>
+<use f='codebrowser/code/tools/lcc/cpp/tokens.c' l='331' u='c' c='flushout'/>

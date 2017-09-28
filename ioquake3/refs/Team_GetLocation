@@ -1,0 +1,11 @@
+<dec f='codebrowser/code/game/g_team.h' l='82' type='gentity_t * Team_GetLocation(gentity_t * ent)'/>
+<def f='codebrowser/code/game/g_team.c' l='897' ll='926' type='gentity_t * Team_GetLocation(gentity_t * ent)'/>
+<use f='codebrowser/code/game/g_team.c' l='940' u='c' c='Team_GetLocationMsg'/>
+<use f='codebrowser/code/game/g_team.c' l='1138' u='c' c='CheckTeamStatus'/>
+<doc f='codebrowser/code/game/g_team.c' l='890'>/*
+===========
+Team_GetLocation
+
+Report a location for the player. Uses placed nearby target_location entities
+============
+*/</doc>

@@ -1,0 +1,13 @@
+<dec f='codebrowser/code/jpeg-8c/jpeglib.h' l='343' type='boolean'/>
+<offset>2304</offset>
+<doc f='codebrowser/code/jpeg-8c/jpeglib.h' l='338'>/* The default value of scan_info is NULL, which causes a single-scan
+   * sequential JPEG file to be emitted.  To create a multi-scan file,
+   * set num_scans and scan_info to point to an array of scan definitions.
+   */</doc>
+<doc f='codebrowser/code/jpeg-8c/jpeglib.h' l='343'>/* TRUE=caller supplies downsampled data */</doc>
+<use f='codebrowser/code/jpeg-8c/jcapistd.c' l='57' u='r' c='jpeg_start_compress'/>
+<use f='codebrowser/code/jpeg-8c/jcinit.c' l='36' u='r' c='jinit_compress_master'/>
+<use f='codebrowser/code/jpeg-8c/jcmainct.c' l='74' u='r' c='start_pass_main'/>
+<use f='codebrowser/code/jpeg-8c/jcmainct.c' l='258' u='r' c='jinit_c_main_controller'/>
+<use f='codebrowser/code/jpeg-8c/jcmaster.c' l='676' u='r' c='prepare_for_pass'/>
+<use f='codebrowser/code/jpeg-8c/jcparam.c' l='324' u='w' c='jpeg_set_defaults'/>

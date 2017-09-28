@@ -1,0 +1,17 @@
+<dec f='codebrowser/code/qcommon/qfiles.h' l='201'/>
+<doc f='codebrowser/code/qcommon/qfiles.h' l='186'>/*
+ * Here are the definitions for Ravensoft&apos;s model format of md4. Raven stores their
+ * playermodels in .mdr files, in some games, which are pretty much like the md4
+ * format implemented by ID soft. It seems like ID&apos;s original md4 stuff is not used at all.
+ * MDR is being used in EliteForce, JediKnight2 and Soldiers of Fortune2 (I think).
+ * So this comes in handy for anyone who wants to make it possible to load player
+ * models from these games.
+ * This format has bone tags, which is similar to the thing you have in md3 I suppose.
+ * Raven has released their version of md3view under GPL enabling me to add support
+ * to this codebase. Thanks to Steven Howes aka Skinner for helping with example
+ * source code.
+ *
+ * - Thilo Schulz (arny@ats.s.bawue.de)
+ */</doc>
+<use f='codebrowser/code/renderergl1/tr_model.c' l='134' u='c'/>
+<use f='codebrowser/code/renderergl2/tr_model.c' l='135' u='c'/>

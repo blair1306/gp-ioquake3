@@ -1,0 +1,8 @@
+<dec f='codebrowser/code/tools/lcc/cpp/cpp.h' l='119' type='Tokenrow * copytokenrow(Tokenrow * , Tokenrow * )'/>
+<use f='codebrowser/code/tools/lcc/cpp/macro.c' l='186' u='c' c='expand'/>
+<use f='codebrowser/code/tools/lcc/cpp/macro.c' l='344' u='c' c='substargs'/>
+<def f='codebrowser/code/tools/lcc/cpp/tokens.c' l='215' ll='224' type='Tokenrow * copytokenrow(Tokenrow * dtr, Tokenrow * str)'/>
+<doc f='codebrowser/code/tools/lcc/cpp/tokens.c' l='211'>/*
+ * Copy a row of tokens into the destination holder, allocating
+ * the space for the contents.  Return the destination.
+ */</doc>

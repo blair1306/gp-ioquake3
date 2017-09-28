@@ -1,0 +1,7 @@
+<dec f='codebrowser/code/client/cl_curl.h' l='52' type='CURLcode (*)(CURL *, CURLoption, ...)'/>
+<def f='codebrowser/code/client/cl_curl.c' l='34' type='CURLcode (*)(CURL *, CURLoption, ...)'/>
+<use f='codebrowser/code/client/cl_curl.c' l='112' u='w' c='CL_cURL_Init'/>
+<use f='codebrowser/code/client/cl_curl.c' l='159' u='w' c='CL_cURL_Shutdown'/>
+<use f='codebrowser/code/client/cl_curl.c' l='229' u='r' c='qcurl_easy_setopt_warn'/>
+<use f='codebrowser/code/client/cl_curl.c' l='232' u='r' c='qcurl_easy_setopt_warn'/>
+<use f='codebrowser/code/client/cl_curl.c' l='235' u='r' c='qcurl_easy_setopt_warn'/>

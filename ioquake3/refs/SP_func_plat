@@ -1,0 +1,17 @@
+<def f='codebrowser/code/game/g_mover.c' l='1118' ll='1159' type='void SP_func_plat(gentity_t * ent)'/>
+<doc f='codebrowser/code/game/g_mover.c' l='1107'>/*QUAKED func_plat (0 .5 .8) ?
+Plats are always drawn in the extended position so they will light correctly.
+
+&quot;lip&quot;		default 8, protrusion above rest position
+&quot;height&quot;	total height of movement, defaults to model height
+&quot;speed&quot;		overrides default 200.
+&quot;dmg&quot;		overrides default 2
+&quot;model2&quot;	.md3 model to also draw
+&quot;color&quot;		constantLight color
+&quot;light&quot;		constantLight radius
+*/</doc>
+<dec f='codebrowser/code/game/g_spawn.c' l='126' type='void SP_func_plat(gentity_t * ent)'/>
+<use f='codebrowser/code/game/g_spawn.c' l='194'/>
+<use f='codebrowser/code/game/g_spawn.c' l='194'/>
+<use f='codebrowser/code/game/g_spawn.c' l='194'/>
+<use f='codebrowser/code/game/g_spawn.c' l='194'/>

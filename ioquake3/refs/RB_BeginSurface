@@ -1,0 +1,39 @@
+<dec f='codebrowser/code/renderergl1/tr_local.h' l='1236' type='void RB_BeginSurface(shader_t * shader, int fogNum)'/>
+<use f='codebrowser/code/renderergl1/tr_backend.c' l='551' u='c' c='RB_RenderDrawSurfList'/>
+<use f='codebrowser/code/renderergl1/tr_backend.c' l='866' u='c' c='RB_StretchPic'/>
+<use f='codebrowser/code/renderergl1/tr_flares.c' l='388' u='c' c='RB_RenderFlare'/>
+<use f='codebrowser/code/renderergl1/tr_main.c' l='864' u='c' c='SurfIsOffscreen'/>
+<def f='codebrowser/code/renderergl1/tr_shade.c' l='317' ll='336' type='void RB_BeginSurface(shader_t * shader, int fogNum)'/>
+<doc f='codebrowser/code/renderergl1/tr_shade.c' l='308'>/*
+==============
+RB_BeginSurface
+
+We must set some things up before beginning any tesselation,
+because a surface may be forced to perform a RB_End due
+to overflow.
+==============
+*/</doc>
+<use f='codebrowser/code/renderergl1/tr_sky.c' l='725' u='c' c='RB_DrawSun'/>
+<use f='codebrowser/code/renderergl1/tr_surface.c' l='66' u='c' c='RB_CheckOverflow'/>
+<use f='codebrowser/code/renderergl1/tr_surface.c' l='1057' u='c' c='RB_SurfaceGrid'/>
+<dec f='codebrowser/code/renderergl2/tr_local.h' l='2003' type='void RB_BeginSurface(shader_t * shader, int fogNum, int cubemapIndex)'/>
+<use f='codebrowser/code/renderergl2/tr_backend.c' l='481' u='c' c='RB_RenderDrawSurfList'/>
+<use f='codebrowser/code/renderergl2/tr_backend.c' l='816' u='c' c='RB_StretchPic'/>
+<use f='codebrowser/code/renderergl2/tr_flares.c' l='402' u='c' c='RB_RenderFlare'/>
+<use f='codebrowser/code/renderergl2/tr_main.c' l='1215' u='c' c='SurfIsOffscreen'/>
+<def f='codebrowser/code/renderergl2/tr_shade.c' l='147' ll='174' type='void RB_BeginSurface(shader_t * shader, int fogNum, int cubemapIndex)'/>
+<doc f='codebrowser/code/renderergl2/tr_shade.c' l='138'>/*
+==============
+RB_BeginSurface
+
+We must set some things up before beginning any tesselation,
+because a surface may be forced to perform a RB_End due
+to overflow.
+==============
+*/</doc>
+<use f='codebrowser/code/renderergl2/tr_sky.c' l='823' u='c' c='RB_DrawSun'/>
+<use f='codebrowser/code/renderergl2/tr_surface.c' l='66' u='c' c='RB_CheckOverflow'/>
+<use f='codebrowser/code/renderergl2/tr_surface.c' l='74' u='c' c='RB_CheckVao'/>
+<use f='codebrowser/code/renderergl2/tr_surface.c' l='431' u='c' c='RB_SurfaceVaoCached'/>
+<use f='codebrowser/code/renderergl2/tr_surface.c' l='1018' u='c' c='RB_SurfaceGrid'/>
+<use f='codebrowser/code/renderergl2/tr_surface.c' l='1231' u='c' c='RB_SurfaceVaoMdvMesh'/>

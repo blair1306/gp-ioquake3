@@ -1,0 +1,5 @@
+<dec f='codebrowser/code/opus-1.1.4/silk/main.h' l='46' type='void silk_stereo_LR_to_MS(stereo_enc_state * state, opus_int16 * x1, opus_int16 * x2, signed char (*)[3] ix, signed char * mid_only_flag, opus_int32 * mid_side_rates_bps, opus_int32 total_rate_bps, int prev_speech_act_Q8, int toMono, int fs_kHz, int frame_length)'/>
+<doc f='codebrowser/code/opus-1.1.4/silk/main.h' l='45'>/* Convert Left/Right stereo signal to adaptive Mid/Side representation */</doc>
+<use f='codebrowser/code/opus-1.1.4/silk/enc_API.c' l='411' u='c' c='silk_Encode'/>
+<def f='codebrowser/code/opus-1.1.4/silk/stereo_LR_to_MS.c' l='36' ll='229' type='void silk_stereo_LR_to_MS(stereo_enc_state * state, opus_int16 * x1, opus_int16 * x2, signed char (*)[3] ix, signed char * mid_only_flag, opus_int32 * mid_side_rates_bps, opus_int32 total_rate_bps, int prev_speech_act_Q8, int toMono, int fs_kHz, int frame_length)'/>
+<doc f='codebrowser/code/opus-1.1.4/silk/stereo_LR_to_MS.c' l='35'>/* Convert Left/Right stereo signal to adaptive Mid/Side representation */</doc>

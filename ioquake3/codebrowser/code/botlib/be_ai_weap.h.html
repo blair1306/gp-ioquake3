@@ -1,0 +1,123 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>be_ai_weap.h source code [codebrowser/code/botlib/be_ai_weap.h] - Woboq Code Browser</title>
+<meta name="woboq:interestingDefinitions" content="projectileinfo_s,weaponinfo_s "/>
+<link rel="stylesheet" href="../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'codebrowser/code/botlib/be_ai_weap.h'; var root_path = '../../..'; var data_path = '../../../../data';</script>
+<script src='../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../..'>codebrowser</a>/<a href='..'>code</a>/<a href='./'>botlib</a>/<a href='be_ai_weap.h.html'>be_ai_weap.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/*</i></td></tr>
+<tr><th id="2">2</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="3">3</th><td><i>Copyright (C) 1999-2005 Id Software, Inc.</i></td></tr>
+<tr><th id="4">4</th><td><i></i></td></tr>
+<tr><th id="5">5</th><td><i>This file is part of Quake III Arena source code.</i></td></tr>
+<tr><th id="6">6</th><td><i></i></td></tr>
+<tr><th id="7">7</th><td><i>Quake III Arena source code is free software; you can redistribute it</i></td></tr>
+<tr><th id="8">8</th><td><i>and/or modify it under the terms of the GNU General Public License as</i></td></tr>
+<tr><th id="9">9</th><td><i>published by the Free Software Foundation; either version 2 of the License,</i></td></tr>
+<tr><th id="10">10</th><td><i>or (at your option) any later version.</i></td></tr>
+<tr><th id="11">11</th><td><i></i></td></tr>
+<tr><th id="12">12</th><td><i>Quake III Arena source code is distributed in the hope that it will be</i></td></tr>
+<tr><th id="13">13</th><td><i>useful, but WITHOUT ANY WARRANTY; without even the implied warranty of</i></td></tr>
+<tr><th id="14">14</th><td><i>MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</i></td></tr>
+<tr><th id="15">15</th><td><i>GNU General Public License for more details.</i></td></tr>
+<tr><th id="16">16</th><td><i></i></td></tr>
+<tr><th id="17">17</th><td><i>You should have received a copy of the GNU General Public License</i></td></tr>
+<tr><th id="18">18</th><td><i>along with Quake III Arena source code; if not, write to the Free Software</i></td></tr>
+<tr><th id="19">19</th><td><i>Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA</i></td></tr>
+<tr><th id="20">20</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="21">21</th><td><i>*/</i></td></tr>
+<tr><th id="22">22</th><td><i>//</i></td></tr>
+<tr><th id="23">23</th><td></td></tr>
+<tr><th id="24">24</th><td><i>/*****************************************************************************</i></td></tr>
+<tr><th id="25">25</th><td><i> * name:		be_ai_weap.h</i></td></tr>
+<tr><th id="26">26</th><td><i> *</i></td></tr>
+<tr><th id="27">27</th><td><i> * desc:		weapon AI</i></td></tr>
+<tr><th id="28">28</th><td><i> *</i></td></tr>
+<tr><th id="29">29</th><td><i> * $Archive: /source/code/botlib/be_ai_weap.h $</i></td></tr>
+<tr><th id="30">30</th><td><i> *</i></td></tr>
+<tr><th id="31">31</th><td><i> *****************************************************************************/</i></td></tr>
+<tr><th id="32">32</th><td><i></i></td></tr>
+<tr><th id="33">33</th><td><i>//projectile flags</i></td></tr>
+<tr><th id="34">34</th><td><u>#define <dfn class="macro" id="_M/PFL_WINDOWDAMAGE" data-ref="_M/PFL_WINDOWDAMAGE">PFL_WINDOWDAMAGE</dfn>			1		//projectile damages through window</u></td></tr>
+<tr><th id="35">35</th><td><u>#define <dfn class="macro" id="_M/PFL_RETURN" data-ref="_M/PFL_RETURN">PFL_RETURN</dfn>					2		//set when projectile returns to owner</u></td></tr>
+<tr><th id="36">36</th><td><i>//weapon flags</i></td></tr>
+<tr><th id="37">37</th><td><u>#define <dfn class="macro" id="_M/WFL_FIRERELEASED" data-ref="_M/WFL_FIRERELEASED">WFL_FIRERELEASED</dfn>			1		//set when projectile is fired with key-up event</u></td></tr>
+<tr><th id="38">38</th><td><i>//damage types</i></td></tr>
+<tr><th id="39">39</th><td><u>#define <dfn class="macro" id="_M/DAMAGETYPE_IMPACT" data-ref="_M/DAMAGETYPE_IMPACT">DAMAGETYPE_IMPACT</dfn>			1		//damage on impact</u></td></tr>
+<tr><th id="40">40</th><td><u>#define <dfn class="macro" id="_M/DAMAGETYPE_RADIAL" data-ref="_M/DAMAGETYPE_RADIAL">DAMAGETYPE_RADIAL</dfn>			2		//radial damage</u></td></tr>
+<tr><th id="41">41</th><td><u>#define <dfn class="macro" id="_M/DAMAGETYPE_VISIBLE" data-ref="_M/DAMAGETYPE_VISIBLE">DAMAGETYPE_VISIBLE</dfn>			4		//damage to all entities visible to the projectile</u></td></tr>
+<tr><th id="42">42</th><td></td></tr>
+<tr><th id="43">43</th><td><b>typedef</b> <b>struct</b> <dfn class="type def" id="projectileinfo_s" title='projectileinfo_s' data-ref="projectileinfo_s"><a class="type" href="#projectileinfo_s" title='projectileinfo_s' data-ref="projectileinfo_s">projectileinfo_s</a></dfn></td></tr>
+<tr><th id="44">44</th><td>{</td></tr>
+<tr><th id="45">45</th><td>	<em>char</em> <dfn class="decl" id="projectileinfo_s::name" title='projectileinfo_s::name' data-ref="projectileinfo_s::name">name</dfn>[<a class="macro" href="l_struct.h.html#33" title="80" data-ref="_M/MAX_STRINGFIELD">MAX_STRINGFIELD</a>];</td></tr>
+<tr><th id="46">46</th><td>	<em>char</em> <dfn class="decl" id="projectileinfo_s::model" title='projectileinfo_s::model' data-ref="projectileinfo_s::model">model</dfn>[<a class="macro" href="l_struct.h.html#33" title="80" data-ref="_M/MAX_STRINGFIELD">MAX_STRINGFIELD</a>];</td></tr>
+<tr><th id="47">47</th><td>	<em>int</em> <dfn class="decl" id="projectileinfo_s::flags" title='projectileinfo_s::flags' data-ref="projectileinfo_s::flags">flags</dfn>;</td></tr>
+<tr><th id="48">48</th><td>	<em>float</em> <dfn class="decl" id="projectileinfo_s::gravity" title='projectileinfo_s::gravity' data-ref="projectileinfo_s::gravity">gravity</dfn>;</td></tr>
+<tr><th id="49">49</th><td>	<em>int</em> <dfn class="decl" id="projectileinfo_s::damage" title='projectileinfo_s::damage' data-ref="projectileinfo_s::damage">damage</dfn>;</td></tr>
+<tr><th id="50">50</th><td>	<em>float</em> <dfn class="decl" id="projectileinfo_s::radius" title='projectileinfo_s::radius' data-ref="projectileinfo_s::radius">radius</dfn>;</td></tr>
+<tr><th id="51">51</th><td>	<em>int</em> <dfn class="decl" id="projectileinfo_s::visdamage" title='projectileinfo_s::visdamage' data-ref="projectileinfo_s::visdamage">visdamage</dfn>;</td></tr>
+<tr><th id="52">52</th><td>	<em>int</em> <dfn class="decl" id="projectileinfo_s::damagetype" title='projectileinfo_s::damagetype' data-ref="projectileinfo_s::damagetype">damagetype</dfn>;</td></tr>
+<tr><th id="53">53</th><td>	<em>int</em> <dfn class="decl" id="projectileinfo_s::healthinc" title='projectileinfo_s::healthinc' data-ref="projectileinfo_s::healthinc">healthinc</dfn>;</td></tr>
+<tr><th id="54">54</th><td>	<em>float</em> <dfn class="decl" id="projectileinfo_s::push" title='projectileinfo_s::push' data-ref="projectileinfo_s::push">push</dfn>;</td></tr>
+<tr><th id="55">55</th><td>	<em>float</em> <dfn class="decl" id="projectileinfo_s::detonation" title='projectileinfo_s::detonation' data-ref="projectileinfo_s::detonation">detonation</dfn>;</td></tr>
+<tr><th id="56">56</th><td>	<em>float</em> <dfn class="decl" id="projectileinfo_s::bounce" title='projectileinfo_s::bounce' data-ref="projectileinfo_s::bounce">bounce</dfn>;</td></tr>
+<tr><th id="57">57</th><td>	<em>float</em> <dfn class="decl" id="projectileinfo_s::bouncefric" title='projectileinfo_s::bouncefric' data-ref="projectileinfo_s::bouncefric">bouncefric</dfn>;</td></tr>
+<tr><th id="58">58</th><td>	<em>float</em> <dfn class="decl" id="projectileinfo_s::bouncestop" title='projectileinfo_s::bouncestop' data-ref="projectileinfo_s::bouncestop">bouncestop</dfn>;</td></tr>
+<tr><th id="59">59</th><td>} <dfn class="typedef" id="projectileinfo_t" title='projectileinfo_t' data-type='struct projectileinfo_s' data-ref="projectileinfo_t">projectileinfo_t</dfn>;</td></tr>
+<tr><th id="60">60</th><td></td></tr>
+<tr><th id="61">61</th><td><b>typedef</b> <b>struct</b> <dfn class="type def" id="weaponinfo_s" title='weaponinfo_s' data-ref="weaponinfo_s"><a class="type" href="#weaponinfo_s" title='weaponinfo_s' data-ref="weaponinfo_s">weaponinfo_s</a></dfn></td></tr>
+<tr><th id="62">62</th><td>{</td></tr>
+<tr><th id="63">63</th><td>	<em>int</em> <dfn class="decl" id="weaponinfo_s::valid" title='weaponinfo_s::valid' data-ref="weaponinfo_s::valid">valid</dfn>;					<i>//true if the weapon info is valid</i></td></tr>
+<tr><th id="64">64</th><td>	<em>int</em> <dfn class="decl" id="weaponinfo_s::number" title='weaponinfo_s::number' data-ref="weaponinfo_s::number">number</dfn>;									<i>//number of the weapon</i></td></tr>
+<tr><th id="65">65</th><td>	<em>char</em> <dfn class="decl" id="weaponinfo_s::name" title='weaponinfo_s::name' data-ref="weaponinfo_s::name">name</dfn>[<a class="macro" href="l_struct.h.html#33" title="80" data-ref="_M/MAX_STRINGFIELD">MAX_STRINGFIELD</a>];</td></tr>
+<tr><th id="66">66</th><td>	<em>char</em> <dfn class="decl" id="weaponinfo_s::model" title='weaponinfo_s::model' data-ref="weaponinfo_s::model">model</dfn>[<a class="macro" href="l_struct.h.html#33" title="80" data-ref="_M/MAX_STRINGFIELD">MAX_STRINGFIELD</a>];</td></tr>
+<tr><th id="67">67</th><td>	<em>int</em> <dfn class="decl" id="weaponinfo_s::level" title='weaponinfo_s::level' data-ref="weaponinfo_s::level">level</dfn>;</td></tr>
+<tr><th id="68">68</th><td>	<em>int</em> <dfn class="decl" id="weaponinfo_s::weaponindex" title='weaponinfo_s::weaponindex' data-ref="weaponinfo_s::weaponindex">weaponindex</dfn>;</td></tr>
+<tr><th id="69">69</th><td>	<em>int</em> <dfn class="decl" id="weaponinfo_s::flags" title='weaponinfo_s::flags' data-ref="weaponinfo_s::flags">flags</dfn>;</td></tr>
+<tr><th id="70">70</th><td>	<em>char</em> <dfn class="decl" id="weaponinfo_s::projectile" title='weaponinfo_s::projectile' data-ref="weaponinfo_s::projectile">projectile</dfn>[<a class="macro" href="l_struct.h.html#33" title="80" data-ref="_M/MAX_STRINGFIELD">MAX_STRINGFIELD</a>];</td></tr>
+<tr><th id="71">71</th><td>	<em>int</em> <dfn class="decl" id="weaponinfo_s::numprojectiles" title='weaponinfo_s::numprojectiles' data-ref="weaponinfo_s::numprojectiles">numprojectiles</dfn>;</td></tr>
+<tr><th id="72">72</th><td>	<em>float</em> <dfn class="decl" id="weaponinfo_s::hspread" title='weaponinfo_s::hspread' data-ref="weaponinfo_s::hspread">hspread</dfn>;</td></tr>
+<tr><th id="73">73</th><td>	<em>float</em> <dfn class="decl" id="weaponinfo_s::vspread" title='weaponinfo_s::vspread' data-ref="weaponinfo_s::vspread">vspread</dfn>;</td></tr>
+<tr><th id="74">74</th><td>	<em>float</em> <dfn class="decl" id="weaponinfo_s::speed" title='weaponinfo_s::speed' data-ref="weaponinfo_s::speed">speed</dfn>;</td></tr>
+<tr><th id="75">75</th><td>	<em>float</em> <dfn class="decl" id="weaponinfo_s::acceleration" title='weaponinfo_s::acceleration' data-ref="weaponinfo_s::acceleration">acceleration</dfn>;</td></tr>
+<tr><th id="76">76</th><td>	<a class="typedef" href="../qcommon/q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="decl" id="weaponinfo_s::recoil" title='weaponinfo_s::recoil' data-ref="weaponinfo_s::recoil">recoil</dfn>;</td></tr>
+<tr><th id="77">77</th><td>	<a class="typedef" href="../qcommon/q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="decl" id="weaponinfo_s::offset" title='weaponinfo_s::offset' data-ref="weaponinfo_s::offset">offset</dfn>;</td></tr>
+<tr><th id="78">78</th><td>	<a class="typedef" href="../qcommon/q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="decl" id="weaponinfo_s::angleoffset" title='weaponinfo_s::angleoffset' data-ref="weaponinfo_s::angleoffset">angleoffset</dfn>;</td></tr>
+<tr><th id="79">79</th><td>	<em>float</em> <dfn class="decl" id="weaponinfo_s::extrazvelocity" title='weaponinfo_s::extrazvelocity' data-ref="weaponinfo_s::extrazvelocity">extrazvelocity</dfn>;</td></tr>
+<tr><th id="80">80</th><td>	<em>int</em> <dfn class="decl" id="weaponinfo_s::ammoamount" title='weaponinfo_s::ammoamount' data-ref="weaponinfo_s::ammoamount">ammoamount</dfn>;</td></tr>
+<tr><th id="81">81</th><td>	<em>int</em> <dfn class="decl" id="weaponinfo_s::ammoindex" title='weaponinfo_s::ammoindex' data-ref="weaponinfo_s::ammoindex">ammoindex</dfn>;</td></tr>
+<tr><th id="82">82</th><td>	<em>float</em> <dfn class="decl" id="weaponinfo_s::activate" title='weaponinfo_s::activate' data-ref="weaponinfo_s::activate">activate</dfn>;</td></tr>
+<tr><th id="83">83</th><td>	<em>float</em> <dfn class="decl" id="weaponinfo_s::reload" title='weaponinfo_s::reload' data-ref="weaponinfo_s::reload">reload</dfn>;</td></tr>
+<tr><th id="84">84</th><td>	<em>float</em> <dfn class="decl" id="weaponinfo_s::spinup" title='weaponinfo_s::spinup' data-ref="weaponinfo_s::spinup">spinup</dfn>;</td></tr>
+<tr><th id="85">85</th><td>	<em>float</em> <dfn class="decl" id="weaponinfo_s::spindown" title='weaponinfo_s::spindown' data-ref="weaponinfo_s::spindown">spindown</dfn>;</td></tr>
+<tr><th id="86">86</th><td>	<a class="typedef" href="#projectileinfo_t" title='projectileinfo_t' data-type='struct projectileinfo_s' data-ref="projectileinfo_t">projectileinfo_t</a> <dfn class="decl" id="weaponinfo_s::proj" title='weaponinfo_s::proj' data-ref="weaponinfo_s::proj">proj</dfn>;						<i>//pointer to the used projectile</i></td></tr>
+<tr><th id="87">87</th><td>} <dfn class="typedef" id="weaponinfo_t" title='weaponinfo_t' data-type='struct weaponinfo_s' data-ref="weaponinfo_t">weaponinfo_t</dfn>;</td></tr>
+<tr><th id="88">88</th><td></td></tr>
+<tr><th id="89">89</th><td><i>//setup the weapon AI</i></td></tr>
+<tr><th id="90">90</th><td><em>int</em> <a class="decl" href="be_ai_weap.c.html#BotSetupWeaponAI" title='BotSetupWeaponAI' data-ref="BotSetupWeaponAI" id="BotSetupWeaponAI">BotSetupWeaponAI</a>(<em>void</em>);</td></tr>
+<tr><th id="91">91</th><td><i>//shut down the weapon AI</i></td></tr>
+<tr><th id="92">92</th><td><em>void</em> <a class="decl" href="be_ai_weap.c.html#BotShutdownWeaponAI" title='BotShutdownWeaponAI' data-ref="BotShutdownWeaponAI" id="BotShutdownWeaponAI">BotShutdownWeaponAI</a>(<em>void</em>);</td></tr>
+<tr><th id="93">93</th><td><i>//returns the best weapon to fight with</i></td></tr>
+<tr><th id="94">94</th><td><em>int</em> <a class="decl" href="be_ai_weap.c.html#BotChooseBestFightWeapon" title='BotChooseBestFightWeapon' data-ref="BotChooseBestFightWeapon" id="BotChooseBestFightWeapon">BotChooseBestFightWeapon</a>(<em>int</em> <dfn class="local col1 decl" id="1weaponstate" title='weaponstate' data-type='int' data-ref="1weaponstate">weaponstate</dfn>, <em>int</em> *<dfn class="local col2 decl" id="2inventory" title='inventory' data-type='int *' data-ref="2inventory">inventory</dfn>);</td></tr>
+<tr><th id="95">95</th><td><i>//returns the information of the current weapon</i></td></tr>
+<tr><th id="96">96</th><td><em>void</em> <a class="decl" href="be_ai_weap.c.html#BotGetWeaponInfo" title='BotGetWeaponInfo' data-ref="BotGetWeaponInfo" id="BotGetWeaponInfo">BotGetWeaponInfo</a>(<em>int</em> <dfn class="local col3 decl" id="3weaponstate" title='weaponstate' data-type='int' data-ref="3weaponstate">weaponstate</dfn>, <em>int</em> <dfn class="local col4 decl" id="4weapon" title='weapon' data-type='int' data-ref="4weapon">weapon</dfn>, <a class="typedef" href="#weaponinfo_t" title='weaponinfo_t' data-type='struct weaponinfo_s' data-ref="weaponinfo_t">weaponinfo_t</a> *<dfn class="local col5 decl" id="5weaponinfo" title='weaponinfo' data-type='weaponinfo_t *' data-ref="5weaponinfo">weaponinfo</dfn>);</td></tr>
+<tr><th id="97">97</th><td><i>//loads the weapon weights</i></td></tr>
+<tr><th id="98">98</th><td><em>int</em> <a class="decl" href="be_ai_weap.c.html#BotLoadWeaponWeights" title='BotLoadWeaponWeights' data-ref="BotLoadWeaponWeights" id="BotLoadWeaponWeights">BotLoadWeaponWeights</a>(<em>int</em> <dfn class="local col6 decl" id="6weaponstate" title='weaponstate' data-type='int' data-ref="6weaponstate">weaponstate</dfn>, <em>char</em> *<dfn class="local col7 decl" id="7filename" title='filename' data-type='char *' data-ref="7filename">filename</dfn>);</td></tr>
+<tr><th id="99">99</th><td><i>//returns a handle to a newly allocated weapon state</i></td></tr>
+<tr><th id="100">100</th><td><em>int</em> <a class="decl" href="be_ai_weap.c.html#BotAllocWeaponState" title='BotAllocWeaponState' data-ref="BotAllocWeaponState" id="BotAllocWeaponState">BotAllocWeaponState</a>(<em>void</em>);</td></tr>
+<tr><th id="101">101</th><td><i>//frees the weapon state</i></td></tr>
+<tr><th id="102">102</th><td><em>void</em> <a class="decl" href="be_ai_weap.c.html#BotFreeWeaponState" title='BotFreeWeaponState' data-ref="BotFreeWeaponState" id="BotFreeWeaponState">BotFreeWeaponState</a>(<em>int</em> <dfn class="local col8 decl" id="8weaponstate" title='weaponstate' data-type='int' data-ref="8weaponstate">weaponstate</dfn>);</td></tr>
+<tr><th id="103">103</th><td><i>//resets the whole weapon state</i></td></tr>
+<tr><th id="104">104</th><td><em>void</em> <a class="decl" href="be_ai_weap.c.html#BotResetWeaponState" title='BotResetWeaponState' data-ref="BotResetWeaponState" id="BotResetWeaponState">BotResetWeaponState</a>(<em>int</em> <dfn class="local col9 decl" id="9weaponstate" title='weaponstate' data-type='int' data-ref="9weaponstate">weaponstate</dfn>);</td></tr>
+<tr><th id="105">105</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='be_ai_weap.c.html'>codebrowser/code/botlib/be_ai_weap.c</a><br/>Generated on <em>2017-Aug-29</em> from project codebrowser revision <em>63e07af</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

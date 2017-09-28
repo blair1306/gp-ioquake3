@@ -1,0 +1,63 @@
+<dec f='codebrowser/code/cgame/cg_local.h' l='1480' type='void trap_Print(const char * fmt)'/>
+<doc f='codebrowser/code/cgame/cg_local.h' l='1472'>//===============================================
+
+//
+// system traps
+// These functions are how the cgame communicates with the main game system
+//
+
+// print message on the local console</doc>
+<use f='codebrowser/code/cgame/cg_main.c' l='427' u='c' c='CG_Printf'/>
+<use f='codebrowser/code/cgame/cg_main.c' l='460' u='c' c='Com_Printf'/>
+<def f='codebrowser/code/cgame/cg_syscalls.c' l='45' ll='47' type='void trap_Print(const char * fmt)'/>
+<dec f='codebrowser/code/game/g_local.h' l='749' type='void trap_Print(const char * text)'/>
+<use f='codebrowser/code/game/g_bot.c' l='131' u='c' c='G_LoadArenasFromFile'/>
+<use f='codebrowser/code/game/g_bot.c' l='136' u='c' c='G_LoadArenasFromFile'/>
+<use f='codebrowser/code/game/g_bot.c' l='180' u='c' c='G_LoadArenas'/>
+<use f='codebrowser/code/game/g_bot.c' l='721' u='c' c='G_AddBot'/>
+<use f='codebrowser/code/game/g_bot.c' l='765' u='c' c='Svcmd_AddBot_f'/>
+<use f='codebrowser/code/game/g_bot.c' l='815' u='c' c='Svcmd_BotList_f'/>
+<use f='codebrowser/code/game/g_bot.c' l='833' u='c' c='Svcmd_BotList_f'/>
+<use f='codebrowser/code/game/g_bot.c' l='908' u='c' c='G_LoadBotsFromFile'/>
+<use f='codebrowser/code/game/g_bot.c' l='912' u='c' c='G_LoadBotsFromFile'/>
+<use f='codebrowser/code/game/g_bot.c' l='961' u='c' c='G_LoadBots'/>
+<use f='codebrowser/code/game/g_bot.c' l='973' u='c' c='G_GetBotInfoByNumber'/>
+<use f='codebrowser/code/game/g_main.c' l='248' u='c' c='G_Printf'/>
+<use f='codebrowser/code/game/g_main.c' l='562' u='c' c='Com_Printf'/>
+<def f='codebrowser/code/game/g_syscalls.c' l='44' ll='46' type='void trap_Print(const char * text)'/>
+<dec f='codebrowser/code/q3_ui/ui_local.h' l='625' type='void trap_Print(const char * string)'/>
+<doc f='codebrowser/code/q3_ui/ui_local.h' l='622'>//
+// ui_syscalls.c
+//</doc>
+<use f='codebrowser/code/q3_ui/ui_atoms.c' l='52' u='c' c='Com_Printf'/>
+<use f='codebrowser/code/q3_ui/ui_gameinfo.c' l='147' u='c' c='UI_LoadArenasFromFile'/>
+<use f='codebrowser/code/q3_ui/ui_gameinfo.c' l='151' u='c' c='UI_LoadArenasFromFile'/>
+<use f='codebrowser/code/q3_ui/ui_gameinfo.c' l='199' u='c' c='UI_LoadArenas'/>
+<use f='codebrowser/code/q3_ui/ui_gameinfo.c' l='200' u='c' c='UI_LoadArenas'/>
+<use f='codebrowser/code/q3_ui/ui_gameinfo.c' l='234' u='c' c='UI_LoadArenas'/>
+<use f='codebrowser/code/q3_ui/ui_gameinfo.c' l='274' u='c' c='UI_GetArenaInfoByNumber'/>
+<use f='codebrowser/code/q3_ui/ui_gameinfo.c' l='336' u='c' c='UI_LoadBotsFromFile'/>
+<use f='codebrowser/code/q3_ui/ui_gameinfo.c' l='340' u='c' c='UI_LoadBotsFromFile'/>
+<use f='codebrowser/code/q3_ui/ui_gameinfo.c' l='350' u='c' c='UI_LoadBotsFromFile'/>
+<use f='codebrowser/code/q3_ui/ui_gameinfo.c' l='386' u='c' c='UI_LoadBots'/>
+<use f='codebrowser/code/q3_ui/ui_gameinfo.c' l='397' u='c' c='UI_GetBotInfoByNumber'/>
+<use f='codebrowser/code/q3_ui/ui_gameinfo.c' l='530' u='c' c='UI_LogAwardData'/>
+<use f='codebrowser/code/q3_ui/ui_gameinfo.c' l='774' u='c' c='UI_SPUnlock_f'/>
+<use f='codebrowser/code/q3_ui/ui_gameinfo.c' l='799' u='c' c='UI_SPUnlockMedals_f'/>
+<use f='codebrowser/code/q3_ui/ui_mods.c' l='140' u='c' c='UI_Mods_LoadMods'/>
+<dec f='codebrowser/code/ui/ui_local.h' l='916' type='void trap_Print(const char * string)'/>
+<use f='codebrowser/code/ui/ui_atoms.c' l='51' u='c' c='Com_Printf'/>
+<doc f='codebrowser/code/ui/ui_local.h' l='913'>//
+// ui_syscalls.c
+//</doc>
+<use f='codebrowser/code/ui/ui_gameinfo.c' l='114' u='c' c='UI_LoadArenasFromFile'/>
+<use f='codebrowser/code/ui/ui_gameinfo.c' l='118' u='c' c='UI_LoadArenasFromFile'/>
+<use f='codebrowser/code/ui/ui_gameinfo.c' l='165' u='c' c='UI_LoadArenas'/>
+<use f='codebrowser/code/ui/ui_gameinfo.c' l='167' u='c' c='UI_LoadArenas'/>
+<use f='codebrowser/code/ui/ui_gameinfo.c' l='225' u='c' c='UI_LoadBotsFromFile'/>
+<use f='codebrowser/code/ui/ui_gameinfo.c' l='229' u='c' c='UI_LoadBotsFromFile'/>
+<use f='codebrowser/code/ui/ui_gameinfo.c' l='276' u='c' c='UI_LoadBots'/>
+<use f='codebrowser/code/ui/ui_gameinfo.c' l='287' u='c' c='UI_GetBotInfoByNumber'/>
+<use f='codebrowser/code/ui/ui_main.c' l='668' u='c' c='GetMenuBuffer'/>
+<use f='codebrowser/code/ui/ui_main.c' l='672' u='c' c='GetMenuBuffer'/>
+<def f='codebrowser/code/ui/ui_syscalls.c' l='43' ll='45' type='void trap_Print(const char * string)'/>

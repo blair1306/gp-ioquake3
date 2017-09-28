@@ -1,0 +1,45 @@
+<dec f='codebrowser/code/botlib/be_ai_goal.c' l='94' type='1'/>
+<doc f='codebrowser/code/botlib/be_ai_goal.c' l='94'>// one on one tournament</doc>
+<dec f='codebrowser/code/game/bg_public.h' l='99' type='1'/>
+<doc f='codebrowser/code/game/bg_public.h' l='99'>// one on one tournament</doc>
+<use f='codebrowser/code/cgame/cg_draw.c' l='2086' u='r' c='CG_DrawSpectator'/>
+<use f='codebrowser/code/cgame/cg_draw.c' l='2373' u='r' c='CG_DrawWarmup'/>
+<use f='codebrowser/code/cgame/cg_info.c' l='244' c='CG_DrawInformation'/>
+<use f='codebrowser/code/cgame/cg_newdraw.c' l='1072' u='r' c='CG_OwnerDrawVisible'/>
+<use f='codebrowser/code/cgame/cg_scoreboard.c' l='131' u='r' c='CG_DrawClientScore'/>
+<use f='codebrowser/code/cgame/cg_scoreboard.c' l='138' u='r' c='CG_DrawClientScore'/>
+<use f='codebrowser/code/game/ai_chat.c' l='397' u='r' c='BotChat_EnterGame'/>
+<use f='codebrowser/code/game/ai_chat.c' l='430' u='r' c='BotChat_ExitGame'/>
+<use f='codebrowser/code/game/ai_chat.c' l='469' u='r' c='BotChat_StartLevel'/>
+<use f='codebrowser/code/game/ai_chat.c' l='506' u='r' c='BotChat_EndLevel'/>
+<use f='codebrowser/code/game/ai_chat.c' l='558' u='r' c='BotChat_Death'/>
+<use f='codebrowser/code/game/ai_chat.c' l='661' u='r' c='BotChat_Kill'/>
+<use f='codebrowser/code/game/ai_chat.c' l='731' u='r' c='BotChat_EnemySuicide'/>
+<use f='codebrowser/code/game/ai_chat.c' l='771' u='r' c='BotChat_HitTalking'/>
+<use f='codebrowser/code/game/ai_chat.c' l='811' u='r' c='BotChat_HitNoDeath'/>
+<use f='codebrowser/code/game/ai_chat.c' l='849' u='r' c='BotChat_HitNoKill'/>
+<use f='codebrowser/code/game/ai_chat.c' l='883' u='r' c='BotChat_Random'/>
+<use f='codebrowser/code/game/ai_main.c' l='659' u='r' c='BotInterbreeding'/>
+<use f='codebrowser/code/game/ai_main.c' l='660' c='BotInterbreeding'/>
+<use f='codebrowser/code/game/g_bot.c' l='453' u='r' c='G_CheckMinimumPlayers'/>
+<use f='codebrowser/code/game/g_client.c' l='1025' u='r' c='ClientBegin'/>
+<use f='codebrowser/code/game/g_client.c' l='1302' u='r' c='ClientDisconnect'/>
+<use f='codebrowser/code/game/g_client.c' l='1309' u='r' c='ClientDisconnect'/>
+<use f='codebrowser/code/game/g_cmds.c' l='584' u='r' c='SetTeam'/>
+<use f='codebrowser/code/game/g_cmds.c' l='711' u='r' c='Cmd_Team_f'/>
+<use f='codebrowser/code/game/g_cmds.c' l='757' u='r' c='Cmd_Follow_f'/>
+<use f='codebrowser/code/game/g_cmds.c' l='781' u='r' c='Cmd_FollowCycle_f'/>
+<use f='codebrowser/code/game/g_cmds.c' l='858' u='r' c='G_SayTo'/>
+<use f='codebrowser/code/game/g_main.c' l='1000' u='r' c='BeginIntermission'/>
+<use f='codebrowser/code/game/g_main.c' l='1054' u='r' c='ExitLevel'/>
+<use f='codebrowser/code/game/g_main.c' l='1449' u='r' c='CheckTournament'/>
+<use f='codebrowser/code/game/g_session.c' l='144' c='G_InitSessionData'/>
+<use f='codebrowser/code/q3_ui/ui_servers2.c' l='534' u='r' c='ArenaServers_UpdateMenu'/>
+<use f='codebrowser/code/q3_ui/ui_startserver.c' l='99'/>
+<use f='codebrowser/code/q3_ui/ui_startserver.c' l='99'/>
+<use f='codebrowser/code/q3_ui/ui_startserver.c' l='132' u='r' c='GametypeBits'/>
+<use f='codebrowser/code/q3_ui/ui_startserver.c' l='761' c='ServerOptions_Start'/>
+<use f='codebrowser/code/q3_ui/ui_startserver.c' l='1145' c='ServerOptions_SetMenuItems'/>
+<use f='codebrowser/code/q3_ui/ui_team.c' l='161' c='TeamMain_MenuInit'/>
+<use f='codebrowser/code/ui/ui_gameinfo.c' l='187' u='r' c='UI_LoadArenas'/>
+<use f='codebrowser/code/ui/ui_main.c' l='3009' u='r' c='UI_StartSkirmish'/>

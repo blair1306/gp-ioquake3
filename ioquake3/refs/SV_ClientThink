@@ -1,0 +1,11 @@
+<dec f='codebrowser/code/server/server.h' l='382' type='void SV_ClientThink(client_t * cl, usercmd_t * cmd)'/>
+<def f='codebrowser/code/server/sv_client.c' l='1656' ll='1664' type='void SV_ClientThink(client_t * cl, usercmd_t * cmd)'/>
+<use f='codebrowser/code/server/sv_client.c' l='1770' u='c' c='SV_UserMove'/>
+<doc f='codebrowser/code/server/sv_client.c' l='1649'>/*
+==================
+SV_ClientThink
+
+Also called by bot code
+==================
+*/</doc>
+<use f='codebrowser/code/server/sv_game.c' l='472' u='c' c='SV_GameSystemCalls'/>

@@ -1,0 +1,53 @@
+<dec f='codebrowser/code/renderergl1/tr_local.h' l='790'/>
+<doc f='codebrowser/code/renderergl1/tr_local.h' l='771'>/*
+
+the drawsurf sort data is packed into a single 32 bit value so it can be
+compared quickly during the qsorting process
+
+the bits are allocated as follows:
+
+0 - 1	: dlightmap index
+//2		: used to be clipped flag REMOVED - 03.21.00 rad
+2 - 6	: fog index
+11 - 20	: entity index
+21 - 31	: sorted shader index
+
+	TTimo - 1.32
+0-1   : dlightmap index
+2-6   : fog index
+7-16  : entity index
+17-30 : sorted shader index
+*/</doc>
+<use f='codebrowser/code/renderergl1/tr_main.c' l='1112' u='c'/>
+<use f='codebrowser/code/renderergl1/tr_main.c' l='1124' u='c'/>
+<use f='codebrowser/code/renderergl1/tr_shader.c' l='1968' u='c'/>
+<dec f='codebrowser/code/renderergl2/tr_local.h' l='1276'/>
+<doc f='codebrowser/code/renderergl2/tr_local.h' l='1250'>/*
+
+the drawsurf sort data is packed into a single 32 bit value so it can be
+compared quickly during the qsorting process
+
+the bits are allocated as follows:
+
+0 - 1	: dlightmap index
+//2		: used to be clipped flag REMOVED - 03.21.00 rad
+2 - 6	: fog index
+11 - 20	: entity index
+21 - 31	: sorted shader index
+
+	TTimo - 1.32
+0-1   : dlightmap index
+2-6   : fog index
+7-16  : entity index
+17-30 : sorted shader index
+
+    SmileTheory - for pshadows
+17-31 : sorted shader index
+7-16  : entity index
+2-6   : fog index
+1     : pshadow flag
+0     : dlight flag
+*/</doc>
+<use f='codebrowser/code/renderergl2/tr_main.c' l='1471' u='c'/>
+<use f='codebrowser/code/renderergl2/tr_main.c' l='1485' u='c'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='2674' u='c'/>

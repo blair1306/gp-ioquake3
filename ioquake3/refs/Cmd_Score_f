@@ -1,0 +1,15 @@
+<dec f='codebrowser/code/game/g_local.h' l='427' type='void Cmd_Score_f(gentity_t * ent)'/>
+<doc f='codebrowser/code/game/g_local.h' l='424'>//
+// g_cmds.c
+//</doc>
+<def f='codebrowser/code/game/g_cmds.c' l='105' ll='107' type='void Cmd_Score_f(gentity_t * ent)'/>
+<use f='codebrowser/code/game/g_cmds.c' l='1772' u='c' c='ClientCommand'/>
+<doc f='codebrowser/code/game/g_cmds.c' l='98'>/*
+==================
+Cmd_Score_f
+
+Request current scoreboard information
+==================
+*/</doc>
+<use f='codebrowser/code/game/g_combat.c' l='572' u='c' c='player_die'/>
+<use f='codebrowser/code/game/g_combat.c' l='586' u='c' c='player_die'/>

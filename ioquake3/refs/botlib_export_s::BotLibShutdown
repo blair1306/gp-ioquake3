@@ -1,0 +1,5 @@
+<dec f='codebrowser/code/botlib/botlib.h' l='410' type='int (*)(void)'/>
+<offset>7808</offset>
+<doc f='codebrowser/code/botlib/botlib.h' l='409'>//shutdown the bot library, returns BLERR_</doc>
+<use f='codebrowser/code/botlib/be_interface.c' l='888' u='w' c='GetBotLibAPI'/>
+<use f='codebrowser/code/server/sv_bot.c' l='475' u='r' c='SV_BotLibShutdown'/>

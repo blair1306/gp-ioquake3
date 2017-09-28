@@ -1,0 +1,21 @@
+<dec f='codebrowser/code/qcommon/qcommon.h' l='45' type='qboolean'/>
+<offset>64</offset>
+<doc f='codebrowser/code/qcommon/qcommon.h' l='45'>// set to true if the buffer size failed (with allowoverflow set)</doc>
+<use f='codebrowser/code/client/cl_net_chan.c' l='50' u='r' c='CL_Netchan_Encode'/>
+<use f='codebrowser/code/client/cl_net_chan.c' l='54' u='w' c='CL_Netchan_Encode'/>
+<use f='codebrowser/code/client/cl_net_chan.c' l='60' u='w' c='CL_Netchan_Encode'/>
+<use f='codebrowser/code/client/cl_net_chan.c' l='100' u='r' c='CL_Netchan_Decode'/>
+<use f='codebrowser/code/client/cl_net_chan.c' l='102' u='w' c='CL_Netchan_Decode'/>
+<use f='codebrowser/code/client/cl_net_chan.c' l='106' u='w' c='CL_Netchan_Decode'/>
+<use f='codebrowser/code/qcommon/msg.c' l='60' u='w' c='MSG_InitOOB'/>
+<use f='codebrowser/code/qcommon/msg.c' l='71' u='w' c='MSG_Bitstream'/>
+<use f='codebrowser/code/qcommon/msg.c' l='77' u='w' c='MSG_BeginReading'/>
+<use f='codebrowser/code/qcommon/msg.c' l='83' u='w' c='MSG_BeginReadingOOB'/>
+<use f='codebrowser/code/qcommon/msg.c' l='122' u='r' c='MSG_WriteBits'/>
+<use f='codebrowser/code/qcommon/msg.c' l='195' u='r' c='MSG_ReadBits'/>
+<use f='codebrowser/code/server/sv_net_chan.c' l='50' u='r' c='SV_Netchan_Encode'/>
+<use f='codebrowser/code/server/sv_net_chan.c' l='54' u='w' c='SV_Netchan_Encode'/>
+<use f='codebrowser/code/server/sv_net_chan.c' l='58' u='w' c='SV_Netchan_Encode'/>
+<use f='codebrowser/code/server/sv_net_chan.c' l='101' u='r' c='SV_Netchan_Decode'/>
+<use f='codebrowser/code/server/sv_net_chan.c' l='103' u='w' c='SV_Netchan_Decode'/>
+<use f='codebrowser/code/server/sv_net_chan.c' l='109' u='w' c='SV_Netchan_Decode'/>

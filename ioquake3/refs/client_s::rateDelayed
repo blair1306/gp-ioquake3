@@ -1,0 +1,7 @@
+<dec f='codebrowser/code/server/server.h' l='171' type='qboolean'/>
+<offset>547040</offset>
+<doc f='codebrowser/code/server/server.h' l='171'>// true if nextSnapshotTime was set based on rate instead of snapshotMsec</doc>
+<use f='codebrowser/code/server/sv_snapshot.c' l='179' u='r' c='SV_WriteSnapshotToClient'/>
+<use f='codebrowser/code/server/sv_snapshot.c' l='661' u='w' c='SV_SendClientMessages'/>
+<use f='codebrowser/code/server/sv_snapshot.c' l='676' u='w' c='SV_SendClientMessages'/>
+<use f='codebrowser/code/server/sv_snapshot.c' l='684' u='w' c='SV_SendClientMessages'/>

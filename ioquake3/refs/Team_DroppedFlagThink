@@ -1,0 +1,13 @@
+<dec f='codebrowser/code/game/g_team.h' l='75' type='void Team_DroppedFlagThink(gentity_t * ent)'/>
+<use f='codebrowser/code/game/g_items.c' l='599' u='r' c='LaunchItem'/>
+<use f='codebrowser/code/game/g_mover.c' l='805' u='c' c='Blocked_Door'/>
+<def f='codebrowser/code/game/g_team.c' l='658' ll='673' type='void Team_DroppedFlagThink(gentity_t * ent)'/>
+<doc f='codebrowser/code/game/g_team.c' l='649'>/*
+==============
+Team_DroppedFlagThink
+
+Automatically set in Launch_Item if the item is one of the flags
+
+Flags are unique in that if they are dropped, the base flag must be respawned when they time out
+==============
+*/</doc>

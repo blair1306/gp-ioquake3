@@ -1,0 +1,13 @@
+<dec f='codebrowser/code/qcommon/qcommon.h' l='718' type='void FS_ClearPakReferences(int flags)'/>
+<doc f='codebrowser/code/qcommon/qcommon.h' l='714'>// Returns a space separated string containing the checksums of all loaded 
+// AND referenced pk3 files. Servers with sv_pure set will get this string 
+// back from clients for pure validation </doc>
+<use f='codebrowser/code/client/cl_main.c' l='1966' u='c' c='CL_Vid_Restart_f'/>
+<def f='codebrowser/code/qcommon/files.c' l='3803' ll='3815' type='void FS_ClearPakReferences(int flags)'/>
+<use f='codebrowser/code/qcommon/files.c' l='3986' u='c' c='FS_Restart'/>
+<doc f='codebrowser/code/qcommon/files.c' l='3798'>/*
+=====================
+FS_ClearPakReferences
+=====================
+*/</doc>
+<use f='codebrowser/code/server/sv_init.c' l='439' u='c' c='SV_SpawnServer'/>

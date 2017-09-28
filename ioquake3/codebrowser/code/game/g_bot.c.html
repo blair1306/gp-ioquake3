@@ -1,0 +1,1077 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>g_bot.c source code [codebrowser/code/game/g_bot.c] - Woboq Code Browser</title>
+<link rel="stylesheet" href="../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'codebrowser/code/game/g_bot.c'; var root_path = '../../..'; var data_path = '../../../../data';</script>
+<script src='../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../..'>codebrowser</a>/<a href='..'>code</a>/<a href='./'>game</a>/<a href='g_bot.c.html'>g_bot.c</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/*</i></td></tr>
+<tr><th id="2">2</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="3">3</th><td><i>Copyright (C) 1999-2005 Id Software, Inc.</i></td></tr>
+<tr><th id="4">4</th><td><i></i></td></tr>
+<tr><th id="5">5</th><td><i>This file is part of Quake III Arena source code.</i></td></tr>
+<tr><th id="6">6</th><td><i></i></td></tr>
+<tr><th id="7">7</th><td><i>Quake III Arena source code is free software; you can redistribute it</i></td></tr>
+<tr><th id="8">8</th><td><i>and/or modify it under the terms of the GNU General Public License as</i></td></tr>
+<tr><th id="9">9</th><td><i>published by the Free Software Foundation; either version 2 of the License,</i></td></tr>
+<tr><th id="10">10</th><td><i>or (at your option) any later version.</i></td></tr>
+<tr><th id="11">11</th><td><i></i></td></tr>
+<tr><th id="12">12</th><td><i>Quake III Arena source code is distributed in the hope that it will be</i></td></tr>
+<tr><th id="13">13</th><td><i>useful, but WITHOUT ANY WARRANTY; without even the implied warranty of</i></td></tr>
+<tr><th id="14">14</th><td><i>MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</i></td></tr>
+<tr><th id="15">15</th><td><i>GNU General Public License for more details.</i></td></tr>
+<tr><th id="16">16</th><td><i></i></td></tr>
+<tr><th id="17">17</th><td><i>You should have received a copy of the GNU General Public License</i></td></tr>
+<tr><th id="18">18</th><td><i>along with Quake III Arena source code; if not, write to the Free Software</i></td></tr>
+<tr><th id="19">19</th><td><i>Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA</i></td></tr>
+<tr><th id="20">20</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="21">21</th><td><i>*/</i></td></tr>
+<tr><th id="22">22</th><td><i>//</i></td></tr>
+<tr><th id="23">23</th><td><i>// g_bot.c</i></td></tr>
+<tr><th id="24">24</th><td></td></tr>
+<tr><th id="25">25</th><td><u>#include <a href="g_local.h.html">"g_local.h"</a></u></td></tr>
+<tr><th id="26">26</th><td></td></tr>
+<tr><th id="27">27</th><td></td></tr>
+<tr><th id="28">28</th><td><em>static</em> <em>int</em>		<dfn class="tu decl def" id="g_numBots" title='g_numBots' data-type='int' data-ref="g_numBots">g_numBots</dfn>;</td></tr>
+<tr><th id="29">29</th><td><em>static</em> <em>char</em>		*<dfn class="tu decl def" id="g_botInfos" title='g_botInfos' data-type='char *[1024]' data-ref="g_botInfos">g_botInfos</dfn>[<a class="macro" href="bg_public.h.html#713" title="1024" data-ref="_M/MAX_BOTS">MAX_BOTS</a>];</td></tr>
+<tr><th id="30">30</th><td></td></tr>
+<tr><th id="31">31</th><td></td></tr>
+<tr><th id="32">32</th><td><em>int</em>				<dfn class="decl def" id="g_numArenas" title='g_numArenas' data-ref="g_numArenas">g_numArenas</dfn>;</td></tr>
+<tr><th id="33">33</th><td><em>static</em> <em>char</em>		*<dfn class="tu decl def" id="g_arenaInfos" title='g_arenaInfos' data-type='char *[1024]' data-ref="g_arenaInfos">g_arenaInfos</dfn>[<a class="macro" href="bg_public.h.html#710" title="1024" data-ref="_M/MAX_ARENAS">MAX_ARENAS</a>];</td></tr>
+<tr><th id="34">34</th><td></td></tr>
+<tr><th id="35">35</th><td></td></tr>
+<tr><th id="36">36</th><td><u>#define <dfn class="macro" id="_M/BOT_BEGIN_DELAY_BASE" data-ref="_M/BOT_BEGIN_DELAY_BASE">BOT_BEGIN_DELAY_BASE</dfn>		2000</u></td></tr>
+<tr><th id="37">37</th><td><u>#define <dfn class="macro" id="_M/BOT_BEGIN_DELAY_INCREMENT" data-ref="_M/BOT_BEGIN_DELAY_INCREMENT">BOT_BEGIN_DELAY_INCREMENT</dfn>	1500</u></td></tr>
+<tr><th id="38">38</th><td></td></tr>
+<tr><th id="39">39</th><td><u>#define <dfn class="macro" id="_M/BOT_SPAWN_QUEUE_DEPTH" data-ref="_M/BOT_SPAWN_QUEUE_DEPTH">BOT_SPAWN_QUEUE_DEPTH</dfn>	16</u></td></tr>
+<tr><th id="40">40</th><td></td></tr>
+<tr><th id="41">41</th><td><b>typedef</b> <b>struct</b> {</td></tr>
+<tr><th id="42">42</th><td>	<em>int</em>		<dfn class="tu decl" id="(anonymous)::clientNum" title='(anonymous struct)::clientNum' data-type='int' data-ref="(anonymous)::clientNum">clientNum</dfn>;</td></tr>
+<tr><th id="43">43</th><td>	<em>int</em>		<dfn class="tu decl" id="(anonymous)::spawnTime" title='(anonymous struct)::spawnTime' data-type='int' data-ref="(anonymous)::spawnTime">spawnTime</dfn>;</td></tr>
+<tr><th id="44">44</th><td>} <dfn class="typedef" id="botSpawnQueue_t" title='botSpawnQueue_t' data-type='struct botSpawnQueue_t' data-ref="botSpawnQueue_t">botSpawnQueue_t</dfn>;</td></tr>
+<tr><th id="45">45</th><td></td></tr>
+<tr><th id="46">46</th><td><em>static</em> <a class="typedef" href="#botSpawnQueue_t" title='botSpawnQueue_t' data-type='struct botSpawnQueue_t' data-ref="botSpawnQueue_t">botSpawnQueue_t</a>	<dfn class="tu decl def" id="botSpawnQueue" title='botSpawnQueue' data-type='botSpawnQueue_t [16]' data-ref="botSpawnQueue">botSpawnQueue</dfn>[<a class="macro" href="#39" title="16" data-ref="_M/BOT_SPAWN_QUEUE_DEPTH">BOT_SPAWN_QUEUE_DEPTH</a>];</td></tr>
+<tr><th id="47">47</th><td></td></tr>
+<tr><th id="48">48</th><td><a class="typedef" href="../qcommon/q_shared.h.html#vmCvar_t" title='vmCvar_t' data-type='struct vmCvar_t' data-ref="vmCvar_t">vmCvar_t</a> <dfn class="decl def" id="bot_minplayers" title='bot_minplayers' data-ref="bot_minplayers">bot_minplayers</dfn>;</td></tr>
+<tr><th id="49">49</th><td></td></tr>
+<tr><th id="50">50</th><td><b>extern</b> <a class="typedef" href="g_local.h.html#gentity_t" title='gentity_t' data-type='struct gentity_s' data-ref="gentity_t">gentity_t</a>	*<dfn class="decl" id="podium1" title='podium1' data-ref="podium1">podium1</dfn>;</td></tr>
+<tr><th id="51">51</th><td><b>extern</b> <a class="typedef" href="g_local.h.html#gentity_t" title='gentity_t' data-type='struct gentity_s' data-ref="gentity_t">gentity_t</a>	*<dfn class="decl" id="podium2" title='podium2' data-ref="podium2">podium2</dfn>;</td></tr>
+<tr><th id="52">52</th><td><b>extern</b> <a class="typedef" href="g_local.h.html#gentity_t" title='gentity_t' data-type='struct gentity_s' data-ref="gentity_t">gentity_t</a>	*<dfn class="decl" id="podium3" title='podium3' data-ref="podium3">podium3</dfn>;</td></tr>
+<tr><th id="53">53</th><td></td></tr>
+<tr><th id="54">54</th><td><em>float</em> <dfn class="decl def" id="trap_Cvar_VariableValue" title='trap_Cvar_VariableValue' data-ref="trap_Cvar_VariableValue">trap_Cvar_VariableValue</dfn>( <em>const</em> <em>char</em> *<dfn class="local col1 decl" id="1var_name" title='var_name' data-type='const char *' data-ref="1var_name">var_name</dfn> ) {</td></tr>
+<tr><th id="55">55</th><td>	<em>char</em> <dfn class="local col2 decl" id="2buf" title='buf' data-type='char [128]' data-ref="2buf">buf</dfn>[<var>128</var>];</td></tr>
+<tr><th id="56">56</th><td></td></tr>
+<tr><th id="57">57</th><td>	<a class="ref" href="g_local.h.html#trap_Cvar_VariableStringBuffer" title='trap_Cvar_VariableStringBuffer' data-ref="trap_Cvar_VariableStringBuffer">trap_Cvar_VariableStringBuffer</a>(<a class="local col1 ref" href="#1var_name" title='var_name' data-ref="1var_name">var_name</a>, <a class="local col2 ref" href="#2buf" title='buf' data-ref="2buf">buf</a>, <b>sizeof</b>(<a class="local col2 ref" href="#2buf" title='buf' data-ref="2buf">buf</a>));</td></tr>
+<tr><th id="58">58</th><td>	<b>return</b> <a class="ref" href="../../../include/stdlib.h.html#atof" title='atof' data-ref="atof">atof</a>(<a class="local col2 ref" href="#2buf" title='buf' data-ref="2buf">buf</a>);</td></tr>
+<tr><th id="59">59</th><td>}</td></tr>
+<tr><th id="60">60</th><td></td></tr>
+<tr><th id="61">61</th><td></td></tr>
+<tr><th id="62">62</th><td></td></tr>
+<tr><th id="63">63</th><td><i>/*</i></td></tr>
+<tr><th id="64">64</th><td><i>===============</i></td></tr>
+<tr><th id="65">65</th><td><i>G_ParseInfos</i></td></tr>
+<tr><th id="66">66</th><td><i>===============</i></td></tr>
+<tr><th id="67">67</th><td><i>*/</i></td></tr>
+<tr><th id="68">68</th><td><em>int</em> <dfn class="decl def" id="G_ParseInfos" title='G_ParseInfos' data-ref="G_ParseInfos">G_ParseInfos</dfn>( <em>char</em> *<dfn class="local col3 decl" id="3buf" title='buf' data-type='char *' data-ref="3buf">buf</dfn>, <em>int</em> <dfn class="local col4 decl" id="4max" title='max' data-type='int' data-ref="4max">max</dfn>, <em>char</em> *<dfn class="local col5 decl" id="5infos" title='infos' data-type='char **' data-ref="5infos">infos</dfn>[] ) {</td></tr>
+<tr><th id="69">69</th><td>	<em>char</em>	*<dfn class="local col6 decl" id="6token" title='token' data-type='char *' data-ref="6token">token</dfn>;</td></tr>
+<tr><th id="70">70</th><td>	<em>int</em>		<dfn class="local col7 decl" id="7count" title='count' data-type='int' data-ref="7count">count</dfn>;</td></tr>
+<tr><th id="71">71</th><td>	<em>char</em>	<dfn class="local col8 decl" id="8key" title='key' data-type='char [1024]' data-ref="8key">key</dfn>[<a class="macro" href="../qcommon/q_shared.h.html#245" title="1024" data-ref="_M/MAX_TOKEN_CHARS">MAX_TOKEN_CHARS</a>];</td></tr>
+<tr><th id="72">72</th><td>	<em>char</em>	<dfn class="local col9 decl" id="9info" title='info' data-type='char [1024]' data-ref="9info">info</dfn>[<a class="macro" href="../qcommon/q_shared.h.html#247" title="1024" data-ref="_M/MAX_INFO_STRING">MAX_INFO_STRING</a>];</td></tr>
+<tr><th id="73">73</th><td></td></tr>
+<tr><th id="74">74</th><td>	<a class="local col7 ref" href="#7count" title='count' data-ref="7count">count</a> = <var>0</var>;</td></tr>
+<tr><th id="75">75</th><td></td></tr>
+<tr><th id="76">76</th><td>	<b>while</b> ( <var>1</var> ) {</td></tr>
+<tr><th id="77">77</th><td>		<a class="local col6 ref" href="#6token" title='token' data-ref="6token">token</a> = <a class="ref" href="../qcommon/q_shared.h.html#COM_Parse" title='COM_Parse' data-ref="COM_Parse">COM_Parse</a>( &amp;<a class="local col3 ref" href="#3buf" title='buf' data-ref="3buf">buf</a> );</td></tr>
+<tr><th id="78">78</th><td>		<b>if</b> ( !<a class="local col6 ref" href="#6token" title='token' data-ref="6token">token</a>[<var>0</var>] ) {</td></tr>
+<tr><th id="79">79</th><td>			<b>break</b>;</td></tr>
+<tr><th id="80">80</th><td>		}</td></tr>
+<tr><th id="81">81</th><td>		<b>if</b> ( <a class="macro" href="../../../include/x86_64-linux-gnu/bits/string2.h.html#799" title="__extension__ ({ size_t __s1_len, __s2_len; (__builtin_constant_p (token) &amp;&amp; __builtin_constant_p (&quot;{&quot;) &amp;&amp; (__s1_len = __builtin_strlen (token), __s2_len = __builtin_strlen (&quot;{&quot;), (!((size_t)(const void *)((token) + 1) - (size_t)(const void *)(token) == 1) || __s1_len &gt;= 4) &amp;&amp; (!((size_t)(const void *)((&quot;{&quot;) + 1) - (size_t)(const void *)(&quot;{&quot;) == 1) || __s2_len &gt;= 4)) ? __builtin_strcmp (token, &quot;{&quot;) : (__builtin_constant_p (token) &amp;&amp; ((size_t)(const void *)((token) + 1) - (size_t)(const void *)(token) == 1) &amp;&amp; (__s1_len = __builtin_strlen (token), __s1_len &lt; 4) ? (__builtin_constant_p (&quot;{&quot;) &amp;&amp; ((size_t)(const void *)((&quot;{&quot;) + 1) - (size_t)(const void *)(&quot;{&quot;) == 1) ? __builtin_strcmp (token, &quot;{&quot;) : (__extension__ ({ const unsigned char *__s2 = (const unsigned char *) (const char *) (&quot;{&quot;); int __result = (((const unsigned char *) (const char *) (token))[0] - __s2[0]); if (__s1_len &gt; 0 &amp;&amp; __result == 0) { __result = (((const unsigned char *) (const char *) (token))[1] - __s2[1]); if (__s1_len &gt; 1 &amp;&amp; __result == 0) { __result = (((const unsigned char *) (const char *) (token))[2] - __s2[2]); if (__s1_len &gt; 2 &amp;&amp; __result == 0) __result = (((const unsigned char *) (const char *) (token))[3] - __s2[3]); } } __result; }))) : (__builtin_constant_p (&quot;{&quot;) &amp;&amp; ((size_t)(const void *)((&quot;{&quot;) + 1) - (size_t)(const void *)(&quot;{&quot;) == 1) &amp;&amp; (__s2_len = __builtin_strlen (&quot;{&quot;), __s2_len &lt; 4) ? (__builtin_constant_p (token) &amp;&amp; ((size_t)(const void *)((token) + 1) - (size_t)(const void *)(token) == 1) ? __builtin_strcmp (token, &quot;{&quot;) : (- (__extension__ ({ const unsigned char *__s2 = (const unsigned char *) (const char *) (token); int __result = (((const unsigned char *) (const char *) (&quot;{&quot;))[0] - __s2[0]); if (__s2_len &gt; 0 &amp;&amp; __result == 0) { __result = (((const unsigned char *) (const char *) (&quot;{&quot;))[1] - __s2[1]); if (__s2_len &gt; 1 &amp;&amp; __result == 0) { __result = (((const unsigned char *) (const char *) (&quot;{&quot;))[2] - __s2[2]); if (__s2_len &gt; 2 &amp;&amp; __result == 0) __result = (((const unsigned char *) (const char *) (&quot;{&quot;))[3] - __s2[3]); } } __result; })))) : __builtin_strcmp (token, &quot;{&quot;)))); })" data-ref="_M/strcmp">strcmp</a>( <a class="local col6 ref" href="#6token" title='token' data-ref="6token">token</a>, <q>"{"</q> ) ) {</td></tr>
+<tr><th id="82">82</th><td>			<a class="ref" href="../qcommon/q_shared.h.html#Com_Printf" title='Com_Printf' data-ref="Com_Printf">Com_Printf</a>( <q>"Missing { in info file\n"</q> );</td></tr>
+<tr><th id="83">83</th><td>			<b>break</b>;</td></tr>
+<tr><th id="84">84</th><td>		}</td></tr>
+<tr><th id="85">85</th><td></td></tr>
+<tr><th id="86">86</th><td>		<b>if</b> ( <a class="local col7 ref" href="#7count" title='count' data-ref="7count">count</a> == <a class="local col4 ref" href="#4max" title='max' data-ref="4max">max</a> ) {</td></tr>
+<tr><th id="87">87</th><td>			<a class="ref" href="../qcommon/q_shared.h.html#Com_Printf" title='Com_Printf' data-ref="Com_Printf">Com_Printf</a>( <q>"Max infos exceeded\n"</q> );</td></tr>
+<tr><th id="88">88</th><td>			<b>break</b>;</td></tr>
+<tr><th id="89">89</th><td>		}</td></tr>
+<tr><th id="90">90</th><td></td></tr>
+<tr><th id="91">91</th><td>		<a class="local col9 ref" href="#9info" title='info' data-ref="9info">info</a>[<var>0</var>] = <kbd>'\0'</kbd>;</td></tr>
+<tr><th id="92">92</th><td>		<b>while</b> ( <var>1</var> ) {</td></tr>
+<tr><th id="93">93</th><td>			<a class="local col6 ref" href="#6token" title='token' data-ref="6token">token</a> = <a class="ref" href="../qcommon/q_shared.h.html#COM_ParseExt" title='COM_ParseExt' data-ref="COM_ParseExt">COM_ParseExt</a>( &amp;<a class="local col3 ref" href="#3buf" title='buf' data-ref="3buf">buf</a>, <a class="enum" href="../qcommon/q_shared.h.html#qtrue" title='qtrue' data-ref="qtrue">qtrue</a> );</td></tr>
+<tr><th id="94">94</th><td>			<b>if</b> ( !<a class="local col6 ref" href="#6token" title='token' data-ref="6token">token</a>[<var>0</var>] ) {</td></tr>
+<tr><th id="95">95</th><td>				<a class="ref" href="../qcommon/q_shared.h.html#Com_Printf" title='Com_Printf' data-ref="Com_Printf">Com_Printf</a>( <q>"Unexpected end of info file\n"</q> );</td></tr>
+<tr><th id="96">96</th><td>				<b>break</b>;</td></tr>
+<tr><th id="97">97</th><td>			}</td></tr>
+<tr><th id="98">98</th><td>			<b>if</b> ( !<a class="macro" href="../../../include/x86_64-linux-gnu/bits/string2.h.html#799" title="__extension__ ({ size_t __s1_len, __s2_len; (__builtin_constant_p (token) &amp;&amp; __builtin_constant_p (&quot;}&quot;) &amp;&amp; (__s1_len = __builtin_strlen (token), __s2_len = __builtin_strlen (&quot;}&quot;), (!((size_t)(const void *)((token) + 1) - (size_t)(const void *)(token) == 1) || __s1_len &gt;= 4) &amp;&amp; (!((size_t)(const void *)((&quot;}&quot;) + 1) - (size_t)(const void *)(&quot;}&quot;) == 1) || __s2_len &gt;= 4)) ? __builtin_strcmp (token, &quot;}&quot;) : (__builtin_constant_p (token) &amp;&amp; ((size_t)(const void *)((token) + 1) - (size_t)(const void *)(token) == 1) &amp;&amp; (__s1_len = __builtin_strlen (token), __s1_len &lt; 4) ? (__builtin_constant_p (&quot;}&quot;) &amp;&amp; ((size_t)(const void *)((&quot;}&quot;) + 1) - (size_t)(const void *)(&quot;}&quot;) == 1) ? __builtin_strcmp (token, &quot;}&quot;) : (__extension__ ({ const unsigned char *__s2 = (const unsigned char *) (const char *) (&quot;}&quot;); int __result = (((const unsigned char *) (const char *) (token))[0] - __s2[0]); if (__s1_len &gt; 0 &amp;&amp; __result == 0) { __result = (((const unsigned char *) (const char *) (token))[1] - __s2[1]); if (__s1_len &gt; 1 &amp;&amp; __result == 0) { __result = (((const unsigned char *) (const char *) (token))[2] - __s2[2]); if (__s1_len &gt; 2 &amp;&amp; __result == 0) __result = (((const unsigned char *) (const char *) (token))[3] - __s2[3]); } } __result; }))) : (__builtin_constant_p (&quot;}&quot;) &amp;&amp; ((size_t)(const void *)((&quot;}&quot;) + 1) - (size_t)(const void *)(&quot;}&quot;) == 1) &amp;&amp; (__s2_len = __builtin_strlen (&quot;}&quot;), __s2_len &lt; 4) ? (__builtin_constant_p (token) &amp;&amp; ((size_t)(const void *)((token) + 1) - (size_t)(const void *)(token) == 1) ? __builtin_strcmp (token, &quot;}&quot;) : (- (__extension__ ({ const unsigned char *__s2 = (const unsigned char *) (const char *) (token); int __result = (((const unsigned char *) (const char *) (&quot;}&quot;))[0] - __s2[0]); if (__s2_len &gt; 0 &amp;&amp; __result == 0) { __result = (((const unsigned char *) (const char *) (&quot;}&quot;))[1] - __s2[1]); if (__s2_len &gt; 1 &amp;&amp; __result == 0) { __result = (((const unsigned char *) (const char *) (&quot;}&quot;))[2] - __s2[2]); if (__s2_len &gt; 2 &amp;&amp; __result == 0) __result = (((const unsigned char *) (const char *) (&quot;}&quot;))[3] - __s2[3]); } } __result; })))) : __builtin_strcmp (token, &quot;}&quot;)))); })" data-ref="_M/strcmp">strcmp</a>( <a class="local col6 ref" href="#6token" title='token' data-ref="6token">token</a>, <q>"}"</q> ) ) {</td></tr>
+<tr><th id="99">99</th><td>				<b>break</b>;</td></tr>
+<tr><th id="100">100</th><td>			}</td></tr>
+<tr><th id="101">101</th><td>			<a class="ref" href="../qcommon/q_shared.h.html#Q_strncpyz" title='Q_strncpyz' data-ref="Q_strncpyz">Q_strncpyz</a>( <a class="local col8 ref" href="#8key" title='key' data-ref="8key">key</a>, <a class="local col6 ref" href="#6token" title='token' data-ref="6token">token</a>, <b>sizeof</b>( <a class="local col8 ref" href="#8key" title='key' data-ref="8key">key</a> ) );</td></tr>
+<tr><th id="102">102</th><td></td></tr>
+<tr><th id="103">103</th><td>			<a class="local col6 ref" href="#6token" title='token' data-ref="6token">token</a> = <a class="ref" href="../qcommon/q_shared.h.html#COM_ParseExt" title='COM_ParseExt' data-ref="COM_ParseExt">COM_ParseExt</a>( &amp;<a class="local col3 ref" href="#3buf" title='buf' data-ref="3buf">buf</a>, <a class="enum" href="../qcommon/q_shared.h.html#qfalse" title='qfalse' data-ref="qfalse">qfalse</a> );</td></tr>
+<tr><th id="104">104</th><td>			<b>if</b> ( !<a class="local col6 ref" href="#6token" title='token' data-ref="6token">token</a>[<var>0</var>] ) {</td></tr>
+<tr><th id="105">105</th><td>				<a class="ref" href="../../../include/string.h.html#strcpy" title='strcpy' data-ref="strcpy">strcpy</a>( <a class="local col6 ref" href="#6token" title='token' data-ref="6token">token</a>, <q>"&lt;NULL&gt;"</q> );</td></tr>
+<tr><th id="106">106</th><td>			}</td></tr>
+<tr><th id="107">107</th><td>			<a class="ref" href="../qcommon/q_shared.h.html#Info_SetValueForKey" title='Info_SetValueForKey' data-ref="Info_SetValueForKey">Info_SetValueForKey</a>( <a class="local col9 ref" href="#9info" title='info' data-ref="9info">info</a>, <a class="local col8 ref" href="#8key" title='key' data-ref="8key">key</a>, <a class="local col6 ref" href="#6token" title='token' data-ref="6token">token</a> );</td></tr>
+<tr><th id="108">108</th><td>		}</td></tr>
+<tr><th id="109">109</th><td>		<i>//NOTE: extra space for arena number</i></td></tr>
+<tr><th id="110">110</th><td>		<a class="local col5 ref" href="#5infos" title='infos' data-ref="5infos">infos</a>[<a class="local col7 ref" href="#7count" title='count' data-ref="7count">count</a>] = <a class="ref" href="g_local.h.html#G_Alloc" title='G_Alloc' data-ref="G_Alloc">G_Alloc</a>(<a class="ref" href="../../../include/string.h.html#strlen" title='strlen' data-ref="strlen">strlen</a>(<a class="local col9 ref" href="#9info" title='info' data-ref="9info">info</a>) + <a class="ref" href="../../../include/string.h.html#strlen" title='strlen' data-ref="strlen">strlen</a>(<q>"\\num\\"</q>) + <a class="ref" href="../../../include/string.h.html#strlen" title='strlen' data-ref="strlen">strlen</a>(<a class="ref" href="../qcommon/q_shared.h.html#va" title='va' data-ref="va">va</a>(<q>"%d"</q>, <a class="macro" href="bg_public.h.html#710" title="1024" data-ref="_M/MAX_ARENAS">MAX_ARENAS</a>)) + <var>1</var>);</td></tr>
+<tr><th id="111">111</th><td>		<b>if</b> (<a class="local col5 ref" href="#5infos" title='infos' data-ref="5infos">infos</a>[<a class="local col7 ref" href="#7count" title='count' data-ref="7count">count</a>]) {</td></tr>
+<tr><th id="112">112</th><td>			<a class="ref" href="../../../include/string.h.html#strcpy" title='strcpy' data-ref="strcpy">strcpy</a>(<a class="local col5 ref" href="#5infos" title='infos' data-ref="5infos">infos</a>[<a class="local col7 ref" href="#7count" title='count' data-ref="7count">count</a>], <a class="local col9 ref" href="#9info" title='info' data-ref="9info">info</a>);</td></tr>
+<tr><th id="113">113</th><td>			<a class="local col7 ref" href="#7count" title='count' data-ref="7count">count</a>++;</td></tr>
+<tr><th id="114">114</th><td>		}</td></tr>
+<tr><th id="115">115</th><td>	}</td></tr>
+<tr><th id="116">116</th><td>	<b>return</b> <a class="local col7 ref" href="#7count" title='count' data-ref="7count">count</a>;</td></tr>
+<tr><th id="117">117</th><td>}</td></tr>
+<tr><th id="118">118</th><td></td></tr>
+<tr><th id="119">119</th><td><i  data-doc="G_LoadArenasFromFile">/*</i></td></tr>
+<tr><th id="120">120</th><td><i  data-doc="G_LoadArenasFromFile">===============</i></td></tr>
+<tr><th id="121">121</th><td><i  data-doc="G_LoadArenasFromFile">G_LoadArenasFromFile</i></td></tr>
+<tr><th id="122">122</th><td><i  data-doc="G_LoadArenasFromFile">===============</i></td></tr>
+<tr><th id="123">123</th><td><i  data-doc="G_LoadArenasFromFile">*/</i></td></tr>
+<tr><th id="124">124</th><td><em>static</em> <em>void</em> <dfn class="tu decl def" id="G_LoadArenasFromFile" title='G_LoadArenasFromFile' data-type='void G_LoadArenasFromFile(char * filename)' data-ref="G_LoadArenasFromFile">G_LoadArenasFromFile</dfn>( <em>char</em> *<dfn class="local col0 decl" id="10filename" title='filename' data-type='char *' data-ref="10filename">filename</dfn> ) {</td></tr>
+<tr><th id="125">125</th><td>	<em>int</em>				<dfn class="local col1 decl" id="11len" title='len' data-type='int' data-ref="11len">len</dfn>;</td></tr>
+<tr><th id="126">126</th><td>	<a class="typedef" href="../qcommon/q_shared.h.html#fileHandle_t" title='fileHandle_t' data-type='int' data-ref="fileHandle_t">fileHandle_t</a>	<dfn class="local col2 decl" id="12f" title='f' data-type='fileHandle_t' data-ref="12f">f</dfn>;</td></tr>
+<tr><th id="127">127</th><td>	<em>char</em>			<dfn class="local col3 decl" id="13buf" title='buf' data-type='char [8192]' data-ref="13buf">buf</dfn>[<a class="macro" href="bg_public.h.html#711" title="8192" data-ref="_M/MAX_ARENAS_TEXT">MAX_ARENAS_TEXT</a>];</td></tr>
+<tr><th id="128">128</th><td></td></tr>
+<tr><th id="129">129</th><td>	<a class="local col1 ref" href="#11len" title='len' data-ref="11len">len</a> = <a class="ref" href="g_local.h.html#trap_FS_FOpenFile" title='trap_FS_FOpenFile' data-ref="trap_FS_FOpenFile">trap_FS_FOpenFile</a>( <a class="local col0 ref" href="#10filename" title='filename' data-ref="10filename">filename</a>, &amp;<a class="local col2 ref" href="#12f" title='f' data-ref="12f">f</a>, <a class="enum" href="../qcommon/q_shared.h.html#FS_READ" title='FS_READ' data-ref="FS_READ">FS_READ</a> );</td></tr>
+<tr><th id="130">130</th><td>	<b>if</b> ( !<a class="local col2 ref" href="#12f" title='f' data-ref="12f">f</a> ) {</td></tr>
+<tr><th id="131">131</th><td>		<a class="ref" href="g_local.h.html#trap_Print" title='trap_Print' data-ref="trap_Print">trap_Print</a>( <a class="ref" href="../qcommon/q_shared.h.html#va" title='va' data-ref="va">va</a>( <a class="macro" href="../qcommon/q_shared.h.html#423" title="&quot;^1&quot;" data-ref="_M/S_COLOR_RED">S_COLOR_RED</a> <q>"file not found: %s\n"</q>, <a class="local col0 ref" href="#10filename" title='filename' data-ref="10filename">filename</a> ) );</td></tr>
+<tr><th id="132">132</th><td>		<b>return</b>;</td></tr>
+<tr><th id="133">133</th><td>	}</td></tr>
+<tr><th id="134">134</th><td>	<b>if</b> ( <a class="local col1 ref" href="#11len" title='len' data-ref="11len">len</a> &gt;= <a class="macro" href="bg_public.h.html#711" title="8192" data-ref="_M/MAX_ARENAS_TEXT">MAX_ARENAS_TEXT</a> ) {</td></tr>
+<tr><th id="135">135</th><td>		<a class="ref" href="g_local.h.html#trap_FS_FCloseFile" title='trap_FS_FCloseFile' data-ref="trap_FS_FCloseFile">trap_FS_FCloseFile</a>( <a class="local col2 ref" href="#12f" title='f' data-ref="12f">f</a> );</td></tr>
+<tr><th id="136">136</th><td>		<a class="ref" href="g_local.h.html#trap_Print" title='trap_Print' data-ref="trap_Print">trap_Print</a>( <a class="ref" href="../qcommon/q_shared.h.html#va" title='va' data-ref="va">va</a>( <a class="macro" href="../qcommon/q_shared.h.html#423" title="&quot;^1&quot;" data-ref="_M/S_COLOR_RED">S_COLOR_RED</a> <q>"file too large: %s is %i, max allowed is %i\n"</q>, <a class="local col0 ref" href="#10filename" title='filename' data-ref="10filename">filename</a>, <a class="local col1 ref" href="#11len" title='len' data-ref="11len">len</a>, <a class="macro" href="bg_public.h.html#711" title="8192" data-ref="_M/MAX_ARENAS_TEXT">MAX_ARENAS_TEXT</a> ) );</td></tr>
+<tr><th id="137">137</th><td>		<b>return</b>;</td></tr>
+<tr><th id="138">138</th><td>	}</td></tr>
+<tr><th id="139">139</th><td></td></tr>
+<tr><th id="140">140</th><td>	<a class="ref" href="g_local.h.html#trap_FS_Read" title='trap_FS_Read' data-ref="trap_FS_Read">trap_FS_Read</a>( <a class="local col3 ref" href="#13buf" title='buf' data-ref="13buf">buf</a>, <a class="local col1 ref" href="#11len" title='len' data-ref="11len">len</a>, <a class="local col2 ref" href="#12f" title='f' data-ref="12f">f</a> );</td></tr>
+<tr><th id="141">141</th><td>	<a class="local col3 ref" href="#13buf" title='buf' data-ref="13buf">buf</a>[<a class="local col1 ref" href="#11len" title='len' data-ref="11len">len</a>] = <var>0</var>;</td></tr>
+<tr><th id="142">142</th><td>	<a class="ref" href="g_local.h.html#trap_FS_FCloseFile" title='trap_FS_FCloseFile' data-ref="trap_FS_FCloseFile">trap_FS_FCloseFile</a>( <a class="local col2 ref" href="#12f" title='f' data-ref="12f">f</a> );</td></tr>
+<tr><th id="143">143</th><td></td></tr>
+<tr><th id="144">144</th><td>	<a class="ref" href="#g_numArenas" title='g_numArenas' data-ref="g_numArenas">g_numArenas</a> += <a class="ref" href="#G_ParseInfos" title='G_ParseInfos' data-ref="G_ParseInfos">G_ParseInfos</a>( <a class="local col3 ref" href="#13buf" title='buf' data-ref="13buf">buf</a>, <a class="macro" href="bg_public.h.html#710" title="1024" data-ref="_M/MAX_ARENAS">MAX_ARENAS</a> - <a class="ref" href="#g_numArenas" title='g_numArenas' data-ref="g_numArenas">g_numArenas</a>, &amp;<a class="tu ref" href="#g_arenaInfos" title='g_arenaInfos' data-use='a' data-ref="g_arenaInfos">g_arenaInfos</a>[<a class="ref" href="#g_numArenas" title='g_numArenas' data-ref="g_numArenas">g_numArenas</a>] );</td></tr>
+<tr><th id="145">145</th><td>}</td></tr>
+<tr><th id="146">146</th><td></td></tr>
+<tr><th id="147">147</th><td><i  data-doc="G_LoadArenas">/*</i></td></tr>
+<tr><th id="148">148</th><td><i  data-doc="G_LoadArenas">===============</i></td></tr>
+<tr><th id="149">149</th><td><i  data-doc="G_LoadArenas">G_LoadArenas</i></td></tr>
+<tr><th id="150">150</th><td><i  data-doc="G_LoadArenas">===============</i></td></tr>
+<tr><th id="151">151</th><td><i  data-doc="G_LoadArenas">*/</i></td></tr>
+<tr><th id="152">152</th><td><em>static</em> <em>void</em> <dfn class="tu decl def" id="G_LoadArenas" title='G_LoadArenas' data-type='void G_LoadArenas()' data-ref="G_LoadArenas">G_LoadArenas</dfn>( <em>void</em> ) {</td></tr>
+<tr><th id="153">153</th><td>	<em>int</em>			<dfn class="local col4 decl" id="14numdirs" title='numdirs' data-type='int' data-ref="14numdirs">numdirs</dfn>;</td></tr>
+<tr><th id="154">154</th><td>	<a class="typedef" href="../qcommon/q_shared.h.html#vmCvar_t" title='vmCvar_t' data-type='struct vmCvar_t' data-ref="vmCvar_t">vmCvar_t</a>	<dfn class="local col5 decl" id="15arenasFile" title='arenasFile' data-type='vmCvar_t' data-ref="15arenasFile">arenasFile</dfn>;</td></tr>
+<tr><th id="155">155</th><td>	<em>char</em>		<dfn class="local col6 decl" id="16filename" title='filename' data-type='char [128]' data-ref="16filename">filename</dfn>[<var>128</var>];</td></tr>
+<tr><th id="156">156</th><td>	<em>char</em>		<dfn class="local col7 decl" id="17dirlist" title='dirlist' data-type='char [1024]' data-ref="17dirlist">dirlist</dfn>[<var>1024</var>];</td></tr>
+<tr><th id="157">157</th><td>	<em>char</em>*		<dfn class="local col8 decl" id="18dirptr" title='dirptr' data-type='char *' data-ref="18dirptr">dirptr</dfn>;</td></tr>
+<tr><th id="158">158</th><td>	<em>int</em>			<dfn class="local col9 decl" id="19i" title='i' data-type='int' data-ref="19i">i</dfn>, <dfn class="local col0 decl" id="20n" title='n' data-type='int' data-ref="20n">n</dfn>;</td></tr>
+<tr><th id="159">159</th><td>	<em>int</em>			<dfn class="local col1 decl" id="21dirlen" title='dirlen' data-type='int' data-ref="21dirlen">dirlen</dfn>;</td></tr>
+<tr><th id="160">160</th><td></td></tr>
+<tr><th id="161">161</th><td>	<a class="ref" href="#g_numArenas" title='g_numArenas' data-ref="g_numArenas">g_numArenas</a> = <var>0</var>;</td></tr>
+<tr><th id="162">162</th><td></td></tr>
+<tr><th id="163">163</th><td>	<a class="ref" href="g_local.h.html#trap_Cvar_Register" title='trap_Cvar_Register' data-ref="trap_Cvar_Register">trap_Cvar_Register</a>( &amp;<a class="local col5 ref" href="#15arenasFile" title='arenasFile' data-ref="15arenasFile">arenasFile</a>, <q>"g_arenasFile"</q>, <q>""</q>, <a class="macro" href="../qcommon/q_shared.h.html#900" title="0x0010" data-ref="_M/CVAR_INIT">CVAR_INIT</a>|<a class="macro" href="../qcommon/q_shared.h.html#907" title="0x0040" data-ref="_M/CVAR_ROM">CVAR_ROM</a> );</td></tr>
+<tr><th id="164">164</th><td>	<b>if</b>( *<a class="local col5 ref" href="#15arenasFile" title='arenasFile' data-ref="15arenasFile">arenasFile</a>.<a class="ref" href="../qcommon/q_shared.h.html#(anonymous)::string" title='(anonymous struct)::string' data-ref="(anonymous)::string">string</a> ) {</td></tr>
+<tr><th id="165">165</th><td>		<a class="tu ref" href="#G_LoadArenasFromFile" title='G_LoadArenasFromFile' data-use='c' data-ref="G_LoadArenasFromFile">G_LoadArenasFromFile</a>(<a class="local col5 ref" href="#15arenasFile" title='arenasFile' data-ref="15arenasFile">arenasFile</a>.<a class="ref" href="../qcommon/q_shared.h.html#(anonymous)::string" title='(anonymous struct)::string' data-ref="(anonymous)::string">string</a>);</td></tr>
+<tr><th id="166">166</th><td>	}</td></tr>
+<tr><th id="167">167</th><td>	<b>else</b> {</td></tr>
+<tr><th id="168">168</th><td>		<a class="tu ref" href="#G_LoadArenasFromFile" title='G_LoadArenasFromFile' data-use='c' data-ref="G_LoadArenasFromFile">G_LoadArenasFromFile</a>(<q>"scripts/arenas.txt"</q>);</td></tr>
+<tr><th id="169">169</th><td>	}</td></tr>
+<tr><th id="170">170</th><td></td></tr>
+<tr><th id="171">171</th><td>	<i>// get all arenas from .arena files</i></td></tr>
+<tr><th id="172">172</th><td>	<a class="local col4 ref" href="#14numdirs" title='numdirs' data-ref="14numdirs">numdirs</a> = <a class="ref" href="g_local.h.html#trap_FS_GetFileList" title='trap_FS_GetFileList' data-ref="trap_FS_GetFileList">trap_FS_GetFileList</a>(<q>"scripts"</q>, <q>".arena"</q>, <a class="local col7 ref" href="#17dirlist" title='dirlist' data-ref="17dirlist">dirlist</a>, <var>1024</var> );</td></tr>
+<tr><th id="173">173</th><td>	<a class="local col8 ref" href="#18dirptr" title='dirptr' data-ref="18dirptr">dirptr</a>  = <a class="local col7 ref" href="#17dirlist" title='dirlist' data-ref="17dirlist">dirlist</a>;</td></tr>
+<tr><th id="174">174</th><td>	<b>for</b> (<a class="local col9 ref" href="#19i" title='i' data-ref="19i">i</a> = <var>0</var>; <a class="local col9 ref" href="#19i" title='i' data-ref="19i">i</a> &lt; <a class="local col4 ref" href="#14numdirs" title='numdirs' data-ref="14numdirs">numdirs</a>; <a class="local col9 ref" href="#19i" title='i' data-ref="19i">i</a>++, <a class="local col8 ref" href="#18dirptr" title='dirptr' data-ref="18dirptr">dirptr</a> += <a class="local col1 ref" href="#21dirlen" title='dirlen' data-ref="21dirlen">dirlen</a>+<var>1</var>) {</td></tr>
+<tr><th id="175">175</th><td>		<a class="local col1 ref" href="#21dirlen" title='dirlen' data-ref="21dirlen">dirlen</a> = <a class="ref" href="../../../include/string.h.html#strlen" title='strlen' data-ref="strlen">strlen</a>(<a class="local col8 ref" href="#18dirptr" title='dirptr' data-ref="18dirptr">dirptr</a>);</td></tr>
+<tr><th id="176">176</th><td>		<a class="ref" href="../../../include/string.h.html#strcpy" title='strcpy' data-ref="strcpy">strcpy</a>(<a class="local col6 ref" href="#16filename" title='filename' data-ref="16filename">filename</a>, <q>"scripts/"</q>);</td></tr>
+<tr><th id="177">177</th><td>		<a class="ref" href="../../../include/string.h.html#strcat" title='strcat' data-ref="strcat">strcat</a>(<a class="local col6 ref" href="#16filename" title='filename' data-ref="16filename">filename</a>, <a class="local col8 ref" href="#18dirptr" title='dirptr' data-ref="18dirptr">dirptr</a>);</td></tr>
+<tr><th id="178">178</th><td>		<a class="tu ref" href="#G_LoadArenasFromFile" title='G_LoadArenasFromFile' data-use='c' data-ref="G_LoadArenasFromFile">G_LoadArenasFromFile</a>(<a class="local col6 ref" href="#16filename" title='filename' data-ref="16filename">filename</a>);</td></tr>
+<tr><th id="179">179</th><td>	}</td></tr>
+<tr><th id="180">180</th><td>	<a class="ref" href="g_local.h.html#trap_Print" title='trap_Print' data-ref="trap_Print">trap_Print</a>( <a class="ref" href="../qcommon/q_shared.h.html#va" title='va' data-ref="va">va</a>( <q>"%i arenas parsed\n"</q>, <a class="ref" href="#g_numArenas" title='g_numArenas' data-ref="g_numArenas">g_numArenas</a> ) );</td></tr>
+<tr><th id="181">181</th><td>	</td></tr>
+<tr><th id="182">182</th><td>	<b>for</b>( <a class="local col0 ref" href="#20n" title='n' data-ref="20n">n</a> = <var>0</var>; <a class="local col0 ref" href="#20n" title='n' data-ref="20n">n</a> &lt; <a class="ref" href="#g_numArenas" title='g_numArenas' data-ref="g_numArenas">g_numArenas</a>; <a class="local col0 ref" href="#20n" title='n' data-ref="20n">n</a>++ ) {</td></tr>
+<tr><th id="183">183</th><td>		<a class="ref" href="../qcommon/q_shared.h.html#Info_SetValueForKey" title='Info_SetValueForKey' data-ref="Info_SetValueForKey">Info_SetValueForKey</a>( <a class="tu ref" href="#g_arenaInfos" title='g_arenaInfos' data-use='r' data-ref="g_arenaInfos">g_arenaInfos</a>[<a class="local col0 ref" href="#20n" title='n' data-ref="20n">n</a>], <q>"num"</q>, <a class="ref" href="../qcommon/q_shared.h.html#va" title='va' data-ref="va">va</a>( <q>"%i"</q>, <a class="local col0 ref" href="#20n" title='n' data-ref="20n">n</a> ) );</td></tr>
+<tr><th id="184">184</th><td>	}</td></tr>
+<tr><th id="185">185</th><td>}</td></tr>
+<tr><th id="186">186</th><td></td></tr>
+<tr><th id="187">187</th><td></td></tr>
+<tr><th id="188">188</th><td><i>/*</i></td></tr>
+<tr><th id="189">189</th><td><i>===============</i></td></tr>
+<tr><th id="190">190</th><td><i>G_GetArenaInfoByNumber</i></td></tr>
+<tr><th id="191">191</th><td><i>===============</i></td></tr>
+<tr><th id="192">192</th><td><i>*/</i></td></tr>
+<tr><th id="193">193</th><td><em>const</em> <em>char</em> *<dfn class="decl def" id="G_GetArenaInfoByMap" title='G_GetArenaInfoByMap' data-ref="G_GetArenaInfoByMap">G_GetArenaInfoByMap</dfn>( <em>const</em> <em>char</em> *<dfn class="local col2 decl" id="22map" title='map' data-type='const char *' data-ref="22map">map</dfn> ) {</td></tr>
+<tr><th id="194">194</th><td>	<em>int</em>			<dfn class="local col3 decl" id="23n" title='n' data-type='int' data-ref="23n">n</dfn>;</td></tr>
+<tr><th id="195">195</th><td></td></tr>
+<tr><th id="196">196</th><td>	<b>for</b>( <a class="local col3 ref" href="#23n" title='n' data-ref="23n">n</a> = <var>0</var>; <a class="local col3 ref" href="#23n" title='n' data-ref="23n">n</a> &lt; <a class="ref" href="#g_numArenas" title='g_numArenas' data-ref="g_numArenas">g_numArenas</a>; <a class="local col3 ref" href="#23n" title='n' data-ref="23n">n</a>++ ) {</td></tr>
+<tr><th id="197">197</th><td>		<b>if</b>( <a class="ref" href="../qcommon/q_shared.h.html#Q_stricmp" title='Q_stricmp' data-ref="Q_stricmp">Q_stricmp</a>( <a class="ref" href="../qcommon/q_shared.h.html#Info_ValueForKey" title='Info_ValueForKey' data-ref="Info_ValueForKey">Info_ValueForKey</a>( <a class="tu ref" href="#g_arenaInfos" title='g_arenaInfos' data-use='r' data-ref="g_arenaInfos">g_arenaInfos</a>[<a class="local col3 ref" href="#23n" title='n' data-ref="23n">n</a>], <q>"map"</q> ), <a class="local col2 ref" href="#22map" title='map' data-ref="22map">map</a> ) == <var>0</var> ) {</td></tr>
+<tr><th id="198">198</th><td>			<b>return</b> <a class="tu ref" href="#g_arenaInfos" title='g_arenaInfos' data-use='r' data-ref="g_arenaInfos">g_arenaInfos</a>[<a class="local col3 ref" href="#23n" title='n' data-ref="23n">n</a>];</td></tr>
+<tr><th id="199">199</th><td>		}</td></tr>
+<tr><th id="200">200</th><td>	}</td></tr>
+<tr><th id="201">201</th><td></td></tr>
+<tr><th id="202">202</th><td>	<b>return</b> <span class="macro" title="((void*)0)" data-ref="_M/NULL">NULL</span>;</td></tr>
+<tr><th id="203">203</th><td>}</td></tr>
+<tr><th id="204">204</th><td></td></tr>
+<tr><th id="205">205</th><td></td></tr>
+<tr><th id="206">206</th><td><i  data-doc="PlayerIntroSound">/*</i></td></tr>
+<tr><th id="207">207</th><td><i  data-doc="PlayerIntroSound">=================</i></td></tr>
+<tr><th id="208">208</th><td><i  data-doc="PlayerIntroSound">PlayerIntroSound</i></td></tr>
+<tr><th id="209">209</th><td><i  data-doc="PlayerIntroSound">=================</i></td></tr>
+<tr><th id="210">210</th><td><i  data-doc="PlayerIntroSound">*/</i></td></tr>
+<tr><th id="211">211</th><td><em>static</em> <em>void</em> <dfn class="tu decl def" id="PlayerIntroSound" title='PlayerIntroSound' data-type='void PlayerIntroSound(const char * modelAndSkin)' data-ref="PlayerIntroSound">PlayerIntroSound</dfn>( <em>const</em> <em>char</em> *<dfn class="local col4 decl" id="24modelAndSkin" title='modelAndSkin' data-type='const char *' data-ref="24modelAndSkin">modelAndSkin</dfn> ) {</td></tr>
+<tr><th id="212">212</th><td>	<em>char</em>	<dfn class="local col5 decl" id="25model" title='model' data-type='char [64]' data-ref="25model">model</dfn>[<a class="macro" href="../qcommon/q_shared.h.html#256" title="64" data-ref="_M/MAX_QPATH">MAX_QPATH</a>];</td></tr>
+<tr><th id="213">213</th><td>	<em>char</em>	*<dfn class="local col6 decl" id="26skin" title='skin' data-type='char *' data-ref="26skin">skin</dfn>;</td></tr>
+<tr><th id="214">214</th><td></td></tr>
+<tr><th id="215">215</th><td>	<a class="ref" href="../qcommon/q_shared.h.html#Q_strncpyz" title='Q_strncpyz' data-ref="Q_strncpyz">Q_strncpyz</a>( <a class="local col5 ref" href="#25model" title='model' data-ref="25model">model</a>, <a class="local col4 ref" href="#24modelAndSkin" title='modelAndSkin' data-ref="24modelAndSkin">modelAndSkin</a>, <b>sizeof</b>(<a class="local col5 ref" href="#25model" title='model' data-ref="25model">model</a>) );</td></tr>
+<tr><th id="216">216</th><td>	<a class="local col6 ref" href="#26skin" title='skin' data-ref="26skin">skin</a> = <a class="ref" href="../../../include/string.h.html#strrchr" title='strrchr' data-ref="strrchr">strrchr</a>( <a class="local col5 ref" href="#25model" title='model' data-ref="25model">model</a>, <kbd>'/'</kbd> );</td></tr>
+<tr><th id="217">217</th><td>	<b>if</b> ( <a class="local col6 ref" href="#26skin" title='skin' data-ref="26skin">skin</a> ) {</td></tr>
+<tr><th id="218">218</th><td>		*<a class="local col6 ref" href="#26skin" title='skin' data-ref="26skin">skin</a>++ = <kbd>'\0'</kbd>;</td></tr>
+<tr><th id="219">219</th><td>	}</td></tr>
+<tr><th id="220">220</th><td>	<b>else</b> {</td></tr>
+<tr><th id="221">221</th><td>		<a class="local col6 ref" href="#26skin" title='skin' data-ref="26skin">skin</a> = <a class="local col5 ref" href="#25model" title='model' data-ref="25model">model</a>;</td></tr>
+<tr><th id="222">222</th><td>	}</td></tr>
+<tr><th id="223">223</th><td></td></tr>
+<tr><th id="224">224</th><td>	<b>if</b>( <a class="ref" href="../qcommon/q_shared.h.html#Q_stricmp" title='Q_stricmp' data-ref="Q_stricmp">Q_stricmp</a>( <a class="local col6 ref" href="#26skin" title='skin' data-ref="26skin">skin</a>, <q>"default"</q> ) == <var>0</var> ) {</td></tr>
+<tr><th id="225">225</th><td>		<a class="local col6 ref" href="#26skin" title='skin' data-ref="26skin">skin</a> = <a class="local col5 ref" href="#25model" title='model' data-ref="25model">model</a>;</td></tr>
+<tr><th id="226">226</th><td>	}</td></tr>
+<tr><th id="227">227</th><td></td></tr>
+<tr><th id="228">228</th><td>	<a class="ref" href="g_local.h.html#trap_SendConsoleCommand" title='trap_SendConsoleCommand' data-ref="trap_SendConsoleCommand">trap_SendConsoleCommand</a>( <a class="enum" href="../qcommon/q_shared.h.html#EXEC_APPEND" title='EXEC_APPEND' data-ref="EXEC_APPEND">EXEC_APPEND</a>, <a class="ref" href="../qcommon/q_shared.h.html#va" title='va' data-ref="va">va</a>( <q>"play sound/player/announce/%s.wav\n"</q>, <a class="local col6 ref" href="#26skin" title='skin' data-ref="26skin">skin</a> ) );</td></tr>
+<tr><th id="229">229</th><td>}</td></tr>
+<tr><th id="230">230</th><td></td></tr>
+<tr><th id="231">231</th><td><i>/*</i></td></tr>
+<tr><th id="232">232</th><td><i>===============</i></td></tr>
+<tr><th id="233">233</th><td><i>G_CountBotPlayersByName</i></td></tr>
+<tr><th id="234">234</th><td><i></i></td></tr>
+<tr><th id="235">235</th><td><i>Check connected and connecting (delay join) bots.</i></td></tr>
+<tr><th id="236">236</th><td><i></i></td></tr>
+<tr><th id="237">237</th><td><i>Returns number of bots with name on specified team or whole server if team is -1.</i></td></tr>
+<tr><th id="238">238</th><td><i>===============</i></td></tr>
+<tr><th id="239">239</th><td><i>*/</i></td></tr>
+<tr><th id="240">240</th><td><em>int</em> <dfn class="decl def" id="G_CountBotPlayersByName" title='G_CountBotPlayersByName' data-ref="G_CountBotPlayersByName">G_CountBotPlayersByName</dfn>( <em>const</em> <em>char</em> *<dfn class="local col7 decl" id="27name" title='name' data-type='const char *' data-ref="27name">name</dfn>, <em>int</em> <dfn class="local col8 decl" id="28team" title='team' data-type='int' data-ref="28team">team</dfn> ) {</td></tr>
+<tr><th id="241">241</th><td>	<em>int</em>			<dfn class="local col9 decl" id="29i" title='i' data-type='int' data-ref="29i">i</dfn>, <dfn class="local col0 decl" id="30num" title='num' data-type='int' data-ref="30num">num</dfn>;</td></tr>
+<tr><th id="242">242</th><td>	<a class="typedef" href="g_local.h.html#gclient_t" title='gclient_t' data-type='struct gclient_s' data-ref="gclient_t">gclient_t</a>	*<dfn class="local col1 decl" id="31cl" title='cl' data-type='gclient_t *' data-ref="31cl">cl</dfn>;</td></tr>
+<tr><th id="243">243</th><td></td></tr>
+<tr><th id="244">244</th><td>	<a class="local col0 ref" href="#30num" title='num' data-ref="30num">num</a> = <var>0</var>;</td></tr>
+<tr><th id="245">245</th><td>	<b>for</b> ( <a class="local col9 ref" href="#29i" title='i' data-ref="29i">i</a>=<var>0</var> ; <a class="local col9 ref" href="#29i" title='i' data-ref="29i">i</a>&lt; <a class="ref" href="g_local.h.html#g_maxclients" title='g_maxclients' data-ref="g_maxclients">g_maxclients</a>.<a class="ref" href="../qcommon/q_shared.h.html#(anonymous)::integer" title='(anonymous struct)::integer' data-ref="(anonymous)::integer">integer</a> ; <a class="local col9 ref" href="#29i" title='i' data-ref="29i">i</a>++ ) {</td></tr>
+<tr><th id="246">246</th><td>		<a class="local col1 ref" href="#31cl" title='cl' data-ref="31cl">cl</a> = <a class="ref" href="g_local.h.html#level" title='level' data-ref="level">level</a>.<a class="ref" href="g_local.h.html#(anonymous)::clients" title='(anonymous struct)::clients' data-ref="(anonymous)::clients">clients</a> + <a class="local col9 ref" href="#29i" title='i' data-ref="29i">i</a>;</td></tr>
+<tr><th id="247">247</th><td>		<b>if</b> ( <a class="local col1 ref" href="#31cl" title='cl' data-ref="31cl">cl</a>-&gt;<a class="ref" href="g_local.h.html#gclient_s::pers" title='gclient_s::pers' data-ref="gclient_s::pers">pers</a>.<a class="ref" href="g_local.h.html#(anonymous)::connected" title='(anonymous struct)::connected' data-ref="(anonymous)::connected">connected</a> == <a class="enum" href="g_local.h.html#CON_DISCONNECTED" title='CON_DISCONNECTED' data-ref="CON_DISCONNECTED">CON_DISCONNECTED</a> ) {</td></tr>
+<tr><th id="248">248</th><td>			<b>continue</b>;</td></tr>
+<tr><th id="249">249</th><td>		}</td></tr>
+<tr><th id="250">250</th><td>		<b>if</b> ( !(<a class="ref" href="g_local.h.html#g_entities" title='g_entities' data-ref="g_entities">g_entities</a>[<a class="local col9 ref" href="#29i" title='i' data-ref="29i">i</a>].<a class="ref" href="g_local.h.html#gentity_s::r" title='gentity_s::r' data-ref="gentity_s::r">r</a>.<a class="ref" href="g_public.h.html#(anonymous)::svFlags" title='(anonymous struct)::svFlags' data-ref="(anonymous)::svFlags">svFlags</a> &amp; <a class="macro" href="g_public.h.html#38" title="0x00000008" data-ref="_M/SVF_BOT">SVF_BOT</a>) ) {</td></tr>
+<tr><th id="251">251</th><td>			<b>continue</b>;</td></tr>
+<tr><th id="252">252</th><td>		}</td></tr>
+<tr><th id="253">253</th><td>		<b>if</b> ( <a class="local col8 ref" href="#28team" title='team' data-ref="28team">team</a> &gt;= <var>0</var> &amp;&amp; <a class="local col1 ref" href="#31cl" title='cl' data-ref="31cl">cl</a>-&gt;<a class="ref" href="g_local.h.html#gclient_s::sess" title='gclient_s::sess' data-ref="gclient_s::sess">sess</a>.<a class="ref" href="g_local.h.html#(anonymous)::sessionTeam" title='(anonymous struct)::sessionTeam' data-ref="(anonymous)::sessionTeam">sessionTeam</a> != <a class="local col8 ref" href="#28team" title='team' data-ref="28team">team</a> ) {</td></tr>
+<tr><th id="254">254</th><td>			<b>continue</b>;</td></tr>
+<tr><th id="255">255</th><td>		}</td></tr>
+<tr><th id="256">256</th><td>		<b>if</b> ( <a class="local col7 ref" href="#27name" title='name' data-ref="27name">name</a> &amp;&amp; <a class="ref" href="../qcommon/q_shared.h.html#Q_stricmp" title='Q_stricmp' data-ref="Q_stricmp">Q_stricmp</a>( <a class="local col7 ref" href="#27name" title='name' data-ref="27name">name</a>, <a class="local col1 ref" href="#31cl" title='cl' data-ref="31cl">cl</a>-&gt;<a class="ref" href="g_local.h.html#gclient_s::pers" title='gclient_s::pers' data-ref="gclient_s::pers">pers</a>.<a class="ref" href="g_local.h.html#(anonymous)::netname" title='(anonymous struct)::netname' data-ref="(anonymous)::netname">netname</a> ) ) {</td></tr>
+<tr><th id="257">257</th><td>			<b>continue</b>;</td></tr>
+<tr><th id="258">258</th><td>		}</td></tr>
+<tr><th id="259">259</th><td>		<a class="local col0 ref" href="#30num" title='num' data-ref="30num">num</a>++;</td></tr>
+<tr><th id="260">260</th><td>	}</td></tr>
+<tr><th id="261">261</th><td>	<b>return</b> <a class="local col0 ref" href="#30num" title='num' data-ref="30num">num</a>;</td></tr>
+<tr><th id="262">262</th><td>}</td></tr>
+<tr><th id="263">263</th><td></td></tr>
+<tr><th id="264">264</th><td><i>/*</i></td></tr>
+<tr><th id="265">265</th><td><i>===============</i></td></tr>
+<tr><th id="266">266</th><td><i>G_SelectRandomBotInfo</i></td></tr>
+<tr><th id="267">267</th><td><i></i></td></tr>
+<tr><th id="268">268</th><td><i>Get random least used bot info on team or whole server if team is -1.</i></td></tr>
+<tr><th id="269">269</th><td><i>===============</i></td></tr>
+<tr><th id="270">270</th><td><i>*/</i></td></tr>
+<tr><th id="271">271</th><td><em>int</em> <dfn class="decl def" id="G_SelectRandomBotInfo" title='G_SelectRandomBotInfo' data-ref="G_SelectRandomBotInfo">G_SelectRandomBotInfo</dfn>( <em>int</em> <dfn class="local col2 decl" id="32team" title='team' data-type='int' data-ref="32team">team</dfn> ) {</td></tr>
+<tr><th id="272">272</th><td>	<em>int</em>		<dfn class="local col3 decl" id="33selection" title='selection' data-type='int [1024]' data-ref="33selection">selection</dfn>[<a class="macro" href="bg_public.h.html#713" title="1024" data-ref="_M/MAX_BOTS">MAX_BOTS</a>];</td></tr>
+<tr><th id="273">273</th><td>	<em>int</em>		<dfn class="local col4 decl" id="34n" title='n' data-type='int' data-ref="34n">n</dfn>, <dfn class="local col5 decl" id="35num" title='num' data-type='int' data-ref="35num">num</dfn>;</td></tr>
+<tr><th id="274">274</th><td>	<em>int</em>		<dfn class="local col6 decl" id="36count" title='count' data-type='int' data-ref="36count">count</dfn>, <dfn class="local col7 decl" id="37bestCount" title='bestCount' data-type='int' data-ref="37bestCount">bestCount</dfn>;</td></tr>
+<tr><th id="275">275</th><td>	<em>char</em>	*<dfn class="local col8 decl" id="38value" title='value' data-type='char *' data-ref="38value">value</dfn>;</td></tr>
+<tr><th id="276">276</th><td></td></tr>
+<tr><th id="277">277</th><td>	<i>// don't add duplicate bots to the server if there are less bots than bot types</i></td></tr>
+<tr><th id="278">278</th><td>	<b>if</b> ( <a class="local col2 ref" href="#32team" title='team' data-ref="32team">team</a> != -<var>1</var> &amp;&amp; <a class="ref" href="#G_CountBotPlayersByName" title='G_CountBotPlayersByName' data-ref="G_CountBotPlayersByName">G_CountBotPlayersByName</a>( <span class="macro" title="((void*)0)" data-ref="_M/NULL">NULL</span>, -<var>1</var> ) &lt; <a class="tu ref" href="#g_numBots" title='g_numBots' data-use='r' data-ref="g_numBots">g_numBots</a> ) {</td></tr>
+<tr><th id="279">279</th><td>		<a class="local col2 ref" href="#32team" title='team' data-ref="32team">team</a> = -<var>1</var>;</td></tr>
+<tr><th id="280">280</th><td>	}</td></tr>
+<tr><th id="281">281</th><td></td></tr>
+<tr><th id="282">282</th><td>	<a class="local col5 ref" href="#35num" title='num' data-ref="35num">num</a> = <var>0</var>;</td></tr>
+<tr><th id="283">283</th><td>	<a class="local col7 ref" href="#37bestCount" title='bestCount' data-ref="37bestCount">bestCount</a> = <a class="macro" href="../qcommon/q_shared.h.html#1087" title="64" data-ref="_M/MAX_CLIENTS">MAX_CLIENTS</a>;</td></tr>
+<tr><th id="284">284</th><td>	<b>for</b> ( <a class="local col4 ref" href="#34n" title='n' data-ref="34n">n</a> = <var>0</var>; <a class="local col4 ref" href="#34n" title='n' data-ref="34n">n</a> &lt; <a class="tu ref" href="#g_numBots" title='g_numBots' data-use='r' data-ref="g_numBots">g_numBots</a> ; <a class="local col4 ref" href="#34n" title='n' data-ref="34n">n</a>++ ) {</td></tr>
+<tr><th id="285">285</th><td>		<a class="local col8 ref" href="#38value" title='value' data-ref="38value">value</a> = <a class="ref" href="../qcommon/q_shared.h.html#Info_ValueForKey" title='Info_ValueForKey' data-ref="Info_ValueForKey">Info_ValueForKey</a>( <a class="tu ref" href="#g_botInfos" title='g_botInfos' data-use='r' data-ref="g_botInfos">g_botInfos</a>[<a class="local col4 ref" href="#34n" title='n' data-ref="34n">n</a>], <q>"funname"</q> );</td></tr>
+<tr><th id="286">286</th><td>		<b>if</b> ( !<a class="local col8 ref" href="#38value" title='value' data-ref="38value">value</a>[<var>0</var>] ) {</td></tr>
+<tr><th id="287">287</th><td>			<a class="local col8 ref" href="#38value" title='value' data-ref="38value">value</a> = <a class="ref" href="../qcommon/q_shared.h.html#Info_ValueForKey" title='Info_ValueForKey' data-ref="Info_ValueForKey">Info_ValueForKey</a>( <a class="tu ref" href="#g_botInfos" title='g_botInfos' data-use='r' data-ref="g_botInfos">g_botInfos</a>[<a class="local col4 ref" href="#34n" title='n' data-ref="34n">n</a>], <q>"name"</q> );</td></tr>
+<tr><th id="288">288</th><td>		}</td></tr>
+<tr><th id="289">289</th><td>		<i>//</i></td></tr>
+<tr><th id="290">290</th><td>		<a class="local col6 ref" href="#36count" title='count' data-ref="36count">count</a> = <a class="ref" href="#G_CountBotPlayersByName" title='G_CountBotPlayersByName' data-ref="G_CountBotPlayersByName">G_CountBotPlayersByName</a>( <a class="local col8 ref" href="#38value" title='value' data-ref="38value">value</a>, <a class="local col2 ref" href="#32team" title='team' data-ref="32team">team</a> );</td></tr>
+<tr><th id="291">291</th><td></td></tr>
+<tr><th id="292">292</th><td>		<b>if</b> ( <a class="local col6 ref" href="#36count" title='count' data-ref="36count">count</a> &lt; <a class="local col7 ref" href="#37bestCount" title='bestCount' data-ref="37bestCount">bestCount</a> ) {</td></tr>
+<tr><th id="293">293</th><td>			<a class="local col7 ref" href="#37bestCount" title='bestCount' data-ref="37bestCount">bestCount</a> = <a class="local col6 ref" href="#36count" title='count' data-ref="36count">count</a>;</td></tr>
+<tr><th id="294">294</th><td>			<a class="local col5 ref" href="#35num" title='num' data-ref="35num">num</a> = <var>0</var>;</td></tr>
+<tr><th id="295">295</th><td>		}</td></tr>
+<tr><th id="296">296</th><td></td></tr>
+<tr><th id="297">297</th><td>		<b>if</b> ( <a class="local col6 ref" href="#36count" title='count' data-ref="36count">count</a> == <a class="local col7 ref" href="#37bestCount" title='bestCount' data-ref="37bestCount">bestCount</a> ) {</td></tr>
+<tr><th id="298">298</th><td>			<a class="local col3 ref" href="#33selection" title='selection' data-ref="33selection">selection</a>[<a class="local col5 ref" href="#35num" title='num' data-ref="35num">num</a>++] = <a class="local col4 ref" href="#34n" title='n' data-ref="34n">n</a>;</td></tr>
+<tr><th id="299">299</th><td></td></tr>
+<tr><th id="300">300</th><td>			<b>if</b> ( <a class="local col5 ref" href="#35num" title='num' data-ref="35num">num</a> == <a class="macro" href="bg_public.h.html#713" title="1024" data-ref="_M/MAX_BOTS">MAX_BOTS</a> ) {</td></tr>
+<tr><th id="301">301</th><td>				<b>break</b>;</td></tr>
+<tr><th id="302">302</th><td>			}</td></tr>
+<tr><th id="303">303</th><td>		}</td></tr>
+<tr><th id="304">304</th><td>	}</td></tr>
+<tr><th id="305">305</th><td></td></tr>
+<tr><th id="306">306</th><td>	<b>if</b> ( <a class="local col5 ref" href="#35num" title='num' data-ref="35num">num</a> &gt; <var>0</var> ) {</td></tr>
+<tr><th id="307">307</th><td>		<a class="local col5 ref" href="#35num" title='num' data-ref="35num">num</a> = <a class="macro" href="../qcommon/q_shared.h.html#682" title="((rand () &amp; 0x7fff) / ((float)0x7fff))" data-ref="_M/random">random</a>() * ( <a class="local col5 ref" href="#35num" title='num' data-ref="35num">num</a> - <var>1</var> );</td></tr>
+<tr><th id="308">308</th><td>		<b>return</b> <a class="local col3 ref" href="#33selection" title='selection' data-ref="33selection">selection</a>[<a class="local col5 ref" href="#35num" title='num' data-ref="35num">num</a>];</td></tr>
+<tr><th id="309">309</th><td>	}</td></tr>
+<tr><th id="310">310</th><td></td></tr>
+<tr><th id="311">311</th><td>	<b>return</b> -<var>1</var>;</td></tr>
+<tr><th id="312">312</th><td>}</td></tr>
+<tr><th id="313">313</th><td></td></tr>
+<tr><th id="314">314</th><td><i>/*</i></td></tr>
+<tr><th id="315">315</th><td><i>===============</i></td></tr>
+<tr><th id="316">316</th><td><i>G_AddRandomBot</i></td></tr>
+<tr><th id="317">317</th><td><i>===============</i></td></tr>
+<tr><th id="318">318</th><td><i>*/</i></td></tr>
+<tr><th id="319">319</th><td><em>void</em> <dfn class="decl def" id="G_AddRandomBot" title='G_AddRandomBot' data-ref="G_AddRandomBot">G_AddRandomBot</dfn>( <em>int</em> <dfn class="local col9 decl" id="39team" title='team' data-type='int' data-ref="39team">team</dfn> ) {</td></tr>
+<tr><th id="320">320</th><td>	<em>char</em>	*<dfn class="local col0 decl" id="40teamstr" title='teamstr' data-type='char *' data-ref="40teamstr">teamstr</dfn>;</td></tr>
+<tr><th id="321">321</th><td>	<em>float</em>	<dfn class="local col1 decl" id="41skill" title='skill' data-type='float' data-ref="41skill">skill</dfn>;</td></tr>
+<tr><th id="322">322</th><td></td></tr>
+<tr><th id="323">323</th><td>	<a class="local col1 ref" href="#41skill" title='skill' data-ref="41skill">skill</a> = <a class="ref" href="#trap_Cvar_VariableValue" title='trap_Cvar_VariableValue' data-ref="trap_Cvar_VariableValue">trap_Cvar_VariableValue</a>( <q>"g_spSkill"</q> );</td></tr>
+<tr><th id="324">324</th><td>	<b>if</b> (<a class="local col9 ref" href="#39team" title='team' data-ref="39team">team</a> == <a class="enum" href="bg_public.h.html#TEAM_RED" title='TEAM_RED' data-ref="TEAM_RED">TEAM_RED</a>) <a class="local col0 ref" href="#40teamstr" title='teamstr' data-ref="40teamstr">teamstr</a> = <q>"red"</q>;</td></tr>
+<tr><th id="325">325</th><td>	<b>else</b> <b>if</b> (<a class="local col9 ref" href="#39team" title='team' data-ref="39team">team</a> == <a class="enum" href="bg_public.h.html#TEAM_BLUE" title='TEAM_BLUE' data-ref="TEAM_BLUE">TEAM_BLUE</a>) <a class="local col0 ref" href="#40teamstr" title='teamstr' data-ref="40teamstr">teamstr</a> = <q>"blue"</q>;</td></tr>
+<tr><th id="326">326</th><td>	<b>else</b> <a class="local col0 ref" href="#40teamstr" title='teamstr' data-ref="40teamstr">teamstr</a> = <q>"free"</q>;</td></tr>
+<tr><th id="327">327</th><td>	<a class="ref" href="g_local.h.html#trap_SendConsoleCommand" title='trap_SendConsoleCommand' data-ref="trap_SendConsoleCommand">trap_SendConsoleCommand</a>( <a class="enum" href="../qcommon/q_shared.h.html#EXEC_INSERT" title='EXEC_INSERT' data-ref="EXEC_INSERT">EXEC_INSERT</a>, <a class="ref" href="../qcommon/q_shared.h.html#va" title='va' data-ref="va">va</a>(<q>"addbot random %f %s %i\n"</q>, <a class="local col1 ref" href="#41skill" title='skill' data-ref="41skill">skill</a>, <a class="local col0 ref" href="#40teamstr" title='teamstr' data-ref="40teamstr">teamstr</a>, <var>0</var>) );</td></tr>
+<tr><th id="328">328</th><td>}</td></tr>
+<tr><th id="329">329</th><td></td></tr>
+<tr><th id="330">330</th><td><i>/*</i></td></tr>
+<tr><th id="331">331</th><td><i>===============</i></td></tr>
+<tr><th id="332">332</th><td><i>G_RemoveRandomBot</i></td></tr>
+<tr><th id="333">333</th><td><i>===============</i></td></tr>
+<tr><th id="334">334</th><td><i>*/</i></td></tr>
+<tr><th id="335">335</th><td><em>int</em> <dfn class="decl def" id="G_RemoveRandomBot" title='G_RemoveRandomBot' data-ref="G_RemoveRandomBot">G_RemoveRandomBot</dfn>( <em>int</em> <dfn class="local col2 decl" id="42team" title='team' data-type='int' data-ref="42team">team</dfn> ) {</td></tr>
+<tr><th id="336">336</th><td>	<em>int</em> <dfn class="local col3 decl" id="43i" title='i' data-type='int' data-ref="43i">i</dfn>;</td></tr>
+<tr><th id="337">337</th><td>	<a class="typedef" href="g_local.h.html#gclient_t" title='gclient_t' data-type='struct gclient_s' data-ref="gclient_t">gclient_t</a>	*<dfn class="local col4 decl" id="44cl" title='cl' data-type='gclient_t *' data-ref="44cl">cl</dfn>;</td></tr>
+<tr><th id="338">338</th><td></td></tr>
+<tr><th id="339">339</th><td>	<b>for</b> ( <a class="local col3 ref" href="#43i" title='i' data-ref="43i">i</a>=<var>0</var> ; <a class="local col3 ref" href="#43i" title='i' data-ref="43i">i</a>&lt; <a class="ref" href="g_local.h.html#g_maxclients" title='g_maxclients' data-ref="g_maxclients">g_maxclients</a>.<a class="ref" href="../qcommon/q_shared.h.html#(anonymous)::integer" title='(anonymous struct)::integer' data-ref="(anonymous)::integer">integer</a> ; <a class="local col3 ref" href="#43i" title='i' data-ref="43i">i</a>++ ) {</td></tr>
+<tr><th id="340">340</th><td>		<a class="local col4 ref" href="#44cl" title='cl' data-ref="44cl">cl</a> = <a class="ref" href="g_local.h.html#level" title='level' data-ref="level">level</a>.<a class="ref" href="g_local.h.html#(anonymous)::clients" title='(anonymous struct)::clients' data-ref="(anonymous)::clients">clients</a> + <a class="local col3 ref" href="#43i" title='i' data-ref="43i">i</a>;</td></tr>
+<tr><th id="341">341</th><td>		<b>if</b> ( <a class="local col4 ref" href="#44cl" title='cl' data-ref="44cl">cl</a>-&gt;<a class="ref" href="g_local.h.html#gclient_s::pers" title='gclient_s::pers' data-ref="gclient_s::pers">pers</a>.<a class="ref" href="g_local.h.html#(anonymous)::connected" title='(anonymous struct)::connected' data-ref="(anonymous)::connected">connected</a> != <a class="enum" href="g_local.h.html#CON_CONNECTED" title='CON_CONNECTED' data-ref="CON_CONNECTED">CON_CONNECTED</a> ) {</td></tr>
+<tr><th id="342">342</th><td>			<b>continue</b>;</td></tr>
+<tr><th id="343">343</th><td>		}</td></tr>
+<tr><th id="344">344</th><td>		<b>if</b> ( !(<a class="ref" href="g_local.h.html#g_entities" title='g_entities' data-ref="g_entities">g_entities</a>[<a class="local col3 ref" href="#43i" title='i' data-ref="43i">i</a>].<a class="ref" href="g_local.h.html#gentity_s::r" title='gentity_s::r' data-ref="gentity_s::r">r</a>.<a class="ref" href="g_public.h.html#(anonymous)::svFlags" title='(anonymous struct)::svFlags' data-ref="(anonymous)::svFlags">svFlags</a> &amp; <a class="macro" href="g_public.h.html#38" title="0x00000008" data-ref="_M/SVF_BOT">SVF_BOT</a>) ) {</td></tr>
+<tr><th id="345">345</th><td>			<b>continue</b>;</td></tr>
+<tr><th id="346">346</th><td>		}</td></tr>
+<tr><th id="347">347</th><td>		<b>if</b> ( <a class="local col2 ref" href="#42team" title='team' data-ref="42team">team</a> &gt;= <var>0</var> &amp;&amp; <a class="local col4 ref" href="#44cl" title='cl' data-ref="44cl">cl</a>-&gt;<a class="ref" href="g_local.h.html#gclient_s::sess" title='gclient_s::sess' data-ref="gclient_s::sess">sess</a>.<a class="ref" href="g_local.h.html#(anonymous)::sessionTeam" title='(anonymous struct)::sessionTeam' data-ref="(anonymous)::sessionTeam">sessionTeam</a> != <a class="local col2 ref" href="#42team" title='team' data-ref="42team">team</a> ) {</td></tr>
+<tr><th id="348">348</th><td>			<b>continue</b>;</td></tr>
+<tr><th id="349">349</th><td>		}</td></tr>
+<tr><th id="350">350</th><td>		<a class="ref" href="g_local.h.html#trap_SendConsoleCommand" title='trap_SendConsoleCommand' data-ref="trap_SendConsoleCommand">trap_SendConsoleCommand</a>( <a class="enum" href="../qcommon/q_shared.h.html#EXEC_INSERT" title='EXEC_INSERT' data-ref="EXEC_INSERT">EXEC_INSERT</a>, <a class="ref" href="../qcommon/q_shared.h.html#va" title='va' data-ref="va">va</a>(<q>"clientkick %d\n"</q>, <a class="local col3 ref" href="#43i" title='i' data-ref="43i">i</a>) );</td></tr>
+<tr><th id="351">351</th><td>		<b>return</b> <a class="enum" href="../qcommon/q_shared.h.html#qtrue" title='qtrue' data-ref="qtrue">qtrue</a>;</td></tr>
+<tr><th id="352">352</th><td>	}</td></tr>
+<tr><th id="353">353</th><td>	<b>return</b> <a class="enum" href="../qcommon/q_shared.h.html#qfalse" title='qfalse' data-ref="qfalse">qfalse</a>;</td></tr>
+<tr><th id="354">354</th><td>}</td></tr>
+<tr><th id="355">355</th><td></td></tr>
+<tr><th id="356">356</th><td><i>/*</i></td></tr>
+<tr><th id="357">357</th><td><i>===============</i></td></tr>
+<tr><th id="358">358</th><td><i>G_CountHumanPlayers</i></td></tr>
+<tr><th id="359">359</th><td><i>===============</i></td></tr>
+<tr><th id="360">360</th><td><i>*/</i></td></tr>
+<tr><th id="361">361</th><td><em>int</em> <dfn class="decl def" id="G_CountHumanPlayers" title='G_CountHumanPlayers' data-ref="G_CountHumanPlayers">G_CountHumanPlayers</dfn>( <em>int</em> <dfn class="local col5 decl" id="45team" title='team' data-type='int' data-ref="45team">team</dfn> ) {</td></tr>
+<tr><th id="362">362</th><td>	<em>int</em> <dfn class="local col6 decl" id="46i" title='i' data-type='int' data-ref="46i">i</dfn>, <dfn class="local col7 decl" id="47num" title='num' data-type='int' data-ref="47num">num</dfn>;</td></tr>
+<tr><th id="363">363</th><td>	<a class="typedef" href="g_local.h.html#gclient_t" title='gclient_t' data-type='struct gclient_s' data-ref="gclient_t">gclient_t</a>	*<dfn class="local col8 decl" id="48cl" title='cl' data-type='gclient_t *' data-ref="48cl">cl</dfn>;</td></tr>
+<tr><th id="364">364</th><td></td></tr>
+<tr><th id="365">365</th><td>	<a class="local col7 ref" href="#47num" title='num' data-ref="47num">num</a> = <var>0</var>;</td></tr>
+<tr><th id="366">366</th><td>	<b>for</b> ( <a class="local col6 ref" href="#46i" title='i' data-ref="46i">i</a>=<var>0</var> ; <a class="local col6 ref" href="#46i" title='i' data-ref="46i">i</a>&lt; <a class="ref" href="g_local.h.html#g_maxclients" title='g_maxclients' data-ref="g_maxclients">g_maxclients</a>.<a class="ref" href="../qcommon/q_shared.h.html#(anonymous)::integer" title='(anonymous struct)::integer' data-ref="(anonymous)::integer">integer</a> ; <a class="local col6 ref" href="#46i" title='i' data-ref="46i">i</a>++ ) {</td></tr>
+<tr><th id="367">367</th><td>		<a class="local col8 ref" href="#48cl" title='cl' data-ref="48cl">cl</a> = <a class="ref" href="g_local.h.html#level" title='level' data-ref="level">level</a>.<a class="ref" href="g_local.h.html#(anonymous)::clients" title='(anonymous struct)::clients' data-ref="(anonymous)::clients">clients</a> + <a class="local col6 ref" href="#46i" title='i' data-ref="46i">i</a>;</td></tr>
+<tr><th id="368">368</th><td>		<b>if</b> ( <a class="local col8 ref" href="#48cl" title='cl' data-ref="48cl">cl</a>-&gt;<a class="ref" href="g_local.h.html#gclient_s::pers" title='gclient_s::pers' data-ref="gclient_s::pers">pers</a>.<a class="ref" href="g_local.h.html#(anonymous)::connected" title='(anonymous struct)::connected' data-ref="(anonymous)::connected">connected</a> != <a class="enum" href="g_local.h.html#CON_CONNECTED" title='CON_CONNECTED' data-ref="CON_CONNECTED">CON_CONNECTED</a> ) {</td></tr>
+<tr><th id="369">369</th><td>			<b>continue</b>;</td></tr>
+<tr><th id="370">370</th><td>		}</td></tr>
+<tr><th id="371">371</th><td>		<b>if</b> ( <a class="ref" href="g_local.h.html#g_entities" title='g_entities' data-ref="g_entities">g_entities</a>[<a class="local col6 ref" href="#46i" title='i' data-ref="46i">i</a>].<a class="ref" href="g_local.h.html#gentity_s::r" title='gentity_s::r' data-ref="gentity_s::r">r</a>.<a class="ref" href="g_public.h.html#(anonymous)::svFlags" title='(anonymous struct)::svFlags' data-ref="(anonymous)::svFlags">svFlags</a> &amp; <a class="macro" href="g_public.h.html#38" title="0x00000008" data-ref="_M/SVF_BOT">SVF_BOT</a> ) {</td></tr>
+<tr><th id="372">372</th><td>			<b>continue</b>;</td></tr>
+<tr><th id="373">373</th><td>		}</td></tr>
+<tr><th id="374">374</th><td>		<b>if</b> ( <a class="local col5 ref" href="#45team" title='team' data-ref="45team">team</a> &gt;= <var>0</var> &amp;&amp; <a class="local col8 ref" href="#48cl" title='cl' data-ref="48cl">cl</a>-&gt;<a class="ref" href="g_local.h.html#gclient_s::sess" title='gclient_s::sess' data-ref="gclient_s::sess">sess</a>.<a class="ref" href="g_local.h.html#(anonymous)::sessionTeam" title='(anonymous struct)::sessionTeam' data-ref="(anonymous)::sessionTeam">sessionTeam</a> != <a class="local col5 ref" href="#45team" title='team' data-ref="45team">team</a> ) {</td></tr>
+<tr><th id="375">375</th><td>			<b>continue</b>;</td></tr>
+<tr><th id="376">376</th><td>		}</td></tr>
+<tr><th id="377">377</th><td>		<a class="local col7 ref" href="#47num" title='num' data-ref="47num">num</a>++;</td></tr>
+<tr><th id="378">378</th><td>	}</td></tr>
+<tr><th id="379">379</th><td>	<b>return</b> <a class="local col7 ref" href="#47num" title='num' data-ref="47num">num</a>;</td></tr>
+<tr><th id="380">380</th><td>}</td></tr>
+<tr><th id="381">381</th><td></td></tr>
+<tr><th id="382">382</th><td><i>/*</i></td></tr>
+<tr><th id="383">383</th><td><i>===============</i></td></tr>
+<tr><th id="384">384</th><td><i>G_CountBotPlayers</i></td></tr>
+<tr><th id="385">385</th><td><i></i></td></tr>
+<tr><th id="386">386</th><td><i>Check connected and connecting (delay join) bots.</i></td></tr>
+<tr><th id="387">387</th><td><i>===============</i></td></tr>
+<tr><th id="388">388</th><td><i>*/</i></td></tr>
+<tr><th id="389">389</th><td><em>int</em> <dfn class="decl def" id="G_CountBotPlayers" title='G_CountBotPlayers' data-ref="G_CountBotPlayers">G_CountBotPlayers</dfn>( <em>int</em> <dfn class="local col9 decl" id="49team" title='team' data-type='int' data-ref="49team">team</dfn> ) {</td></tr>
+<tr><th id="390">390</th><td>	<em>int</em> <dfn class="local col0 decl" id="50i" title='i' data-type='int' data-ref="50i">i</dfn>, <dfn class="local col1 decl" id="51num" title='num' data-type='int' data-ref="51num">num</dfn>;</td></tr>
+<tr><th id="391">391</th><td>	<a class="typedef" href="g_local.h.html#gclient_t" title='gclient_t' data-type='struct gclient_s' data-ref="gclient_t">gclient_t</a>	*<dfn class="local col2 decl" id="52cl" title='cl' data-type='gclient_t *' data-ref="52cl">cl</dfn>;</td></tr>
+<tr><th id="392">392</th><td></td></tr>
+<tr><th id="393">393</th><td>	<a class="local col1 ref" href="#51num" title='num' data-ref="51num">num</a> = <var>0</var>;</td></tr>
+<tr><th id="394">394</th><td>	<b>for</b> ( <a class="local col0 ref" href="#50i" title='i' data-ref="50i">i</a>=<var>0</var> ; <a class="local col0 ref" href="#50i" title='i' data-ref="50i">i</a>&lt; <a class="ref" href="g_local.h.html#g_maxclients" title='g_maxclients' data-ref="g_maxclients">g_maxclients</a>.<a class="ref" href="../qcommon/q_shared.h.html#(anonymous)::integer" title='(anonymous struct)::integer' data-ref="(anonymous)::integer">integer</a> ; <a class="local col0 ref" href="#50i" title='i' data-ref="50i">i</a>++ ) {</td></tr>
+<tr><th id="395">395</th><td>		<a class="local col2 ref" href="#52cl" title='cl' data-ref="52cl">cl</a> = <a class="ref" href="g_local.h.html#level" title='level' data-ref="level">level</a>.<a class="ref" href="g_local.h.html#(anonymous)::clients" title='(anonymous struct)::clients' data-ref="(anonymous)::clients">clients</a> + <a class="local col0 ref" href="#50i" title='i' data-ref="50i">i</a>;</td></tr>
+<tr><th id="396">396</th><td>		<b>if</b> ( <a class="local col2 ref" href="#52cl" title='cl' data-ref="52cl">cl</a>-&gt;<a class="ref" href="g_local.h.html#gclient_s::pers" title='gclient_s::pers' data-ref="gclient_s::pers">pers</a>.<a class="ref" href="g_local.h.html#(anonymous)::connected" title='(anonymous struct)::connected' data-ref="(anonymous)::connected">connected</a> == <a class="enum" href="g_local.h.html#CON_DISCONNECTED" title='CON_DISCONNECTED' data-ref="CON_DISCONNECTED">CON_DISCONNECTED</a> ) {</td></tr>
+<tr><th id="397">397</th><td>			<b>continue</b>;</td></tr>
+<tr><th id="398">398</th><td>		}</td></tr>
+<tr><th id="399">399</th><td>		<b>if</b> ( !(<a class="ref" href="g_local.h.html#g_entities" title='g_entities' data-ref="g_entities">g_entities</a>[<a class="local col0 ref" href="#50i" title='i' data-ref="50i">i</a>].<a class="ref" href="g_local.h.html#gentity_s::r" title='gentity_s::r' data-ref="gentity_s::r">r</a>.<a class="ref" href="g_public.h.html#(anonymous)::svFlags" title='(anonymous struct)::svFlags' data-ref="(anonymous)::svFlags">svFlags</a> &amp; <a class="macro" href="g_public.h.html#38" title="0x00000008" data-ref="_M/SVF_BOT">SVF_BOT</a>) ) {</td></tr>
+<tr><th id="400">400</th><td>			<b>continue</b>;</td></tr>
+<tr><th id="401">401</th><td>		}</td></tr>
+<tr><th id="402">402</th><td>		<b>if</b> ( <a class="local col9 ref" href="#49team" title='team' data-ref="49team">team</a> &gt;= <var>0</var> &amp;&amp; <a class="local col2 ref" href="#52cl" title='cl' data-ref="52cl">cl</a>-&gt;<a class="ref" href="g_local.h.html#gclient_s::sess" title='gclient_s::sess' data-ref="gclient_s::sess">sess</a>.<a class="ref" href="g_local.h.html#(anonymous)::sessionTeam" title='(anonymous struct)::sessionTeam' data-ref="(anonymous)::sessionTeam">sessionTeam</a> != <a class="local col9 ref" href="#49team" title='team' data-ref="49team">team</a> ) {</td></tr>
+<tr><th id="403">403</th><td>			<b>continue</b>;</td></tr>
+<tr><th id="404">404</th><td>		}</td></tr>
+<tr><th id="405">405</th><td>		<a class="local col1 ref" href="#51num" title='num' data-ref="51num">num</a>++;</td></tr>
+<tr><th id="406">406</th><td>	}</td></tr>
+<tr><th id="407">407</th><td>	<b>return</b> <a class="local col1 ref" href="#51num" title='num' data-ref="51num">num</a>;</td></tr>
+<tr><th id="408">408</th><td>}</td></tr>
+<tr><th id="409">409</th><td></td></tr>
+<tr><th id="410">410</th><td><i>/*</i></td></tr>
+<tr><th id="411">411</th><td><i>===============</i></td></tr>
+<tr><th id="412">412</th><td><i>G_CheckMinimumPlayers</i></td></tr>
+<tr><th id="413">413</th><td><i>===============</i></td></tr>
+<tr><th id="414">414</th><td><i>*/</i></td></tr>
+<tr><th id="415">415</th><td><em>void</em> <dfn class="decl def" id="G_CheckMinimumPlayers" title='G_CheckMinimumPlayers' data-ref="G_CheckMinimumPlayers">G_CheckMinimumPlayers</dfn>( <em>void</em> ) {</td></tr>
+<tr><th id="416">416</th><td>	<em>int</em> <dfn class="local col3 decl" id="53minplayers" title='minplayers' data-type='int' data-ref="53minplayers">minplayers</dfn>;</td></tr>
+<tr><th id="417">417</th><td>	<em>int</em> <dfn class="local col4 decl" id="54humanplayers" title='humanplayers' data-type='int' data-ref="54humanplayers">humanplayers</dfn>, <dfn class="local col5 decl" id="55botplayers" title='botplayers' data-type='int' data-ref="55botplayers">botplayers</dfn>;</td></tr>
+<tr><th id="418">418</th><td>	<em>static</em> <em>int</em> <dfn class="local col6 decl" id="56checkminimumplayers_time" title='checkminimumplayers_time' data-type='int' data-ref="56checkminimumplayers_time">checkminimumplayers_time</dfn>;</td></tr>
+<tr><th id="419">419</th><td></td></tr>
+<tr><th id="420">420</th><td>	<b>if</b> (<a class="ref" href="g_local.h.html#level" title='level' data-ref="level">level</a>.<a class="ref" href="g_local.h.html#(anonymous)::intermissiontime" title='(anonymous struct)::intermissiontime' data-ref="(anonymous)::intermissiontime">intermissiontime</a>) <b>return</b>;</td></tr>
+<tr><th id="421">421</th><td>	<i>//only check once each 10 seconds</i></td></tr>
+<tr><th id="422">422</th><td>	<b>if</b> (<a class="local col6 ref" href="#56checkminimumplayers_time" title='checkminimumplayers_time' data-ref="56checkminimumplayers_time">checkminimumplayers_time</a> &gt; <a class="ref" href="g_local.h.html#level" title='level' data-ref="level">level</a>.<a class="ref" href="g_local.h.html#(anonymous)::time" title='(anonymous struct)::time' data-ref="(anonymous)::time">time</a> - <var>10000</var>) {</td></tr>
+<tr><th id="423">423</th><td>		<b>return</b>;</td></tr>
+<tr><th id="424">424</th><td>	}</td></tr>
+<tr><th id="425">425</th><td>	<a class="local col6 ref" href="#56checkminimumplayers_time" title='checkminimumplayers_time' data-ref="56checkminimumplayers_time">checkminimumplayers_time</a> = <a class="ref" href="g_local.h.html#level" title='level' data-ref="level">level</a>.<a class="ref" href="g_local.h.html#(anonymous)::time" title='(anonymous struct)::time' data-ref="(anonymous)::time">time</a>;</td></tr>
+<tr><th id="426">426</th><td>	<a class="ref" href="g_local.h.html#trap_Cvar_Update" title='trap_Cvar_Update' data-ref="trap_Cvar_Update">trap_Cvar_Update</a>(&amp;<a class="ref" href="#bot_minplayers" title='bot_minplayers' data-ref="bot_minplayers">bot_minplayers</a>);</td></tr>
+<tr><th id="427">427</th><td>	<a class="local col3 ref" href="#53minplayers" title='minplayers' data-ref="53minplayers">minplayers</a> = <a class="ref" href="#bot_minplayers" title='bot_minplayers' data-ref="bot_minplayers">bot_minplayers</a>.<a class="ref" href="../qcommon/q_shared.h.html#(anonymous)::integer" title='(anonymous struct)::integer' data-ref="(anonymous)::integer">integer</a>;</td></tr>
+<tr><th id="428">428</th><td>	<b>if</b> (<a class="local col3 ref" href="#53minplayers" title='minplayers' data-ref="53minplayers">minplayers</a> &lt;= <var>0</var>) <b>return</b>;</td></tr>
+<tr><th id="429">429</th><td></td></tr>
+<tr><th id="430">430</th><td>	<b>if</b> (<a class="ref" href="g_local.h.html#g_gametype" title='g_gametype' data-ref="g_gametype">g_gametype</a>.<a class="ref" href="../qcommon/q_shared.h.html#(anonymous)::integer" title='(anonymous struct)::integer' data-ref="(anonymous)::integer">integer</a> &gt;= <a class="enum" href="bg_public.h.html#GT_TEAM" title='GT_TEAM' data-ref="GT_TEAM">GT_TEAM</a>) {</td></tr>
+<tr><th id="431">431</th><td>		<b>if</b> (<a class="local col3 ref" href="#53minplayers" title='minplayers' data-ref="53minplayers">minplayers</a> &gt;= <a class="ref" href="g_local.h.html#g_maxclients" title='g_maxclients' data-ref="g_maxclients">g_maxclients</a>.<a class="ref" href="../qcommon/q_shared.h.html#(anonymous)::integer" title='(anonymous struct)::integer' data-ref="(anonymous)::integer">integer</a> / <var>2</var>) {</td></tr>
+<tr><th id="432">432</th><td>			<a class="local col3 ref" href="#53minplayers" title='minplayers' data-ref="53minplayers">minplayers</a> = (<a class="ref" href="g_local.h.html#g_maxclients" title='g_maxclients' data-ref="g_maxclients">g_maxclients</a>.<a class="ref" href="../qcommon/q_shared.h.html#(anonymous)::integer" title='(anonymous struct)::integer' data-ref="(anonymous)::integer">integer</a> / <var>2</var>) -<var>1</var>;</td></tr>
+<tr><th id="433">433</th><td>		}</td></tr>
+<tr><th id="434">434</th><td></td></tr>
+<tr><th id="435">435</th><td>		<a class="local col4 ref" href="#54humanplayers" title='humanplayers' data-ref="54humanplayers">humanplayers</a> = <a class="ref" href="#G_CountHumanPlayers" title='G_CountHumanPlayers' data-ref="G_CountHumanPlayers">G_CountHumanPlayers</a>( <a class="enum" href="bg_public.h.html#TEAM_RED" title='TEAM_RED' data-ref="TEAM_RED">TEAM_RED</a> );</td></tr>
+<tr><th id="436">436</th><td>		<a class="local col5 ref" href="#55botplayers" title='botplayers' data-ref="55botplayers">botplayers</a> = <a class="ref" href="#G_CountBotPlayers" title='G_CountBotPlayers' data-ref="G_CountBotPlayers">G_CountBotPlayers</a>(	<a class="enum" href="bg_public.h.html#TEAM_RED" title='TEAM_RED' data-ref="TEAM_RED">TEAM_RED</a> );</td></tr>
+<tr><th id="437">437</th><td>		<i>//</i></td></tr>
+<tr><th id="438">438</th><td>		<b>if</b> (<a class="local col4 ref" href="#54humanplayers" title='humanplayers' data-ref="54humanplayers">humanplayers</a> + <a class="local col5 ref" href="#55botplayers" title='botplayers' data-ref="55botplayers">botplayers</a> &lt; <a class="local col3 ref" href="#53minplayers" title='minplayers' data-ref="53minplayers">minplayers</a>) {</td></tr>
+<tr><th id="439">439</th><td>			<a class="ref" href="#G_AddRandomBot" title='G_AddRandomBot' data-ref="G_AddRandomBot">G_AddRandomBot</a>( <a class="enum" href="bg_public.h.html#TEAM_RED" title='TEAM_RED' data-ref="TEAM_RED">TEAM_RED</a> );</td></tr>
+<tr><th id="440">440</th><td>		} <b>else</b> <b>if</b> (<a class="local col4 ref" href="#54humanplayers" title='humanplayers' data-ref="54humanplayers">humanplayers</a> + <a class="local col5 ref" href="#55botplayers" title='botplayers' data-ref="55botplayers">botplayers</a> &gt; <a class="local col3 ref" href="#53minplayers" title='minplayers' data-ref="53minplayers">minplayers</a> &amp;&amp; <a class="local col5 ref" href="#55botplayers" title='botplayers' data-ref="55botplayers">botplayers</a>) {</td></tr>
+<tr><th id="441">441</th><td>			<a class="ref" href="#G_RemoveRandomBot" title='G_RemoveRandomBot' data-ref="G_RemoveRandomBot">G_RemoveRandomBot</a>( <a class="enum" href="bg_public.h.html#TEAM_RED" title='TEAM_RED' data-ref="TEAM_RED">TEAM_RED</a> );</td></tr>
+<tr><th id="442">442</th><td>		}</td></tr>
+<tr><th id="443">443</th><td>		<i>//</i></td></tr>
+<tr><th id="444">444</th><td>		<a class="local col4 ref" href="#54humanplayers" title='humanplayers' data-ref="54humanplayers">humanplayers</a> = <a class="ref" href="#G_CountHumanPlayers" title='G_CountHumanPlayers' data-ref="G_CountHumanPlayers">G_CountHumanPlayers</a>( <a class="enum" href="bg_public.h.html#TEAM_BLUE" title='TEAM_BLUE' data-ref="TEAM_BLUE">TEAM_BLUE</a> );</td></tr>
+<tr><th id="445">445</th><td>		<a class="local col5 ref" href="#55botplayers" title='botplayers' data-ref="55botplayers">botplayers</a> = <a class="ref" href="#G_CountBotPlayers" title='G_CountBotPlayers' data-ref="G_CountBotPlayers">G_CountBotPlayers</a>( <a class="enum" href="bg_public.h.html#TEAM_BLUE" title='TEAM_BLUE' data-ref="TEAM_BLUE">TEAM_BLUE</a> );</td></tr>
+<tr><th id="446">446</th><td>		<i>//</i></td></tr>
+<tr><th id="447">447</th><td>		<b>if</b> (<a class="local col4 ref" href="#54humanplayers" title='humanplayers' data-ref="54humanplayers">humanplayers</a> + <a class="local col5 ref" href="#55botplayers" title='botplayers' data-ref="55botplayers">botplayers</a> &lt; <a class="local col3 ref" href="#53minplayers" title='minplayers' data-ref="53minplayers">minplayers</a>) {</td></tr>
+<tr><th id="448">448</th><td>			<a class="ref" href="#G_AddRandomBot" title='G_AddRandomBot' data-ref="G_AddRandomBot">G_AddRandomBot</a>( <a class="enum" href="bg_public.h.html#TEAM_BLUE" title='TEAM_BLUE' data-ref="TEAM_BLUE">TEAM_BLUE</a> );</td></tr>
+<tr><th id="449">449</th><td>		} <b>else</b> <b>if</b> (<a class="local col4 ref" href="#54humanplayers" title='humanplayers' data-ref="54humanplayers">humanplayers</a> + <a class="local col5 ref" href="#55botplayers" title='botplayers' data-ref="55botplayers">botplayers</a> &gt; <a class="local col3 ref" href="#53minplayers" title='minplayers' data-ref="53minplayers">minplayers</a> &amp;&amp; <a class="local col5 ref" href="#55botplayers" title='botplayers' data-ref="55botplayers">botplayers</a>) {</td></tr>
+<tr><th id="450">450</th><td>			<a class="ref" href="#G_RemoveRandomBot" title='G_RemoveRandomBot' data-ref="G_RemoveRandomBot">G_RemoveRandomBot</a>( <a class="enum" href="bg_public.h.html#TEAM_BLUE" title='TEAM_BLUE' data-ref="TEAM_BLUE">TEAM_BLUE</a> );</td></tr>
+<tr><th id="451">451</th><td>		}</td></tr>
+<tr><th id="452">452</th><td>	}</td></tr>
+<tr><th id="453">453</th><td>	<b>else</b> <b>if</b> (<a class="ref" href="g_local.h.html#g_gametype" title='g_gametype' data-ref="g_gametype">g_gametype</a>.<a class="ref" href="../qcommon/q_shared.h.html#(anonymous)::integer" title='(anonymous struct)::integer' data-ref="(anonymous)::integer">integer</a> == <a class="enum" href="bg_public.h.html#GT_TOURNAMENT" title='GT_TOURNAMENT' data-ref="GT_TOURNAMENT">GT_TOURNAMENT</a> ) {</td></tr>
+<tr><th id="454">454</th><td>		<b>if</b> (<a class="local col3 ref" href="#53minplayers" title='minplayers' data-ref="53minplayers">minplayers</a> &gt;= <a class="ref" href="g_local.h.html#g_maxclients" title='g_maxclients' data-ref="g_maxclients">g_maxclients</a>.<a class="ref" href="../qcommon/q_shared.h.html#(anonymous)::integer" title='(anonymous struct)::integer' data-ref="(anonymous)::integer">integer</a>) {</td></tr>
+<tr><th id="455">455</th><td>			<a class="local col3 ref" href="#53minplayers" title='minplayers' data-ref="53minplayers">minplayers</a> = <a class="ref" href="g_local.h.html#g_maxclients" title='g_maxclients' data-ref="g_maxclients">g_maxclients</a>.<a class="ref" href="../qcommon/q_shared.h.html#(anonymous)::integer" title='(anonymous struct)::integer' data-ref="(anonymous)::integer">integer</a>-<var>1</var>;</td></tr>
+<tr><th id="456">456</th><td>		}</td></tr>
+<tr><th id="457">457</th><td>		<a class="local col4 ref" href="#54humanplayers" title='humanplayers' data-ref="54humanplayers">humanplayers</a> = <a class="ref" href="#G_CountHumanPlayers" title='G_CountHumanPlayers' data-ref="G_CountHumanPlayers">G_CountHumanPlayers</a>( -<var>1</var> );</td></tr>
+<tr><th id="458">458</th><td>		<a class="local col5 ref" href="#55botplayers" title='botplayers' data-ref="55botplayers">botplayers</a> = <a class="ref" href="#G_CountBotPlayers" title='G_CountBotPlayers' data-ref="G_CountBotPlayers">G_CountBotPlayers</a>( -<var>1</var> );</td></tr>
+<tr><th id="459">459</th><td>		<i>//</i></td></tr>
+<tr><th id="460">460</th><td>		<b>if</b> (<a class="local col4 ref" href="#54humanplayers" title='humanplayers' data-ref="54humanplayers">humanplayers</a> + <a class="local col5 ref" href="#55botplayers" title='botplayers' data-ref="55botplayers">botplayers</a> &lt; <a class="local col3 ref" href="#53minplayers" title='minplayers' data-ref="53minplayers">minplayers</a>) {</td></tr>
+<tr><th id="461">461</th><td>			<a class="ref" href="#G_AddRandomBot" title='G_AddRandomBot' data-ref="G_AddRandomBot">G_AddRandomBot</a>( <a class="enum" href="bg_public.h.html#TEAM_FREE" title='TEAM_FREE' data-ref="TEAM_FREE">TEAM_FREE</a> );</td></tr>
+<tr><th id="462">462</th><td>		} <b>else</b> <b>if</b> (<a class="local col4 ref" href="#54humanplayers" title='humanplayers' data-ref="54humanplayers">humanplayers</a> + <a class="local col5 ref" href="#55botplayers" title='botplayers' data-ref="55botplayers">botplayers</a> &gt; <a class="local col3 ref" href="#53minplayers" title='minplayers' data-ref="53minplayers">minplayers</a> &amp;&amp; <a class="local col5 ref" href="#55botplayers" title='botplayers' data-ref="55botplayers">botplayers</a>) {</td></tr>
+<tr><th id="463">463</th><td>			<i>// try to remove spectators first</i></td></tr>
+<tr><th id="464">464</th><td>			<b>if</b> (!<a class="ref" href="#G_RemoveRandomBot" title='G_RemoveRandomBot' data-ref="G_RemoveRandomBot">G_RemoveRandomBot</a>( <a class="enum" href="bg_public.h.html#TEAM_SPECTATOR" title='TEAM_SPECTATOR' data-ref="TEAM_SPECTATOR">TEAM_SPECTATOR</a> )) {</td></tr>
+<tr><th id="465">465</th><td>				<i>// just remove the bot that is playing</i></td></tr>
+<tr><th id="466">466</th><td>				<a class="ref" href="#G_RemoveRandomBot" title='G_RemoveRandomBot' data-ref="G_RemoveRandomBot">G_RemoveRandomBot</a>( -<var>1</var> );</td></tr>
+<tr><th id="467">467</th><td>			}</td></tr>
+<tr><th id="468">468</th><td>		}</td></tr>
+<tr><th id="469">469</th><td>	}</td></tr>
+<tr><th id="470">470</th><td>	<b>else</b> <b>if</b> (<a class="ref" href="g_local.h.html#g_gametype" title='g_gametype' data-ref="g_gametype">g_gametype</a>.<a class="ref" href="../qcommon/q_shared.h.html#(anonymous)::integer" title='(anonymous struct)::integer' data-ref="(anonymous)::integer">integer</a> == <a class="enum" href="bg_public.h.html#GT_FFA" title='GT_FFA' data-ref="GT_FFA">GT_FFA</a>) {</td></tr>
+<tr><th id="471">471</th><td>		<b>if</b> (<a class="local col3 ref" href="#53minplayers" title='minplayers' data-ref="53minplayers">minplayers</a> &gt;= <a class="ref" href="g_local.h.html#g_maxclients" title='g_maxclients' data-ref="g_maxclients">g_maxclients</a>.<a class="ref" href="../qcommon/q_shared.h.html#(anonymous)::integer" title='(anonymous struct)::integer' data-ref="(anonymous)::integer">integer</a>) {</td></tr>
+<tr><th id="472">472</th><td>			<a class="local col3 ref" href="#53minplayers" title='minplayers' data-ref="53minplayers">minplayers</a> = <a class="ref" href="g_local.h.html#g_maxclients" title='g_maxclients' data-ref="g_maxclients">g_maxclients</a>.<a class="ref" href="../qcommon/q_shared.h.html#(anonymous)::integer" title='(anonymous struct)::integer' data-ref="(anonymous)::integer">integer</a>-<var>1</var>;</td></tr>
+<tr><th id="473">473</th><td>		}</td></tr>
+<tr><th id="474">474</th><td>		<a class="local col4 ref" href="#54humanplayers" title='humanplayers' data-ref="54humanplayers">humanplayers</a> = <a class="ref" href="#G_CountHumanPlayers" title='G_CountHumanPlayers' data-ref="G_CountHumanPlayers">G_CountHumanPlayers</a>( <a class="enum" href="bg_public.h.html#TEAM_FREE" title='TEAM_FREE' data-ref="TEAM_FREE">TEAM_FREE</a> );</td></tr>
+<tr><th id="475">475</th><td>		<a class="local col5 ref" href="#55botplayers" title='botplayers' data-ref="55botplayers">botplayers</a> = <a class="ref" href="#G_CountBotPlayers" title='G_CountBotPlayers' data-ref="G_CountBotPlayers">G_CountBotPlayers</a>( <a class="enum" href="bg_public.h.html#TEAM_FREE" title='TEAM_FREE' data-ref="TEAM_FREE">TEAM_FREE</a> );</td></tr>
+<tr><th id="476">476</th><td>		<i>//</i></td></tr>
+<tr><th id="477">477</th><td>		<b>if</b> (<a class="local col4 ref" href="#54humanplayers" title='humanplayers' data-ref="54humanplayers">humanplayers</a> + <a class="local col5 ref" href="#55botplayers" title='botplayers' data-ref="55botplayers">botplayers</a> &lt; <a class="local col3 ref" href="#53minplayers" title='minplayers' data-ref="53minplayers">minplayers</a>) {</td></tr>
+<tr><th id="478">478</th><td>			<a class="ref" href="#G_AddRandomBot" title='G_AddRandomBot' data-ref="G_AddRandomBot">G_AddRandomBot</a>( <a class="enum" href="bg_public.h.html#TEAM_FREE" title='TEAM_FREE' data-ref="TEAM_FREE">TEAM_FREE</a> );</td></tr>
+<tr><th id="479">479</th><td>		} <b>else</b> <b>if</b> (<a class="local col4 ref" href="#54humanplayers" title='humanplayers' data-ref="54humanplayers">humanplayers</a> + <a class="local col5 ref" href="#55botplayers" title='botplayers' data-ref="55botplayers">botplayers</a> &gt; <a class="local col3 ref" href="#53minplayers" title='minplayers' data-ref="53minplayers">minplayers</a> &amp;&amp; <a class="local col5 ref" href="#55botplayers" title='botplayers' data-ref="55botplayers">botplayers</a>) {</td></tr>
+<tr><th id="480">480</th><td>			<a class="ref" href="#G_RemoveRandomBot" title='G_RemoveRandomBot' data-ref="G_RemoveRandomBot">G_RemoveRandomBot</a>( <a class="enum" href="bg_public.h.html#TEAM_FREE" title='TEAM_FREE' data-ref="TEAM_FREE">TEAM_FREE</a> );</td></tr>
+<tr><th id="481">481</th><td>		}</td></tr>
+<tr><th id="482">482</th><td>	}</td></tr>
+<tr><th id="483">483</th><td>}</td></tr>
+<tr><th id="484">484</th><td></td></tr>
+<tr><th id="485">485</th><td><i>/*</i></td></tr>
+<tr><th id="486">486</th><td><i>===============</i></td></tr>
+<tr><th id="487">487</th><td><i>G_CheckBotSpawn</i></td></tr>
+<tr><th id="488">488</th><td><i>===============</i></td></tr>
+<tr><th id="489">489</th><td><i>*/</i></td></tr>
+<tr><th id="490">490</th><td><em>void</em> <dfn class="decl def" id="G_CheckBotSpawn" title='G_CheckBotSpawn' data-ref="G_CheckBotSpawn">G_CheckBotSpawn</dfn>( <em>void</em> ) {</td></tr>
+<tr><th id="491">491</th><td>	<em>int</em>		<dfn class="local col7 decl" id="57n" title='n' data-type='int' data-ref="57n">n</dfn>;</td></tr>
+<tr><th id="492">492</th><td>	<em>char</em>	<dfn class="local col8 decl" id="58userinfo" title='userinfo' data-type='char [1024]' data-ref="58userinfo">userinfo</dfn>[<a class="macro" href="../qcommon/q_shared.h.html#249" title="1024" data-ref="_M/MAX_INFO_VALUE">MAX_INFO_VALUE</a>];</td></tr>
+<tr><th id="493">493</th><td></td></tr>
+<tr><th id="494">494</th><td>	<a class="ref" href="#G_CheckMinimumPlayers" title='G_CheckMinimumPlayers' data-ref="G_CheckMinimumPlayers">G_CheckMinimumPlayers</a>();</td></tr>
+<tr><th id="495">495</th><td></td></tr>
+<tr><th id="496">496</th><td>	<b>for</b>( <a class="local col7 ref" href="#57n" title='n' data-ref="57n">n</a> = <var>0</var>; <a class="local col7 ref" href="#57n" title='n' data-ref="57n">n</a> &lt; <a class="macro" href="#39" title="16" data-ref="_M/BOT_SPAWN_QUEUE_DEPTH">BOT_SPAWN_QUEUE_DEPTH</a>; <a class="local col7 ref" href="#57n" title='n' data-ref="57n">n</a>++ ) {</td></tr>
+<tr><th id="497">497</th><td>		<b>if</b>( !<a class="tu ref" href="#botSpawnQueue" title='botSpawnQueue' data-use='m' data-ref="botSpawnQueue">botSpawnQueue</a>[<a class="local col7 ref" href="#57n" title='n' data-ref="57n">n</a>].<a class="tu ref" href="#(anonymous)::spawnTime" title='(anonymous struct)::spawnTime' data-use='r' data-ref="(anonymous)::spawnTime">spawnTime</a> ) {</td></tr>
+<tr><th id="498">498</th><td>			<b>continue</b>;</td></tr>
+<tr><th id="499">499</th><td>		}</td></tr>
+<tr><th id="500">500</th><td>		<b>if</b> ( <a class="tu ref" href="#botSpawnQueue" title='botSpawnQueue' data-use='m' data-ref="botSpawnQueue">botSpawnQueue</a>[<a class="local col7 ref" href="#57n" title='n' data-ref="57n">n</a>].<a class="tu ref" href="#(anonymous)::spawnTime" title='(anonymous struct)::spawnTime' data-use='r' data-ref="(anonymous)::spawnTime">spawnTime</a> &gt; <a class="ref" href="g_local.h.html#level" title='level' data-ref="level">level</a>.<a class="ref" href="g_local.h.html#(anonymous)::time" title='(anonymous struct)::time' data-ref="(anonymous)::time">time</a> ) {</td></tr>
+<tr><th id="501">501</th><td>			<b>continue</b>;</td></tr>
+<tr><th id="502">502</th><td>		}</td></tr>
+<tr><th id="503">503</th><td>		<a class="ref" href="g_local.h.html#ClientBegin" title='ClientBegin' data-ref="ClientBegin">ClientBegin</a>( <a class="tu ref" href="#botSpawnQueue" title='botSpawnQueue' data-use='m' data-ref="botSpawnQueue">botSpawnQueue</a>[<a class="local col7 ref" href="#57n" title='n' data-ref="57n">n</a>].<a class="tu ref" href="#(anonymous)::clientNum" title='(anonymous struct)::clientNum' data-use='r' data-ref="(anonymous)::clientNum">clientNum</a> );</td></tr>
+<tr><th id="504">504</th><td>		<a class="tu ref" href="#botSpawnQueue" title='botSpawnQueue' data-use='m' data-ref="botSpawnQueue">botSpawnQueue</a>[<a class="local col7 ref" href="#57n" title='n' data-ref="57n">n</a>].<a class="tu ref" href="#(anonymous)::spawnTime" title='(anonymous struct)::spawnTime' data-use='w' data-ref="(anonymous)::spawnTime">spawnTime</a> = <var>0</var>;</td></tr>
+<tr><th id="505">505</th><td></td></tr>
+<tr><th id="506">506</th><td>		<b>if</b>( <a class="ref" href="g_local.h.html#g_gametype" title='g_gametype' data-ref="g_gametype">g_gametype</a>.<a class="ref" href="../qcommon/q_shared.h.html#(anonymous)::integer" title='(anonymous struct)::integer' data-ref="(anonymous)::integer">integer</a> == <a class="enum" href="bg_public.h.html#GT_SINGLE_PLAYER" title='GT_SINGLE_PLAYER' data-ref="GT_SINGLE_PLAYER">GT_SINGLE_PLAYER</a> ) {</td></tr>
+<tr><th id="507">507</th><td>			<a class="ref" href="g_local.h.html#trap_GetUserinfo" title='trap_GetUserinfo' data-ref="trap_GetUserinfo">trap_GetUserinfo</a>( <a class="tu ref" href="#botSpawnQueue" title='botSpawnQueue' data-use='m' data-ref="botSpawnQueue">botSpawnQueue</a>[<a class="local col7 ref" href="#57n" title='n' data-ref="57n">n</a>].<a class="tu ref" href="#(anonymous)::clientNum" title='(anonymous struct)::clientNum' data-use='r' data-ref="(anonymous)::clientNum">clientNum</a>, <a class="local col8 ref" href="#58userinfo" title='userinfo' data-ref="58userinfo">userinfo</a>, <b>sizeof</b>(<a class="local col8 ref" href="#58userinfo" title='userinfo' data-ref="58userinfo">userinfo</a>) );</td></tr>
+<tr><th id="508">508</th><td>			<a class="tu ref" href="#PlayerIntroSound" title='PlayerIntroSound' data-use='c' data-ref="PlayerIntroSound">PlayerIntroSound</a>( <a class="ref" href="../qcommon/q_shared.h.html#Info_ValueForKey" title='Info_ValueForKey' data-ref="Info_ValueForKey">Info_ValueForKey</a> (<a class="local col8 ref" href="#58userinfo" title='userinfo' data-ref="58userinfo">userinfo</a>, <q>"model"</q>) );</td></tr>
+<tr><th id="509">509</th><td>		}</td></tr>
+<tr><th id="510">510</th><td>	}</td></tr>
+<tr><th id="511">511</th><td>}</td></tr>
+<tr><th id="512">512</th><td></td></tr>
+<tr><th id="513">513</th><td></td></tr>
+<tr><th id="514">514</th><td><i  data-doc="AddBotToSpawnQueue">/*</i></td></tr>
+<tr><th id="515">515</th><td><i  data-doc="AddBotToSpawnQueue">===============</i></td></tr>
+<tr><th id="516">516</th><td><i  data-doc="AddBotToSpawnQueue">AddBotToSpawnQueue</i></td></tr>
+<tr><th id="517">517</th><td><i  data-doc="AddBotToSpawnQueue">===============</i></td></tr>
+<tr><th id="518">518</th><td><i  data-doc="AddBotToSpawnQueue">*/</i></td></tr>
+<tr><th id="519">519</th><td><em>static</em> <em>void</em> <dfn class="tu decl def" id="AddBotToSpawnQueue" title='AddBotToSpawnQueue' data-type='void AddBotToSpawnQueue(int clientNum, int delay)' data-ref="AddBotToSpawnQueue">AddBotToSpawnQueue</dfn>( <em>int</em> <dfn class="local col9 decl" id="59clientNum" title='clientNum' data-type='int' data-ref="59clientNum">clientNum</dfn>, <em>int</em> <dfn class="local col0 decl" id="60delay" title='delay' data-type='int' data-ref="60delay">delay</dfn> ) {</td></tr>
+<tr><th id="520">520</th><td>	<em>int</em>		<dfn class="local col1 decl" id="61n" title='n' data-type='int' data-ref="61n">n</dfn>;</td></tr>
+<tr><th id="521">521</th><td></td></tr>
+<tr><th id="522">522</th><td>	<b>for</b>( <a class="local col1 ref" href="#61n" title='n' data-ref="61n">n</a> = <var>0</var>; <a class="local col1 ref" href="#61n" title='n' data-ref="61n">n</a> &lt; <a class="macro" href="#39" title="16" data-ref="_M/BOT_SPAWN_QUEUE_DEPTH">BOT_SPAWN_QUEUE_DEPTH</a>; <a class="local col1 ref" href="#61n" title='n' data-ref="61n">n</a>++ ) {</td></tr>
+<tr><th id="523">523</th><td>		<b>if</b>( !<a class="tu ref" href="#botSpawnQueue" title='botSpawnQueue' data-use='m' data-ref="botSpawnQueue">botSpawnQueue</a>[<a class="local col1 ref" href="#61n" title='n' data-ref="61n">n</a>].<a class="tu ref" href="#(anonymous)::spawnTime" title='(anonymous struct)::spawnTime' data-use='r' data-ref="(anonymous)::spawnTime">spawnTime</a> ) {</td></tr>
+<tr><th id="524">524</th><td>			<a class="tu ref" href="#botSpawnQueue" title='botSpawnQueue' data-use='m' data-ref="botSpawnQueue">botSpawnQueue</a>[<a class="local col1 ref" href="#61n" title='n' data-ref="61n">n</a>].<a class="tu ref" href="#(anonymous)::spawnTime" title='(anonymous struct)::spawnTime' data-use='w' data-ref="(anonymous)::spawnTime">spawnTime</a> = <a class="ref" href="g_local.h.html#level" title='level' data-ref="level">level</a>.<a class="ref" href="g_local.h.html#(anonymous)::time" title='(anonymous struct)::time' data-ref="(anonymous)::time">time</a> + <a class="local col0 ref" href="#60delay" title='delay' data-ref="60delay">delay</a>;</td></tr>
+<tr><th id="525">525</th><td>			<a class="tu ref" href="#botSpawnQueue" title='botSpawnQueue' data-use='m' data-ref="botSpawnQueue">botSpawnQueue</a>[<a class="local col1 ref" href="#61n" title='n' data-ref="61n">n</a>].<a class="tu ref" href="#(anonymous)::clientNum" title='(anonymous struct)::clientNum' data-use='w' data-ref="(anonymous)::clientNum">clientNum</a> = <a class="local col9 ref" href="#59clientNum" title='clientNum' data-ref="59clientNum">clientNum</a>;</td></tr>
+<tr><th id="526">526</th><td>			<b>return</b>;</td></tr>
+<tr><th id="527">527</th><td>		}</td></tr>
+<tr><th id="528">528</th><td>	}</td></tr>
+<tr><th id="529">529</th><td></td></tr>
+<tr><th id="530">530</th><td>	<a class="ref" href="g_local.h.html#G_Printf" title='G_Printf' data-ref="G_Printf">G_Printf</a>( <a class="macro" href="../qcommon/q_shared.h.html#425" title="&quot;^3&quot;" data-ref="_M/S_COLOR_YELLOW">S_COLOR_YELLOW</a> <q>"Unable to delay spawn\n"</q> );</td></tr>
+<tr><th id="531">531</th><td>	<a class="ref" href="g_local.h.html#ClientBegin" title='ClientBegin' data-ref="ClientBegin">ClientBegin</a>( <a class="local col9 ref" href="#59clientNum" title='clientNum' data-ref="59clientNum">clientNum</a> );</td></tr>
+<tr><th id="532">532</th><td>}</td></tr>
+<tr><th id="533">533</th><td></td></tr>
+<tr><th id="534">534</th><td></td></tr>
+<tr><th id="535">535</th><td><i>/*</i></td></tr>
+<tr><th id="536">536</th><td><i>===============</i></td></tr>
+<tr><th id="537">537</th><td><i>G_RemoveQueuedBotBegin</i></td></tr>
+<tr><th id="538">538</th><td><i></i></td></tr>
+<tr><th id="539">539</th><td><i>Called on client disconnect to make sure the delayed spawn</i></td></tr>
+<tr><th id="540">540</th><td><i>doesn't happen on a freed index</i></td></tr>
+<tr><th id="541">541</th><td><i>===============</i></td></tr>
+<tr><th id="542">542</th><td><i>*/</i></td></tr>
+<tr><th id="543">543</th><td><em>void</em> <dfn class="decl def" id="G_RemoveQueuedBotBegin" title='G_RemoveQueuedBotBegin' data-ref="G_RemoveQueuedBotBegin">G_RemoveQueuedBotBegin</dfn>( <em>int</em> <dfn class="local col2 decl" id="62clientNum" title='clientNum' data-type='int' data-ref="62clientNum">clientNum</dfn> ) {</td></tr>
+<tr><th id="544">544</th><td>	<em>int</em>		<dfn class="local col3 decl" id="63n" title='n' data-type='int' data-ref="63n">n</dfn>;</td></tr>
+<tr><th id="545">545</th><td></td></tr>
+<tr><th id="546">546</th><td>	<b>for</b>( <a class="local col3 ref" href="#63n" title='n' data-ref="63n">n</a> = <var>0</var>; <a class="local col3 ref" href="#63n" title='n' data-ref="63n">n</a> &lt; <a class="macro" href="#39" title="16" data-ref="_M/BOT_SPAWN_QUEUE_DEPTH">BOT_SPAWN_QUEUE_DEPTH</a>; <a class="local col3 ref" href="#63n" title='n' data-ref="63n">n</a>++ ) {</td></tr>
+<tr><th id="547">547</th><td>		<b>if</b>( <a class="tu ref" href="#botSpawnQueue" title='botSpawnQueue' data-use='m' data-ref="botSpawnQueue">botSpawnQueue</a>[<a class="local col3 ref" href="#63n" title='n' data-ref="63n">n</a>].<a class="tu ref" href="#(anonymous)::clientNum" title='(anonymous struct)::clientNum' data-use='r' data-ref="(anonymous)::clientNum">clientNum</a> == <a class="local col2 ref" href="#62clientNum" title='clientNum' data-ref="62clientNum">clientNum</a> ) {</td></tr>
+<tr><th id="548">548</th><td>			<a class="tu ref" href="#botSpawnQueue" title='botSpawnQueue' data-use='m' data-ref="botSpawnQueue">botSpawnQueue</a>[<a class="local col3 ref" href="#63n" title='n' data-ref="63n">n</a>].<a class="tu ref" href="#(anonymous)::spawnTime" title='(anonymous struct)::spawnTime' data-use='w' data-ref="(anonymous)::spawnTime">spawnTime</a> = <var>0</var>;</td></tr>
+<tr><th id="549">549</th><td>			<b>return</b>;</td></tr>
+<tr><th id="550">550</th><td>		}</td></tr>
+<tr><th id="551">551</th><td>	}</td></tr>
+<tr><th id="552">552</th><td>}</td></tr>
+<tr><th id="553">553</th><td></td></tr>
+<tr><th id="554">554</th><td></td></tr>
+<tr><th id="555">555</th><td><i>/*</i></td></tr>
+<tr><th id="556">556</th><td><i>===============</i></td></tr>
+<tr><th id="557">557</th><td><i>G_BotConnect</i></td></tr>
+<tr><th id="558">558</th><td><i>===============</i></td></tr>
+<tr><th id="559">559</th><td><i>*/</i></td></tr>
+<tr><th id="560">560</th><td><a class="typedef" href="../qcommon/q_shared.h.html#qboolean" title='qboolean' data-type='enum qboolean' data-ref="qboolean">qboolean</a> <dfn class="decl def" id="G_BotConnect" title='G_BotConnect' data-ref="G_BotConnect">G_BotConnect</dfn>( <em>int</em> <dfn class="local col4 decl" id="64clientNum" title='clientNum' data-type='int' data-ref="64clientNum">clientNum</dfn>, <a class="typedef" href="../qcommon/q_shared.h.html#qboolean" title='qboolean' data-type='enum qboolean' data-ref="qboolean">qboolean</a> <dfn class="local col5 decl" id="65restart" title='restart' data-type='qboolean' data-ref="65restart">restart</dfn> ) {</td></tr>
+<tr><th id="561">561</th><td>	<a class="typedef" href="g_local.h.html#bot_settings_t" title='bot_settings_t' data-type='struct bot_settings_s' data-ref="bot_settings_t">bot_settings_t</a>	<dfn class="local col6 decl" id="66settings" title='settings' data-type='bot_settings_t' data-ref="66settings">settings</dfn>;</td></tr>
+<tr><th id="562">562</th><td>	<em>char</em>			<dfn class="local col7 decl" id="67userinfo" title='userinfo' data-type='char [1024]' data-ref="67userinfo">userinfo</dfn>[<a class="macro" href="../qcommon/q_shared.h.html#247" title="1024" data-ref="_M/MAX_INFO_STRING">MAX_INFO_STRING</a>];</td></tr>
+<tr><th id="563">563</th><td></td></tr>
+<tr><th id="564">564</th><td>	<a class="ref" href="g_local.h.html#trap_GetUserinfo" title='trap_GetUserinfo' data-ref="trap_GetUserinfo">trap_GetUserinfo</a>( <a class="local col4 ref" href="#64clientNum" title='clientNum' data-ref="64clientNum">clientNum</a>, <a class="local col7 ref" href="#67userinfo" title='userinfo' data-ref="67userinfo">userinfo</a>, <b>sizeof</b>(<a class="local col7 ref" href="#67userinfo" title='userinfo' data-ref="67userinfo">userinfo</a>) );</td></tr>
+<tr><th id="565">565</th><td></td></tr>
+<tr><th id="566">566</th><td>	<a class="ref" href="../qcommon/q_shared.h.html#Q_strncpyz" title='Q_strncpyz' data-ref="Q_strncpyz">Q_strncpyz</a>( <a class="local col6 ref" href="#66settings" title='settings' data-ref="66settings">settings</a>.<a class="ref" href="g_local.h.html#bot_settings_s::characterfile" title='bot_settings_s::characterfile' data-ref="bot_settings_s::characterfile">characterfile</a>, <a class="ref" href="../qcommon/q_shared.h.html#Info_ValueForKey" title='Info_ValueForKey' data-ref="Info_ValueForKey">Info_ValueForKey</a>( <a class="local col7 ref" href="#67userinfo" title='userinfo' data-ref="67userinfo">userinfo</a>, <q>"characterfile"</q> ), <b>sizeof</b>(<a class="local col6 ref" href="#66settings" title='settings' data-ref="66settings">settings</a>.<a class="ref" href="g_local.h.html#bot_settings_s::characterfile" title='bot_settings_s::characterfile' data-ref="bot_settings_s::characterfile">characterfile</a>) );</td></tr>
+<tr><th id="567">567</th><td>	<a class="local col6 ref" href="#66settings" title='settings' data-ref="66settings">settings</a>.<a class="ref" href="g_local.h.html#bot_settings_s::skill" title='bot_settings_s::skill' data-ref="bot_settings_s::skill">skill</a> = <a class="ref" href="../../../include/stdlib.h.html#atof" title='atof' data-ref="atof">atof</a>( <a class="ref" href="../qcommon/q_shared.h.html#Info_ValueForKey" title='Info_ValueForKey' data-ref="Info_ValueForKey">Info_ValueForKey</a>( <a class="local col7 ref" href="#67userinfo" title='userinfo' data-ref="67userinfo">userinfo</a>, <q>"skill"</q> ) );</td></tr>
+<tr><th id="568">568</th><td></td></tr>
+<tr><th id="569">569</th><td>	<b>if</b> (!<a class="ref" href="g_local.h.html#BotAISetupClient" title='BotAISetupClient' data-ref="BotAISetupClient">BotAISetupClient</a>( <a class="local col4 ref" href="#64clientNum" title='clientNum' data-ref="64clientNum">clientNum</a>, &amp;<a class="local col6 ref" href="#66settings" title='settings' data-ref="66settings">settings</a>, <a class="local col5 ref" href="#65restart" title='restart' data-ref="65restart">restart</a> )) {</td></tr>
+<tr><th id="570">570</th><td>		<a class="ref" href="g_local.h.html#trap_DropClient" title='trap_DropClient' data-ref="trap_DropClient">trap_DropClient</a>( <a class="local col4 ref" href="#64clientNum" title='clientNum' data-ref="64clientNum">clientNum</a>, <q>"BotAISetupClient failed"</q> );</td></tr>
+<tr><th id="571">571</th><td>		<b>return</b> <a class="enum" href="../qcommon/q_shared.h.html#qfalse" title='qfalse' data-ref="qfalse">qfalse</a>;</td></tr>
+<tr><th id="572">572</th><td>	}</td></tr>
+<tr><th id="573">573</th><td></td></tr>
+<tr><th id="574">574</th><td>	<b>return</b> <a class="enum" href="../qcommon/q_shared.h.html#qtrue" title='qtrue' data-ref="qtrue">qtrue</a>;</td></tr>
+<tr><th id="575">575</th><td>}</td></tr>
+<tr><th id="576">576</th><td></td></tr>
+<tr><th id="577">577</th><td></td></tr>
+<tr><th id="578">578</th><td><i  data-doc="G_AddBot">/*</i></td></tr>
+<tr><th id="579">579</th><td><i  data-doc="G_AddBot">===============</i></td></tr>
+<tr><th id="580">580</th><td><i  data-doc="G_AddBot">G_AddBot</i></td></tr>
+<tr><th id="581">581</th><td><i  data-doc="G_AddBot">===============</i></td></tr>
+<tr><th id="582">582</th><td><i  data-doc="G_AddBot">*/</i></td></tr>
+<tr><th id="583">583</th><td><em>static</em> <em>void</em> <dfn class="tu decl def" id="G_AddBot" title='G_AddBot' data-type='void G_AddBot(const char * name, float skill, const char * team, int delay, char * altname)' data-ref="G_AddBot">G_AddBot</dfn>( <em>const</em> <em>char</em> *<dfn class="local col8 decl" id="68name" title='name' data-type='const char *' data-ref="68name">name</dfn>, <em>float</em> <dfn class="local col9 decl" id="69skill" title='skill' data-type='float' data-ref="69skill">skill</dfn>, <em>const</em> <em>char</em> *<dfn class="local col0 decl" id="70team" title='team' data-type='const char *' data-ref="70team">team</dfn>, <em>int</em> <dfn class="local col1 decl" id="71delay" title='delay' data-type='int' data-ref="71delay">delay</dfn>, <em>char</em> *<dfn class="local col2 decl" id="72altname" title='altname' data-type='char *' data-ref="72altname">altname</dfn>) {</td></tr>
+<tr><th id="584">584</th><td>	<em>int</em>				<dfn class="local col3 decl" id="73clientNum" title='clientNum' data-type='int' data-ref="73clientNum">clientNum</dfn>;</td></tr>
+<tr><th id="585">585</th><td>	<em>int</em>				<dfn class="local col4 decl" id="74teamNum" title='teamNum' data-type='int' data-ref="74teamNum">teamNum</dfn>;</td></tr>
+<tr><th id="586">586</th><td>	<em>int</em>				<dfn class="local col5 decl" id="75botinfoNum" title='botinfoNum' data-type='int' data-ref="75botinfoNum">botinfoNum</dfn>;</td></tr>
+<tr><th id="587">587</th><td>	<em>char</em>			*<dfn class="local col6 decl" id="76botinfo" title='botinfo' data-type='char *' data-ref="76botinfo">botinfo</dfn>;</td></tr>
+<tr><th id="588">588</th><td>	<em>char</em>			*<dfn class="local col7 decl" id="77key" title='key' data-type='char *' data-ref="77key">key</dfn>;</td></tr>
+<tr><th id="589">589</th><td>	<em>char</em>			*<dfn class="local col8 decl" id="78s" title='s' data-type='char *' data-ref="78s">s</dfn>;</td></tr>
+<tr><th id="590">590</th><td>	<em>char</em>			*<dfn class="local col9 decl" id="79botname" title='botname' data-type='char *' data-ref="79botname">botname</dfn>;</td></tr>
+<tr><th id="591">591</th><td>	<em>char</em>			*<dfn class="local col0 decl" id="80model" title='model' data-type='char *' data-ref="80model">model</dfn>;</td></tr>
+<tr><th id="592">592</th><td>	<em>char</em>			*<dfn class="local col1 decl" id="81headmodel" title='headmodel' data-type='char *' data-ref="81headmodel">headmodel</dfn>;</td></tr>
+<tr><th id="593">593</th><td>	<em>char</em>			<dfn class="local col2 decl" id="82userinfo" title='userinfo' data-type='char [1024]' data-ref="82userinfo">userinfo</dfn>[<a class="macro" href="../qcommon/q_shared.h.html#247" title="1024" data-ref="_M/MAX_INFO_STRING">MAX_INFO_STRING</a>];</td></tr>
+<tr><th id="594">594</th><td></td></tr>
+<tr><th id="595">595</th><td>	<i>// have the server allocate a client slot</i></td></tr>
+<tr><th id="596">596</th><td>	<a class="local col3 ref" href="#73clientNum" title='clientNum' data-ref="73clientNum">clientNum</a> = <a class="ref" href="g_local.h.html#trap_BotAllocateClient" title='trap_BotAllocateClient' data-ref="trap_BotAllocateClient">trap_BotAllocateClient</a>();</td></tr>
+<tr><th id="597">597</th><td>	<b>if</b> ( <a class="local col3 ref" href="#73clientNum" title='clientNum' data-ref="73clientNum">clientNum</a> == -<var>1</var> ) {</td></tr>
+<tr><th id="598">598</th><td>		<a class="ref" href="g_local.h.html#G_Printf" title='G_Printf' data-ref="G_Printf">G_Printf</a>( <a class="macro" href="../qcommon/q_shared.h.html#423" title="&quot;^1&quot;" data-ref="_M/S_COLOR_RED">S_COLOR_RED</a> <q>"Unable to add bot. All player slots are in use.\n"</q> );</td></tr>
+<tr><th id="599">599</th><td>		<a class="ref" href="g_local.h.html#G_Printf" title='G_Printf' data-ref="G_Printf">G_Printf</a>( <a class="macro" href="../qcommon/q_shared.h.html#423" title="&quot;^1&quot;" data-ref="_M/S_COLOR_RED">S_COLOR_RED</a> <q>"Start server with more 'open' slots (or check setting of sv_maxclients cvar).\n"</q> );</td></tr>
+<tr><th id="600">600</th><td>		<b>return</b>;</td></tr>
+<tr><th id="601">601</th><td>	}</td></tr>
+<tr><th id="602">602</th><td></td></tr>
+<tr><th id="603">603</th><td>	<i>// set default team</i></td></tr>
+<tr><th id="604">604</th><td>	<b>if</b>( !<a class="local col0 ref" href="#70team" title='team' data-ref="70team">team</a> || !*<a class="local col0 ref" href="#70team" title='team' data-ref="70team">team</a> ) {</td></tr>
+<tr><th id="605">605</th><td>		<b>if</b>( <a class="ref" href="g_local.h.html#g_gametype" title='g_gametype' data-ref="g_gametype">g_gametype</a>.<a class="ref" href="../qcommon/q_shared.h.html#(anonymous)::integer" title='(anonymous struct)::integer' data-ref="(anonymous)::integer">integer</a> &gt;= <a class="enum" href="bg_public.h.html#GT_TEAM" title='GT_TEAM' data-ref="GT_TEAM">GT_TEAM</a> ) {</td></tr>
+<tr><th id="606">606</th><td>			<b>if</b>( <a class="ref" href="g_local.h.html#PickTeam" title='PickTeam' data-ref="PickTeam">PickTeam</a>(<a class="local col3 ref" href="#73clientNum" title='clientNum' data-ref="73clientNum">clientNum</a>) == <a class="enum" href="bg_public.h.html#TEAM_RED" title='TEAM_RED' data-ref="TEAM_RED">TEAM_RED</a>) {</td></tr>
+<tr><th id="607">607</th><td>				<a class="local col0 ref" href="#70team" title='team' data-ref="70team">team</a> = <q>"red"</q>;</td></tr>
+<tr><th id="608">608</th><td>			}</td></tr>
+<tr><th id="609">609</th><td>			<b>else</b> {</td></tr>
+<tr><th id="610">610</th><td>				<a class="local col0 ref" href="#70team" title='team' data-ref="70team">team</a> = <q>"blue"</q>;</td></tr>
+<tr><th id="611">611</th><td>			}</td></tr>
+<tr><th id="612">612</th><td>		}</td></tr>
+<tr><th id="613">613</th><td>		<b>else</b> {</td></tr>
+<tr><th id="614">614</th><td>			<a class="local col0 ref" href="#70team" title='team' data-ref="70team">team</a> = <q>"free"</q>;</td></tr>
+<tr><th id="615">615</th><td>		}</td></tr>
+<tr><th id="616">616</th><td>	}</td></tr>
+<tr><th id="617">617</th><td></td></tr>
+<tr><th id="618">618</th><td>	<i>// get the botinfo from bots.txt</i></td></tr>
+<tr><th id="619">619</th><td>	<b>if</b> ( <a class="ref" href="../qcommon/q_shared.h.html#Q_stricmp" title='Q_stricmp' data-ref="Q_stricmp">Q_stricmp</a>( <a class="local col8 ref" href="#68name" title='name' data-ref="68name">name</a>, <q>"random"</q> ) == <var>0</var> ) {</td></tr>
+<tr><th id="620">620</th><td>		<b>if</b> ( <a class="ref" href="../qcommon/q_shared.h.html#Q_stricmp" title='Q_stricmp' data-ref="Q_stricmp">Q_stricmp</a>( <a class="local col0 ref" href="#70team" title='team' data-ref="70team">team</a>, <q>"red"</q> ) == <var>0</var> || <a class="ref" href="../qcommon/q_shared.h.html#Q_stricmp" title='Q_stricmp' data-ref="Q_stricmp">Q_stricmp</a>( <a class="local col0 ref" href="#70team" title='team' data-ref="70team">team</a>, <q>"r"</q> ) == <var>0</var> ) {</td></tr>
+<tr><th id="621">621</th><td>			<a class="local col4 ref" href="#74teamNum" title='teamNum' data-ref="74teamNum">teamNum</a> = <a class="enum" href="bg_public.h.html#TEAM_RED" title='TEAM_RED' data-ref="TEAM_RED">TEAM_RED</a>;</td></tr>
+<tr><th id="622">622</th><td>		}</td></tr>
+<tr><th id="623">623</th><td>		<b>else</b> <b>if</b> ( <a class="ref" href="../qcommon/q_shared.h.html#Q_stricmp" title='Q_stricmp' data-ref="Q_stricmp">Q_stricmp</a>( <a class="local col0 ref" href="#70team" title='team' data-ref="70team">team</a>, <q>"blue"</q> ) == <var>0</var> || <a class="ref" href="../qcommon/q_shared.h.html#Q_stricmp" title='Q_stricmp' data-ref="Q_stricmp">Q_stricmp</a>( <a class="local col0 ref" href="#70team" title='team' data-ref="70team">team</a>, <q>"b"</q> ) == <var>0</var> ) {</td></tr>
+<tr><th id="624">624</th><td>			<a class="local col4 ref" href="#74teamNum" title='teamNum' data-ref="74teamNum">teamNum</a> = <a class="enum" href="bg_public.h.html#TEAM_BLUE" title='TEAM_BLUE' data-ref="TEAM_BLUE">TEAM_BLUE</a>;</td></tr>
+<tr><th id="625">625</th><td>		}</td></tr>
+<tr><th id="626">626</th><td>		<b>else</b> <b>if</b> ( !<a class="ref" href="../qcommon/q_shared.h.html#Q_stricmp" title='Q_stricmp' data-ref="Q_stricmp">Q_stricmp</a>( <a class="local col0 ref" href="#70team" title='team' data-ref="70team">team</a>, <q>"spectator"</q> ) || !<a class="ref" href="../qcommon/q_shared.h.html#Q_stricmp" title='Q_stricmp' data-ref="Q_stricmp">Q_stricmp</a>( <a class="local col0 ref" href="#70team" title='team' data-ref="70team">team</a>, <q>"s"</q> ) ) {</td></tr>
+<tr><th id="627">627</th><td>			<a class="local col4 ref" href="#74teamNum" title='teamNum' data-ref="74teamNum">teamNum</a> = <a class="enum" href="bg_public.h.html#TEAM_SPECTATOR" title='TEAM_SPECTATOR' data-ref="TEAM_SPECTATOR">TEAM_SPECTATOR</a>;</td></tr>
+<tr><th id="628">628</th><td>		}</td></tr>
+<tr><th id="629">629</th><td>		<b>else</b> {</td></tr>
+<tr><th id="630">630</th><td>			<a class="local col4 ref" href="#74teamNum" title='teamNum' data-ref="74teamNum">teamNum</a> = <a class="enum" href="bg_public.h.html#TEAM_FREE" title='TEAM_FREE' data-ref="TEAM_FREE">TEAM_FREE</a>;</td></tr>
+<tr><th id="631">631</th><td>		}</td></tr>
+<tr><th id="632">632</th><td></td></tr>
+<tr><th id="633">633</th><td>		<a class="local col5 ref" href="#75botinfoNum" title='botinfoNum' data-ref="75botinfoNum">botinfoNum</a> = <a class="ref" href="#G_SelectRandomBotInfo" title='G_SelectRandomBotInfo' data-ref="G_SelectRandomBotInfo">G_SelectRandomBotInfo</a>( <a class="local col4 ref" href="#74teamNum" title='teamNum' data-ref="74teamNum">teamNum</a> );</td></tr>
+<tr><th id="634">634</th><td></td></tr>
+<tr><th id="635">635</th><td>		<b>if</b> ( <a class="local col5 ref" href="#75botinfoNum" title='botinfoNum' data-ref="75botinfoNum">botinfoNum</a> &lt; <var>0</var> ) {</td></tr>
+<tr><th id="636">636</th><td>			<a class="ref" href="g_local.h.html#G_Printf" title='G_Printf' data-ref="G_Printf">G_Printf</a>( <a class="macro" href="../qcommon/q_shared.h.html#423" title="&quot;^1&quot;" data-ref="_M/S_COLOR_RED">S_COLOR_RED</a> <q>"Error: Cannot add random bot, no bot info available.\n"</q> );</td></tr>
+<tr><th id="637">637</th><td>			<a class="ref" href="g_local.h.html#trap_BotFreeClient" title='trap_BotFreeClient' data-ref="trap_BotFreeClient">trap_BotFreeClient</a>( <a class="local col3 ref" href="#73clientNum" title='clientNum' data-ref="73clientNum">clientNum</a> );</td></tr>
+<tr><th id="638">638</th><td>			<b>return</b>;</td></tr>
+<tr><th id="639">639</th><td>		}</td></tr>
+<tr><th id="640">640</th><td></td></tr>
+<tr><th id="641">641</th><td>		<a class="local col6 ref" href="#76botinfo" title='botinfo' data-ref="76botinfo">botinfo</a> = <a class="ref" href="#G_GetBotInfoByNumber" title='G_GetBotInfoByNumber' data-ref="G_GetBotInfoByNumber">G_GetBotInfoByNumber</a>( <a class="local col5 ref" href="#75botinfoNum" title='botinfoNum' data-ref="75botinfoNum">botinfoNum</a> );</td></tr>
+<tr><th id="642">642</th><td>	}</td></tr>
+<tr><th id="643">643</th><td>	<b>else</b> {</td></tr>
+<tr><th id="644">644</th><td>		<a class="local col6 ref" href="#76botinfo" title='botinfo' data-ref="76botinfo">botinfo</a> = <a class="ref" href="#G_GetBotInfoByName" title='G_GetBotInfoByName' data-ref="G_GetBotInfoByName">G_GetBotInfoByName</a>( <a class="local col8 ref" href="#68name" title='name' data-ref="68name">name</a> );</td></tr>
+<tr><th id="645">645</th><td>	}</td></tr>
+<tr><th id="646">646</th><td></td></tr>
+<tr><th id="647">647</th><td>	<b>if</b> ( !<a class="local col6 ref" href="#76botinfo" title='botinfo' data-ref="76botinfo">botinfo</a> ) {</td></tr>
+<tr><th id="648">648</th><td>		<a class="ref" href="g_local.h.html#G_Printf" title='G_Printf' data-ref="G_Printf">G_Printf</a>( <a class="macro" href="../qcommon/q_shared.h.html#423" title="&quot;^1&quot;" data-ref="_M/S_COLOR_RED">S_COLOR_RED</a> <q>"Error: Bot '%s' not defined\n"</q>, <a class="local col8 ref" href="#68name" title='name' data-ref="68name">name</a> );</td></tr>
+<tr><th id="649">649</th><td>		<a class="ref" href="g_local.h.html#trap_BotFreeClient" title='trap_BotFreeClient' data-ref="trap_BotFreeClient">trap_BotFreeClient</a>( <a class="local col3 ref" href="#73clientNum" title='clientNum' data-ref="73clientNum">clientNum</a> );</td></tr>
+<tr><th id="650">650</th><td>		<b>return</b>;</td></tr>
+<tr><th id="651">651</th><td>	}</td></tr>
+<tr><th id="652">652</th><td></td></tr>
+<tr><th id="653">653</th><td>	<i>// create the bot's userinfo</i></td></tr>
+<tr><th id="654">654</th><td>	<a class="local col2 ref" href="#82userinfo" title='userinfo' data-ref="82userinfo">userinfo</a>[<var>0</var>] = <kbd>'\0'</kbd>;</td></tr>
+<tr><th id="655">655</th><td></td></tr>
+<tr><th id="656">656</th><td>	<a class="local col9 ref" href="#79botname" title='botname' data-ref="79botname">botname</a> = <a class="ref" href="../qcommon/q_shared.h.html#Info_ValueForKey" title='Info_ValueForKey' data-ref="Info_ValueForKey">Info_ValueForKey</a>( <a class="local col6 ref" href="#76botinfo" title='botinfo' data-ref="76botinfo">botinfo</a>, <q>"funname"</q> );</td></tr>
+<tr><th id="657">657</th><td>	<b>if</b>( !<a class="local col9 ref" href="#79botname" title='botname' data-ref="79botname">botname</a>[<var>0</var>] ) {</td></tr>
+<tr><th id="658">658</th><td>		<a class="local col9 ref" href="#79botname" title='botname' data-ref="79botname">botname</a> = <a class="ref" href="../qcommon/q_shared.h.html#Info_ValueForKey" title='Info_ValueForKey' data-ref="Info_ValueForKey">Info_ValueForKey</a>( <a class="local col6 ref" href="#76botinfo" title='botinfo' data-ref="76botinfo">botinfo</a>, <q>"name"</q> );</td></tr>
+<tr><th id="659">659</th><td>	}</td></tr>
+<tr><th id="660">660</th><td>	<i>// check for an alternative name</i></td></tr>
+<tr><th id="661">661</th><td>	<b>if</b> (<a class="local col2 ref" href="#72altname" title='altname' data-ref="72altname">altname</a> &amp;&amp; <a class="local col2 ref" href="#72altname" title='altname' data-ref="72altname">altname</a>[<var>0</var>]) {</td></tr>
+<tr><th id="662">662</th><td>		<a class="local col9 ref" href="#79botname" title='botname' data-ref="79botname">botname</a> = <a class="local col2 ref" href="#72altname" title='altname' data-ref="72altname">altname</a>;</td></tr>
+<tr><th id="663">663</th><td>	}</td></tr>
+<tr><th id="664">664</th><td>	<a class="ref" href="../qcommon/q_shared.h.html#Info_SetValueForKey" title='Info_SetValueForKey' data-ref="Info_SetValueForKey">Info_SetValueForKey</a>( <a class="local col2 ref" href="#82userinfo" title='userinfo' data-ref="82userinfo">userinfo</a>, <q>"name"</q>, <a class="local col9 ref" href="#79botname" title='botname' data-ref="79botname">botname</a> );</td></tr>
+<tr><th id="665">665</th><td>	<a class="ref" href="../qcommon/q_shared.h.html#Info_SetValueForKey" title='Info_SetValueForKey' data-ref="Info_SetValueForKey">Info_SetValueForKey</a>( <a class="local col2 ref" href="#82userinfo" title='userinfo' data-ref="82userinfo">userinfo</a>, <q>"rate"</q>, <q>"25000"</q> );</td></tr>
+<tr><th id="666">666</th><td>	<a class="ref" href="../qcommon/q_shared.h.html#Info_SetValueForKey" title='Info_SetValueForKey' data-ref="Info_SetValueForKey">Info_SetValueForKey</a>( <a class="local col2 ref" href="#82userinfo" title='userinfo' data-ref="82userinfo">userinfo</a>, <q>"snaps"</q>, <q>"20"</q> );</td></tr>
+<tr><th id="667">667</th><td>	<a class="ref" href="../qcommon/q_shared.h.html#Info_SetValueForKey" title='Info_SetValueForKey' data-ref="Info_SetValueForKey">Info_SetValueForKey</a>( <a class="local col2 ref" href="#82userinfo" title='userinfo' data-ref="82userinfo">userinfo</a>, <q>"skill"</q>, <a class="ref" href="../qcommon/q_shared.h.html#va" title='va' data-ref="va">va</a>(<q>"%.2f"</q>, <a class="local col9 ref" href="#69skill" title='skill' data-ref="69skill">skill</a>) );</td></tr>
+<tr><th id="668">668</th><td>	<a class="ref" href="../qcommon/q_shared.h.html#Info_SetValueForKey" title='Info_SetValueForKey' data-ref="Info_SetValueForKey">Info_SetValueForKey</a>( <a class="local col2 ref" href="#82userinfo" title='userinfo' data-ref="82userinfo">userinfo</a>, <q>"teampref"</q>, <a class="local col0 ref" href="#70team" title='team' data-ref="70team">team</a> );</td></tr>
+<tr><th id="669">669</th><td></td></tr>
+<tr><th id="670">670</th><td>	<b>if</b> ( <a class="local col9 ref" href="#69skill" title='skill' data-ref="69skill">skill</a> &gt;= <var>1</var> &amp;&amp; <a class="local col9 ref" href="#69skill" title='skill' data-ref="69skill">skill</a> &lt; <var>2</var> ) {</td></tr>
+<tr><th id="671">671</th><td>		<a class="ref" href="../qcommon/q_shared.h.html#Info_SetValueForKey" title='Info_SetValueForKey' data-ref="Info_SetValueForKey">Info_SetValueForKey</a>( <a class="local col2 ref" href="#82userinfo" title='userinfo' data-ref="82userinfo">userinfo</a>, <q>"handicap"</q>, <q>"50"</q> );</td></tr>
+<tr><th id="672">672</th><td>	}</td></tr>
+<tr><th id="673">673</th><td>	<b>else</b> <b>if</b> ( <a class="local col9 ref" href="#69skill" title='skill' data-ref="69skill">skill</a> &gt;= <var>2</var> &amp;&amp; <a class="local col9 ref" href="#69skill" title='skill' data-ref="69skill">skill</a> &lt; <var>3</var> ) {</td></tr>
+<tr><th id="674">674</th><td>		<a class="ref" href="../qcommon/q_shared.h.html#Info_SetValueForKey" title='Info_SetValueForKey' data-ref="Info_SetValueForKey">Info_SetValueForKey</a>( <a class="local col2 ref" href="#82userinfo" title='userinfo' data-ref="82userinfo">userinfo</a>, <q>"handicap"</q>, <q>"70"</q> );</td></tr>
+<tr><th id="675">675</th><td>	}</td></tr>
+<tr><th id="676">676</th><td>	<b>else</b> <b>if</b> ( <a class="local col9 ref" href="#69skill" title='skill' data-ref="69skill">skill</a> &gt;= <var>3</var> &amp;&amp; <a class="local col9 ref" href="#69skill" title='skill' data-ref="69skill">skill</a> &lt; <var>4</var> ) {</td></tr>
+<tr><th id="677">677</th><td>		<a class="ref" href="../qcommon/q_shared.h.html#Info_SetValueForKey" title='Info_SetValueForKey' data-ref="Info_SetValueForKey">Info_SetValueForKey</a>( <a class="local col2 ref" href="#82userinfo" title='userinfo' data-ref="82userinfo">userinfo</a>, <q>"handicap"</q>, <q>"90"</q> );</td></tr>
+<tr><th id="678">678</th><td>	}</td></tr>
+<tr><th id="679">679</th><td></td></tr>
+<tr><th id="680">680</th><td>	<a class="local col7 ref" href="#77key" title='key' data-ref="77key">key</a> = <q>"model"</q>;</td></tr>
+<tr><th id="681">681</th><td>	<a class="local col0 ref" href="#80model" title='model' data-ref="80model">model</a> = <a class="ref" href="../qcommon/q_shared.h.html#Info_ValueForKey" title='Info_ValueForKey' data-ref="Info_ValueForKey">Info_ValueForKey</a>( <a class="local col6 ref" href="#76botinfo" title='botinfo' data-ref="76botinfo">botinfo</a>, <a class="local col7 ref" href="#77key" title='key' data-ref="77key">key</a> );</td></tr>
+<tr><th id="682">682</th><td>	<b>if</b> ( !*<a class="local col0 ref" href="#80model" title='model' data-ref="80model">model</a> ) {</td></tr>
+<tr><th id="683">683</th><td>		<a class="local col0 ref" href="#80model" title='model' data-ref="80model">model</a> = <q>"visor/default"</q>;</td></tr>
+<tr><th id="684">684</th><td>	}</td></tr>
+<tr><th id="685">685</th><td>	<a class="ref" href="../qcommon/q_shared.h.html#Info_SetValueForKey" title='Info_SetValueForKey' data-ref="Info_SetValueForKey">Info_SetValueForKey</a>( <a class="local col2 ref" href="#82userinfo" title='userinfo' data-ref="82userinfo">userinfo</a>, <a class="local col7 ref" href="#77key" title='key' data-ref="77key">key</a>, <a class="local col0 ref" href="#80model" title='model' data-ref="80model">model</a> );</td></tr>
+<tr><th id="686">686</th><td>	<a class="local col7 ref" href="#77key" title='key' data-ref="77key">key</a> = <q>"team_model"</q>;</td></tr>
+<tr><th id="687">687</th><td>	<a class="ref" href="../qcommon/q_shared.h.html#Info_SetValueForKey" title='Info_SetValueForKey' data-ref="Info_SetValueForKey">Info_SetValueForKey</a>( <a class="local col2 ref" href="#82userinfo" title='userinfo' data-ref="82userinfo">userinfo</a>, <a class="local col7 ref" href="#77key" title='key' data-ref="77key">key</a>, <a class="local col0 ref" href="#80model" title='model' data-ref="80model">model</a> );</td></tr>
+<tr><th id="688">688</th><td></td></tr>
+<tr><th id="689">689</th><td>	<a class="local col7 ref" href="#77key" title='key' data-ref="77key">key</a> = <q>"headmodel"</q>;</td></tr>
+<tr><th id="690">690</th><td>	<a class="local col1 ref" href="#81headmodel" title='headmodel' data-ref="81headmodel">headmodel</a> = <a class="ref" href="../qcommon/q_shared.h.html#Info_ValueForKey" title='Info_ValueForKey' data-ref="Info_ValueForKey">Info_ValueForKey</a>( <a class="local col6 ref" href="#76botinfo" title='botinfo' data-ref="76botinfo">botinfo</a>, <a class="local col7 ref" href="#77key" title='key' data-ref="77key">key</a> );</td></tr>
+<tr><th id="691">691</th><td>	<b>if</b> ( !*<a class="local col1 ref" href="#81headmodel" title='headmodel' data-ref="81headmodel">headmodel</a> ) {</td></tr>
+<tr><th id="692">692</th><td>		<a class="local col1 ref" href="#81headmodel" title='headmodel' data-ref="81headmodel">headmodel</a> = <a class="local col0 ref" href="#80model" title='model' data-ref="80model">model</a>;</td></tr>
+<tr><th id="693">693</th><td>	}</td></tr>
+<tr><th id="694">694</th><td>	<a class="ref" href="../qcommon/q_shared.h.html#Info_SetValueForKey" title='Info_SetValueForKey' data-ref="Info_SetValueForKey">Info_SetValueForKey</a>( <a class="local col2 ref" href="#82userinfo" title='userinfo' data-ref="82userinfo">userinfo</a>, <a class="local col7 ref" href="#77key" title='key' data-ref="77key">key</a>, <a class="local col1 ref" href="#81headmodel" title='headmodel' data-ref="81headmodel">headmodel</a> );</td></tr>
+<tr><th id="695">695</th><td>	<a class="local col7 ref" href="#77key" title='key' data-ref="77key">key</a> = <q>"team_headmodel"</q>;</td></tr>
+<tr><th id="696">696</th><td>	<a class="ref" href="../qcommon/q_shared.h.html#Info_SetValueForKey" title='Info_SetValueForKey' data-ref="Info_SetValueForKey">Info_SetValueForKey</a>( <a class="local col2 ref" href="#82userinfo" title='userinfo' data-ref="82userinfo">userinfo</a>, <a class="local col7 ref" href="#77key" title='key' data-ref="77key">key</a>, <a class="local col1 ref" href="#81headmodel" title='headmodel' data-ref="81headmodel">headmodel</a> );</td></tr>
+<tr><th id="697">697</th><td></td></tr>
+<tr><th id="698">698</th><td>	<a class="local col7 ref" href="#77key" title='key' data-ref="77key">key</a> = <q>"gender"</q>;</td></tr>
+<tr><th id="699">699</th><td>	<a class="local col8 ref" href="#78s" title='s' data-ref="78s">s</a> = <a class="ref" href="../qcommon/q_shared.h.html#Info_ValueForKey" title='Info_ValueForKey' data-ref="Info_ValueForKey">Info_ValueForKey</a>( <a class="local col6 ref" href="#76botinfo" title='botinfo' data-ref="76botinfo">botinfo</a>, <a class="local col7 ref" href="#77key" title='key' data-ref="77key">key</a> );</td></tr>
+<tr><th id="700">700</th><td>	<b>if</b> ( !*<a class="local col8 ref" href="#78s" title='s' data-ref="78s">s</a> ) {</td></tr>
+<tr><th id="701">701</th><td>		<a class="local col8 ref" href="#78s" title='s' data-ref="78s">s</a> = <q>"male"</q>;</td></tr>
+<tr><th id="702">702</th><td>	}</td></tr>
+<tr><th id="703">703</th><td>	<a class="ref" href="../qcommon/q_shared.h.html#Info_SetValueForKey" title='Info_SetValueForKey' data-ref="Info_SetValueForKey">Info_SetValueForKey</a>( <a class="local col2 ref" href="#82userinfo" title='userinfo' data-ref="82userinfo">userinfo</a>, <q>"sex"</q>, <a class="local col8 ref" href="#78s" title='s' data-ref="78s">s</a> );</td></tr>
+<tr><th id="704">704</th><td></td></tr>
+<tr><th id="705">705</th><td>	<a class="local col7 ref" href="#77key" title='key' data-ref="77key">key</a> = <q>"color1"</q>;</td></tr>
+<tr><th id="706">706</th><td>	<a class="local col8 ref" href="#78s" title='s' data-ref="78s">s</a> = <a class="ref" href="../qcommon/q_shared.h.html#Info_ValueForKey" title='Info_ValueForKey' data-ref="Info_ValueForKey">Info_ValueForKey</a>( <a class="local col6 ref" href="#76botinfo" title='botinfo' data-ref="76botinfo">botinfo</a>, <a class="local col7 ref" href="#77key" title='key' data-ref="77key">key</a> );</td></tr>
+<tr><th id="707">707</th><td>	<b>if</b> ( !*<a class="local col8 ref" href="#78s" title='s' data-ref="78s">s</a> ) {</td></tr>
+<tr><th id="708">708</th><td>		<a class="local col8 ref" href="#78s" title='s' data-ref="78s">s</a> = <q>"4"</q>;</td></tr>
+<tr><th id="709">709</th><td>	}</td></tr>
+<tr><th id="710">710</th><td>	<a class="ref" href="../qcommon/q_shared.h.html#Info_SetValueForKey" title='Info_SetValueForKey' data-ref="Info_SetValueForKey">Info_SetValueForKey</a>( <a class="local col2 ref" href="#82userinfo" title='userinfo' data-ref="82userinfo">userinfo</a>, <a class="local col7 ref" href="#77key" title='key' data-ref="77key">key</a>, <a class="local col8 ref" href="#78s" title='s' data-ref="78s">s</a> );</td></tr>
+<tr><th id="711">711</th><td></td></tr>
+<tr><th id="712">712</th><td>	<a class="local col7 ref" href="#77key" title='key' data-ref="77key">key</a> = <q>"color2"</q>;</td></tr>
+<tr><th id="713">713</th><td>	<a class="local col8 ref" href="#78s" title='s' data-ref="78s">s</a> = <a class="ref" href="../qcommon/q_shared.h.html#Info_ValueForKey" title='Info_ValueForKey' data-ref="Info_ValueForKey">Info_ValueForKey</a>( <a class="local col6 ref" href="#76botinfo" title='botinfo' data-ref="76botinfo">botinfo</a>, <a class="local col7 ref" href="#77key" title='key' data-ref="77key">key</a> );</td></tr>
+<tr><th id="714">714</th><td>	<b>if</b> ( !*<a class="local col8 ref" href="#78s" title='s' data-ref="78s">s</a> ) {</td></tr>
+<tr><th id="715">715</th><td>		<a class="local col8 ref" href="#78s" title='s' data-ref="78s">s</a> = <q>"5"</q>;</td></tr>
+<tr><th id="716">716</th><td>	}</td></tr>
+<tr><th id="717">717</th><td>	<a class="ref" href="../qcommon/q_shared.h.html#Info_SetValueForKey" title='Info_SetValueForKey' data-ref="Info_SetValueForKey">Info_SetValueForKey</a>( <a class="local col2 ref" href="#82userinfo" title='userinfo' data-ref="82userinfo">userinfo</a>, <a class="local col7 ref" href="#77key" title='key' data-ref="77key">key</a>, <a class="local col8 ref" href="#78s" title='s' data-ref="78s">s</a> );</td></tr>
+<tr><th id="718">718</th><td></td></tr>
+<tr><th id="719">719</th><td>	<a class="local col8 ref" href="#78s" title='s' data-ref="78s">s</a> = <a class="ref" href="../qcommon/q_shared.h.html#Info_ValueForKey" title='Info_ValueForKey' data-ref="Info_ValueForKey">Info_ValueForKey</a>(<a class="local col6 ref" href="#76botinfo" title='botinfo' data-ref="76botinfo">botinfo</a>, <q>"aifile"</q>);</td></tr>
+<tr><th id="720">720</th><td>	<b>if</b> (!*<a class="local col8 ref" href="#78s" title='s' data-ref="78s">s</a> ) {</td></tr>
+<tr><th id="721">721</th><td>		<a class="ref" href="g_local.h.html#trap_Print" title='trap_Print' data-ref="trap_Print">trap_Print</a>( <a class="macro" href="../qcommon/q_shared.h.html#423" title="&quot;^1&quot;" data-ref="_M/S_COLOR_RED">S_COLOR_RED</a> <q>"Error: bot has no aifile specified\n"</q> );</td></tr>
+<tr><th id="722">722</th><td>		<a class="ref" href="g_local.h.html#trap_BotFreeClient" title='trap_BotFreeClient' data-ref="trap_BotFreeClient">trap_BotFreeClient</a>( <a class="local col3 ref" href="#73clientNum" title='clientNum' data-ref="73clientNum">clientNum</a> );</td></tr>
+<tr><th id="723">723</th><td>		<b>return</b>;</td></tr>
+<tr><th id="724">724</th><td>	}</td></tr>
+<tr><th id="725">725</th><td>	<a class="ref" href="../qcommon/q_shared.h.html#Info_SetValueForKey" title='Info_SetValueForKey' data-ref="Info_SetValueForKey">Info_SetValueForKey</a>( <a class="local col2 ref" href="#82userinfo" title='userinfo' data-ref="82userinfo">userinfo</a>, <q>"characterfile"</q>, <a class="local col8 ref" href="#78s" title='s' data-ref="78s">s</a> );</td></tr>
+<tr><th id="726">726</th><td></td></tr>
+<tr><th id="727">727</th><td>	<i>// register the userinfo</i></td></tr>
+<tr><th id="728">728</th><td>	<a class="ref" href="g_local.h.html#trap_SetUserinfo" title='trap_SetUserinfo' data-ref="trap_SetUserinfo">trap_SetUserinfo</a>( <a class="local col3 ref" href="#73clientNum" title='clientNum' data-ref="73clientNum">clientNum</a>, <a class="local col2 ref" href="#82userinfo" title='userinfo' data-ref="82userinfo">userinfo</a> );</td></tr>
+<tr><th id="729">729</th><td></td></tr>
+<tr><th id="730">730</th><td>	<i>// have it connect to the game as a normal client</i></td></tr>
+<tr><th id="731">731</th><td>	<b>if</b> ( <a class="ref" href="g_local.h.html#ClientConnect" title='ClientConnect' data-ref="ClientConnect">ClientConnect</a>( <a class="local col3 ref" href="#73clientNum" title='clientNum' data-ref="73clientNum">clientNum</a>, <a class="enum" href="../qcommon/q_shared.h.html#qtrue" title='qtrue' data-ref="qtrue">qtrue</a>, <a class="enum" href="../qcommon/q_shared.h.html#qtrue" title='qtrue' data-ref="qtrue">qtrue</a> ) ) {</td></tr>
+<tr><th id="732">732</th><td>		<b>return</b>;</td></tr>
+<tr><th id="733">733</th><td>	}</td></tr>
+<tr><th id="734">734</th><td></td></tr>
+<tr><th id="735">735</th><td>	<b>if</b>( <a class="local col1 ref" href="#71delay" title='delay' data-ref="71delay">delay</a> == <var>0</var> ) {</td></tr>
+<tr><th id="736">736</th><td>		<a class="ref" href="g_local.h.html#ClientBegin" title='ClientBegin' data-ref="ClientBegin">ClientBegin</a>( <a class="local col3 ref" href="#73clientNum" title='clientNum' data-ref="73clientNum">clientNum</a> );</td></tr>
+<tr><th id="737">737</th><td>		<b>return</b>;</td></tr>
+<tr><th id="738">738</th><td>	}</td></tr>
+<tr><th id="739">739</th><td></td></tr>
+<tr><th id="740">740</th><td>	<a class="tu ref" href="#AddBotToSpawnQueue" title='AddBotToSpawnQueue' data-use='c' data-ref="AddBotToSpawnQueue">AddBotToSpawnQueue</a>( <a class="local col3 ref" href="#73clientNum" title='clientNum' data-ref="73clientNum">clientNum</a>, <a class="local col1 ref" href="#71delay" title='delay' data-ref="71delay">delay</a> );</td></tr>
+<tr><th id="741">741</th><td>}</td></tr>
+<tr><th id="742">742</th><td></td></tr>
+<tr><th id="743">743</th><td></td></tr>
+<tr><th id="744">744</th><td><i>/*</i></td></tr>
+<tr><th id="745">745</th><td><i>===============</i></td></tr>
+<tr><th id="746">746</th><td><i>Svcmd_AddBot_f</i></td></tr>
+<tr><th id="747">747</th><td><i>===============</i></td></tr>
+<tr><th id="748">748</th><td><i>*/</i></td></tr>
+<tr><th id="749">749</th><td><em>void</em> <dfn class="decl def" id="Svcmd_AddBot_f" title='Svcmd_AddBot_f' data-ref="Svcmd_AddBot_f">Svcmd_AddBot_f</dfn>( <em>void</em> ) {</td></tr>
+<tr><th id="750">750</th><td>	<em>float</em>			<dfn class="local col3 decl" id="83skill" title='skill' data-type='float' data-ref="83skill">skill</dfn>;</td></tr>
+<tr><th id="751">751</th><td>	<em>int</em>				<dfn class="local col4 decl" id="84delay" title='delay' data-type='int' data-ref="84delay">delay</dfn>;</td></tr>
+<tr><th id="752">752</th><td>	<em>char</em>			<dfn class="local col5 decl" id="85name" title='name' data-type='char [1024]' data-ref="85name">name</dfn>[<a class="macro" href="../qcommon/q_shared.h.html#245" title="1024" data-ref="_M/MAX_TOKEN_CHARS">MAX_TOKEN_CHARS</a>];</td></tr>
+<tr><th id="753">753</th><td>	<em>char</em>			<dfn class="local col6 decl" id="86altname" title='altname' data-type='char [1024]' data-ref="86altname">altname</dfn>[<a class="macro" href="../qcommon/q_shared.h.html#245" title="1024" data-ref="_M/MAX_TOKEN_CHARS">MAX_TOKEN_CHARS</a>];</td></tr>
+<tr><th id="754">754</th><td>	<em>char</em>			<dfn class="local col7 decl" id="87string" title='string' data-type='char [1024]' data-ref="87string">string</dfn>[<a class="macro" href="../qcommon/q_shared.h.html#245" title="1024" data-ref="_M/MAX_TOKEN_CHARS">MAX_TOKEN_CHARS</a>];</td></tr>
+<tr><th id="755">755</th><td>	<em>char</em>			<dfn class="local col8 decl" id="88team" title='team' data-type='char [1024]' data-ref="88team">team</dfn>[<a class="macro" href="../qcommon/q_shared.h.html#245" title="1024" data-ref="_M/MAX_TOKEN_CHARS">MAX_TOKEN_CHARS</a>];</td></tr>
+<tr><th id="756">756</th><td></td></tr>
+<tr><th id="757">757</th><td>	<i>// are bots enabled?</i></td></tr>
+<tr><th id="758">758</th><td>	<b>if</b> ( !<a class="ref" href="g_local.h.html#trap_Cvar_VariableIntegerValue" title='trap_Cvar_VariableIntegerValue' data-ref="trap_Cvar_VariableIntegerValue">trap_Cvar_VariableIntegerValue</a>( <q>"bot_enable"</q> ) ) {</td></tr>
+<tr><th id="759">759</th><td>		<b>return</b>;</td></tr>
+<tr><th id="760">760</th><td>	}</td></tr>
+<tr><th id="761">761</th><td></td></tr>
+<tr><th id="762">762</th><td>	<i>// name</i></td></tr>
+<tr><th id="763">763</th><td>	<a class="ref" href="g_local.h.html#trap_Argv" title='trap_Argv' data-ref="trap_Argv">trap_Argv</a>( <var>1</var>, <a class="local col5 ref" href="#85name" title='name' data-ref="85name">name</a>, <b>sizeof</b>( <a class="local col5 ref" href="#85name" title='name' data-ref="85name">name</a> ) );</td></tr>
+<tr><th id="764">764</th><td>	<b>if</b> ( !<a class="local col5 ref" href="#85name" title='name' data-ref="85name">name</a>[<var>0</var>] ) {</td></tr>
+<tr><th id="765">765</th><td>		<a class="ref" href="g_local.h.html#trap_Print" title='trap_Print' data-ref="trap_Print">trap_Print</a>( <q>"Usage: Addbot &lt;botname&gt; [skill 1-5] [team] [msec delay] [altname]\n"</q> );</td></tr>
+<tr><th id="766">766</th><td>		<b>return</b>;</td></tr>
+<tr><th id="767">767</th><td>	}</td></tr>
+<tr><th id="768">768</th><td></td></tr>
+<tr><th id="769">769</th><td>	<i>// skill</i></td></tr>
+<tr><th id="770">770</th><td>	<a class="ref" href="g_local.h.html#trap_Argv" title='trap_Argv' data-ref="trap_Argv">trap_Argv</a>( <var>2</var>, <a class="local col7 ref" href="#87string" title='string' data-ref="87string">string</a>, <b>sizeof</b>( <a class="local col7 ref" href="#87string" title='string' data-ref="87string">string</a> ) );</td></tr>
+<tr><th id="771">771</th><td>	<b>if</b> ( !<a class="local col7 ref" href="#87string" title='string' data-ref="87string">string</a>[<var>0</var>] ) {</td></tr>
+<tr><th id="772">772</th><td>		<a class="local col3 ref" href="#83skill" title='skill' data-ref="83skill">skill</a> = <var>4</var>;</td></tr>
+<tr><th id="773">773</th><td>	}</td></tr>
+<tr><th id="774">774</th><td>	<b>else</b> {</td></tr>
+<tr><th id="775">775</th><td>		<a class="local col3 ref" href="#83skill" title='skill' data-ref="83skill">skill</a> = <a class="ref" href="../qcommon/q_shared.h.html#Com_Clamp" title='Com_Clamp' data-ref="Com_Clamp">Com_Clamp</a>( <var>1</var>, <var>5</var>, <a class="ref" href="../../../include/stdlib.h.html#atof" title='atof' data-ref="atof">atof</a>( <a class="local col7 ref" href="#87string" title='string' data-ref="87string">string</a> ) );</td></tr>
+<tr><th id="776">776</th><td>	}</td></tr>
+<tr><th id="777">777</th><td></td></tr>
+<tr><th id="778">778</th><td>	<i>// team</i></td></tr>
+<tr><th id="779">779</th><td>	<a class="ref" href="g_local.h.html#trap_Argv" title='trap_Argv' data-ref="trap_Argv">trap_Argv</a>( <var>3</var>, <a class="local col8 ref" href="#88team" title='team' data-ref="88team">team</a>, <b>sizeof</b>( <a class="local col8 ref" href="#88team" title='team' data-ref="88team">team</a> ) );</td></tr>
+<tr><th id="780">780</th><td></td></tr>
+<tr><th id="781">781</th><td>	<i>// delay</i></td></tr>
+<tr><th id="782">782</th><td>	<a class="ref" href="g_local.h.html#trap_Argv" title='trap_Argv' data-ref="trap_Argv">trap_Argv</a>( <var>4</var>, <a class="local col7 ref" href="#87string" title='string' data-ref="87string">string</a>, <b>sizeof</b>( <a class="local col7 ref" href="#87string" title='string' data-ref="87string">string</a> ) );</td></tr>
+<tr><th id="783">783</th><td>	<b>if</b> ( !<a class="local col7 ref" href="#87string" title='string' data-ref="87string">string</a>[<var>0</var>] ) {</td></tr>
+<tr><th id="784">784</th><td>		<a class="local col4 ref" href="#84delay" title='delay' data-ref="84delay">delay</a> = <var>0</var>;</td></tr>
+<tr><th id="785">785</th><td>	}</td></tr>
+<tr><th id="786">786</th><td>	<b>else</b> {</td></tr>
+<tr><th id="787">787</th><td>		<a class="local col4 ref" href="#84delay" title='delay' data-ref="84delay">delay</a> = <a class="ref" href="../../../include/stdlib.h.html#atoi" title='atoi' data-ref="atoi">atoi</a>( <a class="local col7 ref" href="#87string" title='string' data-ref="87string">string</a> );</td></tr>
+<tr><th id="788">788</th><td>	}</td></tr>
+<tr><th id="789">789</th><td></td></tr>
+<tr><th id="790">790</th><td>	<i>// alternative name</i></td></tr>
+<tr><th id="791">791</th><td>	<a class="ref" href="g_local.h.html#trap_Argv" title='trap_Argv' data-ref="trap_Argv">trap_Argv</a>( <var>5</var>, <a class="local col6 ref" href="#86altname" title='altname' data-ref="86altname">altname</a>, <b>sizeof</b>( <a class="local col6 ref" href="#86altname" title='altname' data-ref="86altname">altname</a> ) );</td></tr>
+<tr><th id="792">792</th><td></td></tr>
+<tr><th id="793">793</th><td>	<a class="tu ref" href="#G_AddBot" title='G_AddBot' data-use='c' data-ref="G_AddBot">G_AddBot</a>( <a class="local col5 ref" href="#85name" title='name' data-ref="85name">name</a>, <a class="local col3 ref" href="#83skill" title='skill' data-ref="83skill">skill</a>, <a class="local col8 ref" href="#88team" title='team' data-ref="88team">team</a>, <a class="local col4 ref" href="#84delay" title='delay' data-ref="84delay">delay</a>, <a class="local col6 ref" href="#86altname" title='altname' data-ref="86altname">altname</a> );</td></tr>
+<tr><th id="794">794</th><td></td></tr>
+<tr><th id="795">795</th><td>	<i>// if this was issued during gameplay and we are playing locally,</i></td></tr>
+<tr><th id="796">796</th><td><i>	// go ahead and load the bot's media immediately</i></td></tr>
+<tr><th id="797">797</th><td>	<b>if</b> ( <a class="ref" href="g_local.h.html#level" title='level' data-ref="level">level</a>.<a class="ref" href="g_local.h.html#(anonymous)::time" title='(anonymous struct)::time' data-ref="(anonymous)::time">time</a> - <a class="ref" href="g_local.h.html#level" title='level' data-ref="level">level</a>.<a class="ref" href="g_local.h.html#(anonymous)::startTime" title='(anonymous struct)::startTime' data-ref="(anonymous)::startTime">startTime</a> &gt; <var>1000</var> &amp;&amp;</td></tr>
+<tr><th id="798">798</th><td>		<a class="ref" href="g_local.h.html#trap_Cvar_VariableIntegerValue" title='trap_Cvar_VariableIntegerValue' data-ref="trap_Cvar_VariableIntegerValue">trap_Cvar_VariableIntegerValue</a>( <q>"cl_running"</q> ) ) {</td></tr>
+<tr><th id="799">799</th><td>		<a class="ref" href="g_local.h.html#trap_SendServerCommand" title='trap_SendServerCommand' data-ref="trap_SendServerCommand">trap_SendServerCommand</a>( -<var>1</var>, <q>"loaddefered\n"</q> );	<i>// FIXME: spelled wrong, but not changing for demo</i></td></tr>
+<tr><th id="800">800</th><td>	}</td></tr>
+<tr><th id="801">801</th><td>}</td></tr>
+<tr><th id="802">802</th><td></td></tr>
+<tr><th id="803">803</th><td><i>/*</i></td></tr>
+<tr><th id="804">804</th><td><i>===============</i></td></tr>
+<tr><th id="805">805</th><td><i>Svcmd_BotList_f</i></td></tr>
+<tr><th id="806">806</th><td><i>===============</i></td></tr>
+<tr><th id="807">807</th><td><i>*/</i></td></tr>
+<tr><th id="808">808</th><td><em>void</em> <dfn class="decl def" id="Svcmd_BotList_f" title='Svcmd_BotList_f' data-ref="Svcmd_BotList_f">Svcmd_BotList_f</dfn>( <em>void</em> ) {</td></tr>
+<tr><th id="809">809</th><td>	<em>int</em> <dfn class="local col9 decl" id="89i" title='i' data-type='int' data-ref="89i">i</dfn>;</td></tr>
+<tr><th id="810">810</th><td>	<em>char</em> <dfn class="local col0 decl" id="90name" title='name' data-type='char [1024]' data-ref="90name">name</dfn>[<a class="macro" href="../qcommon/q_shared.h.html#245" title="1024" data-ref="_M/MAX_TOKEN_CHARS">MAX_TOKEN_CHARS</a>];</td></tr>
+<tr><th id="811">811</th><td>	<em>char</em> <dfn class="local col1 decl" id="91funname" title='funname' data-type='char [1024]' data-ref="91funname">funname</dfn>[<a class="macro" href="../qcommon/q_shared.h.html#245" title="1024" data-ref="_M/MAX_TOKEN_CHARS">MAX_TOKEN_CHARS</a>];</td></tr>
+<tr><th id="812">812</th><td>	<em>char</em> <dfn class="local col2 decl" id="92model" title='model' data-type='char [1024]' data-ref="92model">model</dfn>[<a class="macro" href="../qcommon/q_shared.h.html#245" title="1024" data-ref="_M/MAX_TOKEN_CHARS">MAX_TOKEN_CHARS</a>];</td></tr>
+<tr><th id="813">813</th><td>	<em>char</em> <dfn class="local col3 decl" id="93aifile" title='aifile' data-type='char [1024]' data-ref="93aifile">aifile</dfn>[<a class="macro" href="../qcommon/q_shared.h.html#245" title="1024" data-ref="_M/MAX_TOKEN_CHARS">MAX_TOKEN_CHARS</a>];</td></tr>
+<tr><th id="814">814</th><td></td></tr>
+<tr><th id="815">815</th><td>	<a class="ref" href="g_local.h.html#trap_Print" title='trap_Print' data-ref="trap_Print">trap_Print</a>(<q>"^1name             model            aifile              funname\n"</q>);</td></tr>
+<tr><th id="816">816</th><td>	<b>for</b> (<a class="local col9 ref" href="#89i" title='i' data-ref="89i">i</a> = <var>0</var>; <a class="local col9 ref" href="#89i" title='i' data-ref="89i">i</a> &lt; <a class="tu ref" href="#g_numBots" title='g_numBots' data-use='r' data-ref="g_numBots">g_numBots</a>; <a class="local col9 ref" href="#89i" title='i' data-ref="89i">i</a>++) {</td></tr>
+<tr><th id="817">817</th><td>		<a class="ref" href="../../../include/string.h.html#strcpy" title='strcpy' data-ref="strcpy">strcpy</a>(<a class="local col0 ref" href="#90name" title='name' data-ref="90name">name</a>, <a class="ref" href="../qcommon/q_shared.h.html#Info_ValueForKey" title='Info_ValueForKey' data-ref="Info_ValueForKey">Info_ValueForKey</a>( <a class="tu ref" href="#g_botInfos" title='g_botInfos' data-use='r' data-ref="g_botInfos">g_botInfos</a>[<a class="local col9 ref" href="#89i" title='i' data-ref="89i">i</a>], <q>"name"</q> ));</td></tr>
+<tr><th id="818">818</th><td>		<b>if</b> ( !*<a class="local col0 ref" href="#90name" title='name' data-ref="90name">name</a> ) {</td></tr>
+<tr><th id="819">819</th><td>			<a class="ref" href="../../../include/string.h.html#strcpy" title='strcpy' data-ref="strcpy">strcpy</a>(<a class="local col0 ref" href="#90name" title='name' data-ref="90name">name</a>, <q>"UnnamedPlayer"</q>);</td></tr>
+<tr><th id="820">820</th><td>		}</td></tr>
+<tr><th id="821">821</th><td>		<a class="ref" href="../../../include/string.h.html#strcpy" title='strcpy' data-ref="strcpy">strcpy</a>(<a class="local col1 ref" href="#91funname" title='funname' data-ref="91funname">funname</a>, <a class="ref" href="../qcommon/q_shared.h.html#Info_ValueForKey" title='Info_ValueForKey' data-ref="Info_ValueForKey">Info_ValueForKey</a>( <a class="tu ref" href="#g_botInfos" title='g_botInfos' data-use='r' data-ref="g_botInfos">g_botInfos</a>[<a class="local col9 ref" href="#89i" title='i' data-ref="89i">i</a>], <q>"funname"</q> ));</td></tr>
+<tr><th id="822">822</th><td>		<b>if</b> ( !*<a class="local col1 ref" href="#91funname" title='funname' data-ref="91funname">funname</a> ) {</td></tr>
+<tr><th id="823">823</th><td>			<a class="ref" href="../../../include/string.h.html#strcpy" title='strcpy' data-ref="strcpy">strcpy</a>(<a class="local col1 ref" href="#91funname" title='funname' data-ref="91funname">funname</a>, <q>""</q>);</td></tr>
+<tr><th id="824">824</th><td>		}</td></tr>
+<tr><th id="825">825</th><td>		<a class="ref" href="../../../include/string.h.html#strcpy" title='strcpy' data-ref="strcpy">strcpy</a>(<a class="local col2 ref" href="#92model" title='model' data-ref="92model">model</a>, <a class="ref" href="../qcommon/q_shared.h.html#Info_ValueForKey" title='Info_ValueForKey' data-ref="Info_ValueForKey">Info_ValueForKey</a>( <a class="tu ref" href="#g_botInfos" title='g_botInfos' data-use='r' data-ref="g_botInfos">g_botInfos</a>[<a class="local col9 ref" href="#89i" title='i' data-ref="89i">i</a>], <q>"model"</q> ));</td></tr>
+<tr><th id="826">826</th><td>		<b>if</b> ( !*<a class="local col2 ref" href="#92model" title='model' data-ref="92model">model</a> ) {</td></tr>
+<tr><th id="827">827</th><td>			<a class="ref" href="../../../include/string.h.html#strcpy" title='strcpy' data-ref="strcpy">strcpy</a>(<a class="local col2 ref" href="#92model" title='model' data-ref="92model">model</a>, <q>"visor/default"</q>);</td></tr>
+<tr><th id="828">828</th><td>		}</td></tr>
+<tr><th id="829">829</th><td>		<a class="ref" href="../../../include/string.h.html#strcpy" title='strcpy' data-ref="strcpy">strcpy</a>(<a class="local col3 ref" href="#93aifile" title='aifile' data-ref="93aifile">aifile</a>, <a class="ref" href="../qcommon/q_shared.h.html#Info_ValueForKey" title='Info_ValueForKey' data-ref="Info_ValueForKey">Info_ValueForKey</a>( <a class="tu ref" href="#g_botInfos" title='g_botInfos' data-use='r' data-ref="g_botInfos">g_botInfos</a>[<a class="local col9 ref" href="#89i" title='i' data-ref="89i">i</a>], <q>"aifile"</q>));</td></tr>
+<tr><th id="830">830</th><td>		<b>if</b> (!*<a class="local col3 ref" href="#93aifile" title='aifile' data-ref="93aifile">aifile</a> ) {</td></tr>
+<tr><th id="831">831</th><td>			<a class="ref" href="../../../include/string.h.html#strcpy" title='strcpy' data-ref="strcpy">strcpy</a>(<a class="local col3 ref" href="#93aifile" title='aifile' data-ref="93aifile">aifile</a>, <q>"bots/default_c.c"</q>);</td></tr>
+<tr><th id="832">832</th><td>		}</td></tr>
+<tr><th id="833">833</th><td>		<a class="ref" href="g_local.h.html#trap_Print" title='trap_Print' data-ref="trap_Print">trap_Print</a>(<a class="ref" href="../qcommon/q_shared.h.html#va" title='va' data-ref="va">va</a>(<q>"%-16s %-16s %-20s %-20s\n"</q>, <a class="local col0 ref" href="#90name" title='name' data-ref="90name">name</a>, <a class="local col2 ref" href="#92model" title='model' data-ref="92model">model</a>, <a class="local col3 ref" href="#93aifile" title='aifile' data-ref="93aifile">aifile</a>, <a class="local col1 ref" href="#91funname" title='funname' data-ref="91funname">funname</a>));</td></tr>
+<tr><th id="834">834</th><td>	}</td></tr>
+<tr><th id="835">835</th><td>}</td></tr>
+<tr><th id="836">836</th><td></td></tr>
+<tr><th id="837">837</th><td></td></tr>
+<tr><th id="838">838</th><td><i  data-doc="G_SpawnBots">/*</i></td></tr>
+<tr><th id="839">839</th><td><i  data-doc="G_SpawnBots">===============</i></td></tr>
+<tr><th id="840">840</th><td><i  data-doc="G_SpawnBots">G_SpawnBots</i></td></tr>
+<tr><th id="841">841</th><td><i  data-doc="G_SpawnBots">===============</i></td></tr>
+<tr><th id="842">842</th><td><i  data-doc="G_SpawnBots">*/</i></td></tr>
+<tr><th id="843">843</th><td><em>static</em> <em>void</em> <dfn class="tu decl def" id="G_SpawnBots" title='G_SpawnBots' data-type='void G_SpawnBots(char * botList, int baseDelay)' data-ref="G_SpawnBots">G_SpawnBots</dfn>( <em>char</em> *<dfn class="local col4 decl" id="94botList" title='botList' data-type='char *' data-ref="94botList">botList</dfn>, <em>int</em> <dfn class="local col5 decl" id="95baseDelay" title='baseDelay' data-type='int' data-ref="95baseDelay">baseDelay</dfn> ) {</td></tr>
+<tr><th id="844">844</th><td>	<em>char</em>		*<dfn class="local col6 decl" id="96bot" title='bot' data-type='char *' data-ref="96bot">bot</dfn>;</td></tr>
+<tr><th id="845">845</th><td>	<em>char</em>		*<dfn class="local col7 decl" id="97p" title='p' data-type='char *' data-ref="97p">p</dfn>;</td></tr>
+<tr><th id="846">846</th><td>	<em>float</em>		<dfn class="local col8 decl" id="98skill" title='skill' data-type='float' data-ref="98skill">skill</dfn>;</td></tr>
+<tr><th id="847">847</th><td>	<em>int</em>			<dfn class="local col9 decl" id="99delay" title='delay' data-type='int' data-ref="99delay">delay</dfn>;</td></tr>
+<tr><th id="848">848</th><td>	<em>char</em>		<dfn class="local col0 decl" id="100bots" title='bots' data-type='char [1024]' data-ref="100bots">bots</dfn>[<a class="macro" href="../qcommon/q_shared.h.html#249" title="1024" data-ref="_M/MAX_INFO_VALUE">MAX_INFO_VALUE</a>];</td></tr>
+<tr><th id="849">849</th><td></td></tr>
+<tr><th id="850">850</th><td>	<a class="ref" href="#podium1" title='podium1' data-ref="podium1">podium1</a> = <span class="macro" title="((void*)0)" data-ref="_M/NULL">NULL</span>;</td></tr>
+<tr><th id="851">851</th><td>	<a class="ref" href="#podium2" title='podium2' data-ref="podium2">podium2</a> = <span class="macro" title="((void*)0)" data-ref="_M/NULL">NULL</span>;</td></tr>
+<tr><th id="852">852</th><td>	<a class="ref" href="#podium3" title='podium3' data-ref="podium3">podium3</a> = <span class="macro" title="((void*)0)" data-ref="_M/NULL">NULL</span>;</td></tr>
+<tr><th id="853">853</th><td></td></tr>
+<tr><th id="854">854</th><td>	<a class="local col8 ref" href="#98skill" title='skill' data-ref="98skill">skill</a> = <a class="ref" href="#trap_Cvar_VariableValue" title='trap_Cvar_VariableValue' data-ref="trap_Cvar_VariableValue">trap_Cvar_VariableValue</a>( <q>"g_spSkill"</q> );</td></tr>
+<tr><th id="855">855</th><td>	<b>if</b>( <a class="local col8 ref" href="#98skill" title='skill' data-ref="98skill">skill</a> &lt; <var>1</var> ) {</td></tr>
+<tr><th id="856">856</th><td>		<a class="ref" href="g_local.h.html#trap_Cvar_Set" title='trap_Cvar_Set' data-ref="trap_Cvar_Set">trap_Cvar_Set</a>( <q>"g_spSkill"</q>, <q>"1"</q> );</td></tr>
+<tr><th id="857">857</th><td>		<a class="local col8 ref" href="#98skill" title='skill' data-ref="98skill">skill</a> = <var>1</var>;</td></tr>
+<tr><th id="858">858</th><td>	}</td></tr>
+<tr><th id="859">859</th><td>	<b>else</b> <b>if</b> ( <a class="local col8 ref" href="#98skill" title='skill' data-ref="98skill">skill</a> &gt; <var>5</var> ) {</td></tr>
+<tr><th id="860">860</th><td>		<a class="ref" href="g_local.h.html#trap_Cvar_Set" title='trap_Cvar_Set' data-ref="trap_Cvar_Set">trap_Cvar_Set</a>( <q>"g_spSkill"</q>, <q>"5"</q> );</td></tr>
+<tr><th id="861">861</th><td>		<a class="local col8 ref" href="#98skill" title='skill' data-ref="98skill">skill</a> = <var>5</var>;</td></tr>
+<tr><th id="862">862</th><td>	}</td></tr>
+<tr><th id="863">863</th><td></td></tr>
+<tr><th id="864">864</th><td>	<a class="ref" href="../qcommon/q_shared.h.html#Q_strncpyz" title='Q_strncpyz' data-ref="Q_strncpyz">Q_strncpyz</a>( <a class="local col0 ref" href="#100bots" title='bots' data-ref="100bots">bots</a>, <a class="local col4 ref" href="#94botList" title='botList' data-ref="94botList">botList</a>, <b>sizeof</b>(<a class="local col0 ref" href="#100bots" title='bots' data-ref="100bots">bots</a>) );</td></tr>
+<tr><th id="865">865</th><td>	<a class="local col7 ref" href="#97p" title='p' data-ref="97p">p</a> = &amp;<a class="local col0 ref" href="#100bots" title='bots' data-ref="100bots">bots</a>[<var>0</var>];</td></tr>
+<tr><th id="866">866</th><td>	<a class="local col9 ref" href="#99delay" title='delay' data-ref="99delay">delay</a> = <a class="local col5 ref" href="#95baseDelay" title='baseDelay' data-ref="95baseDelay">baseDelay</a>;</td></tr>
+<tr><th id="867">867</th><td>	<b>while</b>( *<a class="local col7 ref" href="#97p" title='p' data-ref="97p">p</a> ) {</td></tr>
+<tr><th id="868">868</th><td>		<i>//skip spaces</i></td></tr>
+<tr><th id="869">869</th><td>		<b>while</b>( *<a class="local col7 ref" href="#97p" title='p' data-ref="97p">p</a> &amp;&amp; *<a class="local col7 ref" href="#97p" title='p' data-ref="97p">p</a> == <kbd>' '</kbd> ) {</td></tr>
+<tr><th id="870">870</th><td>			<a class="local col7 ref" href="#97p" title='p' data-ref="97p">p</a>++;</td></tr>
+<tr><th id="871">871</th><td>		}</td></tr>
+<tr><th id="872">872</th><td>		<b>if</b>( !*<a class="local col7 ref" href="#97p" title='p' data-ref="97p">p</a> ) {</td></tr>
+<tr><th id="873">873</th><td>			<b>break</b>;</td></tr>
+<tr><th id="874">874</th><td>		}</td></tr>
+<tr><th id="875">875</th><td></td></tr>
+<tr><th id="876">876</th><td>		<i>// mark start of bot name</i></td></tr>
+<tr><th id="877">877</th><td>		<a class="local col6 ref" href="#96bot" title='bot' data-ref="96bot">bot</a> = <a class="local col7 ref" href="#97p" title='p' data-ref="97p">p</a>;</td></tr>
+<tr><th id="878">878</th><td></td></tr>
+<tr><th id="879">879</th><td>		<i>// skip until space of null</i></td></tr>
+<tr><th id="880">880</th><td>		<b>while</b>( *<a class="local col7 ref" href="#97p" title='p' data-ref="97p">p</a> &amp;&amp; *<a class="local col7 ref" href="#97p" title='p' data-ref="97p">p</a> != <kbd>' '</kbd> ) {</td></tr>
+<tr><th id="881">881</th><td>			<a class="local col7 ref" href="#97p" title='p' data-ref="97p">p</a>++;</td></tr>
+<tr><th id="882">882</th><td>		}</td></tr>
+<tr><th id="883">883</th><td>		<b>if</b>( *<a class="local col7 ref" href="#97p" title='p' data-ref="97p">p</a> ) {</td></tr>
+<tr><th id="884">884</th><td>			*<a class="local col7 ref" href="#97p" title='p' data-ref="97p">p</a>++ = <var>0</var>;</td></tr>
+<tr><th id="885">885</th><td>		}</td></tr>
+<tr><th id="886">886</th><td></td></tr>
+<tr><th id="887">887</th><td>		<i>// we must add the bot this way, calling G_AddBot directly at this stage</i></td></tr>
+<tr><th id="888">888</th><td><i>		// does "Bad Things"</i></td></tr>
+<tr><th id="889">889</th><td>		<a class="ref" href="g_local.h.html#trap_SendConsoleCommand" title='trap_SendConsoleCommand' data-ref="trap_SendConsoleCommand">trap_SendConsoleCommand</a>( <a class="enum" href="../qcommon/q_shared.h.html#EXEC_INSERT" title='EXEC_INSERT' data-ref="EXEC_INSERT">EXEC_INSERT</a>, <a class="ref" href="../qcommon/q_shared.h.html#va" title='va' data-ref="va">va</a>(<q>"addbot %s %f free %i\n"</q>, <a class="local col6 ref" href="#96bot" title='bot' data-ref="96bot">bot</a>, <a class="local col8 ref" href="#98skill" title='skill' data-ref="98skill">skill</a>, <a class="local col9 ref" href="#99delay" title='delay' data-ref="99delay">delay</a>) );</td></tr>
+<tr><th id="890">890</th><td></td></tr>
+<tr><th id="891">891</th><td>		<a class="local col9 ref" href="#99delay" title='delay' data-ref="99delay">delay</a> += <a class="macro" href="#37" title="1500" data-ref="_M/BOT_BEGIN_DELAY_INCREMENT">BOT_BEGIN_DELAY_INCREMENT</a>;</td></tr>
+<tr><th id="892">892</th><td>	}</td></tr>
+<tr><th id="893">893</th><td>}</td></tr>
+<tr><th id="894">894</th><td></td></tr>
+<tr><th id="895">895</th><td></td></tr>
+<tr><th id="896">896</th><td><i  data-doc="G_LoadBotsFromFile">/*</i></td></tr>
+<tr><th id="897">897</th><td><i  data-doc="G_LoadBotsFromFile">===============</i></td></tr>
+<tr><th id="898">898</th><td><i  data-doc="G_LoadBotsFromFile">G_LoadBotsFromFile</i></td></tr>
+<tr><th id="899">899</th><td><i  data-doc="G_LoadBotsFromFile">===============</i></td></tr>
+<tr><th id="900">900</th><td><i  data-doc="G_LoadBotsFromFile">*/</i></td></tr>
+<tr><th id="901">901</th><td><em>static</em> <em>void</em> <dfn class="tu decl def" id="G_LoadBotsFromFile" title='G_LoadBotsFromFile' data-type='void G_LoadBotsFromFile(char * filename)' data-ref="G_LoadBotsFromFile">G_LoadBotsFromFile</dfn>( <em>char</em> *<dfn class="local col1 decl" id="101filename" title='filename' data-type='char *' data-ref="101filename">filename</dfn> ) {</td></tr>
+<tr><th id="902">902</th><td>	<em>int</em>				<dfn class="local col2 decl" id="102len" title='len' data-type='int' data-ref="102len">len</dfn>;</td></tr>
+<tr><th id="903">903</th><td>	<a class="typedef" href="../qcommon/q_shared.h.html#fileHandle_t" title='fileHandle_t' data-type='int' data-ref="fileHandle_t">fileHandle_t</a>	<dfn class="local col3 decl" id="103f" title='f' data-type='fileHandle_t' data-ref="103f">f</dfn>;</td></tr>
+<tr><th id="904">904</th><td>	<em>char</em>			<dfn class="local col4 decl" id="104buf" title='buf' data-type='char [8192]' data-ref="104buf">buf</dfn>[<a class="macro" href="bg_public.h.html#714" title="8192" data-ref="_M/MAX_BOTS_TEXT">MAX_BOTS_TEXT</a>];</td></tr>
+<tr><th id="905">905</th><td></td></tr>
+<tr><th id="906">906</th><td>	<a class="local col2 ref" href="#102len" title='len' data-ref="102len">len</a> = <a class="ref" href="g_local.h.html#trap_FS_FOpenFile" title='trap_FS_FOpenFile' data-ref="trap_FS_FOpenFile">trap_FS_FOpenFile</a>( <a class="local col1 ref" href="#101filename" title='filename' data-ref="101filename">filename</a>, &amp;<a class="local col3 ref" href="#103f" title='f' data-ref="103f">f</a>, <a class="enum" href="../qcommon/q_shared.h.html#FS_READ" title='FS_READ' data-ref="FS_READ">FS_READ</a> );</td></tr>
+<tr><th id="907">907</th><td>	<b>if</b> ( !<a class="local col3 ref" href="#103f" title='f' data-ref="103f">f</a> ) {</td></tr>
+<tr><th id="908">908</th><td>		<a class="ref" href="g_local.h.html#trap_Print" title='trap_Print' data-ref="trap_Print">trap_Print</a>( <a class="ref" href="../qcommon/q_shared.h.html#va" title='va' data-ref="va">va</a>( <a class="macro" href="../qcommon/q_shared.h.html#423" title="&quot;^1&quot;" data-ref="_M/S_COLOR_RED">S_COLOR_RED</a> <q>"file not found: %s\n"</q>, <a class="local col1 ref" href="#101filename" title='filename' data-ref="101filename">filename</a> ) );</td></tr>
+<tr><th id="909">909</th><td>		<b>return</b>;</td></tr>
+<tr><th id="910">910</th><td>	}</td></tr>
+<tr><th id="911">911</th><td>	<b>if</b> ( <a class="local col2 ref" href="#102len" title='len' data-ref="102len">len</a> &gt;= <a class="macro" href="bg_public.h.html#714" title="8192" data-ref="_M/MAX_BOTS_TEXT">MAX_BOTS_TEXT</a> ) {</td></tr>
+<tr><th id="912">912</th><td>		<a class="ref" href="g_local.h.html#trap_Print" title='trap_Print' data-ref="trap_Print">trap_Print</a>( <a class="ref" href="../qcommon/q_shared.h.html#va" title='va' data-ref="va">va</a>( <a class="macro" href="../qcommon/q_shared.h.html#423" title="&quot;^1&quot;" data-ref="_M/S_COLOR_RED">S_COLOR_RED</a> <q>"file too large: %s is %i, max allowed is %i\n"</q>, <a class="local col1 ref" href="#101filename" title='filename' data-ref="101filename">filename</a>, <a class="local col2 ref" href="#102len" title='len' data-ref="102len">len</a>, <a class="macro" href="bg_public.h.html#714" title="8192" data-ref="_M/MAX_BOTS_TEXT">MAX_BOTS_TEXT</a> ) );</td></tr>
+<tr><th id="913">913</th><td>		<a class="ref" href="g_local.h.html#trap_FS_FCloseFile" title='trap_FS_FCloseFile' data-ref="trap_FS_FCloseFile">trap_FS_FCloseFile</a>( <a class="local col3 ref" href="#103f" title='f' data-ref="103f">f</a> );</td></tr>
+<tr><th id="914">914</th><td>		<b>return</b>;</td></tr>
+<tr><th id="915">915</th><td>	}</td></tr>
+<tr><th id="916">916</th><td></td></tr>
+<tr><th id="917">917</th><td>	<a class="ref" href="g_local.h.html#trap_FS_Read" title='trap_FS_Read' data-ref="trap_FS_Read">trap_FS_Read</a>( <a class="local col4 ref" href="#104buf" title='buf' data-ref="104buf">buf</a>, <a class="local col2 ref" href="#102len" title='len' data-ref="102len">len</a>, <a class="local col3 ref" href="#103f" title='f' data-ref="103f">f</a> );</td></tr>
+<tr><th id="918">918</th><td>	<a class="local col4 ref" href="#104buf" title='buf' data-ref="104buf">buf</a>[<a class="local col2 ref" href="#102len" title='len' data-ref="102len">len</a>] = <var>0</var>;</td></tr>
+<tr><th id="919">919</th><td>	<a class="ref" href="g_local.h.html#trap_FS_FCloseFile" title='trap_FS_FCloseFile' data-ref="trap_FS_FCloseFile">trap_FS_FCloseFile</a>( <a class="local col3 ref" href="#103f" title='f' data-ref="103f">f</a> );</td></tr>
+<tr><th id="920">920</th><td></td></tr>
+<tr><th id="921">921</th><td>	<a class="tu ref" href="#g_numBots" title='g_numBots' data-use='w' data-ref="g_numBots">g_numBots</a> += <a class="ref" href="#G_ParseInfos" title='G_ParseInfos' data-ref="G_ParseInfos">G_ParseInfos</a>( <a class="local col4 ref" href="#104buf" title='buf' data-ref="104buf">buf</a>, <a class="macro" href="bg_public.h.html#713" title="1024" data-ref="_M/MAX_BOTS">MAX_BOTS</a> - <a class="tu ref" href="#g_numBots" title='g_numBots' data-use='r' data-ref="g_numBots">g_numBots</a>, &amp;<a class="tu ref" href="#g_botInfos" title='g_botInfos' data-use='a' data-ref="g_botInfos">g_botInfos</a>[<a class="tu ref" href="#g_numBots" title='g_numBots' data-use='r' data-ref="g_numBots">g_numBots</a>] );</td></tr>
+<tr><th id="922">922</th><td>}</td></tr>
+<tr><th id="923">923</th><td></td></tr>
+<tr><th id="924">924</th><td><i  data-doc="G_LoadBots">/*</i></td></tr>
+<tr><th id="925">925</th><td><i  data-doc="G_LoadBots">===============</i></td></tr>
+<tr><th id="926">926</th><td><i  data-doc="G_LoadBots">G_LoadBots</i></td></tr>
+<tr><th id="927">927</th><td><i  data-doc="G_LoadBots">===============</i></td></tr>
+<tr><th id="928">928</th><td><i  data-doc="G_LoadBots">*/</i></td></tr>
+<tr><th id="929">929</th><td><em>static</em> <em>void</em> <dfn class="tu decl def" id="G_LoadBots" title='G_LoadBots' data-type='void G_LoadBots()' data-ref="G_LoadBots">G_LoadBots</dfn>( <em>void</em> ) {</td></tr>
+<tr><th id="930">930</th><td>	<a class="typedef" href="../qcommon/q_shared.h.html#vmCvar_t" title='vmCvar_t' data-type='struct vmCvar_t' data-ref="vmCvar_t">vmCvar_t</a>	<dfn class="local col5 decl" id="105botsFile" title='botsFile' data-type='vmCvar_t' data-ref="105botsFile">botsFile</dfn>;</td></tr>
+<tr><th id="931">931</th><td>	<em>int</em>			<dfn class="local col6 decl" id="106numdirs" title='numdirs' data-type='int' data-ref="106numdirs">numdirs</dfn>;</td></tr>
+<tr><th id="932">932</th><td>	<em>char</em>		<dfn class="local col7 decl" id="107filename" title='filename' data-type='char [128]' data-ref="107filename">filename</dfn>[<var>128</var>];</td></tr>
+<tr><th id="933">933</th><td>	<em>char</em>		<dfn class="local col8 decl" id="108dirlist" title='dirlist' data-type='char [1024]' data-ref="108dirlist">dirlist</dfn>[<var>1024</var>];</td></tr>
+<tr><th id="934">934</th><td>	<em>char</em>*		<dfn class="local col9 decl" id="109dirptr" title='dirptr' data-type='char *' data-ref="109dirptr">dirptr</dfn>;</td></tr>
+<tr><th id="935">935</th><td>	<em>int</em>			<dfn class="local col0 decl" id="110i" title='i' data-type='int' data-ref="110i">i</dfn>;</td></tr>
+<tr><th id="936">936</th><td>	<em>int</em>			<dfn class="local col1 decl" id="111dirlen" title='dirlen' data-type='int' data-ref="111dirlen">dirlen</dfn>;</td></tr>
+<tr><th id="937">937</th><td></td></tr>
+<tr><th id="938">938</th><td>	<b>if</b> ( !<a class="ref" href="g_local.h.html#trap_Cvar_VariableIntegerValue" title='trap_Cvar_VariableIntegerValue' data-ref="trap_Cvar_VariableIntegerValue">trap_Cvar_VariableIntegerValue</a>( <q>"bot_enable"</q> ) ) {</td></tr>
+<tr><th id="939">939</th><td>		<b>return</b>;</td></tr>
+<tr><th id="940">940</th><td>	}</td></tr>
+<tr><th id="941">941</th><td></td></tr>
+<tr><th id="942">942</th><td>	<a class="tu ref" href="#g_numBots" title='g_numBots' data-use='w' data-ref="g_numBots">g_numBots</a> = <var>0</var>;</td></tr>
+<tr><th id="943">943</th><td></td></tr>
+<tr><th id="944">944</th><td>	<a class="ref" href="g_local.h.html#trap_Cvar_Register" title='trap_Cvar_Register' data-ref="trap_Cvar_Register">trap_Cvar_Register</a>( &amp;<a class="local col5 ref" href="#105botsFile" title='botsFile' data-ref="105botsFile">botsFile</a>, <q>"g_botsFile"</q>, <q>""</q>, <a class="macro" href="../qcommon/q_shared.h.html#900" title="0x0010" data-ref="_M/CVAR_INIT">CVAR_INIT</a>|<a class="macro" href="../qcommon/q_shared.h.html#907" title="0x0040" data-ref="_M/CVAR_ROM">CVAR_ROM</a> );</td></tr>
+<tr><th id="945">945</th><td>	<b>if</b>( *<a class="local col5 ref" href="#105botsFile" title='botsFile' data-ref="105botsFile">botsFile</a>.<a class="ref" href="../qcommon/q_shared.h.html#(anonymous)::string" title='(anonymous struct)::string' data-ref="(anonymous)::string">string</a> ) {</td></tr>
+<tr><th id="946">946</th><td>		<a class="tu ref" href="#G_LoadBotsFromFile" title='G_LoadBotsFromFile' data-use='c' data-ref="G_LoadBotsFromFile">G_LoadBotsFromFile</a>(<a class="local col5 ref" href="#105botsFile" title='botsFile' data-ref="105botsFile">botsFile</a>.<a class="ref" href="../qcommon/q_shared.h.html#(anonymous)::string" title='(anonymous struct)::string' data-ref="(anonymous)::string">string</a>);</td></tr>
+<tr><th id="947">947</th><td>	}</td></tr>
+<tr><th id="948">948</th><td>	<b>else</b> {</td></tr>
+<tr><th id="949">949</th><td>		<a class="tu ref" href="#G_LoadBotsFromFile" title='G_LoadBotsFromFile' data-use='c' data-ref="G_LoadBotsFromFile">G_LoadBotsFromFile</a>(<q>"scripts/bots.txt"</q>);</td></tr>
+<tr><th id="950">950</th><td>	}</td></tr>
+<tr><th id="951">951</th><td></td></tr>
+<tr><th id="952">952</th><td>	<i>// get all bots from .bot files</i></td></tr>
+<tr><th id="953">953</th><td>	<a class="local col6 ref" href="#106numdirs" title='numdirs' data-ref="106numdirs">numdirs</a> = <a class="ref" href="g_local.h.html#trap_FS_GetFileList" title='trap_FS_GetFileList' data-ref="trap_FS_GetFileList">trap_FS_GetFileList</a>(<q>"scripts"</q>, <q>".bot"</q>, <a class="local col8 ref" href="#108dirlist" title='dirlist' data-ref="108dirlist">dirlist</a>, <var>1024</var> );</td></tr>
+<tr><th id="954">954</th><td>	<a class="local col9 ref" href="#109dirptr" title='dirptr' data-ref="109dirptr">dirptr</a>  = <a class="local col8 ref" href="#108dirlist" title='dirlist' data-ref="108dirlist">dirlist</a>;</td></tr>
+<tr><th id="955">955</th><td>	<b>for</b> (<a class="local col0 ref" href="#110i" title='i' data-ref="110i">i</a> = <var>0</var>; <a class="local col0 ref" href="#110i" title='i' data-ref="110i">i</a> &lt; <a class="local col6 ref" href="#106numdirs" title='numdirs' data-ref="106numdirs">numdirs</a>; <a class="local col0 ref" href="#110i" title='i' data-ref="110i">i</a>++, <a class="local col9 ref" href="#109dirptr" title='dirptr' data-ref="109dirptr">dirptr</a> += <a class="local col1 ref" href="#111dirlen" title='dirlen' data-ref="111dirlen">dirlen</a>+<var>1</var>) {</td></tr>
+<tr><th id="956">956</th><td>		<a class="local col1 ref" href="#111dirlen" title='dirlen' data-ref="111dirlen">dirlen</a> = <a class="ref" href="../../../include/string.h.html#strlen" title='strlen' data-ref="strlen">strlen</a>(<a class="local col9 ref" href="#109dirptr" title='dirptr' data-ref="109dirptr">dirptr</a>);</td></tr>
+<tr><th id="957">957</th><td>		<a class="ref" href="../../../include/string.h.html#strcpy" title='strcpy' data-ref="strcpy">strcpy</a>(<a class="local col7 ref" href="#107filename" title='filename' data-ref="107filename">filename</a>, <q>"scripts/"</q>);</td></tr>
+<tr><th id="958">958</th><td>		<a class="ref" href="../../../include/string.h.html#strcat" title='strcat' data-ref="strcat">strcat</a>(<a class="local col7 ref" href="#107filename" title='filename' data-ref="107filename">filename</a>, <a class="local col9 ref" href="#109dirptr" title='dirptr' data-ref="109dirptr">dirptr</a>);</td></tr>
+<tr><th id="959">959</th><td>		<a class="tu ref" href="#G_LoadBotsFromFile" title='G_LoadBotsFromFile' data-use='c' data-ref="G_LoadBotsFromFile">G_LoadBotsFromFile</a>(<a class="local col7 ref" href="#107filename" title='filename' data-ref="107filename">filename</a>);</td></tr>
+<tr><th id="960">960</th><td>	}</td></tr>
+<tr><th id="961">961</th><td>	<a class="ref" href="g_local.h.html#trap_Print" title='trap_Print' data-ref="trap_Print">trap_Print</a>( <a class="ref" href="../qcommon/q_shared.h.html#va" title='va' data-ref="va">va</a>( <q>"%i bots parsed\n"</q>, <a class="tu ref" href="#g_numBots" title='g_numBots' data-use='r' data-ref="g_numBots">g_numBots</a> ) );</td></tr>
+<tr><th id="962">962</th><td>}</td></tr>
+<tr><th id="963">963</th><td></td></tr>
+<tr><th id="964">964</th><td></td></tr>
+<tr><th id="965">965</th><td></td></tr>
+<tr><th id="966">966</th><td><i>/*</i></td></tr>
+<tr><th id="967">967</th><td><i>===============</i></td></tr>
+<tr><th id="968">968</th><td><i>G_GetBotInfoByNumber</i></td></tr>
+<tr><th id="969">969</th><td><i>===============</i></td></tr>
+<tr><th id="970">970</th><td><i>*/</i></td></tr>
+<tr><th id="971">971</th><td><em>char</em> *<dfn class="decl def" id="G_GetBotInfoByNumber" title='G_GetBotInfoByNumber' data-ref="G_GetBotInfoByNumber">G_GetBotInfoByNumber</dfn>( <em>int</em> <dfn class="local col2 decl" id="112num" title='num' data-type='int' data-ref="112num">num</dfn> ) {</td></tr>
+<tr><th id="972">972</th><td>	<b>if</b>( <a class="local col2 ref" href="#112num" title='num' data-ref="112num">num</a> &lt; <var>0</var> || <a class="local col2 ref" href="#112num" title='num' data-ref="112num">num</a> &gt;= <a class="tu ref" href="#g_numBots" title='g_numBots' data-use='r' data-ref="g_numBots">g_numBots</a> ) {</td></tr>
+<tr><th id="973">973</th><td>		<a class="ref" href="g_local.h.html#trap_Print" title='trap_Print' data-ref="trap_Print">trap_Print</a>( <a class="ref" href="../qcommon/q_shared.h.html#va" title='va' data-ref="va">va</a>( <a class="macro" href="../qcommon/q_shared.h.html#423" title="&quot;^1&quot;" data-ref="_M/S_COLOR_RED">S_COLOR_RED</a> <q>"Invalid bot number: %i\n"</q>, <a class="local col2 ref" href="#112num" title='num' data-ref="112num">num</a> ) );</td></tr>
+<tr><th id="974">974</th><td>		<b>return</b> <span class="macro" title="((void*)0)" data-ref="_M/NULL">NULL</span>;</td></tr>
+<tr><th id="975">975</th><td>	}</td></tr>
+<tr><th id="976">976</th><td>	<b>return</b> <a class="tu ref" href="#g_botInfos" title='g_botInfos' data-use='r' data-ref="g_botInfos">g_botInfos</a>[<a class="local col2 ref" href="#112num" title='num' data-ref="112num">num</a>];</td></tr>
+<tr><th id="977">977</th><td>}</td></tr>
+<tr><th id="978">978</th><td></td></tr>
+<tr><th id="979">979</th><td></td></tr>
+<tr><th id="980">980</th><td><i>/*</i></td></tr>
+<tr><th id="981">981</th><td><i>===============</i></td></tr>
+<tr><th id="982">982</th><td><i>G_GetBotInfoByName</i></td></tr>
+<tr><th id="983">983</th><td><i>===============</i></td></tr>
+<tr><th id="984">984</th><td><i>*/</i></td></tr>
+<tr><th id="985">985</th><td><em>char</em> *<dfn class="decl def" id="G_GetBotInfoByName" title='G_GetBotInfoByName' data-ref="G_GetBotInfoByName">G_GetBotInfoByName</dfn>( <em>const</em> <em>char</em> *<dfn class="local col3 decl" id="113name" title='name' data-type='const char *' data-ref="113name">name</dfn> ) {</td></tr>
+<tr><th id="986">986</th><td>	<em>int</em>		<dfn class="local col4 decl" id="114n" title='n' data-type='int' data-ref="114n">n</dfn>;</td></tr>
+<tr><th id="987">987</th><td>	<em>char</em>	*<dfn class="local col5 decl" id="115value" title='value' data-type='char *' data-ref="115value">value</dfn>;</td></tr>
+<tr><th id="988">988</th><td></td></tr>
+<tr><th id="989">989</th><td>	<b>for</b> ( <a class="local col4 ref" href="#114n" title='n' data-ref="114n">n</a> = <var>0</var>; <a class="local col4 ref" href="#114n" title='n' data-ref="114n">n</a> &lt; <a class="tu ref" href="#g_numBots" title='g_numBots' data-use='r' data-ref="g_numBots">g_numBots</a> ; <a class="local col4 ref" href="#114n" title='n' data-ref="114n">n</a>++ ) {</td></tr>
+<tr><th id="990">990</th><td>		<a class="local col5 ref" href="#115value" title='value' data-ref="115value">value</a> = <a class="ref" href="../qcommon/q_shared.h.html#Info_ValueForKey" title='Info_ValueForKey' data-ref="Info_ValueForKey">Info_ValueForKey</a>( <a class="tu ref" href="#g_botInfos" title='g_botInfos' data-use='r' data-ref="g_botInfos">g_botInfos</a>[<a class="local col4 ref" href="#114n" title='n' data-ref="114n">n</a>], <q>"name"</q> );</td></tr>
+<tr><th id="991">991</th><td>		<b>if</b> ( !<a class="ref" href="../qcommon/q_shared.h.html#Q_stricmp" title='Q_stricmp' data-ref="Q_stricmp">Q_stricmp</a>( <a class="local col5 ref" href="#115value" title='value' data-ref="115value">value</a>, <a class="local col3 ref" href="#113name" title='name' data-ref="113name">name</a> ) ) {</td></tr>
+<tr><th id="992">992</th><td>			<b>return</b> <a class="tu ref" href="#g_botInfos" title='g_botInfos' data-use='r' data-ref="g_botInfos">g_botInfos</a>[<a class="local col4 ref" href="#114n" title='n' data-ref="114n">n</a>];</td></tr>
+<tr><th id="993">993</th><td>		}</td></tr>
+<tr><th id="994">994</th><td>	}</td></tr>
+<tr><th id="995">995</th><td></td></tr>
+<tr><th id="996">996</th><td>	<b>return</b> <span class="macro" title="((void*)0)" data-ref="_M/NULL">NULL</span>;</td></tr>
+<tr><th id="997">997</th><td>}</td></tr>
+<tr><th id="998">998</th><td></td></tr>
+<tr><th id="999">999</th><td><i>/*</i></td></tr>
+<tr><th id="1000">1000</th><td><i>===============</i></td></tr>
+<tr><th id="1001">1001</th><td><i>G_InitBots</i></td></tr>
+<tr><th id="1002">1002</th><td><i>===============</i></td></tr>
+<tr><th id="1003">1003</th><td><i>*/</i></td></tr>
+<tr><th id="1004">1004</th><td><em>void</em> <dfn class="decl def" id="G_InitBots" title='G_InitBots' data-ref="G_InitBots">G_InitBots</dfn>( <a class="typedef" href="../qcommon/q_shared.h.html#qboolean" title='qboolean' data-type='enum qboolean' data-ref="qboolean">qboolean</a> <dfn class="local col6 decl" id="116restart" title='restart' data-type='qboolean' data-ref="116restart">restart</dfn> ) {</td></tr>
+<tr><th id="1005">1005</th><td>	<em>int</em>			<dfn class="local col7 decl" id="117fragLimit" title='fragLimit' data-type='int' data-ref="117fragLimit">fragLimit</dfn>;</td></tr>
+<tr><th id="1006">1006</th><td>	<em>int</em>			<dfn class="local col8 decl" id="118timeLimit" title='timeLimit' data-type='int' data-ref="118timeLimit">timeLimit</dfn>;</td></tr>
+<tr><th id="1007">1007</th><td>	<em>const</em> <em>char</em>	*<dfn class="local col9 decl" id="119arenainfo" title='arenainfo' data-type='const char *' data-ref="119arenainfo">arenainfo</dfn>;</td></tr>
+<tr><th id="1008">1008</th><td>	<em>char</em>		*<dfn class="local col0 decl" id="120strValue" title='strValue' data-type='char *' data-ref="120strValue">strValue</dfn>;</td></tr>
+<tr><th id="1009">1009</th><td>	<em>int</em>			<dfn class="local col1 decl" id="121basedelay" title='basedelay' data-type='int' data-ref="121basedelay">basedelay</dfn>;</td></tr>
+<tr><th id="1010">1010</th><td>	<em>char</em>		<dfn class="local col2 decl" id="122map" title='map' data-type='char [64]' data-ref="122map">map</dfn>[<a class="macro" href="../qcommon/q_shared.h.html#256" title="64" data-ref="_M/MAX_QPATH">MAX_QPATH</a>];</td></tr>
+<tr><th id="1011">1011</th><td>	<em>char</em>		<dfn class="local col3 decl" id="123serverinfo" title='serverinfo' data-type='char [1024]' data-ref="123serverinfo">serverinfo</dfn>[<a class="macro" href="../qcommon/q_shared.h.html#247" title="1024" data-ref="_M/MAX_INFO_STRING">MAX_INFO_STRING</a>];</td></tr>
+<tr><th id="1012">1012</th><td></td></tr>
+<tr><th id="1013">1013</th><td>	<a class="tu ref" href="#G_LoadBots" title='G_LoadBots' data-use='c' data-ref="G_LoadBots">G_LoadBots</a>();</td></tr>
+<tr><th id="1014">1014</th><td>	<a class="tu ref" href="#G_LoadArenas" title='G_LoadArenas' data-use='c' data-ref="G_LoadArenas">G_LoadArenas</a>();</td></tr>
+<tr><th id="1015">1015</th><td></td></tr>
+<tr><th id="1016">1016</th><td>	<a class="ref" href="g_local.h.html#trap_Cvar_Register" title='trap_Cvar_Register' data-ref="trap_Cvar_Register">trap_Cvar_Register</a>( &amp;<a class="ref" href="#bot_minplayers" title='bot_minplayers' data-ref="bot_minplayers">bot_minplayers</a>, <q>"bot_minplayers"</q>, <q>"0"</q>, <a class="macro" href="../qcommon/q_shared.h.html#898" title="0x0004" data-ref="_M/CVAR_SERVERINFO">CVAR_SERVERINFO</a> );</td></tr>
+<tr><th id="1017">1017</th><td></td></tr>
+<tr><th id="1018">1018</th><td>	<b>if</b>( <a class="ref" href="g_local.h.html#g_gametype" title='g_gametype' data-ref="g_gametype">g_gametype</a>.<a class="ref" href="../qcommon/q_shared.h.html#(anonymous)::integer" title='(anonymous struct)::integer' data-ref="(anonymous)::integer">integer</a> == <a class="enum" href="bg_public.h.html#GT_SINGLE_PLAYER" title='GT_SINGLE_PLAYER' data-ref="GT_SINGLE_PLAYER">GT_SINGLE_PLAYER</a> ) {</td></tr>
+<tr><th id="1019">1019</th><td>		<a class="ref" href="g_local.h.html#trap_GetServerinfo" title='trap_GetServerinfo' data-ref="trap_GetServerinfo">trap_GetServerinfo</a>( <a class="local col3 ref" href="#123serverinfo" title='serverinfo' data-ref="123serverinfo">serverinfo</a>, <b>sizeof</b>(<a class="local col3 ref" href="#123serverinfo" title='serverinfo' data-ref="123serverinfo">serverinfo</a>) );</td></tr>
+<tr><th id="1020">1020</th><td>		<a class="ref" href="../qcommon/q_shared.h.html#Q_strncpyz" title='Q_strncpyz' data-ref="Q_strncpyz">Q_strncpyz</a>( <a class="local col2 ref" href="#122map" title='map' data-ref="122map">map</a>, <a class="ref" href="../qcommon/q_shared.h.html#Info_ValueForKey" title='Info_ValueForKey' data-ref="Info_ValueForKey">Info_ValueForKey</a>( <a class="local col3 ref" href="#123serverinfo" title='serverinfo' data-ref="123serverinfo">serverinfo</a>, <q>"mapname"</q> ), <b>sizeof</b>(<a class="local col2 ref" href="#122map" title='map' data-ref="122map">map</a>) );</td></tr>
+<tr><th id="1021">1021</th><td>		<a class="local col9 ref" href="#119arenainfo" title='arenainfo' data-ref="119arenainfo">arenainfo</a> = <a class="ref" href="#G_GetArenaInfoByMap" title='G_GetArenaInfoByMap' data-ref="G_GetArenaInfoByMap">G_GetArenaInfoByMap</a>( <a class="local col2 ref" href="#122map" title='map' data-ref="122map">map</a> );</td></tr>
+<tr><th id="1022">1022</th><td>		<b>if</b> ( !<a class="local col9 ref" href="#119arenainfo" title='arenainfo' data-ref="119arenainfo">arenainfo</a> ) {</td></tr>
+<tr><th id="1023">1023</th><td>			<b>return</b>;</td></tr>
+<tr><th id="1024">1024</th><td>		}</td></tr>
+<tr><th id="1025">1025</th><td></td></tr>
+<tr><th id="1026">1026</th><td>		<a class="local col0 ref" href="#120strValue" title='strValue' data-ref="120strValue">strValue</a> = <a class="ref" href="../qcommon/q_shared.h.html#Info_ValueForKey" title='Info_ValueForKey' data-ref="Info_ValueForKey">Info_ValueForKey</a>( <a class="local col9 ref" href="#119arenainfo" title='arenainfo' data-ref="119arenainfo">arenainfo</a>, <q>"fraglimit"</q> );</td></tr>
+<tr><th id="1027">1027</th><td>		<a class="local col7 ref" href="#117fragLimit" title='fragLimit' data-ref="117fragLimit">fragLimit</a> = <a class="ref" href="../../../include/stdlib.h.html#atoi" title='atoi' data-ref="atoi">atoi</a>( <a class="local col0 ref" href="#120strValue" title='strValue' data-ref="120strValue">strValue</a> );</td></tr>
+<tr><th id="1028">1028</th><td>		<b>if</b> ( <a class="local col7 ref" href="#117fragLimit" title='fragLimit' data-ref="117fragLimit">fragLimit</a> ) {</td></tr>
+<tr><th id="1029">1029</th><td>			<a class="ref" href="g_local.h.html#trap_Cvar_Set" title='trap_Cvar_Set' data-ref="trap_Cvar_Set">trap_Cvar_Set</a>( <q>"fraglimit"</q>, <a class="local col0 ref" href="#120strValue" title='strValue' data-ref="120strValue">strValue</a> );</td></tr>
+<tr><th id="1030">1030</th><td>		}</td></tr>
+<tr><th id="1031">1031</th><td>		<b>else</b> {</td></tr>
+<tr><th id="1032">1032</th><td>			<a class="ref" href="g_local.h.html#trap_Cvar_Set" title='trap_Cvar_Set' data-ref="trap_Cvar_Set">trap_Cvar_Set</a>( <q>"fraglimit"</q>, <q>"0"</q> );</td></tr>
+<tr><th id="1033">1033</th><td>		}</td></tr>
+<tr><th id="1034">1034</th><td></td></tr>
+<tr><th id="1035">1035</th><td>		<a class="local col0 ref" href="#120strValue" title='strValue' data-ref="120strValue">strValue</a> = <a class="ref" href="../qcommon/q_shared.h.html#Info_ValueForKey" title='Info_ValueForKey' data-ref="Info_ValueForKey">Info_ValueForKey</a>( <a class="local col9 ref" href="#119arenainfo" title='arenainfo' data-ref="119arenainfo">arenainfo</a>, <q>"timelimit"</q> );</td></tr>
+<tr><th id="1036">1036</th><td>		<a class="local col8 ref" href="#118timeLimit" title='timeLimit' data-ref="118timeLimit">timeLimit</a> = <a class="ref" href="../../../include/stdlib.h.html#atoi" title='atoi' data-ref="atoi">atoi</a>( <a class="local col0 ref" href="#120strValue" title='strValue' data-ref="120strValue">strValue</a> );</td></tr>
+<tr><th id="1037">1037</th><td>		<b>if</b> ( <a class="local col8 ref" href="#118timeLimit" title='timeLimit' data-ref="118timeLimit">timeLimit</a> ) {</td></tr>
+<tr><th id="1038">1038</th><td>			<a class="ref" href="g_local.h.html#trap_Cvar_Set" title='trap_Cvar_Set' data-ref="trap_Cvar_Set">trap_Cvar_Set</a>( <q>"timelimit"</q>, <a class="local col0 ref" href="#120strValue" title='strValue' data-ref="120strValue">strValue</a> );</td></tr>
+<tr><th id="1039">1039</th><td>		}</td></tr>
+<tr><th id="1040">1040</th><td>		<b>else</b> {</td></tr>
+<tr><th id="1041">1041</th><td>			<a class="ref" href="g_local.h.html#trap_Cvar_Set" title='trap_Cvar_Set' data-ref="trap_Cvar_Set">trap_Cvar_Set</a>( <q>"timelimit"</q>, <q>"0"</q> );</td></tr>
+<tr><th id="1042">1042</th><td>		}</td></tr>
+<tr><th id="1043">1043</th><td></td></tr>
+<tr><th id="1044">1044</th><td>		<b>if</b> ( !<a class="local col7 ref" href="#117fragLimit" title='fragLimit' data-ref="117fragLimit">fragLimit</a> &amp;&amp; !<a class="local col8 ref" href="#118timeLimit" title='timeLimit' data-ref="118timeLimit">timeLimit</a> ) {</td></tr>
+<tr><th id="1045">1045</th><td>			<a class="ref" href="g_local.h.html#trap_Cvar_Set" title='trap_Cvar_Set' data-ref="trap_Cvar_Set">trap_Cvar_Set</a>( <q>"fraglimit"</q>, <q>"10"</q> );</td></tr>
+<tr><th id="1046">1046</th><td>			<a class="ref" href="g_local.h.html#trap_Cvar_Set" title='trap_Cvar_Set' data-ref="trap_Cvar_Set">trap_Cvar_Set</a>( <q>"timelimit"</q>, <q>"0"</q> );</td></tr>
+<tr><th id="1047">1047</th><td>		}</td></tr>
+<tr><th id="1048">1048</th><td></td></tr>
+<tr><th id="1049">1049</th><td>		<a class="local col1 ref" href="#121basedelay" title='basedelay' data-ref="121basedelay">basedelay</a> = <a class="macro" href="#36" title="2000" data-ref="_M/BOT_BEGIN_DELAY_BASE">BOT_BEGIN_DELAY_BASE</a>;</td></tr>
+<tr><th id="1050">1050</th><td>		<a class="local col0 ref" href="#120strValue" title='strValue' data-ref="120strValue">strValue</a> = <a class="ref" href="../qcommon/q_shared.h.html#Info_ValueForKey" title='Info_ValueForKey' data-ref="Info_ValueForKey">Info_ValueForKey</a>( <a class="local col9 ref" href="#119arenainfo" title='arenainfo' data-ref="119arenainfo">arenainfo</a>, <q>"special"</q> );</td></tr>
+<tr><th id="1051">1051</th><td>		<b>if</b>( <a class="ref" href="../qcommon/q_shared.h.html#Q_stricmp" title='Q_stricmp' data-ref="Q_stricmp">Q_stricmp</a>( <a class="local col0 ref" href="#120strValue" title='strValue' data-ref="120strValue">strValue</a>, <q>"training"</q> ) == <var>0</var> ) {</td></tr>
+<tr><th id="1052">1052</th><td>			<a class="local col1 ref" href="#121basedelay" title='basedelay' data-ref="121basedelay">basedelay</a> += <var>10000</var>;</td></tr>
+<tr><th id="1053">1053</th><td>		}</td></tr>
+<tr><th id="1054">1054</th><td></td></tr>
+<tr><th id="1055">1055</th><td>		<b>if</b>( !<a class="local col6 ref" href="#116restart" title='restart' data-ref="116restart">restart</a> ) {</td></tr>
+<tr><th id="1056">1056</th><td>			<a class="tu ref" href="#G_SpawnBots" title='G_SpawnBots' data-use='c' data-ref="G_SpawnBots">G_SpawnBots</a>( <a class="ref" href="../qcommon/q_shared.h.html#Info_ValueForKey" title='Info_ValueForKey' data-ref="Info_ValueForKey">Info_ValueForKey</a>( <a class="local col9 ref" href="#119arenainfo" title='arenainfo' data-ref="119arenainfo">arenainfo</a>, <q>"bots"</q> ), <a class="local col1 ref" href="#121basedelay" title='basedelay' data-ref="121basedelay">basedelay</a> );</td></tr>
+<tr><th id="1057">1057</th><td>		}</td></tr>
+<tr><th id="1058">1058</th><td>	}</td></tr>
+<tr><th id="1059">1059</th><td>}</td></tr>
+<tr><th id="1060">1060</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated on <em>2017-Aug-29</em> from project codebrowser revision <em>63e07af</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

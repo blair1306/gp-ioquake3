@@ -1,0 +1,11 @@
+<dec f='codebrowser/code/qcommon/qcommon.h' l='238' type='void Netchan_Setup(netsrc_t sock, netchan_t * chan, netadr_t adr, int qport, int challenge, qboolean compat)'/>
+<use f='codebrowser/code/client/cl_main.c' l='2727' u='c' c='CL_ConnectionlessPacket'/>
+<def f='codebrowser/code/qcommon/net_chan.c' l='86' ll='100' type='void Netchan_Setup(netsrc_t sock, netchan_t * chan, netadr_t adr, int qport, int challenge, qboolean compat)'/>
+<doc f='codebrowser/code/qcommon/net_chan.c' l='79'>/*
+==============
+Netchan_Setup
+
+called to open a channel to a remote system
+==============
+*/</doc>
+<use f='codebrowser/code/server/sv_client.c' l='552' u='c' c='SV_DirectConnect'/>

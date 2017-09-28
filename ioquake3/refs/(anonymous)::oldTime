@@ -1,0 +1,9 @@
+<dec f='codebrowser/code/cgame/cg_local.h' l='478' type='int'/>
+<offset>860960</offset>
+<doc f='codebrowser/code/cgame/cg_local.h' l='477'>// is rendering at.</doc>
+<doc f='codebrowser/code/cgame/cg_local.h' l='478'>// time at last frame, used for missile trails and prediction checking</doc>
+<use f='codebrowser/code/cgame/cg_predict.c' l='541' u='r' c='CG_PredictPlayerState'/>
+<use f='codebrowser/code/cgame/cg_predict.c' l='571' u='r' c='CG_PredictPlayerState'/>
+<use f='codebrowser/code/cgame/cg_view.c' l='710' u='r' c='CG_PowerupTimerSounds'/>
+<use f='codebrowser/code/cgame/cg_view.c' l='842' u='r' c='CG_DrawActiveFrame'/>
+<use f='codebrowser/code/cgame/cg_view.c' l='846' u='w' c='CG_DrawActiveFrame'/>

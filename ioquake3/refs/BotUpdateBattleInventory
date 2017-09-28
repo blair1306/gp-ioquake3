@@ -1,0 +1,13 @@
+<dec f='codebrowser/code/game/ai_dmq3.h' l='48' type='void BotUpdateBattleInventory(bot_state_t * bs, int enemy)'/>
+<doc f='codebrowser/code/game/ai_dmq3.h' l='47'>//update the inventory during battle</doc>
+<use f='codebrowser/code/game/ai_dmnet.c' l='2075' u='c' c='AINode_Battle_Fight'/>
+<use f='codebrowser/code/game/ai_dmnet.c' l='2242' u='c' c='AINode_Battle_Chase'/>
+<use f='codebrowser/code/game/ai_dmnet.c' l='2349' u='c' c='AINode_Battle_Retreat'/>
+<use f='codebrowser/code/game/ai_dmnet.c' l='2589' u='c' c='AINode_Battle_NBG'/>
+<def f='codebrowser/code/game/ai_dmq3.c' l='1794' ll='1804' type='void BotUpdateBattleInventory(bot_state_t * bs, int enemy)'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='3042' u='c' c='BotFindEnemy'/>
+<doc f='codebrowser/code/game/ai_dmq3.c' l='1789'>/*
+==================
+BotUpdateBattleInventory
+==================
+*/</doc>

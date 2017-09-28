@@ -1,0 +1,14 @@
+<dec f='codebrowser/code/game/ai_dmq3.h' l='132' type='void BotEnableActivateGoalAreas(bot_activategoal_t * activategoal, int enable)'/>
+<doc f='codebrowser/code/game/ai_dmq3.h' l='131'>//enable or disable the areas the blocking entity is in</doc>
+<use f='codebrowser/code/game/ai_dmq3.c' l='4063' u='c' c='BotPopFromActivateGoalStack'/>
+<def f='codebrowser/code/game/ai_dmq3.c' l='4115' ll='4123' type='void BotEnableActivateGoalAreas(bot_activategoal_t * activategoal, int enable)'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='4293' u='c' c='BotGetActivateGoal'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='4318' u='c' c='BotGetActivateGoal'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='4369' u='c' c='BotGoForActivateGoal'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='4485' u='c' c='BotAIBlocked'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='4594' u='c' c='BotAIPredictObstacles'/>
+<doc f='codebrowser/code/game/ai_dmq3.c' l='4110'>/*
+==================
+BotEnableActivateGoalAreas
+==================
+*/</doc>

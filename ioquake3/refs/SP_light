@@ -1,0 +1,13 @@
+<def f='codebrowser/code/game/g_misc.c' l='65' ll='67' type='void SP_light(gentity_t * self)'/>
+<doc f='codebrowser/code/game/g_misc.c' l='58'>/*QUAKED light (0 1 0) (-8 -8 -8) (8 8 8) linear
+Non-displayed light.
+&quot;light&quot; overrides the default 300 intensity.
+Linear checbox gives linear falloff instead of inverse square
+Lights pointed at a target will be spotlights.
+&quot;radius&quot; overrides the default 64 unit radius of a spotlight at the target point.
+*/</doc>
+<dec f='codebrowser/code/game/g_spawn.c' l='156' type='void SP_light(gentity_t * self)'/>
+<use f='codebrowser/code/game/g_spawn.c' l='232'/>
+<use f='codebrowser/code/game/g_spawn.c' l='232'/>
+<use f='codebrowser/code/game/g_spawn.c' l='232'/>
+<use f='codebrowser/code/game/g_spawn.c' l='232'/>

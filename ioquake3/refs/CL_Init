@@ -1,0 +1,20 @@
+<dec f='codebrowser/code/qcommon/qcommon.h' l='983' type='void CL_Init()'/>
+<dec f='codebrowser/code/client/client.h' l='461' type='void CL_Init()'/>
+<doc f='codebrowser/code/client/client.h' l='455'>//=================================================
+
+//
+// cl_main
+//</doc>
+<doc f='codebrowser/code/qcommon/qcommon.h' l='980'>// the keyboard binding interface must be setup before execing
+// config files, but the rest of client startup will happen later</doc>
+<def f='codebrowser/code/client/cl_main.c' l='3494' ll='3708' type='void CL_Init()'/>
+<doc f='codebrowser/code/client/cl_main.c' l='3489'>/*
+====================
+CL_Init
+====================
+*/</doc>
+<def f='codebrowser/code/null/null_client.c' l='32' ll='34' type='void CL_Init()'/>
+<use f='codebrowser/code/qcommon/common.c' l='313' u='c' c='Com_Error'/>
+<use f='codebrowser/code/qcommon/common.c' l='327' u='c' c='Com_Error'/>
+<use f='codebrowser/code/qcommon/common.c' l='339' u='c' c='Com_Error'/>
+<use f='codebrowser/code/qcommon/common.c' l='2423' u='c' c='Com_GameRestart'/>

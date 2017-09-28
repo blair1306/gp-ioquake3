@@ -1,0 +1,13 @@
+<dec f='codebrowser/code/qcommon/qcommon.h' l='520' type='void Cvar_SetSafe(const char * var_name, const char * value)'/>
+<doc f='codebrowser/code/qcommon/qcommon.h' l='518'>// same as Cvar_Set, but allows more control over setting of cvar</doc>
+<use f='codebrowser/code/client/cl_cgame.c' l='427' u='c' c='CL_CgameSystemCalls'/>
+<use f='codebrowser/code/client/cl_parse.c' l='428' u='c' c='CL_SystemInfoChanged'/>
+<use f='codebrowser/code/client/cl_ui.c' l='744' u='c' c='CL_UISystemCalls'/>
+<def f='codebrowser/code/qcommon/cvar.c' l='638' ll='653' type='void Cvar_SetSafe(const char * var_name, const char * value)'/>
+<use f='codebrowser/code/qcommon/cvar.c' l='693' u='c' c='Cvar_SetValueSafe'/>
+<doc f='codebrowser/code/qcommon/cvar.c' l='633'>/*
+============
+Cvar_SetSafe
+============
+*/</doc>
+<use f='codebrowser/code/server/sv_game.c' l='309' u='c' c='SV_GameSystemCalls'/>

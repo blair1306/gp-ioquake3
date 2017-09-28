@@ -1,0 +1,12 @@
+<def f='codebrowser/code/qcommon/files.c' l='2226' ll='2351' type='char ** FS_ListFilteredFiles(const char * path, const char * extension, char * filter, int * numfiles, qboolean allowNonPureFilesOnDisk)'/>
+<use f='codebrowser/code/qcommon/files.c' l='2359' u='c' c='FS_ListFiles'/>
+<use f='codebrowser/code/qcommon/files.c' l='2754' u='c' c='FS_NewDir_f'/>
+<use f='codebrowser/code/qcommon/files.c' l='4140' u='c' c='FS_FilenameCompletion'/>
+<doc f='codebrowser/code/qcommon/files.c' l='2218'>/*
+===============
+FS_ListFilteredFiles
+
+Returns a uniqued list of files that match the given criteria
+from all search paths
+===============
+*/</doc>

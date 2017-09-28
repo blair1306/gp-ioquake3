@@ -1,0 +1,17 @@
+<dec f='codebrowser/code/qcommon/qcommon.h' l='669' type='long FS_ReadFile(const char * qpath, void ** buffer)'/>
+<use f='codebrowser/code/client/cl_main.c' l='3257' u='r' c='CL_InitRef'/>
+<use f='codebrowser/code/qcommon/cm_load.c' l='612' u='c' c='CM_LoadMap'/>
+<use f='codebrowser/code/qcommon/cmd.c' l='285' u='c' c='Cmd_Exec_f'/>
+<def f='codebrowser/code/qcommon/files.c' l='1945' ll='1948' type='long FS_ReadFile(const char * qpath, void ** buffer)'/>
+<use f='codebrowser/code/qcommon/files.c' l='3960' u='c' c='FS_InitFilesystem'/>
+<use f='codebrowser/code/qcommon/files.c' l='3998' u='c' c='FS_Restart'/>
+<doc f='codebrowser/code/qcommon/files.c' l='1937'>/*
+============
+FS_ReadFile
+
+Filename are relative to the quake search path
+a null buffer will just return the file length without loading
+============
+*/</doc>
+<use f='codebrowser/code/qcommon/vm.c' l='241' u='c' c='VM_LoadSymbols'/>
+<use f='codebrowser/code/server/sv_ccmds.c' l='168' u='c' c='SV_Map_f'/>

@@ -1,0 +1,14 @@
+<dec f='codebrowser/code/renderergl1/tr_local.h' l='905' type='int'/>
+<offset>4896</offset>
+<doc f='codebrowser/code/renderergl1/tr_local.h' l='905'>// currentEntityNum &lt;&lt; QSORT_REFENTITYNUM_SHIFT</doc>
+<use f='codebrowser/code/renderergl1/tr_main.c' l='1112' u='r' c='R_AddDrawSurf'/>
+<use f='codebrowser/code/renderergl1/tr_main.c' l='1200' u='w' c='R_AddEntitySurfaces'/>
+<use f='codebrowser/code/renderergl1/tr_scene.c' l='96' u='w' c='R_AddPolygonSurfaces'/>
+<use f='codebrowser/code/renderergl1/tr_world.c' l='655' u='w' c='R_AddWorldSurfaces'/>
+<dec f='codebrowser/code/renderergl2/tr_local.h' l='1517' type='int'/>
+<offset>12448</offset>
+<doc f='codebrowser/code/renderergl2/tr_local.h' l='1517'>// currentEntityNum &lt;&lt; QSORT_REFENTITYNUM_SHIFT</doc>
+<use f='codebrowser/code/renderergl2/tr_main.c' l='1471' u='r' c='R_AddDrawSurf'/>
+<use f='codebrowser/code/renderergl2/tr_main.c' l='1563' u='w' c='R_AddEntitySurface'/>
+<use f='codebrowser/code/renderergl2/tr_scene.c' l='97' u='w' c='R_AddPolygonSurfaces'/>
+<use f='codebrowser/code/renderergl2/tr_world.c' l='753' u='w' c='R_AddWorldSurfaces'/>

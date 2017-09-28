@@ -1,0 +1,13 @@
+<dec f='codebrowser/code/opus-1.1.4/celt/kiss_fft.h' l='142' type='void opus_fft_c(const kiss_fft_state * cfg, const kiss_fft_cpx * fin, kiss_fft_cpx * fout)'/>
+<doc f='codebrowser/code/opus-1.1.4/celt/kiss_fft.h' l='132'>/**
+ * opus_fft(cfg,in_out_buf)
+ *
+ * Perform an FFT on a complex input buffer.
+ * for a forward FFT,
+ * fin should be  f[0] , f[1] , ... ,f[nfft-1]
+ * fout will be   F[0] , F[1] , ... ,F[nfft-1]
+ * Note that each element is complex and can be accessed like
+    f[k].r and f[k].i
+ * */</doc>
+<def f='codebrowser/code/opus-1.1.4/celt/kiss_fft.c' l='569' ll='589' type='void opus_fft_c(const kiss_fft_state * st, const kiss_fft_cpx * fin, kiss_fft_cpx * fout)'/>
+<use f='codebrowser/code/opus-1.1.4/src/analysis.c' l='278' macro='1' u='c'/>

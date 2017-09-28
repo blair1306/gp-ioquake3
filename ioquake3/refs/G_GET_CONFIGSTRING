@@ -1,0 +1,9 @@
+<dec f='codebrowser/code/game/g_public.h' l='165' type='19'/>
+<doc f='codebrowser/code/game/g_public.h' l='159'>// config strings hold all the index strings, and various other information
+	// that is reliably communicated to all clients
+	// All of the current configstrings are sent to clients when
+	// they connect, and changes are sent to all connected clients.
+	// All confgstrings are cleared at each level start.</doc>
+<doc f='codebrowser/code/game/g_public.h' l='165'>// ( int num, char *buffer, int bufferSize );</doc>
+<use f='codebrowser/code/game/g_syscalls.c' l='133' c='trap_GetConfigstring'/>
+<use f='codebrowser/code/server/sv_game.c' l='381' c='SV_GameSystemCalls'/>

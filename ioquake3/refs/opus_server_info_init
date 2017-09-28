@@ -1,0 +1,7 @@
+<dec f='codebrowser/code/opusfile-0.8/include/opusfile.h' l='755' type='void opus_server_info_init(OpusServerInfo * _info)'/>
+<doc f='codebrowser/code/opusfile-0.8/include/opusfile.h' l='751'>/**Initializes an #OpusServerInfo structure.
+   All fields are set as if the corresponding header was not available.
+   \param _info The #OpusServerInfo structure to initialize.
+   \note If you use this function, you must link against &lt;tt&gt;libopusurl&lt;/tt&gt;.*/</doc>
+<def f='codebrowser/code/opusfile-0.8/src/http.c' l='3244' ll='3254' type='void opus_server_info_init(OpusServerInfo * _info)'/>
+<use f='codebrowser/code/opusfile-0.8/src/http.c' l='3374' u='c' c='op_url_stream_vcreate_impl'/>

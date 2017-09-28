@@ -1,0 +1,19 @@
+<dec f='codebrowser/code/renderergl1/tr_local.h' l='755' type='model_t * R_GetModelByHandle(qhandle_t hModel)'/>
+<use f='codebrowser/code/renderergl1/tr_main.c' l='1234' u='c' c='R_AddEntitySurfaces'/>
+<def f='codebrowser/code/renderergl1/tr_model.c' l='207' ll='218' type='model_t * R_GetModelByHandle(qhandle_t index)'/>
+<use f='codebrowser/code/renderergl1/tr_model.c' l='1024' u='c' c='R_LerpTag'/>
+<use f='codebrowser/code/renderergl1/tr_model.c' l='1076' u='c' c='R_ModelBounds'/>
+<doc f='codebrowser/code/renderergl1/tr_model.c' l='204'>/*
+** R_GetModelByHandle
+*/</doc>
+<use f='codebrowser/code/renderergl1/tr_world.c' l='324' u='c' c='R_AddBrushModelSurfaces'/>
+<dec f='codebrowser/code/renderergl2/tr_local.h' l='1234' type='model_t * R_GetModelByHandle(qhandle_t hModel)'/>
+<use f='codebrowser/code/renderergl2/tr_main.c' l='1597' u='c' c='R_AddEntitySurface'/>
+<use f='codebrowser/code/renderergl2/tr_main.c' l='1875' u='c' c='R_RenderPshadowMaps'/>
+<def f='codebrowser/code/renderergl2/tr_model.c' l='208' ll='219' type='model_t * R_GetModelByHandle(qhandle_t index)'/>
+<use f='codebrowser/code/renderergl2/tr_model.c' l='1322' u='c' c='R_LerpTag'/>
+<use f='codebrowser/code/renderergl2/tr_model.c' l='1374' u='c' c='R_ModelBounds'/>
+<doc f='codebrowser/code/renderergl2/tr_model.c' l='205'>/*
+** R_GetModelByHandle
+*/</doc>
+<use f='codebrowser/code/renderergl2/tr_world.c' l='364' u='c' c='R_AddBrushModelSurfaces'/>

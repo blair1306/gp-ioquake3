@@ -1,0 +1,20 @@
+<dec f='codebrowser/code/server/server.h' l='455' type='clipHandle_t SV_ClipHandleForEntity(const sharedEntity_t * ent)'/>
+<doc f='codebrowser/code/server/server.h' l='448'>// Needs to be called any time an entity changes origin, mins, maxs,
+// or solid.  Automatically unlinks if needed.
+// sets ent-&gt;r.absmin and ent-&gt;r.absmax
+// sets ent-&gt;leafnums[] for pvs determination even if the entity
+// is not solid</doc>
+<use f='codebrowser/code/server/sv_game.c' l='226' u='c' c='SV_EntityContact'/>
+<def f='codebrowser/code/server/sv_world.c' l='35' ll='47' type='clipHandle_t SV_ClipHandleForEntity(const sharedEntity_t * ent)'/>
+<use f='codebrowser/code/server/sv_world.c' l='481' u='c' c='SV_ClipToEntity'/>
+<use f='codebrowser/code/server/sv_world.c' l='552' u='c' c='SV_ClipMoveToEntities'/>
+<use f='codebrowser/code/server/sv_world.c' l='673' u='c' c='SV_PointContents'/>
+<doc f='codebrowser/code/server/sv_world.c' l='26'>/*
+================
+SV_ClipHandleForEntity
+
+Returns a headnode that can be used for testing or clipping to a
+given entity.  If the entity is a bsp model, the headnode will
+be returned, otherwise a custom box tree will be constructed.
+================
+*/</doc>

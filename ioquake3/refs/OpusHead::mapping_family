@@ -1,0 +1,12 @@
+<dec f='codebrowser/code/opusfile-0.8/include/opusfile.h' l='250' type='int'/>
+<offset>160</offset>
+<doc f='codebrowser/code/opusfile-0.8/include/opusfile.h' l='244'>/**The channel mapping family, in the range 0...255.
+     Channel mapping family 0 covers mono or stereo in a single stream.
+     Channel mapping family 1 covers 1 to 8 channels in one or more streams,
+      using the Vorbis speaker assignments.
+     Channel mapping family 255 covers 1 to 255 channels in one or more
+      streams, but without any defined speaker assignment.*/</doc>
+<use f='codebrowser/code/opusfile-0.8/src/info.c' l='52' u='w' c='opus_head_parse'/>
+<use f='codebrowser/code/opusfile-0.8/src/info.c' l='53' u='r' c='opus_head_parse'/>
+<use f='codebrowser/code/opusfile-0.8/src/info.c' l='63' u='r' c='opus_head_parse'/>
+<use f='codebrowser/code/opusfile-0.8/src/info.c' l='83' u='r' c='opus_head_parse'/>

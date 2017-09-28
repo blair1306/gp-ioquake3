@@ -1,0 +1,30 @@
+<dec f='codebrowser/code/qcommon/qcommon.h' l='74' type='void MSG_WriteLong(msg_t * sb, int c)'/>
+<use f='codebrowser/code/client/cl_input.c' l='766' u='c' c='CL_WritePacket'/>
+<use f='codebrowser/code/client/cl_input.c' l='771' u='c' c='CL_WritePacket'/>
+<use f='codebrowser/code/client/cl_input.c' l='774' u='c' c='CL_WritePacket'/>
+<use f='codebrowser/code/client/cl_input.c' l='779' u='c' c='CL_WritePacket'/>
+<use f='codebrowser/code/client/cl_input.c' l='805' u='c' c='CL_WritePacket'/>
+<use f='codebrowser/code/client/cl_input.c' l='823' u='c' c='CL_WritePacket'/>
+<use f='codebrowser/code/client/cl_input.c' l='827' u='c' c='CL_WritePacket'/>
+<use f='codebrowser/code/client/cl_main.c' l='775' u='c' c='CL_Record_f'/>
+<use f='codebrowser/code/client/cl_main.c' l='778' u='c' c='CL_Record_f'/>
+<use f='codebrowser/code/client/cl_main.c' l='807' u='c' c='CL_Record_f'/>
+<use f='codebrowser/code/client/cl_main.c' l='809' u='c' c='CL_Record_f'/>
+<def f='codebrowser/code/qcommon/msg.c' l='304' ll='306' type='void MSG_WriteLong(msg_t * sb, int c)'/>
+<use f='codebrowser/code/qcommon/msg.c' l='1298' u='c' c='MSG_WriteDeltaPlayerstate'/>
+<use f='codebrowser/code/qcommon/net_chan.c' l='119' u='c' c='Netchan_TransmitNextFragment'/>
+<use f='codebrowser/code/qcommon/net_chan.c' l='129' u='c' c='Netchan_TransmitNextFragment'/>
+<use f='codebrowser/code/qcommon/net_chan.c' l='201' u='c' c='Netchan_Transmit'/>
+<use f='codebrowser/code/qcommon/net_chan.c' l='210' u='c' c='Netchan_Transmit'/>
+<use f='codebrowser/code/server/sv_client.c' l='735' u='c' c='SV_SendClientGameState'/>
+<use f='codebrowser/code/server/sv_client.c' l='745' u='c' c='SV_SendClientGameState'/>
+<use f='codebrowser/code/server/sv_client.c' l='769' u='c' c='SV_SendClientGameState'/>
+<use f='codebrowser/code/server/sv_client.c' l='772' u='c' c='SV_SendClientGameState'/>
+<use f='codebrowser/code/server/sv_client.c' l='1038' u='c' c='SV_WriteDownloadToClient'/>
+<use f='codebrowser/code/server/sv_client.c' l='1113' u='c' c='SV_WriteDownloadToClient'/>
+<use f='codebrowser/code/server/sv_client.c' l='1187' u='c' c='SV_SendDownloadMessages'/>
+<use f='codebrowser/code/server/sv_snapshot.c' l='170' u='c' c='SV_WriteSnapshotToClient'/>
+<use f='codebrowser/code/server/sv_snapshot.c' l='172' u='c' c='SV_WriteSnapshotToClient'/>
+<use f='codebrowser/code/server/sv_snapshot.c' l='224' u='c' c='SV_UpdateServerCommandsToClient'/>
+<use f='codebrowser/code/server/sv_snapshot.c' l='553' u='c' c='SV_WriteVoipToClient'/>
+<use f='codebrowser/code/server/sv_snapshot.c' l='615' u='c' c='SV_SendClientSnapshot'/>

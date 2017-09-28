@@ -1,0 +1,16 @@
+<dec f='codebrowser/code/cgame/cg_local.h' l='1318' type='void CG_BuildSolidList()'/>
+<doc f='codebrowser/code/cgame/cg_local.h' l='1315'>//
+// cg_predict.c
+//</doc>
+<def f='codebrowser/code/cgame/cg_predict.c' l='46' ll='77' type='void CG_BuildSolidList()'/>
+<doc f='codebrowser/code/cgame/cg_predict.c' l='37'>/*
+====================
+CG_BuildSolidList
+
+When a new cg.snap has been set, this function builds a sublist
+of the entities that are actually solid, to make for more
+efficient collision detection
+====================
+*/</doc>
+<use f='codebrowser/code/cgame/cg_snapshot.c' l='93' u='c' c='CG_SetInitialSnapshot'/>
+<use f='codebrowser/code/cgame/cg_snapshot.c' l='242' u='c' c='CG_SetNextSnap'/>

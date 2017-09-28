@@ -1,0 +1,15 @@
+<dec f='codebrowser/code/cgame/cg_local.h' l='333' type='int'/>
+<offset>1184</offset>
+<doc f='codebrowser/code/cgame/cg_local.h' l='333'>// so can display quad/flag status</doc>
+<use f='codebrowser/code/cgame/cg_draw.c' l='947' u='r' c='CG_DrawTeamOverlay'/>
+<use f='codebrowser/code/cgame/cg_newdraw.c' l='497' u='r' c='CG_DrawSelectedPlayerPowerup'/>
+<use f='codebrowser/code/cgame/cg_newdraw.c' l='620' u='r' c='CG_DrawBlueFlagName'/>
+<use f='codebrowser/code/cgame/cg_newdraw.c' l='657' u='r' c='CG_DrawBlueFlagHead'/>
+<use f='codebrowser/code/cgame/cg_newdraw.c' l='670' u='r' c='CG_DrawRedFlagName'/>
+<use f='codebrowser/code/cgame/cg_newdraw.c' l='707' u='r' c='CG_DrawRedFlagHead'/>
+<use f='codebrowser/code/cgame/cg_newdraw.c' l='1292' u='r' c='CG_DrawNewTeamInfo'/>
+<use f='codebrowser/code/cgame/cg_scoreboard.c' l='98' u='r' c='CG_DrawClientScore'/>
+<use f='codebrowser/code/cgame/cg_scoreboard.c' l='105' u='r' c='CG_DrawClientScore'/>
+<use f='codebrowser/code/cgame/cg_scoreboard.c' l='112' u='r' c='CG_DrawClientScore'/>
+<use f='codebrowser/code/cgame/cg_servercmds.c' l='100' u='w' c='CG_ParseScores'/>
+<use f='codebrowser/code/cgame/cg_servercmds.c' l='142' u='w' c='CG_ParseTeamInfo'/>

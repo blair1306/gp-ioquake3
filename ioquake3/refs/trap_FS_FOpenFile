@@ -1,0 +1,31 @@
+<dec f='codebrowser/code/cgame/cg_local.h' l='1502' type='int trap_FS_FOpenFile(const char * qpath, fileHandle_t * f, fsMode_t mode)'/>
+<doc f='codebrowser/code/cgame/cg_local.h' l='1500'>// filesystem access
+// returns length of file</doc>
+<use f='codebrowser/code/cgame/cg_players.c' l='104' u='c' c='CG_ParseAnimationFile'/>
+<use f='codebrowser/code/cgame/cg_players.c' l='301' u='c' c='CG_FileExists'/>
+<def f='codebrowser/code/cgame/cg_syscalls.c' l='88' ll='90' type='int trap_FS_FOpenFile(const char * qpath, fileHandle_t * f, fsMode_t mode)'/>
+<dec f='codebrowser/code/game/g_local.h' l='756' type='int trap_FS_FOpenFile(const char * qpath, fileHandle_t * f, fsMode_t mode)'/>
+<use f='codebrowser/code/game/g_bot.c' l='129' u='c' c='G_LoadArenasFromFile'/>
+<use f='codebrowser/code/game/g_bot.c' l='906' u='c' c='G_LoadBotsFromFile'/>
+<use f='codebrowser/code/game/g_main.c' l='432' u='c' c='G_InitGame'/>
+<use f='codebrowser/code/game/g_main.c' l='434' u='c' c='G_InitGame'/>
+<def f='codebrowser/code/game/g_syscalls.c' l='66' ll='68' type='int trap_FS_FOpenFile(const char * qpath, fileHandle_t * f, fsMode_t mode)'/>
+<dec f='codebrowser/code/q3_ui/ui_local.h' l='640' type='int trap_FS_FOpenFile(const char * qpath, fileHandle_t * f, fsMode_t mode)'/>
+<use f='codebrowser/code/q3_ui/ui_gameinfo.c' l='145' u='c' c='UI_LoadArenasFromFile'/>
+<use f='codebrowser/code/q3_ui/ui_gameinfo.c' l='334' u='c' c='UI_LoadBotsFromFile'/>
+<use f='codebrowser/code/q3_ui/ui_players.c' l='946' u='c' c='UI_ParseAnimationFile'/>
+<dec f='codebrowser/code/ui/ui_local.h' l='931' type='int trap_FS_FOpenFile(const char * qpath, fileHandle_t * f, fsMode_t mode)'/>
+<use f='codebrowser/code/ui/ui_atoms.c' l='158' u='c' c='UI_LoadBestScores'/>
+<use f='codebrowser/code/ui/ui_atoms.c' l='179' u='c' c='UI_LoadBestScores'/>
+<use f='codebrowser/code/ui/ui_atoms.c' l='187' u='c' c='UI_LoadBestScores'/>
+<use f='codebrowser/code/ui/ui_atoms.c' l='216' u='c' c='UI_ClearScores'/>
+<use f='codebrowser/code/ui/ui_atoms.c' l='258' u='c' c='UI_CalcPostGameStats'/>
+<use f='codebrowser/code/ui/ui_atoms.c' l='308' u='c' c='UI_CalcPostGameStats'/>
+<use f='codebrowser/code/ui/ui_gameinfo.c' l='112' u='c' c='UI_LoadArenasFromFile'/>
+<use f='codebrowser/code/ui/ui_gameinfo.c' l='223' u='c' c='UI_LoadBotsFromFile'/>
+<use f='codebrowser/code/ui/ui_main.c' l='666' u='c' c='GetMenuBuffer'/>
+<use f='codebrowser/code/ui/ui_main.c' l='3579' u='c' c='UI_hasSkinForBase'/>
+<use f='codebrowser/code/ui/ui_main.c' l='3584' u='c' c='UI_hasSkinForBase'/>
+<use f='codebrowser/code/ui/ui_players.c' l='904' u='c' c='UI_FileExists'/>
+<use f='codebrowser/code/ui/ui_players.c' l='1031' u='c' c='UI_ParseAnimationFile'/>
+<def f='codebrowser/code/ui/ui_syscalls.c' l='108' ll='110' type='int trap_FS_FOpenFile(const char * qpath, fileHandle_t * f, fsMode_t mode)'/>

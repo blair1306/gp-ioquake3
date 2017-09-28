@@ -1,0 +1,35 @@
+<dec f='codebrowser/code/renderergl1/tr_local.h' l='874' type='int'/>
+<offset>128</offset>
+<doc f='codebrowser/code/renderergl1/tr_local.h' l='874'>// incremented every view (twice a scene if portaled)</doc>
+<use f='codebrowser/code/renderergl1/tr_main.c' l='1363' u='w' c='R_RenderView'/>
+<use f='codebrowser/code/renderergl1/tr_main.c' l='1371' u='w' c='R_RenderView'/>
+<use f='codebrowser/code/renderergl1/tr_marks.c' l='163' u='r' c='R_BoxSurfaces_r'/>
+<use f='codebrowser/code/renderergl1/tr_marks.c' l='170' u='r' c='R_BoxSurfaces_r'/>
+<use f='codebrowser/code/renderergl1/tr_marks.c' l='173' u='r' c='R_BoxSurfaces_r'/>
+<use f='codebrowser/code/renderergl1/tr_marks.c' l='178' u='r' c='R_BoxSurfaces_r'/>
+<use f='codebrowser/code/renderergl1/tr_marks.c' l='181' u='r' c='R_BoxSurfaces_r'/>
+<use f='codebrowser/code/renderergl1/tr_marks.c' l='182' u='r' c='R_BoxSurfaces_r'/>
+<use f='codebrowser/code/renderergl1/tr_marks.c' l='280' u='w' c='R_MarkFragments'/>
+<use f='codebrowser/code/renderergl1/tr_world.c' l='284' u='r' c='R_AddWorldSurface'/>
+<use f='codebrowser/code/renderergl1/tr_world.c' l='288' u='r' c='R_AddWorldSurface'/>
+<dec f='codebrowser/code/renderergl2/tr_local.h' l='1437' type='int'/>
+<offset>448</offset>
+<doc f='codebrowser/code/renderergl2/tr_local.h' l='1437'>// incremented every view (twice a scene if portaled)</doc>
+<use f='codebrowser/code/renderergl2/tr_main.c' l='1746' u='w' c='R_RenderView'/>
+<use f='codebrowser/code/renderergl2/tr_main.c' l='1754' u='w' c='R_RenderView'/>
+<use f='codebrowser/code/renderergl2/tr_main.c' l='2111' u='w' c='R_RenderPshadowMaps'/>
+<use f='codebrowser/code/renderergl2/tr_main.c' l='2119' u='w' c='R_RenderPshadowMaps'/>
+<use f='codebrowser/code/renderergl2/tr_main.c' l='2520' u='w' c='R_RenderSunShadowMaps'/>
+<use f='codebrowser/code/renderergl2/tr_main.c' l='2528' u='w' c='R_RenderSunShadowMaps'/>
+<use f='codebrowser/code/renderergl2/tr_marks.c' l='166' u='r' c='R_BoxSurfaces_r'/>
+<use f='codebrowser/code/renderergl2/tr_marks.c' l='173' u='r' c='R_BoxSurfaces_r'/>
+<use f='codebrowser/code/renderergl2/tr_marks.c' l='176' u='r' c='R_BoxSurfaces_r'/>
+<use f='codebrowser/code/renderergl2/tr_marks.c' l='181' u='r' c='R_BoxSurfaces_r'/>
+<use f='codebrowser/code/renderergl2/tr_marks.c' l='184' u='r' c='R_BoxSurfaces_r'/>
+<use f='codebrowser/code/renderergl2/tr_marks.c' l='185' u='r' c='R_BoxSurfaces_r'/>
+<use f='codebrowser/code/renderergl2/tr_marks.c' l='283' u='w' c='R_MarkFragments'/>
+<use f='codebrowser/code/renderergl2/tr_world.c' l='379' u='r' c='R_AddBrushModelSurfaces'/>
+<use f='codebrowser/code/renderergl2/tr_world.c' l='381' u='r' c='R_AddBrushModelSurfaces'/>
+<use f='codebrowser/code/renderergl2/tr_world.c' l='569' u='r' c='R_RecursiveWorldNode'/>
+<use f='codebrowser/code/renderergl2/tr_world.c' l='571' u='r' c='R_RecursiveWorldNode'/>
+<use f='codebrowser/code/renderergl2/tr_world.c' l='800' u='r' c='R_AddWorldSurfaces'/>

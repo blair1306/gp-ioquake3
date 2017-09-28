@@ -1,0 +1,357 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>be_aas_main.c source code [codebrowser/code/botlib/be_aas_main.c] - Woboq Code Browser</title>
+<link rel="stylesheet" href="../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'codebrowser/code/botlib/be_aas_main.c'; var root_path = '../../..'; var data_path = '../../../../data';</script>
+<script src='../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../..'>codebrowser</a>/<a href='..'>code</a>/<a href='./'>botlib</a>/<a href='be_aas_main.c.html'>be_aas_main.c</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/*</i></td></tr>
+<tr><th id="2">2</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="3">3</th><td><i>Copyright (C) 1999-2005 Id Software, Inc.</i></td></tr>
+<tr><th id="4">4</th><td><i></i></td></tr>
+<tr><th id="5">5</th><td><i>This file is part of Quake III Arena source code.</i></td></tr>
+<tr><th id="6">6</th><td><i></i></td></tr>
+<tr><th id="7">7</th><td><i>Quake III Arena source code is free software; you can redistribute it</i></td></tr>
+<tr><th id="8">8</th><td><i>and/or modify it under the terms of the GNU General Public License as</i></td></tr>
+<tr><th id="9">9</th><td><i>published by the Free Software Foundation; either version 2 of the License,</i></td></tr>
+<tr><th id="10">10</th><td><i>or (at your option) any later version.</i></td></tr>
+<tr><th id="11">11</th><td><i></i></td></tr>
+<tr><th id="12">12</th><td><i>Quake III Arena source code is distributed in the hope that it will be</i></td></tr>
+<tr><th id="13">13</th><td><i>useful, but WITHOUT ANY WARRANTY; without even the implied warranty of</i></td></tr>
+<tr><th id="14">14</th><td><i>MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</i></td></tr>
+<tr><th id="15">15</th><td><i>GNU General Public License for more details.</i></td></tr>
+<tr><th id="16">16</th><td><i></i></td></tr>
+<tr><th id="17">17</th><td><i>You should have received a copy of the GNU General Public License</i></td></tr>
+<tr><th id="18">18</th><td><i>along with Quake III Arena source code; if not, write to the Free Software</i></td></tr>
+<tr><th id="19">19</th><td><i>Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA</i></td></tr>
+<tr><th id="20">20</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="21">21</th><td><i>*/</i></td></tr>
+<tr><th id="22">22</th><td></td></tr>
+<tr><th id="23">23</th><td><i>/*****************************************************************************</i></td></tr>
+<tr><th id="24">24</th><td><i> * name:		be_aas_main.c</i></td></tr>
+<tr><th id="25">25</th><td><i> *</i></td></tr>
+<tr><th id="26">26</th><td><i> * desc:		AAS</i></td></tr>
+<tr><th id="27">27</th><td><i> *</i></td></tr>
+<tr><th id="28">28</th><td><i> * $Archive: /MissionPack/code/botlib/be_aas_main.c $</i></td></tr>
+<tr><th id="29">29</th><td><i> *</i></td></tr>
+<tr><th id="30">30</th><td><i> *****************************************************************************/</i></td></tr>
+<tr><th id="31">31</th><td></td></tr>
+<tr><th id="32">32</th><td><u>#include <a href="../qcommon/q_shared.h.html">"../qcommon/q_shared.h"</a></u></td></tr>
+<tr><th id="33">33</th><td><u>#include <a href="l_memory.h.html">"l_memory.h"</a></u></td></tr>
+<tr><th id="34">34</th><td><u>#include <a href="l_libvar.h.html">"l_libvar.h"</a></u></td></tr>
+<tr><th id="35">35</th><td><u>#include <a href="l_utils.h.html">"l_utils.h"</a></u></td></tr>
+<tr><th id="36">36</th><td><u>#include <a href="l_script.h.html">"l_script.h"</a></u></td></tr>
+<tr><th id="37">37</th><td><u>#include <a href="l_precomp.h.html">"l_precomp.h"</a></u></td></tr>
+<tr><th id="38">38</th><td><u>#include <a href="l_struct.h.html">"l_struct.h"</a></u></td></tr>
+<tr><th id="39">39</th><td><u>#include <a href="l_log.h.html">"l_log.h"</a></u></td></tr>
+<tr><th id="40">40</th><td><u>#include <a href="aasfile.h.html">"aasfile.h"</a></u></td></tr>
+<tr><th id="41">41</th><td><u>#include <a href="botlib.h.html">"botlib.h"</a></u></td></tr>
+<tr><th id="42">42</th><td><u>#include <a href="be_aas.h.html">"be_aas.h"</a></u></td></tr>
+<tr><th id="43">43</th><td><u>#include <a href="be_aas_funcs.h.html">"be_aas_funcs.h"</a></u></td></tr>
+<tr><th id="44">44</th><td><u>#include <a href="be_interface.h.html">"be_interface.h"</a></u></td></tr>
+<tr><th id="45">45</th><td><u>#include <a href="be_aas_def.h.html">"be_aas_def.h"</a></u></td></tr>
+<tr><th id="46">46</th><td></td></tr>
+<tr><th id="47">47</th><td><a class="typedef" href="be_aas_def.h.html#aas_t" title='aas_t' data-type='struct aas_s' data-ref="aas_t">aas_t</a> <dfn class="decl def" id="aasworld" title='aasworld' data-ref="aasworld">aasworld</dfn>;</td></tr>
+<tr><th id="48">48</th><td></td></tr>
+<tr><th id="49">49</th><td><a class="typedef" href="l_libvar.h.html#libvar_t" title='libvar_t' data-type='struct libvar_s' data-ref="libvar_t">libvar_t</a> *<dfn class="decl def" id="saveroutingcache" title='saveroutingcache' data-ref="saveroutingcache">saveroutingcache</dfn>;</td></tr>
+<tr><th id="50">50</th><td></td></tr>
+<tr><th id="51">51</th><td><i>//===========================================================================</i></td></tr>
+<tr><th id="52">52</th><td><i>//</i></td></tr>
+<tr><th id="53">53</th><td><i>// Parameter:				-</i></td></tr>
+<tr><th id="54">54</th><td><i>// Returns:					-</i></td></tr>
+<tr><th id="55">55</th><td><i>// Changes Globals:		-</i></td></tr>
+<tr><th id="56">56</th><td><i>//===========================================================================</i></td></tr>
+<tr><th id="57">57</th><td><em>void</em> <a class="macro" href="../qcommon/q_platform.h.html#75" title="" data-ref="_M/QDECL">QDECL</a> <dfn class="decl def" id="AAS_Error" title='AAS_Error' data-ref="AAS_Error">AAS_Error</dfn>(<em>char</em> *<dfn class="local col1 decl" id="1fmt" title='fmt' data-type='char *' data-ref="1fmt">fmt</dfn>, ...)</td></tr>
+<tr><th id="58">58</th><td>{</td></tr>
+<tr><th id="59">59</th><td>	<em>char</em> <dfn class="local col2 decl" id="2str" title='str' data-type='char [1024]' data-ref="2str">str</dfn>[<var>1024</var>];</td></tr>
+<tr><th id="60">60</th><td>	<span class='typedef' title='va_list' data-type='__gnuc_va_list' data-ref="va_list">va_list</span> <dfn class="local col3 decl" id="3arglist" title='arglist' data-type='va_list' data-ref="3arglist">arglist</dfn>;</td></tr>
+<tr><th id="61">61</th><td></td></tr>
+<tr><th id="62">62</th><td>	<span class="macro" title="__builtin_va_start(arglist, fmt)" data-ref="_M/va_start">va_start</span>(<a class="local col3 ref" href="#3arglist" title='arglist' data-ref="3arglist">arglist</a>, <a class="local col1 ref" href="#1fmt" title='fmt' data-ref="1fmt">fmt</a>);</td></tr>
+<tr><th id="63">63</th><td>	<a class="macro" href="../qcommon/q_shared.h.html#186" title="vsnprintf" data-ref="_M/Q_vsnprintf">Q_vsnprintf</a>(<a class="local col2 ref" href="#2str" title='str' data-ref="2str">str</a>, <b>sizeof</b>(<a class="local col2 ref" href="#2str" title='str' data-ref="2str">str</a>), <a class="local col1 ref" href="#1fmt" title='fmt' data-ref="1fmt">fmt</a>, <a class="local col3 ref" href="#3arglist" title='arglist' data-ref="3arglist">arglist</a>);</td></tr>
+<tr><th id="64">64</th><td>	<span class="macro" title="__builtin_va_end(arglist)" data-ref="_M/va_end">va_end</span>(<a class="local col3 ref" href="#3arglist" title='arglist' data-ref="3arglist">arglist</a>);</td></tr>
+<tr><th id="65">65</th><td>	<a class="ref" href="be_interface.h.html#botimport" title='botimport' data-ref="botimport">botimport</a>.<a class="ref" href="botlib.h.html#botlib_import_s::Print" title='botlib_import_s::Print' data-ref="botlib_import_s::Print">Print</a>(<a class="macro" href="botlib.h.html#59" title="4" data-ref="_M/PRT_FATAL">PRT_FATAL</a>, <q>"%s"</q>, <a class="local col2 ref" href="#2str" title='str' data-ref="2str">str</a>);</td></tr>
+<tr><th id="66">66</th><td>} <i>//end of the function AAS_Error</i></td></tr>
+<tr><th id="67">67</th><td><i>//===========================================================================</i></td></tr>
+<tr><th id="68">68</th><td><i>//</i></td></tr>
+<tr><th id="69">69</th><td><i>// Parameter:				-</i></td></tr>
+<tr><th id="70">70</th><td><i>// Returns:					-</i></td></tr>
+<tr><th id="71">71</th><td><i>// Changes Globals:		-</i></td></tr>
+<tr><th id="72">72</th><td><i>//===========================================================================</i></td></tr>
+<tr><th id="73">73</th><td><em>int</em> <dfn class="decl def" id="AAS_Loaded" title='AAS_Loaded' data-ref="AAS_Loaded">AAS_Loaded</dfn>(<em>void</em>)</td></tr>
+<tr><th id="74">74</th><td>{</td></tr>
+<tr><th id="75">75</th><td>	<b>return</b> <a class="ref" href="be_aas_main.h.html#aasworld" title='aasworld' data-ref="aasworld">aasworld</a>.<a class="ref" href="be_aas_def.h.html#aas_s::loaded" title='aas_s::loaded' data-ref="aas_s::loaded">loaded</a>;</td></tr>
+<tr><th id="76">76</th><td>} <i>//end of the function AAS_Loaded</i></td></tr>
+<tr><th id="77">77</th><td><i>//===========================================================================</i></td></tr>
+<tr><th id="78">78</th><td><i>//</i></td></tr>
+<tr><th id="79">79</th><td><i>// Parameter:				-</i></td></tr>
+<tr><th id="80">80</th><td><i>// Returns:					-</i></td></tr>
+<tr><th id="81">81</th><td><i>// Changes Globals:		-</i></td></tr>
+<tr><th id="82">82</th><td><i>//===========================================================================</i></td></tr>
+<tr><th id="83">83</th><td><em>int</em> <dfn class="decl def" id="AAS_Initialized" title='AAS_Initialized' data-ref="AAS_Initialized">AAS_Initialized</dfn>(<em>void</em>)</td></tr>
+<tr><th id="84">84</th><td>{</td></tr>
+<tr><th id="85">85</th><td>	<b>return</b> <a class="ref" href="be_aas_main.h.html#aasworld" title='aasworld' data-ref="aasworld">aasworld</a>.<a class="ref" href="be_aas_def.h.html#aas_s::initialized" title='aas_s::initialized' data-ref="aas_s::initialized">initialized</a>;</td></tr>
+<tr><th id="86">86</th><td>} <i>//end of the function AAS_Initialized</i></td></tr>
+<tr><th id="87">87</th><td><i>//===========================================================================</i></td></tr>
+<tr><th id="88">88</th><td><i>//</i></td></tr>
+<tr><th id="89">89</th><td><i>// Parameter:				-</i></td></tr>
+<tr><th id="90">90</th><td><i>// Returns:					-</i></td></tr>
+<tr><th id="91">91</th><td><i>// Changes Globals:		-</i></td></tr>
+<tr><th id="92">92</th><td><i>//===========================================================================</i></td></tr>
+<tr><th id="93">93</th><td><em>void</em> <dfn class="decl def" id="AAS_SetInitialized" title='AAS_SetInitialized' data-ref="AAS_SetInitialized">AAS_SetInitialized</dfn>(<em>void</em>)</td></tr>
+<tr><th id="94">94</th><td>{</td></tr>
+<tr><th id="95">95</th><td>	<a class="ref" href="be_aas_main.h.html#aasworld" title='aasworld' data-ref="aasworld">aasworld</a>.<a class="ref" href="be_aas_def.h.html#aas_s::initialized" title='aas_s::initialized' data-ref="aas_s::initialized">initialized</a> = <a class="enum" href="../qcommon/q_shared.h.html#qtrue" title='qtrue' data-ref="qtrue">qtrue</a>;</td></tr>
+<tr><th id="96">96</th><td>	<a class="ref" href="be_interface.h.html#botimport" title='botimport' data-ref="botimport">botimport</a>.<a class="ref" href="botlib.h.html#botlib_import_s::Print" title='botlib_import_s::Print' data-ref="botlib_import_s::Print">Print</a>(<a class="macro" href="botlib.h.html#56" title="1" data-ref="_M/PRT_MESSAGE">PRT_MESSAGE</a>, <q>"AAS initialized.\n"</q>);</td></tr>
+<tr><th id="97">97</th><td><u>#<span data-ppcond="97">ifdef</span> <span class="macro" data-ref="_M/DEBUG">DEBUG</span></u></td></tr>
+<tr><th id="98">98</th><td>	<i>//create all the routing cache</i></td></tr>
+<tr><th id="99">99</th><td><i>	//AAS_CreateAllRoutingCache();</i></td></tr>
+<tr><th id="100">100</th><td><i>	//</i></td></tr>
+<tr><th id="101">101</th><td><i>	//AAS_RoutingInfo();</i></td></tr>
+<tr><th id="102">102</th><td><u>#<span data-ppcond="97">endif</span></u></td></tr>
+<tr><th id="103">103</th><td>} <i>//end of the function AAS_SetInitialized</i></td></tr>
+<tr><th id="104">104</th><td><i>//===========================================================================</i></td></tr>
+<tr><th id="105">105</th><td><i>//</i></td></tr>
+<tr><th id="106">106</th><td><i>// Parameter:				-</i></td></tr>
+<tr><th id="107">107</th><td><i>// Returns:					-</i></td></tr>
+<tr><th id="108">108</th><td><i>// Changes Globals:		-</i></td></tr>
+<tr><th id="109">109</th><td><i>//===========================================================================</i></td></tr>
+<tr><th id="110">110</th><td><em>void</em> <dfn class="decl def" id="AAS_ContinueInit" title='AAS_ContinueInit' data-ref="AAS_ContinueInit">AAS_ContinueInit</dfn>(<em>float</em> <dfn class="local col4 decl" id="4time" title='time' data-type='float' data-ref="4time">time</dfn>)</td></tr>
+<tr><th id="111">111</th><td>{</td></tr>
+<tr><th id="112">112</th><td>	<i>//if no AAS file loaded</i></td></tr>
+<tr><th id="113">113</th><td>	<b>if</b> (!<a class="ref" href="be_aas_main.h.html#aasworld" title='aasworld' data-ref="aasworld">aasworld</a>.<a class="ref" href="be_aas_def.h.html#aas_s::loaded" title='aas_s::loaded' data-ref="aas_s::loaded">loaded</a>) <b>return</b>;</td></tr>
+<tr><th id="114">114</th><td>	<i>//if AAS is already initialized</i></td></tr>
+<tr><th id="115">115</th><td>	<b>if</b> (<a class="ref" href="be_aas_main.h.html#aasworld" title='aasworld' data-ref="aasworld">aasworld</a>.<a class="ref" href="be_aas_def.h.html#aas_s::initialized" title='aas_s::initialized' data-ref="aas_s::initialized">initialized</a>) <b>return</b>;</td></tr>
+<tr><th id="116">116</th><td>	<i>//calculate reachability, if not finished return</i></td></tr>
+<tr><th id="117">117</th><td>	<b>if</b> (<a class="ref" href="be_aas_reach.h.html#AAS_ContinueInitReachability" title='AAS_ContinueInitReachability' data-ref="AAS_ContinueInitReachability">AAS_ContinueInitReachability</a>(<a class="local col4 ref" href="#4time" title='time' data-ref="4time">time</a>)) <b>return</b>;</td></tr>
+<tr><th id="118">118</th><td>	<i>//initialize clustering for the new map</i></td></tr>
+<tr><th id="119">119</th><td>	<a class="ref" href="be_aas_cluster.h.html#AAS_InitClustering" title='AAS_InitClustering' data-ref="AAS_InitClustering">AAS_InitClustering</a>();</td></tr>
+<tr><th id="120">120</th><td>	<i>//if reachability has been calculated and an AAS file should be written</i></td></tr>
+<tr><th id="121">121</th><td><i>	//or there is a forced data optimization</i></td></tr>
+<tr><th id="122">122</th><td>	<b>if</b> (<a class="ref" href="be_aas_main.h.html#aasworld" title='aasworld' data-ref="aasworld">aasworld</a>.<a class="ref" href="be_aas_def.h.html#aas_s::savefile" title='aas_s::savefile' data-ref="aas_s::savefile">savefile</a> || ((<em>int</em>)<a class="ref" href="l_libvar.h.html#LibVarGetValue" title='LibVarGetValue' data-ref="LibVarGetValue">LibVarGetValue</a>(<q>"forcewrite"</q>)))</td></tr>
+<tr><th id="123">123</th><td>	{</td></tr>
+<tr><th id="124">124</th><td>		<i>//optimize the AAS data</i></td></tr>
+<tr><th id="125">125</th><td>		<b>if</b> ((<em>int</em>)<a class="ref" href="l_libvar.h.html#LibVarValue" title='LibVarValue' data-ref="LibVarValue">LibVarValue</a>(<q>"aasoptimize"</q>, <q>"0"</q>)) <a class="ref" href="be_aas_optimize.h.html#AAS_Optimize" title='AAS_Optimize' data-ref="AAS_Optimize">AAS_Optimize</a>();</td></tr>
+<tr><th id="126">126</th><td>		<i>//save the AAS file</i></td></tr>
+<tr><th id="127">127</th><td>		<b>if</b> (<a class="ref" href="be_aas_file.h.html#AAS_WriteAASFile" title='AAS_WriteAASFile' data-ref="AAS_WriteAASFile">AAS_WriteAASFile</a>(<a class="ref" href="be_aas_main.h.html#aasworld" title='aasworld' data-ref="aasworld">aasworld</a>.<a class="ref" href="be_aas_def.h.html#aas_s::filename" title='aas_s::filename' data-ref="aas_s::filename">filename</a>))</td></tr>
+<tr><th id="128">128</th><td>		{</td></tr>
+<tr><th id="129">129</th><td>			<a class="ref" href="be_interface.h.html#botimport" title='botimport' data-ref="botimport">botimport</a>.<a class="ref" href="botlib.h.html#botlib_import_s::Print" title='botlib_import_s::Print' data-ref="botlib_import_s::Print">Print</a>(<a class="macro" href="botlib.h.html#56" title="1" data-ref="_M/PRT_MESSAGE">PRT_MESSAGE</a>, <q>"%s written successfully\n"</q>, <a class="ref" href="be_aas_main.h.html#aasworld" title='aasworld' data-ref="aasworld">aasworld</a>.<a class="ref" href="be_aas_def.h.html#aas_s::filename" title='aas_s::filename' data-ref="aas_s::filename">filename</a>);</td></tr>
+<tr><th id="130">130</th><td>		} <i>//end if</i></td></tr>
+<tr><th id="131">131</th><td>		<b>else</b></td></tr>
+<tr><th id="132">132</th><td>		{</td></tr>
+<tr><th id="133">133</th><td>			<a class="ref" href="be_interface.h.html#botimport" title='botimport' data-ref="botimport">botimport</a>.<a class="ref" href="botlib.h.html#botlib_import_s::Print" title='botlib_import_s::Print' data-ref="botlib_import_s::Print">Print</a>(<a class="macro" href="botlib.h.html#58" title="3" data-ref="_M/PRT_ERROR">PRT_ERROR</a>, <q>"couldn't write %s\n"</q>, <a class="ref" href="be_aas_main.h.html#aasworld" title='aasworld' data-ref="aasworld">aasworld</a>.<a class="ref" href="be_aas_def.h.html#aas_s::filename" title='aas_s::filename' data-ref="aas_s::filename">filename</a>);</td></tr>
+<tr><th id="134">134</th><td>		} <i>//end else</i></td></tr>
+<tr><th id="135">135</th><td>	} <i>//end if</i></td></tr>
+<tr><th id="136">136</th><td>	<i>//initialize the routing</i></td></tr>
+<tr><th id="137">137</th><td>	<a class="ref" href="be_aas_route.h.html#AAS_InitRouting" title='AAS_InitRouting' data-ref="AAS_InitRouting">AAS_InitRouting</a>();</td></tr>
+<tr><th id="138">138</th><td>	<i>//at this point AAS is initialized</i></td></tr>
+<tr><th id="139">139</th><td>	<a class="ref" href="#AAS_SetInitialized" title='AAS_SetInitialized' data-ref="AAS_SetInitialized">AAS_SetInitialized</a>();</td></tr>
+<tr><th id="140">140</th><td>} <i>//end of the function AAS_ContinueInit</i></td></tr>
+<tr><th id="141">141</th><td><i>//===========================================================================</i></td></tr>
+<tr><th id="142">142</th><td><i>// called at the start of every frame</i></td></tr>
+<tr><th id="143">143</th><td><i>//</i></td></tr>
+<tr><th id="144">144</th><td><i>// Parameter:				-</i></td></tr>
+<tr><th id="145">145</th><td><i>// Returns:					-</i></td></tr>
+<tr><th id="146">146</th><td><i>// Changes Globals:		-</i></td></tr>
+<tr><th id="147">147</th><td><i>//===========================================================================</i></td></tr>
+<tr><th id="148">148</th><td><em>int</em> <dfn class="decl def" id="AAS_StartFrame" title='AAS_StartFrame' data-ref="AAS_StartFrame">AAS_StartFrame</dfn>(<em>float</em> <dfn class="local col5 decl" id="5time" title='time' data-type='float' data-ref="5time">time</dfn>)</td></tr>
+<tr><th id="149">149</th><td>{</td></tr>
+<tr><th id="150">150</th><td>	<a class="ref" href="be_aas_main.h.html#aasworld" title='aasworld' data-ref="aasworld">aasworld</a>.<a class="ref" href="be_aas_def.h.html#aas_s::time" title='aas_s::time' data-ref="aas_s::time">time</a> = <a class="local col5 ref" href="#5time" title='time' data-ref="5time">time</a>;</td></tr>
+<tr><th id="151">151</th><td>	<i>//unlink all entities that were not updated last frame</i></td></tr>
+<tr><th id="152">152</th><td>	<a class="ref" href="be_aas_entity.h.html#AAS_UnlinkInvalidEntities" title='AAS_UnlinkInvalidEntities' data-ref="AAS_UnlinkInvalidEntities">AAS_UnlinkInvalidEntities</a>();</td></tr>
+<tr><th id="153">153</th><td>	<i>//invalidate the entities</i></td></tr>
+<tr><th id="154">154</th><td>	<a class="ref" href="be_aas_entity.h.html#AAS_InvalidateEntities" title='AAS_InvalidateEntities' data-ref="AAS_InvalidateEntities">AAS_InvalidateEntities</a>();</td></tr>
+<tr><th id="155">155</th><td>	<i>//initialize AAS</i></td></tr>
+<tr><th id="156">156</th><td>	<a class="ref" href="#AAS_ContinueInit" title='AAS_ContinueInit' data-ref="AAS_ContinueInit">AAS_ContinueInit</a>(<a class="local col5 ref" href="#5time" title='time' data-ref="5time">time</a>);</td></tr>
+<tr><th id="157">157</th><td>	<i>//</i></td></tr>
+<tr><th id="158">158</th><td>	<a class="ref" href="be_aas_main.h.html#aasworld" title='aasworld' data-ref="aasworld">aasworld</a>.<a class="ref" href="be_aas_def.h.html#aas_s::frameroutingupdates" title='aas_s::frameroutingupdates' data-ref="aas_s::frameroutingupdates">frameroutingupdates</a> = <var>0</var>;</td></tr>
+<tr><th id="159">159</th><td>	<i>//</i></td></tr>
+<tr><th id="160">160</th><td>	<b>if</b> (<a class="ref" href="be_interface.h.html#botDeveloper" title='botDeveloper' data-ref="botDeveloper">botDeveloper</a>)</td></tr>
+<tr><th id="161">161</th><td>	{</td></tr>
+<tr><th id="162">162</th><td>		<b>if</b> (<a class="ref" href="l_libvar.h.html#LibVarGetValue" title='LibVarGetValue' data-ref="LibVarGetValue">LibVarGetValue</a>(<q>"showcacheupdates"</q>))</td></tr>
+<tr><th id="163">163</th><td>		{</td></tr>
+<tr><th id="164">164</th><td>			<a class="ref" href="be_aas_route.h.html#AAS_RoutingInfo" title='AAS_RoutingInfo' data-ref="AAS_RoutingInfo">AAS_RoutingInfo</a>();</td></tr>
+<tr><th id="165">165</th><td>			<a class="ref" href="l_libvar.h.html#LibVarSet" title='LibVarSet' data-ref="LibVarSet">LibVarSet</a>(<q>"showcacheupdates"</q>, <q>"0"</q>);</td></tr>
+<tr><th id="166">166</th><td>		} <i>//end if</i></td></tr>
+<tr><th id="167">167</th><td>		<b>if</b> (<a class="ref" href="l_libvar.h.html#LibVarGetValue" title='LibVarGetValue' data-ref="LibVarGetValue">LibVarGetValue</a>(<q>"showmemoryusage"</q>))</td></tr>
+<tr><th id="168">168</th><td>		{</td></tr>
+<tr><th id="169">169</th><td>			<a class="ref" href="l_memory.h.html#PrintUsedMemorySize" title='PrintUsedMemorySize' data-ref="PrintUsedMemorySize">PrintUsedMemorySize</a>();</td></tr>
+<tr><th id="170">170</th><td>			<a class="ref" href="l_libvar.h.html#LibVarSet" title='LibVarSet' data-ref="LibVarSet">LibVarSet</a>(<q>"showmemoryusage"</q>, <q>"0"</q>);</td></tr>
+<tr><th id="171">171</th><td>		} <i>//end if</i></td></tr>
+<tr><th id="172">172</th><td>		<b>if</b> (<a class="ref" href="l_libvar.h.html#LibVarGetValue" title='LibVarGetValue' data-ref="LibVarGetValue">LibVarGetValue</a>(<q>"memorydump"</q>))</td></tr>
+<tr><th id="173">173</th><td>		{</td></tr>
+<tr><th id="174">174</th><td>			<a class="ref" href="l_memory.h.html#PrintMemoryLabels" title='PrintMemoryLabels' data-ref="PrintMemoryLabels">PrintMemoryLabels</a>();</td></tr>
+<tr><th id="175">175</th><td>			<a class="ref" href="l_libvar.h.html#LibVarSet" title='LibVarSet' data-ref="LibVarSet">LibVarSet</a>(<q>"memorydump"</q>, <q>"0"</q>);</td></tr>
+<tr><th id="176">176</th><td>		} <i>//end if</i></td></tr>
+<tr><th id="177">177</th><td>	} <i>//end if</i></td></tr>
+<tr><th id="178">178</th><td>	<i>//</i></td></tr>
+<tr><th id="179">179</th><td>	<b>if</b> (<a class="ref" href="#saveroutingcache" title='saveroutingcache' data-ref="saveroutingcache">saveroutingcache</a>-&gt;<a class="ref" href="l_libvar.h.html#libvar_s::value" title='libvar_s::value' data-ref="libvar_s::value">value</a>)</td></tr>
+<tr><th id="180">180</th><td>	{</td></tr>
+<tr><th id="181">181</th><td>		<a class="ref" href="be_aas_route.h.html#AAS_WriteRouteCache" title='AAS_WriteRouteCache' data-ref="AAS_WriteRouteCache">AAS_WriteRouteCache</a>();</td></tr>
+<tr><th id="182">182</th><td>		<a class="ref" href="l_libvar.h.html#LibVarSet" title='LibVarSet' data-ref="LibVarSet">LibVarSet</a>(<q>"saveroutingcache"</q>, <q>"0"</q>);</td></tr>
+<tr><th id="183">183</th><td>	} <i>//end if</i></td></tr>
+<tr><th id="184">184</th><td>	<i>//</i></td></tr>
+<tr><th id="185">185</th><td>	<a class="ref" href="be_aas_main.h.html#aasworld" title='aasworld' data-ref="aasworld">aasworld</a>.<a class="ref" href="be_aas_def.h.html#aas_s::numframes" title='aas_s::numframes' data-ref="aas_s::numframes">numframes</a>++;</td></tr>
+<tr><th id="186">186</th><td>	<b>return</b> <a class="macro" href="botlib.h.html#67" title="0" data-ref="_M/BLERR_NOERROR">BLERR_NOERROR</a>;</td></tr>
+<tr><th id="187">187</th><td>} <i>//end of the function AAS_StartFrame</i></td></tr>
+<tr><th id="188">188</th><td><i>//===========================================================================</i></td></tr>
+<tr><th id="189">189</th><td><i>//</i></td></tr>
+<tr><th id="190">190</th><td><i>// Parameter:				-</i></td></tr>
+<tr><th id="191">191</th><td><i>// Returns:					-</i></td></tr>
+<tr><th id="192">192</th><td><i>// Changes Globals:		-</i></td></tr>
+<tr><th id="193">193</th><td><i>//===========================================================================</i></td></tr>
+<tr><th id="194">194</th><td><em>float</em> <dfn class="decl def" id="AAS_Time" title='AAS_Time' data-ref="AAS_Time">AAS_Time</dfn>(<em>void</em>)</td></tr>
+<tr><th id="195">195</th><td>{</td></tr>
+<tr><th id="196">196</th><td>	<b>return</b> <a class="ref" href="be_aas_main.h.html#aasworld" title='aasworld' data-ref="aasworld">aasworld</a>.<a class="ref" href="be_aas_def.h.html#aas_s::time" title='aas_s::time' data-ref="aas_s::time">time</a>;</td></tr>
+<tr><th id="197">197</th><td>} <i>//end of the function AAS_Time</i></td></tr>
+<tr><th id="198">198</th><td><i>//===========================================================================</i></td></tr>
+<tr><th id="199">199</th><td><i>//</i></td></tr>
+<tr><th id="200">200</th><td><i>// Parameter:			-</i></td></tr>
+<tr><th id="201">201</th><td><i>// Returns:				-</i></td></tr>
+<tr><th id="202">202</th><td><i>// Changes Globals:		-</i></td></tr>
+<tr><th id="203">203</th><td><i>//===========================================================================</i></td></tr>
+<tr><th id="204">204</th><td><em>void</em> <dfn class="decl def" id="AAS_ProjectPointOntoVector" title='AAS_ProjectPointOntoVector' data-ref="AAS_ProjectPointOntoVector">AAS_ProjectPointOntoVector</dfn>( <a class="typedef" href="../qcommon/q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="local col6 decl" id="6point" title='point' data-type='vec_t *' data-ref="6point">point</dfn>, <a class="typedef" href="../qcommon/q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="local col7 decl" id="7vStart" title='vStart' data-type='vec_t *' data-ref="7vStart">vStart</dfn>, <a class="typedef" href="../qcommon/q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="local col8 decl" id="8vEnd" title='vEnd' data-type='vec_t *' data-ref="8vEnd">vEnd</dfn>, <a class="typedef" href="../qcommon/q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="local col9 decl" id="9vProj" title='vProj' data-type='vec_t *' data-ref="9vProj">vProj</dfn> )</td></tr>
+<tr><th id="205">205</th><td>{</td></tr>
+<tr><th id="206">206</th><td>	<a class="typedef" href="../qcommon/q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="local col0 decl" id="10pVec" title='pVec' data-type='vec3_t' data-ref="10pVec">pVec</dfn>, <dfn class="local col1 decl" id="11vec" title='vec' data-type='vec3_t' data-ref="11vec">vec</dfn>;</td></tr>
+<tr><th id="207">207</th><td></td></tr>
+<tr><th id="208">208</th><td>	<a class="macro" href="../qcommon/q_shared.h.html#543" title="((pVec)[0]=(point)[0]-(vStart)[0],(pVec)[1]=(point)[1]-(vStart)[1],(pVec)[2]=(point)[2]-(vStart)[2])" data-ref="_M/VectorSubtract">VectorSubtract</a>( <a class="local col6 ref" href="#6point" title='point' data-ref="6point">point</a>, <a class="local col7 ref" href="#7vStart" title='vStart' data-ref="7vStart">vStart</a>, <a class="local col0 ref" href="#10pVec" title='pVec' data-ref="10pVec">pVec</a> );</td></tr>
+<tr><th id="209">209</th><td>	<a class="macro" href="../qcommon/q_shared.h.html#543" title="((vec)[0]=(vEnd)[0]-(vStart)[0],(vec)[1]=(vEnd)[1]-(vStart)[1],(vec)[2]=(vEnd)[2]-(vStart)[2])" data-ref="_M/VectorSubtract">VectorSubtract</a>( <a class="local col8 ref" href="#8vEnd" title='vEnd' data-ref="8vEnd">vEnd</a>, <a class="local col7 ref" href="#7vStart" title='vStart' data-ref="7vStart">vStart</a>, <a class="local col1 ref" href="#11vec" title='vec' data-ref="11vec">vec</a> );</td></tr>
+<tr><th id="210">210</th><td>	<a class="ref" href="../qcommon/q_shared.h.html#VectorNormalize" title='VectorNormalize' data-ref="VectorNormalize">VectorNormalize</a>( <a class="local col1 ref" href="#11vec" title='vec' data-ref="11vec">vec</a> );</td></tr>
+<tr><th id="211">211</th><td>	<i>// project onto the directional vector for this segment</i></td></tr>
+<tr><th id="212">212</th><td>	<a class="macro" href="../qcommon/q_shared.h.html#547" title="((vProj)[0]=(vStart)[0]+(vec)[0]*(((pVec)[0]*(vec)[0]+(pVec)[1]*(vec)[1]+(pVec)[2]*(vec)[2])),(vProj)[1]=(vStart)[1]+(vec)[1]*(((pVec)[0]*(vec)[0]+(pVec)[1]*(vec)[1]+(pVec)[2]*(vec)[2])),(vProj)[2]=(vStart)[2]+(vec)[2]*(((pVec)[0]*(vec)[0]+(pVec)[1]*(vec)[1]+(pVec)[2]*(vec)[2])))" data-ref="_M/VectorMA">VectorMA</a>( <a class="local col7 ref" href="#7vStart" title='vStart' data-ref="7vStart">vStart</a>, <a class="macro" href="../qcommon/q_shared.h.html#542" title="((pVec)[0]*(vec)[0]+(pVec)[1]*(vec)[1]+(pVec)[2]*(vec)[2])" data-ref="_M/DotProduct">DotProduct</a>( <a class="local col0 ref" href="#10pVec" title='pVec' data-ref="10pVec">pVec</a>, <a class="local col1 ref" href="#11vec" title='vec' data-ref="11vec">vec</a> ), <a class="local col1 ref" href="#11vec" title='vec' data-ref="11vec">vec</a>, <a class="local col9 ref" href="#9vProj" title='vProj' data-ref="9vProj">vProj</a> );</td></tr>
+<tr><th id="213">213</th><td>} <i>//end of the function AAS_ProjectPointOntoVector</i></td></tr>
+<tr><th id="214">214</th><td><i>//===========================================================================</i></td></tr>
+<tr><th id="215">215</th><td><i>//</i></td></tr>
+<tr><th id="216">216</th><td><i>// Parameter:				-</i></td></tr>
+<tr><th id="217">217</th><td><i>// Returns:					-</i></td></tr>
+<tr><th id="218">218</th><td><i>// Changes Globals:		-</i></td></tr>
+<tr><th id="219">219</th><td><i>//===========================================================================</i></td></tr>
+<tr><th id="220">220</th><td><em>int</em> <dfn class="decl def" id="AAS_LoadFiles" title='AAS_LoadFiles' data-ref="AAS_LoadFiles">AAS_LoadFiles</dfn>(<em>const</em> <em>char</em> *<dfn class="local col2 decl" id="12mapname" title='mapname' data-type='const char *' data-ref="12mapname">mapname</dfn>)</td></tr>
+<tr><th id="221">221</th><td>{</td></tr>
+<tr><th id="222">222</th><td>	<em>int</em> <dfn class="local col3 decl" id="13errnum" title='errnum' data-type='int' data-ref="13errnum">errnum</dfn>;</td></tr>
+<tr><th id="223">223</th><td>	<em>char</em> <dfn class="local col4 decl" id="14aasfile" title='aasfile' data-type='char [64]' data-ref="14aasfile">aasfile</dfn>[<a class="macro" href="l_utils.h.html#34" title="64" data-ref="_M/MAX_PATH">MAX_PATH</a>];</td></tr>
+<tr><th id="224">224</th><td><i>//	char bspfile[MAX_PATH];</i></td></tr>
+<tr><th id="225">225</th><td></td></tr>
+<tr><th id="226">226</th><td>	<a class="ref" href="../../../include/string.h.html#strcpy" title='strcpy' data-ref="strcpy">strcpy</a>(<a class="ref" href="be_aas_main.h.html#aasworld" title='aasworld' data-ref="aasworld">aasworld</a>.<a class="ref" href="be_aas_def.h.html#aas_s::mapname" title='aas_s::mapname' data-ref="aas_s::mapname">mapname</a>, <a class="local col2 ref" href="#12mapname" title='mapname' data-ref="12mapname">mapname</a>);</td></tr>
+<tr><th id="227">227</th><td>	<i>//NOTE: first reset the entity links into the AAS areas and BSP leaves</i></td></tr>
+<tr><th id="228">228</th><td><i>	// the AAS link heap and BSP link heap are reset after respectively the</i></td></tr>
+<tr><th id="229">229</th><td><i>	// AAS file and BSP file are loaded</i></td></tr>
+<tr><th id="230">230</th><td>	<a class="ref" href="be_aas_entity.h.html#AAS_ResetEntityLinks" title='AAS_ResetEntityLinks' data-ref="AAS_ResetEntityLinks">AAS_ResetEntityLinks</a>();</td></tr>
+<tr><th id="231">231</th><td>	<i>// load bsp info</i></td></tr>
+<tr><th id="232">232</th><td>	<a class="ref" href="be_aas_bsp.h.html#AAS_LoadBSPFile" title='AAS_LoadBSPFile' data-ref="AAS_LoadBSPFile">AAS_LoadBSPFile</a>();</td></tr>
+<tr><th id="233">233</th><td></td></tr>
+<tr><th id="234">234</th><td>	<i>//load the aas file</i></td></tr>
+<tr><th id="235">235</th><td>	<a class="ref" href="../qcommon/q_shared.h.html#Com_sprintf" title='Com_sprintf' data-ref="Com_sprintf">Com_sprintf</a>(<a class="local col4 ref" href="#14aasfile" title='aasfile' data-ref="14aasfile">aasfile</a>, <a class="macro" href="l_utils.h.html#34" title="64" data-ref="_M/MAX_PATH">MAX_PATH</a>, <q>"maps/%s.aas"</q>, <a class="local col2 ref" href="#12mapname" title='mapname' data-ref="12mapname">mapname</a>);</td></tr>
+<tr><th id="236">236</th><td>	<a class="local col3 ref" href="#13errnum" title='errnum' data-ref="13errnum">errnum</a> = <a class="ref" href="be_aas_file.h.html#AAS_LoadAASFile" title='AAS_LoadAASFile' data-ref="AAS_LoadAASFile">AAS_LoadAASFile</a>(<a class="local col4 ref" href="#14aasfile" title='aasfile' data-ref="14aasfile">aasfile</a>);</td></tr>
+<tr><th id="237">237</th><td>	<b>if</b> (<a class="local col3 ref" href="#13errnum" title='errnum' data-ref="13errnum">errnum</a> != <a class="macro" href="botlib.h.html#67" title="0" data-ref="_M/BLERR_NOERROR">BLERR_NOERROR</a>)</td></tr>
+<tr><th id="238">238</th><td>		<b>return</b> <a class="local col3 ref" href="#13errnum" title='errnum' data-ref="13errnum">errnum</a>;</td></tr>
+<tr><th id="239">239</th><td></td></tr>
+<tr><th id="240">240</th><td>	<a class="ref" href="be_interface.h.html#botimport" title='botimport' data-ref="botimport">botimport</a>.<a class="ref" href="botlib.h.html#botlib_import_s::Print" title='botlib_import_s::Print' data-ref="botlib_import_s::Print">Print</a>(<a class="macro" href="botlib.h.html#56" title="1" data-ref="_M/PRT_MESSAGE">PRT_MESSAGE</a>, <q>"loaded %s\n"</q>, <a class="local col4 ref" href="#14aasfile" title='aasfile' data-ref="14aasfile">aasfile</a>);</td></tr>
+<tr><th id="241">241</th><td>	<a class="ref" href="../qcommon/q_shared.h.html#Q_strncpyz" title='Q_strncpyz' data-ref="Q_strncpyz">Q_strncpyz</a>(<a class="ref" href="be_aas_main.h.html#aasworld" title='aasworld' data-ref="aasworld">aasworld</a>.<a class="ref" href="be_aas_def.h.html#aas_s::filename" title='aas_s::filename' data-ref="aas_s::filename">filename</a>, <a class="local col4 ref" href="#14aasfile" title='aasfile' data-ref="14aasfile">aasfile</a>, <b>sizeof</b>(<a class="ref" href="be_aas_main.h.html#aasworld" title='aasworld' data-ref="aasworld">aasworld</a>.<a class="ref" href="be_aas_def.h.html#aas_s::filename" title='aas_s::filename' data-ref="aas_s::filename">filename</a>));</td></tr>
+<tr><th id="242">242</th><td>	<b>return</b> <a class="macro" href="botlib.h.html#67" title="0" data-ref="_M/BLERR_NOERROR">BLERR_NOERROR</a>;</td></tr>
+<tr><th id="243">243</th><td>} <i>//end of the function AAS_LoadFiles</i></td></tr>
+<tr><th id="244">244</th><td><i>//===========================================================================</i></td></tr>
+<tr><th id="245">245</th><td><i>// called everytime a map changes</i></td></tr>
+<tr><th id="246">246</th><td><i>//</i></td></tr>
+<tr><th id="247">247</th><td><i>// Parameter:				-</i></td></tr>
+<tr><th id="248">248</th><td><i>// Returns:					-</i></td></tr>
+<tr><th id="249">249</th><td><i>// Changes Globals:		-</i></td></tr>
+<tr><th id="250">250</th><td><i>//===========================================================================</i></td></tr>
+<tr><th id="251">251</th><td><em>int</em> <dfn class="decl def" id="AAS_LoadMap" title='AAS_LoadMap' data-ref="AAS_LoadMap">AAS_LoadMap</dfn>(<em>const</em> <em>char</em> *<dfn class="local col5 decl" id="15mapname" title='mapname' data-type='const char *' data-ref="15mapname">mapname</dfn>)</td></tr>
+<tr><th id="252">252</th><td>{</td></tr>
+<tr><th id="253">253</th><td>	<em>int</em>	<dfn class="local col6 decl" id="16errnum" title='errnum' data-type='int' data-ref="16errnum">errnum</dfn>;</td></tr>
+<tr><th id="254">254</th><td></td></tr>
+<tr><th id="255">255</th><td>	<i>//if no mapname is provided then the string indexes are updated</i></td></tr>
+<tr><th id="256">256</th><td>	<b>if</b> (!<a class="local col5 ref" href="#15mapname" title='mapname' data-ref="15mapname">mapname</a>)</td></tr>
+<tr><th id="257">257</th><td>	{</td></tr>
+<tr><th id="258">258</th><td>		<b>return</b> <var>0</var>;</td></tr>
+<tr><th id="259">259</th><td>	} <i>//end if</i></td></tr>
+<tr><th id="260">260</th><td>	<i>//</i></td></tr>
+<tr><th id="261">261</th><td>	<a class="ref" href="be_aas_main.h.html#aasworld" title='aasworld' data-ref="aasworld">aasworld</a>.<a class="ref" href="be_aas_def.h.html#aas_s::initialized" title='aas_s::initialized' data-ref="aas_s::initialized">initialized</a> = <a class="enum" href="../qcommon/q_shared.h.html#qfalse" title='qfalse' data-ref="qfalse">qfalse</a>;</td></tr>
+<tr><th id="262">262</th><td>	<i>//NOTE: free the routing caches before loading a new map because</i></td></tr>
+<tr><th id="263">263</th><td><i>	// to free the caches the old number of areas, number of clusters</i></td></tr>
+<tr><th id="264">264</th><td><i>	// and number of areas in a clusters must be available</i></td></tr>
+<tr><th id="265">265</th><td>	<a class="ref" href="be_aas_route.h.html#AAS_FreeRoutingCaches" title='AAS_FreeRoutingCaches' data-ref="AAS_FreeRoutingCaches">AAS_FreeRoutingCaches</a>();</td></tr>
+<tr><th id="266">266</th><td>	<i>//load the map</i></td></tr>
+<tr><th id="267">267</th><td>	<a class="local col6 ref" href="#16errnum" title='errnum' data-ref="16errnum">errnum</a> = <a class="ref" href="#AAS_LoadFiles" title='AAS_LoadFiles' data-ref="AAS_LoadFiles">AAS_LoadFiles</a>(<a class="local col5 ref" href="#15mapname" title='mapname' data-ref="15mapname">mapname</a>);</td></tr>
+<tr><th id="268">268</th><td>	<b>if</b> (<a class="local col6 ref" href="#16errnum" title='errnum' data-ref="16errnum">errnum</a> != <a class="macro" href="botlib.h.html#67" title="0" data-ref="_M/BLERR_NOERROR">BLERR_NOERROR</a>)</td></tr>
+<tr><th id="269">269</th><td>	{</td></tr>
+<tr><th id="270">270</th><td>		<a class="ref" href="be_aas_main.h.html#aasworld" title='aasworld' data-ref="aasworld">aasworld</a>.<a class="ref" href="be_aas_def.h.html#aas_s::loaded" title='aas_s::loaded' data-ref="aas_s::loaded">loaded</a> = <a class="enum" href="../qcommon/q_shared.h.html#qfalse" title='qfalse' data-ref="qfalse">qfalse</a>;</td></tr>
+<tr><th id="271">271</th><td>		<b>return</b> <a class="local col6 ref" href="#16errnum" title='errnum' data-ref="16errnum">errnum</a>;</td></tr>
+<tr><th id="272">272</th><td>	} <i>//end if</i></td></tr>
+<tr><th id="273">273</th><td>	<i>//</i></td></tr>
+<tr><th id="274">274</th><td>	<a class="ref" href="be_aas_move.h.html#AAS_InitSettings" title='AAS_InitSettings' data-ref="AAS_InitSettings">AAS_InitSettings</a>();</td></tr>
+<tr><th id="275">275</th><td>	<i>//initialize the AAS link heap for the new map</i></td></tr>
+<tr><th id="276">276</th><td>	<a class="ref" href="be_aas_sample.h.html#AAS_InitAASLinkHeap" title='AAS_InitAASLinkHeap' data-ref="AAS_InitAASLinkHeap">AAS_InitAASLinkHeap</a>();</td></tr>
+<tr><th id="277">277</th><td>	<i>//initialize the AAS linked entities for the new map</i></td></tr>
+<tr><th id="278">278</th><td>	<a class="ref" href="be_aas_sample.h.html#AAS_InitAASLinkedEntities" title='AAS_InitAASLinkedEntities' data-ref="AAS_InitAASLinkedEntities">AAS_InitAASLinkedEntities</a>();</td></tr>
+<tr><th id="279">279</th><td>	<i>//initialize reachability for the new map</i></td></tr>
+<tr><th id="280">280</th><td>	<a class="ref" href="be_aas_reach.h.html#AAS_InitReachability" title='AAS_InitReachability' data-ref="AAS_InitReachability">AAS_InitReachability</a>();</td></tr>
+<tr><th id="281">281</th><td>	<i>//initialize the alternative routing</i></td></tr>
+<tr><th id="282">282</th><td>	<a class="ref" href="be_aas_routealt.h.html#AAS_InitAlternativeRouting" title='AAS_InitAlternativeRouting' data-ref="AAS_InitAlternativeRouting">AAS_InitAlternativeRouting</a>();</td></tr>
+<tr><th id="283">283</th><td>	<i>//everything went ok</i></td></tr>
+<tr><th id="284">284</th><td>	<b>return</b> <var>0</var>;</td></tr>
+<tr><th id="285">285</th><td>} <i>//end of the function AAS_LoadMap</i></td></tr>
+<tr><th id="286">286</th><td><i>//===========================================================================</i></td></tr>
+<tr><th id="287">287</th><td><i>// called when the library is first loaded</i></td></tr>
+<tr><th id="288">288</th><td><i>//</i></td></tr>
+<tr><th id="289">289</th><td><i>// Parameter:				-</i></td></tr>
+<tr><th id="290">290</th><td><i>// Returns:					-</i></td></tr>
+<tr><th id="291">291</th><td><i>// Changes Globals:		-</i></td></tr>
+<tr><th id="292">292</th><td><i>//===========================================================================</i></td></tr>
+<tr><th id="293">293</th><td><em>int</em> <dfn class="decl def" id="AAS_Setup" title='AAS_Setup' data-ref="AAS_Setup">AAS_Setup</dfn>(<em>void</em>)</td></tr>
+<tr><th id="294">294</th><td>{</td></tr>
+<tr><th id="295">295</th><td>	<a class="ref" href="be_aas_main.h.html#aasworld" title='aasworld' data-ref="aasworld">aasworld</a>.<a class="ref" href="be_aas_def.h.html#aas_s::maxclients" title='aas_s::maxclients' data-ref="aas_s::maxclients">maxclients</a> = (<em>int</em>) <a class="ref" href="l_libvar.h.html#LibVarValue" title='LibVarValue' data-ref="LibVarValue">LibVarValue</a>(<q>"maxclients"</q>, <q>"128"</q>);</td></tr>
+<tr><th id="296">296</th><td>	<a class="ref" href="be_aas_main.h.html#aasworld" title='aasworld' data-ref="aasworld">aasworld</a>.<a class="ref" href="be_aas_def.h.html#aas_s::maxentities" title='aas_s::maxentities' data-ref="aas_s::maxentities">maxentities</a> = (<em>int</em>) <a class="ref" href="l_libvar.h.html#LibVarValue" title='LibVarValue' data-ref="LibVarValue">LibVarValue</a>(<q>"maxentities"</q>, <q>"1024"</q>);</td></tr>
+<tr><th id="297">297</th><td>	<i>// as soon as it's set to 1 the routing cache will be saved</i></td></tr>
+<tr><th id="298">298</th><td>	<a class="ref" href="#saveroutingcache" title='saveroutingcache' data-ref="saveroutingcache">saveroutingcache</a> = <a class="ref" href="l_libvar.h.html#LibVar" title='LibVar' data-ref="LibVar">LibVar</a>(<q>"saveroutingcache"</q>, <q>"0"</q>);</td></tr>
+<tr><th id="299">299</th><td>	<i>//allocate memory for the entities</i></td></tr>
+<tr><th id="300">300</th><td>	<b>if</b> (<a class="ref" href="be_aas_main.h.html#aasworld" title='aasworld' data-ref="aasworld">aasworld</a>.<a class="ref" href="be_aas_def.h.html#aas_s::entities" title='aas_s::entities' data-ref="aas_s::entities">entities</a>) <a class="ref" href="l_memory.h.html#FreeMemory" title='FreeMemory' data-ref="FreeMemory">FreeMemory</a>(<a class="ref" href="be_aas_main.h.html#aasworld" title='aasworld' data-ref="aasworld">aasworld</a>.<a class="ref" href="be_aas_def.h.html#aas_s::entities" title='aas_s::entities' data-ref="aas_s::entities">entities</a>);</td></tr>
+<tr><th id="301">301</th><td>	<a class="ref" href="be_aas_main.h.html#aasworld" title='aasworld' data-ref="aasworld">aasworld</a>.<a class="ref" href="be_aas_def.h.html#aas_s::entities" title='aas_s::entities' data-ref="aas_s::entities">entities</a> = (<a class="typedef" href="be_aas_def.h.html#aas_entity_t" title='aas_entity_t' data-type='struct aas_entity_s' data-ref="aas_entity_t">aas_entity_t</a> *) <a class="ref" href="l_memory.h.html#GetClearedHunkMemory" title='GetClearedHunkMemory' data-ref="GetClearedHunkMemory">GetClearedHunkMemory</a>(<a class="ref" href="be_aas_main.h.html#aasworld" title='aasworld' data-ref="aasworld">aasworld</a>.<a class="ref" href="be_aas_def.h.html#aas_s::maxentities" title='aas_s::maxentities' data-ref="aas_s::maxentities">maxentities</a> * <b>sizeof</b>(<a class="typedef" href="be_aas_def.h.html#aas_entity_t" title='aas_entity_t' data-type='struct aas_entity_s' data-ref="aas_entity_t">aas_entity_t</a>));</td></tr>
+<tr><th id="302">302</th><td>	<i>//invalidate all the entities</i></td></tr>
+<tr><th id="303">303</th><td>	<a class="ref" href="be_aas_entity.h.html#AAS_InvalidateEntities" title='AAS_InvalidateEntities' data-ref="AAS_InvalidateEntities">AAS_InvalidateEntities</a>();</td></tr>
+<tr><th id="304">304</th><td>	<i>//force some recalculations</i></td></tr>
+<tr><th id="305">305</th><td><i>	//LibVarSet("forceclustering", "1");			//force clustering calculation</i></td></tr>
+<tr><th id="306">306</th><td><i>	//LibVarSet("forcereachability", "1");		//force reachability calculation</i></td></tr>
+<tr><th id="307">307</th><td>	<a class="ref" href="be_aas_main.h.html#aasworld" title='aasworld' data-ref="aasworld">aasworld</a>.<a class="ref" href="be_aas_def.h.html#aas_s::numframes" title='aas_s::numframes' data-ref="aas_s::numframes">numframes</a> = <var>0</var>;</td></tr>
+<tr><th id="308">308</th><td>	<b>return</b> <a class="macro" href="botlib.h.html#67" title="0" data-ref="_M/BLERR_NOERROR">BLERR_NOERROR</a>;</td></tr>
+<tr><th id="309">309</th><td>} <i>//end of the function AAS_Setup</i></td></tr>
+<tr><th id="310">310</th><td><i>//===========================================================================</i></td></tr>
+<tr><th id="311">311</th><td><i>//</i></td></tr>
+<tr><th id="312">312</th><td><i>// Parameter:				-</i></td></tr>
+<tr><th id="313">313</th><td><i>// Returns:					-</i></td></tr>
+<tr><th id="314">314</th><td><i>// Changes Globals:		-</i></td></tr>
+<tr><th id="315">315</th><td><i>//===========================================================================</i></td></tr>
+<tr><th id="316">316</th><td><em>void</em> <dfn class="decl def" id="AAS_Shutdown" title='AAS_Shutdown' data-ref="AAS_Shutdown">AAS_Shutdown</dfn>(<em>void</em>)</td></tr>
+<tr><th id="317">317</th><td>{</td></tr>
+<tr><th id="318">318</th><td>	<a class="ref" href="be_aas_routealt.h.html#AAS_ShutdownAlternativeRouting" title='AAS_ShutdownAlternativeRouting' data-ref="AAS_ShutdownAlternativeRouting">AAS_ShutdownAlternativeRouting</a>();</td></tr>
+<tr><th id="319">319</th><td>	<i>//</i></td></tr>
+<tr><th id="320">320</th><td>	<a class="ref" href="be_aas_bsp.h.html#AAS_DumpBSPData" title='AAS_DumpBSPData' data-ref="AAS_DumpBSPData">AAS_DumpBSPData</a>();</td></tr>
+<tr><th id="321">321</th><td>	<i>//free routing caches</i></td></tr>
+<tr><th id="322">322</th><td>	<a class="ref" href="be_aas_route.h.html#AAS_FreeRoutingCaches" title='AAS_FreeRoutingCaches' data-ref="AAS_FreeRoutingCaches">AAS_FreeRoutingCaches</a>();</td></tr>
+<tr><th id="323">323</th><td>	<i>//free aas link heap</i></td></tr>
+<tr><th id="324">324</th><td>	<a class="ref" href="be_aas_sample.h.html#AAS_FreeAASLinkHeap" title='AAS_FreeAASLinkHeap' data-ref="AAS_FreeAASLinkHeap">AAS_FreeAASLinkHeap</a>();</td></tr>
+<tr><th id="325">325</th><td>	<i>//free aas linked entities</i></td></tr>
+<tr><th id="326">326</th><td>	<a class="ref" href="be_aas_sample.h.html#AAS_FreeAASLinkedEntities" title='AAS_FreeAASLinkedEntities' data-ref="AAS_FreeAASLinkedEntities">AAS_FreeAASLinkedEntities</a>();</td></tr>
+<tr><th id="327">327</th><td>	<i>//free the aas data</i></td></tr>
+<tr><th id="328">328</th><td>	<a class="ref" href="be_aas_file.h.html#AAS_DumpAASData" title='AAS_DumpAASData' data-ref="AAS_DumpAASData">AAS_DumpAASData</a>();</td></tr>
+<tr><th id="329">329</th><td>	<i>//free the entities</i></td></tr>
+<tr><th id="330">330</th><td>	<b>if</b> (<a class="ref" href="be_aas_main.h.html#aasworld" title='aasworld' data-ref="aasworld">aasworld</a>.<a class="ref" href="be_aas_def.h.html#aas_s::entities" title='aas_s::entities' data-ref="aas_s::entities">entities</a>) <a class="ref" href="l_memory.h.html#FreeMemory" title='FreeMemory' data-ref="FreeMemory">FreeMemory</a>(<a class="ref" href="be_aas_main.h.html#aasworld" title='aasworld' data-ref="aasworld">aasworld</a>.<a class="ref" href="be_aas_def.h.html#aas_s::entities" title='aas_s::entities' data-ref="aas_s::entities">entities</a>);</td></tr>
+<tr><th id="331">331</th><td>	<i>//clear the aasworld structure</i></td></tr>
+<tr><th id="332">332</th><td>	<a class="macro" href="../qcommon/q_shared.h.html#344" title="memset" data-ref="_M/Com_Memset">Com_Memset</a>(&amp;<a class="ref" href="be_aas_main.h.html#aasworld" title='aasworld' data-ref="aasworld">aasworld</a>, <var>0</var>, <b>sizeof</b>(<a class="typedef" href="be_aas_def.h.html#aas_t" title='aas_t' data-type='struct aas_s' data-ref="aas_t">aas_t</a>));</td></tr>
+<tr><th id="333">333</th><td>	<i>//aas has not been initialized</i></td></tr>
+<tr><th id="334">334</th><td>	<a class="ref" href="be_aas_main.h.html#aasworld" title='aasworld' data-ref="aasworld">aasworld</a>.<a class="ref" href="be_aas_def.h.html#aas_s::initialized" title='aas_s::initialized' data-ref="aas_s::initialized">initialized</a> = <a class="enum" href="../qcommon/q_shared.h.html#qfalse" title='qfalse' data-ref="qfalse">qfalse</a>;</td></tr>
+<tr><th id="335">335</th><td>	<i>//NOTE: as soon as a new .bsp file is loaded the .bsp file memory is</i></td></tr>
+<tr><th id="336">336</th><td><i>	// freed and reallocated, so there's no need to free that memory here</i></td></tr>
+<tr><th id="337">337</th><td><i>	//print shutdown</i></td></tr>
+<tr><th id="338">338</th><td>	<a class="ref" href="be_interface.h.html#botimport" title='botimport' data-ref="botimport">botimport</a>.<a class="ref" href="botlib.h.html#botlib_import_s::Print" title='botlib_import_s::Print' data-ref="botlib_import_s::Print">Print</a>(<a class="macro" href="botlib.h.html#56" title="1" data-ref="_M/PRT_MESSAGE">PRT_MESSAGE</a>, <q>"AAS shutdown.\n"</q>);</td></tr>
+<tr><th id="339">339</th><td>} <i>//end of the function AAS_Shutdown</i></td></tr>
+<tr><th id="340">340</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated on <em>2017-Aug-29</em> from project codebrowser revision <em>63e07af</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

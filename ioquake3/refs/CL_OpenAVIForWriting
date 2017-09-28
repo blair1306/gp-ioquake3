@@ -1,0 +1,15 @@
+<dec f='codebrowser/code/client/client.h' l='632' type='qboolean CL_OpenAVIForWriting(const char * filename)'/>
+<def f='codebrowser/code/client/cl_avi.c' l='324' ll='422' type='qboolean CL_OpenAVIForWriting(const char * fileName)'/>
+<use f='codebrowser/code/client/cl_avi.c' l='447' u='c' c='CL_CheckFileSize'/>
+<doc f='codebrowser/code/client/cl_avi.c' l='316'>/*
+===============
+CL_OpenAVIForWriting
+
+Creates an AVI file and gets it into a state where
+writing the actual data can begin
+===============
+*/</doc>
+<doc f='codebrowser/code/client/client.h' l='629'>//
+// cl_avi.c
+//</doc>
+<use f='codebrowser/code/client/cl_main.c' l='3385' u='c' c='CL_Video_f'/>

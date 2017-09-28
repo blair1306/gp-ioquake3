@@ -1,0 +1,7 @@
+<dec f='codebrowser/code/botlib/be_aas_def.h' l='132' type='byte'/>
+<offset>0</offset>
+<doc f='codebrowser/code/botlib/be_aas_def.h' l='132'>//portal or area cache</doc>
+<use f='codebrowser/code/botlib/be_aas_route.c' l='704' u='r' c='AAS_FreeOldestCache'/>
+<use f='codebrowser/code/botlib/be_aas_route.c' l='711' u='r' c='AAS_FreeOldestCache'/>
+<use f='codebrowser/code/botlib/be_aas_route.c' l='1439' u='w' c='AAS_GetAreaRoutingCache'/>
+<use f='codebrowser/code/botlib/be_aas_route.c' l='1579' u='w' c='AAS_GetPortalRoutingCache'/>

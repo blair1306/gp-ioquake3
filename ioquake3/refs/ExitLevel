@@ -1,0 +1,14 @@
+<dec f='codebrowser/code/game/ai_main.c' l='89' type='void ExitLevel()'/>
+<use f='codebrowser/code/game/ai_main.c' l='661' u='c' c='BotInterbreeding'/>
+<def f='codebrowser/code/game/g_main.c' l='1043' ll='1100' type='void ExitLevel()'/>
+<use f='codebrowser/code/game/g_main.c' l='1286' u='c' c='CheckIntermissionExit'/>
+<use f='codebrowser/code/game/g_main.c' l='1303' u='c' c='CheckIntermissionExit'/>
+<doc f='codebrowser/code/game/g_main.c' l='1034'>/*
+=============
+ExitLevel
+
+When the intermission has been exited, the server is either killed
+or moved to a new level based on the &quot;nextmap&quot; cvar 
+
+=============
+*/</doc>

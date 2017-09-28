@@ -1,0 +1,199 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>l_precomp.h source code [codebrowser/code/botlib/l_precomp.h] - Woboq Code Browser</title>
+<meta name="woboq:interestingDefinitions" content="define_s,indent_s,source_s "/>
+<link rel="stylesheet" href="../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'codebrowser/code/botlib/l_precomp.h'; var root_path = '../../..'; var data_path = '../../../../data';</script>
+<script src='../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../..'>codebrowser</a>/<a href='..'>code</a>/<a href='./'>botlib</a>/<a href='l_precomp.h.html'>l_precomp.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/*</i></td></tr>
+<tr><th id="2">2</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="3">3</th><td><i>Copyright (C) 1999-2005 Id Software, Inc.</i></td></tr>
+<tr><th id="4">4</th><td><i></i></td></tr>
+<tr><th id="5">5</th><td><i>This file is part of Quake III Arena source code.</i></td></tr>
+<tr><th id="6">6</th><td><i></i></td></tr>
+<tr><th id="7">7</th><td><i>Quake III Arena source code is free software; you can redistribute it</i></td></tr>
+<tr><th id="8">8</th><td><i>and/or modify it under the terms of the GNU General Public License as</i></td></tr>
+<tr><th id="9">9</th><td><i>published by the Free Software Foundation; either version 2 of the License,</i></td></tr>
+<tr><th id="10">10</th><td><i>or (at your option) any later version.</i></td></tr>
+<tr><th id="11">11</th><td><i></i></td></tr>
+<tr><th id="12">12</th><td><i>Quake III Arena source code is distributed in the hope that it will be</i></td></tr>
+<tr><th id="13">13</th><td><i>useful, but WITHOUT ANY WARRANTY; without even the implied warranty of</i></td></tr>
+<tr><th id="14">14</th><td><i>MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</i></td></tr>
+<tr><th id="15">15</th><td><i>GNU General Public License for more details.</i></td></tr>
+<tr><th id="16">16</th><td><i></i></td></tr>
+<tr><th id="17">17</th><td><i>You should have received a copy of the GNU General Public License</i></td></tr>
+<tr><th id="18">18</th><td><i>along with Quake III Arena source code; if not, write to the Free Software</i></td></tr>
+<tr><th id="19">19</th><td><i>Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA</i></td></tr>
+<tr><th id="20">20</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="21">21</th><td><i>*/</i></td></tr>
+<tr><th id="22">22</th><td></td></tr>
+<tr><th id="23">23</th><td><i>/*****************************************************************************</i></td></tr>
+<tr><th id="24">24</th><td><i> * name:		l_precomp.h</i></td></tr>
+<tr><th id="25">25</th><td><i> *</i></td></tr>
+<tr><th id="26">26</th><td><i> * desc:		pre compiler</i></td></tr>
+<tr><th id="27">27</th><td><i> *</i></td></tr>
+<tr><th id="28">28</th><td><i> * $Archive: /source/code/botlib/l_precomp.h $</i></td></tr>
+<tr><th id="29">29</th><td><i> *</i></td></tr>
+<tr><th id="30">30</th><td><i> *****************************************************************************/</i></td></tr>
+<tr><th id="31">31</th><td></td></tr>
+<tr><th id="32">32</th><td><u>#<span data-ppcond="32">ifndef</span> <span class="macro" data-ref="_M/MAX_PATH">MAX_PATH</span></u></td></tr>
+<tr><th id="33">33</th><td>	<u>#define <dfn class="macro" id="_M/MAX_PATH" data-ref="_M/MAX_PATH">MAX_PATH</dfn>			MAX_QPATH</u></td></tr>
+<tr><th id="34">34</th><td><u>#<span data-ppcond="32">endif</span></u></td></tr>
+<tr><th id="35">35</th><td></td></tr>
+<tr><th id="36">36</th><td><u>#<span data-ppcond="36">ifndef</span> <span class="macro" data-ref="_M/PATH_SEPERATORSTR">PATH_SEPERATORSTR</span></u></td></tr>
+<tr><th id="37">37</th><td>	<u>#<span data-ppcond="37">if</span> defined(<span class="macro" data-ref="_M/WIN32">WIN32</span>)|defined(<span class="macro" data-ref="_M/_WIN32">_WIN32</span>)|defined(<span class="macro" data-ref="_M/__NT__">__NT__</span>)|defined(<span class="macro" data-ref="_M/__WINDOWS__">__WINDOWS__</span>)|defined(<span class="macro" data-ref="_M/__WINDOWS_386__">__WINDOWS_386__</span>)</u></td></tr>
+<tr><th id="38">38</th><td>		<u>#define PATHSEPERATOR_STR		"\\"</u></td></tr>
+<tr><th id="39">39</th><td>	<u>#<span data-ppcond="37">else</span></u></td></tr>
+<tr><th id="40">40</th><td>		<u>#define <dfn class="macro" id="_M/PATHSEPERATOR_STR" data-ref="_M/PATHSEPERATOR_STR">PATHSEPERATOR_STR</dfn>		"/"</u></td></tr>
+<tr><th id="41">41</th><td>	<u>#<span data-ppcond="37">endif</span></u></td></tr>
+<tr><th id="42">42</th><td><u>#<span data-ppcond="36">endif</span></u></td></tr>
+<tr><th id="43">43</th><td><u>#<span data-ppcond="43">ifndef</span> <span class="macro" data-ref="_M/PATH_SEPERATORCHAR">PATH_SEPERATORCHAR</span></u></td></tr>
+<tr><th id="44">44</th><td>	<u>#<span data-ppcond="44">if</span> defined(<span class="macro" data-ref="_M/WIN32">WIN32</span>)|defined(<span class="macro" data-ref="_M/_WIN32">_WIN32</span>)|defined(<span class="macro" data-ref="_M/__NT__">__NT__</span>)|defined(<span class="macro" data-ref="_M/__WINDOWS__">__WINDOWS__</span>)|defined(<span class="macro" data-ref="_M/__WINDOWS_386__">__WINDOWS_386__</span>)</u></td></tr>
+<tr><th id="45">45</th><td>		<u>#define PATHSEPERATOR_CHAR		'\\'</u></td></tr>
+<tr><th id="46">46</th><td>	<u>#<span data-ppcond="44">else</span></u></td></tr>
+<tr><th id="47">47</th><td>		<u>#define <dfn class="macro" id="_M/PATHSEPERATOR_CHAR" data-ref="_M/PATHSEPERATOR_CHAR">PATHSEPERATOR_CHAR</dfn>		'/'</u></td></tr>
+<tr><th id="48">48</th><td>	<u>#<span data-ppcond="44">endif</span></u></td></tr>
+<tr><th id="49">49</th><td><u>#<span data-ppcond="43">endif</span></u></td></tr>
+<tr><th id="50">50</th><td></td></tr>
+<tr><th id="51">51</th><td><u>#<span data-ppcond="51">if</span> defined(<span class="macro" data-ref="_M/BSPC">BSPC</span>) &amp;&amp; !defined(<a class="macro" href="../qcommon/q_platform.h.html#75" data-ref="_M/QDECL">QDECL</a>)</u></td></tr>
+<tr><th id="52">52</th><td><u>#define QDECL</u></td></tr>
+<tr><th id="53">53</th><td><u>#<span data-ppcond="51">endif</span></u></td></tr>
+<tr><th id="54">54</th><td></td></tr>
+<tr><th id="55">55</th><td></td></tr>
+<tr><th id="56">56</th><td><u>#define <dfn class="macro" id="_M/DEFINE_FIXED" data-ref="_M/DEFINE_FIXED">DEFINE_FIXED</dfn>			0x0001</u></td></tr>
+<tr><th id="57">57</th><td></td></tr>
+<tr><th id="58">58</th><td><u>#define <dfn class="macro" id="_M/BUILTIN_LINE" data-ref="_M/BUILTIN_LINE">BUILTIN_LINE</dfn>			1</u></td></tr>
+<tr><th id="59">59</th><td><u>#define <dfn class="macro" id="_M/BUILTIN_FILE" data-ref="_M/BUILTIN_FILE">BUILTIN_FILE</dfn>			2</u></td></tr>
+<tr><th id="60">60</th><td><u>#define <dfn class="macro" id="_M/BUILTIN_DATE" data-ref="_M/BUILTIN_DATE">BUILTIN_DATE</dfn>			3</u></td></tr>
+<tr><th id="61">61</th><td><u>#define <dfn class="macro" id="_M/BUILTIN_TIME" data-ref="_M/BUILTIN_TIME">BUILTIN_TIME</dfn>			4</u></td></tr>
+<tr><th id="62">62</th><td><u>#define <dfn class="macro" id="_M/BUILTIN_STDC" data-ref="_M/BUILTIN_STDC">BUILTIN_STDC</dfn>			5</u></td></tr>
+<tr><th id="63">63</th><td></td></tr>
+<tr><th id="64">64</th><td><u>#define <dfn class="macro" id="_M/INDENT_IF" data-ref="_M/INDENT_IF">INDENT_IF</dfn>				0x0001</u></td></tr>
+<tr><th id="65">65</th><td><u>#define <dfn class="macro" id="_M/INDENT_ELSE" data-ref="_M/INDENT_ELSE">INDENT_ELSE</dfn>				0x0002</u></td></tr>
+<tr><th id="66">66</th><td><u>#define <dfn class="macro" id="_M/INDENT_ELIF" data-ref="_M/INDENT_ELIF">INDENT_ELIF</dfn>				0x0004</u></td></tr>
+<tr><th id="67">67</th><td><u>#define <dfn class="macro" id="_M/INDENT_IFDEF" data-ref="_M/INDENT_IFDEF">INDENT_IFDEF</dfn>			0x0008</u></td></tr>
+<tr><th id="68">68</th><td><u>#define <dfn class="macro" id="_M/INDENT_IFNDEF" data-ref="_M/INDENT_IFNDEF">INDENT_IFNDEF</dfn>			0x0010</u></td></tr>
+<tr><th id="69">69</th><td></td></tr>
+<tr><th id="70">70</th><td><i>//macro definitions</i></td></tr>
+<tr><th id="71">71</th><td><b>typedef</b> <b>struct</b> <dfn class="type def" id="define_s" title='define_s' data-ref="define_s"><a class="type" href="#define_s" title='define_s' data-ref="define_s">define_s</a></dfn></td></tr>
+<tr><th id="72">72</th><td>{</td></tr>
+<tr><th id="73">73</th><td>	<em>char</em> *<dfn class="decl" id="define_s::name" title='define_s::name' data-ref="define_s::name">name</dfn>;							<i>//define name</i></td></tr>
+<tr><th id="74">74</th><td>	<em>int</em> <dfn class="decl" id="define_s::flags" title='define_s::flags' data-ref="define_s::flags">flags</dfn>;							<i>//define flags</i></td></tr>
+<tr><th id="75">75</th><td>	<em>int</em> <dfn class="decl" id="define_s::builtin" title='define_s::builtin' data-ref="define_s::builtin">builtin</dfn>;						<i>// &gt; 0 if builtin define</i></td></tr>
+<tr><th id="76">76</th><td>	<em>int</em> <dfn class="decl" id="define_s::numparms" title='define_s::numparms' data-ref="define_s::numparms">numparms</dfn>;						<i>//number of define parameters</i></td></tr>
+<tr><th id="77">77</th><td>	<a class="typedef" href="l_script.h.html#token_t" title='token_t' data-type='struct token_s' data-ref="token_t">token_t</a> *<dfn class="decl" id="define_s::parms" title='define_s::parms' data-ref="define_s::parms">parms</dfn>;						<i>//define parameters</i></td></tr>
+<tr><th id="78">78</th><td>	<a class="typedef" href="l_script.h.html#token_t" title='token_t' data-type='struct token_s' data-ref="token_t">token_t</a> *<dfn class="decl" id="define_s::tokens" title='define_s::tokens' data-ref="define_s::tokens">tokens</dfn>;					<i>//macro tokens (possibly containing parm tokens)</i></td></tr>
+<tr><th id="79">79</th><td>	<b>struct</b> <a class="type" href="#define_s" title='define_s' data-ref="define_s">define_s</a> *<dfn class="decl" id="define_s::next" title='define_s::next' data-ref="define_s::next">next</dfn>;				<i>//next defined macro in a list</i></td></tr>
+<tr><th id="80">80</th><td>	<b>struct</b> <a class="type" href="#define_s" title='define_s' data-ref="define_s">define_s</a> *<dfn class="decl" id="define_s::hashnext" title='define_s::hashnext' data-ref="define_s::hashnext">hashnext</dfn>;			<i>//next define in the hash chain</i></td></tr>
+<tr><th id="81">81</th><td>} <dfn class="typedef" id="define_t" title='define_t' data-type='struct define_s' data-ref="define_t">define_t</dfn>;</td></tr>
+<tr><th id="82">82</th><td></td></tr>
+<tr><th id="83">83</th><td><i>//indents</i></td></tr>
+<tr><th id="84">84</th><td><i>//used for conditional compilation directives:</i></td></tr>
+<tr><th id="85">85</th><td><i>//#if, #else, #elif, #ifdef, #ifndef</i></td></tr>
+<tr><th id="86">86</th><td><b>typedef</b> <b>struct</b> <dfn class="type def" id="indent_s" title='indent_s' data-ref="indent_s"><a class="type" href="#indent_s" title='indent_s' data-ref="indent_s">indent_s</a></dfn></td></tr>
+<tr><th id="87">87</th><td>{</td></tr>
+<tr><th id="88">88</th><td>	<em>int</em> <dfn class="decl" id="indent_s::type" title='indent_s::type' data-ref="indent_s::type">type</dfn>;								<i>//indent type</i></td></tr>
+<tr><th id="89">89</th><td>	<em>int</em> <dfn class="decl" id="indent_s::skip" title='indent_s::skip' data-ref="indent_s::skip">skip</dfn>;								<i>//true if skipping current indent</i></td></tr>
+<tr><th id="90">90</th><td>	<a class="typedef" href="l_script.h.html#script_t" title='script_t' data-type='struct script_s' data-ref="script_t">script_t</a> *<dfn class="decl" id="indent_s::script" title='indent_s::script' data-ref="indent_s::script">script</dfn>;						<i>//script the indent was in</i></td></tr>
+<tr><th id="91">91</th><td>	<b>struct</b> <a class="type" href="#indent_s" title='indent_s' data-ref="indent_s">indent_s</a> *<dfn class="decl" id="indent_s::next" title='indent_s::next' data-ref="indent_s::next">next</dfn>;					<i>//next indent on the indent stack</i></td></tr>
+<tr><th id="92">92</th><td>} <dfn class="typedef" id="indent_t" title='indent_t' data-type='struct indent_s' data-ref="indent_t">indent_t</dfn>;</td></tr>
+<tr><th id="93">93</th><td></td></tr>
+<tr><th id="94">94</th><td><i>//source file</i></td></tr>
+<tr><th id="95">95</th><td><b>typedef</b> <b>struct</b> <dfn class="type def" id="source_s" title='source_s' data-ref="source_s"><a class="type" href="#source_s" title='source_s' data-ref="source_s">source_s</a></dfn></td></tr>
+<tr><th id="96">96</th><td>{</td></tr>
+<tr><th id="97">97</th><td>	<em>char</em> <dfn class="decl" id="source_s::filename" title='source_s::filename' data-ref="source_s::filename">filename</dfn>[<var>1024</var>];					<i>//file name of the script</i></td></tr>
+<tr><th id="98">98</th><td>	<em>char</em> <dfn class="decl" id="source_s::includepath" title='source_s::includepath' data-ref="source_s::includepath">includepath</dfn>[<var>1024</var>];					<i>//path to include files</i></td></tr>
+<tr><th id="99">99</th><td>	<a class="typedef" href="l_script.h.html#punctuation_t" title='punctuation_t' data-type='struct punctuation_s' data-ref="punctuation_t">punctuation_t</a> *<dfn class="decl" id="source_s::punctuations" title='source_s::punctuations' data-ref="source_s::punctuations">punctuations</dfn>;			<i>//punctuations to use</i></td></tr>
+<tr><th id="100">100</th><td>	<a class="typedef" href="l_script.h.html#script_t" title='script_t' data-type='struct script_s' data-ref="script_t">script_t</a> *<dfn class="decl" id="source_s::scriptstack" title='source_s::scriptstack' data-ref="source_s::scriptstack">scriptstack</dfn>;					<i>//stack with scripts of the source</i></td></tr>
+<tr><th id="101">101</th><td>	<a class="typedef" href="l_script.h.html#token_t" title='token_t' data-type='struct token_s' data-ref="token_t">token_t</a> *<dfn class="decl" id="source_s::tokens" title='source_s::tokens' data-ref="source_s::tokens">tokens</dfn>;						<i>//tokens to read first</i></td></tr>
+<tr><th id="102">102</th><td>	<a class="typedef" href="#define_t" title='define_t' data-type='struct define_s' data-ref="define_t">define_t</a> *<dfn class="decl" id="source_s::defines" title='source_s::defines' data-ref="source_s::defines">defines</dfn>;						<i>//list with macro definitions</i></td></tr>
+<tr><th id="103">103</th><td>	<a class="typedef" href="#define_t" title='define_t' data-type='struct define_s' data-ref="define_t">define_t</a> **<dfn class="decl" id="source_s::definehash" title='source_s::definehash' data-ref="source_s::definehash">definehash</dfn>;					<i>//hash chain with defines</i></td></tr>
+<tr><th id="104">104</th><td>	<a class="typedef" href="#indent_t" title='indent_t' data-type='struct indent_s' data-ref="indent_t">indent_t</a> *<dfn class="decl" id="source_s::indentstack" title='source_s::indentstack' data-ref="source_s::indentstack">indentstack</dfn>;					<i>//stack with indents</i></td></tr>
+<tr><th id="105">105</th><td>	<em>int</em> <dfn class="decl" id="source_s::skip" title='source_s::skip' data-ref="source_s::skip">skip</dfn>;								<i>// &gt; 0 if skipping conditional code</i></td></tr>
+<tr><th id="106">106</th><td>	<a class="typedef" href="l_script.h.html#token_t" title='token_t' data-type='struct token_s' data-ref="token_t">token_t</a> <dfn class="decl" id="source_s::token" title='source_s::token' data-ref="source_s::token">token</dfn>;							<i>//last read token</i></td></tr>
+<tr><th id="107">107</th><td>} <dfn class="typedef" id="source_t" title='source_t' data-type='struct source_s' data-ref="source_t">source_t</dfn>;</td></tr>
+<tr><th id="108">108</th><td></td></tr>
+<tr><th id="109">109</th><td></td></tr>
+<tr><th id="110">110</th><td><i>//read a token from the source</i></td></tr>
+<tr><th id="111">111</th><td><em>int</em> <dfn class="decl" id="PC_ReadToken" title='PC_ReadToken' data-ref="PC_ReadToken">PC_ReadToken</dfn>(<a class="typedef" href="#source_t" title='source_t' data-type='struct source_s' data-ref="source_t">source_t</a> *<dfn class="local col2 decl" id="52source" title='source' data-type='source_t *' data-ref="52source">source</dfn>, <a class="typedef" href="l_script.h.html#token_t" title='token_t' data-type='struct token_s' data-ref="token_t">token_t</a> *<dfn class="local col3 decl" id="53token" title='token' data-type='token_t *' data-ref="53token">token</dfn>);</td></tr>
+<tr><th id="112">112</th><td><i>//expect a certain token</i></td></tr>
+<tr><th id="113">113</th><td><em>int</em> <dfn class="decl" id="PC_ExpectTokenString" title='PC_ExpectTokenString' data-ref="PC_ExpectTokenString">PC_ExpectTokenString</dfn>(<a class="typedef" href="#source_t" title='source_t' data-type='struct source_s' data-ref="source_t">source_t</a> *<dfn class="local col4 decl" id="54source" title='source' data-type='source_t *' data-ref="54source">source</dfn>, <em>char</em> *<dfn class="local col5 decl" id="55string" title='string' data-type='char *' data-ref="55string">string</dfn>);</td></tr>
+<tr><th id="114">114</th><td><i>//expect a certain token type</i></td></tr>
+<tr><th id="115">115</th><td><em>int</em> <dfn class="decl" id="PC_ExpectTokenType" title='PC_ExpectTokenType' data-ref="PC_ExpectTokenType">PC_ExpectTokenType</dfn>(<a class="typedef" href="#source_t" title='source_t' data-type='struct source_s' data-ref="source_t">source_t</a> *<dfn class="local col6 decl" id="56source" title='source' data-type='source_t *' data-ref="56source">source</dfn>, <em>int</em> <dfn class="local col7 decl" id="57type" title='type' data-type='int' data-ref="57type">type</dfn>, <em>int</em> <dfn class="local col8 decl" id="58subtype" title='subtype' data-type='int' data-ref="58subtype">subtype</dfn>, <a class="typedef" href="l_script.h.html#token_t" title='token_t' data-type='struct token_s' data-ref="token_t">token_t</a> *<dfn class="local col9 decl" id="59token" title='token' data-type='token_t *' data-ref="59token">token</dfn>);</td></tr>
+<tr><th id="116">116</th><td><i>//expect a token</i></td></tr>
+<tr><th id="117">117</th><td><em>int</em> <dfn class="decl" id="PC_ExpectAnyToken" title='PC_ExpectAnyToken' data-ref="PC_ExpectAnyToken">PC_ExpectAnyToken</dfn>(<a class="typedef" href="#source_t" title='source_t' data-type='struct source_s' data-ref="source_t">source_t</a> *<dfn class="local col0 decl" id="60source" title='source' data-type='source_t *' data-ref="60source">source</dfn>, <a class="typedef" href="l_script.h.html#token_t" title='token_t' data-type='struct token_s' data-ref="token_t">token_t</a> *<dfn class="local col1 decl" id="61token" title='token' data-type='token_t *' data-ref="61token">token</dfn>);</td></tr>
+<tr><th id="118">118</th><td><i>//returns true when the token is available</i></td></tr>
+<tr><th id="119">119</th><td><em>int</em> <dfn class="decl" id="PC_CheckTokenString" title='PC_CheckTokenString' data-ref="PC_CheckTokenString">PC_CheckTokenString</dfn>(<a class="typedef" href="#source_t" title='source_t' data-type='struct source_s' data-ref="source_t">source_t</a> *<dfn class="local col2 decl" id="62source" title='source' data-type='source_t *' data-ref="62source">source</dfn>, <em>char</em> *<dfn class="local col3 decl" id="63string" title='string' data-type='char *' data-ref="63string">string</dfn>);</td></tr>
+<tr><th id="120">120</th><td><i>//returns true and reads the token when a token with the given type is available</i></td></tr>
+<tr><th id="121">121</th><td><em>int</em> <dfn class="decl" id="PC_CheckTokenType" title='PC_CheckTokenType' data-ref="PC_CheckTokenType">PC_CheckTokenType</dfn>(<a class="typedef" href="#source_t" title='source_t' data-type='struct source_s' data-ref="source_t">source_t</a> *<dfn class="local col4 decl" id="64source" title='source' data-type='source_t *' data-ref="64source">source</dfn>, <em>int</em> <dfn class="local col5 decl" id="65type" title='type' data-type='int' data-ref="65type">type</dfn>, <em>int</em> <dfn class="local col6 decl" id="66subtype" title='subtype' data-type='int' data-ref="66subtype">subtype</dfn>, <a class="typedef" href="l_script.h.html#token_t" title='token_t' data-type='struct token_s' data-ref="token_t">token_t</a> *<dfn class="local col7 decl" id="67token" title='token' data-type='token_t *' data-ref="67token">token</dfn>);</td></tr>
+<tr><th id="122">122</th><td><i>//skip tokens until the given token string is read</i></td></tr>
+<tr><th id="123">123</th><td><em>int</em> <dfn class="decl" id="PC_SkipUntilString" title='PC_SkipUntilString' data-ref="PC_SkipUntilString">PC_SkipUntilString</dfn>(<a class="typedef" href="#source_t" title='source_t' data-type='struct source_s' data-ref="source_t">source_t</a> *<dfn class="local col8 decl" id="68source" title='source' data-type='source_t *' data-ref="68source">source</dfn>, <em>char</em> *<dfn class="local col9 decl" id="69string" title='string' data-type='char *' data-ref="69string">string</dfn>);</td></tr>
+<tr><th id="124">124</th><td><i>//unread the last token read from the script</i></td></tr>
+<tr><th id="125">125</th><td><em>void</em> <dfn class="decl" id="PC_UnreadLastToken" title='PC_UnreadLastToken' data-ref="PC_UnreadLastToken">PC_UnreadLastToken</dfn>(<a class="typedef" href="#source_t" title='source_t' data-type='struct source_s' data-ref="source_t">source_t</a> *<dfn class="local col0 decl" id="70source" title='source' data-type='source_t *' data-ref="70source">source</dfn>);</td></tr>
+<tr><th id="126">126</th><td><i>//unread the given token</i></td></tr>
+<tr><th id="127">127</th><td><em>void</em> <dfn class="decl" id="PC_UnreadToken" title='PC_UnreadToken' data-ref="PC_UnreadToken">PC_UnreadToken</dfn>(<a class="typedef" href="#source_t" title='source_t' data-type='struct source_s' data-ref="source_t">source_t</a> *<dfn class="local col1 decl" id="71source" title='source' data-type='source_t *' data-ref="71source">source</dfn>, <a class="typedef" href="l_script.h.html#token_t" title='token_t' data-type='struct token_s' data-ref="token_t">token_t</a> *<dfn class="local col2 decl" id="72token" title='token' data-type='token_t *' data-ref="72token">token</dfn>);</td></tr>
+<tr><th id="128">128</th><td><i>//read a token only if on the same line, lines are concatenated with a slash</i></td></tr>
+<tr><th id="129">129</th><td><em>int</em> <dfn class="decl" id="PC_ReadLine" title='PC_ReadLine' data-ref="PC_ReadLine">PC_ReadLine</dfn>(<a class="typedef" href="#source_t" title='source_t' data-type='struct source_s' data-ref="source_t">source_t</a> *<dfn class="local col3 decl" id="73source" title='source' data-type='source_t *' data-ref="73source">source</dfn>, <a class="typedef" href="l_script.h.html#token_t" title='token_t' data-type='struct token_s' data-ref="token_t">token_t</a> *<dfn class="local col4 decl" id="74token" title='token' data-type='token_t *' data-ref="74token">token</dfn>);</td></tr>
+<tr><th id="130">130</th><td><i>//returns true if there was a white space in front of the token</i></td></tr>
+<tr><th id="131">131</th><td><em>int</em> <dfn class="decl" id="PC_WhiteSpaceBeforeToken" title='PC_WhiteSpaceBeforeToken' data-ref="PC_WhiteSpaceBeforeToken">PC_WhiteSpaceBeforeToken</dfn>(<a class="typedef" href="l_script.h.html#token_t" title='token_t' data-type='struct token_s' data-ref="token_t">token_t</a> *<dfn class="local col5 decl" id="75token" title='token' data-type='token_t *' data-ref="75token">token</dfn>);</td></tr>
+<tr><th id="132">132</th><td><i>//add a define to the source</i></td></tr>
+<tr><th id="133">133</th><td><em>int</em> <dfn class="decl" id="PC_AddDefine" title='PC_AddDefine' data-ref="PC_AddDefine">PC_AddDefine</dfn>(<a class="typedef" href="#source_t" title='source_t' data-type='struct source_s' data-ref="source_t">source_t</a> *<dfn class="local col6 decl" id="76source" title='source' data-type='source_t *' data-ref="76source">source</dfn>, <em>char</em> *<dfn class="local col7 decl" id="77string" title='string' data-type='char *' data-ref="77string">string</dfn>);</td></tr>
+<tr><th id="134">134</th><td><i>//add a globals define that will be added to all opened sources</i></td></tr>
+<tr><th id="135">135</th><td><em>int</em> <dfn class="decl" id="PC_AddGlobalDefine" title='PC_AddGlobalDefine' data-ref="PC_AddGlobalDefine">PC_AddGlobalDefine</dfn>(<em>char</em> *<dfn class="local col8 decl" id="78string" title='string' data-type='char *' data-ref="78string">string</dfn>);</td></tr>
+<tr><th id="136">136</th><td><i>//remove the given global define</i></td></tr>
+<tr><th id="137">137</th><td><em>int</em> <dfn class="decl" id="PC_RemoveGlobalDefine" title='PC_RemoveGlobalDefine' data-ref="PC_RemoveGlobalDefine">PC_RemoveGlobalDefine</dfn>(<em>char</em> *<dfn class="local col9 decl" id="79name" title='name' data-type='char *' data-ref="79name">name</dfn>);</td></tr>
+<tr><th id="138">138</th><td><i>//remove all globals defines</i></td></tr>
+<tr><th id="139">139</th><td><em>void</em> <dfn class="decl" id="PC_RemoveAllGlobalDefines" title='PC_RemoveAllGlobalDefines' data-ref="PC_RemoveAllGlobalDefines">PC_RemoveAllGlobalDefines</dfn>(<em>void</em>);</td></tr>
+<tr><th id="140">140</th><td><i>//add builtin defines</i></td></tr>
+<tr><th id="141">141</th><td><em>void</em> <dfn class="decl" id="PC_AddBuiltinDefines" title='PC_AddBuiltinDefines' data-ref="PC_AddBuiltinDefines">PC_AddBuiltinDefines</dfn>(<a class="typedef" href="#source_t" title='source_t' data-type='struct source_s' data-ref="source_t">source_t</a> *<dfn class="local col0 decl" id="80source" title='source' data-type='source_t *' data-ref="80source">source</dfn>);</td></tr>
+<tr><th id="142">142</th><td><i>//set the source include path</i></td></tr>
+<tr><th id="143">143</th><td><em>void</em> <dfn class="decl" id="PC_SetIncludePath" title='PC_SetIncludePath' data-ref="PC_SetIncludePath">PC_SetIncludePath</dfn>(<a class="typedef" href="#source_t" title='source_t' data-type='struct source_s' data-ref="source_t">source_t</a> *<dfn class="local col1 decl" id="81source" title='source' data-type='source_t *' data-ref="81source">source</dfn>, <em>char</em> *<dfn class="local col2 decl" id="82path" title='path' data-type='char *' data-ref="82path">path</dfn>);</td></tr>
+<tr><th id="144">144</th><td><i>//set the punction set</i></td></tr>
+<tr><th id="145">145</th><td><em>void</em> <dfn class="decl" id="PC_SetPunctuations" title='PC_SetPunctuations' data-ref="PC_SetPunctuations">PC_SetPunctuations</dfn>(<a class="typedef" href="#source_t" title='source_t' data-type='struct source_s' data-ref="source_t">source_t</a> *<dfn class="local col3 decl" id="83source" title='source' data-type='source_t *' data-ref="83source">source</dfn>, <a class="typedef" href="l_script.h.html#punctuation_t" title='punctuation_t' data-type='struct punctuation_s' data-ref="punctuation_t">punctuation_t</a> *<dfn class="local col4 decl" id="84p" title='p' data-type='punctuation_t *' data-ref="84p">p</dfn>);</td></tr>
+<tr><th id="146">146</th><td><i>//set the base folder to load files from</i></td></tr>
+<tr><th id="147">147</th><td><em>void</em> <dfn class="decl" id="PC_SetBaseFolder" title='PC_SetBaseFolder' data-ref="PC_SetBaseFolder">PC_SetBaseFolder</dfn>(<em>char</em> *<dfn class="local col5 decl" id="85path" title='path' data-type='char *' data-ref="85path">path</dfn>);</td></tr>
+<tr><th id="148">148</th><td><i>//load a source file</i></td></tr>
+<tr><th id="149">149</th><td><a class="typedef" href="#source_t" title='source_t' data-type='struct source_s' data-ref="source_t">source_t</a> *<dfn class="decl" id="LoadSourceFile" title='LoadSourceFile' data-ref="LoadSourceFile">LoadSourceFile</dfn>(<em>const</em> <em>char</em> *<dfn class="local col6 decl" id="86filename" title='filename' data-type='const char *' data-ref="86filename">filename</dfn>);</td></tr>
+<tr><th id="150">150</th><td><i>//load a source from memory</i></td></tr>
+<tr><th id="151">151</th><td><a class="typedef" href="#source_t" title='source_t' data-type='struct source_s' data-ref="source_t">source_t</a> *<dfn class="decl" id="LoadSourceMemory" title='LoadSourceMemory' data-ref="LoadSourceMemory">LoadSourceMemory</dfn>(<em>char</em> *<dfn class="local col7 decl" id="87ptr" title='ptr' data-type='char *' data-ref="87ptr">ptr</dfn>, <em>int</em> <dfn class="local col8 decl" id="88length" title='length' data-type='int' data-ref="88length">length</dfn>, <em>char</em> *<dfn class="local col9 decl" id="89name" title='name' data-type='char *' data-ref="89name">name</dfn>);</td></tr>
+<tr><th id="152">152</th><td><i>//free the given source</i></td></tr>
+<tr><th id="153">153</th><td><em>void</em> <dfn class="decl" id="FreeSource" title='FreeSource' data-ref="FreeSource">FreeSource</dfn>(<a class="typedef" href="#source_t" title='source_t' data-type='struct source_s' data-ref="source_t">source_t</a> *<dfn class="local col0 decl" id="90source" title='source' data-type='source_t *' data-ref="90source">source</dfn>);</td></tr>
+<tr><th id="154">154</th><td><i>//print a source error</i></td></tr>
+<tr><th id="155">155</th><td><em>void</em> <a class="macro" href="../qcommon/q_platform.h.html#75" title="" data-ref="_M/QDECL">QDECL</a> <dfn class="decl" id="SourceError" title='SourceError' data-ref="SourceError">SourceError</dfn>(<a class="typedef" href="#source_t" title='source_t' data-type='struct source_s' data-ref="source_t">source_t</a> *<dfn class="local col1 decl" id="91source" title='source' data-type='source_t *' data-ref="91source">source</dfn>, <em>char</em> *<dfn class="local col2 decl" id="92str" title='str' data-type='char *' data-ref="92str">str</dfn>, ...) <b>__attribute__</b> ((format (printf, <var>2</var>, <var>3</var>)));</td></tr>
+<tr><th id="156">156</th><td><i>//print a source warning</i></td></tr>
+<tr><th id="157">157</th><td><em>void</em> <a class="macro" href="../qcommon/q_platform.h.html#75" title="" data-ref="_M/QDECL">QDECL</a> <dfn class="decl" id="SourceWarning" title='SourceWarning' data-ref="SourceWarning">SourceWarning</dfn>(<a class="typedef" href="#source_t" title='source_t' data-type='struct source_s' data-ref="source_t">source_t</a> *<dfn class="local col3 decl" id="93source" title='source' data-type='source_t *' data-ref="93source">source</dfn>, <em>char</em> *<dfn class="local col4 decl" id="94str" title='str' data-type='char *' data-ref="94str">str</dfn>, ...)  <b>__attribute__</b> ((format (printf, <var>2</var>, <var>3</var>)));</td></tr>
+<tr><th id="158">158</th><td></td></tr>
+<tr><th id="159">159</th><td><u>#<span data-ppcond="159">ifdef</span> <span class="macro" data-ref="_M/BSPC">BSPC</span></u></td></tr>
+<tr><th id="160">160</th><td><i>// some of BSPC source does include game/q_shared.h and some does not</i></td></tr>
+<tr><th id="161">161</th><td><i>// we define pc_token_s pc_token_t if needed (yes, it's ugly)</i></td></tr>
+<tr><th id="162">162</th><td><u>#ifndef __Q_SHARED_H</u></td></tr>
+<tr><th id="163">163</th><td><u>#define MAX_TOKENLENGTH		1024</u></td></tr>
+<tr><th id="164">164</th><td><b>typedef</b> <b>struct</b> pc_token_s</td></tr>
+<tr><th id="165">165</th><td>{</td></tr>
+<tr><th id="166">166</th><td>	<em>int</em> type;</td></tr>
+<tr><th id="167">167</th><td>	<em>int</em> subtype;</td></tr>
+<tr><th id="168">168</th><td>	<em>int</em> intvalue;</td></tr>
+<tr><th id="169">169</th><td>	<em>float</em> floatvalue;</td></tr>
+<tr><th id="170">170</th><td>	<em>char</em> string[MAX_TOKENLENGTH];</td></tr>
+<tr><th id="171">171</th><td>} pc_token_t;</td></tr>
+<tr><th id="172">172</th><td><u>#endif //!_Q_SHARED_H</u></td></tr>
+<tr><th id="173">173</th><td><u>#<span data-ppcond="159">endif</span> //BSPC</u></td></tr>
+<tr><th id="174">174</th><td></td></tr>
+<tr><th id="175">175</th><td><i>//</i></td></tr>
+<tr><th id="176">176</th><td><em>int</em> <dfn class="decl" id="PC_LoadSourceHandle" title='PC_LoadSourceHandle' data-ref="PC_LoadSourceHandle">PC_LoadSourceHandle</dfn>(<em>const</em> <em>char</em> *<dfn class="local col5 decl" id="95filename" title='filename' data-type='const char *' data-ref="95filename">filename</dfn>);</td></tr>
+<tr><th id="177">177</th><td><em>int</em> <dfn class="decl" id="PC_FreeSourceHandle" title='PC_FreeSourceHandle' data-ref="PC_FreeSourceHandle">PC_FreeSourceHandle</dfn>(<em>int</em> <dfn class="local col6 decl" id="96handle" title='handle' data-type='int' data-ref="96handle">handle</dfn>);</td></tr>
+<tr><th id="178">178</th><td><em>int</em> <dfn class="decl" id="PC_ReadTokenHandle" title='PC_ReadTokenHandle' data-ref="PC_ReadTokenHandle">PC_ReadTokenHandle</dfn>(<em>int</em> <dfn class="local col7 decl" id="97handle" title='handle' data-type='int' data-ref="97handle">handle</dfn>, <a class="typedef" href="../qcommon/q_shared.h.html#pc_token_t" title='pc_token_t' data-type='struct pc_token_s' data-ref="pc_token_t">pc_token_t</a> *<dfn class="local col8 decl" id="98pc_token" title='pc_token' data-type='pc_token_t *' data-ref="98pc_token">pc_token</dfn>);</td></tr>
+<tr><th id="179">179</th><td><em>int</em> <dfn class="decl" id="PC_SourceFileAndLine" title='PC_SourceFileAndLine' data-ref="PC_SourceFileAndLine">PC_SourceFileAndLine</dfn>(<em>int</em> <dfn class="local col9 decl" id="99handle" title='handle' data-type='int' data-ref="99handle">handle</dfn>, <em>char</em> *<dfn class="local col0 decl" id="100filename" title='filename' data-type='char *' data-ref="100filename">filename</dfn>, <em>int</em> *<dfn class="local col1 decl" id="101line" title='line' data-type='int *' data-ref="101line">line</dfn>);</td></tr>
+<tr><th id="180">180</th><td><em>void</em> <dfn class="decl" id="PC_CheckOpenSourceHandles" title='PC_CheckOpenSourceHandles' data-ref="PC_CheckOpenSourceHandles">PC_CheckOpenSourceHandles</dfn>(<em>void</em>);</td></tr>
+<tr><th id="181">181</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='be_aas_bspq3.c.html'>codebrowser/code/botlib/be_aas_bspq3.c</a><br/>Generated on <em>2017-Aug-29</em> from project codebrowser revision <em>63e07af</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

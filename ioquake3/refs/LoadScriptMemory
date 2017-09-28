@@ -1,0 +1,12 @@
+<dec f='codebrowser/code/botlib/l_script.h' l='237' type='script_t * LoadScriptMemory(char * ptr, int length, char * name)'/>
+<use f='codebrowser/code/botlib/be_aas_bspq3.c' l='386' u='c' c='AAS_ParseBSPEntities'/>
+<doc f='codebrowser/code/botlib/l_script.h' l='236'>//load a script from the given memory with the given length</doc>
+<use f='codebrowser/code/botlib/l_precomp.c' l='1323' u='c' c='PC_DefineFromString'/>
+<use f='codebrowser/code/botlib/l_precomp.c' l='3030' u='c' c='LoadSourceMemory'/>
+<def f='codebrowser/code/botlib/l_script.c' l='1393' ll='1422' type='script_t * LoadScriptMemory(char * ptr, int length, char * name)'/>
+<doc f='codebrowser/code/botlib/l_script.c' l='1387'>//============================================================================
+//
+// Parameter:			-
+// Returns:				-
+// Changes Globals:		-
+//============================================================================</doc>

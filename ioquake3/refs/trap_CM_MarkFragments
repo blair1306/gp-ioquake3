@@ -1,0 +1,4 @@
+<dec f='codebrowser/code/cgame/cg_local.h' l='1548' type='int trap_CM_MarkFragments(int numPoints, const vec3_t * points, const vec_t * projection, int maxPoints, vec_t * pointBuffer, int maxFragments, markFragment_t * fragmentBuffer)'/>
+<doc f='codebrowser/code/cgame/cg_local.h' l='1547'>// Returns the projection of a polygon onto the solid brushes in the world</doc>
+<use f='codebrowser/code/cgame/cg_marks.c' l='173' u='c' c='CG_ImpactMark'/>
+<def f='codebrowser/code/cgame/cg_syscalls.c' l='182' ll='187' type='int trap_CM_MarkFragments(int numPoints, const vec3_t * points, const vec_t * projection, int maxPoints, vec_t * pointBuffer, int maxFragments, markFragment_t * fragmentBuffer)'/>

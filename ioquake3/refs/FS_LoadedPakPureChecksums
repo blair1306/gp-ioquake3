@@ -1,0 +1,12 @@
+<dec f='codebrowser/code/qcommon/qcommon.h' l='707' type='const char * FS_LoadedPakPureChecksums()'/>
+<def f='codebrowser/code/qcommon/files.c' l='3673' ll='3689' type='const char * FS_LoadedPakPureChecksums()'/>
+<doc f='codebrowser/code/qcommon/files.c' l='3664'>/*
+=====================
+FS_LoadedPakPureChecksums
+
+Returns a space separated string containing the pure checksums of all loaded pk3 files.
+Servers with sv_pure use these checksums to compare with the checksums the clients send
+back to the server.
+=====================
+*/</doc>
+<use f='codebrowser/code/server/sv_client.c' l='1320' u='c' c='SV_VerifyPaks_f'/>

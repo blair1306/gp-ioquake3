@@ -1,0 +1,14 @@
+<dec f='codebrowser/code/server/server.h' l='139' type='int'/>
+<use f='codebrowser/code/server/sv_bot.c' l='582' u='r' c='SV_BotGetConsoleMessage'/>
+<use f='codebrowser/code/server/sv_bot.c' l='586' u='w' c='SV_BotGetConsoleMessage'/>
+<use f='codebrowser/code/server/sv_bot.c' l='587' u='r' c='SV_BotGetConsoleMessage'/>
+<offset>532544</offset>
+<doc f='codebrowser/code/server/server.h' l='139'>// last acknowledged reliable message</doc>
+<use f='codebrowser/code/server/sv_client.c' l='534' u='w' c='SV_DirectConnect'/>
+<use f='codebrowser/code/server/sv_client.c' l='1708' u='r' c='SV_UserMove'/>
+<use f='codebrowser/code/server/sv_client.c' l='1919' u='w' c='SV_ExecuteClientMessage'/>
+<use f='codebrowser/code/server/sv_client.c' l='1924' u='r' c='SV_ExecuteClientMessage'/>
+<use f='codebrowser/code/server/sv_client.c' l='1930' u='w' c='SV_ExecuteClientMessage'/>
+<use f='codebrowser/code/server/sv_main.c' l='161' u='r' c='SV_AddServerCommand'/>
+<use f='codebrowser/code/server/sv_main.c' l='163' u='r' c='SV_AddServerCommand'/>
+<use f='codebrowser/code/server/sv_snapshot.c' l='222' u='r' c='SV_UpdateServerCommandsToClient'/>

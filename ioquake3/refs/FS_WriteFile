@@ -1,0 +1,11 @@
+<dec f='codebrowser/code/qcommon/qcommon.h' l='683' type='void FS_WriteFile(const char * qpath, const void * buffer, int size)'/>
+<doc f='codebrowser/code/qcommon/qcommon.h' l='681'>// frees the memory returned by FS_ReadFile</doc>
+<use f='codebrowser/code/client/cl_main.c' l='3259' u='r' c='CL_InitRef'/>
+<def f='codebrowser/code/qcommon/files.c' l='1979' ll='1999' type='void FS_WriteFile(const char * qpath, const void * buffer, int size)'/>
+<doc f='codebrowser/code/qcommon/files.c' l='1972'>/*
+============
+FS_WriteFile
+
+Filename are relative to the quake search path
+============
+*/</doc>

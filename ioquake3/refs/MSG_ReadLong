@@ -1,0 +1,29 @@
+<dec f='codebrowser/code/qcommon/qcommon.h' l='89' type='int MSG_ReadLong(msg_t * sb)'/>
+<use f='codebrowser/code/client/cl_main.c' l='2596' u='c' c='CL_ConnectionlessPacket'/>
+<use f='codebrowser/code/client/cl_net_chan.c' l='56' u='c' c='CL_Netchan_Encode'/>
+<use f='codebrowser/code/client/cl_net_chan.c' l='57' u='c' c='CL_Netchan_Encode'/>
+<use f='codebrowser/code/client/cl_net_chan.c' l='58' u='c' c='CL_Netchan_Encode'/>
+<use f='codebrowser/code/client/cl_net_chan.c' l='104' u='c' c='CL_Netchan_Decode'/>
+<use f='codebrowser/code/client/cl_parse.c' l='223' u='c' c='CL_ParseSnapshot'/>
+<use f='codebrowser/code/client/cl_parse.c' l='479' u='c' c='CL_ParseGamestate'/>
+<use f='codebrowser/code/client/cl_parse.c' l='521' u='c' c='CL_ParseGamestate'/>
+<use f='codebrowser/code/client/cl_parse.c' l='523' u='c' c='CL_ParseGamestate'/>
+<use f='codebrowser/code/client/cl_parse.c' l='582' u='c' c='CL_ParseDownload'/>
+<use f='codebrowser/code/client/cl_parse.c' l='708' u='c' c='CL_ParseVoip'/>
+<use f='codebrowser/code/client/cl_parse.c' l='839' u='c' c='CL_ParseCommandString'/>
+<use f='codebrowser/code/client/cl_parse.c' l='870' u='c' c='CL_ParseServerMessage'/>
+<def f='codebrowser/code/qcommon/msg.c' l='425' ll='434' type='int MSG_ReadLong(msg_t * msg)'/>
+<use f='codebrowser/code/qcommon/msg.c' l='1433' u='c' c='MSG_ReadDeltaPlayerstate'/>
+<use f='codebrowser/code/qcommon/net_chan.c' l='254' u='c' c='Netchan_Process'/>
+<use f='codebrowser/code/qcommon/net_chan.c' l='273' u='c' c='Netchan_Process'/>
+<use f='codebrowser/code/server/sv_client.c' l='1600' u='c' c='SV_ClientCommand'/>
+<use f='codebrowser/code/server/sv_client.c' l='1809' u='c' c='SV_UserVoip'/>
+<use f='codebrowser/code/server/sv_client.c' l='1907' u='c' c='SV_ExecuteClientMessage'/>
+<use f='codebrowser/code/server/sv_client.c' l='1908' u='c' c='SV_ExecuteClientMessage'/>
+<use f='codebrowser/code/server/sv_client.c' l='1919' u='c' c='SV_ExecuteClientMessage'/>
+<use f='codebrowser/code/server/sv_main.c' l='784' u='c' c='SV_ConnectionlessPacket'/>
+<use f='codebrowser/code/server/sv_main.c' l='841' u='c' c='SV_PacketEvent'/>
+<use f='codebrowser/code/server/sv_net_chan.c' l='56' u='c' c='SV_Netchan_Encode'/>
+<use f='codebrowser/code/server/sv_net_chan.c' l='105' u='c' c='SV_Netchan_Decode'/>
+<use f='codebrowser/code/server/sv_net_chan.c' l='106' u='c' c='SV_Netchan_Decode'/>
+<use f='codebrowser/code/server/sv_net_chan.c' l='107' u='c' c='SV_Netchan_Decode'/>

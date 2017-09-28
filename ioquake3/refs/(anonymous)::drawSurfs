@@ -1,0 +1,28 @@
+<dec f='codebrowser/code/renderergl1/tr_local.h' l='406' type='struct drawSurf_s *'/>
+<dec f='codebrowser/code/renderergl1/tr_local.h' l='1495' type='drawSurf_t *'/>
+<dec f='codebrowser/code/renderergl1/tr_local.h' l='1553' type='drawSurf_t [65536]'/>
+<offset>0</offset>
+<use f='codebrowser/code/renderergl1/tr_backend.c' l='939' u='r' c='RB_DrawSurfs'/>
+<use f='codebrowser/code/renderergl1/tr_cmds.c' l='169' u='w' c='R_AddDrawSurfCmd'/>
+<use f='codebrowser/code/renderergl1/tr_main.c' l='1111' u='r' c='R_AddDrawSurf'/>
+<use f='codebrowser/code/renderergl1/tr_main.c' l='1113' u='r' c='R_AddDrawSurf'/>
+<use f='codebrowser/code/renderergl1/tr_main.c' l='1388' u='r' c='R_RenderView'/>
+<use f='codebrowser/code/renderergl1/tr_scene.c' l='350' u='w' c='RE_RenderScene'/>
+<use f='codebrowser/code/renderergl1/tr_scene.c' l='350' u='r' c='RE_RenderScene'/>
+<use f='codebrowser/code/renderergl1/tr_shader.c' l='1963' u='r' c='FixRenderCommandList'/>
+<dec f='codebrowser/code/renderergl2/tr_local.h' l='730' type='struct drawSurf_s *'/>
+<dec f='codebrowser/code/renderergl2/tr_local.h' l='2322' type='drawSurf_t *'/>
+<dec f='codebrowser/code/renderergl2/tr_local.h' l='2399' type='drawSurf_t [65536]'/>
+<offset>0</offset>
+<use f='codebrowser/code/renderergl2/tr_backend.c' l='915' u='r' c='RB_DrawSurfs'/>
+<use f='codebrowser/code/renderergl2/tr_backend.c' l='1135' u='r' c='RB_DrawSurfs'/>
+<use f='codebrowser/code/renderergl2/tr_cmds.c' l='176' u='w' c='R_AddDrawSurfCmd'/>
+<use f='codebrowser/code/renderergl2/tr_main.c' l='1470' u='r' c='R_AddDrawSurf'/>
+<use f='codebrowser/code/renderergl2/tr_main.c' l='1473' u='r' c='R_AddDrawSurf'/>
+<use f='codebrowser/code/renderergl2/tr_main.c' l='1474' u='r' c='R_AddDrawSurf'/>
+<use f='codebrowser/code/renderergl2/tr_main.c' l='1771' u='r' c='R_RenderView'/>
+<use f='codebrowser/code/renderergl2/tr_main.c' l='2188' u='r' c='R_RenderPshadowMaps'/>
+<use f='codebrowser/code/renderergl2/tr_main.c' l='2541' u='r' c='R_RenderSunShadowMaps'/>
+<use f='codebrowser/code/renderergl2/tr_scene.c' l='406' u='w' c='RE_BeginScene'/>
+<use f='codebrowser/code/renderergl2/tr_scene.c' l='406' u='r' c='RE_BeginScene'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='2669' u='r' c='FixRenderCommandList'/>

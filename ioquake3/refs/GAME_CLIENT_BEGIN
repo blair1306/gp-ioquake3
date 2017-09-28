@@ -1,0 +1,7 @@
+<dec f='codebrowser/code/game/g_public.h' l='410' type='3'/>
+<doc f='codebrowser/code/game/g_public.h' l='407'>// return NULL if the client is allowed to connect, otherwise return
+	// a text string with the reason for denial</doc>
+<doc f='codebrowser/code/game/g_public.h' l='410'>// ( int clientNum );</doc>
+<use f='codebrowser/code/game/g_main.c' l='221' c='vmMain'/>
+<use f='codebrowser/code/server/sv_client.c' l='810' u='r' c='SV_ClientEnterWorld'/>
+<use f='codebrowser/code/server/sv_init.c' l='554' u='r' c='SV_SpawnServer'/>

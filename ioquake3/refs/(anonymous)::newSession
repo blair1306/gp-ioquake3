@@ -1,0 +1,5 @@
+<dec f='codebrowser/code/game/g_local.h' l='352' type='qboolean'/>
+<offset>576</offset>
+<doc f='codebrowser/code/game/g_local.h' l='352'>// don&apos;t use any old session data, because</doc>
+<use f='codebrowser/code/game/g_client.c' l='952' u='r' c='ClientConnect'/>
+<use f='codebrowser/code/game/g_session.c' l='180' u='w' c='G_InitWorldSession'/>

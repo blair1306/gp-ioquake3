@@ -1,0 +1,25 @@
+<dec f='codebrowser/code/botlib/l_precomp.h' l='115' type='int PC_ExpectTokenType(source_t * source, int type, int subtype, token_t * token)'/>
+<doc f='codebrowser/code/botlib/l_precomp.h' l='114'>//expect a certain token type</doc>
+<use f='codebrowser/code/botlib/be_ai_char.c' l='235' u='c' c='BotLoadCharacterFromFile'/>
+<use f='codebrowser/code/botlib/be_ai_chat.c' l='693' u='c' c='BotLoadSynonyms'/>
+<use f='codebrowser/code/botlib/be_ai_chat.c' l='722' u='c' c='BotLoadSynonyms'/>
+<use f='codebrowser/code/botlib/be_ai_chat.c' l='1218' u='c' c='BotLoadMatchPieces'/>
+<use f='codebrowser/code/botlib/be_ai_chat.c' l='1337' u='c' c='BotLoadMatchTemplates'/>
+<use f='codebrowser/code/botlib/be_ai_chat.c' l='1346' u='c' c='BotLoadMatchTemplates'/>
+<use f='codebrowser/code/botlib/be_ai_chat.c' l='1915' u='c' c='BotLoadReplyChat'/>
+<use f='codebrowser/code/botlib/be_ai_chat.c' l='1937' u='c' c='BotLoadReplyChat'/>
+<use f='codebrowser/code/botlib/be_ai_chat.c' l='1954' u='c' c='BotLoadReplyChat'/>
+<use f='codebrowser/code/botlib/be_ai_chat.c' l='2075' u='c' c='BotLoadInitialChat'/>
+<use f='codebrowser/code/botlib/be_ai_chat.c' l='2107' u='c' c='BotLoadInitialChat'/>
+<use f='codebrowser/code/botlib/be_ai_goal.c' l='310' u='c' c='LoadItemConfig'/>
+<use f='codebrowser/code/botlib/be_ai_weight.c' l='170' u='c' c='ReadFuzzySeperators_r'/>
+<use f='codebrowser/code/botlib/be_ai_weight.c' l='198' u='c' c='ReadFuzzySeperators_r'/>
+<use f='codebrowser/code/botlib/be_ai_weight.c' l='347' u='c' c='ReadWeightConfig'/>
+<def f='codebrowser/code/botlib/l_precomp.c' l='2812' ll='2859' type='int PC_ExpectTokenType(source_t * source, int type, int subtype, token_t * token)'/>
+<doc f='codebrowser/code/botlib/l_precomp.c' l='2806'>//============================================================================
+//
+// Parameter:				-
+// Returns:					-
+// Changes Globals:		-
+//============================================================================</doc>
+<use f='codebrowser/code/botlib/l_struct.c' l='220' u='c' c='ReadString'/>

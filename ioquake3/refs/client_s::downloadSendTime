@@ -1,0 +1,6 @@
+<dec f='codebrowser/code/server/server.h' l='164' type='int'/>
+<offset>546848</offset>
+<doc f='codebrowser/code/server/server.h' l='164'>// time we last got an ack from the client</doc>
+<use f='codebrowser/code/server/sv_client.c' l='900' u='w' c='SV_NextDownload_f'/>
+<use f='codebrowser/code/server/sv_client.c' l='1099' u='r' c='SV_WriteDownloadToClient'/>
+<use f='codebrowser/code/server/sv_client.c' l='1126' u='w' c='SV_WriteDownloadToClient'/>

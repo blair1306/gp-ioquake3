@@ -1,0 +1,25 @@
+<dec f='codebrowser/code/botlib/l_memory.h' l='50' type='void * GetMemory(unsigned long size)'/>
+<doc f='codebrowser/code/botlib/l_memory.h' l='49'>//allocate a memory block of the given size</doc>
+<use f='codebrowser/code/botlib/be_aas_route.c' l='1041' u='c' c='AAS_ReadCache'/>
+<use f='codebrowser/code/botlib/be_aas_routealt.c' l='220' u='c' c='AAS_InitAlternativeRouting'/>
+<use f='codebrowser/code/botlib/be_aas_routealt.c' l='222' u='c' c='AAS_InitAlternativeRouting'/>
+<use f='codebrowser/code/botlib/be_ai_char.c' l='201' u='c' c='BotDefaultCharacteristics'/>
+<use f='codebrowser/code/botlib/be_ai_char.c' l='305' u='c' c='BotLoadCharacterFromFile'/>
+<use f='codebrowser/code/botlib/be_ai_char.c' l='556' u='c' c='BotInterpolateCharacters'/>
+<use f='codebrowser/code/botlib/l_libvar.c' l='87' u='c' c='LibVarAlloc'/>
+<use f='codebrowser/code/botlib/l_libvar.c' l='89' u='c' c='LibVarAlloc'/>
+<use f='codebrowser/code/botlib/l_libvar.c' l='198' u='c' c='LibVar'/>
+<use f='codebrowser/code/botlib/l_libvar.c' l='253' u='c' c='LibVarSet'/>
+<def f='codebrowser/code/botlib/l_memory.c' l='343' ll='354' type='void * GetMemory(unsigned long size)'/>
+<use f='codebrowser/code/botlib/l_memory.c' l='371' u='c' c='GetClearedMemory'/>
+<use f='codebrowser/code/botlib/l_precomp.c' l='180' u='c' c='PC_PushIndent'/>
+<use f='codebrowser/code/botlib/l_precomp.c' l='267' u='c' c='PC_CopyToken'/>
+<use f='codebrowser/code/botlib/l_precomp.c' l='683' u='c' c='PC_AddBuiltinDefines'/>
+<use f='codebrowser/code/botlib/l_precomp.c' l='685' u='c' c='PC_AddBuiltinDefines'/>
+<use f='codebrowser/code/botlib/l_precomp.c' l='1213' u='c' c='PC_Directive_define'/>
+<use f='codebrowser/code/botlib/l_precomp.c' l='1215' u='c' c='PC_Directive_define'/>
+<use f='codebrowser/code/botlib/l_precomp.c' l='1449' u='c' c='PC_CopyDefine'/>
+<use f='codebrowser/code/botlib/l_precomp.c' l='1451' u='c' c='PC_CopyDefine'/>
+<use f='codebrowser/code/botlib/l_precomp.c' l='3001' u='c' c='LoadSourceFile'/>
+<use f='codebrowser/code/botlib/l_precomp.c' l='3034' u='c' c='LoadSourceMemory'/>
+<use f='codebrowser/code/botlib/l_script.c' l='182' u='c' c='PS_CreatePunctuationTable'/>

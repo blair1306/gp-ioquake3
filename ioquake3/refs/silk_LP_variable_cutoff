@@ -1,0 +1,5 @@
+<dec f='codebrowser/code/opus-1.1.4/silk/main.h' l='317' type='void silk_LP_variable_cutoff(silk_LP_state * psLP, opus_int16 * frame, const int frame_length)'/>
+<doc f='codebrowser/code/opus-1.1.4/silk/main.h' l='316'>/* Start by setting transition_frame_no = 1;                */</doc>
+<def f='codebrowser/code/opus-1.1.4/silk/LP_variable_cutoff.c' l='100' ll='135' type='void silk_LP_variable_cutoff(silk_LP_state * psLP, opus_int16 * frame, const int frame_length)'/>
+<doc f='codebrowser/code/opus-1.1.4/silk/LP_variable_cutoff.c' l='99'>/* Deactivate by setting psEncC-&gt;mode = 0;                  */</doc>
+<use f='codebrowser/code/opus-1.1.4/silk/float/encode_frame_FLP.c' l='116' u='c' c='silk_encode_frame_FLP'/>

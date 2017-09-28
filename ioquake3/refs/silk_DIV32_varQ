@@ -1,0 +1,10 @@
+<def f='codebrowser/code/opus-1.1.4/silk/Inlines.h' l='97' ll='140' type='opus_int32 silk_DIV32_varQ(const opus_int32 a32, const opus_int32 b32, const int Qres)'/>
+<doc f='codebrowser/code/opus-1.1.4/silk/Inlines.h' l='96'>/* Divide two int32 values and return result as int32 in a given Q-domain */</doc>
+<doc f='codebrowser/code/opus-1.1.4/silk/Inlines.h' l='97'>/* O    returns a good approximation of &quot;(a32 &lt;&lt; Qres) / b32&quot; */</doc>
+<use f='codebrowser/code/opus-1.1.4/silk/NSQ.c' l='379' u='c' c='silk_nsq_scale_states'/>
+<use f='codebrowser/code/opus-1.1.4/silk/NSQ_del_dec.c' l='657' u='c' c='silk_nsq_del_dec_scale_states'/>
+<use f='codebrowser/code/opus-1.1.4/silk/decode_core.c' l='111' u='c' c='silk_decode_core'/>
+<use f='codebrowser/code/opus-1.1.4/silk/stereo_LR_to_MS.c' l='116' u='c' c='silk_stereo_LR_to_MS'/>
+<use f='codebrowser/code/opus-1.1.4/silk/stereo_LR_to_MS.c' l='122' u='c' c='silk_stereo_LR_to_MS'/>
+<use f='codebrowser/code/opus-1.1.4/silk/stereo_find_predictor.c' l='56' u='c' c='silk_stereo_find_predictor'/>
+<use f='codebrowser/code/opus-1.1.4/silk/stereo_find_predictor.c' l='75' u='c' c='silk_stereo_find_predictor'/>

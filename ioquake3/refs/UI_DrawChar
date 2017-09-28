@@ -1,0 +1,20 @@
+<dec f='codebrowser/code/q3_ui/ui_local.h' l='581' type='void UI_DrawChar(int x, int y, int ch, int style, vec_t * color)'/>
+<def f='codebrowser/code/q3_ui/ui_atoms.c' l='774' ll='782' type='void UI_DrawChar(int x, int y, int ch, int style, vec_t * color)'/>
+<doc f='codebrowser/code/q3_ui/ui_atoms.c' l='769'>/*
+=================
+UI_DrawChar
+=================
+*/</doc>
+<use f='codebrowser/code/q3_ui/ui_cdkey.c' l='168' u='c' c='UI_CDKeyMenu_DrawKey'/>
+<use f='codebrowser/code/q3_ui/ui_controls2.c' l='698' u='c' c='Controls_DrawKeyBinding'/>
+<use f='codebrowser/code/q3_ui/ui_controls2.c' l='703' u='c' c='Controls_DrawKeyBinding'/>
+<use f='codebrowser/code/q3_ui/ui_mfield.c' l='108' u='c' c='MField_Draw'/>
+<use f='codebrowser/code/q3_ui/ui_mfield.c' l='374' u='c' c='MenuField_Draw'/>
+<use f='codebrowser/code/q3_ui/ui_playersettings.c' l='148' u='c' c='PlayerSettings_DrawName'/>
+<use f='codebrowser/code/q3_ui/ui_playersettings.c' l='164' u='c' c='PlayerSettings_DrawName'/>
+<use f='codebrowser/code/q3_ui/ui_preferences.c' l='206' u='c' c='Crosshair_Draw'/>
+<use f='codebrowser/code/q3_ui/ui_qmenu.c' l='425' u='c' c='Action_Draw'/>
+<use f='codebrowser/code/q3_ui/ui_qmenu.c' l='522' u='c' c='RadioButton_Draw'/>
+<use f='codebrowser/code/q3_ui/ui_qmenu.c' l='862' u='c' c='SpinControl_Draw'/>
+<use f='codebrowser/code/q3_ui/ui_startserver.c' l='1225' u='c' c='PlayerName_Draw'/>
+<dec f='codebrowser/code/ui/ui_local.h' l='870' type='void UI_DrawChar(int x, int y, int ch, int style, vec_t * color)'/>

@@ -1,0 +1,11 @@
+<dec f='include/stdio.h' l='371' type='int vfprintf(FILE *restrict __s, const char *restrict __format, struct __va_list_tag * __arg)'/>
+<doc f='include/stdio.h' l='367'>/* Write formatted output to S from argument list ARG.
+
+   This function is a possible cancellation point and therefore not
+   marked with __THROW.  */</doc>
+<use f='include/x86_64-linux-gnu/bits/stdio.h' l='38' u='c' c='vprintf'/>
+<use f='codebrowser/code/botlib/l_log.c' l='120' u='c' c='Log_Write'/>
+<use f='codebrowser/code/botlib/l_log.c' l='144' u='c' c='Log_WriteTimeStamped'/>
+<use f='codebrowser/code/tools/asm/q3asm.c' l='497' u='c' c='CodeError'/>
+<use f='codebrowser/code/tools/lcc/lburg/gram.c' l='105' u='c' c='yyerror'/>
+<use f='codebrowser/code/tools/lcc/lburg/gram.c' l='201' u='c' c='yywarn'/>

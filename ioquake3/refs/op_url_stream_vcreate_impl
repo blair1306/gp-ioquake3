@@ -1,0 +1,18 @@
+<def f='codebrowser/code/opusfile-0.8/src/http.c' l='3326' ll='3383' type='void * op_url_stream_vcreate_impl(OpusFileCallbacks * _cb, const char * _url, OpusServerInfo * _info, OpusServerInfo ** _pinfo, struct __va_list_tag * _ap)'/>
+<use f='codebrowser/code/opusfile-0.8/src/http.c' l='3390' u='c' c='op_url_stream_vcreate'/>
+<use f='codebrowser/code/opusfile-0.8/src/http.c' l='3413' u='c' c='op_vopen_url'/>
+<use f='codebrowser/code/opusfile-0.8/src/http.c' l='3443' u='c' c='op_vtest_url'/>
+<doc f='codebrowser/code/opusfile-0.8/src/http.c' l='3312'>/*The actual implementation of op_url_stream_vcreate().
+  We have to do a careful dance here to avoid potential memory leaks if
+   OpusServerInfo is requested, since this function is also used by
+   op_vopen_url() and op_vtest_url().
+  Even if this function succeeds, those functions might ultimately fail.
+  If they do, they should return without having touched the OpusServerInfo
+   passed by the application.
+  Therefore, if this function succeeds and OpusServerInfo is requested, the
+   actual info will be stored in *_info and a pointer to the application&apos;s
+   storage will be placed in *_pinfo.
+  If this function fails or if the application did not request OpusServerInfo,
+   *_pinfo will be NULL.
+  Our caller is responsible for copying *_info to **_pinfo if it ultimately
+   succeeds, or for clearing *_info if it ultimately fails.*/</doc>

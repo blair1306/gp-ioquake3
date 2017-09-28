@@ -1,0 +1,14 @@
+<dec f='codebrowser/code/server/server.h' l='474' type='void SV_Trace(trace_t * results, const vec_t * start, vec_t * mins, vec_t * maxs, const vec_t * end, int passEntityNum, int contentmask, int capsule)'/>
+<use f='codebrowser/code/server/sv_bot.c' l='181' u='c' c='BotImport_Trace'/>
+<doc f='codebrowser/code/server/server.h' l='471'>// returns the CONTENTS_* value from the world and all entities at the given point.</doc>
+<use f='codebrowser/code/server/sv_game.c' l='363' u='c' c='SV_GameSystemCalls'/>
+<use f='codebrowser/code/server/sv_game.c' l='366' u='c' c='SV_GameSystemCalls'/>
+<def f='codebrowser/code/server/sv_world.c' l='596' ll='644' type='void SV_Trace(trace_t * results, const vec_t * start, vec_t * mins, vec_t * maxs, const vec_t * end, int passEntityNum, int contentmask, int capsule)'/>
+<doc f='codebrowser/code/server/sv_world.c' l='588'>/*
+==================
+SV_Trace
+
+Moves the given mins/maxs volume through the world from start to end.
+passEntityNum and entities owned by passEntityNum are explicitly not checked.
+==================
+*/</doc>

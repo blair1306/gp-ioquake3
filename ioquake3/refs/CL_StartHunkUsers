@@ -1,0 +1,17 @@
+<dec f='codebrowser/code/qcommon/qcommon.h' l='1024' type='void CL_StartHunkUsers(qboolean rendererOnly)'/>
+<dec f='codebrowser/code/client/client.h' l='464' type='void CL_StartHunkUsers(qboolean rendererOnly)'/>
+<doc f='codebrowser/code/qcommon/qcommon.h' l='1022'>// initialize renderer interface</doc>
+<use f='codebrowser/code/client/cl_main.c' l='1272' u='c' c='CL_FlushMemory'/>
+<use f='codebrowser/code/client/cl_main.c' l='1981' u='c' c='CL_Vid_Restart_f'/>
+<def f='codebrowser/code/client/cl_main.c' l='3143' ll='3179' type='void CL_StartHunkUsers(qboolean rendererOnly)'/>
+<doc f='codebrowser/code/client/cl_main.c' l='3135'>/*
+============================
+CL_StartHunkUsers
+
+After the server has cleared the hunk, these will need to be restarted
+This is the only place that any of these functions are called from
+============================
+*/</doc>
+<def f='codebrowser/code/null/null_client.c' l='91' ll='92' type='void CL_StartHunkUsers(qboolean rendererOnly)'/>
+<use f='codebrowser/code/qcommon/common.c' l='2424' u='c' c='Com_GameRestart'/>
+<use f='codebrowser/code/qcommon/common.c' l='2847' u='c' c='Com_Init'/>

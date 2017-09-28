@@ -1,0 +1,11 @@
+<dec f='codebrowser/code/opusfile-0.8/include/opusfile.h' l='243' type='int'/>
+<offset>128</offset>
+<doc f='codebrowser/code/opusfile-0.8/include/opusfile.h' l='238'>/**The gain to apply to the decoded output, in dB, as a Q8 value in the range
+      -32768...32767.
+     The &lt;tt&gt;libopusfile&lt;/tt&gt; API will automatically apply this gain to the
+      decoded output before returning it, scaling it by
+      &lt;code&gt;pow(10,output_gain/(20.0*256))&lt;/code&gt;.*/</doc>
+<use f='codebrowser/code/opusfile-0.8/src/info.c' l='51' u='w' c='opus_head_parse'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='1316' u='r' c='op_update_gain'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='1323' u='r' c='op_update_gain'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='1325' u='r' c='op_update_gain'/>

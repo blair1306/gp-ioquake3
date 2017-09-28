@@ -1,0 +1,10 @@
+<dec f='codebrowser/code/game/g_public.h' l='67' type='int'/>
+<offset>1760</offset>
+<doc f='codebrowser/code/game/g_public.h' l='65'>// only send to this client when SVF_SINGLECLIENT is set	
+	// if SVF_CLIENTMASK is set, use bitmask for clients to send to (maxclients must be &lt;= 32, up to the mod to enforce this)</doc>
+<use f='codebrowser/code/game/g_active.c' l='733' u='w' c='SendPendingPredictableEvents'/>
+<use f='codebrowser/code/game/g_combat.c' l='39' u='w' c='ScorePlum'/>
+<use f='codebrowser/code/game/g_items.c' l='506' u='w' c='Touch_Item'/>
+<use f='codebrowser/code/server/sv_snapshot.c' l='339' u='r' c='SV_AddEntitiesVisibleFromPoint'/>
+<use f='codebrowser/code/server/sv_snapshot.c' l='345' u='r' c='SV_AddEntitiesVisibleFromPoint'/>
+<use f='codebrowser/code/server/sv_snapshot.c' l='353' u='r' c='SV_AddEntitiesVisibleFromPoint'/>

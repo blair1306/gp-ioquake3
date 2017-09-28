@@ -1,0 +1,5 @@
+<dec f='codebrowser/code/game/g_public.h' l='180' type='24'/>
+<doc f='codebrowser/code/game/g_public.h' l='178'>// sets mins and maxs based on the brushmodel name</doc>
+<doc f='codebrowser/code/game/g_public.h' l='180'>// ( trace_t *results, const vec3_t start, const vec3_t mins, const vec3_t maxs, const vec3_t end, int passEntityNum, int contentmask );</doc>
+<use f='codebrowser/code/game/g_syscalls.c' l='153' c='trap_Trace'/>
+<use f='codebrowser/code/server/sv_game.c' l='362' c='SV_GameSystemCalls'/>

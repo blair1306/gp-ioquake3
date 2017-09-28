@@ -1,0 +1,11 @@
+<dec f='codebrowser/code/cgame/cg_local.h' l='1310' type='void CG_ResetPlayerEntity(centity_t * cent)'/>
+<use f='codebrowser/code/cgame/cg_players.c' l='731' u='c' c='CG_LoadClientInfo'/>
+<def f='codebrowser/code/cgame/cg_players.c' l='2602' ll='2630' type='void CG_ResetPlayerEntity(centity_t * cent)'/>
+<doc f='codebrowser/code/cgame/cg_players.c' l='2595'>/*
+===============
+CG_ResetPlayerEntity
+
+A player just came into view or teleported, so reset all animation info
+===============
+*/</doc>
+<use f='codebrowser/code/cgame/cg_snapshot.c' l='47' u='c' c='CG_ResetEntity'/>

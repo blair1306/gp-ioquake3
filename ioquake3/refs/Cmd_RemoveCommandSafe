@@ -1,0 +1,11 @@
+<dec f='codebrowser/code/qcommon/qcommon.h' l='444' type='void Cmd_RemoveCommandSafe(const char * cmd_name)'/>
+<doc f='codebrowser/code/qcommon/qcommon.h' l='443'>// don&apos;t allow VMs to remove system commands</doc>
+<use f='codebrowser/code/client/cl_cgame.c' l='460' u='c' c='CL_CgameSystemCalls'/>
+<def f='codebrowser/code/qcommon/cmd.c' l='709' ll='723' type='void Cmd_RemoveCommandSafe(const char * cmd_name)'/>
+<doc f='codebrowser/code/qcommon/cmd.c' l='702'>/*
+============
+Cmd_RemoveCommandSafe
+
+Only remove commands with no associated function
+============
+*/</doc>

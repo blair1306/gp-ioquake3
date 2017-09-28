@@ -1,0 +1,27 @@
+<dec f='codebrowser/code/client/snd_codec.h' l='34' type='int'/>
+<offset>64</offset>
+<use f='codebrowser/code/client/snd_codec_opus.c' l='297' u='w' c='S_OggOpus_CodecOpenStream'/>
+<use f='codebrowser/code/client/snd_codec_opus.c' l='299' u='r' c='S_OggOpus_CodecOpenStream'/>
+<use f='codebrowser/code/client/snd_codec_opus.c' l='354' u='r' c='S_OggOpus_CodecReadStream'/>
+<use f='codebrowser/code/client/snd_codec_opus.c' l='366' u='r' c='S_OggOpus_CodecReadStream'/>
+<use f='codebrowser/code/client/snd_codec_opus.c' l='366' u='r' c='S_OggOpus_CodecReadStream'/>
+<use f='codebrowser/code/client/snd_codec_opus.c' l='384' u='r' c='S_OggOpus_CodecReadStream'/>
+<use f='codebrowser/code/client/snd_codec_opus.c' l='417' u='w' c='S_OggOpus_CodecLoad'/>
+<use f='codebrowser/code/client/snd_codec_opus.c' l='417' u='r' c='S_OggOpus_CodecLoad'/>
+<use f='codebrowser/code/client/snd_codec_wav.c' l='149' u='w' c='S_ReadRIFFHeader'/>
+<use f='codebrowser/code/client/snd_codec_wav.c' l='177' u='r' c='S_ReadRIFFHeader'/>
+<use f='codebrowser/code/client/snd_codec_wav.c' l='231' u='r' c='S_WAV_CodecLoad'/>
+<use f='codebrowser/code/client/snd_codec_wav.c' l='287' u='r' c='S_WAV_CodecReadStream'/>
+<use f='codebrowser/code/client/snd_codec_wav.c' l='289' u='r' c='S_WAV_CodecReadStream'/>
+<use f='codebrowser/code/client/snd_dma.c' l='1402' u='r' c='S_OpenBackgroundStream'/>
+<use f='codebrowser/code/client/snd_dma.c' l='1468' u='r' c='S_UpdateBackgroundTrack'/>
+<use f='codebrowser/code/client/snd_dma.c' l='1471' u='r' c='S_UpdateBackgroundTrack'/>
+<use f='codebrowser/code/client/snd_dma.c' l='1478' u='r' c='S_UpdateBackgroundTrack'/>
+<use f='codebrowser/code/client/snd_dma.c' l='1485' u='r' c='S_UpdateBackgroundTrack'/>
+<use f='codebrowser/code/client/snd_mem.c' l='235' u='r' c='S_LoadSound'/>
+<use f='codebrowser/code/client/snd_mem.c' l='245' u='r' c='S_LoadSound'/>
+<use f='codebrowser/code/client/snd_mem.c' l='248' u='r' c='S_LoadSound'/>
+<use f='codebrowser/code/client/snd_mem.c' l='265' u='r' c='S_LoadSound'/>
+<use f='codebrowser/code/client/snd_mem.c' l='268' u='r' c='S_LoadSound'/>
+<use f='codebrowser/code/client/snd_openal.c' l='392' u='r' c='S_AL_BufferLoad'/>
+<use f='codebrowser/code/client/snd_openal.c' l='2064' u='r' c='S_AL_MusicProcess'/>

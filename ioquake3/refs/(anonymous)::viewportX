@@ -1,0 +1,27 @@
+<dec f='codebrowser/code/renderergl1/tr_local.h' l='455' type='int'/>
+<offset>2368</offset>
+<use f='codebrowser/code/renderergl1/tr_backend.c' l='404' u='r' c='SetViewportAndScissor'/>
+<use f='codebrowser/code/renderergl1/tr_backend.c' l='406' u='r' c='SetViewportAndScissor'/>
+<use f='codebrowser/code/renderergl1/tr_flares.c' l='210' u='r' c='RB_AddFlare'/>
+<use f='codebrowser/code/renderergl1/tr_flares.c' l='523' u='r' c='RB_RenderFlares'/>
+<use f='codebrowser/code/renderergl1/tr_flares.c' l='523' u='r' c='RB_RenderFlares'/>
+<use f='codebrowser/code/renderergl1/tr_scene.c' l='384' u='w' c='RE_RenderScene'/>
+<dec f='codebrowser/code/renderergl2/tr_local.h' l='802' type='int'/>
+<offset>3424</offset>
+<use f='codebrowser/code/renderergl2/tr_backend.c' l='311' u='r' c='SetViewportAndScissor'/>
+<use f='codebrowser/code/renderergl2/tr_backend.c' l='313' u='r' c='SetViewportAndScissor'/>
+<use f='codebrowser/code/renderergl2/tr_backend.c' l='952' u='r' c='RB_DrawSurfs'/>
+<use f='codebrowser/code/renderergl2/tr_backend.c' l='960' u='r' c='RB_DrawSurfs'/>
+<use f='codebrowser/code/renderergl2/tr_backend.c' l='1490' u='r' c='RB_PostProcess'/>
+<use f='codebrowser/code/renderergl2/tr_backend.c' l='1497' u='r' c='RB_PostProcess'/>
+<use f='codebrowser/code/renderergl2/tr_backend.c' l='1505' u='r' c='RB_PostProcess'/>
+<use f='codebrowser/code/renderergl2/tr_flares.c' l='210' u='r' c='RB_AddFlare'/>
+<use f='codebrowser/code/renderergl2/tr_flares.c' l='537' u='r' c='RB_RenderFlares'/>
+<use f='codebrowser/code/renderergl2/tr_flares.c' l='537' u='r' c='RB_RenderFlares'/>
+<use f='codebrowser/code/renderergl2/tr_main.c' l='1793' u='w' c='R_RenderDlightCubemaps'/>
+<use f='codebrowser/code/renderergl2/tr_main.c' l='2082' u='w' c='R_RenderPshadowMaps'/>
+<use f='codebrowser/code/renderergl2/tr_main.c' l='2087' u='w' c='R_RenderPshadowMaps'/>
+<use f='codebrowser/code/renderergl2/tr_main.c' l='2489' u='w' c='R_RenderSunShadowMaps'/>
+<use f='codebrowser/code/renderergl2/tr_main.c' l='2494' u='w' c='R_RenderSunShadowMaps'/>
+<use f='codebrowser/code/renderergl2/tr_main.c' l='2638' u='w' c='R_RenderCubemapSide'/>
+<use f='codebrowser/code/renderergl2/tr_scene.c' l='542' u='w' c='RE_RenderScene'/>

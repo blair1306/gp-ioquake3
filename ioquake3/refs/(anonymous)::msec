@@ -1,0 +1,33 @@
+<dec f='codebrowser/code/client/client.h' l='496' type='unsigned int'/>
+<offset>96</offset>
+<doc f='codebrowser/code/client/client.h' l='496'>// msec down this frame if both a down and up happened</doc>
+<use f='codebrowser/code/client/cl_input.c' l='144' u='w' c='IN_KeyUp'/>
+<use f='codebrowser/code/client/cl_input.c' l='146' u='w' c='IN_KeyUp'/>
+<use f='codebrowser/code/client/cl_input.c' l='165' u='r' c='CL_KeyState'/>
+<use f='codebrowser/code/client/cl_input.c' l='166' u='w' c='CL_KeyState'/>
+<dec f='codebrowser/code/game/bg_local.h' l='43' type='int'/>
+<use f='codebrowser/code/game/bg_pmove.c' l='1403' u='r' c='PM_Footsteps'/>
+<use f='codebrowser/code/game/bg_pmove.c' l='1576' u='r' c='PM_Weapon'/>
+<use f='codebrowser/code/game/bg_pmove.c' l='1764' u='r' c='PM_DropTimers'/>
+<use f='codebrowser/code/game/bg_pmove.c' l='1768' u='r' c='PM_DropTimers'/>
+<use f='codebrowser/code/game/bg_pmove.c' l='1774' u='r' c='PM_DropTimers'/>
+<use f='codebrowser/code/game/bg_pmove.c' l='1781' u='r' c='PM_DropTimers'/>
+<use f='codebrowser/code/game/bg_pmove.c' l='1894' u='w' c='PmoveSingle'/>
+<use f='codebrowser/code/game/bg_pmove.c' l='1895' u='r' c='PmoveSingle'/>
+<use f='codebrowser/code/game/bg_pmove.c' l='1896' u='w' c='PmoveSingle'/>
+<use f='codebrowser/code/game/bg_pmove.c' l='1897' u='r' c='PmoveSingle'/>
+<use f='codebrowser/code/game/bg_pmove.c' l='1898' u='w' c='PmoveSingle'/>
+<use f='codebrowser/code/game/bg_pmove.c' l='1908' u='r' c='PmoveSingle'/>
+<offset>320</offset>
+<dec f='codebrowser/code/renderergl1/tr_local.h' l='840' type='int'/>
+<offset>352</offset>
+<doc f='codebrowser/code/renderergl1/tr_local.h' l='840'>// total msec for backend run</doc>
+<use f='codebrowser/code/renderergl1/tr_backend.c' l='1162' u='w' c='RB_ExecuteRenderCommands'/>
+<use f='codebrowser/code/renderergl1/tr_cmds.c' l='483' u='r' c='RE_EndFrame'/>
+<use f='codebrowser/code/renderergl1/tr_cmds.c' l='485' u='w' c='RE_EndFrame'/>
+<dec f='codebrowser/code/renderergl2/tr_local.h' l='1395' type='int'/>
+<offset>704</offset>
+<doc f='codebrowser/code/renderergl2/tr_local.h' l='1395'>// total msec for backend run</doc>
+<use f='codebrowser/code/renderergl2/tr_backend.c' l='1796' u='w' c='RB_ExecuteRenderCommands'/>
+<use f='codebrowser/code/renderergl2/tr_cmds.c' l='554' u='r' c='RE_EndFrame'/>
+<use f='codebrowser/code/renderergl2/tr_cmds.c' l='556' u='w' c='RE_EndFrame'/>

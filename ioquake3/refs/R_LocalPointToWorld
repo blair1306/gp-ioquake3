@@ -1,0 +1,19 @@
+<dec f='codebrowser/code/renderergl1/tr_local.h' l='1086' type='void R_LocalPointToWorld(vec_t * local, vec_t * world)'/>
+<use f='codebrowser/code/renderergl1/tr_main.c' l='116' u='c' c='R_CullLocalPointAndRadius'/>
+<def f='codebrowser/code/renderergl1/tr_main.c' l='178' ll='182' type='void R_LocalPointToWorld(vec_t * local, vec_t * world)'/>
+<doc f='codebrowser/code/renderergl1/tr_main.c' l='172'>/*
+=================
+R_LocalPointToWorld
+
+=================
+*/</doc>
+<dec f='codebrowser/code/renderergl2/tr_local.h' l='1828' type='void R_LocalPointToWorld(const vec_t * local, vec_t * world)'/>
+<use f='codebrowser/code/renderergl2/tr_main.c' l='275' u='c' c='R_CullLocalBox'/>
+<use f='codebrowser/code/renderergl2/tr_main.c' l='335' u='c' c='R_CullLocalPointAndRadius'/>
+<def f='codebrowser/code/renderergl2/tr_main.c' l='404' ll='408' type='void R_LocalPointToWorld(const vec_t * local, vec_t * world)'/>
+<doc f='codebrowser/code/renderergl2/tr_main.c' l='398'>/*
+=================
+R_LocalPointToWorld
+
+=================
+*/</doc>

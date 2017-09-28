@@ -1,0 +1,15 @@
+<dec f='codebrowser/code/client/snd_codec.h' l='80' type='void S_CodecUtilClose(snd_stream_t ** stream)'/>
+<def f='codebrowser/code/client/snd_codec.c' l='232' ll='237' type='void S_CodecUtilClose(snd_stream_t ** stream)'/>
+<doc f='codebrowser/code/client/snd_codec.c' l='227'>/*
+=================
+S_CodecUtilClose
+=================
+*/</doc>
+<use f='codebrowser/code/client/snd_codec_opus.c' l='245' u='c' c='S_OggOpus_CodecOpenStream'/>
+<use f='codebrowser/code/client/snd_codec_opus.c' l='255' u='c' c='S_OggOpus_CodecOpenStream'/>
+<use f='codebrowser/code/client/snd_codec_opus.c' l='266' u='c' c='S_OggOpus_CodecOpenStream'/>
+<use f='codebrowser/code/client/snd_codec_opus.c' l='275' u='c' c='S_OggOpus_CodecOpenStream'/>
+<use f='codebrowser/code/client/snd_codec_opus.c' l='285' u='c' c='S_OggOpus_CodecOpenStream'/>
+<use f='codebrowser/code/client/snd_codec_opus.c' l='328' u='c' c='S_OggOpus_CodecCloseStream'/>
+<use f='codebrowser/code/client/snd_codec_wav.c' l='255' u='c' c='S_WAV_CodecOpenStream'/>
+<use f='codebrowser/code/client/snd_codec_wav.c' l='269' u='c' c='S_WAV_CodecCloseStream'/>

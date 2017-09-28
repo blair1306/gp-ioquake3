@@ -1,0 +1,18 @@
+<dec f='codebrowser/code/jpeg-8c/jpeglib.h' l='64'/>
+<use f='codebrowser/code/jpeg-8c/jpeglib.h' l='413' u='c'/>
+<doc f='codebrowser/code/jpeg-8c/jpeglib.h' l='57'>/* Unfortunately, some bozo at Adobe saw no reason to be bound by the standard;
+ * the PostScript DCT filter can emit files with many more than 10 blocks/MCU.
+ * If you happen to run across such a file, you can up D_MAX_BLOCKS_IN_MCU
+ * to handle it.  We even let you do this from the jconfig.h file.  However,
+ * we strongly discourage changing C_MAX_BLOCKS_IN_MCU; just because Adobe
+ * sometimes emits noncompliant files doesn&apos;t mean you should too.
+ */</doc>
+<use f='codebrowser/code/jpeg-8c/jccoefct.c' l='51' u='c'/>
+<use f='codebrowser/code/jpeg-8c/jccoefct.c' l='447' u='c'/>
+<use f='codebrowser/code/jpeg-8c/jccoefct.c' l='448' u='c'/>
+<use f='codebrowser/code/jpeg-8c/jcmaster.c' l='638' u='c'/>
+<use f='codebrowser/code/jpeg-8c/jctrans.c' l='214' u='c'/>
+<use f='codebrowser/code/jpeg-8c/jctrans.c' l='281' u='c'/>
+<use f='codebrowser/code/jpeg-8c/jctrans.c' l='377' u='c'/>
+<use f='codebrowser/code/jpeg-8c/jctrans.c' l='378' u='c'/>
+<use f='codebrowser/code/jpeg-8c/jctrans.c' l='379' u='c'/>

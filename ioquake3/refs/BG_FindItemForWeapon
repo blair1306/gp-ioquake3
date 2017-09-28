@@ -1,0 +1,12 @@
+<dec f='codebrowser/code/game/bg_public.h' l='648' type='gitem_t * BG_FindItemForWeapon(weapon_t weapon)'/>
+<def f='codebrowser/code/game/bg_misc.c' l='973' ll='984' type='gitem_t * BG_FindItemForWeapon(weapon_t weapon)'/>
+<doc f='codebrowser/code/game/bg_misc.c' l='967'>/*
+===============
+BG_FindItemForWeapon
+
+===============
+*/</doc>
+<use f='codebrowser/code/game/g_combat.c' l='102' u='c' c='TossClientItems'/>
+<use f='codebrowser/code/game/g_items.c' l='812' u='c' c='ClearRegisteredItems'/>
+<use f='codebrowser/code/game/g_items.c' l='813' u='c' c='ClearRegisteredItems'/>
+<use f='codebrowser/code/game/g_misc.c' l='299' u='c' c='InitShooter'/>

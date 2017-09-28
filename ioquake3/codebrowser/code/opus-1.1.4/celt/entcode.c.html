@@ -1,0 +1,171 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>entcode.c source code [codebrowser/code/opus-1.1.4/celt/entcode.c] - Woboq Code Browser</title>
+<link rel="stylesheet" href="../../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'codebrowser/code/opus-1.1.4/celt/entcode.c'; var root_path = '../../../..'; var data_path = '../../../../../data';</script>
+<script src='../../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../../..'>codebrowser</a>/<a href='../..'>code</a>/<a href='..'>opus-1.1.4</a>/<a href='./'>celt</a>/<a href='entcode.c.html'>entcode.c</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/* Copyright (c) 2001-2011 Timothy B. Terriberry</i></td></tr>
+<tr><th id="2">2</th><td><i>*/</i></td></tr>
+<tr><th id="3">3</th><td><i>/*</i></td></tr>
+<tr><th id="4">4</th><td><i>   Redistribution and use in source and binary forms, with or without</i></td></tr>
+<tr><th id="5">5</th><td><i>   modification, are permitted provided that the following conditions</i></td></tr>
+<tr><th id="6">6</th><td><i>   are met:</i></td></tr>
+<tr><th id="7">7</th><td><i></i></td></tr>
+<tr><th id="8">8</th><td><i>   - Redistributions of source code must retain the above copyright</i></td></tr>
+<tr><th id="9">9</th><td><i>   notice, this list of conditions and the following disclaimer.</i></td></tr>
+<tr><th id="10">10</th><td><i></i></td></tr>
+<tr><th id="11">11</th><td><i>   - Redistributions in binary form must reproduce the above copyright</i></td></tr>
+<tr><th id="12">12</th><td><i>   notice, this list of conditions and the following disclaimer in the</i></td></tr>
+<tr><th id="13">13</th><td><i>   documentation and/or other materials provided with the distribution.</i></td></tr>
+<tr><th id="14">14</th><td><i></i></td></tr>
+<tr><th id="15">15</th><td><i>   THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS</i></td></tr>
+<tr><th id="16">16</th><td><i>   ``AS IS'' AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT</i></td></tr>
+<tr><th id="17">17</th><td><i>   LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR</i></td></tr>
+<tr><th id="18">18</th><td><i>   A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER</i></td></tr>
+<tr><th id="19">19</th><td><i>   OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,</i></td></tr>
+<tr><th id="20">20</th><td><i>   EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,</i></td></tr>
+<tr><th id="21">21</th><td><i>   PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR</i></td></tr>
+<tr><th id="22">22</th><td><i>   PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF</i></td></tr>
+<tr><th id="23">23</th><td><i>   LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING</i></td></tr>
+<tr><th id="24">24</th><td><i>   NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS</i></td></tr>
+<tr><th id="25">25</th><td><i>   SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</i></td></tr>
+<tr><th id="26">26</th><td><i>*/</i></td></tr>
+<tr><th id="27">27</th><td></td></tr>
+<tr><th id="28">28</th><td><u>#<span data-ppcond="28">ifdef</span> <span class="macro" data-ref="_M/HAVE_CONFIG_H">HAVE_CONFIG_H</span></u></td></tr>
+<tr><th id="29">29</th><td><u>#include "config.h"</u></td></tr>
+<tr><th id="30">30</th><td><u>#<span data-ppcond="28">endif</span></u></td></tr>
+<tr><th id="31">31</th><td></td></tr>
+<tr><th id="32">32</th><td><u>#include <a href="entcode.h.html">"entcode.h"</a></u></td></tr>
+<tr><th id="33">33</th><td><u>#include <a href="arch.h.html">"arch.h"</a></u></td></tr>
+<tr><th id="34">34</th><td></td></tr>
+<tr><th id="35">35</th><td><u>#<span data-ppcond="35">if</span> !defined(<a class="macro" href="ecintrin.h.html#70" data-ref="_M/EC_CLZ">EC_CLZ</a>)</u></td></tr>
+<tr><th id="36">36</th><td><i>/*This is a fallback for systems where we don't know how to access</i></td></tr>
+<tr><th id="37">37</th><td><i>   a BSR or CLZ instruction (see ecintrin.h).</i></td></tr>
+<tr><th id="38">38</th><td><i>  If you are optimizing Opus on a new platform and it has a native CLZ or</i></td></tr>
+<tr><th id="39">39</th><td><i>   BZR (e.g. cell, MIPS, x86, etc) then making it available to Opus will be</i></td></tr>
+<tr><th id="40">40</th><td><i>   an easy performance win.*/</i></td></tr>
+<tr><th id="41">41</th><td><em>int</em> ec_ilog(opus_uint32 _v){</td></tr>
+<tr><th id="42">42</th><td>  <i>/*On a Pentium M, this branchless version tested as the fastest on</i></td></tr>
+<tr><th id="43">43</th><td><i>     1,000,000,000 random 32-bit integers, edging out a similar version with</i></td></tr>
+<tr><th id="44">44</th><td><i>     branches, and a 256-entry LUT version.*/</i></td></tr>
+<tr><th id="45">45</th><td>  <em>int</em> ret;</td></tr>
+<tr><th id="46">46</th><td>  <em>int</em> m;</td></tr>
+<tr><th id="47">47</th><td>  ret=!!_v;</td></tr>
+<tr><th id="48">48</th><td>  m=!!(_v&amp;<var>0xFFFF0000</var>)&lt;&lt;<var>4</var>;</td></tr>
+<tr><th id="49">49</th><td>  _v&gt;&gt;=m;</td></tr>
+<tr><th id="50">50</th><td>  ret|=m;</td></tr>
+<tr><th id="51">51</th><td>  m=!!(_v&amp;<var>0xFF00</var>)&lt;&lt;<var>3</var>;</td></tr>
+<tr><th id="52">52</th><td>  _v&gt;&gt;=m;</td></tr>
+<tr><th id="53">53</th><td>  ret|=m;</td></tr>
+<tr><th id="54">54</th><td>  m=!!(_v&amp;<var>0xF0</var>)&lt;&lt;<var>2</var>;</td></tr>
+<tr><th id="55">55</th><td>  _v&gt;&gt;=m;</td></tr>
+<tr><th id="56">56</th><td>  ret|=m;</td></tr>
+<tr><th id="57">57</th><td>  m=!!(_v&amp;<var>0xC</var>)&lt;&lt;<var>1</var>;</td></tr>
+<tr><th id="58">58</th><td>  _v&gt;&gt;=m;</td></tr>
+<tr><th id="59">59</th><td>  ret|=m;</td></tr>
+<tr><th id="60">60</th><td>  ret+=!!(_v&amp;<var>0x2</var>);</td></tr>
+<tr><th id="61">61</th><td>  <b>return</b> ret;</td></tr>
+<tr><th id="62">62</th><td>}</td></tr>
+<tr><th id="63">63</th><td><u>#<span data-ppcond="35">endif</span></u></td></tr>
+<tr><th id="64">64</th><td></td></tr>
+<tr><th id="65">65</th><td><u>#<span data-ppcond="65">if</span> 1</u></td></tr>
+<tr><th id="66">66</th><td><i>/* This is a faster version of ec_tell_frac() that takes advantage</i></td></tr>
+<tr><th id="67">67</th><td><i>   of the low (1/8 bit) resolution to use just a linear function</i></td></tr>
+<tr><th id="68">68</th><td><i>   followed by a lookup to determine the exact transition thresholds. */</i></td></tr>
+<tr><th id="69">69</th><td><a class="typedef" href="../include/opus_types.h.html#opus_uint32" title='opus_uint32' data-type='uint32_t' data-ref="opus_uint32">opus_uint32</a> <dfn class="decl def" id="ec_tell_frac" title='ec_tell_frac' data-ref="ec_tell_frac">ec_tell_frac</dfn>(<a class="typedef" href="entcode.h.html#ec_ctx" title='ec_ctx' data-type='struct ec_ctx' data-ref="ec_ctx">ec_ctx</a> *<dfn class="local col1 decl" id="1_this" title='_this' data-type='ec_ctx *' data-ref="1_this">_this</dfn>){</td></tr>
+<tr><th id="70">70</th><td>  <em>static</em> <em>const</em> <em>unsigned</em> <dfn class="local col2 decl" id="2correction" title='correction' data-type='const unsigned int [8]' data-ref="2correction">correction</dfn>[<var>8</var>] =</td></tr>
+<tr><th id="71">71</th><td>    {<var>35733</var>, <var>38967</var>, <var>42495</var>, <var>46340</var>,</td></tr>
+<tr><th id="72">72</th><td>     <var>50535</var>, <var>55109</var>, <var>60097</var>, <var>65535</var>};</td></tr>
+<tr><th id="73">73</th><td>  <a class="typedef" href="../include/opus_types.h.html#opus_uint32" title='opus_uint32' data-type='uint32_t' data-ref="opus_uint32">opus_uint32</a> <dfn class="local col3 decl" id="3nbits" title='nbits' data-type='opus_uint32' data-ref="3nbits">nbits</dfn>;</td></tr>
+<tr><th id="74">74</th><td>  <a class="typedef" href="../include/opus_types.h.html#opus_uint32" title='opus_uint32' data-type='uint32_t' data-ref="opus_uint32">opus_uint32</a> <dfn class="local col4 decl" id="4r" title='r' data-type='opus_uint32' data-ref="4r">r</dfn>;</td></tr>
+<tr><th id="75">75</th><td>  <em>int</em>         <dfn class="local col5 decl" id="5l" title='l' data-type='int' data-ref="5l">l</dfn>;</td></tr>
+<tr><th id="76">76</th><td>  <em>unsigned</em>    <dfn class="local col6 decl" id="6b" title='b' data-type='unsigned int' data-ref="6b">b</dfn>;</td></tr>
+<tr><th id="77">77</th><td>  <a class="local col3 ref" href="#3nbits" title='nbits' data-ref="3nbits">nbits</a>=<a class="local col1 ref" href="#1_this" title='_this' data-ref="1_this">_this</a>-&gt;<a class="ref" href="entcode.h.html#ec_ctx::nbits_total" title='ec_ctx::nbits_total' data-ref="ec_ctx::nbits_total">nbits_total</a>&lt;&lt;<a class="macro" href="entcode.h.html#57" title="3" data-ref="_M/BITRES">BITRES</a>;</td></tr>
+<tr><th id="78">78</th><td>  <a class="local col5 ref" href="#5l" title='l' data-ref="5l">l</a>=<a class="macro" href="ecintrin.h.html#82" title="(((int)sizeof(unsigned)*8)-(__builtin_clz(_this-&gt;rng)))" data-ref="_M/EC_ILOG">EC_ILOG</a>(<a class="local col1 ref" href="#1_this" title='_this' data-ref="1_this">_this</a>-&gt;<a class="ref" href="entcode.h.html#ec_ctx::rng" title='ec_ctx::rng' data-ref="ec_ctx::rng">rng</a>);</td></tr>
+<tr><th id="79">79</th><td>  <a class="local col4 ref" href="#4r" title='r' data-ref="4r">r</a>=<a class="local col1 ref" href="#1_this" title='_this' data-ref="1_this">_this</a>-&gt;<a class="ref" href="entcode.h.html#ec_ctx::rng" title='ec_ctx::rng' data-ref="ec_ctx::rng">rng</a>&gt;&gt;(<a class="local col5 ref" href="#5l" title='l' data-ref="5l">l</a>-<var>16</var>);</td></tr>
+<tr><th id="80">80</th><td>  <a class="local col6 ref" href="#6b" title='b' data-ref="6b">b</a> = (<a class="local col4 ref" href="#4r" title='r' data-ref="4r">r</a>&gt;&gt;<var>12</var>)-<var>8</var>;</td></tr>
+<tr><th id="81">81</th><td>  <a class="local col6 ref" href="#6b" title='b' data-ref="6b">b</a> += <a class="local col4 ref" href="#4r" title='r' data-ref="4r">r</a>&gt;<a class="local col2 ref" href="#2correction" title='correction' data-ref="2correction">correction</a>[<a class="local col6 ref" href="#6b" title='b' data-ref="6b">b</a>];</td></tr>
+<tr><th id="82">82</th><td>  <a class="local col5 ref" href="#5l" title='l' data-ref="5l">l</a> = (<a class="local col5 ref" href="#5l" title='l' data-ref="5l">l</a>&lt;&lt;<var>3</var>)+<a class="local col6 ref" href="#6b" title='b' data-ref="6b">b</a>;</td></tr>
+<tr><th id="83">83</th><td>  <b>return</b> <a class="local col3 ref" href="#3nbits" title='nbits' data-ref="3nbits">nbits</a>-<a class="local col5 ref" href="#5l" title='l' data-ref="5l">l</a>;</td></tr>
+<tr><th id="84">84</th><td>}</td></tr>
+<tr><th id="85">85</th><td><u>#<span data-ppcond="65">else</span></u></td></tr>
+<tr><th id="86">86</th><td>opus_uint32 ec_tell_frac(ec_ctx *_this){</td></tr>
+<tr><th id="87">87</th><td>  opus_uint32 nbits;</td></tr>
+<tr><th id="88">88</th><td>  opus_uint32 r;</td></tr>
+<tr><th id="89">89</th><td>  <em>int</em>         l;</td></tr>
+<tr><th id="90">90</th><td>  <em>int</em>         i;</td></tr>
+<tr><th id="91">91</th><td>  <i>/*To handle the non-integral number of bits still left in the encoder/decoder</i></td></tr>
+<tr><th id="92">92</th><td><i>     state, we compute the worst-case number of bits of val that must be</i></td></tr>
+<tr><th id="93">93</th><td><i>     encoded to ensure that the value is inside the range for any possible</i></td></tr>
+<tr><th id="94">94</th><td><i>     subsequent bits.</i></td></tr>
+<tr><th id="95">95</th><td><i>    The computation here is independent of val itself (the decoder does not</i></td></tr>
+<tr><th id="96">96</th><td><i>     even track that value), even though the real number of bits used after</i></td></tr>
+<tr><th id="97">97</th><td><i>     ec_enc_done() may be 1 smaller if rng is a power of two and the</i></td></tr>
+<tr><th id="98">98</th><td><i>     corresponding trailing bits of val are all zeros.</i></td></tr>
+<tr><th id="99">99</th><td><i>    If we did try to track that special case, then coding a value with a</i></td></tr>
+<tr><th id="100">100</th><td><i>     probability of 1/(1&lt;&lt;n) might sometimes appear to use more than n bits.</i></td></tr>
+<tr><th id="101">101</th><td><i>    This may help explain the surprising result that a newly initialized</i></td></tr>
+<tr><th id="102">102</th><td><i>     encoder or decoder claims to have used 1 bit.*/</i></td></tr>
+<tr><th id="103">103</th><td>  nbits=_this-&gt;nbits_total&lt;&lt;BITRES;</td></tr>
+<tr><th id="104">104</th><td>  l=EC_ILOG(_this-&gt;rng);</td></tr>
+<tr><th id="105">105</th><td>  r=_this-&gt;rng&gt;&gt;(l-<var>16</var>);</td></tr>
+<tr><th id="106">106</th><td>  <b>for</b>(i=BITRES;i--&gt;<var>0</var>;){</td></tr>
+<tr><th id="107">107</th><td>    <em>int</em> b;</td></tr>
+<tr><th id="108">108</th><td>    r=r*r&gt;&gt;<var>15</var>;</td></tr>
+<tr><th id="109">109</th><td>    b=(<em>int</em>)(r&gt;&gt;<var>16</var>);</td></tr>
+<tr><th id="110">110</th><td>    l=l&lt;&lt;<var>1</var>|b;</td></tr>
+<tr><th id="111">111</th><td>    r&gt;&gt;=b;</td></tr>
+<tr><th id="112">112</th><td>  }</td></tr>
+<tr><th id="113">113</th><td>  <b>return</b> nbits-l;</td></tr>
+<tr><th id="114">114</th><td>}</td></tr>
+<tr><th id="115">115</th><td><u>#<span data-ppcond="65">endif</span></u></td></tr>
+<tr><th id="116">116</th><td></td></tr>
+<tr><th id="117">117</th><td><u>#<span data-ppcond="117">ifdef</span> <span class="macro" data-ref="_M/USE_SMALL_DIV_TABLE">USE_SMALL_DIV_TABLE</span></u></td></tr>
+<tr><th id="118">118</th><td><i>/* Result of 2^32/(2*i+1), except for i=0. */</i></td></tr>
+<tr><th id="119">119</th><td><em>const</em> opus_uint32 SMALL_DIV_TABLE[<var>129</var>] = {</td></tr>
+<tr><th id="120">120</th><td>   <var>0xFFFFFFFF</var>, <var>0x55555555</var>, <var>0x33333333</var>, <var>0x24924924</var>,</td></tr>
+<tr><th id="121">121</th><td>   <var>0x1C71C71C</var>, <var>0x1745D174</var>, <var>0x13B13B13</var>, <var>0x11111111</var>,</td></tr>
+<tr><th id="122">122</th><td>   <var>0x0F0F0F0F</var>, <var>0x0D79435E</var>, <var>0x0C30C30C</var>, <var>0x0B21642C</var>,</td></tr>
+<tr><th id="123">123</th><td>   <var>0x0A3D70A3</var>, <var>0x097B425E</var>, <var>0x08D3DCB0</var>, <var>0x08421084</var>,</td></tr>
+<tr><th id="124">124</th><td>   <var>0x07C1F07C</var>, <var>0x07507507</var>, <var>0x06EB3E45</var>, <var>0x06906906</var>,</td></tr>
+<tr><th id="125">125</th><td>   <var>0x063E7063</var>, <var>0x05F417D0</var>, <var>0x05B05B05</var>, <var>0x0572620A</var>,</td></tr>
+<tr><th id="126">126</th><td>   <var>0x05397829</var>, <var>0x05050505</var>, <var>0x04D4873E</var>, <var>0x04A7904A</var>,</td></tr>
+<tr><th id="127">127</th><td>   <var>0x047DC11F</var>, <var>0x0456C797</var>, <var>0x04325C53</var>, <var>0x04104104</var>,</td></tr>
+<tr><th id="128">128</th><td>   <var>0x03F03F03</var>, <var>0x03D22635</var>, <var>0x03B5CC0E</var>, <var>0x039B0AD1</var>,</td></tr>
+<tr><th id="129">129</th><td>   <var>0x0381C0E0</var>, <var>0x0369D036</var>, <var>0x03531DEC</var>, <var>0x033D91D2</var>,</td></tr>
+<tr><th id="130">130</th><td>   <var>0x0329161F</var>, <var>0x03159721</var>, <var>0x03030303</var>, <var>0x02F14990</var>,</td></tr>
+<tr><th id="131">131</th><td>   <var>0x02E05C0B</var>, <var>0x02D02D02</var>, <var>0x02C0B02C</var>, <var>0x02B1DA46</var>,</td></tr>
+<tr><th id="132">132</th><td>   <var>0x02A3A0FD</var>, <var>0x0295FAD4</var>, <var>0x0288DF0C</var>, <var>0x027C4597</var>,</td></tr>
+<tr><th id="133">133</th><td>   <var>0x02702702</var>, <var>0x02647C69</var>, <var>0x02593F69</var>, <var>0x024E6A17</var>,</td></tr>
+<tr><th id="134">134</th><td>   <var>0x0243F6F0</var>, <var>0x0239E0D5</var>, <var>0x02302302</var>, <var>0x0226B902</var>,</td></tr>
+<tr><th id="135">135</th><td>   <var>0x021D9EAD</var>, <var>0x0214D021</var>, <var>0x020C49BA</var>, <var>0x02040810</var>,</td></tr>
+<tr><th id="136">136</th><td>   <var>0x01FC07F0</var>, <var>0x01F44659</var>, <var>0x01ECC07B</var>, <var>0x01E573AC</var>,</td></tr>
+<tr><th id="137">137</th><td>   <var>0x01DE5D6E</var>, <var>0x01D77B65</var>, <var>0x01D0CB58</var>, <var>0x01CA4B30</var>,</td></tr>
+<tr><th id="138">138</th><td>   <var>0x01C3F8F0</var>, <var>0x01BDD2B8</var>, <var>0x01B7D6C3</var>, <var>0x01B20364</var>,</td></tr>
+<tr><th id="139">139</th><td>   <var>0x01AC5701</var>, <var>0x01A6D01A</var>, <var>0x01A16D3F</var>, <var>0x019C2D14</var>,</td></tr>
+<tr><th id="140">140</th><td>   <var>0x01970E4F</var>, <var>0x01920FB4</var>, <var>0x018D3018</var>, <var>0x01886E5F</var>,</td></tr>
+<tr><th id="141">141</th><td>   <var>0x0183C977</var>, <var>0x017F405F</var>, <var>0x017AD220</var>, <var>0x01767DCE</var>,</td></tr>
+<tr><th id="142">142</th><td>   <var>0x01724287</var>, <var>0x016E1F76</var>, <var>0x016A13CD</var>, <var>0x01661EC6</var>,</td></tr>
+<tr><th id="143">143</th><td>   <var>0x01623FA7</var>, <var>0x015E75BB</var>, <var>0x015AC056</var>, <var>0x01571ED3</var>,</td></tr>
+<tr><th id="144">144</th><td>   <var>0x01539094</var>, <var>0x01501501</var>, <var>0x014CAB88</var>, <var>0x0149539E</var>,</td></tr>
+<tr><th id="145">145</th><td>   <var>0x01460CBC</var>, <var>0x0142D662</var>, <var>0x013FB013</var>, <var>0x013C995A</var>,</td></tr>
+<tr><th id="146">146</th><td>   <var>0x013991C2</var>, <var>0x013698DF</var>, <var>0x0133AE45</var>, <var>0x0130D190</var>,</td></tr>
+<tr><th id="147">147</th><td>   <var>0x012E025C</var>, <var>0x012B404A</var>, <var>0x01288B01</var>, <var>0x0125E227</var>,</td></tr>
+<tr><th id="148">148</th><td>   <var>0x01234567</var>, <var>0x0120B470</var>, <var>0x011E2EF3</var>, <var>0x011BB4A4</var>,</td></tr>
+<tr><th id="149">149</th><td>   <var>0x01194538</var>, <var>0x0116E068</var>, <var>0x011485F0</var>, <var>0x0112358E</var>,</td></tr>
+<tr><th id="150">150</th><td>   <var>0x010FEF01</var>, <var>0x010DB20A</var>, <var>0x010B7E6E</var>, <var>0x010953F3</var>,</td></tr>
+<tr><th id="151">151</th><td>   <var>0x01073260</var>, <var>0x0105197F</var>, <var>0x0103091B</var>, <var>0x01010101</var></td></tr>
+<tr><th id="152">152</th><td>};</td></tr>
+<tr><th id="153">153</th><td><u>#<span data-ppcond="117">endif</span></u></td></tr>
+<tr><th id="154">154</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated on <em>2017-Aug-29</em> from project codebrowser revision <em>63e07af</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

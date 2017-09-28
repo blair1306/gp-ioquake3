@@ -1,0 +1,35 @@
+<dec f='codebrowser/code/server/server.h' l='151' type='char [32]'/>
+<use f='codebrowser/code/server/sv_bot.c' l='85' u='w' c='SV_BotFreeClient'/>
+<offset>541248</offset>
+<doc f='codebrowser/code/server/server.h' l='151'>// extracted from userinfo, high bits masked</doc>
+<use f='codebrowser/code/server/sv_ccmds.c' l='82' u='r' c='SV_GetPlayerByHandle'/>
+<use f='codebrowser/code/server/sv_ccmds.c' l='86' u='r' c='SV_GetPlayerByHandle'/>
+<use f='codebrowser/code/server/sv_ccmds.c' l='569' c='SV_Ban_f'/>
+<use f='codebrowser/code/server/sv_ccmds.c' l='623' c='SV_BanNum_f'/>
+<use f='codebrowser/code/server/sv_ccmds.c' l='1203' c='SV_Status_f'/>
+<use f='codebrowser/code/server/sv_ccmds.c' l='1205' u='r' c='SV_Status_f'/>
+<use f='codebrowser/code/server/sv_ccmds.c' l='1345' u='r' c='SV_ConSayto_f'/>
+<use f='codebrowser/code/server/sv_ccmds.c' l='1502' u='r' c='SV_CompletePlayerName'/>
+<use f='codebrowser/code/server/sv_client.c' l='578' c='SV_DirectConnect'/>
+<use f='codebrowser/code/server/sv_client.c' l='665' c='SV_DropClient'/>
+<use f='codebrowser/code/server/sv_client.c' l='685' c='SV_DropClient'/>
+<use f='codebrowser/code/server/sv_client.c' l='720' c='SV_SendClientGameState'/>
+<use f='codebrowser/code/server/sv_client.c' l='721' c='SV_SendClientGameState'/>
+<use f='codebrowser/code/server/sv_client.c' l='788' c='SV_ClientEnterWorld'/>
+<use f='codebrowser/code/server/sv_client.c' l='873' c='SV_DoneDownload_f'/>
+<use f='codebrowser/code/server/sv_client.c' l='1262' c='SV_VerifyPaks_f'/>
+<use f='codebrowser/code/server/sv_client.c' l='1401' u='r' c='SV_UserinfoChanged'/>
+<use f='codebrowser/code/server/sv_client.c' l='1401' u='r' c='SV_UserinfoChanged'/>
+<use f='codebrowser/code/server/sv_client.c' l='1587' c='SV_ExecuteClientCommand'/>
+<use f='codebrowser/code/server/sv_client.c' l='1608' c='SV_ClientCommand'/>
+<use f='codebrowser/code/server/sv_client.c' l='1612' c='SV_ClientCommand'/>
+<use f='codebrowser/code/server/sv_client.c' l='1729' c='SV_UserMove'/>
+<use f='codebrowser/code/server/sv_client.c' l='1948' c='SV_ExecuteClientMessage'/>
+<use f='codebrowser/code/server/sv_client.c' l='1954' c='SV_ExecuteClientMessage'/>
+<use f='codebrowser/code/server/sv_client.c' l='1963' c='SV_ExecuteClientMessage'/>
+<use f='codebrowser/code/server/sv_init.c' l='186' u='r' c='SV_SetUserinfo'/>
+<use f='codebrowser/code/server/sv_init.c' l='186' u='r' c='SV_SetUserinfo'/>
+<use f='codebrowser/code/server/sv_main.c' l='574' c='SVC_Status'/>
+<use f='codebrowser/code/server/sv_snapshot.c' l='139' c='SV_WriteSnapshotToClient'/>
+<use f='codebrowser/code/server/sv_snapshot.c' l='149' c='SV_WriteSnapshotToClient'/>
+<use f='codebrowser/code/server/sv_snapshot.c' l='630' c='SV_SendClientSnapshot'/>

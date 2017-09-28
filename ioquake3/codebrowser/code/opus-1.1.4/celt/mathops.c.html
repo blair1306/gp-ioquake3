@@ -1,0 +1,226 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>mathops.c source code [codebrowser/code/opus-1.1.4/celt/mathops.c] - Woboq Code Browser</title>
+<link rel="stylesheet" href="../../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'codebrowser/code/opus-1.1.4/celt/mathops.c'; var root_path = '../../../..'; var data_path = '../../../../../data';</script>
+<script src='../../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../../..'>codebrowser</a>/<a href='../..'>code</a>/<a href='..'>opus-1.1.4</a>/<a href='./'>celt</a>/<a href='mathops.c.html'>mathops.c</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/* Copyright (c) 2002-2008 Jean-Marc Valin</i></td></tr>
+<tr><th id="2">2</th><td><i>   Copyright (c) 2007-2008 CSIRO</i></td></tr>
+<tr><th id="3">3</th><td><i>   Copyright (c) 2007-2009 Xiph.Org Foundation</i></td></tr>
+<tr><th id="4">4</th><td><i>   Written by Jean-Marc Valin */</i></td></tr>
+<tr><th id="5">5</th><td><i class="doc">/**</i></td></tr>
+<tr><th id="6">6</th><td><i class="doc">  <span class="command"> @file</span> mathops.h</i></td></tr>
+<tr><th id="7">7</th><td><i class="doc">   <span class="command">@brief</span> Various math functions</i></td></tr>
+<tr><th id="8">8</th><td><i class="doc">*/</i></td></tr>
+<tr><th id="9">9</th><td><i>/*</i></td></tr>
+<tr><th id="10">10</th><td><i>   Redistribution and use in source and binary forms, with or without</i></td></tr>
+<tr><th id="11">11</th><td><i>   modification, are permitted provided that the following conditions</i></td></tr>
+<tr><th id="12">12</th><td><i>   are met:</i></td></tr>
+<tr><th id="13">13</th><td><i></i></td></tr>
+<tr><th id="14">14</th><td><i>   - Redistributions of source code must retain the above copyright</i></td></tr>
+<tr><th id="15">15</th><td><i>   notice, this list of conditions and the following disclaimer.</i></td></tr>
+<tr><th id="16">16</th><td><i></i></td></tr>
+<tr><th id="17">17</th><td><i>   - Redistributions in binary form must reproduce the above copyright</i></td></tr>
+<tr><th id="18">18</th><td><i>   notice, this list of conditions and the following disclaimer in the</i></td></tr>
+<tr><th id="19">19</th><td><i>   documentation and/or other materials provided with the distribution.</i></td></tr>
+<tr><th id="20">20</th><td><i></i></td></tr>
+<tr><th id="21">21</th><td><i>   THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS</i></td></tr>
+<tr><th id="22">22</th><td><i>   ``AS IS'' AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT</i></td></tr>
+<tr><th id="23">23</th><td><i>   LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR</i></td></tr>
+<tr><th id="24">24</th><td><i>   A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER</i></td></tr>
+<tr><th id="25">25</th><td><i>   OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,</i></td></tr>
+<tr><th id="26">26</th><td><i>   EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,</i></td></tr>
+<tr><th id="27">27</th><td><i>   PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR</i></td></tr>
+<tr><th id="28">28</th><td><i>   PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF</i></td></tr>
+<tr><th id="29">29</th><td><i>   LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING</i></td></tr>
+<tr><th id="30">30</th><td><i>   NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS</i></td></tr>
+<tr><th id="31">31</th><td><i>   SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</i></td></tr>
+<tr><th id="32">32</th><td><i>*/</i></td></tr>
+<tr><th id="33">33</th><td></td></tr>
+<tr><th id="34">34</th><td><u>#<span data-ppcond="34">ifdef</span> <span class="macro" data-ref="_M/HAVE_CONFIG_H">HAVE_CONFIG_H</span></u></td></tr>
+<tr><th id="35">35</th><td><u>#include "config.h"</u></td></tr>
+<tr><th id="36">36</th><td><u>#<span data-ppcond="34">endif</span></u></td></tr>
+<tr><th id="37">37</th><td></td></tr>
+<tr><th id="38">38</th><td><u>#include <a href="mathops.h.html">"mathops.h"</a></u></td></tr>
+<tr><th id="39">39</th><td></td></tr>
+<tr><th id="40">40</th><td><i>/*Compute floor(sqrt(_val)) with exact arithmetic.</i></td></tr>
+<tr><th id="41">41</th><td><i>  This has been tested on all possible 32-bit inputs.*/</i></td></tr>
+<tr><th id="42">42</th><td><em>unsigned</em> <dfn class="decl def" id="isqrt32" title='isqrt32' data-ref="isqrt32">isqrt32</dfn>(<a class="typedef" href="../include/opus_types.h.html#opus_uint32" title='opus_uint32' data-type='uint32_t' data-ref="opus_uint32">opus_uint32</a> <dfn class="local col1 decl" id="1_val" title='_val' data-type='opus_uint32' data-ref="1_val">_val</dfn>){</td></tr>
+<tr><th id="43">43</th><td>  <em>unsigned</em> <dfn class="local col2 decl" id="2b" title='b' data-type='unsigned int' data-ref="2b">b</dfn>;</td></tr>
+<tr><th id="44">44</th><td>  <em>unsigned</em> <dfn class="local col3 decl" id="3g" title='g' data-type='unsigned int' data-ref="3g">g</dfn>;</td></tr>
+<tr><th id="45">45</th><td>  <em>int</em>      <dfn class="local col4 decl" id="4bshift" title='bshift' data-type='int' data-ref="4bshift">bshift</dfn>;</td></tr>
+<tr><th id="46">46</th><td>  <i>/*Uses the second method from</i></td></tr>
+<tr><th id="47">47</th><td><i>     <a href="http://www.azillionmonkeys.com/qed/sqroot.html">http://www.azillionmonkeys.com/qed/sqroot.html</a></i></td></tr>
+<tr><th id="48">48</th><td><i>    The main idea is to search for the largest binary digit b such that</i></td></tr>
+<tr><th id="49">49</th><td><i>     (g+b)*(g+b) &lt;= _val, and add it to the solution g.*/</i></td></tr>
+<tr><th id="50">50</th><td>  <a class="local col3 ref" href="#3g" title='g' data-ref="3g">g</a>=<var>0</var>;</td></tr>
+<tr><th id="51">51</th><td>  <a class="local col4 ref" href="#4bshift" title='bshift' data-ref="4bshift">bshift</a>=(<a class="macro" href="ecintrin.h.html#82" title="(((int)sizeof(unsigned)*8)-(__builtin_clz(_val)))" data-ref="_M/EC_ILOG">EC_ILOG</a>(<a class="local col1 ref" href="#1_val" title='_val' data-ref="1_val">_val</a>)-<var>1</var>)&gt;&gt;<var>1</var>;</td></tr>
+<tr><th id="52">52</th><td>  <a class="local col2 ref" href="#2b" title='b' data-ref="2b">b</a>=<var>1U</var>&lt;&lt;<a class="local col4 ref" href="#4bshift" title='bshift' data-ref="4bshift">bshift</a>;</td></tr>
+<tr><th id="53">53</th><td>  <b>do</b>{</td></tr>
+<tr><th id="54">54</th><td>    <a class="typedef" href="../include/opus_types.h.html#opus_uint32" title='opus_uint32' data-type='uint32_t' data-ref="opus_uint32">opus_uint32</a> <dfn class="local col5 decl" id="5t" title='t' data-type='opus_uint32' data-ref="5t">t</dfn>;</td></tr>
+<tr><th id="55">55</th><td>    <a class="local col5 ref" href="#5t" title='t' data-ref="5t">t</a>=(((<a class="typedef" href="../include/opus_types.h.html#opus_uint32" title='opus_uint32' data-type='uint32_t' data-ref="opus_uint32">opus_uint32</a>)<a class="local col3 ref" href="#3g" title='g' data-ref="3g">g</a>&lt;&lt;<var>1</var>)+<a class="local col2 ref" href="#2b" title='b' data-ref="2b">b</a>)&lt;&lt;<a class="local col4 ref" href="#4bshift" title='bshift' data-ref="4bshift">bshift</a>;</td></tr>
+<tr><th id="56">56</th><td>    <b>if</b>(<a class="local col5 ref" href="#5t" title='t' data-ref="5t">t</a>&lt;=<a class="local col1 ref" href="#1_val" title='_val' data-ref="1_val">_val</a>){</td></tr>
+<tr><th id="57">57</th><td>      <a class="local col3 ref" href="#3g" title='g' data-ref="3g">g</a>+=<a class="local col2 ref" href="#2b" title='b' data-ref="2b">b</a>;</td></tr>
+<tr><th id="58">58</th><td>      <a class="local col1 ref" href="#1_val" title='_val' data-ref="1_val">_val</a>-=<a class="local col5 ref" href="#5t" title='t' data-ref="5t">t</a>;</td></tr>
+<tr><th id="59">59</th><td>    }</td></tr>
+<tr><th id="60">60</th><td>    <a class="local col2 ref" href="#2b" title='b' data-ref="2b">b</a>&gt;&gt;=<var>1</var>;</td></tr>
+<tr><th id="61">61</th><td>    <a class="local col4 ref" href="#4bshift" title='bshift' data-ref="4bshift">bshift</a>--;</td></tr>
+<tr><th id="62">62</th><td>  }</td></tr>
+<tr><th id="63">63</th><td>  <b>while</b>(<a class="local col4 ref" href="#4bshift" title='bshift' data-ref="4bshift">bshift</a>&gt;=<var>0</var>);</td></tr>
+<tr><th id="64">64</th><td>  <b>return</b> <a class="local col3 ref" href="#3g" title='g' data-ref="3g">g</a>;</td></tr>
+<tr><th id="65">65</th><td>}</td></tr>
+<tr><th id="66">66</th><td></td></tr>
+<tr><th id="67">67</th><td><u>#<span data-ppcond="67">ifdef</span> <span class="macro" data-ref="_M/FIXED_POINT">FIXED_POINT</span></u></td></tr>
+<tr><th id="68">68</th><td></td></tr>
+<tr><th id="69">69</th><td>opus_val32 frac_div32(opus_val32 a, opus_val32 b)</td></tr>
+<tr><th id="70">70</th><td>{</td></tr>
+<tr><th id="71">71</th><td>   opus_val16 rcp;</td></tr>
+<tr><th id="72">72</th><td>   opus_val32 result, rem;</td></tr>
+<tr><th id="73">73</th><td>   <em>int</em> shift = celt_ilog2(b)-<var>29</var>;</td></tr>
+<tr><th id="74">74</th><td>   a = VSHR32(a,shift);</td></tr>
+<tr><th id="75">75</th><td>   b = VSHR32(b,shift);</td></tr>
+<tr><th id="76">76</th><td>   <i>/* 16-bit reciprocal */</i></td></tr>
+<tr><th id="77">77</th><td>   rcp = ROUND16(celt_rcp(ROUND16(b,<var>16</var>)),<var>3</var>);</td></tr>
+<tr><th id="78">78</th><td>   result = MULT16_32_Q15(rcp, a);</td></tr>
+<tr><th id="79">79</th><td>   rem = PSHR32(a,<var>2</var>)-MULT32_32_Q31(result, b);</td></tr>
+<tr><th id="80">80</th><td>   result = ADD32(result, SHL32(MULT16_32_Q15(rcp, rem),<var>2</var>));</td></tr>
+<tr><th id="81">81</th><td>   <b>if</b> (result &gt;= <var>536870912</var>)       <i>/*  2^29 */</i></td></tr>
+<tr><th id="82">82</th><td>      <b>return</b> <var>2147483647</var>;          <i>/*  2^31 - 1 */</i></td></tr>
+<tr><th id="83">83</th><td>   <b>else</b> <b>if</b> (result &lt;= -<var>536870912</var>) <i>/* -2^29 */</i></td></tr>
+<tr><th id="84">84</th><td>      <b>return</b> -<var>2147483647</var>;         <i>/* -2^31 */</i></td></tr>
+<tr><th id="85">85</th><td>   <b>else</b></td></tr>
+<tr><th id="86">86</th><td>      <b>return</b> SHL32(result, <var>2</var>);</td></tr>
+<tr><th id="87">87</th><td>}</td></tr>
+<tr><th id="88">88</th><td></td></tr>
+<tr><th id="89">89</th><td><i class="doc">/** Reciprocal sqrt approximation in the range [0.25,1) (Q16 in, Q14 out) */</i></td></tr>
+<tr><th id="90">90</th><td>opus_val16 celt_rsqrt_norm(opus_val32 x)</td></tr>
+<tr><th id="91">91</th><td>{</td></tr>
+<tr><th id="92">92</th><td>   opus_val16 n;</td></tr>
+<tr><th id="93">93</th><td>   opus_val16 r;</td></tr>
+<tr><th id="94">94</th><td>   opus_val16 r2;</td></tr>
+<tr><th id="95">95</th><td>   opus_val16 y;</td></tr>
+<tr><th id="96">96</th><td>   <i>/* Range of n is [-16384,32767] ([-0.5,1) in Q15). */</i></td></tr>
+<tr><th id="97">97</th><td>   n = x-<var>32768</var>;</td></tr>
+<tr><th id="98">98</th><td>   <i>/* Get a rough initial guess for the root.</i></td></tr>
+<tr><th id="99">99</th><td><i>      The optimal minimax quadratic approximation (using relative error) is</i></td></tr>
+<tr><th id="100">100</th><td><i>       r = 1.437799046117536+n*(-0.823394375837328+n*0.4096419668459485).</i></td></tr>
+<tr><th id="101">101</th><td><i>      Coefficients here, and the final result r, are Q14.*/</i></td></tr>
+<tr><th id="102">102</th><td>   r = ADD16(<var>23557</var>, MULT16_16_Q15(n, ADD16(-<var>13490</var>, MULT16_16_Q15(n, <var>6713</var>))));</td></tr>
+<tr><th id="103">103</th><td>   <i>/* We want y = x*r*r-1 in Q15, but x is 32-bit Q16 and r is Q14.</i></td></tr>
+<tr><th id="104">104</th><td><i>      We can compute the result from n and r using Q15 multiplies with some</i></td></tr>
+<tr><th id="105">105</th><td><i>       adjustment, carefully done to avoid overflow.</i></td></tr>
+<tr><th id="106">106</th><td><i>      Range of y is [-1564,1594]. */</i></td></tr>
+<tr><th id="107">107</th><td>   r2 = MULT16_16_Q15(r, r);</td></tr>
+<tr><th id="108">108</th><td>   y = SHL16(SUB16(ADD16(MULT16_16_Q15(r2, n), r2), <var>16384</var>), <var>1</var>);</td></tr>
+<tr><th id="109">109</th><td>   <i>/* Apply a 2nd-order Householder iteration: r += r*y*(y*0.375-0.5).</i></td></tr>
+<tr><th id="110">110</th><td><i>      This yields the Q14 reciprocal square root of the Q16 x, with a maximum</i></td></tr>
+<tr><th id="111">111</th><td><i>       relative error of 1.04956E-4, a (relative) RMSE of 2.80979E-5, and a</i></td></tr>
+<tr><th id="112">112</th><td><i>       peak absolute error of 2.26591/16384. */</i></td></tr>
+<tr><th id="113">113</th><td>   <b>return</b> ADD16(r, MULT16_16_Q15(r, MULT16_16_Q15(y,</td></tr>
+<tr><th id="114">114</th><td>              SUB16(MULT16_16_Q15(y, <var>12288</var>), <var>16384</var>))));</td></tr>
+<tr><th id="115">115</th><td>}</td></tr>
+<tr><th id="116">116</th><td></td></tr>
+<tr><th id="117">117</th><td><i class="doc">/** Sqrt approximation (QX input, QX/2 output) */</i></td></tr>
+<tr><th id="118">118</th><td>opus_val32 celt_sqrt(opus_val32 x)</td></tr>
+<tr><th id="119">119</th><td>{</td></tr>
+<tr><th id="120">120</th><td>   <em>int</em> k;</td></tr>
+<tr><th id="121">121</th><td>   opus_val16 n;</td></tr>
+<tr><th id="122">122</th><td>   opus_val32 rt;</td></tr>
+<tr><th id="123">123</th><td>   <em>static</em> <em>const</em> opus_val16 C[<var>5</var>] = {<var>23175</var>, <var>11561</var>, -<var>3011</var>, <var>1699</var>, -<var>664</var>};</td></tr>
+<tr><th id="124">124</th><td>   <b>if</b> (x==<var>0</var>)</td></tr>
+<tr><th id="125">125</th><td>      <b>return</b> <var>0</var>;</td></tr>
+<tr><th id="126">126</th><td>   <b>else</b> <b>if</b> (x&gt;=<var>1073741824</var>)</td></tr>
+<tr><th id="127">127</th><td>      <b>return</b> <var>32767</var>;</td></tr>
+<tr><th id="128">128</th><td>   k = (celt_ilog2(x)&gt;&gt;<var>1</var>)-<var>7</var>;</td></tr>
+<tr><th id="129">129</th><td>   x = VSHR32(x, <var>2</var>*k);</td></tr>
+<tr><th id="130">130</th><td>   n = x-<var>32768</var>;</td></tr>
+<tr><th id="131">131</th><td>   rt = ADD16(C[<var>0</var>], MULT16_16_Q15(n, ADD16(C[<var>1</var>], MULT16_16_Q15(n, ADD16(C[<var>2</var>],</td></tr>
+<tr><th id="132">132</th><td>              MULT16_16_Q15(n, ADD16(C[<var>3</var>], MULT16_16_Q15(n, (C[<var>4</var>])))))))));</td></tr>
+<tr><th id="133">133</th><td>   rt = VSHR32(rt,<var>7</var>-k);</td></tr>
+<tr><th id="134">134</th><td>   <b>return</b> rt;</td></tr>
+<tr><th id="135">135</th><td>}</td></tr>
+<tr><th id="136">136</th><td></td></tr>
+<tr><th id="137">137</th><td><u>#define L1 32767</u></td></tr>
+<tr><th id="138">138</th><td><u>#define L2 -7651</u></td></tr>
+<tr><th id="139">139</th><td><u>#define L3 8277</u></td></tr>
+<tr><th id="140">140</th><td><u>#define L4 -626</u></td></tr>
+<tr><th id="141">141</th><td></td></tr>
+<tr><th id="142">142</th><td><em>static</em> OPUS_INLINE opus_val16 _celt_cos_pi_2(opus_val16 x)</td></tr>
+<tr><th id="143">143</th><td>{</td></tr>
+<tr><th id="144">144</th><td>   opus_val16 x2;</td></tr>
+<tr><th id="145">145</th><td></td></tr>
+<tr><th id="146">146</th><td>   x2 = MULT16_16_P15(x,x);</td></tr>
+<tr><th id="147">147</th><td>   <b>return</b> ADD16(<var>1</var>,MIN16(<var>32766</var>,ADD32(SUB16(L1,x2), MULT16_16_P15(x2, ADD32(L2, MULT16_16_P15(x2, ADD32(L3, MULT16_16_P15(L4, x2</td></tr>
+<tr><th id="148">148</th><td>                                                                                ))))))));</td></tr>
+<tr><th id="149">149</th><td>}</td></tr>
+<tr><th id="150">150</th><td></td></tr>
+<tr><th id="151">151</th><td><u>#undef L1</u></td></tr>
+<tr><th id="152">152</th><td><u>#undef L2</u></td></tr>
+<tr><th id="153">153</th><td><u>#undef L3</u></td></tr>
+<tr><th id="154">154</th><td><u>#undef L4</u></td></tr>
+<tr><th id="155">155</th><td></td></tr>
+<tr><th id="156">156</th><td>opus_val16 celt_cos_norm(opus_val32 x)</td></tr>
+<tr><th id="157">157</th><td>{</td></tr>
+<tr><th id="158">158</th><td>   x = x&amp;<var>0x0001ffff</var>;</td></tr>
+<tr><th id="159">159</th><td>   <b>if</b> (x&gt;SHL32(EXTEND32(<var>1</var>), <var>16</var>))</td></tr>
+<tr><th id="160">160</th><td>      x = SUB32(SHL32(EXTEND32(<var>1</var>), <var>17</var>),x);</td></tr>
+<tr><th id="161">161</th><td>   <b>if</b> (x&amp;<var>0x00007fff</var>)</td></tr>
+<tr><th id="162">162</th><td>   {</td></tr>
+<tr><th id="163">163</th><td>      <b>if</b> (x&lt;SHL32(EXTEND32(<var>1</var>), <var>15</var>))</td></tr>
+<tr><th id="164">164</th><td>      {</td></tr>
+<tr><th id="165">165</th><td>         <b>return</b> _celt_cos_pi_2(EXTRACT16(x));</td></tr>
+<tr><th id="166">166</th><td>      } <b>else</b> {</td></tr>
+<tr><th id="167">167</th><td>         <b>return</b> NEG16(_celt_cos_pi_2(EXTRACT16(<var>65536</var>-x)));</td></tr>
+<tr><th id="168">168</th><td>      }</td></tr>
+<tr><th id="169">169</th><td>   } <b>else</b> {</td></tr>
+<tr><th id="170">170</th><td>      <b>if</b> (x&amp;<var>0x0000ffff</var>)</td></tr>
+<tr><th id="171">171</th><td>         <b>return</b> <var>0</var>;</td></tr>
+<tr><th id="172">172</th><td>      <b>else</b> <b>if</b> (x&amp;<var>0x0001ffff</var>)</td></tr>
+<tr><th id="173">173</th><td>         <b>return</b> -<var>32767</var>;</td></tr>
+<tr><th id="174">174</th><td>      <b>else</b></td></tr>
+<tr><th id="175">175</th><td>         <b>return</b> <var>32767</var>;</td></tr>
+<tr><th id="176">176</th><td>   }</td></tr>
+<tr><th id="177">177</th><td>}</td></tr>
+<tr><th id="178">178</th><td></td></tr>
+<tr><th id="179">179</th><td><i class="doc">/** Reciprocal approximation (Q15 input, Q16 output) */</i></td></tr>
+<tr><th id="180">180</th><td>opus_val32 celt_rcp(opus_val32 x)</td></tr>
+<tr><th id="181">181</th><td>{</td></tr>
+<tr><th id="182">182</th><td>   <em>int</em> i;</td></tr>
+<tr><th id="183">183</th><td>   opus_val16 n;</td></tr>
+<tr><th id="184">184</th><td>   opus_val16 r;</td></tr>
+<tr><th id="185">185</th><td>   celt_assert2(x&gt;<var>0</var>, <q>"celt_rcp() only defined for positive values"</q>);</td></tr>
+<tr><th id="186">186</th><td>   i = celt_ilog2(x);</td></tr>
+<tr><th id="187">187</th><td>   <i>/* n is Q15 with range [0,1). */</i></td></tr>
+<tr><th id="188">188</th><td>   n = VSHR32(x,i-<var>15</var>)-<var>32768</var>;</td></tr>
+<tr><th id="189">189</th><td>   <i>/* Start with a linear approximation:</i></td></tr>
+<tr><th id="190">190</th><td><i>      r = 1.8823529411764706-0.9411764705882353*n.</i></td></tr>
+<tr><th id="191">191</th><td><i>      The coefficients and the result are Q14 in the range [15420,30840].*/</i></td></tr>
+<tr><th id="192">192</th><td>   r = ADD16(<var>30840</var>, MULT16_16_Q15(-<var>15420</var>, n));</td></tr>
+<tr><th id="193">193</th><td>   <i>/* Perform two Newton iterations:</i></td></tr>
+<tr><th id="194">194</th><td><i>      r -= r*((r*n)-1.Q15)</i></td></tr>
+<tr><th id="195">195</th><td><i>         = r*((r*n)+(r-1.Q15)). */</i></td></tr>
+<tr><th id="196">196</th><td>   r = SUB16(r, MULT16_16_Q15(r,</td></tr>
+<tr><th id="197">197</th><td>             ADD16(MULT16_16_Q15(r, n), ADD16(r, -<var>32768</var>))));</td></tr>
+<tr><th id="198">198</th><td>   <i>/* We subtract an extra 1 in the second iteration to avoid overflow; it also</i></td></tr>
+<tr><th id="199">199</th><td><i>       neatly compensates for truncation error in the rest of the process. */</i></td></tr>
+<tr><th id="200">200</th><td>   r = SUB16(r, ADD16(<var>1</var>, MULT16_16_Q15(r,</td></tr>
+<tr><th id="201">201</th><td>             ADD16(MULT16_16_Q15(r, n), ADD16(r, -<var>32768</var>)))));</td></tr>
+<tr><th id="202">202</th><td>   <i>/* r is now the Q15 solution to 2/(n+1), with a maximum relative error</i></td></tr>
+<tr><th id="203">203</th><td><i>       of 7.05346E-5, a (relative) RMSE of 2.14418E-5, and a peak absolute</i></td></tr>
+<tr><th id="204">204</th><td><i>       error of 1.24665/32768. */</i></td></tr>
+<tr><th id="205">205</th><td>   <b>return</b> VSHR32(EXTEND32(r),i-<var>16</var>);</td></tr>
+<tr><th id="206">206</th><td>}</td></tr>
+<tr><th id="207">207</th><td></td></tr>
+<tr><th id="208">208</th><td><u>#<span data-ppcond="67">endif</span></u></td></tr>
+<tr><th id="209">209</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated on <em>2017-Aug-29</em> from project codebrowser revision <em>63e07af</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

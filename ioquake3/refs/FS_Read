@@ -1,0 +1,47 @@
+<dec f='codebrowser/code/qcommon/qcommon.h' l='662' type='int FS_Read(void * buffer, int len, fileHandle_t f)'/>
+<use f='codebrowser/code/client/cl_avi.c' l='623' u='c' c='CL_CloseAVI'/>
+<use f='codebrowser/code/client/cl_avi.c' l='628' u='c' c='CL_CloseAVI'/>
+<use f='codebrowser/code/client/cl_cgame.c' l='443' u='c' c='CL_CgameSystemCalls'/>
+<use f='codebrowser/code/client/cl_cin.c' l='1086' u='c' c='RoQReset'/>
+<use f='codebrowser/code/client/cl_cin.c' l='1107' u='c' c='RoQInterrupt'/>
+<use f='codebrowser/code/client/cl_cin.c' l='1466' u='c' c='CIN_PlayCinematic'/>
+<use f='codebrowser/code/client/cl_keys.c' l='1482' u='c' c='CL_LoadConsoleHistory'/>
+<use f='codebrowser/code/client/cl_main.c' l='947' u='c' c='CL_ReadDemoMessage'/>
+<use f='codebrowser/code/client/cl_main.c' l='958' u='c' c='CL_ReadDemoMessage'/>
+<use f='codebrowser/code/client/cl_main.c' l='971' u='c' c='CL_ReadDemoMessage'/>
+<use f='codebrowser/code/client/cl_ui.c' l='56' u='c' c='LAN_LoadCachedServers'/>
+<use f='codebrowser/code/client/cl_ui.c' l='57' u='c' c='LAN_LoadCachedServers'/>
+<use f='codebrowser/code/client/cl_ui.c' l='58' u='c' c='LAN_LoadCachedServers'/>
+<use f='codebrowser/code/client/cl_ui.c' l='60' u='c' c='LAN_LoadCachedServers'/>
+<use f='codebrowser/code/client/cl_ui.c' l='61' u='c' c='LAN_LoadCachedServers'/>
+<use f='codebrowser/code/client/cl_ui.c' l='793' u='c' c='CL_UISystemCalls'/>
+<use f='codebrowser/code/client/snd_codec_opus.c' l='88' u='c' c='S_OggOpus_Callback_read'/>
+<use f='codebrowser/code/client/snd_codec_wav.c' l='35' u='c' c='FGetLittleLong'/>
+<use f='codebrowser/code/client/snd_codec_wav.c' l='48' u='c' c='FGetLittleShort'/>
+<use f='codebrowser/code/client/snd_codec_wav.c' l='64' u='c' c='S_ReadChunkInfo'/>
+<use f='codebrowser/code/client/snd_codec_wav.c' l='138' u='c' c='S_ReadRIFFHeader'/>
+<use f='codebrowser/code/client/snd_codec_wav.c' l='230' u='c' c='S_WAV_CodecLoad'/>
+<use f='codebrowser/code/client/snd_codec_wav.c' l='288' u='c' c='S_WAV_CodecReadStream'/>
+<use f='codebrowser/code/qcommon/common.c' l='2061' u='c' c='Com_GetRealEvent'/>
+<use f='codebrowser/code/qcommon/common.c' l='2067' u='c' c='Com_GetRealEvent'/>
+<use f='codebrowser/code/qcommon/common.c' l='2488' u='c' c='Com_ReadCDKey'/>
+<use f='codebrowser/code/qcommon/common.c' l='2518' u='c' c='Com_AppendCDKey'/>
+<use f='codebrowser/code/qcommon/common.c' l='2885' u='c' c='Com_ReadFromPipe'/>
+<def f='codebrowser/code/qcommon/files.c' l='1530' ll='1574' type='int FS_Read(void * buffer, int len, fileHandle_t f)'/>
+<use f='codebrowser/code/qcommon/files.c' l='1705' u='c' c='FS_Seek'/>
+<use f='codebrowser/code/qcommon/files.c' l='1708' u='c' c='FS_Seek'/>
+<use f='codebrowser/code/qcommon/files.c' l='1841' u='c' c='FS_ReadFileDir'/>
+<use f='codebrowser/code/qcommon/files.c' l='1861' u='c' c='FS_ReadFileDir'/>
+<use f='codebrowser/code/qcommon/files.c' l='1921' u='c' c='FS_ReadFileDir'/>
+<doc f='codebrowser/code/qcommon/files.c' l='1523'>/*
+=================
+FS_Read
+
+Properly handles partial reads
+=================
+*/</doc>
+<use f='codebrowser/code/qcommon/md5.c' l='293' u='c' c='Com_MD5File'/>
+<use f='codebrowser/code/server/sv_bot.c' l='546' u='r' c='SV_BotInitBotLib'/>
+<use f='codebrowser/code/server/sv_ccmds.c' l='665' u='c' c='SV_RehashBans_f'/>
+<use f='codebrowser/code/server/sv_client.c' l='1066' u='c' c='SV_WriteDownloadToClient'/>
+<use f='codebrowser/code/server/sv_game.c' l='328' u='c' c='SV_GameSystemCalls'/>

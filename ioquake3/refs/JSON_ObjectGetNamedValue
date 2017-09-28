@@ -1,0 +1,15 @@
+<dec f='codebrowser/code/qcommon/json.h' l='62' type='const char * JSON_ObjectGetNamedValue(const char * json, const char * jsonEnd, const char * name)'/>
+<def f='codebrowser/code/qcommon/json.h' l='219' ll='241' type='const char * JSON_ObjectGetNamedValue(const char * json, const char * jsonEnd, const char * name)'/>
+<use f='codebrowser/code/renderergl2/tr_bsp.c' l='2477' u='c' c='R_LoadEnvironmentJson'/>
+<use f='codebrowser/code/renderergl2/tr_bsp.c' l='2504' u='c' c='R_LoadEnvironmentJson'/>
+<use f='codebrowser/code/renderergl2/tr_bsp.c' l='2508' u='c' c='R_LoadEnvironmentJson'/>
+<use f='codebrowser/code/renderergl2/tr_bsp.c' l='2514' u='c' c='R_LoadEnvironmentJson'/>
+<doc f='codebrowser/code/qcommon/json.h' l='56'>// --------------------------------------------------------------------------
+//   Object Functions
+// --------------------------------------------------------------------------
+
+// Get pointer to named value from object
+// returns NULL if not an object, name not found, or out of data</doc>
+<doc f='codebrowser/code/qcommon/json.h' l='215'>// --------------------------------------------------------------------------
+//   Object Functions
+// --------------------------------------------------------------------------</doc>

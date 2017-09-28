@@ -1,0 +1,38 @@
+<dec f='codebrowser/code/renderergl1/tr_local.h' l='1183' type='shader_t * R_GetShaderByHandle(qhandle_t hShader)'/>
+<use f='codebrowser/code/renderergl1/tr_animation.c' l='258' u='c' c='R_MDRAddAnimSurfaces'/>
+<use f='codebrowser/code/renderergl1/tr_animation.c' l='274' u='c' c='R_MDRAddAnimSurfaces'/>
+<use f='codebrowser/code/renderergl1/tr_cmds.c' l='225' u='c' c='RE_StretchPic'/>
+<use f='codebrowser/code/renderergl1/tr_main.c' l='1226' u='c' c='R_AddEntitySurfaces'/>
+<use f='codebrowser/code/renderergl1/tr_mesh.c' l='353' u='c' c='R_AddMD3Surfaces'/>
+<use f='codebrowser/code/renderergl1/tr_model_iqm.c' l='898' u='c' c='R_AddIQMSurfaces'/>
+<use f='codebrowser/code/renderergl1/tr_scene.c' l='99' u='c' c='R_AddPolygonSurfaces'/>
+<use f='codebrowser/code/renderergl1/tr_shader.c' l='77' u='c' c='R_RemapShader'/>
+<use f='codebrowser/code/renderergl1/tr_shader.c' l='87' u='c' c='R_RemapShader'/>
+<def f='codebrowser/code/renderergl1/tr_shader.c' l='2859' ll='2869' type='shader_t * R_GetShaderByHandle(qhandle_t hShader)'/>
+<doc f='codebrowser/code/renderergl1/tr_shader.c' l='2851'>/*
+====================
+R_GetShaderByHandle
+
+When a handle is passed in by another module, this range checks
+it and returns a valid (possibly default) shader_t to be used internally.
+====================
+*/</doc>
+<dec f='codebrowser/code/renderergl2/tr_local.h' l='1931' type='shader_t * R_GetShaderByHandle(qhandle_t hShader)'/>
+<use f='codebrowser/code/renderergl2/tr_animation.c' l='262' u='c' c='R_MDRAddAnimSurfaces'/>
+<use f='codebrowser/code/renderergl2/tr_animation.c' l='278' u='c' c='R_MDRAddAnimSurfaces'/>
+<use f='codebrowser/code/renderergl2/tr_cmds.c' l='271' u='c' c='RE_StretchPic'/>
+<use f='codebrowser/code/renderergl2/tr_main.c' l='1589' u='c' c='R_AddEntitySurface'/>
+<use f='codebrowser/code/renderergl2/tr_mesh.c' l='357' u='c' c='R_AddMD3Surfaces'/>
+<use f='codebrowser/code/renderergl2/tr_model_iqm.c' l='902' u='c' c='R_AddIQMSurfaces'/>
+<use f='codebrowser/code/renderergl2/tr_scene.c' l='101' u='c' c='R_AddPolygonSurfaces'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='77' u='c' c='R_RemapShader'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='87' u='c' c='R_RemapShader'/>
+<def f='codebrowser/code/renderergl2/tr_shader.c' l='3571' ll='3581' type='shader_t * R_GetShaderByHandle(qhandle_t hShader)'/>
+<doc f='codebrowser/code/renderergl2/tr_shader.c' l='3563'>/*
+====================
+R_GetShaderByHandle
+
+When a handle is passed in by another module, this range checks
+it and returns a valid (possibly default) shader_t to be used internally.
+====================
+*/</doc>

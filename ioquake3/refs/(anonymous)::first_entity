@@ -1,0 +1,8 @@
+<dec f='codebrowser/code/server/server.h' l='107' type='int'/>
+<use f='codebrowser/code/server/sv_bot.c' l='633' u='r' c='SV_BotGetSnapshotEntity'/>
+<offset>4064</offset>
+<doc f='codebrowser/code/server/server.h' l='107'>// into the circular sv_packet_entities[]</doc>
+<use f='codebrowser/code/server/sv_snapshot.c' l='76' u='r' c='SV_EmitPacketEntities'/>
+<use f='codebrowser/code/server/sv_snapshot.c' l='83' u='r' c='SV_EmitPacketEntities'/>
+<use f='codebrowser/code/server/sv_snapshot.c' l='148' u='r' c='SV_WriteSnapshotToClient'/>
+<use f='codebrowser/code/server/sv_snapshot.c' l='509' u='w' c='SV_BuildClientSnapshot'/>

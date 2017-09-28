@@ -1,0 +1,22 @@
+<dec f='codebrowser/code/renderergl1/tr_local.h' l='1076' type='void R_DecomposeSort(unsigned int sort, int * entityNum, shader_t ** shader, int * fogNum, int * dlightMap)'/>
+<use f='codebrowser/code/renderergl1/tr_backend.c' l='540' u='c' c='RB_RenderDrawSurfList'/>
+<use f='codebrowser/code/renderergl1/tr_main.c' l='863' u='c' c='SurfIsOffscreen'/>
+<def f='codebrowser/code/renderergl1/tr_main.c' l='1122' ll='1128' type='void R_DecomposeSort(unsigned int sort, int * entityNum, shader_t ** shader, int * fogNum, int * dlightMap)'/>
+<use f='codebrowser/code/renderergl1/tr_main.c' l='1155' u='c' c='R_SortDrawSurfs'/>
+<doc f='codebrowser/code/renderergl1/tr_main.c' l='1117'>/*
+=================
+R_DecomposeSort
+=================
+*/</doc>
+<use f='codebrowser/code/renderergl1/tr_shader.c' l='1964' u='c' c='FixRenderCommandList'/>
+<dec f='codebrowser/code/renderergl2/tr_local.h' l='1813' type='void R_DecomposeSort(unsigned int sort, int * entityNum, shader_t ** shader, int * fogNum, int * dlightMap, int * pshadowMap)'/>
+<use f='codebrowser/code/renderergl2/tr_backend.c' l='469' u='c' c='RB_RenderDrawSurfList'/>
+<use f='codebrowser/code/renderergl2/tr_main.c' l='1214' u='c' c='SurfIsOffscreen'/>
+<def f='codebrowser/code/renderergl2/tr_main.c' l='1483' ll='1490' type='void R_DecomposeSort(unsigned int sort, int * entityNum, shader_t ** shader, int * fogNum, int * dlightMap, int * pshadowMap)'/>
+<use f='codebrowser/code/renderergl2/tr_main.c' l='1527' u='c' c='R_SortDrawSurfs'/>
+<doc f='codebrowser/code/renderergl2/tr_main.c' l='1478'>/*
+=================
+R_DecomposeSort
+=================
+*/</doc>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='2670' u='c' c='FixRenderCommandList'/>

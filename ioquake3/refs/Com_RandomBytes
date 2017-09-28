@@ -1,0 +1,11 @@
+<dec f='codebrowser/code/qcommon/q_shared.h' l='787' type='void Com_RandomBytes(byte * string, int len)'/>
+<use f='codebrowser/code/client/cl_main.c' l='3425' u='c' c='CL_GenerateQKey'/>
+<use f='codebrowser/code/qcommon/common.c' l='2812' u='c' c='Com_Init'/>
+<def f='codebrowser/code/qcommon/common.c' l='3583' ll='3593' type='void Com_RandomBytes(byte * string, int len)'/>
+<doc f='codebrowser/code/qcommon/common.c' l='3576'>/*
+==================
+Com_RandomBytes
+
+fills string array with len random bytes, preferably from the OS randomizer
+==================
+*/</doc>

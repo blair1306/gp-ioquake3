@@ -1,0 +1,14 @@
+<dec f='codebrowser/code/q3_ui/ui_local.h' l='761' type='void UI_GetBestScore(int level, int * score, int * skill)'/>
+<def f='codebrowser/code/q3_ui/ui_gameinfo.c' l='435' ll='472' type='void UI_GetBestScore(int level, int * score, int * skill)'/>
+<use f='codebrowser/code/q3_ui/ui_gameinfo.c' l='589' u='c' c='UI_TierCompleted'/>
+<use f='codebrowser/code/q3_ui/ui_gameinfo.c' l='669' u='c' c='UI_GetCurrentGame'/>
+<use f='codebrowser/code/q3_ui/ui_gameinfo.c' l='676' u='c' c='UI_GetCurrentGame'/>
+<doc f='codebrowser/code/q3_ui/ui_gameinfo.c' l='428'>/*
+===============
+UI_GetBestScore
+
+Returns the player&apos;s best finish on a given level, 0 if the have not played the level
+===============
+*/</doc>
+<use f='codebrowser/code/q3_ui/ui_splevel.c' l='234' u='c' c='UI_SPLevelMenu_SetMenuArena'/>
+<dec f='codebrowser/code/ui/ui_local.h' l='1074' type='void UI_GetBestScore(int level, int * score, int * skill)'/>

@@ -1,0 +1,19 @@
+<dec f='codebrowser/code/client/client.h' l='177' type='int'/>
+<offset>41504</offset>
+<doc f='codebrowser/code/client/client.h' l='177'>// from the server for checksum calculations</doc>
+<use f='codebrowser/code/client/cl_input.c' l='866' u='r' c='CL_WritePacket'/>
+<use f='codebrowser/code/client/cl_main.c' l='809' u='r' c='CL_Record_f'/>
+<use f='codebrowser/code/client/cl_main.c' l='1365' u='r' c='CL_OldGame'/>
+<use f='codebrowser/code/client/cl_main.c' l='1943' u='r' c='CL_Vid_Restart_f'/>
+<use f='codebrowser/code/client/cl_main.c' l='2098' u='r' c='CL_DownloadsComplete'/>
+<use f='codebrowser/code/client/cl_main.c' l='2112' u='r' c='CL_DownloadsComplete'/>
+<use f='codebrowser/code/client/cl_parse.c' l='523' u='w' c='CL_ParseGamestate'/>
+<use f='codebrowser/code/client/cl_parse.c' l='545' u='r' c='CL_ParseGamestate'/>
+<dec f='codebrowser/code/server/server.h' l='74' type='int'/>
+<offset>128</offset>
+<doc f='codebrowser/code/server/server.h' l='74'>// the feed key that we use to compute the pure checksum strings</doc>
+<use f='codebrowser/code/server/sv_client.c' l='772' u='r' c='SV_SendClientGameState'/>
+<use f='codebrowser/code/server/sv_client.c' l='1347' u='r' c='SV_VerifyPaks_f'/>
+<use f='codebrowser/code/server/sv_client.c' l='1704' u='r' c='SV_UserMove'/>
+<use f='codebrowser/code/server/sv_init.c' l='471' u='w' c='SV_SpawnServer'/>
+<use f='codebrowser/code/server/sv_init.c' l='472' u='r' c='SV_SpawnServer'/>

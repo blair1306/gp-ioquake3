@@ -1,0 +1,16 @@
+<dec f='codebrowser/code/cgame/cg_local.h' l='1361' type='void CG_MissileHitWall(int weapon, int clientNum, vec_t * origin, vec_t * dir, impactSound_t soundType)'/>
+<use f='codebrowser/code/cgame/cg_event.c' l='974' u='c' c='CG_EntityEvent'/>
+<use f='codebrowser/code/cgame/cg_event.c' l='980' u='c' c='CG_EntityEvent'/>
+<use f='codebrowser/code/cgame/cg_event.c' l='1000' u='c' c='CG_EntityEvent'/>
+<def f='codebrowser/code/cgame/cg_weapons.c' l='1741' ll='1937' type='void CG_MissileHitWall(int weapon, int clientNum, vec_t * origin, vec_t * dir, impactSound_t soundType)'/>
+<use f='codebrowser/code/cgame/cg_weapons.c' l='1960' u='c' c='CG_MissileHitPlayer'/>
+<use f='codebrowser/code/cgame/cg_weapons.c' l='2020' u='c' c='CG_ShotgunPellet'/>
+<use f='codebrowser/code/cgame/cg_weapons.c' l='2022' u='c' c='CG_ShotgunPellet'/>
+<use f='codebrowser/code/cgame/cg_weapons.c' l='2258' u='c' c='CG_Bullet'/>
+<doc f='codebrowser/code/cgame/cg_weapons.c' l='1734'>/*
+=================
+CG_MissileHitWall
+
+Caused by an EV_MISSILE_MISS event, or directly by local bullet tracing
+=================
+*/</doc>

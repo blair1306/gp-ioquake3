@@ -1,0 +1,14 @@
+<dec f='include/SDL2/SDL_video.h' l='533' type='void SDL_SetWindowPosition(SDL_Window * window, int x, int y)'/>
+<doc f='include/SDL2/SDL_video.h' l='520'>/**
+ *  \brief Set the position of a window.
+ *
+ *  \param window   The window to reposition.
+ *  \param x        The x coordinate of the window in screen coordinates, or
+ *                  ::SDL_WINDOWPOS_CENTERED or ::SDL_WINDOWPOS_UNDEFINED.
+ *  \param y        The y coordinate of the window in screen coordinates, or
+ *                  ::SDL_WINDOWPOS_CENTERED or ::SDL_WINDOWPOS_UNDEFINED.
+ *
+ *  \note The window coordinate origin is the upper left of the display.
+ *
+ *  \sa SDL_GetWindowPosition()
+ */</doc>

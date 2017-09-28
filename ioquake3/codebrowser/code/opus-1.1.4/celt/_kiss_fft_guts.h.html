@@ -1,0 +1,200 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>_kiss_fft_guts.h source code [codebrowser/code/opus-1.1.4/celt/_kiss_fft_guts.h] - Woboq Code Browser</title>
+<link rel="stylesheet" href="../../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'codebrowser/code/opus-1.1.4/celt/_kiss_fft_guts.h'; var root_path = '../../../..'; var data_path = '../../../../../data';</script>
+<script src='../../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../../..'>codebrowser</a>/<a href='../..'>code</a>/<a href='..'>opus-1.1.4</a>/<a href='./'>celt</a>/<a href='_kiss_fft_guts.h.html'>_kiss_fft_guts.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/*Copyright (c) 2003-2004, Mark Borgerding</i></td></tr>
+<tr><th id="2">2</th><td><i></i></td></tr>
+<tr><th id="3">3</th><td><i>  All rights reserved.</i></td></tr>
+<tr><th id="4">4</th><td><i></i></td></tr>
+<tr><th id="5">5</th><td><i>  Redistribution and use in source and binary forms, with or without</i></td></tr>
+<tr><th id="6">6</th><td><i>   modification, are permitted provided that the following conditions are met:</i></td></tr>
+<tr><th id="7">7</th><td><i></i></td></tr>
+<tr><th id="8">8</th><td><i>    * Redistributions of source code must retain the above copyright notice,</i></td></tr>
+<tr><th id="9">9</th><td><i>       this list of conditions and the following disclaimer.</i></td></tr>
+<tr><th id="10">10</th><td><i>    * Redistributions in binary form must reproduce the above copyright notice,</i></td></tr>
+<tr><th id="11">11</th><td><i>       this list of conditions and the following disclaimer in the</i></td></tr>
+<tr><th id="12">12</th><td><i>       documentation and/or other materials provided with the distribution.</i></td></tr>
+<tr><th id="13">13</th><td><i></i></td></tr>
+<tr><th id="14">14</th><td><i>  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"</i></td></tr>
+<tr><th id="15">15</th><td><i>  AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE</i></td></tr>
+<tr><th id="16">16</th><td><i>  IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE</i></td></tr>
+<tr><th id="17">17</th><td><i>  ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE</i></td></tr>
+<tr><th id="18">18</th><td><i>  LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR</i></td></tr>
+<tr><th id="19">19</th><td><i>  CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF</i></td></tr>
+<tr><th id="20">20</th><td><i>  SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS</i></td></tr>
+<tr><th id="21">21</th><td><i>  INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN</i></td></tr>
+<tr><th id="22">22</th><td><i>  CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)</i></td></tr>
+<tr><th id="23">23</th><td><i>  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE</i></td></tr>
+<tr><th id="24">24</th><td><i>  POSSIBILITY OF SUCH DAMAGE.*/</i></td></tr>
+<tr><th id="25">25</th><td></td></tr>
+<tr><th id="26">26</th><td><u>#<span data-ppcond="26">ifndef</span> <span class="macro" data-ref="_M/KISS_FFT_GUTS_H">KISS_FFT_GUTS_H</span></u></td></tr>
+<tr><th id="27">27</th><td><u>#define <dfn class="macro" id="_M/KISS_FFT_GUTS_H" data-ref="_M/KISS_FFT_GUTS_H">KISS_FFT_GUTS_H</dfn></u></td></tr>
+<tr><th id="28">28</th><td></td></tr>
+<tr><th id="29">29</th><td><u>#define <dfn class="macro" id="_M/MIN" data-ref="_M/MIN">MIN</dfn>(a,b) ((a)&lt;(b) ? (a):(b))</u></td></tr>
+<tr><th id="30">30</th><td><u>#define <dfn class="macro" id="_M/MAX" data-ref="_M/MAX">MAX</dfn>(a,b) ((a)&gt;(b) ? (a):(b))</u></td></tr>
+<tr><th id="31">31</th><td></td></tr>
+<tr><th id="32">32</th><td><i>/* kiss_fft.h</i></td></tr>
+<tr><th id="33">33</th><td><i>   defines kiss_fft_scalar as either short or a float type</i></td></tr>
+<tr><th id="34">34</th><td><i>   and defines</i></td></tr>
+<tr><th id="35">35</th><td><i>   typedef struct { kiss_fft_scalar r; kiss_fft_scalar i; }kiss_fft_cpx; */</i></td></tr>
+<tr><th id="36">36</th><td><u>#include <a href="kiss_fft.h.html">"kiss_fft.h"</a></u></td></tr>
+<tr><th id="37">37</th><td></td></tr>
+<tr><th id="38">38</th><td><i>/*</i></td></tr>
+<tr><th id="39">39</th><td><i>  Explanation of macros dealing with complex math:</i></td></tr>
+<tr><th id="40">40</th><td><i></i></td></tr>
+<tr><th id="41">41</th><td><i>   C_MUL(m,a,b)         : m = a*b</i></td></tr>
+<tr><th id="42">42</th><td><i>   C_FIXDIV( c , div )  : if a fixed point impl., c /= div. noop otherwise</i></td></tr>
+<tr><th id="43">43</th><td><i>   C_SUB( res, a,b)     : res = a - b</i></td></tr>
+<tr><th id="44">44</th><td><i>   C_SUBFROM( res , a)  : res -= a</i></td></tr>
+<tr><th id="45">45</th><td><i>   C_ADDTO( res , a)    : res += a</i></td></tr>
+<tr><th id="46">46</th><td><i> * */</i></td></tr>
+<tr><th id="47">47</th><td><u>#<span data-ppcond="47">ifdef</span> <span class="macro" data-ref="_M/FIXED_POINT">FIXED_POINT</span></u></td></tr>
+<tr><th id="48">48</th><td><u>#include "arch.h"</u></td></tr>
+<tr><th id="49">49</th><td></td></tr>
+<tr><th id="50">50</th><td></td></tr>
+<tr><th id="51">51</th><td><u>#define SAMP_MAX 2147483647</u></td></tr>
+<tr><th id="52">52</th><td><u>#define TWID_MAX 32767</u></td></tr>
+<tr><th id="53">53</th><td><u>#define TRIG_UPSCALE 1</u></td></tr>
+<tr><th id="54">54</th><td></td></tr>
+<tr><th id="55">55</th><td><u>#define SAMP_MIN -SAMP_MAX</u></td></tr>
+<tr><th id="56">56</th><td></td></tr>
+<tr><th id="57">57</th><td></td></tr>
+<tr><th id="58">58</th><td><u>#   define S_MUL(a,b) MULT16_32_Q15(b, a)</u></td></tr>
+<tr><th id="59">59</th><td></td></tr>
+<tr><th id="60">60</th><td><u>#   define C_MUL(m,a,b) \</u></td></tr>
+<tr><th id="61">61</th><td><u>      do{ (m).r = SUB32(S_MUL((a).r,(b).r) , S_MUL((a).i,(b).i)); \</u></td></tr>
+<tr><th id="62">62</th><td><u>          (m).i = ADD32(S_MUL((a).r,(b).i) , S_MUL((a).i,(b).r)); }while(0)</u></td></tr>
+<tr><th id="63">63</th><td></td></tr>
+<tr><th id="64">64</th><td><u>#   define C_MULC(m,a,b) \</u></td></tr>
+<tr><th id="65">65</th><td><u>      do{ (m).r = ADD32(S_MUL((a).r,(b).r) , S_MUL((a).i,(b).i)); \</u></td></tr>
+<tr><th id="66">66</th><td><u>          (m).i = SUB32(S_MUL((a).i,(b).r) , S_MUL((a).r,(b).i)); }while(0)</u></td></tr>
+<tr><th id="67">67</th><td></td></tr>
+<tr><th id="68">68</th><td><u>#   define C_MULBYSCALAR( c, s ) \</u></td></tr>
+<tr><th id="69">69</th><td><u>      do{ (c).r =  S_MUL( (c).r , s ) ;\</u></td></tr>
+<tr><th id="70">70</th><td><u>          (c).i =  S_MUL( (c).i , s ) ; }while(0)</u></td></tr>
+<tr><th id="71">71</th><td></td></tr>
+<tr><th id="72">72</th><td><u>#   define DIVSCALAR(x,k) \</u></td></tr>
+<tr><th id="73">73</th><td><u>        (x) = S_MUL(  x, (TWID_MAX-((k)&gt;&gt;1))/(k)+1 )</u></td></tr>
+<tr><th id="74">74</th><td></td></tr>
+<tr><th id="75">75</th><td><u>#   define C_FIXDIV(c,div) \</u></td></tr>
+<tr><th id="76">76</th><td><u>        do {    DIVSCALAR( (c).r , div);  \</u></td></tr>
+<tr><th id="77">77</th><td><u>                DIVSCALAR( (c).i  , div); }while (0)</u></td></tr>
+<tr><th id="78">78</th><td></td></tr>
+<tr><th id="79">79</th><td><u>#define  C_ADD( res, a,b)\</u></td></tr>
+<tr><th id="80">80</th><td><u>    do {(res).r=ADD32((a).r,(b).r);  (res).i=ADD32((a).i,(b).i); \</u></td></tr>
+<tr><th id="81">81</th><td><u>    }while(0)</u></td></tr>
+<tr><th id="82">82</th><td><u>#define  C_SUB( res, a,b)\</u></td></tr>
+<tr><th id="83">83</th><td><u>    do {(res).r=SUB32((a).r,(b).r);  (res).i=SUB32((a).i,(b).i); \</u></td></tr>
+<tr><th id="84">84</th><td><u>    }while(0)</u></td></tr>
+<tr><th id="85">85</th><td><u>#define C_ADDTO( res , a)\</u></td></tr>
+<tr><th id="86">86</th><td><u>    do {(res).r = ADD32((res).r, (a).r);  (res).i = ADD32((res).i,(a).i);\</u></td></tr>
+<tr><th id="87">87</th><td><u>    }while(0)</u></td></tr>
+<tr><th id="88">88</th><td></td></tr>
+<tr><th id="89">89</th><td><u>#define C_SUBFROM( res , a)\</u></td></tr>
+<tr><th id="90">90</th><td><u>    do {(res).r = ADD32((res).r,(a).r);  (res).i = SUB32((res).i,(a).i); \</u></td></tr>
+<tr><th id="91">91</th><td><u>    }while(0)</u></td></tr>
+<tr><th id="92">92</th><td></td></tr>
+<tr><th id="93">93</th><td><u>#if defined(OPUS_ARM_INLINE_ASM)</u></td></tr>
+<tr><th id="94">94</th><td><u>#include "arm/kiss_fft_armv4.h"</u></td></tr>
+<tr><th id="95">95</th><td><u>#endif</u></td></tr>
+<tr><th id="96">96</th><td></td></tr>
+<tr><th id="97">97</th><td><u>#if defined(OPUS_ARM_INLINE_EDSP)</u></td></tr>
+<tr><th id="98">98</th><td><u>#include "arm/kiss_fft_armv5e.h"</u></td></tr>
+<tr><th id="99">99</th><td><u>#endif</u></td></tr>
+<tr><th id="100">100</th><td><u>#if defined(MIPSr1_ASM)</u></td></tr>
+<tr><th id="101">101</th><td><u>#include "mips/kiss_fft_mipsr1.h"</u></td></tr>
+<tr><th id="102">102</th><td><u>#endif</u></td></tr>
+<tr><th id="103">103</th><td></td></tr>
+<tr><th id="104">104</th><td><u>#<span data-ppcond="47">else</span>  /* not FIXED_POINT*/</u></td></tr>
+<tr><th id="105">105</th><td></td></tr>
+<tr><th id="106">106</th><td><u>#   define <dfn class="macro" id="_M/S_MUL" data-ref="_M/S_MUL">S_MUL</dfn>(a,b) ( (a)*(b) )</u></td></tr>
+<tr><th id="107">107</th><td><u>#define <dfn class="macro" id="_M/C_MUL" data-ref="_M/C_MUL">C_MUL</dfn>(m,a,b) \</u></td></tr>
+<tr><th id="108">108</th><td><u>    do{ (m).r = (a).r*(b).r - (a).i*(b).i;\</u></td></tr>
+<tr><th id="109">109</th><td><u>        (m).i = (a).r*(b).i + (a).i*(b).r; }while(0)</u></td></tr>
+<tr><th id="110">110</th><td><u>#define <dfn class="macro" id="_M/C_MULC" data-ref="_M/C_MULC">C_MULC</dfn>(m,a,b) \</u></td></tr>
+<tr><th id="111">111</th><td><u>    do{ (m).r = (a).r*(b).r + (a).i*(b).i;\</u></td></tr>
+<tr><th id="112">112</th><td><u>        (m).i = (a).i*(b).r - (a).r*(b).i; }while(0)</u></td></tr>
+<tr><th id="113">113</th><td></td></tr>
+<tr><th id="114">114</th><td><u>#define <dfn class="macro" id="_M/C_MUL4" data-ref="_M/C_MUL4">C_MUL4</dfn>(m,a,b) C_MUL(m,a,b)</u></td></tr>
+<tr><th id="115">115</th><td></td></tr>
+<tr><th id="116">116</th><td><u>#   define <dfn class="macro" id="_M/C_FIXDIV" data-ref="_M/C_FIXDIV">C_FIXDIV</dfn>(c,div) /* NOOP */</u></td></tr>
+<tr><th id="117">117</th><td><u>#   define <dfn class="macro" id="_M/C_MULBYSCALAR" data-ref="_M/C_MULBYSCALAR">C_MULBYSCALAR</dfn>( c, s ) \</u></td></tr>
+<tr><th id="118">118</th><td><u>    do{ (c).r *= (s);\</u></td></tr>
+<tr><th id="119">119</th><td><u>        (c).i *= (s); }while(0)</u></td></tr>
+<tr><th id="120">120</th><td><u>#<span data-ppcond="47">endif</span></u></td></tr>
+<tr><th id="121">121</th><td></td></tr>
+<tr><th id="122">122</th><td><u>#<span data-ppcond="122">ifndef</span> <span class="macro" data-ref="_M/CHECK_OVERFLOW_OP">CHECK_OVERFLOW_OP</span></u></td></tr>
+<tr><th id="123">123</th><td><u>#  define <dfn class="macro" id="_M/CHECK_OVERFLOW_OP" data-ref="_M/CHECK_OVERFLOW_OP">CHECK_OVERFLOW_OP</dfn>(a,op,b) /* noop */</u></td></tr>
+<tr><th id="124">124</th><td><u>#<span data-ppcond="122">endif</span></u></td></tr>
+<tr><th id="125">125</th><td></td></tr>
+<tr><th id="126">126</th><td><u>#<span data-ppcond="126">ifndef</span> <span class="macro" data-ref="_M/C_ADD">C_ADD</span></u></td></tr>
+<tr><th id="127">127</th><td><u>#define  <dfn class="macro" id="_M/C_ADD" data-ref="_M/C_ADD">C_ADD</dfn>( res, a,b)\</u></td></tr>
+<tr><th id="128">128</th><td><u>    do { \</u></td></tr>
+<tr><th id="129">129</th><td><u>            CHECK_OVERFLOW_OP((a).r,+,(b).r)\</u></td></tr>
+<tr><th id="130">130</th><td><u>            CHECK_OVERFLOW_OP((a).i,+,(b).i)\</u></td></tr>
+<tr><th id="131">131</th><td><u>            (res).r=(a).r+(b).r;  (res).i=(a).i+(b).i; \</u></td></tr>
+<tr><th id="132">132</th><td><u>    }while(0)</u></td></tr>
+<tr><th id="133">133</th><td><u>#define  <dfn class="macro" id="_M/C_SUB" data-ref="_M/C_SUB">C_SUB</dfn>( res, a,b)\</u></td></tr>
+<tr><th id="134">134</th><td><u>    do { \</u></td></tr>
+<tr><th id="135">135</th><td><u>            CHECK_OVERFLOW_OP((a).r,-,(b).r)\</u></td></tr>
+<tr><th id="136">136</th><td><u>            CHECK_OVERFLOW_OP((a).i,-,(b).i)\</u></td></tr>
+<tr><th id="137">137</th><td><u>            (res).r=(a).r-(b).r;  (res).i=(a).i-(b).i; \</u></td></tr>
+<tr><th id="138">138</th><td><u>    }while(0)</u></td></tr>
+<tr><th id="139">139</th><td><u>#define <dfn class="macro" id="_M/C_ADDTO" data-ref="_M/C_ADDTO">C_ADDTO</dfn>( res , a)\</u></td></tr>
+<tr><th id="140">140</th><td><u>    do { \</u></td></tr>
+<tr><th id="141">141</th><td><u>            CHECK_OVERFLOW_OP((res).r,+,(a).r)\</u></td></tr>
+<tr><th id="142">142</th><td><u>            CHECK_OVERFLOW_OP((res).i,+,(a).i)\</u></td></tr>
+<tr><th id="143">143</th><td><u>            (res).r += (a).r;  (res).i += (a).i;\</u></td></tr>
+<tr><th id="144">144</th><td><u>    }while(0)</u></td></tr>
+<tr><th id="145">145</th><td></td></tr>
+<tr><th id="146">146</th><td><u>#define <dfn class="macro" id="_M/C_SUBFROM" data-ref="_M/C_SUBFROM">C_SUBFROM</dfn>( res , a)\</u></td></tr>
+<tr><th id="147">147</th><td><u>    do {\</u></td></tr>
+<tr><th id="148">148</th><td><u>            CHECK_OVERFLOW_OP((res).r,-,(a).r)\</u></td></tr>
+<tr><th id="149">149</th><td><u>            CHECK_OVERFLOW_OP((res).i,-,(a).i)\</u></td></tr>
+<tr><th id="150">150</th><td><u>            (res).r -= (a).r;  (res).i -= (a).i; \</u></td></tr>
+<tr><th id="151">151</th><td><u>    }while(0)</u></td></tr>
+<tr><th id="152">152</th><td><u>#<span data-ppcond="126">endif</span> /* C_ADD defined */</u></td></tr>
+<tr><th id="153">153</th><td></td></tr>
+<tr><th id="154">154</th><td><u>#<span data-ppcond="154">ifdef</span> <span class="macro" data-ref="_M/FIXED_POINT">FIXED_POINT</span></u></td></tr>
+<tr><th id="155">155</th><td><i>/*#  define KISS_FFT_COS(phase)  TRIG_UPSCALE*floor(MIN(32767,MAX(-32767,.5+32768 * cos (phase))))</i></td></tr>
+<tr><th id="156">156</th><td><i>#  define KISS_FFT_SIN(phase)  TRIG_UPSCALE*floor(MIN(32767,MAX(-32767,.5+32768 * sin (phase))))*/</i></td></tr>
+<tr><th id="157">157</th><td><u>#  define KISS_FFT_COS(phase)  floor(.5+TWID_MAX*cos (phase))</u></td></tr>
+<tr><th id="158">158</th><td><u>#  define KISS_FFT_SIN(phase)  floor(.5+TWID_MAX*sin (phase))</u></td></tr>
+<tr><th id="159">159</th><td><u>#  define HALF_OF(x) ((x)&gt;&gt;1)</u></td></tr>
+<tr><th id="160">160</th><td><u>#<span data-ppcond="154">elif</span> defined(<span class="macro" data-ref="_M/USE_SIMD">USE_SIMD</span>)</u></td></tr>
+<tr><th id="161">161</th><td><u>#  define KISS_FFT_COS(phase) _mm_set1_ps( cos(phase) )</u></td></tr>
+<tr><th id="162">162</th><td><u>#  define KISS_FFT_SIN(phase) _mm_set1_ps( sin(phase) )</u></td></tr>
+<tr><th id="163">163</th><td><u>#  define HALF_OF(x) ((x)*_mm_set1_ps(.5f))</u></td></tr>
+<tr><th id="164">164</th><td><u>#<span data-ppcond="154">else</span></u></td></tr>
+<tr><th id="165">165</th><td><u>#  define <dfn class="macro" id="_M/KISS_FFT_COS" data-ref="_M/KISS_FFT_COS">KISS_FFT_COS</dfn>(phase) (kiss_fft_scalar) cos(phase)</u></td></tr>
+<tr><th id="166">166</th><td><u>#  define <dfn class="macro" id="_M/KISS_FFT_SIN" data-ref="_M/KISS_FFT_SIN">KISS_FFT_SIN</dfn>(phase) (kiss_fft_scalar) sin(phase)</u></td></tr>
+<tr><th id="167">167</th><td><u>#  define <dfn class="macro" id="_M/HALF_OF" data-ref="_M/HALF_OF">HALF_OF</dfn>(x) ((x)*.5f)</u></td></tr>
+<tr><th id="168">168</th><td><u>#<span data-ppcond="154">endif</span></u></td></tr>
+<tr><th id="169">169</th><td></td></tr>
+<tr><th id="170">170</th><td><u>#define  <dfn class="macro" id="_M/kf_cexp" data-ref="_M/kf_cexp">kf_cexp</dfn>(x,phase) \</u></td></tr>
+<tr><th id="171">171</th><td><u>        do{ \</u></td></tr>
+<tr><th id="172">172</th><td><u>                (x)-&gt;r = KISS_FFT_COS(phase);\</u></td></tr>
+<tr><th id="173">173</th><td><u>                (x)-&gt;i = KISS_FFT_SIN(phase);\</u></td></tr>
+<tr><th id="174">174</th><td><u>        }while(0)</u></td></tr>
+<tr><th id="175">175</th><td></td></tr>
+<tr><th id="176">176</th><td><u>#define  <dfn class="macro" id="_M/kf_cexp2" data-ref="_M/kf_cexp2">kf_cexp2</dfn>(x,phase) \</u></td></tr>
+<tr><th id="177">177</th><td><u>   do{ \</u></td></tr>
+<tr><th id="178">178</th><td><u>      (x)-&gt;r = TRIG_UPSCALE*celt_cos_norm((phase));\</u></td></tr>
+<tr><th id="179">179</th><td><u>      (x)-&gt;i = TRIG_UPSCALE*celt_cos_norm((phase)-32768);\</u></td></tr>
+<tr><th id="180">180</th><td><u>}while(0)</u></td></tr>
+<tr><th id="181">181</th><td></td></tr>
+<tr><th id="182">182</th><td><u>#<span data-ppcond="26">endif</span> /* KISS_FFT_GUTS_H */</u></td></tr>
+<tr><th id="183">183</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='kiss_fft.c.html'>codebrowser/code/opus-1.1.4/celt/kiss_fft.c</a><br/>Generated on <em>2017-Aug-29</em> from project codebrowser revision <em>63e07af</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

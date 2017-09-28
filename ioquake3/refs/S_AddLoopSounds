@@ -1,0 +1,11 @@
+<def f='codebrowser/code/client/snd_dma.c' l='872' ll='943' type='void S_AddLoopSounds()'/>
+<use f='codebrowser/code/client/snd_dma.c' l='1160' u='c' c='S_Base_Respatialize'/>
+<doc f='codebrowser/code/client/snd_dma.c' l='863'>/*
+==================
+S_AddLoopSounds
+
+Spatialize all of the looping sounds.
+All sounds are on the same cycle, so any duplicates can just
+sum up the channel multipliers.
+==================
+*/</doc>

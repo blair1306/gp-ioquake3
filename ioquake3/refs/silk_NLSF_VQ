@@ -1,0 +1,5 @@
+<dec f='codebrowser/code/opus-1.1.4/silk/main.h' l='345' type='void silk_NLSF_VQ(opus_int32 * err_Q26, const opus_int16 * in_Q15, const unsigned char * pCB_Q8, const int K, const int LPC_order)'/>
+<doc f='codebrowser/code/opus-1.1.4/silk/main.h' l='344'>/* Compute quantization errors for an LPC_order element input vector for a VQ codebook */</doc>
+<def f='codebrowser/code/opus-1.1.4/silk/NLSF_VQ.c' l='35' ll='68' type='void silk_NLSF_VQ(opus_int32 * err_Q26, const opus_int16 * in_Q15, const unsigned char * pCB_Q8, const int K, const int LPC_order)'/>
+<doc f='codebrowser/code/opus-1.1.4/silk/NLSF_VQ.c' l='34'>/* Compute quantization errors for an LPC_order element input vector for a VQ codebook */</doc>
+<use f='codebrowser/code/opus-1.1.4/silk/NLSF_encode.c' l='73' u='c' c='silk_NLSF_encode'/>

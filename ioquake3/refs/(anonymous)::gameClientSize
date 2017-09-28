@@ -1,0 +1,5 @@
+<dec f='codebrowser/code/server/server.h' l='92' type='int'/>
+<offset>2622016</offset>
+<doc f='codebrowser/code/server/server.h' l='92'>// will be &gt; sizeof(playerState_t) due to game private data</doc>
+<use f='codebrowser/code/server/sv_game.c' l='51' u='r' c='SV_GameClientNum'/>
+<use f='codebrowser/code/server/sv_game.c' l='260' u='w' c='SV_LocateGameData'/>

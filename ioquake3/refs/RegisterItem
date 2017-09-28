@@ -1,0 +1,13 @@
+<dec f='codebrowser/code/game/g_local.h' l='453' type='void RegisterItem(gitem_t * item)'/>
+<use f='codebrowser/code/game/g_items.c' l='812' u='c' c='ClearRegisteredItems'/>
+<use f='codebrowser/code/game/g_items.c' l='813' u='c' c='ClearRegisteredItems'/>
+<def f='codebrowser/code/game/g_items.c' l='829' ll='834' type='void RegisterItem(gitem_t * item)'/>
+<use f='codebrowser/code/game/g_items.c' l='892' u='c' c='G_SpawnItem'/>
+<doc f='codebrowser/code/game/g_items.c' l='822'>/*
+===============
+RegisterItem
+
+The item will be added to the precache list
+===============
+*/</doc>
+<use f='codebrowser/code/game/g_misc.c' l='299' u='c' c='InitShooter'/>

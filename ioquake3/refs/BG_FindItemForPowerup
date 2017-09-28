@@ -1,0 +1,24 @@
+<dec f='codebrowser/code/game/bg_public.h' l='649' type='gitem_t * BG_FindItemForPowerup(powerup_t pw)'/>
+<use f='codebrowser/code/cgame/cg_draw.c' l='399' u='c' c='CG_DrawFlagModel'/>
+<use f='codebrowser/code/cgame/cg_draw.c' l='401' u='c' c='CG_DrawFlagModel'/>
+<use f='codebrowser/code/cgame/cg_draw.c' l='403' u='c' c='CG_DrawFlagModel'/>
+<use f='codebrowser/code/cgame/cg_draw.c' l='949' u='c' c='CG_DrawTeamOverlay'/>
+<use f='codebrowser/code/cgame/cg_draw.c' l='1052' u='c' c='CG_DrawScores'/>
+<use f='codebrowser/code/cgame/cg_draw.c' l='1076' u='c' c='CG_DrawScores'/>
+<use f='codebrowser/code/cgame/cg_draw.c' l='1230' u='c' c='CG_DrawPowerups'/>
+<use f='codebrowser/code/cgame/cg_newdraw.c' l='499' u='c' c='CG_DrawSelectedPlayerPowerup'/>
+<use f='codebrowser/code/cgame/cg_newdraw.c' l='640' u='c' c='CG_DrawBlueFlagStatus'/>
+<use f='codebrowser/code/cgame/cg_newdraw.c' l='690' u='c' c='CG_DrawRedFlagStatus'/>
+<use f='codebrowser/code/cgame/cg_newdraw.c' l='763' u='c' c='CG_OneFlagStatus'/>
+<use f='codebrowser/code/cgame/cg_newdraw.c' l='864' u='c' c='CG_DrawAreaPowerUp'/>
+<use f='codebrowser/code/cgame/cg_newdraw.c' l='1294' u='c' c='CG_DrawNewTeamInfo'/>
+<def f='codebrowser/code/game/bg_misc.c' l='931' ll='944' type='gitem_t * BG_FindItemForPowerup(powerup_t pw)'/>
+<doc f='codebrowser/code/game/bg_misc.c' l='926'>/*
+==============
+BG_FindItemForPowerup
+==============
+*/</doc>
+<use f='codebrowser/code/game/g_active.c' l='579' u='c' c='ClientEvents'/>
+<use f='codebrowser/code/game/g_active.c' l='582' u='c' c='ClientEvents'/>
+<use f='codebrowser/code/game/g_active.c' l='585' u='c' c='ClientEvents'/>
+<use f='codebrowser/code/game/g_combat.c' l='113' u='c' c='TossClientItems'/>

@@ -1,0 +1,1060 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>q_math.c source code [codebrowser/code/qcommon/q_math.c] - Woboq Code Browser</title>
+<link rel="stylesheet" href="../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'codebrowser/code/qcommon/q_math.c'; var root_path = '../../..'; var data_path = '../../../../data';</script>
+<script src='../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../..'>codebrowser</a>/<a href='..'>code</a>/<a href='./'>qcommon</a>/<a href='q_math.c.html'>q_math.c</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/*</i></td></tr>
+<tr><th id="2">2</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="3">3</th><td><i>Copyright (C) 1999-2005 Id Software, Inc.</i></td></tr>
+<tr><th id="4">4</th><td><i></i></td></tr>
+<tr><th id="5">5</th><td><i>This file is part of Quake III Arena source code.</i></td></tr>
+<tr><th id="6">6</th><td><i></i></td></tr>
+<tr><th id="7">7</th><td><i>Quake III Arena source code is free software; you can redistribute it</i></td></tr>
+<tr><th id="8">8</th><td><i>and/or modify it under the terms of the GNU General Public License as</i></td></tr>
+<tr><th id="9">9</th><td><i>published by the Free Software Foundation; either version 2 of the License,</i></td></tr>
+<tr><th id="10">10</th><td><i>or (at your option) any later version.</i></td></tr>
+<tr><th id="11">11</th><td><i></i></td></tr>
+<tr><th id="12">12</th><td><i>Quake III Arena source code is distributed in the hope that it will be</i></td></tr>
+<tr><th id="13">13</th><td><i>useful, but WITHOUT ANY WARRANTY; without even the implied warranty of</i></td></tr>
+<tr><th id="14">14</th><td><i>MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</i></td></tr>
+<tr><th id="15">15</th><td><i>GNU General Public License for more details.</i></td></tr>
+<tr><th id="16">16</th><td><i></i></td></tr>
+<tr><th id="17">17</th><td><i>You should have received a copy of the GNU General Public License</i></td></tr>
+<tr><th id="18">18</th><td><i>along with Quake III Arena source code; if not, write to the Free Software</i></td></tr>
+<tr><th id="19">19</th><td><i>Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA</i></td></tr>
+<tr><th id="20">20</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="21">21</th><td><i>*/</i></td></tr>
+<tr><th id="22">22</th><td><i>//</i></td></tr>
+<tr><th id="23">23</th><td><i>// q_math.c -- stateless support routines that are included in each code module</i></td></tr>
+<tr><th id="24">24</th><td><i></i></td></tr>
+<tr><th id="25">25</th><td><i>// Some of the vector functions are static inline in q_shared.h. q3asm</i></td></tr>
+<tr><th id="26">26</th><td><i>// doesn't understand static functions though, so we only want them in</i></td></tr>
+<tr><th id="27">27</th><td><i>// one file. That's what this is about.</i></td></tr>
+<tr><th id="28">28</th><td><u>#<span data-ppcond="28">ifdef</span> <span class="macro" data-ref="_M/Q3_VM">Q3_VM</span></u></td></tr>
+<tr><th id="29">29</th><td><u>#define __Q3_VM_MATH</u></td></tr>
+<tr><th id="30">30</th><td><u>#<span data-ppcond="28">endif</span></u></td></tr>
+<tr><th id="31">31</th><td></td></tr>
+<tr><th id="32">32</th><td><u>#include <a href="q_shared.h.html">"q_shared.h"</a></u></td></tr>
+<tr><th id="33">33</th><td></td></tr>
+<tr><th id="34">34</th><td><a class="typedef" href="q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a>	<dfn class="decl def" id="vec3_origin" title='vec3_origin' data-ref="vec3_origin">vec3_origin</dfn> = {<var>0</var>,<var>0</var>,<var>0</var>};</td></tr>
+<tr><th id="35">35</th><td><a class="typedef" href="q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a>	<dfn class="decl def" id="axisDefault" title='axisDefault' data-ref="axisDefault">axisDefault</dfn>[<var>3</var>] = { { <var>1</var>, <var>0</var>, <var>0</var> }, { <var>0</var>, <var>1</var>, <var>0</var> }, { <var>0</var>, <var>0</var>, <var>1</var> } };</td></tr>
+<tr><th id="36">36</th><td></td></tr>
+<tr><th id="37">37</th><td></td></tr>
+<tr><th id="38">38</th><td><a class="typedef" href="q_shared.h.html#vec4_t" title='vec4_t' data-type='vec_t [4]' data-ref="vec4_t">vec4_t</a>		<dfn class="decl def" id="colorBlack" title='colorBlack' data-ref="colorBlack">colorBlack</dfn>	= {<var>0</var>, <var>0</var>, <var>0</var>, <var>1</var>};</td></tr>
+<tr><th id="39">39</th><td><a class="typedef" href="q_shared.h.html#vec4_t" title='vec4_t' data-type='vec_t [4]' data-ref="vec4_t">vec4_t</a>		<dfn class="decl def" id="colorRed" title='colorRed' data-ref="colorRed">colorRed</dfn>	= {<var>1</var>, <var>0</var>, <var>0</var>, <var>1</var>};</td></tr>
+<tr><th id="40">40</th><td><a class="typedef" href="q_shared.h.html#vec4_t" title='vec4_t' data-type='vec_t [4]' data-ref="vec4_t">vec4_t</a>		<dfn class="decl def" id="colorGreen" title='colorGreen' data-ref="colorGreen">colorGreen</dfn>	= {<var>0</var>, <var>1</var>, <var>0</var>, <var>1</var>};</td></tr>
+<tr><th id="41">41</th><td><a class="typedef" href="q_shared.h.html#vec4_t" title='vec4_t' data-type='vec_t [4]' data-ref="vec4_t">vec4_t</a>		<dfn class="decl def" id="colorBlue" title='colorBlue' data-ref="colorBlue">colorBlue</dfn>	= {<var>0</var>, <var>0</var>, <var>1</var>, <var>1</var>};</td></tr>
+<tr><th id="42">42</th><td><a class="typedef" href="q_shared.h.html#vec4_t" title='vec4_t' data-type='vec_t [4]' data-ref="vec4_t">vec4_t</a>		<dfn class="decl def" id="colorYellow" title='colorYellow' data-ref="colorYellow">colorYellow</dfn>	= {<var>1</var>, <var>1</var>, <var>0</var>, <var>1</var>};</td></tr>
+<tr><th id="43">43</th><td><a class="typedef" href="q_shared.h.html#vec4_t" title='vec4_t' data-type='vec_t [4]' data-ref="vec4_t">vec4_t</a>		<dfn class="decl def" id="colorMagenta" title='colorMagenta' data-ref="colorMagenta">colorMagenta</dfn>= {<var>1</var>, <var>0</var>, <var>1</var>, <var>1</var>};</td></tr>
+<tr><th id="44">44</th><td><a class="typedef" href="q_shared.h.html#vec4_t" title='vec4_t' data-type='vec_t [4]' data-ref="vec4_t">vec4_t</a>		<dfn class="decl def" id="colorCyan" title='colorCyan' data-ref="colorCyan">colorCyan</dfn>	= {<var>0</var>, <var>1</var>, <var>1</var>, <var>1</var>};</td></tr>
+<tr><th id="45">45</th><td><a class="typedef" href="q_shared.h.html#vec4_t" title='vec4_t' data-type='vec_t [4]' data-ref="vec4_t">vec4_t</a>		<dfn class="decl def" id="colorWhite" title='colorWhite' data-ref="colorWhite">colorWhite</dfn>	= {<var>1</var>, <var>1</var>, <var>1</var>, <var>1</var>};</td></tr>
+<tr><th id="46">46</th><td><a class="typedef" href="q_shared.h.html#vec4_t" title='vec4_t' data-type='vec_t [4]' data-ref="vec4_t">vec4_t</a>		<dfn class="decl def" id="colorLtGrey" title='colorLtGrey' data-ref="colorLtGrey">colorLtGrey</dfn>	= {<var>0.75</var>, <var>0.75</var>, <var>0.75</var>, <var>1</var>};</td></tr>
+<tr><th id="47">47</th><td><a class="typedef" href="q_shared.h.html#vec4_t" title='vec4_t' data-type='vec_t [4]' data-ref="vec4_t">vec4_t</a>		<dfn class="decl def" id="colorMdGrey" title='colorMdGrey' data-ref="colorMdGrey">colorMdGrey</dfn>	= {<var>0.5</var>, <var>0.5</var>, <var>0.5</var>, <var>1</var>};</td></tr>
+<tr><th id="48">48</th><td><a class="typedef" href="q_shared.h.html#vec4_t" title='vec4_t' data-type='vec_t [4]' data-ref="vec4_t">vec4_t</a>		<dfn class="decl def" id="colorDkGrey" title='colorDkGrey' data-ref="colorDkGrey">colorDkGrey</dfn>	= {<var>0.25</var>, <var>0.25</var>, <var>0.25</var>, <var>1</var>};</td></tr>
+<tr><th id="49">49</th><td></td></tr>
+<tr><th id="50">50</th><td><a class="typedef" href="q_shared.h.html#vec4_t" title='vec4_t' data-type='vec_t [4]' data-ref="vec4_t">vec4_t</a>	<dfn class="decl def" id="g_color_table" title='g_color_table' data-ref="g_color_table">g_color_table</dfn>[<var>8</var>] =</td></tr>
+<tr><th id="51">51</th><td>	{</td></tr>
+<tr><th id="52">52</th><td>	{<var>0.0</var>, <var>0.0</var>, <var>0.0</var>, <var>1.0</var>},</td></tr>
+<tr><th id="53">53</th><td>	{<var>1.0</var>, <var>0.0</var>, <var>0.0</var>, <var>1.0</var>},</td></tr>
+<tr><th id="54">54</th><td>	{<var>0.0</var>, <var>1.0</var>, <var>0.0</var>, <var>1.0</var>},</td></tr>
+<tr><th id="55">55</th><td>	{<var>1.0</var>, <var>1.0</var>, <var>0.0</var>, <var>1.0</var>},</td></tr>
+<tr><th id="56">56</th><td>	{<var>0.0</var>, <var>0.0</var>, <var>1.0</var>, <var>1.0</var>},</td></tr>
+<tr><th id="57">57</th><td>	{<var>0.0</var>, <var>1.0</var>, <var>1.0</var>, <var>1.0</var>},</td></tr>
+<tr><th id="58">58</th><td>	{<var>1.0</var>, <var>0.0</var>, <var>1.0</var>, <var>1.0</var>},</td></tr>
+<tr><th id="59">59</th><td>	{<var>1.0</var>, <var>1.0</var>, <var>1.0</var>, <var>1.0</var>},</td></tr>
+<tr><th id="60">60</th><td>	};</td></tr>
+<tr><th id="61">61</th><td></td></tr>
+<tr><th id="62">62</th><td></td></tr>
+<tr><th id="63">63</th><td><a class="typedef" href="q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a>	<dfn class="decl def" id="bytedirs" title='bytedirs' data-ref="bytedirs">bytedirs</dfn>[<a class="macro" href="q_shared.h.html#376" title="162" data-ref="_M/NUMVERTEXNORMALS">NUMVERTEXNORMALS</a>] =</td></tr>
+<tr><th id="64">64</th><td>{</td></tr>
+<tr><th id="65">65</th><td>{-<var>0.525731f</var>, <var>0.000000f</var>, <var>0.850651f</var>}, {-<var>0.442863f</var>, <var>0.238856f</var>, <var>0.864188f</var>}, </td></tr>
+<tr><th id="66">66</th><td>{-<var>0.295242f</var>, <var>0.000000f</var>, <var>0.955423f</var>}, {-<var>0.309017f</var>, <var>0.500000f</var>, <var>0.809017f</var>}, </td></tr>
+<tr><th id="67">67</th><td>{-<var>0.162460f</var>, <var>0.262866f</var>, <var>0.951056f</var>}, {<var>0.000000f</var>, <var>0.000000f</var>, <var>1.000000f</var>}, </td></tr>
+<tr><th id="68">68</th><td>{<var>0.000000f</var>, <var>0.850651f</var>, <var>0.525731f</var>}, {-<var>0.147621f</var>, <var>0.716567f</var>, <var>0.681718f</var>}, </td></tr>
+<tr><th id="69">69</th><td>{<var>0.147621f</var>, <var>0.716567f</var>, <var>0.681718f</var>}, {<var>0.000000f</var>, <var>0.525731f</var>, <var>0.850651f</var>}, </td></tr>
+<tr><th id="70">70</th><td>{<var>0.309017f</var>, <var>0.500000f</var>, <var>0.809017f</var>}, {<var>0.525731f</var>, <var>0.000000f</var>, <var>0.850651f</var>}, </td></tr>
+<tr><th id="71">71</th><td>{<var>0.295242f</var>, <var>0.000000f</var>, <var>0.955423f</var>}, {<var>0.442863f</var>, <var>0.238856f</var>, <var>0.864188f</var>}, </td></tr>
+<tr><th id="72">72</th><td>{<var>0.162460f</var>, <var>0.262866f</var>, <var>0.951056f</var>}, {-<var>0.681718f</var>, <var>0.147621f</var>, <var>0.716567f</var>}, </td></tr>
+<tr><th id="73">73</th><td>{-<var>0.809017f</var>, <var>0.309017f</var>, <var>0.500000f</var>},{-<var>0.587785f</var>, <var>0.425325f</var>, <var>0.688191f</var>}, </td></tr>
+<tr><th id="74">74</th><td>{-<var>0.850651f</var>, <var>0.525731f</var>, <var>0.000000f</var>},{-<var>0.864188f</var>, <var>0.442863f</var>, <var>0.238856f</var>}, </td></tr>
+<tr><th id="75">75</th><td>{-<var>0.716567f</var>, <var>0.681718f</var>, <var>0.147621f</var>},{-<var>0.688191f</var>, <var>0.587785f</var>, <var>0.425325f</var>}, </td></tr>
+<tr><th id="76">76</th><td>{-<var>0.500000f</var>, <var>0.809017f</var>, <var>0.309017f</var>}, {-<var>0.238856f</var>, <var>0.864188f</var>, <var>0.442863f</var>}, </td></tr>
+<tr><th id="77">77</th><td>{-<var>0.425325f</var>, <var>0.688191f</var>, <var>0.587785f</var>}, {-<var>0.716567f</var>, <var>0.681718f</var>, -<var>0.147621f</var>}, </td></tr>
+<tr><th id="78">78</th><td>{-<var>0.500000f</var>, <var>0.809017f</var>, -<var>0.309017f</var>}, {-<var>0.525731f</var>, <var>0.850651f</var>, <var>0.000000f</var>}, </td></tr>
+<tr><th id="79">79</th><td>{<var>0.000000f</var>, <var>0.850651f</var>, -<var>0.525731f</var>}, {-<var>0.238856f</var>, <var>0.864188f</var>, -<var>0.442863f</var>}, </td></tr>
+<tr><th id="80">80</th><td>{<var>0.000000f</var>, <var>0.955423f</var>, -<var>0.295242f</var>}, {-<var>0.262866f</var>, <var>0.951056f</var>, -<var>0.162460f</var>}, </td></tr>
+<tr><th id="81">81</th><td>{<var>0.000000f</var>, <var>1.000000f</var>, <var>0.000000f</var>}, {<var>0.000000f</var>, <var>0.955423f</var>, <var>0.295242f</var>}, </td></tr>
+<tr><th id="82">82</th><td>{-<var>0.262866f</var>, <var>0.951056f</var>, <var>0.162460f</var>}, {<var>0.238856f</var>, <var>0.864188f</var>, <var>0.442863f</var>}, </td></tr>
+<tr><th id="83">83</th><td>{<var>0.262866f</var>, <var>0.951056f</var>, <var>0.162460f</var>}, {<var>0.500000f</var>, <var>0.809017f</var>, <var>0.309017f</var>}, </td></tr>
+<tr><th id="84">84</th><td>{<var>0.238856f</var>, <var>0.864188f</var>, -<var>0.442863f</var>},{<var>0.262866f</var>, <var>0.951056f</var>, -<var>0.162460f</var>}, </td></tr>
+<tr><th id="85">85</th><td>{<var>0.500000f</var>, <var>0.809017f</var>, -<var>0.309017f</var>},{<var>0.850651f</var>, <var>0.525731f</var>, <var>0.000000f</var>}, </td></tr>
+<tr><th id="86">86</th><td>{<var>0.716567f</var>, <var>0.681718f</var>, <var>0.147621f</var>}, {<var>0.716567f</var>, <var>0.681718f</var>, -<var>0.147621f</var>}, </td></tr>
+<tr><th id="87">87</th><td>{<var>0.525731f</var>, <var>0.850651f</var>, <var>0.000000f</var>}, {<var>0.425325f</var>, <var>0.688191f</var>, <var>0.587785f</var>}, </td></tr>
+<tr><th id="88">88</th><td>{<var>0.864188f</var>, <var>0.442863f</var>, <var>0.238856f</var>}, {<var>0.688191f</var>, <var>0.587785f</var>, <var>0.425325f</var>}, </td></tr>
+<tr><th id="89">89</th><td>{<var>0.809017f</var>, <var>0.309017f</var>, <var>0.500000f</var>}, {<var>0.681718f</var>, <var>0.147621f</var>, <var>0.716567f</var>}, </td></tr>
+<tr><th id="90">90</th><td>{<var>0.587785f</var>, <var>0.425325f</var>, <var>0.688191f</var>}, {<var>0.955423f</var>, <var>0.295242f</var>, <var>0.000000f</var>}, </td></tr>
+<tr><th id="91">91</th><td>{<var>1.000000f</var>, <var>0.000000f</var>, <var>0.000000f</var>}, {<var>0.951056f</var>, <var>0.162460f</var>, <var>0.262866f</var>}, </td></tr>
+<tr><th id="92">92</th><td>{<var>0.850651f</var>, -<var>0.525731f</var>, <var>0.000000f</var>},{<var>0.955423f</var>, -<var>0.295242f</var>, <var>0.000000f</var>}, </td></tr>
+<tr><th id="93">93</th><td>{<var>0.864188f</var>, -<var>0.442863f</var>, <var>0.238856f</var>}, {<var>0.951056f</var>, -<var>0.162460f</var>, <var>0.262866f</var>}, </td></tr>
+<tr><th id="94">94</th><td>{<var>0.809017f</var>, -<var>0.309017f</var>, <var>0.500000f</var>}, {<var>0.681718f</var>, -<var>0.147621f</var>, <var>0.716567f</var>}, </td></tr>
+<tr><th id="95">95</th><td>{<var>0.850651f</var>, <var>0.000000f</var>, <var>0.525731f</var>}, {<var>0.864188f</var>, <var>0.442863f</var>, -<var>0.238856f</var>}, </td></tr>
+<tr><th id="96">96</th><td>{<var>0.809017f</var>, <var>0.309017f</var>, -<var>0.500000f</var>}, {<var>0.951056f</var>, <var>0.162460f</var>, -<var>0.262866f</var>}, </td></tr>
+<tr><th id="97">97</th><td>{<var>0.525731f</var>, <var>0.000000f</var>, -<var>0.850651f</var>}, {<var>0.681718f</var>, <var>0.147621f</var>, -<var>0.716567f</var>}, </td></tr>
+<tr><th id="98">98</th><td>{<var>0.681718f</var>, -<var>0.147621f</var>, -<var>0.716567f</var>},{<var>0.850651f</var>, <var>0.000000f</var>, -<var>0.525731f</var>}, </td></tr>
+<tr><th id="99">99</th><td>{<var>0.809017f</var>, -<var>0.309017f</var>, -<var>0.500000f</var>}, {<var>0.864188f</var>, -<var>0.442863f</var>, -<var>0.238856f</var>}, </td></tr>
+<tr><th id="100">100</th><td>{<var>0.951056f</var>, -<var>0.162460f</var>, -<var>0.262866f</var>}, {<var>0.147621f</var>, <var>0.716567f</var>, -<var>0.681718f</var>}, </td></tr>
+<tr><th id="101">101</th><td>{<var>0.309017f</var>, <var>0.500000f</var>, -<var>0.809017f</var>}, {<var>0.425325f</var>, <var>0.688191f</var>, -<var>0.587785f</var>}, </td></tr>
+<tr><th id="102">102</th><td>{<var>0.442863f</var>, <var>0.238856f</var>, -<var>0.864188f</var>}, {<var>0.587785f</var>, <var>0.425325f</var>, -<var>0.688191f</var>}, </td></tr>
+<tr><th id="103">103</th><td>{<var>0.688191f</var>, <var>0.587785f</var>, -<var>0.425325f</var>}, {-<var>0.147621f</var>, <var>0.716567f</var>, -<var>0.681718f</var>}, </td></tr>
+<tr><th id="104">104</th><td>{-<var>0.309017f</var>, <var>0.500000f</var>, -<var>0.809017f</var>}, {<var>0.000000f</var>, <var>0.525731f</var>, -<var>0.850651f</var>}, </td></tr>
+<tr><th id="105">105</th><td>{-<var>0.525731f</var>, <var>0.000000f</var>, -<var>0.850651f</var>}, {-<var>0.442863f</var>, <var>0.238856f</var>, -<var>0.864188f</var>}, </td></tr>
+<tr><th id="106">106</th><td>{-<var>0.295242f</var>, <var>0.000000f</var>, -<var>0.955423f</var>}, {-<var>0.162460f</var>, <var>0.262866f</var>, -<var>0.951056f</var>}, </td></tr>
+<tr><th id="107">107</th><td>{<var>0.000000f</var>, <var>0.000000f</var>, -<var>1.000000f</var>}, {<var>0.295242f</var>, <var>0.000000f</var>, -<var>0.955423f</var>}, </td></tr>
+<tr><th id="108">108</th><td>{<var>0.162460f</var>, <var>0.262866f</var>, -<var>0.951056f</var>}, {-<var>0.442863f</var>, -<var>0.238856f</var>, -<var>0.864188f</var>}, </td></tr>
+<tr><th id="109">109</th><td>{-<var>0.309017f</var>, -<var>0.500000f</var>, -<var>0.809017f</var>}, {-<var>0.162460f</var>, -<var>0.262866f</var>, -<var>0.951056f</var>}, </td></tr>
+<tr><th id="110">110</th><td>{<var>0.000000f</var>, -<var>0.850651f</var>, -<var>0.525731f</var>}, {-<var>0.147621f</var>, -<var>0.716567f</var>, -<var>0.681718f</var>}, </td></tr>
+<tr><th id="111">111</th><td>{<var>0.147621f</var>, -<var>0.716567f</var>, -<var>0.681718f</var>}, {<var>0.000000f</var>, -<var>0.525731f</var>, -<var>0.850651f</var>}, </td></tr>
+<tr><th id="112">112</th><td>{<var>0.309017f</var>, -<var>0.500000f</var>, -<var>0.809017f</var>}, {<var>0.442863f</var>, -<var>0.238856f</var>, -<var>0.864188f</var>}, </td></tr>
+<tr><th id="113">113</th><td>{<var>0.162460f</var>, -<var>0.262866f</var>, -<var>0.951056f</var>}, {<var>0.238856f</var>, -<var>0.864188f</var>, -<var>0.442863f</var>}, </td></tr>
+<tr><th id="114">114</th><td>{<var>0.500000f</var>, -<var>0.809017f</var>, -<var>0.309017f</var>}, {<var>0.425325f</var>, -<var>0.688191f</var>, -<var>0.587785f</var>}, </td></tr>
+<tr><th id="115">115</th><td>{<var>0.716567f</var>, -<var>0.681718f</var>, -<var>0.147621f</var>}, {<var>0.688191f</var>, -<var>0.587785f</var>, -<var>0.425325f</var>}, </td></tr>
+<tr><th id="116">116</th><td>{<var>0.587785f</var>, -<var>0.425325f</var>, -<var>0.688191f</var>}, {<var>0.000000f</var>, -<var>0.955423f</var>, -<var>0.295242f</var>}, </td></tr>
+<tr><th id="117">117</th><td>{<var>0.000000f</var>, -<var>1.000000f</var>, <var>0.000000f</var>}, {<var>0.262866f</var>, -<var>0.951056f</var>, -<var>0.162460f</var>}, </td></tr>
+<tr><th id="118">118</th><td>{<var>0.000000f</var>, -<var>0.850651f</var>, <var>0.525731f</var>}, {<var>0.000000f</var>, -<var>0.955423f</var>, <var>0.295242f</var>}, </td></tr>
+<tr><th id="119">119</th><td>{<var>0.238856f</var>, -<var>0.864188f</var>, <var>0.442863f</var>}, {<var>0.262866f</var>, -<var>0.951056f</var>, <var>0.162460f</var>}, </td></tr>
+<tr><th id="120">120</th><td>{<var>0.500000f</var>, -<var>0.809017f</var>, <var>0.309017f</var>}, {<var>0.716567f</var>, -<var>0.681718f</var>, <var>0.147621f</var>}, </td></tr>
+<tr><th id="121">121</th><td>{<var>0.525731f</var>, -<var>0.850651f</var>, <var>0.000000f</var>}, {-<var>0.238856f</var>, -<var>0.864188f</var>, -<var>0.442863f</var>}, </td></tr>
+<tr><th id="122">122</th><td>{-<var>0.500000f</var>, -<var>0.809017f</var>, -<var>0.309017f</var>}, {-<var>0.262866f</var>, -<var>0.951056f</var>, -<var>0.162460f</var>}, </td></tr>
+<tr><th id="123">123</th><td>{-<var>0.850651f</var>, -<var>0.525731f</var>, <var>0.000000f</var>}, {-<var>0.716567f</var>, -<var>0.681718f</var>, -<var>0.147621f</var>}, </td></tr>
+<tr><th id="124">124</th><td>{-<var>0.716567f</var>, -<var>0.681718f</var>, <var>0.147621f</var>}, {-<var>0.525731f</var>, -<var>0.850651f</var>, <var>0.000000f</var>}, </td></tr>
+<tr><th id="125">125</th><td>{-<var>0.500000f</var>, -<var>0.809017f</var>, <var>0.309017f</var>}, {-<var>0.238856f</var>, -<var>0.864188f</var>, <var>0.442863f</var>}, </td></tr>
+<tr><th id="126">126</th><td>{-<var>0.262866f</var>, -<var>0.951056f</var>, <var>0.162460f</var>}, {-<var>0.864188f</var>, -<var>0.442863f</var>, <var>0.238856f</var>}, </td></tr>
+<tr><th id="127">127</th><td>{-<var>0.809017f</var>, -<var>0.309017f</var>, <var>0.500000f</var>}, {-<var>0.688191f</var>, -<var>0.587785f</var>, <var>0.425325f</var>}, </td></tr>
+<tr><th id="128">128</th><td>{-<var>0.681718f</var>, -<var>0.147621f</var>, <var>0.716567f</var>}, {-<var>0.442863f</var>, -<var>0.238856f</var>, <var>0.864188f</var>}, </td></tr>
+<tr><th id="129">129</th><td>{-<var>0.587785f</var>, -<var>0.425325f</var>, <var>0.688191f</var>}, {-<var>0.309017f</var>, -<var>0.500000f</var>, <var>0.809017f</var>}, </td></tr>
+<tr><th id="130">130</th><td>{-<var>0.147621f</var>, -<var>0.716567f</var>, <var>0.681718f</var>}, {-<var>0.425325f</var>, -<var>0.688191f</var>, <var>0.587785f</var>}, </td></tr>
+<tr><th id="131">131</th><td>{-<var>0.162460f</var>, -<var>0.262866f</var>, <var>0.951056f</var>}, {<var>0.442863f</var>, -<var>0.238856f</var>, <var>0.864188f</var>}, </td></tr>
+<tr><th id="132">132</th><td>{<var>0.162460f</var>, -<var>0.262866f</var>, <var>0.951056f</var>}, {<var>0.309017f</var>, -<var>0.500000f</var>, <var>0.809017f</var>}, </td></tr>
+<tr><th id="133">133</th><td>{<var>0.147621f</var>, -<var>0.716567f</var>, <var>0.681718f</var>}, {<var>0.000000f</var>, -<var>0.525731f</var>, <var>0.850651f</var>}, </td></tr>
+<tr><th id="134">134</th><td>{<var>0.425325f</var>, -<var>0.688191f</var>, <var>0.587785f</var>}, {<var>0.587785f</var>, -<var>0.425325f</var>, <var>0.688191f</var>}, </td></tr>
+<tr><th id="135">135</th><td>{<var>0.688191f</var>, -<var>0.587785f</var>, <var>0.425325f</var>}, {-<var>0.955423f</var>, <var>0.295242f</var>, <var>0.000000f</var>}, </td></tr>
+<tr><th id="136">136</th><td>{-<var>0.951056f</var>, <var>0.162460f</var>, <var>0.262866f</var>}, {-<var>1.000000f</var>, <var>0.000000f</var>, <var>0.000000f</var>}, </td></tr>
+<tr><th id="137">137</th><td>{-<var>0.850651f</var>, <var>0.000000f</var>, <var>0.525731f</var>}, {-<var>0.955423f</var>, -<var>0.295242f</var>, <var>0.000000f</var>}, </td></tr>
+<tr><th id="138">138</th><td>{-<var>0.951056f</var>, -<var>0.162460f</var>, <var>0.262866f</var>}, {-<var>0.864188f</var>, <var>0.442863f</var>, -<var>0.238856f</var>}, </td></tr>
+<tr><th id="139">139</th><td>{-<var>0.951056f</var>, <var>0.162460f</var>, -<var>0.262866f</var>}, {-<var>0.809017f</var>, <var>0.309017f</var>, -<var>0.500000f</var>}, </td></tr>
+<tr><th id="140">140</th><td>{-<var>0.864188f</var>, -<var>0.442863f</var>, -<var>0.238856f</var>}, {-<var>0.951056f</var>, -<var>0.162460f</var>, -<var>0.262866f</var>}, </td></tr>
+<tr><th id="141">141</th><td>{-<var>0.809017f</var>, -<var>0.309017f</var>, -<var>0.500000f</var>}, {-<var>0.681718f</var>, <var>0.147621f</var>, -<var>0.716567f</var>}, </td></tr>
+<tr><th id="142">142</th><td>{-<var>0.681718f</var>, -<var>0.147621f</var>, -<var>0.716567f</var>}, {-<var>0.850651f</var>, <var>0.000000f</var>, -<var>0.525731f</var>}, </td></tr>
+<tr><th id="143">143</th><td>{-<var>0.688191f</var>, <var>0.587785f</var>, -<var>0.425325f</var>}, {-<var>0.587785f</var>, <var>0.425325f</var>, -<var>0.688191f</var>}, </td></tr>
+<tr><th id="144">144</th><td>{-<var>0.425325f</var>, <var>0.688191f</var>, -<var>0.587785f</var>}, {-<var>0.425325f</var>, -<var>0.688191f</var>, -<var>0.587785f</var>}, </td></tr>
+<tr><th id="145">145</th><td>{-<var>0.587785f</var>, -<var>0.425325f</var>, -<var>0.688191f</var>}, {-<var>0.688191f</var>, -<var>0.587785f</var>, -<var>0.425325f</var>}</td></tr>
+<tr><th id="146">146</th><td>};</td></tr>
+<tr><th id="147">147</th><td></td></tr>
+<tr><th id="148">148</th><td><i>//==============================================================</i></td></tr>
+<tr><th id="149">149</th><td></td></tr>
+<tr><th id="150">150</th><td><em>int</em>		<dfn class="decl def" id="Q_rand" title='Q_rand' data-ref="Q_rand">Q_rand</dfn>( <em>int</em> *<dfn class="local col1 decl" id="1seed" title='seed' data-type='int *' data-ref="1seed">seed</dfn> ) {</td></tr>
+<tr><th id="151">151</th><td>	*<a class="local col1 ref" href="#1seed" title='seed' data-ref="1seed">seed</a> = (<var>69069</var> * *<a class="local col1 ref" href="#1seed" title='seed' data-ref="1seed">seed</a> + <var>1</var>);</td></tr>
+<tr><th id="152">152</th><td>	<b>return</b> *<a class="local col1 ref" href="#1seed" title='seed' data-ref="1seed">seed</a>;</td></tr>
+<tr><th id="153">153</th><td>}</td></tr>
+<tr><th id="154">154</th><td></td></tr>
+<tr><th id="155">155</th><td><em>float</em>	<dfn class="decl def" id="Q_random" title='Q_random' data-ref="Q_random">Q_random</dfn>( <em>int</em> *<dfn class="local col2 decl" id="2seed" title='seed' data-type='int *' data-ref="2seed">seed</dfn> ) {</td></tr>
+<tr><th id="156">156</th><td>	<b>return</b> ( <a class="ref" href="#Q_rand" title='Q_rand' data-ref="Q_rand">Q_rand</a>( <a class="local col2 ref" href="#2seed" title='seed' data-ref="2seed">seed</a> ) &amp; <var>0xffff</var> ) / (<em>float</em>)<var>0x10000</var>;</td></tr>
+<tr><th id="157">157</th><td>}</td></tr>
+<tr><th id="158">158</th><td></td></tr>
+<tr><th id="159">159</th><td><em>float</em>	<dfn class="decl def" id="Q_crandom" title='Q_crandom' data-ref="Q_crandom">Q_crandom</dfn>( <em>int</em> *<dfn class="local col3 decl" id="3seed" title='seed' data-type='int *' data-ref="3seed">seed</dfn> ) {</td></tr>
+<tr><th id="160">160</th><td>	<b>return</b> <var>2.0</var> * ( <a class="ref" href="#Q_random" title='Q_random' data-ref="Q_random">Q_random</a>( <a class="local col3 ref" href="#3seed" title='seed' data-ref="3seed">seed</a> ) - <var>0.5</var> );</td></tr>
+<tr><th id="161">161</th><td>}</td></tr>
+<tr><th id="162">162</th><td></td></tr>
+<tr><th id="163">163</th><td><i>//=======================================================</i></td></tr>
+<tr><th id="164">164</th><td></td></tr>
+<tr><th id="165">165</th><td><em>signed</em> <em>char</em> <dfn class="decl def" id="ClampChar" title='ClampChar' data-ref="ClampChar">ClampChar</dfn>( <em>int</em> <dfn class="local col4 decl" id="4i" title='i' data-type='int' data-ref="4i">i</dfn> ) {</td></tr>
+<tr><th id="166">166</th><td>	<b>if</b> ( <a class="local col4 ref" href="#4i" title='i' data-ref="4i">i</a> &lt; -<var>128</var> ) {</td></tr>
+<tr><th id="167">167</th><td>		<b>return</b> -<var>128</var>;</td></tr>
+<tr><th id="168">168</th><td>	}</td></tr>
+<tr><th id="169">169</th><td>	<b>if</b> ( <a class="local col4 ref" href="#4i" title='i' data-ref="4i">i</a> &gt; <var>127</var> ) {</td></tr>
+<tr><th id="170">170</th><td>		<b>return</b> <var>127</var>;</td></tr>
+<tr><th id="171">171</th><td>	}</td></tr>
+<tr><th id="172">172</th><td>	<b>return</b> <a class="local col4 ref" href="#4i" title='i' data-ref="4i">i</a>;</td></tr>
+<tr><th id="173">173</th><td>}</td></tr>
+<tr><th id="174">174</th><td></td></tr>
+<tr><th id="175">175</th><td><em>signed</em> <em>short</em> <dfn class="decl def" id="ClampShort" title='ClampShort' data-ref="ClampShort">ClampShort</dfn>( <em>int</em> <dfn class="local col5 decl" id="5i" title='i' data-type='int' data-ref="5i">i</dfn> ) {</td></tr>
+<tr><th id="176">176</th><td>	<b>if</b> ( <a class="local col5 ref" href="#5i" title='i' data-ref="5i">i</a> &lt; -<var>32768</var> ) {</td></tr>
+<tr><th id="177">177</th><td>		<b>return</b> -<var>32768</var>;</td></tr>
+<tr><th id="178">178</th><td>	}</td></tr>
+<tr><th id="179">179</th><td>	<b>if</b> ( <a class="local col5 ref" href="#5i" title='i' data-ref="5i">i</a> &gt; <var>0x7fff</var> ) {</td></tr>
+<tr><th id="180">180</th><td>		<b>return</b> <var>0x7fff</var>;</td></tr>
+<tr><th id="181">181</th><td>	}</td></tr>
+<tr><th id="182">182</th><td>	<b>return</b> <a class="local col5 ref" href="#5i" title='i' data-ref="5i">i</a>;</td></tr>
+<tr><th id="183">183</th><td>}</td></tr>
+<tr><th id="184">184</th><td></td></tr>
+<tr><th id="185">185</th><td></td></tr>
+<tr><th id="186">186</th><td><i>// this isn't a real cheap function to call!</i></td></tr>
+<tr><th id="187">187</th><td><em>int</em> <dfn class="decl def" id="DirToByte" title='DirToByte' data-ref="DirToByte">DirToByte</dfn>( <a class="typedef" href="q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="local col6 decl" id="6dir" title='dir' data-type='vec_t *' data-ref="6dir">dir</dfn> ) {</td></tr>
+<tr><th id="188">188</th><td>	<em>int</em>		<dfn class="local col7 decl" id="7i" title='i' data-type='int' data-ref="7i">i</dfn>, <dfn class="local col8 decl" id="8best" title='best' data-type='int' data-ref="8best">best</dfn>;</td></tr>
+<tr><th id="189">189</th><td>	<em>float</em>	<dfn class="local col9 decl" id="9d" title='d' data-type='float' data-ref="9d">d</dfn>, <dfn class="local col0 decl" id="10bestd" title='bestd' data-type='float' data-ref="10bestd">bestd</dfn>;</td></tr>
+<tr><th id="190">190</th><td></td></tr>
+<tr><th id="191">191</th><td>	<b>if</b> ( !<a class="local col6 ref" href="#6dir" title='dir' data-ref="6dir">dir</a> ) {</td></tr>
+<tr><th id="192">192</th><td>		<b>return</b> <var>0</var>;</td></tr>
+<tr><th id="193">193</th><td>	}</td></tr>
+<tr><th id="194">194</th><td></td></tr>
+<tr><th id="195">195</th><td>	<a class="local col0 ref" href="#10bestd" title='bestd' data-ref="10bestd">bestd</a> = <var>0</var>;</td></tr>
+<tr><th id="196">196</th><td>	<a class="local col8 ref" href="#8best" title='best' data-ref="8best">best</a> = <var>0</var>;</td></tr>
+<tr><th id="197">197</th><td>	<b>for</b> (<a class="local col7 ref" href="#7i" title='i' data-ref="7i">i</a>=<var>0</var> ; <a class="local col7 ref" href="#7i" title='i' data-ref="7i">i</a>&lt;<a class="macro" href="q_shared.h.html#376" title="162" data-ref="_M/NUMVERTEXNORMALS">NUMVERTEXNORMALS</a> ; <a class="local col7 ref" href="#7i" title='i' data-ref="7i">i</a>++)</td></tr>
+<tr><th id="198">198</th><td>	{</td></tr>
+<tr><th id="199">199</th><td>		<a class="local col9 ref" href="#9d" title='d' data-ref="9d">d</a> = <a class="macro" href="q_shared.h.html#542" title="((dir)[0]*(bytedirs[i])[0]+(dir)[1]*(bytedirs[i])[1]+(dir)[2]*(bytedirs[i])[2])" data-ref="_M/DotProduct">DotProduct</a> (<a class="local col6 ref" href="#6dir" title='dir' data-ref="6dir">dir</a>, <a class="ref" href="q_shared.h.html#bytedirs" title='bytedirs' data-ref="bytedirs">bytedirs</a>[<a class="local col7 ref" href="#7i" title='i' data-ref="7i">i</a>]);</td></tr>
+<tr><th id="200">200</th><td>		<b>if</b> (<a class="local col9 ref" href="#9d" title='d' data-ref="9d">d</a> &gt; <a class="local col0 ref" href="#10bestd" title='bestd' data-ref="10bestd">bestd</a>)</td></tr>
+<tr><th id="201">201</th><td>		{</td></tr>
+<tr><th id="202">202</th><td>			<a class="local col0 ref" href="#10bestd" title='bestd' data-ref="10bestd">bestd</a> = <a class="local col9 ref" href="#9d" title='d' data-ref="9d">d</a>;</td></tr>
+<tr><th id="203">203</th><td>			<a class="local col8 ref" href="#8best" title='best' data-ref="8best">best</a> = <a class="local col7 ref" href="#7i" title='i' data-ref="7i">i</a>;</td></tr>
+<tr><th id="204">204</th><td>		}</td></tr>
+<tr><th id="205">205</th><td>	}</td></tr>
+<tr><th id="206">206</th><td></td></tr>
+<tr><th id="207">207</th><td>	<b>return</b> <a class="local col8 ref" href="#8best" title='best' data-ref="8best">best</a>;</td></tr>
+<tr><th id="208">208</th><td>}</td></tr>
+<tr><th id="209">209</th><td></td></tr>
+<tr><th id="210">210</th><td><em>void</em> <dfn class="decl def" id="ByteToDir" title='ByteToDir' data-ref="ByteToDir">ByteToDir</dfn>( <em>int</em> <dfn class="local col1 decl" id="11b" title='b' data-type='int' data-ref="11b">b</dfn>, <a class="typedef" href="q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="local col2 decl" id="12dir" title='dir' data-type='vec_t *' data-ref="12dir">dir</dfn> ) {</td></tr>
+<tr><th id="211">211</th><td>	<b>if</b> ( <a class="local col1 ref" href="#11b" title='b' data-ref="11b">b</a> &lt; <var>0</var> || <a class="local col1 ref" href="#11b" title='b' data-ref="11b">b</a> &gt;= <a class="macro" href="q_shared.h.html#376" title="162" data-ref="_M/NUMVERTEXNORMALS">NUMVERTEXNORMALS</a> ) {</td></tr>
+<tr><th id="212">212</th><td>		<a class="macro" href="q_shared.h.html#545" title="((dir)[0]=(vec3_origin)[0],(dir)[1]=(vec3_origin)[1],(dir)[2]=(vec3_origin)[2])" data-ref="_M/VectorCopy">VectorCopy</a>( <a class="ref" href="q_shared.h.html#vec3_origin" title='vec3_origin' data-ref="vec3_origin">vec3_origin</a>, <a class="local col2 ref" href="#12dir" title='dir' data-ref="12dir">dir</a> );</td></tr>
+<tr><th id="213">213</th><td>		<b>return</b>;</td></tr>
+<tr><th id="214">214</th><td>	}</td></tr>
+<tr><th id="215">215</th><td>	<a class="macro" href="q_shared.h.html#545" title="((dir)[0]=(bytedirs[b])[0],(dir)[1]=(bytedirs[b])[1],(dir)[2]=(bytedirs[b])[2])" data-ref="_M/VectorCopy">VectorCopy</a> (<a class="ref" href="q_shared.h.html#bytedirs" title='bytedirs' data-ref="bytedirs">bytedirs</a>[<a class="local col1 ref" href="#11b" title='b' data-ref="11b">b</a>], <a class="local col2 ref" href="#12dir" title='dir' data-ref="12dir">dir</a>);</td></tr>
+<tr><th id="216">216</th><td>}</td></tr>
+<tr><th id="217">217</th><td></td></tr>
+<tr><th id="218">218</th><td></td></tr>
+<tr><th id="219">219</th><td><em>unsigned</em> <dfn class="decl def" id="ColorBytes3" title='ColorBytes3' data-ref="ColorBytes3">ColorBytes3</dfn> (<em>float</em> <dfn class="local col3 decl" id="13r" title='r' data-type='float' data-ref="13r">r</dfn>, <em>float</em> <dfn class="local col4 decl" id="14g" title='g' data-type='float' data-ref="14g">g</dfn>, <em>float</em> <dfn class="local col5 decl" id="15b" title='b' data-type='float' data-ref="15b">b</dfn>) {</td></tr>
+<tr><th id="220">220</th><td>	<em>unsigned</em>	<dfn class="local col6 decl" id="16i" title='i' data-type='unsigned int' data-ref="16i">i</dfn>;</td></tr>
+<tr><th id="221">221</th><td></td></tr>
+<tr><th id="222">222</th><td>	( (<a class="typedef" href="q_shared.h.html#byte" title='byte' data-type='unsigned char' data-ref="byte">byte</a> *)&amp;<a class="local col6 ref" href="#16i" title='i' data-ref="16i">i</a> )[<var>0</var>] = <a class="local col3 ref" href="#13r" title='r' data-ref="13r">r</a> * <var>255</var>;</td></tr>
+<tr><th id="223">223</th><td>	( (<a class="typedef" href="q_shared.h.html#byte" title='byte' data-type='unsigned char' data-ref="byte">byte</a> *)&amp;<a class="local col6 ref" href="#16i" title='i' data-ref="16i">i</a> )[<var>1</var>] = <a class="local col4 ref" href="#14g" title='g' data-ref="14g">g</a> * <var>255</var>;</td></tr>
+<tr><th id="224">224</th><td>	( (<a class="typedef" href="q_shared.h.html#byte" title='byte' data-type='unsigned char' data-ref="byte">byte</a> *)&amp;<a class="local col6 ref" href="#16i" title='i' data-ref="16i">i</a> )[<var>2</var>] = <a class="local col5 ref" href="#15b" title='b' data-ref="15b">b</a> * <var>255</var>;</td></tr>
+<tr><th id="225">225</th><td></td></tr>
+<tr><th id="226">226</th><td>	<b>return</b> <a class="local col6 ref" href="#16i" title='i' data-ref="16i">i</a>;</td></tr>
+<tr><th id="227">227</th><td>}</td></tr>
+<tr><th id="228">228</th><td></td></tr>
+<tr><th id="229">229</th><td><em>unsigned</em> <dfn class="decl def" id="ColorBytes4" title='ColorBytes4' data-ref="ColorBytes4">ColorBytes4</dfn> (<em>float</em> <dfn class="local col7 decl" id="17r" title='r' data-type='float' data-ref="17r">r</dfn>, <em>float</em> <dfn class="local col8 decl" id="18g" title='g' data-type='float' data-ref="18g">g</dfn>, <em>float</em> <dfn class="local col9 decl" id="19b" title='b' data-type='float' data-ref="19b">b</dfn>, <em>float</em> <dfn class="local col0 decl" id="20a" title='a' data-type='float' data-ref="20a">a</dfn>) {</td></tr>
+<tr><th id="230">230</th><td>	<em>unsigned</em>	<dfn class="local col1 decl" id="21i" title='i' data-type='unsigned int' data-ref="21i">i</dfn>;</td></tr>
+<tr><th id="231">231</th><td></td></tr>
+<tr><th id="232">232</th><td>	( (<a class="typedef" href="q_shared.h.html#byte" title='byte' data-type='unsigned char' data-ref="byte">byte</a> *)&amp;<a class="local col1 ref" href="#21i" title='i' data-ref="21i">i</a> )[<var>0</var>] = <a class="local col7 ref" href="#17r" title='r' data-ref="17r">r</a> * <var>255</var>;</td></tr>
+<tr><th id="233">233</th><td>	( (<a class="typedef" href="q_shared.h.html#byte" title='byte' data-type='unsigned char' data-ref="byte">byte</a> *)&amp;<a class="local col1 ref" href="#21i" title='i' data-ref="21i">i</a> )[<var>1</var>] = <a class="local col8 ref" href="#18g" title='g' data-ref="18g">g</a> * <var>255</var>;</td></tr>
+<tr><th id="234">234</th><td>	( (<a class="typedef" href="q_shared.h.html#byte" title='byte' data-type='unsigned char' data-ref="byte">byte</a> *)&amp;<a class="local col1 ref" href="#21i" title='i' data-ref="21i">i</a> )[<var>2</var>] = <a class="local col9 ref" href="#19b" title='b' data-ref="19b">b</a> * <var>255</var>;</td></tr>
+<tr><th id="235">235</th><td>	( (<a class="typedef" href="q_shared.h.html#byte" title='byte' data-type='unsigned char' data-ref="byte">byte</a> *)&amp;<a class="local col1 ref" href="#21i" title='i' data-ref="21i">i</a> )[<var>3</var>] = <a class="local col0 ref" href="#20a" title='a' data-ref="20a">a</a> * <var>255</var>;</td></tr>
+<tr><th id="236">236</th><td></td></tr>
+<tr><th id="237">237</th><td>	<b>return</b> <a class="local col1 ref" href="#21i" title='i' data-ref="21i">i</a>;</td></tr>
+<tr><th id="238">238</th><td>}</td></tr>
+<tr><th id="239">239</th><td></td></tr>
+<tr><th id="240">240</th><td><em>float</em> <dfn class="decl def" id="NormalizeColor" title='NormalizeColor' data-ref="NormalizeColor">NormalizeColor</dfn>( <em>const</em> <a class="typedef" href="q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="local col2 decl" id="22in" title='in' data-type='const vec_t *' data-ref="22in">in</dfn>, <a class="typedef" href="q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="local col3 decl" id="23out" title='out' data-type='vec_t *' data-ref="23out">out</dfn> ) {</td></tr>
+<tr><th id="241">241</th><td>	<em>float</em>	<dfn class="local col4 decl" id="24max" title='max' data-type='float' data-ref="24max">max</dfn>;</td></tr>
+<tr><th id="242">242</th><td>	</td></tr>
+<tr><th id="243">243</th><td>	<a class="local col4 ref" href="#24max" title='max' data-ref="24max">max</a> = <a class="local col2 ref" href="#22in" title='in' data-ref="22in">in</a>[<var>0</var>];</td></tr>
+<tr><th id="244">244</th><td>	<b>if</b> ( <a class="local col2 ref" href="#22in" title='in' data-ref="22in">in</a>[<var>1</var>] &gt; <a class="local col4 ref" href="#24max" title='max' data-ref="24max">max</a> ) {</td></tr>
+<tr><th id="245">245</th><td>		<a class="local col4 ref" href="#24max" title='max' data-ref="24max">max</a> = <a class="local col2 ref" href="#22in" title='in' data-ref="22in">in</a>[<var>1</var>];</td></tr>
+<tr><th id="246">246</th><td>	}</td></tr>
+<tr><th id="247">247</th><td>	<b>if</b> ( <a class="local col2 ref" href="#22in" title='in' data-ref="22in">in</a>[<var>2</var>] &gt; <a class="local col4 ref" href="#24max" title='max' data-ref="24max">max</a> ) {</td></tr>
+<tr><th id="248">248</th><td>		<a class="local col4 ref" href="#24max" title='max' data-ref="24max">max</a> = <a class="local col2 ref" href="#22in" title='in' data-ref="22in">in</a>[<var>2</var>];</td></tr>
+<tr><th id="249">249</th><td>	}</td></tr>
+<tr><th id="250">250</th><td></td></tr>
+<tr><th id="251">251</th><td>	<b>if</b> ( !<a class="local col4 ref" href="#24max" title='max' data-ref="24max">max</a> ) {</td></tr>
+<tr><th id="252">252</th><td>		<a class="macro" href="q_shared.h.html#571" title="((out)[0]=(out)[1]=(out)[2]=0)" data-ref="_M/VectorClear">VectorClear</a>( <a class="local col3 ref" href="#23out" title='out' data-ref="23out">out</a> );</td></tr>
+<tr><th id="253">253</th><td>	} <b>else</b> {</td></tr>
+<tr><th id="254">254</th><td>		<a class="local col3 ref" href="#23out" title='out' data-ref="23out">out</a>[<var>0</var>] = <a class="local col2 ref" href="#22in" title='in' data-ref="22in">in</a>[<var>0</var>] / <a class="local col4 ref" href="#24max" title='max' data-ref="24max">max</a>;</td></tr>
+<tr><th id="255">255</th><td>		<a class="local col3 ref" href="#23out" title='out' data-ref="23out">out</a>[<var>1</var>] = <a class="local col2 ref" href="#22in" title='in' data-ref="22in">in</a>[<var>1</var>] / <a class="local col4 ref" href="#24max" title='max' data-ref="24max">max</a>;</td></tr>
+<tr><th id="256">256</th><td>		<a class="local col3 ref" href="#23out" title='out' data-ref="23out">out</a>[<var>2</var>] = <a class="local col2 ref" href="#22in" title='in' data-ref="22in">in</a>[<var>2</var>] / <a class="local col4 ref" href="#24max" title='max' data-ref="24max">max</a>;</td></tr>
+<tr><th id="257">257</th><td>	}</td></tr>
+<tr><th id="258">258</th><td>	<b>return</b> <a class="local col4 ref" href="#24max" title='max' data-ref="24max">max</a>;</td></tr>
+<tr><th id="259">259</th><td>}</td></tr>
+<tr><th id="260">260</th><td></td></tr>
+<tr><th id="261">261</th><td></td></tr>
+<tr><th id="262">262</th><td><i>/*</i></td></tr>
+<tr><th id="263">263</th><td><i>=====================</i></td></tr>
+<tr><th id="264">264</th><td><i>PlaneFromPoints</i></td></tr>
+<tr><th id="265">265</th><td><i></i></td></tr>
+<tr><th id="266">266</th><td><i>Returns false if the triangle is degenrate.</i></td></tr>
+<tr><th id="267">267</th><td><i>The normal will point out of the clock for clockwise ordered points</i></td></tr>
+<tr><th id="268">268</th><td><i>=====================</i></td></tr>
+<tr><th id="269">269</th><td><i>*/</i></td></tr>
+<tr><th id="270">270</th><td><a class="typedef" href="q_shared.h.html#qboolean" title='qboolean' data-type='enum qboolean' data-ref="qboolean">qboolean</a> <dfn class="decl def" id="PlaneFromPoints" title='PlaneFromPoints' data-ref="PlaneFromPoints">PlaneFromPoints</dfn>( <a class="typedef" href="q_shared.h.html#vec4_t" title='vec4_t' data-type='vec_t [4]' data-ref="vec4_t">vec4_t</a> <dfn class="local col5 decl" id="25plane" title='plane' data-type='vec_t *' data-ref="25plane">plane</dfn>, <em>const</em> <a class="typedef" href="q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="local col6 decl" id="26a" title='a' data-type='const vec_t *' data-ref="26a">a</dfn>, <em>const</em> <a class="typedef" href="q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="local col7 decl" id="27b" title='b' data-type='const vec_t *' data-ref="27b">b</dfn>, <em>const</em> <a class="typedef" href="q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="local col8 decl" id="28c" title='c' data-type='const vec_t *' data-ref="28c">c</dfn> ) {</td></tr>
+<tr><th id="271">271</th><td>	<a class="typedef" href="q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a>	<dfn class="local col9 decl" id="29d1" title='d1' data-type='vec3_t' data-ref="29d1">d1</dfn>, <dfn class="local col0 decl" id="30d2" title='d2' data-type='vec3_t' data-ref="30d2">d2</dfn>;</td></tr>
+<tr><th id="272">272</th><td></td></tr>
+<tr><th id="273">273</th><td>	<a class="macro" href="q_shared.h.html#543" title="((d1)[0]=(b)[0]-(a)[0],(d1)[1]=(b)[1]-(a)[1],(d1)[2]=(b)[2]-(a)[2])" data-ref="_M/VectorSubtract">VectorSubtract</a>( <a class="local col7 ref" href="#27b" title='b' data-ref="27b">b</a>, <a class="local col6 ref" href="#26a" title='a' data-ref="26a">a</a>, <a class="local col9 ref" href="#29d1" title='d1' data-ref="29d1">d1</a> );</td></tr>
+<tr><th id="274">274</th><td>	<a class="macro" href="q_shared.h.html#543" title="((d2)[0]=(c)[0]-(a)[0],(d2)[1]=(c)[1]-(a)[1],(d2)[2]=(c)[2]-(a)[2])" data-ref="_M/VectorSubtract">VectorSubtract</a>( <a class="local col8 ref" href="#28c" title='c' data-ref="28c">c</a>, <a class="local col6 ref" href="#26a" title='a' data-ref="26a">a</a>, <a class="local col0 ref" href="#30d2" title='d2' data-ref="30d2">d2</a> );</td></tr>
+<tr><th id="275">275</th><td>	<a class="ref" href="q_shared.h.html#CrossProduct" title='CrossProduct' data-ref="CrossProduct">CrossProduct</a>( <a class="local col0 ref" href="#30d2" title='d2' data-ref="30d2">d2</a>, <a class="local col9 ref" href="#29d1" title='d1' data-ref="29d1">d1</a>, <a class="local col5 ref" href="#25plane" title='plane' data-ref="25plane">plane</a> );</td></tr>
+<tr><th id="276">276</th><td>	<b>if</b> ( <a class="ref" href="#VectorNormalize" title='VectorNormalize' data-ref="VectorNormalize">VectorNormalize</a>( <a class="local col5 ref" href="#25plane" title='plane' data-ref="25plane">plane</a> ) == <var>0</var> ) {</td></tr>
+<tr><th id="277">277</th><td>		<b>return</b> <a class="enum" href="q_shared.h.html#qfalse" title='qfalse' data-ref="qfalse">qfalse</a>;</td></tr>
+<tr><th id="278">278</th><td>	}</td></tr>
+<tr><th id="279">279</th><td></td></tr>
+<tr><th id="280">280</th><td>	<a class="local col5 ref" href="#25plane" title='plane' data-ref="25plane">plane</a>[<var>3</var>] = <a class="macro" href="q_shared.h.html#542" title="((a)[0]*(plane)[0]+(a)[1]*(plane)[1]+(a)[2]*(plane)[2])" data-ref="_M/DotProduct">DotProduct</a>( <a class="local col6 ref" href="#26a" title='a' data-ref="26a">a</a>, <a class="local col5 ref" href="#25plane" title='plane' data-ref="25plane">plane</a> );</td></tr>
+<tr><th id="281">281</th><td>	<b>return</b> <a class="enum" href="q_shared.h.html#qtrue" title='qtrue' data-ref="qtrue">qtrue</a>;</td></tr>
+<tr><th id="282">282</th><td>}</td></tr>
+<tr><th id="283">283</th><td></td></tr>
+<tr><th id="284">284</th><td><i>/*</i></td></tr>
+<tr><th id="285">285</th><td><i>===============</i></td></tr>
+<tr><th id="286">286</th><td><i>RotatePointAroundVector</i></td></tr>
+<tr><th id="287">287</th><td><i></i></td></tr>
+<tr><th id="288">288</th><td><i>This is not implemented very well...</i></td></tr>
+<tr><th id="289">289</th><td><i>===============</i></td></tr>
+<tr><th id="290">290</th><td><i>*/</i></td></tr>
+<tr><th id="291">291</th><td><em>void</em> <dfn class="decl def" id="RotatePointAroundVector" title='RotatePointAroundVector' data-ref="RotatePointAroundVector">RotatePointAroundVector</dfn>( <a class="typedef" href="q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="local col1 decl" id="31dst" title='dst' data-type='vec_t *' data-ref="31dst">dst</dfn>, <em>const</em> <a class="typedef" href="q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="local col2 decl" id="32dir" title='dir' data-type='const vec_t *' data-ref="32dir">dir</dfn>, <em>const</em> <a class="typedef" href="q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="local col3 decl" id="33point" title='point' data-type='const vec_t *' data-ref="33point">point</dfn>,</td></tr>
+<tr><th id="292">292</th><td>							 <em>float</em> <dfn class="local col4 decl" id="34degrees" title='degrees' data-type='float' data-ref="34degrees">degrees</dfn> ) {</td></tr>
+<tr><th id="293">293</th><td>	<em>float</em>	<dfn class="local col5 decl" id="35m" title='m' data-type='float [3][3]' data-ref="35m">m</dfn>[<var>3</var>][<var>3</var>];</td></tr>
+<tr><th id="294">294</th><td>	<em>float</em>	<dfn class="local col6 decl" id="36im" title='im' data-type='float [3][3]' data-ref="36im">im</dfn>[<var>3</var>][<var>3</var>];</td></tr>
+<tr><th id="295">295</th><td>	<em>float</em>	<dfn class="local col7 decl" id="37zrot" title='zrot' data-type='float [3][3]' data-ref="37zrot">zrot</dfn>[<var>3</var>][<var>3</var>];</td></tr>
+<tr><th id="296">296</th><td>	<em>float</em>	<dfn class="local col8 decl" id="38tmpmat" title='tmpmat' data-type='float [3][3]' data-ref="38tmpmat">tmpmat</dfn>[<var>3</var>][<var>3</var>];</td></tr>
+<tr><th id="297">297</th><td>	<em>float</em>	<dfn class="local col9 decl" id="39rot" title='rot' data-type='float [3][3]' data-ref="39rot">rot</dfn>[<var>3</var>][<var>3</var>];</td></tr>
+<tr><th id="298">298</th><td>	<em>int</em>	<dfn class="local col0 decl" id="40i" title='i' data-type='int' data-ref="40i">i</dfn>;</td></tr>
+<tr><th id="299">299</th><td>	<a class="typedef" href="q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="local col1 decl" id="41vr" title='vr' data-type='vec3_t' data-ref="41vr">vr</dfn>, <dfn class="local col2 decl" id="42vup" title='vup' data-type='vec3_t' data-ref="42vup">vup</dfn>, <dfn class="local col3 decl" id="43vf" title='vf' data-type='vec3_t' data-ref="43vf">vf</dfn>;</td></tr>
+<tr><th id="300">300</th><td>	<em>float</em>	<dfn class="local col4 decl" id="44rad" title='rad' data-type='float' data-ref="44rad">rad</dfn>;</td></tr>
+<tr><th id="301">301</th><td></td></tr>
+<tr><th id="302">302</th><td>	<a class="local col3 ref" href="#43vf" title='vf' data-ref="43vf">vf</a>[<var>0</var>] = <a class="local col2 ref" href="#32dir" title='dir' data-ref="32dir">dir</a>[<var>0</var>];</td></tr>
+<tr><th id="303">303</th><td>	<a class="local col3 ref" href="#43vf" title='vf' data-ref="43vf">vf</a>[<var>1</var>] = <a class="local col2 ref" href="#32dir" title='dir' data-ref="32dir">dir</a>[<var>1</var>];</td></tr>
+<tr><th id="304">304</th><td>	<a class="local col3 ref" href="#43vf" title='vf' data-ref="43vf">vf</a>[<var>2</var>] = <a class="local col2 ref" href="#32dir" title='dir' data-ref="32dir">dir</a>[<var>2</var>];</td></tr>
+<tr><th id="305">305</th><td></td></tr>
+<tr><th id="306">306</th><td>	<a class="ref" href="#PerpendicularVector" title='PerpendicularVector' data-ref="PerpendicularVector">PerpendicularVector</a>( <a class="local col1 ref" href="#41vr" title='vr' data-ref="41vr">vr</a>, <a class="local col2 ref" href="#32dir" title='dir' data-ref="32dir">dir</a> );</td></tr>
+<tr><th id="307">307</th><td>	<a class="ref" href="q_shared.h.html#CrossProduct" title='CrossProduct' data-ref="CrossProduct">CrossProduct</a>( <a class="local col1 ref" href="#41vr" title='vr' data-ref="41vr">vr</a>, <a class="local col3 ref" href="#43vf" title='vf' data-ref="43vf">vf</a>, <a class="local col2 ref" href="#42vup" title='vup' data-ref="42vup">vup</a> );</td></tr>
+<tr><th id="308">308</th><td></td></tr>
+<tr><th id="309">309</th><td>	<a class="local col5 ref" href="#35m" title='m' data-ref="35m">m</a>[<var>0</var>][<var>0</var>] = <a class="local col1 ref" href="#41vr" title='vr' data-ref="41vr">vr</a>[<var>0</var>];</td></tr>
+<tr><th id="310">310</th><td>	<a class="local col5 ref" href="#35m" title='m' data-ref="35m">m</a>[<var>1</var>][<var>0</var>] = <a class="local col1 ref" href="#41vr" title='vr' data-ref="41vr">vr</a>[<var>1</var>];</td></tr>
+<tr><th id="311">311</th><td>	<a class="local col5 ref" href="#35m" title='m' data-ref="35m">m</a>[<var>2</var>][<var>0</var>] = <a class="local col1 ref" href="#41vr" title='vr' data-ref="41vr">vr</a>[<var>2</var>];</td></tr>
+<tr><th id="312">312</th><td></td></tr>
+<tr><th id="313">313</th><td>	<a class="local col5 ref" href="#35m" title='m' data-ref="35m">m</a>[<var>0</var>][<var>1</var>] = <a class="local col2 ref" href="#42vup" title='vup' data-ref="42vup">vup</a>[<var>0</var>];</td></tr>
+<tr><th id="314">314</th><td>	<a class="local col5 ref" href="#35m" title='m' data-ref="35m">m</a>[<var>1</var>][<var>1</var>] = <a class="local col2 ref" href="#42vup" title='vup' data-ref="42vup">vup</a>[<var>1</var>];</td></tr>
+<tr><th id="315">315</th><td>	<a class="local col5 ref" href="#35m" title='m' data-ref="35m">m</a>[<var>2</var>][<var>1</var>] = <a class="local col2 ref" href="#42vup" title='vup' data-ref="42vup">vup</a>[<var>2</var>];</td></tr>
+<tr><th id="316">316</th><td></td></tr>
+<tr><th id="317">317</th><td>	<a class="local col5 ref" href="#35m" title='m' data-ref="35m">m</a>[<var>0</var>][<var>2</var>] = <a class="local col3 ref" href="#43vf" title='vf' data-ref="43vf">vf</a>[<var>0</var>];</td></tr>
+<tr><th id="318">318</th><td>	<a class="local col5 ref" href="#35m" title='m' data-ref="35m">m</a>[<var>1</var>][<var>2</var>] = <a class="local col3 ref" href="#43vf" title='vf' data-ref="43vf">vf</a>[<var>1</var>];</td></tr>
+<tr><th id="319">319</th><td>	<a class="local col5 ref" href="#35m" title='m' data-ref="35m">m</a>[<var>2</var>][<var>2</var>] = <a class="local col3 ref" href="#43vf" title='vf' data-ref="43vf">vf</a>[<var>2</var>];</td></tr>
+<tr><th id="320">320</th><td></td></tr>
+<tr><th id="321">321</th><td>	<a class="ref" href="../../../include/string.h.html#memcpy" title='memcpy' data-ref="memcpy">memcpy</a>( <a class="local col6 ref" href="#36im" title='im' data-ref="36im">im</a>, <a class="local col5 ref" href="#35m" title='m' data-ref="35m">m</a>, <b>sizeof</b>( <a class="local col6 ref" href="#36im" title='im' data-ref="36im">im</a> ) );</td></tr>
+<tr><th id="322">322</th><td></td></tr>
+<tr><th id="323">323</th><td>	<a class="local col6 ref" href="#36im" title='im' data-ref="36im">im</a>[<var>0</var>][<var>1</var>] = <a class="local col5 ref" href="#35m" title='m' data-ref="35m">m</a>[<var>1</var>][<var>0</var>];</td></tr>
+<tr><th id="324">324</th><td>	<a class="local col6 ref" href="#36im" title='im' data-ref="36im">im</a>[<var>0</var>][<var>2</var>] = <a class="local col5 ref" href="#35m" title='m' data-ref="35m">m</a>[<var>2</var>][<var>0</var>];</td></tr>
+<tr><th id="325">325</th><td>	<a class="local col6 ref" href="#36im" title='im' data-ref="36im">im</a>[<var>1</var>][<var>0</var>] = <a class="local col5 ref" href="#35m" title='m' data-ref="35m">m</a>[<var>0</var>][<var>1</var>];</td></tr>
+<tr><th id="326">326</th><td>	<a class="local col6 ref" href="#36im" title='im' data-ref="36im">im</a>[<var>1</var>][<var>2</var>] = <a class="local col5 ref" href="#35m" title='m' data-ref="35m">m</a>[<var>2</var>][<var>1</var>];</td></tr>
+<tr><th id="327">327</th><td>	<a class="local col6 ref" href="#36im" title='im' data-ref="36im">im</a>[<var>2</var>][<var>0</var>] = <a class="local col5 ref" href="#35m" title='m' data-ref="35m">m</a>[<var>0</var>][<var>2</var>];</td></tr>
+<tr><th id="328">328</th><td>	<a class="local col6 ref" href="#36im" title='im' data-ref="36im">im</a>[<var>2</var>][<var>1</var>] = <a class="local col5 ref" href="#35m" title='m' data-ref="35m">m</a>[<var>1</var>][<var>2</var>];</td></tr>
+<tr><th id="329">329</th><td></td></tr>
+<tr><th id="330">330</th><td>	<a class="ref" href="../../../include/string.h.html#memset" title='memset' data-ref="memset">memset</a>( <a class="local col7 ref" href="#37zrot" title='zrot' data-ref="37zrot">zrot</a>, <var>0</var>, <b>sizeof</b>( <a class="local col7 ref" href="#37zrot" title='zrot' data-ref="37zrot">zrot</a> ) );</td></tr>
+<tr><th id="331">331</th><td>	<a class="local col7 ref" href="#37zrot" title='zrot' data-ref="37zrot">zrot</a>[<var>0</var>][<var>0</var>] = <a class="local col7 ref" href="#37zrot" title='zrot' data-ref="37zrot">zrot</a>[<var>1</var>][<var>1</var>] = <a class="local col7 ref" href="#37zrot" title='zrot' data-ref="37zrot">zrot</a>[<var>2</var>][<var>2</var>] = <var>1.0F</var>;</td></tr>
+<tr><th id="332">332</th><td></td></tr>
+<tr><th id="333">333</th><td>	<a class="local col4 ref" href="#44rad" title='rad' data-ref="44rad">rad</a> = <a class="macro" href="q_shared.h.html#436" title="( ( (degrees) * 3.14159265358979323846 ) / 180.0F )" data-ref="_M/DEG2RAD">DEG2RAD</a>( <a class="local col4 ref" href="#34degrees" title='degrees' data-ref="34degrees">degrees</a> );</td></tr>
+<tr><th id="334">334</th><td>	<a class="local col7 ref" href="#37zrot" title='zrot' data-ref="37zrot">zrot</a>[<var>0</var>][<var>0</var>] = <a class="ref" href="../../../include/x86_64-linux-gnu/bits/mathcalls.h.html#63" title='cos' data-ref="cos">cos</a>( <a class="local col4 ref" href="#44rad" title='rad' data-ref="44rad">rad</a> );</td></tr>
+<tr><th id="335">335</th><td>	<a class="local col7 ref" href="#37zrot" title='zrot' data-ref="37zrot">zrot</a>[<var>0</var>][<var>1</var>] = <a class="ref" href="../../../include/x86_64-linux-gnu/bits/mathcalls.h.html#65" title='sin' data-ref="sin">sin</a>( <a class="local col4 ref" href="#44rad" title='rad' data-ref="44rad">rad</a> );</td></tr>
+<tr><th id="336">336</th><td>	<a class="local col7 ref" href="#37zrot" title='zrot' data-ref="37zrot">zrot</a>[<var>1</var>][<var>0</var>] = -<a class="ref" href="../../../include/x86_64-linux-gnu/bits/mathcalls.h.html#65" title='sin' data-ref="sin">sin</a>( <a class="local col4 ref" href="#44rad" title='rad' data-ref="44rad">rad</a> );</td></tr>
+<tr><th id="337">337</th><td>	<a class="local col7 ref" href="#37zrot" title='zrot' data-ref="37zrot">zrot</a>[<var>1</var>][<var>1</var>] = <a class="ref" href="../../../include/x86_64-linux-gnu/bits/mathcalls.h.html#63" title='cos' data-ref="cos">cos</a>( <a class="local col4 ref" href="#44rad" title='rad' data-ref="44rad">rad</a> );</td></tr>
+<tr><th id="338">338</th><td></td></tr>
+<tr><th id="339">339</th><td>	<a class="ref" href="#MatrixMultiply" title='MatrixMultiply' data-ref="MatrixMultiply">MatrixMultiply</a>( <a class="local col5 ref" href="#35m" title='m' data-ref="35m">m</a>, <a class="local col7 ref" href="#37zrot" title='zrot' data-ref="37zrot">zrot</a>, <a class="local col8 ref" href="#38tmpmat" title='tmpmat' data-ref="38tmpmat">tmpmat</a> );</td></tr>
+<tr><th id="340">340</th><td>	<a class="ref" href="#MatrixMultiply" title='MatrixMultiply' data-ref="MatrixMultiply">MatrixMultiply</a>( <a class="local col8 ref" href="#38tmpmat" title='tmpmat' data-ref="38tmpmat">tmpmat</a>, <a class="local col6 ref" href="#36im" title='im' data-ref="36im">im</a>, <a class="local col9 ref" href="#39rot" title='rot' data-ref="39rot">rot</a> );</td></tr>
+<tr><th id="341">341</th><td></td></tr>
+<tr><th id="342">342</th><td>	<b>for</b> ( <a class="local col0 ref" href="#40i" title='i' data-ref="40i">i</a> = <var>0</var>; <a class="local col0 ref" href="#40i" title='i' data-ref="40i">i</a> &lt; <var>3</var>; <a class="local col0 ref" href="#40i" title='i' data-ref="40i">i</a>++ ) {</td></tr>
+<tr><th id="343">343</th><td>		<a class="local col1 ref" href="#31dst" title='dst' data-ref="31dst">dst</a>[<a class="local col0 ref" href="#40i" title='i' data-ref="40i">i</a>] = <a class="local col9 ref" href="#39rot" title='rot' data-ref="39rot">rot</a>[<a class="local col0 ref" href="#40i" title='i' data-ref="40i">i</a>][<var>0</var>] * <a class="local col3 ref" href="#33point" title='point' data-ref="33point">point</a>[<var>0</var>] + <a class="local col9 ref" href="#39rot" title='rot' data-ref="39rot">rot</a>[<a class="local col0 ref" href="#40i" title='i' data-ref="40i">i</a>][<var>1</var>] * <a class="local col3 ref" href="#33point" title='point' data-ref="33point">point</a>[<var>1</var>] + <a class="local col9 ref" href="#39rot" title='rot' data-ref="39rot">rot</a>[<a class="local col0 ref" href="#40i" title='i' data-ref="40i">i</a>][<var>2</var>] * <a class="local col3 ref" href="#33point" title='point' data-ref="33point">point</a>[<var>2</var>];</td></tr>
+<tr><th id="344">344</th><td>	}</td></tr>
+<tr><th id="345">345</th><td>}</td></tr>
+<tr><th id="346">346</th><td></td></tr>
+<tr><th id="347">347</th><td><i>/*</i></td></tr>
+<tr><th id="348">348</th><td><i>===============</i></td></tr>
+<tr><th id="349">349</th><td><i>RotateAroundDirection</i></td></tr>
+<tr><th id="350">350</th><td><i>===============</i></td></tr>
+<tr><th id="351">351</th><td><i>*/</i></td></tr>
+<tr><th id="352">352</th><td><em>void</em> <dfn class="decl def" id="RotateAroundDirection" title='RotateAroundDirection' data-ref="RotateAroundDirection">RotateAroundDirection</dfn>( <a class="typedef" href="q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="local col5 decl" id="45axis" title='axis' data-type='vec3_t *' data-ref="45axis">axis</dfn>[<var>3</var>], <em>float</em> <dfn class="local col6 decl" id="46yaw" title='yaw' data-type='float' data-ref="46yaw">yaw</dfn> ) {</td></tr>
+<tr><th id="353">353</th><td></td></tr>
+<tr><th id="354">354</th><td>	<i>// create an arbitrary axis[1] </i></td></tr>
+<tr><th id="355">355</th><td>	<a class="ref" href="#PerpendicularVector" title='PerpendicularVector' data-ref="PerpendicularVector">PerpendicularVector</a>( <a class="local col5 ref" href="#45axis" title='axis' data-ref="45axis">axis</a>[<var>1</var>], <a class="local col5 ref" href="#45axis" title='axis' data-ref="45axis">axis</a>[<var>0</var>] );</td></tr>
+<tr><th id="356">356</th><td></td></tr>
+<tr><th id="357">357</th><td>	<i>// rotate it around axis[0] by yaw</i></td></tr>
+<tr><th id="358">358</th><td>	<b>if</b> ( <a class="local col6 ref" href="#46yaw" title='yaw' data-ref="46yaw">yaw</a> ) {</td></tr>
+<tr><th id="359">359</th><td>		<a class="typedef" href="q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a>	<dfn class="local col7 decl" id="47temp" title='temp' data-type='vec3_t' data-ref="47temp">temp</dfn>;</td></tr>
+<tr><th id="360">360</th><td></td></tr>
+<tr><th id="361">361</th><td>		<a class="macro" href="q_shared.h.html#545" title="((temp)[0]=(axis[1])[0],(temp)[1]=(axis[1])[1],(temp)[2]=(axis[1])[2])" data-ref="_M/VectorCopy">VectorCopy</a>( <a class="local col5 ref" href="#45axis" title='axis' data-ref="45axis">axis</a>[<var>1</var>], <a class="local col7 ref" href="#47temp" title='temp' data-ref="47temp">temp</a> );</td></tr>
+<tr><th id="362">362</th><td>		<a class="ref" href="#RotatePointAroundVector" title='RotatePointAroundVector' data-ref="RotatePointAroundVector">RotatePointAroundVector</a>( <a class="local col5 ref" href="#45axis" title='axis' data-ref="45axis">axis</a>[<var>1</var>], <a class="local col5 ref" href="#45axis" title='axis' data-ref="45axis">axis</a>[<var>0</var>], <a class="local col7 ref" href="#47temp" title='temp' data-ref="47temp">temp</a>, <a class="local col6 ref" href="#46yaw" title='yaw' data-ref="46yaw">yaw</a> );</td></tr>
+<tr><th id="363">363</th><td>	}</td></tr>
+<tr><th id="364">364</th><td></td></tr>
+<tr><th id="365">365</th><td>	<i>// cross to get axis[2]</i></td></tr>
+<tr><th id="366">366</th><td>	<a class="ref" href="q_shared.h.html#CrossProduct" title='CrossProduct' data-ref="CrossProduct">CrossProduct</a>( <a class="local col5 ref" href="#45axis" title='axis' data-ref="45axis">axis</a>[<var>0</var>], <a class="local col5 ref" href="#45axis" title='axis' data-ref="45axis">axis</a>[<var>1</var>], <a class="local col5 ref" href="#45axis" title='axis' data-ref="45axis">axis</a>[<var>2</var>] );</td></tr>
+<tr><th id="367">367</th><td>}</td></tr>
+<tr><th id="368">368</th><td></td></tr>
+<tr><th id="369">369</th><td></td></tr>
+<tr><th id="370">370</th><td></td></tr>
+<tr><th id="371">371</th><td><em>void</em> <dfn class="decl def" id="vectoangles" title='vectoangles' data-ref="vectoangles">vectoangles</dfn>( <em>const</em> <a class="typedef" href="q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="local col8 decl" id="48value1" title='value1' data-type='const vec_t *' data-ref="48value1">value1</dfn>, <a class="typedef" href="q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="local col9 decl" id="49angles" title='angles' data-type='vec_t *' data-ref="49angles">angles</dfn> ) {</td></tr>
+<tr><th id="372">372</th><td>	<em>float</em>	<dfn class="local col0 decl" id="50forward" title='forward' data-type='float' data-ref="50forward">forward</dfn>;</td></tr>
+<tr><th id="373">373</th><td>	<em>float</em>	<dfn class="local col1 decl" id="51yaw" title='yaw' data-type='float' data-ref="51yaw">yaw</dfn>, <dfn class="local col2 decl" id="52pitch" title='pitch' data-type='float' data-ref="52pitch">pitch</dfn>;</td></tr>
+<tr><th id="374">374</th><td>	</td></tr>
+<tr><th id="375">375</th><td>	<b>if</b> ( <a class="local col8 ref" href="#48value1" title='value1' data-ref="48value1">value1</a>[<var>1</var>] == <var>0</var> &amp;&amp; <a class="local col8 ref" href="#48value1" title='value1' data-ref="48value1">value1</a>[<var>0</var>] == <var>0</var> ) {</td></tr>
+<tr><th id="376">376</th><td>		<a class="local col1 ref" href="#51yaw" title='yaw' data-ref="51yaw">yaw</a> = <var>0</var>;</td></tr>
+<tr><th id="377">377</th><td>		<b>if</b> ( <a class="local col8 ref" href="#48value1" title='value1' data-ref="48value1">value1</a>[<var>2</var>] &gt; <var>0</var> ) {</td></tr>
+<tr><th id="378">378</th><td>			<a class="local col2 ref" href="#52pitch" title='pitch' data-ref="52pitch">pitch</a> = <var>90</var>;</td></tr>
+<tr><th id="379">379</th><td>		}</td></tr>
+<tr><th id="380">380</th><td>		<b>else</b> {</td></tr>
+<tr><th id="381">381</th><td>			<a class="local col2 ref" href="#52pitch" title='pitch' data-ref="52pitch">pitch</a> = <var>270</var>;</td></tr>
+<tr><th id="382">382</th><td>		}</td></tr>
+<tr><th id="383">383</th><td>	}</td></tr>
+<tr><th id="384">384</th><td>	<b>else</b> {</td></tr>
+<tr><th id="385">385</th><td>		<b>if</b> ( <a class="local col8 ref" href="#48value1" title='value1' data-ref="48value1">value1</a>[<var>0</var>] ) {</td></tr>
+<tr><th id="386">386</th><td>			<a class="local col1 ref" href="#51yaw" title='yaw' data-ref="51yaw">yaw</a> = ( <a class="ref" href="../../../include/x86_64-linux-gnu/bits/mathcalls.h.html#60" title='atan2' data-ref="__atan2_finite">atan2</a> ( <a class="local col8 ref" href="#48value1" title='value1' data-ref="48value1">value1</a>[<var>1</var>], <a class="local col8 ref" href="#48value1" title='value1' data-ref="48value1">value1</a>[<var>0</var>] ) * <var>180</var> / <a class="macro" href="../../../include/math.h.html#418" title="3.14159265358979323846" data-ref="_M/M_PI">M_PI</a> );</td></tr>
+<tr><th id="387">387</th><td>		}</td></tr>
+<tr><th id="388">388</th><td>		<b>else</b> <b>if</b> ( <a class="local col8 ref" href="#48value1" title='value1' data-ref="48value1">value1</a>[<var>1</var>] &gt; <var>0</var> ) {</td></tr>
+<tr><th id="389">389</th><td>			<a class="local col1 ref" href="#51yaw" title='yaw' data-ref="51yaw">yaw</a> = <var>90</var>;</td></tr>
+<tr><th id="390">390</th><td>		}</td></tr>
+<tr><th id="391">391</th><td>		<b>else</b> {</td></tr>
+<tr><th id="392">392</th><td>			<a class="local col1 ref" href="#51yaw" title='yaw' data-ref="51yaw">yaw</a> = <var>270</var>;</td></tr>
+<tr><th id="393">393</th><td>		}</td></tr>
+<tr><th id="394">394</th><td>		<b>if</b> ( <a class="local col1 ref" href="#51yaw" title='yaw' data-ref="51yaw">yaw</a> &lt; <var>0</var> ) {</td></tr>
+<tr><th id="395">395</th><td>			<a class="local col1 ref" href="#51yaw" title='yaw' data-ref="51yaw">yaw</a> += <var>360</var>;</td></tr>
+<tr><th id="396">396</th><td>		}</td></tr>
+<tr><th id="397">397</th><td></td></tr>
+<tr><th id="398">398</th><td>		<a class="local col0 ref" href="#50forward" title='forward' data-ref="50forward">forward</a> = <a class="ref" href="../../../include/x86_64-linux-gnu/bits/mathcalls.h.html#156" title='sqrt' data-ref="__sqrt_finite">sqrt</a> ( <a class="local col8 ref" href="#48value1" title='value1' data-ref="48value1">value1</a>[<var>0</var>]*<a class="local col8 ref" href="#48value1" title='value1' data-ref="48value1">value1</a>[<var>0</var>] + <a class="local col8 ref" href="#48value1" title='value1' data-ref="48value1">value1</a>[<var>1</var>]*<a class="local col8 ref" href="#48value1" title='value1' data-ref="48value1">value1</a>[<var>1</var>] );</td></tr>
+<tr><th id="399">399</th><td>		<a class="local col2 ref" href="#52pitch" title='pitch' data-ref="52pitch">pitch</a> = ( <a class="ref" href="../../../include/x86_64-linux-gnu/bits/mathcalls.h.html#60" title='atan2' data-ref="__atan2_finite">atan2</a>(<a class="local col8 ref" href="#48value1" title='value1' data-ref="48value1">value1</a>[<var>2</var>], <a class="local col0 ref" href="#50forward" title='forward' data-ref="50forward">forward</a>) * <var>180</var> / <a class="macro" href="../../../include/math.h.html#418" title="3.14159265358979323846" data-ref="_M/M_PI">M_PI</a> );</td></tr>
+<tr><th id="400">400</th><td>		<b>if</b> ( <a class="local col2 ref" href="#52pitch" title='pitch' data-ref="52pitch">pitch</a> &lt; <var>0</var> ) {</td></tr>
+<tr><th id="401">401</th><td>			<a class="local col2 ref" href="#52pitch" title='pitch' data-ref="52pitch">pitch</a> += <var>360</var>;</td></tr>
+<tr><th id="402">402</th><td>		}</td></tr>
+<tr><th id="403">403</th><td>	}</td></tr>
+<tr><th id="404">404</th><td></td></tr>
+<tr><th id="405">405</th><td>	<a class="local col9 ref" href="#49angles" title='angles' data-ref="49angles">angles</a>[<a class="macro" href="q_shared.h.html#237" title="0" data-ref="_M/PITCH">PITCH</a>] = -<a class="local col2 ref" href="#52pitch" title='pitch' data-ref="52pitch">pitch</a>;</td></tr>
+<tr><th id="406">406</th><td>	<a class="local col9 ref" href="#49angles" title='angles' data-ref="49angles">angles</a>[<a class="macro" href="q_shared.h.html#238" title="1" data-ref="_M/YAW">YAW</a>] = <a class="local col1 ref" href="#51yaw" title='yaw' data-ref="51yaw">yaw</a>;</td></tr>
+<tr><th id="407">407</th><td>	<a class="local col9 ref" href="#49angles" title='angles' data-ref="49angles">angles</a>[<a class="macro" href="q_shared.h.html#239" title="2" data-ref="_M/ROLL">ROLL</a>] = <var>0</var>;</td></tr>
+<tr><th id="408">408</th><td>}</td></tr>
+<tr><th id="409">409</th><td></td></tr>
+<tr><th id="410">410</th><td></td></tr>
+<tr><th id="411">411</th><td><i>/*</i></td></tr>
+<tr><th id="412">412</th><td><i>=================</i></td></tr>
+<tr><th id="413">413</th><td><i>AnglesToAxis</i></td></tr>
+<tr><th id="414">414</th><td><i>=================</i></td></tr>
+<tr><th id="415">415</th><td><i>*/</i></td></tr>
+<tr><th id="416">416</th><td><em>void</em> <dfn class="decl def" id="AnglesToAxis" title='AnglesToAxis' data-ref="AnglesToAxis">AnglesToAxis</dfn>( <em>const</em> <a class="typedef" href="q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="local col3 decl" id="53angles" title='angles' data-type='const vec_t *' data-ref="53angles">angles</dfn>, <a class="typedef" href="q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="local col4 decl" id="54axis" title='axis' data-type='vec3_t *' data-ref="54axis">axis</dfn>[<var>3</var>] ) {</td></tr>
+<tr><th id="417">417</th><td>	<a class="typedef" href="q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a>	<dfn class="local col5 decl" id="55right" title='right' data-type='vec3_t' data-ref="55right">right</dfn>;</td></tr>
+<tr><th id="418">418</th><td></td></tr>
+<tr><th id="419">419</th><td>	<i>// angle vectors returns "right" instead of "y axis"</i></td></tr>
+<tr><th id="420">420</th><td>	<a class="ref" href="#AngleVectors" title='AngleVectors' data-ref="AngleVectors">AngleVectors</a>( <a class="local col3 ref" href="#53angles" title='angles' data-ref="53angles">angles</a>, <a class="local col4 ref" href="#54axis" title='axis' data-ref="54axis">axis</a>[<var>0</var>], <a class="local col5 ref" href="#55right" title='right' data-ref="55right">right</a>, <a class="local col4 ref" href="#54axis" title='axis' data-ref="54axis">axis</a>[<var>2</var>] );</td></tr>
+<tr><th id="421">421</th><td>	<a class="macro" href="q_shared.h.html#543" title="((axis[1])[0]=(vec3_origin)[0]-(right)[0],(axis[1])[1]=(vec3_origin)[1]-(right)[1],(axis[1])[2]=(vec3_origin)[2]-(right)[2])" data-ref="_M/VectorSubtract">VectorSubtract</a>( <a class="ref" href="q_shared.h.html#vec3_origin" title='vec3_origin' data-ref="vec3_origin">vec3_origin</a>, <a class="local col5 ref" href="#55right" title='right' data-ref="55right">right</a>, <a class="local col4 ref" href="#54axis" title='axis' data-ref="54axis">axis</a>[<var>1</var>] );</td></tr>
+<tr><th id="422">422</th><td>}</td></tr>
+<tr><th id="423">423</th><td></td></tr>
+<tr><th id="424">424</th><td><em>void</em> <dfn class="decl def" id="AxisClear" title='AxisClear' data-ref="AxisClear">AxisClear</dfn>( <a class="typedef" href="q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="local col6 decl" id="56axis" title='axis' data-type='vec3_t *' data-ref="56axis">axis</dfn>[<var>3</var>] ) {</td></tr>
+<tr><th id="425">425</th><td>	<a class="local col6 ref" href="#56axis" title='axis' data-ref="56axis">axis</a>[<var>0</var>][<var>0</var>] = <var>1</var>;</td></tr>
+<tr><th id="426">426</th><td>	<a class="local col6 ref" href="#56axis" title='axis' data-ref="56axis">axis</a>[<var>0</var>][<var>1</var>] = <var>0</var>;</td></tr>
+<tr><th id="427">427</th><td>	<a class="local col6 ref" href="#56axis" title='axis' data-ref="56axis">axis</a>[<var>0</var>][<var>2</var>] = <var>0</var>;</td></tr>
+<tr><th id="428">428</th><td>	<a class="local col6 ref" href="#56axis" title='axis' data-ref="56axis">axis</a>[<var>1</var>][<var>0</var>] = <var>0</var>;</td></tr>
+<tr><th id="429">429</th><td>	<a class="local col6 ref" href="#56axis" title='axis' data-ref="56axis">axis</a>[<var>1</var>][<var>1</var>] = <var>1</var>;</td></tr>
+<tr><th id="430">430</th><td>	<a class="local col6 ref" href="#56axis" title='axis' data-ref="56axis">axis</a>[<var>1</var>][<var>2</var>] = <var>0</var>;</td></tr>
+<tr><th id="431">431</th><td>	<a class="local col6 ref" href="#56axis" title='axis' data-ref="56axis">axis</a>[<var>2</var>][<var>0</var>] = <var>0</var>;</td></tr>
+<tr><th id="432">432</th><td>	<a class="local col6 ref" href="#56axis" title='axis' data-ref="56axis">axis</a>[<var>2</var>][<var>1</var>] = <var>0</var>;</td></tr>
+<tr><th id="433">433</th><td>	<a class="local col6 ref" href="#56axis" title='axis' data-ref="56axis">axis</a>[<var>2</var>][<var>2</var>] = <var>1</var>;</td></tr>
+<tr><th id="434">434</th><td>}</td></tr>
+<tr><th id="435">435</th><td></td></tr>
+<tr><th id="436">436</th><td><em>void</em> <dfn class="decl def" id="AxisCopy" title='AxisCopy' data-ref="AxisCopy">AxisCopy</dfn>( <a class="typedef" href="q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="local col7 decl" id="57in" title='in' data-type='vec3_t *' data-ref="57in">in</dfn>[<var>3</var>], <a class="typedef" href="q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="local col8 decl" id="58out" title='out' data-type='vec3_t *' data-ref="58out">out</dfn>[<var>3</var>] ) {</td></tr>
+<tr><th id="437">437</th><td>	<a class="macro" href="q_shared.h.html#545" title="((out[0])[0]=(in[0])[0],(out[0])[1]=(in[0])[1],(out[0])[2]=(in[0])[2])" data-ref="_M/VectorCopy">VectorCopy</a>( <a class="local col7 ref" href="#57in" title='in' data-ref="57in">in</a>[<var>0</var>], <a class="local col8 ref" href="#58out" title='out' data-ref="58out">out</a>[<var>0</var>] );</td></tr>
+<tr><th id="438">438</th><td>	<a class="macro" href="q_shared.h.html#545" title="((out[1])[0]=(in[1])[0],(out[1])[1]=(in[1])[1],(out[1])[2]=(in[1])[2])" data-ref="_M/VectorCopy">VectorCopy</a>( <a class="local col7 ref" href="#57in" title='in' data-ref="57in">in</a>[<var>1</var>], <a class="local col8 ref" href="#58out" title='out' data-ref="58out">out</a>[<var>1</var>] );</td></tr>
+<tr><th id="439">439</th><td>	<a class="macro" href="q_shared.h.html#545" title="((out[2])[0]=(in[2])[0],(out[2])[1]=(in[2])[1],(out[2])[2]=(in[2])[2])" data-ref="_M/VectorCopy">VectorCopy</a>( <a class="local col7 ref" href="#57in" title='in' data-ref="57in">in</a>[<var>2</var>], <a class="local col8 ref" href="#58out" title='out' data-ref="58out">out</a>[<var>2</var>] );</td></tr>
+<tr><th id="440">440</th><td>}</td></tr>
+<tr><th id="441">441</th><td></td></tr>
+<tr><th id="442">442</th><td><em>void</em> <dfn class="decl def" id="ProjectPointOnPlane" title='ProjectPointOnPlane' data-ref="ProjectPointOnPlane">ProjectPointOnPlane</dfn>( <a class="typedef" href="q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="local col9 decl" id="59dst" title='dst' data-type='vec_t *' data-ref="59dst">dst</dfn>, <em>const</em> <a class="typedef" href="q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="local col0 decl" id="60p" title='p' data-type='const vec_t *' data-ref="60p">p</dfn>, <em>const</em> <a class="typedef" href="q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="local col1 decl" id="61normal" title='normal' data-type='const vec_t *' data-ref="61normal">normal</dfn> )</td></tr>
+<tr><th id="443">443</th><td>{</td></tr>
+<tr><th id="444">444</th><td>	<em>float</em> <dfn class="local col2 decl" id="62d" title='d' data-type='float' data-ref="62d">d</dfn>;</td></tr>
+<tr><th id="445">445</th><td>	<a class="typedef" href="q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="local col3 decl" id="63n" title='n' data-type='vec3_t' data-ref="63n">n</dfn>;</td></tr>
+<tr><th id="446">446</th><td>	<em>float</em> <dfn class="local col4 decl" id="64inv_denom" title='inv_denom' data-type='float' data-ref="64inv_denom">inv_denom</dfn>;</td></tr>
+<tr><th id="447">447</th><td></td></tr>
+<tr><th id="448">448</th><td>	<a class="local col4 ref" href="#64inv_denom" title='inv_denom' data-ref="64inv_denom">inv_denom</a> =  <a class="macro" href="q_shared.h.html#542" title="((normal)[0]*(normal)[0]+(normal)[1]*(normal)[1]+(normal)[2]*(normal)[2])" data-ref="_M/DotProduct">DotProduct</a>( <a class="local col1 ref" href="#61normal" title='normal' data-ref="61normal">normal</a>, <a class="local col1 ref" href="#61normal" title='normal' data-ref="61normal">normal</a> );</td></tr>
+<tr><th id="449">449</th><td><u>#<span data-ppcond="449">ifndef</span> <span class="macro" data-ref="_M/Q3_VM">Q3_VM</span></u></td></tr>
+<tr><th id="450">450</th><td>	<a class="macro" href="../../../include/assert.h.html#50" title="((void) (0))" data-ref="_M/assert">assert</a>( Q_fabs(inv_denom) != <var>0.0f</var> ); <i>// zero vectors get here</i></td></tr>
+<tr><th id="451">451</th><td><u>#<span data-ppcond="449">endif</span></u></td></tr>
+<tr><th id="452">452</th><td>	<a class="local col4 ref" href="#64inv_denom" title='inv_denom' data-ref="64inv_denom">inv_denom</a> = <var>1.0f</var> / <a class="local col4 ref" href="#64inv_denom" title='inv_denom' data-ref="64inv_denom">inv_denom</a>;</td></tr>
+<tr><th id="453">453</th><td></td></tr>
+<tr><th id="454">454</th><td>	<a class="local col2 ref" href="#62d" title='d' data-ref="62d">d</a> = <a class="macro" href="q_shared.h.html#542" title="((normal)[0]*(p)[0]+(normal)[1]*(p)[1]+(normal)[2]*(p)[2])" data-ref="_M/DotProduct">DotProduct</a>( <a class="local col1 ref" href="#61normal" title='normal' data-ref="61normal">normal</a>, <a class="local col0 ref" href="#60p" title='p' data-ref="60p">p</a> ) * <a class="local col4 ref" href="#64inv_denom" title='inv_denom' data-ref="64inv_denom">inv_denom</a>;</td></tr>
+<tr><th id="455">455</th><td></td></tr>
+<tr><th id="456">456</th><td>	<a class="local col3 ref" href="#63n" title='n' data-ref="63n">n</a>[<var>0</var>] = <a class="local col1 ref" href="#61normal" title='normal' data-ref="61normal">normal</a>[<var>0</var>] * <a class="local col4 ref" href="#64inv_denom" title='inv_denom' data-ref="64inv_denom">inv_denom</a>;</td></tr>
+<tr><th id="457">457</th><td>	<a class="local col3 ref" href="#63n" title='n' data-ref="63n">n</a>[<var>1</var>] = <a class="local col1 ref" href="#61normal" title='normal' data-ref="61normal">normal</a>[<var>1</var>] * <a class="local col4 ref" href="#64inv_denom" title='inv_denom' data-ref="64inv_denom">inv_denom</a>;</td></tr>
+<tr><th id="458">458</th><td>	<a class="local col3 ref" href="#63n" title='n' data-ref="63n">n</a>[<var>2</var>] = <a class="local col1 ref" href="#61normal" title='normal' data-ref="61normal">normal</a>[<var>2</var>] * <a class="local col4 ref" href="#64inv_denom" title='inv_denom' data-ref="64inv_denom">inv_denom</a>;</td></tr>
+<tr><th id="459">459</th><td></td></tr>
+<tr><th id="460">460</th><td>	<a class="local col9 ref" href="#59dst" title='dst' data-ref="59dst">dst</a>[<var>0</var>] = <a class="local col0 ref" href="#60p" title='p' data-ref="60p">p</a>[<var>0</var>] - <a class="local col2 ref" href="#62d" title='d' data-ref="62d">d</a> * <a class="local col3 ref" href="#63n" title='n' data-ref="63n">n</a>[<var>0</var>];</td></tr>
+<tr><th id="461">461</th><td>	<a class="local col9 ref" href="#59dst" title='dst' data-ref="59dst">dst</a>[<var>1</var>] = <a class="local col0 ref" href="#60p" title='p' data-ref="60p">p</a>[<var>1</var>] - <a class="local col2 ref" href="#62d" title='d' data-ref="62d">d</a> * <a class="local col3 ref" href="#63n" title='n' data-ref="63n">n</a>[<var>1</var>];</td></tr>
+<tr><th id="462">462</th><td>	<a class="local col9 ref" href="#59dst" title='dst' data-ref="59dst">dst</a>[<var>2</var>] = <a class="local col0 ref" href="#60p" title='p' data-ref="60p">p</a>[<var>2</var>] - <a class="local col2 ref" href="#62d" title='d' data-ref="62d">d</a> * <a class="local col3 ref" href="#63n" title='n' data-ref="63n">n</a>[<var>2</var>];</td></tr>
+<tr><th id="463">463</th><td>}</td></tr>
+<tr><th id="464">464</th><td></td></tr>
+<tr><th id="465">465</th><td><i>/*</i></td></tr>
+<tr><th id="466">466</th><td><i>================</i></td></tr>
+<tr><th id="467">467</th><td><i>MakeNormalVectors</i></td></tr>
+<tr><th id="468">468</th><td><i></i></td></tr>
+<tr><th id="469">469</th><td><i>Given a normalized forward vector, create two</i></td></tr>
+<tr><th id="470">470</th><td><i>other perpendicular vectors</i></td></tr>
+<tr><th id="471">471</th><td><i>================</i></td></tr>
+<tr><th id="472">472</th><td><i>*/</i></td></tr>
+<tr><th id="473">473</th><td><em>void</em> <dfn class="decl def" id="MakeNormalVectors" title='MakeNormalVectors' data-ref="MakeNormalVectors">MakeNormalVectors</dfn>( <em>const</em> <a class="typedef" href="q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="local col5 decl" id="65forward" title='forward' data-type='const vec_t *' data-ref="65forward">forward</dfn>, <a class="typedef" href="q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="local col6 decl" id="66right" title='right' data-type='vec_t *' data-ref="66right">right</dfn>, <a class="typedef" href="q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="local col7 decl" id="67up" title='up' data-type='vec_t *' data-ref="67up">up</dfn>) {</td></tr>
+<tr><th id="474">474</th><td>	<em>float</em>		<dfn class="local col8 decl" id="68d" title='d' data-type='float' data-ref="68d">d</dfn>;</td></tr>
+<tr><th id="475">475</th><td></td></tr>
+<tr><th id="476">476</th><td>	<i>// this rotate and negate guarantees a vector</i></td></tr>
+<tr><th id="477">477</th><td><i>	// not colinear with the original</i></td></tr>
+<tr><th id="478">478</th><td>	<a class="local col6 ref" href="#66right" title='right' data-ref="66right">right</a>[<var>1</var>] = -<a class="local col5 ref" href="#65forward" title='forward' data-ref="65forward">forward</a>[<var>0</var>];</td></tr>
+<tr><th id="479">479</th><td>	<a class="local col6 ref" href="#66right" title='right' data-ref="66right">right</a>[<var>2</var>] = <a class="local col5 ref" href="#65forward" title='forward' data-ref="65forward">forward</a>[<var>1</var>];</td></tr>
+<tr><th id="480">480</th><td>	<a class="local col6 ref" href="#66right" title='right' data-ref="66right">right</a>[<var>0</var>] = <a class="local col5 ref" href="#65forward" title='forward' data-ref="65forward">forward</a>[<var>2</var>];</td></tr>
+<tr><th id="481">481</th><td></td></tr>
+<tr><th id="482">482</th><td>	<a class="local col8 ref" href="#68d" title='d' data-ref="68d">d</a> = <a class="macro" href="q_shared.h.html#542" title="((right)[0]*(forward)[0]+(right)[1]*(forward)[1]+(right)[2]*(forward)[2])" data-ref="_M/DotProduct">DotProduct</a> (<a class="local col6 ref" href="#66right" title='right' data-ref="66right">right</a>, <a class="local col5 ref" href="#65forward" title='forward' data-ref="65forward">forward</a>);</td></tr>
+<tr><th id="483">483</th><td>	<a class="macro" href="q_shared.h.html#547" title="((right)[0]=(right)[0]+(forward)[0]*(-d),(right)[1]=(right)[1]+(forward)[1]*(-d),(right)[2]=(right)[2]+(forward)[2]*(-d))" data-ref="_M/VectorMA">VectorMA</a> (<a class="local col6 ref" href="#66right" title='right' data-ref="66right">right</a>, -<a class="local col8 ref" href="#68d" title='d' data-ref="68d">d</a>, <a class="local col5 ref" href="#65forward" title='forward' data-ref="65forward">forward</a>, <a class="local col6 ref" href="#66right" title='right' data-ref="66right">right</a>);</td></tr>
+<tr><th id="484">484</th><td>	<a class="ref" href="#VectorNormalize" title='VectorNormalize' data-ref="VectorNormalize">VectorNormalize</a> (<a class="local col6 ref" href="#66right" title='right' data-ref="66right">right</a>);</td></tr>
+<tr><th id="485">485</th><td>	<a class="ref" href="q_shared.h.html#CrossProduct" title='CrossProduct' data-ref="CrossProduct">CrossProduct</a> (<a class="local col6 ref" href="#66right" title='right' data-ref="66right">right</a>, <a class="local col5 ref" href="#65forward" title='forward' data-ref="65forward">forward</a>, <a class="local col7 ref" href="#67up" title='up' data-ref="67up">up</a>);</td></tr>
+<tr><th id="486">486</th><td>}</td></tr>
+<tr><th id="487">487</th><td></td></tr>
+<tr><th id="488">488</th><td></td></tr>
+<tr><th id="489">489</th><td><em>void</em> <dfn class="decl def" id="VectorRotate" title='VectorRotate' data-ref="VectorRotate">VectorRotate</dfn>( <a class="typedef" href="q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="local col9 decl" id="69in" title='in' data-type='vec_t *' data-ref="69in">in</dfn>, <a class="typedef" href="q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="local col0 decl" id="70matrix" title='matrix' data-type='vec3_t *' data-ref="70matrix">matrix</dfn>[<var>3</var>], <a class="typedef" href="q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="local col1 decl" id="71out" title='out' data-type='vec_t *' data-ref="71out">out</dfn> )</td></tr>
+<tr><th id="490">490</th><td>{</td></tr>
+<tr><th id="491">491</th><td>	<a class="local col1 ref" href="#71out" title='out' data-ref="71out">out</a>[<var>0</var>] = <a class="macro" href="q_shared.h.html#542" title="((in)[0]*(matrix[0])[0]+(in)[1]*(matrix[0])[1]+(in)[2]*(matrix[0])[2])" data-ref="_M/DotProduct">DotProduct</a>( <a class="local col9 ref" href="#69in" title='in' data-ref="69in">in</a>, <a class="local col0 ref" href="#70matrix" title='matrix' data-ref="70matrix">matrix</a>[<var>0</var>] );</td></tr>
+<tr><th id="492">492</th><td>	<a class="local col1 ref" href="#71out" title='out' data-ref="71out">out</a>[<var>1</var>] = <a class="macro" href="q_shared.h.html#542" title="((in)[0]*(matrix[1])[0]+(in)[1]*(matrix[1])[1]+(in)[2]*(matrix[1])[2])" data-ref="_M/DotProduct">DotProduct</a>( <a class="local col9 ref" href="#69in" title='in' data-ref="69in">in</a>, <a class="local col0 ref" href="#70matrix" title='matrix' data-ref="70matrix">matrix</a>[<var>1</var>] );</td></tr>
+<tr><th id="493">493</th><td>	<a class="local col1 ref" href="#71out" title='out' data-ref="71out">out</a>[<var>2</var>] = <a class="macro" href="q_shared.h.html#542" title="((in)[0]*(matrix[2])[0]+(in)[1]*(matrix[2])[1]+(in)[2]*(matrix[2])[2])" data-ref="_M/DotProduct">DotProduct</a>( <a class="local col9 ref" href="#69in" title='in' data-ref="69in">in</a>, <a class="local col0 ref" href="#70matrix" title='matrix' data-ref="70matrix">matrix</a>[<var>2</var>] );</td></tr>
+<tr><th id="494">494</th><td>}</td></tr>
+<tr><th id="495">495</th><td></td></tr>
+<tr><th id="496">496</th><td><i>//============================================================================</i></td></tr>
+<tr><th id="497">497</th><td></td></tr>
+<tr><th id="498">498</th><td><u>#<span data-ppcond="498">if</span> !<a class="macro" href="q_platform.h.html#60" title="0" data-ref="_M/idppc">idppc</a></u></td></tr>
+<tr><th id="499">499</th><td><i>/*</i></td></tr>
+<tr><th id="500">500</th><td><i>** float q_rsqrt( float number )</i></td></tr>
+<tr><th id="501">501</th><td><i>*/</i></td></tr>
+<tr><th id="502">502</th><td><em>float</em> <dfn class="decl def" id="Q_rsqrt" title='Q_rsqrt' data-ref="Q_rsqrt">Q_rsqrt</dfn>( <em>float</em> <dfn class="local col2 decl" id="72number" title='number' data-type='float' data-ref="72number">number</dfn> )</td></tr>
+<tr><th id="503">503</th><td>{</td></tr>
+<tr><th id="504">504</th><td>	<a class="typedef" href="q_shared.h.html#floatint_t" title='floatint_t' data-type='union floatint_t' data-ref="floatint_t">floatint_t</a> <dfn class="local col3 decl" id="73t" title='t' data-type='floatint_t' data-ref="73t">t</dfn>;</td></tr>
+<tr><th id="505">505</th><td>	<em>float</em> <dfn class="local col4 decl" id="74x2" title='x2' data-type='float' data-ref="74x2">x2</dfn>, <dfn class="local col5 decl" id="75y" title='y' data-type='float' data-ref="75y">y</dfn>;</td></tr>
+<tr><th id="506">506</th><td>	<em>const</em> <em>float</em> <dfn class="local col6 decl" id="76threehalfs" title='threehalfs' data-type='const float' data-ref="76threehalfs">threehalfs</dfn> = <var>1.5F</var>;</td></tr>
+<tr><th id="507">507</th><td></td></tr>
+<tr><th id="508">508</th><td>	<a class="local col4 ref" href="#74x2" title='x2' data-ref="74x2">x2</a> = <a class="local col2 ref" href="#72number" title='number' data-ref="72number">number</a> * <var>0.5F</var>;</td></tr>
+<tr><th id="509">509</th><td>	<a class="local col3 ref" href="#73t" title='t' data-ref="73t">t</a>.<a class="ref" href="q_shared.h.html#(anonymous)::f" title='(anonymous union)::f' data-ref="(anonymous)::f">f</a>  = <a class="local col2 ref" href="#72number" title='number' data-ref="72number">number</a>;</td></tr>
+<tr><th id="510">510</th><td>	<a class="local col3 ref" href="#73t" title='t' data-ref="73t">t</a>.<a class="ref" href="q_shared.h.html#(anonymous)::i" title='(anonymous union)::i' data-ref="(anonymous)::i">i</a>  = <var>0x5f3759df</var> - ( <a class="local col3 ref" href="#73t" title='t' data-ref="73t">t</a>.<a class="ref" href="q_shared.h.html#(anonymous)::i" title='(anonymous union)::i' data-ref="(anonymous)::i">i</a> &gt;&gt; <var>1</var> );               <i>// what the fuck?</i></td></tr>
+<tr><th id="511">511</th><td>	<a class="local col5 ref" href="#75y" title='y' data-ref="75y">y</a>  = <a class="local col3 ref" href="#73t" title='t' data-ref="73t">t</a>.<a class="ref" href="q_shared.h.html#(anonymous)::f" title='(anonymous union)::f' data-ref="(anonymous)::f">f</a>;</td></tr>
+<tr><th id="512">512</th><td>	<a class="local col5 ref" href="#75y" title='y' data-ref="75y">y</a>  = <a class="local col5 ref" href="#75y" title='y' data-ref="75y">y</a> * ( <a class="local col6 ref" href="#76threehalfs" title='threehalfs' data-ref="76threehalfs">threehalfs</a> - ( <a class="local col4 ref" href="#74x2" title='x2' data-ref="74x2">x2</a> * <a class="local col5 ref" href="#75y" title='y' data-ref="75y">y</a> * <a class="local col5 ref" href="#75y" title='y' data-ref="75y">y</a> ) );   <i>// 1st iteration</i></td></tr>
+<tr><th id="513">513</th><td><i>//	y  = y * ( threehalfs - ( x2 * y * y ) );   // 2nd iteration, this can be removed</i></td></tr>
+<tr><th id="514">514</th><td></td></tr>
+<tr><th id="515">515</th><td>	<b>return</b> <a class="local col5 ref" href="#75y" title='y' data-ref="75y">y</a>;</td></tr>
+<tr><th id="516">516</th><td>}</td></tr>
+<tr><th id="517">517</th><td></td></tr>
+<tr><th id="518">518</th><td><em>float</em> <dfn class="decl def" id="Q_fabs" title='Q_fabs' data-ref="Q_fabs">Q_fabs</dfn>( <em>float</em> <dfn class="local col7 decl" id="77f" title='f' data-type='float' data-ref="77f">f</dfn> ) {</td></tr>
+<tr><th id="519">519</th><td>	<a class="typedef" href="q_shared.h.html#floatint_t" title='floatint_t' data-type='union floatint_t' data-ref="floatint_t">floatint_t</a> <dfn class="local col8 decl" id="78fi" title='fi' data-type='floatint_t' data-ref="78fi">fi</dfn>;</td></tr>
+<tr><th id="520">520</th><td>	<a class="local col8 ref" href="#78fi" title='fi' data-ref="78fi">fi</a>.<a class="ref" href="q_shared.h.html#(anonymous)::f" title='(anonymous union)::f' data-ref="(anonymous)::f">f</a> = <a class="local col7 ref" href="#77f" title='f' data-ref="77f">f</a>;</td></tr>
+<tr><th id="521">521</th><td>	<a class="local col8 ref" href="#78fi" title='fi' data-ref="78fi">fi</a>.<a class="ref" href="q_shared.h.html#(anonymous)::i" title='(anonymous union)::i' data-ref="(anonymous)::i">i</a> &amp;= <var>0x7FFFFFFF</var>;</td></tr>
+<tr><th id="522">522</th><td>	<b>return</b> <a class="local col8 ref" href="#78fi" title='fi' data-ref="78fi">fi</a>.<a class="ref" href="q_shared.h.html#(anonymous)::f" title='(anonymous union)::f' data-ref="(anonymous)::f">f</a>;</td></tr>
+<tr><th id="523">523</th><td>}</td></tr>
+<tr><th id="524">524</th><td><u>#<span data-ppcond="498">endif</span></u></td></tr>
+<tr><th id="525">525</th><td></td></tr>
+<tr><th id="526">526</th><td><i>//============================================================</i></td></tr>
+<tr><th id="527">527</th><td></td></tr>
+<tr><th id="528">528</th><td><i>/*</i></td></tr>
+<tr><th id="529">529</th><td><i>===============</i></td></tr>
+<tr><th id="530">530</th><td><i>LerpAngle</i></td></tr>
+<tr><th id="531">531</th><td><i></i></td></tr>
+<tr><th id="532">532</th><td><i>===============</i></td></tr>
+<tr><th id="533">533</th><td><i>*/</i></td></tr>
+<tr><th id="534">534</th><td><em>float</em> <dfn class="decl def" id="LerpAngle" title='LerpAngle' data-ref="LerpAngle">LerpAngle</dfn> (<em>float</em> <dfn class="local col9 decl" id="79from" title='from' data-type='float' data-ref="79from">from</dfn>, <em>float</em> <dfn class="local col0 decl" id="80to" title='to' data-type='float' data-ref="80to">to</dfn>, <em>float</em> <dfn class="local col1 decl" id="81frac" title='frac' data-type='float' data-ref="81frac">frac</dfn>) {</td></tr>
+<tr><th id="535">535</th><td>	<em>float</em>	<dfn class="local col2 decl" id="82a" title='a' data-type='float' data-ref="82a">a</dfn>;</td></tr>
+<tr><th id="536">536</th><td></td></tr>
+<tr><th id="537">537</th><td>	<b>if</b> ( <a class="local col0 ref" href="#80to" title='to' data-ref="80to">to</a> - <a class="local col9 ref" href="#79from" title='from' data-ref="79from">from</a> &gt; <var>180</var> ) {</td></tr>
+<tr><th id="538">538</th><td>		<a class="local col0 ref" href="#80to" title='to' data-ref="80to">to</a> -= <var>360</var>;</td></tr>
+<tr><th id="539">539</th><td>	}</td></tr>
+<tr><th id="540">540</th><td>	<b>if</b> ( <a class="local col0 ref" href="#80to" title='to' data-ref="80to">to</a> - <a class="local col9 ref" href="#79from" title='from' data-ref="79from">from</a> &lt; -<var>180</var> ) {</td></tr>
+<tr><th id="541">541</th><td>		<a class="local col0 ref" href="#80to" title='to' data-ref="80to">to</a> += <var>360</var>;</td></tr>
+<tr><th id="542">542</th><td>	}</td></tr>
+<tr><th id="543">543</th><td>	<a class="local col2 ref" href="#82a" title='a' data-ref="82a">a</a> = <a class="local col9 ref" href="#79from" title='from' data-ref="79from">from</a> + <a class="local col1 ref" href="#81frac" title='frac' data-ref="81frac">frac</a> * (<a class="local col0 ref" href="#80to" title='to' data-ref="80to">to</a> - <a class="local col9 ref" href="#79from" title='from' data-ref="79from">from</a>);</td></tr>
+<tr><th id="544">544</th><td></td></tr>
+<tr><th id="545">545</th><td>	<b>return</b> <a class="local col2 ref" href="#82a" title='a' data-ref="82a">a</a>;</td></tr>
+<tr><th id="546">546</th><td>}</td></tr>
+<tr><th id="547">547</th><td></td></tr>
+<tr><th id="548">548</th><td></td></tr>
+<tr><th id="549">549</th><td><i>/*</i></td></tr>
+<tr><th id="550">550</th><td><i>=================</i></td></tr>
+<tr><th id="551">551</th><td><i>AngleSubtract</i></td></tr>
+<tr><th id="552">552</th><td><i></i></td></tr>
+<tr><th id="553">553</th><td><i>Always returns a value from -180 to 180</i></td></tr>
+<tr><th id="554">554</th><td><i>=================</i></td></tr>
+<tr><th id="555">555</th><td><i>*/</i></td></tr>
+<tr><th id="556">556</th><td><em>float</em>	<dfn class="decl def" id="AngleSubtract" title='AngleSubtract' data-ref="AngleSubtract">AngleSubtract</dfn>( <em>float</em> <dfn class="local col3 decl" id="83a1" title='a1' data-type='float' data-ref="83a1">a1</dfn>, <em>float</em> <dfn class="local col4 decl" id="84a2" title='a2' data-type='float' data-ref="84a2">a2</dfn> ) {</td></tr>
+<tr><th id="557">557</th><td>	<em>float</em>	<dfn class="local col5 decl" id="85a" title='a' data-type='float' data-ref="85a">a</dfn>;</td></tr>
+<tr><th id="558">558</th><td></td></tr>
+<tr><th id="559">559</th><td>	<a class="local col5 ref" href="#85a" title='a' data-ref="85a">a</a> = <a class="local col3 ref" href="#83a1" title='a1' data-ref="83a1">a1</a> - <a class="local col4 ref" href="#84a2" title='a2' data-ref="84a2">a2</a>;</td></tr>
+<tr><th id="560">560</th><td>	<b>while</b> ( <a class="local col5 ref" href="#85a" title='a' data-ref="85a">a</a> &gt; <var>180</var> ) {</td></tr>
+<tr><th id="561">561</th><td>		<a class="local col5 ref" href="#85a" title='a' data-ref="85a">a</a> -= <var>360</var>;</td></tr>
+<tr><th id="562">562</th><td>	}</td></tr>
+<tr><th id="563">563</th><td>	<b>while</b> ( <a class="local col5 ref" href="#85a" title='a' data-ref="85a">a</a> &lt; -<var>180</var> ) {</td></tr>
+<tr><th id="564">564</th><td>		<a class="local col5 ref" href="#85a" title='a' data-ref="85a">a</a> += <var>360</var>;</td></tr>
+<tr><th id="565">565</th><td>	}</td></tr>
+<tr><th id="566">566</th><td>	<b>return</b> <a class="local col5 ref" href="#85a" title='a' data-ref="85a">a</a>;</td></tr>
+<tr><th id="567">567</th><td>}</td></tr>
+<tr><th id="568">568</th><td></td></tr>
+<tr><th id="569">569</th><td></td></tr>
+<tr><th id="570">570</th><td><em>void</em> <dfn class="decl def" id="AnglesSubtract" title='AnglesSubtract' data-ref="AnglesSubtract">AnglesSubtract</dfn>( <a class="typedef" href="q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="local col6 decl" id="86v1" title='v1' data-type='vec_t *' data-ref="86v1">v1</dfn>, <a class="typedef" href="q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="local col7 decl" id="87v2" title='v2' data-type='vec_t *' data-ref="87v2">v2</dfn>, <a class="typedef" href="q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="local col8 decl" id="88v3" title='v3' data-type='vec_t *' data-ref="88v3">v3</dfn> ) {</td></tr>
+<tr><th id="571">571</th><td>	<a class="local col8 ref" href="#88v3" title='v3' data-ref="88v3">v3</a>[<var>0</var>] = <a class="ref" href="#AngleSubtract" title='AngleSubtract' data-ref="AngleSubtract">AngleSubtract</a>( <a class="local col6 ref" href="#86v1" title='v1' data-ref="86v1">v1</a>[<var>0</var>], <a class="local col7 ref" href="#87v2" title='v2' data-ref="87v2">v2</a>[<var>0</var>] );</td></tr>
+<tr><th id="572">572</th><td>	<a class="local col8 ref" href="#88v3" title='v3' data-ref="88v3">v3</a>[<var>1</var>] = <a class="ref" href="#AngleSubtract" title='AngleSubtract' data-ref="AngleSubtract">AngleSubtract</a>( <a class="local col6 ref" href="#86v1" title='v1' data-ref="86v1">v1</a>[<var>1</var>], <a class="local col7 ref" href="#87v2" title='v2' data-ref="87v2">v2</a>[<var>1</var>] );</td></tr>
+<tr><th id="573">573</th><td>	<a class="local col8 ref" href="#88v3" title='v3' data-ref="88v3">v3</a>[<var>2</var>] = <a class="ref" href="#AngleSubtract" title='AngleSubtract' data-ref="AngleSubtract">AngleSubtract</a>( <a class="local col6 ref" href="#86v1" title='v1' data-ref="86v1">v1</a>[<var>2</var>], <a class="local col7 ref" href="#87v2" title='v2' data-ref="87v2">v2</a>[<var>2</var>] );</td></tr>
+<tr><th id="574">574</th><td>}</td></tr>
+<tr><th id="575">575</th><td></td></tr>
+<tr><th id="576">576</th><td></td></tr>
+<tr><th id="577">577</th><td><em>float</em>	<dfn class="decl def" id="AngleMod" title='AngleMod' data-ref="AngleMod">AngleMod</dfn>(<em>float</em> <dfn class="local col9 decl" id="89a" title='a' data-type='float' data-ref="89a">a</dfn>) {</td></tr>
+<tr><th id="578">578</th><td>	<a class="local col9 ref" href="#89a" title='a' data-ref="89a">a</a> = (<var>360.0</var>/<var>65536</var>) * ((<em>int</em>)(<a class="local col9 ref" href="#89a" title='a' data-ref="89a">a</a>*(<var>65536</var>/<var>360.0</var>)) &amp; <var>65535</var>);</td></tr>
+<tr><th id="579">579</th><td>	<b>return</b> <a class="local col9 ref" href="#89a" title='a' data-ref="89a">a</a>;</td></tr>
+<tr><th id="580">580</th><td>}</td></tr>
+<tr><th id="581">581</th><td></td></tr>
+<tr><th id="582">582</th><td></td></tr>
+<tr><th id="583">583</th><td><i>/*</i></td></tr>
+<tr><th id="584">584</th><td><i>=================</i></td></tr>
+<tr><th id="585">585</th><td><i>AngleNormalize360</i></td></tr>
+<tr><th id="586">586</th><td><i></i></td></tr>
+<tr><th id="587">587</th><td><i>returns angle normalized to the range [0 &lt;= angle &lt; 360]</i></td></tr>
+<tr><th id="588">588</th><td><i>=================</i></td></tr>
+<tr><th id="589">589</th><td><i>*/</i></td></tr>
+<tr><th id="590">590</th><td><em>float</em> <dfn class="decl def" id="AngleNormalize360" title='AngleNormalize360' data-ref="AngleNormalize360">AngleNormalize360</dfn> ( <em>float</em> <dfn class="local col0 decl" id="90angle" title='angle' data-type='float' data-ref="90angle">angle</dfn> ) {</td></tr>
+<tr><th id="591">591</th><td>	<b>return</b> (<var>360.0</var> / <var>65536</var>) * ((<em>int</em>)(<a class="local col0 ref" href="#90angle" title='angle' data-ref="90angle">angle</a> * (<var>65536</var> / <var>360.0</var>)) &amp; <var>65535</var>);</td></tr>
+<tr><th id="592">592</th><td>}</td></tr>
+<tr><th id="593">593</th><td></td></tr>
+<tr><th id="594">594</th><td></td></tr>
+<tr><th id="595">595</th><td><i>/*</i></td></tr>
+<tr><th id="596">596</th><td><i>=================</i></td></tr>
+<tr><th id="597">597</th><td><i>AngleNormalize180</i></td></tr>
+<tr><th id="598">598</th><td><i></i></td></tr>
+<tr><th id="599">599</th><td><i>returns angle normalized to the range [-180 &lt; angle &lt;= 180]</i></td></tr>
+<tr><th id="600">600</th><td><i>=================</i></td></tr>
+<tr><th id="601">601</th><td><i>*/</i></td></tr>
+<tr><th id="602">602</th><td><em>float</em> <dfn class="decl def" id="AngleNormalize180" title='AngleNormalize180' data-ref="AngleNormalize180">AngleNormalize180</dfn> ( <em>float</em> <dfn class="local col1 decl" id="91angle" title='angle' data-type='float' data-ref="91angle">angle</dfn> ) {</td></tr>
+<tr><th id="603">603</th><td>	<a class="local col1 ref" href="#91angle" title='angle' data-ref="91angle">angle</a> = <a class="ref" href="#AngleNormalize360" title='AngleNormalize360' data-ref="AngleNormalize360">AngleNormalize360</a>( <a class="local col1 ref" href="#91angle" title='angle' data-ref="91angle">angle</a> );</td></tr>
+<tr><th id="604">604</th><td>	<b>if</b> ( <a class="local col1 ref" href="#91angle" title='angle' data-ref="91angle">angle</a> &gt; <var>180.0</var> ) {</td></tr>
+<tr><th id="605">605</th><td>		<a class="local col1 ref" href="#91angle" title='angle' data-ref="91angle">angle</a> -= <var>360.0</var>;</td></tr>
+<tr><th id="606">606</th><td>	}</td></tr>
+<tr><th id="607">607</th><td>	<b>return</b> <a class="local col1 ref" href="#91angle" title='angle' data-ref="91angle">angle</a>;</td></tr>
+<tr><th id="608">608</th><td>}</td></tr>
+<tr><th id="609">609</th><td></td></tr>
+<tr><th id="610">610</th><td></td></tr>
+<tr><th id="611">611</th><td><i>/*</i></td></tr>
+<tr><th id="612">612</th><td><i>=================</i></td></tr>
+<tr><th id="613">613</th><td><i>AngleDelta</i></td></tr>
+<tr><th id="614">614</th><td><i></i></td></tr>
+<tr><th id="615">615</th><td><i>returns the normalized delta from angle1 to angle2</i></td></tr>
+<tr><th id="616">616</th><td><i>=================</i></td></tr>
+<tr><th id="617">617</th><td><i>*/</i></td></tr>
+<tr><th id="618">618</th><td><em>float</em> <dfn class="decl def" id="AngleDelta" title='AngleDelta' data-ref="AngleDelta">AngleDelta</dfn> ( <em>float</em> <dfn class="local col2 decl" id="92angle1" title='angle1' data-type='float' data-ref="92angle1">angle1</dfn>, <em>float</em> <dfn class="local col3 decl" id="93angle2" title='angle2' data-type='float' data-ref="93angle2">angle2</dfn> ) {</td></tr>
+<tr><th id="619">619</th><td>	<b>return</b> <a class="ref" href="#AngleNormalize180" title='AngleNormalize180' data-ref="AngleNormalize180">AngleNormalize180</a>( <a class="local col2 ref" href="#92angle1" title='angle1' data-ref="92angle1">angle1</a> - <a class="local col3 ref" href="#93angle2" title='angle2' data-ref="93angle2">angle2</a> );</td></tr>
+<tr><th id="620">620</th><td>}</td></tr>
+<tr><th id="621">621</th><td></td></tr>
+<tr><th id="622">622</th><td></td></tr>
+<tr><th id="623">623</th><td><i>//============================================================</i></td></tr>
+<tr><th id="624">624</th><td></td></tr>
+<tr><th id="625">625</th><td></td></tr>
+<tr><th id="626">626</th><td><i>/*</i></td></tr>
+<tr><th id="627">627</th><td><i>=================</i></td></tr>
+<tr><th id="628">628</th><td><i>SetPlaneSignbits</i></td></tr>
+<tr><th id="629">629</th><td><i>=================</i></td></tr>
+<tr><th id="630">630</th><td><i>*/</i></td></tr>
+<tr><th id="631">631</th><td><em>void</em> <dfn class="decl def" id="SetPlaneSignbits" title='SetPlaneSignbits' data-ref="SetPlaneSignbits">SetPlaneSignbits</dfn> (<a class="typedef" href="q_shared.h.html#cplane_t" title='cplane_t' data-type='struct cplane_s' data-ref="cplane_t">cplane_t</a> *<dfn class="local col4 decl" id="94out" title='out' data-type='cplane_t *' data-ref="94out">out</dfn>) {</td></tr>
+<tr><th id="632">632</th><td>	<em>int</em>	<dfn class="local col5 decl" id="95bits" title='bits' data-type='int' data-ref="95bits">bits</dfn>, <dfn class="local col6 decl" id="96j" title='j' data-type='int' data-ref="96j">j</dfn>;</td></tr>
+<tr><th id="633">633</th><td></td></tr>
+<tr><th id="634">634</th><td>	<i>// for fast box on planeside test</i></td></tr>
+<tr><th id="635">635</th><td>	<a class="local col5 ref" href="#95bits" title='bits' data-ref="95bits">bits</a> = <var>0</var>;</td></tr>
+<tr><th id="636">636</th><td>	<b>for</b> (<a class="local col6 ref" href="#96j" title='j' data-ref="96j">j</a>=<var>0</var> ; <a class="local col6 ref" href="#96j" title='j' data-ref="96j">j</a>&lt;<var>3</var> ; <a class="local col6 ref" href="#96j" title='j' data-ref="96j">j</a>++) {</td></tr>
+<tr><th id="637">637</th><td>		<b>if</b> (<a class="local col4 ref" href="#94out" title='out' data-ref="94out">out</a>-&gt;<a class="ref" href="q_shared.h.html#cplane_s::normal" title='cplane_s::normal' data-ref="cplane_s::normal">normal</a>[<a class="local col6 ref" href="#96j" title='j' data-ref="96j">j</a>] &lt; <var>0</var>) {</td></tr>
+<tr><th id="638">638</th><td>			<a class="local col5 ref" href="#95bits" title='bits' data-ref="95bits">bits</a> |= <var>1</var>&lt;&lt;<a class="local col6 ref" href="#96j" title='j' data-ref="96j">j</a>;</td></tr>
+<tr><th id="639">639</th><td>		}</td></tr>
+<tr><th id="640">640</th><td>	}</td></tr>
+<tr><th id="641">641</th><td>	<a class="local col4 ref" href="#94out" title='out' data-ref="94out">out</a>-&gt;<a class="ref" href="q_shared.h.html#cplane_s::signbits" title='cplane_s::signbits' data-ref="cplane_s::signbits">signbits</a> = <a class="local col5 ref" href="#95bits" title='bits' data-ref="95bits">bits</a>;</td></tr>
+<tr><th id="642">642</th><td>}</td></tr>
+<tr><th id="643">643</th><td></td></tr>
+<tr><th id="644">644</th><td></td></tr>
+<tr><th id="645">645</th><td><i>/*</i></td></tr>
+<tr><th id="646">646</th><td><i>==================</i></td></tr>
+<tr><th id="647">647</th><td><i>BoxOnPlaneSide</i></td></tr>
+<tr><th id="648">648</th><td><i></i></td></tr>
+<tr><th id="649">649</th><td><i>Returns 1, 2, or 1 + 2</i></td></tr>
+<tr><th id="650">650</th><td><i>==================</i></td></tr>
+<tr><th id="651">651</th><td><i>*/</i></td></tr>
+<tr><th id="652">652</th><td><em>int</em> <dfn class="decl def" id="BoxOnPlaneSide" title='BoxOnPlaneSide' data-ref="BoxOnPlaneSide">BoxOnPlaneSide</dfn>(<a class="typedef" href="q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="local col7 decl" id="97emins" title='emins' data-type='vec_t *' data-ref="97emins">emins</dfn>, <a class="typedef" href="q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="local col8 decl" id="98emaxs" title='emaxs' data-type='vec_t *' data-ref="98emaxs">emaxs</dfn>, <b>struct</b> <a class="type" href="q_shared.h.html#cplane_s" title='cplane_s' data-ref="cplane_s">cplane_s</a> *<dfn class="local col9 decl" id="99p" title='p' data-type='struct cplane_s *' data-ref="99p">p</dfn>)</td></tr>
+<tr><th id="653">653</th><td>{</td></tr>
+<tr><th id="654">654</th><td>	<em>float</em>	<dfn class="local col0 decl" id="100dist" title='dist' data-type='float [2]' data-ref="100dist">dist</dfn>[<var>2</var>];</td></tr>
+<tr><th id="655">655</th><td>	<em>int</em>		<dfn class="local col1 decl" id="101sides" title='sides' data-type='int' data-ref="101sides">sides</dfn>, <dfn class="local col2 decl" id="102b" title='b' data-type='int' data-ref="102b">b</dfn>, <dfn class="local col3 decl" id="103i" title='i' data-type='int' data-ref="103i">i</dfn>;</td></tr>
+<tr><th id="656">656</th><td></td></tr>
+<tr><th id="657">657</th><td>	<i>// fast axial cases</i></td></tr>
+<tr><th id="658">658</th><td>	<b>if</b> (<a class="local col9 ref" href="#99p" title='p' data-ref="99p">p</a>-&gt;<a class="ref" href="q_shared.h.html#cplane_s::type" title='cplane_s::type' data-ref="cplane_s::type">type</a> &lt; <var>3</var>)</td></tr>
+<tr><th id="659">659</th><td>	{</td></tr>
+<tr><th id="660">660</th><td>		<b>if</b> (<a class="local col9 ref" href="#99p" title='p' data-ref="99p">p</a>-&gt;<a class="ref" href="q_shared.h.html#cplane_s::dist" title='cplane_s::dist' data-ref="cplane_s::dist">dist</a> &lt;= <a class="local col7 ref" href="#97emins" title='emins' data-ref="97emins">emins</a>[<a class="local col9 ref" href="#99p" title='p' data-ref="99p">p</a>-&gt;<a class="ref" href="q_shared.h.html#cplane_s::type" title='cplane_s::type' data-ref="cplane_s::type">type</a>])</td></tr>
+<tr><th id="661">661</th><td>			<b>return</b> <var>1</var>;</td></tr>
+<tr><th id="662">662</th><td>		<b>if</b> (<a class="local col9 ref" href="#99p" title='p' data-ref="99p">p</a>-&gt;<a class="ref" href="q_shared.h.html#cplane_s::dist" title='cplane_s::dist' data-ref="cplane_s::dist">dist</a> &gt;= <a class="local col8 ref" href="#98emaxs" title='emaxs' data-ref="98emaxs">emaxs</a>[<a class="local col9 ref" href="#99p" title='p' data-ref="99p">p</a>-&gt;<a class="ref" href="q_shared.h.html#cplane_s::type" title='cplane_s::type' data-ref="cplane_s::type">type</a>])</td></tr>
+<tr><th id="663">663</th><td>			<b>return</b> <var>2</var>;</td></tr>
+<tr><th id="664">664</th><td>		<b>return</b> <var>3</var>;</td></tr>
+<tr><th id="665">665</th><td>	}</td></tr>
+<tr><th id="666">666</th><td></td></tr>
+<tr><th id="667">667</th><td>	<i>// general case</i></td></tr>
+<tr><th id="668">668</th><td>	<a class="local col0 ref" href="#100dist" title='dist' data-ref="100dist">dist</a>[<var>0</var>] = <a class="local col0 ref" href="#100dist" title='dist' data-ref="100dist">dist</a>[<var>1</var>] = <var>0</var>;</td></tr>
+<tr><th id="669">669</th><td>	<b>if</b> (<a class="local col9 ref" href="#99p" title='p' data-ref="99p">p</a>-&gt;<a class="ref" href="q_shared.h.html#cplane_s::signbits" title='cplane_s::signbits' data-ref="cplane_s::signbits">signbits</a> &lt; <var>8</var>) <i>// &gt;= 8: default case is original code (dist[0]=dist[1]=0)</i></td></tr>
+<tr><th id="670">670</th><td>	{</td></tr>
+<tr><th id="671">671</th><td>		<b>for</b> (<a class="local col3 ref" href="#103i" title='i' data-ref="103i">i</a>=<var>0</var> ; <a class="local col3 ref" href="#103i" title='i' data-ref="103i">i</a>&lt;<var>3</var> ; <a class="local col3 ref" href="#103i" title='i' data-ref="103i">i</a>++)</td></tr>
+<tr><th id="672">672</th><td>		{</td></tr>
+<tr><th id="673">673</th><td>			<a class="local col2 ref" href="#102b" title='b' data-ref="102b">b</a> = (<a class="local col9 ref" href="#99p" title='p' data-ref="99p">p</a>-&gt;<a class="ref" href="q_shared.h.html#cplane_s::signbits" title='cplane_s::signbits' data-ref="cplane_s::signbits">signbits</a> &gt;&gt; <a class="local col3 ref" href="#103i" title='i' data-ref="103i">i</a>) &amp; <var>1</var>;</td></tr>
+<tr><th id="674">674</th><td>			<a class="local col0 ref" href="#100dist" title='dist' data-ref="100dist">dist</a>[ <a class="local col2 ref" href="#102b" title='b' data-ref="102b">b</a>] += <a class="local col9 ref" href="#99p" title='p' data-ref="99p">p</a>-&gt;<a class="ref" href="q_shared.h.html#cplane_s::normal" title='cplane_s::normal' data-ref="cplane_s::normal">normal</a>[<a class="local col3 ref" href="#103i" title='i' data-ref="103i">i</a>]*<a class="local col8 ref" href="#98emaxs" title='emaxs' data-ref="98emaxs">emaxs</a>[<a class="local col3 ref" href="#103i" title='i' data-ref="103i">i</a>];</td></tr>
+<tr><th id="675">675</th><td>			<a class="local col0 ref" href="#100dist" title='dist' data-ref="100dist">dist</a>[!<a class="local col2 ref" href="#102b" title='b' data-ref="102b">b</a>] += <a class="local col9 ref" href="#99p" title='p' data-ref="99p">p</a>-&gt;<a class="ref" href="q_shared.h.html#cplane_s::normal" title='cplane_s::normal' data-ref="cplane_s::normal">normal</a>[<a class="local col3 ref" href="#103i" title='i' data-ref="103i">i</a>]*<a class="local col7 ref" href="#97emins" title='emins' data-ref="97emins">emins</a>[<a class="local col3 ref" href="#103i" title='i' data-ref="103i">i</a>];</td></tr>
+<tr><th id="676">676</th><td>		}</td></tr>
+<tr><th id="677">677</th><td>	}</td></tr>
+<tr><th id="678">678</th><td></td></tr>
+<tr><th id="679">679</th><td>	<a class="local col1 ref" href="#101sides" title='sides' data-ref="101sides">sides</a> = <var>0</var>;</td></tr>
+<tr><th id="680">680</th><td>	<b>if</b> (<a class="local col0 ref" href="#100dist" title='dist' data-ref="100dist">dist</a>[<var>0</var>] &gt;= <a class="local col9 ref" href="#99p" title='p' data-ref="99p">p</a>-&gt;<a class="ref" href="q_shared.h.html#cplane_s::dist" title='cplane_s::dist' data-ref="cplane_s::dist">dist</a>)</td></tr>
+<tr><th id="681">681</th><td>		<a class="local col1 ref" href="#101sides" title='sides' data-ref="101sides">sides</a> = <var>1</var>;</td></tr>
+<tr><th id="682">682</th><td>	<b>if</b> (<a class="local col0 ref" href="#100dist" title='dist' data-ref="100dist">dist</a>[<var>1</var>] &lt; <a class="local col9 ref" href="#99p" title='p' data-ref="99p">p</a>-&gt;<a class="ref" href="q_shared.h.html#cplane_s::dist" title='cplane_s::dist' data-ref="cplane_s::dist">dist</a>)</td></tr>
+<tr><th id="683">683</th><td>		<a class="local col1 ref" href="#101sides" title='sides' data-ref="101sides">sides</a> |= <var>2</var>;</td></tr>
+<tr><th id="684">684</th><td></td></tr>
+<tr><th id="685">685</th><td>	<b>return</b> <a class="local col1 ref" href="#101sides" title='sides' data-ref="101sides">sides</a>;</td></tr>
+<tr><th id="686">686</th><td>}</td></tr>
+<tr><th id="687">687</th><td></td></tr>
+<tr><th id="688">688</th><td></td></tr>
+<tr><th id="689">689</th><td><i>/*</i></td></tr>
+<tr><th id="690">690</th><td><i>=================</i></td></tr>
+<tr><th id="691">691</th><td><i>RadiusFromBounds</i></td></tr>
+<tr><th id="692">692</th><td><i>=================</i></td></tr>
+<tr><th id="693">693</th><td><i>*/</i></td></tr>
+<tr><th id="694">694</th><td><em>float</em> <dfn class="decl def" id="RadiusFromBounds" title='RadiusFromBounds' data-ref="RadiusFromBounds">RadiusFromBounds</dfn>( <em>const</em> <a class="typedef" href="q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="local col4 decl" id="104mins" title='mins' data-type='const vec_t *' data-ref="104mins">mins</dfn>, <em>const</em> <a class="typedef" href="q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="local col5 decl" id="105maxs" title='maxs' data-type='const vec_t *' data-ref="105maxs">maxs</dfn> ) {</td></tr>
+<tr><th id="695">695</th><td>	<em>int</em>		<dfn class="local col6 decl" id="106i" title='i' data-type='int' data-ref="106i">i</dfn>;</td></tr>
+<tr><th id="696">696</th><td>	<a class="typedef" href="q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a>	<dfn class="local col7 decl" id="107corner" title='corner' data-type='vec3_t' data-ref="107corner">corner</dfn>;</td></tr>
+<tr><th id="697">697</th><td>	<em>float</em>	<dfn class="local col8 decl" id="108a" title='a' data-type='float' data-ref="108a">a</dfn>, <dfn class="local col9 decl" id="109b" title='b' data-type='float' data-ref="109b">b</dfn>;</td></tr>
+<tr><th id="698">698</th><td></td></tr>
+<tr><th id="699">699</th><td>	<b>for</b> (<a class="local col6 ref" href="#106i" title='i' data-ref="106i">i</a>=<var>0</var> ; <a class="local col6 ref" href="#106i" title='i' data-ref="106i">i</a>&lt;<var>3</var> ; <a class="local col6 ref" href="#106i" title='i' data-ref="106i">i</a>++) {</td></tr>
+<tr><th id="700">700</th><td>		<a class="local col8 ref" href="#108a" title='a' data-ref="108a">a</a> = <a class="ref" href="../../../include/x86_64-linux-gnu/bits/mathcalls.h.html#181" title='fabs' data-ref="fabs">fabs</a>( <a class="local col4 ref" href="#104mins" title='mins' data-ref="104mins">mins</a>[<a class="local col6 ref" href="#106i" title='i' data-ref="106i">i</a>] );</td></tr>
+<tr><th id="701">701</th><td>		<a class="local col9 ref" href="#109b" title='b' data-ref="109b">b</a> = <a class="ref" href="../../../include/x86_64-linux-gnu/bits/mathcalls.h.html#181" title='fabs' data-ref="fabs">fabs</a>( <a class="local col5 ref" href="#105maxs" title='maxs' data-ref="105maxs">maxs</a>[<a class="local col6 ref" href="#106i" title='i' data-ref="106i">i</a>] );</td></tr>
+<tr><th id="702">702</th><td>		<a class="local col7 ref" href="#107corner" title='corner' data-ref="107corner">corner</a>[<a class="local col6 ref" href="#106i" title='i' data-ref="106i">i</a>] = <a class="local col8 ref" href="#108a" title='a' data-ref="108a">a</a> &gt; <a class="local col9 ref" href="#109b" title='b' data-ref="109b">b</a> ? <a class="local col8 ref" href="#108a" title='a' data-ref="108a">a</a> : <a class="local col9 ref" href="#109b" title='b' data-ref="109b">b</a>;</td></tr>
+<tr><th id="703">703</th><td>	}</td></tr>
+<tr><th id="704">704</th><td></td></tr>
+<tr><th id="705">705</th><td>	<b>return</b> <a class="ref" href="q_shared.h.html#VectorLength" title='VectorLength' data-ref="VectorLength">VectorLength</a> (<a class="local col7 ref" href="#107corner" title='corner' data-ref="107corner">corner</a>);</td></tr>
+<tr><th id="706">706</th><td>}</td></tr>
+<tr><th id="707">707</th><td></td></tr>
+<tr><th id="708">708</th><td></td></tr>
+<tr><th id="709">709</th><td><em>void</em> <dfn class="decl def" id="ClearBounds" title='ClearBounds' data-ref="ClearBounds">ClearBounds</dfn>( <a class="typedef" href="q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="local col0 decl" id="110mins" title='mins' data-type='vec_t *' data-ref="110mins">mins</dfn>, <a class="typedef" href="q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="local col1 decl" id="111maxs" title='maxs' data-type='vec_t *' data-ref="111maxs">maxs</dfn> ) {</td></tr>
+<tr><th id="710">710</th><td>	<a class="local col0 ref" href="#110mins" title='mins' data-ref="110mins">mins</a>[<var>0</var>] = <a class="local col0 ref" href="#110mins" title='mins' data-ref="110mins">mins</a>[<var>1</var>] = <a class="local col0 ref" href="#110mins" title='mins' data-ref="110mins">mins</a>[<var>2</var>] = <var>99999</var>;</td></tr>
+<tr><th id="711">711</th><td>	<a class="local col1 ref" href="#111maxs" title='maxs' data-ref="111maxs">maxs</a>[<var>0</var>] = <a class="local col1 ref" href="#111maxs" title='maxs' data-ref="111maxs">maxs</a>[<var>1</var>] = <a class="local col1 ref" href="#111maxs" title='maxs' data-ref="111maxs">maxs</a>[<var>2</var>] = -<var>99999</var>;</td></tr>
+<tr><th id="712">712</th><td>}</td></tr>
+<tr><th id="713">713</th><td></td></tr>
+<tr><th id="714">714</th><td><em>void</em> <dfn class="decl def" id="AddPointToBounds" title='AddPointToBounds' data-ref="AddPointToBounds">AddPointToBounds</dfn>( <em>const</em> <a class="typedef" href="q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="local col2 decl" id="112v" title='v' data-type='const vec_t *' data-ref="112v">v</dfn>, <a class="typedef" href="q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="local col3 decl" id="113mins" title='mins' data-type='vec_t *' data-ref="113mins">mins</dfn>, <a class="typedef" href="q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="local col4 decl" id="114maxs" title='maxs' data-type='vec_t *' data-ref="114maxs">maxs</dfn> ) {</td></tr>
+<tr><th id="715">715</th><td>	<b>if</b> ( <a class="local col2 ref" href="#112v" title='v' data-ref="112v">v</a>[<var>0</var>] &lt; <a class="local col3 ref" href="#113mins" title='mins' data-ref="113mins">mins</a>[<var>0</var>] ) {</td></tr>
+<tr><th id="716">716</th><td>		<a class="local col3 ref" href="#113mins" title='mins' data-ref="113mins">mins</a>[<var>0</var>] = <a class="local col2 ref" href="#112v" title='v' data-ref="112v">v</a>[<var>0</var>];</td></tr>
+<tr><th id="717">717</th><td>	}</td></tr>
+<tr><th id="718">718</th><td>	<b>if</b> ( <a class="local col2 ref" href="#112v" title='v' data-ref="112v">v</a>[<var>0</var>] &gt; <a class="local col4 ref" href="#114maxs" title='maxs' data-ref="114maxs">maxs</a>[<var>0</var>]) {</td></tr>
+<tr><th id="719">719</th><td>		<a class="local col4 ref" href="#114maxs" title='maxs' data-ref="114maxs">maxs</a>[<var>0</var>] = <a class="local col2 ref" href="#112v" title='v' data-ref="112v">v</a>[<var>0</var>];</td></tr>
+<tr><th id="720">720</th><td>	}</td></tr>
+<tr><th id="721">721</th><td></td></tr>
+<tr><th id="722">722</th><td>	<b>if</b> ( <a class="local col2 ref" href="#112v" title='v' data-ref="112v">v</a>[<var>1</var>] &lt; <a class="local col3 ref" href="#113mins" title='mins' data-ref="113mins">mins</a>[<var>1</var>] ) {</td></tr>
+<tr><th id="723">723</th><td>		<a class="local col3 ref" href="#113mins" title='mins' data-ref="113mins">mins</a>[<var>1</var>] = <a class="local col2 ref" href="#112v" title='v' data-ref="112v">v</a>[<var>1</var>];</td></tr>
+<tr><th id="724">724</th><td>	}</td></tr>
+<tr><th id="725">725</th><td>	<b>if</b> ( <a class="local col2 ref" href="#112v" title='v' data-ref="112v">v</a>[<var>1</var>] &gt; <a class="local col4 ref" href="#114maxs" title='maxs' data-ref="114maxs">maxs</a>[<var>1</var>]) {</td></tr>
+<tr><th id="726">726</th><td>		<a class="local col4 ref" href="#114maxs" title='maxs' data-ref="114maxs">maxs</a>[<var>1</var>] = <a class="local col2 ref" href="#112v" title='v' data-ref="112v">v</a>[<var>1</var>];</td></tr>
+<tr><th id="727">727</th><td>	}</td></tr>
+<tr><th id="728">728</th><td></td></tr>
+<tr><th id="729">729</th><td>	<b>if</b> ( <a class="local col2 ref" href="#112v" title='v' data-ref="112v">v</a>[<var>2</var>] &lt; <a class="local col3 ref" href="#113mins" title='mins' data-ref="113mins">mins</a>[<var>2</var>] ) {</td></tr>
+<tr><th id="730">730</th><td>		<a class="local col3 ref" href="#113mins" title='mins' data-ref="113mins">mins</a>[<var>2</var>] = <a class="local col2 ref" href="#112v" title='v' data-ref="112v">v</a>[<var>2</var>];</td></tr>
+<tr><th id="731">731</th><td>	}</td></tr>
+<tr><th id="732">732</th><td>	<b>if</b> ( <a class="local col2 ref" href="#112v" title='v' data-ref="112v">v</a>[<var>2</var>] &gt; <a class="local col4 ref" href="#114maxs" title='maxs' data-ref="114maxs">maxs</a>[<var>2</var>]) {</td></tr>
+<tr><th id="733">733</th><td>		<a class="local col4 ref" href="#114maxs" title='maxs' data-ref="114maxs">maxs</a>[<var>2</var>] = <a class="local col2 ref" href="#112v" title='v' data-ref="112v">v</a>[<var>2</var>];</td></tr>
+<tr><th id="734">734</th><td>	}</td></tr>
+<tr><th id="735">735</th><td>}</td></tr>
+<tr><th id="736">736</th><td></td></tr>
+<tr><th id="737">737</th><td><a class="typedef" href="q_shared.h.html#qboolean" title='qboolean' data-type='enum qboolean' data-ref="qboolean">qboolean</a> <dfn class="decl def" id="BoundsIntersect" title='BoundsIntersect' data-ref="BoundsIntersect">BoundsIntersect</dfn>(<em>const</em> <a class="typedef" href="q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="local col5 decl" id="115mins" title='mins' data-type='const vec_t *' data-ref="115mins">mins</dfn>, <em>const</em> <a class="typedef" href="q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="local col6 decl" id="116maxs" title='maxs' data-type='const vec_t *' data-ref="116maxs">maxs</dfn>,</td></tr>
+<tr><th id="738">738</th><td>		<em>const</em> <a class="typedef" href="q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="local col7 decl" id="117mins2" title='mins2' data-type='const vec_t *' data-ref="117mins2">mins2</dfn>, <em>const</em> <a class="typedef" href="q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="local col8 decl" id="118maxs2" title='maxs2' data-type='const vec_t *' data-ref="118maxs2">maxs2</dfn>)</td></tr>
+<tr><th id="739">739</th><td>{</td></tr>
+<tr><th id="740">740</th><td>	<b>if</b> ( <a class="local col6 ref" href="#116maxs" title='maxs' data-ref="116maxs">maxs</a>[<var>0</var>] &lt; <a class="local col7 ref" href="#117mins2" title='mins2' data-ref="117mins2">mins2</a>[<var>0</var>] ||</td></tr>
+<tr><th id="741">741</th><td>		<a class="local col6 ref" href="#116maxs" title='maxs' data-ref="116maxs">maxs</a>[<var>1</var>] &lt; <a class="local col7 ref" href="#117mins2" title='mins2' data-ref="117mins2">mins2</a>[<var>1</var>] ||</td></tr>
+<tr><th id="742">742</th><td>		<a class="local col6 ref" href="#116maxs" title='maxs' data-ref="116maxs">maxs</a>[<var>2</var>] &lt; <a class="local col7 ref" href="#117mins2" title='mins2' data-ref="117mins2">mins2</a>[<var>2</var>] ||</td></tr>
+<tr><th id="743">743</th><td>		<a class="local col5 ref" href="#115mins" title='mins' data-ref="115mins">mins</a>[<var>0</var>] &gt; <a class="local col8 ref" href="#118maxs2" title='maxs2' data-ref="118maxs2">maxs2</a>[<var>0</var>] ||</td></tr>
+<tr><th id="744">744</th><td>		<a class="local col5 ref" href="#115mins" title='mins' data-ref="115mins">mins</a>[<var>1</var>] &gt; <a class="local col8 ref" href="#118maxs2" title='maxs2' data-ref="118maxs2">maxs2</a>[<var>1</var>] ||</td></tr>
+<tr><th id="745">745</th><td>		<a class="local col5 ref" href="#115mins" title='mins' data-ref="115mins">mins</a>[<var>2</var>] &gt; <a class="local col8 ref" href="#118maxs2" title='maxs2' data-ref="118maxs2">maxs2</a>[<var>2</var>])</td></tr>
+<tr><th id="746">746</th><td>	{</td></tr>
+<tr><th id="747">747</th><td>		<b>return</b> <a class="enum" href="q_shared.h.html#qfalse" title='qfalse' data-ref="qfalse">qfalse</a>;</td></tr>
+<tr><th id="748">748</th><td>	}</td></tr>
+<tr><th id="749">749</th><td></td></tr>
+<tr><th id="750">750</th><td>	<b>return</b> <a class="enum" href="q_shared.h.html#qtrue" title='qtrue' data-ref="qtrue">qtrue</a>;</td></tr>
+<tr><th id="751">751</th><td>}</td></tr>
+<tr><th id="752">752</th><td></td></tr>
+<tr><th id="753">753</th><td><a class="typedef" href="q_shared.h.html#qboolean" title='qboolean' data-type='enum qboolean' data-ref="qboolean">qboolean</a> <dfn class="decl def" id="BoundsIntersectSphere" title='BoundsIntersectSphere' data-ref="BoundsIntersectSphere">BoundsIntersectSphere</dfn>(<em>const</em> <a class="typedef" href="q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="local col9 decl" id="119mins" title='mins' data-type='const vec_t *' data-ref="119mins">mins</dfn>, <em>const</em> <a class="typedef" href="q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="local col0 decl" id="120maxs" title='maxs' data-type='const vec_t *' data-ref="120maxs">maxs</dfn>,</td></tr>
+<tr><th id="754">754</th><td>		<em>const</em> <a class="typedef" href="q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="local col1 decl" id="121origin" title='origin' data-type='const vec_t *' data-ref="121origin">origin</dfn>, <a class="typedef" href="q_shared.h.html#vec_t" title='vec_t' data-type='float' data-ref="vec_t">vec_t</a> <dfn class="local col2 decl" id="122radius" title='radius' data-type='vec_t' data-ref="122radius">radius</dfn>)</td></tr>
+<tr><th id="755">755</th><td>{</td></tr>
+<tr><th id="756">756</th><td>	<b>if</b> ( <a class="local col1 ref" href="#121origin" title='origin' data-ref="121origin">origin</a>[<var>0</var>] - <a class="local col2 ref" href="#122radius" title='radius' data-ref="122radius">radius</a> &gt; <a class="local col0 ref" href="#120maxs" title='maxs' data-ref="120maxs">maxs</a>[<var>0</var>] ||</td></tr>
+<tr><th id="757">757</th><td>		<a class="local col1 ref" href="#121origin" title='origin' data-ref="121origin">origin</a>[<var>0</var>] + <a class="local col2 ref" href="#122radius" title='radius' data-ref="122radius">radius</a> &lt; <a class="local col9 ref" href="#119mins" title='mins' data-ref="119mins">mins</a>[<var>0</var>] ||</td></tr>
+<tr><th id="758">758</th><td>		<a class="local col1 ref" href="#121origin" title='origin' data-ref="121origin">origin</a>[<var>1</var>] - <a class="local col2 ref" href="#122radius" title='radius' data-ref="122radius">radius</a> &gt; <a class="local col0 ref" href="#120maxs" title='maxs' data-ref="120maxs">maxs</a>[<var>1</var>] ||</td></tr>
+<tr><th id="759">759</th><td>		<a class="local col1 ref" href="#121origin" title='origin' data-ref="121origin">origin</a>[<var>1</var>] + <a class="local col2 ref" href="#122radius" title='radius' data-ref="122radius">radius</a> &lt; <a class="local col9 ref" href="#119mins" title='mins' data-ref="119mins">mins</a>[<var>1</var>] ||</td></tr>
+<tr><th id="760">760</th><td>		<a class="local col1 ref" href="#121origin" title='origin' data-ref="121origin">origin</a>[<var>2</var>] - <a class="local col2 ref" href="#122radius" title='radius' data-ref="122radius">radius</a> &gt; <a class="local col0 ref" href="#120maxs" title='maxs' data-ref="120maxs">maxs</a>[<var>2</var>] ||</td></tr>
+<tr><th id="761">761</th><td>		<a class="local col1 ref" href="#121origin" title='origin' data-ref="121origin">origin</a>[<var>2</var>] + <a class="local col2 ref" href="#122radius" title='radius' data-ref="122radius">radius</a> &lt; <a class="local col9 ref" href="#119mins" title='mins' data-ref="119mins">mins</a>[<var>2</var>])</td></tr>
+<tr><th id="762">762</th><td>	{</td></tr>
+<tr><th id="763">763</th><td>		<b>return</b> <a class="enum" href="q_shared.h.html#qfalse" title='qfalse' data-ref="qfalse">qfalse</a>;</td></tr>
+<tr><th id="764">764</th><td>	}</td></tr>
+<tr><th id="765">765</th><td></td></tr>
+<tr><th id="766">766</th><td>	<b>return</b> <a class="enum" href="q_shared.h.html#qtrue" title='qtrue' data-ref="qtrue">qtrue</a>;</td></tr>
+<tr><th id="767">767</th><td>}</td></tr>
+<tr><th id="768">768</th><td></td></tr>
+<tr><th id="769">769</th><td><a class="typedef" href="q_shared.h.html#qboolean" title='qboolean' data-type='enum qboolean' data-ref="qboolean">qboolean</a> <dfn class="decl def" id="BoundsIntersectPoint" title='BoundsIntersectPoint' data-ref="BoundsIntersectPoint">BoundsIntersectPoint</dfn>(<em>const</em> <a class="typedef" href="q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="local col3 decl" id="123mins" title='mins' data-type='const vec_t *' data-ref="123mins">mins</dfn>, <em>const</em> <a class="typedef" href="q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="local col4 decl" id="124maxs" title='maxs' data-type='const vec_t *' data-ref="124maxs">maxs</dfn>,</td></tr>
+<tr><th id="770">770</th><td>		<em>const</em> <a class="typedef" href="q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="local col5 decl" id="125origin" title='origin' data-type='const vec_t *' data-ref="125origin">origin</dfn>)</td></tr>
+<tr><th id="771">771</th><td>{</td></tr>
+<tr><th id="772">772</th><td>	<b>if</b> ( <a class="local col5 ref" href="#125origin" title='origin' data-ref="125origin">origin</a>[<var>0</var>] &gt; <a class="local col4 ref" href="#124maxs" title='maxs' data-ref="124maxs">maxs</a>[<var>0</var>] ||</td></tr>
+<tr><th id="773">773</th><td>		<a class="local col5 ref" href="#125origin" title='origin' data-ref="125origin">origin</a>[<var>0</var>] &lt; <a class="local col3 ref" href="#123mins" title='mins' data-ref="123mins">mins</a>[<var>0</var>] ||</td></tr>
+<tr><th id="774">774</th><td>		<a class="local col5 ref" href="#125origin" title='origin' data-ref="125origin">origin</a>[<var>1</var>] &gt; <a class="local col4 ref" href="#124maxs" title='maxs' data-ref="124maxs">maxs</a>[<var>1</var>] ||</td></tr>
+<tr><th id="775">775</th><td>		<a class="local col5 ref" href="#125origin" title='origin' data-ref="125origin">origin</a>[<var>1</var>] &lt; <a class="local col3 ref" href="#123mins" title='mins' data-ref="123mins">mins</a>[<var>1</var>] ||</td></tr>
+<tr><th id="776">776</th><td>		<a class="local col5 ref" href="#125origin" title='origin' data-ref="125origin">origin</a>[<var>2</var>] &gt; <a class="local col4 ref" href="#124maxs" title='maxs' data-ref="124maxs">maxs</a>[<var>2</var>] ||</td></tr>
+<tr><th id="777">777</th><td>		<a class="local col5 ref" href="#125origin" title='origin' data-ref="125origin">origin</a>[<var>2</var>] &lt; <a class="local col3 ref" href="#123mins" title='mins' data-ref="123mins">mins</a>[<var>2</var>])</td></tr>
+<tr><th id="778">778</th><td>	{</td></tr>
+<tr><th id="779">779</th><td>		<b>return</b> <a class="enum" href="q_shared.h.html#qfalse" title='qfalse' data-ref="qfalse">qfalse</a>;</td></tr>
+<tr><th id="780">780</th><td>	}</td></tr>
+<tr><th id="781">781</th><td></td></tr>
+<tr><th id="782">782</th><td>	<b>return</b> <a class="enum" href="q_shared.h.html#qtrue" title='qtrue' data-ref="qtrue">qtrue</a>;</td></tr>
+<tr><th id="783">783</th><td>}</td></tr>
+<tr><th id="784">784</th><td></td></tr>
+<tr><th id="785">785</th><td><a class="typedef" href="q_shared.h.html#vec_t" title='vec_t' data-type='float' data-ref="vec_t">vec_t</a> <dfn class="decl def" id="VectorNormalize" title='VectorNormalize' data-ref="VectorNormalize">VectorNormalize</dfn>( <a class="typedef" href="q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="local col6 decl" id="126v" title='v' data-type='vec_t *' data-ref="126v">v</dfn> ) {</td></tr>
+<tr><th id="786">786</th><td>	<i>// NOTE: TTimo - Apple G4 altivec source uses double?</i></td></tr>
+<tr><th id="787">787</th><td>	<em>float</em>	<dfn class="local col7 decl" id="127length" title='length' data-type='float' data-ref="127length">length</dfn>, <dfn class="local col8 decl" id="128ilength" title='ilength' data-type='float' data-ref="128ilength">ilength</dfn>;</td></tr>
+<tr><th id="788">788</th><td></td></tr>
+<tr><th id="789">789</th><td>	<a class="local col7 ref" href="#127length" title='length' data-ref="127length">length</a> = <a class="local col6 ref" href="#126v" title='v' data-ref="126v">v</a>[<var>0</var>]*<a class="local col6 ref" href="#126v" title='v' data-ref="126v">v</a>[<var>0</var>] + <a class="local col6 ref" href="#126v" title='v' data-ref="126v">v</a>[<var>1</var>]*<a class="local col6 ref" href="#126v" title='v' data-ref="126v">v</a>[<var>1</var>] + <a class="local col6 ref" href="#126v" title='v' data-ref="126v">v</a>[<var>2</var>]*<a class="local col6 ref" href="#126v" title='v' data-ref="126v">v</a>[<var>2</var>];</td></tr>
+<tr><th id="790">790</th><td></td></tr>
+<tr><th id="791">791</th><td>	<b>if</b> ( <a class="local col7 ref" href="#127length" title='length' data-ref="127length">length</a> ) {</td></tr>
+<tr><th id="792">792</th><td>		<i>/* writing it this way allows gcc to recognize that rsqrt can be used */</i></td></tr>
+<tr><th id="793">793</th><td>		<a class="local col8 ref" href="#128ilength" title='ilength' data-ref="128ilength">ilength</a> = <var>1</var>/(<em>float</em>)<a class="ref" href="../../../include/x86_64-linux-gnu/bits/mathcalls.h.html#156" title='sqrt' data-ref="__sqrt_finite">sqrt</a> (<a class="local col7 ref" href="#127length" title='length' data-ref="127length">length</a>);</td></tr>
+<tr><th id="794">794</th><td>		<i>/* sqrt(length) = length * (1 / sqrt(length)) */</i></td></tr>
+<tr><th id="795">795</th><td>		<a class="local col7 ref" href="#127length" title='length' data-ref="127length">length</a> *= <a class="local col8 ref" href="#128ilength" title='ilength' data-ref="128ilength">ilength</a>;</td></tr>
+<tr><th id="796">796</th><td>		<a class="local col6 ref" href="#126v" title='v' data-ref="126v">v</a>[<var>0</var>] *= <a class="local col8 ref" href="#128ilength" title='ilength' data-ref="128ilength">ilength</a>;</td></tr>
+<tr><th id="797">797</th><td>		<a class="local col6 ref" href="#126v" title='v' data-ref="126v">v</a>[<var>1</var>] *= <a class="local col8 ref" href="#128ilength" title='ilength' data-ref="128ilength">ilength</a>;</td></tr>
+<tr><th id="798">798</th><td>		<a class="local col6 ref" href="#126v" title='v' data-ref="126v">v</a>[<var>2</var>] *= <a class="local col8 ref" href="#128ilength" title='ilength' data-ref="128ilength">ilength</a>;</td></tr>
+<tr><th id="799">799</th><td>	}</td></tr>
+<tr><th id="800">800</th><td>		</td></tr>
+<tr><th id="801">801</th><td>	<b>return</b> <a class="local col7 ref" href="#127length" title='length' data-ref="127length">length</a>;</td></tr>
+<tr><th id="802">802</th><td>}</td></tr>
+<tr><th id="803">803</th><td></td></tr>
+<tr><th id="804">804</th><td><a class="typedef" href="q_shared.h.html#vec_t" title='vec_t' data-type='float' data-ref="vec_t">vec_t</a> <dfn class="decl def" id="VectorNormalize2" title='VectorNormalize2' data-ref="VectorNormalize2">VectorNormalize2</dfn>( <em>const</em> <a class="typedef" href="q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="local col9 decl" id="129v" title='v' data-type='const vec_t *' data-ref="129v">v</dfn>, <a class="typedef" href="q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="local col0 decl" id="130out" title='out' data-type='vec_t *' data-ref="130out">out</dfn>) {</td></tr>
+<tr><th id="805">805</th><td>	<em>float</em>	<dfn class="local col1 decl" id="131length" title='length' data-type='float' data-ref="131length">length</dfn>, <dfn class="local col2 decl" id="132ilength" title='ilength' data-type='float' data-ref="132ilength">ilength</dfn>;</td></tr>
+<tr><th id="806">806</th><td></td></tr>
+<tr><th id="807">807</th><td>	<a class="local col1 ref" href="#131length" title='length' data-ref="131length">length</a> = <a class="local col9 ref" href="#129v" title='v' data-ref="129v">v</a>[<var>0</var>]*<a class="local col9 ref" href="#129v" title='v' data-ref="129v">v</a>[<var>0</var>] + <a class="local col9 ref" href="#129v" title='v' data-ref="129v">v</a>[<var>1</var>]*<a class="local col9 ref" href="#129v" title='v' data-ref="129v">v</a>[<var>1</var>] + <a class="local col9 ref" href="#129v" title='v' data-ref="129v">v</a>[<var>2</var>]*<a class="local col9 ref" href="#129v" title='v' data-ref="129v">v</a>[<var>2</var>];</td></tr>
+<tr><th id="808">808</th><td></td></tr>
+<tr><th id="809">809</th><td>	<b>if</b> (<a class="local col1 ref" href="#131length" title='length' data-ref="131length">length</a>)</td></tr>
+<tr><th id="810">810</th><td>	{</td></tr>
+<tr><th id="811">811</th><td>		<i>/* writing it this way allows gcc to recognize that rsqrt can be used */</i></td></tr>
+<tr><th id="812">812</th><td>		<a class="local col2 ref" href="#132ilength" title='ilength' data-ref="132ilength">ilength</a> = <var>1</var>/(<em>float</em>)<a class="ref" href="../../../include/x86_64-linux-gnu/bits/mathcalls.h.html#156" title='sqrt' data-ref="__sqrt_finite">sqrt</a> (<a class="local col1 ref" href="#131length" title='length' data-ref="131length">length</a>);</td></tr>
+<tr><th id="813">813</th><td>		<i>/* sqrt(length) = length * (1 / sqrt(length)) */</i></td></tr>
+<tr><th id="814">814</th><td>		<a class="local col1 ref" href="#131length" title='length' data-ref="131length">length</a> *= <a class="local col2 ref" href="#132ilength" title='ilength' data-ref="132ilength">ilength</a>;</td></tr>
+<tr><th id="815">815</th><td>		<a class="local col0 ref" href="#130out" title='out' data-ref="130out">out</a>[<var>0</var>] = <a class="local col9 ref" href="#129v" title='v' data-ref="129v">v</a>[<var>0</var>]*<a class="local col2 ref" href="#132ilength" title='ilength' data-ref="132ilength">ilength</a>;</td></tr>
+<tr><th id="816">816</th><td>		<a class="local col0 ref" href="#130out" title='out' data-ref="130out">out</a>[<var>1</var>] = <a class="local col9 ref" href="#129v" title='v' data-ref="129v">v</a>[<var>1</var>]*<a class="local col2 ref" href="#132ilength" title='ilength' data-ref="132ilength">ilength</a>;</td></tr>
+<tr><th id="817">817</th><td>		<a class="local col0 ref" href="#130out" title='out' data-ref="130out">out</a>[<var>2</var>] = <a class="local col9 ref" href="#129v" title='v' data-ref="129v">v</a>[<var>2</var>]*<a class="local col2 ref" href="#132ilength" title='ilength' data-ref="132ilength">ilength</a>;</td></tr>
+<tr><th id="818">818</th><td>	} <b>else</b> {</td></tr>
+<tr><th id="819">819</th><td>		<a class="macro" href="q_shared.h.html#571" title="((out)[0]=(out)[1]=(out)[2]=0)" data-ref="_M/VectorClear">VectorClear</a>( <a class="local col0 ref" href="#130out" title='out' data-ref="130out">out</a> );</td></tr>
+<tr><th id="820">820</th><td>	}</td></tr>
+<tr><th id="821">821</th><td>		</td></tr>
+<tr><th id="822">822</th><td>	<b>return</b> <a class="local col1 ref" href="#131length" title='length' data-ref="131length">length</a>;</td></tr>
+<tr><th id="823">823</th><td></td></tr>
+<tr><th id="824">824</th><td>}</td></tr>
+<tr><th id="825">825</th><td></td></tr>
+<tr><th id="826">826</th><td><em>void</em> <dfn class="decl def" id="_VectorMA" title='_VectorMA' data-ref="_VectorMA">_VectorMA</dfn>( <em>const</em> <a class="typedef" href="q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="local col3 decl" id="133veca" title='veca' data-type='const vec_t *' data-ref="133veca">veca</dfn>, <em>float</em> <dfn class="local col4 decl" id="134scale" title='scale' data-type='float' data-ref="134scale">scale</dfn>, <em>const</em> <a class="typedef" href="q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="local col5 decl" id="135vecb" title='vecb' data-type='const vec_t *' data-ref="135vecb">vecb</dfn>, <a class="typedef" href="q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="local col6 decl" id="136vecc" title='vecc' data-type='vec_t *' data-ref="136vecc">vecc</dfn>) {</td></tr>
+<tr><th id="827">827</th><td>	<a class="local col6 ref" href="#136vecc" title='vecc' data-ref="136vecc">vecc</a>[<var>0</var>] = <a class="local col3 ref" href="#133veca" title='veca' data-ref="133veca">veca</a>[<var>0</var>] + <a class="local col4 ref" href="#134scale" title='scale' data-ref="134scale">scale</a>*<a class="local col5 ref" href="#135vecb" title='vecb' data-ref="135vecb">vecb</a>[<var>0</var>];</td></tr>
+<tr><th id="828">828</th><td>	<a class="local col6 ref" href="#136vecc" title='vecc' data-ref="136vecc">vecc</a>[<var>1</var>] = <a class="local col3 ref" href="#133veca" title='veca' data-ref="133veca">veca</a>[<var>1</var>] + <a class="local col4 ref" href="#134scale" title='scale' data-ref="134scale">scale</a>*<a class="local col5 ref" href="#135vecb" title='vecb' data-ref="135vecb">vecb</a>[<var>1</var>];</td></tr>
+<tr><th id="829">829</th><td>	<a class="local col6 ref" href="#136vecc" title='vecc' data-ref="136vecc">vecc</a>[<var>2</var>] = <a class="local col3 ref" href="#133veca" title='veca' data-ref="133veca">veca</a>[<var>2</var>] + <a class="local col4 ref" href="#134scale" title='scale' data-ref="134scale">scale</a>*<a class="local col5 ref" href="#135vecb" title='vecb' data-ref="135vecb">vecb</a>[<var>2</var>];</td></tr>
+<tr><th id="830">830</th><td>}</td></tr>
+<tr><th id="831">831</th><td></td></tr>
+<tr><th id="832">832</th><td></td></tr>
+<tr><th id="833">833</th><td><a class="typedef" href="q_shared.h.html#vec_t" title='vec_t' data-type='float' data-ref="vec_t">vec_t</a> <dfn class="decl def" id="_DotProduct" title='_DotProduct' data-ref="_DotProduct">_DotProduct</dfn>( <em>const</em> <a class="typedef" href="q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="local col7 decl" id="137v1" title='v1' data-type='const vec_t *' data-ref="137v1">v1</dfn>, <em>const</em> <a class="typedef" href="q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="local col8 decl" id="138v2" title='v2' data-type='const vec_t *' data-ref="138v2">v2</dfn> ) {</td></tr>
+<tr><th id="834">834</th><td>	<b>return</b> <a class="local col7 ref" href="#137v1" title='v1' data-ref="137v1">v1</a>[<var>0</var>]*<a class="local col8 ref" href="#138v2" title='v2' data-ref="138v2">v2</a>[<var>0</var>] + <a class="local col7 ref" href="#137v1" title='v1' data-ref="137v1">v1</a>[<var>1</var>]*<a class="local col8 ref" href="#138v2" title='v2' data-ref="138v2">v2</a>[<var>1</var>] + <a class="local col7 ref" href="#137v1" title='v1' data-ref="137v1">v1</a>[<var>2</var>]*<a class="local col8 ref" href="#138v2" title='v2' data-ref="138v2">v2</a>[<var>2</var>];</td></tr>
+<tr><th id="835">835</th><td>}</td></tr>
+<tr><th id="836">836</th><td></td></tr>
+<tr><th id="837">837</th><td><em>void</em> <dfn class="decl def" id="_VectorSubtract" title='_VectorSubtract' data-ref="_VectorSubtract">_VectorSubtract</dfn>( <em>const</em> <a class="typedef" href="q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="local col9 decl" id="139veca" title='veca' data-type='const vec_t *' data-ref="139veca">veca</dfn>, <em>const</em> <a class="typedef" href="q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="local col0 decl" id="140vecb" title='vecb' data-type='const vec_t *' data-ref="140vecb">vecb</dfn>, <a class="typedef" href="q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="local col1 decl" id="141out" title='out' data-type='vec_t *' data-ref="141out">out</dfn> ) {</td></tr>
+<tr><th id="838">838</th><td>	<a class="local col1 ref" href="#141out" title='out' data-ref="141out">out</a>[<var>0</var>] = <a class="local col9 ref" href="#139veca" title='veca' data-ref="139veca">veca</a>[<var>0</var>]-<a class="local col0 ref" href="#140vecb" title='vecb' data-ref="140vecb">vecb</a>[<var>0</var>];</td></tr>
+<tr><th id="839">839</th><td>	<a class="local col1 ref" href="#141out" title='out' data-ref="141out">out</a>[<var>1</var>] = <a class="local col9 ref" href="#139veca" title='veca' data-ref="139veca">veca</a>[<var>1</var>]-<a class="local col0 ref" href="#140vecb" title='vecb' data-ref="140vecb">vecb</a>[<var>1</var>];</td></tr>
+<tr><th id="840">840</th><td>	<a class="local col1 ref" href="#141out" title='out' data-ref="141out">out</a>[<var>2</var>] = <a class="local col9 ref" href="#139veca" title='veca' data-ref="139veca">veca</a>[<var>2</var>]-<a class="local col0 ref" href="#140vecb" title='vecb' data-ref="140vecb">vecb</a>[<var>2</var>];</td></tr>
+<tr><th id="841">841</th><td>}</td></tr>
+<tr><th id="842">842</th><td></td></tr>
+<tr><th id="843">843</th><td><em>void</em> <dfn class="decl def" id="_VectorAdd" title='_VectorAdd' data-ref="_VectorAdd">_VectorAdd</dfn>( <em>const</em> <a class="typedef" href="q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="local col2 decl" id="142veca" title='veca' data-type='const vec_t *' data-ref="142veca">veca</dfn>, <em>const</em> <a class="typedef" href="q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="local col3 decl" id="143vecb" title='vecb' data-type='const vec_t *' data-ref="143vecb">vecb</dfn>, <a class="typedef" href="q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="local col4 decl" id="144out" title='out' data-type='vec_t *' data-ref="144out">out</dfn> ) {</td></tr>
+<tr><th id="844">844</th><td>	<a class="local col4 ref" href="#144out" title='out' data-ref="144out">out</a>[<var>0</var>] = <a class="local col2 ref" href="#142veca" title='veca' data-ref="142veca">veca</a>[<var>0</var>]+<a class="local col3 ref" href="#143vecb" title='vecb' data-ref="143vecb">vecb</a>[<var>0</var>];</td></tr>
+<tr><th id="845">845</th><td>	<a class="local col4 ref" href="#144out" title='out' data-ref="144out">out</a>[<var>1</var>] = <a class="local col2 ref" href="#142veca" title='veca' data-ref="142veca">veca</a>[<var>1</var>]+<a class="local col3 ref" href="#143vecb" title='vecb' data-ref="143vecb">vecb</a>[<var>1</var>];</td></tr>
+<tr><th id="846">846</th><td>	<a class="local col4 ref" href="#144out" title='out' data-ref="144out">out</a>[<var>2</var>] = <a class="local col2 ref" href="#142veca" title='veca' data-ref="142veca">veca</a>[<var>2</var>]+<a class="local col3 ref" href="#143vecb" title='vecb' data-ref="143vecb">vecb</a>[<var>2</var>];</td></tr>
+<tr><th id="847">847</th><td>}</td></tr>
+<tr><th id="848">848</th><td></td></tr>
+<tr><th id="849">849</th><td><em>void</em> <dfn class="decl def" id="_VectorCopy" title='_VectorCopy' data-ref="_VectorCopy">_VectorCopy</dfn>( <em>const</em> <a class="typedef" href="q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="local col5 decl" id="145in" title='in' data-type='const vec_t *' data-ref="145in">in</dfn>, <a class="typedef" href="q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="local col6 decl" id="146out" title='out' data-type='vec_t *' data-ref="146out">out</dfn> ) {</td></tr>
+<tr><th id="850">850</th><td>	<a class="local col6 ref" href="#146out" title='out' data-ref="146out">out</a>[<var>0</var>] = <a class="local col5 ref" href="#145in" title='in' data-ref="145in">in</a>[<var>0</var>];</td></tr>
+<tr><th id="851">851</th><td>	<a class="local col6 ref" href="#146out" title='out' data-ref="146out">out</a>[<var>1</var>] = <a class="local col5 ref" href="#145in" title='in' data-ref="145in">in</a>[<var>1</var>];</td></tr>
+<tr><th id="852">852</th><td>	<a class="local col6 ref" href="#146out" title='out' data-ref="146out">out</a>[<var>2</var>] = <a class="local col5 ref" href="#145in" title='in' data-ref="145in">in</a>[<var>2</var>];</td></tr>
+<tr><th id="853">853</th><td>}</td></tr>
+<tr><th id="854">854</th><td></td></tr>
+<tr><th id="855">855</th><td><em>void</em> <dfn class="decl def" id="_VectorScale" title='_VectorScale' data-ref="_VectorScale">_VectorScale</dfn>( <em>const</em> <a class="typedef" href="q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="local col7 decl" id="147in" title='in' data-type='const vec_t *' data-ref="147in">in</dfn>, <a class="typedef" href="q_shared.h.html#vec_t" title='vec_t' data-type='float' data-ref="vec_t">vec_t</a> <dfn class="local col8 decl" id="148scale" title='scale' data-type='vec_t' data-ref="148scale">scale</dfn>, <a class="typedef" href="q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="local col9 decl" id="149out" title='out' data-type='vec_t *' data-ref="149out">out</dfn> ) {</td></tr>
+<tr><th id="856">856</th><td>	<a class="local col9 ref" href="#149out" title='out' data-ref="149out">out</a>[<var>0</var>] = <a class="local col7 ref" href="#147in" title='in' data-ref="147in">in</a>[<var>0</var>]*<a class="local col8 ref" href="#148scale" title='scale' data-ref="148scale">scale</a>;</td></tr>
+<tr><th id="857">857</th><td>	<a class="local col9 ref" href="#149out" title='out' data-ref="149out">out</a>[<var>1</var>] = <a class="local col7 ref" href="#147in" title='in' data-ref="147in">in</a>[<var>1</var>]*<a class="local col8 ref" href="#148scale" title='scale' data-ref="148scale">scale</a>;</td></tr>
+<tr><th id="858">858</th><td>	<a class="local col9 ref" href="#149out" title='out' data-ref="149out">out</a>[<var>2</var>] = <a class="local col7 ref" href="#147in" title='in' data-ref="147in">in</a>[<var>2</var>]*<a class="local col8 ref" href="#148scale" title='scale' data-ref="148scale">scale</a>;</td></tr>
+<tr><th id="859">859</th><td>}</td></tr>
+<tr><th id="860">860</th><td></td></tr>
+<tr><th id="861">861</th><td><em>void</em> <dfn class="decl def" id="Vector4Scale" title='Vector4Scale' data-ref="Vector4Scale">Vector4Scale</dfn>( <em>const</em> <a class="typedef" href="q_shared.h.html#vec4_t" title='vec4_t' data-type='vec_t [4]' data-ref="vec4_t">vec4_t</a> <dfn class="local col0 decl" id="150in" title='in' data-type='const vec_t *' data-ref="150in">in</dfn>, <a class="typedef" href="q_shared.h.html#vec_t" title='vec_t' data-type='float' data-ref="vec_t">vec_t</a> <dfn class="local col1 decl" id="151scale" title='scale' data-type='vec_t' data-ref="151scale">scale</dfn>, <a class="typedef" href="q_shared.h.html#vec4_t" title='vec4_t' data-type='vec_t [4]' data-ref="vec4_t">vec4_t</a> <dfn class="local col2 decl" id="152out" title='out' data-type='vec_t *' data-ref="152out">out</dfn> ) {</td></tr>
+<tr><th id="862">862</th><td>	<a class="local col2 ref" href="#152out" title='out' data-ref="152out">out</a>[<var>0</var>] = <a class="local col0 ref" href="#150in" title='in' data-ref="150in">in</a>[<var>0</var>]*<a class="local col1 ref" href="#151scale" title='scale' data-ref="151scale">scale</a>;</td></tr>
+<tr><th id="863">863</th><td>	<a class="local col2 ref" href="#152out" title='out' data-ref="152out">out</a>[<var>1</var>] = <a class="local col0 ref" href="#150in" title='in' data-ref="150in">in</a>[<var>1</var>]*<a class="local col1 ref" href="#151scale" title='scale' data-ref="151scale">scale</a>;</td></tr>
+<tr><th id="864">864</th><td>	<a class="local col2 ref" href="#152out" title='out' data-ref="152out">out</a>[<var>2</var>] = <a class="local col0 ref" href="#150in" title='in' data-ref="150in">in</a>[<var>2</var>]*<a class="local col1 ref" href="#151scale" title='scale' data-ref="151scale">scale</a>;</td></tr>
+<tr><th id="865">865</th><td>	<a class="local col2 ref" href="#152out" title='out' data-ref="152out">out</a>[<var>3</var>] = <a class="local col0 ref" href="#150in" title='in' data-ref="150in">in</a>[<var>3</var>]*<a class="local col1 ref" href="#151scale" title='scale' data-ref="151scale">scale</a>;</td></tr>
+<tr><th id="866">866</th><td>}</td></tr>
+<tr><th id="867">867</th><td></td></tr>
+<tr><th id="868">868</th><td></td></tr>
+<tr><th id="869">869</th><td><em>int</em> <dfn class="decl def" id="Q_log2" title='Q_log2' data-ref="Q_log2">Q_log2</dfn>( <em>int</em> <dfn class="local col3 decl" id="153val" title='val' data-type='int' data-ref="153val">val</dfn> ) {</td></tr>
+<tr><th id="870">870</th><td>	<em>int</em> <dfn class="local col4 decl" id="154answer" title='answer' data-type='int' data-ref="154answer">answer</dfn>;</td></tr>
+<tr><th id="871">871</th><td></td></tr>
+<tr><th id="872">872</th><td>	<a class="local col4 ref" href="#154answer" title='answer' data-ref="154answer">answer</a> = <var>0</var>;</td></tr>
+<tr><th id="873">873</th><td>	<b>while</b> ( ( <a class="local col3 ref" href="#153val" title='val' data-ref="153val">val</a>&gt;&gt;=<var>1</var> ) != <var>0</var> ) {</td></tr>
+<tr><th id="874">874</th><td>		<a class="local col4 ref" href="#154answer" title='answer' data-ref="154answer">answer</a>++;</td></tr>
+<tr><th id="875">875</th><td>	}</td></tr>
+<tr><th id="876">876</th><td>	<b>return</b> <a class="local col4 ref" href="#154answer" title='answer' data-ref="154answer">answer</a>;</td></tr>
+<tr><th id="877">877</th><td>}</td></tr>
+<tr><th id="878">878</th><td></td></tr>
+<tr><th id="879">879</th><td></td></tr>
+<tr><th id="880">880</th><td></td></tr>
+<tr><th id="881">881</th><td><i>/*</i></td></tr>
+<tr><th id="882">882</th><td><i>=================</i></td></tr>
+<tr><th id="883">883</th><td><i>PlaneTypeForNormal</i></td></tr>
+<tr><th id="884">884</th><td><i>=================</i></td></tr>
+<tr><th id="885">885</th><td><i>*/</i></td></tr>
+<tr><th id="886">886</th><td><i>/*</i></td></tr>
+<tr><th id="887">887</th><td><i>int	PlaneTypeForNormal (vec3_t normal) {</i></td></tr>
+<tr><th id="888">888</th><td><i>	if ( normal[0] == 1.0 )</i></td></tr>
+<tr><th id="889">889</th><td><i>		return PLANE_X;</i></td></tr>
+<tr><th id="890">890</th><td><i>	if ( normal[1] == 1.0 )</i></td></tr>
+<tr><th id="891">891</th><td><i>		return PLANE_Y;</i></td></tr>
+<tr><th id="892">892</th><td><i>	if ( normal[2] == 1.0 )</i></td></tr>
+<tr><th id="893">893</th><td><i>		return PLANE_Z;</i></td></tr>
+<tr><th id="894">894</th><td><i>	</i></td></tr>
+<tr><th id="895">895</th><td><i>	return PLANE_NON_AXIAL;</i></td></tr>
+<tr><th id="896">896</th><td><i>}</i></td></tr>
+<tr><th id="897">897</th><td><i>*/</i></td></tr>
+<tr><th id="898">898</th><td></td></tr>
+<tr><th id="899">899</th><td></td></tr>
+<tr><th id="900">900</th><td><i>/*</i></td></tr>
+<tr><th id="901">901</th><td><i>================</i></td></tr>
+<tr><th id="902">902</th><td><i>MatrixMultiply</i></td></tr>
+<tr><th id="903">903</th><td><i>================</i></td></tr>
+<tr><th id="904">904</th><td><i>*/</i></td></tr>
+<tr><th id="905">905</th><td><em>void</em> <dfn class="decl def" id="MatrixMultiply" title='MatrixMultiply' data-ref="MatrixMultiply">MatrixMultiply</dfn>(<em>float</em> <dfn class="local col5 decl" id="155in1" title='in1' data-type='float (*)[3]' data-ref="155in1">in1</dfn>[<var>3</var>][<var>3</var>], <em>float</em> <dfn class="local col6 decl" id="156in2" title='in2' data-type='float (*)[3]' data-ref="156in2">in2</dfn>[<var>3</var>][<var>3</var>], <em>float</em> <dfn class="local col7 decl" id="157out" title='out' data-type='float (*)[3]' data-ref="157out">out</dfn>[<var>3</var>][<var>3</var>]) {</td></tr>
+<tr><th id="906">906</th><td>	<a class="local col7 ref" href="#157out" title='out' data-ref="157out">out</a>[<var>0</var>][<var>0</var>] = <a class="local col5 ref" href="#155in1" title='in1' data-ref="155in1">in1</a>[<var>0</var>][<var>0</var>] * <a class="local col6 ref" href="#156in2" title='in2' data-ref="156in2">in2</a>[<var>0</var>][<var>0</var>] + <a class="local col5 ref" href="#155in1" title='in1' data-ref="155in1">in1</a>[<var>0</var>][<var>1</var>] * <a class="local col6 ref" href="#156in2" title='in2' data-ref="156in2">in2</a>[<var>1</var>][<var>0</var>] +</td></tr>
+<tr><th id="907">907</th><td>				<a class="local col5 ref" href="#155in1" title='in1' data-ref="155in1">in1</a>[<var>0</var>][<var>2</var>] * <a class="local col6 ref" href="#156in2" title='in2' data-ref="156in2">in2</a>[<var>2</var>][<var>0</var>];</td></tr>
+<tr><th id="908">908</th><td>	<a class="local col7 ref" href="#157out" title='out' data-ref="157out">out</a>[<var>0</var>][<var>1</var>] = <a class="local col5 ref" href="#155in1" title='in1' data-ref="155in1">in1</a>[<var>0</var>][<var>0</var>] * <a class="local col6 ref" href="#156in2" title='in2' data-ref="156in2">in2</a>[<var>0</var>][<var>1</var>] + <a class="local col5 ref" href="#155in1" title='in1' data-ref="155in1">in1</a>[<var>0</var>][<var>1</var>] * <a class="local col6 ref" href="#156in2" title='in2' data-ref="156in2">in2</a>[<var>1</var>][<var>1</var>] +</td></tr>
+<tr><th id="909">909</th><td>				<a class="local col5 ref" href="#155in1" title='in1' data-ref="155in1">in1</a>[<var>0</var>][<var>2</var>] * <a class="local col6 ref" href="#156in2" title='in2' data-ref="156in2">in2</a>[<var>2</var>][<var>1</var>];</td></tr>
+<tr><th id="910">910</th><td>	<a class="local col7 ref" href="#157out" title='out' data-ref="157out">out</a>[<var>0</var>][<var>2</var>] = <a class="local col5 ref" href="#155in1" title='in1' data-ref="155in1">in1</a>[<var>0</var>][<var>0</var>] * <a class="local col6 ref" href="#156in2" title='in2' data-ref="156in2">in2</a>[<var>0</var>][<var>2</var>] + <a class="local col5 ref" href="#155in1" title='in1' data-ref="155in1">in1</a>[<var>0</var>][<var>1</var>] * <a class="local col6 ref" href="#156in2" title='in2' data-ref="156in2">in2</a>[<var>1</var>][<var>2</var>] +</td></tr>
+<tr><th id="911">911</th><td>				<a class="local col5 ref" href="#155in1" title='in1' data-ref="155in1">in1</a>[<var>0</var>][<var>2</var>] * <a class="local col6 ref" href="#156in2" title='in2' data-ref="156in2">in2</a>[<var>2</var>][<var>2</var>];</td></tr>
+<tr><th id="912">912</th><td>	<a class="local col7 ref" href="#157out" title='out' data-ref="157out">out</a>[<var>1</var>][<var>0</var>] = <a class="local col5 ref" href="#155in1" title='in1' data-ref="155in1">in1</a>[<var>1</var>][<var>0</var>] * <a class="local col6 ref" href="#156in2" title='in2' data-ref="156in2">in2</a>[<var>0</var>][<var>0</var>] + <a class="local col5 ref" href="#155in1" title='in1' data-ref="155in1">in1</a>[<var>1</var>][<var>1</var>] * <a class="local col6 ref" href="#156in2" title='in2' data-ref="156in2">in2</a>[<var>1</var>][<var>0</var>] +</td></tr>
+<tr><th id="913">913</th><td>				<a class="local col5 ref" href="#155in1" title='in1' data-ref="155in1">in1</a>[<var>1</var>][<var>2</var>] * <a class="local col6 ref" href="#156in2" title='in2' data-ref="156in2">in2</a>[<var>2</var>][<var>0</var>];</td></tr>
+<tr><th id="914">914</th><td>	<a class="local col7 ref" href="#157out" title='out' data-ref="157out">out</a>[<var>1</var>][<var>1</var>] = <a class="local col5 ref" href="#155in1" title='in1' data-ref="155in1">in1</a>[<var>1</var>][<var>0</var>] * <a class="local col6 ref" href="#156in2" title='in2' data-ref="156in2">in2</a>[<var>0</var>][<var>1</var>] + <a class="local col5 ref" href="#155in1" title='in1' data-ref="155in1">in1</a>[<var>1</var>][<var>1</var>] * <a class="local col6 ref" href="#156in2" title='in2' data-ref="156in2">in2</a>[<var>1</var>][<var>1</var>] +</td></tr>
+<tr><th id="915">915</th><td>				<a class="local col5 ref" href="#155in1" title='in1' data-ref="155in1">in1</a>[<var>1</var>][<var>2</var>] * <a class="local col6 ref" href="#156in2" title='in2' data-ref="156in2">in2</a>[<var>2</var>][<var>1</var>];</td></tr>
+<tr><th id="916">916</th><td>	<a class="local col7 ref" href="#157out" title='out' data-ref="157out">out</a>[<var>1</var>][<var>2</var>] = <a class="local col5 ref" href="#155in1" title='in1' data-ref="155in1">in1</a>[<var>1</var>][<var>0</var>] * <a class="local col6 ref" href="#156in2" title='in2' data-ref="156in2">in2</a>[<var>0</var>][<var>2</var>] + <a class="local col5 ref" href="#155in1" title='in1' data-ref="155in1">in1</a>[<var>1</var>][<var>1</var>] * <a class="local col6 ref" href="#156in2" title='in2' data-ref="156in2">in2</a>[<var>1</var>][<var>2</var>] +</td></tr>
+<tr><th id="917">917</th><td>				<a class="local col5 ref" href="#155in1" title='in1' data-ref="155in1">in1</a>[<var>1</var>][<var>2</var>] * <a class="local col6 ref" href="#156in2" title='in2' data-ref="156in2">in2</a>[<var>2</var>][<var>2</var>];</td></tr>
+<tr><th id="918">918</th><td>	<a class="local col7 ref" href="#157out" title='out' data-ref="157out">out</a>[<var>2</var>][<var>0</var>] = <a class="local col5 ref" href="#155in1" title='in1' data-ref="155in1">in1</a>[<var>2</var>][<var>0</var>] * <a class="local col6 ref" href="#156in2" title='in2' data-ref="156in2">in2</a>[<var>0</var>][<var>0</var>] + <a class="local col5 ref" href="#155in1" title='in1' data-ref="155in1">in1</a>[<var>2</var>][<var>1</var>] * <a class="local col6 ref" href="#156in2" title='in2' data-ref="156in2">in2</a>[<var>1</var>][<var>0</var>] +</td></tr>
+<tr><th id="919">919</th><td>				<a class="local col5 ref" href="#155in1" title='in1' data-ref="155in1">in1</a>[<var>2</var>][<var>2</var>] * <a class="local col6 ref" href="#156in2" title='in2' data-ref="156in2">in2</a>[<var>2</var>][<var>0</var>];</td></tr>
+<tr><th id="920">920</th><td>	<a class="local col7 ref" href="#157out" title='out' data-ref="157out">out</a>[<var>2</var>][<var>1</var>] = <a class="local col5 ref" href="#155in1" title='in1' data-ref="155in1">in1</a>[<var>2</var>][<var>0</var>] * <a class="local col6 ref" href="#156in2" title='in2' data-ref="156in2">in2</a>[<var>0</var>][<var>1</var>] + <a class="local col5 ref" href="#155in1" title='in1' data-ref="155in1">in1</a>[<var>2</var>][<var>1</var>] * <a class="local col6 ref" href="#156in2" title='in2' data-ref="156in2">in2</a>[<var>1</var>][<var>1</var>] +</td></tr>
+<tr><th id="921">921</th><td>				<a class="local col5 ref" href="#155in1" title='in1' data-ref="155in1">in1</a>[<var>2</var>][<var>2</var>] * <a class="local col6 ref" href="#156in2" title='in2' data-ref="156in2">in2</a>[<var>2</var>][<var>1</var>];</td></tr>
+<tr><th id="922">922</th><td>	<a class="local col7 ref" href="#157out" title='out' data-ref="157out">out</a>[<var>2</var>][<var>2</var>] = <a class="local col5 ref" href="#155in1" title='in1' data-ref="155in1">in1</a>[<var>2</var>][<var>0</var>] * <a class="local col6 ref" href="#156in2" title='in2' data-ref="156in2">in2</a>[<var>0</var>][<var>2</var>] + <a class="local col5 ref" href="#155in1" title='in1' data-ref="155in1">in1</a>[<var>2</var>][<var>1</var>] * <a class="local col6 ref" href="#156in2" title='in2' data-ref="156in2">in2</a>[<var>1</var>][<var>2</var>] +</td></tr>
+<tr><th id="923">923</th><td>				<a class="local col5 ref" href="#155in1" title='in1' data-ref="155in1">in1</a>[<var>2</var>][<var>2</var>] * <a class="local col6 ref" href="#156in2" title='in2' data-ref="156in2">in2</a>[<var>2</var>][<var>2</var>];</td></tr>
+<tr><th id="924">924</th><td>}</td></tr>
+<tr><th id="925">925</th><td></td></tr>
+<tr><th id="926">926</th><td></td></tr>
+<tr><th id="927">927</th><td><em>void</em> <dfn class="decl def" id="AngleVectors" title='AngleVectors' data-ref="AngleVectors">AngleVectors</dfn>( <em>const</em> <a class="typedef" href="q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="local col8 decl" id="158angles" title='angles' data-type='const vec_t *' data-ref="158angles">angles</dfn>, <a class="typedef" href="q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="local col9 decl" id="159forward" title='forward' data-type='vec_t *' data-ref="159forward">forward</dfn>, <a class="typedef" href="q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="local col0 decl" id="160right" title='right' data-type='vec_t *' data-ref="160right">right</dfn>, <a class="typedef" href="q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="local col1 decl" id="161up" title='up' data-type='vec_t *' data-ref="161up">up</dfn>) {</td></tr>
+<tr><th id="928">928</th><td>	<em>float</em>		<dfn class="local col2 decl" id="162angle" title='angle' data-type='float' data-ref="162angle">angle</dfn>;</td></tr>
+<tr><th id="929">929</th><td>	<em>static</em> <em>float</em>		<dfn class="local col3 decl" id="163sr" title='sr' data-type='float' data-ref="163sr">sr</dfn>, <dfn class="local col4 decl" id="164sp" title='sp' data-type='float' data-ref="164sp">sp</dfn>, <dfn class="local col5 decl" id="165sy" title='sy' data-type='float' data-ref="165sy">sy</dfn>, <dfn class="local col6 decl" id="166cr" title='cr' data-type='float' data-ref="166cr">cr</dfn>, <dfn class="local col7 decl" id="167cp" title='cp' data-type='float' data-ref="167cp">cp</dfn>, <dfn class="local col8 decl" id="168cy" title='cy' data-type='float' data-ref="168cy">cy</dfn>;</td></tr>
+<tr><th id="930">930</th><td>	<i>// static to help MS compiler fp bugs</i></td></tr>
+<tr><th id="931">931</th><td></td></tr>
+<tr><th id="932">932</th><td>	<a class="local col2 ref" href="#162angle" title='angle' data-ref="162angle">angle</a> = <a class="local col8 ref" href="#158angles" title='angles' data-ref="158angles">angles</a>[<a class="macro" href="q_shared.h.html#238" title="1" data-ref="_M/YAW">YAW</a>] * (<a class="macro" href="../../../include/math.h.html#418" title="3.14159265358979323846" data-ref="_M/M_PI">M_PI</a>*<var>2</var> / <var>360</var>);</td></tr>
+<tr><th id="933">933</th><td>	<a class="local col5 ref" href="#165sy" title='sy' data-ref="165sy">sy</a> = <a class="ref" href="../../../include/x86_64-linux-gnu/bits/mathcalls.h.html#65" title='sin' data-ref="sin">sin</a>(<a class="local col2 ref" href="#162angle" title='angle' data-ref="162angle">angle</a>);</td></tr>
+<tr><th id="934">934</th><td>	<a class="local col8 ref" href="#168cy" title='cy' data-ref="168cy">cy</a> = <a class="ref" href="../../../include/x86_64-linux-gnu/bits/mathcalls.h.html#63" title='cos' data-ref="cos">cos</a>(<a class="local col2 ref" href="#162angle" title='angle' data-ref="162angle">angle</a>);</td></tr>
+<tr><th id="935">935</th><td>	<a class="local col2 ref" href="#162angle" title='angle' data-ref="162angle">angle</a> = <a class="local col8 ref" href="#158angles" title='angles' data-ref="158angles">angles</a>[<a class="macro" href="q_shared.h.html#237" title="0" data-ref="_M/PITCH">PITCH</a>] * (<a class="macro" href="../../../include/math.h.html#418" title="3.14159265358979323846" data-ref="_M/M_PI">M_PI</a>*<var>2</var> / <var>360</var>);</td></tr>
+<tr><th id="936">936</th><td>	<a class="local col4 ref" href="#164sp" title='sp' data-ref="164sp">sp</a> = <a class="ref" href="../../../include/x86_64-linux-gnu/bits/mathcalls.h.html#65" title='sin' data-ref="sin">sin</a>(<a class="local col2 ref" href="#162angle" title='angle' data-ref="162angle">angle</a>);</td></tr>
+<tr><th id="937">937</th><td>	<a class="local col7 ref" href="#167cp" title='cp' data-ref="167cp">cp</a> = <a class="ref" href="../../../include/x86_64-linux-gnu/bits/mathcalls.h.html#63" title='cos' data-ref="cos">cos</a>(<a class="local col2 ref" href="#162angle" title='angle' data-ref="162angle">angle</a>);</td></tr>
+<tr><th id="938">938</th><td>	<a class="local col2 ref" href="#162angle" title='angle' data-ref="162angle">angle</a> = <a class="local col8 ref" href="#158angles" title='angles' data-ref="158angles">angles</a>[<a class="macro" href="q_shared.h.html#239" title="2" data-ref="_M/ROLL">ROLL</a>] * (<a class="macro" href="../../../include/math.h.html#418" title="3.14159265358979323846" data-ref="_M/M_PI">M_PI</a>*<var>2</var> / <var>360</var>);</td></tr>
+<tr><th id="939">939</th><td>	<a class="local col3 ref" href="#163sr" title='sr' data-ref="163sr">sr</a> = <a class="ref" href="../../../include/x86_64-linux-gnu/bits/mathcalls.h.html#65" title='sin' data-ref="sin">sin</a>(<a class="local col2 ref" href="#162angle" title='angle' data-ref="162angle">angle</a>);</td></tr>
+<tr><th id="940">940</th><td>	<a class="local col6 ref" href="#166cr" title='cr' data-ref="166cr">cr</a> = <a class="ref" href="../../../include/x86_64-linux-gnu/bits/mathcalls.h.html#63" title='cos' data-ref="cos">cos</a>(<a class="local col2 ref" href="#162angle" title='angle' data-ref="162angle">angle</a>);</td></tr>
+<tr><th id="941">941</th><td></td></tr>
+<tr><th id="942">942</th><td>	<b>if</b> (<a class="local col9 ref" href="#159forward" title='forward' data-ref="159forward">forward</a>)</td></tr>
+<tr><th id="943">943</th><td>	{</td></tr>
+<tr><th id="944">944</th><td>		<a class="local col9 ref" href="#159forward" title='forward' data-ref="159forward">forward</a>[<var>0</var>] = <a class="local col7 ref" href="#167cp" title='cp' data-ref="167cp">cp</a>*<a class="local col8 ref" href="#168cy" title='cy' data-ref="168cy">cy</a>;</td></tr>
+<tr><th id="945">945</th><td>		<a class="local col9 ref" href="#159forward" title='forward' data-ref="159forward">forward</a>[<var>1</var>] = <a class="local col7 ref" href="#167cp" title='cp' data-ref="167cp">cp</a>*<a class="local col5 ref" href="#165sy" title='sy' data-ref="165sy">sy</a>;</td></tr>
+<tr><th id="946">946</th><td>		<a class="local col9 ref" href="#159forward" title='forward' data-ref="159forward">forward</a>[<var>2</var>] = -<a class="local col4 ref" href="#164sp" title='sp' data-ref="164sp">sp</a>;</td></tr>
+<tr><th id="947">947</th><td>	}</td></tr>
+<tr><th id="948">948</th><td>	<b>if</b> (<a class="local col0 ref" href="#160right" title='right' data-ref="160right">right</a>)</td></tr>
+<tr><th id="949">949</th><td>	{</td></tr>
+<tr><th id="950">950</th><td>		<a class="local col0 ref" href="#160right" title='right' data-ref="160right">right</a>[<var>0</var>] = (-<var>1</var>*<a class="local col3 ref" href="#163sr" title='sr' data-ref="163sr">sr</a>*<a class="local col4 ref" href="#164sp" title='sp' data-ref="164sp">sp</a>*<a class="local col8 ref" href="#168cy" title='cy' data-ref="168cy">cy</a>+-<var>1</var>*<a class="local col6 ref" href="#166cr" title='cr' data-ref="166cr">cr</a>*-<a class="local col5 ref" href="#165sy" title='sy' data-ref="165sy">sy</a>);</td></tr>
+<tr><th id="951">951</th><td>		<a class="local col0 ref" href="#160right" title='right' data-ref="160right">right</a>[<var>1</var>] = (-<var>1</var>*<a class="local col3 ref" href="#163sr" title='sr' data-ref="163sr">sr</a>*<a class="local col4 ref" href="#164sp" title='sp' data-ref="164sp">sp</a>*<a class="local col5 ref" href="#165sy" title='sy' data-ref="165sy">sy</a>+-<var>1</var>*<a class="local col6 ref" href="#166cr" title='cr' data-ref="166cr">cr</a>*<a class="local col8 ref" href="#168cy" title='cy' data-ref="168cy">cy</a>);</td></tr>
+<tr><th id="952">952</th><td>		<a class="local col0 ref" href="#160right" title='right' data-ref="160right">right</a>[<var>2</var>] = -<var>1</var>*<a class="local col3 ref" href="#163sr" title='sr' data-ref="163sr">sr</a>*<a class="local col7 ref" href="#167cp" title='cp' data-ref="167cp">cp</a>;</td></tr>
+<tr><th id="953">953</th><td>	}</td></tr>
+<tr><th id="954">954</th><td>	<b>if</b> (<a class="local col1 ref" href="#161up" title='up' data-ref="161up">up</a>)</td></tr>
+<tr><th id="955">955</th><td>	{</td></tr>
+<tr><th id="956">956</th><td>		<a class="local col1 ref" href="#161up" title='up' data-ref="161up">up</a>[<var>0</var>] = (<a class="local col6 ref" href="#166cr" title='cr' data-ref="166cr">cr</a>*<a class="local col4 ref" href="#164sp" title='sp' data-ref="164sp">sp</a>*<a class="local col8 ref" href="#168cy" title='cy' data-ref="168cy">cy</a>+-<a class="local col3 ref" href="#163sr" title='sr' data-ref="163sr">sr</a>*-<a class="local col5 ref" href="#165sy" title='sy' data-ref="165sy">sy</a>);</td></tr>
+<tr><th id="957">957</th><td>		<a class="local col1 ref" href="#161up" title='up' data-ref="161up">up</a>[<var>1</var>] = (<a class="local col6 ref" href="#166cr" title='cr' data-ref="166cr">cr</a>*<a class="local col4 ref" href="#164sp" title='sp' data-ref="164sp">sp</a>*<a class="local col5 ref" href="#165sy" title='sy' data-ref="165sy">sy</a>+-<a class="local col3 ref" href="#163sr" title='sr' data-ref="163sr">sr</a>*<a class="local col8 ref" href="#168cy" title='cy' data-ref="168cy">cy</a>);</td></tr>
+<tr><th id="958">958</th><td>		<a class="local col1 ref" href="#161up" title='up' data-ref="161up">up</a>[<var>2</var>] = <a class="local col6 ref" href="#166cr" title='cr' data-ref="166cr">cr</a>*<a class="local col7 ref" href="#167cp" title='cp' data-ref="167cp">cp</a>;</td></tr>
+<tr><th id="959">959</th><td>	}</td></tr>
+<tr><th id="960">960</th><td>}</td></tr>
+<tr><th id="961">961</th><td></td></tr>
+<tr><th id="962">962</th><td><i>/*</i></td></tr>
+<tr><th id="963">963</th><td><i>** assumes "src" is normalized</i></td></tr>
+<tr><th id="964">964</th><td><i>*/</i></td></tr>
+<tr><th id="965">965</th><td><em>void</em> <dfn class="decl def" id="PerpendicularVector" title='PerpendicularVector' data-ref="PerpendicularVector">PerpendicularVector</dfn>( <a class="typedef" href="q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="local col9 decl" id="169dst" title='dst' data-type='vec_t *' data-ref="169dst">dst</dfn>, <em>const</em> <a class="typedef" href="q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="local col0 decl" id="170src" title='src' data-type='const vec_t *' data-ref="170src">src</dfn> )</td></tr>
+<tr><th id="966">966</th><td>{</td></tr>
+<tr><th id="967">967</th><td>	<em>int</em>	<dfn class="local col1 decl" id="171pos" title='pos' data-type='int' data-ref="171pos">pos</dfn>;</td></tr>
+<tr><th id="968">968</th><td>	<em>int</em> <dfn class="local col2 decl" id="172i" title='i' data-type='int' data-ref="172i">i</dfn>;</td></tr>
+<tr><th id="969">969</th><td>	<em>float</em> <dfn class="local col3 decl" id="173minelem" title='minelem' data-type='float' data-ref="173minelem">minelem</dfn> = <var>1.0F</var>;</td></tr>
+<tr><th id="970">970</th><td>	<a class="typedef" href="q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="local col4 decl" id="174tempvec" title='tempvec' data-type='vec3_t' data-ref="174tempvec">tempvec</dfn>;</td></tr>
+<tr><th id="971">971</th><td></td></tr>
+<tr><th id="972">972</th><td>	<i>/*</i></td></tr>
+<tr><th id="973">973</th><td><i>	** find the smallest magnitude axially aligned vector</i></td></tr>
+<tr><th id="974">974</th><td><i>	*/</i></td></tr>
+<tr><th id="975">975</th><td>	<b>for</b> ( <a class="local col1 ref" href="#171pos" title='pos' data-ref="171pos">pos</a> = <var>0</var>, <a class="local col2 ref" href="#172i" title='i' data-ref="172i">i</a> = <var>0</var>; <a class="local col2 ref" href="#172i" title='i' data-ref="172i">i</a> &lt; <var>3</var>; <a class="local col2 ref" href="#172i" title='i' data-ref="172i">i</a>++ )</td></tr>
+<tr><th id="976">976</th><td>	{</td></tr>
+<tr><th id="977">977</th><td>		<b>if</b> ( <a class="ref" href="../../../include/x86_64-linux-gnu/bits/mathcalls.h.html#181" title='fabs' data-ref="fabs">fabs</a>( <a class="local col0 ref" href="#170src" title='src' data-ref="170src">src</a>[<a class="local col2 ref" href="#172i" title='i' data-ref="172i">i</a>] ) &lt; <a class="local col3 ref" href="#173minelem" title='minelem' data-ref="173minelem">minelem</a> )</td></tr>
+<tr><th id="978">978</th><td>		{</td></tr>
+<tr><th id="979">979</th><td>			<a class="local col1 ref" href="#171pos" title='pos' data-ref="171pos">pos</a> = <a class="local col2 ref" href="#172i" title='i' data-ref="172i">i</a>;</td></tr>
+<tr><th id="980">980</th><td>			<a class="local col3 ref" href="#173minelem" title='minelem' data-ref="173minelem">minelem</a> = <a class="ref" href="../../../include/x86_64-linux-gnu/bits/mathcalls.h.html#181" title='fabs' data-ref="fabs">fabs</a>( <a class="local col0 ref" href="#170src" title='src' data-ref="170src">src</a>[<a class="local col2 ref" href="#172i" title='i' data-ref="172i">i</a>] );</td></tr>
+<tr><th id="981">981</th><td>		}</td></tr>
+<tr><th id="982">982</th><td>	}</td></tr>
+<tr><th id="983">983</th><td>	<a class="local col4 ref" href="#174tempvec" title='tempvec' data-ref="174tempvec">tempvec</a>[<var>0</var>] = <a class="local col4 ref" href="#174tempvec" title='tempvec' data-ref="174tempvec">tempvec</a>[<var>1</var>] = <a class="local col4 ref" href="#174tempvec" title='tempvec' data-ref="174tempvec">tempvec</a>[<var>2</var>] = <var>0.0F</var>;</td></tr>
+<tr><th id="984">984</th><td>	<a class="local col4 ref" href="#174tempvec" title='tempvec' data-ref="174tempvec">tempvec</a>[<a class="local col1 ref" href="#171pos" title='pos' data-ref="171pos">pos</a>] = <var>1.0F</var>;</td></tr>
+<tr><th id="985">985</th><td></td></tr>
+<tr><th id="986">986</th><td>	<i>/*</i></td></tr>
+<tr><th id="987">987</th><td><i>	** project the point onto the plane defined by src</i></td></tr>
+<tr><th id="988">988</th><td><i>	*/</i></td></tr>
+<tr><th id="989">989</th><td>	<a class="ref" href="#ProjectPointOnPlane" title='ProjectPointOnPlane' data-ref="ProjectPointOnPlane">ProjectPointOnPlane</a>( <a class="local col9 ref" href="#169dst" title='dst' data-ref="169dst">dst</a>, <a class="local col4 ref" href="#174tempvec" title='tempvec' data-ref="174tempvec">tempvec</a>, <a class="local col0 ref" href="#170src" title='src' data-ref="170src">src</a> );</td></tr>
+<tr><th id="990">990</th><td></td></tr>
+<tr><th id="991">991</th><td>	<i>/*</i></td></tr>
+<tr><th id="992">992</th><td><i>	** normalize the result</i></td></tr>
+<tr><th id="993">993</th><td><i>	*/</i></td></tr>
+<tr><th id="994">994</th><td>	<a class="ref" href="#VectorNormalize" title='VectorNormalize' data-ref="VectorNormalize">VectorNormalize</a>( <a class="local col9 ref" href="#169dst" title='dst' data-ref="169dst">dst</a> );</td></tr>
+<tr><th id="995">995</th><td>}</td></tr>
+<tr><th id="996">996</th><td></td></tr>
+<tr><th id="997">997</th><td><i>/*</i></td></tr>
+<tr><th id="998">998</th><td><i>================</i></td></tr>
+<tr><th id="999">999</th><td><i>Q_isnan</i></td></tr>
+<tr><th id="1000">1000</th><td><i></i></td></tr>
+<tr><th id="1001">1001</th><td><i>Don't pass doubles to this</i></td></tr>
+<tr><th id="1002">1002</th><td><i>================</i></td></tr>
+<tr><th id="1003">1003</th><td><i>*/</i></td></tr>
+<tr><th id="1004">1004</th><td><em>int</em> <dfn class="decl def" id="Q_isnan" title='Q_isnan' data-ref="Q_isnan">Q_isnan</dfn>( <em>float</em> <dfn class="local col5 decl" id="175x" title='x' data-type='float' data-ref="175x">x</dfn> )</td></tr>
+<tr><th id="1005">1005</th><td>{</td></tr>
+<tr><th id="1006">1006</th><td>	<a class="typedef" href="q_shared.h.html#floatint_t" title='floatint_t' data-type='union floatint_t' data-ref="floatint_t">floatint_t</a> <dfn class="local col6 decl" id="176fi" title='fi' data-type='floatint_t' data-ref="176fi">fi</dfn>;</td></tr>
+<tr><th id="1007">1007</th><td></td></tr>
+<tr><th id="1008">1008</th><td>	<a class="local col6 ref" href="#176fi" title='fi' data-ref="176fi">fi</a>.<a class="ref" href="q_shared.h.html#(anonymous)::f" title='(anonymous union)::f' data-ref="(anonymous)::f">f</a> = <a class="local col5 ref" href="#175x" title='x' data-ref="175x">x</a>;</td></tr>
+<tr><th id="1009">1009</th><td>	<a class="local col6 ref" href="#176fi" title='fi' data-ref="176fi">fi</a>.<a class="ref" href="q_shared.h.html#(anonymous)::ui" title='(anonymous union)::ui' data-ref="(anonymous)::ui">ui</a> &amp;= <var>0x7FFFFFFF</var>;</td></tr>
+<tr><th id="1010">1010</th><td>	<a class="local col6 ref" href="#176fi" title='fi' data-ref="176fi">fi</a>.<a class="ref" href="q_shared.h.html#(anonymous)::ui" title='(anonymous union)::ui' data-ref="(anonymous)::ui">ui</a> = <var>0x7F800000</var> - <a class="local col6 ref" href="#176fi" title='fi' data-ref="176fi">fi</a>.<a class="ref" href="q_shared.h.html#(anonymous)::ui" title='(anonymous union)::ui' data-ref="(anonymous)::ui">ui</a>;</td></tr>
+<tr><th id="1011">1011</th><td></td></tr>
+<tr><th id="1012">1012</th><td>	<b>return</b> (<em>int</em>)( (<em>unsigned</em> <em>int</em>)<a class="local col6 ref" href="#176fi" title='fi' data-ref="176fi">fi</a>.<a class="ref" href="q_shared.h.html#(anonymous)::ui" title='(anonymous union)::ui' data-ref="(anonymous)::ui">ui</a> &gt;&gt; <var>31</var> );</td></tr>
+<tr><th id="1013">1013</th><td>}</td></tr>
+<tr><th id="1014">1014</th><td><i>//------------------------------------------------------------------------</i></td></tr>
+<tr><th id="1015">1015</th><td></td></tr>
+<tr><th id="1016">1016</th><td><u>#<span data-ppcond="1016">ifndef</span> <span class="macro" data-ref="_M/Q3_VM">Q3_VM</span></u></td></tr>
+<tr><th id="1017">1017</th><td><i>/*</i></td></tr>
+<tr><th id="1018">1018</th><td><i>=====================</i></td></tr>
+<tr><th id="1019">1019</th><td><i>Q_acos</i></td></tr>
+<tr><th id="1020">1020</th><td><i></i></td></tr>
+<tr><th id="1021">1021</th><td><i>the msvc acos doesn't always return a value between -PI and PI:</i></td></tr>
+<tr><th id="1022">1022</th><td><i></i></td></tr>
+<tr><th id="1023">1023</th><td><i>int i;</i></td></tr>
+<tr><th id="1024">1024</th><td><i>i = 1065353246;</i></td></tr>
+<tr><th id="1025">1025</th><td><i>acos(*(float*) &amp;i) == -1.#IND0</i></td></tr>
+<tr><th id="1026">1026</th><td><i></i></td></tr>
+<tr><th id="1027">1027</th><td><i>=====================</i></td></tr>
+<tr><th id="1028">1028</th><td><i>*/</i></td></tr>
+<tr><th id="1029">1029</th><td><em>float</em> <dfn class="decl def" id="Q_acos" title='Q_acos' data-ref="Q_acos">Q_acos</dfn>(<em>float</em> <dfn class="local col7 decl" id="177c" title='c' data-type='float' data-ref="177c">c</dfn>) {</td></tr>
+<tr><th id="1030">1030</th><td>	<em>float</em> <dfn class="local col8 decl" id="178angle" title='angle' data-type='float' data-ref="178angle">angle</dfn>;</td></tr>
+<tr><th id="1031">1031</th><td></td></tr>
+<tr><th id="1032">1032</th><td>	<a class="local col8 ref" href="#178angle" title='angle' data-ref="178angle">angle</a> = <a class="ref" href="../../../include/x86_64-linux-gnu/bits/mathcalls.h.html#54" title='acos' data-ref="__acos_finite">acos</a>(<a class="local col7 ref" href="#177c" title='c' data-ref="177c">c</a>);</td></tr>
+<tr><th id="1033">1033</th><td></td></tr>
+<tr><th id="1034">1034</th><td>	<b>if</b> (<a class="local col8 ref" href="#178angle" title='angle' data-ref="178angle">angle</a> &gt; <a class="macro" href="../../../include/math.h.html#418" title="3.14159265358979323846" data-ref="_M/M_PI">M_PI</a>) {</td></tr>
+<tr><th id="1035">1035</th><td>		<b>return</b> (<em>float</em>)<a class="macro" href="../../../include/math.h.html#418" title="3.14159265358979323846" data-ref="_M/M_PI">M_PI</a>;</td></tr>
+<tr><th id="1036">1036</th><td>	}</td></tr>
+<tr><th id="1037">1037</th><td>	<b>if</b> (<a class="local col8 ref" href="#178angle" title='angle' data-ref="178angle">angle</a> &lt; -<a class="macro" href="../../../include/math.h.html#418" title="3.14159265358979323846" data-ref="_M/M_PI">M_PI</a>) {</td></tr>
+<tr><th id="1038">1038</th><td>		<b>return</b> (<em>float</em>)<a class="macro" href="../../../include/math.h.html#418" title="3.14159265358979323846" data-ref="_M/M_PI">M_PI</a>;</td></tr>
+<tr><th id="1039">1039</th><td>	}</td></tr>
+<tr><th id="1040">1040</th><td>	<b>return</b> <a class="local col8 ref" href="#178angle" title='angle' data-ref="178angle">angle</a>;</td></tr>
+<tr><th id="1041">1041</th><td>}</td></tr>
+<tr><th id="1042">1042</th><td><u>#<span data-ppcond="1016">endif</span></u></td></tr>
+<tr><th id="1043">1043</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated on <em>2017-Aug-29</em> from project codebrowser revision <em>63e07af</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

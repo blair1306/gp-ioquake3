@@ -1,0 +1,9 @@
+<def f='codebrowser/code/qcommon/net_ip.c' l='1619' ll='1646' type='void NET_Event(fd_set * fdr)'/>
+<use f='codebrowser/code/qcommon/net_ip.c' l='1698' u='c' c='NET_Sleep'/>
+<doc f='codebrowser/code/qcommon/net_ip.c' l='1611'>/*
+====================
+NET_Event
+
+Called from NET_Sleep which uses select() to determine which sockets have seen action.
+====================
+*/</doc>

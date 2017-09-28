@@ -1,0 +1,17 @@
+<dec f='codebrowser/code/cgame/cg_local.h' l='1323' type='void CG_LoadDeferredPlayers()'/>
+<use f='codebrowser/code/cgame/cg_consolecmds.c' l='503' u='r'/>
+<use f='codebrowser/code/cgame/cg_consolecmds.c' l='503' u='r'/>
+<use f='codebrowser/code/cgame/cg_consolecmds.c' l='503' u='r'/>
+<use f='codebrowser/code/cgame/cg_consolecmds.c' l='503' u='r'/>
+<def f='codebrowser/code/cgame/cg_players.c' l='1075' ll='1092' type='void CG_LoadDeferredPlayers()'/>
+<doc f='codebrowser/code/cgame/cg_players.c' l='1066'>/*
+======================
+CG_LoadDeferredPlayers
+
+Called each frame when a player is dead
+and the scoreboard is up
+so deferred players can be loaded
+======================
+*/</doc>
+<use f='codebrowser/code/cgame/cg_scoreboard.c' l='418' u='c' c='CG_DrawOldScoreboard'/>
+<use f='codebrowser/code/cgame/cg_servercmds.c' l='1093' u='c' c='CG_ServerCommand'/>

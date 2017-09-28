@@ -1,0 +1,22 @@
+<dec f='codebrowser/code/jpeg-8c/jpeglib.h' l='387' type='boolean'/>
+<offset>2752</offset>
+<doc f='codebrowser/code/jpeg-8c/jpeglib.h' l='384'>/*
+   * These fields are computed during compression startup
+   */</doc>
+<doc f='codebrowser/code/jpeg-8c/jpeglib.h' l='387'>/* TRUE if scan script uses progressive mode */</doc>
+<use f='codebrowser/code/jpeg-8c/jcarith.c' l='847' u='r' c='start_pass'/>
+<use f='codebrowser/code/jpeg-8c/jchuff.c' l='1078' u='r' c='finish_pass_huff'/>
+<use f='codebrowser/code/jpeg-8c/jchuff.c' l='1409' u='r' c='finish_pass_gather'/>
+<use f='codebrowser/code/jpeg-8c/jchuff.c' l='1462' u='r' c='start_pass_huff'/>
+<use f='codebrowser/code/jpeg-8c/jchuff.c' l='1574' u='r' c='jinit_huff_encoder'/>
+<use f='codebrowser/code/jpeg-8c/jcmarker.c' l='531' u='r' c='write_frame_header'/>
+<use f='codebrowser/code/jpeg-8c/jcmarker.c' l='550' u='r' c='write_frame_header'/>
+<use f='codebrowser/code/jpeg-8c/jcmarker.c' l='555' u='r' c='write_frame_header'/>
+<use f='codebrowser/code/jpeg-8c/jcmarker.c' l='564' u='r' c='write_frame_header'/>
+<use f='codebrowser/code/jpeg-8c/jcmaster.c' l='382' u='w' c='validate_script'/>
+<use f='codebrowser/code/jpeg-8c/jcmaster.c' l='391' u='w' c='validate_script'/>
+<use f='codebrowser/code/jpeg-8c/jcmaster.c' l='414' u='r' c='validate_script'/>
+<use f='codebrowser/code/jpeg-8c/jcmaster.c' l='471' u='r' c='validate_script'/>
+<use f='codebrowser/code/jpeg-8c/jcmaster.c' l='544' u='r' c='select_scan_parameters'/>
+<use f='codebrowser/code/jpeg-8c/jcmaster.c' l='832' u='w' c='jinit_c_master_control'/>
+<use f='codebrowser/code/jpeg-8c/jcmaster.c' l='836' u='r' c='jinit_c_master_control'/>

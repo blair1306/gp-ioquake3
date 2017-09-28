@@ -1,0 +1,9 @@
+<dec f='codebrowser/code/qcommon/qcommon.h' l='460' type='void Cmd_Args_Sanitize()'/>
+<def f='codebrowser/code/qcommon/cmd.c' l='469' ll='485' type='void Cmd_Args_Sanitize()'/>
+<doc f='codebrowser/code/qcommon/cmd.c' l='462'>/*
+   Replace command separators with space to prevent interpretation
+   This is a hack to protect buggy qvms
+   https://bugzilla.icculus.org/show_bug.cgi?id=3593
+   https://bugzilla.icculus.org/show_bug.cgi?id=4769
+*/</doc>
+<use f='codebrowser/code/server/sv_client.c' l='1582' u='c' c='SV_ExecuteClientCommand'/>

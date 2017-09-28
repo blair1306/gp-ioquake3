@@ -1,0 +1,36 @@
+<def f='codebrowser/code/game/g_local.h' l='254' ll='320'/>
+<size>784</size>
+<doc f='codebrowser/code/game/g_local.h' l='252'>// this structure is cleared on each ClientSpawn(),
+// except for &apos;client-&gt;pers&apos; and &apos;client-&gt;sess&apos;</doc>
+<mbr r='gclient_s::ps' o='0' t='playerState_t'/>
+<mbr r='gclient_s::pers' o='3744' t='clientPersistant_t'/>
+<mbr r='gclient_s::sess' o='4928' t='clientSession_t'/>
+<mbr r='gclient_s::readyToExit' o='5152' t='qboolean'/>
+<mbr r='gclient_s::noclip' o='5184' t='qboolean'/>
+<mbr r='gclient_s::lastCmdTime' o='5216' t='int'/>
+<mbr r='gclient_s::buttons' o='5248' t='int'/>
+<mbr r='gclient_s::oldbuttons' o='5280' t='int'/>
+<mbr r='gclient_s::latched_buttons' o='5312' t='int'/>
+<mbr r='gclient_s::oldOrigin' o='5344' t='vec3_t'/>
+<mbr r='gclient_s::damage_armor' o='5440' t='int'/>
+<mbr r='gclient_s::damage_blood' o='5472' t='int'/>
+<mbr r='gclient_s::damage_knockback' o='5504' t='int'/>
+<mbr r='gclient_s::damage_from' o='5536' t='vec3_t'/>
+<mbr r='gclient_s::damage_fromWorld' o='5632' t='qboolean'/>
+<mbr r='gclient_s::accurateCount' o='5664' t='int'/>
+<mbr r='gclient_s::accuracy_shots' o='5696' t='int'/>
+<mbr r='gclient_s::accuracy_hits' o='5728' t='int'/>
+<mbr r='gclient_s::lastkilled_client' o='5760' t='int'/>
+<mbr r='gclient_s::lasthurt_client' o='5792' t='int'/>
+<mbr r='gclient_s::lasthurt_mod' o='5824' t='int'/>
+<mbr r='gclient_s::respawnTime' o='5856' t='int'/>
+<mbr r='gclient_s::inactivityTime' o='5888' t='int'/>
+<mbr r='gclient_s::inactivityWarning' o='5920' t='qboolean'/>
+<mbr r='gclient_s::rewardTime' o='5952' t='int'/>
+<mbr r='gclient_s::airOutTime' o='5984' t='int'/>
+<mbr r='gclient_s::lastKillTime' o='6016' t='int'/>
+<mbr r='gclient_s::fireHeld' o='6048' t='qboolean'/>
+<mbr r='gclient_s::hook' o='6080' t='gentity_t *'/>
+<mbr r='gclient_s::switchTeamTime' o='6144' t='int'/>
+<mbr r='gclient_s::timeResidual' o='6176' t='int'/>
+<mbr r='gclient_s::areabits' o='6208' t='char *'/>

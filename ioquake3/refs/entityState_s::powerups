@@ -1,0 +1,32 @@
+<dec f='codebrowser/code/qcommon/q_shared.h' l='1316' type='int'/>
+<offset>1504</offset>
+<doc f='codebrowser/code/qcommon/q_shared.h' l='1315'>// for players</doc>
+<doc f='codebrowser/code/qcommon/q_shared.h' l='1316'>// bit flags</doc>
+<use f='codebrowser/code/cgame/cg_draw.c' l='2024' u='r' c='CG_ScanForCrosshairEntity'/>
+<use f='codebrowser/code/cgame/cg_ents.c' l='658' u='r' c='CG_Portal'/>
+<use f='codebrowser/code/cgame/cg_players.c' l='1251' u='r' c='CG_PlayerAnimation'/>
+<use f='codebrowser/code/cgame/cg_players.c' l='1845' u='r' c='CG_PlayerPowerups'/>
+<use f='codebrowser/code/cgame/cg_players.c' l='2017' u='r' c='CG_PlayerShadow'/>
+<use f='codebrowser/code/cgame/cg_players.c' l='2152' u='r' c='CG_AddRefEntityWithPowerups'/>
+<use f='codebrowser/code/cgame/cg_players.c' l='2168' u='r' c='CG_AddRefEntityWithPowerups'/>
+<use f='codebrowser/code/cgame/cg_players.c' l='2176' u='r' c='CG_AddRefEntityWithPowerups'/>
+<use f='codebrowser/code/cgame/cg_players.c' l='2182' u='r' c='CG_AddRefEntityWithPowerups'/>
+<use f='codebrowser/code/cgame/cg_weapons.c' l='1268' u='r' c='CG_AddPlayerWeapon'/>
+<use f='codebrowser/code/cgame/cg_weapons.c' l='1285' u='r' c='CG_AddPlayerWeapon'/>
+<use f='codebrowser/code/cgame/cg_weapons.c' l='1709' u='r' c='CG_FireWeapon'/>
+<use f='codebrowser/code/game/ai_main.c' l='1544' u='r' c='BotAIStartFrame'/>
+<use f='codebrowser/code/game/bg_misc.c' l='1521' u='w' c='BG_PlayerStateToEntityState'/>
+<use f='codebrowser/code/game/bg_misc.c' l='1524' u='w' c='BG_PlayerStateToEntityState'/>
+<use f='codebrowser/code/game/bg_misc.c' l='1601' u='w' c='BG_PlayerStateToEntityStateExtraPolate'/>
+<use f='codebrowser/code/game/bg_misc.c' l='1604' u='w' c='BG_PlayerStateToEntityStateExtraPolate'/>
+<use f='codebrowser/code/game/g_arenas.c' l='154' u='w' c='SpawnModelOnVictoryPad'/>
+<use f='codebrowser/code/game/g_client.c' l='442' u='w' c='CopyToBodyQue'/>
+<use f='codebrowser/code/game/g_cmds.c' l='77' u='r' c='DeathmatchScoreboardMessage'/>
+<use f='codebrowser/code/game/g_combat.c' l='593' u='w' c='player_die'/>
+<use f='codebrowser/code/game/g_misc.c' l='181' u='w' c='locateCamera'/>
+<use f='codebrowser/code/game/g_misc.c' l='184' u='w' c='locateCamera'/>
+<use f='codebrowser/code/game/g_team.c' l='1109' u='r' c='TeamplayInfoMessage'/>
+<use f='codebrowser/code/qcommon/msg.c' l='813' u='a'/>
+<use f='codebrowser/code/qcommon/msg.c' l='813' u='a'/>
+<use f='codebrowser/code/qcommon/msg.c' l='813' u='a'/>
+<use f='codebrowser/code/qcommon/msg.c' l='813' u='a'/>

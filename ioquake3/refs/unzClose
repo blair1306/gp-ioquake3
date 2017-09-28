@@ -1,0 +1,13 @@
+<dec f='codebrowser/code/qcommon/unzip.h' l='154' type='int unzClose(unzFile file)'/>
+<use f='codebrowser/code/qcommon/files.c' l='881' u='c' c='FS_FCloseFile'/>
+<use f='codebrowser/code/qcommon/files.c' l='2129' u='c' c='FS_FreePak'/>
+<doc f='codebrowser/code/qcommon/unzip.h' l='149'>/*
+   Open a Zip file, like unzOpen, but provide a set of file low level API
+      for read/write the zip file (see ioapi.h)
+*/</doc>
+<def f='codebrowser/code/qcommon/unzip.c' l='506' ll='520' type='int unzClose(unzFile file)'/>
+<doc f='codebrowser/code/qcommon/unzip.c' l='501'>/*
+  Close a ZipFile opened with unzipOpen.
+  If there is files inside the .Zip opened with unzipOpenCurrentFile (see later),
+    these files MUST be closed with unzipCloseCurrentFile before call unzipClose.
+  return UNZ_OK if there is no problem. */</doc>

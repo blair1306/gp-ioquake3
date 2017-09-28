@@ -1,0 +1,18 @@
+<dec f='codebrowser/code/jpeg-8c/jpeglib.h' l='525' type='int'/>
+<offset>1376</offset>
+<doc f='codebrowser/code/jpeg-8c/jpeglib.h' l='522'>/* Current input scan number and number of iMCU rows completed in scan.
+   * These indicate the progress of the decompressor input side.
+   */</doc>
+<doc f='codebrowser/code/jpeg-8c/jpeglib.h' l='525'>/* Number of SOS markers seen so far */</doc>
+<use f='codebrowser/code/jpeg-8c/jdapistd.c' l='78' u='r' c='jpeg_start_decompress'/>
+<use f='codebrowser/code/jpeg-8c/jdapistd.c' l='237' u='r' c='jpeg_start_output'/>
+<use f='codebrowser/code/jpeg-8c/jdapistd.c' l='238' u='r' c='jpeg_start_output'/>
+<use f='codebrowser/code/jpeg-8c/jdapistd.c' l='266' u='r' c='jpeg_finish_output'/>
+<use f='codebrowser/code/jpeg-8c/jdcoefct.c' l='329' u='r' c='decompress_data'/>
+<use f='codebrowser/code/jpeg-8c/jdcoefct.c' l='330' u='r' c='decompress_data'/>
+<use f='codebrowser/code/jpeg-8c/jdcoefct.c' l='482' u='r' c='decompress_smooth_data'/>
+<use f='codebrowser/code/jpeg-8c/jdcoefct.c' l='484' u='r' c='decompress_smooth_data'/>
+<use f='codebrowser/code/jpeg-8c/jdinput.c' l='601' u='r' c='consume_markers'/>
+<use f='codebrowser/code/jpeg-8c/jdinput.c' l='602' u='r' c='consume_markers'/>
+<use f='codebrowser/code/jpeg-8c/jdmarker.c' l='368' u='w' c='get_sos'/>
+<use f='codebrowser/code/jpeg-8c/jdmarker.c' l='1293' u='w' c='reset_marker_reader'/>

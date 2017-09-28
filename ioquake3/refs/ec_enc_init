@@ -1,0 +1,7 @@
+<dec f='codebrowser/code/opus-1.1.4/celt/entenc.h' l='36' type='void ec_enc_init(ec_enc * _this, unsigned char * _buf, opus_uint32 _size)'/>
+<doc f='codebrowser/code/opus-1.1.4/celt/entenc.h' l='33'>/*Initializes the encoder.
+  _buf:  The buffer to store output bytes in.
+  _size: The size of the buffer, in chars.*/</doc>
+<use f='codebrowser/code/opus-1.1.4/celt/celt_encoder.c' l='1477' u='c' c='celt_encode_with_ec'/>
+<def f='codebrowser/code/opus-1.1.4/celt/entenc.c' l='112' ll='126' type='void ec_enc_init(ec_enc * _this, unsigned char * _buf, opus_uint32 _size)'/>
+<use f='codebrowser/code/opus-1.1.4/src/opus_encoder.c' l='1452' u='c' c='opus_encode_native'/>

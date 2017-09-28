@@ -1,0 +1,21 @@
+<dec f='codebrowser/code/qcommon/qcommon.h' l='956' type='void Hunk_FreeTempMemory(void * buf)'/>
+<use f='codebrowser/code/client/cl_cin.c' l='1600' u='c' c='CIN_DrawCinematic'/>
+<use f='codebrowser/code/client/cl_cin.c' l='1686' u='c' c='CIN_UploadCinematic'/>
+<use f='codebrowser/code/client/cl_console.c' l='254' u='c' c='Con_Dump_f'/>
+<use f='codebrowser/code/client/cl_main.c' l='3252' u='r' c='CL_InitRef'/>
+<use f='codebrowser/code/client/snd_codec_opus.c' l='438' u='c' c='S_OggOpus_CodecLoad'/>
+<use f='codebrowser/code/client/snd_mem.c' l='270' u='c' c='S_LoadSound'/>
+<use f='codebrowser/code/client/snd_mem.c' l='271' u='c' c='S_LoadSound'/>
+<use f='codebrowser/code/client/snd_openal.c' l='388' u='c' c='S_AL_BufferLoad'/>
+<use f='codebrowser/code/client/snd_openal.c' l='398' u='c' c='S_AL_BufferLoad'/>
+<use f='codebrowser/code/client/snd_openal.c' l='422' u='c' c='S_AL_BufferLoad'/>
+<use f='codebrowser/code/client/snd_openal.c' l='437' u='c' c='S_AL_BufferLoad'/>
+<use f='codebrowser/code/client/snd_openal.c' l='446' u='c' c='S_AL_BufferLoad'/>
+<def f='codebrowser/code/qcommon/common.c' l='1837' ll='1873' type='void Hunk_FreeTempMemory(void * buf)'/>
+<doc f='codebrowser/code/qcommon/common.c' l='1832'>/*
+==================
+Hunk_FreeTempMemory
+==================
+*/</doc>
+<use f='codebrowser/code/qcommon/files.c' l='1964' u='c' c='FS_FreeFile'/>
+<use f='codebrowser/code/server/sv_init.c' l='348' u='c' c='SV_ChangeMaxClients'/>

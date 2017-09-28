@@ -1,0 +1,11 @@
+<dec f='codebrowser/code/client/snd_codec.h' l='74' type='snd_stream_t * S_CodecOpenStream(const char * filename)'/>
+<def f='codebrowser/code/client/snd_codec.c' l='175' ll='178' type='snd_stream_t * S_CodecOpenStream(const char * filename)'/>
+<doc f='codebrowser/code/client/snd_codec.c' l='170'>/*
+=================
+S_CodecOpenStream
+=================
+*/</doc>
+<use f='codebrowser/code/client/snd_dma.c' l='1396' u='c' c='S_OpenBackgroundStream'/>
+<use f='codebrowser/code/client/snd_openal.c' l='2051' u='c' c='S_AL_MusicProcess'/>
+<use f='codebrowser/code/client/snd_openal.c' l='2124' u='c' c='S_AL_StartBackgroundTrack'/>
+<use f='codebrowser/code/client/snd_openal.c' l='2129' u='c' c='S_AL_StartBackgroundTrack'/>

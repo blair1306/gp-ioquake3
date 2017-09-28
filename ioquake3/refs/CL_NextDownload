@@ -1,0 +1,13 @@
+<dec f='codebrowser/code/client/client.h' l='476' type='void CL_NextDownload()'/>
+<use f='codebrowser/code/client/cl_curl.c' l='364' u='c' c='CL_cURL_PerformDownload'/>
+<def f='codebrowser/code/client/cl_main.c' l='2192' ll='2284' type='void CL_NextDownload()'/>
+<use f='codebrowser/code/client/cl_main.c' l='2321' u='c' c='CL_InitDownloads'/>
+<doc f='codebrowser/code/client/cl_main.c' l='2185'>/*
+=================
+CL_NextDownload
+
+A download completed or failed
+=================
+*/</doc>
+<use f='codebrowser/code/client/cl_parse.c' l='616' u='c' c='CL_ParseDownload'/>
+<use f='codebrowser/code/client/cl_parse.c' l='650' u='c' c='CL_ParseDownload'/>

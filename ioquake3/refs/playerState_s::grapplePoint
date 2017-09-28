@@ -1,0 +1,27 @@
+<dec f='codebrowser/code/qcommon/q_shared.h' l='1171' type='vec3_t'/>
+<offset>736</offset>
+<doc f='codebrowser/code/qcommon/q_shared.h' l='1167'>// of movement to the view angle (axial and diagonals)
+								// when at rest, the value will remain unchanged
+								// used to twist the legs during strafing</doc>
+<doc f='codebrowser/code/qcommon/q_shared.h' l='1171'>// location of grapple to pull towards if PMF_GRAPPLE_PULL</doc>
+<use f='codebrowser/code/game/bg_pmove.c' l='670' u='r' c='PM_GrappleMove'/>
+<use f='codebrowser/code/game/bg_pmove.c' l='670' u='r' c='PM_GrappleMove'/>
+<use f='codebrowser/code/game/bg_pmove.c' l='670' u='r' c='PM_GrappleMove'/>
+<use f='codebrowser/code/game/g_missile.c' l='401' u='w' c='G_MissileImpact'/>
+<use f='codebrowser/code/game/g_missile.c' l='401' u='w' c='G_MissileImpact'/>
+<use f='codebrowser/code/game/g_missile.c' l='401' u='w' c='G_MissileImpact'/>
+<use f='codebrowser/code/game/g_weapon.c' l='603' u='w' c='Weapon_HookThink'/>
+<use f='codebrowser/code/game/g_weapon.c' l='603' u='w' c='Weapon_HookThink'/>
+<use f='codebrowser/code/game/g_weapon.c' l='603' u='w' c='Weapon_HookThink'/>
+<use f='codebrowser/code/qcommon/msg.c' l='1145' u='a'/>
+<use f='codebrowser/code/qcommon/msg.c' l='1145' u='a'/>
+<use f='codebrowser/code/qcommon/msg.c' l='1146' u='a'/>
+<use f='codebrowser/code/qcommon/msg.c' l='1146' u='a'/>
+<use f='codebrowser/code/qcommon/msg.c' l='1147' u='a'/>
+<use f='codebrowser/code/qcommon/msg.c' l='1147' u='a'/>
+<use f='codebrowser/code/qcommon/msg.c' l='1145' u='a'/>
+<use f='codebrowser/code/qcommon/msg.c' l='1145' u='a'/>
+<use f='codebrowser/code/qcommon/msg.c' l='1146' u='a'/>
+<use f='codebrowser/code/qcommon/msg.c' l='1146' u='a'/>
+<use f='codebrowser/code/qcommon/msg.c' l='1147' u='a'/>
+<use f='codebrowser/code/qcommon/msg.c' l='1147' u='a'/>

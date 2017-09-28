@@ -1,0 +1,12 @@
+<dec f='codebrowser/code/botlib/be_ea.h' l='39' type='void EA_Crouch(int client)'/>
+<use f='codebrowser/code/botlib/be_ai_move.c' l='1203' u='c' c='BotWalkInDirection'/>
+<use f='codebrowser/code/botlib/be_ai_move.c' l='1353' u='c' c='BotTravel_Walk'/>
+<use f='codebrowser/code/botlib/be_ai_move.c' l='1433' u='c' c='BotTravel_Crouch'/>
+<def f='codebrowser/code/botlib/be_ea.c' l='257' ll='264' type='void EA_Crouch(int client)'/>
+<doc f='codebrowser/code/botlib/be_ea.c' l='251'>//===========================================================================
+//
+// Parameter:			-
+// Returns:				-
+// Changes Globals:		-
+//===========================================================================</doc>
+<use f='codebrowser/code/botlib/be_interface.c' l='745' u='r' c='Init_EA_Export'/>

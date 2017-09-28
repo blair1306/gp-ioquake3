@@ -1,0 +1,10 @@
+<dec f='codebrowser/code/opus-1.1.4/celt/bands.h' l='54' type='void normalise_bands(const OpusCustomMode * m, const celt_sig *restrict freq, celt_norm *restrict X, const celt_ener * bandE, int end, int C, int M)'/>
+<def f='codebrowser/code/opus-1.1.4/celt/bands.c' l='176' ll='190' type='void normalise_bands(const OpusCustomMode * m, const celt_sig *restrict freq, celt_norm *restrict X, const celt_ener * bandE, int end, int C, int M)'/>
+<doc f='codebrowser/code/opus-1.1.4/celt/bands.c' l='175'>/* Normalise each band such that the energy is one. */</doc>
+<doc f='codebrowser/code/opus-1.1.4/celt/bands.h' l='48'>/** Normalise each band of X such that the energy in each band is
+    equal to 1
+ * @param m Mode data
+ * @param X Spectrum (returned normalised)
+ * @param bandE Square root of the energy for each band
+ */</doc>
+<use f='codebrowser/code/opus-1.1.4/celt/celt_encoder.c' l='1761' u='c' c='celt_encode_with_ec'/>

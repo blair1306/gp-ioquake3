@@ -1,0 +1,8 @@
+<dec f='codebrowser/code/qcommon/unzip.h' l='111' type='uLong'/>
+<use f='codebrowser/code/qcommon/files.c' l='2092' u='r' c='FS_LoadZipFile'/>
+<use f='codebrowser/code/qcommon/files.c' l='2102' u='r' c='FS_LoadZipFile'/>
+<offset>448</offset>
+<doc f='codebrowser/code/qcommon/unzip.h' l='111'>/* uncompressed size               4 bytes */</doc>
+<use f='codebrowser/code/qcommon/unzip.c' l='642' u='a' c='unzlocal_GetCurrentFileInfoInternal'/>
+<use f='codebrowser/code/qcommon/unzip.c' l='1032' u='r' c='unzlocal_CheckCurrentFileCoherencyHeader'/>
+<use f='codebrowser/code/qcommon/unzip.c' l='1166' u='r' c='unzOpenCurrentFile3'/>

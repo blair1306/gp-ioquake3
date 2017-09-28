@@ -1,0 +1,7 @@
+<dec f='codebrowser/code/qcommon/qcommon.h' l='941' type='void * Z_TagMalloc(int size, int tag)'/>
+<doc f='codebrowser/code/qcommon/qcommon.h' l='941'>// NOT 0 filled memory</doc>
+<use f='codebrowser/code/client/cl_main.c' l='3187' u='c' c='CL_RefMalloc'/>
+<def f='codebrowser/code/qcommon/common.c' l='951' ll='1038' type='void * Z_TagMalloc(int size, int tag)'/>
+<use f='codebrowser/code/qcommon/common.c' l='1057' u='c' c='Z_Malloc'/>
+<use f='codebrowser/code/qcommon/common.c' l='1070' u='c' c='S_Malloc'/>
+<use f='codebrowser/code/server/sv_bot.c' l='289' u='c' c='BotImport_GetMemory'/>

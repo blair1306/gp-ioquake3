@@ -1,0 +1,12 @@
+<dec f='codebrowser/code/qcommon/cm_public.h' l='38' type='int CM_PointContents(const vec_t * p, clipHandle_t model)'/>
+<doc f='codebrowser/code/qcommon/cm_public.h' l='37'>// returns an ORed contents mask</doc>
+<use f='codebrowser/code/client/cl_cgame.c' l='485' u='c' c='CL_CgameSystemCalls'/>
+<def f='codebrowser/code/qcommon/cm_test.c' l='226' ll='273' type='int CM_PointContents(const vec_t * p, clipHandle_t model)'/>
+<use f='codebrowser/code/qcommon/cm_test.c' l='303' u='c' c='CM_TransformedPointContents'/>
+<doc f='codebrowser/code/qcommon/cm_test.c' l='220'>/*
+==================
+CM_PointContents
+
+==================
+*/</doc>
+<use f='codebrowser/code/server/sv_world.c' l='662' u='c' c='SV_PointContents'/>

@@ -1,0 +1,6 @@
+<dec f='codebrowser/code/game/bg_public.h' l='169' type='qboolean'/>
+<offset>352</offset>
+<doc f='codebrowser/code/game/bg_public.h' l='169'>// true if a gauntlet attack would actually hit something</doc>
+<use f='codebrowser/code/cgame/cg_predict.c' l='578' u='w' c='CG_PredictPlayerState'/>
+<use f='codebrowser/code/game/bg_pmove.c' l='1618' u='r' c='PM_Weapon'/>
+<use f='codebrowser/code/game/g_active.c' l='866' u='w' c='ClientThink_real'/>

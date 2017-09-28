@@ -1,0 +1,11 @@
+<dec f='codebrowser/code/curl-7.54.0/include/curl/curl.h' l='2055' type='int curl_formget(struct curl_httppost * form, void * arg, curl_formget_callback append)'/>
+<doc f='codebrowser/code/curl-7.54.0/include/curl/curl.h' l='2045'>/*
+ * NAME curl_formget()
+ *
+ * DESCRIPTION
+ *
+ * Serialize a curl_httppost struct built with curl_formadd().
+ * Accepts a void pointer as second argument which will be passed to
+ * the curl_formget_callback function.
+ * Returns 0 on success.
+ */</doc>

@@ -1,0 +1,7 @@
+<dec f='codebrowser/code/tools/lcc/cpp/cpp.h' l='94' type='int comparetokens(Tokenrow * , Tokenrow * )'/>
+<use f='codebrowser/code/tools/lcc/cpp/macro.c' l='72' u='c' c='dodefine'/>
+<use f='codebrowser/code/tools/lcc/cpp/macro.c' l='74' u='c' c='dodefine'/>
+<def f='codebrowser/code/tools/lcc/cpp/tokens.c' l='106' ll='123' type='int comparetokens(Tokenrow * tr1, Tokenrow * tr2)'/>
+<doc f='codebrowser/code/tools/lcc/cpp/tokens.c' l='103'>/*
+ * Compare a row of tokens, ignoring the content of WS; return !=0 if different
+ */</doc>

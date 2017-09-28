@@ -1,0 +1,14 @@
+<dec f='codebrowser/code/game/ai_dmq3.h' l='136' type='void BotClearActivateGoalStack(bot_state_t * bs)'/>
+<doc f='codebrowser/code/game/ai_dmq3.h' l='135'>//clear the activate goal stack</doc>
+<use f='codebrowser/code/game/ai_dmnet.c' l='1457' u='c' c='AINode_Seek_ActivateEntity'/>
+<use f='codebrowser/code/game/ai_dmnet.c' l='1463' u='c' c='AINode_Seek_ActivateEntity'/>
+<use f='codebrowser/code/game/ai_dmnet.c' l='1469' u='c' c='AINode_Seek_ActivateEntity'/>
+<use f='codebrowser/code/game/ai_dmnet.c' l='1484' u='c' c='AINode_Seek_ActivateEntity'/>
+<use f='codebrowser/code/game/ai_dmnet.c' l='1638' u='c' c='AINode_Seek_ActivateEntity'/>
+<def f='codebrowser/code/game/ai_dmq3.c' l='4105' ll='4108' type='void BotClearActivateGoalStack(bot_state_t * bs)'/>
+<doc f='codebrowser/code/game/ai_dmq3.c' l='4100'>/*
+==================
+BotClearActivateGoalStack
+==================
+*/</doc>
+<use f='codebrowser/code/game/ai_main.c' l='1306' u='c' c='BotAIShutdownClient'/>

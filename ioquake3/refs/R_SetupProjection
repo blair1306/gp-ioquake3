@@ -1,0 +1,18 @@
+<dec f='codebrowser/code/renderergl1/tr_local.h' l='1091' type='void R_SetupProjection(viewParms_t * dest, float zProj, qboolean computeFrustum)'/>
+<use f='codebrowser/code/renderergl1/tr_backend.c' l='625' u='c' c='RB_RenderDrawSurfList'/>
+<def f='codebrowser/code/renderergl1/tr_main.c' l='513' ll='560' type='void R_SetupProjection(viewParms_t * dest, float zProj, qboolean computeFrustum)'/>
+<use f='codebrowser/code/renderergl1/tr_main.c' l='1376' u='c' c='R_RenderView'/>
+<doc f='codebrowser/code/renderergl1/tr_main.c' l='508'>/*
+===============
+R_SetupProjection
+===============
+*/</doc>
+<dec f='codebrowser/code/renderergl2/tr_local.h' l='1835' type='void R_SetupProjection(viewParms_t * dest, float zProj, float zFar, qboolean computeFrustum)'/>
+<use f='codebrowser/code/renderergl2/tr_backend.c' l='559' u='c' c='RB_RenderDrawSurfList'/>
+<def f='codebrowser/code/renderergl2/tr_main.c' l='753' ll='800' type='void R_SetupProjection(viewParms_t * dest, float zProj, float zFar, qboolean computeFrustum)'/>
+<use f='codebrowser/code/renderergl2/tr_main.c' l='1759' u='c' c='R_RenderView'/>
+<doc f='codebrowser/code/renderergl2/tr_main.c' l='748'>/*
+===============
+R_SetupProjection
+===============
+*/</doc>

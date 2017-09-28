@@ -1,0 +1,14 @@
+<dec f='codebrowser/code/tools/lcc/cpp/cpp.h' l='93' type='int gettokens(Tokenrow * , int )'/>
+<use f='codebrowser/code/tools/lcc/cpp/cpp.c' l='55' u='c' c='process'/>
+<def f='codebrowser/code/tools/lcc/cpp/lex.c' l='299' ll='460' type='int gettokens(Tokenrow * trp, int reset)'/>
+<doc f='codebrowser/code/tools/lcc/cpp/lex.c' l='292'>/*
+ * fill in a row of tokens from input, terminated by NL or END
+ * First token is put at trp-&gt;lp.
+ * Reset is non-zero when the input buffer can be &quot;rewound.&quot;
+ * The value is a flag indicating that possible macros have
+ * been seen in the row.
+ */</doc>
+<use f='codebrowser/code/tools/lcc/cpp/macro.c' l='244' u='c' c='gatherargs'/>
+<use f='codebrowser/code/tools/lcc/cpp/macro.c' l='264' u='c' c='gatherargs'/>
+<use f='codebrowser/code/tools/lcc/cpp/macro.c' l='382' u='c' c='doconcat'/>
+<use f='codebrowser/code/tools/lcc/cpp/unix.c' l='41' u='c' c='setup'/>

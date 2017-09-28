@@ -1,0 +1,19 @@
+<def f='codebrowser/code/botlib/botlib.h' l='399' ll='431'/>
+<size>1072</size>
+<doc f='codebrowser/code/botlib/botlib.h' l='398'>//bot AI library imported functions</doc>
+<mbr r='botlib_export_s::aas' o='0' t='aas_export_t'/>
+<mbr r='botlib_export_s::ea' o='1408' t='ea_export_t'/>
+<mbr r='botlib_export_s::ai' o='2944' t='ai_export_t'/>
+<mbr r='botlib_export_s::BotLibSetup' o='7744' t='int (*)(void)'/>
+<mbr r='botlib_export_s::BotLibShutdown' o='7808' t='int (*)(void)'/>
+<mbr r='botlib_export_s::BotLibVarSet' o='7872' t='int (*)(const char *, const char *)'/>
+<mbr r='botlib_export_s::BotLibVarGet' o='7936' t='int (*)(const char *, char *, int)'/>
+<mbr r='botlib_export_s::PC_AddGlobalDefine' o='8000' t='int (*)(char *)'/>
+<mbr r='botlib_export_s::PC_LoadSourceHandle' o='8064' t='int (*)(const char *)'/>
+<mbr r='botlib_export_s::PC_FreeSourceHandle' o='8128' t='int (*)(int)'/>
+<mbr r='botlib_export_s::PC_ReadTokenHandle' o='8192' t='int (*)(int, pc_token_t *)'/>
+<mbr r='botlib_export_s::PC_SourceFileAndLine' o='8256' t='int (*)(int, char *, int *)'/>
+<mbr r='botlib_export_s::BotLibStartFrame' o='8320' t='int (*)(float)'/>
+<mbr r='botlib_export_s::BotLibLoadMap' o='8384' t='int (*)(const char *)'/>
+<mbr r='botlib_export_s::BotLibUpdateEntity' o='8448' t='int (*)(int, bot_entitystate_t *)'/>
+<mbr r='botlib_export_s::Test' o='8512' t='int (*)(int, char *, vec_t *, vec_t *)'/>

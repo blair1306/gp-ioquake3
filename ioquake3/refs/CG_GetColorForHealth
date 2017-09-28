@@ -1,0 +1,10 @@
+<dec f='codebrowser/code/cgame/cg_local.h' l='1256' type='void CG_GetColorForHealth(int health, int armor, vec_t * hcolor)'/>
+<use f='codebrowser/code/cgame/cg_draw.c' l='918' u='c' c='CG_DrawTeamOverlay'/>
+<def f='codebrowser/code/cgame/cg_drawtools.c' l='384' ll='420' type='void CG_GetColorForHealth(int health, int armor, vec_t * hcolor)'/>
+<use f='codebrowser/code/cgame/cg_drawtools.c' l='429' u='c' c='CG_ColorForHealth'/>
+<doc f='codebrowser/code/cgame/cg_drawtools.c' l='379'>/*
+=================
+CG_GetColorForHealth
+=================
+*/</doc>
+<use f='codebrowser/code/cgame/cg_newdraw.c' l='1306' u='c' c='CG_DrawNewTeamInfo'/>

@@ -1,0 +1,35 @@
+<dec f='codebrowser/code/qcommon/qcommon.h' l='632' type='char * FS_BuildOSPath(const char * base, const char * game, const char * qpath)'/>
+<use f='codebrowser/code/client/cl_main.c' l='2201' u='c' c='CL_NextDownload'/>
+<def f='codebrowser/code/qcommon/files.c' l='499' ll='515' type='char * FS_BuildOSPath(const char * base, const char * game, const char * qpath)'/>
+<use f='codebrowser/code/qcommon/files.c' l='601' u='c' c='FS_HomeRemove'/>
+<use f='codebrowser/code/qcommon/files.c' l='639' u='c' c='FS_FileExists'/>
+<use f='codebrowser/code/qcommon/files.c' l='653' u='c' c='FS_SV_FileExists'/>
+<use f='codebrowser/code/qcommon/files.c' l='674' u='c' c='FS_SV_FOpenFileWrite'/>
+<use f='codebrowser/code/qcommon/files.c' l='728' u='c' c='FS_SV_FOpenFileRead'/>
+<use f='codebrowser/code/qcommon/files.c' l='744' u='c' c='FS_SV_FOpenFileRead'/>
+<use f='codebrowser/code/qcommon/files.c' l='759' u='c' c='FS_SV_FOpenFileRead'/>
+<use f='codebrowser/code/qcommon/files.c' l='774' u='c' c='FS_SV_FOpenFileRead'/>
+<use f='codebrowser/code/qcommon/files.c' l='817' u='c' c='FS_SV_Rename'/>
+<use f='codebrowser/code/qcommon/files.c' l='818' u='c' c='FS_SV_Rename'/>
+<use f='codebrowser/code/qcommon/files.c' l='851' u='c' c='FS_Rename'/>
+<use f='codebrowser/code/qcommon/files.c' l='852' u='c' c='FS_Rename'/>
+<use f='codebrowser/code/qcommon/files.c' l='911' u='c' c='FS_FOpenFileWrite'/>
+<use f='codebrowser/code/qcommon/files.c' l='959' u='c' c='FS_FOpenFileAppend'/>
+<use f='codebrowser/code/qcommon/files.c' l='1002' u='c' c='FS_FCreateOpenPipeFile'/>
+<use f='codebrowser/code/qcommon/files.c' l='1209' u='c' c='FS_FOpenFileReadDir'/>
+<use f='codebrowser/code/qcommon/files.c' l='1344' u='c' c='FS_FOpenFileReadDir'/>
+<use f='codebrowser/code/qcommon/files.c' l='1476' u='c' c='FS_FindVM'/>
+<use f='codebrowser/code/qcommon/files.c' l='2325' u='c' c='FS_ListFilteredFiles'/>
+<use f='codebrowser/code/qcommon/files.c' l='2568' u='c' c='FS_GetModList'/>
+<use f='codebrowser/code/qcommon/files.c' l='2926' u='c' c='FS_AddGameDirectory'/>
+<use f='codebrowser/code/qcommon/files.c' l='2968' u='c' c='FS_AddGameDirectory'/>
+<use f='codebrowser/code/qcommon/files.c' l='2998' u='c' c='FS_AddGameDirectory'/>
+<doc f='codebrowser/code/qcommon/files.c' l='492'>/*
+===================
+FS_BuildOSPath
+
+Qpath may have either forward or backwards slashes
+===================
+*/</doc>
+<use f='codebrowser/code/sys/sys_unix.c' l='550' u='c' c='Sys_ErrorDialog'/>
+<use f='codebrowser/code/sys/sys_unix.c' l='551' u='c' c='Sys_ErrorDialog'/>

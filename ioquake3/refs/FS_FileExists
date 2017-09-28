@@ -1,0 +1,15 @@
+<dec f='codebrowser/code/qcommon/qcommon.h' l='626' type='qboolean FS_FileExists(const char * file)'/>
+<use f='codebrowser/code/client/cl_main.c' l='745' u='c' c='CL_Record_f'/>
+<use f='codebrowser/code/client/cl_main.c' l='3263' u='r' c='CL_InitRef'/>
+<use f='codebrowser/code/client/cl_main.c' l='3374' u='c' c='CL_Video_f'/>
+<def f='codebrowser/code/qcommon/files.c' l='637' ll='640' type='qboolean FS_FileExists(const char * file)'/>
+<doc f='codebrowser/code/qcommon/files.c' l='627'>/*
+================
+FS_FileExists
+
+Tests if the file exists in the current gamedir, this DOES NOT
+search the paths.  This is to determine if opening a file to write
+(which always goes into the current gamedir) will cause any overwrites.
+NOTE TTimo: this goes with FS_FOpenFileWrite for opening the file afterwards
+================
+*/</doc>

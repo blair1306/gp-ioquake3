@@ -1,0 +1,193 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>opstrings.h source code [codebrowser/code/tools/asm/opstrings.h] - Woboq Code Browser</title>
+<link rel="stylesheet" href="../../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'codebrowser/code/tools/asm/opstrings.h'; var root_path = '../../../..'; var data_path = '../../../../../data';</script>
+<script src='../../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../../..'>codebrowser</a>/<a href='../..'>code</a>/<a href='..'>tools</a>/<a href='./'>asm</a>/<a href='opstrings.h.html'>opstrings.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/*</i></td></tr>
+<tr><th id="2">2</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="3">3</th><td><i>Copyright (C) 1999-2005 Id Software, Inc.</i></td></tr>
+<tr><th id="4">4</th><td><i></i></td></tr>
+<tr><th id="5">5</th><td><i>This file is part of Quake III Arena source code.</i></td></tr>
+<tr><th id="6">6</th><td><i></i></td></tr>
+<tr><th id="7">7</th><td><i>Quake III Arena source code is free software; you can redistribute it</i></td></tr>
+<tr><th id="8">8</th><td><i>and/or modify it under the terms of the GNU General Public License as</i></td></tr>
+<tr><th id="9">9</th><td><i>published by the Free Software Foundation; either version 2 of the License,</i></td></tr>
+<tr><th id="10">10</th><td><i>or (at your option) any later version.</i></td></tr>
+<tr><th id="11">11</th><td><i></i></td></tr>
+<tr><th id="12">12</th><td><i>Quake III Arena source code is distributed in the hope that it will be</i></td></tr>
+<tr><th id="13">13</th><td><i>useful, but WITHOUT ANY WARRANTY; without even the implied warranty of</i></td></tr>
+<tr><th id="14">14</th><td><i>MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</i></td></tr>
+<tr><th id="15">15</th><td><i>GNU General Public License for more details.</i></td></tr>
+<tr><th id="16">16</th><td><i></i></td></tr>
+<tr><th id="17">17</th><td><i>You should have received a copy of the GNU General Public License</i></td></tr>
+<tr><th id="18">18</th><td><i>along with Quake III Arena source code; if not, write to the Free Software</i></td></tr>
+<tr><th id="19">19</th><td><i>Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA</i></td></tr>
+<tr><th id="20">20</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="21">21</th><td><i>*/</i></td></tr>
+<tr><th id="22">22</th><td>{ <q>"BREAK"</q>, <a class="enum" href="q3asm.c.html#OP_BREAK" title='OP_BREAK' data-ref="OP_BREAK">OP_BREAK</a> },</td></tr>
+<tr><th id="23">23</th><td></td></tr>
+<tr><th id="24">24</th><td>{ <q>"CNSTF4"</q>, <a class="enum" href="q3asm.c.html#OP_CONST" title='OP_CONST' data-ref="OP_CONST">OP_CONST</a> },</td></tr>
+<tr><th id="25">25</th><td>{ <q>"CNSTI4"</q>, <a class="enum" href="q3asm.c.html#OP_CONST" title='OP_CONST' data-ref="OP_CONST">OP_CONST</a> },</td></tr>
+<tr><th id="26">26</th><td>{ <q>"CNSTP4"</q>, <a class="enum" href="q3asm.c.html#OP_CONST" title='OP_CONST' data-ref="OP_CONST">OP_CONST</a> },</td></tr>
+<tr><th id="27">27</th><td>{ <q>"CNSTU4"</q>, <a class="enum" href="q3asm.c.html#OP_CONST" title='OP_CONST' data-ref="OP_CONST">OP_CONST</a> },</td></tr>
+<tr><th id="28">28</th><td></td></tr>
+<tr><th id="29">29</th><td>{ <q>"CNSTI2"</q>, <a class="enum" href="q3asm.c.html#OP_CONST" title='OP_CONST' data-ref="OP_CONST">OP_CONST</a> },</td></tr>
+<tr><th id="30">30</th><td>{ <q>"CNSTU2"</q>, <a class="enum" href="q3asm.c.html#OP_CONST" title='OP_CONST' data-ref="OP_CONST">OP_CONST</a> },</td></tr>
+<tr><th id="31">31</th><td></td></tr>
+<tr><th id="32">32</th><td>{ <q>"CNSTI1"</q>, <a class="enum" href="q3asm.c.html#OP_CONST" title='OP_CONST' data-ref="OP_CONST">OP_CONST</a> },</td></tr>
+<tr><th id="33">33</th><td>{ <q>"CNSTU1"</q>, <a class="enum" href="q3asm.c.html#OP_CONST" title='OP_CONST' data-ref="OP_CONST">OP_CONST</a> },</td></tr>
+<tr><th id="34">34</th><td></td></tr>
+<tr><th id="35">35</th><td><i>//{ "ARGB", OP_ARG },</i></td></tr>
+<tr><th id="36">36</th><td><i>//{ "ARGF", OP_ARG },</i></td></tr>
+<tr><th id="37">37</th><td><i>//{ "ARGI", OP_ARG },</i></td></tr>
+<tr><th id="38">38</th><td><i>//{ "ARGP", OP_ARG },</i></td></tr>
+<tr><th id="39">39</th><td><i>//{ "ARGU", OP_ARG },</i></td></tr>
+<tr><th id="40">40</th><td></td></tr>
+<tr><th id="41">41</th><td>{ <q>"ASGNB"</q>, 	<a class="enum" href="q3asm.c.html#OP_BLOCK_COPY" title='OP_BLOCK_COPY' data-ref="OP_BLOCK_COPY">OP_BLOCK_COPY</a> },</td></tr>
+<tr><th id="42">42</th><td>{ <q>"ASGNF4"</q>, <a class="enum" href="q3asm.c.html#OP_STORE4" title='OP_STORE4' data-ref="OP_STORE4">OP_STORE4</a> },</td></tr>
+<tr><th id="43">43</th><td>{ <q>"ASGNI4"</q>, <a class="enum" href="q3asm.c.html#OP_STORE4" title='OP_STORE4' data-ref="OP_STORE4">OP_STORE4</a> },</td></tr>
+<tr><th id="44">44</th><td>{ <q>"ASGNP4"</q>, <a class="enum" href="q3asm.c.html#OP_STORE4" title='OP_STORE4' data-ref="OP_STORE4">OP_STORE4</a> },</td></tr>
+<tr><th id="45">45</th><td>{ <q>"ASGNU4"</q>, <a class="enum" href="q3asm.c.html#OP_STORE4" title='OP_STORE4' data-ref="OP_STORE4">OP_STORE4</a> },</td></tr>
+<tr><th id="46">46</th><td></td></tr>
+<tr><th id="47">47</th><td>{ <q>"ASGNI2"</q>, <a class="enum" href="q3asm.c.html#OP_STORE2" title='OP_STORE2' data-ref="OP_STORE2">OP_STORE2</a> },</td></tr>
+<tr><th id="48">48</th><td>{ <q>"ASGNU2"</q>, <a class="enum" href="q3asm.c.html#OP_STORE2" title='OP_STORE2' data-ref="OP_STORE2">OP_STORE2</a> },</td></tr>
+<tr><th id="49">49</th><td></td></tr>
+<tr><th id="50">50</th><td>{ <q>"ASGNI1"</q>, <a class="enum" href="q3asm.c.html#OP_STORE1" title='OP_STORE1' data-ref="OP_STORE1">OP_STORE1</a> },</td></tr>
+<tr><th id="51">51</th><td>{ <q>"ASGNU1"</q>, <a class="enum" href="q3asm.c.html#OP_STORE1" title='OP_STORE1' data-ref="OP_STORE1">OP_STORE1</a> },</td></tr>
+<tr><th id="52">52</th><td></td></tr>
+<tr><th id="53">53</th><td>{ <q>"INDIRB"</q>, <a class="enum" href="q3asm.c.html#OP_IGNORE" title='OP_IGNORE' data-ref="OP_IGNORE">OP_IGNORE</a> },	<i>// block copy deals with this</i></td></tr>
+<tr><th id="54">54</th><td>{ <q>"INDIRF4"</q>, <a class="enum" href="q3asm.c.html#OP_LOAD4" title='OP_LOAD4' data-ref="OP_LOAD4">OP_LOAD4</a> },</td></tr>
+<tr><th id="55">55</th><td>{ <q>"INDIRI4"</q>, <a class="enum" href="q3asm.c.html#OP_LOAD4" title='OP_LOAD4' data-ref="OP_LOAD4">OP_LOAD4</a> },</td></tr>
+<tr><th id="56">56</th><td>{ <q>"INDIRP4"</q>, <a class="enum" href="q3asm.c.html#OP_LOAD4" title='OP_LOAD4' data-ref="OP_LOAD4">OP_LOAD4</a> },</td></tr>
+<tr><th id="57">57</th><td>{ <q>"INDIRU4"</q>, <a class="enum" href="q3asm.c.html#OP_LOAD4" title='OP_LOAD4' data-ref="OP_LOAD4">OP_LOAD4</a> },</td></tr>
+<tr><th id="58">58</th><td></td></tr>
+<tr><th id="59">59</th><td>{ <q>"INDIRI2"</q>, <a class="enum" href="q3asm.c.html#OP_LOAD2" title='OP_LOAD2' data-ref="OP_LOAD2">OP_LOAD2</a> },</td></tr>
+<tr><th id="60">60</th><td>{ <q>"INDIRU2"</q>, <a class="enum" href="q3asm.c.html#OP_LOAD2" title='OP_LOAD2' data-ref="OP_LOAD2">OP_LOAD2</a> },</td></tr>
+<tr><th id="61">61</th><td></td></tr>
+<tr><th id="62">62</th><td>{ <q>"INDIRI1"</q>, <a class="enum" href="q3asm.c.html#OP_LOAD1" title='OP_LOAD1' data-ref="OP_LOAD1">OP_LOAD1</a> },</td></tr>
+<tr><th id="63">63</th><td>{ <q>"INDIRU1"</q>, <a class="enum" href="q3asm.c.html#OP_LOAD1" title='OP_LOAD1' data-ref="OP_LOAD1">OP_LOAD1</a> },</td></tr>
+<tr><th id="64">64</th><td></td></tr>
+<tr><th id="65">65</th><td>{ <q>"CVFF4"</q>, <a class="enum" href="q3asm.c.html#OP_UNDEF" title='OP_UNDEF' data-ref="OP_UNDEF">OP_UNDEF</a> },</td></tr>
+<tr><th id="66">66</th><td>{ <q>"CVFI4"</q>, <a class="enum" href="q3asm.c.html#OP_CVFI" title='OP_CVFI' data-ref="OP_CVFI">OP_CVFI</a> },</td></tr>
+<tr><th id="67">67</th><td></td></tr>
+<tr><th id="68">68</th><td>{ <q>"CVIF4"</q>, <a class="enum" href="q3asm.c.html#OP_CVIF" title='OP_CVIF' data-ref="OP_CVIF">OP_CVIF</a> },</td></tr>
+<tr><th id="69">69</th><td>{ <q>"CVII4"</q>, <a class="enum" href="q3asm.c.html#OP_SEX8" title='OP_SEX8' data-ref="OP_SEX8">OP_SEX8</a> },	<i>// will be either SEX8 or SEX16</i></td></tr>
+<tr><th id="70">70</th><td>{ <q>"CVII1"</q>, <a class="enum" href="q3asm.c.html#OP_IGNORE" title='OP_IGNORE' data-ref="OP_IGNORE">OP_IGNORE</a> },</td></tr>
+<tr><th id="71">71</th><td>{ <q>"CVII2"</q>, <a class="enum" href="q3asm.c.html#OP_IGNORE" title='OP_IGNORE' data-ref="OP_IGNORE">OP_IGNORE</a> },</td></tr>
+<tr><th id="72">72</th><td>{ <q>"CVIU4"</q>, <a class="enum" href="q3asm.c.html#OP_IGNORE" title='OP_IGNORE' data-ref="OP_IGNORE">OP_IGNORE</a> },</td></tr>
+<tr><th id="73">73</th><td></td></tr>
+<tr><th id="74">74</th><td>{ <q>"CVPU4"</q>, <a class="enum" href="q3asm.c.html#OP_IGNORE" title='OP_IGNORE' data-ref="OP_IGNORE">OP_IGNORE</a> },</td></tr>
+<tr><th id="75">75</th><td></td></tr>
+<tr><th id="76">76</th><td>{ <q>"CVUI4"</q>, <a class="enum" href="q3asm.c.html#OP_IGNORE" title='OP_IGNORE' data-ref="OP_IGNORE">OP_IGNORE</a> },</td></tr>
+<tr><th id="77">77</th><td>{ <q>"CVUP4"</q>, <a class="enum" href="q3asm.c.html#OP_IGNORE" title='OP_IGNORE' data-ref="OP_IGNORE">OP_IGNORE</a> },</td></tr>
+<tr><th id="78">78</th><td>{ <q>"CVUU4"</q>, <a class="enum" href="q3asm.c.html#OP_IGNORE" title='OP_IGNORE' data-ref="OP_IGNORE">OP_IGNORE</a> },</td></tr>
+<tr><th id="79">79</th><td></td></tr>
+<tr><th id="80">80</th><td>{ <q>"CVUU1"</q>, <a class="enum" href="q3asm.c.html#OP_IGNORE" title='OP_IGNORE' data-ref="OP_IGNORE">OP_IGNORE</a> },</td></tr>
+<tr><th id="81">81</th><td></td></tr>
+<tr><th id="82">82</th><td>{ <q>"NEGF4"</q>, <a class="enum" href="q3asm.c.html#OP_NEGF" title='OP_NEGF' data-ref="OP_NEGF">OP_NEGF</a> },</td></tr>
+<tr><th id="83">83</th><td>{ <q>"NEGI4"</q>, <a class="enum" href="q3asm.c.html#OP_NEGI" title='OP_NEGI' data-ref="OP_NEGI">OP_NEGI</a> },</td></tr>
+<tr><th id="84">84</th><td></td></tr>
+<tr><th id="85">85</th><td><i>//{ "CALLB", OP_UNDEF },</i></td></tr>
+<tr><th id="86">86</th><td><i>//{ "CALLF", OP_UNDEF },</i></td></tr>
+<tr><th id="87">87</th><td><i>//{ "CALLI", OP_UNDEF },</i></td></tr>
+<tr><th id="88">88</th><td><i>//{ "CALLP", OP_UNDEF },</i></td></tr>
+<tr><th id="89">89</th><td><i>//{ "CALLU", OP_UNDEF },</i></td></tr>
+<tr><th id="90">90</th><td><i>//{ "CALLV", OP_CALL },</i></td></tr>
+<tr><th id="91">91</th><td><i></i></td></tr>
+<tr><th id="92">92</th><td><i>//{ "RETF", OP_UNDEF },</i></td></tr>
+<tr><th id="93">93</th><td><i>//{ "RETI", OP_UNDEF },</i></td></tr>
+<tr><th id="94">94</th><td><i>//{ "RETP", OP_UNDEF },</i></td></tr>
+<tr><th id="95">95</th><td><i>//{ "RETU", OP_UNDEF },</i></td></tr>
+<tr><th id="96">96</th><td><i>//{ "RETV", OP_UNDEF },</i></td></tr>
+<tr><th id="97">97</th><td></td></tr>
+<tr><th id="98">98</th><td>{ <q>"ADDRGP4"</q>, <a class="enum" href="q3asm.c.html#OP_CONST" title='OP_CONST' data-ref="OP_CONST">OP_CONST</a> },</td></tr>
+<tr><th id="99">99</th><td></td></tr>
+<tr><th id="100">100</th><td><i>//{ "ADDRFP", OP_PARM },</i></td></tr>
+<tr><th id="101">101</th><td><i>//{ "ADDRLP", OP_LOCAL },</i></td></tr>
+<tr><th id="102">102</th><td></td></tr>
+<tr><th id="103">103</th><td>{ <q>"ADDF4"</q>, <a class="enum" href="q3asm.c.html#OP_ADDF" title='OP_ADDF' data-ref="OP_ADDF">OP_ADDF</a> },</td></tr>
+<tr><th id="104">104</th><td>{ <q>"ADDI4"</q>, <a class="enum" href="q3asm.c.html#OP_ADD" title='OP_ADD' data-ref="OP_ADD">OP_ADD</a> },</td></tr>
+<tr><th id="105">105</th><td>{ <q>"ADDP4"</q>, <a class="enum" href="q3asm.c.html#OP_ADD" title='OP_ADD' data-ref="OP_ADD">OP_ADD</a> },</td></tr>
+<tr><th id="106">106</th><td>{ <q>"ADDP"</q>, <a class="enum" href="q3asm.c.html#OP_ADD" title='OP_ADD' data-ref="OP_ADD">OP_ADD</a> },</td></tr>
+<tr><th id="107">107</th><td>{ <q>"ADDU4"</q>, <a class="enum" href="q3asm.c.html#OP_ADD" title='OP_ADD' data-ref="OP_ADD">OP_ADD</a> },</td></tr>
+<tr><th id="108">108</th><td></td></tr>
+<tr><th id="109">109</th><td>{ <q>"SUBF4"</q>, <a class="enum" href="q3asm.c.html#OP_SUBF" title='OP_SUBF' data-ref="OP_SUBF">OP_SUBF</a> },</td></tr>
+<tr><th id="110">110</th><td>{ <q>"SUBI4"</q>, <a class="enum" href="q3asm.c.html#OP_SUB" title='OP_SUB' data-ref="OP_SUB">OP_SUB</a> },</td></tr>
+<tr><th id="111">111</th><td>{ <q>"SUBP4"</q>, <a class="enum" href="q3asm.c.html#OP_SUB" title='OP_SUB' data-ref="OP_SUB">OP_SUB</a> },</td></tr>
+<tr><th id="112">112</th><td>{ <q>"SUBU4"</q>, <a class="enum" href="q3asm.c.html#OP_SUB" title='OP_SUB' data-ref="OP_SUB">OP_SUB</a> },</td></tr>
+<tr><th id="113">113</th><td></td></tr>
+<tr><th id="114">114</th><td>{ <q>"LSHI4"</q>, <a class="enum" href="q3asm.c.html#OP_LSH" title='OP_LSH' data-ref="OP_LSH">OP_LSH</a> },</td></tr>
+<tr><th id="115">115</th><td>{ <q>"LSHU4"</q>, <a class="enum" href="q3asm.c.html#OP_LSH" title='OP_LSH' data-ref="OP_LSH">OP_LSH</a> },</td></tr>
+<tr><th id="116">116</th><td></td></tr>
+<tr><th id="117">117</th><td>{ <q>"MODI4"</q>, <a class="enum" href="q3asm.c.html#OP_MODI" title='OP_MODI' data-ref="OP_MODI">OP_MODI</a> },</td></tr>
+<tr><th id="118">118</th><td>{ <q>"MODU4"</q>, <a class="enum" href="q3asm.c.html#OP_MODU" title='OP_MODU' data-ref="OP_MODU">OP_MODU</a> },</td></tr>
+<tr><th id="119">119</th><td></td></tr>
+<tr><th id="120">120</th><td>{ <q>"RSHI4"</q>, <a class="enum" href="q3asm.c.html#OP_RSHI" title='OP_RSHI' data-ref="OP_RSHI">OP_RSHI</a> },</td></tr>
+<tr><th id="121">121</th><td>{ <q>"RSHU4"</q>, <a class="enum" href="q3asm.c.html#OP_RSHU" title='OP_RSHU' data-ref="OP_RSHU">OP_RSHU</a> },</td></tr>
+<tr><th id="122">122</th><td></td></tr>
+<tr><th id="123">123</th><td>{ <q>"BANDI4"</q>, <a class="enum" href="q3asm.c.html#OP_BAND" title='OP_BAND' data-ref="OP_BAND">OP_BAND</a> },</td></tr>
+<tr><th id="124">124</th><td>{ <q>"BANDU4"</q>, <a class="enum" href="q3asm.c.html#OP_BAND" title='OP_BAND' data-ref="OP_BAND">OP_BAND</a> },</td></tr>
+<tr><th id="125">125</th><td></td></tr>
+<tr><th id="126">126</th><td>{ <q>"BCOMI4"</q>, <a class="enum" href="q3asm.c.html#OP_BCOM" title='OP_BCOM' data-ref="OP_BCOM">OP_BCOM</a> },</td></tr>
+<tr><th id="127">127</th><td>{ <q>"BCOMU4"</q>, <a class="enum" href="q3asm.c.html#OP_BCOM" title='OP_BCOM' data-ref="OP_BCOM">OP_BCOM</a> },</td></tr>
+<tr><th id="128">128</th><td></td></tr>
+<tr><th id="129">129</th><td>{ <q>"BORI4"</q>, <a class="enum" href="q3asm.c.html#OP_BOR" title='OP_BOR' data-ref="OP_BOR">OP_BOR</a> },</td></tr>
+<tr><th id="130">130</th><td>{ <q>"BORU4"</q>, <a class="enum" href="q3asm.c.html#OP_BOR" title='OP_BOR' data-ref="OP_BOR">OP_BOR</a> },</td></tr>
+<tr><th id="131">131</th><td></td></tr>
+<tr><th id="132">132</th><td>{ <q>"BXORI4"</q>, <a class="enum" href="q3asm.c.html#OP_BXOR" title='OP_BXOR' data-ref="OP_BXOR">OP_BXOR</a> },</td></tr>
+<tr><th id="133">133</th><td>{ <q>"BXORU4"</q>, <a class="enum" href="q3asm.c.html#OP_BXOR" title='OP_BXOR' data-ref="OP_BXOR">OP_BXOR</a> },</td></tr>
+<tr><th id="134">134</th><td></td></tr>
+<tr><th id="135">135</th><td>{ <q>"DIVF4"</q>, <a class="enum" href="q3asm.c.html#OP_DIVF" title='OP_DIVF' data-ref="OP_DIVF">OP_DIVF</a> },</td></tr>
+<tr><th id="136">136</th><td>{ <q>"DIVI4"</q>, <a class="enum" href="q3asm.c.html#OP_DIVI" title='OP_DIVI' data-ref="OP_DIVI">OP_DIVI</a> },</td></tr>
+<tr><th id="137">137</th><td>{ <q>"DIVU4"</q>, <a class="enum" href="q3asm.c.html#OP_DIVU" title='OP_DIVU' data-ref="OP_DIVU">OP_DIVU</a> },</td></tr>
+<tr><th id="138">138</th><td></td></tr>
+<tr><th id="139">139</th><td>{ <q>"MULF4"</q>, <a class="enum" href="q3asm.c.html#OP_MULF" title='OP_MULF' data-ref="OP_MULF">OP_MULF</a> },</td></tr>
+<tr><th id="140">140</th><td>{ <q>"MULI4"</q>, <a class="enum" href="q3asm.c.html#OP_MULI" title='OP_MULI' data-ref="OP_MULI">OP_MULI</a> },</td></tr>
+<tr><th id="141">141</th><td>{ <q>"MULU4"</q>, <a class="enum" href="q3asm.c.html#OP_MULU" title='OP_MULU' data-ref="OP_MULU">OP_MULU</a> },</td></tr>
+<tr><th id="142">142</th><td></td></tr>
+<tr><th id="143">143</th><td>{ <q>"EQF4"</q>, <a class="enum" href="q3asm.c.html#OP_EQF" title='OP_EQF' data-ref="OP_EQF">OP_EQF</a> },</td></tr>
+<tr><th id="144">144</th><td>{ <q>"EQI4"</q>, <a class="enum" href="q3asm.c.html#OP_EQ" title='OP_EQ' data-ref="OP_EQ">OP_EQ</a> },</td></tr>
+<tr><th id="145">145</th><td>{ <q>"EQU4"</q>, <a class="enum" href="q3asm.c.html#OP_EQ" title='OP_EQ' data-ref="OP_EQ">OP_EQ</a> },</td></tr>
+<tr><th id="146">146</th><td></td></tr>
+<tr><th id="147">147</th><td>{ <q>"GEF4"</q>, <a class="enum" href="q3asm.c.html#OP_GEF" title='OP_GEF' data-ref="OP_GEF">OP_GEF</a> },</td></tr>
+<tr><th id="148">148</th><td>{ <q>"GEI4"</q>, <a class="enum" href="q3asm.c.html#OP_GEI" title='OP_GEI' data-ref="OP_GEI">OP_GEI</a> },</td></tr>
+<tr><th id="149">149</th><td>{ <q>"GEU4"</q>, <a class="enum" href="q3asm.c.html#OP_GEU" title='OP_GEU' data-ref="OP_GEU">OP_GEU</a> },</td></tr>
+<tr><th id="150">150</th><td></td></tr>
+<tr><th id="151">151</th><td>{ <q>"GTF4"</q>, <a class="enum" href="q3asm.c.html#OP_GTF" title='OP_GTF' data-ref="OP_GTF">OP_GTF</a> },</td></tr>
+<tr><th id="152">152</th><td>{ <q>"GTI4"</q>, <a class="enum" href="q3asm.c.html#OP_GTI" title='OP_GTI' data-ref="OP_GTI">OP_GTI</a> },</td></tr>
+<tr><th id="153">153</th><td>{ <q>"GTU4"</q>, <a class="enum" href="q3asm.c.html#OP_GTU" title='OP_GTU' data-ref="OP_GTU">OP_GTU</a> },</td></tr>
+<tr><th id="154">154</th><td></td></tr>
+<tr><th id="155">155</th><td>{ <q>"LEF4"</q>, <a class="enum" href="q3asm.c.html#OP_LEF" title='OP_LEF' data-ref="OP_LEF">OP_LEF</a> },</td></tr>
+<tr><th id="156">156</th><td>{ <q>"LEI4"</q>, <a class="enum" href="q3asm.c.html#OP_LEI" title='OP_LEI' data-ref="OP_LEI">OP_LEI</a> },</td></tr>
+<tr><th id="157">157</th><td>{ <q>"LEU4"</q>, <a class="enum" href="q3asm.c.html#OP_LEU" title='OP_LEU' data-ref="OP_LEU">OP_LEU</a> },</td></tr>
+<tr><th id="158">158</th><td></td></tr>
+<tr><th id="159">159</th><td>{ <q>"LTF4"</q>, <a class="enum" href="q3asm.c.html#OP_LTF" title='OP_LTF' data-ref="OP_LTF">OP_LTF</a> },</td></tr>
+<tr><th id="160">160</th><td>{ <q>"LTI4"</q>, <a class="enum" href="q3asm.c.html#OP_LTI" title='OP_LTI' data-ref="OP_LTI">OP_LTI</a> },</td></tr>
+<tr><th id="161">161</th><td>{ <q>"LTU4"</q>, <a class="enum" href="q3asm.c.html#OP_LTU" title='OP_LTU' data-ref="OP_LTU">OP_LTU</a> },</td></tr>
+<tr><th id="162">162</th><td></td></tr>
+<tr><th id="163">163</th><td>{ <q>"NEF4"</q>, <a class="enum" href="q3asm.c.html#OP_NEF" title='OP_NEF' data-ref="OP_NEF">OP_NEF</a> },</td></tr>
+<tr><th id="164">164</th><td>{ <q>"NEI4"</q>, <a class="enum" href="q3asm.c.html#OP_NE" title='OP_NE' data-ref="OP_NE">OP_NE</a> },</td></tr>
+<tr><th id="165">165</th><td>{ <q>"NEU4"</q>, <a class="enum" href="q3asm.c.html#OP_NE" title='OP_NE' data-ref="OP_NE">OP_NE</a> },</td></tr>
+<tr><th id="166">166</th><td></td></tr>
+<tr><th id="167">167</th><td>{ <q>"JUMPV"</q>, <a class="enum" href="q3asm.c.html#OP_JUMP" title='OP_JUMP' data-ref="OP_JUMP">OP_JUMP</a> },</td></tr>
+<tr><th id="168">168</th><td></td></tr>
+<tr><th id="169">169</th><td>{ <q>"LOADB4"</q>, <a class="enum" href="q3asm.c.html#OP_UNDEF" title='OP_UNDEF' data-ref="OP_UNDEF">OP_UNDEF</a> },</td></tr>
+<tr><th id="170">170</th><td>{ <q>"LOADF4"</q>, <a class="enum" href="q3asm.c.html#OP_UNDEF" title='OP_UNDEF' data-ref="OP_UNDEF">OP_UNDEF</a> },</td></tr>
+<tr><th id="171">171</th><td>{ <q>"LOADI4"</q>, <a class="enum" href="q3asm.c.html#OP_UNDEF" title='OP_UNDEF' data-ref="OP_UNDEF">OP_UNDEF</a> },</td></tr>
+<tr><th id="172">172</th><td>{ <q>"LOADP4"</q>, <a class="enum" href="q3asm.c.html#OP_UNDEF" title='OP_UNDEF' data-ref="OP_UNDEF">OP_UNDEF</a> },</td></tr>
+<tr><th id="173">173</th><td>{ <q>"LOADU4"</q>, <a class="enum" href="q3asm.c.html#OP_UNDEF" title='OP_UNDEF' data-ref="OP_UNDEF">OP_UNDEF</a> },</td></tr>
+<tr><th id="174">174</th><td></td></tr>
+<tr><th id="175">175</th><td></td></tr>
+<tr><th id="176">176</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='q3asm.c.html'>codebrowser/code/tools/asm/q3asm.c</a><br/>Generated on <em>2017-Aug-29</em> from project codebrowser revision <em>63e07af</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

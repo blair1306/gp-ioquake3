@@ -1,0 +1,8 @@
+<dec f='codebrowser/code/game/g_public.h' l='404' type='1'/>
+<doc f='codebrowser/code/game/g_public.h' l='400'>// init and shutdown will be called every single level
+	// The game should call G_GET_ENTITY_TOKEN to parse through all the
+	// entity configuration text and spawn gentities.</doc>
+<doc f='codebrowser/code/game/g_public.h' l='404'>// (void);</doc>
+<use f='codebrowser/code/game/g_main.c' l='207' c='vmMain'/>
+<use f='codebrowser/code/server/sv_game.c' l='863' u='r' c='SV_ShutdownGameProgs'/>
+<use f='codebrowser/code/server/sv_game.c' l='907' u='r' c='SV_RestartGameProgs'/>

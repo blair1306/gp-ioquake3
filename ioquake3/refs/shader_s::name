@@ -1,0 +1,225 @@
+<dec f='codebrowser/code/renderergl1/tr_local.h' l='316' type='char [64]'/>
+<offset>0</offset>
+<doc f='codebrowser/code/renderergl1/tr_local.h' l='316'>// game path, including extension</doc>
+<use f='codebrowser/code/renderergl1/tr_image.c' l='1674' c='R_SkinList_f'/>
+<use f='codebrowser/code/renderergl1/tr_main.c' l='1163' c='R_SortDrawSurfs'/>
+<use f='codebrowser/code/renderergl1/tr_mesh.c' l='373' c='R_AddMD3Surfaces'/>
+<use f='codebrowser/code/renderergl1/tr_shade.c' l='1099' c='ComputeTexCoords'/>
+<use f='codebrowser/code/renderergl1/tr_shade.c' l='1186' c='RB_StageIteratorGeneric'/>
+<use f='codebrowser/code/renderergl1/tr_shade.c' l='1305' c='RB_StageIteratorVertexLitTexture'/>
+<use f='codebrowser/code/renderergl1/tr_shade.c' l='1375' c='RB_StageIteratorLightmappedMultitexture'/>
+<use f='codebrowser/code/renderergl1/tr_shade_calc.c' l='51' c='TableForFunc'/>
+<use f='codebrowser/code/renderergl1/tr_shade_calc.c' l='362' c='AutospriteDeform'/>
+<use f='codebrowser/code/renderergl1/tr_shade_calc.c' l='365' c='AutospriteDeform'/>
+<use f='codebrowser/code/renderergl1/tr_shade_calc.c' l='439' c='Autosprite2Deform'/>
+<use f='codebrowser/code/renderergl1/tr_shade_calc.c' l='442' c='Autosprite2Deform'/>
+<use f='codebrowser/code/renderergl1/tr_shader.c' l='100' u='r' c='R_RemapShader'/>
+<use f='codebrowser/code/renderergl1/tr_shader.c' l='125' c='ParseVector'/>
+<use f='codebrowser/code/renderergl1/tr_shader.c' l='132' c='ParseVector'/>
+<use f='codebrowser/code/renderergl1/tr_shader.c' l='140' c='ParseVector'/>
+<use f='codebrowser/code/renderergl1/tr_shader.c' l='168' c='NameToAFunc'/>
+<use f='codebrowser/code/renderergl1/tr_shader.c' l='217' c='NameToSrcBlendMode'/>
+<use f='codebrowser/code/renderergl1/tr_shader.c' l='261' c='NameToDstBlendMode'/>
+<use f='codebrowser/code/renderergl1/tr_shader.c' l='297' c='NameToGenFunc'/>
+<use f='codebrowser/code/renderergl1/tr_shader.c' l='314' c='ParseWaveForm'/>
+<use f='codebrowser/code/renderergl1/tr_shader.c' l='323' c='ParseWaveForm'/>
+<use f='codebrowser/code/renderergl1/tr_shader.c' l='331' c='ParseWaveForm'/>
+<use f='codebrowser/code/renderergl1/tr_shader.c' l='339' c='ParseWaveForm'/>
+<use f='codebrowser/code/renderergl1/tr_shader.c' l='347' c='ParseWaveForm'/>
+<use f='codebrowser/code/renderergl1/tr_shader.c' l='366' c='ParseTexMod'/>
+<use f='codebrowser/code/renderergl1/tr_shader.c' l='383' c='ParseTexMod'/>
+<use f='codebrowser/code/renderergl1/tr_shader.c' l='390' c='ParseTexMod'/>
+<use f='codebrowser/code/renderergl1/tr_shader.c' l='397' c='ParseTexMod'/>
+<use f='codebrowser/code/renderergl1/tr_shader.c' l='404' c='ParseTexMod'/>
+<use f='codebrowser/code/renderergl1/tr_shader.c' l='419' c='ParseTexMod'/>
+<use f='codebrowser/code/renderergl1/tr_shader.c' l='427' c='ParseTexMod'/>
+<use f='codebrowser/code/renderergl1/tr_shader.c' l='441' c='ParseTexMod'/>
+<use f='codebrowser/code/renderergl1/tr_shader.c' l='448' c='ParseTexMod'/>
+<use f='codebrowser/code/renderergl1/tr_shader.c' l='462' c='ParseTexMod'/>
+<use f='codebrowser/code/renderergl1/tr_shader.c' l='470' c='ParseTexMod'/>
+<use f='codebrowser/code/renderergl1/tr_shader.c' l='478' c='ParseTexMod'/>
+<use f='codebrowser/code/renderergl1/tr_shader.c' l='486' c='ParseTexMod'/>
+<use f='codebrowser/code/renderergl1/tr_shader.c' l='494' c='ParseTexMod'/>
+<use f='codebrowser/code/renderergl1/tr_shader.c' l='509' c='ParseTexMod'/>
+<use f='codebrowser/code/renderergl1/tr_shader.c' l='517' c='ParseTexMod'/>
+<use f='codebrowser/code/renderergl1/tr_shader.c' l='525' c='ParseTexMod'/>
+<use f='codebrowser/code/renderergl1/tr_shader.c' l='533' c='ParseTexMod'/>
+<use f='codebrowser/code/renderergl1/tr_shader.c' l='541' c='ParseTexMod'/>
+<use f='codebrowser/code/renderergl1/tr_shader.c' l='549' c='ParseTexMod'/>
+<use f='codebrowser/code/renderergl1/tr_shader.c' l='564' c='ParseTexMod'/>
+<use f='codebrowser/code/renderergl1/tr_shader.c' l='579' c='ParseTexMod'/>
+<use f='codebrowser/code/renderergl1/tr_shader.c' l='618' c='ParseStage'/>
+<use f='codebrowser/code/renderergl1/tr_shader.c' l='652' c='ParseStage'/>
+<use f='codebrowser/code/renderergl1/tr_shader.c' l='668' c='ParseStage'/>
+<use f='codebrowser/code/renderergl1/tr_shader.c' l='681' c='ParseStage'/>
+<use f='codebrowser/code/renderergl1/tr_shader.c' l='695' c='ParseStage'/>
+<use f='codebrowser/code/renderergl1/tr_shader.c' l='721' c='ParseStage'/>
+<use f='codebrowser/code/renderergl1/tr_shader.c' l='731' c='ParseStage'/>
+<use f='codebrowser/code/renderergl1/tr_shader.c' l='739' c='ParseStage'/>
+<use f='codebrowser/code/renderergl1/tr_shader.c' l='747' c='ParseStage'/>
+<use f='codebrowser/code/renderergl1/tr_shader.c' l='758' c='ParseStage'/>
+<use f='codebrowser/code/renderergl1/tr_shader.c' l='773' c='ParseStage'/>
+<use f='codebrowser/code/renderergl1/tr_shader.c' l='787' c='ParseStage'/>
+<use f='codebrowser/code/renderergl1/tr_shader.c' l='807' c='ParseStage'/>
+<use f='codebrowser/code/renderergl1/tr_shader.c' l='827' c='ParseStage'/>
+<use f='codebrowser/code/renderergl1/tr_shader.c' l='847' c='ParseStage'/>
+<use f='codebrowser/code/renderergl1/tr_shader.c' l='906' c='ParseStage'/>
+<use f='codebrowser/code/renderergl1/tr_shader.c' l='918' c='ParseStage'/>
+<use f='codebrowser/code/renderergl1/tr_shader.c' l='964' c='ParseStage'/>
+<use f='codebrowser/code/renderergl1/tr_shader.c' l='973' c='ParseStage'/>
+<use f='codebrowser/code/renderergl1/tr_shader.c' l='985' c='ParseStage'/>
+<use f='codebrowser/code/renderergl1/tr_shader.c' l='1010' c='ParseStage'/>
+<use f='codebrowser/code/renderergl1/tr_shader.c' l='1045' c='ParseStage'/>
+<use f='codebrowser/code/renderergl1/tr_shader.c' l='1114' c='ParseDeform'/>
+<use f='codebrowser/code/renderergl1/tr_shader.c' l='1119' c='ParseDeform'/>
+<use f='codebrowser/code/renderergl1/tr_shader.c' l='1156' c='ParseDeform'/>
+<use f='codebrowser/code/renderergl1/tr_shader.c' l='1164' c='ParseDeform'/>
+<use f='codebrowser/code/renderergl1/tr_shader.c' l='1172' c='ParseDeform'/>
+<use f='codebrowser/code/renderergl1/tr_shader.c' l='1186' c='ParseDeform'/>
+<use f='codebrowser/code/renderergl1/tr_shader.c' l='1197' c='ParseDeform'/>
+<use f='codebrowser/code/renderergl1/tr_shader.c' l='1210' c='ParseDeform'/>
+<use f='codebrowser/code/renderergl1/tr_shader.c' l='1218' c='ParseDeform'/>
+<use f='codebrowser/code/renderergl1/tr_shader.c' l='1233' c='ParseDeform'/>
+<use f='codebrowser/code/renderergl1/tr_shader.c' l='1244' c='ParseDeform'/>
+<use f='codebrowser/code/renderergl1/tr_shader.c' l='1265' c='ParseSkyParms'/>
+<use f='codebrowser/code/renderergl1/tr_shader.c' l='1283' c='ParseSkyParms'/>
+<use f='codebrowser/code/renderergl1/tr_shader.c' l='1296' c='ParseSkyParms'/>
+<use f='codebrowser/code/renderergl1/tr_shader.c' l='1324' c='ParseSort'/>
+<use f='codebrowser/code/renderergl1/tr_shader.c' l='1450' c='ParseShader'/>
+<use f='codebrowser/code/renderergl1/tr_shader.c' l='1459' c='ParseShader'/>
+<use f='codebrowser/code/renderergl1/tr_shader.c' l='1472' c='ParseShader'/>
+<use f='codebrowser/code/renderergl1/tr_shader.c' l='1601' c='ParseShader'/>
+<use f='codebrowser/code/renderergl1/tr_shader.c' l='1634' c='ParseShader'/>
+<use f='codebrowser/code/renderergl1/tr_shader.c' l='1648' c='ParseShader'/>
+<use f='codebrowser/code/renderergl1/tr_shader.c' l='1660' c='ParseShader'/>
+<use f='codebrowser/code/renderergl1/tr_shader.c' l='2079' u='r' c='GeneratePermanentShader'/>
+<use f='codebrowser/code/renderergl1/tr_shader.c' l='2187' u='r' c='InitShader'/>
+<use f='codebrowser/code/renderergl1/tr_shader.c' l='2187' u='r' c='InitShader'/>
+<use f='codebrowser/code/renderergl1/tr_shader.c' l='2237' c='FinishShader'/>
+<use f='codebrowser/code/renderergl1/tr_shader.c' l='2362' c='FinishShader'/>
+<use f='codebrowser/code/renderergl1/tr_shader.c' l='2364' c='FinishShader'/>
+<use f='codebrowser/code/renderergl1/tr_shader.c' l='2474' u='r' c='R_FindShaderByName'/>
+<use f='codebrowser/code/renderergl1/tr_shader.c' l='2546' u='r' c='R_FindShader'/>
+<use f='codebrowser/code/renderergl1/tr_shader.c' l='2684' u='r' c='RE_RegisterShaderFromImage'/>
+<use f='codebrowser/code/renderergl1/tr_shader.c' l='2929' c='R_ShaderList_f'/>
+<use f='codebrowser/code/renderergl1/tr_shader.c' l='2931' c='R_ShaderList_f'/>
+<use f='codebrowser/code/renderergl1/tr_shader.c' l='3115' u='r' c='CreateInternalShaders'/>
+<use f='codebrowser/code/renderergl1/tr_shader.c' l='3115' u='r' c='CreateInternalShaders'/>
+<dec f='codebrowser/code/renderergl2/tr_local.h' l='429' type='char [64]'/>
+<offset>0</offset>
+<doc f='codebrowser/code/renderergl2/tr_local.h' l='429'>// game path, including extension</doc>
+<use f='codebrowser/code/renderergl2/tr_bsp.c' l='763' c='ParseFace'/>
+<use f='codebrowser/code/renderergl2/tr_bsp.c' l='926' c='ParseTriSurf'/>
+<use f='codebrowser/code/renderergl2/tr_image.c' l='3225' c='R_SkinList_f'/>
+<use f='codebrowser/code/renderergl2/tr_main.c' l='1535' c='R_SortDrawSurfs'/>
+<use f='codebrowser/code/renderergl2/tr_mesh.c' l='377' c='R_AddMD3Surfaces'/>
+<use f='codebrowser/code/renderergl2/tr_shade.c' l='241' c='ComputeTexMods'/>
+<use f='codebrowser/code/renderergl2/tr_shade.c' l='1450' c='RB_StageIteratorGeneric'/>
+<use f='codebrowser/code/renderergl2/tr_shade_calc.c' l='51' c='TableForFunc'/>
+<use f='codebrowser/code/renderergl2/tr_shade_calc.c' l='367' c='AutospriteDeform'/>
+<use f='codebrowser/code/renderergl2/tr_shade_calc.c' l='370' c='AutospriteDeform'/>
+<use f='codebrowser/code/renderergl2/tr_shade_calc.c' l='447' c='Autosprite2Deform'/>
+<use f='codebrowser/code/renderergl2/tr_shade_calc.c' l='450' c='Autosprite2Deform'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='100' u='r' c='R_RemapShader'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='125' c='ParseVector'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='132' c='ParseVector'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='140' c='ParseVector'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='168' c='NameToAFunc'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='223' c='NameToSrcBlendMode'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='273' c='NameToDstBlendMode'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='309' c='NameToGenFunc'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='326' c='ParseWaveForm'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='335' c='ParseWaveForm'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='343' c='ParseWaveForm'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='351' c='ParseWaveForm'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='359' c='ParseWaveForm'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='378' c='ParseTexMod'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='395' c='ParseTexMod'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='402' c='ParseTexMod'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='409' c='ParseTexMod'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='416' c='ParseTexMod'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='431' c='ParseTexMod'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='439' c='ParseTexMod'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='453' c='ParseTexMod'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='460' c='ParseTexMod'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='474' c='ParseTexMod'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='482' c='ParseTexMod'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='490' c='ParseTexMod'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='498' c='ParseTexMod'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='506' c='ParseTexMod'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='521' c='ParseTexMod'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='529' c='ParseTexMod'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='537' c='ParseTexMod'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='545' c='ParseTexMod'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='553' c='ParseTexMod'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='561' c='ParseTexMod'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='576' c='ParseTexMod'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='591' c='ParseTexMod'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='630' c='ParseStage'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='653' c='ParseStage'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='694' c='ParseStage'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='710' c='ParseStage'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='738' c='ParseStage'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='752' c='ParseStage'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='778' c='ParseStage'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='788' c='ParseStage'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='796' c='ParseStage'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='804' c='ParseStage'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='815' c='ParseStage'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='830' c='ParseStage'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='844' c='ParseStage'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='864' c='ParseStage'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='884' c='ParseStage'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='904' c='ParseStage'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='932' c='ParseStage'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='944' c='ParseStage'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='970' c='ParseStage'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='996' c='ParseStage'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='1017' c='ParseStage'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='1041' c='ParseStage'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='1057' c='ParseStage'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='1093' c='ParseStage'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='1102' c='ParseStage'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='1147' c='ParseStage'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='1217' c='ParseStage'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='1229' c='ParseStage'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='1275' c='ParseStage'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='1284' c='ParseStage'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='1296' c='ParseStage'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='1321' c='ParseStage'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='1356' c='ParseStage'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='1425' c='ParseDeform'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='1430' c='ParseDeform'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='1467' c='ParseDeform'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='1475' c='ParseDeform'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='1483' c='ParseDeform'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='1497' c='ParseDeform'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='1508' c='ParseDeform'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='1521' c='ParseDeform'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='1529' c='ParseDeform'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='1544' c='ParseDeform'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='1555' c='ParseDeform'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='1576' c='ParseSkyParms'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='1594' c='ParseSkyParms'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='1607' c='ParseSkyParms'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='1635' c='ParseSort'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='1761' c='ParseShader'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='1770' c='ParseShader'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='1783' c='ParseShader'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='1947' c='ParseShader'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='1981' c='ParseShader'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='1995' c='ParseShader'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='2007' c='ParseShader'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='2785' u='r' c='GeneratePermanentShader'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='2893' u='r' c='InitShader'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='2893' u='r' c='InitShader'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='2957' c='FinishShader'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='3079' c='FinishShader'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='3081' c='FinishShader'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='3195' u='r' c='R_FindShaderByName'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='3267' u='r' c='R_FindShader'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='3402' u='r' c='RE_RegisterShaderFromImage'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='3628' c='R_ShaderList_f'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='3630' c='R_ShaderList_f'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='3828' u='r' c='CreateInternalShaders'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='3828' u='r' c='CreateInternalShaders'/>

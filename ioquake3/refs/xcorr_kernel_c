@@ -1,0 +1,6 @@
+<def f='codebrowser/code/opus-1.1.4/celt/pitch.h' l='66' ll='130' type='void xcorr_kernel_c(const opus_val16 * x, const opus_val16 * y, opus_val32 * sum, int len)'/>
+<doc f='codebrowser/code/opus-1.1.4/celt/pitch.h' l='64'>/* OPT: This is the kernel you really want to optimize. It gets used a lot
+   by the prefilter and by the PLC. */</doc>
+<use f='codebrowser/code/opus-1.1.4/celt/celt_lpc.c' l='130' macro='1' u='c'/>
+<use f='codebrowser/code/opus-1.1.4/celt/celt_lpc.c' l='195' macro='1' u='c'/>
+<use f='codebrowser/code/opus-1.1.4/celt/pitch.c' l='271' macro='1' u='c'/>

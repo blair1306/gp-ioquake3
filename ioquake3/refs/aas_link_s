@@ -1,0 +1,9 @@
+<def f='codebrowser/code/botlib/be_aas_def.h' l='47' ll='53'/>
+<size>40</size>
+<doc f='codebrowser/code/botlib/be_aas_def.h' l='46'>//structure to link entities to areas and areas to entities</doc>
+<mbr r='aas_link_s::entnum' o='0' t='int'/>
+<mbr r='aas_link_s::areanum' o='32' t='int'/>
+<mbr r='aas_link_s::next_ent' o='64' t='struct aas_link_s *'/>
+<mbr r='aas_link_s::prev_ent' o='128' t='struct aas_link_s *'/>
+<mbr r='aas_link_s::next_area' o='192' t='struct aas_link_s *'/>
+<mbr r='aas_link_s::prev_area' o='256' t='struct aas_link_s *'/>

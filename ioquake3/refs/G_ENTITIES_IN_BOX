@@ -1,0 +1,5 @@
+<dec f='codebrowser/code/game/g_public.h' l='202' type='32'/>
+<doc f='codebrowser/code/game/g_public.h' l='200'>// call before removing an interactive entity</doc>
+<doc f='codebrowser/code/game/g_public.h' l='202'>// ( const vec3_t mins, const vec3_t maxs, gentity_t **list, int maxcount );</doc>
+<use f='codebrowser/code/game/g_syscalls.c' l='190' c='trap_EntitiesInBox'/>
+<use f='codebrowser/code/server/sv_game.c' l='356' c='SV_GameSystemCalls'/>

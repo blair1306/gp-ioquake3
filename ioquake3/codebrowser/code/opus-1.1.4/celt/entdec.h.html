@@ -1,0 +1,118 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>entdec.h source code [codebrowser/code/opus-1.1.4/celt/entdec.h] - Woboq Code Browser</title>
+<link rel="stylesheet" href="../../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'codebrowser/code/opus-1.1.4/celt/entdec.h'; var root_path = '../../../..'; var data_path = '../../../../../data';</script>
+<script src='../../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../../..'>codebrowser</a>/<a href='../..'>code</a>/<a href='..'>opus-1.1.4</a>/<a href='./'>celt</a>/<a href='entdec.h.html'>entdec.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/* Copyright (c) 2001-2011 Timothy B. Terriberry</i></td></tr>
+<tr><th id="2">2</th><td><i>   Copyright (c) 2008-2009 Xiph.Org Foundation */</i></td></tr>
+<tr><th id="3">3</th><td><i>/*</i></td></tr>
+<tr><th id="4">4</th><td><i>   Redistribution and use in source and binary forms, with or without</i></td></tr>
+<tr><th id="5">5</th><td><i>   modification, are permitted provided that the following conditions</i></td></tr>
+<tr><th id="6">6</th><td><i>   are met:</i></td></tr>
+<tr><th id="7">7</th><td><i></i></td></tr>
+<tr><th id="8">8</th><td><i>   - Redistributions of source code must retain the above copyright</i></td></tr>
+<tr><th id="9">9</th><td><i>   notice, this list of conditions and the following disclaimer.</i></td></tr>
+<tr><th id="10">10</th><td><i></i></td></tr>
+<tr><th id="11">11</th><td><i>   - Redistributions in binary form must reproduce the above copyright</i></td></tr>
+<tr><th id="12">12</th><td><i>   notice, this list of conditions and the following disclaimer in the</i></td></tr>
+<tr><th id="13">13</th><td><i>   documentation and/or other materials provided with the distribution.</i></td></tr>
+<tr><th id="14">14</th><td><i></i></td></tr>
+<tr><th id="15">15</th><td><i>   THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS</i></td></tr>
+<tr><th id="16">16</th><td><i>   ``AS IS'' AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT</i></td></tr>
+<tr><th id="17">17</th><td><i>   LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR</i></td></tr>
+<tr><th id="18">18</th><td><i>   A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER</i></td></tr>
+<tr><th id="19">19</th><td><i>   OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,</i></td></tr>
+<tr><th id="20">20</th><td><i>   EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,</i></td></tr>
+<tr><th id="21">21</th><td><i>   PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR</i></td></tr>
+<tr><th id="22">22</th><td><i>   PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF</i></td></tr>
+<tr><th id="23">23</th><td><i>   LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING</i></td></tr>
+<tr><th id="24">24</th><td><i>   NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS</i></td></tr>
+<tr><th id="25">25</th><td><i>   SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</i></td></tr>
+<tr><th id="26">26</th><td><i>*/</i></td></tr>
+<tr><th id="27">27</th><td></td></tr>
+<tr><th id="28">28</th><td><u>#<span data-ppcond="28">if</span> !defined(<span class="macro" data-ref="_M/_entdec_H">_entdec_H</span>)</u></td></tr>
+<tr><th id="29">29</th><td><u># define <dfn class="macro" id="_M/_entdec_H" data-ref="_M/_entdec_H">_entdec_H</dfn> (1)</u></td></tr>
+<tr><th id="30">30</th><td><u># include &lt;limits.h&gt;</u></td></tr>
+<tr><th id="31">31</th><td><u># include <a href="entcode.h.html">"entcode.h"</a></u></td></tr>
+<tr><th id="32">32</th><td></td></tr>
+<tr><th id="33">33</th><td><i>/*Initializes the decoder.</i></td></tr>
+<tr><th id="34">34</th><td><i>  _buf: The input buffer to use.</i></td></tr>
+<tr><th id="35">35</th><td><i>  Return: 0 on success, or a negative value on error.*/</i></td></tr>
+<tr><th id="36">36</th><td><em>void</em> <dfn class="decl" id="ec_dec_init" title='ec_dec_init' data-ref="ec_dec_init">ec_dec_init</dfn>(<a class="typedef" href="entcode.h.html#ec_dec" title='ec_dec' data-type='struct ec_ctx' data-ref="ec_dec">ec_dec</a> *<dfn class="local col0 decl" id="80_this" title='_this' data-type='ec_dec *' data-ref="80_this">_this</dfn>,<em>unsigned</em> <em>char</em> *<dfn class="local col1 decl" id="81_buf" title='_buf' data-type='unsigned char *' data-ref="81_buf">_buf</dfn>,<a class="typedef" href="../include/opus_types.h.html#opus_uint32" title='opus_uint32' data-type='uint32_t' data-ref="opus_uint32">opus_uint32</a> <dfn class="local col2 decl" id="82_storage" title='_storage' data-type='opus_uint32' data-ref="82_storage">_storage</dfn>);</td></tr>
+<tr><th id="37">37</th><td></td></tr>
+<tr><th id="38">38</th><td><i>/*Calculates the cumulative frequency for the next symbol.</i></td></tr>
+<tr><th id="39">39</th><td><i>  This can then be fed into the probability model to determine what that</i></td></tr>
+<tr><th id="40">40</th><td><i>   symbol is, and the additional frequency information required to advance to</i></td></tr>
+<tr><th id="41">41</th><td><i>   the next symbol.</i></td></tr>
+<tr><th id="42">42</th><td><i>  This function cannot be called more than once without a corresponding call to</i></td></tr>
+<tr><th id="43">43</th><td><i>   ec_dec_update(), or decoding will not proceed correctly.</i></td></tr>
+<tr><th id="44">44</th><td><i>  _ft: The total frequency of the symbols in the alphabet the next symbol was</i></td></tr>
+<tr><th id="45">45</th><td><i>        encoded with.</i></td></tr>
+<tr><th id="46">46</th><td><i>  Return: A cumulative frequency representing the encoded symbol.</i></td></tr>
+<tr><th id="47">47</th><td><i>          If the cumulative frequency of all the symbols before the one that</i></td></tr>
+<tr><th id="48">48</th><td><i>           was encoded was fl, and the cumulative frequency of all the symbols</i></td></tr>
+<tr><th id="49">49</th><td><i>           up to and including the one encoded is fh, then the returned value</i></td></tr>
+<tr><th id="50">50</th><td><i>           will fall in the range [fl,fh).*/</i></td></tr>
+<tr><th id="51">51</th><td><em>unsigned</em> <dfn class="decl" id="ec_decode" title='ec_decode' data-ref="ec_decode">ec_decode</dfn>(<a class="typedef" href="entcode.h.html#ec_dec" title='ec_dec' data-type='struct ec_ctx' data-ref="ec_dec">ec_dec</a> *<dfn class="local col3 decl" id="83_this" title='_this' data-type='ec_dec *' data-ref="83_this">_this</dfn>,<em>unsigned</em> <dfn class="local col4 decl" id="84_ft" title='_ft' data-type='unsigned int' data-ref="84_ft">_ft</dfn>);</td></tr>
+<tr><th id="52">52</th><td></td></tr>
+<tr><th id="53">53</th><td><i>/*Equivalent to ec_decode() with _ft==1&lt;&lt;_bits.*/</i></td></tr>
+<tr><th id="54">54</th><td><em>unsigned</em> <dfn class="decl" id="ec_decode_bin" title='ec_decode_bin' data-ref="ec_decode_bin">ec_decode_bin</dfn>(<a class="typedef" href="entcode.h.html#ec_dec" title='ec_dec' data-type='struct ec_ctx' data-ref="ec_dec">ec_dec</a> *<dfn class="local col5 decl" id="85_this" title='_this' data-type='ec_dec *' data-ref="85_this">_this</dfn>,<em>unsigned</em> <dfn class="local col6 decl" id="86_bits" title='_bits' data-type='unsigned int' data-ref="86_bits">_bits</dfn>);</td></tr>
+<tr><th id="55">55</th><td></td></tr>
+<tr><th id="56">56</th><td><i>/*Advance the decoder past the next symbol using the frequency information the</i></td></tr>
+<tr><th id="57">57</th><td><i>   symbol was encoded with.</i></td></tr>
+<tr><th id="58">58</th><td><i>  Exactly one call to ec_decode() must have been made so that all necessary</i></td></tr>
+<tr><th id="59">59</th><td><i>   intermediate calculations are performed.</i></td></tr>
+<tr><th id="60">60</th><td><i>  _fl:  The cumulative frequency of all symbols that come before the symbol</i></td></tr>
+<tr><th id="61">61</th><td><i>         decoded.</i></td></tr>
+<tr><th id="62">62</th><td><i>  _fh:  The cumulative frequency of all symbols up to and including the symbol</i></td></tr>
+<tr><th id="63">63</th><td><i>         decoded.</i></td></tr>
+<tr><th id="64">64</th><td><i>        Together with _fl, this defines the range [_fl,_fh) in which the value</i></td></tr>
+<tr><th id="65">65</th><td><i>         returned above must fall.</i></td></tr>
+<tr><th id="66">66</th><td><i>  _ft:  The total frequency of the symbols in the alphabet the symbol decoded</i></td></tr>
+<tr><th id="67">67</th><td><i>         was encoded in.</i></td></tr>
+<tr><th id="68">68</th><td><i>        This must be the same as passed to the preceding call to ec_decode().*/</i></td></tr>
+<tr><th id="69">69</th><td><em>void</em> <dfn class="decl" id="ec_dec_update" title='ec_dec_update' data-ref="ec_dec_update">ec_dec_update</dfn>(<a class="typedef" href="entcode.h.html#ec_dec" title='ec_dec' data-type='struct ec_ctx' data-ref="ec_dec">ec_dec</a> *<dfn class="local col7 decl" id="87_this" title='_this' data-type='ec_dec *' data-ref="87_this">_this</dfn>,<em>unsigned</em> <dfn class="local col8 decl" id="88_fl" title='_fl' data-type='unsigned int' data-ref="88_fl">_fl</dfn>,<em>unsigned</em> <dfn class="local col9 decl" id="89_fh" title='_fh' data-type='unsigned int' data-ref="89_fh">_fh</dfn>,<em>unsigned</em> <dfn class="local col0 decl" id="90_ft" title='_ft' data-type='unsigned int' data-ref="90_ft">_ft</dfn>);</td></tr>
+<tr><th id="70">70</th><td></td></tr>
+<tr><th id="71">71</th><td><i>/* Decode a bit that has a 1/(1&lt;&lt;_logp) probability of being a one */</i></td></tr>
+<tr><th id="72">72</th><td><em>int</em> <dfn class="decl" id="ec_dec_bit_logp" title='ec_dec_bit_logp' data-ref="ec_dec_bit_logp">ec_dec_bit_logp</dfn>(<a class="typedef" href="entcode.h.html#ec_dec" title='ec_dec' data-type='struct ec_ctx' data-ref="ec_dec">ec_dec</a> *<dfn class="local col1 decl" id="91_this" title='_this' data-type='ec_dec *' data-ref="91_this">_this</dfn>,<em>unsigned</em> <dfn class="local col2 decl" id="92_logp" title='_logp' data-type='unsigned int' data-ref="92_logp">_logp</dfn>);</td></tr>
+<tr><th id="73">73</th><td></td></tr>
+<tr><th id="74">74</th><td><i>/*Decodes a symbol given an "inverse" CDF table.</i></td></tr>
+<tr><th id="75">75</th><td><i>  No call to ec_dec_update() is necessary after this call.</i></td></tr>
+<tr><th id="76">76</th><td><i>  _icdf: The "inverse" CDF, such that symbol s falls in the range</i></td></tr>
+<tr><th id="77">77</th><td><i>          [s&gt;0?ft-_icdf[s-1]:0,ft-_icdf[s]), where ft=1&lt;&lt;_ftb.</i></td></tr>
+<tr><th id="78">78</th><td><i>         The values must be monotonically non-increasing, and the last value</i></td></tr>
+<tr><th id="79">79</th><td><i>          must be 0.</i></td></tr>
+<tr><th id="80">80</th><td><i>  _ftb: The number of bits of precision in the cumulative distribution.</i></td></tr>
+<tr><th id="81">81</th><td><i>  Return: The decoded symbol s.*/</i></td></tr>
+<tr><th id="82">82</th><td><em>int</em> <dfn class="decl" id="ec_dec_icdf" title='ec_dec_icdf' data-ref="ec_dec_icdf">ec_dec_icdf</dfn>(<a class="typedef" href="entcode.h.html#ec_dec" title='ec_dec' data-type='struct ec_ctx' data-ref="ec_dec">ec_dec</a> *<dfn class="local col3 decl" id="93_this" title='_this' data-type='ec_dec *' data-ref="93_this">_this</dfn>,<em>const</em> <em>unsigned</em> <em>char</em> *<dfn class="local col4 decl" id="94_icdf" title='_icdf' data-type='const unsigned char *' data-ref="94_icdf">_icdf</dfn>,<em>unsigned</em> <dfn class="local col5 decl" id="95_ftb" title='_ftb' data-type='unsigned int' data-ref="95_ftb">_ftb</dfn>);</td></tr>
+<tr><th id="83">83</th><td></td></tr>
+<tr><th id="84">84</th><td><i>/*Extracts a raw unsigned integer with a non-power-of-2 range from the stream.</i></td></tr>
+<tr><th id="85">85</th><td><i>  The bits must have been encoded with ec_enc_uint().</i></td></tr>
+<tr><th id="86">86</th><td><i>  No call to ec_dec_update() is necessary after this call.</i></td></tr>
+<tr><th id="87">87</th><td><i>  _ft: The number of integers that can be decoded (one more than the max).</i></td></tr>
+<tr><th id="88">88</th><td><i>       This must be at least one, and no more than 2**32-1.</i></td></tr>
+<tr><th id="89">89</th><td><i>  Return: The decoded bits.*/</i></td></tr>
+<tr><th id="90">90</th><td><a class="typedef" href="../include/opus_types.h.html#opus_uint32" title='opus_uint32' data-type='uint32_t' data-ref="opus_uint32">opus_uint32</a> <dfn class="decl" id="ec_dec_uint" title='ec_dec_uint' data-ref="ec_dec_uint">ec_dec_uint</dfn>(<a class="typedef" href="entcode.h.html#ec_dec" title='ec_dec' data-type='struct ec_ctx' data-ref="ec_dec">ec_dec</a> *<dfn class="local col6 decl" id="96_this" title='_this' data-type='ec_dec *' data-ref="96_this">_this</dfn>,<a class="typedef" href="../include/opus_types.h.html#opus_uint32" title='opus_uint32' data-type='uint32_t' data-ref="opus_uint32">opus_uint32</a> <dfn class="local col7 decl" id="97_ft" title='_ft' data-type='opus_uint32' data-ref="97_ft">_ft</dfn>);</td></tr>
+<tr><th id="91">91</th><td></td></tr>
+<tr><th id="92">92</th><td><i>/*Extracts a sequence of raw bits from the stream.</i></td></tr>
+<tr><th id="93">93</th><td><i>  The bits must have been encoded with ec_enc_bits().</i></td></tr>
+<tr><th id="94">94</th><td><i>  No call to ec_dec_update() is necessary after this call.</i></td></tr>
+<tr><th id="95">95</th><td><i>  _ftb: The number of bits to extract.</i></td></tr>
+<tr><th id="96">96</th><td><i>        This must be between 0 and 25, inclusive.</i></td></tr>
+<tr><th id="97">97</th><td><i>  Return: The decoded bits.*/</i></td></tr>
+<tr><th id="98">98</th><td><a class="typedef" href="../include/opus_types.h.html#opus_uint32" title='opus_uint32' data-type='uint32_t' data-ref="opus_uint32">opus_uint32</a> <dfn class="decl" id="ec_dec_bits" title='ec_dec_bits' data-ref="ec_dec_bits">ec_dec_bits</dfn>(<a class="typedef" href="entcode.h.html#ec_dec" title='ec_dec' data-type='struct ec_ctx' data-ref="ec_dec">ec_dec</a> *<dfn class="local col8 decl" id="98_this" title='_this' data-type='ec_dec *' data-ref="98_this">_this</dfn>,<em>unsigned</em> <dfn class="local col9 decl" id="99_ftb" title='_ftb' data-type='unsigned int' data-ref="99_ftb">_ftb</dfn>);</td></tr>
+<tr><th id="99">99</th><td></td></tr>
+<tr><th id="100">100</th><td><u>#<span data-ppcond="28">endif</span></u></td></tr>
+<tr><th id="101">101</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='bands.c.html'>codebrowser/code/opus-1.1.4/celt/bands.c</a><br/>Generated on <em>2017-Aug-29</em> from project codebrowser revision <em>63e07af</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

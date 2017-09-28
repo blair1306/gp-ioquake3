@@ -1,0 +1,22 @@
+<dec f='codebrowser/code/server/server.h' l='150' type='sharedEntity_t *'/>
+<use f='codebrowser/code/server/sv_bot.c' l='62' u='w' c='SV_BotAllocateClient'/>
+<use f='codebrowser/code/server/sv_bot.c' l='63' u='r' c='SV_BotAllocateClient'/>
+<use f='codebrowser/code/server/sv_bot.c' l='86' u='r' c='SV_BotFreeClient'/>
+<use f='codebrowser/code/server/sv_bot.c' l='87' u='r' c='SV_BotFreeClient'/>
+<use f='codebrowser/code/server/sv_bot.c' l='119' u='r' c='BotDrawDebugPolygons'/>
+<use f='codebrowser/code/server/sv_bot.c' l='120' u='r' c='BotDrawDebugPolygons'/>
+<offset>541184</offset>
+<doc f='codebrowser/code/server/server.h' l='150'>// SV_GentityNum(clientnum)</doc>
+<use f='codebrowser/code/server/sv_client.c' l='544' u='w' c='SV_DirectConnect'/>
+<use f='codebrowser/code/server/sv_client.c' l='799' u='w' c='SV_ClientEnterWorld'/>
+<use f='codebrowser/code/server/sv_game.c' l='886' u='w' c='SV_InitGameVM'/>
+<use f='codebrowser/code/server/sv_init.c' l='91' u='r' c='SV_UpdateConfigstrings'/>
+<use f='codebrowser/code/server/sv_init.c' l='92' u='r' c='SV_UpdateConfigstrings'/>
+<use f='codebrowser/code/server/sv_init.c' l='139' u='r' c='SV_SetConfigstring'/>
+<use f='codebrowser/code/server/sv_init.c' l='139' u='r' c='SV_SetConfigstring'/>
+<use f='codebrowser/code/server/sv_init.c' l='549' u='w' c='SV_SpawnServer'/>
+<use f='codebrowser/code/server/sv_main.c' l='901' u='r' c='SV_CalcPings'/>
+<use f='codebrowser/code/server/sv_main.c' l='905' u='r' c='SV_CalcPings'/>
+<use f='codebrowser/code/server/sv_snapshot.c' l='467' u='r' c='SV_BuildClientSnapshot'/>
+<use f='codebrowser/code/server/sv_snapshot.c' l='606' u='r' c='SV_SendClientSnapshot'/>
+<use f='codebrowser/code/server/sv_snapshot.c' l='606' u='r' c='SV_SendClientSnapshot'/>

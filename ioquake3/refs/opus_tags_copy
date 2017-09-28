@@ -1,0 +1,9 @@
+<dec f='codebrowser/code/opusfile-0.8/include/opusfile.h' l='471' type='int opus_tags_copy(OpusTags * _dst, const OpusTags * _src)'/>
+<doc f='codebrowser/code/opusfile-0.8/include/opusfile.h' l='464'>/**Performs a deep copy of an #OpusTags structure.
+   \param _dst The #OpusTags structure to copy into.
+               If this function fails, the contents of this structure remain
+                untouched.
+   \param _src The #OpusTags structure to copy from.
+   \retval 0          Success.
+   \retval #OP_EFAULT If there wasn&apos;t enough memory to copy the tags.*/</doc>
+<def f='codebrowser/code/opusfile-0.8/src/info.c' l='271' ll='279' type='int opus_tags_copy(OpusTags * _dst, const OpusTags * _src)'/>

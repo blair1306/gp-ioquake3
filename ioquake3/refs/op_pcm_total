@@ -1,0 +1,20 @@
+<dec f='codebrowser/code/opusfile-0.8/include/opusfile.h' l='1533' type='ogg_int64_t op_pcm_total(const OggOpusFile * _of, int _li)'/>
+<use f='codebrowser/code/client/snd_codec_opus.c' l='292' u='c' c='S_OggOpus_CodecOpenStream'/>
+<doc f='codebrowser/code/opusfile-0.8/include/opusfile.h' l='1517'>/**Get the total PCM length (number of samples at 48 kHz) of the stream, or of
+    an individual link in a (possibly-chained) Ogg Opus stream.
+   Users looking for &lt;code&gt;op_time_total()&lt;/code&gt; should use op_pcm_total()
+    instead.
+   Because timestamps in Opus are fixed at 48 kHz, there is no need for a
+    separate function to convert this to seconds (and leaving it out avoids
+    introducing floating point to the API, for those that wish to avoid it).
+   \param _of The \c OggOpusFile from which to retrieve the PCM offset.
+   \param _li The index of the link whose PCM length should be computed.
+              Use a negative number to get the PCM length of the entire stream.
+   \return The PCM length of the entire stream if \a _li is negative, the PCM
+            length of link \a _li if it is non-negative, or a negative value on
+            error.
+   \retval #OP_EINVAL The source is not seekable (so we can&apos;t know the length),
+                       \a _li wasn&apos;t less than the total number of links in
+                       the stream, or the stream was only partially open.*/</doc>
+<def f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='1726' ll='1754' type='ogg_int64_t op_pcm_total(const OggOpusFile * _of, int _li)'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='1808' u='c' c='op_bitrate'/>

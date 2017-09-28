@@ -1,0 +1,7 @@
+<dec f='codebrowser/code/qcommon/qcommon.h' l='63' type='void MSG_Copy(msg_t * buf, byte * data, int length, msg_t * src)'/>
+<doc f='codebrowser/code/qcommon/qcommon.h' l='59'>// TTimo
+// copy a msg_t in case we need to store it as is for a bit
+// (as I needed this to keep an msg_t from a static var for later use)
+// sets data buffer as MSG_Init does prior to do the copy</doc>
+<def f='codebrowser/code/qcommon/msg.c' l='86' ll='94' type='void MSG_Copy(msg_t * buf, byte * data, int length, msg_t * src)'/>
+<use f='codebrowser/code/server/sv_net_chan.c' l='234' u='c' c='SV_Netchan_Transmit'/>

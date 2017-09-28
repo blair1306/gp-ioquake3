@@ -1,0 +1,10 @@
+<dec f='codebrowser/code/opus-1.1.4/src/opus_private.h' l='76'/>
+<doc f='codebrowser/code/opus-1.1.4/src/opus_private.h' l='67'>/** Configures the encoder&apos;s expected percentage of voice
+  * opposed to music or other signals.
+  *
+  * @note This interface is currently more aspiration than actuality. It&apos;s
+  * ultimately expected to bias an automatic signal classifier, but it currently
+  * just shifts the static bitrate to mode mapping around a little bit.
+  *
+  * @param[in] x &lt;tt&gt;int&lt;/tt&gt;:   Voice percentage in the range 0-100, inclusive.
+  * @hideinitializer */</doc>

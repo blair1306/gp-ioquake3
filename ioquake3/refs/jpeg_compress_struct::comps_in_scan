@@ -1,0 +1,33 @@
+<dec f='codebrowser/code/jpeg-8c/jpeglib.h' l='405' type='int'/>
+<offset>2944</offset>
+<doc f='codebrowser/code/jpeg-8c/jpeglib.h' l='401'>/*
+   * These fields are valid during any one scan.
+   * They describe the components and MCUs actually appearing in the scan.
+   */</doc>
+<doc f='codebrowser/code/jpeg-8c/jpeglib.h' l='405'>/* # of JPEG components in this scan */</doc>
+<use f='codebrowser/code/jpeg-8c/jcarith.c' l='331' u='r' c='emit_restart'/>
+<use f='codebrowser/code/jpeg-8c/jcarith.c' l='863' u='r' c='start_pass'/>
+<use f='codebrowser/code/jpeg-8c/jccoefct.c' l='81' u='r' c='start_iMCU_row'/>
+<use f='codebrowser/code/jpeg-8c/jccoefct.c' l='169' u='r' c='compress_data'/>
+<use f='codebrowser/code/jpeg-8c/jccoefct.c' l='359' u='r' c='compress_output'/>
+<use f='codebrowser/code/jpeg-8c/jccoefct.c' l='374' u='r' c='compress_output'/>
+<use f='codebrowser/code/jpeg-8c/jchuff.c' l='501' u='r' c='emit_restart_s'/>
+<use f='codebrowser/code/jpeg-8c/jchuff.c' l='525' u='r' c='emit_restart_e'/>
+<use f='codebrowser/code/jpeg-8c/jchuff.c' l='1207' u='r' c='encode_mcu_gather'/>
+<use f='codebrowser/code/jpeg-8c/jchuff.c' l='1416' u='r' c='finish_pass_gather'/>
+<use f='codebrowser/code/jpeg-8c/jchuff.c' l='1498' u='r' c='start_pass_huff'/>
+<use f='codebrowser/code/jpeg-8c/jcmarker.c' l='238' u='r' c='emit_dac'/>
+<use f='codebrowser/code/jpeg-8c/jcmarker.c' l='324' u='r' c='emit_sos'/>
+<use f='codebrowser/code/jpeg-8c/jcmarker.c' l='326' u='r' c='emit_sos'/>
+<use f='codebrowser/code/jpeg-8c/jcmarker.c' l='328' u='r' c='emit_sos'/>
+<use f='codebrowser/code/jpeg-8c/jcmarker.c' l='592' u='r' c='write_scan_header'/>
+<use f='codebrowser/code/jpeg-8c/jcmaster.c' l='539' u='w' c='select_scan_parameters'/>
+<use f='codebrowser/code/jpeg-8c/jcmaster.c' l='559' u='w' c='select_scan_parameters'/>
+<use f='codebrowser/code/jpeg-8c/jcmaster.c' l='579' u='r' c='per_scan_setup'/>
+<use f='codebrowser/code/jpeg-8c/jcmaster.c' l='608' u='r' c='per_scan_setup'/>
+<use f='codebrowser/code/jpeg-8c/jcmaster.c' l='608' u='r' c='per_scan_setup'/>
+<use f='codebrowser/code/jpeg-8c/jcmaster.c' l='609' u='r' c='per_scan_setup'/>
+<use f='codebrowser/code/jpeg-8c/jcmaster.c' l='622' u='r' c='per_scan_setup'/>
+<use f='codebrowser/code/jpeg-8c/jctrans.c' l='230' u='r' c='start_iMCU_row'/>
+<use f='codebrowser/code/jpeg-8c/jctrans.c' l='286' u='r' c='compress_output'/>
+<use f='codebrowser/code/jpeg-8c/jctrans.c' l='301' u='r' c='compress_output'/>

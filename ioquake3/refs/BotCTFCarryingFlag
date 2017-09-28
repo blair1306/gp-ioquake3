@@ -1,0 +1,20 @@
+<dec f='codebrowser/code/game/ai_dmq3.h' l='142' type='int BotCTFCarryingFlag(bot_state_t * bs)'/>
+<doc f='codebrowser/code/game/ai_dmq3.h' l='141'>//returns the flag the bot is carrying (CTFFLAG_?)</doc>
+<use f='codebrowser/code/game/ai_dmnet.c' l='197' u='c' c='BotNearbyGoal'/>
+<use f='codebrowser/code/game/ai_dmnet.c' l='792' u='c' c='BotGetLongTermGoal'/>
+<use f='codebrowser/code/game/ai_dmnet.c' l='799' u='c' c='BotGetLongTermGoal'/>
+<use f='codebrowser/code/game/ai_dmnet.c' l='1882' u='c' c='AINode_Seek_LTG'/>
+<use f='codebrowser/code/game/ai_dmnet.c' l='2408' u='c' c='AINode_Battle_Retreat'/>
+<def f='codebrowser/code/game/ai_dmq3.c' l='129' ll='135' type='int BotCTFCarryingFlag(bot_state_t * bs)'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='503' u='c' c='BotCTFSeekGoals'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='781' u='c' c='BotCTFRetreatGoals'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='2034' u='c' c='BotBattleUseItems'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='2271' u='c' c='BotWantsToRetreat'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='2327' u='c' c='BotWantsToChase'/>
+<doc f='codebrowser/code/game/ai_dmq3.c' l='124'>/*
+==================
+BotCTFCarryingFlag
+==================
+*/</doc>
+<use f='codebrowser/code/game/ai_main.c' l='290' u='c' c='BotReportStatus'/>
+<use f='codebrowser/code/game/ai_main.c' l='440' u='c' c='BotSetInfoConfigString'/>

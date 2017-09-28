@@ -1,0 +1,14 @@
+<dec f='codebrowser/code/qcommon/qcommon.h' l='470' type='void Cmd_ExecuteString(const char * text)'/>
+<doc f='codebrowser/code/qcommon/qcommon.h' l='467'>// Takes a null terminated string.  Does not need to be /n terminated.
+// breaks the string up into arg tokens.</doc>
+<use f='codebrowser/code/qcommon/cmd.c' l='150' u='c' c='Cbuf_ExecuteText'/>
+<use f='codebrowser/code/qcommon/cmd.c' l='248' u='c' c='Cbuf_Execute'/>
+<def f='codebrowser/code/qcommon/cmd.c' l='764' ll='817' type='void Cmd_ExecuteString(const char * text)'/>
+<doc f='codebrowser/code/qcommon/cmd.c' l='757'>/*
+============
+Cmd_ExecuteString
+
+A complete command line has been parsed, so try to execute it
+============
+*/</doc>
+<use f='codebrowser/code/server/sv_main.c' l='762' u='c' c='SVC_RemoteCommand'/>

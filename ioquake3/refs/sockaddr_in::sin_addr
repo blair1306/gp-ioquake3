@@ -1,0 +1,12 @@
+<dec f='include/netinet/in.h' l='243' type='struct in_addr'/>
+<offset>32</offset>
+<doc f='include/netinet/in.h' l='243'>/* Internet address.  */</doc>
+<use f='codebrowser/code/qcommon/net_ip.c' l='216' u='m' c='NetadrToSockadr'/>
+<use f='codebrowser/code/qcommon/net_ip.c' l='220' u='m' c='NetadrToSockadr'/>
+<use f='codebrowser/code/qcommon/net_ip.c' l='241' u='m' c='SockadrToNetadr'/>
+<use f='codebrowser/code/qcommon/net_ip.c' l='670' u='m' c='Sys_SendPacket'/>
+<use f='codebrowser/code/qcommon/net_ip.c' l='748' u='m' c='Sys_IsLANAddress'/>
+<use f='codebrowser/code/qcommon/net_ip.c' l='749' u='m' c='Sys_IsLANAddress'/>
+<use f='codebrowser/code/qcommon/net_ip.c' l='848' u='m' c='NET_IPSocket'/>
+<use f='codebrowser/code/qcommon/net_ip.c' l='1093' u='m' c='NET_OpenSocks'/>
+<use f='codebrowser/code/qcommon/net_ip.c' l='1221' u='m' c='NET_OpenSocks'/>

@@ -1,0 +1,12 @@
+<dec f='codebrowser/code/game/g_local.h' l='568' type='void CopyToBodyQue(gentity_t * ent)'/>
+<def f='codebrowser/code/game/g_client.c' l='402' ll='500' type='void CopyToBodyQue(gentity_t * ent)'/>
+<use f='codebrowser/code/game/g_client.c' l='532' u='c' c='ClientRespawn'/>
+<doc f='codebrowser/code/game/g_client.c' l='394'>/*
+=============
+CopyToBodyQue
+
+A player is respawning, so make an entity that looks
+just like the existing corpse to leave behind.
+=============
+*/</doc>
+<use f='codebrowser/code/game/g_cmds.c' l='606' u='c' c='SetTeam'/>

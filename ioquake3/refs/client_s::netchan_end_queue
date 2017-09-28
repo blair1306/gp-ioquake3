@@ -1,0 +1,8 @@
+<dec f='codebrowser/code/server/server.h' l='185' type='netchan_buffer_t **'/>
+<offset>944384</offset>
+<use f='codebrowser/code/server/sv_client.c' l='557' u='w' c='SV_DirectConnect'/>
+<use f='codebrowser/code/server/sv_net_chan.c' l='152' u='w' c='SV_Netchan_FreeQueue'/>
+<use f='codebrowser/code/server/sv_net_chan.c' l='179' u='w' c='SV_Netchan_TransmitNextInQueue'/>
+<use f='codebrowser/code/server/sv_net_chan.c' l='244' u='r' c='SV_Netchan_Transmit'/>
+<use f='codebrowser/code/server/sv_net_chan.c' l='245' u='w' c='SV_Netchan_Transmit'/>
+<use f='codebrowser/code/server/sv_net_chan.c' l='245' u='r' c='SV_Netchan_Transmit'/>

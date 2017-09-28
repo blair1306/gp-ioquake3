@@ -1,0 +1,18 @@
+<dec f='codebrowser/code/botlib/l_script.h' l='195' type='int PS_ReadToken(script_t * script, token_t * token)'/>
+<use f='codebrowser/code/botlib/be_aas_bspq3.c' l='391' u='c' c='AAS_ParseBSPEntities'/>
+<use f='codebrowser/code/botlib/be_aas_bspq3.c' l='408' u='c' c='AAS_ParseBSPEntities'/>
+<doc f='codebrowser/code/botlib/l_script.h' l='194'>//read a token from the script</doc>
+<use f='codebrowser/code/botlib/l_precomp.c' l='314' u='c' c='PC_ReadSourceToken'/>
+<def f='codebrowser/code/botlib/l_script.c' l='850' ll='917' type='int PS_ReadToken(script_t * script, token_t * token)'/>
+<use f='codebrowser/code/botlib/l_script.c' l='928' u='c' c='PS_ExpectTokenString'/>
+<use f='codebrowser/code/botlib/l_script.c' l='951' u='c' c='PS_ExpectTokenType'/>
+<use f='codebrowser/code/botlib/l_script.c' l='1009' u='c' c='PS_ExpectAnyToken'/>
+<use f='codebrowser/code/botlib/l_script.c' l='1029' u='c' c='PS_CheckTokenString'/>
+<use f='codebrowser/code/botlib/l_script.c' l='1046' u='c' c='PS_CheckTokenType'/>
+<use f='codebrowser/code/botlib/l_script.c' l='1068' u='c' c='PS_SkipUntilString'/>
+<doc f='codebrowser/code/botlib/l_script.c' l='844'>//============================================================================
+//
+// Parameter:				-
+// Returns:					-
+// Changes Globals:		-
+//============================================================================</doc>

@@ -1,0 +1,27 @@
+<dec f='codebrowser/code/qcommon/qcommon.h' l='148' type='5'/>
+<use f='codebrowser/code/client/cl_main.c' l='1711' u='r' c='CL_Connect_f'/>
+<use f='codebrowser/code/client/cl_main.c' l='2522' u='r' c='CL_ServersResponsePacket'/>
+<use f='codebrowser/code/client/cl_main.c' l='3887' c='CL_ServerInfoPacket'/>
+<use f='codebrowser/code/client/cl_main.c' l='4236' u='r' c='CL_GlobalServers_f'/>
+<use f='codebrowser/code/client/cl_main.c' l='4448' u='r' c='CL_Ping_f'/>
+<use f='codebrowser/code/client/cl_main.c' l='4613' u='r' c='CL_ServerStatus_f'/>
+<use f='codebrowser/code/qcommon/net_ip.c' l='223' u='r' c='NetadrToSockadr'/>
+<use f='codebrowser/code/qcommon/net_ip.c' l='246' u='r' c='SockadrToNetadr'/>
+<use f='codebrowser/code/qcommon/net_ip.c' l='368' c='Sys_StringToAdr'/>
+<use f='codebrowser/code/qcommon/net_ip.c' l='409' u='r' c='NET_CompareBaseAdrMask'/>
+<use f='codebrowser/code/qcommon/net_ip.c' l='464' u='r' c='NET_AdrToString'/>
+<use f='codebrowser/code/qcommon/net_ip.c' l='486' u='r' c='NET_AdrToStringwPort'/>
+<use f='codebrowser/code/qcommon/net_ip.c' l='498' u='r' c='NET_CompareAdr'/>
+<use f='codebrowser/code/qcommon/net_ip.c' l='647' u='r' c='Sys_SendPacket'/>
+<use f='codebrowser/code/qcommon/net_ip.c' l='655' u='r' c='Sys_SendPacket'/>
+<use f='codebrowser/code/qcommon/net_ip.c' l='733' u='r' c='Sys_IsLANAddress'/>
+<use f='codebrowser/code/qcommon/net_ip.c' l='799' u='r' c='Sys_ShowIP'/>
+<use f='codebrowser/code/qcommon/net_ip.c' l='1255' u='r' c='NET_AddLocalAddress'/>
+<use f='codebrowser/code/server/sv_ccmds.c' l='699' u='r' c='SV_RehashBans_f'/>
+<use f='codebrowser/code/server/sv_ccmds.c' l='899' u='r' c='SV_AddBanToList'/>
+<use f='codebrowser/code/server/sv_ccmds.c' l='902' u='r' c='SV_AddBanToList'/>
+<use f='codebrowser/code/server/sv_main.c' l='295' u='r' c='SV_MasterHeartbeat'/>
+<use f='codebrowser/code/server/sv_main.c' l='378' c='SVC_HashForAddress'/>
+<use f='codebrowser/code/server/sv_main.c' l='413' c='SVC_BucketForAddress'/>
+<use f='codebrowser/code/server/sv_main.c' l='450' c='SVC_BucketForAddress'/>
+<use f='codebrowser/code/server/sv_main.c' l='1196' u='r' c='SV_RateMsec'/>

@@ -1,0 +1,16 @@
+<dec f='codebrowser/code/qcommon/qcommon.h' l='243' type='qboolean Netchan_Process(netchan_t * chan, msg_t * msg)'/>
+<use f='codebrowser/code/client/cl_net_chan.c' l='177' u='c' c='CL_Netchan_Process'/>
+<def f='codebrowser/code/qcommon/net_chan.c' l='244' ll='408' type='qboolean Netchan_Process(netchan_t * chan, msg_t * msg)'/>
+<doc f='codebrowser/code/qcommon/net_chan.c' l='232'>/*
+=================
+Netchan_Process
+
+Returns qfalse if the message should not be processed due to being
+out of order or a fragment.
+
+Msg must be large enough to hold MAX_MSGLEN, because if this is the
+final fragment of a multi-part message, the entire thing will be
+copied out.
+=================
+*/</doc>
+<use f='codebrowser/code/server/sv_net_chan.c' l='264' u='c' c='SV_Netchan_Process'/>

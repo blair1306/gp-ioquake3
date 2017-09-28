@@ -1,0 +1,10 @@
+<dec f='codebrowser/code/jpeg-8c/jdct.h' l='261' type='void jpeg_idct_1x1(j_decompress_ptr cinfo, jpeg_component_info * compptr, JCOEFPTR coef_block, JSAMPARRAY output_buf, JDIMENSION output_col)'/>
+<use f='codebrowser/code/jpeg-8c/jddctmgr.c' l='105' u='r' c='start_pass'/>
+<def f='codebrowser/code/jpeg-8c/jidctint.c' l='1061' ll='1077' macro='1' type='void jpeg_idct_1x1(j_decompress_ptr cinfo, jpeg_component_info * compptr, JCOEFPTR coef_block, JSAMPARRAY output_buf, JDIMENSION output_col)'/>
+<doc f='codebrowser/code/jpeg-8c/jidctint.c' l='1053'>/*
+ * Perform dequantization and inverse DCT on one block of coefficients,
+ * producing a reduced-size 1x1 output block.
+ *
+ * We hardly need an inverse DCT routine for this: just take the
+ * average pixel value, which is one-eighth of the DC coefficient.
+ */</doc>

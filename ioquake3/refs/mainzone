@@ -1,0 +1,16 @@
+<def f='codebrowser/code/qcommon/common.c' l='797' type='memzone_t *'/>
+<use f='codebrowser/code/qcommon/common.c' l='844' u='r' c='Z_AvailableMemory'/>
+<use f='codebrowser/code/qcommon/common.c' l='881' u='r' c='Z_Free'/>
+<use f='codebrowser/code/qcommon/common.c' l='927' u='r' c='Z_FreeTags'/>
+<use f='codebrowser/code/qcommon/common.c' l='965' u='r' c='Z_TagMalloc'/>
+<use f='codebrowser/code/qcommon/common.c' l='1082' u='r' c='Z_CheckHeap'/>
+<use f='codebrowser/code/qcommon/common.c' l='1083' u='r' c='Z_CheckHeap'/>
+<use f='codebrowser/code/qcommon/common.c' l='1159' u='r' c='Z_LogHeap'/>
+<use f='codebrowser/code/qcommon/common.c' l='1295' u='r' c='Com_Meminfo_f'/>
+<use f='codebrowser/code/qcommon/common.c' l='1310' u='r' c='Com_Meminfo_f'/>
+<use f='codebrowser/code/qcommon/common.c' l='1399' u='r' c='Com_TouchMemory'/>
+<use f='codebrowser/code/qcommon/common.c' l='1406' u='r' c='Com_TouchMemory'/>
+<use f='codebrowser/code/qcommon/common.c' l='1450' u='w' c='Com_InitZoneMemory'/>
+<use f='codebrowser/code/qcommon/common.c' l='1451' u='r' c='Com_InitZoneMemory'/>
+<use f='codebrowser/code/qcommon/common.c' l='1454' u='r' c='Com_InitZoneMemory'/>
+<doc f='codebrowser/code/qcommon/common.c' l='796'>// main zone for all &quot;dynamic&quot; memory allocation</doc>

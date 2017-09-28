@@ -1,0 +1,53 @@
+<dec f='codebrowser/code/client/client.h' l='617' type='int Key_GetCatcher()'/>
+<use f='codebrowser/code/client/cl_cgame.c' l='387' u='c' c='CL_ShutdownCGame'/>
+<use f='codebrowser/code/client/cl_cgame.c' l='604' u='c' c='CL_CgameSystemCalls'/>
+<use f='codebrowser/code/client/cl_cgame.c' l='607' u='c' c='CL_CgameSystemCalls'/>
+<use f='codebrowser/code/client/cl_console.c' l='72' u='c' c='Con_ToggleConsole_f'/>
+<use f='codebrowser/code/client/cl_console.c' l='83' u='c' c='Con_ToggleConsole_f'/>
+<use f='codebrowser/code/client/cl_console.c' l='107' u='c' c='Con_MessageMode_f'/>
+<use f='codebrowser/code/client/cl_console.c' l='120' u='c' c='Con_MessageMode2_f'/>
+<use f='codebrowser/code/client/cl_console.c' l='137' u='c' c='Con_MessageMode3_f'/>
+<use f='codebrowser/code/client/cl_console.c' l='154' u='c' c='Con_MessageMode4_f'/>
+<use f='codebrowser/code/client/cl_console.c' l='542' u='c' c='Con_DrawInput'/>
+<use f='codebrowser/code/client/cl_console.c' l='589' u='c' c='Con_DrawNotify'/>
+<use f='codebrowser/code/client/cl_console.c' l='609' u='c' c='Con_DrawNotify'/>
+<use f='codebrowser/code/client/cl_console.c' l='614' u='c' c='Con_DrawNotify'/>
+<use f='codebrowser/code/client/cl_console.c' l='758' u='c' c='Con_DrawConsole'/>
+<use f='codebrowser/code/client/cl_console.c' l='785' u='c' c='Con_RunConsole'/>
+<use f='codebrowser/code/client/cl_console.c' l='840' u='c' c='Con_Close'/>
+<use f='codebrowser/code/client/cl_input.c' l='363' u='c' c='CL_MouseEvent'/>
+<use f='codebrowser/code/client/cl_input.c' l='365' u='c' c='CL_MouseEvent'/>
+<use f='codebrowser/code/client/cl_input.c' l='540' u='c' c='CL_CmdButtons'/>
+<use f='codebrowser/code/client/cl_input.c' l='546' u='c' c='CL_CmdButtons'/>
+<use f='codebrowser/code/client/cl_keys.c' l='757' u='c' c='Message_Key'/>
+<use f='codebrowser/code/client/cl_keys.c' l='779' u='c' c='Message_Key'/>
+<use f='codebrowser/code/client/cl_keys.c' l='1161' u='c' c='CL_BindUICommand'/>
+<use f='codebrowser/code/client/cl_keys.c' l='1184' u='c' c='CL_ParseBinding'/>
+<use f='codebrowser/code/client/cl_keys.c' l='1191' u='c' c='CL_ParseBinding'/>
+<use f='codebrowser/code/client/cl_keys.c' l='1266' u='c' c='CL_KeyDownEvent'/>
+<use f='codebrowser/code/client/cl_keys.c' l='1276' u='c' c='CL_KeyDownEvent'/>
+<use f='codebrowser/code/client/cl_keys.c' l='1283' u='c' c='CL_KeyDownEvent'/>
+<use f='codebrowser/code/client/cl_keys.c' l='1284' u='c' c='CL_KeyDownEvent'/>
+<use f='codebrowser/code/client/cl_keys.c' l='1289' u='c' c='CL_KeyDownEvent'/>
+<use f='codebrowser/code/client/cl_keys.c' l='1309' u='c' c='CL_KeyDownEvent'/>
+<use f='codebrowser/code/client/cl_keys.c' l='1311' u='c' c='CL_KeyDownEvent'/>
+<use f='codebrowser/code/client/cl_keys.c' l='1315' u='c' c='CL_KeyDownEvent'/>
+<use f='codebrowser/code/client/cl_keys.c' l='1319' u='c' c='CL_KeyDownEvent'/>
+<use f='codebrowser/code/client/cl_keys.c' l='1355' u='c' c='CL_KeyUpEvent'/>
+<use f='codebrowser/code/client/cl_keys.c' l='1357' u='c' c='CL_KeyUpEvent'/>
+<use f='codebrowser/code/client/cl_keys.c' l='1391' u='c' c='CL_CharEvent'/>
+<use f='codebrowser/code/client/cl_keys.c' l='1395' u='c' c='CL_CharEvent'/>
+<use f='codebrowser/code/client/cl_keys.c' l='1399' u='c' c='CL_CharEvent'/>
+<def f='codebrowser/code/client/cl_keys.c' l='1438' ll='1440' type='int Key_GetCatcher()'/>
+<doc f='codebrowser/code/client/cl_keys.c' l='1433'>/*
+====================
+Key_GetCatcher
+====================
+*/</doc>
+<use f='codebrowser/code/client/cl_main.c' l='2960' u='c' c='CL_Frame'/>
+<use f='codebrowser/code/client/cl_scrn.c' l='538' u='c' c='SCR_DrawScreenField'/>
+<use f='codebrowser/code/client/cl_ui.c' l='893' u='c' c='CL_UISystemCalls'/>
+<use f='codebrowser/code/client/cl_ui.c' l='897' u='c' c='CL_UISystemCalls'/>
+<use f='codebrowser/code/client/cl_ui.c' l='1089' u='c' c='CL_ShutdownUI'/>
+<use f='codebrowser/code/sdl/sdl_input.c' l='993' u='c' c='IN_ProcessEvents'/>
+<use f='codebrowser/code/sdl/sdl_input.c' l='1169' u='c' c='IN_Frame'/>

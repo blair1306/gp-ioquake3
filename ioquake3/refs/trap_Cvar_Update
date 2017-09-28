@@ -1,0 +1,32 @@
+<dec f='codebrowser/code/cgame/cg_local.h' l='1491' type='void trap_Cvar_Update(vmCvar_t * vmCvar)'/>
+<use f='codebrowser/code/cgame/cg_main.c' l='381' u='c' c='CG_UpdateCvars'/>
+<use f='codebrowser/code/cgame/cg_predict.c' l='492' u='c' c='CG_PredictPlayerState'/>
+<use f='codebrowser/code/cgame/cg_predict.c' l='496' u='c' c='CG_PredictPlayerState'/>
+<def f='codebrowser/code/cgame/cg_syscalls.c' l='64' ll='66' type='void trap_Cvar_Update(vmCvar_t * vmCvar)'/>
+<dec f='codebrowser/code/game/g_local.h' l='764' type='void trap_Cvar_Update(vmCvar_t * cvar)'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='4670' u='c' c='BotCheckConsoleMessages'/>
+<use f='codebrowser/code/game/ai_main.c' l='254' u='c' c='BotTestAAS'/>
+<use f='codebrowser/code/game/ai_main.c' l='255' u='c' c='BotTestAAS'/>
+<use f='codebrowser/code/game/ai_main.c' l='639' u='c' c='BotInterbreedEndMatch'/>
+<use f='codebrowser/code/game/ai_main.c' l='656' u='c' c='BotInterbreeding'/>
+<use f='codebrowser/code/game/ai_main.c' l='1416' u='c' c='BotAIStartFrame'/>
+<use f='codebrowser/code/game/ai_main.c' l='1417' u='c' c='BotAIStartFrame'/>
+<use f='codebrowser/code/game/ai_main.c' l='1418' u='c' c='BotAIStartFrame'/>
+<use f='codebrowser/code/game/ai_main.c' l='1419' u='c' c='BotAIStartFrame'/>
+<use f='codebrowser/code/game/ai_main.c' l='1420' u='c' c='BotAIStartFrame'/>
+<use f='codebrowser/code/game/ai_main.c' l='1421' u='c' c='BotAIStartFrame'/>
+<use f='codebrowser/code/game/ai_main.c' l='1422' u='c' c='BotAIStartFrame'/>
+<use f='codebrowser/code/game/ai_main.c' l='1423' u='c' c='BotAIStartFrame'/>
+<use f='codebrowser/code/game/ai_main.c' l='1424' u='c' c='BotAIStartFrame'/>
+<use f='codebrowser/code/game/ai_main.c' l='1425' u='c' c='BotAIStartFrame'/>
+<use f='codebrowser/code/game/g_active.c' l='788' u='c' c='ClientThink_real'/>
+<use f='codebrowser/code/game/g_active.c' l='792' u='c' c='ClientThink_real'/>
+<use f='codebrowser/code/game/g_bot.c' l='426' u='c' c='G_CheckMinimumPlayers'/>
+<use f='codebrowser/code/game/g_main.c' l='362' u='c' c='G_RegisterCvars'/>
+<use f='codebrowser/code/game/g_main.c' l='380' u='c' c='G_UpdateCvars'/>
+<def f='codebrowser/code/game/g_syscalls.c' l='98' ll='100' type='void trap_Cvar_Update(vmCvar_t * cvar)'/>
+<dec f='codebrowser/code/q3_ui/ui_local.h' l='629' type='void trap_Cvar_Update(vmCvar_t * vmCvar)'/>
+<use f='codebrowser/code/q3_ui/ui_main.c' l='252' u='c' c='UI_UpdateCvars'/>
+<dec f='codebrowser/code/ui/ui_local.h' l='920' type='void trap_Cvar_Update(vmCvar_t * vmCvar)'/>
+<use f='codebrowser/code/ui/ui_main.c' l='5905' u='c' c='UI_UpdateCvars'/>
+<def f='codebrowser/code/ui/ui_syscalls.c' l='62' ll='64' type='void trap_Cvar_Update(vmCvar_t * cvar)'/>

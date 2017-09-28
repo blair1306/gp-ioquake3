@@ -1,0 +1,10 @@
+<dec f='codebrowser/code/qcommon/qcommon.h' l='952' type='void Hunk_SetMark()'/>
+<def f='codebrowser/code/qcommon/common.c' l='1614' ll='1617' type='void Hunk_SetMark()'/>
+<doc f='codebrowser/code/qcommon/common.c' l='1607'>/*
+===================
+Hunk_SetMark
+
+The server calls this after the level and game VM have been loaded
+===================
+*/</doc>
+<use f='codebrowser/code/server/sv_init.c' l='610' u='c' c='SV_SpawnServer'/>

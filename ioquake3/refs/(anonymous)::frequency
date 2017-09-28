@@ -1,0 +1,31 @@
+<dec f='codebrowser/code/renderergl1/tr_local.h' l='195' type='float'/>
+<offset>128</offset>
+<use f='codebrowser/code/renderergl1/tr_shade_calc.c' l='66' u='r' c='EvalWaveForm'/>
+<use f='codebrowser/code/renderergl1/tr_shade_calc.c' l='130' u='r' c='RB_CalcDeformVertexes'/>
+<use f='codebrowser/code/renderergl1/tr_shade_calc.c' l='154' u='r' c='RB_CalcDeformVertexes'/>
+<use f='codebrowser/code/renderergl1/tr_shade_calc.c' l='181' u='r' c='RB_CalcDeformNormals'/>
+<use f='codebrowser/code/renderergl1/tr_shade_calc.c' l='186' u='r' c='RB_CalcDeformNormals'/>
+<use f='codebrowser/code/renderergl1/tr_shade_calc.c' l='191' u='r' c='RB_CalcDeformNormals'/>
+<use f='codebrowser/code/renderergl1/tr_shade_calc.c' l='247' u='r' c='RB_CalcMoveVertexes'/>
+<use f='codebrowser/code/renderergl1/tr_shade_calc.c' l='690' u='r' c='RB_CalcWaveColor'/>
+<use f='codebrowser/code/renderergl1/tr_shade_calc.c' l='925' u='r' c='RB_CalcTurbulentTexCoords'/>
+<use f='codebrowser/code/renderergl1/tr_shader.c' l='350' u='w' c='ParseWaveForm'/>
+<use f='codebrowser/code/renderergl1/tr_shader.c' l='407' u='w' c='ParseTexMod'/>
+<use f='codebrowser/code/renderergl1/tr_shader.c' l='497' u='w' c='ParseTexMod'/>
+<use f='codebrowser/code/renderergl1/tr_shader.c' l='1221' u='w' c='ParseDeform'/>
+<dec f='codebrowser/code/renderergl2/tr_local.h' l='274' type='float'/>
+<offset>128</offset>
+<use f='codebrowser/code/renderergl2/tr_shade.c' l='298' u='r' c='ComputeDeformValues'/>
+<use f='codebrowser/code/renderergl2/tr_shade_calc.c' l='66' u='r' c='EvalWaveForm'/>
+<use f='codebrowser/code/renderergl2/tr_shade_calc.c' l='122' u='r' c='RB_CalcDeformVertexes'/>
+<use f='codebrowser/code/renderergl2/tr_shade_calc.c' l='146' u='r' c='RB_CalcDeformVertexes'/>
+<use f='codebrowser/code/renderergl2/tr_shade_calc.c' l='177' u='r' c='RB_CalcDeformNormals'/>
+<use f='codebrowser/code/renderergl2/tr_shade_calc.c' l='182' u='r' c='RB_CalcDeformNormals'/>
+<use f='codebrowser/code/renderergl2/tr_shade_calc.c' l='187' u='r' c='RB_CalcDeformNormals'/>
+<use f='codebrowser/code/renderergl2/tr_shade_calc.c' l='248' u='r' c='RB_CalcMoveVertexes'/>
+<use f='codebrowser/code/renderergl2/tr_shade_calc.c' l='617' u='r' c='RB_CalcWaveColorSingle'/>
+<use f='codebrowser/code/renderergl2/tr_shade_calc.c' l='761' u='r' c='RB_CalcTurbulentFactors'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='362' u='w' c='ParseWaveForm'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='419' u='w' c='ParseTexMod'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='509' u='w' c='ParseTexMod'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='1532' u='w' c='ParseDeform'/>

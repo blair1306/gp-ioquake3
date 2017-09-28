@@ -1,0 +1,6 @@
+<dec f='codebrowser/code/qcommon/qcommon.h' l='79' type='int MSG_HashKey(const char * string, int maxlen)'/>
+<use f='codebrowser/code/client/cl_input.c' l='870' u='c' c='CL_WritePacket'/>
+<def f='codebrowser/code/qcommon/msg.c' l='545' ll='557' type='int MSG_HashKey(const char * string, int maxlen)'/>
+<doc f='codebrowser/code/qcommon/msg.c' l='543'>// a string hasher which gives the same hash value even if the
+// string is later modified via the legacy MSG read/write code</doc>
+<use f='codebrowser/code/server/sv_client.c' l='1708' u='c' c='SV_UserMove'/>

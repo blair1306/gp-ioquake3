@@ -1,0 +1,12 @@
+<dec f='codebrowser/code/botlib/be_ai_goal.h' l='59' type='void BotPushGoal(int goalstate, bot_goal_t * goal)'/>
+<def f='codebrowser/code/botlib/be_ai_goal.c' l='1199' ll='1213' type='void BotPushGoal(int goalstate, bot_goal_t * goal)'/>
+<use f='codebrowser/code/botlib/be_ai_goal.c' l='1438' u='c' c='BotChooseLTGItem'/>
+<use f='codebrowser/code/botlib/be_ai_goal.c' l='1595' u='c' c='BotChooseNBGItem'/>
+<doc f='codebrowser/code/botlib/be_ai_goal.c' l='1193'>//===========================================================================
+//
+// Parameter:				-
+// Returns:					-
+// Changes Globals:		-
+//===========================================================================</doc>
+<doc f='codebrowser/code/botlib/be_ai_goal.h' l='58'>//push a goal onto the goal stack</doc>
+<use f='codebrowser/code/botlib/be_interface.c' l='809' u='r' c='Init_AI_Export'/>

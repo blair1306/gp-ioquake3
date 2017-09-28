@@ -1,0 +1,21 @@
+<def f='codebrowser/code/botlib/be_aas_move.c' l='493' ll='976' type='int AAS_ClientMovementPrediction(struct aas_clientmove_s * move, int entnum, vec_t * origin, int presencetype, int onground, vec_t * velocity, vec_t * cmdmove, int cmdframes, int maxframes, float frametime, int stopevent, int stopareanum, vec_t * mins, vec_t * maxs, int visualize)'/>
+<use f='codebrowser/code/botlib/be_aas_move.c' l='992' u='c' c='AAS_PredictClientMovement'/>
+<use f='codebrowser/code/botlib/be_aas_move.c' l='1011' u='c' c='AAS_ClientMovementHitBBox'/>
+<doc f='codebrowser/code/botlib/be_aas_move.c' l='475'>//===========================================================================
+// predicts the movement
+// assumes regular bounding box sizes
+// NOTE: out of water jumping is not included
+// NOTE: grappling hook is not included
+//
+// Parameter:			origin			: origin to start with
+//						presencetype	: presence type to start with
+//						velocity		: velocity to start with
+//						cmdmove			: client command movement
+//						cmdframes		: number of frame cmdmove is valid
+//						maxframes		: maximum number of predicted frames
+//						frametime		: duration of one predicted frame
+//						stopevent		: events that stop the prediction
+//						stopareanum		: stop as soon as entered this area
+// Returns:				aas_clientmove_t
+// Changes Globals:		-
+//===========================================================================</doc>

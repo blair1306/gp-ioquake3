@@ -1,0 +1,31 @@
+<dec f='codebrowser/code/qcommon/q_shared.h' l='1017' type='qboolean'/>
+<offset>32</offset>
+<doc f='codebrowser/code/qcommon/q_shared.h' l='1017'>// if true, the initial point was in a solid area</doc>
+<use f='codebrowser/code/cgame/cg_particles.c' l='1703' u='r' c='ValidBloodPool'/>
+<use f='codebrowser/code/cgame/cg_players.c' l='2028' u='r' c='CG_PlayerShadow'/>
+<use f='codebrowser/code/cgame/cg_predict.c' l='131' u='r' c='CG_ClipMoveToEntities'/>
+<use f='codebrowser/code/cgame/cg_predict.c' l='132' u='w' c='CG_ClipMoveToEntities'/>
+<use f='codebrowser/code/cgame/cg_predict.c' l='366' u='r' c='CG_TouchTriggerPrediction'/>
+<use f='codebrowser/code/game/ai_main.c' l='145' u='r' c='BotAI_Trace'/>
+<use f='codebrowser/code/game/g_items.c' l='681' u='r' c='FinishSpawningItem'/>
+<use f='codebrowser/code/game/g_items.c' l='992' u='r' c='G_RunItem'/>
+<use f='codebrowser/code/game/g_missile.c' l='473' u='r' c='G_RunMissile'/>
+<use f='codebrowser/code/game/g_mover.c' l='66' u='r' c='G_TestEntityPosition'/>
+<use f='codebrowser/code/game/g_mover.c' l='214' u='r' c='G_CheckProxMinePosition'/>
+<use f='codebrowser/code/qcommon/cm_trace.c' l='230' u='w' c='CM_TestBoxInBrush'/>
+<use f='codebrowser/code/qcommon/cm_trace.c' l='288' u='w' c='CM_TestInLeaf'/>
+<use f='codebrowser/code/qcommon/cm_trace.c' l='332' u='w' c='CM_TestCapsuleInCapsule'/>
+<use f='codebrowser/code/qcommon/cm_trace.c' l='337' u='w' c='CM_TestCapsuleInCapsule'/>
+<use f='codebrowser/code/qcommon/cm_trace.c' l='344' u='w' c='CM_TestCapsuleInCapsule'/>
+<use f='codebrowser/code/qcommon/cm_trace.c' l='349' u='w' c='CM_TestCapsuleInCapsule'/>
+<use f='codebrowser/code/qcommon/cm_trace.c' l='360' u='w' c='CM_TestCapsuleInCapsule'/>
+<use f='codebrowser/code/qcommon/cm_trace.c' l='638' u='w' c='CM_TraceThroughBrush'/>
+<use f='codebrowser/code/qcommon/cm_trace.c' l='748' u='w' c='CM_TraceThroughSphere'/>
+<use f='codebrowser/code/qcommon/cm_trace.c' l='844' u='w' c='CM_TraceThroughVerticalCylinder'/>
+<use f='codebrowser/code/server/sv_bot.c' l='184' u='r' c='BotImport_Trace'/>
+<use f='codebrowser/code/server/sv_bot.c' l='210' u='r' c='BotImport_EntityTrace'/>
+<use f='codebrowser/code/server/sv_game.c' l='230' u='r' c='SV_EntityContact'/>
+<use f='codebrowser/code/server/sv_world.c' l='569' u='r' c='SV_ClipMoveToEntities'/>
+<use f='codebrowser/code/server/sv_world.c' l='570' u='w' c='SV_ClipMoveToEntities'/>
+<use f='codebrowser/code/server/sv_world.c' l='578' u='r' c='SV_ClipMoveToEntities'/>
+<use f='codebrowser/code/server/sv_world.c' l='582' u='w' c='SV_ClipMoveToEntities'/>

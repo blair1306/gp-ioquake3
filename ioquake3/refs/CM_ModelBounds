@@ -1,0 +1,14 @@
+<dec f='codebrowser/code/qcommon/cm_public.h' l='31' type='void CM_ModelBounds(clipHandle_t model, vec_t * mins, vec_t * maxs)'/>
+<def f='codebrowser/code/qcommon/cm_load.c' l='834' ll='840' type='void CM_ModelBounds(clipHandle_t model, vec_t * mins, vec_t * maxs)'/>
+<doc f='codebrowser/code/qcommon/cm_load.c' l='829'>/*
+===================
+CM_ModelBounds
+===================
+*/</doc>
+<use f='codebrowser/code/qcommon/cm_trace.c' l='312' u='c' c='CM_TestCapsuleInCapsule'/>
+<use f='codebrowser/code/qcommon/cm_trace.c' l='380' u='c' c='CM_TestBoundingBoxInCapsule'/>
+<use f='codebrowser/code/qcommon/cm_trace.c' l='937' u='c' c='CM_TraceCapsuleThroughCapsule'/>
+<use f='codebrowser/code/qcommon/cm_trace.c' l='999' u='c' c='CM_TraceBoundingBoxThroughCapsule'/>
+<use f='codebrowser/code/server/sv_bot.c' l='265' u='c' c='BotImport_BSPModelMinsMaxsOrigin'/>
+<use f='codebrowser/code/server/sv_game.c' l='127' u='c' c='SV_SetBrushModel'/>
+<use f='codebrowser/code/server/sv_world.c' l='156' u='c' c='SV_ClearWorld'/>

@@ -1,0 +1,11 @@
+<dec f='codebrowser/code/server/server.h' l='353' type='void SV_UpdateConfigstrings(client_t * client)'/>
+<use f='codebrowser/code/server/sv_client.c' l='793' u='c' c='SV_ClientEnterWorld'/>
+<def f='codebrowser/code/server/sv_init.c' l='81' ll='98' type='void SV_UpdateConfigstrings(client_t * client)'/>
+<doc f='codebrowser/code/server/sv_init.c' l='73'>/*
+===============
+SV_UpdateConfigstrings
+
+Called when a client goes from CS_PRIMED to CS_ACTIVE.  Updates all
+Configstring indexes that have changed while the client was in CS_PRIMED
+===============
+*/</doc>

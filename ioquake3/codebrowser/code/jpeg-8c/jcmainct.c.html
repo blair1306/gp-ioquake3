@@ -1,0 +1,311 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>jcmainct.c source code [codebrowser/code/jpeg-8c/jcmainct.c] - Woboq Code Browser</title>
+<link rel="stylesheet" href="../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'codebrowser/code/jpeg-8c/jcmainct.c'; var root_path = '../../..'; var data_path = '../../../../data';</script>
+<script src='../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../..'>codebrowser</a>/<a href='..'>code</a>/<a href='./'>jpeg-8c</a>/<a href='jcmainct.c.html'>jcmainct.c</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/*</i></td></tr>
+<tr><th id="2">2</th><td><i> * jcmainct.c</i></td></tr>
+<tr><th id="3">3</th><td><i> *</i></td></tr>
+<tr><th id="4">4</th><td><i> * Copyright (C) 1994-1996, Thomas G. Lane.</i></td></tr>
+<tr><th id="5">5</th><td><i> * This file is part of the Independent JPEG Group's software.</i></td></tr>
+<tr><th id="6">6</th><td><i> * For conditions of distribution and use, see the accompanying README file.</i></td></tr>
+<tr><th id="7">7</th><td><i> *</i></td></tr>
+<tr><th id="8">8</th><td><i> * This file contains the main buffer controller for compression.</i></td></tr>
+<tr><th id="9">9</th><td><i> * The main buffer lies between the pre-processor and the JPEG</i></td></tr>
+<tr><th id="10">10</th><td><i> * compressor proper; it holds downsampled data in the JPEG colorspace.</i></td></tr>
+<tr><th id="11">11</th><td><i> */</i></td></tr>
+<tr><th id="12">12</th><td></td></tr>
+<tr><th id="13">13</th><td><u>#define <dfn class="macro" id="_M/JPEG_INTERNALS" data-ref="_M/JPEG_INTERNALS">JPEG_INTERNALS</dfn></u></td></tr>
+<tr><th id="14">14</th><td><u>#include <a href="jinclude.h.html">"jinclude.h"</a></u></td></tr>
+<tr><th id="15">15</th><td><u>#include <a href="jpeglib.h.html">"jpeglib.h"</a></u></td></tr>
+<tr><th id="16">16</th><td></td></tr>
+<tr><th id="17">17</th><td></td></tr>
+<tr><th id="18">18</th><td><i>/* Note: currently, there is no operating mode in which a full-image buffer</i></td></tr>
+<tr><th id="19">19</th><td><i> * is needed at this step.  If there were, that mode could not be used with</i></td></tr>
+<tr><th id="20">20</th><td><i> * "raw data" input, since this module is bypassed in that case.  However,</i></td></tr>
+<tr><th id="21">21</th><td><i> * we've left the code here for possible use in special applications.</i></td></tr>
+<tr><th id="22">22</th><td><i> */</i></td></tr>
+<tr><th id="23">23</th><td><u>#undef <span class="macro" data-ref="_M/FULL_MAIN_BUFFER_SUPPORTED">FULL_MAIN_BUFFER_SUPPORTED</span></u></td></tr>
+<tr><th id="24">24</th><td></td></tr>
+<tr><th id="25">25</th><td></td></tr>
+<tr><th id="26">26</th><td><i>/* Private buffer controller object */</i></td></tr>
+<tr><th id="27">27</th><td></td></tr>
+<tr><th id="28">28</th><td><b>typedef</b> <b>struct</b> {</td></tr>
+<tr><th id="29">29</th><td>  <b>struct</b> <a class="type" href="jpegint.h.html#jpeg_c_main_controller" title='jpeg_c_main_controller' data-ref="jpeg_c_main_controller">jpeg_c_main_controller</a> <dfn class="tu decl" id="(anonymous)::pub" title='(anonymous struct)::pub' data-type='struct jpeg_c_main_controller' data-ref="(anonymous)::pub">pub</dfn>; <i  data-doc="(anonymous)::pub">/* public fields */</i></td></tr>
+<tr><th id="30">30</th><td></td></tr>
+<tr><th id="31">31</th><td>  <a class="typedef" href="jmorecfg.h.html#JDIMENSION" title='JDIMENSION' data-type='unsigned int' data-ref="JDIMENSION">JDIMENSION</a> <dfn class="tu decl" id="(anonymous)::cur_iMCU_row" title='(anonymous struct)::cur_iMCU_row' data-type='JDIMENSION' data-ref="(anonymous)::cur_iMCU_row">cur_iMCU_row</dfn>;	<i  data-doc="(anonymous)::cur_iMCU_row">/* number of current iMCU row */</i></td></tr>
+<tr><th id="32">32</th><td>  <a class="typedef" href="jmorecfg.h.html#JDIMENSION" title='JDIMENSION' data-type='unsigned int' data-ref="JDIMENSION">JDIMENSION</a> <dfn class="tu decl" id="(anonymous)::rowgroup_ctr" title='(anonymous struct)::rowgroup_ctr' data-type='JDIMENSION' data-ref="(anonymous)::rowgroup_ctr">rowgroup_ctr</dfn>;	<i  data-doc="(anonymous)::rowgroup_ctr">/* counts row groups received in iMCU row */</i></td></tr>
+<tr><th id="33">33</th><td>  <a class="typedef" href="jmorecfg.h.html#boolean" title='boolean' data-type='int' data-ref="boolean">boolean</a> <dfn class="tu decl" id="(anonymous)::suspended" title='(anonymous struct)::suspended' data-type='boolean' data-ref="(anonymous)::suspended">suspended</dfn>;		<i  data-doc="(anonymous)::suspended">/* remember if we suspended output */</i></td></tr>
+<tr><th id="34">34</th><td>  <a class="typedef" href="jpegint.h.html#J_BUF_MODE" title='J_BUF_MODE' data-type='enum J_BUF_MODE' data-ref="J_BUF_MODE">J_BUF_MODE</a> <dfn class="tu decl" id="(anonymous)::pass_mode" title='(anonymous struct)::pass_mode' data-type='J_BUF_MODE' data-ref="(anonymous)::pass_mode">pass_mode</dfn>;		<i  data-doc="(anonymous)::pass_mode">/* current operating mode */</i></td></tr>
+<tr><th id="35">35</th><td></td></tr>
+<tr><th id="36">36</th><td>  <i  data-doc="(anonymous)::buffer">/* If using just a strip buffer, this points to the entire set of buffers</i></td></tr>
+<tr><th id="37">37</th><td><i  data-doc="(anonymous)::buffer">   * (we allocate one for each component).  In the full-image case, this</i></td></tr>
+<tr><th id="38">38</th><td><i  data-doc="(anonymous)::buffer">   * points to the currently accessible strips of the virtual arrays.</i></td></tr>
+<tr><th id="39">39</th><td><i  data-doc="(anonymous)::buffer">   */</i></td></tr>
+<tr><th id="40">40</th><td>  <a class="typedef" href="jpeglib.h.html#JSAMPARRAY" title='JSAMPARRAY' data-type='JSAMPROW *' data-ref="JSAMPARRAY">JSAMPARRAY</a> <dfn class="tu decl" id="(anonymous)::buffer" title='(anonymous struct)::buffer' data-type='JSAMPARRAY [10]' data-ref="(anonymous)::buffer">buffer</dfn>[<a class="macro" href="jmorecfg.h.html#36" title="10" data-ref="_M/MAX_COMPONENTS">MAX_COMPONENTS</a>];</td></tr>
+<tr><th id="41">41</th><td></td></tr>
+<tr><th id="42">42</th><td><u>#<span data-ppcond="42">ifdef</span> <span class="macro" data-ref="_M/FULL_MAIN_BUFFER_SUPPORTED">FULL_MAIN_BUFFER_SUPPORTED</span></u></td></tr>
+<tr><th id="43">43</th><td>  <i>/* If using full-image storage, this array holds pointers to virtual-array</i></td></tr>
+<tr><th id="44">44</th><td><i>   * control blocks for each component.  Unused if not full-image storage.</i></td></tr>
+<tr><th id="45">45</th><td><i>   */</i></td></tr>
+<tr><th id="46">46</th><td>  jvirt_sarray_ptr whole_image[MAX_COMPONENTS];</td></tr>
+<tr><th id="47">47</th><td><u>#<span data-ppcond="42">endif</span></u></td></tr>
+<tr><th id="48">48</th><td>} <dfn class="typedef" id="my_main_controller" title='my_main_controller' data-type='struct my_main_controller' data-ref="my_main_controller">my_main_controller</dfn>;</td></tr>
+<tr><th id="49">49</th><td></td></tr>
+<tr><th id="50">50</th><td><b>typedef</b> <a class="typedef" href="#my_main_controller" title='my_main_controller' data-type='struct my_main_controller' data-ref="my_main_controller">my_main_controller</a> * <dfn class="typedef" id="my_main_ptr" title='my_main_ptr' data-type='my_main_controller *' data-ref="my_main_ptr">my_main_ptr</dfn>;</td></tr>
+<tr><th id="51">51</th><td></td></tr>
+<tr><th id="52">52</th><td></td></tr>
+<tr><th id="53">53</th><td><i>/* Forward declarations */</i></td></tr>
+<tr><th id="54">54</th><td><a class="macro" href="jmorecfg.h.html#191" title="static void" data-ref="_M/METHODDEF">METHODDEF</a>(<em>void</em>) <a class="decl" href="#process_data_simple_main" title='process_data_simple_main' data-ref="process_data_simple_main">process_data_simple_main</a></td></tr>
+<tr><th id="55">55</th><td>	<a class="macro" href="jpeglib.h.html#857" title="(j_compress_ptr cinfo, JSAMPARRAY input_buf, JDIMENSION *in_row_ctr, JDIMENSION in_rows_avail)" data-ref="_M/JPP">JPP</a>((<a class="typedef" href="jpeglib.h.html#j_compress_ptr" title='j_compress_ptr' data-type='struct jpeg_compress_struct *' data-ref="j_compress_ptr">j_compress_ptr</a> <dfn class="local col1 decl" id="1cinfo" title='cinfo' data-type='j_compress_ptr' data-ref="1cinfo">cinfo</dfn>, <a class="typedef" href="jpeglib.h.html#JSAMPARRAY" title='JSAMPARRAY' data-type='JSAMPROW *' data-ref="JSAMPARRAY">JSAMPARRAY</a> <dfn class="local col2 decl" id="2input_buf" title='input_buf' data-type='JSAMPARRAY' data-ref="2input_buf">input_buf</dfn>,</td></tr>
+<tr><th id="56">56</th><td>	     <a class="typedef" href="jmorecfg.h.html#JDIMENSION" title='JDIMENSION' data-type='unsigned int' data-ref="JDIMENSION">JDIMENSION</a> *<dfn class="local col3 decl" id="3in_row_ctr" title='in_row_ctr' data-type='JDIMENSION *' data-ref="3in_row_ctr">in_row_ctr</dfn>, <a class="typedef" href="jmorecfg.h.html#JDIMENSION" title='JDIMENSION' data-type='unsigned int' data-ref="JDIMENSION">JDIMENSION</a> <dfn class="local col4 decl" id="4in_rows_avail" title='in_rows_avail' data-type='JDIMENSION' data-ref="4in_rows_avail">in_rows_avail</dfn>));</td></tr>
+<tr><th id="57">57</th><td><u>#<span data-ppcond="57">ifdef</span> <span class="macro" data-ref="_M/FULL_MAIN_BUFFER_SUPPORTED">FULL_MAIN_BUFFER_SUPPORTED</span></u></td></tr>
+<tr><th id="58">58</th><td>METHODDEF(<em>void</em>) process_data_buffer_main</td></tr>
+<tr><th id="59">59</th><td>	JPP((j_compress_ptr cinfo, JSAMPARRAY input_buf,</td></tr>
+<tr><th id="60">60</th><td>	     JDIMENSION *in_row_ctr, JDIMENSION in_rows_avail));</td></tr>
+<tr><th id="61">61</th><td><u>#<span data-ppcond="57">endif</span></u></td></tr>
+<tr><th id="62">62</th><td></td></tr>
+<tr><th id="63">63</th><td></td></tr>
+<tr><th id="64">64</th><td><i>/*</i></td></tr>
+<tr><th id="65">65</th><td><i> * Initialize for a processing pass.</i></td></tr>
+<tr><th id="66">66</th><td><i> */</i></td></tr>
+<tr><th id="67">67</th><td></td></tr>
+<tr><th id="68">68</th><td><a class="macro" href="jmorecfg.h.html#191" title="static void" data-ref="_M/METHODDEF">METHODDEF</a>(<em>void</em>)</td></tr>
+<tr><th id="69">69</th><td><dfn class="decl def" id="start_pass_main" title='start_pass_main' data-ref="start_pass_main">start_pass_main</dfn> (<a class="typedef" href="jpeglib.h.html#j_compress_ptr" title='j_compress_ptr' data-type='struct jpeg_compress_struct *' data-ref="j_compress_ptr">j_compress_ptr</a> <dfn class="local col5 decl" id="5cinfo" title='cinfo' data-type='j_compress_ptr' data-ref="5cinfo">cinfo</dfn>, <a class="typedef" href="jpegint.h.html#J_BUF_MODE" title='J_BUF_MODE' data-type='enum J_BUF_MODE' data-ref="J_BUF_MODE">J_BUF_MODE</a> <dfn class="local col6 decl" id="6pass_mode" title='pass_mode' data-type='J_BUF_MODE' data-ref="6pass_mode">pass_mode</dfn>)</td></tr>
+<tr><th id="70">70</th><td>{</td></tr>
+<tr><th id="71">71</th><td>  <a class="typedef" href="#my_main_ptr" title='my_main_ptr' data-type='my_main_controller *' data-ref="my_main_ptr">my_main_ptr</a> <dfn class="local col7 decl" id="7main_ptr" title='main_ptr' data-type='my_main_ptr' data-ref="7main_ptr">main_ptr</dfn> = (<a class="typedef" href="#my_main_ptr" title='my_main_ptr' data-type='my_main_controller *' data-ref="my_main_ptr">my_main_ptr</a>) <a class="local col5 ref" href="#5cinfo" title='cinfo' data-ref="5cinfo">cinfo</a>-&gt;<a class="ref" href="jpeglib.h.html#jpeg_compress_struct::main" title='jpeg_compress_struct::main' data-ref="jpeg_compress_struct::main">main</a>;</td></tr>
+<tr><th id="72">72</th><td></td></tr>
+<tr><th id="73">73</th><td>  <i>/* Do nothing in raw-data mode. */</i></td></tr>
+<tr><th id="74">74</th><td>  <b>if</b> (<a class="local col5 ref" href="#5cinfo" title='cinfo' data-ref="5cinfo">cinfo</a>-&gt;<a class="ref" href="jpeglib.h.html#jpeg_compress_struct::raw_data_in" title='jpeg_compress_struct::raw_data_in' data-ref="jpeg_compress_struct::raw_data_in">raw_data_in</a>)</td></tr>
+<tr><th id="75">75</th><td>    <b>return</b>;</td></tr>
+<tr><th id="76">76</th><td></td></tr>
+<tr><th id="77">77</th><td>  <a class="local col7 ref" href="#7main_ptr" title='main_ptr' data-ref="7main_ptr">main_ptr</a>-&gt;<a class="tu ref" href="#(anonymous)::cur_iMCU_row" title='(anonymous struct)::cur_iMCU_row' data-use='w' data-ref="(anonymous)::cur_iMCU_row">cur_iMCU_row</a> = <var>0</var>;	<i>/* initialize counters */</i></td></tr>
+<tr><th id="78">78</th><td>  <a class="local col7 ref" href="#7main_ptr" title='main_ptr' data-ref="7main_ptr">main_ptr</a>-&gt;<a class="tu ref" href="#(anonymous)::rowgroup_ctr" title='(anonymous struct)::rowgroup_ctr' data-use='w' data-ref="(anonymous)::rowgroup_ctr">rowgroup_ctr</a> = <var>0</var>;</td></tr>
+<tr><th id="79">79</th><td>  <a class="local col7 ref" href="#7main_ptr" title='main_ptr' data-ref="7main_ptr">main_ptr</a>-&gt;<a class="tu ref" href="#(anonymous)::suspended" title='(anonymous struct)::suspended' data-use='w' data-ref="(anonymous)::suspended">suspended</a> = <a class="macro" href="jmorecfg.h.html#239" title="0" data-ref="_M/FALSE">FALSE</a>;</td></tr>
+<tr><th id="80">80</th><td>  <a class="local col7 ref" href="#7main_ptr" title='main_ptr' data-ref="7main_ptr">main_ptr</a>-&gt;<a class="tu ref" href="#(anonymous)::pass_mode" title='(anonymous struct)::pass_mode' data-use='w' data-ref="(anonymous)::pass_mode">pass_mode</a> = <a class="local col6 ref" href="#6pass_mode" title='pass_mode' data-ref="6pass_mode">pass_mode</a>;	<i>/* save mode for use by process_data */</i></td></tr>
+<tr><th id="81">81</th><td></td></tr>
+<tr><th id="82">82</th><td>  <b>switch</b> (<a class="local col6 ref" href="#6pass_mode" title='pass_mode' data-ref="6pass_mode">pass_mode</a>) {</td></tr>
+<tr><th id="83">83</th><td>  <b>case</b> <a class="enum" href="jpegint.h.html#JBUF_PASS_THRU" title='JBUF_PASS_THRU' data-ref="JBUF_PASS_THRU">JBUF_PASS_THRU</a>:</td></tr>
+<tr><th id="84">84</th><td><u>#<span data-ppcond="84">ifdef</span> <span class="macro" data-ref="_M/FULL_MAIN_BUFFER_SUPPORTED">FULL_MAIN_BUFFER_SUPPORTED</span></u></td></tr>
+<tr><th id="85">85</th><td>    <b>if</b> (main_ptr-&gt;whole_image[<var>0</var>] != NULL)</td></tr>
+<tr><th id="86">86</th><td>      ERREXIT(cinfo, JERR_BAD_BUFFER_MODE);</td></tr>
+<tr><th id="87">87</th><td><u>#<span data-ppcond="84">endif</span></u></td></tr>
+<tr><th id="88">88</th><td>    <a class="local col7 ref" href="#7main_ptr" title='main_ptr' data-ref="7main_ptr">main_ptr</a>-&gt;<a class="tu ref" href="#(anonymous)::pub" title='(anonymous struct)::pub' data-use='m' data-ref="(anonymous)::pub">pub</a>.<a class="ref" href="jpegint.h.html#59" title='jpeg_c_main_controller::process_data' data-ref="jpeg_c_main_controller::process_data">process_data</a> = <a class="ref" href="#process_data_simple_main" title='process_data_simple_main' data-ref="process_data_simple_main">process_data_simple_main</a>;</td></tr>
+<tr><th id="89">89</th><td>    <b>break</b>;</td></tr>
+<tr><th id="90">90</th><td><u>#<span data-ppcond="90">ifdef</span> <span class="macro" data-ref="_M/FULL_MAIN_BUFFER_SUPPORTED">FULL_MAIN_BUFFER_SUPPORTED</span></u></td></tr>
+<tr><th id="91">91</th><td>  <b>case</b> JBUF_SAVE_SOURCE:</td></tr>
+<tr><th id="92">92</th><td>  <b>case</b> JBUF_CRANK_DEST:</td></tr>
+<tr><th id="93">93</th><td>  <b>case</b> JBUF_SAVE_AND_PASS:</td></tr>
+<tr><th id="94">94</th><td>    <b>if</b> (main_ptr-&gt;whole_image[<var>0</var>] == NULL)</td></tr>
+<tr><th id="95">95</th><td>      ERREXIT(cinfo, JERR_BAD_BUFFER_MODE);</td></tr>
+<tr><th id="96">96</th><td>    main_ptr-&gt;pub.process_data = process_data_buffer_main;</td></tr>
+<tr><th id="97">97</th><td>    <b>break</b>;</td></tr>
+<tr><th id="98">98</th><td><u>#<span data-ppcond="90">endif</span></u></td></tr>
+<tr><th id="99">99</th><td>  <b>default</b>:</td></tr>
+<tr><th id="100">100</th><td>    <a class="macro" href="jerror.h.html#209" title="((cinfo)-&gt;err-&gt;msg_code = (JERR_BAD_BUFFER_MODE), (*(cinfo)-&gt;err-&gt;error_exit) ((j_common_ptr) (cinfo)))" data-ref="_M/ERREXIT">ERREXIT</a>(<a class="local col5 ref" href="#5cinfo" title='cinfo' data-ref="5cinfo">cinfo</a>, <a class="enum" href="jerror.h.html#45" title='JERR_BAD_BUFFER_MODE' data-ref="JERR_BAD_BUFFER_MODE">JERR_BAD_BUFFER_MODE</a>);</td></tr>
+<tr><th id="101">101</th><td>    <b>break</b>;</td></tr>
+<tr><th id="102">102</th><td>  }</td></tr>
+<tr><th id="103">103</th><td>}</td></tr>
+<tr><th id="104">104</th><td></td></tr>
+<tr><th id="105">105</th><td></td></tr>
+<tr><th id="106">106</th><td><i>/*</i></td></tr>
+<tr><th id="107">107</th><td><i> * Process some data.</i></td></tr>
+<tr><th id="108">108</th><td><i> * This routine handles the simple pass-through mode,</i></td></tr>
+<tr><th id="109">109</th><td><i> * where we have only a strip buffer.</i></td></tr>
+<tr><th id="110">110</th><td><i> */</i></td></tr>
+<tr><th id="111">111</th><td></td></tr>
+<tr><th id="112">112</th><td><a class="macro" href="jmorecfg.h.html#191" title="static void" data-ref="_M/METHODDEF">METHODDEF</a>(<em>void</em>)</td></tr>
+<tr><th id="113">113</th><td><dfn class="decl def" id="process_data_simple_main" title='process_data_simple_main' data-ref="process_data_simple_main">process_data_simple_main</dfn> (<a class="typedef" href="jpeglib.h.html#j_compress_ptr" title='j_compress_ptr' data-type='struct jpeg_compress_struct *' data-ref="j_compress_ptr">j_compress_ptr</a> <dfn class="local col8 decl" id="8cinfo" title='cinfo' data-type='j_compress_ptr' data-ref="8cinfo">cinfo</dfn>,</td></tr>
+<tr><th id="114">114</th><td>			  <a class="typedef" href="jpeglib.h.html#JSAMPARRAY" title='JSAMPARRAY' data-type='JSAMPROW *' data-ref="JSAMPARRAY">JSAMPARRAY</a> <dfn class="local col9 decl" id="9input_buf" title='input_buf' data-type='JSAMPARRAY' data-ref="9input_buf">input_buf</dfn>, <a class="typedef" href="jmorecfg.h.html#JDIMENSION" title='JDIMENSION' data-type='unsigned int' data-ref="JDIMENSION">JDIMENSION</a> *<dfn class="local col0 decl" id="10in_row_ctr" title='in_row_ctr' data-type='JDIMENSION *' data-ref="10in_row_ctr">in_row_ctr</dfn>,</td></tr>
+<tr><th id="115">115</th><td>			  <a class="typedef" href="jmorecfg.h.html#JDIMENSION" title='JDIMENSION' data-type='unsigned int' data-ref="JDIMENSION">JDIMENSION</a> <dfn class="local col1 decl" id="11in_rows_avail" title='in_rows_avail' data-type='JDIMENSION' data-ref="11in_rows_avail">in_rows_avail</dfn>)</td></tr>
+<tr><th id="116">116</th><td>{</td></tr>
+<tr><th id="117">117</th><td>  <a class="typedef" href="#my_main_ptr" title='my_main_ptr' data-type='my_main_controller *' data-ref="my_main_ptr">my_main_ptr</a> <dfn class="local col2 decl" id="12main_ptr" title='main_ptr' data-type='my_main_ptr' data-ref="12main_ptr">main_ptr</dfn> = (<a class="typedef" href="#my_main_ptr" title='my_main_ptr' data-type='my_main_controller *' data-ref="my_main_ptr">my_main_ptr</a>) <a class="local col8 ref" href="#8cinfo" title='cinfo' data-ref="8cinfo">cinfo</a>-&gt;<a class="ref" href="jpeglib.h.html#jpeg_compress_struct::main" title='jpeg_compress_struct::main' data-ref="jpeg_compress_struct::main">main</a>;</td></tr>
+<tr><th id="118">118</th><td></td></tr>
+<tr><th id="119">119</th><td>  <b>while</b> (<a class="local col2 ref" href="#12main_ptr" title='main_ptr' data-ref="12main_ptr">main_ptr</a>-&gt;<a class="tu ref" href="#(anonymous)::cur_iMCU_row" title='(anonymous struct)::cur_iMCU_row' data-use='r' data-ref="(anonymous)::cur_iMCU_row">cur_iMCU_row</a> &lt; <a class="local col8 ref" href="#8cinfo" title='cinfo' data-ref="8cinfo">cinfo</a>-&gt;<a class="ref" href="jpeglib.h.html#jpeg_compress_struct::total_iMCU_rows" title='jpeg_compress_struct::total_iMCU_rows' data-ref="jpeg_compress_struct::total_iMCU_rows">total_iMCU_rows</a>) {</td></tr>
+<tr><th id="120">120</th><td>    <i>/* Read input data if we haven't filled the main buffer yet */</i></td></tr>
+<tr><th id="121">121</th><td>    <b>if</b> (<a class="local col2 ref" href="#12main_ptr" title='main_ptr' data-ref="12main_ptr">main_ptr</a>-&gt;<a class="tu ref" href="#(anonymous)::rowgroup_ctr" title='(anonymous struct)::rowgroup_ctr' data-use='r' data-ref="(anonymous)::rowgroup_ctr">rowgroup_ctr</a> &lt; (<a class="typedef" href="jmorecfg.h.html#JDIMENSION" title='JDIMENSION' data-type='unsigned int' data-ref="JDIMENSION">JDIMENSION</a>) <a class="local col8 ref" href="#8cinfo" title='cinfo' data-ref="8cinfo">cinfo</a>-&gt;<a class="ref" href="jpeglib.h.html#jpeg_compress_struct::min_DCT_v_scaled_size" title='jpeg_compress_struct::min_DCT_v_scaled_size' data-ref="jpeg_compress_struct::min_DCT_v_scaled_size">min_DCT_v_scaled_size</a>)</td></tr>
+<tr><th id="122">122</th><td>      (*<a class="local col8 ref" href="#8cinfo" title='cinfo' data-ref="8cinfo">cinfo</a>-&gt;<a class="ref" href="jpeglib.h.html#jpeg_compress_struct::prep" title='jpeg_compress_struct::prep' data-ref="jpeg_compress_struct::prep">prep</a>-&gt;<a class="ref" href="jpegint.h.html#67" title='jpeg_c_prep_controller::pre_process_data' data-ref="jpeg_c_prep_controller::pre_process_data">pre_process_data</a>) (<a class="local col8 ref" href="#8cinfo" title='cinfo' data-ref="8cinfo">cinfo</a>,</td></tr>
+<tr><th id="123">123</th><td>					<a class="local col9 ref" href="#9input_buf" title='input_buf' data-ref="9input_buf">input_buf</a>, <a class="local col0 ref" href="#10in_row_ctr" title='in_row_ctr' data-ref="10in_row_ctr">in_row_ctr</a>, <a class="local col1 ref" href="#11in_rows_avail" title='in_rows_avail' data-ref="11in_rows_avail">in_rows_avail</a>,</td></tr>
+<tr><th id="124">124</th><td>					<a class="local col2 ref" href="#12main_ptr" title='main_ptr' data-ref="12main_ptr">main_ptr</a>-&gt;<a class="tu ref" href="#(anonymous)::buffer" title='(anonymous struct)::buffer' data-ref="(anonymous)::buffer">buffer</a>, &amp;<a class="local col2 ref" href="#12main_ptr" title='main_ptr' data-ref="12main_ptr">main_ptr</a>-&gt;<a class="tu ref" href="#(anonymous)::rowgroup_ctr" title='(anonymous struct)::rowgroup_ctr' data-use='a' data-ref="(anonymous)::rowgroup_ctr">rowgroup_ctr</a>,</td></tr>
+<tr><th id="125">125</th><td>					(<a class="typedef" href="jmorecfg.h.html#JDIMENSION" title='JDIMENSION' data-type='unsigned int' data-ref="JDIMENSION">JDIMENSION</a>) <a class="local col8 ref" href="#8cinfo" title='cinfo' data-ref="8cinfo">cinfo</a>-&gt;<a class="ref" href="jpeglib.h.html#jpeg_compress_struct::min_DCT_v_scaled_size" title='jpeg_compress_struct::min_DCT_v_scaled_size' data-ref="jpeg_compress_struct::min_DCT_v_scaled_size">min_DCT_v_scaled_size</a>);</td></tr>
+<tr><th id="126">126</th><td></td></tr>
+<tr><th id="127">127</th><td>    <i>/* If we don't have a full iMCU row buffered, return to application for</i></td></tr>
+<tr><th id="128">128</th><td><i>     * more data.  Note that preprocessor will always pad to fill the iMCU row</i></td></tr>
+<tr><th id="129">129</th><td><i>     * at the bottom of the image.</i></td></tr>
+<tr><th id="130">130</th><td><i>     */</i></td></tr>
+<tr><th id="131">131</th><td>    <b>if</b> (<a class="local col2 ref" href="#12main_ptr" title='main_ptr' data-ref="12main_ptr">main_ptr</a>-&gt;<a class="tu ref" href="#(anonymous)::rowgroup_ctr" title='(anonymous struct)::rowgroup_ctr' data-use='r' data-ref="(anonymous)::rowgroup_ctr">rowgroup_ctr</a> != (<a class="typedef" href="jmorecfg.h.html#JDIMENSION" title='JDIMENSION' data-type='unsigned int' data-ref="JDIMENSION">JDIMENSION</a>) <a class="local col8 ref" href="#8cinfo" title='cinfo' data-ref="8cinfo">cinfo</a>-&gt;<a class="ref" href="jpeglib.h.html#jpeg_compress_struct::min_DCT_v_scaled_size" title='jpeg_compress_struct::min_DCT_v_scaled_size' data-ref="jpeg_compress_struct::min_DCT_v_scaled_size">min_DCT_v_scaled_size</a>)</td></tr>
+<tr><th id="132">132</th><td>      <b>return</b>;</td></tr>
+<tr><th id="133">133</th><td></td></tr>
+<tr><th id="134">134</th><td>    <i>/* Send the completed row to the compressor */</i></td></tr>
+<tr><th id="135">135</th><td>    <b>if</b> (! (*<a class="local col8 ref" href="#8cinfo" title='cinfo' data-ref="8cinfo">cinfo</a>-&gt;<a class="ref" href="jpeglib.h.html#jpeg_compress_struct::coef" title='jpeg_compress_struct::coef' data-ref="jpeg_compress_struct::coef">coef</a>-&gt;<a class="ref" href="jpegint.h.html#79" title='jpeg_c_coef_controller::compress_data' data-ref="jpeg_c_coef_controller::compress_data">compress_data</a>) (<a class="local col8 ref" href="#8cinfo" title='cinfo' data-ref="8cinfo">cinfo</a>, <a class="local col2 ref" href="#12main_ptr" title='main_ptr' data-ref="12main_ptr">main_ptr</a>-&gt;<a class="tu ref" href="#(anonymous)::buffer" title='(anonymous struct)::buffer' data-ref="(anonymous)::buffer">buffer</a>)) {</td></tr>
+<tr><th id="136">136</th><td>      <i>/* If compressor did not consume the whole row, then we must need to</i></td></tr>
+<tr><th id="137">137</th><td><i>       * suspend processing and return to the application.  In this situation</i></td></tr>
+<tr><th id="138">138</th><td><i>       * we pretend we didn't yet consume the last input row; otherwise, if</i></td></tr>
+<tr><th id="139">139</th><td><i>       * it happened to be the last row of the image, the application would</i></td></tr>
+<tr><th id="140">140</th><td><i>       * think we were done.</i></td></tr>
+<tr><th id="141">141</th><td><i>       */</i></td></tr>
+<tr><th id="142">142</th><td>      <b>if</b> (! <a class="local col2 ref" href="#12main_ptr" title='main_ptr' data-ref="12main_ptr">main_ptr</a>-&gt;<a class="tu ref" href="#(anonymous)::suspended" title='(anonymous struct)::suspended' data-use='r' data-ref="(anonymous)::suspended">suspended</a>) {</td></tr>
+<tr><th id="143">143</th><td>	(*<a class="local col0 ref" href="#10in_row_ctr" title='in_row_ctr' data-ref="10in_row_ctr">in_row_ctr</a>)--;</td></tr>
+<tr><th id="144">144</th><td>	<a class="local col2 ref" href="#12main_ptr" title='main_ptr' data-ref="12main_ptr">main_ptr</a>-&gt;<a class="tu ref" href="#(anonymous)::suspended" title='(anonymous struct)::suspended' data-use='w' data-ref="(anonymous)::suspended">suspended</a> = <a class="macro" href="jmorecfg.h.html#242" title="1" data-ref="_M/TRUE">TRUE</a>;</td></tr>
+<tr><th id="145">145</th><td>      }</td></tr>
+<tr><th id="146">146</th><td>      <b>return</b>;</td></tr>
+<tr><th id="147">147</th><td>    }</td></tr>
+<tr><th id="148">148</th><td>    <i>/* We did finish the row.  Undo our little suspension hack if a previous</i></td></tr>
+<tr><th id="149">149</th><td><i>     * call suspended; then mark the main buffer empty.</i></td></tr>
+<tr><th id="150">150</th><td><i>     */</i></td></tr>
+<tr><th id="151">151</th><td>    <b>if</b> (<a class="local col2 ref" href="#12main_ptr" title='main_ptr' data-ref="12main_ptr">main_ptr</a>-&gt;<a class="tu ref" href="#(anonymous)::suspended" title='(anonymous struct)::suspended' data-use='r' data-ref="(anonymous)::suspended">suspended</a>) {</td></tr>
+<tr><th id="152">152</th><td>      (*<a class="local col0 ref" href="#10in_row_ctr" title='in_row_ctr' data-ref="10in_row_ctr">in_row_ctr</a>)++;</td></tr>
+<tr><th id="153">153</th><td>      <a class="local col2 ref" href="#12main_ptr" title='main_ptr' data-ref="12main_ptr">main_ptr</a>-&gt;<a class="tu ref" href="#(anonymous)::suspended" title='(anonymous struct)::suspended' data-use='w' data-ref="(anonymous)::suspended">suspended</a> = <a class="macro" href="jmorecfg.h.html#239" title="0" data-ref="_M/FALSE">FALSE</a>;</td></tr>
+<tr><th id="154">154</th><td>    }</td></tr>
+<tr><th id="155">155</th><td>    <a class="local col2 ref" href="#12main_ptr" title='main_ptr' data-ref="12main_ptr">main_ptr</a>-&gt;<a class="tu ref" href="#(anonymous)::rowgroup_ctr" title='(anonymous struct)::rowgroup_ctr' data-use='w' data-ref="(anonymous)::rowgroup_ctr">rowgroup_ctr</a> = <var>0</var>;</td></tr>
+<tr><th id="156">156</th><td>    <a class="local col2 ref" href="#12main_ptr" title='main_ptr' data-ref="12main_ptr">main_ptr</a>-&gt;<a class="tu ref" href="#(anonymous)::cur_iMCU_row" title='(anonymous struct)::cur_iMCU_row' data-use='w' data-ref="(anonymous)::cur_iMCU_row">cur_iMCU_row</a>++;</td></tr>
+<tr><th id="157">157</th><td>  }</td></tr>
+<tr><th id="158">158</th><td>}</td></tr>
+<tr><th id="159">159</th><td></td></tr>
+<tr><th id="160">160</th><td></td></tr>
+<tr><th id="161">161</th><td><u>#<span data-ppcond="161">ifdef</span> <span class="macro" data-ref="_M/FULL_MAIN_BUFFER_SUPPORTED">FULL_MAIN_BUFFER_SUPPORTED</span></u></td></tr>
+<tr><th id="162">162</th><td></td></tr>
+<tr><th id="163">163</th><td><i>/*</i></td></tr>
+<tr><th id="164">164</th><td><i> * Process some data.</i></td></tr>
+<tr><th id="165">165</th><td><i> * This routine handles all of the modes that use a full-size buffer.</i></td></tr>
+<tr><th id="166">166</th><td><i> */</i></td></tr>
+<tr><th id="167">167</th><td></td></tr>
+<tr><th id="168">168</th><td>METHODDEF(<em>void</em>)</td></tr>
+<tr><th id="169">169</th><td>process_data_buffer_main (j_compress_ptr cinfo,</td></tr>
+<tr><th id="170">170</th><td>			  JSAMPARRAY input_buf, JDIMENSION *in_row_ctr,</td></tr>
+<tr><th id="171">171</th><td>			  JDIMENSION in_rows_avail)</td></tr>
+<tr><th id="172">172</th><td>{</td></tr>
+<tr><th id="173">173</th><td>  my_main_ptr main_ptr = (my_main_ptr) cinfo-&gt;main;</td></tr>
+<tr><th id="174">174</th><td>  <em>int</em> ci;</td></tr>
+<tr><th id="175">175</th><td>  jpeg_component_info *compptr;</td></tr>
+<tr><th id="176">176</th><td>  boolean writing = (main_ptr-&gt;pass_mode != JBUF_CRANK_DEST);</td></tr>
+<tr><th id="177">177</th><td></td></tr>
+<tr><th id="178">178</th><td>  <b>while</b> (main_ptr-&gt;cur_iMCU_row &lt; cinfo-&gt;total_iMCU_rows) {</td></tr>
+<tr><th id="179">179</th><td>    <i>/* Realign the virtual buffers if at the start of an iMCU row. */</i></td></tr>
+<tr><th id="180">180</th><td>    <b>if</b> (main_ptr-&gt;rowgroup_ctr == <var>0</var>) {</td></tr>
+<tr><th id="181">181</th><td>      <b>for</b> (ci = <var>0</var>, compptr = cinfo-&gt;comp_info; ci &lt; cinfo-&gt;num_components;</td></tr>
+<tr><th id="182">182</th><td>	   ci++, compptr++) {</td></tr>
+<tr><th id="183">183</th><td>	main_ptr-&gt;buffer[ci] = (*cinfo-&gt;mem-&gt;access_virt_sarray)</td></tr>
+<tr><th id="184">184</th><td>	  ((j_common_ptr) cinfo, main_ptr-&gt;whole_image[ci],</td></tr>
+<tr><th id="185">185</th><td>	   main_ptr-&gt;cur_iMCU_row * (compptr-&gt;v_samp_factor * DCTSIZE),</td></tr>
+<tr><th id="186">186</th><td>	   (JDIMENSION) (compptr-&gt;v_samp_factor * DCTSIZE), writing);</td></tr>
+<tr><th id="187">187</th><td>      }</td></tr>
+<tr><th id="188">188</th><td>      <i>/* In a read pass, pretend we just read some source data. */</i></td></tr>
+<tr><th id="189">189</th><td>      <b>if</b> (! writing) {</td></tr>
+<tr><th id="190">190</th><td>	*in_row_ctr += cinfo-&gt;max_v_samp_factor * DCTSIZE;</td></tr>
+<tr><th id="191">191</th><td>	main_ptr-&gt;rowgroup_ctr = DCTSIZE;</td></tr>
+<tr><th id="192">192</th><td>      }</td></tr>
+<tr><th id="193">193</th><td>    }</td></tr>
+<tr><th id="194">194</th><td></td></tr>
+<tr><th id="195">195</th><td>    <i>/* If a write pass, read input data until the current iMCU row is full. */</i></td></tr>
+<tr><th id="196">196</th><td>    <i>/* Note: preprocessor will pad if necessary to fill the last iMCU row. */</i></td></tr>
+<tr><th id="197">197</th><td>    <b>if</b> (writing) {</td></tr>
+<tr><th id="198">198</th><td>      (*cinfo-&gt;prep-&gt;pre_process_data) (cinfo,</td></tr>
+<tr><th id="199">199</th><td>					input_buf, in_row_ctr, in_rows_avail,</td></tr>
+<tr><th id="200">200</th><td>					main_ptr-&gt;buffer, &amp;main_ptr-&gt;rowgroup_ctr,</td></tr>
+<tr><th id="201">201</th><td>					(JDIMENSION) DCTSIZE);</td></tr>
+<tr><th id="202">202</th><td>      <i>/* Return to application if we need more data to fill the iMCU row. */</i></td></tr>
+<tr><th id="203">203</th><td>      <b>if</b> (main_ptr-&gt;rowgroup_ctr &lt; DCTSIZE)</td></tr>
+<tr><th id="204">204</th><td>	<b>return</b>;</td></tr>
+<tr><th id="205">205</th><td>    }</td></tr>
+<tr><th id="206">206</th><td></td></tr>
+<tr><th id="207">207</th><td>    <i>/* Emit data, unless this is a sink-only pass. */</i></td></tr>
+<tr><th id="208">208</th><td>    <b>if</b> (main_ptr-&gt;pass_mode != JBUF_SAVE_SOURCE) {</td></tr>
+<tr><th id="209">209</th><td>      <b>if</b> (! (*cinfo-&gt;coef-&gt;compress_data) (cinfo, main_ptr-&gt;buffer)) {</td></tr>
+<tr><th id="210">210</th><td>	<i>/* If compressor did not consume the whole row, then we must need to</i></td></tr>
+<tr><th id="211">211</th><td><i>	 * suspend processing and return to the application.  In this situation</i></td></tr>
+<tr><th id="212">212</th><td><i>	 * we pretend we didn't yet consume the last input row; otherwise, if</i></td></tr>
+<tr><th id="213">213</th><td><i>	 * it happened to be the last row of the image, the application would</i></td></tr>
+<tr><th id="214">214</th><td><i>	 * think we were done.</i></td></tr>
+<tr><th id="215">215</th><td><i>	 */</i></td></tr>
+<tr><th id="216">216</th><td>	<b>if</b> (! main_ptr-&gt;suspended) {</td></tr>
+<tr><th id="217">217</th><td>	  (*in_row_ctr)--;</td></tr>
+<tr><th id="218">218</th><td>	  main_ptr-&gt;suspended = TRUE;</td></tr>
+<tr><th id="219">219</th><td>	}</td></tr>
+<tr><th id="220">220</th><td>	<b>return</b>;</td></tr>
+<tr><th id="221">221</th><td>      }</td></tr>
+<tr><th id="222">222</th><td>      <i>/* We did finish the row.  Undo our little suspension hack if a previous</i></td></tr>
+<tr><th id="223">223</th><td><i>       * call suspended; then mark the main buffer empty.</i></td></tr>
+<tr><th id="224">224</th><td><i>       */</i></td></tr>
+<tr><th id="225">225</th><td>      <b>if</b> (main_ptr-&gt;suspended) {</td></tr>
+<tr><th id="226">226</th><td>	(*in_row_ctr)++;</td></tr>
+<tr><th id="227">227</th><td>	main_ptr-&gt;suspended = FALSE;</td></tr>
+<tr><th id="228">228</th><td>      }</td></tr>
+<tr><th id="229">229</th><td>    }</td></tr>
+<tr><th id="230">230</th><td></td></tr>
+<tr><th id="231">231</th><td>    <i>/* If get here, we are done with this iMCU row.  Mark buffer empty. */</i></td></tr>
+<tr><th id="232">232</th><td>    main_ptr-&gt;rowgroup_ctr = <var>0</var>;</td></tr>
+<tr><th id="233">233</th><td>    main_ptr-&gt;cur_iMCU_row++;</td></tr>
+<tr><th id="234">234</th><td>  }</td></tr>
+<tr><th id="235">235</th><td>}</td></tr>
+<tr><th id="236">236</th><td></td></tr>
+<tr><th id="237">237</th><td><u>#<span data-ppcond="161">endif</span> /* FULL_MAIN_BUFFER_SUPPORTED */</u></td></tr>
+<tr><th id="238">238</th><td></td></tr>
+<tr><th id="239">239</th><td></td></tr>
+<tr><th id="240">240</th><td><i>/*</i></td></tr>
+<tr><th id="241">241</th><td><i> * Initialize main buffer controller.</i></td></tr>
+<tr><th id="242">242</th><td><i> */</i></td></tr>
+<tr><th id="243">243</th><td></td></tr>
+<tr><th id="244">244</th><td><a class="macro" href="jmorecfg.h.html#195" title="void" data-ref="_M/GLOBAL">GLOBAL</a>(<em>void</em>)</td></tr>
+<tr><th id="245">245</th><td><dfn class="decl def" id="jinit_c_main_controller" title='jinit_c_main_controller' data-ref="jinit_c_main_controller">jinit_c_main_controller</dfn> (<a class="typedef" href="jpeglib.h.html#j_compress_ptr" title='j_compress_ptr' data-type='struct jpeg_compress_struct *' data-ref="j_compress_ptr">j_compress_ptr</a> <dfn class="local col3 decl" id="13cinfo" title='cinfo' data-type='j_compress_ptr' data-ref="13cinfo">cinfo</dfn>, <a class="typedef" href="jmorecfg.h.html#boolean" title='boolean' data-type='int' data-ref="boolean">boolean</a> <dfn class="local col4 decl" id="14need_full_buffer" title='need_full_buffer' data-type='boolean' data-ref="14need_full_buffer">need_full_buffer</dfn>)</td></tr>
+<tr><th id="246">246</th><td>{</td></tr>
+<tr><th id="247">247</th><td>  <a class="typedef" href="#my_main_ptr" title='my_main_ptr' data-type='my_main_controller *' data-ref="my_main_ptr">my_main_ptr</a> <dfn class="local col5 decl" id="15main_ptr" title='main_ptr' data-type='my_main_ptr' data-ref="15main_ptr">main_ptr</dfn>;</td></tr>
+<tr><th id="248">248</th><td>  <em>int</em> <dfn class="local col6 decl" id="16ci" title='ci' data-type='int' data-ref="16ci">ci</dfn>;</td></tr>
+<tr><th id="249">249</th><td>  <a class="typedef" href="jpeglib.h.html#jpeg_component_info" title='jpeg_component_info' data-type='struct jpeg_component_info' data-ref="jpeg_component_info">jpeg_component_info</a> *<dfn class="local col7 decl" id="17compptr" title='compptr' data-type='jpeg_component_info *' data-ref="17compptr">compptr</dfn>;</td></tr>
+<tr><th id="250">250</th><td></td></tr>
+<tr><th id="251">251</th><td>  <a class="local col5 ref" href="#15main_ptr" title='main_ptr' data-ref="15main_ptr">main_ptr</a> = (<a class="typedef" href="#my_main_ptr" title='my_main_ptr' data-type='my_main_controller *' data-ref="my_main_ptr">my_main_ptr</a>)</td></tr>
+<tr><th id="252">252</th><td>    (*<a class="local col3 ref" href="#13cinfo" title='cinfo' data-ref="13cinfo">cinfo</a>-&gt;<a class="ref" href="jpeglib.h.html#278" title='jpeg_compress_struct::mem' data-ref="jpeg_compress_struct::mem">mem</a>-&gt;<a class="ref" href="jpeglib.h.html#797" title='jpeg_memory_mgr::alloc_small' data-ref="jpeg_memory_mgr::alloc_small">alloc_small</a>) ((<a class="typedef" href="jpeglib.h.html#j_common_ptr" title='j_common_ptr' data-type='struct jpeg_common_struct *' data-ref="j_common_ptr">j_common_ptr</a>) <a class="local col3 ref" href="#13cinfo" title='cinfo' data-ref="13cinfo">cinfo</a>, <a class="macro" href="jpeglib.h.html#788" title="1" data-ref="_M/JPOOL_IMAGE">JPOOL_IMAGE</a>,</td></tr>
+<tr><th id="253">253</th><td>				<a class="macro" href="jinclude.h.html#80" title="((size_t) sizeof(my_main_controller))" data-ref="_M/SIZEOF">SIZEOF</a>(<a class="typedef" href="#my_main_controller" title='my_main_controller' data-type='struct my_main_controller' data-ref="my_main_controller">my_main_controller</a>));</td></tr>
+<tr><th id="254">254</th><td>  <a class="local col3 ref" href="#13cinfo" title='cinfo' data-ref="13cinfo">cinfo</a>-&gt;<a class="ref" href="jpeglib.h.html#jpeg_compress_struct::main" title='jpeg_compress_struct::main' data-ref="jpeg_compress_struct::main">main</a> = (<b>struct</b> <a class="type" href="jpegint.h.html#jpeg_c_main_controller" title='jpeg_c_main_controller' data-ref="jpeg_c_main_controller">jpeg_c_main_controller</a> *) <a class="local col5 ref" href="#15main_ptr" title='main_ptr' data-ref="15main_ptr">main_ptr</a>;</td></tr>
+<tr><th id="255">255</th><td>  <a class="local col5 ref" href="#15main_ptr" title='main_ptr' data-ref="15main_ptr">main_ptr</a>-&gt;<a class="tu ref" href="#(anonymous)::pub" title='(anonymous struct)::pub' data-use='m' data-ref="(anonymous)::pub">pub</a>.<a class="ref" href="jpegint.h.html#58" title='jpeg_c_main_controller::start_pass' data-ref="jpeg_c_main_controller::start_pass">start_pass</a> = <a class="ref" href="#start_pass_main" title='start_pass_main' data-ref="start_pass_main">start_pass_main</a>;</td></tr>
+<tr><th id="256">256</th><td></td></tr>
+<tr><th id="257">257</th><td>  <i>/* We don't need to create a buffer in raw-data mode. */</i></td></tr>
+<tr><th id="258">258</th><td>  <b>if</b> (<a class="local col3 ref" href="#13cinfo" title='cinfo' data-ref="13cinfo">cinfo</a>-&gt;<a class="ref" href="jpeglib.h.html#jpeg_compress_struct::raw_data_in" title='jpeg_compress_struct::raw_data_in' data-ref="jpeg_compress_struct::raw_data_in">raw_data_in</a>)</td></tr>
+<tr><th id="259">259</th><td>    <b>return</b>;</td></tr>
+<tr><th id="260">260</th><td></td></tr>
+<tr><th id="261">261</th><td>  <i>/* Create the buffer.  It holds downsampled data, so each component</i></td></tr>
+<tr><th id="262">262</th><td><i>   * may be of a different size.</i></td></tr>
+<tr><th id="263">263</th><td><i>   */</i></td></tr>
+<tr><th id="264">264</th><td>  <b>if</b> (<a class="local col4 ref" href="#14need_full_buffer" title='need_full_buffer' data-ref="14need_full_buffer">need_full_buffer</a>) {</td></tr>
+<tr><th id="265">265</th><td><u>#<span data-ppcond="265">ifdef</span> <span class="macro" data-ref="_M/FULL_MAIN_BUFFER_SUPPORTED">FULL_MAIN_BUFFER_SUPPORTED</span></u></td></tr>
+<tr><th id="266">266</th><td>    <i>/* Allocate a full-image virtual array for each component */</i></td></tr>
+<tr><th id="267">267</th><td>    <i>/* Note we pad the bottom to a multiple of the iMCU height */</i></td></tr>
+<tr><th id="268">268</th><td>    <b>for</b> (ci = <var>0</var>, compptr = cinfo-&gt;comp_info; ci &lt; cinfo-&gt;num_components;</td></tr>
+<tr><th id="269">269</th><td>	 ci++, compptr++) {</td></tr>
+<tr><th id="270">270</th><td>      main_ptr-&gt;whole_image[ci] = (*cinfo-&gt;mem-&gt;request_virt_sarray)</td></tr>
+<tr><th id="271">271</th><td>	((j_common_ptr) cinfo, JPOOL_IMAGE, FALSE,</td></tr>
+<tr><th id="272">272</th><td>	 compptr-&gt;width_in_blocks * compptr-&gt;DCT_h_scaled_size,</td></tr>
+<tr><th id="273">273</th><td>	 (JDIMENSION) jround_up((<em>long</em>) compptr-&gt;height_in_blocks,</td></tr>
+<tr><th id="274">274</th><td>				(<em>long</em>) compptr-&gt;v_samp_factor) * DCTSIZE,</td></tr>
+<tr><th id="275">275</th><td>	 (JDIMENSION) (compptr-&gt;v_samp_factor * compptr-&gt;DCT_v_scaled_size));</td></tr>
+<tr><th id="276">276</th><td>    }</td></tr>
+<tr><th id="277">277</th><td><u>#<span data-ppcond="265">else</span></u></td></tr>
+<tr><th id="278">278</th><td>    <a class="macro" href="jerror.h.html#209" title="((cinfo)-&gt;err-&gt;msg_code = (JERR_BAD_BUFFER_MODE), (*(cinfo)-&gt;err-&gt;error_exit) ((j_common_ptr) (cinfo)))" data-ref="_M/ERREXIT">ERREXIT</a>(<a class="local col3 ref" href="#13cinfo" title='cinfo' data-ref="13cinfo">cinfo</a>, <a class="enum" href="jerror.h.html#45" title='JERR_BAD_BUFFER_MODE' data-ref="JERR_BAD_BUFFER_MODE">JERR_BAD_BUFFER_MODE</a>);</td></tr>
+<tr><th id="279">279</th><td><u>#<span data-ppcond="265">endif</span></u></td></tr>
+<tr><th id="280">280</th><td>  } <b>else</b> {</td></tr>
+<tr><th id="281">281</th><td><u>#<span data-ppcond="281">ifdef</span> <span class="macro" data-ref="_M/FULL_MAIN_BUFFER_SUPPORTED">FULL_MAIN_BUFFER_SUPPORTED</span></u></td></tr>
+<tr><th id="282">282</th><td>    main_ptr-&gt;whole_image[<var>0</var>] = NULL; <i>/* flag for no virtual arrays */</i></td></tr>
+<tr><th id="283">283</th><td><u>#<span data-ppcond="281">endif</span></u></td></tr>
+<tr><th id="284">284</th><td>    <i>/* Allocate a strip buffer for each component */</i></td></tr>
+<tr><th id="285">285</th><td>    <b>for</b> (<a class="local col6 ref" href="#16ci" title='ci' data-ref="16ci">ci</a> = <var>0</var>, <a class="local col7 ref" href="#17compptr" title='compptr' data-ref="17compptr">compptr</a> = <a class="local col3 ref" href="#13cinfo" title='cinfo' data-ref="13cinfo">cinfo</a>-&gt;<a class="ref" href="jpeglib.h.html#jpeg_compress_struct::comp_info" title='jpeg_compress_struct::comp_info' data-ref="jpeg_compress_struct::comp_info">comp_info</a>; <a class="local col6 ref" href="#16ci" title='ci' data-ref="16ci">ci</a> &lt; <a class="local col3 ref" href="#13cinfo" title='cinfo' data-ref="13cinfo">cinfo</a>-&gt;<a class="ref" href="jpeglib.h.html#jpeg_compress_struct::num_components" title='jpeg_compress_struct::num_components' data-ref="jpeg_compress_struct::num_components">num_components</a>;</td></tr>
+<tr><th id="286">286</th><td>	 <a class="local col6 ref" href="#16ci" title='ci' data-ref="16ci">ci</a>++, <a class="local col7 ref" href="#17compptr" title='compptr' data-ref="17compptr">compptr</a>++) {</td></tr>
+<tr><th id="287">287</th><td>      <a class="local col5 ref" href="#15main_ptr" title='main_ptr' data-ref="15main_ptr">main_ptr</a>-&gt;<a class="tu ref" href="#(anonymous)::buffer" title='(anonymous struct)::buffer' data-use='w' data-ref="(anonymous)::buffer">buffer</a>[<a class="local col6 ref" href="#16ci" title='ci' data-ref="16ci">ci</a>] = (*<a class="local col3 ref" href="#13cinfo" title='cinfo' data-ref="13cinfo">cinfo</a>-&gt;<a class="ref" href="jpeglib.h.html#278" title='jpeg_compress_struct::mem' data-ref="jpeg_compress_struct::mem">mem</a>-&gt;<a class="ref" href="jpeglib.h.html#801" title='jpeg_memory_mgr::alloc_sarray' data-ref="jpeg_memory_mgr::alloc_sarray">alloc_sarray</a>)</td></tr>
+<tr><th id="288">288</th><td>	((<a class="typedef" href="jpeglib.h.html#j_common_ptr" title='j_common_ptr' data-type='struct jpeg_common_struct *' data-ref="j_common_ptr">j_common_ptr</a>) <a class="local col3 ref" href="#13cinfo" title='cinfo' data-ref="13cinfo">cinfo</a>, <a class="macro" href="jpeglib.h.html#788" title="1" data-ref="_M/JPOOL_IMAGE">JPOOL_IMAGE</a>,</td></tr>
+<tr><th id="289">289</th><td>	 <a class="local col7 ref" href="#17compptr" title='compptr' data-ref="17compptr">compptr</a>-&gt;<a class="ref" href="jpeglib.h.html#(anonymous)::width_in_blocks" title='(anonymous struct)::width_in_blocks' data-ref="(anonymous)::width_in_blocks">width_in_blocks</a> * <a class="local col7 ref" href="#17compptr" title='compptr' data-ref="17compptr">compptr</a>-&gt;<a class="ref" href="jpeglib.h.html#(anonymous)::DCT_h_scaled_size" title='(anonymous struct)::DCT_h_scaled_size' data-ref="(anonymous)::DCT_h_scaled_size">DCT_h_scaled_size</a>,</td></tr>
+<tr><th id="290">290</th><td>	 (<a class="typedef" href="jmorecfg.h.html#JDIMENSION" title='JDIMENSION' data-type='unsigned int' data-ref="JDIMENSION">JDIMENSION</a>) (<a class="local col7 ref" href="#17compptr" title='compptr' data-ref="17compptr">compptr</a>-&gt;<a class="ref" href="jpeglib.h.html#(anonymous)::v_samp_factor" title='(anonymous struct)::v_samp_factor' data-ref="(anonymous)::v_samp_factor">v_samp_factor</a> * <a class="local col7 ref" href="#17compptr" title='compptr' data-ref="17compptr">compptr</a>-&gt;<a class="ref" href="jpeglib.h.html#(anonymous)::DCT_v_scaled_size" title='(anonymous struct)::DCT_v_scaled_size' data-ref="(anonymous)::DCT_v_scaled_size">DCT_v_scaled_size</a>));</td></tr>
+<tr><th id="291">291</th><td>    }</td></tr>
+<tr><th id="292">292</th><td>  }</td></tr>
+<tr><th id="293">293</th><td>}</td></tr>
+<tr><th id="294">294</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated on <em>2017-Aug-29</em> from project codebrowser revision <em>63e07af</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

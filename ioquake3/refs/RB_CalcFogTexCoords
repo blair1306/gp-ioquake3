@@ -1,0 +1,28 @@
+<dec f='codebrowser/code/renderergl1/tr_local.h' l='1411' type='void RB_CalcFogTexCoords(float * dstTexCoords)'/>
+<use f='codebrowser/code/renderergl1/tr_shade.c' l='775' u='c' c='RB_FogPass'/>
+<use f='codebrowser/code/renderergl1/tr_shade.c' l='1044' u='c' c='ComputeTexCoords'/>
+<use f='codebrowser/code/renderergl1/tr_shade_calc.c' l='741' u='c' c='RB_CalcModulateColorsByFog'/>
+<use f='codebrowser/code/renderergl1/tr_shade_calc.c' l='761' u='c' c='RB_CalcModulateAlphasByFog'/>
+<use f='codebrowser/code/renderergl1/tr_shade_calc.c' l='779' u='c' c='RB_CalcModulateRGBAsByFog'/>
+<def f='codebrowser/code/renderergl1/tr_shade_calc.c' l='808' ll='884' type='void RB_CalcFogTexCoords(float * st)'/>
+<doc f='codebrowser/code/renderergl1/tr_shade_calc.c' l='799'>/*
+========================
+RB_CalcFogTexCoords
+
+To do the clipped fog plane really correctly, we should use
+projected textures, but I don&apos;t trust the drivers and it
+doesn&apos;t fit our shader data.
+========================
+*/</doc>
+<dec f='codebrowser/code/renderergl2/tr_local.h' l='2244' type='void RB_CalcFogTexCoords(float * dstTexCoords)'/>
+<use f='codebrowser/code/renderergl2/tr_shade_calc.c' l='650' u='c' c='RB_CalcModulateColorsByFog'/>
+<def f='codebrowser/code/renderergl2/tr_shade_calc.c' l='678' ll='754' type='void RB_CalcFogTexCoords(float * st)'/>
+<doc f='codebrowser/code/renderergl2/tr_shade_calc.c' l='669'>/*
+========================
+RB_CalcFogTexCoords
+
+To do the clipped fog plane really correctly, we should use
+projected textures, but I don&apos;t trust the drivers and it
+doesn&apos;t fit our shader data.
+========================
+*/</doc>

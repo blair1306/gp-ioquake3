@@ -1,0 +1,19 @@
+<dec f='codebrowser/code/q3_ui/ui_local.h' l='526' type='void UI_DrawPlayer(float x, float y, float w, float h, playerInfo_t * pi, int time)'/>
+<use f='codebrowser/code/q3_ui/ui_controls2.c' l='751' u='c' c='Controls_DrawPlayer'/>
+<use f='codebrowser/code/q3_ui/ui_playermodel.c' l='380' u='c' c='PlayerModel_DrawPlayer'/>
+<def f='codebrowser/code/q3_ui/ui_players.c' l='688' ll='900' type='void UI_DrawPlayer(float x, float y, float w, float h, playerInfo_t * pi, int time)'/>
+<doc f='codebrowser/code/q3_ui/ui_players.c' l='683'>/*
+===============
+UI_DrawPlayer
+===============
+*/</doc>
+<use f='codebrowser/code/q3_ui/ui_playersettings.c' l='250' u='c' c='PlayerSettings_DrawPlayer'/>
+<dec f='codebrowser/code/ui/ui_local.h' l='570' type='void UI_DrawPlayer(float x, float y, float w, float h, playerInfo_t * pi, int time)'/>
+<use f='codebrowser/code/ui/ui_main.c' l='1313' u='c' c='UI_DrawPlayerModel'/>
+<use f='codebrowser/code/ui/ui_main.c' l='1508' u='c' c='UI_DrawOpponent'/>
+<def f='codebrowser/code/ui/ui_players.c' l='689' ll='894' type='void UI_DrawPlayer(float x, float y, float w, float h, playerInfo_t * pi, int time)'/>
+<doc f='codebrowser/code/ui/ui_players.c' l='684'>/*
+===============
+UI_DrawPlayer
+===============
+*/</doc>

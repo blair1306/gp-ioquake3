@@ -1,0 +1,14 @@
+<dec f='codebrowser/code/opusfile-0.8/src/internal.h' l='186' type='opus_int32'/>
+<offset>1024</offset>
+<doc f='codebrowser/code/opusfile-0.8/src/internal.h' l='185'>/*The number of decoded samples to discard from the start of decoding.*/</doc>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='953' u='w' c='op_find_initial_pcm_offset'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='1454' u='w' c='op_open_seekable2'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='1899' u='w' c='op_fetch_and_process_page'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='2005' u='w' c='op_fetch_and_process_page'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='2108' u='w' c='op_raw_seek'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='2548' u='w' c='op_pcm_seek'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='2593' u='w' c='op_pcm_seek'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='2651' u='r' c='op_pcm_tell'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='2776' u='r' c='op_read_native'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='2807' u='w' c='op_read_native'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='2823' u='w' c='op_read_native'/>

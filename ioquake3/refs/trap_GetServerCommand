@@ -1,0 +1,7 @@
+<dec f='codebrowser/code/cgame/cg_local.h' l='1626' type='qboolean trap_GetServerCommand(int serverCommandNumber)'/>
+<doc f='codebrowser/code/cgame/cg_local.h' l='1622'>// retrieve a text command from the server stream
+// the current snapshot will hold the number of the most recent command
+// qfalse can be returned if the client system handled the command
+// argc() / argv() can be used to examine the parameters of the command</doc>
+<use f='codebrowser/code/cgame/cg_servercmds.c' l='1118' u='c' c='CG_ExecuteNewServerCommands'/>
+<def f='codebrowser/code/cgame/cg_syscalls.c' l='323' ll='325' type='qboolean trap_GetServerCommand(int serverCommandNumber)'/>

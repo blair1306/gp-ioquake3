@@ -1,0 +1,19 @@
+<dec f='codebrowser/code/game/g_local.h' l='466' type='void G_SetMovedir(vec_t * angles, vec_t * movedir)'/>
+<use f='codebrowser/code/game/g_misc.c' l='198' u='c' c='locateCamera'/>
+<use f='codebrowser/code/game/g_misc.c' l='301' u='c' c='InitShooter'/>
+<use f='codebrowser/code/game/g_mover.c' l='979' u='c' c='SP_func_door'/>
+<use f='codebrowser/code/game/g_mover.c' l='1225' u='c' c='SP_func_button'/>
+<use f='codebrowser/code/game/g_target.c' l='319' u='c' c='target_laser_start'/>
+<use f='codebrowser/code/game/g_trigger.c' l='28' u='c' c='InitTrigger'/>
+<use f='codebrowser/code/game/g_trigger.c' l='246' u='c' c='SP_target_push'/>
+<def f='codebrowser/code/game/g_utils.c' l='328' ll='342' type='void G_SetMovedir(vec_t * angles, vec_t * movedir)'/>
+<doc f='codebrowser/code/game/g_utils.c' l='318'>/*
+===============
+G_SetMovedir
+
+The editor only specifies a single value for angles (yaw),
+but we have special constants to generate an up or down direction.
+Angles will be cleared, because it is being used to represent a direction
+instead of an orientation.
+===============
+*/</doc>

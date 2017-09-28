@@ -1,0 +1,13 @@
+<def f='codebrowser/code/game/g_cmds.c' l='195' ll='229' type='int ClientNumberFromString(gentity_t * to, char * s, qboolean checkNums, qboolean checkNames)'/>
+<use f='codebrowser/code/game/g_cmds.c' l='741' u='c' c='Cmd_Follow_f'/>
+<use f='codebrowser/code/game/g_cmds.c' l='985' u='c' c='Cmd_Tell_f'/>
+<use f='codebrowser/code/game/g_cmds.c' l='1246' u='c' c='Cmd_GameCommand_f'/>
+<use f='codebrowser/code/game/g_cmds.c' l='1391' u='c' c='Cmd_CallVote_f'/>
+<doc f='codebrowser/code/game/g_cmds.c' l='187'>/*
+==================
+ClientNumberFromString
+
+Returns a player number for either a number or name string
+Returns -1 if invalid
+==================
+*/</doc>

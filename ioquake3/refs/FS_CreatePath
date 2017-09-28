@@ -1,0 +1,14 @@
+<dec f='codebrowser/code/qcommon/qcommon.h' l='628' type='qboolean FS_CreatePath(char * OSPath)'/>
+<def f='codebrowser/code/qcommon/files.c' l='525' ll='558' type='qboolean FS_CreatePath(char * OSPath)'/>
+<use f='codebrowser/code/qcommon/files.c' l='686' u='c' c='FS_SV_FOpenFileWrite'/>
+<use f='codebrowser/code/qcommon/files.c' l='919' u='c' c='FS_FOpenFileWrite'/>
+<use f='codebrowser/code/qcommon/files.c' l='967' u='c' c='FS_FOpenFileAppend'/>
+<use f='codebrowser/code/qcommon/files.c' l='3335' u='c' c='FS_Startup'/>
+<doc f='codebrowser/code/qcommon/files.c' l='518'>/*
+============
+FS_CreatePath
+
+Creates any directories needed to store the given filename
+============
+*/</doc>
+<use f='codebrowser/code/sys/sys_main.c' l='228' u='c' c='Sys_WritePIDFile'/>

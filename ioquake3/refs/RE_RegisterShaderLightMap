@@ -1,0 +1,29 @@
+<dec f='codebrowser/code/renderercommon/tr_common.h' l='126' type='qhandle_t RE_RegisterShaderLightMap(const char * name, int lightmapIndex)'/>
+<use f='codebrowser/code/renderergl1/tr_shader.c' l='76' u='c' c='R_RemapShader'/>
+<use f='codebrowser/code/renderergl1/tr_shader.c' l='86' u='c' c='R_RemapShader'/>
+<def f='codebrowser/code/renderergl1/tr_shader.c' l='2765' ll='2785' type='qhandle_t RE_RegisterShaderLightMap(const char * name, int lightmapIndex)'/>
+<doc f='codebrowser/code/renderergl1/tr_shader.c' l='2754'>/* 
+====================
+RE_RegisterShader
+
+This is the exported shader entry point for the rest of the system
+It will always return an index that will be valid.
+
+This should really only be used for explicit shaders, because there is no
+way to ask for different implicit lighting modes (vertex, lightmap, etc)
+====================
+*/</doc>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='76' u='c' c='R_RemapShader'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='86' u='c' c='R_RemapShader'/>
+<def f='codebrowser/code/renderergl2/tr_shader.c' l='3477' ll='3497' type='qhandle_t RE_RegisterShaderLightMap(const char * name, int lightmapIndex)'/>
+<doc f='codebrowser/code/renderergl2/tr_shader.c' l='3466'>/* 
+====================
+RE_RegisterShader
+
+This is the exported shader entry point for the rest of the system
+It will always return an index that will be valid.
+
+This should really only be used for explicit shaders, because there is no
+way to ask for different implicit lighting modes (vertex, lightmap, etc)
+====================
+*/</doc>

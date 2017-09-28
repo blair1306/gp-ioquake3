@@ -1,0 +1,13 @@
+<dec f='codebrowser/code/jpeg-8c/jpegint.h' l='157' type='boolean'/>
+<offset>288</offset>
+<doc f='codebrowser/code/jpeg-8c/jpegint.h' l='157'>/* True when EOI has been consumed */</doc>
+<use f='codebrowser/code/jpeg-8c/jdapimin.c' l='341' u='r' c='jpeg_input_complete'/>
+<use f='codebrowser/code/jpeg-8c/jdapimin.c' l='387' u='r' c='jpeg_finish_decompress'/>
+<use f='codebrowser/code/jpeg-8c/jdapistd.c' l='236' u='r' c='jpeg_start_output'/>
+<use f='codebrowser/code/jpeg-8c/jdapistd.c' l='267' u='r' c='jpeg_finish_output'/>
+<use f='codebrowser/code/jpeg-8c/jdcoefct.c' l='483' u='r' c='decompress_smooth_data'/>
+<use f='codebrowser/code/jpeg-8c/jdinput.c' l='564' u='r' c='consume_markers'/>
+<use f='codebrowser/code/jpeg-8c/jdinput.c' l='593' u='w' c='consume_markers'/>
+<use f='codebrowser/code/jpeg-8c/jdinput.c' l='625' u='w' c='reset_input_controller'/>
+<use f='codebrowser/code/jpeg-8c/jdinput.c' l='659' u='w' c='jinit_input_controller'/>
+<use f='codebrowser/code/jpeg-8c/jdmaster.c' l='462' u='r' c='prepare_for_output_pass'/>

@@ -1,0 +1,10 @@
+<dec f='include/SDL2/SDL_joystick.h' l='200' type='Sint16 SDL_JoystickGetAxis(SDL_Joystick * joystick, int axis)'/>
+<doc f='include/SDL2/SDL_joystick.h' l='193'>/**
+ *  Get the current state of an axis control on a joystick.
+ *
+ *  The state is a value ranging from -32768 to 32767.
+ *
+ *  The axis indices start at index 0.
+ */</doc>
+<use f='codebrowser/code/sdl/sdl_input.c' l='928' u='c' c='IN_JoyMove'/>
+<use f='codebrowser/code/sdl/sdl_input.c' l='945' u='c' c='IN_JoyMove'/>

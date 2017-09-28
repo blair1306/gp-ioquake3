@@ -1,0 +1,31 @@
+<dec f='codebrowser/code/game/ai_dmq3.h' l='104' type='int BotSameTeam(bot_state_t * bs, int entnum)'/>
+<use f='codebrowser/code/game/ai_chat.c' l='211' u='c' c='BotRandomOpponentName'/>
+<use f='codebrowser/code/game/ai_chat.c' l='335' u='c' c='BotVisibleEnemies'/>
+<use f='codebrowser/code/game/ai_chat.c' l='570' u='c' c='BotChat_Death'/>
+<use f='codebrowser/code/game/ai_chat.c' l='675' u='c' c='BotChat_Kill'/>
+<doc f='codebrowser/code/game/ai_dmq3.h' l='103'>//returns true if the bot and the entity are in the same team</doc>
+<use f='codebrowser/code/game/ai_cmd.c' l='262' u='c' c='FindEnemyByName'/>
+<use f='codebrowser/code/game/ai_cmd.c' l='267' u='c' c='FindEnemyByName'/>
+<use f='codebrowser/code/game/ai_cmd.c' l='287' u='c' c='NumPlayersOnSameTeam'/>
+<use f='codebrowser/code/game/ai_cmd.c' l='503' u='c' c='BotMatch_HelpAccompany'/>
+<use f='codebrowser/code/game/ai_cmd.c' l='1623' u='c' c='BotMatch_LeadTheWay'/>
+<use f='codebrowser/code/game/ai_cmd.c' l='1779' u='c' c='BotMatch_NewLeader'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='1451' u='c' c='ClientOnSameTeamFromName'/>
+<def f='codebrowser/code/game/ai_dmq3.c' l='2772' ll='2787' type='int BotSameTeam(bot_state_t * bs, int entnum)'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='3024' u='c' c='BotFindEnemy'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='3081' u='c' c='BotTeamFlagCarrierVisible'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='3114' u='c' c='BotTeamFlagCarrier'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='3144' u='c' c='BotEnemyFlagCarrierVisible'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='3191' u='c' c='BotVisibleTeamMatesAndEnemies'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='3651' u='c' c='BotCheckAttack'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='3727' u='c' c='BotMapScripts'/>
+<doc f='codebrowser/code/game/ai_dmq3.c' l='2767'>/*
+==================
+BotSameTeam
+==================
+*/</doc>
+<use f='codebrowser/code/game/ai_team.c' l='95' u='c' c='BotNumTeamMates'/>
+<use f='codebrowser/code/game/ai_team.c' l='160' u='c' c='BotSortTeamMatesByBaseTravelTime'/>
+<use f='codebrowser/code/game/ai_team.c' l='893' u='c' c='BotTeamOrders'/>
+<use f='codebrowser/code/game/ai_team.c' l='1906' u='c' c='FindHumanTeamLeader'/>
+<use f='codebrowser/code/game/ai_vcmd.c' l='540' u='c' c='BotVoiceChatCommand'/>

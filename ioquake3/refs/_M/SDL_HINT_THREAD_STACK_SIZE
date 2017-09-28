@@ -1,0 +1,9 @@
+<dec f='include/SDL2/SDL_hints.h' l='374'/>
+<doc f='include/SDL2/SDL_hints.h' l='366'>/**
+*  \brief  A string specifying SDL&apos;s threads stack size in bytes or &quot;0&quot; for the backend&apos;s default size
+*
+*  Use this hint in case you need to set SDL&apos;s threads stack size to other than the default.
+*  This is specially useful if you build SDL against a non glibc libc library (such as musl) which
+*  provides a relatively small default thread stack size (a few kilobytes versus the default 8MB glibc uses).
+*  Support for this hint is currently available only in the pthread backend.
+*/</doc>

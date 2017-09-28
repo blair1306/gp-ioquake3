@@ -1,0 +1,22 @@
+<def f='codebrowser/code/game/g_mover.c' l='948' ll='1016' type='void SP_func_door(gentity_t * ent)'/>
+<doc f='codebrowser/code/game/g_mover.c' l='932'>/*QUAKED func_door (0 .5 .8) ? START_OPEN x CRUSHER
+TOGGLE		wait in both the start and end states for a trigger event.
+START_OPEN	the door to moves to its destination when spawned, and operate in reverse.  It is used to temporarily or permanently close off an area when triggered (not useful for touch or takedamage doors).
+NOMONSTER	monsters will not trigger this door
+
+&quot;model2&quot;	.md3 model to also draw
+&quot;angle&quot;		determines the opening direction
+&quot;targetname&quot; if set, no touch field will be spawned and a remote button or trigger field activates the door.
+&quot;speed&quot;		movement speed (100 default)
+&quot;wait&quot;		wait before returning (3 default, -1 = never return)
+&quot;lip&quot;		lip remaining at end of move (8 default)
+&quot;dmg&quot;		damage to inflict when blocked (2 default)
+&quot;color&quot;		constantLight color
+&quot;light&quot;		constantLight radius
+&quot;health&quot;	if set, the door must be shot open
+*/</doc>
+<dec f='codebrowser/code/game/g_spawn.c' l='132' type='void SP_func_door(gentity_t * ent)'/>
+<use f='codebrowser/code/game/g_spawn.c' l='196'/>
+<use f='codebrowser/code/game/g_spawn.c' l='196'/>
+<use f='codebrowser/code/game/g_spawn.c' l='196'/>
+<use f='codebrowser/code/game/g_spawn.c' l='196'/>

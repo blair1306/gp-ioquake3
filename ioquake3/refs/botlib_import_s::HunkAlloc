@@ -1,0 +1,5 @@
+<dec f='codebrowser/code/botlib/botlib.h' l='192' type='void *(*)(int)'/>
+<offset>704</offset>
+<doc f='codebrowser/code/botlib/botlib.h' l='192'>// allocate from hunk</doc>
+<use f='codebrowser/code/botlib/l_memory.c' l='391' u='r' c='GetHunkMemory'/>
+<use f='codebrowser/code/server/sv_bot.c' l='542' u='w' c='SV_BotInitBotLib'/>

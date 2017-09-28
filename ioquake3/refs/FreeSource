@@ -1,0 +1,82 @@
+<dec f='codebrowser/code/botlib/l_precomp.h' l='153' type='void FreeSource(source_t * source)'/>
+<doc f='codebrowser/code/botlib/l_precomp.h' l='152'>//free the given source</doc>
+<use f='codebrowser/code/botlib/be_ai_char.c' l='237' u='c' c='BotLoadCharacterFromFile'/>
+<use f='codebrowser/code/botlib/be_ai_char.c' l='244' u='c' c='BotLoadCharacterFromFile'/>
+<use f='codebrowser/code/botlib/be_ai_char.c' l='260' u='c' c='BotLoadCharacterFromFile'/>
+<use f='codebrowser/code/botlib/be_ai_char.c' l='269' u='c' c='BotLoadCharacterFromFile'/>
+<use f='codebrowser/code/botlib/be_ai_char.c' l='277' u='c' c='BotLoadCharacterFromFile'/>
+<use f='codebrowser/code/botlib/be_ai_char.c' l='284' u='c' c='BotLoadCharacterFromFile'/>
+<use f='codebrowser/code/botlib/be_ai_char.c' l='312' u='c' c='BotLoadCharacterFromFile'/>
+<use f='codebrowser/code/botlib/be_ai_char.c' l='327' u='c' c='BotLoadCharacterFromFile'/>
+<use f='codebrowser/code/botlib/be_ai_char.c' l='340' u='c' c='BotLoadCharacterFromFile'/>
+<use f='codebrowser/code/botlib/be_ai_char.c' l='346' u='c' c='BotLoadCharacterFromFile'/>
+<use f='codebrowser/code/botlib/be_ai_chat.c' l='651' u='c' c='BotLoadSynonyms'/>
+<use f='codebrowser/code/botlib/be_ai_chat.c' l='656' u='c' c='BotLoadSynonyms'/>
+<use f='codebrowser/code/botlib/be_ai_chat.c' l='668' u='c' c='BotLoadSynonyms'/>
+<use f='codebrowser/code/botlib/be_ai_chat.c' l='695' u='c' c='BotLoadSynonyms'/>
+<use f='codebrowser/code/botlib/be_ai_chat.c' l='702' u='c' c='BotLoadSynonyms'/>
+<use f='codebrowser/code/botlib/be_ai_chat.c' l='725' u='c' c='BotLoadSynonyms'/>
+<use f='codebrowser/code/botlib/be_ai_chat.c' l='736' u='c' c='BotLoadSynonyms'/>
+<use f='codebrowser/code/botlib/be_ai_chat.c' l='743' u='c' c='BotLoadSynonyms'/>
+<use f='codebrowser/code/botlib/be_ai_chat.c' l='750' u='c' c='BotLoadSynonyms'/>
+<use f='codebrowser/code/botlib/be_ai_chat.c' l='756' u='c' c='BotLoadSynonyms'/>
+<use f='codebrowser/code/botlib/be_ai_chat.c' l='1000' u='c' c='BotLoadRandomStrings'/>
+<use f='codebrowser/code/botlib/be_ai_chat.c' l='1023' u='c' c='BotLoadRandomStrings'/>
+<use f='codebrowser/code/botlib/be_ai_chat.c' l='1030' u='c' c='BotLoadRandomStrings'/>
+<use f='codebrowser/code/botlib/be_ai_chat.c' l='1051' u='c' c='BotLoadRandomStrings'/>
+<use f='codebrowser/code/botlib/be_ai_chat.c' l='1178' u='c' c='BotLoadMatchPieces'/>
+<use f='codebrowser/code/botlib/be_ai_chat.c' l='1185' u='c' c='BotLoadMatchPieces'/>
+<use f='codebrowser/code/botlib/be_ai_chat.c' l='1220' u='c' c='BotLoadMatchPieces'/>
+<use f='codebrowser/code/botlib/be_ai_chat.c' l='1241' u='c' c='BotLoadMatchPieces'/>
+<use f='codebrowser/code/botlib/be_ai_chat.c' l='1248' u='c' c='BotLoadMatchPieces'/>
+<use f='codebrowser/code/botlib/be_ai_chat.c' l='1302' u='c' c='BotLoadMatchTemplates'/>
+<use f='codebrowser/code/botlib/be_ai_chat.c' l='1311' u='c' c='BotLoadMatchTemplates'/>
+<use f='codebrowser/code/botlib/be_ai_chat.c' l='1340' u='c' c='BotLoadMatchTemplates'/>
+<use f='codebrowser/code/botlib/be_ai_chat.c' l='1349' u='c' c='BotLoadMatchTemplates'/>
+<use f='codebrowser/code/botlib/be_ai_chat.c' l='1358' u='c' c='BotLoadMatchTemplates'/>
+<use f='codebrowser/code/botlib/be_ai_chat.c' l='1364' u='c' c='BotLoadMatchTemplates'/>
+<use f='codebrowser/code/botlib/be_ai_chat.c' l='1873' u='c' c='BotLoadReplyChat'/>
+<use f='codebrowser/code/botlib/be_ai_chat.c' l='1918' u='c' c='BotLoadReplyChat'/>
+<use f='codebrowser/code/botlib/be_ai_chat.c' l='1928' u='c' c='BotLoadReplyChat'/>
+<use f='codebrowser/code/botlib/be_ai_chat.c' l='1940' u='c' c='BotLoadReplyChat'/>
+<use f='codebrowser/code/botlib/be_ai_chat.c' l='1957' u='c' c='BotLoadReplyChat'/>
+<use f='codebrowser/code/botlib/be_ai_chat.c' l='1965' u='c' c='BotLoadReplyChat'/>
+<use f='codebrowser/code/botlib/be_ai_chat.c' l='1975' u='c' c='BotLoadReplyChat'/>
+<use f='codebrowser/code/botlib/be_ai_chat.c' l='1988' u='c' c='BotLoadReplyChat'/>
+<use f='codebrowser/code/botlib/be_ai_chat.c' l='2077' u='c' c='BotLoadInitialChat'/>
+<use f='codebrowser/code/botlib/be_ai_chat.c' l='2084' u='c' c='BotLoadInitialChat'/>
+<use f='codebrowser/code/botlib/be_ai_chat.c' l='2096' u='c' c='BotLoadInitialChat'/>
+<use f='codebrowser/code/botlib/be_ai_chat.c' l='2103' u='c' c='BotLoadInitialChat'/>
+<use f='codebrowser/code/botlib/be_ai_chat.c' l='2110' u='c' c='BotLoadInitialChat'/>
+<use f='codebrowser/code/botlib/be_ai_chat.c' l='2132' u='c' c='BotLoadInitialChat'/>
+<use f='codebrowser/code/botlib/be_ai_chat.c' l='2163' u='c' c='BotLoadInitialChat'/>
+<use f='codebrowser/code/botlib/be_ai_chat.c' l='2174' u='c' c='BotLoadInitialChat'/>
+<use f='codebrowser/code/botlib/be_ai_chat.c' l='2179' u='c' c='BotLoadInitialChat'/>
+<use f='codebrowser/code/botlib/be_ai_goal.c' l='305' u='c' c='LoadItemConfig'/>
+<use f='codebrowser/code/botlib/be_ai_goal.c' l='313' u='c' c='LoadItemConfig'/>
+<use f='codebrowser/code/botlib/be_ai_goal.c' l='321' u='c' c='LoadItemConfig'/>
+<use f='codebrowser/code/botlib/be_ai_goal.c' l='331' u='c' c='LoadItemConfig'/>
+<use f='codebrowser/code/botlib/be_ai_goal.c' l='335' u='c' c='LoadItemConfig'/>
+<use f='codebrowser/code/botlib/be_ai_weap.c' l='248' u='c' c='LoadWeaponConfig'/>
+<use f='codebrowser/code/botlib/be_ai_weap.c' l='255' u='c' c='LoadWeaponConfig'/>
+<use f='codebrowser/code/botlib/be_ai_weap.c' l='267' u='c' c='LoadWeaponConfig'/>
+<use f='codebrowser/code/botlib/be_ai_weap.c' l='274' u='c' c='LoadWeaponConfig'/>
+<use f='codebrowser/code/botlib/be_ai_weap.c' l='283' u='c' c='LoadWeaponConfig'/>
+<use f='codebrowser/code/botlib/be_ai_weap.c' l='287' u='c' c='LoadWeaponConfig'/>
+<use f='codebrowser/code/botlib/be_ai_weight.c' l='350' u='c' c='ReadWeightConfig'/>
+<use f='codebrowser/code/botlib/be_ai_weight.c' l='359' u='c' c='ReadWeightConfig'/>
+<use f='codebrowser/code/botlib/be_ai_weight.c' l='369' u='c' c='ReadWeightConfig'/>
+<use f='codebrowser/code/botlib/be_ai_weight.c' l='379' u='c' c='ReadWeightConfig'/>
+<use f='codebrowser/code/botlib/be_ai_weight.c' l='395' u='c' c='ReadWeightConfig'/>
+<use f='codebrowser/code/botlib/be_ai_weight.c' l='404' u='c' c='ReadWeightConfig'/>
+<use f='codebrowser/code/botlib/be_ai_weight.c' l='412' u='c' c='ReadWeightConfig'/>
+<use f='codebrowser/code/botlib/be_ai_weight.c' l='422' u='c' c='ReadWeightConfig'/>
+<use f='codebrowser/code/botlib/be_ai_weight.c' l='427' u='c' c='ReadWeightConfig'/>
+<def f='codebrowser/code/botlib/l_precomp.c' l='3056' ll='3111' type='void FreeSource(source_t * source)'/>
+<use f='codebrowser/code/botlib/l_precomp.c' l='3155' u='c' c='PC_FreeSourceHandle'/>
+<doc f='codebrowser/code/botlib/l_precomp.c' l='3050'>//============================================================================
+//
+// Parameter:				-
+// Returns:					-
+// Changes Globals:		-
+//============================================================================</doc>

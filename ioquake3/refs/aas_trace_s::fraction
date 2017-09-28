@@ -1,0 +1,22 @@
+<dec f='codebrowser/code/botlib/be_aas.h' l='87' type='float'/>
+<offset>32</offset>
+<doc f='codebrowser/code/botlib/be_aas.h' l='87'>// time completed, 1.0 = didn&apos;t hit anything</doc>
+<use f='codebrowser/code/botlib/be_aas_move.c' l='199' u='r' c='AAS_OnGround'/>
+<use f='codebrowser/code/botlib/be_aas_move.c' l='425' u='w' c='AAS_ClipToBBox'/>
+<use f='codebrowser/code/botlib/be_aas_move.c' l='464' u='w' c='AAS_ClipToBBox'/>
+<use f='codebrowser/code/botlib/be_aas_move.c' l='744' u='r' c='AAS_ClientMovementPrediction'/>
+<use f='codebrowser/code/botlib/be_aas_move.c' l='867' u='r' c='AAS_ClientMovementPrediction'/>
+<use f='codebrowser/code/botlib/be_aas_reach.c' l='1548' u='r' c='AAS_Reachability_Step_Barrier_WaterJump_WalkOffLedge'/>
+<use f='codebrowser/code/botlib/be_aas_reach.c' l='2226' u='r' c='AAS_Reachability_Jump'/>
+<use f='codebrowser/code/botlib/be_aas_reach.c' l='2249' u='r' c='AAS_Reachability_Jump'/>
+<use f='codebrowser/code/botlib/be_aas_reach.c' l='3089' u='r' c='AAS_Reachability_Elevator'/>
+<use f='codebrowser/code/botlib/be_aas_reach.c' l='3875' u='r' c='AAS_Reachability_Grapple'/>
+<use f='codebrowser/code/botlib/be_aas_route.c' l='2038' u='r' c='AAS_RandomGoalArea'/>
+<use f='codebrowser/code/botlib/be_aas_sample.c' l='485' u='w' c='AAS_TraceClientBBox'/>
+<use f='codebrowser/code/botlib/be_aas_sample.c' l='518' u='w' c='AAS_TraceClientBBox'/>
+<use f='codebrowser/code/botlib/be_aas_sample.c' l='526' u='w' c='AAS_TraceClientBBox'/>
+<use f='codebrowser/code/botlib/be_aas_sample.c' l='551' u='w' c='AAS_TraceClientBBox'/>
+<use f='codebrowser/code/botlib/be_aas_sample.c' l='571' u='w' c='AAS_TraceClientBBox'/>
+<use f='codebrowser/code/botlib/be_aas_sample.c' l='579' u='w' c='AAS_TraceClientBBox'/>
+<use f='codebrowser/code/botlib/be_ai_move.c' l='1011' u='r' c='BotGapDistance'/>
+<use f='codebrowser/code/botlib/be_ai_move.c' l='1080' u='r' c='BotCheckBarrierJump'/>

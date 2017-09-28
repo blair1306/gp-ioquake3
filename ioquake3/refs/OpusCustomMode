@@ -1,0 +1,20 @@
+<def f='codebrowser/code/opus-1.1.4/celt/modes.h' l='52' ll='72'/>
+<size>160</size>
+<doc f='codebrowser/code/opus-1.1.4/celt/modes.h' l='49'>/** Mode definition (opaque)
+ @brief Mode definition
+ */</doc>
+<mbr r='OpusCustomMode::Fs' o='0' t='opus_int32'/>
+<mbr r='OpusCustomMode::overlap' o='32' t='int'/>
+<mbr r='OpusCustomMode::nbEBands' o='64' t='int'/>
+<mbr r='OpusCustomMode::effEBands' o='96' t='int'/>
+<mbr r='OpusCustomMode::preemph' o='128' t='opus_val16 [4]'/>
+<mbr r='OpusCustomMode::eBands' o='256' t='const opus_int16 *'/>
+<mbr r='OpusCustomMode::maxLM' o='320' t='int'/>
+<mbr r='OpusCustomMode::nbShortMdcts' o='352' t='int'/>
+<mbr r='OpusCustomMode::shortMdctSize' o='384' t='int'/>
+<mbr r='OpusCustomMode::nbAllocVectors' o='416' t='int'/>
+<mbr r='OpusCustomMode::allocVectors' o='448' t='const unsigned char *'/>
+<mbr r='OpusCustomMode::logN' o='512' t='const opus_int16 *'/>
+<mbr r='OpusCustomMode::window' o='576' t='const opus_val16 *'/>
+<mbr r='OpusCustomMode::mdct' o='640' t='mdct_lookup'/>
+<mbr r='OpusCustomMode::cache' o='1024' t='PulseCache'/>

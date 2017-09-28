@@ -1,0 +1,16 @@
+<dec f='codebrowser/code/game/g_local.h' l='631' type='qboolean OnSameTeam(gentity_t * ent1, gentity_t * ent2)'/>
+<doc f='codebrowser/code/game/g_local.h' l='628'>//
+// g_team.c
+//</doc>
+<use f='codebrowser/code/game/g_cmds.c' l='854' u='c' c='G_SayTo'/>
+<use f='codebrowser/code/game/g_combat.c' l='508' u='c' c='player_die'/>
+<use f='codebrowser/code/game/g_combat.c' l='924' u='c' c='G_Damage'/>
+<use f='codebrowser/code/game/g_combat.c' l='962' u='c' c='G_Damage'/>
+<def f='codebrowser/code/game/g_team.c' l='165' ll='179' type='qboolean OnSameTeam(gentity_t * ent1, gentity_t * ent2)'/>
+<use f='codebrowser/code/game/g_team.c' l='284' u='c' c='Team_FragBonuses'/>
+<doc f='codebrowser/code/game/g_team.c' l='160'>/*
+==============
+OnSameTeam
+==============
+*/</doc>
+<use f='codebrowser/code/game/g_weapon.c' l='769' u='c' c='LogAccuracyHit'/>

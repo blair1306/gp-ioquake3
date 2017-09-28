@@ -1,0 +1,44 @@
+<dec f='codebrowser/code/jpeg-8c/jpeglib.h' l='97' type='UINT16 [64]'/>
+<offset>0</offset>
+<doc f='codebrowser/code/jpeg-8c/jpeglib.h' l='93'>/* This array gives the coefficient quantizers in natural array order
+   * (not the zigzag order in which they are stored in a JPEG DQT marker).
+   * CAUTION: IJG versions prior to v6a kept this array in zigzag order.
+   */</doc>
+<doc f='codebrowser/code/jpeg-8c/jpeglib.h' l='97'>/* quantization step for each coefficient */</doc>
+<use f='codebrowser/code/jpeg-8c/jcdctmgr.c' l='370' u='r' c='start_pass_fdctmgr'/>
+<use f='codebrowser/code/jpeg-8c/jcdctmgr.c' l='406' u='r' c='start_pass_fdctmgr'/>
+<use f='codebrowser/code/jpeg-8c/jcdctmgr.c' l='442' u='r' c='start_pass_fdctmgr'/>
+<use f='codebrowser/code/jpeg-8c/jcmarker.c' l='158' u='r' c='emit_dqt'/>
+<use f='codebrowser/code/jpeg-8c/jcmarker.c' l='172' u='r' c='emit_dqt'/>
+<use f='codebrowser/code/jpeg-8c/jcparam.c' l='56' u='w' c='jpeg_add_quant_table'/>
+<use f='codebrowser/code/jpeg-8c/jctrans.c' l='98' u='r' c='jpeg_copy_critical_parameters'/>
+<use f='codebrowser/code/jpeg-8c/jctrans.c' l='99' u='r' c='jpeg_copy_critical_parameters'/>
+<use f='codebrowser/code/jpeg-8c/jctrans.c' l='100' u='r' c='jpeg_copy_critical_parameters'/>
+<use f='codebrowser/code/jpeg-8c/jctrans.c' l='129' u='r' c='jpeg_copy_critical_parameters'/>
+<use f='codebrowser/code/jpeg-8c/jctrans.c' l='129' u='r' c='jpeg_copy_critical_parameters'/>
+<use f='codebrowser/code/jpeg-8c/jdcoefct.c' l='432' u='r' c='smoothing_ok'/>
+<use f='codebrowser/code/jpeg-8c/jdcoefct.c' l='433' u='r' c='smoothing_ok'/>
+<use f='codebrowser/code/jpeg-8c/jdcoefct.c' l='434' u='r' c='smoothing_ok'/>
+<use f='codebrowser/code/jpeg-8c/jdcoefct.c' l='435' u='r' c='smoothing_ok'/>
+<use f='codebrowser/code/jpeg-8c/jdcoefct.c' l='436' u='r' c='smoothing_ok'/>
+<use f='codebrowser/code/jpeg-8c/jdcoefct.c' l='437' u='r' c='smoothing_ok'/>
+<use f='codebrowser/code/jpeg-8c/jdcoefct.c' l='534' u='r' c='decompress_smooth_data'/>
+<use f='codebrowser/code/jpeg-8c/jdcoefct.c' l='535' u='r' c='decompress_smooth_data'/>
+<use f='codebrowser/code/jpeg-8c/jdcoefct.c' l='536' u='r' c='decompress_smooth_data'/>
+<use f='codebrowser/code/jpeg-8c/jdcoefct.c' l='537' u='r' c='decompress_smooth_data'/>
+<use f='codebrowser/code/jpeg-8c/jdcoefct.c' l='538' u='r' c='decompress_smooth_data'/>
+<use f='codebrowser/code/jpeg-8c/jdcoefct.c' l='539' u='r' c='decompress_smooth_data'/>
+<use f='codebrowser/code/jpeg-8c/jddctmgr.c' l='282' u='r' c='start_pass'/>
+<use f='codebrowser/code/jpeg-8c/jddctmgr.c' l='314' u='r' c='start_pass'/>
+<use f='codebrowser/code/jpeg-8c/jddctmgr.c' l='341' u='r' c='start_pass'/>
+<use f='codebrowser/code/jpeg-8c/jdmarker.c' l='527' u='w' c='get_dqt'/>
+<use f='codebrowser/code/jpeg-8c/jdmarker.c' l='536' u='w' c='get_dqt'/>
+<use f='codebrowser/code/jpeg-8c/jdmarker.c' l='559' u='w' c='get_dqt'/>
+<use f='codebrowser/code/jpeg-8c/jdmarker.c' l='565' u='r' c='get_dqt'/>
+<use f='codebrowser/code/jpeg-8c/jdmarker.c' l='565' u='r' c='get_dqt'/>
+<use f='codebrowser/code/jpeg-8c/jdmarker.c' l='566' u='r' c='get_dqt'/>
+<use f='codebrowser/code/jpeg-8c/jdmarker.c' l='566' u='r' c='get_dqt'/>
+<use f='codebrowser/code/jpeg-8c/jdmarker.c' l='567' u='r' c='get_dqt'/>
+<use f='codebrowser/code/jpeg-8c/jdmarker.c' l='567' u='r' c='get_dqt'/>
+<use f='codebrowser/code/jpeg-8c/jdmarker.c' l='568' u='r' c='get_dqt'/>
+<use f='codebrowser/code/jpeg-8c/jdmarker.c' l='568' u='r' c='get_dqt'/>

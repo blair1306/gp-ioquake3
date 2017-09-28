@@ -1,0 +1,80 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>be_aas_debug.h source code [codebrowser/code/botlib/be_aas_debug.h] - Woboq Code Browser</title>
+<link rel="stylesheet" href="../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'codebrowser/code/botlib/be_aas_debug.h'; var root_path = '../../..'; var data_path = '../../../../data';</script>
+<script src='../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../..'>codebrowser</a>/<a href='..'>code</a>/<a href='./'>botlib</a>/<a href='be_aas_debug.h.html'>be_aas_debug.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/*</i></td></tr>
+<tr><th id="2">2</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="3">3</th><td><i>Copyright (C) 1999-2005 Id Software, Inc.</i></td></tr>
+<tr><th id="4">4</th><td><i></i></td></tr>
+<tr><th id="5">5</th><td><i>This file is part of Quake III Arena source code.</i></td></tr>
+<tr><th id="6">6</th><td><i></i></td></tr>
+<tr><th id="7">7</th><td><i>Quake III Arena source code is free software; you can redistribute it</i></td></tr>
+<tr><th id="8">8</th><td><i>and/or modify it under the terms of the GNU General Public License as</i></td></tr>
+<tr><th id="9">9</th><td><i>published by the Free Software Foundation; either version 2 of the License,</i></td></tr>
+<tr><th id="10">10</th><td><i>or (at your option) any later version.</i></td></tr>
+<tr><th id="11">11</th><td><i></i></td></tr>
+<tr><th id="12">12</th><td><i>Quake III Arena source code is distributed in the hope that it will be</i></td></tr>
+<tr><th id="13">13</th><td><i>useful, but WITHOUT ANY WARRANTY; without even the implied warranty of</i></td></tr>
+<tr><th id="14">14</th><td><i>MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</i></td></tr>
+<tr><th id="15">15</th><td><i>GNU General Public License for more details.</i></td></tr>
+<tr><th id="16">16</th><td><i></i></td></tr>
+<tr><th id="17">17</th><td><i>You should have received a copy of the GNU General Public License</i></td></tr>
+<tr><th id="18">18</th><td><i>along with Quake III Arena source code; if not, write to the Free Software</i></td></tr>
+<tr><th id="19">19</th><td><i>Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA</i></td></tr>
+<tr><th id="20">20</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="21">21</th><td><i>*/</i></td></tr>
+<tr><th id="22">22</th><td></td></tr>
+<tr><th id="23">23</th><td><i>/*****************************************************************************</i></td></tr>
+<tr><th id="24">24</th><td><i> * name:		be_aas_debug.h</i></td></tr>
+<tr><th id="25">25</th><td><i> *</i></td></tr>
+<tr><th id="26">26</th><td><i> * desc:		AAS</i></td></tr>
+<tr><th id="27">27</th><td><i> *</i></td></tr>
+<tr><th id="28">28</th><td><i> * $Archive: /source/code/botlib/be_aas_debug.h $</i></td></tr>
+<tr><th id="29">29</th><td><i> *</i></td></tr>
+<tr><th id="30">30</th><td><i> *****************************************************************************/</i></td></tr>
+<tr><th id="31">31</th><td><i></i></td></tr>
+<tr><th id="32">32</th><td><i>//clear the shown debug lines</i></td></tr>
+<tr><th id="33">33</th><td><em>void</em> <dfn class="decl" id="AAS_ClearShownDebugLines" title='AAS_ClearShownDebugLines' data-ref="AAS_ClearShownDebugLines">AAS_ClearShownDebugLines</dfn>(<em>void</em>);</td></tr>
+<tr><th id="34">34</th><td><i>//</i></td></tr>
+<tr><th id="35">35</th><td><em>void</em> <dfn class="decl" id="AAS_ClearShownPolygons" title='AAS_ClearShownPolygons' data-ref="AAS_ClearShownPolygons">AAS_ClearShownPolygons</dfn>(<em>void</em>);</td></tr>
+<tr><th id="36">36</th><td><i>//show a debug line</i></td></tr>
+<tr><th id="37">37</th><td><em>void</em> <dfn class="decl" id="AAS_DebugLine" title='AAS_DebugLine' data-ref="AAS_DebugLine">AAS_DebugLine</dfn>(<a class="typedef" href="../qcommon/q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="local col8 decl" id="578start" title='start' data-type='vec_t *' data-ref="578start">start</dfn>, <a class="typedef" href="../qcommon/q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="local col9 decl" id="579end" title='end' data-type='vec_t *' data-ref="579end">end</dfn>, <em>int</em> <dfn class="local col0 decl" id="580color" title='color' data-type='int' data-ref="580color">color</dfn>);</td></tr>
+<tr><th id="38">38</th><td><i>//show a permenent line</i></td></tr>
+<tr><th id="39">39</th><td><em>void</em> <dfn class="decl" id="AAS_PermanentLine" title='AAS_PermanentLine' data-ref="AAS_PermanentLine">AAS_PermanentLine</dfn>(<a class="typedef" href="../qcommon/q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="local col1 decl" id="581start" title='start' data-type='vec_t *' data-ref="581start">start</dfn>, <a class="typedef" href="../qcommon/q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="local col2 decl" id="582end" title='end' data-type='vec_t *' data-ref="582end">end</dfn>, <em>int</em> <dfn class="local col3 decl" id="583color" title='color' data-type='int' data-ref="583color">color</dfn>);</td></tr>
+<tr><th id="40">40</th><td><i>//show a permanent cross</i></td></tr>
+<tr><th id="41">41</th><td><em>void</em> <dfn class="decl" id="AAS_DrawPermanentCross" title='AAS_DrawPermanentCross' data-ref="AAS_DrawPermanentCross">AAS_DrawPermanentCross</dfn>(<a class="typedef" href="../qcommon/q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="local col4 decl" id="584origin" title='origin' data-type='vec_t *' data-ref="584origin">origin</dfn>, <em>float</em> <dfn class="local col5 decl" id="585size" title='size' data-type='float' data-ref="585size">size</dfn>, <em>int</em> <dfn class="local col6 decl" id="586color" title='color' data-type='int' data-ref="586color">color</dfn>);</td></tr>
+<tr><th id="42">42</th><td><i>//draw a cross in the plane</i></td></tr>
+<tr><th id="43">43</th><td><em>void</em> <dfn class="decl" id="AAS_DrawPlaneCross" title='AAS_DrawPlaneCross' data-ref="AAS_DrawPlaneCross">AAS_DrawPlaneCross</dfn>(<a class="typedef" href="../qcommon/q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="local col7 decl" id="587point" title='point' data-type='vec_t *' data-ref="587point">point</dfn>, <a class="typedef" href="../qcommon/q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="local col8 decl" id="588normal" title='normal' data-type='vec_t *' data-ref="588normal">normal</dfn>, <em>float</em> <dfn class="local col9 decl" id="589dist" title='dist' data-type='float' data-ref="589dist">dist</dfn>, <em>int</em> <dfn class="local col0 decl" id="590type" title='type' data-type='int' data-ref="590type">type</dfn>, <em>int</em> <dfn class="local col1 decl" id="591color" title='color' data-type='int' data-ref="591color">color</dfn>);</td></tr>
+<tr><th id="44">44</th><td><i>//show a bounding box</i></td></tr>
+<tr><th id="45">45</th><td><em>void</em> <dfn class="decl" id="AAS_ShowBoundingBox" title='AAS_ShowBoundingBox' data-ref="AAS_ShowBoundingBox">AAS_ShowBoundingBox</dfn>(<a class="typedef" href="../qcommon/q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="local col2 decl" id="592origin" title='origin' data-type='vec_t *' data-ref="592origin">origin</dfn>, <a class="typedef" href="../qcommon/q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="local col3 decl" id="593mins" title='mins' data-type='vec_t *' data-ref="593mins">mins</dfn>, <a class="typedef" href="../qcommon/q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="local col4 decl" id="594maxs" title='maxs' data-type='vec_t *' data-ref="594maxs">maxs</dfn>);</td></tr>
+<tr><th id="46">46</th><td><i>//show a face</i></td></tr>
+<tr><th id="47">47</th><td><em>void</em> <dfn class="decl" id="AAS_ShowFace" title='AAS_ShowFace' data-ref="AAS_ShowFace">AAS_ShowFace</dfn>(<em>int</em> <dfn class="local col5 decl" id="595facenum" title='facenum' data-type='int' data-ref="595facenum">facenum</dfn>);</td></tr>
+<tr><th id="48">48</th><td><i>//show an area</i></td></tr>
+<tr><th id="49">49</th><td><em>void</em> <dfn class="decl" id="AAS_ShowArea" title='AAS_ShowArea' data-ref="AAS_ShowArea">AAS_ShowArea</dfn>(<em>int</em> <dfn class="local col6 decl" id="596areanum" title='areanum' data-type='int' data-ref="596areanum">areanum</dfn>, <em>int</em> <dfn class="local col7 decl" id="597groundfacesonly" title='groundfacesonly' data-type='int' data-ref="597groundfacesonly">groundfacesonly</dfn>);</td></tr>
+<tr><th id="50">50</th><td><i>//</i></td></tr>
+<tr><th id="51">51</th><td><em>void</em> <dfn class="decl" id="AAS_ShowAreaPolygons" title='AAS_ShowAreaPolygons' data-ref="AAS_ShowAreaPolygons">AAS_ShowAreaPolygons</dfn>(<em>int</em> <dfn class="local col8 decl" id="598areanum" title='areanum' data-type='int' data-ref="598areanum">areanum</dfn>, <em>int</em> <dfn class="local col9 decl" id="599color" title='color' data-type='int' data-ref="599color">color</dfn>, <em>int</em> <dfn class="local col0 decl" id="600groundfacesonly" title='groundfacesonly' data-type='int' data-ref="600groundfacesonly">groundfacesonly</dfn>);</td></tr>
+<tr><th id="52">52</th><td><i>//draw a cros</i></td></tr>
+<tr><th id="53">53</th><td><em>void</em> <dfn class="decl" id="AAS_DrawCross" title='AAS_DrawCross' data-ref="AAS_DrawCross">AAS_DrawCross</dfn>(<a class="typedef" href="../qcommon/q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="local col1 decl" id="601origin" title='origin' data-type='vec_t *' data-ref="601origin">origin</dfn>, <em>float</em> <dfn class="local col2 decl" id="602size" title='size' data-type='float' data-ref="602size">size</dfn>, <em>int</em> <dfn class="local col3 decl" id="603color" title='color' data-type='int' data-ref="603color">color</dfn>);</td></tr>
+<tr><th id="54">54</th><td><i>//print the travel type</i></td></tr>
+<tr><th id="55">55</th><td><em>void</em> <dfn class="decl" id="AAS_PrintTravelType" title='AAS_PrintTravelType' data-ref="AAS_PrintTravelType">AAS_PrintTravelType</dfn>(<em>int</em> <dfn class="local col4 decl" id="604traveltype" title='traveltype' data-type='int' data-ref="604traveltype">traveltype</dfn>);</td></tr>
+<tr><th id="56">56</th><td><i>//draw an arrow</i></td></tr>
+<tr><th id="57">57</th><td><em>void</em> <dfn class="decl" id="AAS_DrawArrow" title='AAS_DrawArrow' data-ref="AAS_DrawArrow">AAS_DrawArrow</dfn>(<a class="typedef" href="../qcommon/q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="local col5 decl" id="605start" title='start' data-type='vec_t *' data-ref="605start">start</dfn>, <a class="typedef" href="../qcommon/q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="local col6 decl" id="606end" title='end' data-type='vec_t *' data-ref="606end">end</dfn>, <em>int</em> <dfn class="local col7 decl" id="607linecolor" title='linecolor' data-type='int' data-ref="607linecolor">linecolor</dfn>, <em>int</em> <dfn class="local col8 decl" id="608arrowcolor" title='arrowcolor' data-type='int' data-ref="608arrowcolor">arrowcolor</dfn>);</td></tr>
+<tr><th id="58">58</th><td><i>//visualize the given reachability</i></td></tr>
+<tr><th id="59">59</th><td><em>void</em> <dfn class="decl" id="AAS_ShowReachability" title='AAS_ShowReachability' data-ref="AAS_ShowReachability">AAS_ShowReachability</dfn>(<b>struct</b> <a class="type" href="aasfile.h.html#aas_reachability_s" title='aas_reachability_s' data-ref="aas_reachability_s">aas_reachability_s</a> *<dfn class="local col9 decl" id="609reach" title='reach' data-type='struct aas_reachability_s *' data-ref="609reach">reach</dfn>);</td></tr>
+<tr><th id="60">60</th><td><i>//show the reachable areas from the given area</i></td></tr>
+<tr><th id="61">61</th><td><em>void</em> <dfn class="decl" id="AAS_ShowReachableAreas" title='AAS_ShowReachableAreas' data-ref="AAS_ShowReachableAreas">AAS_ShowReachableAreas</dfn>(<em>int</em> <dfn class="local col0 decl" id="610areanum" title='areanum' data-type='int' data-ref="610areanum">areanum</dfn>);</td></tr>
+<tr><th id="62">62</th><td></td></tr>
+<tr><th id="63">63</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='be_aas_bspq3.c.html'>codebrowser/code/botlib/be_aas_bspq3.c</a><br/>Generated on <em>2017-Aug-29</em> from project codebrowser revision <em>63e07af</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

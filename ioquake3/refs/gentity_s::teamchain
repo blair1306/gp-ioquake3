@@ -1,0 +1,15 @@
+<dec f='codebrowser/code/game/g_local.h' l='159' type='gentity_t *'/>
+<offset>7168</offset>
+<doc f='codebrowser/code/game/g_local.h' l='159'>// next entity in team</doc>
+<use f='codebrowser/code/game/g_items.c' l='366' u='r' c='RespawnItem'/>
+<use f='codebrowser/code/game/g_items.c' l='371' u='r' c='RespawnItem'/>
+<use f='codebrowser/code/game/g_main.c' l='301' u='w' c='G_FindTeams'/>
+<use f='codebrowser/code/game/g_main.c' l='301' u='r' c='G_FindTeams'/>
+<use f='codebrowser/code/game/g_main.c' l='302' u='w' c='G_FindTeams'/>
+<use f='codebrowser/code/game/g_mover.c' l='431' u='r' c='G_MoverTeam'/>
+<use f='codebrowser/code/game/g_mover.c' l='444' u='r' c='G_MoverTeam'/>
+<use f='codebrowser/code/game/g_mover.c' l='460' u='r' c='G_MoverTeam'/>
+<use f='codebrowser/code/game/g_mover.c' l='555' u='r' c='MatchTeam'/>
+<use f='codebrowser/code/game/g_mover.c' l='889' u='r' c='Think_SpawnNewDoorTrigger'/>
+<use f='codebrowser/code/game/g_mover.c' l='897' u='r' c='Think_SpawnNewDoorTrigger'/>
+<use f='codebrowser/code/game/g_mover.c' l='897' u='r' c='Think_SpawnNewDoorTrigger'/>

@@ -1,0 +1,9 @@
+<dec f='codebrowser/code/tools/asm/cmdlib.h' l='112' type='void ExtractFilePath(const char * path, char * dest)'/>
+<def f='codebrowser/code/tools/asm/cmdlib.c' l='874' ll='888' type='void ExtractFilePath(const char * path, char * dest)'/>
+<doc f='codebrowser/code/tools/asm/cmdlib.c' l='867'>/*
+====================
+Extract file parts
+====================
+*/
+// FIXME: should include the slash, otherwise
+// backing to an empty path will be wrong when appending a slash</doc>

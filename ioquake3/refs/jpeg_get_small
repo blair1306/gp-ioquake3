@@ -1,0 +1,8 @@
+<dec f='codebrowser/code/jpeg-8c/jmemsys.h' l='47' type='void * jpeg_get_small(j_common_ptr cinfo, size_t sizeofobject)'/>
+<use f='codebrowser/code/jpeg-8c/jmemmgr.c' l='299' u='c' c='alloc_small'/>
+<use f='codebrowser/code/jpeg-8c/jmemmgr.c' l='1059' u='c' c='jinit_memory_mgr'/>
+<def f='codebrowser/code/jpeg-8c/jmemnobs.c' l='34' ll='38' macro='1' type='void * jpeg_get_small(j_common_ptr cinfo, size_t sizeofobject)'/>
+<doc f='codebrowser/code/jpeg-8c/jmemnobs.c' l='29'>/*
+ * Memory allocation and freeing are controlled by the regular library
+ * routines malloc() and free().
+ */</doc>

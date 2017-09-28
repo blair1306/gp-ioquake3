@@ -1,0 +1,16 @@
+<dec f='codebrowser/code/jpeg-8c/jpeglib.h' l='636' type='int'/>
+<offset>3904</offset>
+<doc f='codebrowser/code/jpeg-8c/jpeglib.h' l='636'>/* # of DCT blocks per MCU */</doc>
+<use f='codebrowser/code/jpeg-8c/jdarith.c' l='261' u='r' c='decode_mcu_DC_first'/>
+<use f='codebrowser/code/jpeg-8c/jdarith.c' l='416' u='r' c='decode_mcu_DC_refine'/>
+<use f='codebrowser/code/jpeg-8c/jdarith.c' l='526' u='r' c='decode_mcu'/>
+<use f='codebrowser/code/jpeg-8c/jdcoefct.c' l='166' u='r' c='decompress_onepass'/>
+<use f='codebrowser/code/jpeg-8c/jdhuff.c' l='725' u='r' c='decode_mcu_DC_first'/>
+<use f='codebrowser/code/jpeg-8c/jdhuff.c' l='879' u='r' c='decode_mcu_DC_refine'/>
+<use f='codebrowser/code/jpeg-8c/jdhuff.c' l='1088' u='r' c='decode_mcu_sub'/>
+<use f='codebrowser/code/jpeg-8c/jdhuff.c' l='1212' u='r' c='decode_mcu'/>
+<use f='codebrowser/code/jpeg-8c/jdhuff.c' l='1438' u='r' c='start_pass_huff_decoder'/>
+<use f='codebrowser/code/jpeg-8c/jdinput.c' l='418' u='w' c='per_scan_setup'/>
+<use f='codebrowser/code/jpeg-8c/jdinput.c' l='436' u='w' c='per_scan_setup'/>
+<use f='codebrowser/code/jpeg-8c/jdinput.c' l='454' u='r' c='per_scan_setup'/>
+<use f='codebrowser/code/jpeg-8c/jdinput.c' l='457' u='w' c='per_scan_setup'/>

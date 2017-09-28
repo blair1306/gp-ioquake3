@@ -1,0 +1,17 @@
+<dec f='codebrowser/code/qcommon/unzip.h' l='295' type='int unzCloseCurrentFile(unzFile file)'/>
+<use f='codebrowser/code/qcommon/files.c' l='879' u='c' c='FS_FCloseFile'/>
+<doc f='codebrowser/code/qcommon/unzip.h' l='285'>/*
+  Same than unzOpenCurrentFile, but open for read raw the file (not uncompress)
+    if raw==1
+  *method will receive method of compression, *level will receive level of
+     compression
+  note : you can set level parameter as NULL (if you did not want known level,
+         but you CANNOT set method parameter as NULL
+*/</doc>
+<use f='codebrowser/code/qcommon/unzip.c' l='515' u='c' c='unzClose'/>
+<use f='codebrowser/code/qcommon/unzip.c' l='1086' u='c' c='unzOpenCurrentFile3'/>
+<def f='codebrowser/code/qcommon/unzip.c' l='1500' ll='1535' type='int unzCloseCurrentFile(unzFile file)'/>
+<doc f='codebrowser/code/qcommon/unzip.c' l='1496'>/*
+  Close the file in zip opened with unzipOpenCurrentFile
+  Return UNZ_CRCERROR if all the file was read but the CRC is not good
+*/</doc>

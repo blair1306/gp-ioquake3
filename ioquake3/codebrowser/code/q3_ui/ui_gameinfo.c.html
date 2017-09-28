@@ -1,0 +1,833 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>ui_gameinfo.c source code [codebrowser/code/q3_ui/ui_gameinfo.c] - Woboq Code Browser</title>
+<link rel="stylesheet" href="../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'codebrowser/code/q3_ui/ui_gameinfo.c'; var root_path = '../../..'; var data_path = '../../../../data';</script>
+<script src='../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../..'>codebrowser</a>/<a href='..'>code</a>/<a href='./'>q3_ui</a>/<a href='ui_gameinfo.c.html'>ui_gameinfo.c</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/*</i></td></tr>
+<tr><th id="2">2</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="3">3</th><td><i>Copyright (C) 1999-2005 Id Software, Inc.</i></td></tr>
+<tr><th id="4">4</th><td><i></i></td></tr>
+<tr><th id="5">5</th><td><i>This file is part of Quake III Arena source code.</i></td></tr>
+<tr><th id="6">6</th><td><i></i></td></tr>
+<tr><th id="7">7</th><td><i>Quake III Arena source code is free software; you can redistribute it</i></td></tr>
+<tr><th id="8">8</th><td><i>and/or modify it under the terms of the GNU General Public License as</i></td></tr>
+<tr><th id="9">9</th><td><i>published by the Free Software Foundation; either version 2 of the License,</i></td></tr>
+<tr><th id="10">10</th><td><i>or (at your option) any later version.</i></td></tr>
+<tr><th id="11">11</th><td><i></i></td></tr>
+<tr><th id="12">12</th><td><i>Quake III Arena source code is distributed in the hope that it will be</i></td></tr>
+<tr><th id="13">13</th><td><i>useful, but WITHOUT ANY WARRANTY; without even the implied warranty of</i></td></tr>
+<tr><th id="14">14</th><td><i>MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</i></td></tr>
+<tr><th id="15">15</th><td><i>GNU General Public License for more details.</i></td></tr>
+<tr><th id="16">16</th><td><i></i></td></tr>
+<tr><th id="17">17</th><td><i>You should have received a copy of the GNU General Public License</i></td></tr>
+<tr><th id="18">18</th><td><i>along with Quake III Arena source code; if not, write to the Free Software</i></td></tr>
+<tr><th id="19">19</th><td><i>Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA</i></td></tr>
+<tr><th id="20">20</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="21">21</th><td><i>*/</i></td></tr>
+<tr><th id="22">22</th><td><i>//</i></td></tr>
+<tr><th id="23">23</th><td><i>//</i></td></tr>
+<tr><th id="24">24</th><td><i>// gameinfo.c</i></td></tr>
+<tr><th id="25">25</th><td><i>//</i></td></tr>
+<tr><th id="26">26</th><td></td></tr>
+<tr><th id="27">27</th><td><u>#include <a href="ui_local.h.html">"ui_local.h"</a></u></td></tr>
+<tr><th id="28">28</th><td></td></tr>
+<tr><th id="29">29</th><td></td></tr>
+<tr><th id="30">30</th><td><i>//</i></td></tr>
+<tr><th id="31">31</th><td><i>// arena and bot info</i></td></tr>
+<tr><th id="32">32</th><td><i>//</i></td></tr>
+<tr><th id="33">33</th><td></td></tr>
+<tr><th id="34">34</th><td><u>#define <dfn class="macro" id="_M/POOLSIZE" data-ref="_M/POOLSIZE">POOLSIZE</dfn>	128 * 1024</u></td></tr>
+<tr><th id="35">35</th><td></td></tr>
+<tr><th id="36">36</th><td><em>int</em>				<dfn class="decl def" id="ui_numBots" title='ui_numBots' data-ref="ui_numBots">ui_numBots</dfn>;</td></tr>
+<tr><th id="37">37</th><td><em>static</em> <em>char</em>		*<dfn class="tu decl def" id="ui_botInfos" title='ui_botInfos' data-type='char *[1024]' data-ref="ui_botInfos">ui_botInfos</dfn>[<a class="macro" href="../game/bg_public.h.html#713" title="1024" data-ref="_M/MAX_BOTS">MAX_BOTS</a>];</td></tr>
+<tr><th id="38">38</th><td></td></tr>
+<tr><th id="39">39</th><td><em>static</em> <em>int</em>		<dfn class="tu decl def" id="ui_numArenas" title='ui_numArenas' data-type='int' data-ref="ui_numArenas">ui_numArenas</dfn>;</td></tr>
+<tr><th id="40">40</th><td><em>static</em> <em>char</em>		*<dfn class="tu decl def" id="ui_arenaInfos" title='ui_arenaInfos' data-type='char *[1024]' data-ref="ui_arenaInfos">ui_arenaInfos</dfn>[<a class="macro" href="../game/bg_public.h.html#710" title="1024" data-ref="_M/MAX_ARENAS">MAX_ARENAS</a>];</td></tr>
+<tr><th id="41">41</th><td></td></tr>
+<tr><th id="42">42</th><td><em>static</em> <em>int</em>		<dfn class="tu decl def" id="ui_numSinglePlayerArenas" title='ui_numSinglePlayerArenas' data-type='int' data-ref="ui_numSinglePlayerArenas">ui_numSinglePlayerArenas</dfn>;</td></tr>
+<tr><th id="43">43</th><td><em>static</em> <em>int</em>		<dfn class="tu decl def" id="ui_numSpecialSinglePlayerArenas" title='ui_numSpecialSinglePlayerArenas' data-type='int' data-ref="ui_numSpecialSinglePlayerArenas">ui_numSpecialSinglePlayerArenas</dfn>;</td></tr>
+<tr><th id="44">44</th><td></td></tr>
+<tr><th id="45">45</th><td><em>static</em> <em>char</em>		<dfn class="tu decl def" id="memoryPool" title='memoryPool' data-type='char [131072]' data-ref="memoryPool">memoryPool</dfn>[<a class="macro" href="#34" title="128 * 1024" data-ref="_M/POOLSIZE">POOLSIZE</a>];</td></tr>
+<tr><th id="46">46</th><td><em>static</em> <em>int</em>		<dfn class="tu decl def" id="allocPoint" title='allocPoint' data-type='int' data-ref="allocPoint">allocPoint</dfn>, <dfn class="tu decl def" id="outOfMemory" title='outOfMemory' data-type='int' data-ref="outOfMemory">outOfMemory</dfn>;</td></tr>
+<tr><th id="47">47</th><td></td></tr>
+<tr><th id="48">48</th><td></td></tr>
+<tr><th id="49">49</th><td><i>/*</i></td></tr>
+<tr><th id="50">50</th><td><i>===============</i></td></tr>
+<tr><th id="51">51</th><td><i>UI_Alloc</i></td></tr>
+<tr><th id="52">52</th><td><i>===============</i></td></tr>
+<tr><th id="53">53</th><td><i>*/</i></td></tr>
+<tr><th id="54">54</th><td><em>void</em> *<dfn class="decl def" id="UI_Alloc" title='UI_Alloc' data-ref="UI_Alloc">UI_Alloc</dfn>( <em>int</em> <dfn class="local col1 decl" id="1size" title='size' data-type='int' data-ref="1size">size</dfn> ) {</td></tr>
+<tr><th id="55">55</th><td>	<em>char</em>	*<dfn class="local col2 decl" id="2p" title='p' data-type='char *' data-ref="2p">p</dfn>;</td></tr>
+<tr><th id="56">56</th><td></td></tr>
+<tr><th id="57">57</th><td>	<b>if</b> ( <a class="tu ref" href="#allocPoint" title='allocPoint' data-use='r' data-ref="allocPoint">allocPoint</a> + <a class="local col1 ref" href="#1size" title='size' data-ref="1size">size</a> &gt; <a class="macro" href="#34" title="128 * 1024" data-ref="_M/POOLSIZE">POOLSIZE</a> ) {</td></tr>
+<tr><th id="58">58</th><td>		<a class="tu ref" href="#outOfMemory" title='outOfMemory' data-use='w' data-ref="outOfMemory">outOfMemory</a> = <a class="enum" href="../qcommon/q_shared.h.html#qtrue" title='qtrue' data-ref="qtrue">qtrue</a>;</td></tr>
+<tr><th id="59">59</th><td>		<b>return</b> <span class="macro" title="((void*)0)" data-ref="_M/NULL">NULL</span>;</td></tr>
+<tr><th id="60">60</th><td>	}</td></tr>
+<tr><th id="61">61</th><td></td></tr>
+<tr><th id="62">62</th><td>	<a class="local col2 ref" href="#2p" title='p' data-ref="2p">p</a> = &amp;<a class="tu ref" href="#memoryPool" title='memoryPool' data-use='a' data-ref="memoryPool">memoryPool</a>[<a class="tu ref" href="#allocPoint" title='allocPoint' data-use='r' data-ref="allocPoint">allocPoint</a>];</td></tr>
+<tr><th id="63">63</th><td></td></tr>
+<tr><th id="64">64</th><td>	<a class="tu ref" href="#allocPoint" title='allocPoint' data-use='w' data-ref="allocPoint">allocPoint</a> += ( <a class="local col1 ref" href="#1size" title='size' data-ref="1size">size</a> + <var>31</var> ) &amp; ~<var>31</var>;</td></tr>
+<tr><th id="65">65</th><td></td></tr>
+<tr><th id="66">66</th><td>	<b>return</b> <a class="local col2 ref" href="#2p" title='p' data-ref="2p">p</a>;</td></tr>
+<tr><th id="67">67</th><td>}</td></tr>
+<tr><th id="68">68</th><td></td></tr>
+<tr><th id="69">69</th><td><i>/*</i></td></tr>
+<tr><th id="70">70</th><td><i>===============</i></td></tr>
+<tr><th id="71">71</th><td><i>UI_InitMemory</i></td></tr>
+<tr><th id="72">72</th><td><i>===============</i></td></tr>
+<tr><th id="73">73</th><td><i>*/</i></td></tr>
+<tr><th id="74">74</th><td><em>void</em> <dfn class="decl def" id="UI_InitMemory" title='UI_InitMemory' data-ref="UI_InitMemory">UI_InitMemory</dfn>( <em>void</em> ) {</td></tr>
+<tr><th id="75">75</th><td>	<a class="tu ref" href="#allocPoint" title='allocPoint' data-use='w' data-ref="allocPoint">allocPoint</a> = <var>0</var>;</td></tr>
+<tr><th id="76">76</th><td>	<a class="tu ref" href="#outOfMemory" title='outOfMemory' data-use='w' data-ref="outOfMemory">outOfMemory</a> = <a class="enum" href="../qcommon/q_shared.h.html#qfalse" title='qfalse' data-ref="qfalse">qfalse</a>;</td></tr>
+<tr><th id="77">77</th><td>}</td></tr>
+<tr><th id="78">78</th><td></td></tr>
+<tr><th id="79">79</th><td><i>/*</i></td></tr>
+<tr><th id="80">80</th><td><i>===============</i></td></tr>
+<tr><th id="81">81</th><td><i>UI_ParseInfos</i></td></tr>
+<tr><th id="82">82</th><td><i>===============</i></td></tr>
+<tr><th id="83">83</th><td><i>*/</i></td></tr>
+<tr><th id="84">84</th><td><em>int</em> <dfn class="decl def" id="UI_ParseInfos" title='UI_ParseInfos' data-ref="UI_ParseInfos">UI_ParseInfos</dfn>( <em>char</em> *<dfn class="local col3 decl" id="3buf" title='buf' data-type='char *' data-ref="3buf">buf</dfn>, <em>int</em> <dfn class="local col4 decl" id="4max" title='max' data-type='int' data-ref="4max">max</dfn>, <em>char</em> *<dfn class="local col5 decl" id="5infos" title='infos' data-type='char **' data-ref="5infos">infos</dfn>[] ) {</td></tr>
+<tr><th id="85">85</th><td>	<em>char</em>	*<dfn class="local col6 decl" id="6token" title='token' data-type='char *' data-ref="6token">token</dfn>;</td></tr>
+<tr><th id="86">86</th><td>	<em>int</em>		<dfn class="local col7 decl" id="7count" title='count' data-type='int' data-ref="7count">count</dfn>;</td></tr>
+<tr><th id="87">87</th><td>	<em>char</em>	<dfn class="local col8 decl" id="8key" title='key' data-type='char [1024]' data-ref="8key">key</dfn>[<a class="macro" href="../qcommon/q_shared.h.html#245" title="1024" data-ref="_M/MAX_TOKEN_CHARS">MAX_TOKEN_CHARS</a>];</td></tr>
+<tr><th id="88">88</th><td>	<em>char</em>	<dfn class="local col9 decl" id="9info" title='info' data-type='char [1024]' data-ref="9info">info</dfn>[<a class="macro" href="../qcommon/q_shared.h.html#247" title="1024" data-ref="_M/MAX_INFO_STRING">MAX_INFO_STRING</a>];</td></tr>
+<tr><th id="89">89</th><td></td></tr>
+<tr><th id="90">90</th><td>	<a class="local col7 ref" href="#7count" title='count' data-ref="7count">count</a> = <var>0</var>;</td></tr>
+<tr><th id="91">91</th><td></td></tr>
+<tr><th id="92">92</th><td>	<b>while</b> ( <var>1</var> ) {</td></tr>
+<tr><th id="93">93</th><td>		<a class="local col6 ref" href="#6token" title='token' data-ref="6token">token</a> = <a class="ref" href="../qcommon/q_shared.h.html#COM_Parse" title='COM_Parse' data-ref="COM_Parse">COM_Parse</a>( &amp;<a class="local col3 ref" href="#3buf" title='buf' data-ref="3buf">buf</a> );</td></tr>
+<tr><th id="94">94</th><td>		<b>if</b> ( !<a class="local col6 ref" href="#6token" title='token' data-ref="6token">token</a>[<var>0</var>] ) {</td></tr>
+<tr><th id="95">95</th><td>			<b>break</b>;</td></tr>
+<tr><th id="96">96</th><td>		}</td></tr>
+<tr><th id="97">97</th><td>		<b>if</b> ( <a class="macro" href="../../../include/x86_64-linux-gnu/bits/string2.h.html#799" title="__extension__ ({ size_t __s1_len, __s2_len; (__builtin_constant_p (token) &amp;&amp; __builtin_constant_p (&quot;{&quot;) &amp;&amp; (__s1_len = __builtin_strlen (token), __s2_len = __builtin_strlen (&quot;{&quot;), (!((size_t)(const void *)((token) + 1) - (size_t)(const void *)(token) == 1) || __s1_len &gt;= 4) &amp;&amp; (!((size_t)(const void *)((&quot;{&quot;) + 1) - (size_t)(const void *)(&quot;{&quot;) == 1) || __s2_len &gt;= 4)) ? __builtin_strcmp (token, &quot;{&quot;) : (__builtin_constant_p (token) &amp;&amp; ((size_t)(const void *)((token) + 1) - (size_t)(const void *)(token) == 1) &amp;&amp; (__s1_len = __builtin_strlen (token), __s1_len &lt; 4) ? (__builtin_constant_p (&quot;{&quot;) &amp;&amp; ((size_t)(const void *)((&quot;{&quot;) + 1) - (size_t)(const void *)(&quot;{&quot;) == 1) ? __builtin_strcmp (token, &quot;{&quot;) : (__extension__ ({ const unsigned char *__s2 = (const unsigned char *) (const char *) (&quot;{&quot;); int __result = (((const unsigned char *) (const char *) (token))[0] - __s2[0]); if (__s1_len &gt; 0 &amp;&amp; __result == 0) { __result = (((const unsigned char *) (const char *) (token))[1] - __s2[1]); if (__s1_len &gt; 1 &amp;&amp; __result == 0) { __result = (((const unsigned char *) (const char *) (token))[2] - __s2[2]); if (__s1_len &gt; 2 &amp;&amp; __result == 0) __result = (((const unsigned char *) (const char *) (token))[3] - __s2[3]); } } __result; }))) : (__builtin_constant_p (&quot;{&quot;) &amp;&amp; ((size_t)(const void *)((&quot;{&quot;) + 1) - (size_t)(const void *)(&quot;{&quot;) == 1) &amp;&amp; (__s2_len = __builtin_strlen (&quot;{&quot;), __s2_len &lt; 4) ? (__builtin_constant_p (token) &amp;&amp; ((size_t)(const void *)((token) + 1) - (size_t)(const void *)(token) == 1) ? __builtin_strcmp (token, &quot;{&quot;) : (- (__extension__ ({ const unsigned char *__s2 = (const unsigned char *) (const char *) (token); int __result = (((const unsigned char *) (const char *) (&quot;{&quot;))[0] - __s2[0]); if (__s2_len &gt; 0 &amp;&amp; __result == 0) { __result = (((const unsigned char *) (const char *) (&quot;{&quot;))[1] - __s2[1]); if (__s2_len &gt; 1 &amp;&amp; __result == 0) { __result = (((const unsigned char *) (const char *) (&quot;{&quot;))[2] - __s2[2]); if (__s2_len &gt; 2 &amp;&amp; __result == 0) __result = (((const unsigned char *) (const char *) (&quot;{&quot;))[3] - __s2[3]); } } __result; })))) : __builtin_strcmp (token, &quot;{&quot;)))); })" data-ref="_M/strcmp">strcmp</a>( <a class="local col6 ref" href="#6token" title='token' data-ref="6token">token</a>, <q>"{"</q> ) ) {</td></tr>
+<tr><th id="98">98</th><td>			<a class="ref" href="../qcommon/q_shared.h.html#Com_Printf" title='Com_Printf' data-ref="Com_Printf">Com_Printf</a>( <q>"Missing { in info file\n"</q> );</td></tr>
+<tr><th id="99">99</th><td>			<b>break</b>;</td></tr>
+<tr><th id="100">100</th><td>		}</td></tr>
+<tr><th id="101">101</th><td></td></tr>
+<tr><th id="102">102</th><td>		<b>if</b> ( <a class="local col7 ref" href="#7count" title='count' data-ref="7count">count</a> == <a class="local col4 ref" href="#4max" title='max' data-ref="4max">max</a> ) {</td></tr>
+<tr><th id="103">103</th><td>			<a class="ref" href="../qcommon/q_shared.h.html#Com_Printf" title='Com_Printf' data-ref="Com_Printf">Com_Printf</a>( <q>"Max infos exceeded\n"</q> );</td></tr>
+<tr><th id="104">104</th><td>			<b>break</b>;</td></tr>
+<tr><th id="105">105</th><td>		}</td></tr>
+<tr><th id="106">106</th><td></td></tr>
+<tr><th id="107">107</th><td>		<a class="local col9 ref" href="#9info" title='info' data-ref="9info">info</a>[<var>0</var>] = <kbd>'\0'</kbd>;</td></tr>
+<tr><th id="108">108</th><td>		<b>while</b> ( <var>1</var> ) {</td></tr>
+<tr><th id="109">109</th><td>			<a class="local col6 ref" href="#6token" title='token' data-ref="6token">token</a> = <a class="ref" href="../qcommon/q_shared.h.html#COM_ParseExt" title='COM_ParseExt' data-ref="COM_ParseExt">COM_ParseExt</a>( &amp;<a class="local col3 ref" href="#3buf" title='buf' data-ref="3buf">buf</a>, <a class="enum" href="../qcommon/q_shared.h.html#qtrue" title='qtrue' data-ref="qtrue">qtrue</a> );</td></tr>
+<tr><th id="110">110</th><td>			<b>if</b> ( !<a class="local col6 ref" href="#6token" title='token' data-ref="6token">token</a>[<var>0</var>] ) {</td></tr>
+<tr><th id="111">111</th><td>				<a class="ref" href="../qcommon/q_shared.h.html#Com_Printf" title='Com_Printf' data-ref="Com_Printf">Com_Printf</a>( <q>"Unexpected end of info file\n"</q> );</td></tr>
+<tr><th id="112">112</th><td>				<b>break</b>;</td></tr>
+<tr><th id="113">113</th><td>			}</td></tr>
+<tr><th id="114">114</th><td>			<b>if</b> ( !<a class="macro" href="../../../include/x86_64-linux-gnu/bits/string2.h.html#799" title="__extension__ ({ size_t __s1_len, __s2_len; (__builtin_constant_p (token) &amp;&amp; __builtin_constant_p (&quot;}&quot;) &amp;&amp; (__s1_len = __builtin_strlen (token), __s2_len = __builtin_strlen (&quot;}&quot;), (!((size_t)(const void *)((token) + 1) - (size_t)(const void *)(token) == 1) || __s1_len &gt;= 4) &amp;&amp; (!((size_t)(const void *)((&quot;}&quot;) + 1) - (size_t)(const void *)(&quot;}&quot;) == 1) || __s2_len &gt;= 4)) ? __builtin_strcmp (token, &quot;}&quot;) : (__builtin_constant_p (token) &amp;&amp; ((size_t)(const void *)((token) + 1) - (size_t)(const void *)(token) == 1) &amp;&amp; (__s1_len = __builtin_strlen (token), __s1_len &lt; 4) ? (__builtin_constant_p (&quot;}&quot;) &amp;&amp; ((size_t)(const void *)((&quot;}&quot;) + 1) - (size_t)(const void *)(&quot;}&quot;) == 1) ? __builtin_strcmp (token, &quot;}&quot;) : (__extension__ ({ const unsigned char *__s2 = (const unsigned char *) (const char *) (&quot;}&quot;); int __result = (((const unsigned char *) (const char *) (token))[0] - __s2[0]); if (__s1_len &gt; 0 &amp;&amp; __result == 0) { __result = (((const unsigned char *) (const char *) (token))[1] - __s2[1]); if (__s1_len &gt; 1 &amp;&amp; __result == 0) { __result = (((const unsigned char *) (const char *) (token))[2] - __s2[2]); if (__s1_len &gt; 2 &amp;&amp; __result == 0) __result = (((const unsigned char *) (const char *) (token))[3] - __s2[3]); } } __result; }))) : (__builtin_constant_p (&quot;}&quot;) &amp;&amp; ((size_t)(const void *)((&quot;}&quot;) + 1) - (size_t)(const void *)(&quot;}&quot;) == 1) &amp;&amp; (__s2_len = __builtin_strlen (&quot;}&quot;), __s2_len &lt; 4) ? (__builtin_constant_p (token) &amp;&amp; ((size_t)(const void *)((token) + 1) - (size_t)(const void *)(token) == 1) ? __builtin_strcmp (token, &quot;}&quot;) : (- (__extension__ ({ const unsigned char *__s2 = (const unsigned char *) (const char *) (token); int __result = (((const unsigned char *) (const char *) (&quot;}&quot;))[0] - __s2[0]); if (__s2_len &gt; 0 &amp;&amp; __result == 0) { __result = (((const unsigned char *) (const char *) (&quot;}&quot;))[1] - __s2[1]); if (__s2_len &gt; 1 &amp;&amp; __result == 0) { __result = (((const unsigned char *) (const char *) (&quot;}&quot;))[2] - __s2[2]); if (__s2_len &gt; 2 &amp;&amp; __result == 0) __result = (((const unsigned char *) (const char *) (&quot;}&quot;))[3] - __s2[3]); } } __result; })))) : __builtin_strcmp (token, &quot;}&quot;)))); })" data-ref="_M/strcmp">strcmp</a>( <a class="local col6 ref" href="#6token" title='token' data-ref="6token">token</a>, <q>"}"</q> ) ) {</td></tr>
+<tr><th id="115">115</th><td>				<b>break</b>;</td></tr>
+<tr><th id="116">116</th><td>			}</td></tr>
+<tr><th id="117">117</th><td>			<a class="ref" href="../qcommon/q_shared.h.html#Q_strncpyz" title='Q_strncpyz' data-ref="Q_strncpyz">Q_strncpyz</a>( <a class="local col8 ref" href="#8key" title='key' data-ref="8key">key</a>, <a class="local col6 ref" href="#6token" title='token' data-ref="6token">token</a>, <b>sizeof</b>( <a class="local col8 ref" href="#8key" title='key' data-ref="8key">key</a> ) );</td></tr>
+<tr><th id="118">118</th><td></td></tr>
+<tr><th id="119">119</th><td>			<a class="local col6 ref" href="#6token" title='token' data-ref="6token">token</a> = <a class="ref" href="../qcommon/q_shared.h.html#COM_ParseExt" title='COM_ParseExt' data-ref="COM_ParseExt">COM_ParseExt</a>( &amp;<a class="local col3 ref" href="#3buf" title='buf' data-ref="3buf">buf</a>, <a class="enum" href="../qcommon/q_shared.h.html#qfalse" title='qfalse' data-ref="qfalse">qfalse</a> );</td></tr>
+<tr><th id="120">120</th><td>			<b>if</b> ( !<a class="local col6 ref" href="#6token" title='token' data-ref="6token">token</a>[<var>0</var>] ) {</td></tr>
+<tr><th id="121">121</th><td>				<a class="ref" href="../../../include/string.h.html#strcpy" title='strcpy' data-ref="strcpy">strcpy</a>( <a class="local col6 ref" href="#6token" title='token' data-ref="6token">token</a>, <q>"&lt;NULL&gt;"</q> );</td></tr>
+<tr><th id="122">122</th><td>			}</td></tr>
+<tr><th id="123">123</th><td>			<a class="ref" href="../qcommon/q_shared.h.html#Info_SetValueForKey" title='Info_SetValueForKey' data-ref="Info_SetValueForKey">Info_SetValueForKey</a>( <a class="local col9 ref" href="#9info" title='info' data-ref="9info">info</a>, <a class="local col8 ref" href="#8key" title='key' data-ref="8key">key</a>, <a class="local col6 ref" href="#6token" title='token' data-ref="6token">token</a> );</td></tr>
+<tr><th id="124">124</th><td>		}</td></tr>
+<tr><th id="125">125</th><td>		<i>//NOTE: extra space for arena number</i></td></tr>
+<tr><th id="126">126</th><td>		<a class="local col5 ref" href="#5infos" title='infos' data-ref="5infos">infos</a>[<a class="local col7 ref" href="#7count" title='count' data-ref="7count">count</a>] = <a class="ref" href="#UI_Alloc" title='UI_Alloc' data-ref="UI_Alloc">UI_Alloc</a>(<a class="ref" href="../../../include/string.h.html#strlen" title='strlen' data-ref="strlen">strlen</a>(<a class="local col9 ref" href="#9info" title='info' data-ref="9info">info</a>) + <a class="ref" href="../../../include/string.h.html#strlen" title='strlen' data-ref="strlen">strlen</a>(<q>"\\num\\"</q>) + <a class="ref" href="../../../include/string.h.html#strlen" title='strlen' data-ref="strlen">strlen</a>(<a class="ref" href="../qcommon/q_shared.h.html#va" title='va' data-ref="va">va</a>(<q>"%d"</q>, <a class="macro" href="../game/bg_public.h.html#710" title="1024" data-ref="_M/MAX_ARENAS">MAX_ARENAS</a>)) + <var>1</var>);</td></tr>
+<tr><th id="127">127</th><td>		<b>if</b> (<a class="local col5 ref" href="#5infos" title='infos' data-ref="5infos">infos</a>[<a class="local col7 ref" href="#7count" title='count' data-ref="7count">count</a>]) {</td></tr>
+<tr><th id="128">128</th><td>			<a class="ref" href="../../../include/string.h.html#strcpy" title='strcpy' data-ref="strcpy">strcpy</a>(<a class="local col5 ref" href="#5infos" title='infos' data-ref="5infos">infos</a>[<a class="local col7 ref" href="#7count" title='count' data-ref="7count">count</a>], <a class="local col9 ref" href="#9info" title='info' data-ref="9info">info</a>);</td></tr>
+<tr><th id="129">129</th><td>			<a class="local col7 ref" href="#7count" title='count' data-ref="7count">count</a>++;</td></tr>
+<tr><th id="130">130</th><td>		}</td></tr>
+<tr><th id="131">131</th><td>	}</td></tr>
+<tr><th id="132">132</th><td>	<b>return</b> <a class="local col7 ref" href="#7count" title='count' data-ref="7count">count</a>;</td></tr>
+<tr><th id="133">133</th><td>}</td></tr>
+<tr><th id="134">134</th><td></td></tr>
+<tr><th id="135">135</th><td><i  data-doc="UI_LoadArenasFromFile">/*</i></td></tr>
+<tr><th id="136">136</th><td><i  data-doc="UI_LoadArenasFromFile">===============</i></td></tr>
+<tr><th id="137">137</th><td><i  data-doc="UI_LoadArenasFromFile">UI_LoadArenasFromFile</i></td></tr>
+<tr><th id="138">138</th><td><i  data-doc="UI_LoadArenasFromFile">===============</i></td></tr>
+<tr><th id="139">139</th><td><i  data-doc="UI_LoadArenasFromFile">*/</i></td></tr>
+<tr><th id="140">140</th><td><em>static</em> <em>void</em> <dfn class="tu decl def" id="UI_LoadArenasFromFile" title='UI_LoadArenasFromFile' data-type='void UI_LoadArenasFromFile(char * filename)' data-ref="UI_LoadArenasFromFile">UI_LoadArenasFromFile</dfn>( <em>char</em> *<dfn class="local col0 decl" id="10filename" title='filename' data-type='char *' data-ref="10filename">filename</dfn> ) {</td></tr>
+<tr><th id="141">141</th><td>	<em>int</em>				<dfn class="local col1 decl" id="11len" title='len' data-type='int' data-ref="11len">len</dfn>;</td></tr>
+<tr><th id="142">142</th><td>	<a class="typedef" href="../qcommon/q_shared.h.html#fileHandle_t" title='fileHandle_t' data-type='int' data-ref="fileHandle_t">fileHandle_t</a>	<dfn class="local col2 decl" id="12f" title='f' data-type='fileHandle_t' data-ref="12f">f</dfn>;</td></tr>
+<tr><th id="143">143</th><td>	<em>char</em>			<dfn class="local col3 decl" id="13buf" title='buf' data-type='char [8192]' data-ref="13buf">buf</dfn>[<a class="macro" href="../game/bg_public.h.html#711" title="8192" data-ref="_M/MAX_ARENAS_TEXT">MAX_ARENAS_TEXT</a>];</td></tr>
+<tr><th id="144">144</th><td></td></tr>
+<tr><th id="145">145</th><td>	<a class="local col1 ref" href="#11len" title='len' data-ref="11len">len</a> = <a class="ref" href="ui_local.h.html#trap_FS_FOpenFile" title='trap_FS_FOpenFile' data-ref="trap_FS_FOpenFile">trap_FS_FOpenFile</a>( <a class="local col0 ref" href="#10filename" title='filename' data-ref="10filename">filename</a>, &amp;<a class="local col2 ref" href="#12f" title='f' data-ref="12f">f</a>, <a class="enum" href="../qcommon/q_shared.h.html#FS_READ" title='FS_READ' data-ref="FS_READ">FS_READ</a> );</td></tr>
+<tr><th id="146">146</th><td>	<b>if</b> ( !<a class="local col2 ref" href="#12f" title='f' data-ref="12f">f</a> ) {</td></tr>
+<tr><th id="147">147</th><td>		<a class="ref" href="ui_local.h.html#trap_Print" title='trap_Print' data-ref="trap_Print">trap_Print</a>( <a class="ref" href="../qcommon/q_shared.h.html#va" title='va' data-ref="va">va</a>( <a class="macro" href="../qcommon/q_shared.h.html#423" title="&quot;^1&quot;" data-ref="_M/S_COLOR_RED">S_COLOR_RED</a> <q>"file not found: %s\n"</q>, <a class="local col0 ref" href="#10filename" title='filename' data-ref="10filename">filename</a> ) );</td></tr>
+<tr><th id="148">148</th><td>		<b>return</b>;</td></tr>
+<tr><th id="149">149</th><td>	}</td></tr>
+<tr><th id="150">150</th><td>	<b>if</b> ( <a class="local col1 ref" href="#11len" title='len' data-ref="11len">len</a> &gt;= <a class="macro" href="../game/bg_public.h.html#711" title="8192" data-ref="_M/MAX_ARENAS_TEXT">MAX_ARENAS_TEXT</a> ) {</td></tr>
+<tr><th id="151">151</th><td>		<a class="ref" href="ui_local.h.html#trap_Print" title='trap_Print' data-ref="trap_Print">trap_Print</a>( <a class="ref" href="../qcommon/q_shared.h.html#va" title='va' data-ref="va">va</a>( <a class="macro" href="../qcommon/q_shared.h.html#423" title="&quot;^1&quot;" data-ref="_M/S_COLOR_RED">S_COLOR_RED</a> <q>"file too large: %s is %i, max allowed is %i\n"</q>, <a class="local col0 ref" href="#10filename" title='filename' data-ref="10filename">filename</a>, <a class="local col1 ref" href="#11len" title='len' data-ref="11len">len</a>, <a class="macro" href="../game/bg_public.h.html#711" title="8192" data-ref="_M/MAX_ARENAS_TEXT">MAX_ARENAS_TEXT</a> ) );</td></tr>
+<tr><th id="152">152</th><td>		<a class="ref" href="ui_local.h.html#trap_FS_FCloseFile" title='trap_FS_FCloseFile' data-ref="trap_FS_FCloseFile">trap_FS_FCloseFile</a>( <a class="local col2 ref" href="#12f" title='f' data-ref="12f">f</a> );</td></tr>
+<tr><th id="153">153</th><td>		<b>return</b>;</td></tr>
+<tr><th id="154">154</th><td>	}</td></tr>
+<tr><th id="155">155</th><td></td></tr>
+<tr><th id="156">156</th><td>	<a class="ref" href="ui_local.h.html#trap_FS_Read" title='trap_FS_Read' data-ref="trap_FS_Read">trap_FS_Read</a>( <a class="local col3 ref" href="#13buf" title='buf' data-ref="13buf">buf</a>, <a class="local col1 ref" href="#11len" title='len' data-ref="11len">len</a>, <a class="local col2 ref" href="#12f" title='f' data-ref="12f">f</a> );</td></tr>
+<tr><th id="157">157</th><td>	<a class="local col3 ref" href="#13buf" title='buf' data-ref="13buf">buf</a>[<a class="local col1 ref" href="#11len" title='len' data-ref="11len">len</a>] = <var>0</var>;</td></tr>
+<tr><th id="158">158</th><td>	<a class="ref" href="ui_local.h.html#trap_FS_FCloseFile" title='trap_FS_FCloseFile' data-ref="trap_FS_FCloseFile">trap_FS_FCloseFile</a>( <a class="local col2 ref" href="#12f" title='f' data-ref="12f">f</a> );</td></tr>
+<tr><th id="159">159</th><td></td></tr>
+<tr><th id="160">160</th><td>	<a class="tu ref" href="#ui_numArenas" title='ui_numArenas' data-use='w' data-ref="ui_numArenas">ui_numArenas</a> += <a class="ref" href="#UI_ParseInfos" title='UI_ParseInfos' data-ref="UI_ParseInfos">UI_ParseInfos</a>( <a class="local col3 ref" href="#13buf" title='buf' data-ref="13buf">buf</a>, <a class="macro" href="../game/bg_public.h.html#710" title="1024" data-ref="_M/MAX_ARENAS">MAX_ARENAS</a> - <a class="tu ref" href="#ui_numArenas" title='ui_numArenas' data-use='r' data-ref="ui_numArenas">ui_numArenas</a>, &amp;<a class="tu ref" href="#ui_arenaInfos" title='ui_arenaInfos' data-use='a' data-ref="ui_arenaInfos">ui_arenaInfos</a>[<a class="tu ref" href="#ui_numArenas" title='ui_numArenas' data-use='r' data-ref="ui_numArenas">ui_numArenas</a>] );</td></tr>
+<tr><th id="161">161</th><td>}</td></tr>
+<tr><th id="162">162</th><td></td></tr>
+<tr><th id="163">163</th><td><i  data-doc="UI_LoadArenas">/*</i></td></tr>
+<tr><th id="164">164</th><td><i  data-doc="UI_LoadArenas">===============</i></td></tr>
+<tr><th id="165">165</th><td><i  data-doc="UI_LoadArenas">UI_LoadArenas</i></td></tr>
+<tr><th id="166">166</th><td><i  data-doc="UI_LoadArenas">===============</i></td></tr>
+<tr><th id="167">167</th><td><i  data-doc="UI_LoadArenas">*/</i></td></tr>
+<tr><th id="168">168</th><td><em>static</em> <em>void</em> <dfn class="tu decl def" id="UI_LoadArenas" title='UI_LoadArenas' data-type='void UI_LoadArenas()' data-ref="UI_LoadArenas">UI_LoadArenas</dfn>( <em>void</em> ) {</td></tr>
+<tr><th id="169">169</th><td>	<em>int</em>			<dfn class="local col4 decl" id="14numdirs" title='numdirs' data-type='int' data-ref="14numdirs">numdirs</dfn>;</td></tr>
+<tr><th id="170">170</th><td>	<a class="typedef" href="../qcommon/q_shared.h.html#vmCvar_t" title='vmCvar_t' data-type='struct vmCvar_t' data-ref="vmCvar_t">vmCvar_t</a>	<dfn class="local col5 decl" id="15arenasFile" title='arenasFile' data-type='vmCvar_t' data-ref="15arenasFile">arenasFile</dfn>;</td></tr>
+<tr><th id="171">171</th><td>	<em>char</em>		<dfn class="local col6 decl" id="16filename" title='filename' data-type='char [128]' data-ref="16filename">filename</dfn>[<var>128</var>];</td></tr>
+<tr><th id="172">172</th><td>	<em>char</em>		<dfn class="local col7 decl" id="17dirlist" title='dirlist' data-type='char [2048]' data-ref="17dirlist">dirlist</dfn>[<var>2048</var>];</td></tr>
+<tr><th id="173">173</th><td>	<em>char</em>*		<dfn class="local col8 decl" id="18dirptr" title='dirptr' data-type='char *' data-ref="18dirptr">dirptr</dfn>;</td></tr>
+<tr><th id="174">174</th><td>	<em>int</em>			<dfn class="local col9 decl" id="19i" title='i' data-type='int' data-ref="19i">i</dfn>, <dfn class="local col0 decl" id="20n" title='n' data-type='int' data-ref="20n">n</dfn>;</td></tr>
+<tr><th id="175">175</th><td>	<em>int</em>			<dfn class="local col1 decl" id="21dirlen" title='dirlen' data-type='int' data-ref="21dirlen">dirlen</dfn>;</td></tr>
+<tr><th id="176">176</th><td>	<em>char</em>		*<dfn class="local col2 decl" id="22type" title='type' data-type='char *' data-ref="22type">type</dfn>;</td></tr>
+<tr><th id="177">177</th><td>	<em>char</em>		*<dfn class="local col3 decl" id="23tag" title='tag' data-type='char *' data-ref="23tag">tag</dfn>;</td></tr>
+<tr><th id="178">178</th><td>	<em>int</em>			<dfn class="local col4 decl" id="24singlePlayerNum" title='singlePlayerNum' data-type='int' data-ref="24singlePlayerNum">singlePlayerNum</dfn>, <dfn class="local col5 decl" id="25specialNum" title='specialNum' data-type='int' data-ref="25specialNum">specialNum</dfn>, <dfn class="local col6 decl" id="26otherNum" title='otherNum' data-type='int' data-ref="26otherNum">otherNum</dfn>;</td></tr>
+<tr><th id="179">179</th><td></td></tr>
+<tr><th id="180">180</th><td>	<a class="tu ref" href="#ui_numArenas" title='ui_numArenas' data-use='w' data-ref="ui_numArenas">ui_numArenas</a> = <var>0</var>;</td></tr>
+<tr><th id="181">181</th><td></td></tr>
+<tr><th id="182">182</th><td>	<a class="ref" href="ui_local.h.html#trap_Cvar_Register" title='trap_Cvar_Register' data-ref="trap_Cvar_Register">trap_Cvar_Register</a>( &amp;<a class="local col5 ref" href="#15arenasFile" title='arenasFile' data-ref="15arenasFile">arenasFile</a>, <q>"g_arenasFile"</q>, <q>""</q>, <a class="macro" href="../qcommon/q_shared.h.html#900" title="0x0010" data-ref="_M/CVAR_INIT">CVAR_INIT</a>|<a class="macro" href="../qcommon/q_shared.h.html#907" title="0x0040" data-ref="_M/CVAR_ROM">CVAR_ROM</a> );</td></tr>
+<tr><th id="183">183</th><td>	<b>if</b>( *<a class="local col5 ref" href="#15arenasFile" title='arenasFile' data-ref="15arenasFile">arenasFile</a>.<a class="ref" href="../qcommon/q_shared.h.html#(anonymous)::string" title='(anonymous struct)::string' data-ref="(anonymous)::string">string</a> ) {</td></tr>
+<tr><th id="184">184</th><td>		<a class="tu ref" href="#UI_LoadArenasFromFile" title='UI_LoadArenasFromFile' data-use='c' data-ref="UI_LoadArenasFromFile">UI_LoadArenasFromFile</a>(<a class="local col5 ref" href="#15arenasFile" title='arenasFile' data-ref="15arenasFile">arenasFile</a>.<a class="ref" href="../qcommon/q_shared.h.html#(anonymous)::string" title='(anonymous struct)::string' data-ref="(anonymous)::string">string</a>);</td></tr>
+<tr><th id="185">185</th><td>	}</td></tr>
+<tr><th id="186">186</th><td>	<b>else</b> {</td></tr>
+<tr><th id="187">187</th><td>		<a class="tu ref" href="#UI_LoadArenasFromFile" title='UI_LoadArenasFromFile' data-use='c' data-ref="UI_LoadArenasFromFile">UI_LoadArenasFromFile</a>(<q>"scripts/arenas.txt"</q>);</td></tr>
+<tr><th id="188">188</th><td>	}</td></tr>
+<tr><th id="189">189</th><td></td></tr>
+<tr><th id="190">190</th><td>	<i>// get all arenas from .arena files</i></td></tr>
+<tr><th id="191">191</th><td>	<a class="local col4 ref" href="#14numdirs" title='numdirs' data-ref="14numdirs">numdirs</a> = <a class="ref" href="ui_local.h.html#trap_FS_GetFileList" title='trap_FS_GetFileList' data-ref="trap_FS_GetFileList">trap_FS_GetFileList</a>(<q>"scripts"</q>, <q>".arena"</q>, <a class="local col7 ref" href="#17dirlist" title='dirlist' data-ref="17dirlist">dirlist</a>, <var>2048</var> );</td></tr>
+<tr><th id="192">192</th><td>	<a class="local col8 ref" href="#18dirptr" title='dirptr' data-ref="18dirptr">dirptr</a>  = <a class="local col7 ref" href="#17dirlist" title='dirlist' data-ref="17dirlist">dirlist</a>;</td></tr>
+<tr><th id="193">193</th><td>	<b>for</b> (<a class="local col9 ref" href="#19i" title='i' data-ref="19i">i</a> = <var>0</var>; <a class="local col9 ref" href="#19i" title='i' data-ref="19i">i</a> &lt; <a class="local col4 ref" href="#14numdirs" title='numdirs' data-ref="14numdirs">numdirs</a>; <a class="local col9 ref" href="#19i" title='i' data-ref="19i">i</a>++, <a class="local col8 ref" href="#18dirptr" title='dirptr' data-ref="18dirptr">dirptr</a> += <a class="local col1 ref" href="#21dirlen" title='dirlen' data-ref="21dirlen">dirlen</a>+<var>1</var>) {</td></tr>
+<tr><th id="194">194</th><td>		<a class="local col1 ref" href="#21dirlen" title='dirlen' data-ref="21dirlen">dirlen</a> = <a class="ref" href="../../../include/string.h.html#strlen" title='strlen' data-ref="strlen">strlen</a>(<a class="local col8 ref" href="#18dirptr" title='dirptr' data-ref="18dirptr">dirptr</a>);</td></tr>
+<tr><th id="195">195</th><td>		<a class="ref" href="../../../include/string.h.html#strcpy" title='strcpy' data-ref="strcpy">strcpy</a>(<a class="local col6 ref" href="#16filename" title='filename' data-ref="16filename">filename</a>, <q>"scripts/"</q>);</td></tr>
+<tr><th id="196">196</th><td>		<a class="ref" href="../../../include/string.h.html#strcat" title='strcat' data-ref="strcat">strcat</a>(<a class="local col6 ref" href="#16filename" title='filename' data-ref="16filename">filename</a>, <a class="local col8 ref" href="#18dirptr" title='dirptr' data-ref="18dirptr">dirptr</a>);</td></tr>
+<tr><th id="197">197</th><td>		<a class="tu ref" href="#UI_LoadArenasFromFile" title='UI_LoadArenasFromFile' data-use='c' data-ref="UI_LoadArenasFromFile">UI_LoadArenasFromFile</a>(<a class="local col6 ref" href="#16filename" title='filename' data-ref="16filename">filename</a>);</td></tr>
+<tr><th id="198">198</th><td>	}</td></tr>
+<tr><th id="199">199</th><td>	<a class="ref" href="ui_local.h.html#trap_Print" title='trap_Print' data-ref="trap_Print">trap_Print</a>( <a class="ref" href="../qcommon/q_shared.h.html#va" title='va' data-ref="va">va</a>( <q>"%i arenas parsed\n"</q>, <a class="tu ref" href="#ui_numArenas" title='ui_numArenas' data-use='r' data-ref="ui_numArenas">ui_numArenas</a> ) );</td></tr>
+<tr><th id="200">200</th><td>	<b>if</b> (<a class="tu ref" href="#outOfMemory" title='outOfMemory' data-use='r' data-ref="outOfMemory">outOfMemory</a>) <a class="ref" href="ui_local.h.html#trap_Print" title='trap_Print' data-ref="trap_Print">trap_Print</a>(<a class="macro" href="../qcommon/q_shared.h.html#425" title="&quot;^3&quot;" data-ref="_M/S_COLOR_YELLOW">S_COLOR_YELLOW</a><q>"WARNING: not enough memory in pool to load all arenas\n"</q>);</td></tr>
+<tr><th id="201">201</th><td></td></tr>
+<tr><th id="202">202</th><td>	<i>// set initial numbers</i></td></tr>
+<tr><th id="203">203</th><td>	<b>for</b>( <a class="local col0 ref" href="#20n" title='n' data-ref="20n">n</a> = <var>0</var>; <a class="local col0 ref" href="#20n" title='n' data-ref="20n">n</a> &lt; <a class="tu ref" href="#ui_numArenas" title='ui_numArenas' data-use='r' data-ref="ui_numArenas">ui_numArenas</a>; <a class="local col0 ref" href="#20n" title='n' data-ref="20n">n</a>++ ) {</td></tr>
+<tr><th id="204">204</th><td>		<a class="ref" href="../qcommon/q_shared.h.html#Info_SetValueForKey" title='Info_SetValueForKey' data-ref="Info_SetValueForKey">Info_SetValueForKey</a>( <a class="tu ref" href="#ui_arenaInfos" title='ui_arenaInfos' data-use='r' data-ref="ui_arenaInfos">ui_arenaInfos</a>[<a class="local col0 ref" href="#20n" title='n' data-ref="20n">n</a>], <q>"num"</q>, <a class="ref" href="../qcommon/q_shared.h.html#va" title='va' data-ref="va">va</a>( <q>"%i"</q>, <a class="local col0 ref" href="#20n" title='n' data-ref="20n">n</a> ) );</td></tr>
+<tr><th id="205">205</th><td>	}</td></tr>
+<tr><th id="206">206</th><td></td></tr>
+<tr><th id="207">207</th><td>	<i>// go through and count single players levels</i></td></tr>
+<tr><th id="208">208</th><td>	<a class="tu ref" href="#ui_numSinglePlayerArenas" title='ui_numSinglePlayerArenas' data-use='w' data-ref="ui_numSinglePlayerArenas">ui_numSinglePlayerArenas</a> = <var>0</var>;</td></tr>
+<tr><th id="209">209</th><td>	<a class="tu ref" href="#ui_numSpecialSinglePlayerArenas" title='ui_numSpecialSinglePlayerArenas' data-use='w' data-ref="ui_numSpecialSinglePlayerArenas">ui_numSpecialSinglePlayerArenas</a> = <var>0</var>;</td></tr>
+<tr><th id="210">210</th><td>	<b>for</b>( <a class="local col0 ref" href="#20n" title='n' data-ref="20n">n</a> = <var>0</var>; <a class="local col0 ref" href="#20n" title='n' data-ref="20n">n</a> &lt; <a class="tu ref" href="#ui_numArenas" title='ui_numArenas' data-use='r' data-ref="ui_numArenas">ui_numArenas</a>; <a class="local col0 ref" href="#20n" title='n' data-ref="20n">n</a>++ ) {</td></tr>
+<tr><th id="211">211</th><td>		<i>// determine type</i></td></tr>
+<tr><th id="212">212</th><td>		<a class="local col2 ref" href="#22type" title='type' data-ref="22type">type</a> = <a class="ref" href="../qcommon/q_shared.h.html#Info_ValueForKey" title='Info_ValueForKey' data-ref="Info_ValueForKey">Info_ValueForKey</a>( <a class="tu ref" href="#ui_arenaInfos" title='ui_arenaInfos' data-use='r' data-ref="ui_arenaInfos">ui_arenaInfos</a>[<a class="local col0 ref" href="#20n" title='n' data-ref="20n">n</a>], <q>"type"</q> );</td></tr>
+<tr><th id="213">213</th><td></td></tr>
+<tr><th id="214">214</th><td>		<i>// if no type specified, it will be treated as "ffa"</i></td></tr>
+<tr><th id="215">215</th><td>		<b>if</b>( !*<a class="local col2 ref" href="#22type" title='type' data-ref="22type">type</a> ) {</td></tr>
+<tr><th id="216">216</th><td>			<b>continue</b>;</td></tr>
+<tr><th id="217">217</th><td>		}</td></tr>
+<tr><th id="218">218</th><td></td></tr>
+<tr><th id="219">219</th><td>		<b>if</b>( <a class="ref" href="../../../include/string.h.html#strstr" title='strstr' data-ref="strstr">strstr</a>( <a class="local col2 ref" href="#22type" title='type' data-ref="22type">type</a>, <q>"single"</q> ) ) {</td></tr>
+<tr><th id="220">220</th><td>			<i>// check for special single player arenas (training, final)</i></td></tr>
+<tr><th id="221">221</th><td>			<a class="local col3 ref" href="#23tag" title='tag' data-ref="23tag">tag</a> = <a class="ref" href="../qcommon/q_shared.h.html#Info_ValueForKey" title='Info_ValueForKey' data-ref="Info_ValueForKey">Info_ValueForKey</a>( <a class="tu ref" href="#ui_arenaInfos" title='ui_arenaInfos' data-use='r' data-ref="ui_arenaInfos">ui_arenaInfos</a>[<a class="local col0 ref" href="#20n" title='n' data-ref="20n">n</a>], <q>"special"</q> );</td></tr>
+<tr><th id="222">222</th><td>			<b>if</b>( *<a class="local col3 ref" href="#23tag" title='tag' data-ref="23tag">tag</a> ) {</td></tr>
+<tr><th id="223">223</th><td>				<a class="tu ref" href="#ui_numSpecialSinglePlayerArenas" title='ui_numSpecialSinglePlayerArenas' data-use='w' data-ref="ui_numSpecialSinglePlayerArenas">ui_numSpecialSinglePlayerArenas</a>++;</td></tr>
+<tr><th id="224">224</th><td>				<b>continue</b>;</td></tr>
+<tr><th id="225">225</th><td>			}</td></tr>
+<tr><th id="226">226</th><td></td></tr>
+<tr><th id="227">227</th><td>			<a class="tu ref" href="#ui_numSinglePlayerArenas" title='ui_numSinglePlayerArenas' data-use='w' data-ref="ui_numSinglePlayerArenas">ui_numSinglePlayerArenas</a>++;</td></tr>
+<tr><th id="228">228</th><td>		}</td></tr>
+<tr><th id="229">229</th><td>	}</td></tr>
+<tr><th id="230">230</th><td></td></tr>
+<tr><th id="231">231</th><td>	<a class="local col0 ref" href="#20n" title='n' data-ref="20n">n</a> = <a class="tu ref" href="#ui_numSinglePlayerArenas" title='ui_numSinglePlayerArenas' data-use='r' data-ref="ui_numSinglePlayerArenas">ui_numSinglePlayerArenas</a> % <a class="macro" href="../game/bg_public.h.html#709" title="4" data-ref="_M/ARENAS_PER_TIER">ARENAS_PER_TIER</a>;</td></tr>
+<tr><th id="232">232</th><td>	<b>if</b>( <a class="local col0 ref" href="#20n" title='n' data-ref="20n">n</a> != <var>0</var> ) {</td></tr>
+<tr><th id="233">233</th><td>		<a class="tu ref" href="#ui_numSinglePlayerArenas" title='ui_numSinglePlayerArenas' data-use='w' data-ref="ui_numSinglePlayerArenas">ui_numSinglePlayerArenas</a> -= <a class="local col0 ref" href="#20n" title='n' data-ref="20n">n</a>;</td></tr>
+<tr><th id="234">234</th><td>		<a class="ref" href="ui_local.h.html#trap_Print" title='trap_Print' data-ref="trap_Print">trap_Print</a>( <a class="ref" href="../qcommon/q_shared.h.html#va" title='va' data-ref="va">va</a>( <q>"%i arenas ignored to make count divisible by %i\n"</q>, <a class="local col0 ref" href="#20n" title='n' data-ref="20n">n</a>, <a class="macro" href="../game/bg_public.h.html#709" title="4" data-ref="_M/ARENAS_PER_TIER">ARENAS_PER_TIER</a> ) );</td></tr>
+<tr><th id="235">235</th><td>	}</td></tr>
+<tr><th id="236">236</th><td></td></tr>
+<tr><th id="237">237</th><td>	<i>// go through once more and assign number to the levels</i></td></tr>
+<tr><th id="238">238</th><td>	<a class="local col4 ref" href="#24singlePlayerNum" title='singlePlayerNum' data-ref="24singlePlayerNum">singlePlayerNum</a> = <var>0</var>;</td></tr>
+<tr><th id="239">239</th><td>	<a class="local col5 ref" href="#25specialNum" title='specialNum' data-ref="25specialNum">specialNum</a> = <a class="local col4 ref" href="#24singlePlayerNum" title='singlePlayerNum' data-ref="24singlePlayerNum">singlePlayerNum</a> + <a class="tu ref" href="#ui_numSinglePlayerArenas" title='ui_numSinglePlayerArenas' data-use='r' data-ref="ui_numSinglePlayerArenas">ui_numSinglePlayerArenas</a>;</td></tr>
+<tr><th id="240">240</th><td>	<a class="local col6 ref" href="#26otherNum" title='otherNum' data-ref="26otherNum">otherNum</a> = <a class="local col5 ref" href="#25specialNum" title='specialNum' data-ref="25specialNum">specialNum</a> + <a class="tu ref" href="#ui_numSpecialSinglePlayerArenas" title='ui_numSpecialSinglePlayerArenas' data-use='r' data-ref="ui_numSpecialSinglePlayerArenas">ui_numSpecialSinglePlayerArenas</a>;</td></tr>
+<tr><th id="241">241</th><td>	<b>for</b>( <a class="local col0 ref" href="#20n" title='n' data-ref="20n">n</a> = <var>0</var>; <a class="local col0 ref" href="#20n" title='n' data-ref="20n">n</a> &lt; <a class="tu ref" href="#ui_numArenas" title='ui_numArenas' data-use='r' data-ref="ui_numArenas">ui_numArenas</a>; <a class="local col0 ref" href="#20n" title='n' data-ref="20n">n</a>++ ) {</td></tr>
+<tr><th id="242">242</th><td>		<i>// determine type</i></td></tr>
+<tr><th id="243">243</th><td>		<a class="local col2 ref" href="#22type" title='type' data-ref="22type">type</a> = <a class="ref" href="../qcommon/q_shared.h.html#Info_ValueForKey" title='Info_ValueForKey' data-ref="Info_ValueForKey">Info_ValueForKey</a>( <a class="tu ref" href="#ui_arenaInfos" title='ui_arenaInfos' data-use='r' data-ref="ui_arenaInfos">ui_arenaInfos</a>[<a class="local col0 ref" href="#20n" title='n' data-ref="20n">n</a>], <q>"type"</q> );</td></tr>
+<tr><th id="244">244</th><td></td></tr>
+<tr><th id="245">245</th><td>		<i>// if no type specified, it will be treated as "ffa"</i></td></tr>
+<tr><th id="246">246</th><td>		<b>if</b>( *<a class="local col2 ref" href="#22type" title='type' data-ref="22type">type</a> ) {</td></tr>
+<tr><th id="247">247</th><td>			<b>if</b>( <a class="ref" href="../../../include/string.h.html#strstr" title='strstr' data-ref="strstr">strstr</a>( <a class="local col2 ref" href="#22type" title='type' data-ref="22type">type</a>, <q>"single"</q> ) ) {</td></tr>
+<tr><th id="248">248</th><td>				<i>// check for special single player arenas (training, final)</i></td></tr>
+<tr><th id="249">249</th><td>				<a class="local col3 ref" href="#23tag" title='tag' data-ref="23tag">tag</a> = <a class="ref" href="../qcommon/q_shared.h.html#Info_ValueForKey" title='Info_ValueForKey' data-ref="Info_ValueForKey">Info_ValueForKey</a>( <a class="tu ref" href="#ui_arenaInfos" title='ui_arenaInfos' data-use='r' data-ref="ui_arenaInfos">ui_arenaInfos</a>[<a class="local col0 ref" href="#20n" title='n' data-ref="20n">n</a>], <q>"special"</q> );</td></tr>
+<tr><th id="250">250</th><td>				<b>if</b>( *<a class="local col3 ref" href="#23tag" title='tag' data-ref="23tag">tag</a> ) {</td></tr>
+<tr><th id="251">251</th><td>					<a class="ref" href="../qcommon/q_shared.h.html#Info_SetValueForKey" title='Info_SetValueForKey' data-ref="Info_SetValueForKey">Info_SetValueForKey</a>( <a class="tu ref" href="#ui_arenaInfos" title='ui_arenaInfos' data-use='r' data-ref="ui_arenaInfos">ui_arenaInfos</a>[<a class="local col0 ref" href="#20n" title='n' data-ref="20n">n</a>], <q>"num"</q>, <a class="ref" href="../qcommon/q_shared.h.html#va" title='va' data-ref="va">va</a>( <q>"%i"</q>, <a class="local col5 ref" href="#25specialNum" title='specialNum' data-ref="25specialNum">specialNum</a>++ ) );</td></tr>
+<tr><th id="252">252</th><td>					<b>continue</b>;</td></tr>
+<tr><th id="253">253</th><td>				}</td></tr>
+<tr><th id="254">254</th><td></td></tr>
+<tr><th id="255">255</th><td>				<a class="ref" href="../qcommon/q_shared.h.html#Info_SetValueForKey" title='Info_SetValueForKey' data-ref="Info_SetValueForKey">Info_SetValueForKey</a>( <a class="tu ref" href="#ui_arenaInfos" title='ui_arenaInfos' data-use='r' data-ref="ui_arenaInfos">ui_arenaInfos</a>[<a class="local col0 ref" href="#20n" title='n' data-ref="20n">n</a>], <q>"num"</q>, <a class="ref" href="../qcommon/q_shared.h.html#va" title='va' data-ref="va">va</a>( <q>"%i"</q>, <a class="local col4 ref" href="#24singlePlayerNum" title='singlePlayerNum' data-ref="24singlePlayerNum">singlePlayerNum</a>++ ) );</td></tr>
+<tr><th id="256">256</th><td>				<b>continue</b>;</td></tr>
+<tr><th id="257">257</th><td>			}</td></tr>
+<tr><th id="258">258</th><td>		}</td></tr>
+<tr><th id="259">259</th><td></td></tr>
+<tr><th id="260">260</th><td>		<a class="ref" href="../qcommon/q_shared.h.html#Info_SetValueForKey" title='Info_SetValueForKey' data-ref="Info_SetValueForKey">Info_SetValueForKey</a>( <a class="tu ref" href="#ui_arenaInfos" title='ui_arenaInfos' data-use='r' data-ref="ui_arenaInfos">ui_arenaInfos</a>[<a class="local col0 ref" href="#20n" title='n' data-ref="20n">n</a>], <q>"num"</q>, <a class="ref" href="../qcommon/q_shared.h.html#va" title='va' data-ref="va">va</a>( <q>"%i"</q>, <a class="local col6 ref" href="#26otherNum" title='otherNum' data-ref="26otherNum">otherNum</a>++ ) );</td></tr>
+<tr><th id="261">261</th><td>	}</td></tr>
+<tr><th id="262">262</th><td>}</td></tr>
+<tr><th id="263">263</th><td></td></tr>
+<tr><th id="264">264</th><td><i>/*</i></td></tr>
+<tr><th id="265">265</th><td><i>===============</i></td></tr>
+<tr><th id="266">266</th><td><i>UI_GetArenaInfoByNumber</i></td></tr>
+<tr><th id="267">267</th><td><i>===============</i></td></tr>
+<tr><th id="268">268</th><td><i>*/</i></td></tr>
+<tr><th id="269">269</th><td><em>const</em> <em>char</em> *<dfn class="decl def" id="UI_GetArenaInfoByNumber" title='UI_GetArenaInfoByNumber' data-ref="UI_GetArenaInfoByNumber">UI_GetArenaInfoByNumber</dfn>( <em>int</em> <dfn class="local col7 decl" id="27num" title='num' data-type='int' data-ref="27num">num</dfn> ) {</td></tr>
+<tr><th id="270">270</th><td>	<em>int</em>		<dfn class="local col8 decl" id="28n" title='n' data-type='int' data-ref="28n">n</dfn>;</td></tr>
+<tr><th id="271">271</th><td>	<em>char</em>	*<dfn class="local col9 decl" id="29value" title='value' data-type='char *' data-ref="29value">value</dfn>;</td></tr>
+<tr><th id="272">272</th><td></td></tr>
+<tr><th id="273">273</th><td>	<b>if</b>( <a class="local col7 ref" href="#27num" title='num' data-ref="27num">num</a> &lt; <var>0</var> || <a class="local col7 ref" href="#27num" title='num' data-ref="27num">num</a> &gt;= <a class="tu ref" href="#ui_numArenas" title='ui_numArenas' data-use='r' data-ref="ui_numArenas">ui_numArenas</a> ) {</td></tr>
+<tr><th id="274">274</th><td>		<a class="ref" href="ui_local.h.html#trap_Print" title='trap_Print' data-ref="trap_Print">trap_Print</a>( <a class="ref" href="../qcommon/q_shared.h.html#va" title='va' data-ref="va">va</a>( <a class="macro" href="../qcommon/q_shared.h.html#423" title="&quot;^1&quot;" data-ref="_M/S_COLOR_RED">S_COLOR_RED</a> <q>"Invalid arena number: %i\n"</q>, <a class="local col7 ref" href="#27num" title='num' data-ref="27num">num</a> ) );</td></tr>
+<tr><th id="275">275</th><td>		<b>return</b> <span class="macro" title="((void*)0)" data-ref="_M/NULL">NULL</span>;</td></tr>
+<tr><th id="276">276</th><td>	}</td></tr>
+<tr><th id="277">277</th><td></td></tr>
+<tr><th id="278">278</th><td>	<b>for</b>( <a class="local col8 ref" href="#28n" title='n' data-ref="28n">n</a> = <var>0</var>; <a class="local col8 ref" href="#28n" title='n' data-ref="28n">n</a> &lt; <a class="tu ref" href="#ui_numArenas" title='ui_numArenas' data-use='r' data-ref="ui_numArenas">ui_numArenas</a>; <a class="local col8 ref" href="#28n" title='n' data-ref="28n">n</a>++ ) {</td></tr>
+<tr><th id="279">279</th><td>		<a class="local col9 ref" href="#29value" title='value' data-ref="29value">value</a> = <a class="ref" href="../qcommon/q_shared.h.html#Info_ValueForKey" title='Info_ValueForKey' data-ref="Info_ValueForKey">Info_ValueForKey</a>( <a class="tu ref" href="#ui_arenaInfos" title='ui_arenaInfos' data-use='r' data-ref="ui_arenaInfos">ui_arenaInfos</a>[<a class="local col8 ref" href="#28n" title='n' data-ref="28n">n</a>], <q>"num"</q> );</td></tr>
+<tr><th id="280">280</th><td>		<b>if</b>( *<a class="local col9 ref" href="#29value" title='value' data-ref="29value">value</a> &amp;&amp; <a class="ref" href="../../../include/stdlib.h.html#atoi" title='atoi' data-ref="atoi">atoi</a>(<a class="local col9 ref" href="#29value" title='value' data-ref="29value">value</a>) == <a class="local col7 ref" href="#27num" title='num' data-ref="27num">num</a> ) {</td></tr>
+<tr><th id="281">281</th><td>			<b>return</b> <a class="tu ref" href="#ui_arenaInfos" title='ui_arenaInfos' data-use='r' data-ref="ui_arenaInfos">ui_arenaInfos</a>[<a class="local col8 ref" href="#28n" title='n' data-ref="28n">n</a>];</td></tr>
+<tr><th id="282">282</th><td>		}</td></tr>
+<tr><th id="283">283</th><td>	}</td></tr>
+<tr><th id="284">284</th><td></td></tr>
+<tr><th id="285">285</th><td>	<b>return</b> <span class="macro" title="((void*)0)" data-ref="_M/NULL">NULL</span>;</td></tr>
+<tr><th id="286">286</th><td>}</td></tr>
+<tr><th id="287">287</th><td></td></tr>
+<tr><th id="288">288</th><td></td></tr>
+<tr><th id="289">289</th><td><i>/*</i></td></tr>
+<tr><th id="290">290</th><td><i>===============</i></td></tr>
+<tr><th id="291">291</th><td><i>UI_GetArenaInfoByNumber</i></td></tr>
+<tr><th id="292">292</th><td><i>===============</i></td></tr>
+<tr><th id="293">293</th><td><i>*/</i></td></tr>
+<tr><th id="294">294</th><td><em>const</em> <em>char</em> *<dfn class="decl def" id="UI_GetArenaInfoByMap" title='UI_GetArenaInfoByMap' data-ref="UI_GetArenaInfoByMap">UI_GetArenaInfoByMap</dfn>( <em>const</em> <em>char</em> *<dfn class="local col0 decl" id="30map" title='map' data-type='const char *' data-ref="30map">map</dfn> ) {</td></tr>
+<tr><th id="295">295</th><td>	<em>int</em>			<dfn class="local col1 decl" id="31n" title='n' data-type='int' data-ref="31n">n</dfn>;</td></tr>
+<tr><th id="296">296</th><td></td></tr>
+<tr><th id="297">297</th><td>	<b>for</b>( <a class="local col1 ref" href="#31n" title='n' data-ref="31n">n</a> = <var>0</var>; <a class="local col1 ref" href="#31n" title='n' data-ref="31n">n</a> &lt; <a class="tu ref" href="#ui_numArenas" title='ui_numArenas' data-use='r' data-ref="ui_numArenas">ui_numArenas</a>; <a class="local col1 ref" href="#31n" title='n' data-ref="31n">n</a>++ ) {</td></tr>
+<tr><th id="298">298</th><td>		<b>if</b>( <a class="ref" href="../qcommon/q_shared.h.html#Q_stricmp" title='Q_stricmp' data-ref="Q_stricmp">Q_stricmp</a>( <a class="ref" href="../qcommon/q_shared.h.html#Info_ValueForKey" title='Info_ValueForKey' data-ref="Info_ValueForKey">Info_ValueForKey</a>( <a class="tu ref" href="#ui_arenaInfos" title='ui_arenaInfos' data-use='r' data-ref="ui_arenaInfos">ui_arenaInfos</a>[<a class="local col1 ref" href="#31n" title='n' data-ref="31n">n</a>], <q>"map"</q> ), <a class="local col0 ref" href="#30map" title='map' data-ref="30map">map</a> ) == <var>0</var> ) {</td></tr>
+<tr><th id="299">299</th><td>			<b>return</b> <a class="tu ref" href="#ui_arenaInfos" title='ui_arenaInfos' data-use='r' data-ref="ui_arenaInfos">ui_arenaInfos</a>[<a class="local col1 ref" href="#31n" title='n' data-ref="31n">n</a>];</td></tr>
+<tr><th id="300">300</th><td>		}</td></tr>
+<tr><th id="301">301</th><td>	}</td></tr>
+<tr><th id="302">302</th><td></td></tr>
+<tr><th id="303">303</th><td>	<b>return</b> <span class="macro" title="((void*)0)" data-ref="_M/NULL">NULL</span>;</td></tr>
+<tr><th id="304">304</th><td>}</td></tr>
+<tr><th id="305">305</th><td></td></tr>
+<tr><th id="306">306</th><td></td></tr>
+<tr><th id="307">307</th><td><i>/*</i></td></tr>
+<tr><th id="308">308</th><td><i>===============</i></td></tr>
+<tr><th id="309">309</th><td><i>UI_GetSpecialArenaInfo</i></td></tr>
+<tr><th id="310">310</th><td><i>===============</i></td></tr>
+<tr><th id="311">311</th><td><i>*/</i></td></tr>
+<tr><th id="312">312</th><td><em>const</em> <em>char</em> *<dfn class="decl def" id="UI_GetSpecialArenaInfo" title='UI_GetSpecialArenaInfo' data-ref="UI_GetSpecialArenaInfo">UI_GetSpecialArenaInfo</dfn>( <em>const</em> <em>char</em> *<dfn class="local col2 decl" id="32tag" title='tag' data-type='const char *' data-ref="32tag">tag</dfn> ) {</td></tr>
+<tr><th id="313">313</th><td>	<em>int</em>			<dfn class="local col3 decl" id="33n" title='n' data-type='int' data-ref="33n">n</dfn>;</td></tr>
+<tr><th id="314">314</th><td></td></tr>
+<tr><th id="315">315</th><td>	<b>for</b>( <a class="local col3 ref" href="#33n" title='n' data-ref="33n">n</a> = <var>0</var>; <a class="local col3 ref" href="#33n" title='n' data-ref="33n">n</a> &lt; <a class="tu ref" href="#ui_numArenas" title='ui_numArenas' data-use='r' data-ref="ui_numArenas">ui_numArenas</a>; <a class="local col3 ref" href="#33n" title='n' data-ref="33n">n</a>++ ) {</td></tr>
+<tr><th id="316">316</th><td>		<b>if</b>( <a class="ref" href="../qcommon/q_shared.h.html#Q_stricmp" title='Q_stricmp' data-ref="Q_stricmp">Q_stricmp</a>( <a class="ref" href="../qcommon/q_shared.h.html#Info_ValueForKey" title='Info_ValueForKey' data-ref="Info_ValueForKey">Info_ValueForKey</a>( <a class="tu ref" href="#ui_arenaInfos" title='ui_arenaInfos' data-use='r' data-ref="ui_arenaInfos">ui_arenaInfos</a>[<a class="local col3 ref" href="#33n" title='n' data-ref="33n">n</a>], <q>"special"</q> ), <a class="local col2 ref" href="#32tag" title='tag' data-ref="32tag">tag</a> ) == <var>0</var> ) {</td></tr>
+<tr><th id="317">317</th><td>			<b>return</b> <a class="tu ref" href="#ui_arenaInfos" title='ui_arenaInfos' data-use='r' data-ref="ui_arenaInfos">ui_arenaInfos</a>[<a class="local col3 ref" href="#33n" title='n' data-ref="33n">n</a>];</td></tr>
+<tr><th id="318">318</th><td>		}</td></tr>
+<tr><th id="319">319</th><td>	}</td></tr>
+<tr><th id="320">320</th><td></td></tr>
+<tr><th id="321">321</th><td>	<b>return</b> <span class="macro" title="((void*)0)" data-ref="_M/NULL">NULL</span>;</td></tr>
+<tr><th id="322">322</th><td>}</td></tr>
+<tr><th id="323">323</th><td></td></tr>
+<tr><th id="324">324</th><td><i  data-doc="UI_LoadBotsFromFile">/*</i></td></tr>
+<tr><th id="325">325</th><td><i  data-doc="UI_LoadBotsFromFile">===============</i></td></tr>
+<tr><th id="326">326</th><td><i  data-doc="UI_LoadBotsFromFile">UI_LoadBotsFromFile</i></td></tr>
+<tr><th id="327">327</th><td><i  data-doc="UI_LoadBotsFromFile">===============</i></td></tr>
+<tr><th id="328">328</th><td><i  data-doc="UI_LoadBotsFromFile">*/</i></td></tr>
+<tr><th id="329">329</th><td><em>static</em> <em>void</em> <dfn class="tu decl def" id="UI_LoadBotsFromFile" title='UI_LoadBotsFromFile' data-type='void UI_LoadBotsFromFile(char * filename)' data-ref="UI_LoadBotsFromFile">UI_LoadBotsFromFile</dfn>( <em>char</em> *<dfn class="local col4 decl" id="34filename" title='filename' data-type='char *' data-ref="34filename">filename</dfn> ) {</td></tr>
+<tr><th id="330">330</th><td>	<em>int</em>				<dfn class="local col5 decl" id="35len" title='len' data-type='int' data-ref="35len">len</dfn>;</td></tr>
+<tr><th id="331">331</th><td>	<a class="typedef" href="../qcommon/q_shared.h.html#fileHandle_t" title='fileHandle_t' data-type='int' data-ref="fileHandle_t">fileHandle_t</a>	<dfn class="local col6 decl" id="36f" title='f' data-type='fileHandle_t' data-ref="36f">f</dfn>;</td></tr>
+<tr><th id="332">332</th><td>	<em>char</em>			<dfn class="local col7 decl" id="37buf" title='buf' data-type='char [8192]' data-ref="37buf">buf</dfn>[<a class="macro" href="../game/bg_public.h.html#714" title="8192" data-ref="_M/MAX_BOTS_TEXT">MAX_BOTS_TEXT</a>];</td></tr>
+<tr><th id="333">333</th><td></td></tr>
+<tr><th id="334">334</th><td>	<a class="local col5 ref" href="#35len" title='len' data-ref="35len">len</a> = <a class="ref" href="ui_local.h.html#trap_FS_FOpenFile" title='trap_FS_FOpenFile' data-ref="trap_FS_FOpenFile">trap_FS_FOpenFile</a>( <a class="local col4 ref" href="#34filename" title='filename' data-ref="34filename">filename</a>, &amp;<a class="local col6 ref" href="#36f" title='f' data-ref="36f">f</a>, <a class="enum" href="../qcommon/q_shared.h.html#FS_READ" title='FS_READ' data-ref="FS_READ">FS_READ</a> );</td></tr>
+<tr><th id="335">335</th><td>	<b>if</b> ( !<a class="local col6 ref" href="#36f" title='f' data-ref="36f">f</a> ) {</td></tr>
+<tr><th id="336">336</th><td>		<a class="ref" href="ui_local.h.html#trap_Print" title='trap_Print' data-ref="trap_Print">trap_Print</a>( <a class="ref" href="../qcommon/q_shared.h.html#va" title='va' data-ref="va">va</a>( <a class="macro" href="../qcommon/q_shared.h.html#423" title="&quot;^1&quot;" data-ref="_M/S_COLOR_RED">S_COLOR_RED</a> <q>"file not found: %s\n"</q>, <a class="local col4 ref" href="#34filename" title='filename' data-ref="34filename">filename</a> ) );</td></tr>
+<tr><th id="337">337</th><td>		<b>return</b>;</td></tr>
+<tr><th id="338">338</th><td>	}</td></tr>
+<tr><th id="339">339</th><td>	<b>if</b> ( <a class="local col5 ref" href="#35len" title='len' data-ref="35len">len</a> &gt;= <a class="macro" href="../game/bg_public.h.html#714" title="8192" data-ref="_M/MAX_BOTS_TEXT">MAX_BOTS_TEXT</a> ) {</td></tr>
+<tr><th id="340">340</th><td>		<a class="ref" href="ui_local.h.html#trap_Print" title='trap_Print' data-ref="trap_Print">trap_Print</a>( <a class="ref" href="../qcommon/q_shared.h.html#va" title='va' data-ref="va">va</a>( <a class="macro" href="../qcommon/q_shared.h.html#423" title="&quot;^1&quot;" data-ref="_M/S_COLOR_RED">S_COLOR_RED</a> <q>"file too large: %s is %i, max allowed is %i\n"</q>, <a class="local col4 ref" href="#34filename" title='filename' data-ref="34filename">filename</a>, <a class="local col5 ref" href="#35len" title='len' data-ref="35len">len</a>, <a class="macro" href="../game/bg_public.h.html#714" title="8192" data-ref="_M/MAX_BOTS_TEXT">MAX_BOTS_TEXT</a> ) );</td></tr>
+<tr><th id="341">341</th><td>		<a class="ref" href="ui_local.h.html#trap_FS_FCloseFile" title='trap_FS_FCloseFile' data-ref="trap_FS_FCloseFile">trap_FS_FCloseFile</a>( <a class="local col6 ref" href="#36f" title='f' data-ref="36f">f</a> );</td></tr>
+<tr><th id="342">342</th><td>		<b>return</b>;</td></tr>
+<tr><th id="343">343</th><td>	}</td></tr>
+<tr><th id="344">344</th><td></td></tr>
+<tr><th id="345">345</th><td>	<a class="ref" href="ui_local.h.html#trap_FS_Read" title='trap_FS_Read' data-ref="trap_FS_Read">trap_FS_Read</a>( <a class="local col7 ref" href="#37buf" title='buf' data-ref="37buf">buf</a>, <a class="local col5 ref" href="#35len" title='len' data-ref="35len">len</a>, <a class="local col6 ref" href="#36f" title='f' data-ref="36f">f</a> );</td></tr>
+<tr><th id="346">346</th><td>	<a class="local col7 ref" href="#37buf" title='buf' data-ref="37buf">buf</a>[<a class="local col5 ref" href="#35len" title='len' data-ref="35len">len</a>] = <var>0</var>;</td></tr>
+<tr><th id="347">347</th><td>	<a class="ref" href="ui_local.h.html#trap_FS_FCloseFile" title='trap_FS_FCloseFile' data-ref="trap_FS_FCloseFile">trap_FS_FCloseFile</a>( <a class="local col6 ref" href="#36f" title='f' data-ref="36f">f</a> );</td></tr>
+<tr><th id="348">348</th><td></td></tr>
+<tr><th id="349">349</th><td>	<a class="ref" href="#ui_numBots" title='ui_numBots' data-ref="ui_numBots">ui_numBots</a> += <a class="ref" href="#UI_ParseInfos" title='UI_ParseInfos' data-ref="UI_ParseInfos">UI_ParseInfos</a>( <a class="local col7 ref" href="#37buf" title='buf' data-ref="37buf">buf</a>, <a class="macro" href="../game/bg_public.h.html#713" title="1024" data-ref="_M/MAX_BOTS">MAX_BOTS</a> - <a class="ref" href="#ui_numBots" title='ui_numBots' data-ref="ui_numBots">ui_numBots</a>, &amp;<a class="tu ref" href="#ui_botInfos" title='ui_botInfos' data-use='a' data-ref="ui_botInfos">ui_botInfos</a>[<a class="ref" href="#ui_numBots" title='ui_numBots' data-ref="ui_numBots">ui_numBots</a>] );</td></tr>
+<tr><th id="350">350</th><td>	<b>if</b> (<a class="tu ref" href="#outOfMemory" title='outOfMemory' data-use='r' data-ref="outOfMemory">outOfMemory</a>) <a class="ref" href="ui_local.h.html#trap_Print" title='trap_Print' data-ref="trap_Print">trap_Print</a>(<a class="macro" href="../qcommon/q_shared.h.html#425" title="&quot;^3&quot;" data-ref="_M/S_COLOR_YELLOW">S_COLOR_YELLOW</a><q>"WARNING: not enough memory in pool to load all bots\n"</q>);</td></tr>
+<tr><th id="351">351</th><td>}</td></tr>
+<tr><th id="352">352</th><td></td></tr>
+<tr><th id="353">353</th><td><i  data-doc="UI_LoadBots">/*</i></td></tr>
+<tr><th id="354">354</th><td><i  data-doc="UI_LoadBots">===============</i></td></tr>
+<tr><th id="355">355</th><td><i  data-doc="UI_LoadBots">UI_LoadBots</i></td></tr>
+<tr><th id="356">356</th><td><i  data-doc="UI_LoadBots">===============</i></td></tr>
+<tr><th id="357">357</th><td><i  data-doc="UI_LoadBots">*/</i></td></tr>
+<tr><th id="358">358</th><td><em>static</em> <em>void</em> <dfn class="tu decl def" id="UI_LoadBots" title='UI_LoadBots' data-type='void UI_LoadBots()' data-ref="UI_LoadBots">UI_LoadBots</dfn>( <em>void</em> ) {</td></tr>
+<tr><th id="359">359</th><td>	<a class="typedef" href="../qcommon/q_shared.h.html#vmCvar_t" title='vmCvar_t' data-type='struct vmCvar_t' data-ref="vmCvar_t">vmCvar_t</a>	<dfn class="local col8 decl" id="38botsFile" title='botsFile' data-type='vmCvar_t' data-ref="38botsFile">botsFile</dfn>;</td></tr>
+<tr><th id="360">360</th><td>	<em>int</em>			<dfn class="local col9 decl" id="39numdirs" title='numdirs' data-type='int' data-ref="39numdirs">numdirs</dfn>;</td></tr>
+<tr><th id="361">361</th><td>	<em>char</em>		<dfn class="local col0 decl" id="40filename" title='filename' data-type='char [128]' data-ref="40filename">filename</dfn>[<var>128</var>];</td></tr>
+<tr><th id="362">362</th><td>	<em>char</em>		<dfn class="local col1 decl" id="41dirlist" title='dirlist' data-type='char [1024]' data-ref="41dirlist">dirlist</dfn>[<var>1024</var>];</td></tr>
+<tr><th id="363">363</th><td>	<em>char</em>*		<dfn class="local col2 decl" id="42dirptr" title='dirptr' data-type='char *' data-ref="42dirptr">dirptr</dfn>;</td></tr>
+<tr><th id="364">364</th><td>	<em>int</em>			<dfn class="local col3 decl" id="43i" title='i' data-type='int' data-ref="43i">i</dfn>;</td></tr>
+<tr><th id="365">365</th><td>	<em>int</em>			<dfn class="local col4 decl" id="44dirlen" title='dirlen' data-type='int' data-ref="44dirlen">dirlen</dfn>;</td></tr>
+<tr><th id="366">366</th><td></td></tr>
+<tr><th id="367">367</th><td>	<a class="ref" href="#ui_numBots" title='ui_numBots' data-ref="ui_numBots">ui_numBots</a> = <var>0</var>;</td></tr>
+<tr><th id="368">368</th><td></td></tr>
+<tr><th id="369">369</th><td>	<a class="ref" href="ui_local.h.html#trap_Cvar_Register" title='trap_Cvar_Register' data-ref="trap_Cvar_Register">trap_Cvar_Register</a>( &amp;<a class="local col8 ref" href="#38botsFile" title='botsFile' data-ref="38botsFile">botsFile</a>, <q>"g_botsFile"</q>, <q>""</q>, <a class="macro" href="../qcommon/q_shared.h.html#900" title="0x0010" data-ref="_M/CVAR_INIT">CVAR_INIT</a>|<a class="macro" href="../qcommon/q_shared.h.html#907" title="0x0040" data-ref="_M/CVAR_ROM">CVAR_ROM</a> );</td></tr>
+<tr><th id="370">370</th><td>	<b>if</b>( *<a class="local col8 ref" href="#38botsFile" title='botsFile' data-ref="38botsFile">botsFile</a>.<a class="ref" href="../qcommon/q_shared.h.html#(anonymous)::string" title='(anonymous struct)::string' data-ref="(anonymous)::string">string</a> ) {</td></tr>
+<tr><th id="371">371</th><td>		<a class="tu ref" href="#UI_LoadBotsFromFile" title='UI_LoadBotsFromFile' data-use='c' data-ref="UI_LoadBotsFromFile">UI_LoadBotsFromFile</a>(<a class="local col8 ref" href="#38botsFile" title='botsFile' data-ref="38botsFile">botsFile</a>.<a class="ref" href="../qcommon/q_shared.h.html#(anonymous)::string" title='(anonymous struct)::string' data-ref="(anonymous)::string">string</a>);</td></tr>
+<tr><th id="372">372</th><td>	}</td></tr>
+<tr><th id="373">373</th><td>	<b>else</b> {</td></tr>
+<tr><th id="374">374</th><td>		<a class="tu ref" href="#UI_LoadBotsFromFile" title='UI_LoadBotsFromFile' data-use='c' data-ref="UI_LoadBotsFromFile">UI_LoadBotsFromFile</a>(<q>"scripts/bots.txt"</q>);</td></tr>
+<tr><th id="375">375</th><td>	}</td></tr>
+<tr><th id="376">376</th><td></td></tr>
+<tr><th id="377">377</th><td>	<i>// get all bots from .bot files</i></td></tr>
+<tr><th id="378">378</th><td>	<a class="local col9 ref" href="#39numdirs" title='numdirs' data-ref="39numdirs">numdirs</a> = <a class="ref" href="ui_local.h.html#trap_FS_GetFileList" title='trap_FS_GetFileList' data-ref="trap_FS_GetFileList">trap_FS_GetFileList</a>(<q>"scripts"</q>, <q>".bot"</q>, <a class="local col1 ref" href="#41dirlist" title='dirlist' data-ref="41dirlist">dirlist</a>, <var>1024</var> );</td></tr>
+<tr><th id="379">379</th><td>	<a class="local col2 ref" href="#42dirptr" title='dirptr' data-ref="42dirptr">dirptr</a>  = <a class="local col1 ref" href="#41dirlist" title='dirlist' data-ref="41dirlist">dirlist</a>;</td></tr>
+<tr><th id="380">380</th><td>	<b>for</b> (<a class="local col3 ref" href="#43i" title='i' data-ref="43i">i</a> = <var>0</var>; <a class="local col3 ref" href="#43i" title='i' data-ref="43i">i</a> &lt; <a class="local col9 ref" href="#39numdirs" title='numdirs' data-ref="39numdirs">numdirs</a>; <a class="local col3 ref" href="#43i" title='i' data-ref="43i">i</a>++, <a class="local col2 ref" href="#42dirptr" title='dirptr' data-ref="42dirptr">dirptr</a> += <a class="local col4 ref" href="#44dirlen" title='dirlen' data-ref="44dirlen">dirlen</a>+<var>1</var>) {</td></tr>
+<tr><th id="381">381</th><td>		<a class="local col4 ref" href="#44dirlen" title='dirlen' data-ref="44dirlen">dirlen</a> = <a class="ref" href="../../../include/string.h.html#strlen" title='strlen' data-ref="strlen">strlen</a>(<a class="local col2 ref" href="#42dirptr" title='dirptr' data-ref="42dirptr">dirptr</a>);</td></tr>
+<tr><th id="382">382</th><td>		<a class="ref" href="../../../include/string.h.html#strcpy" title='strcpy' data-ref="strcpy">strcpy</a>(<a class="local col0 ref" href="#40filename" title='filename' data-ref="40filename">filename</a>, <q>"scripts/"</q>);</td></tr>
+<tr><th id="383">383</th><td>		<a class="ref" href="../../../include/string.h.html#strcat" title='strcat' data-ref="strcat">strcat</a>(<a class="local col0 ref" href="#40filename" title='filename' data-ref="40filename">filename</a>, <a class="local col2 ref" href="#42dirptr" title='dirptr' data-ref="42dirptr">dirptr</a>);</td></tr>
+<tr><th id="384">384</th><td>		<a class="tu ref" href="#UI_LoadBotsFromFile" title='UI_LoadBotsFromFile' data-use='c' data-ref="UI_LoadBotsFromFile">UI_LoadBotsFromFile</a>(<a class="local col0 ref" href="#40filename" title='filename' data-ref="40filename">filename</a>);</td></tr>
+<tr><th id="385">385</th><td>	}</td></tr>
+<tr><th id="386">386</th><td>	<a class="ref" href="ui_local.h.html#trap_Print" title='trap_Print' data-ref="trap_Print">trap_Print</a>( <a class="ref" href="../qcommon/q_shared.h.html#va" title='va' data-ref="va">va</a>( <q>"%i bots parsed\n"</q>, <a class="ref" href="#ui_numBots" title='ui_numBots' data-ref="ui_numBots">ui_numBots</a> ) );</td></tr>
+<tr><th id="387">387</th><td>}</td></tr>
+<tr><th id="388">388</th><td></td></tr>
+<tr><th id="389">389</th><td></td></tr>
+<tr><th id="390">390</th><td><i>/*</i></td></tr>
+<tr><th id="391">391</th><td><i>===============</i></td></tr>
+<tr><th id="392">392</th><td><i>UI_GetBotInfoByNumber</i></td></tr>
+<tr><th id="393">393</th><td><i>===============</i></td></tr>
+<tr><th id="394">394</th><td><i>*/</i></td></tr>
+<tr><th id="395">395</th><td><em>char</em> *<dfn class="decl def" id="UI_GetBotInfoByNumber" title='UI_GetBotInfoByNumber' data-ref="UI_GetBotInfoByNumber">UI_GetBotInfoByNumber</dfn>( <em>int</em> <dfn class="local col5 decl" id="45num" title='num' data-type='int' data-ref="45num">num</dfn> ) {</td></tr>
+<tr><th id="396">396</th><td>	<b>if</b>( <a class="local col5 ref" href="#45num" title='num' data-ref="45num">num</a> &lt; <var>0</var> || <a class="local col5 ref" href="#45num" title='num' data-ref="45num">num</a> &gt;= <a class="ref" href="#ui_numBots" title='ui_numBots' data-ref="ui_numBots">ui_numBots</a> ) {</td></tr>
+<tr><th id="397">397</th><td>		<a class="ref" href="ui_local.h.html#trap_Print" title='trap_Print' data-ref="trap_Print">trap_Print</a>( <a class="ref" href="../qcommon/q_shared.h.html#va" title='va' data-ref="va">va</a>( <a class="macro" href="../qcommon/q_shared.h.html#423" title="&quot;^1&quot;" data-ref="_M/S_COLOR_RED">S_COLOR_RED</a> <q>"Invalid bot number: %i\n"</q>, <a class="local col5 ref" href="#45num" title='num' data-ref="45num">num</a> ) );</td></tr>
+<tr><th id="398">398</th><td>		<b>return</b> <span class="macro" title="((void*)0)" data-ref="_M/NULL">NULL</span>;</td></tr>
+<tr><th id="399">399</th><td>	}</td></tr>
+<tr><th id="400">400</th><td>	<b>return</b> <a class="tu ref" href="#ui_botInfos" title='ui_botInfos' data-use='r' data-ref="ui_botInfos">ui_botInfos</a>[<a class="local col5 ref" href="#45num" title='num' data-ref="45num">num</a>];</td></tr>
+<tr><th id="401">401</th><td>}</td></tr>
+<tr><th id="402">402</th><td></td></tr>
+<tr><th id="403">403</th><td></td></tr>
+<tr><th id="404">404</th><td><i>/*</i></td></tr>
+<tr><th id="405">405</th><td><i>===============</i></td></tr>
+<tr><th id="406">406</th><td><i>UI_GetBotInfoByName</i></td></tr>
+<tr><th id="407">407</th><td><i>===============</i></td></tr>
+<tr><th id="408">408</th><td><i>*/</i></td></tr>
+<tr><th id="409">409</th><td><em>char</em> *<dfn class="decl def" id="UI_GetBotInfoByName" title='UI_GetBotInfoByName' data-ref="UI_GetBotInfoByName">UI_GetBotInfoByName</dfn>( <em>const</em> <em>char</em> *<dfn class="local col6 decl" id="46name" title='name' data-type='const char *' data-ref="46name">name</dfn> ) {</td></tr>
+<tr><th id="410">410</th><td>	<em>int</em>		<dfn class="local col7 decl" id="47n" title='n' data-type='int' data-ref="47n">n</dfn>;</td></tr>
+<tr><th id="411">411</th><td>	<em>char</em>	*<dfn class="local col8 decl" id="48value" title='value' data-type='char *' data-ref="48value">value</dfn>;</td></tr>
+<tr><th id="412">412</th><td></td></tr>
+<tr><th id="413">413</th><td>	<b>for</b> ( <a class="local col7 ref" href="#47n" title='n' data-ref="47n">n</a> = <var>0</var>; <a class="local col7 ref" href="#47n" title='n' data-ref="47n">n</a> &lt; <a class="ref" href="#ui_numBots" title='ui_numBots' data-ref="ui_numBots">ui_numBots</a> ; <a class="local col7 ref" href="#47n" title='n' data-ref="47n">n</a>++ ) {</td></tr>
+<tr><th id="414">414</th><td>		<a class="local col8 ref" href="#48value" title='value' data-ref="48value">value</a> = <a class="ref" href="../qcommon/q_shared.h.html#Info_ValueForKey" title='Info_ValueForKey' data-ref="Info_ValueForKey">Info_ValueForKey</a>( <a class="tu ref" href="#ui_botInfos" title='ui_botInfos' data-use='r' data-ref="ui_botInfos">ui_botInfos</a>[<a class="local col7 ref" href="#47n" title='n' data-ref="47n">n</a>], <q>"name"</q> );</td></tr>
+<tr><th id="415">415</th><td>		<b>if</b> ( !<a class="ref" href="../qcommon/q_shared.h.html#Q_stricmp" title='Q_stricmp' data-ref="Q_stricmp">Q_stricmp</a>( <a class="local col8 ref" href="#48value" title='value' data-ref="48value">value</a>, <a class="local col6 ref" href="#46name" title='name' data-ref="46name">name</a> ) ) {</td></tr>
+<tr><th id="416">416</th><td>			<b>return</b> <a class="tu ref" href="#ui_botInfos" title='ui_botInfos' data-use='r' data-ref="ui_botInfos">ui_botInfos</a>[<a class="local col7 ref" href="#47n" title='n' data-ref="47n">n</a>];</td></tr>
+<tr><th id="417">417</th><td>		}</td></tr>
+<tr><th id="418">418</th><td>	}</td></tr>
+<tr><th id="419">419</th><td></td></tr>
+<tr><th id="420">420</th><td>	<b>return</b> <span class="macro" title="((void*)0)" data-ref="_M/NULL">NULL</span>;</td></tr>
+<tr><th id="421">421</th><td>}</td></tr>
+<tr><th id="422">422</th><td></td></tr>
+<tr><th id="423">423</th><td></td></tr>
+<tr><th id="424">424</th><td><i>//</i></td></tr>
+<tr><th id="425">425</th><td><i>// single player game info</i></td></tr>
+<tr><th id="426">426</th><td><i>//</i></td></tr>
+<tr><th id="427">427</th><td></td></tr>
+<tr><th id="428">428</th><td><i>/*</i></td></tr>
+<tr><th id="429">429</th><td><i>===============</i></td></tr>
+<tr><th id="430">430</th><td><i>UI_GetBestScore</i></td></tr>
+<tr><th id="431">431</th><td><i></i></td></tr>
+<tr><th id="432">432</th><td><i>Returns the player's best finish on a given level, 0 if the have not played the level</i></td></tr>
+<tr><th id="433">433</th><td><i>===============</i></td></tr>
+<tr><th id="434">434</th><td><i>*/</i></td></tr>
+<tr><th id="435">435</th><td><em>void</em> <dfn class="decl def" id="UI_GetBestScore" title='UI_GetBestScore' data-ref="UI_GetBestScore">UI_GetBestScore</dfn>( <em>int</em> <dfn class="local col9 decl" id="49level" title='level' data-type='int' data-ref="49level">level</dfn>, <em>int</em> *<dfn class="local col0 decl" id="50score" title='score' data-type='int *' data-ref="50score">score</dfn>, <em>int</em> *<dfn class="local col1 decl" id="51skill" title='skill' data-type='int *' data-ref="51skill">skill</dfn> ) {</td></tr>
+<tr><th id="436">436</th><td>	<em>int</em>		<dfn class="local col2 decl" id="52n" title='n' data-type='int' data-ref="52n">n</dfn>;</td></tr>
+<tr><th id="437">437</th><td>	<em>int</em>		<dfn class="local col3 decl" id="53skillScore" title='skillScore' data-type='int' data-ref="53skillScore">skillScore</dfn>;</td></tr>
+<tr><th id="438">438</th><td>	<em>int</em>		<dfn class="local col4 decl" id="54bestScore" title='bestScore' data-type='int' data-ref="54bestScore">bestScore</dfn>;</td></tr>
+<tr><th id="439">439</th><td>	<em>int</em>		<dfn class="local col5 decl" id="55bestScoreSkill" title='bestScoreSkill' data-type='int' data-ref="55bestScoreSkill">bestScoreSkill</dfn>;</td></tr>
+<tr><th id="440">440</th><td>	<em>char</em>	<dfn class="local col6 decl" id="56arenaKey" title='arenaKey' data-type='char [16]' data-ref="56arenaKey">arenaKey</dfn>[<var>16</var>];</td></tr>
+<tr><th id="441">441</th><td>	<em>char</em>	<dfn class="local col7 decl" id="57scores" title='scores' data-type='char [1024]' data-ref="57scores">scores</dfn>[<a class="macro" href="../qcommon/q_shared.h.html#249" title="1024" data-ref="_M/MAX_INFO_VALUE">MAX_INFO_VALUE</a>];</td></tr>
+<tr><th id="442">442</th><td></td></tr>
+<tr><th id="443">443</th><td>	<b>if</b>( !<a class="local col0 ref" href="#50score" title='score' data-ref="50score">score</a> || !<a class="local col1 ref" href="#51skill" title='skill' data-ref="51skill">skill</a> ) {</td></tr>
+<tr><th id="444">444</th><td>		<b>return</b>;</td></tr>
+<tr><th id="445">445</th><td>	}</td></tr>
+<tr><th id="446">446</th><td></td></tr>
+<tr><th id="447">447</th><td>	<b>if</b>( <a class="local col9 ref" href="#49level" title='level' data-ref="49level">level</a> &lt; <var>0</var> || <a class="local col9 ref" href="#49level" title='level' data-ref="49level">level</a> &gt; <a class="tu ref" href="#ui_numArenas" title='ui_numArenas' data-use='r' data-ref="ui_numArenas">ui_numArenas</a> ) {</td></tr>
+<tr><th id="448">448</th><td>		<b>return</b>;</td></tr>
+<tr><th id="449">449</th><td>	}</td></tr>
+<tr><th id="450">450</th><td></td></tr>
+<tr><th id="451">451</th><td>	<a class="local col4 ref" href="#54bestScore" title='bestScore' data-ref="54bestScore">bestScore</a> = <var>0</var>;</td></tr>
+<tr><th id="452">452</th><td>	<a class="local col5 ref" href="#55bestScoreSkill" title='bestScoreSkill' data-ref="55bestScoreSkill">bestScoreSkill</a> = <var>0</var>;</td></tr>
+<tr><th id="453">453</th><td></td></tr>
+<tr><th id="454">454</th><td>	<b>for</b>( <a class="local col2 ref" href="#52n" title='n' data-ref="52n">n</a> = <var>1</var>; <a class="local col2 ref" href="#52n" title='n' data-ref="52n">n</a> &lt;= <var>5</var>; <a class="local col2 ref" href="#52n" title='n' data-ref="52n">n</a>++ ) {</td></tr>
+<tr><th id="455">455</th><td>		<a class="ref" href="ui_local.h.html#trap_Cvar_VariableStringBuffer" title='trap_Cvar_VariableStringBuffer' data-ref="trap_Cvar_VariableStringBuffer">trap_Cvar_VariableStringBuffer</a>( <a class="ref" href="../qcommon/q_shared.h.html#va" title='va' data-ref="va">va</a>( <q>"g_spScores%i"</q>, <a class="local col2 ref" href="#52n" title='n' data-ref="52n">n</a> ), <a class="local col7 ref" href="#57scores" title='scores' data-ref="57scores">scores</a>, <a class="macro" href="../qcommon/q_shared.h.html#249" title="1024" data-ref="_M/MAX_INFO_VALUE">MAX_INFO_VALUE</a> );</td></tr>
+<tr><th id="456">456</th><td></td></tr>
+<tr><th id="457">457</th><td>		<a class="ref" href="../qcommon/q_shared.h.html#Com_sprintf" title='Com_sprintf' data-ref="Com_sprintf">Com_sprintf</a>( <a class="local col6 ref" href="#56arenaKey" title='arenaKey' data-ref="56arenaKey">arenaKey</a>, <b>sizeof</b>( <a class="local col6 ref" href="#56arenaKey" title='arenaKey' data-ref="56arenaKey">arenaKey</a> ), <q>"l%i"</q>, <a class="local col9 ref" href="#49level" title='level' data-ref="49level">level</a> );</td></tr>
+<tr><th id="458">458</th><td>		<a class="local col3 ref" href="#53skillScore" title='skillScore' data-ref="53skillScore">skillScore</a> = <a class="ref" href="../../../include/stdlib.h.html#atoi" title='atoi' data-ref="atoi">atoi</a>( <a class="ref" href="../qcommon/q_shared.h.html#Info_ValueForKey" title='Info_ValueForKey' data-ref="Info_ValueForKey">Info_ValueForKey</a>( <a class="local col7 ref" href="#57scores" title='scores' data-ref="57scores">scores</a>, <a class="local col6 ref" href="#56arenaKey" title='arenaKey' data-ref="56arenaKey">arenaKey</a> ) );</td></tr>
+<tr><th id="459">459</th><td></td></tr>
+<tr><th id="460">460</th><td>		<b>if</b>( <a class="local col3 ref" href="#53skillScore" title='skillScore' data-ref="53skillScore">skillScore</a> &lt; <var>1</var> || <a class="local col3 ref" href="#53skillScore" title='skillScore' data-ref="53skillScore">skillScore</a> &gt; <var>8</var> ) {</td></tr>
+<tr><th id="461">461</th><td>			<b>continue</b>;</td></tr>
+<tr><th id="462">462</th><td>		}</td></tr>
+<tr><th id="463">463</th><td></td></tr>
+<tr><th id="464">464</th><td>		<b>if</b>( !<a class="local col4 ref" href="#54bestScore" title='bestScore' data-ref="54bestScore">bestScore</a> || <a class="local col3 ref" href="#53skillScore" title='skillScore' data-ref="53skillScore">skillScore</a> &lt;= <a class="local col4 ref" href="#54bestScore" title='bestScore' data-ref="54bestScore">bestScore</a> ) {</td></tr>
+<tr><th id="465">465</th><td>			<a class="local col4 ref" href="#54bestScore" title='bestScore' data-ref="54bestScore">bestScore</a> = <a class="local col3 ref" href="#53skillScore" title='skillScore' data-ref="53skillScore">skillScore</a>;</td></tr>
+<tr><th id="466">466</th><td>			<a class="local col5 ref" href="#55bestScoreSkill" title='bestScoreSkill' data-ref="55bestScoreSkill">bestScoreSkill</a> = <a class="local col2 ref" href="#52n" title='n' data-ref="52n">n</a>;</td></tr>
+<tr><th id="467">467</th><td>		}</td></tr>
+<tr><th id="468">468</th><td>	}</td></tr>
+<tr><th id="469">469</th><td></td></tr>
+<tr><th id="470">470</th><td>	*<a class="local col0 ref" href="#50score" title='score' data-ref="50score">score</a> = <a class="local col4 ref" href="#54bestScore" title='bestScore' data-ref="54bestScore">bestScore</a>;</td></tr>
+<tr><th id="471">471</th><td>	*<a class="local col1 ref" href="#51skill" title='skill' data-ref="51skill">skill</a> = <a class="local col5 ref" href="#55bestScoreSkill" title='bestScoreSkill' data-ref="55bestScoreSkill">bestScoreSkill</a>;</td></tr>
+<tr><th id="472">472</th><td>}</td></tr>
+<tr><th id="473">473</th><td></td></tr>
+<tr><th id="474">474</th><td></td></tr>
+<tr><th id="475">475</th><td><i>/*</i></td></tr>
+<tr><th id="476">476</th><td><i>===============</i></td></tr>
+<tr><th id="477">477</th><td><i>UI_SetBestScore</i></td></tr>
+<tr><th id="478">478</th><td><i></i></td></tr>
+<tr><th id="479">479</th><td><i>Set the player's best finish for a level</i></td></tr>
+<tr><th id="480">480</th><td><i>===============</i></td></tr>
+<tr><th id="481">481</th><td><i>*/</i></td></tr>
+<tr><th id="482">482</th><td><em>void</em> <dfn class="decl def" id="UI_SetBestScore" title='UI_SetBestScore' data-ref="UI_SetBestScore">UI_SetBestScore</dfn>( <em>int</em> <dfn class="local col8 decl" id="58level" title='level' data-type='int' data-ref="58level">level</dfn>, <em>int</em> <dfn class="local col9 decl" id="59score" title='score' data-type='int' data-ref="59score">score</dfn> ) {</td></tr>
+<tr><th id="483">483</th><td>	<em>int</em>		<dfn class="local col0 decl" id="60skill" title='skill' data-type='int' data-ref="60skill">skill</dfn>;</td></tr>
+<tr><th id="484">484</th><td>	<em>int</em>		<dfn class="local col1 decl" id="61oldScore" title='oldScore' data-type='int' data-ref="61oldScore">oldScore</dfn>;</td></tr>
+<tr><th id="485">485</th><td>	<em>char</em>	<dfn class="local col2 decl" id="62arenaKey" title='arenaKey' data-type='char [16]' data-ref="62arenaKey">arenaKey</dfn>[<var>16</var>];</td></tr>
+<tr><th id="486">486</th><td>	<em>char</em>	<dfn class="local col3 decl" id="63scores" title='scores' data-type='char [1024]' data-ref="63scores">scores</dfn>[<a class="macro" href="../qcommon/q_shared.h.html#249" title="1024" data-ref="_M/MAX_INFO_VALUE">MAX_INFO_VALUE</a>];</td></tr>
+<tr><th id="487">487</th><td></td></tr>
+<tr><th id="488">488</th><td>	<i>// validate score</i></td></tr>
+<tr><th id="489">489</th><td>	<b>if</b>( <a class="local col9 ref" href="#59score" title='score' data-ref="59score">score</a> &lt; <var>1</var> || <a class="local col9 ref" href="#59score" title='score' data-ref="59score">score</a> &gt; <var>8</var> ) {</td></tr>
+<tr><th id="490">490</th><td>		<b>return</b>;</td></tr>
+<tr><th id="491">491</th><td>	}</td></tr>
+<tr><th id="492">492</th><td></td></tr>
+<tr><th id="493">493</th><td>	<i>// validate skill</i></td></tr>
+<tr><th id="494">494</th><td>	<a class="local col0 ref" href="#60skill" title='skill' data-ref="60skill">skill</a> = (<em>int</em>)<a class="ref" href="ui_local.h.html#trap_Cvar_VariableValue" title='trap_Cvar_VariableValue' data-ref="trap_Cvar_VariableValue">trap_Cvar_VariableValue</a>( <q>"g_spSkill"</q> );</td></tr>
+<tr><th id="495">495</th><td>	<b>if</b>( <a class="local col0 ref" href="#60skill" title='skill' data-ref="60skill">skill</a> &lt; <var>1</var> || <a class="local col0 ref" href="#60skill" title='skill' data-ref="60skill">skill</a> &gt; <var>5</var> ) {</td></tr>
+<tr><th id="496">496</th><td>		<b>return</b>;</td></tr>
+<tr><th id="497">497</th><td>	}</td></tr>
+<tr><th id="498">498</th><td></td></tr>
+<tr><th id="499">499</th><td>	<i>// get scores</i></td></tr>
+<tr><th id="500">500</th><td>	<a class="ref" href="ui_local.h.html#trap_Cvar_VariableStringBuffer" title='trap_Cvar_VariableStringBuffer' data-ref="trap_Cvar_VariableStringBuffer">trap_Cvar_VariableStringBuffer</a>( <a class="ref" href="../qcommon/q_shared.h.html#va" title='va' data-ref="va">va</a>( <q>"g_spScores%i"</q>, <a class="local col0 ref" href="#60skill" title='skill' data-ref="60skill">skill</a> ), <a class="local col3 ref" href="#63scores" title='scores' data-ref="63scores">scores</a>, <a class="macro" href="../qcommon/q_shared.h.html#249" title="1024" data-ref="_M/MAX_INFO_VALUE">MAX_INFO_VALUE</a> );</td></tr>
+<tr><th id="501">501</th><td></td></tr>
+<tr><th id="502">502</th><td>	<i>// see if this is better</i></td></tr>
+<tr><th id="503">503</th><td>	<a class="ref" href="../qcommon/q_shared.h.html#Com_sprintf" title='Com_sprintf' data-ref="Com_sprintf">Com_sprintf</a>( <a class="local col2 ref" href="#62arenaKey" title='arenaKey' data-ref="62arenaKey">arenaKey</a>, <b>sizeof</b>( <a class="local col2 ref" href="#62arenaKey" title='arenaKey' data-ref="62arenaKey">arenaKey</a> ), <q>"l%i"</q>, <a class="local col8 ref" href="#58level" title='level' data-ref="58level">level</a> );</td></tr>
+<tr><th id="504">504</th><td>	<a class="local col1 ref" href="#61oldScore" title='oldScore' data-ref="61oldScore">oldScore</a> = <a class="ref" href="../../../include/stdlib.h.html#atoi" title='atoi' data-ref="atoi">atoi</a>( <a class="ref" href="../qcommon/q_shared.h.html#Info_ValueForKey" title='Info_ValueForKey' data-ref="Info_ValueForKey">Info_ValueForKey</a>( <a class="local col3 ref" href="#63scores" title='scores' data-ref="63scores">scores</a>, <a class="local col2 ref" href="#62arenaKey" title='arenaKey' data-ref="62arenaKey">arenaKey</a> ) );</td></tr>
+<tr><th id="505">505</th><td>	<b>if</b>( <a class="local col1 ref" href="#61oldScore" title='oldScore' data-ref="61oldScore">oldScore</a> &amp;&amp; <a class="local col1 ref" href="#61oldScore" title='oldScore' data-ref="61oldScore">oldScore</a> &lt;= <a class="local col9 ref" href="#59score" title='score' data-ref="59score">score</a> ) {</td></tr>
+<tr><th id="506">506</th><td>		<b>return</b>;</td></tr>
+<tr><th id="507">507</th><td>	}</td></tr>
+<tr><th id="508">508</th><td></td></tr>
+<tr><th id="509">509</th><td>	<i>// update scores</i></td></tr>
+<tr><th id="510">510</th><td>	<a class="ref" href="../qcommon/q_shared.h.html#Info_SetValueForKey" title='Info_SetValueForKey' data-ref="Info_SetValueForKey">Info_SetValueForKey</a>( <a class="local col3 ref" href="#63scores" title='scores' data-ref="63scores">scores</a>, <a class="local col2 ref" href="#62arenaKey" title='arenaKey' data-ref="62arenaKey">arenaKey</a>, <a class="ref" href="../qcommon/q_shared.h.html#va" title='va' data-ref="va">va</a>( <q>"%i"</q>, <a class="local col9 ref" href="#59score" title='score' data-ref="59score">score</a> ) );</td></tr>
+<tr><th id="511">511</th><td>	<a class="ref" href="ui_local.h.html#trap_Cvar_Set" title='trap_Cvar_Set' data-ref="trap_Cvar_Set">trap_Cvar_Set</a>( <a class="ref" href="../qcommon/q_shared.h.html#va" title='va' data-ref="va">va</a>( <q>"g_spScores%i"</q>, <a class="local col0 ref" href="#60skill" title='skill' data-ref="60skill">skill</a> ), <a class="local col3 ref" href="#63scores" title='scores' data-ref="63scores">scores</a> );</td></tr>
+<tr><th id="512">512</th><td>}</td></tr>
+<tr><th id="513">513</th><td></td></tr>
+<tr><th id="514">514</th><td></td></tr>
+<tr><th id="515">515</th><td><i>/*</i></td></tr>
+<tr><th id="516">516</th><td><i>===============</i></td></tr>
+<tr><th id="517">517</th><td><i>UI_LogAwardData</i></td></tr>
+<tr><th id="518">518</th><td><i>===============</i></td></tr>
+<tr><th id="519">519</th><td><i>*/</i></td></tr>
+<tr><th id="520">520</th><td><em>void</em> <dfn class="decl def" id="UI_LogAwardData" title='UI_LogAwardData' data-ref="UI_LogAwardData">UI_LogAwardData</dfn>( <em>int</em> <dfn class="local col4 decl" id="64award" title='award' data-type='int' data-ref="64award">award</dfn>, <em>int</em> <dfn class="local col5 decl" id="65data" title='data' data-type='int' data-ref="65data">data</dfn> ) {</td></tr>
+<tr><th id="521">521</th><td>	<em>char</em>	<dfn class="local col6 decl" id="66key" title='key' data-type='char [16]' data-ref="66key">key</dfn>[<var>16</var>];</td></tr>
+<tr><th id="522">522</th><td>	<em>char</em>	<dfn class="local col7 decl" id="67awardData" title='awardData' data-type='char [1024]' data-ref="67awardData">awardData</dfn>[<a class="macro" href="../qcommon/q_shared.h.html#249" title="1024" data-ref="_M/MAX_INFO_VALUE">MAX_INFO_VALUE</a>];</td></tr>
+<tr><th id="523">523</th><td>	<em>int</em>		<dfn class="local col8 decl" id="68oldValue" title='oldValue' data-type='int' data-ref="68oldValue">oldValue</dfn>;</td></tr>
+<tr><th id="524">524</th><td></td></tr>
+<tr><th id="525">525</th><td>	<b>if</b>( <a class="local col5 ref" href="#65data" title='data' data-ref="65data">data</a> == <var>0</var> ) {</td></tr>
+<tr><th id="526">526</th><td>		<b>return</b>;</td></tr>
+<tr><th id="527">527</th><td>	}</td></tr>
+<tr><th id="528">528</th><td></td></tr>
+<tr><th id="529">529</th><td>	<b>if</b>( <a class="local col4 ref" href="#64award" title='award' data-ref="64award">award</a> &gt; <a class="enum" href="ui_local.h.html#AWARD_PERFECT" title='AWARD_PERFECT' data-ref="AWARD_PERFECT">AWARD_PERFECT</a> ) {</td></tr>
+<tr><th id="530">530</th><td>		<a class="ref" href="ui_local.h.html#trap_Print" title='trap_Print' data-ref="trap_Print">trap_Print</a>( <a class="ref" href="../qcommon/q_shared.h.html#va" title='va' data-ref="va">va</a>( <a class="macro" href="../qcommon/q_shared.h.html#423" title="&quot;^1&quot;" data-ref="_M/S_COLOR_RED">S_COLOR_RED</a> <q>"Bad award %i in UI_LogAwardData\n"</q>, <a class="local col4 ref" href="#64award" title='award' data-ref="64award">award</a> ) );</td></tr>
+<tr><th id="531">531</th><td>		<b>return</b>;</td></tr>
+<tr><th id="532">532</th><td>	}</td></tr>
+<tr><th id="533">533</th><td></td></tr>
+<tr><th id="534">534</th><td>	<a class="ref" href="ui_local.h.html#trap_Cvar_VariableStringBuffer" title='trap_Cvar_VariableStringBuffer' data-ref="trap_Cvar_VariableStringBuffer">trap_Cvar_VariableStringBuffer</a>( <q>"g_spAwards"</q>, <a class="local col7 ref" href="#67awardData" title='awardData' data-ref="67awardData">awardData</a>, <b>sizeof</b>(<a class="local col7 ref" href="#67awardData" title='awardData' data-ref="67awardData">awardData</a>) );</td></tr>
+<tr><th id="535">535</th><td></td></tr>
+<tr><th id="536">536</th><td>	<a class="ref" href="../qcommon/q_shared.h.html#Com_sprintf" title='Com_sprintf' data-ref="Com_sprintf">Com_sprintf</a>( <a class="local col6 ref" href="#66key" title='key' data-ref="66key">key</a>, <b>sizeof</b>(<a class="local col6 ref" href="#66key" title='key' data-ref="66key">key</a>), <q>"a%i"</q>, <a class="local col4 ref" href="#64award" title='award' data-ref="64award">award</a> );</td></tr>
+<tr><th id="537">537</th><td>	<a class="local col8 ref" href="#68oldValue" title='oldValue' data-ref="68oldValue">oldValue</a> = <a class="ref" href="../../../include/stdlib.h.html#atoi" title='atoi' data-ref="atoi">atoi</a>( <a class="ref" href="../qcommon/q_shared.h.html#Info_ValueForKey" title='Info_ValueForKey' data-ref="Info_ValueForKey">Info_ValueForKey</a>( <a class="local col7 ref" href="#67awardData" title='awardData' data-ref="67awardData">awardData</a>, <a class="local col6 ref" href="#66key" title='key' data-ref="66key">key</a> ) );</td></tr>
+<tr><th id="538">538</th><td></td></tr>
+<tr><th id="539">539</th><td>	<a class="ref" href="../qcommon/q_shared.h.html#Info_SetValueForKey" title='Info_SetValueForKey' data-ref="Info_SetValueForKey">Info_SetValueForKey</a>( <a class="local col7 ref" href="#67awardData" title='awardData' data-ref="67awardData">awardData</a>, <a class="local col6 ref" href="#66key" title='key' data-ref="66key">key</a>, <a class="ref" href="../qcommon/q_shared.h.html#va" title='va' data-ref="va">va</a>( <q>"%i"</q>, <a class="local col8 ref" href="#68oldValue" title='oldValue' data-ref="68oldValue">oldValue</a> + <a class="local col5 ref" href="#65data" title='data' data-ref="65data">data</a> ) );</td></tr>
+<tr><th id="540">540</th><td>	<a class="ref" href="ui_local.h.html#trap_Cvar_Set" title='trap_Cvar_Set' data-ref="trap_Cvar_Set">trap_Cvar_Set</a>( <q>"g_spAwards"</q>, <a class="local col7 ref" href="#67awardData" title='awardData' data-ref="67awardData">awardData</a> );</td></tr>
+<tr><th id="541">541</th><td>}</td></tr>
+<tr><th id="542">542</th><td></td></tr>
+<tr><th id="543">543</th><td></td></tr>
+<tr><th id="544">544</th><td><i>/*</i></td></tr>
+<tr><th id="545">545</th><td><i>===============</i></td></tr>
+<tr><th id="546">546</th><td><i>UI_GetAwardLevel</i></td></tr>
+<tr><th id="547">547</th><td><i>===============</i></td></tr>
+<tr><th id="548">548</th><td><i>*/</i></td></tr>
+<tr><th id="549">549</th><td><em>int</em> <dfn class="decl def" id="UI_GetAwardLevel" title='UI_GetAwardLevel' data-ref="UI_GetAwardLevel">UI_GetAwardLevel</dfn>( <em>int</em> <dfn class="local col9 decl" id="69award" title='award' data-type='int' data-ref="69award">award</dfn> ) {</td></tr>
+<tr><th id="550">550</th><td>	<em>char</em>	<dfn class="local col0 decl" id="70key" title='key' data-type='char [16]' data-ref="70key">key</dfn>[<var>16</var>];</td></tr>
+<tr><th id="551">551</th><td>	<em>char</em>	<dfn class="local col1 decl" id="71awardData" title='awardData' data-type='char [1024]' data-ref="71awardData">awardData</dfn>[<a class="macro" href="../qcommon/q_shared.h.html#249" title="1024" data-ref="_M/MAX_INFO_VALUE">MAX_INFO_VALUE</a>];</td></tr>
+<tr><th id="552">552</th><td></td></tr>
+<tr><th id="553">553</th><td>	<a class="ref" href="ui_local.h.html#trap_Cvar_VariableStringBuffer" title='trap_Cvar_VariableStringBuffer' data-ref="trap_Cvar_VariableStringBuffer">trap_Cvar_VariableStringBuffer</a>( <q>"g_spAwards"</q>, <a class="local col1 ref" href="#71awardData" title='awardData' data-ref="71awardData">awardData</a>, <b>sizeof</b>(<a class="local col1 ref" href="#71awardData" title='awardData' data-ref="71awardData">awardData</a>) );</td></tr>
+<tr><th id="554">554</th><td></td></tr>
+<tr><th id="555">555</th><td>	<a class="ref" href="../qcommon/q_shared.h.html#Com_sprintf" title='Com_sprintf' data-ref="Com_sprintf">Com_sprintf</a>( <a class="local col0 ref" href="#70key" title='key' data-ref="70key">key</a>, <b>sizeof</b>(<a class="local col0 ref" href="#70key" title='key' data-ref="70key">key</a>), <q>"a%i"</q>, <a class="local col9 ref" href="#69award" title='award' data-ref="69award">award</a> );</td></tr>
+<tr><th id="556">556</th><td>	<b>return</b> <a class="ref" href="../../../include/stdlib.h.html#atoi" title='atoi' data-ref="atoi">atoi</a>( <a class="ref" href="../qcommon/q_shared.h.html#Info_ValueForKey" title='Info_ValueForKey' data-ref="Info_ValueForKey">Info_ValueForKey</a>( <a class="local col1 ref" href="#71awardData" title='awardData' data-ref="71awardData">awardData</a>, <a class="local col0 ref" href="#70key" title='key' data-ref="70key">key</a> ) );</td></tr>
+<tr><th id="557">557</th><td>}</td></tr>
+<tr><th id="558">558</th><td></td></tr>
+<tr><th id="559">559</th><td></td></tr>
+<tr><th id="560">560</th><td><i>/*</i></td></tr>
+<tr><th id="561">561</th><td><i>===============</i></td></tr>
+<tr><th id="562">562</th><td><i>UI_TierCompleted</i></td></tr>
+<tr><th id="563">563</th><td><i>===============</i></td></tr>
+<tr><th id="564">564</th><td><i>*/</i></td></tr>
+<tr><th id="565">565</th><td><em>int</em> <dfn class="decl def" id="UI_TierCompleted" title='UI_TierCompleted' data-ref="UI_TierCompleted">UI_TierCompleted</dfn>( <em>int</em> <dfn class="local col2 decl" id="72levelWon" title='levelWon' data-type='int' data-ref="72levelWon">levelWon</dfn> ) {</td></tr>
+<tr><th id="566">566</th><td>	<em>int</em>			<dfn class="local col3 decl" id="73level" title='level' data-type='int' data-ref="73level">level</dfn>;</td></tr>
+<tr><th id="567">567</th><td>	<em>int</em>			<dfn class="local col4 decl" id="74n" title='n' data-type='int' data-ref="74n">n</dfn>;</td></tr>
+<tr><th id="568">568</th><td>	<em>int</em>			<dfn class="local col5 decl" id="75tier" title='tier' data-type='int' data-ref="75tier">tier</dfn>;</td></tr>
+<tr><th id="569">569</th><td>	<em>int</em>			<dfn class="local col6 decl" id="76score" title='score' data-type='int' data-ref="76score">score</dfn>;</td></tr>
+<tr><th id="570">570</th><td>	<em>int</em>			<dfn class="local col7 decl" id="77skill" title='skill' data-type='int' data-ref="77skill">skill</dfn>;</td></tr>
+<tr><th id="571">571</th><td>	<em>const</em> <em>char</em>	*<dfn class="local col8 decl" id="78info" title='info' data-type='const char *' data-ref="78info">info</dfn>;</td></tr>
+<tr><th id="572">572</th><td></td></tr>
+<tr><th id="573">573</th><td>	<a class="local col5 ref" href="#75tier" title='tier' data-ref="75tier">tier</a> = <a class="local col2 ref" href="#72levelWon" title='levelWon' data-ref="72levelWon">levelWon</a> / <a class="macro" href="../game/bg_public.h.html#709" title="4" data-ref="_M/ARENAS_PER_TIER">ARENAS_PER_TIER</a>;</td></tr>
+<tr><th id="574">574</th><td>	<a class="local col3 ref" href="#73level" title='level' data-ref="73level">level</a> = <a class="local col5 ref" href="#75tier" title='tier' data-ref="75tier">tier</a> * <a class="macro" href="../game/bg_public.h.html#709" title="4" data-ref="_M/ARENAS_PER_TIER">ARENAS_PER_TIER</a>;</td></tr>
+<tr><th id="575">575</th><td></td></tr>
+<tr><th id="576">576</th><td>	<b>if</b>( <a class="local col5 ref" href="#75tier" title='tier' data-ref="75tier">tier</a> == <a class="ref" href="#UI_GetNumSPTiers" title='UI_GetNumSPTiers' data-ref="UI_GetNumSPTiers">UI_GetNumSPTiers</a>() ) {</td></tr>
+<tr><th id="577">577</th><td>		<a class="local col8 ref" href="#78info" title='info' data-ref="78info">info</a> = <a class="ref" href="#UI_GetSpecialArenaInfo" title='UI_GetSpecialArenaInfo' data-ref="UI_GetSpecialArenaInfo">UI_GetSpecialArenaInfo</a>( <q>"training"</q> );</td></tr>
+<tr><th id="578">578</th><td>		<b>if</b>( <a class="local col2 ref" href="#72levelWon" title='levelWon' data-ref="72levelWon">levelWon</a> == <a class="ref" href="../../../include/stdlib.h.html#atoi" title='atoi' data-ref="atoi">atoi</a>( <a class="ref" href="../qcommon/q_shared.h.html#Info_ValueForKey" title='Info_ValueForKey' data-ref="Info_ValueForKey">Info_ValueForKey</a>( <a class="local col8 ref" href="#78info" title='info' data-ref="78info">info</a>, <q>"num"</q> ) ) ) {</td></tr>
+<tr><th id="579">579</th><td>			<b>return</b> <var>0</var>;</td></tr>
+<tr><th id="580">580</th><td>		}</td></tr>
+<tr><th id="581">581</th><td>		<a class="local col8 ref" href="#78info" title='info' data-ref="78info">info</a> = <a class="ref" href="#UI_GetSpecialArenaInfo" title='UI_GetSpecialArenaInfo' data-ref="UI_GetSpecialArenaInfo">UI_GetSpecialArenaInfo</a>( <q>"final"</q> );</td></tr>
+<tr><th id="582">582</th><td>		<b>if</b>( !<a class="local col8 ref" href="#78info" title='info' data-ref="78info">info</a> || <a class="local col2 ref" href="#72levelWon" title='levelWon' data-ref="72levelWon">levelWon</a> == <a class="ref" href="../../../include/stdlib.h.html#atoi" title='atoi' data-ref="atoi">atoi</a>( <a class="ref" href="../qcommon/q_shared.h.html#Info_ValueForKey" title='Info_ValueForKey' data-ref="Info_ValueForKey">Info_ValueForKey</a>( <a class="local col8 ref" href="#78info" title='info' data-ref="78info">info</a>, <q>"num"</q> ) ) ) {</td></tr>
+<tr><th id="583">583</th><td>			<b>return</b> <a class="local col5 ref" href="#75tier" title='tier' data-ref="75tier">tier</a> + <var>1</var>;</td></tr>
+<tr><th id="584">584</th><td>		}</td></tr>
+<tr><th id="585">585</th><td>		<b>return</b> -<var>1</var>;</td></tr>
+<tr><th id="586">586</th><td>	}</td></tr>
+<tr><th id="587">587</th><td></td></tr>
+<tr><th id="588">588</th><td>	<b>for</b>( <a class="local col4 ref" href="#74n" title='n' data-ref="74n">n</a> = <var>0</var>; <a class="local col4 ref" href="#74n" title='n' data-ref="74n">n</a> &lt; <a class="macro" href="../game/bg_public.h.html#709" title="4" data-ref="_M/ARENAS_PER_TIER">ARENAS_PER_TIER</a>; <a class="local col4 ref" href="#74n" title='n' data-ref="74n">n</a>++, <a class="local col3 ref" href="#73level" title='level' data-ref="73level">level</a>++ ) {</td></tr>
+<tr><th id="589">589</th><td>		<a class="ref" href="#UI_GetBestScore" title='UI_GetBestScore' data-ref="UI_GetBestScore">UI_GetBestScore</a>( <a class="local col3 ref" href="#73level" title='level' data-ref="73level">level</a>, &amp;<a class="local col6 ref" href="#76score" title='score' data-ref="76score">score</a>, &amp;<a class="local col7 ref" href="#77skill" title='skill' data-ref="77skill">skill</a> );</td></tr>
+<tr><th id="590">590</th><td>		<b>if</b> ( <a class="local col6 ref" href="#76score" title='score' data-ref="76score">score</a> != <var>1</var> ) {</td></tr>
+<tr><th id="591">591</th><td>			<b>return</b> -<var>1</var>;</td></tr>
+<tr><th id="592">592</th><td>		}</td></tr>
+<tr><th id="593">593</th><td>	}</td></tr>
+<tr><th id="594">594</th><td>	<b>return</b> <a class="local col5 ref" href="#75tier" title='tier' data-ref="75tier">tier</a> + <var>1</var>;</td></tr>
+<tr><th id="595">595</th><td>}</td></tr>
+<tr><th id="596">596</th><td></td></tr>
+<tr><th id="597">597</th><td></td></tr>
+<tr><th id="598">598</th><td><i>/*</i></td></tr>
+<tr><th id="599">599</th><td><i>===============</i></td></tr>
+<tr><th id="600">600</th><td><i>UI_ShowTierVideo</i></td></tr>
+<tr><th id="601">601</th><td><i>===============</i></td></tr>
+<tr><th id="602">602</th><td><i>*/</i></td></tr>
+<tr><th id="603">603</th><td><a class="typedef" href="../qcommon/q_shared.h.html#qboolean" title='qboolean' data-type='enum qboolean' data-ref="qboolean">qboolean</a> <dfn class="decl def" id="UI_ShowTierVideo" title='UI_ShowTierVideo' data-ref="UI_ShowTierVideo">UI_ShowTierVideo</dfn>( <em>int</em> <dfn class="local col9 decl" id="79tier" title='tier' data-type='int' data-ref="79tier">tier</dfn> ) {</td></tr>
+<tr><th id="604">604</th><td>	<em>char</em>	<dfn class="local col0 decl" id="80key" title='key' data-type='char [16]' data-ref="80key">key</dfn>[<var>16</var>];</td></tr>
+<tr><th id="605">605</th><td>	<em>char</em>	<dfn class="local col1 decl" id="81videos" title='videos' data-type='char [1024]' data-ref="81videos">videos</dfn>[<a class="macro" href="../qcommon/q_shared.h.html#249" title="1024" data-ref="_M/MAX_INFO_VALUE">MAX_INFO_VALUE</a>];</td></tr>
+<tr><th id="606">606</th><td></td></tr>
+<tr><th id="607">607</th><td>	<b>if</b>( <a class="local col9 ref" href="#79tier" title='tier' data-ref="79tier">tier</a> &lt;= <var>0</var> ) {</td></tr>
+<tr><th id="608">608</th><td>		<b>return</b> <a class="enum" href="../qcommon/q_shared.h.html#qfalse" title='qfalse' data-ref="qfalse">qfalse</a>;</td></tr>
+<tr><th id="609">609</th><td>	}</td></tr>
+<tr><th id="610">610</th><td></td></tr>
+<tr><th id="611">611</th><td>	<a class="ref" href="ui_local.h.html#trap_Cvar_VariableStringBuffer" title='trap_Cvar_VariableStringBuffer' data-ref="trap_Cvar_VariableStringBuffer">trap_Cvar_VariableStringBuffer</a>( <q>"g_spVideos"</q>, <a class="local col1 ref" href="#81videos" title='videos' data-ref="81videos">videos</a>, <b>sizeof</b>(<a class="local col1 ref" href="#81videos" title='videos' data-ref="81videos">videos</a>) );</td></tr>
+<tr><th id="612">612</th><td></td></tr>
+<tr><th id="613">613</th><td>	<a class="ref" href="../qcommon/q_shared.h.html#Com_sprintf" title='Com_sprintf' data-ref="Com_sprintf">Com_sprintf</a>( <a class="local col0 ref" href="#80key" title='key' data-ref="80key">key</a>, <b>sizeof</b>(<a class="local col0 ref" href="#80key" title='key' data-ref="80key">key</a>), <q>"tier%i"</q>, <a class="local col9 ref" href="#79tier" title='tier' data-ref="79tier">tier</a> );</td></tr>
+<tr><th id="614">614</th><td>	<b>if</b>( <a class="ref" href="../../../include/stdlib.h.html#atoi" title='atoi' data-ref="atoi">atoi</a>( <a class="ref" href="../qcommon/q_shared.h.html#Info_ValueForKey" title='Info_ValueForKey' data-ref="Info_ValueForKey">Info_ValueForKey</a>( <a class="local col1 ref" href="#81videos" title='videos' data-ref="81videos">videos</a>, <a class="local col0 ref" href="#80key" title='key' data-ref="80key">key</a> ) ) ) {</td></tr>
+<tr><th id="615">615</th><td>		<b>return</b> <a class="enum" href="../qcommon/q_shared.h.html#qfalse" title='qfalse' data-ref="qfalse">qfalse</a>;</td></tr>
+<tr><th id="616">616</th><td>	}</td></tr>
+<tr><th id="617">617</th><td></td></tr>
+<tr><th id="618">618</th><td>	<a class="ref" href="../qcommon/q_shared.h.html#Info_SetValueForKey" title='Info_SetValueForKey' data-ref="Info_SetValueForKey">Info_SetValueForKey</a>( <a class="local col1 ref" href="#81videos" title='videos' data-ref="81videos">videos</a>, <a class="local col0 ref" href="#80key" title='key' data-ref="80key">key</a>, <a class="ref" href="../qcommon/q_shared.h.html#va" title='va' data-ref="va">va</a>( <q>"%i"</q>, <var>1</var> ) );</td></tr>
+<tr><th id="619">619</th><td>	<a class="ref" href="ui_local.h.html#trap_Cvar_Set" title='trap_Cvar_Set' data-ref="trap_Cvar_Set">trap_Cvar_Set</a>( <q>"g_spVideos"</q>, <a class="local col1 ref" href="#81videos" title='videos' data-ref="81videos">videos</a> );</td></tr>
+<tr><th id="620">620</th><td></td></tr>
+<tr><th id="621">621</th><td>	<b>return</b> <a class="enum" href="../qcommon/q_shared.h.html#qtrue" title='qtrue' data-ref="qtrue">qtrue</a>;</td></tr>
+<tr><th id="622">622</th><td>}</td></tr>
+<tr><th id="623">623</th><td></td></tr>
+<tr><th id="624">624</th><td></td></tr>
+<tr><th id="625">625</th><td><i>/*</i></td></tr>
+<tr><th id="626">626</th><td><i>===============</i></td></tr>
+<tr><th id="627">627</th><td><i>UI_CanShowTierVideo</i></td></tr>
+<tr><th id="628">628</th><td><i>===============</i></td></tr>
+<tr><th id="629">629</th><td><i>*/</i></td></tr>
+<tr><th id="630">630</th><td><a class="typedef" href="../qcommon/q_shared.h.html#qboolean" title='qboolean' data-type='enum qboolean' data-ref="qboolean">qboolean</a> <dfn class="decl def" id="UI_CanShowTierVideo" title='UI_CanShowTierVideo' data-ref="UI_CanShowTierVideo">UI_CanShowTierVideo</dfn>( <em>int</em> <dfn class="local col2 decl" id="82tier" title='tier' data-type='int' data-ref="82tier">tier</dfn> ) {</td></tr>
+<tr><th id="631">631</th><td>	<em>char</em>	<dfn class="local col3 decl" id="83key" title='key' data-type='char [16]' data-ref="83key">key</dfn>[<var>16</var>];</td></tr>
+<tr><th id="632">632</th><td>	<em>char</em>	<dfn class="local col4 decl" id="84videos" title='videos' data-type='char [1024]' data-ref="84videos">videos</dfn>[<a class="macro" href="../qcommon/q_shared.h.html#249" title="1024" data-ref="_M/MAX_INFO_VALUE">MAX_INFO_VALUE</a>];</td></tr>
+<tr><th id="633">633</th><td></td></tr>
+<tr><th id="634">634</th><td>	<b>if</b>( !<a class="local col2 ref" href="#82tier" title='tier' data-ref="82tier">tier</a> ) {</td></tr>
+<tr><th id="635">635</th><td>		<b>return</b> <a class="enum" href="../qcommon/q_shared.h.html#qfalse" title='qfalse' data-ref="qfalse">qfalse</a>;</td></tr>
+<tr><th id="636">636</th><td>	}</td></tr>
+<tr><th id="637">637</th><td></td></tr>
+<tr><th id="638">638</th><td>	<b>if</b>( <a class="ref" href="ui_local.h.html#uis" title='uis' data-ref="uis">uis</a>.<a class="ref" href="ui_local.h.html#(anonymous)::demoversion" title='(anonymous struct)::demoversion' data-ref="(anonymous)::demoversion">demoversion</a> &amp;&amp; <a class="local col2 ref" href="#82tier" title='tier' data-ref="82tier">tier</a> != <var>8</var> ) {</td></tr>
+<tr><th id="639">639</th><td>		<b>return</b> <a class="enum" href="../qcommon/q_shared.h.html#qfalse" title='qfalse' data-ref="qfalse">qfalse</a>;</td></tr>
+<tr><th id="640">640</th><td>	}</td></tr>
+<tr><th id="641">641</th><td></td></tr>
+<tr><th id="642">642</th><td>	<a class="ref" href="ui_local.h.html#trap_Cvar_VariableStringBuffer" title='trap_Cvar_VariableStringBuffer' data-ref="trap_Cvar_VariableStringBuffer">trap_Cvar_VariableStringBuffer</a>( <q>"g_spVideos"</q>, <a class="local col4 ref" href="#84videos" title='videos' data-ref="84videos">videos</a>, <b>sizeof</b>(<a class="local col4 ref" href="#84videos" title='videos' data-ref="84videos">videos</a>) );</td></tr>
+<tr><th id="643">643</th><td></td></tr>
+<tr><th id="644">644</th><td>	<a class="ref" href="../qcommon/q_shared.h.html#Com_sprintf" title='Com_sprintf' data-ref="Com_sprintf">Com_sprintf</a>( <a class="local col3 ref" href="#83key" title='key' data-ref="83key">key</a>, <b>sizeof</b>(<a class="local col3 ref" href="#83key" title='key' data-ref="83key">key</a>), <q>"tier%i"</q>, <a class="local col2 ref" href="#82tier" title='tier' data-ref="82tier">tier</a> );</td></tr>
+<tr><th id="645">645</th><td>	<b>if</b>( <a class="ref" href="../../../include/stdlib.h.html#atoi" title='atoi' data-ref="atoi">atoi</a>( <a class="ref" href="../qcommon/q_shared.h.html#Info_ValueForKey" title='Info_ValueForKey' data-ref="Info_ValueForKey">Info_ValueForKey</a>( <a class="local col4 ref" href="#84videos" title='videos' data-ref="84videos">videos</a>, <a class="local col3 ref" href="#83key" title='key' data-ref="83key">key</a> ) ) ) {</td></tr>
+<tr><th id="646">646</th><td>		<b>return</b> <a class="enum" href="../qcommon/q_shared.h.html#qtrue" title='qtrue' data-ref="qtrue">qtrue</a>;</td></tr>
+<tr><th id="647">647</th><td>	}</td></tr>
+<tr><th id="648">648</th><td></td></tr>
+<tr><th id="649">649</th><td>	<b>return</b> <a class="enum" href="../qcommon/q_shared.h.html#qfalse" title='qfalse' data-ref="qfalse">qfalse</a>;</td></tr>
+<tr><th id="650">650</th><td>}</td></tr>
+<tr><th id="651">651</th><td></td></tr>
+<tr><th id="652">652</th><td></td></tr>
+<tr><th id="653">653</th><td><i>/*</i></td></tr>
+<tr><th id="654">654</th><td><i>===============</i></td></tr>
+<tr><th id="655">655</th><td><i>UI_GetCurrentGame</i></td></tr>
+<tr><th id="656">656</th><td><i></i></td></tr>
+<tr><th id="657">657</th><td><i>Returns the next level the player has not won</i></td></tr>
+<tr><th id="658">658</th><td><i>===============</i></td></tr>
+<tr><th id="659">659</th><td><i>*/</i></td></tr>
+<tr><th id="660">660</th><td><em>int</em> <dfn class="decl def" id="UI_GetCurrentGame" title='UI_GetCurrentGame' data-ref="UI_GetCurrentGame">UI_GetCurrentGame</dfn>( <em>void</em> ) {</td></tr>
+<tr><th id="661">661</th><td>	<em>int</em>		<dfn class="local col5 decl" id="85level" title='level' data-type='int' data-ref="85level">level</dfn>;</td></tr>
+<tr><th id="662">662</th><td>	<em>int</em>		<dfn class="local col6 decl" id="86rank" title='rank' data-type='int' data-ref="86rank">rank</dfn> = <var>0</var>;</td></tr>
+<tr><th id="663">663</th><td>	<em>int</em>		<dfn class="local col7 decl" id="87skill" title='skill' data-type='int' data-ref="87skill">skill</dfn>;</td></tr>
+<tr><th id="664">664</th><td>	<em>const</em> <em>char</em> *<dfn class="local col8 decl" id="88info" title='info' data-type='const char *' data-ref="88info">info</dfn>;</td></tr>
+<tr><th id="665">665</th><td></td></tr>
+<tr><th id="666">666</th><td>	<a class="local col8 ref" href="#88info" title='info' data-ref="88info">info</a> = <a class="ref" href="#UI_GetSpecialArenaInfo" title='UI_GetSpecialArenaInfo' data-ref="UI_GetSpecialArenaInfo">UI_GetSpecialArenaInfo</a>( <q>"training"</q> );</td></tr>
+<tr><th id="667">667</th><td>	<b>if</b>( <a class="local col8 ref" href="#88info" title='info' data-ref="88info">info</a> ) {</td></tr>
+<tr><th id="668">668</th><td>		<a class="local col5 ref" href="#85level" title='level' data-ref="85level">level</a> = <a class="ref" href="../../../include/stdlib.h.html#atoi" title='atoi' data-ref="atoi">atoi</a>( <a class="ref" href="../qcommon/q_shared.h.html#Info_ValueForKey" title='Info_ValueForKey' data-ref="Info_ValueForKey">Info_ValueForKey</a>( <a class="local col8 ref" href="#88info" title='info' data-ref="88info">info</a>, <q>"num"</q> ) );</td></tr>
+<tr><th id="669">669</th><td>		<a class="ref" href="#UI_GetBestScore" title='UI_GetBestScore' data-ref="UI_GetBestScore">UI_GetBestScore</a>( <a class="local col5 ref" href="#85level" title='level' data-ref="85level">level</a>, &amp;<a class="local col6 ref" href="#86rank" title='rank' data-ref="86rank">rank</a>, &amp;<a class="local col7 ref" href="#87skill" title='skill' data-ref="87skill">skill</a> );</td></tr>
+<tr><th id="670">670</th><td>		<b>if</b> ( !<a class="local col6 ref" href="#86rank" title='rank' data-ref="86rank">rank</a> || <a class="local col6 ref" href="#86rank" title='rank' data-ref="86rank">rank</a> &gt; <var>1</var> ) {</td></tr>
+<tr><th id="671">671</th><td>			<b>return</b> <a class="local col5 ref" href="#85level" title='level' data-ref="85level">level</a>;</td></tr>
+<tr><th id="672">672</th><td>		}</td></tr>
+<tr><th id="673">673</th><td>	}</td></tr>
+<tr><th id="674">674</th><td></td></tr>
+<tr><th id="675">675</th><td>	<b>for</b>( <a class="local col5 ref" href="#85level" title='level' data-ref="85level">level</a> = <var>0</var>; <a class="local col5 ref" href="#85level" title='level' data-ref="85level">level</a> &lt; <a class="tu ref" href="#ui_numSinglePlayerArenas" title='ui_numSinglePlayerArenas' data-use='r' data-ref="ui_numSinglePlayerArenas">ui_numSinglePlayerArenas</a>; <a class="local col5 ref" href="#85level" title='level' data-ref="85level">level</a>++ ) {</td></tr>
+<tr><th id="676">676</th><td>		<a class="ref" href="#UI_GetBestScore" title='UI_GetBestScore' data-ref="UI_GetBestScore">UI_GetBestScore</a>( <a class="local col5 ref" href="#85level" title='level' data-ref="85level">level</a>, &amp;<a class="local col6 ref" href="#86rank" title='rank' data-ref="86rank">rank</a>, &amp;<a class="local col7 ref" href="#87skill" title='skill' data-ref="87skill">skill</a> );</td></tr>
+<tr><th id="677">677</th><td>		<b>if</b> ( !<a class="local col6 ref" href="#86rank" title='rank' data-ref="86rank">rank</a> || <a class="local col6 ref" href="#86rank" title='rank' data-ref="86rank">rank</a> &gt; <var>1</var> ) {</td></tr>
+<tr><th id="678">678</th><td>			<b>return</b> <a class="local col5 ref" href="#85level" title='level' data-ref="85level">level</a>;</td></tr>
+<tr><th id="679">679</th><td>		}</td></tr>
+<tr><th id="680">680</th><td>	}</td></tr>
+<tr><th id="681">681</th><td></td></tr>
+<tr><th id="682">682</th><td>	<a class="local col8 ref" href="#88info" title='info' data-ref="88info">info</a> = <a class="ref" href="#UI_GetSpecialArenaInfo" title='UI_GetSpecialArenaInfo' data-ref="UI_GetSpecialArenaInfo">UI_GetSpecialArenaInfo</a>( <q>"final"</q> );</td></tr>
+<tr><th id="683">683</th><td>	<b>if</b>( !<a class="local col8 ref" href="#88info" title='info' data-ref="88info">info</a> ) {</td></tr>
+<tr><th id="684">684</th><td>		<b>return</b> -<var>1</var>;</td></tr>
+<tr><th id="685">685</th><td>	}</td></tr>
+<tr><th id="686">686</th><td>	<b>return</b> <a class="ref" href="../../../include/stdlib.h.html#atoi" title='atoi' data-ref="atoi">atoi</a>( <a class="ref" href="../qcommon/q_shared.h.html#Info_ValueForKey" title='Info_ValueForKey' data-ref="Info_ValueForKey">Info_ValueForKey</a>( <a class="local col8 ref" href="#88info" title='info' data-ref="88info">info</a>, <q>"num"</q> ) );</td></tr>
+<tr><th id="687">687</th><td>}</td></tr>
+<tr><th id="688">688</th><td></td></tr>
+<tr><th id="689">689</th><td></td></tr>
+<tr><th id="690">690</th><td><i>/*</i></td></tr>
+<tr><th id="691">691</th><td><i>===============</i></td></tr>
+<tr><th id="692">692</th><td><i>UI_NewGame</i></td></tr>
+<tr><th id="693">693</th><td><i></i></td></tr>
+<tr><th id="694">694</th><td><i>Clears the scores and sets the difficutly level</i></td></tr>
+<tr><th id="695">695</th><td><i>===============</i></td></tr>
+<tr><th id="696">696</th><td><i>*/</i></td></tr>
+<tr><th id="697">697</th><td><em>void</em> <dfn class="decl def" id="UI_NewGame" title='UI_NewGame' data-ref="UI_NewGame">UI_NewGame</dfn>( <em>void</em> ) {</td></tr>
+<tr><th id="698">698</th><td>	<a class="ref" href="ui_local.h.html#trap_Cvar_Set" title='trap_Cvar_Set' data-ref="trap_Cvar_Set">trap_Cvar_Set</a>( <q>"g_spScores1"</q>, <q>""</q> );</td></tr>
+<tr><th id="699">699</th><td>	<a class="ref" href="ui_local.h.html#trap_Cvar_Set" title='trap_Cvar_Set' data-ref="trap_Cvar_Set">trap_Cvar_Set</a>( <q>"g_spScores2"</q>, <q>""</q> );</td></tr>
+<tr><th id="700">700</th><td>	<a class="ref" href="ui_local.h.html#trap_Cvar_Set" title='trap_Cvar_Set' data-ref="trap_Cvar_Set">trap_Cvar_Set</a>( <q>"g_spScores3"</q>, <q>""</q> );</td></tr>
+<tr><th id="701">701</th><td>	<a class="ref" href="ui_local.h.html#trap_Cvar_Set" title='trap_Cvar_Set' data-ref="trap_Cvar_Set">trap_Cvar_Set</a>( <q>"g_spScores4"</q>, <q>""</q> );</td></tr>
+<tr><th id="702">702</th><td>	<a class="ref" href="ui_local.h.html#trap_Cvar_Set" title='trap_Cvar_Set' data-ref="trap_Cvar_Set">trap_Cvar_Set</a>( <q>"g_spScores5"</q>, <q>""</q> );</td></tr>
+<tr><th id="703">703</th><td>	<a class="ref" href="ui_local.h.html#trap_Cvar_Set" title='trap_Cvar_Set' data-ref="trap_Cvar_Set">trap_Cvar_Set</a>( <q>"g_spAwards"</q>, <q>""</q> );</td></tr>
+<tr><th id="704">704</th><td>	<a class="ref" href="ui_local.h.html#trap_Cvar_Set" title='trap_Cvar_Set' data-ref="trap_Cvar_Set">trap_Cvar_Set</a>( <q>"g_spVideos"</q>, <q>""</q> );</td></tr>
+<tr><th id="705">705</th><td>}</td></tr>
+<tr><th id="706">706</th><td></td></tr>
+<tr><th id="707">707</th><td></td></tr>
+<tr><th id="708">708</th><td><i>/*</i></td></tr>
+<tr><th id="709">709</th><td><i>===============</i></td></tr>
+<tr><th id="710">710</th><td><i>UI_GetNumArenas</i></td></tr>
+<tr><th id="711">711</th><td><i>===============</i></td></tr>
+<tr><th id="712">712</th><td><i>*/</i></td></tr>
+<tr><th id="713">713</th><td><em>int</em> <dfn class="decl def" id="UI_GetNumArenas" title='UI_GetNumArenas' data-ref="UI_GetNumArenas">UI_GetNumArenas</dfn>( <em>void</em> ) {</td></tr>
+<tr><th id="714">714</th><td>	<b>return</b> <a class="tu ref" href="#ui_numArenas" title='ui_numArenas' data-use='r' data-ref="ui_numArenas">ui_numArenas</a>;</td></tr>
+<tr><th id="715">715</th><td>}</td></tr>
+<tr><th id="716">716</th><td></td></tr>
+<tr><th id="717">717</th><td></td></tr>
+<tr><th id="718">718</th><td><i>/*</i></td></tr>
+<tr><th id="719">719</th><td><i>===============</i></td></tr>
+<tr><th id="720">720</th><td><i>UI_GetNumSPArenas</i></td></tr>
+<tr><th id="721">721</th><td><i>===============</i></td></tr>
+<tr><th id="722">722</th><td><i>*/</i></td></tr>
+<tr><th id="723">723</th><td><em>int</em> <dfn class="decl def" id="UI_GetNumSPArenas" title='UI_GetNumSPArenas' data-ref="UI_GetNumSPArenas">UI_GetNumSPArenas</dfn>( <em>void</em> ) {</td></tr>
+<tr><th id="724">724</th><td>	<b>return</b> <a class="tu ref" href="#ui_numSinglePlayerArenas" title='ui_numSinglePlayerArenas' data-use='r' data-ref="ui_numSinglePlayerArenas">ui_numSinglePlayerArenas</a>;</td></tr>
+<tr><th id="725">725</th><td>}</td></tr>
+<tr><th id="726">726</th><td></td></tr>
+<tr><th id="727">727</th><td></td></tr>
+<tr><th id="728">728</th><td><i>/*</i></td></tr>
+<tr><th id="729">729</th><td><i>===============</i></td></tr>
+<tr><th id="730">730</th><td><i>UI_GetNumSPTiers</i></td></tr>
+<tr><th id="731">731</th><td><i>===============</i></td></tr>
+<tr><th id="732">732</th><td><i>*/</i></td></tr>
+<tr><th id="733">733</th><td><em>int</em> <dfn class="decl def" id="UI_GetNumSPTiers" title='UI_GetNumSPTiers' data-ref="UI_GetNumSPTiers">UI_GetNumSPTiers</dfn>( <em>void</em> ) {</td></tr>
+<tr><th id="734">734</th><td>	<b>return</b> <a class="tu ref" href="#ui_numSinglePlayerArenas" title='ui_numSinglePlayerArenas' data-use='r' data-ref="ui_numSinglePlayerArenas">ui_numSinglePlayerArenas</a> / <a class="macro" href="../game/bg_public.h.html#709" title="4" data-ref="_M/ARENAS_PER_TIER">ARENAS_PER_TIER</a>;</td></tr>
+<tr><th id="735">735</th><td>}</td></tr>
+<tr><th id="736">736</th><td></td></tr>
+<tr><th id="737">737</th><td></td></tr>
+<tr><th id="738">738</th><td><i>/*</i></td></tr>
+<tr><th id="739">739</th><td><i>===============</i></td></tr>
+<tr><th id="740">740</th><td><i>UI_GetNumBots</i></td></tr>
+<tr><th id="741">741</th><td><i>===============</i></td></tr>
+<tr><th id="742">742</th><td><i>*/</i></td></tr>
+<tr><th id="743">743</th><td><em>int</em> <dfn class="decl def" id="UI_GetNumBots" title='UI_GetNumBots' data-ref="UI_GetNumBots">UI_GetNumBots</dfn>( <em>void</em> ) {</td></tr>
+<tr><th id="744">744</th><td>	<b>return</b> <a class="ref" href="#ui_numBots" title='ui_numBots' data-ref="ui_numBots">ui_numBots</a>;</td></tr>
+<tr><th id="745">745</th><td>}</td></tr>
+<tr><th id="746">746</th><td></td></tr>
+<tr><th id="747">747</th><td></td></tr>
+<tr><th id="748">748</th><td><i>/*</i></td></tr>
+<tr><th id="749">749</th><td><i>===============</i></td></tr>
+<tr><th id="750">750</th><td><i>UI_SPUnlock_f</i></td></tr>
+<tr><th id="751">751</th><td><i>===============</i></td></tr>
+<tr><th id="752">752</th><td><i>*/</i></td></tr>
+<tr><th id="753">753</th><td><em>void</em> <dfn class="decl def" id="UI_SPUnlock_f" title='UI_SPUnlock_f' data-ref="UI_SPUnlock_f">UI_SPUnlock_f</dfn>( <em>void</em> ) {</td></tr>
+<tr><th id="754">754</th><td>	<em>char</em>	<dfn class="local col9 decl" id="89arenaKey" title='arenaKey' data-type='char [16]' data-ref="89arenaKey">arenaKey</dfn>[<var>16</var>];</td></tr>
+<tr><th id="755">755</th><td>	<em>char</em>	<dfn class="local col0 decl" id="90scores" title='scores' data-type='char [1024]' data-ref="90scores">scores</dfn>[<a class="macro" href="../qcommon/q_shared.h.html#249" title="1024" data-ref="_M/MAX_INFO_VALUE">MAX_INFO_VALUE</a>];</td></tr>
+<tr><th id="756">756</th><td>	<em>int</em>		<dfn class="local col1 decl" id="91level" title='level' data-type='int' data-ref="91level">level</dfn>;</td></tr>
+<tr><th id="757">757</th><td>	<em>int</em>		<dfn class="local col2 decl" id="92tier" title='tier' data-type='int' data-ref="92tier">tier</dfn>;</td></tr>
+<tr><th id="758">758</th><td></td></tr>
+<tr><th id="759">759</th><td>	<i>// get scores for skill 1</i></td></tr>
+<tr><th id="760">760</th><td>	<a class="ref" href="ui_local.h.html#trap_Cvar_VariableStringBuffer" title='trap_Cvar_VariableStringBuffer' data-ref="trap_Cvar_VariableStringBuffer">trap_Cvar_VariableStringBuffer</a>( <q>"g_spScores1"</q>, <a class="local col0 ref" href="#90scores" title='scores' data-ref="90scores">scores</a>, <a class="macro" href="../qcommon/q_shared.h.html#249" title="1024" data-ref="_M/MAX_INFO_VALUE">MAX_INFO_VALUE</a> );</td></tr>
+<tr><th id="761">761</th><td></td></tr>
+<tr><th id="762">762</th><td>	<i>// update scores</i></td></tr>
+<tr><th id="763">763</th><td>	<b>for</b>( <a class="local col1 ref" href="#91level" title='level' data-ref="91level">level</a> = <var>0</var>; <a class="local col1 ref" href="#91level" title='level' data-ref="91level">level</a> &lt; <a class="tu ref" href="#ui_numSinglePlayerArenas" title='ui_numSinglePlayerArenas' data-use='r' data-ref="ui_numSinglePlayerArenas">ui_numSinglePlayerArenas</a> + <a class="tu ref" href="#ui_numSpecialSinglePlayerArenas" title='ui_numSpecialSinglePlayerArenas' data-use='r' data-ref="ui_numSpecialSinglePlayerArenas">ui_numSpecialSinglePlayerArenas</a>; <a class="local col1 ref" href="#91level" title='level' data-ref="91level">level</a>++ ) {</td></tr>
+<tr><th id="764">764</th><td>		<a class="ref" href="../qcommon/q_shared.h.html#Com_sprintf" title='Com_sprintf' data-ref="Com_sprintf">Com_sprintf</a>( <a class="local col9 ref" href="#89arenaKey" title='arenaKey' data-ref="89arenaKey">arenaKey</a>, <b>sizeof</b>( <a class="local col9 ref" href="#89arenaKey" title='arenaKey' data-ref="89arenaKey">arenaKey</a> ), <q>"l%i"</q>, <a class="local col1 ref" href="#91level" title='level' data-ref="91level">level</a> );</td></tr>
+<tr><th id="765">765</th><td>		<a class="ref" href="../qcommon/q_shared.h.html#Info_SetValueForKey" title='Info_SetValueForKey' data-ref="Info_SetValueForKey">Info_SetValueForKey</a>( <a class="local col0 ref" href="#90scores" title='scores' data-ref="90scores">scores</a>, <a class="local col9 ref" href="#89arenaKey" title='arenaKey' data-ref="89arenaKey">arenaKey</a>, <q>"1"</q> );</td></tr>
+<tr><th id="766">766</th><td>	}</td></tr>
+<tr><th id="767">767</th><td>	<a class="ref" href="ui_local.h.html#trap_Cvar_Set" title='trap_Cvar_Set' data-ref="trap_Cvar_Set">trap_Cvar_Set</a>( <q>"g_spScores1"</q>, <a class="local col0 ref" href="#90scores" title='scores' data-ref="90scores">scores</a> );</td></tr>
+<tr><th id="768">768</th><td></td></tr>
+<tr><th id="769">769</th><td>	<i>// unlock cinematics</i></td></tr>
+<tr><th id="770">770</th><td>	<b>for</b>( <a class="local col2 ref" href="#92tier" title='tier' data-ref="92tier">tier</a> = <var>1</var>; <a class="local col2 ref" href="#92tier" title='tier' data-ref="92tier">tier</a> &lt;= <var>8</var>; <a class="local col2 ref" href="#92tier" title='tier' data-ref="92tier">tier</a>++ ) {</td></tr>
+<tr><th id="771">771</th><td>		<a class="ref" href="#UI_ShowTierVideo" title='UI_ShowTierVideo' data-ref="UI_ShowTierVideo">UI_ShowTierVideo</a>( <a class="local col2 ref" href="#92tier" title='tier' data-ref="92tier">tier</a> );</td></tr>
+<tr><th id="772">772</th><td>	}</td></tr>
+<tr><th id="773">773</th><td></td></tr>
+<tr><th id="774">774</th><td>	<a class="ref" href="ui_local.h.html#trap_Print" title='trap_Print' data-ref="trap_Print">trap_Print</a>( <q>"All levels unlocked at skill level 1\n"</q> );</td></tr>
+<tr><th id="775">775</th><td></td></tr>
+<tr><th id="776">776</th><td>	<a class="ref" href="ui_local.h.html#UI_SPLevelMenu_ReInit" title='UI_SPLevelMenu_ReInit' data-ref="UI_SPLevelMenu_ReInit">UI_SPLevelMenu_ReInit</a>();</td></tr>
+<tr><th id="777">777</th><td>}</td></tr>
+<tr><th id="778">778</th><td></td></tr>
+<tr><th id="779">779</th><td></td></tr>
+<tr><th id="780">780</th><td><i>/*</i></td></tr>
+<tr><th id="781">781</th><td><i>===============</i></td></tr>
+<tr><th id="782">782</th><td><i>UI_SPUnlockMedals_f</i></td></tr>
+<tr><th id="783">783</th><td><i>===============</i></td></tr>
+<tr><th id="784">784</th><td><i>*/</i></td></tr>
+<tr><th id="785">785</th><td><em>void</em> <dfn class="decl def" id="UI_SPUnlockMedals_f" title='UI_SPUnlockMedals_f' data-ref="UI_SPUnlockMedals_f">UI_SPUnlockMedals_f</dfn>( <em>void</em> ) {</td></tr>
+<tr><th id="786">786</th><td>	<em>int</em>		<dfn class="local col3 decl" id="93n" title='n' data-type='int' data-ref="93n">n</dfn>;</td></tr>
+<tr><th id="787">787</th><td>	<em>char</em>	<dfn class="local col4 decl" id="94key" title='key' data-type='char [16]' data-ref="94key">key</dfn>[<var>16</var>];</td></tr>
+<tr><th id="788">788</th><td>	<em>char</em>	<dfn class="local col5 decl" id="95awardData" title='awardData' data-type='char [1024]' data-ref="95awardData">awardData</dfn>[<a class="macro" href="../qcommon/q_shared.h.html#249" title="1024" data-ref="_M/MAX_INFO_VALUE">MAX_INFO_VALUE</a>];</td></tr>
+<tr><th id="789">789</th><td></td></tr>
+<tr><th id="790">790</th><td>	<a class="ref" href="ui_local.h.html#trap_Cvar_VariableStringBuffer" title='trap_Cvar_VariableStringBuffer' data-ref="trap_Cvar_VariableStringBuffer">trap_Cvar_VariableStringBuffer</a>( <q>"g_spAwards"</q>, <a class="local col5 ref" href="#95awardData" title='awardData' data-ref="95awardData">awardData</a>, <a class="macro" href="../qcommon/q_shared.h.html#249" title="1024" data-ref="_M/MAX_INFO_VALUE">MAX_INFO_VALUE</a> );</td></tr>
+<tr><th id="791">791</th><td></td></tr>
+<tr><th id="792">792</th><td>	<b>for</b>( <a class="local col3 ref" href="#93n" title='n' data-ref="93n">n</a> = <var>0</var>; <a class="local col3 ref" href="#93n" title='n' data-ref="93n">n</a> &lt; <var>6</var>; <a class="local col3 ref" href="#93n" title='n' data-ref="93n">n</a>++ ) {</td></tr>
+<tr><th id="793">793</th><td>		<a class="ref" href="../qcommon/q_shared.h.html#Com_sprintf" title='Com_sprintf' data-ref="Com_sprintf">Com_sprintf</a>( <a class="local col4 ref" href="#94key" title='key' data-ref="94key">key</a>, <b>sizeof</b>(<a class="local col4 ref" href="#94key" title='key' data-ref="94key">key</a>), <q>"a%i"</q>, <a class="local col3 ref" href="#93n" title='n' data-ref="93n">n</a> );</td></tr>
+<tr><th id="794">794</th><td>		<a class="ref" href="../qcommon/q_shared.h.html#Info_SetValueForKey" title='Info_SetValueForKey' data-ref="Info_SetValueForKey">Info_SetValueForKey</a>( <a class="local col5 ref" href="#95awardData" title='awardData' data-ref="95awardData">awardData</a>, <a class="local col4 ref" href="#94key" title='key' data-ref="94key">key</a>, <q>"100"</q> );</td></tr>
+<tr><th id="795">795</th><td>	}</td></tr>
+<tr><th id="796">796</th><td></td></tr>
+<tr><th id="797">797</th><td>	<a class="ref" href="ui_local.h.html#trap_Cvar_Set" title='trap_Cvar_Set' data-ref="trap_Cvar_Set">trap_Cvar_Set</a>( <q>"g_spAwards"</q>, <a class="local col5 ref" href="#95awardData" title='awardData' data-ref="95awardData">awardData</a> );</td></tr>
+<tr><th id="798">798</th><td></td></tr>
+<tr><th id="799">799</th><td>	<a class="ref" href="ui_local.h.html#trap_Print" title='trap_Print' data-ref="trap_Print">trap_Print</a>( <q>"All awards unlocked at 100\n"</q> );</td></tr>
+<tr><th id="800">800</th><td>}</td></tr>
+<tr><th id="801">801</th><td></td></tr>
+<tr><th id="802">802</th><td></td></tr>
+<tr><th id="803">803</th><td><i>/*</i></td></tr>
+<tr><th id="804">804</th><td><i>===============</i></td></tr>
+<tr><th id="805">805</th><td><i>UI_InitGameinfo</i></td></tr>
+<tr><th id="806">806</th><td><i>===============</i></td></tr>
+<tr><th id="807">807</th><td><i>*/</i></td></tr>
+<tr><th id="808">808</th><td><em>void</em> <dfn class="decl def" id="UI_InitGameinfo" title='UI_InitGameinfo' data-ref="UI_InitGameinfo">UI_InitGameinfo</dfn>( <em>void</em> ) {</td></tr>
+<tr><th id="809">809</th><td></td></tr>
+<tr><th id="810">810</th><td>	<a class="ref" href="#UI_InitMemory" title='UI_InitMemory' data-ref="UI_InitMemory">UI_InitMemory</a>();</td></tr>
+<tr><th id="811">811</th><td>	<a class="tu ref" href="#UI_LoadArenas" title='UI_LoadArenas' data-use='c' data-ref="UI_LoadArenas">UI_LoadArenas</a>();</td></tr>
+<tr><th id="812">812</th><td>	<a class="tu ref" href="#UI_LoadBots" title='UI_LoadBots' data-use='c' data-ref="UI_LoadBots">UI_LoadBots</a>();</td></tr>
+<tr><th id="813">813</th><td></td></tr>
+<tr><th id="814">814</th><td>	<a class="ref" href="ui_local.h.html#uis" title='uis' data-ref="uis">uis</a>.<a class="ref" href="ui_local.h.html#(anonymous)::demoversion" title='(anonymous struct)::demoversion' data-ref="(anonymous)::demoversion">demoversion</a> = <a class="enum" href="../qcommon/q_shared.h.html#qfalse" title='qfalse' data-ref="qfalse">qfalse</a>;</td></tr>
+<tr><th id="815">815</th><td>}</td></tr>
+<tr><th id="816">816</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated on <em>2017-Aug-29</em> from project codebrowser revision <em>63e07af</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

@@ -1,0 +1,26 @@
+<dec f='codebrowser/code/game/g_local.h' l='223' type='spectatorState_t'/>
+<offset>64</offset>
+<use f='codebrowser/code/game/g_active.c' l='323' u='r' c='SpectatorThink'/>
+<use f='codebrowser/code/game/g_active.c' l='779' u='r' c='ClientThink_real'/>
+<use f='codebrowser/code/game/g_active.c' l='811' u='r' c='ClientThink_real'/>
+<use f='codebrowser/code/game/g_active.c' l='1058' u='r' c='SpectatorClientEndFrame'/>
+<use f='codebrowser/code/game/g_active.c' l='1080' u='w' c='SpectatorClientEndFrame'/>
+<use f='codebrowser/code/game/g_active.c' l='1087' u='r' c='SpectatorClientEndFrame'/>
+<use f='codebrowser/code/game/g_client.c' l='743' u='r' c='ClientUserinfoChanged'/>
+<use f='codebrowser/code/game/g_client.c' l='1237' u='r' c='ClientSpawn'/>
+<use f='codebrowser/code/game/g_client.c' l='1275' u='r' c='ClientDisconnect'/>
+<use f='codebrowser/code/game/g_cmds.c' l='624' u='w' c='SetTeam'/>
+<use f='codebrowser/code/game/g_cmds.c' l='664' u='w' c='StopFollowing'/>
+<use f='codebrowser/code/game/g_cmds.c' l='734' u='r' c='Cmd_Follow_f'/>
+<use f='codebrowser/code/game/g_cmds.c' l='767' u='w' c='Cmd_Follow_f'/>
+<use f='codebrowser/code/game/g_cmds.c' l='786' u='r' c='Cmd_FollowCycle_f'/>
+<use f='codebrowser/code/game/g_cmds.c' l='827' u='w' c='Cmd_FollowCycle_f'/>
+<use f='codebrowser/code/game/g_main.c' l='606' u='r' c='AddTournamentPlayer'/>
+<use f='codebrowser/code/game/g_main.c' l='733' u='r' c='SortRanks'/>
+<use f='codebrowser/code/game/g_main.c' l='736' u='r' c='SortRanks'/>
+<use f='codebrowser/code/game/g_main.c' l='933' u='r' c='MoveClientToIntermission'/>
+<use f='codebrowser/code/game/g_session.c' l='50' u='r' c='G_WriteClientSessionData'/>
+<use f='codebrowser/code/game/g_session.c' l='90' u='w' c='G_ReadSessionData'/>
+<use f='codebrowser/code/game/g_session.c' l='123' u='w' c='G_InitSessionData'/>
+<use f='codebrowser/code/game/g_session.c' l='155' u='w' c='G_InitSessionData'/>
+<use f='codebrowser/code/game/g_team.c' l='1066' u='r' c='TeamplayInfoMessage'/>

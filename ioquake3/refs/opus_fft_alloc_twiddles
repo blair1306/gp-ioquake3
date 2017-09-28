@@ -1,0 +1,23 @@
+<dec f='codebrowser/code/opus-1.1.4/celt/kiss_fft.h' l='128' type='kiss_fft_state * opus_fft_alloc_twiddles(int nfft, void * mem, size_t * lenmem, const kiss_fft_state * base, int arch)'/>
+<doc f='codebrowser/code/opus-1.1.4/celt/kiss_fft.h' l='105'>/**
+ *  opus_fft_alloc
+ *
+ *  Initialize a FFT (or IFFT) algorithm&apos;s cfg/state buffer.
+ *
+ *  typical usage:      kiss_fft_cfg mycfg=opus_fft_alloc(1024,0,NULL,NULL);
+ *
+ *  The return value from fft_alloc is a cfg buffer used internally
+ *  by the fft routine or NULL.
+ *
+ *  If lenmem is NULL, then opus_fft_alloc will allocate a cfg buffer using malloc.
+ *  The returned value should be free()d when done to avoid memory leaks.
+ *
+ *  The state can be placed in a user supplied buffer &apos;mem&apos;:
+ *  If lenmem is not NULL and mem is not NULL and *lenmem is large enough,
+ *      then the function places the cfg in mem and the size used in *lenmem
+ *      and returns mem.
+ *
+ *  If lenmem is not NULL and ( mem is NULL or *lenmem is not large enough),
+ *      then the function returns NULL and places the minimum cfg
+ *      buffer size in *lenmem.
+ * */</doc>

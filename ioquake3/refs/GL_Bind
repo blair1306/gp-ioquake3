@@ -1,0 +1,25 @@
+<dec f='codebrowser/code/renderergl1/tr_local.h' l='1097' type='void GL_Bind(image_t * image)'/>
+<doc f='codebrowser/code/renderergl1/tr_local.h' l='1094'>/*
+** GL wrapper/helper functions
+*/</doc>
+<def f='codebrowser/code/renderergl1/tr_backend.c' l='41' ll='62' type='void GL_Bind(image_t * image)'/>
+<use f='codebrowser/code/renderergl1/tr_backend.c' l='762' u='c' c='RE_StretchRaw'/>
+<use f='codebrowser/code/renderergl1/tr_backend.c' l='804' u='c' c='RE_UploadCinematic'/>
+<use f='codebrowser/code/renderergl1/tr_backend.c' l='1007' u='c' c='RB_ShowImages'/>
+<doc f='codebrowser/code/renderergl1/tr_backend.c' l='38'>/*
+** GL_Bind
+*/</doc>
+<use f='codebrowser/code/renderergl1/tr_image.c' l='117' u='c' c='GL_TextureMode'/>
+<use f='codebrowser/code/renderergl1/tr_image.c' l='890' u='c' c='R_CreateImage'/>
+<use f='codebrowser/code/renderergl1/tr_main.c' l='1341' u='c' c='R_DebugGraphics'/>
+<use f='codebrowser/code/renderergl1/tr_shade.c' l='230' u='c' c='R_BindAnimatedImage'/>
+<use f='codebrowser/code/renderergl1/tr_shade.c' l='244' u='c' c='R_BindAnimatedImage'/>
+<use f='codebrowser/code/renderergl1/tr_shade.c' l='255' u='c' c='DrawTris'/>
+<use f='codebrowser/code/renderergl1/tr_shade.c' l='292' u='c' c='DrawNormals'/>
+<use f='codebrowser/code/renderergl1/tr_shade.c' l='725' u='c' c='ProjectDlightTexture_scalar'/>
+<use f='codebrowser/code/renderergl1/tr_shade.c' l='777' u='c' c='RB_FogPass'/>
+<use f='codebrowser/code/renderergl1/tr_shadows.c' l='209' u='c' c='RB_ShadowTessEnd'/>
+<use f='codebrowser/code/renderergl1/tr_shadows.c' l='259' u='c' c='RB_ShadowFinish'/>
+<use f='codebrowser/code/renderergl1/tr_sky.c' l='368' u='c' c='DrawSkySide'/>
+<use f='codebrowser/code/renderergl1/tr_surface.c' l='325' u='c' c='RB_SurfaceBeam'/>
+<use f='codebrowser/code/renderergl1/tr_surface.c' l='1162' u='c' c='RB_SurfaceAxis'/>

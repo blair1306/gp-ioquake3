@@ -1,0 +1,5 @@
+<dec f='codebrowser/code/libogg-1.3.2/include/ogg/ogg.h' l='145' type='void oggpackB_write(oggpack_buffer * b, unsigned long value, int bits)'/>
+<def f='codebrowser/code/libogg-1.3.2/src/bitwise.c' l='126' ll='166' type='void oggpackB_write(oggpack_buffer * b, unsigned long value, int bits)'/>
+<use f='codebrowser/code/libogg-1.3.2/src/bitwise.c' l='177' u='c' c='oggpackB_writealign'/>
+<use f='codebrowser/code/libogg-1.3.2/src/bitwise.c' l='236' u='r' c='oggpackB_writecopy'/>
+<doc f='codebrowser/code/libogg-1.3.2/src/bitwise.c' l='125'>/* Takes only up to 32 bits. */</doc>

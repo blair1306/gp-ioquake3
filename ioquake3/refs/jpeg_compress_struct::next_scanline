@@ -1,0 +1,21 @@
+<dec f='codebrowser/code/jpeg-8c/jpeglib.h' l='378' type='JDIMENSION'/>
+<offset>2720</offset>
+<doc f='codebrowser/code/jpeg-8c/jpeglib.h' l='373'>/* State variable: index of next scanline to be written to
+   * jpeg_write_scanlines().  Application may use this to control its
+   * processing loop, e.g., &quot;while (next_scanline &lt; image_height)&quot;.
+   */</doc>
+<doc f='codebrowser/code/jpeg-8c/jpeglib.h' l='378'>/* 0 .. image_height-1  */</doc>
+<use f='codebrowser/code/jpeg-8c/jcapimin.c' l='162' u='r' c='jpeg_finish_compress'/>
+<use f='codebrowser/code/jpeg-8c/jcapimin.c' l='205' u='r' c='jpeg_write_marker'/>
+<use f='codebrowser/code/jpeg-8c/jcapimin.c' l='224' u='r' c='jpeg_write_m_header'/>
+<use f='codebrowser/code/jpeg-8c/jcapistd.c' l='56' u='w' c='jpeg_start_compress'/>
+<use f='codebrowser/code/jpeg-8c/jcapistd.c' l='84' u='r' c='jpeg_write_scanlines'/>
+<use f='codebrowser/code/jpeg-8c/jcapistd.c' l='89' u='r' c='jpeg_write_scanlines'/>
+<use f='codebrowser/code/jpeg-8c/jcapistd.c' l='103' u='r' c='jpeg_write_scanlines'/>
+<use f='codebrowser/code/jpeg-8c/jcapistd.c' l='109' u='w' c='jpeg_write_scanlines'/>
+<use f='codebrowser/code/jpeg-8c/jcapistd.c' l='127' u='r' c='jpeg_write_raw_data'/>
+<use f='codebrowser/code/jpeg-8c/jcapistd.c' l='134' u='r' c='jpeg_write_raw_data'/>
+<use f='codebrowser/code/jpeg-8c/jcapistd.c' l='159' u='w' c='jpeg_write_raw_data'/>
+<use f='codebrowser/code/jpeg-8c/jctrans.c' l='51' u='w' c='jpeg_write_coefficients'/>
+<use f='codebrowser/code/renderercommon/tr_image_jpg.c' l='442' u='r' c='RE_SaveJPGToBuffer'/>
+<use f='codebrowser/code/renderercommon/tr_image_jpg.c' l='447' u='r' c='RE_SaveJPGToBuffer'/>

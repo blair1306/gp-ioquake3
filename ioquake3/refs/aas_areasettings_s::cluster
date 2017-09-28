@@ -1,0 +1,30 @@
+<dec f='codebrowser/code/botlib/aasfile.h' l='146' type='int'/>
+<offset>96</offset>
+<doc f='codebrowser/code/botlib/aasfile.h' l='146'>//cluster the area belongs to, if negative it&apos;s a portal</doc>
+<use f='codebrowser/code/botlib/be_aas_cluster.c' l='70' u='w' c='AAS_RemoveClusterAreas'/>
+<use f='codebrowser/code/botlib/be_aas_cluster.c' l='85' u='r' c='AAS_ClearCluster'/>
+<use f='codebrowser/code/botlib/be_aas_cluster.c' l='87' u='w' c='AAS_ClearCluster'/>
+<use f='codebrowser/code/botlib/be_aas_cluster.c' l='164' u='w' c='AAS_UpdatePortal'/>
+<use f='codebrowser/code/botlib/be_aas_cluster.c' l='191' u='r' c='AAS_FloodClusterAreas_r'/>
+<use f='codebrowser/code/botlib/be_aas_cluster.c' l='193' u='r' c='AAS_FloodClusterAreas_r'/>
+<use f='codebrowser/code/botlib/be_aas_cluster.c' l='198' u='r' c='AAS_FloodClusterAreas_r'/>
+<use f='codebrowser/code/botlib/be_aas_cluster.c' l='207' u='w' c='AAS_FloodClusterAreas_r'/>
+<use f='codebrowser/code/botlib/be_aas_cluster.c' l='258' u='r' c='AAS_FloodClusterAreasUsingReachabilities'/>
+<use f='codebrowser/code/botlib/be_aas_cluster.c' l='272' u='r' c='AAS_FloodClusterAreasUsingReachabilities'/>
+<use f='codebrowser/code/botlib/be_aas_cluster.c' l='328' u='r' c='AAS_NumberClusterAreas'/>
+<use f='codebrowser/code/botlib/be_aas_cluster.c' l='359' u='r' c='AAS_NumberClusterAreas'/>
+<use f='codebrowser/code/botlib/be_aas_cluster.c' l='400' u='r' c='AAS_FindClusters'/>
+<use f='codebrowser/code/botlib/be_aas_file.c' l='127' u='w' c='AAS_SwapAASData'/>
+<use f='codebrowser/code/botlib/be_aas_file.c' l='127' u='r' c='AAS_SwapAASData'/>
+<use f='codebrowser/code/botlib/be_aas_route.c' l='113' u='r' c='AAS_ClusterAreaNum'/>
+<use f='codebrowser/code/botlib/be_aas_route.c' l='277' u='r' c='AAS_RemoveRoutingCacheUsingArea'/>
+<use f='codebrowser/code/botlib/be_aas_route.c' l='704' u='r' c='AAS_FreeOldestCache'/>
+<use f='codebrowser/code/botlib/be_aas_route.c' l='1357' u='r' c='AAS_UpdateAreaRoutingCache'/>
+<use f='codebrowser/code/botlib/be_aas_route.c' l='1469' u='r' c='AAS_UpdatePortalRoutingCache'/>
+<use f='codebrowser/code/botlib/be_aas_route.c' l='1643' u='r' c='AAS_AreaRouteToGoalArea'/>
+<use f='codebrowser/code/botlib/be_aas_route.c' l='1644' u='r' c='AAS_AreaRouteToGoalArea'/>
+<use f='codebrowser/code/botlib/be_aas_route.c' l='1694' u='r' c='AAS_AreaRouteToGoalArea'/>
+<use f='codebrowser/code/botlib/be_aas_route.c' l='1695' u='r' c='AAS_AreaRouteToGoalArea'/>
+<use f='codebrowser/code/botlib/be_aas_sample.c' l='285' u='r' c='AAS_PointReachabilityAreaIndex'/>
+<use f='codebrowser/code/botlib/be_aas_sample.c' l='314' u='r' c='AAS_AreaCluster'/>
+<use f='codebrowser/code/botlib/be_aas_sample.c' l='1373' u='r' c='AAS_AreaInfo'/>

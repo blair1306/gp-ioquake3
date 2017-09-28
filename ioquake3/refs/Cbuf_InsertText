@@ -1,0 +1,12 @@
+<def f='codebrowser/code/qcommon/cmd.c' l='113' ll='135' type='void Cbuf_InsertText(const char * text)'/>
+<use f='codebrowser/code/qcommon/cmd.c' l='157' u='c' c='Cbuf_ExecuteText'/>
+<use f='codebrowser/code/qcommon/cmd.c' l='293' u='c' c='Cmd_Exec_f'/>
+<use f='codebrowser/code/qcommon/cmd.c' l='315' u='c' c='Cmd_Vstr_f'/>
+<doc f='codebrowser/code/qcommon/cmd.c' l='105'>/*
+============
+Cbuf_InsertText
+
+Adds command text immediately after the current command
+Adds a \n to the text
+============
+*/</doc>

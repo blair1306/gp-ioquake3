@@ -1,0 +1,11 @@
+<dec f='codebrowser/code/game/g_public.h' l='69' type='qboolean'/>
+<offset>1792</offset>
+<doc f='codebrowser/code/game/g_public.h' l='69'>// if false, assume an explicit mins / maxs bounding box</doc>
+<use f='codebrowser/code/game/ai_main.c' l='1536' u='r' c='BotAIStartFrame'/>
+<use f='codebrowser/code/server/sv_game.c' l='130' u='w' c='SV_SetBrushModel'/>
+<use f='codebrowser/code/server/sv_world.c' l='36' u='r' c='SV_ClipHandleForEntity'/>
+<use f='codebrowser/code/server/sv_world.c' l='223' u='r' c='SV_LinkEntity'/>
+<use f='codebrowser/code/server/sv_world.c' l='257' u='r' c='SV_LinkEntity'/>
+<use f='codebrowser/code/server/sv_world.c' l='486' u='r' c='SV_ClipToEntity'/>
+<use f='codebrowser/code/server/sv_world.c' l='558' u='r' c='SV_ClipMoveToEntities'/>
+<use f='codebrowser/code/server/sv_world.c' l='675' u='r' c='SV_PointContents'/>

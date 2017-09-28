@@ -1,0 +1,13 @@
+<dec f='codebrowser/code/client/client.h' l='594' type='e_status CIN_RunCinematic(int handle)'/>
+<use f='codebrowser/code/client/cl_cgame.c' l='666' u='c' c='CL_CgameSystemCalls'/>
+<def f='codebrowser/code/client/cl_cin.c' l='1336' ll='1400' type='e_status CIN_RunCinematic(int handle)'/>
+<use f='codebrowser/code/client/cl_cin.c' l='1647' u='c' c='SCR_RunCinematic'/>
+<doc f='codebrowser/code/client/cl_cin.c' l='1327'>/*
+==================
+CIN_RunCinematic
+
+Fetch and decompress the pending frame
+==================
+*/</doc>
+<use f='codebrowser/code/client/cl_main.c' l='3275' u='r' c='CL_InitRef'/>
+<use f='codebrowser/code/client/cl_ui.c' l='1058' u='c' c='CL_UISystemCalls'/>

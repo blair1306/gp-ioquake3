@@ -1,0 +1,7 @@
+<dec f='codebrowser/code/opus-1.1.4/celt/entenc.h' l='108' type='void ec_enc_done(ec_enc * _this)'/>
+<doc f='codebrowser/code/opus-1.1.4/celt/entenc.h' l='105'>/*Indicates that there are no more symbols to encode.
+  All reamining output bytes are flushed to the output buffer.
+  ec_enc_init() must be called before the encoder can be used again.*/</doc>
+<use f='codebrowser/code/opus-1.1.4/celt/celt_encoder.c' l='2148' u='c' c='celt_encode_with_ec'/>
+<def f='codebrowser/code/opus-1.1.4/celt/entenc.c' l='244' ll='294' type='void ec_enc_done(ec_enc * _this)'/>
+<use f='codebrowser/code/opus-1.1.4/src/opus_encoder.c' l='1843' u='c' c='opus_encode_native'/>

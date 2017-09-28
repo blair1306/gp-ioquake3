@@ -1,0 +1,19 @@
+<dec f='codebrowser/code/botlib/be_ai_char.h' l='34' type='int BotLoadCharacter(char * charfile, float skill)'/>
+<def f='codebrowser/code/botlib/be_ai_char.c' l='568' ll='610' type='int BotLoadCharacter(char * charfile, float skill)'/>
+<doc f='codebrowser/code/botlib/be_ai_char.c' l='562'>//===========================================================================
+//
+// Parameter:			-
+// Returns:				-
+// Changes Globals:		-
+//===========================================================================</doc>
+<doc f='codebrowser/code/botlib/be_ai_char.h' l='24'>/*****************************************************************************
+ * name:		be_ai_char.h
+ *
+ * desc:		bot characters
+ *
+ * $Archive: /source/code/botlib/be_ai_char.h $
+ *
+ *****************************************************************************/
+
+//loads a bot character from a file</doc>
+<use f='codebrowser/code/botlib/be_interface.c' l='773' u='r' c='Init_AI_Export'/>

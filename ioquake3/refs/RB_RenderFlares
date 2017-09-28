@@ -1,0 +1,38 @@
+<dec f='codebrowser/code/renderergl1/tr_local.h' l='1277' type='void RB_RenderFlares()'/>
+<use f='codebrowser/code/renderergl1/tr_backend.c' l='680' u='c' c='RB_RenderDrawSurfList'/>
+<def f='codebrowser/code/renderergl1/tr_flares.c' l='457' ll='538' type='void RB_RenderFlares()'/>
+<doc f='codebrowser/code/renderergl1/tr_flares.c' l='441'>/*
+==================
+RB_RenderFlares
+
+Because flares are simulating an occular effect, they should be drawn after
+everything (all views) in the entire frame has been drawn.
+
+Because of the way portals use the depth buffer to mark off areas, the
+needed information would be lost after each view, so we are forced to draw
+flares after each view.
+
+The resulting artifact is that flares in mirrors or portals don&apos;t dim properly
+when occluded by something in the main view, and portal flares that should
+extend past the portal edge will be overwritten.
+==================
+*/</doc>
+<dec f='codebrowser/code/renderergl2/tr_local.h' l='2048' type='void RB_RenderFlares()'/>
+<use f='codebrowser/code/renderergl2/tr_backend.c' l='1170' u='c' c='RB_DrawSurfs'/>
+<def f='codebrowser/code/renderergl2/tr_flares.c' l='471' ll='552' type='void RB_RenderFlares()'/>
+<doc f='codebrowser/code/renderergl2/tr_flares.c' l='455'>/*
+==================
+RB_RenderFlares
+
+Because flares are simulating an occular effect, they should be drawn after
+everything (all views) in the entire frame has been drawn.
+
+Because of the way portals use the depth buffer to mark off areas, the
+needed information would be lost after each view, so we are forced to draw
+flares after each view.
+
+The resulting artifact is that flares in mirrors or portals don&apos;t dim properly
+when occluded by something in the main view, and portal flares that should
+extend past the portal edge will be overwritten.
+==================
+*/</doc>

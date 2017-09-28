@@ -1,0 +1,14 @@
+<dec f='codebrowser/code/game/g_local.h' l='445' type='void G_SpawnItem(gentity_t * ent, gitem_t * item)'/>
+<use f='codebrowser/code/game/g_cmds.c' l='321' u='c' c='Cmd_Give_f'/>
+<def f='codebrowser/code/game/g_items.c' l='888' ll='914' type='void G_SpawnItem(gentity_t * ent, gitem_t * item)'/>
+<doc f='codebrowser/code/game/g_items.c' l='878'>/*
+============
+G_SpawnItem
+
+Sets the clipping size and plants the object on the floor.
+
+Items can&apos;t be immediately dropped to floor, because they might
+be on an entity that hasn&apos;t spawned yet.
+============
+*/</doc>
+<use f='codebrowser/code/game/g_spawn.c' l='280' u='c' c='G_CallSpawn'/>

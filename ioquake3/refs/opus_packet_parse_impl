@@ -1,0 +1,8 @@
+<dec f='codebrowser/code/opus-1.1.4/src/opus_private.h' l='124' type='int opus_packet_parse_impl(const unsigned char * data, opus_int32 len, int self_delimited, unsigned char * out_toc, const unsigned char ** frames, opus_int16 * size, int * payload_offset, opus_int32 * packet_offset)'/>
+<def f='codebrowser/code/opus-1.1.4/src/opus.c' l='194' ll='347' type='int opus_packet_parse_impl(const unsigned char * data, opus_int32 len, int self_delimited, unsigned char * out_toc, const unsigned char ** frames, opus_int16 * size, int * payload_offset, opus_int32 * packet_offset)'/>
+<use f='codebrowser/code/opus-1.1.4/src/opus.c' l='353' u='c' c='opus_packet_parse'/>
+<use f='codebrowser/code/opus-1.1.4/src/opus_decoder.c' l='636' u='c' c='opus_decode_native'/>
+<use f='codebrowser/code/opus-1.1.4/src/opus_multistream_decoder.c' l='170' u='c' c='opus_multistream_packet_validate'/>
+<use f='codebrowser/code/opus-1.1.4/src/repacketizer.c' l='85' u='c' c='opus_repacketizer_cat_impl'/>
+<use f='codebrowser/code/opus-1.1.4/src/repacketizer.c' l='298' u='c' c='opus_multistream_packet_pad'/>
+<use f='codebrowser/code/opus-1.1.4/src/repacketizer.c' l='330' u='c' c='opus_multistream_packet_unpad'/>

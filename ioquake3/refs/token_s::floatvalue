@@ -1,0 +1,17 @@
+<dec f='codebrowser/code/botlib/l_script.h' l='164' type='float'/>
+<offset>8320</offset>
+<doc f='codebrowser/code/botlib/l_script.h' l='164'>//floating point value</doc>
+<use f='codebrowser/code/botlib/be_ai_char.c' l='293' u='r' c='BotLoadCharacterFromFile'/>
+<use f='codebrowser/code/botlib/be_ai_chat.c' l='730' u='r' c='BotLoadSynonyms'/>
+<use f='codebrowser/code/botlib/be_ai_chat.c' l='1960' u='r' c='BotLoadReplyChat'/>
+<use f='codebrowser/code/botlib/be_ai_weight.c' l='81' u='r' c='ReadValue'/>
+<use f='codebrowser/code/botlib/l_precomp.c' l='720' u='w' c='PC_ExpandBuiltinDefine'/>
+<use f='codebrowser/code/botlib/l_precomp.c' l='1784' u='r' c='PC_EvaluateTokens'/>
+<use f='codebrowser/code/botlib/l_precomp.c' l='1789' u='r' c='PC_EvaluateTokens'/>
+<use f='codebrowser/code/botlib/l_precomp.c' l='2559' u='w' c='PC_DollarDirective_evalint'/>
+<use f='codebrowser/code/botlib/l_precomp.c' l='2589' u='w' c='PC_DollarDirective_evalfloat'/>
+<use f='codebrowser/code/botlib/l_precomp.c' l='2590' u='r' c='PC_DollarDirective_evalfloat'/>
+<use f='codebrowser/code/botlib/l_precomp.c' l='3180' u='r' c='PC_ReadTokenHandle'/>
+<use f='codebrowser/code/botlib/l_script.c' l='725' u='a' c='PS_ReadNumber'/>
+<use f='codebrowser/code/botlib/l_script.c' l='1176' u='r' c='ReadSignedFloat'/>
+<use f='codebrowser/code/botlib/l_struct.c' l='117' u='r' c='ReadNumber'/>

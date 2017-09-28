@@ -1,0 +1,19 @@
+<dec f='codebrowser/code/libogg-1.3.2/include/ogg/ogg.h' l='78' type='ogg_int64_t'/>
+<dec f='codebrowser/code/libogg-1.3.2/include/ogg/ogg.h' l='98' type='ogg_int64_t'/>
+<offset>320</offset>
+<doc f='codebrowser/code/libogg-1.3.2/include/ogg/ogg.h' l='78'>/* sequence number for decode; the framing
+                             knows where there&apos;s a hole in the data,
+                             but we need coupling so that the codec
+                             (which is in a separate abstraction
+                             layer) also knows about the gap */</doc>
+<doc f='codebrowser/code/libogg-1.3.2/include/ogg/ogg.h' l='98'>/* sequence number for decode; the framing
+                                knows where there&apos;s a hole in the data,
+                                but we need coupling so that the codec
+                                (which is in a separate abstraction
+                                layer) also knows about the gap */</doc>
+<use f='codebrowser/code/libogg-1.3.2/src/framing.c' l='373' u='w' c='ogg_stream_iovecin'/>
+<use f='codebrowser/code/libogg-1.3.2/src/framing.c' l='963' u='w' c='ogg_stream_reset'/>
+<use f='codebrowser/code/libogg-1.3.2/src/framing.c' l='990' u='w' c='_packetout'/>
+<use f='codebrowser/code/libogg-1.3.2/src/framing.c' l='1016' u='w' c='_packetout'/>
+<use f='codebrowser/code/libogg-1.3.2/src/framing.c' l='1016' u='r' c='_packetout'/>
+<use f='codebrowser/code/libogg-1.3.2/src/framing.c' l='1024' u='w' c='_packetout'/>

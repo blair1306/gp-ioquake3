@@ -1,0 +1,14 @@
+<def f='codebrowser/code/botlib/be_aas_reach.c' l='3995' ll='4113' type='int AAS_Reachability_WeaponJump(int area1num, int area2num)'/>
+<use f='codebrowser/code/botlib/be_aas_reach.c' l='4427' u='c' c='AAS_ContinueInitReachability'/>
+<doc f='codebrowser/code/botlib/be_aas_reach.c' l='3984'>//===========================================================================
+// create a possible weapon jump reachability from area1 to area2
+//
+// check if there&apos;s a cool item in the second area
+// check if area1 is lower than area2
+// check if the bot can rocketjump from area1 to area2
+//
+// Parameter:				-
+// Returns:					-
+// Changes Globals:		-
+//===========================================================================</doc>
+<dec f='codebrowser/code/botlib/be_interface.c' l='333' type='int AAS_Reachability_WeaponJump(int area1num, int area2num)'/>

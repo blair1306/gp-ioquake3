@@ -1,0 +1,17 @@
+<dec f='codebrowser/code/jpeg-8c/jpeglib.h' l='613' type='JDIMENSION'/>
+<offset>3392</offset>
+<doc f='codebrowser/code/jpeg-8c/jpeglib.h' l='613'>/* # of iMCU rows in image */</doc>
+<use f='codebrowser/code/jpeg-8c/jdapistd.c' l='70' u='r' c='jpeg_start_decompress'/>
+<use f='codebrowser/code/jpeg-8c/jdcoefct.c' l='91' u='r' c='start_iMCU_row'/>
+<use f='codebrowser/code/jpeg-8c/jdcoefct.c' l='152' u='r' c='decompress_onepass'/>
+<use f='codebrowser/code/jpeg-8c/jdcoefct.c' l='213' u='r' c='decompress_onepass'/>
+<use f='codebrowser/code/jpeg-8c/jdcoefct.c' l='296' u='r' c='consume_data'/>
+<use f='codebrowser/code/jpeg-8c/jdcoefct.c' l='318' u='r' c='decompress_data'/>
+<use f='codebrowser/code/jpeg-8c/jdcoefct.c' l='371' u='r' c='decompress_data'/>
+<use f='codebrowser/code/jpeg-8c/jdcoefct.c' l='464' u='r' c='decompress_smooth_data'/>
+<use f='codebrowser/code/jpeg-8c/jdcoefct.c' l='663' u='r' c='decompress_smooth_data'/>
+<use f='codebrowser/code/jpeg-8c/jdinput.c' l='375' u='w' c='initial_setup'/>
+<use f='codebrowser/code/jpeg-8c/jdmainct.c' l='424' u='r' c='process_data_context_main'/>
+<use f='codebrowser/code/jpeg-8c/jdmaster.c' l='394' u='r' c='master_selection'/>
+<use f='codebrowser/code/jpeg-8c/jdtrans.c' l='71' u='r' c='jpeg_read_coefficients'/>
+<use f='codebrowser/code/jpeg-8c/jdtrans.c' l='136' u='r' c='transdecode_master_selection'/>

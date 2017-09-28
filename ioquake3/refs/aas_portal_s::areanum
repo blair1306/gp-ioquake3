@@ -1,0 +1,21 @@
+<dec f='codebrowser/code/botlib/aasfile.h' l='155' type='int'/>
+<offset>0</offset>
+<doc f='codebrowser/code/botlib/aasfile.h' l='155'>//area that is the actual portal</doc>
+<use f='codebrowser/code/botlib/be_aas_cluster.c' l='128' u='r' c='AAS_UpdatePortal'/>
+<use f='codebrowser/code/botlib/be_aas_cluster.c' l='343' u='r' c='AAS_NumberClusterAreas'/>
+<use f='codebrowser/code/botlib/be_aas_cluster.c' l='373' u='r' c='AAS_NumberClusterAreas'/>
+<use f='codebrowser/code/botlib/be_aas_cluster.c' l='456' u='w' c='AAS_CreatePortals'/>
+<use f='codebrowser/code/botlib/be_aas_cluster.c' l='1383' u='r' c='AAS_TestPortals'/>
+<use f='codebrowser/code/botlib/be_aas_cluster.c' l='1384' u='r' c='AAS_TestPortals'/>
+<use f='codebrowser/code/botlib/be_aas_cluster.c' l='1389' u='r' c='AAS_TestPortals'/>
+<use f='codebrowser/code/botlib/be_aas_cluster.c' l='1390' u='r' c='AAS_TestPortals'/>
+<use f='codebrowser/code/botlib/be_aas_cluster.c' l='1524' u='r' c='AAS_InitClustering'/>
+<use f='codebrowser/code/botlib/be_aas_file.c' l='156' u='w' c='AAS_SwapAASData'/>
+<use f='codebrowser/code/botlib/be_aas_file.c' l='156' u='r' c='AAS_SwapAASData'/>
+<use f='codebrowser/code/botlib/be_aas_route.c' l='578' u='r' c='AAS_PortalMaxTravelTime'/>
+<use f='codebrowser/code/botlib/be_aas_route.c' l='580' u='r' c='AAS_PortalMaxTravelTime'/>
+<use f='codebrowser/code/botlib/be_aas_route.c' l='587' u='r' c='AAS_PortalMaxTravelTime'/>
+<use f='codebrowser/code/botlib/be_aas_route.c' l='1500' u='r' c='AAS_UpdatePortalRoutingCache'/>
+<use f='codebrowser/code/botlib/be_aas_route.c' l='1502' u='r' c='AAS_UpdatePortalRoutingCache'/>
+<use f='codebrowser/code/botlib/be_aas_route.c' l='1522' u='r' c='AAS_UpdatePortalRoutingCache'/>
+<use f='codebrowser/code/botlib/be_aas_route.c' l='1727' u='r' c='AAS_AreaRouteToGoalArea'/>

@@ -1,0 +1,15 @@
+<def f='codebrowser/code/client/cl_scrn.c' l='199' ll='243' type='void SCR_DrawStringExt(int x, int y, float size, const char * string, float * setColor, qboolean forceColor, qboolean noColorEscape)'/>
+<use f='codebrowser/code/client/cl_scrn.c' l='251' u='c' c='SCR_DrawBigString'/>
+<use f='codebrowser/code/client/cl_scrn.c' l='255' u='c' c='SCR_DrawBigStringColor'/>
+<use f='codebrowser/code/client/cl_scrn.c' l='346' u='c' c='SCR_DrawDemoRecording'/>
+<use f='codebrowser/code/client/cl_scrn.c' l='385' u='c' c='SCR_DrawVoipMeter'/>
+<doc f='codebrowser/code/client/cl_scrn.c' l='189'>/*
+==================
+SCR_DrawBigString[Color]
+
+Draws a multi-colored string with a drop shadow, optionally forcing
+to a fixed color.
+
+Coordinates are at 640 by 480 virtual resolution
+==================
+*/</doc>

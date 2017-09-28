@@ -1,0 +1,19 @@
+<dec f='codebrowser/code/botlib/be_aas_bsp.h' l='88' type='int AAS_IntForBSPEpairKey(int ent, char * key, int * value)'/>
+<dec f='codebrowser/code/botlib/be_aas_bsp.h' l='88' type='int AAS_IntForBSPEpairKey(int ent, char * key, int * value)'/>
+<def f='codebrowser/code/botlib/be_aas_bspq3.c' l='338' ll='346' type='int AAS_IntForBSPEpairKey(int ent, char * key, int * value)'/>
+<doc f='codebrowser/code/botlib/be_aas_bspq3.c' l='332'>//===========================================================================
+//
+// Parameter:				-
+// Returns:					-
+// Changes Globals:		-
+//===========================================================================</doc>
+<doc f='codebrowser/code/botlib/be_aas_bsp.h' l='87'>//get an integer for the BSP epair key</doc>
+<use f='codebrowser/code/botlib/be_aas_reach.c' l='2714' u='c' c='AAS_TravelFlagsForTeam'/>
+<use f='codebrowser/code/botlib/be_aas_reach.c' l='3323' u='c' c='AAS_Reachability_FuncBobbing'/>
+<use f='codebrowser/code/botlib/be_aas_reach.c' l='3952' u='c' c='AAS_SetWeaponJumpAreaFlags'/>
+<use f='codebrowser/code/botlib/be_ai_goal.c' l='575' u='c' c='BotInitLevelItems'/>
+<use f='codebrowser/code/botlib/be_ai_goal.c' l='623' u='c' c='BotInitLevelItems'/>
+<use f='codebrowser/code/botlib/be_ai_goal.c' l='625' u='c' c='BotInitLevelItems'/>
+<use f='codebrowser/code/botlib/be_ai_goal.c' l='627' u='c' c='BotInitLevelItems'/>
+<use f='codebrowser/code/botlib/be_ai_goal.c' l='629' u='c' c='BotInitLevelItems'/>
+<use f='codebrowser/code/botlib/be_interface.c' l='705' u='r' c='Init_AAS_Export'/>

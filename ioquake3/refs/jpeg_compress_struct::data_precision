@@ -1,0 +1,16 @@
+<dec f='codebrowser/code/jpeg-8c/jpeglib.h' l='314' type='int'/>
+<offset>704</offset>
+<doc f='codebrowser/code/jpeg-8c/jpeglib.h' l='307'>/* Dimensions of actual JPEG image that will be written to file,
+   * derived from input dimensions by scaling factors above.
+   * These fields are computed by jpeg_start_compress().
+   * You can also use jpeg_calc_jpeg_dimensions() to determine these values
+   * in advance of calling jpeg_start_compress().
+   */</doc>
+<doc f='codebrowser/code/jpeg-8c/jpeglib.h' l='314'>/* bits of precision in image data */</doc>
+<use f='codebrowser/code/jpeg-8c/jcmarker.c' l='300' u='r' c='emit_sof'/>
+<use f='codebrowser/code/jpeg-8c/jcmarker.c' l='532' u='r' c='write_frame_header'/>
+<use f='codebrowser/code/jpeg-8c/jcmaster.c' l='269' u='r' c='initial_setup'/>
+<use f='codebrowser/code/jpeg-8c/jcmaster.c' l='270' u='r' c='initial_setup'/>
+<use f='codebrowser/code/jpeg-8c/jcparam.c' l='306' u='w' c='jpeg_set_defaults'/>
+<use f='codebrowser/code/jpeg-8c/jcparam.c' l='336' u='r' c='jpeg_set_defaults'/>
+<use f='codebrowser/code/jpeg-8c/jctrans.c' l='90' u='w' c='jpeg_copy_critical_parameters'/>

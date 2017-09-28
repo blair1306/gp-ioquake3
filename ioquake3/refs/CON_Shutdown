@@ -1,0 +1,11 @@
+<dec f='codebrowser/code/sys/sys_local.h' l='32' type='void CON_Shutdown()'/>
+<doc f='codebrowser/code/sys/sys_local.h' l='31'>// Console</doc>
+<def f='codebrowser/code/sys/con_tty.c' l='185' ll='195' type='void CON_Shutdown()'/>
+<doc f='codebrowser/code/sys/con_tty.c' l='178'>/*
+==================
+CON_Shutdown
+
+Never exit without calling this, or your terminal will be left in a pretty bad state
+==================
+*/</doc>
+<use f='codebrowser/code/sys/sys_main.c' l='277' u='c' c='Sys_Exit'/>

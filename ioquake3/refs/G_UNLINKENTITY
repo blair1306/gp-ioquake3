@@ -1,0 +1,7 @@
+<dec f='codebrowser/code/game/g_public.h' l='199' type='31'/>
+<doc f='codebrowser/code/game/g_public.h' l='195'>// an entity will never be sent to a client or used for collision
+	// if it is not passed to linkentity.  If the size, position, or
+	// solidity changes, it must be relinked.</doc>
+<doc f='codebrowser/code/game/g_public.h' l='199'>// ( gentity_t *ent );		</doc>
+<use f='codebrowser/code/game/g_syscalls.c' l='186' c='trap_UnlinkEntity'/>
+<use f='codebrowser/code/server/sv_game.c' l='353' c='SV_GameSystemCalls'/>

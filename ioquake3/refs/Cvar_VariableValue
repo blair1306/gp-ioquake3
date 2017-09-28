@@ -1,0 +1,29 @@
+<dec f='codebrowser/code/qcommon/qcommon.h' l='530' type='float Cvar_VariableValue(const char * var_name)'/>
+<doc f='codebrowser/code/qcommon/qcommon.h' l='528'>// expands value to a string and calls Cvar_Set/Cvar_SetSafe</doc>
+<use f='codebrowser/code/client/cl_cgame.c' l='728' u='c' c='CL_InitCGame'/>
+<use f='codebrowser/code/client/cl_keys.c' l='1268' u='c' c='CL_KeyDownEvent'/>
+<use f='codebrowser/code/client/cl_main.c' l='258' u='c' c='CL_Voip_f'/>
+<use f='codebrowser/code/client/cl_main.c' l='258' u='c' c='CL_Voip_f'/>
+<use f='codebrowser/code/client/cl_main.c' l='719' u='c' c='CL_Record_f'/>
+<use f='codebrowser/code/client/cl_main.c' l='759' u='c' c='CL_Record_f'/>
+<use f='codebrowser/code/client/cl_main.c' l='2378' u='c' c='CL_CheckForResend'/>
+<use f='codebrowser/code/client/cl_main.c' l='2727' u='c' c='CL_ConnectionlessPacket'/>
+<use f='codebrowser/code/client/cl_parse.c' l='435' u='c' c='CL_SystemInfoChanged'/>
+<use f='codebrowser/code/client/cl_ui.c' l='748' u='c' c='CL_UISystemCalls'/>
+<use f='codebrowser/code/client/cl_ui.c' l='1111' u='c' c='CL_InitUI'/>
+<def f='codebrowser/code/qcommon/cvar.c' l='105' ll='112' type='float Cvar_VariableValue(const char * var_name)'/>
+<use f='codebrowser/code/qcommon/cvar.c' l='820' u='c' c='Cvar_Toggle_f'/>
+<doc f='codebrowser/code/qcommon/cvar.c' l='100'>/*
+============
+Cvar_VariableValue
+============
+*/</doc>
+<use f='codebrowser/code/server/sv_ccmds.c' l='257' u='c' c='SV_MapRestart_f'/>
+<use f='codebrowser/code/server/sv_client.c' l='66' u='c' c='SV_GetChallenge'/>
+<use f='codebrowser/code/server/sv_client.c' l='66' u='c' c='SV_GetChallenge'/>
+<use f='codebrowser/code/server/sv_game.c' l='940' u='c' c='SV_InitGameProgs'/>
+<use f='codebrowser/code/server/sv_init.c' l='429' u='c' c='SV_SpawnServer'/>
+<use f='codebrowser/code/server/sv_main.c' l='538' u='c' c='SVC_Status'/>
+<use f='codebrowser/code/server/sv_main.c' l='538' u='c' c='SVC_Status'/>
+<use f='codebrowser/code/server/sv_main.c' l='601' u='c' c='SVC_Info'/>
+<use f='codebrowser/code/server/sv_main.c' l='601' u='c' c='SVC_Info'/>

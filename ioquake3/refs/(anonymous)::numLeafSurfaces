@@ -1,0 +1,15 @@
+<dec f='codebrowser/code/qcommon/qfiles.h' l='427' type='int'/>
+<offset>288</offset>
+<dec f='codebrowser/code/qcommon/cm_local.h' l='45' type='int'/>
+<dec f='codebrowser/code/qcommon/cm_local.h' l='103' type='int'/>
+<use f='codebrowser/code/qcommon/cm_load.c' l='163' u='w' c='CMod_LoadSubmodels'/>
+<use f='codebrowser/code/qcommon/cm_load.c' l='164' u='r' c='CMod_LoadSubmodels'/>
+<use f='codebrowser/code/qcommon/cm_load.c' l='166' u='r' c='CMod_LoadSubmodels'/>
+<use f='codebrowser/code/qcommon/cm_load.c' l='295' u='w' c='CMod_LoadLeafs'/>
+<use f='codebrowser/code/qcommon/cm_load.c' l='295' u='r' c='CMod_LoadLeafs'/>
+<use f='codebrowser/code/qcommon/cm_load.c' l='393' u='w' c='CMod_LoadLeafSurfaces'/>
+<offset>1280</offset>
+<use f='codebrowser/code/qcommon/cm_trace.c' l='273' u='r' c='CM_TestInLeaf'/>
+<use f='codebrowser/code/qcommon/cm_trace.c' l='706' u='r' c='CM_TraceThroughLeaf'/>
+<use f='codebrowser/code/renderergl1/tr_bsp.c' l='1428' u='r' c='R_LoadNodesAndLeafs'/>
+<use f='codebrowser/code/renderergl2/tr_bsp.c' l='1947' u='r' c='R_LoadNodesAndLeafs'/>

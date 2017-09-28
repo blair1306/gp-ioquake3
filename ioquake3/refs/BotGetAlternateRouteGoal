@@ -1,0 +1,15 @@
+<dec f='codebrowser/code/game/ai_dmq3.h' l='164' type='int BotGetAlternateRouteGoal(bot_state_t * bs, int base)'/>
+<doc f='codebrowser/code/game/ai_dmq3.h' l='163'>//get a random alternate route goal towards the given base</doc>
+<use f='codebrowser/code/game/ai_cmd.c' l='855' u='c' c='BotMatch_GetFlag'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='466' u='c' c='BotSetLastOrderedTask'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='521' u='c' c='BotCTFSeekGoals'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='623' u='c' c='BotCTFSeekGoals'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='674' u='c' c='BotCTFSeekGoals'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='746' u='c' c='BotCTFSeekGoals'/>
+<def f='codebrowser/code/game/ai_dmq3.c' l='5101' ll='5131' type='int BotGetAlternateRouteGoal(bot_state_t * bs, int base)'/>
+<doc f='codebrowser/code/game/ai_dmq3.c' l='5096'>/*
+==================
+BotGetAlternateRouteGoal
+==================
+*/</doc>
+<use f='codebrowser/code/game/ai_vcmd.c' l='100' u='c' c='BotVoiceChat_GetFlag'/>

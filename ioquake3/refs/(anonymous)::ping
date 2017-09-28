@@ -1,0 +1,28 @@
+<dec f='codebrowser/code/cgame/cg_public.h' l='41' type='int'/>
+<dec f='codebrowser/code/cgame/cg_local.h' l='285' type='int'/>
+<offset>64</offset>
+<use f='codebrowser/code/cgame/cg_draw.c' l='1577' u='r' c='CG_AddLagometerSnapshotInfo'/>
+<use f='codebrowser/code/cgame/cg_scoreboard.c' l='172' u='r' c='CG_DrawClientScore'/>
+<use f='codebrowser/code/cgame/cg_scoreboard.c' l='177' u='r' c='CG_DrawClientScore'/>
+<use f='codebrowser/code/cgame/cg_scoreboard.c' l='180' u='r' c='CG_DrawClientScore'/>
+<use f='codebrowser/code/cgame/cg_servercmds.c' l='83' u='w' c='CG_ParseScores'/>
+<dec f='codebrowser/code/client/client.h' l='56' type='int'/>
+<dec f='codebrowser/code/client/client.h' l='303' type='int'/>
+<offset>1280</offset>
+<doc f='codebrowser/code/client/client.h' l='56'>// time from when cmdNum-1 was sent to time packet was reeceived</doc>
+<use f='codebrowser/code/client/cl_cgame.c' l='150' u='w' c='CL_GetSnapshot'/>
+<use f='codebrowser/code/client/cl_cgame.c' l='150' u='r' c='CL_GetSnapshot'/>
+<use f='codebrowser/code/client/cl_main.c' l='2451' u='w' c='CL_InitServerInfo'/>
+<use f='codebrowser/code/client/cl_main.c' l='3795' u='w' c='CL_SetServerInfo'/>
+<use f='codebrowser/code/client/cl_main.c' l='4512' u='r' c='CL_UpdateVisiblePings_f'/>
+<use f='codebrowser/code/client/cl_main.c' l='4543' u='r' c='CL_UpdateVisiblePings_f'/>
+<use f='codebrowser/code/client/cl_parse.c' l='307' u='w' c='CL_ParseSnapshot'/>
+<use f='codebrowser/code/client/cl_parse.c' l='312' u='w' c='CL_ParseSnapshot'/>
+<use f='codebrowser/code/client/cl_parse.c' l='321' u='r' c='CL_ParseSnapshot'/>
+<use f='codebrowser/code/client/cl_ui.c' l='115' u='w' c='LAN_ResetPings'/>
+<use f='codebrowser/code/client/cl_ui.c' l='293' u='r' c='LAN_GetServerInfo'/>
+<use f='codebrowser/code/client/cl_ui.c' l='337' u='r' c='LAN_GetServerPing'/>
+<use f='codebrowser/code/client/cl_ui.c' l='426' u='r' c='LAN_CompareServers'/>
+<use f='codebrowser/code/client/cl_ui.c' l='426' u='r' c='LAN_CompareServers'/>
+<use f='codebrowser/code/client/cl_ui.c' l='429' u='r' c='LAN_CompareServers'/>
+<use f='codebrowser/code/client/cl_ui.c' l='429' u='r' c='LAN_CompareServers'/>

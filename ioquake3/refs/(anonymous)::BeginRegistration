@@ -1,0 +1,20 @@
+<dec f='codebrowser/code/renderercommon/tr_public.h' l='47' type='void (*)(glconfig_t *)'/>
+<dec f='codebrowser/code/client/snd_local.h' l='142' type='void (*)(void)'/>
+<offset>960</offset>
+<doc f='codebrowser/code/renderercommon/tr_public.h' l='38'>// All data that will be used in a level should be
+	// registered before rendering any frames to prevent disk hits,
+	// but they can still be registered at a later time
+	// if necessary.
+	//
+	// BeginRegistration makes any existing media pointers invalid
+	// and returns the current gl configuration, including screen width
+	// and height, which can be used by the client to intelligently
+	// size display elements</doc>
+<use f='codebrowser/code/client/cl_main.c' l='3125' u='r' c='CL_InitRenderer'/>
+<use f='codebrowser/code/client/snd_dma.c' l='1610' u='w' c='S_Base_Init'/>
+<use f='codebrowser/code/client/snd_main.c' l='61' u='r' c='S_ValidSoundInterface'/>
+<use f='codebrowser/code/client/snd_main.c' l='275' u='r' c='S_BeginRegistration'/>
+<use f='codebrowser/code/client/snd_main.c' l='276' u='r' c='S_BeginRegistration'/>
+<use f='codebrowser/code/client/snd_openal.c' l='2712' u='w' c='S_AL_Init'/>
+<use f='codebrowser/code/renderergl1/tr_init.c' l='1335' u='w' c='GetRefAPI'/>
+<use f='codebrowser/code/renderergl2/tr_init.c' l='1584' u='w' c='GetRefAPI'/>

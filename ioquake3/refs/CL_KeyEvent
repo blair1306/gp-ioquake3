@@ -1,0 +1,14 @@
+<dec f='codebrowser/code/qcommon/qcommon.h' l='988' type='void CL_KeyEvent(int key, qboolean down, unsigned int time)'/>
+<use f='codebrowser/code/client/cl_console.c' l='92' u='c' c='Con_ToggleMenu_f'/>
+<use f='codebrowser/code/client/cl_console.c' l='93' u='c' c='Con_ToggleMenu_f'/>
+<def f='codebrowser/code/client/cl_keys.c' l='1369' ll='1374' type='void CL_KeyEvent(int key, qboolean down, unsigned int time)'/>
+<use f='codebrowser/code/client/cl_keys.c' l='1423' u='c' c='Key_ClearStates'/>
+<doc f='codebrowser/code/client/cl_keys.c' l='1362'>/*
+===================
+CL_KeyEvent
+
+Called by the system for both key up and key down events
+===================
+*/</doc>
+<def f='codebrowser/code/null/null_client.c' l='61' ll='62' type='void CL_KeyEvent(int key, qboolean down, unsigned int time)'/>
+<use f='codebrowser/code/qcommon/common.c' l='2218' u='c' c='Com_EventLoop'/>

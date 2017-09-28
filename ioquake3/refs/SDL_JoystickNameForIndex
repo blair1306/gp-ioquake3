@@ -1,0 +1,8 @@
+<dec f='include/SDL2/SDL_joystick.h' l='96' type='const char * SDL_JoystickNameForIndex(int device_index)'/>
+<doc f='include/SDL2/SDL_joystick.h' l='91'>/**
+ *  Get the implementation dependent name of a joystick.
+ *  This can be called before any joysticks are opened.
+ *  If no name can be found, this function returns NULL.
+ */</doc>
+<use f='codebrowser/code/sdl/sdl_input.c' l='496' u='c' c='IN_InitJoystick'/>
+<use f='codebrowser/code/sdl/sdl_input.c' l='525' u='c' c='IN_InitJoystick'/>

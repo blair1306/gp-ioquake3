@@ -1,0 +1,70 @@
+<dec f='codebrowser/code/cgame/cg_local.h' l='1577' type='qhandle_t trap_R_RegisterModel(const char * name)'/>
+<doc f='codebrowser/code/cgame/cg_local.h' l='1575'>// all media should be registered during level startup to prevent
+// hitches during gameplay</doc>
+<doc f='codebrowser/code/cgame/cg_local.h' l='1577'>// returns rgb axis if not found</doc>
+<use f='codebrowser/code/cgame/cg_main.c' l='892' u='c' c='CG_RegisterGraphics'/>
+<use f='codebrowser/code/cgame/cg_main.c' l='893' u='c' c='CG_RegisterGraphics'/>
+<use f='codebrowser/code/cgame/cg_main.c' l='951' u='c' c='CG_RegisterGraphics'/>
+<use f='codebrowser/code/cgame/cg_main.c' l='954' u='c' c='CG_RegisterGraphics'/>
+<use f='codebrowser/code/cgame/cg_main.c' l='955' u='c' c='CG_RegisterGraphics'/>
+<use f='codebrowser/code/cgame/cg_main.c' l='957' u='c' c='CG_RegisterGraphics'/>
+<use f='codebrowser/code/cgame/cg_main.c' l='958' u='c' c='CG_RegisterGraphics'/>
+<use f='codebrowser/code/cgame/cg_main.c' l='959' u='c' c='CG_RegisterGraphics'/>
+<use f='codebrowser/code/cgame/cg_main.c' l='960' u='c' c='CG_RegisterGraphics'/>
+<use f='codebrowser/code/cgame/cg_main.c' l='961' u='c' c='CG_RegisterGraphics'/>
+<use f='codebrowser/code/cgame/cg_main.c' l='962' u='c' c='CG_RegisterGraphics'/>
+<use f='codebrowser/code/cgame/cg_main.c' l='963' u='c' c='CG_RegisterGraphics'/>
+<use f='codebrowser/code/cgame/cg_main.c' l='964' u='c' c='CG_RegisterGraphics'/>
+<use f='codebrowser/code/cgame/cg_main.c' l='965' u='c' c='CG_RegisterGraphics'/>
+<use f='codebrowser/code/cgame/cg_main.c' l='966' u='c' c='CG_RegisterGraphics'/>
+<use f='codebrowser/code/cgame/cg_main.c' l='968' u='c' c='CG_RegisterGraphics'/>
+<use f='codebrowser/code/cgame/cg_main.c' l='974' u='c' c='CG_RegisterGraphics'/>
+<use f='codebrowser/code/cgame/cg_main.c' l='975' u='c' c='CG_RegisterGraphics'/>
+<use f='codebrowser/code/cgame/cg_main.c' l='976' u='c' c='CG_RegisterGraphics'/>
+<use f='codebrowser/code/cgame/cg_main.c' l='980' u='c' c='CG_RegisterGraphics'/>
+<use f='codebrowser/code/cgame/cg_main.c' l='1037' u='c' c='CG_RegisterGraphics'/>
+<use f='codebrowser/code/cgame/cg_main.c' l='1052' u='c' c='CG_RegisterGraphics'/>
+<use f='codebrowser/code/cgame/cg_players.c' l='534' u='c' c='CG_RegisterClientModelname'/>
+<use f='codebrowser/code/cgame/cg_players.c' l='537' u='c' c='CG_RegisterClientModelname'/>
+<use f='codebrowser/code/cgame/cg_players.c' l='545' u='c' c='CG_RegisterClientModelname'/>
+<use f='codebrowser/code/cgame/cg_players.c' l='548' u='c' c='CG_RegisterClientModelname'/>
+<use f='codebrowser/code/cgame/cg_players.c' l='561' u='c' c='CG_RegisterClientModelname'/>
+<use f='codebrowser/code/cgame/cg_players.c' l='565' u='c' c='CG_RegisterClientModelname'/>
+<use f='codebrowser/code/cgame/cg_servercmds.c' l='336' u='c' c='CG_ConfigStringModified'/>
+<def f='codebrowser/code/cgame/cg_syscalls.c' l='233' ll='235' type='qhandle_t trap_R_RegisterModel(const char * name)'/>
+<use f='codebrowser/code/cgame/cg_view.c' l='80' u='c' c='CG_TestModel_f'/>
+<use f='codebrowser/code/cgame/cg_view.c' l='146' u='c' c='CG_AddTestModel'/>
+<use f='codebrowser/code/cgame/cg_weapons.c' l='638' u='c' c='CG_RegisterWeapon'/>
+<use f='codebrowser/code/cgame/cg_weapons.c' l='655' u='c' c='CG_RegisterWeapon'/>
+<use f='codebrowser/code/cgame/cg_weapons.c' l='660' u='c' c='CG_RegisterWeapon'/>
+<use f='codebrowser/code/cgame/cg_weapons.c' l='664' u='c' c='CG_RegisterWeapon'/>
+<use f='codebrowser/code/cgame/cg_weapons.c' l='668' u='c' c='CG_RegisterWeapon'/>
+<use f='codebrowser/code/cgame/cg_weapons.c' l='671' u='c' c='CG_RegisterWeapon'/>
+<use f='codebrowser/code/cgame/cg_weapons.c' l='688' u='c' c='CG_RegisterWeapon'/>
+<use f='codebrowser/code/cgame/cg_weapons.c' l='697' u='c' c='CG_RegisterWeapon'/>
+<use f='codebrowser/code/cgame/cg_weapons.c' l='736' u='c' c='CG_RegisterWeapon'/>
+<use f='codebrowser/code/cgame/cg_weapons.c' l='763' u='c' c='CG_RegisterWeapon'/>
+<use f='codebrowser/code/cgame/cg_weapons.c' l='809' u='c' c='CG_RegisterWeapon'/>
+<use f='codebrowser/code/cgame/cg_weapons.c' l='845' u='c' c='CG_RegisterItemVisuals'/>
+<use f='codebrowser/code/cgame/cg_weapons.c' l='859' u='c' c='CG_RegisterItemVisuals'/>
+<dec f='codebrowser/code/q3_ui/ui_local.h' l='646' type='qhandle_t trap_R_RegisterModel(const char * name)'/>
+<use f='codebrowser/code/q3_ui/ui_controls2.c' l='1180' u='c' c='Controls_InitWeapons'/>
+<use f='codebrowser/code/q3_ui/ui_menu.c' l='141' u='c' c='MainMenu_Cache'/>
+<use f='codebrowser/code/q3_ui/ui_players.c' l='78' u='c' c='UI_PlayerInfo_SetWeapon'/>
+<use f='codebrowser/code/q3_ui/ui_players.c' l='93' u='c' c='UI_PlayerInfo_SetWeapon'/>
+<use f='codebrowser/code/q3_ui/ui_players.c' l='98' u='c' c='UI_PlayerInfo_SetWeapon'/>
+<use f='codebrowser/code/q3_ui/ui_players.c' l='1083' u='c' c='UI_RegisterClientModelname'/>
+<use f='codebrowser/code/q3_ui/ui_players.c' l='1090' u='c' c='UI_RegisterClientModelname'/>
+<use f='codebrowser/code/q3_ui/ui_players.c' l='1097' u='c' c='UI_RegisterClientModelname'/>
+<dec f='codebrowser/code/ui/ui_local.h' l='937' type='qhandle_t trap_R_RegisterModel(const char * name)'/>
+<use f='codebrowser/code/ui/ui_main.c' l='5105' u='a' c='_UI_Init'/>
+<use f='codebrowser/code/ui/ui_players.c' l='79' u='c' c='UI_PlayerInfo_SetWeapon'/>
+<use f='codebrowser/code/ui/ui_players.c' l='94' u='c' c='UI_PlayerInfo_SetWeapon'/>
+<use f='codebrowser/code/ui/ui_players.c' l='99' u='c' c='UI_PlayerInfo_SetWeapon'/>
+<use f='codebrowser/code/ui/ui_players.c' l='1180' u='c' c='UI_RegisterClientModelname'/>
+<use f='codebrowser/code/ui/ui_players.c' l='1183' u='c' c='UI_RegisterClientModelname'/>
+<use f='codebrowser/code/ui/ui_players.c' l='1191' u='c' c='UI_RegisterClientModelname'/>
+<use f='codebrowser/code/ui/ui_players.c' l='1194' u='c' c='UI_RegisterClientModelname'/>
+<use f='codebrowser/code/ui/ui_players.c' l='1207' u='c' c='UI_RegisterClientModelname'/>
+<use f='codebrowser/code/ui/ui_players.c' l='1210' u='c' c='UI_RegisterClientModelname'/>
+<def f='codebrowser/code/ui/ui_syscalls.c' l='132' ll='134' type='qhandle_t trap_R_RegisterModel(const char * name)'/>

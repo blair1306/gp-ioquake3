@@ -1,0 +1,11 @@
+<dec f='codebrowser/code/jpeg-8c/jpeglib.h' l='344' type='boolean'/>
+<offset>2336</offset>
+<doc f='codebrowser/code/jpeg-8c/jpeglib.h' l='344'>/* TRUE=arithmetic coding, FALSE=Huffman */</doc>
+<use f='codebrowser/code/jpeg-8c/jcinit.c' l='44' u='r' c='jinit_compress_master'/>
+<use f='codebrowser/code/jpeg-8c/jcmarker.c' l='531' u='r' c='write_frame_header'/>
+<use f='codebrowser/code/jpeg-8c/jcmarker.c' l='549' u='r' c='write_frame_header'/>
+<use f='codebrowser/code/jpeg-8c/jcmarker.c' l='582' u='r' c='write_scan_header'/>
+<use f='codebrowser/code/jpeg-8c/jcmarker.c' l='645' u='r' c='write_tables_only'/>
+<use f='codebrowser/code/jpeg-8c/jcmaster.c' l='837' u='r' c='jinit_c_master_control'/>
+<use f='codebrowser/code/jpeg-8c/jcparam.c' l='327' u='w' c='jpeg_set_defaults'/>
+<use f='codebrowser/code/jpeg-8c/jctrans.c' l='170' u='r' c='transencode_master_selection'/>

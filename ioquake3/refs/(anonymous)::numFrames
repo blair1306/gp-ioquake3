@@ -1,0 +1,64 @@
+<dec f='codebrowser/code/qcommon/qfiles.h' l='124' type='int'/>
+<dec f='codebrowser/code/qcommon/qfiles.h' l='165' type='int'/>
+<dec f='codebrowser/code/qcommon/qfiles.h' l='289' type='int'/>
+<offset>576</offset>
+<doc f='codebrowser/code/qcommon/qfiles.h' l='124'>// all surfaces in a model should have the same</doc>
+<doc f='codebrowser/code/qcommon/qfiles.h' l='288'>// frames and bones are shared by all levels of detail</doc>
+<use f='codebrowser/code/renderergl1/tr_animation.c' l='199' u='r' c='R_MDRAddAnimSurfaces'/>
+<use f='codebrowser/code/renderergl1/tr_animation.c' l='200' u='r' c='R_MDRAddAnimSurfaces'/>
+<use f='codebrowser/code/renderergl1/tr_animation.c' l='209' u='r' c='R_MDRAddAnimSurfaces'/>
+<use f='codebrowser/code/renderergl1/tr_animation.c' l='211' u='r' c='R_MDRAddAnimSurfaces'/>
+<use f='codebrowser/code/renderergl1/tr_mesh.c' l='297' u='r' c='R_AddMD3Surfaces'/>
+<use f='codebrowser/code/renderergl1/tr_mesh.c' l='298' u='r' c='R_AddMD3Surfaces'/>
+<use f='codebrowser/code/renderergl1/tr_mesh.c' l='307' u='r' c='R_AddMD3Surfaces'/>
+<use f='codebrowser/code/renderergl1/tr_mesh.c' l='309' u='r' c='R_AddMD3Surfaces'/>
+<use f='codebrowser/code/renderergl1/tr_model.c' l='403' u='w' c='R_LoadMD3'/>
+<use f='codebrowser/code/renderergl1/tr_model.c' l='403' u='r' c='R_LoadMD3'/>
+<use f='codebrowser/code/renderergl1/tr_model.c' l='411' u='r' c='R_LoadMD3'/>
+<use f='codebrowser/code/renderergl1/tr_model.c' l='418' u='r' c='R_LoadMD3'/>
+<use f='codebrowser/code/renderergl1/tr_model.c' l='429' u='r' c='R_LoadMD3'/>
+<use f='codebrowser/code/renderergl1/tr_model.c' l='444' u='w' c='R_LoadMD3'/>
+<use f='codebrowser/code/renderergl1/tr_model.c' l='444' u='r' c='R_LoadMD3'/>
+<use f='codebrowser/code/renderergl1/tr_model.c' l='510' u='r' c='R_LoadMD3'/>
+<use f='codebrowser/code/renderergl1/tr_model.c' l='567' u='w' c='R_LoadMDR'/>
+<use f='codebrowser/code/renderergl1/tr_model.c' l='567' u='r' c='R_LoadMDR'/>
+<use f='codebrowser/code/renderergl1/tr_model.c' l='576' u='r' c='R_LoadMDR'/>
+<use f='codebrowser/code/renderergl1/tr_model.c' l='578' u='r' c='R_LoadMDR'/>
+<use f='codebrowser/code/renderergl1/tr_model.c' l='583' u='r' c='R_LoadMDR'/>
+<use f='codebrowser/code/renderergl1/tr_model.c' l='597' u='w' c='R_LoadMDR'/>
+<use f='codebrowser/code/renderergl1/tr_model.c' l='597' u='r' c='R_LoadMDR'/>
+<use f='codebrowser/code/renderergl1/tr_model.c' l='605' u='r' c='R_LoadMDR'/>
+<use f='codebrowser/code/renderergl1/tr_model.c' l='622' u='r' c='R_LoadMDR'/>
+<use f='codebrowser/code/renderergl1/tr_model.c' l='665' u='r' c='R_LoadMDR'/>
+<use f='codebrowser/code/renderergl1/tr_model.c' l='954' u='r' c='R_GetTag'/>
+<use f='codebrowser/code/renderergl1/tr_model.c' l='956' u='r' c='R_GetTag'/>
+<use f='codebrowser/code/renderergl1/tr_model.c' l='976' u='r' c='R_GetAnimTag'/>
+<use f='codebrowser/code/renderergl1/tr_model.c' l='979' u='r' c='R_GetAnimTag'/>
+<use f='codebrowser/code/renderergl2/tr_animation.c' l='201' u='r' c='R_MDRAddAnimSurfaces'/>
+<use f='codebrowser/code/renderergl2/tr_animation.c' l='202' u='r' c='R_MDRAddAnimSurfaces'/>
+<use f='codebrowser/code/renderergl2/tr_animation.c' l='211' u='r' c='R_MDRAddAnimSurfaces'/>
+<use f='codebrowser/code/renderergl2/tr_animation.c' l='213' u='r' c='R_MDRAddAnimSurfaces'/>
+<use f='codebrowser/code/renderergl2/tr_model.c' l='417' u='w' c='R_LoadMD3'/>
+<use f='codebrowser/code/renderergl2/tr_model.c' l='417' u='r' c='R_LoadMD3'/>
+<use f='codebrowser/code/renderergl2/tr_model.c' l='425' u='r' c='R_LoadMD3'/>
+<use f='codebrowser/code/renderergl2/tr_model.c' l='432' u='r' c='R_LoadMD3'/>
+<use f='codebrowser/code/renderergl2/tr_model.c' l='433' u='r' c='R_LoadMD3'/>
+<use f='codebrowser/code/renderergl2/tr_model.c' l='436' u='r' c='R_LoadMD3'/>
+<use f='codebrowser/code/renderergl2/tr_model.c' l='449' u='r' c='R_LoadMD3'/>
+<use f='codebrowser/code/renderergl2/tr_model.c' l='452' u='r' c='R_LoadMD3'/>
+<use f='codebrowser/code/renderergl2/tr_model.c' l='481' u='w' c='R_LoadMD3'/>
+<use f='codebrowser/code/renderergl2/tr_model.c' l='481' u='r' c='R_LoadMD3'/>
+<use f='codebrowser/code/renderergl2/tr_model.c' l='560' u='r' c='R_LoadMD3'/>
+<use f='codebrowser/code/renderergl2/tr_model.c' l='563' u='r' c='R_LoadMD3'/>
+<use f='codebrowser/code/renderergl2/tr_model.c' l='857' u='w' c='R_LoadMDR'/>
+<use f='codebrowser/code/renderergl2/tr_model.c' l='857' u='r' c='R_LoadMDR'/>
+<use f='codebrowser/code/renderergl2/tr_model.c' l='866' u='r' c='R_LoadMDR'/>
+<use f='codebrowser/code/renderergl2/tr_model.c' l='868' u='r' c='R_LoadMDR'/>
+<use f='codebrowser/code/renderergl2/tr_model.c' l='873' u='r' c='R_LoadMDR'/>
+<use f='codebrowser/code/renderergl2/tr_model.c' l='887' u='w' c='R_LoadMDR'/>
+<use f='codebrowser/code/renderergl2/tr_model.c' l='887' u='r' c='R_LoadMDR'/>
+<use f='codebrowser/code/renderergl2/tr_model.c' l='895' u='r' c='R_LoadMDR'/>
+<use f='codebrowser/code/renderergl2/tr_model.c' l='912' u='r' c='R_LoadMDR'/>
+<use f='codebrowser/code/renderergl2/tr_model.c' l='955' u='r' c='R_LoadMDR'/>
+<use f='codebrowser/code/renderergl2/tr_model.c' l='1276' u='r' c='R_GetAnimTag'/>
+<use f='codebrowser/code/renderergl2/tr_model.c' l='1279' u='r' c='R_GetAnimTag'/>

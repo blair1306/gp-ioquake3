@@ -1,0 +1,13 @@
+<def f='codebrowser/code/botlib/be_ai_move.h' l='76' ll='87'/>
+<size>68</size>
+<doc f='codebrowser/code/botlib/be_ai_move.h' l='74'>//structure used to initialize the movement state
+//the or_moveflags MFL_ONGROUND, MFL_TELEPORTED and MFL_WATERJUMP come from the playerstate</doc>
+<mbr r='bot_initmove_s::origin' o='0' t='vec3_t'/>
+<mbr r='bot_initmove_s::velocity' o='96' t='vec3_t'/>
+<mbr r='bot_initmove_s::viewoffset' o='192' t='vec3_t'/>
+<mbr r='bot_initmove_s::entitynum' o='288' t='int'/>
+<mbr r='bot_initmove_s::client' o='320' t='int'/>
+<mbr r='bot_initmove_s::thinktime' o='352' t='float'/>
+<mbr r='bot_initmove_s::presencetype' o='384' t='int'/>
+<mbr r='bot_initmove_s::viewangles' o='416' t='vec3_t'/>
+<mbr r='bot_initmove_s::or_moveflags' o='512' t='int'/>

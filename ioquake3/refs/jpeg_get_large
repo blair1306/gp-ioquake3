@@ -1,0 +1,9 @@
+<dec f='codebrowser/code/jpeg-8c/jmemsys.h' l='60' type='void * jpeg_get_large(j_common_ptr cinfo, size_t sizeofobject)'/>
+<use f='codebrowser/code/jpeg-8c/jmemmgr.c' l='362' u='c' c='alloc_large'/>
+<def f='codebrowser/code/jpeg-8c/jmemnobs.c' l='54' ll='58' macro='1' type='void * jpeg_get_large(j_common_ptr cinfo, size_t sizeofobject)'/>
+<doc f='codebrowser/code/jpeg-8c/jmemnobs.c' l='47'>/*
+ * &quot;Large&quot; objects are treated the same as &quot;small&quot; ones.
+ * NB: although we include FAR keywords in the routine declarations,
+ * this file won&apos;t actually work in 80x86 small/medium model; at least,
+ * you probably won&apos;t be able to process useful-size images in only 64KB.
+ */</doc>

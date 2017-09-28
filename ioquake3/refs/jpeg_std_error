@@ -1,0 +1,13 @@
+<dec f='codebrowser/code/jpeg-8c/jpeglib.h' l='928' type='struct jpeg_error_mgr * jpeg_std_error(struct jpeg_error_mgr * err)'/>
+<def f='codebrowser/code/jpeg-8c/jerror.c' l='232' ll='254' macro='1' type='struct jpeg_error_mgr * jpeg_std_error(struct jpeg_error_mgr * err)'/>
+<doc f='codebrowser/code/jpeg-8c/jerror.c' l='222'>/*
+ * Fill in the standard error-handling methods in a jpeg_error_mgr object.
+ * Typical call is:
+ *	struct jpeg_compress_struct cinfo;
+ *	struct jpeg_error_mgr err;
+ *
+ *	cinfo.err = jpeg_std_error(&amp;err);
+ * after which the application may override some of the methods.
+ */</doc>
+<use f='codebrowser/code/renderercommon/tr_image_jpg.c' l='131' u='c' c='R_LoadJPG'/>
+<use f='codebrowser/code/renderercommon/tr_image_jpg.c' l='398' u='c' c='RE_SaveJPGToBuffer'/>

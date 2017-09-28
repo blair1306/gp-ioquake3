@@ -1,0 +1,23 @@
+<dec f='codebrowser/code/botlib/be_aas.h' l='125' type='int'/>
+<offset>0</offset>
+<doc f='codebrowser/code/botlib/be_aas.h' l='125'>// true if updated this frame</doc>
+<use f='codebrowser/code/botlib/be_aas_entity.c' l='109' u='w' c='AAS_UpdateEntity'/>
+<use f='codebrowser/code/botlib/be_aas_entity.c' l='346' u='w' c='AAS_InvalidateEntities'/>
+<use f='codebrowser/code/botlib/be_aas_entity.c' l='364' u='r' c='AAS_UnlinkInvalidEntities'/>
+<use f='codebrowser/code/botlib/be_aas_entity.c' l='434' u='r' c='AAS_NextEntity'/>
+<use f='codebrowser/code/game/ai_chat.c' l='327' u='r' c='BotVisibleEnemies'/>
+<use f='codebrowser/code/game/ai_cmd.c' l='527' u='r' c='BotMatch_HelpAccompany'/>
+<use f='codebrowser/code/game/ai_cmd.c' l='725' u='r' c='BotMatch_Camp'/>
+<use f='codebrowser/code/game/ai_cmd.c' l='1647' u='r' c='BotMatch_LeadTheWay'/>
+<use f='codebrowser/code/game/ai_dmnet.c' l='375' u='r' c='BotGetLongTermGoal'/>
+<use f='codebrowser/code/game/ai_dmnet.c' l='502' u='r' c='BotGetLongTermGoal'/>
+<use f='codebrowser/code/game/ai_dmnet.c' l='1069' u='r' c='BotLongTermGoal'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='2834' u='r' c='BotEntityVisible'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='2998' u='r' c='BotFindEnemy'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='3075' u='r' c='BotTeamFlagCarrierVisible'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='3108' u='r' c='BotTeamFlagCarrier'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='3138' u='r' c='BotEnemyFlagCarrierVisible'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='3177' u='r' c='BotVisibleTeamMatesAndEnemies'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='3719' u='r' c='BotMapScripts'/>
+<use f='codebrowser/code/game/ai_vcmd.c' l='266' u='r' c='BotVoiceChat_Camp'/>
+<use f='codebrowser/code/game/ai_vcmd.c' l='321' u='r' c='BotVoiceChat_FollowMe'/>

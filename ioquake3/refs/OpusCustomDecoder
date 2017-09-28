@@ -1,0 +1,27 @@
+<def f='codebrowser/code/opus-1.1.4/celt/celt_decoder.c' l='67' ll='101'/>
+<size>96</size>
+<doc f='codebrowser/code/opus-1.1.4/celt/celt_decoder.c' l='64'>/** Decoder state
+ @brief Decoder state
+ */</doc>
+<mbr r='OpusCustomDecoder::mode' o='0' t='const OpusCustomMode *'/>
+<mbr r='OpusCustomDecoder::overlap' o='64' t='int'/>
+<mbr r='OpusCustomDecoder::channels' o='96' t='int'/>
+<mbr r='OpusCustomDecoder::stream_channels' o='128' t='int'/>
+<mbr r='OpusCustomDecoder::downsample' o='160' t='int'/>
+<mbr r='OpusCustomDecoder::start' o='192' t='int'/>
+<mbr r='OpusCustomDecoder::end' o='224' t='int'/>
+<mbr r='OpusCustomDecoder::signalling' o='256' t='int'/>
+<mbr r='OpusCustomDecoder::arch' o='288' t='int'/>
+<mbr r='OpusCustomDecoder::rng' o='320' t='opus_uint32'/>
+<mbr r='OpusCustomDecoder::error' o='352' t='int'/>
+<mbr r='OpusCustomDecoder::last_pitch_index' o='384' t='int'/>
+<mbr r='OpusCustomDecoder::loss_count' o='416' t='int'/>
+<mbr r='OpusCustomDecoder::skip_plc' o='448' t='int'/>
+<mbr r='OpusCustomDecoder::postfilter_period' o='480' t='int'/>
+<mbr r='OpusCustomDecoder::postfilter_period_old' o='512' t='int'/>
+<mbr r='OpusCustomDecoder::postfilter_gain' o='544' t='opus_val16'/>
+<mbr r='OpusCustomDecoder::postfilter_gain_old' o='576' t='opus_val16'/>
+<mbr r='OpusCustomDecoder::postfilter_tapset' o='608' t='int'/>
+<mbr r='OpusCustomDecoder::postfilter_tapset_old' o='640' t='int'/>
+<mbr r='OpusCustomDecoder::preemph_memD' o='672' t='celt_sig [2]'/>
+<mbr r='OpusCustomDecoder::_decode_mem' o='736' t='celt_sig [1]'/>

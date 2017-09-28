@@ -1,0 +1,10 @@
+<dec f='codebrowser/code/server/server.h' l='374' type='void SV_ExecuteClientMessage(client_t * cl, msg_t * msg)'/>
+<def f='codebrowser/code/server/sv_client.c' l='1901' ll='2013' type='void SV_ExecuteClientMessage(client_t * cl, msg_t * msg)'/>
+<doc f='codebrowser/code/server/sv_client.c' l='1894'>/*
+===================
+SV_ExecuteClientMessage
+
+Parse a client packet
+===================
+*/</doc>
+<use f='codebrowser/code/server/sv_main.c' l='873' u='c' c='SV_PacketEvent'/>

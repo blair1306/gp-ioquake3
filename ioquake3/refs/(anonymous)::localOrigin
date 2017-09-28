@@ -1,0 +1,36 @@
+<dec f='codebrowser/code/qcommon/qfiles.h' l='254' type='vec3_t'/>
+<dec f='codebrowser/code/qcommon/qfiles.h' l='266' type='vec3_t'/>
+<offset>192</offset>
+<doc f='codebrowser/code/qcommon/qfiles.h' l='254'>// midpoint of bounds, used for sphere cull</doc>
+<doc f='codebrowser/code/qcommon/qfiles.h' l='266'>// midpoint of bounds, used for sphere cull</doc>
+<dec f='codebrowser/code/renderergl1/tr_local.h' l='573' type='vec3_t'/>
+<use f='codebrowser/code/renderergl1/tr_animation.c' l='61' u='r' c='R_MDRCullModel'/>
+<use f='codebrowser/code/renderergl1/tr_animation.c' l='83' u='r' c='R_MDRCullModel'/>
+<use f='codebrowser/code/renderergl1/tr_animation.c' l='87' u='r' c='R_MDRCullModel'/>
+<use f='codebrowser/code/renderergl1/tr_animation.c' l='153' u='r' c='R_MDRComputeFogNum'/>
+<use f='codebrowser/code/renderergl1/tr_animation.c' l='153' u='r' c='R_MDRComputeFogNum'/>
+<use f='codebrowser/code/renderergl1/tr_animation.c' l='153' u='r' c='R_MDRComputeFogNum'/>
+<offset>256</offset>
+<use f='codebrowser/code/renderergl1/tr_model.c' l='628' u='w' c='R_LoadMDR'/>
+<use f='codebrowser/code/renderergl1/tr_model.c' l='628' u='r' c='R_LoadMDR'/>
+<use f='codebrowser/code/renderergl1/tr_model.c' l='671' u='w' c='R_LoadMDR'/>
+<use f='codebrowser/code/renderergl1/tr_model.c' l='671' u='r' c='R_LoadMDR'/>
+<dec f='codebrowser/code/renderergl2/tr_local.h' l='1142' type='float [3]'/>
+<use f='codebrowser/code/renderergl2/tr_animation.c' l='61' u='r' c='R_MDRCullModel'/>
+<use f='codebrowser/code/renderergl2/tr_animation.c' l='83' u='r' c='R_MDRCullModel'/>
+<use f='codebrowser/code/renderergl2/tr_animation.c' l='87' u='r' c='R_MDRCullModel'/>
+<use f='codebrowser/code/renderergl2/tr_animation.c' l='153' u='r' c='R_MDRComputeFogNum'/>
+<use f='codebrowser/code/renderergl2/tr_animation.c' l='153' u='r' c='R_MDRComputeFogNum'/>
+<use f='codebrowser/code/renderergl2/tr_animation.c' l='153' u='r' c='R_MDRComputeFogNum'/>
+<offset>192</offset>
+<use f='codebrowser/code/renderergl2/tr_mesh.c' l='92' u='r' c='R_CullModel'/>
+<use f='codebrowser/code/renderergl2/tr_mesh.c' l='111' u='r' c='R_CullModel'/>
+<use f='codebrowser/code/renderergl2/tr_mesh.c' l='115' u='r' c='R_CullModel'/>
+<use f='codebrowser/code/renderergl2/tr_mesh.c' l='258' u='r' c='R_ComputeFogNum'/>
+<use f='codebrowser/code/renderergl2/tr_mesh.c' l='258' u='r' c='R_ComputeFogNum'/>
+<use f='codebrowser/code/renderergl2/tr_mesh.c' l='258' u='r' c='R_ComputeFogNum'/>
+<use f='codebrowser/code/renderergl2/tr_model.c' l='443' u='w' c='R_LoadMD3'/>
+<use f='codebrowser/code/renderergl2/tr_model.c' l='918' u='w' c='R_LoadMDR'/>
+<use f='codebrowser/code/renderergl2/tr_model.c' l='918' u='r' c='R_LoadMDR'/>
+<use f='codebrowser/code/renderergl2/tr_model.c' l='961' u='w' c='R_LoadMDR'/>
+<use f='codebrowser/code/renderergl2/tr_model.c' l='961' u='r' c='R_LoadMDR'/>

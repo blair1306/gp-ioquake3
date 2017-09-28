@@ -1,0 +1,87 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>be_aas_sample.h source code [codebrowser/code/botlib/be_aas_sample.h] - Woboq Code Browser</title>
+<link rel="stylesheet" href="../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'codebrowser/code/botlib/be_aas_sample.h'; var root_path = '../../..'; var data_path = '../../../../data';</script>
+<script src='../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../..'>codebrowser</a>/<a href='..'>code</a>/<a href='./'>botlib</a>/<a href='be_aas_sample.h.html'>be_aas_sample.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/*</i></td></tr>
+<tr><th id="2">2</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="3">3</th><td><i>Copyright (C) 1999-2005 Id Software, Inc.</i></td></tr>
+<tr><th id="4">4</th><td><i></i></td></tr>
+<tr><th id="5">5</th><td><i>This file is part of Quake III Arena source code.</i></td></tr>
+<tr><th id="6">6</th><td><i></i></td></tr>
+<tr><th id="7">7</th><td><i>Quake III Arena source code is free software; you can redistribute it</i></td></tr>
+<tr><th id="8">8</th><td><i>and/or modify it under the terms of the GNU General Public License as</i></td></tr>
+<tr><th id="9">9</th><td><i>published by the Free Software Foundation; either version 2 of the License,</i></td></tr>
+<tr><th id="10">10</th><td><i>or (at your option) any later version.</i></td></tr>
+<tr><th id="11">11</th><td><i></i></td></tr>
+<tr><th id="12">12</th><td><i>Quake III Arena source code is distributed in the hope that it will be</i></td></tr>
+<tr><th id="13">13</th><td><i>useful, but WITHOUT ANY WARRANTY; without even the implied warranty of</i></td></tr>
+<tr><th id="14">14</th><td><i>MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</i></td></tr>
+<tr><th id="15">15</th><td><i>GNU General Public License for more details.</i></td></tr>
+<tr><th id="16">16</th><td><i></i></td></tr>
+<tr><th id="17">17</th><td><i>You should have received a copy of the GNU General Public License</i></td></tr>
+<tr><th id="18">18</th><td><i>along with Quake III Arena source code; if not, write to the Free Software</i></td></tr>
+<tr><th id="19">19</th><td><i>Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA</i></td></tr>
+<tr><th id="20">20</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="21">21</th><td><i>*/</i></td></tr>
+<tr><th id="22">22</th><td></td></tr>
+<tr><th id="23">23</th><td><i>/*****************************************************************************</i></td></tr>
+<tr><th id="24">24</th><td><i> * name:		be_aas_sample.h</i></td></tr>
+<tr><th id="25">25</th><td><i> *</i></td></tr>
+<tr><th id="26">26</th><td><i> * desc:		AAS</i></td></tr>
+<tr><th id="27">27</th><td><i> *</i></td></tr>
+<tr><th id="28">28</th><td><i> * $Archive: /source/code/botlib/be_aas_sample.h $</i></td></tr>
+<tr><th id="29">29</th><td><i> *</i></td></tr>
+<tr><th id="30">30</th><td><i> *****************************************************************************/</i></td></tr>
+<tr><th id="31">31</th><td></td></tr>
+<tr><th id="32">32</th><td><u>#<span data-ppcond="32">ifdef</span> <span class="macro" data-ref="_M/AASINTERN">AASINTERN</span></u></td></tr>
+<tr><th id="33">33</th><td><em>void</em> AAS_InitAASLinkHeap(<em>void</em>);</td></tr>
+<tr><th id="34">34</th><td><em>void</em> AAS_InitAASLinkedEntities(<em>void</em>);</td></tr>
+<tr><th id="35">35</th><td><em>void</em> AAS_FreeAASLinkHeap(<em>void</em>);</td></tr>
+<tr><th id="36">36</th><td><em>void</em> AAS_FreeAASLinkedEntities(<em>void</em>);</td></tr>
+<tr><th id="37">37</th><td>aas_face_t *AAS_AreaGroundFace(<em>int</em> areanum, vec3_t point);</td></tr>
+<tr><th id="38">38</th><td>aas_face_t *AAS_TraceEndFace(aas_trace_t *trace);</td></tr>
+<tr><th id="39">39</th><td>aas_plane_t *AAS_PlaneFromNum(<em>int</em> planenum);</td></tr>
+<tr><th id="40">40</th><td>aas_link_t *AAS_AASLinkEntity(vec3_t absmins, vec3_t absmaxs, <em>int</em> entnum);</td></tr>
+<tr><th id="41">41</th><td>aas_link_t *AAS_LinkEntityClientBBox(vec3_t absmins, vec3_t absmaxs, <em>int</em> entnum, <em>int</em> presencetype);</td></tr>
+<tr><th id="42">42</th><td>qboolean AAS_PointInsideFace(<em>int</em> facenum, vec3_t point, <em>float</em> epsilon);</td></tr>
+<tr><th id="43">43</th><td>qboolean AAS_InsideFace(aas_face_t *face, vec3_t pnormal, vec3_t point, <em>float</em> epsilon);</td></tr>
+<tr><th id="44">44</th><td><em>void</em> AAS_UnlinkFromAreas(aas_link_t *areas);</td></tr>
+<tr><th id="45">45</th><td><u>#<span data-ppcond="32">endif</span> //AASINTERN</u></td></tr>
+<tr><th id="46">46</th><td></td></tr>
+<tr><th id="47">47</th><td><i>//returns the mins and maxs of the bounding box for the given presence type</i></td></tr>
+<tr><th id="48">48</th><td><em>void</em> <dfn class="decl" id="AAS_PresenceTypeBoundingBox" title='AAS_PresenceTypeBoundingBox' data-ref="AAS_PresenceTypeBoundingBox">AAS_PresenceTypeBoundingBox</dfn>(<em>int</em> <dfn class="local col4 decl" id="494presencetype" title='presencetype' data-type='int' data-ref="494presencetype">presencetype</dfn>, <a class="typedef" href="../qcommon/q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="local col5 decl" id="495mins" title='mins' data-type='vec_t *' data-ref="495mins">mins</dfn>, <a class="typedef" href="../qcommon/q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="local col6 decl" id="496maxs" title='maxs' data-type='vec_t *' data-ref="496maxs">maxs</dfn>);</td></tr>
+<tr><th id="49">49</th><td><i>//returns the cluster the area is in (negative portal number if the area is a portal)</i></td></tr>
+<tr><th id="50">50</th><td><em>int</em> <dfn class="decl" id="AAS_AreaCluster" title='AAS_AreaCluster' data-ref="AAS_AreaCluster">AAS_AreaCluster</dfn>(<em>int</em> <dfn class="local col7 decl" id="497areanum" title='areanum' data-type='int' data-ref="497areanum">areanum</dfn>);</td></tr>
+<tr><th id="51">51</th><td><i>//returns the presence type(s) of the area</i></td></tr>
+<tr><th id="52">52</th><td><em>int</em> <dfn class="decl" id="AAS_AreaPresenceType" title='AAS_AreaPresenceType' data-ref="AAS_AreaPresenceType">AAS_AreaPresenceType</dfn>(<em>int</em> <dfn class="local col8 decl" id="498areanum" title='areanum' data-type='int' data-ref="498areanum">areanum</dfn>);</td></tr>
+<tr><th id="53">53</th><td><i>//returns the presence type(s) at the given point</i></td></tr>
+<tr><th id="54">54</th><td><em>int</em> <dfn class="decl" id="AAS_PointPresenceType" title='AAS_PointPresenceType' data-ref="AAS_PointPresenceType">AAS_PointPresenceType</dfn>(<a class="typedef" href="../qcommon/q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="local col9 decl" id="499point" title='point' data-type='vec_t *' data-ref="499point">point</dfn>);</td></tr>
+<tr><th id="55">55</th><td><i>//returns the result of the trace of a client bbox</i></td></tr>
+<tr><th id="56">56</th><td><a class="typedef" href="be_aas.h.html#aas_trace_t" title='aas_trace_t' data-type='struct aas_trace_s' data-ref="aas_trace_t">aas_trace_t</a> <dfn class="decl" id="AAS_TraceClientBBox" title='AAS_TraceClientBBox' data-ref="AAS_TraceClientBBox">AAS_TraceClientBBox</dfn>(<a class="typedef" href="../qcommon/q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="local col0 decl" id="500start" title='start' data-type='vec_t *' data-ref="500start">start</dfn>, <a class="typedef" href="../qcommon/q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="local col1 decl" id="501end" title='end' data-type='vec_t *' data-ref="501end">end</dfn>, <em>int</em> <dfn class="local col2 decl" id="502presencetype" title='presencetype' data-type='int' data-ref="502presencetype">presencetype</dfn>, <em>int</em> <dfn class="local col3 decl" id="503passent" title='passent' data-type='int' data-ref="503passent">passent</dfn>);</td></tr>
+<tr><th id="57">57</th><td><i>//stores the areas the trace went through and returns the number of passed areas</i></td></tr>
+<tr><th id="58">58</th><td><em>int</em> <dfn class="decl" id="AAS_TraceAreas" title='AAS_TraceAreas' data-ref="AAS_TraceAreas">AAS_TraceAreas</dfn>(<a class="typedef" href="../qcommon/q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="local col4 decl" id="504start" title='start' data-type='vec_t *' data-ref="504start">start</dfn>, <a class="typedef" href="../qcommon/q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="local col5 decl" id="505end" title='end' data-type='vec_t *' data-ref="505end">end</dfn>, <em>int</em> *<dfn class="local col6 decl" id="506areas" title='areas' data-type='int *' data-ref="506areas">areas</dfn>, <a class="typedef" href="../qcommon/q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> *<dfn class="local col7 decl" id="507points" title='points' data-type='vec3_t *' data-ref="507points">points</dfn>, <em>int</em> <dfn class="local col8 decl" id="508maxareas" title='maxareas' data-type='int' data-ref="508maxareas">maxareas</dfn>);</td></tr>
+<tr><th id="59">59</th><td><i>//returns the areas the bounding box is in</i></td></tr>
+<tr><th id="60">60</th><td><em>int</em> <dfn class="decl" id="AAS_BBoxAreas" title='AAS_BBoxAreas' data-ref="AAS_BBoxAreas">AAS_BBoxAreas</dfn>(<a class="typedef" href="../qcommon/q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="local col9 decl" id="509absmins" title='absmins' data-type='vec_t *' data-ref="509absmins">absmins</dfn>, <a class="typedef" href="../qcommon/q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="local col0 decl" id="510absmaxs" title='absmaxs' data-type='vec_t *' data-ref="510absmaxs">absmaxs</dfn>, <em>int</em> *<dfn class="local col1 decl" id="511areas" title='areas' data-type='int *' data-ref="511areas">areas</dfn>, <em>int</em> <dfn class="local col2 decl" id="512maxareas" title='maxareas' data-type='int' data-ref="512maxareas">maxareas</dfn>);</td></tr>
+<tr><th id="61">61</th><td><i>//return area information</i></td></tr>
+<tr><th id="62">62</th><td><em>int</em> <dfn class="decl" id="AAS_AreaInfo" title='AAS_AreaInfo' data-ref="AAS_AreaInfo">AAS_AreaInfo</dfn>( <em>int</em> <dfn class="local col3 decl" id="513areanum" title='areanum' data-type='int' data-ref="513areanum">areanum</dfn>, <a class="typedef" href="be_aas.h.html#aas_areainfo_t" title='aas_areainfo_t' data-type='struct aas_areainfo_s' data-ref="aas_areainfo_t">aas_areainfo_t</a> *<dfn class="local col4 decl" id="514info" title='info' data-type='aas_areainfo_t *' data-ref="514info">info</dfn> );</td></tr>
+<tr><th id="63">63</th><td><i>//returns the area the point is in</i></td></tr>
+<tr><th id="64">64</th><td><em>int</em> <dfn class="decl" id="AAS_PointAreaNum" title='AAS_PointAreaNum' data-ref="AAS_PointAreaNum">AAS_PointAreaNum</dfn>(<a class="typedef" href="../qcommon/q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="local col5 decl" id="515point" title='point' data-type='vec_t *' data-ref="515point">point</dfn>);</td></tr>
+<tr><th id="65">65</th><td><i>//</i></td></tr>
+<tr><th id="66">66</th><td><em>int</em> <dfn class="decl" id="AAS_PointReachabilityAreaIndex" title='AAS_PointReachabilityAreaIndex' data-ref="AAS_PointReachabilityAreaIndex">AAS_PointReachabilityAreaIndex</dfn>( <a class="typedef" href="../qcommon/q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="local col6 decl" id="516point" title='point' data-type='vec_t *' data-ref="516point">point</dfn> );</td></tr>
+<tr><th id="67">67</th><td><i>//returns the plane the given face is in</i></td></tr>
+<tr><th id="68">68</th><td><em>void</em> <dfn class="decl" id="AAS_FacePlane" title='AAS_FacePlane' data-ref="AAS_FacePlane">AAS_FacePlane</dfn>(<em>int</em> <dfn class="local col7 decl" id="517facenum" title='facenum' data-type='int' data-ref="517facenum">facenum</dfn>, <a class="typedef" href="../qcommon/q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="local col8 decl" id="518normal" title='normal' data-type='vec_t *' data-ref="518normal">normal</dfn>, <em>float</em> *<dfn class="local col9 decl" id="519dist" title='dist' data-type='float *' data-ref="519dist">dist</dfn>);</td></tr>
+<tr><th id="69">69</th><td></td></tr>
+<tr><th id="70">70</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='be_aas_bspq3.c.html'>codebrowser/code/botlib/be_aas_bspq3.c</a><br/>Generated on <em>2017-Aug-29</em> from project codebrowser revision <em>63e07af</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

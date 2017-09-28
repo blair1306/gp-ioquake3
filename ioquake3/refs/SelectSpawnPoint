@@ -1,0 +1,14 @@
+<dec f='codebrowser/code/game/g_local.h' l='567' type='gentity_t * SelectSpawnPoint(vec_t * avoidPoint, vec_t * origin, vec_t * angles, qboolean isbot)'/>
+<use f='codebrowser/code/game/g_active.c' l='622' u='c' c='ClientEvents'/>
+<def f='codebrowser/code/game/g_client.c' l='268' ll='298' type='gentity_t * SelectSpawnPoint(vec_t * avoidPoint, vec_t * origin, vec_t * angles, qboolean isbot)'/>
+<use f='codebrowser/code/game/g_client.c' l='326' u='c' c='SelectInitialSpawnPoint'/>
+<use f='codebrowser/code/game/g_client.c' l='1092' u='c' c='ClientSpawn'/>
+<doc f='codebrowser/code/game/g_client.c' l='261'>/*
+===========
+SelectSpawnPoint
+
+Chooses a player start, deathmatch start, etc
+============
+*/</doc>
+<use f='codebrowser/code/game/g_main.c' l='970' u='c' c='FindIntermissionPoint'/>
+<use f='codebrowser/code/game/g_team.c' l='1024' u='c' c='SelectCTFSpawnPoint'/>

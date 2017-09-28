@@ -1,0 +1,31 @@
+<dec f='codebrowser/code/server/server.h' l='366' type='void SV_GetChallenge(netadr_t from)'/>
+<doc f='codebrowser/code/server/server.h' l='363'>//
+// sv_client.c
+//</doc>
+<def f='codebrowser/code/server/sv_client.c' l='53' ll='204' type='void SV_GetChallenge(netadr_t from)'/>
+<doc f='codebrowser/code/server/sv_client.c' l='28'>/*
+=================
+SV_GetChallenge
+
+A &quot;getchallenge&quot; OOB command has been received
+Returns a challenge number that can be used
+in a subsequent connectResponse command.
+We do this to prevent denial of service attacks that
+flood the server with invalid connection IPs.  With a
+challenge, they must give a valid IP address.
+
+If we are authorizing, a challenge request will cause a packet
+to be sent to the authorize server.
+
+When an authorizeip is returned, a challenge response will be
+sent to that ip.
+
+ioquake3: we added a possibility for clients to add a challenge
+to their packets, to make it more difficult for malicious servers
+to hi-jack client connections.
+Also, the auth stuff is completely disabled for com_standalone games
+as well as IPv6 connections, since there is no way to use the
+v4-only auth server for these new types of connections.
+=================
+*/</doc>
+<use f='codebrowser/code/server/sv_main.c' l='801' u='c' c='SV_ConnectionlessPacket'/>

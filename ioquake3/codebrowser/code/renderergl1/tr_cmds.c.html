@@ -1,0 +1,532 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>tr_cmds.c source code [codebrowser/code/renderergl1/tr_cmds.c] - Woboq Code Browser</title>
+<link rel="stylesheet" href="../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'codebrowser/code/renderergl1/tr_cmds.c'; var root_path = '../../..'; var data_path = '../../../../data';</script>
+<script src='../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../..'>codebrowser</a>/<a href='..'>code</a>/<a href='./'>renderergl1</a>/<a href='tr_cmds.c.html'>tr_cmds.c</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/*</i></td></tr>
+<tr><th id="2">2</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="3">3</th><td><i>Copyright (C) 1999-2005 Id Software, Inc.</i></td></tr>
+<tr><th id="4">4</th><td><i></i></td></tr>
+<tr><th id="5">5</th><td><i>This file is part of Quake III Arena source code.</i></td></tr>
+<tr><th id="6">6</th><td><i></i></td></tr>
+<tr><th id="7">7</th><td><i>Quake III Arena source code is free software; you can redistribute it</i></td></tr>
+<tr><th id="8">8</th><td><i>and/or modify it under the terms of the GNU General Public License as</i></td></tr>
+<tr><th id="9">9</th><td><i>published by the Free Software Foundation; either version 2 of the License,</i></td></tr>
+<tr><th id="10">10</th><td><i>or (at your option) any later version.</i></td></tr>
+<tr><th id="11">11</th><td><i></i></td></tr>
+<tr><th id="12">12</th><td><i>Quake III Arena source code is distributed in the hope that it will be</i></td></tr>
+<tr><th id="13">13</th><td><i>useful, but WITHOUT ANY WARRANTY; without even the implied warranty of</i></td></tr>
+<tr><th id="14">14</th><td><i>MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</i></td></tr>
+<tr><th id="15">15</th><td><i>GNU General Public License for more details.</i></td></tr>
+<tr><th id="16">16</th><td><i></i></td></tr>
+<tr><th id="17">17</th><td><i>You should have received a copy of the GNU General Public License</i></td></tr>
+<tr><th id="18">18</th><td><i>along with Quake III Arena source code; if not, write to the Free Software</i></td></tr>
+<tr><th id="19">19</th><td><i>Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA</i></td></tr>
+<tr><th id="20">20</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="21">21</th><td><i>*/</i></td></tr>
+<tr><th id="22">22</th><td><u>#include <a href="tr_local.h.html">"tr_local.h"</a></u></td></tr>
+<tr><th id="23">23</th><td></td></tr>
+<tr><th id="24">24</th><td><i>/*</i></td></tr>
+<tr><th id="25">25</th><td><i>=====================</i></td></tr>
+<tr><th id="26">26</th><td><i>R_PerformanceCounters</i></td></tr>
+<tr><th id="27">27</th><td><i>=====================</i></td></tr>
+<tr><th id="28">28</th><td><i>*/</i></td></tr>
+<tr><th id="29">29</th><td><em>void</em> <dfn class="decl def" id="R_PerformanceCounters" title='R_PerformanceCounters' data-ref="R_PerformanceCounters">R_PerformanceCounters</dfn>( <em>void</em> ) {</td></tr>
+<tr><th id="30">30</th><td>	<b>if</b> ( !<a class="ref" href="tr_local.h.html#r_speeds" title='r_speeds' data-ref="r_speeds">r_speeds</a>-&gt;<a class="ref" href="../qcommon/q_shared.h.html#cvar_s::integer" title='cvar_s::integer' data-ref="cvar_s::integer">integer</a> ) {</td></tr>
+<tr><th id="31">31</th><td>		<i>// clear the counters even if we aren't printing</i></td></tr>
+<tr><th id="32">32</th><td>		<a class="macro" href="../qcommon/q_shared.h.html#344" title="memset" data-ref="_M/Com_Memset">Com_Memset</a>( &amp;<a class="ref" href="tr_local.h.html#tr" title='tr' data-ref="tr">tr</a>.<a class="ref" href="tr_local.h.html#(anonymous)::pc" title='(anonymous struct)::pc' data-ref="(anonymous)::pc">pc</a>, <var>0</var>, <b>sizeof</b>( <a class="ref" href="tr_local.h.html#tr" title='tr' data-ref="tr">tr</a>.<a class="ref" href="tr_local.h.html#(anonymous)::pc" title='(anonymous struct)::pc' data-ref="(anonymous)::pc">pc</a> ) );</td></tr>
+<tr><th id="33">33</th><td>		<a class="macro" href="../qcommon/q_shared.h.html#344" title="memset" data-ref="_M/Com_Memset">Com_Memset</a>( &amp;<a class="ref" href="tr_local.h.html#backEnd" title='backEnd' data-ref="backEnd">backEnd</a>.<a class="ref" href="tr_local.h.html#(anonymous)::pc" title='(anonymous struct)::pc' data-ref="(anonymous)::pc">pc</a>, <var>0</var>, <b>sizeof</b>( <a class="ref" href="tr_local.h.html#backEnd" title='backEnd' data-ref="backEnd">backEnd</a>.<a class="ref" href="tr_local.h.html#(anonymous)::pc" title='(anonymous struct)::pc' data-ref="(anonymous)::pc">pc</a> ) );</td></tr>
+<tr><th id="34">34</th><td>		<b>return</b>;</td></tr>
+<tr><th id="35">35</th><td>	}</td></tr>
+<tr><th id="36">36</th><td></td></tr>
+<tr><th id="37">37</th><td>	<b>if</b> (<a class="ref" href="tr_local.h.html#r_speeds" title='r_speeds' data-ref="r_speeds">r_speeds</a>-&gt;<a class="ref" href="../qcommon/q_shared.h.html#cvar_s::integer" title='cvar_s::integer' data-ref="cvar_s::integer">integer</a> == <var>1</var>) {</td></tr>
+<tr><th id="38">38</th><td>		<a class="ref" href="../renderercommon/tr_common.h.html#ri" title='ri' data-ref="ri">ri</a>.<a class="ref" href="../renderercommon/tr_public.h.html#(anonymous)::Printf" title='(anonymous struct)::Printf' data-ref="(anonymous)::Printf">Printf</a> (<a class="enum" href="../qcommon/q_shared.h.html#PRINT_ALL" title='PRINT_ALL' data-ref="PRINT_ALL">PRINT_ALL</a>, <q>"%i/%i shaders/surfs %i leafs %i verts %i/%i tris %.2f mtex %.2f dc\n"</q>,</td></tr>
+<tr><th id="39">39</th><td>			<a class="ref" href="tr_local.h.html#backEnd" title='backEnd' data-ref="backEnd">backEnd</a>.<a class="ref" href="tr_local.h.html#(anonymous)::pc" title='(anonymous struct)::pc' data-ref="(anonymous)::pc">pc</a>.<a class="ref" href="tr_local.h.html#(anonymous)::c_shaders" title='(anonymous struct)::c_shaders' data-ref="(anonymous)::c_shaders">c_shaders</a>, <a class="ref" href="tr_local.h.html#backEnd" title='backEnd' data-ref="backEnd">backEnd</a>.<a class="ref" href="tr_local.h.html#(anonymous)::pc" title='(anonymous struct)::pc' data-ref="(anonymous)::pc">pc</a>.<a class="ref" href="tr_local.h.html#(anonymous)::c_surfaces" title='(anonymous struct)::c_surfaces' data-ref="(anonymous)::c_surfaces">c_surfaces</a>, <a class="ref" href="tr_local.h.html#tr" title='tr' data-ref="tr">tr</a>.<a class="ref" href="tr_local.h.html#(anonymous)::pc" title='(anonymous struct)::pc' data-ref="(anonymous)::pc">pc</a>.<a class="ref" href="tr_local.h.html#(anonymous)::c_leafs" title='(anonymous struct)::c_leafs' data-ref="(anonymous)::c_leafs">c_leafs</a>, <a class="ref" href="tr_local.h.html#backEnd" title='backEnd' data-ref="backEnd">backEnd</a>.<a class="ref" href="tr_local.h.html#(anonymous)::pc" title='(anonymous struct)::pc' data-ref="(anonymous)::pc">pc</a>.<a class="ref" href="tr_local.h.html#(anonymous)::c_vertexes" title='(anonymous struct)::c_vertexes' data-ref="(anonymous)::c_vertexes">c_vertexes</a>, </td></tr>
+<tr><th id="40">40</th><td>			<a class="ref" href="tr_local.h.html#backEnd" title='backEnd' data-ref="backEnd">backEnd</a>.<a class="ref" href="tr_local.h.html#(anonymous)::pc" title='(anonymous struct)::pc' data-ref="(anonymous)::pc">pc</a>.<a class="ref" href="tr_local.h.html#(anonymous)::c_indexes" title='(anonymous struct)::c_indexes' data-ref="(anonymous)::c_indexes">c_indexes</a>/<var>3</var>, <a class="ref" href="tr_local.h.html#backEnd" title='backEnd' data-ref="backEnd">backEnd</a>.<a class="ref" href="tr_local.h.html#(anonymous)::pc" title='(anonymous struct)::pc' data-ref="(anonymous)::pc">pc</a>.<a class="ref" href="tr_local.h.html#(anonymous)::c_totalIndexes" title='(anonymous struct)::c_totalIndexes' data-ref="(anonymous)::c_totalIndexes">c_totalIndexes</a>/<var>3</var>, </td></tr>
+<tr><th id="41">41</th><td>			<a class="ref" href="tr_local.h.html#R_SumOfUsedImages" title='R_SumOfUsedImages' data-ref="R_SumOfUsedImages">R_SumOfUsedImages</a>()/(<var>1000000.0f</var>), <a class="ref" href="tr_local.h.html#backEnd" title='backEnd' data-ref="backEnd">backEnd</a>.<a class="ref" href="tr_local.h.html#(anonymous)::pc" title='(anonymous struct)::pc' data-ref="(anonymous)::pc">pc</a>.<a class="ref" href="tr_local.h.html#(anonymous)::c_overDraw" title='(anonymous struct)::c_overDraw' data-ref="(anonymous)::c_overDraw">c_overDraw</a> / (<em>float</em>)(<a class="ref" href="../renderercommon/tr_common.h.html#glConfig" title='glConfig' data-ref="glConfig">glConfig</a>.<a class="ref" href="../renderercommon/tr_types.h.html#(anonymous)::vidWidth" title='(anonymous struct)::vidWidth' data-ref="(anonymous)::vidWidth">vidWidth</a> * <a class="ref" href="../renderercommon/tr_common.h.html#glConfig" title='glConfig' data-ref="glConfig">glConfig</a>.<a class="ref" href="../renderercommon/tr_types.h.html#(anonymous)::vidHeight" title='(anonymous struct)::vidHeight' data-ref="(anonymous)::vidHeight">vidHeight</a>) ); </td></tr>
+<tr><th id="42">42</th><td>	} <b>else</b> <b>if</b> (<a class="ref" href="tr_local.h.html#r_speeds" title='r_speeds' data-ref="r_speeds">r_speeds</a>-&gt;<a class="ref" href="../qcommon/q_shared.h.html#cvar_s::integer" title='cvar_s::integer' data-ref="cvar_s::integer">integer</a> == <var>2</var>) {</td></tr>
+<tr><th id="43">43</th><td>		<a class="ref" href="../renderercommon/tr_common.h.html#ri" title='ri' data-ref="ri">ri</a>.<a class="ref" href="../renderercommon/tr_public.h.html#(anonymous)::Printf" title='(anonymous struct)::Printf' data-ref="(anonymous)::Printf">Printf</a> (<a class="enum" href="../qcommon/q_shared.h.html#PRINT_ALL" title='PRINT_ALL' data-ref="PRINT_ALL">PRINT_ALL</a>, <q>"(patch) %i sin %i sclip  %i sout %i bin %i bclip %i bout\n"</q>,</td></tr>
+<tr><th id="44">44</th><td>			<a class="ref" href="tr_local.h.html#tr" title='tr' data-ref="tr">tr</a>.<a class="ref" href="tr_local.h.html#(anonymous)::pc" title='(anonymous struct)::pc' data-ref="(anonymous)::pc">pc</a>.<a class="ref" href="tr_local.h.html#(anonymous)::c_sphere_cull_patch_in" title='(anonymous struct)::c_sphere_cull_patch_in' data-ref="(anonymous)::c_sphere_cull_patch_in">c_sphere_cull_patch_in</a>, <a class="ref" href="tr_local.h.html#tr" title='tr' data-ref="tr">tr</a>.<a class="ref" href="tr_local.h.html#(anonymous)::pc" title='(anonymous struct)::pc' data-ref="(anonymous)::pc">pc</a>.<a class="ref" href="tr_local.h.html#(anonymous)::c_sphere_cull_patch_clip" title='(anonymous struct)::c_sphere_cull_patch_clip' data-ref="(anonymous)::c_sphere_cull_patch_clip">c_sphere_cull_patch_clip</a>, <a class="ref" href="tr_local.h.html#tr" title='tr' data-ref="tr">tr</a>.<a class="ref" href="tr_local.h.html#(anonymous)::pc" title='(anonymous struct)::pc' data-ref="(anonymous)::pc">pc</a>.<a class="ref" href="tr_local.h.html#(anonymous)::c_sphere_cull_patch_out" title='(anonymous struct)::c_sphere_cull_patch_out' data-ref="(anonymous)::c_sphere_cull_patch_out">c_sphere_cull_patch_out</a>, </td></tr>
+<tr><th id="45">45</th><td>			<a class="ref" href="tr_local.h.html#tr" title='tr' data-ref="tr">tr</a>.<a class="ref" href="tr_local.h.html#(anonymous)::pc" title='(anonymous struct)::pc' data-ref="(anonymous)::pc">pc</a>.<a class="ref" href="tr_local.h.html#(anonymous)::c_box_cull_patch_in" title='(anonymous struct)::c_box_cull_patch_in' data-ref="(anonymous)::c_box_cull_patch_in">c_box_cull_patch_in</a>, <a class="ref" href="tr_local.h.html#tr" title='tr' data-ref="tr">tr</a>.<a class="ref" href="tr_local.h.html#(anonymous)::pc" title='(anonymous struct)::pc' data-ref="(anonymous)::pc">pc</a>.<a class="ref" href="tr_local.h.html#(anonymous)::c_box_cull_patch_clip" title='(anonymous struct)::c_box_cull_patch_clip' data-ref="(anonymous)::c_box_cull_patch_clip">c_box_cull_patch_clip</a>, <a class="ref" href="tr_local.h.html#tr" title='tr' data-ref="tr">tr</a>.<a class="ref" href="tr_local.h.html#(anonymous)::pc" title='(anonymous struct)::pc' data-ref="(anonymous)::pc">pc</a>.<a class="ref" href="tr_local.h.html#(anonymous)::c_box_cull_patch_out" title='(anonymous struct)::c_box_cull_patch_out' data-ref="(anonymous)::c_box_cull_patch_out">c_box_cull_patch_out</a> );</td></tr>
+<tr><th id="46">46</th><td>		<a class="ref" href="../renderercommon/tr_common.h.html#ri" title='ri' data-ref="ri">ri</a>.<a class="ref" href="../renderercommon/tr_public.h.html#(anonymous)::Printf" title='(anonymous struct)::Printf' data-ref="(anonymous)::Printf">Printf</a> (<a class="enum" href="../qcommon/q_shared.h.html#PRINT_ALL" title='PRINT_ALL' data-ref="PRINT_ALL">PRINT_ALL</a>, <q>"(md3) %i sin %i sclip  %i sout %i bin %i bclip %i bout\n"</q>,</td></tr>
+<tr><th id="47">47</th><td>			<a class="ref" href="tr_local.h.html#tr" title='tr' data-ref="tr">tr</a>.<a class="ref" href="tr_local.h.html#(anonymous)::pc" title='(anonymous struct)::pc' data-ref="(anonymous)::pc">pc</a>.<a class="ref" href="tr_local.h.html#(anonymous)::c_sphere_cull_md3_in" title='(anonymous struct)::c_sphere_cull_md3_in' data-ref="(anonymous)::c_sphere_cull_md3_in">c_sphere_cull_md3_in</a>, <a class="ref" href="tr_local.h.html#tr" title='tr' data-ref="tr">tr</a>.<a class="ref" href="tr_local.h.html#(anonymous)::pc" title='(anonymous struct)::pc' data-ref="(anonymous)::pc">pc</a>.<a class="ref" href="tr_local.h.html#(anonymous)::c_sphere_cull_md3_clip" title='(anonymous struct)::c_sphere_cull_md3_clip' data-ref="(anonymous)::c_sphere_cull_md3_clip">c_sphere_cull_md3_clip</a>, <a class="ref" href="tr_local.h.html#tr" title='tr' data-ref="tr">tr</a>.<a class="ref" href="tr_local.h.html#(anonymous)::pc" title='(anonymous struct)::pc' data-ref="(anonymous)::pc">pc</a>.<a class="ref" href="tr_local.h.html#(anonymous)::c_sphere_cull_md3_out" title='(anonymous struct)::c_sphere_cull_md3_out' data-ref="(anonymous)::c_sphere_cull_md3_out">c_sphere_cull_md3_out</a>, </td></tr>
+<tr><th id="48">48</th><td>			<a class="ref" href="tr_local.h.html#tr" title='tr' data-ref="tr">tr</a>.<a class="ref" href="tr_local.h.html#(anonymous)::pc" title='(anonymous struct)::pc' data-ref="(anonymous)::pc">pc</a>.<a class="ref" href="tr_local.h.html#(anonymous)::c_box_cull_md3_in" title='(anonymous struct)::c_box_cull_md3_in' data-ref="(anonymous)::c_box_cull_md3_in">c_box_cull_md3_in</a>, <a class="ref" href="tr_local.h.html#tr" title='tr' data-ref="tr">tr</a>.<a class="ref" href="tr_local.h.html#(anonymous)::pc" title='(anonymous struct)::pc' data-ref="(anonymous)::pc">pc</a>.<a class="ref" href="tr_local.h.html#(anonymous)::c_box_cull_md3_clip" title='(anonymous struct)::c_box_cull_md3_clip' data-ref="(anonymous)::c_box_cull_md3_clip">c_box_cull_md3_clip</a>, <a class="ref" href="tr_local.h.html#tr" title='tr' data-ref="tr">tr</a>.<a class="ref" href="tr_local.h.html#(anonymous)::pc" title='(anonymous struct)::pc' data-ref="(anonymous)::pc">pc</a>.<a class="ref" href="tr_local.h.html#(anonymous)::c_box_cull_md3_out" title='(anonymous struct)::c_box_cull_md3_out' data-ref="(anonymous)::c_box_cull_md3_out">c_box_cull_md3_out</a> );</td></tr>
+<tr><th id="49">49</th><td>	} <b>else</b> <b>if</b> (<a class="ref" href="tr_local.h.html#r_speeds" title='r_speeds' data-ref="r_speeds">r_speeds</a>-&gt;<a class="ref" href="../qcommon/q_shared.h.html#cvar_s::integer" title='cvar_s::integer' data-ref="cvar_s::integer">integer</a> == <var>3</var>) {</td></tr>
+<tr><th id="50">50</th><td>		<a class="ref" href="../renderercommon/tr_common.h.html#ri" title='ri' data-ref="ri">ri</a>.<a class="ref" href="../renderercommon/tr_public.h.html#(anonymous)::Printf" title='(anonymous struct)::Printf' data-ref="(anonymous)::Printf">Printf</a> (<a class="enum" href="../qcommon/q_shared.h.html#PRINT_ALL" title='PRINT_ALL' data-ref="PRINT_ALL">PRINT_ALL</a>, <q>"viewcluster: %i\n"</q>, <a class="ref" href="tr_local.h.html#tr" title='tr' data-ref="tr">tr</a>.<a class="ref" href="tr_local.h.html#(anonymous)::viewCluster" title='(anonymous struct)::viewCluster' data-ref="(anonymous)::viewCluster">viewCluster</a> );</td></tr>
+<tr><th id="51">51</th><td>	} <b>else</b> <b>if</b> (<a class="ref" href="tr_local.h.html#r_speeds" title='r_speeds' data-ref="r_speeds">r_speeds</a>-&gt;<a class="ref" href="../qcommon/q_shared.h.html#cvar_s::integer" title='cvar_s::integer' data-ref="cvar_s::integer">integer</a> == <var>4</var>) {</td></tr>
+<tr><th id="52">52</th><td>		<b>if</b> ( <a class="ref" href="tr_local.h.html#backEnd" title='backEnd' data-ref="backEnd">backEnd</a>.<a class="ref" href="tr_local.h.html#(anonymous)::pc" title='(anonymous struct)::pc' data-ref="(anonymous)::pc">pc</a>.<a class="ref" href="tr_local.h.html#(anonymous)::c_dlightVertexes" title='(anonymous struct)::c_dlightVertexes' data-ref="(anonymous)::c_dlightVertexes">c_dlightVertexes</a> ) {</td></tr>
+<tr><th id="53">53</th><td>			<a class="ref" href="../renderercommon/tr_common.h.html#ri" title='ri' data-ref="ri">ri</a>.<a class="ref" href="../renderercommon/tr_public.h.html#(anonymous)::Printf" title='(anonymous struct)::Printf' data-ref="(anonymous)::Printf">Printf</a> (<a class="enum" href="../qcommon/q_shared.h.html#PRINT_ALL" title='PRINT_ALL' data-ref="PRINT_ALL">PRINT_ALL</a>, <q>"dlight srf:%i  culled:%i  verts:%i  tris:%i\n"</q>, </td></tr>
+<tr><th id="54">54</th><td>				<a class="ref" href="tr_local.h.html#tr" title='tr' data-ref="tr">tr</a>.<a class="ref" href="tr_local.h.html#(anonymous)::pc" title='(anonymous struct)::pc' data-ref="(anonymous)::pc">pc</a>.<a class="ref" href="tr_local.h.html#(anonymous)::c_dlightSurfaces" title='(anonymous struct)::c_dlightSurfaces' data-ref="(anonymous)::c_dlightSurfaces">c_dlightSurfaces</a>, <a class="ref" href="tr_local.h.html#tr" title='tr' data-ref="tr">tr</a>.<a class="ref" href="tr_local.h.html#(anonymous)::pc" title='(anonymous struct)::pc' data-ref="(anonymous)::pc">pc</a>.<a class="ref" href="tr_local.h.html#(anonymous)::c_dlightSurfacesCulled" title='(anonymous struct)::c_dlightSurfacesCulled' data-ref="(anonymous)::c_dlightSurfacesCulled">c_dlightSurfacesCulled</a>,</td></tr>
+<tr><th id="55">55</th><td>				<a class="ref" href="tr_local.h.html#backEnd" title='backEnd' data-ref="backEnd">backEnd</a>.<a class="ref" href="tr_local.h.html#(anonymous)::pc" title='(anonymous struct)::pc' data-ref="(anonymous)::pc">pc</a>.<a class="ref" href="tr_local.h.html#(anonymous)::c_dlightVertexes" title='(anonymous struct)::c_dlightVertexes' data-ref="(anonymous)::c_dlightVertexes">c_dlightVertexes</a>, <a class="ref" href="tr_local.h.html#backEnd" title='backEnd' data-ref="backEnd">backEnd</a>.<a class="ref" href="tr_local.h.html#(anonymous)::pc" title='(anonymous struct)::pc' data-ref="(anonymous)::pc">pc</a>.<a class="ref" href="tr_local.h.html#(anonymous)::c_dlightIndexes" title='(anonymous struct)::c_dlightIndexes' data-ref="(anonymous)::c_dlightIndexes">c_dlightIndexes</a> / <var>3</var> );</td></tr>
+<tr><th id="56">56</th><td>		}</td></tr>
+<tr><th id="57">57</th><td>	} </td></tr>
+<tr><th id="58">58</th><td>	<b>else</b> <b>if</b> (<a class="ref" href="tr_local.h.html#r_speeds" title='r_speeds' data-ref="r_speeds">r_speeds</a>-&gt;<a class="ref" href="../qcommon/q_shared.h.html#cvar_s::integer" title='cvar_s::integer' data-ref="cvar_s::integer">integer</a> == <var>5</var> )</td></tr>
+<tr><th id="59">59</th><td>	{</td></tr>
+<tr><th id="60">60</th><td>		<a class="ref" href="../renderercommon/tr_common.h.html#ri" title='ri' data-ref="ri">ri</a>.<a class="ref" href="../renderercommon/tr_public.h.html#(anonymous)::Printf" title='(anonymous struct)::Printf' data-ref="(anonymous)::Printf">Printf</a>( <a class="enum" href="../qcommon/q_shared.h.html#PRINT_ALL" title='PRINT_ALL' data-ref="PRINT_ALL">PRINT_ALL</a>, <q>"zFar: %.0f\n"</q>, <a class="ref" href="tr_local.h.html#tr" title='tr' data-ref="tr">tr</a>.<a class="ref" href="tr_local.h.html#(anonymous)::viewParms" title='(anonymous struct)::viewParms' data-ref="(anonymous)::viewParms">viewParms</a>.<a class="ref" href="tr_local.h.html#(anonymous)::zFar" title='(anonymous struct)::zFar' data-ref="(anonymous)::zFar">zFar</a> );</td></tr>
+<tr><th id="61">61</th><td>	}</td></tr>
+<tr><th id="62">62</th><td>	<b>else</b> <b>if</b> (<a class="ref" href="tr_local.h.html#r_speeds" title='r_speeds' data-ref="r_speeds">r_speeds</a>-&gt;<a class="ref" href="../qcommon/q_shared.h.html#cvar_s::integer" title='cvar_s::integer' data-ref="cvar_s::integer">integer</a> == <var>6</var> )</td></tr>
+<tr><th id="63">63</th><td>	{</td></tr>
+<tr><th id="64">64</th><td>		<a class="ref" href="../renderercommon/tr_common.h.html#ri" title='ri' data-ref="ri">ri</a>.<a class="ref" href="../renderercommon/tr_public.h.html#(anonymous)::Printf" title='(anonymous struct)::Printf' data-ref="(anonymous)::Printf">Printf</a>( <a class="enum" href="../qcommon/q_shared.h.html#PRINT_ALL" title='PRINT_ALL' data-ref="PRINT_ALL">PRINT_ALL</a>, <q>"flare adds:%i tests:%i renders:%i\n"</q>, </td></tr>
+<tr><th id="65">65</th><td>			<a class="ref" href="tr_local.h.html#backEnd" title='backEnd' data-ref="backEnd">backEnd</a>.<a class="ref" href="tr_local.h.html#(anonymous)::pc" title='(anonymous struct)::pc' data-ref="(anonymous)::pc">pc</a>.<a class="ref" href="tr_local.h.html#(anonymous)::c_flareAdds" title='(anonymous struct)::c_flareAdds' data-ref="(anonymous)::c_flareAdds">c_flareAdds</a>, <a class="ref" href="tr_local.h.html#backEnd" title='backEnd' data-ref="backEnd">backEnd</a>.<a class="ref" href="tr_local.h.html#(anonymous)::pc" title='(anonymous struct)::pc' data-ref="(anonymous)::pc">pc</a>.<a class="ref" href="tr_local.h.html#(anonymous)::c_flareTests" title='(anonymous struct)::c_flareTests' data-ref="(anonymous)::c_flareTests">c_flareTests</a>, <a class="ref" href="tr_local.h.html#backEnd" title='backEnd' data-ref="backEnd">backEnd</a>.<a class="ref" href="tr_local.h.html#(anonymous)::pc" title='(anonymous struct)::pc' data-ref="(anonymous)::pc">pc</a>.<a class="ref" href="tr_local.h.html#(anonymous)::c_flareRenders" title='(anonymous struct)::c_flareRenders' data-ref="(anonymous)::c_flareRenders">c_flareRenders</a> );</td></tr>
+<tr><th id="66">66</th><td>	}</td></tr>
+<tr><th id="67">67</th><td></td></tr>
+<tr><th id="68">68</th><td>	<a class="macro" href="../qcommon/q_shared.h.html#344" title="memset" data-ref="_M/Com_Memset">Com_Memset</a>( &amp;<a class="ref" href="tr_local.h.html#tr" title='tr' data-ref="tr">tr</a>.<a class="ref" href="tr_local.h.html#(anonymous)::pc" title='(anonymous struct)::pc' data-ref="(anonymous)::pc">pc</a>, <var>0</var>, <b>sizeof</b>( <a class="ref" href="tr_local.h.html#tr" title='tr' data-ref="tr">tr</a>.<a class="ref" href="tr_local.h.html#(anonymous)::pc" title='(anonymous struct)::pc' data-ref="(anonymous)::pc">pc</a> ) );</td></tr>
+<tr><th id="69">69</th><td>	<a class="macro" href="../qcommon/q_shared.h.html#344" title="memset" data-ref="_M/Com_Memset">Com_Memset</a>( &amp;<a class="ref" href="tr_local.h.html#backEnd" title='backEnd' data-ref="backEnd">backEnd</a>.<a class="ref" href="tr_local.h.html#(anonymous)::pc" title='(anonymous struct)::pc' data-ref="(anonymous)::pc">pc</a>, <var>0</var>, <b>sizeof</b>( <a class="ref" href="tr_local.h.html#backEnd" title='backEnd' data-ref="backEnd">backEnd</a>.<a class="ref" href="tr_local.h.html#(anonymous)::pc" title='(anonymous struct)::pc' data-ref="(anonymous)::pc">pc</a> ) );</td></tr>
+<tr><th id="70">70</th><td>}</td></tr>
+<tr><th id="71">71</th><td></td></tr>
+<tr><th id="72">72</th><td></td></tr>
+<tr><th id="73">73</th><td><i>/*</i></td></tr>
+<tr><th id="74">74</th><td><i>====================</i></td></tr>
+<tr><th id="75">75</th><td><i>R_IssueRenderCommands</i></td></tr>
+<tr><th id="76">76</th><td><i>====================</i></td></tr>
+<tr><th id="77">77</th><td><i>*/</i></td></tr>
+<tr><th id="78">78</th><td><em>void</em> <dfn class="decl def" id="R_IssueRenderCommands" title='R_IssueRenderCommands' data-ref="R_IssueRenderCommands">R_IssueRenderCommands</dfn>( <a class="typedef" href="../qcommon/q_shared.h.html#qboolean" title='qboolean' data-type='enum qboolean' data-ref="qboolean">qboolean</a> <dfn class="local col1 decl" id="1runPerformanceCounters" title='runPerformanceCounters' data-type='qboolean' data-ref="1runPerformanceCounters">runPerformanceCounters</dfn> ) {</td></tr>
+<tr><th id="79">79</th><td>	<a class="typedef" href="tr_local.h.html#renderCommandList_t" title='renderCommandList_t' data-type='struct renderCommandList_t' data-ref="renderCommandList_t">renderCommandList_t</a>	*<dfn class="local col2 decl" id="2cmdList" title='cmdList' data-type='renderCommandList_t *' data-ref="2cmdList">cmdList</dfn>;</td></tr>
+<tr><th id="80">80</th><td></td></tr>
+<tr><th id="81">81</th><td>	<a class="local col2 ref" href="#2cmdList" title='cmdList' data-ref="2cmdList">cmdList</a> = &amp;<a class="ref" href="tr_local.h.html#backEndData" title='backEndData' data-ref="backEndData">backEndData</a>-&gt;<a class="ref" href="tr_local.h.html#(anonymous)::commands" title='(anonymous struct)::commands' data-ref="(anonymous)::commands">commands</a>;</td></tr>
+<tr><th id="82">82</th><td>	<a class="macro" href="../../../include/assert.h.html#50" title="((void) (0))" data-ref="_M/assert">assert</a>(cmdList);</td></tr>
+<tr><th id="83">83</th><td>	<i>// add an end-of-list command</i></td></tr>
+<tr><th id="84">84</th><td>	*(<em>int</em> *)(<a class="local col2 ref" href="#2cmdList" title='cmdList' data-ref="2cmdList">cmdList</a>-&gt;<a class="ref" href="tr_local.h.html#(anonymous)::cmds" title='(anonymous struct)::cmds' data-ref="(anonymous)::cmds">cmds</a> + <a class="local col2 ref" href="#2cmdList" title='cmdList' data-ref="2cmdList">cmdList</a>-&gt;<a class="ref" href="tr_local.h.html#(anonymous)::used" title='(anonymous struct)::used' data-ref="(anonymous)::used">used</a>) = <a class="enum" href="tr_local.h.html#RC_END_OF_LIST" title='RC_END_OF_LIST' data-ref="RC_END_OF_LIST">RC_END_OF_LIST</a>;</td></tr>
+<tr><th id="85">85</th><td></td></tr>
+<tr><th id="86">86</th><td>	<i>// clear it out, in case this is a sync and not a buffer flip</i></td></tr>
+<tr><th id="87">87</th><td>	<a class="local col2 ref" href="#2cmdList" title='cmdList' data-ref="2cmdList">cmdList</a>-&gt;<a class="ref" href="tr_local.h.html#(anonymous)::used" title='(anonymous struct)::used' data-ref="(anonymous)::used">used</a> = <var>0</var>;</td></tr>
+<tr><th id="88">88</th><td></td></tr>
+<tr><th id="89">89</th><td>	<b>if</b> ( <a class="local col1 ref" href="#1runPerformanceCounters" title='runPerformanceCounters' data-ref="1runPerformanceCounters">runPerformanceCounters</a> ) {</td></tr>
+<tr><th id="90">90</th><td>		<a class="ref" href="#R_PerformanceCounters" title='R_PerformanceCounters' data-ref="R_PerformanceCounters">R_PerformanceCounters</a>();</td></tr>
+<tr><th id="91">91</th><td>	}</td></tr>
+<tr><th id="92">92</th><td></td></tr>
+<tr><th id="93">93</th><td>	<i>// actually start the commands going</i></td></tr>
+<tr><th id="94">94</th><td>	<b>if</b> ( !<a class="ref" href="tr_local.h.html#r_skipBackEnd" title='r_skipBackEnd' data-ref="r_skipBackEnd">r_skipBackEnd</a>-&gt;<a class="ref" href="../qcommon/q_shared.h.html#cvar_s::integer" title='cvar_s::integer' data-ref="cvar_s::integer">integer</a> ) {</td></tr>
+<tr><th id="95">95</th><td>		<i>// let it start on the new batch</i></td></tr>
+<tr><th id="96">96</th><td>		<a class="ref" href="tr_local.h.html#RB_ExecuteRenderCommands" title='RB_ExecuteRenderCommands' data-ref="RB_ExecuteRenderCommands">RB_ExecuteRenderCommands</a>( <a class="local col2 ref" href="#2cmdList" title='cmdList' data-ref="2cmdList">cmdList</a>-&gt;<a class="ref" href="tr_local.h.html#(anonymous)::cmds" title='(anonymous struct)::cmds' data-ref="(anonymous)::cmds">cmds</a> );</td></tr>
+<tr><th id="97">97</th><td>	}</td></tr>
+<tr><th id="98">98</th><td>}</td></tr>
+<tr><th id="99">99</th><td></td></tr>
+<tr><th id="100">100</th><td></td></tr>
+<tr><th id="101">101</th><td><i>/*</i></td></tr>
+<tr><th id="102">102</th><td><i>====================</i></td></tr>
+<tr><th id="103">103</th><td><i>R_IssuePendingRenderCommands</i></td></tr>
+<tr><th id="104">104</th><td><i></i></td></tr>
+<tr><th id="105">105</th><td><i>Issue any pending commands and wait for them to complete.</i></td></tr>
+<tr><th id="106">106</th><td><i>====================</i></td></tr>
+<tr><th id="107">107</th><td><i>*/</i></td></tr>
+<tr><th id="108">108</th><td><em>void</em> <dfn class="decl def" id="R_IssuePendingRenderCommands" title='R_IssuePendingRenderCommands' data-ref="R_IssuePendingRenderCommands">R_IssuePendingRenderCommands</dfn>( <em>void</em> ) {</td></tr>
+<tr><th id="109">109</th><td>	<b>if</b> ( !<a class="ref" href="tr_local.h.html#tr" title='tr' data-ref="tr">tr</a>.<a class="ref" href="tr_local.h.html#(anonymous)::registered" title='(anonymous struct)::registered' data-ref="(anonymous)::registered">registered</a> ) {</td></tr>
+<tr><th id="110">110</th><td>		<b>return</b>;</td></tr>
+<tr><th id="111">111</th><td>	}</td></tr>
+<tr><th id="112">112</th><td>	<a class="ref" href="#R_IssueRenderCommands" title='R_IssueRenderCommands' data-ref="R_IssueRenderCommands">R_IssueRenderCommands</a>( <a class="enum" href="../qcommon/q_shared.h.html#qfalse" title='qfalse' data-ref="qfalse">qfalse</a> );</td></tr>
+<tr><th id="113">113</th><td>}</td></tr>
+<tr><th id="114">114</th><td></td></tr>
+<tr><th id="115">115</th><td><i>/*</i></td></tr>
+<tr><th id="116">116</th><td><i>============</i></td></tr>
+<tr><th id="117">117</th><td><i>R_GetCommandBufferReserved</i></td></tr>
+<tr><th id="118">118</th><td><i></i></td></tr>
+<tr><th id="119">119</th><td><i>make sure there is enough command space</i></td></tr>
+<tr><th id="120">120</th><td><i>============</i></td></tr>
+<tr><th id="121">121</th><td><i>*/</i></td></tr>
+<tr><th id="122">122</th><td><em>void</em> *<dfn class="decl def" id="R_GetCommandBufferReserved" title='R_GetCommandBufferReserved' data-ref="R_GetCommandBufferReserved">R_GetCommandBufferReserved</dfn>( <em>int</em> <dfn class="local col3 decl" id="3bytes" title='bytes' data-type='int' data-ref="3bytes">bytes</dfn>, <em>int</em> <dfn class="local col4 decl" id="4reservedBytes" title='reservedBytes' data-type='int' data-ref="4reservedBytes">reservedBytes</dfn> ) {</td></tr>
+<tr><th id="123">123</th><td>	<a class="typedef" href="tr_local.h.html#renderCommandList_t" title='renderCommandList_t' data-type='struct renderCommandList_t' data-ref="renderCommandList_t">renderCommandList_t</a>	*<dfn class="local col5 decl" id="5cmdList" title='cmdList' data-type='renderCommandList_t *' data-ref="5cmdList">cmdList</dfn>;</td></tr>
+<tr><th id="124">124</th><td></td></tr>
+<tr><th id="125">125</th><td>	<a class="local col5 ref" href="#5cmdList" title='cmdList' data-ref="5cmdList">cmdList</a> = &amp;<a class="ref" href="tr_local.h.html#backEndData" title='backEndData' data-ref="backEndData">backEndData</a>-&gt;<a class="ref" href="tr_local.h.html#(anonymous)::commands" title='(anonymous struct)::commands' data-ref="(anonymous)::commands">commands</a>;</td></tr>
+<tr><th id="126">126</th><td>	<a class="local col3 ref" href="#3bytes" title='bytes' data-ref="3bytes">bytes</a> = <a class="macro" href="../qcommon/q_shared.h.html#211" title="(((bytes)+(sizeof(void *))-1) &amp; ~((sizeof(void *))-1))" data-ref="_M/PAD">PAD</a>(<a class="local col3 ref" href="#3bytes" title='bytes' data-ref="3bytes">bytes</a>, <b>sizeof</b>(<em>void</em> *));</td></tr>
+<tr><th id="127">127</th><td></td></tr>
+<tr><th id="128">128</th><td>	<i>// always leave room for the end of list command</i></td></tr>
+<tr><th id="129">129</th><td>	<b>if</b> ( <a class="local col5 ref" href="#5cmdList" title='cmdList' data-ref="5cmdList">cmdList</a>-&gt;<a class="ref" href="tr_local.h.html#(anonymous)::used" title='(anonymous struct)::used' data-ref="(anonymous)::used">used</a> + <a class="local col3 ref" href="#3bytes" title='bytes' data-ref="3bytes">bytes</a> + <b>sizeof</b>( <em>int</em> ) + <a class="local col4 ref" href="#4reservedBytes" title='reservedBytes' data-ref="4reservedBytes">reservedBytes</a> &gt; <a class="macro" href="tr_local.h.html#1448" title="0x40000" data-ref="_M/MAX_RENDER_COMMANDS">MAX_RENDER_COMMANDS</a> ) {</td></tr>
+<tr><th id="130">130</th><td>		<b>if</b> ( <a class="local col3 ref" href="#3bytes" title='bytes' data-ref="3bytes">bytes</a> &gt; <a class="macro" href="tr_local.h.html#1448" title="0x40000" data-ref="_M/MAX_RENDER_COMMANDS">MAX_RENDER_COMMANDS</a> - <b>sizeof</b>( <em>int</em> ) ) {</td></tr>
+<tr><th id="131">131</th><td>			<a class="ref" href="../renderercommon/tr_common.h.html#ri" title='ri' data-ref="ri">ri</a>.<a class="ref" href="../renderercommon/tr_public.h.html#(anonymous)::Error" title='(anonymous struct)::Error' data-ref="(anonymous)::Error">Error</a>( <a class="enum" href="../qcommon/q_shared.h.html#ERR_FATAL" title='ERR_FATAL' data-ref="ERR_FATAL">ERR_FATAL</a>, <q>"R_GetCommandBuffer: bad size %i"</q>, <a class="local col3 ref" href="#3bytes" title='bytes' data-ref="3bytes">bytes</a> );</td></tr>
+<tr><th id="132">132</th><td>		}</td></tr>
+<tr><th id="133">133</th><td>		<i>// if we run out of room, just start dropping commands</i></td></tr>
+<tr><th id="134">134</th><td>		<b>return</b> <span class="macro" title="((void*)0)" data-ref="_M/NULL">NULL</span>;</td></tr>
+<tr><th id="135">135</th><td>	}</td></tr>
+<tr><th id="136">136</th><td></td></tr>
+<tr><th id="137">137</th><td>	<a class="local col5 ref" href="#5cmdList" title='cmdList' data-ref="5cmdList">cmdList</a>-&gt;<a class="ref" href="tr_local.h.html#(anonymous)::used" title='(anonymous struct)::used' data-ref="(anonymous)::used">used</a> += <a class="local col3 ref" href="#3bytes" title='bytes' data-ref="3bytes">bytes</a>;</td></tr>
+<tr><th id="138">138</th><td></td></tr>
+<tr><th id="139">139</th><td>	<b>return</b> <a class="local col5 ref" href="#5cmdList" title='cmdList' data-ref="5cmdList">cmdList</a>-&gt;<a class="ref" href="tr_local.h.html#(anonymous)::cmds" title='(anonymous struct)::cmds' data-ref="(anonymous)::cmds">cmds</a> + <a class="local col5 ref" href="#5cmdList" title='cmdList' data-ref="5cmdList">cmdList</a>-&gt;<a class="ref" href="tr_local.h.html#(anonymous)::used" title='(anonymous struct)::used' data-ref="(anonymous)::used">used</a> - <a class="local col3 ref" href="#3bytes" title='bytes' data-ref="3bytes">bytes</a>;</td></tr>
+<tr><th id="140">140</th><td>}</td></tr>
+<tr><th id="141">141</th><td></td></tr>
+<tr><th id="142">142</th><td><i>/*</i></td></tr>
+<tr><th id="143">143</th><td><i>=============</i></td></tr>
+<tr><th id="144">144</th><td><i>R_GetCommandBuffer</i></td></tr>
+<tr><th id="145">145</th><td><i></i></td></tr>
+<tr><th id="146">146</th><td><i>returns NULL if there is not enough space for important commands</i></td></tr>
+<tr><th id="147">147</th><td><i>=============</i></td></tr>
+<tr><th id="148">148</th><td><i>*/</i></td></tr>
+<tr><th id="149">149</th><td><em>void</em> *<dfn class="decl def" id="R_GetCommandBuffer" title='R_GetCommandBuffer' data-ref="R_GetCommandBuffer">R_GetCommandBuffer</dfn>( <em>int</em> <dfn class="local col6 decl" id="6bytes" title='bytes' data-type='int' data-ref="6bytes">bytes</dfn> ) {</td></tr>
+<tr><th id="150">150</th><td>	<b>return</b> <a class="ref" href="#R_GetCommandBufferReserved" title='R_GetCommandBufferReserved' data-ref="R_GetCommandBufferReserved">R_GetCommandBufferReserved</a>( <a class="local col6 ref" href="#6bytes" title='bytes' data-ref="6bytes">bytes</a>, <a class="macro" href="../qcommon/q_shared.h.html#211" title="(((sizeof( swapBuffersCommand_t ))+(sizeof(void *))-1) &amp; ~((sizeof(void *))-1))" data-ref="_M/PAD">PAD</a>( <b>sizeof</b>( <a class="typedef" href="tr_local.h.html#swapBuffersCommand_t" title='swapBuffersCommand_t' data-type='struct swapBuffersCommand_t' data-ref="swapBuffersCommand_t">swapBuffersCommand_t</a> ), <b>sizeof</b>(<em>void</em> *) ) );</td></tr>
+<tr><th id="151">151</th><td>}</td></tr>
+<tr><th id="152">152</th><td></td></tr>
+<tr><th id="153">153</th><td></td></tr>
+<tr><th id="154">154</th><td><i>/*</i></td></tr>
+<tr><th id="155">155</th><td><i>=============</i></td></tr>
+<tr><th id="156">156</th><td><i>R_AddDrawSurfCmd</i></td></tr>
+<tr><th id="157">157</th><td><i></i></td></tr>
+<tr><th id="158">158</th><td><i>=============</i></td></tr>
+<tr><th id="159">159</th><td><i>*/</i></td></tr>
+<tr><th id="160">160</th><td><em>void</em>	<dfn class="decl def" id="R_AddDrawSurfCmd" title='R_AddDrawSurfCmd' data-ref="R_AddDrawSurfCmd">R_AddDrawSurfCmd</dfn>( <a class="typedef" href="tr_local.h.html#drawSurf_t" title='drawSurf_t' data-type='struct drawSurf_s' data-ref="drawSurf_t">drawSurf_t</a> *<dfn class="local col7 decl" id="7drawSurfs" title='drawSurfs' data-type='drawSurf_t *' data-ref="7drawSurfs">drawSurfs</dfn>, <em>int</em> <dfn class="local col8 decl" id="8numDrawSurfs" title='numDrawSurfs' data-type='int' data-ref="8numDrawSurfs">numDrawSurfs</dfn> ) {</td></tr>
+<tr><th id="161">161</th><td>	<a class="typedef" href="tr_local.h.html#drawSurfsCommand_t" title='drawSurfsCommand_t' data-type='struct drawSurfsCommand_t' data-ref="drawSurfsCommand_t">drawSurfsCommand_t</a>	*<dfn class="local col9 decl" id="9cmd" title='cmd' data-type='drawSurfsCommand_t *' data-ref="9cmd">cmd</dfn>;</td></tr>
+<tr><th id="162">162</th><td></td></tr>
+<tr><th id="163">163</th><td>	<a class="local col9 ref" href="#9cmd" title='cmd' data-ref="9cmd">cmd</a> = <a class="ref" href="#R_GetCommandBuffer" title='R_GetCommandBuffer' data-ref="R_GetCommandBuffer">R_GetCommandBuffer</a>( <b>sizeof</b>( *<a class="local col9 ref" href="#9cmd" title='cmd' data-ref="9cmd">cmd</a> ) );</td></tr>
+<tr><th id="164">164</th><td>	<b>if</b> ( !<a class="local col9 ref" href="#9cmd" title='cmd' data-ref="9cmd">cmd</a> ) {</td></tr>
+<tr><th id="165">165</th><td>		<b>return</b>;</td></tr>
+<tr><th id="166">166</th><td>	}</td></tr>
+<tr><th id="167">167</th><td>	<a class="local col9 ref" href="#9cmd" title='cmd' data-ref="9cmd">cmd</a>-&gt;<a class="ref" href="tr_local.h.html#(anonymous)::commandId" title='(anonymous struct)::commandId' data-ref="(anonymous)::commandId">commandId</a> = <a class="enum" href="tr_local.h.html#RC_DRAW_SURFS" title='RC_DRAW_SURFS' data-ref="RC_DRAW_SURFS">RC_DRAW_SURFS</a>;</td></tr>
+<tr><th id="168">168</th><td></td></tr>
+<tr><th id="169">169</th><td>	<a class="local col9 ref" href="#9cmd" title='cmd' data-ref="9cmd">cmd</a>-&gt;<a class="ref" href="tr_local.h.html#(anonymous)::drawSurfs" title='(anonymous struct)::drawSurfs' data-ref="(anonymous)::drawSurfs">drawSurfs</a> = <a class="local col7 ref" href="#7drawSurfs" title='drawSurfs' data-ref="7drawSurfs">drawSurfs</a>;</td></tr>
+<tr><th id="170">170</th><td>	<a class="local col9 ref" href="#9cmd" title='cmd' data-ref="9cmd">cmd</a>-&gt;<a class="ref" href="tr_local.h.html#(anonymous)::numDrawSurfs" title='(anonymous struct)::numDrawSurfs' data-ref="(anonymous)::numDrawSurfs">numDrawSurfs</a> = <a class="local col8 ref" href="#8numDrawSurfs" title='numDrawSurfs' data-ref="8numDrawSurfs">numDrawSurfs</a>;</td></tr>
+<tr><th id="171">171</th><td></td></tr>
+<tr><th id="172">172</th><td>	<a class="local col9 ref" href="#9cmd" title='cmd' data-ref="9cmd">cmd</a>-&gt;<a class="ref" href="tr_local.h.html#(anonymous)::refdef" title='(anonymous struct)::refdef' data-ref="(anonymous)::refdef">refdef</a> = <a class="ref" href="tr_local.h.html#tr" title='tr' data-ref="tr">tr</a>.<a class="ref" href="tr_local.h.html#(anonymous)::refdef" title='(anonymous struct)::refdef' data-ref="(anonymous)::refdef">refdef</a>;</td></tr>
+<tr><th id="173">173</th><td>	<a class="local col9 ref" href="#9cmd" title='cmd' data-ref="9cmd">cmd</a>-&gt;<a class="ref" href="tr_local.h.html#(anonymous)::viewParms" title='(anonymous struct)::viewParms' data-ref="(anonymous)::viewParms">viewParms</a> = <a class="ref" href="tr_local.h.html#tr" title='tr' data-ref="tr">tr</a>.<a class="ref" href="tr_local.h.html#(anonymous)::viewParms" title='(anonymous struct)::viewParms' data-ref="(anonymous)::viewParms">viewParms</a>;</td></tr>
+<tr><th id="174">174</th><td>}</td></tr>
+<tr><th id="175">175</th><td></td></tr>
+<tr><th id="176">176</th><td></td></tr>
+<tr><th id="177">177</th><td><i>/*</i></td></tr>
+<tr><th id="178">178</th><td><i>=============</i></td></tr>
+<tr><th id="179">179</th><td><i>RE_SetColor</i></td></tr>
+<tr><th id="180">180</th><td><i></i></td></tr>
+<tr><th id="181">181</th><td><i>Passing NULL will set the color to white</i></td></tr>
+<tr><th id="182">182</th><td><i>=============</i></td></tr>
+<tr><th id="183">183</th><td><i>*/</i></td></tr>
+<tr><th id="184">184</th><td><em>void</em>	<dfn class="decl def" id="RE_SetColor" title='RE_SetColor' data-ref="RE_SetColor">RE_SetColor</dfn>( <em>const</em> <em>float</em> *<dfn class="local col0 decl" id="10rgba" title='rgba' data-type='const float *' data-ref="10rgba">rgba</dfn> ) {</td></tr>
+<tr><th id="185">185</th><td>	<a class="typedef" href="tr_local.h.html#setColorCommand_t" title='setColorCommand_t' data-type='struct setColorCommand_t' data-ref="setColorCommand_t">setColorCommand_t</a>	*<dfn class="local col1 decl" id="11cmd" title='cmd' data-type='setColorCommand_t *' data-ref="11cmd">cmd</dfn>;</td></tr>
+<tr><th id="186">186</th><td></td></tr>
+<tr><th id="187">187</th><td>  <b>if</b> ( !<a class="ref" href="tr_local.h.html#tr" title='tr' data-ref="tr">tr</a>.<a class="ref" href="tr_local.h.html#(anonymous)::registered" title='(anonymous struct)::registered' data-ref="(anonymous)::registered">registered</a> ) {</td></tr>
+<tr><th id="188">188</th><td>    <b>return</b>;</td></tr>
+<tr><th id="189">189</th><td>  }</td></tr>
+<tr><th id="190">190</th><td>	<a class="local col1 ref" href="#11cmd" title='cmd' data-ref="11cmd">cmd</a> = <a class="ref" href="#R_GetCommandBuffer" title='R_GetCommandBuffer' data-ref="R_GetCommandBuffer">R_GetCommandBuffer</a>( <b>sizeof</b>( *<a class="local col1 ref" href="#11cmd" title='cmd' data-ref="11cmd">cmd</a> ) );</td></tr>
+<tr><th id="191">191</th><td>	<b>if</b> ( !<a class="local col1 ref" href="#11cmd" title='cmd' data-ref="11cmd">cmd</a> ) {</td></tr>
+<tr><th id="192">192</th><td>		<b>return</b>;</td></tr>
+<tr><th id="193">193</th><td>	}</td></tr>
+<tr><th id="194">194</th><td>	<a class="local col1 ref" href="#11cmd" title='cmd' data-ref="11cmd">cmd</a>-&gt;<a class="ref" href="tr_local.h.html#(anonymous)::commandId" title='(anonymous struct)::commandId' data-ref="(anonymous)::commandId">commandId</a> = <a class="enum" href="tr_local.h.html#RC_SET_COLOR" title='RC_SET_COLOR' data-ref="RC_SET_COLOR">RC_SET_COLOR</a>;</td></tr>
+<tr><th id="195">195</th><td>	<b>if</b> ( !<a class="local col0 ref" href="#10rgba" title='rgba' data-ref="10rgba">rgba</a> ) {</td></tr>
+<tr><th id="196">196</th><td>		<em>static</em> <em>float</em> <dfn class="local col2 decl" id="12colorWhite" title='colorWhite' data-type='float [4]' data-ref="12colorWhite">colorWhite</dfn>[<var>4</var>] = { <var>1</var>, <var>1</var>, <var>1</var>, <var>1</var> };</td></tr>
+<tr><th id="197">197</th><td></td></tr>
+<tr><th id="198">198</th><td>		<a class="local col0 ref" href="#10rgba" title='rgba' data-ref="10rgba">rgba</a> = <a class="local col2 ref" href="#12colorWhite" title='colorWhite' data-ref="12colorWhite">colorWhite</a>;</td></tr>
+<tr><th id="199">199</th><td>	}</td></tr>
+<tr><th id="200">200</th><td></td></tr>
+<tr><th id="201">201</th><td>	<a class="local col1 ref" href="#11cmd" title='cmd' data-ref="11cmd">cmd</a>-&gt;<a class="ref" href="tr_local.h.html#(anonymous)::color" title='(anonymous struct)::color' data-ref="(anonymous)::color">color</a>[<var>0</var>] = <a class="local col0 ref" href="#10rgba" title='rgba' data-ref="10rgba">rgba</a>[<var>0</var>];</td></tr>
+<tr><th id="202">202</th><td>	<a class="local col1 ref" href="#11cmd" title='cmd' data-ref="11cmd">cmd</a>-&gt;<a class="ref" href="tr_local.h.html#(anonymous)::color" title='(anonymous struct)::color' data-ref="(anonymous)::color">color</a>[<var>1</var>] = <a class="local col0 ref" href="#10rgba" title='rgba' data-ref="10rgba">rgba</a>[<var>1</var>];</td></tr>
+<tr><th id="203">203</th><td>	<a class="local col1 ref" href="#11cmd" title='cmd' data-ref="11cmd">cmd</a>-&gt;<a class="ref" href="tr_local.h.html#(anonymous)::color" title='(anonymous struct)::color' data-ref="(anonymous)::color">color</a>[<var>2</var>] = <a class="local col0 ref" href="#10rgba" title='rgba' data-ref="10rgba">rgba</a>[<var>2</var>];</td></tr>
+<tr><th id="204">204</th><td>	<a class="local col1 ref" href="#11cmd" title='cmd' data-ref="11cmd">cmd</a>-&gt;<a class="ref" href="tr_local.h.html#(anonymous)::color" title='(anonymous struct)::color' data-ref="(anonymous)::color">color</a>[<var>3</var>] = <a class="local col0 ref" href="#10rgba" title='rgba' data-ref="10rgba">rgba</a>[<var>3</var>];</td></tr>
+<tr><th id="205">205</th><td>}</td></tr>
+<tr><th id="206">206</th><td></td></tr>
+<tr><th id="207">207</th><td></td></tr>
+<tr><th id="208">208</th><td><i>/*</i></td></tr>
+<tr><th id="209">209</th><td><i>=============</i></td></tr>
+<tr><th id="210">210</th><td><i>RE_StretchPic</i></td></tr>
+<tr><th id="211">211</th><td><i>=============</i></td></tr>
+<tr><th id="212">212</th><td><i>*/</i></td></tr>
+<tr><th id="213">213</th><td><em>void</em> <dfn class="decl def" id="RE_StretchPic" title='RE_StretchPic' data-ref="RE_StretchPic">RE_StretchPic</dfn> ( <em>float</em> <dfn class="local col3 decl" id="13x" title='x' data-type='float' data-ref="13x">x</dfn>, <em>float</em> <dfn class="local col4 decl" id="14y" title='y' data-type='float' data-ref="14y">y</dfn>, <em>float</em> <dfn class="local col5 decl" id="15w" title='w' data-type='float' data-ref="15w">w</dfn>, <em>float</em> <dfn class="local col6 decl" id="16h" title='h' data-type='float' data-ref="16h">h</dfn>, </td></tr>
+<tr><th id="214">214</th><td>					  <em>float</em> <dfn class="local col7 decl" id="17s1" title='s1' data-type='float' data-ref="17s1">s1</dfn>, <em>float</em> <dfn class="local col8 decl" id="18t1" title='t1' data-type='float' data-ref="18t1">t1</dfn>, <em>float</em> <dfn class="local col9 decl" id="19s2" title='s2' data-type='float' data-ref="19s2">s2</dfn>, <em>float</em> <dfn class="local col0 decl" id="20t2" title='t2' data-type='float' data-ref="20t2">t2</dfn>, <a class="typedef" href="../qcommon/q_shared.h.html#qhandle_t" title='qhandle_t' data-type='int' data-ref="qhandle_t">qhandle_t</a> <dfn class="local col1 decl" id="21hShader" title='hShader' data-type='qhandle_t' data-ref="21hShader">hShader</dfn> ) {</td></tr>
+<tr><th id="215">215</th><td>	<a class="typedef" href="tr_local.h.html#stretchPicCommand_t" title='stretchPicCommand_t' data-type='struct stretchPicCommand_t' data-ref="stretchPicCommand_t">stretchPicCommand_t</a>	*<dfn class="local col2 decl" id="22cmd" title='cmd' data-type='stretchPicCommand_t *' data-ref="22cmd">cmd</dfn>;</td></tr>
+<tr><th id="216">216</th><td></td></tr>
+<tr><th id="217">217</th><td>  <b>if</b> (!<a class="ref" href="tr_local.h.html#tr" title='tr' data-ref="tr">tr</a>.<a class="ref" href="tr_local.h.html#(anonymous)::registered" title='(anonymous struct)::registered' data-ref="(anonymous)::registered">registered</a>) {</td></tr>
+<tr><th id="218">218</th><td>    <b>return</b>;</td></tr>
+<tr><th id="219">219</th><td>  }</td></tr>
+<tr><th id="220">220</th><td>	<a class="local col2 ref" href="#22cmd" title='cmd' data-ref="22cmd">cmd</a> = <a class="ref" href="#R_GetCommandBuffer" title='R_GetCommandBuffer' data-ref="R_GetCommandBuffer">R_GetCommandBuffer</a>( <b>sizeof</b>( *<a class="local col2 ref" href="#22cmd" title='cmd' data-ref="22cmd">cmd</a> ) );</td></tr>
+<tr><th id="221">221</th><td>	<b>if</b> ( !<a class="local col2 ref" href="#22cmd" title='cmd' data-ref="22cmd">cmd</a> ) {</td></tr>
+<tr><th id="222">222</th><td>		<b>return</b>;</td></tr>
+<tr><th id="223">223</th><td>	}</td></tr>
+<tr><th id="224">224</th><td>	<a class="local col2 ref" href="#22cmd" title='cmd' data-ref="22cmd">cmd</a>-&gt;<a class="ref" href="tr_local.h.html#(anonymous)::commandId" title='(anonymous struct)::commandId' data-ref="(anonymous)::commandId">commandId</a> = <a class="enum" href="tr_local.h.html#RC_STRETCH_PIC" title='RC_STRETCH_PIC' data-ref="RC_STRETCH_PIC">RC_STRETCH_PIC</a>;</td></tr>
+<tr><th id="225">225</th><td>	<a class="local col2 ref" href="#22cmd" title='cmd' data-ref="22cmd">cmd</a>-&gt;<a class="ref" href="tr_local.h.html#(anonymous)::shader" title='(anonymous struct)::shader' data-ref="(anonymous)::shader">shader</a> = <a class="ref" href="tr_local.h.html#R_GetShaderByHandle" title='R_GetShaderByHandle' data-ref="R_GetShaderByHandle">R_GetShaderByHandle</a>( <a class="local col1 ref" href="#21hShader" title='hShader' data-ref="21hShader">hShader</a> );</td></tr>
+<tr><th id="226">226</th><td>	<a class="local col2 ref" href="#22cmd" title='cmd' data-ref="22cmd">cmd</a>-&gt;<a class="ref" href="tr_local.h.html#(anonymous)::x" title='(anonymous struct)::x' data-ref="(anonymous)::x">x</a> = <a class="local col3 ref" href="#13x" title='x' data-ref="13x">x</a>;</td></tr>
+<tr><th id="227">227</th><td>	<a class="local col2 ref" href="#22cmd" title='cmd' data-ref="22cmd">cmd</a>-&gt;<a class="ref" href="tr_local.h.html#(anonymous)::y" title='(anonymous struct)::y' data-ref="(anonymous)::y">y</a> = <a class="local col4 ref" href="#14y" title='y' data-ref="14y">y</a>;</td></tr>
+<tr><th id="228">228</th><td>	<a class="local col2 ref" href="#22cmd" title='cmd' data-ref="22cmd">cmd</a>-&gt;<a class="ref" href="tr_local.h.html#(anonymous)::w" title='(anonymous struct)::w' data-ref="(anonymous)::w">w</a> = <a class="local col5 ref" href="#15w" title='w' data-ref="15w">w</a>;</td></tr>
+<tr><th id="229">229</th><td>	<a class="local col2 ref" href="#22cmd" title='cmd' data-ref="22cmd">cmd</a>-&gt;<a class="ref" href="tr_local.h.html#(anonymous)::h" title='(anonymous struct)::h' data-ref="(anonymous)::h">h</a> = <a class="local col6 ref" href="#16h" title='h' data-ref="16h">h</a>;</td></tr>
+<tr><th id="230">230</th><td>	<a class="local col2 ref" href="#22cmd" title='cmd' data-ref="22cmd">cmd</a>-&gt;<a class="ref" href="tr_local.h.html#(anonymous)::s1" title='(anonymous struct)::s1' data-ref="(anonymous)::s1">s1</a> = <a class="local col7 ref" href="#17s1" title='s1' data-ref="17s1">s1</a>;</td></tr>
+<tr><th id="231">231</th><td>	<a class="local col2 ref" href="#22cmd" title='cmd' data-ref="22cmd">cmd</a>-&gt;<a class="ref" href="tr_local.h.html#(anonymous)::t1" title='(anonymous struct)::t1' data-ref="(anonymous)::t1">t1</a> = <a class="local col8 ref" href="#18t1" title='t1' data-ref="18t1">t1</a>;</td></tr>
+<tr><th id="232">232</th><td>	<a class="local col2 ref" href="#22cmd" title='cmd' data-ref="22cmd">cmd</a>-&gt;<a class="ref" href="tr_local.h.html#(anonymous)::s2" title='(anonymous struct)::s2' data-ref="(anonymous)::s2">s2</a> = <a class="local col9 ref" href="#19s2" title='s2' data-ref="19s2">s2</a>;</td></tr>
+<tr><th id="233">233</th><td>	<a class="local col2 ref" href="#22cmd" title='cmd' data-ref="22cmd">cmd</a>-&gt;<a class="ref" href="tr_local.h.html#(anonymous)::t2" title='(anonymous struct)::t2' data-ref="(anonymous)::t2">t2</a> = <a class="local col0 ref" href="#20t2" title='t2' data-ref="20t2">t2</a>;</td></tr>
+<tr><th id="234">234</th><td>}</td></tr>
+<tr><th id="235">235</th><td></td></tr>
+<tr><th id="236">236</th><td><u>#define <dfn class="macro" id="_M/MODE_RED_CYAN" data-ref="_M/MODE_RED_CYAN">MODE_RED_CYAN</dfn>	1</u></td></tr>
+<tr><th id="237">237</th><td><u>#define <dfn class="macro" id="_M/MODE_RED_BLUE" data-ref="_M/MODE_RED_BLUE">MODE_RED_BLUE</dfn>	2</u></td></tr>
+<tr><th id="238">238</th><td><u>#define <dfn class="macro" id="_M/MODE_RED_GREEN" data-ref="_M/MODE_RED_GREEN">MODE_RED_GREEN</dfn>	3</u></td></tr>
+<tr><th id="239">239</th><td><u>#define <dfn class="macro" id="_M/MODE_GREEN_MAGENTA" data-ref="_M/MODE_GREEN_MAGENTA">MODE_GREEN_MAGENTA</dfn> 4</u></td></tr>
+<tr><th id="240">240</th><td><u>#define <dfn class="macro" id="_M/MODE_MAX" data-ref="_M/MODE_MAX">MODE_MAX</dfn>	MODE_GREEN_MAGENTA</u></td></tr>
+<tr><th id="241">241</th><td></td></tr>
+<tr><th id="242">242</th><td><em>void</em> <dfn class="decl def" id="R_SetColorMode" title='R_SetColorMode' data-ref="R_SetColorMode">R_SetColorMode</dfn>(<a class="typedef" href="../../../include/SDL2/SDL_opengl.h.html#GLboolean" title='GLboolean' data-type='unsigned char' data-ref="GLboolean">GLboolean</a> *<dfn class="local col3 decl" id="23rgba" title='rgba' data-type='GLboolean *' data-ref="23rgba">rgba</dfn>, <a class="typedef" href="../renderercommon/tr_types.h.html#stereoFrame_t" title='stereoFrame_t' data-type='enum stereoFrame_t' data-ref="stereoFrame_t">stereoFrame_t</a> <dfn class="local col4 decl" id="24stereoFrame" title='stereoFrame' data-type='stereoFrame_t' data-ref="24stereoFrame">stereoFrame</dfn>, <em>int</em> <dfn class="local col5 decl" id="25colormode" title='colormode' data-type='int' data-ref="25colormode">colormode</dfn>)</td></tr>
+<tr><th id="243">243</th><td>{</td></tr>
+<tr><th id="244">244</th><td>	<a class="local col3 ref" href="#23rgba" title='rgba' data-ref="23rgba">rgba</a>[<var>0</var>] = <a class="local col3 ref" href="#23rgba" title='rgba' data-ref="23rgba">rgba</a>[<var>1</var>] = <a class="local col3 ref" href="#23rgba" title='rgba' data-ref="23rgba">rgba</a>[<var>2</var>] = <a class="local col3 ref" href="#23rgba" title='rgba' data-ref="23rgba">rgba</a>[<var>3</var>] = <a class="macro" href="../../../include/SDL2/SDL_opengl.h.html#193" title="1" data-ref="_M/GL_TRUE">GL_TRUE</a>;</td></tr>
+<tr><th id="245">245</th><td>	</td></tr>
+<tr><th id="246">246</th><td>	<b>if</b>(<a class="local col5 ref" href="#25colormode" title='colormode' data-ref="25colormode">colormode</a> &gt; <a class="macro" href="#240" title="4" data-ref="_M/MODE_MAX">MODE_MAX</a>)</td></tr>
+<tr><th id="247">247</th><td>	{</td></tr>
+<tr><th id="248">248</th><td>		<b>if</b>(<a class="local col4 ref" href="#24stereoFrame" title='stereoFrame' data-ref="24stereoFrame">stereoFrame</a> == <a class="enum" href="../renderercommon/tr_types.h.html#STEREO_LEFT" title='STEREO_LEFT' data-ref="STEREO_LEFT">STEREO_LEFT</a>)</td></tr>
+<tr><th id="249">249</th><td>			<a class="local col4 ref" href="#24stereoFrame" title='stereoFrame' data-ref="24stereoFrame">stereoFrame</a> = <a class="enum" href="../renderercommon/tr_types.h.html#STEREO_RIGHT" title='STEREO_RIGHT' data-ref="STEREO_RIGHT">STEREO_RIGHT</a>;</td></tr>
+<tr><th id="250">250</th><td>		<b>else</b> <b>if</b>(<a class="local col4 ref" href="#24stereoFrame" title='stereoFrame' data-ref="24stereoFrame">stereoFrame</a> == <a class="enum" href="../renderercommon/tr_types.h.html#STEREO_RIGHT" title='STEREO_RIGHT' data-ref="STEREO_RIGHT">STEREO_RIGHT</a>)</td></tr>
+<tr><th id="251">251</th><td>			<a class="local col4 ref" href="#24stereoFrame" title='stereoFrame' data-ref="24stereoFrame">stereoFrame</a> = <a class="enum" href="../renderercommon/tr_types.h.html#STEREO_LEFT" title='STEREO_LEFT' data-ref="STEREO_LEFT">STEREO_LEFT</a>;</td></tr>
+<tr><th id="252">252</th><td>		</td></tr>
+<tr><th id="253">253</th><td>		<a class="local col5 ref" href="#25colormode" title='colormode' data-ref="25colormode">colormode</a> -= <a class="macro" href="#240" title="4" data-ref="_M/MODE_MAX">MODE_MAX</a>;</td></tr>
+<tr><th id="254">254</th><td>	}</td></tr>
+<tr><th id="255">255</th><td>	</td></tr>
+<tr><th id="256">256</th><td>	<b>if</b>(<a class="local col5 ref" href="#25colormode" title='colormode' data-ref="25colormode">colormode</a> == <a class="macro" href="#239" title="4" data-ref="_M/MODE_GREEN_MAGENTA">MODE_GREEN_MAGENTA</a>)</td></tr>
+<tr><th id="257">257</th><td>	{</td></tr>
+<tr><th id="258">258</th><td>		<b>if</b>(<a class="local col4 ref" href="#24stereoFrame" title='stereoFrame' data-ref="24stereoFrame">stereoFrame</a> == <a class="enum" href="../renderercommon/tr_types.h.html#STEREO_LEFT" title='STEREO_LEFT' data-ref="STEREO_LEFT">STEREO_LEFT</a>)</td></tr>
+<tr><th id="259">259</th><td>			<a class="local col3 ref" href="#23rgba" title='rgba' data-ref="23rgba">rgba</a>[<var>0</var>] = <a class="local col3 ref" href="#23rgba" title='rgba' data-ref="23rgba">rgba</a>[<var>2</var>] = <a class="macro" href="../../../include/SDL2/SDL_opengl.h.html#192" title="0" data-ref="_M/GL_FALSE">GL_FALSE</a>;</td></tr>
+<tr><th id="260">260</th><td>		<b>else</b> <b>if</b>(<a class="local col4 ref" href="#24stereoFrame" title='stereoFrame' data-ref="24stereoFrame">stereoFrame</a> == <a class="enum" href="../renderercommon/tr_types.h.html#STEREO_RIGHT" title='STEREO_RIGHT' data-ref="STEREO_RIGHT">STEREO_RIGHT</a>)</td></tr>
+<tr><th id="261">261</th><td>			<a class="local col3 ref" href="#23rgba" title='rgba' data-ref="23rgba">rgba</a>[<var>1</var>] = <a class="macro" href="../../../include/SDL2/SDL_opengl.h.html#192" title="0" data-ref="_M/GL_FALSE">GL_FALSE</a>;</td></tr>
+<tr><th id="262">262</th><td>	}</td></tr>
+<tr><th id="263">263</th><td>	<b>else</b></td></tr>
+<tr><th id="264">264</th><td>	{</td></tr>
+<tr><th id="265">265</th><td>		<b>if</b>(<a class="local col4 ref" href="#24stereoFrame" title='stereoFrame' data-ref="24stereoFrame">stereoFrame</a> == <a class="enum" href="../renderercommon/tr_types.h.html#STEREO_LEFT" title='STEREO_LEFT' data-ref="STEREO_LEFT">STEREO_LEFT</a>)</td></tr>
+<tr><th id="266">266</th><td>			<a class="local col3 ref" href="#23rgba" title='rgba' data-ref="23rgba">rgba</a>[<var>1</var>] = <a class="local col3 ref" href="#23rgba" title='rgba' data-ref="23rgba">rgba</a>[<var>2</var>] = <a class="macro" href="../../../include/SDL2/SDL_opengl.h.html#192" title="0" data-ref="_M/GL_FALSE">GL_FALSE</a>;</td></tr>
+<tr><th id="267">267</th><td>		<b>else</b> <b>if</b>(<a class="local col4 ref" href="#24stereoFrame" title='stereoFrame' data-ref="24stereoFrame">stereoFrame</a> == <a class="enum" href="../renderercommon/tr_types.h.html#STEREO_RIGHT" title='STEREO_RIGHT' data-ref="STEREO_RIGHT">STEREO_RIGHT</a>)</td></tr>
+<tr><th id="268">268</th><td>		{</td></tr>
+<tr><th id="269">269</th><td>			<a class="local col3 ref" href="#23rgba" title='rgba' data-ref="23rgba">rgba</a>[<var>0</var>] = <a class="macro" href="../../../include/SDL2/SDL_opengl.h.html#192" title="0" data-ref="_M/GL_FALSE">GL_FALSE</a>;</td></tr>
+<tr><th id="270">270</th><td>		</td></tr>
+<tr><th id="271">271</th><td>			<b>if</b>(<a class="local col5 ref" href="#25colormode" title='colormode' data-ref="25colormode">colormode</a> == <a class="macro" href="#237" title="2" data-ref="_M/MODE_RED_BLUE">MODE_RED_BLUE</a>)</td></tr>
+<tr><th id="272">272</th><td>				<a class="local col3 ref" href="#23rgba" title='rgba' data-ref="23rgba">rgba</a>[<var>1</var>] = <a class="macro" href="../../../include/SDL2/SDL_opengl.h.html#192" title="0" data-ref="_M/GL_FALSE">GL_FALSE</a>;</td></tr>
+<tr><th id="273">273</th><td>			<b>else</b> <b>if</b>(<a class="local col5 ref" href="#25colormode" title='colormode' data-ref="25colormode">colormode</a> == <a class="macro" href="#238" title="3" data-ref="_M/MODE_RED_GREEN">MODE_RED_GREEN</a>)</td></tr>
+<tr><th id="274">274</th><td>				<a class="local col3 ref" href="#23rgba" title='rgba' data-ref="23rgba">rgba</a>[<var>2</var>] = <a class="macro" href="../../../include/SDL2/SDL_opengl.h.html#192" title="0" data-ref="_M/GL_FALSE">GL_FALSE</a>;</td></tr>
+<tr><th id="275">275</th><td>		}</td></tr>
+<tr><th id="276">276</th><td>	}</td></tr>
+<tr><th id="277">277</th><td>}</td></tr>
+<tr><th id="278">278</th><td></td></tr>
+<tr><th id="279">279</th><td></td></tr>
+<tr><th id="280">280</th><td><i>/*</i></td></tr>
+<tr><th id="281">281</th><td><i>====================</i></td></tr>
+<tr><th id="282">282</th><td><i>RE_BeginFrame</i></td></tr>
+<tr><th id="283">283</th><td><i></i></td></tr>
+<tr><th id="284">284</th><td><i>If running in stereo, RE_BeginFrame will be called twice</i></td></tr>
+<tr><th id="285">285</th><td><i>for each RE_EndFrame</i></td></tr>
+<tr><th id="286">286</th><td><i>====================</i></td></tr>
+<tr><th id="287">287</th><td><i>*/</i></td></tr>
+<tr><th id="288">288</th><td><em>void</em> <dfn class="decl def" id="RE_BeginFrame" title='RE_BeginFrame' data-ref="RE_BeginFrame">RE_BeginFrame</dfn>( <a class="typedef" href="../renderercommon/tr_types.h.html#stereoFrame_t" title='stereoFrame_t' data-type='enum stereoFrame_t' data-ref="stereoFrame_t">stereoFrame_t</a> <dfn class="local col6 decl" id="26stereoFrame" title='stereoFrame' data-type='stereoFrame_t' data-ref="26stereoFrame">stereoFrame</dfn> ) {</td></tr>
+<tr><th id="289">289</th><td>	<a class="typedef" href="tr_local.h.html#drawBufferCommand_t" title='drawBufferCommand_t' data-type='struct drawBufferCommand_t' data-ref="drawBufferCommand_t">drawBufferCommand_t</a>	*<dfn class="local col7 decl" id="27cmd" title='cmd' data-type='drawBufferCommand_t *' data-ref="27cmd">cmd</dfn> = <span class="macro" title="((void*)0)" data-ref="_M/NULL">NULL</span>;</td></tr>
+<tr><th id="290">290</th><td>	<a class="typedef" href="tr_local.h.html#colorMaskCommand_t" title='colorMaskCommand_t' data-type='struct colorMaskCommand_t' data-ref="colorMaskCommand_t">colorMaskCommand_t</a> *<dfn class="local col8 decl" id="28colcmd" title='colcmd' data-type='colorMaskCommand_t *' data-ref="28colcmd">colcmd</dfn> = <span class="macro" title="((void*)0)" data-ref="_M/NULL">NULL</span>;</td></tr>
+<tr><th id="291">291</th><td></td></tr>
+<tr><th id="292">292</th><td>	<b>if</b> ( !<a class="ref" href="tr_local.h.html#tr" title='tr' data-ref="tr">tr</a>.<a class="ref" href="tr_local.h.html#(anonymous)::registered" title='(anonymous struct)::registered' data-ref="(anonymous)::registered">registered</a> ) {</td></tr>
+<tr><th id="293">293</th><td>		<b>return</b>;</td></tr>
+<tr><th id="294">294</th><td>	}</td></tr>
+<tr><th id="295">295</th><td>	<a class="ref" href="tr_local.h.html#glState" title='glState' data-ref="glState">glState</a>.<a class="ref" href="tr_local.h.html#(anonymous)::finishCalled" title='(anonymous struct)::finishCalled' data-ref="(anonymous)::finishCalled">finishCalled</a> = <a class="enum" href="../qcommon/q_shared.h.html#qfalse" title='qfalse' data-ref="qfalse">qfalse</a>;</td></tr>
+<tr><th id="296">296</th><td></td></tr>
+<tr><th id="297">297</th><td>	<a class="ref" href="tr_local.h.html#tr" title='tr' data-ref="tr">tr</a>.<a class="ref" href="tr_local.h.html#(anonymous)::frameCount" title='(anonymous struct)::frameCount' data-ref="(anonymous)::frameCount">frameCount</a>++;</td></tr>
+<tr><th id="298">298</th><td>	<a class="ref" href="tr_local.h.html#tr" title='tr' data-ref="tr">tr</a>.<a class="ref" href="tr_local.h.html#(anonymous)::frameSceneNum" title='(anonymous struct)::frameSceneNum' data-ref="(anonymous)::frameSceneNum">frameSceneNum</a> = <var>0</var>;</td></tr>
+<tr><th id="299">299</th><td></td></tr>
+<tr><th id="300">300</th><td>	<i>//</i></td></tr>
+<tr><th id="301">301</th><td><i>	// do overdraw measurement</i></td></tr>
+<tr><th id="302">302</th><td><i>	//</i></td></tr>
+<tr><th id="303">303</th><td>	<b>if</b> ( <a class="ref" href="tr_local.h.html#r_measureOverdraw" title='r_measureOverdraw' data-ref="r_measureOverdraw">r_measureOverdraw</a>-&gt;<a class="ref" href="../qcommon/q_shared.h.html#cvar_s::integer" title='cvar_s::integer' data-ref="cvar_s::integer">integer</a> )</td></tr>
+<tr><th id="304">304</th><td>	{</td></tr>
+<tr><th id="305">305</th><td>		<b>if</b> ( <a class="ref" href="../renderercommon/tr_common.h.html#glConfig" title='glConfig' data-ref="glConfig">glConfig</a>.<a class="ref" href="../renderercommon/tr_types.h.html#(anonymous)::stencilBits" title='(anonymous struct)::stencilBits' data-ref="(anonymous)::stencilBits">stencilBits</a> &lt; <var>4</var> )</td></tr>
+<tr><th id="306">306</th><td>		{</td></tr>
+<tr><th id="307">307</th><td>			<a class="ref" href="../renderercommon/tr_common.h.html#ri" title='ri' data-ref="ri">ri</a>.<a class="ref" href="../renderercommon/tr_public.h.html#(anonymous)::Printf" title='(anonymous struct)::Printf' data-ref="(anonymous)::Printf">Printf</a>( <a class="enum" href="../qcommon/q_shared.h.html#PRINT_ALL" title='PRINT_ALL' data-ref="PRINT_ALL">PRINT_ALL</a>, <q>"Warning: not enough stencil bits to measure overdraw: %d\n"</q>, <a class="ref" href="../renderercommon/tr_common.h.html#glConfig" title='glConfig' data-ref="glConfig">glConfig</a>.<a class="ref" href="../renderercommon/tr_types.h.html#(anonymous)::stencilBits" title='(anonymous struct)::stencilBits' data-ref="(anonymous)::stencilBits">stencilBits</a> );</td></tr>
+<tr><th id="308">308</th><td>			<a class="ref" href="../renderercommon/tr_common.h.html#ri" title='ri' data-ref="ri">ri</a>.<a class="ref" href="../renderercommon/tr_public.h.html#(anonymous)::Cvar_Set" title='(anonymous struct)::Cvar_Set' data-ref="(anonymous)::Cvar_Set">Cvar_Set</a>( <q>"r_measureOverdraw"</q>, <q>"0"</q> );</td></tr>
+<tr><th id="309">309</th><td>			<a class="ref" href="tr_local.h.html#r_measureOverdraw" title='r_measureOverdraw' data-ref="r_measureOverdraw">r_measureOverdraw</a>-&gt;<a class="ref" href="../qcommon/q_shared.h.html#cvar_s::modified" title='cvar_s::modified' data-ref="cvar_s::modified">modified</a> = <a class="enum" href="../qcommon/q_shared.h.html#qfalse" title='qfalse' data-ref="qfalse">qfalse</a>;</td></tr>
+<tr><th id="310">310</th><td>		}</td></tr>
+<tr><th id="311">311</th><td>		<b>else</b> <b>if</b> ( <a class="ref" href="tr_local.h.html#r_shadows" title='r_shadows' data-ref="r_shadows">r_shadows</a>-&gt;<a class="ref" href="../qcommon/q_shared.h.html#cvar_s::integer" title='cvar_s::integer' data-ref="cvar_s::integer">integer</a> == <var>2</var> )</td></tr>
+<tr><th id="312">312</th><td>		{</td></tr>
+<tr><th id="313">313</th><td>			<a class="ref" href="../renderercommon/tr_common.h.html#ri" title='ri' data-ref="ri">ri</a>.<a class="ref" href="../renderercommon/tr_public.h.html#(anonymous)::Printf" title='(anonymous struct)::Printf' data-ref="(anonymous)::Printf">Printf</a>( <a class="enum" href="../qcommon/q_shared.h.html#PRINT_ALL" title='PRINT_ALL' data-ref="PRINT_ALL">PRINT_ALL</a>, <q>"Warning: stencil shadows and overdraw measurement are mutually exclusive\n"</q> );</td></tr>
+<tr><th id="314">314</th><td>			<a class="ref" href="../renderercommon/tr_common.h.html#ri" title='ri' data-ref="ri">ri</a>.<a class="ref" href="../renderercommon/tr_public.h.html#(anonymous)::Cvar_Set" title='(anonymous struct)::Cvar_Set' data-ref="(anonymous)::Cvar_Set">Cvar_Set</a>( <q>"r_measureOverdraw"</q>, <q>"0"</q> );</td></tr>
+<tr><th id="315">315</th><td>			<a class="ref" href="tr_local.h.html#r_measureOverdraw" title='r_measureOverdraw' data-ref="r_measureOverdraw">r_measureOverdraw</a>-&gt;<a class="ref" href="../qcommon/q_shared.h.html#cvar_s::modified" title='cvar_s::modified' data-ref="cvar_s::modified">modified</a> = <a class="enum" href="../qcommon/q_shared.h.html#qfalse" title='qfalse' data-ref="qfalse">qfalse</a>;</td></tr>
+<tr><th id="316">316</th><td>		}</td></tr>
+<tr><th id="317">317</th><td>		<b>else</b></td></tr>
+<tr><th id="318">318</th><td>		{</td></tr>
+<tr><th id="319">319</th><td>			<a class="ref" href="#R_IssuePendingRenderCommands" title='R_IssuePendingRenderCommands' data-ref="R_IssuePendingRenderCommands">R_IssuePendingRenderCommands</a>();</td></tr>
+<tr><th id="320">320</th><td>			<a class="macro" href="../renderercommon/qgl.h.html#117" title="glEnable" data-ref="_M/qglEnable">qglEnable</a>( <a class="macro" href="../../../include/SDL2/SDL_opengl.h.html#468" title="0x0B90" data-ref="_M/GL_STENCIL_TEST">GL_STENCIL_TEST</a> );</td></tr>
+<tr><th id="321">321</th><td>			<a class="macro" href="../renderercommon/qgl.h.html#298" title="glStencilMask" data-ref="_M/qglStencilMask">qglStencilMask</a>( ~<var>0U</var> );</td></tr>
+<tr><th id="322">322</th><td>			<a class="macro" href="../renderercommon/qgl.h.html#60" title="glClearStencil" data-ref="_M/qglClearStencil">qglClearStencil</a>( <var>0U</var> );</td></tr>
+<tr><th id="323">323</th><td>			<a class="macro" href="../renderercommon/qgl.h.html#297" title="glStencilFunc" data-ref="_M/qglStencilFunc">qglStencilFunc</a>( <a class="macro" href="../../../include/SDL2/SDL_opengl.h.html#319" title="0x0207" data-ref="_M/GL_ALWAYS">GL_ALWAYS</a>, <var>0U</var>, ~<var>0U</var> );</td></tr>
+<tr><th id="324">324</th><td>			<a class="macro" href="../renderercommon/qgl.h.html#299" title="glStencilOp" data-ref="_M/qglStencilOp">qglStencilOp</a>( <a class="macro" href="../../../include/SDL2/SDL_opengl.h.html#478" title="0x1E00" data-ref="_M/GL_KEEP">GL_KEEP</a>, <a class="macro" href="../../../include/SDL2/SDL_opengl.h.html#480" title="0x1E02" data-ref="_M/GL_INCR">GL_INCR</a>, <a class="macro" href="../../../include/SDL2/SDL_opengl.h.html#480" title="0x1E02" data-ref="_M/GL_INCR">GL_INCR</a> );</td></tr>
+<tr><th id="325">325</th><td>		}</td></tr>
+<tr><th id="326">326</th><td>		<a class="ref" href="tr_local.h.html#r_measureOverdraw" title='r_measureOverdraw' data-ref="r_measureOverdraw">r_measureOverdraw</a>-&gt;<a class="ref" href="../qcommon/q_shared.h.html#cvar_s::modified" title='cvar_s::modified' data-ref="cvar_s::modified">modified</a> = <a class="enum" href="../qcommon/q_shared.h.html#qfalse" title='qfalse' data-ref="qfalse">qfalse</a>;</td></tr>
+<tr><th id="327">327</th><td>	}</td></tr>
+<tr><th id="328">328</th><td>	<b>else</b></td></tr>
+<tr><th id="329">329</th><td>	{</td></tr>
+<tr><th id="330">330</th><td>		<i>// this is only reached if it was on and is now off</i></td></tr>
+<tr><th id="331">331</th><td>		<b>if</b> ( <a class="ref" href="tr_local.h.html#r_measureOverdraw" title='r_measureOverdraw' data-ref="r_measureOverdraw">r_measureOverdraw</a>-&gt;<a class="ref" href="../qcommon/q_shared.h.html#cvar_s::modified" title='cvar_s::modified' data-ref="cvar_s::modified">modified</a> ) {</td></tr>
+<tr><th id="332">332</th><td>			<a class="ref" href="#R_IssuePendingRenderCommands" title='R_IssuePendingRenderCommands' data-ref="R_IssuePendingRenderCommands">R_IssuePendingRenderCommands</a>();</td></tr>
+<tr><th id="333">333</th><td>			<a class="macro" href="../renderercommon/qgl.h.html#108" title="glDisable" data-ref="_M/qglDisable">qglDisable</a>( <a class="macro" href="../../../include/SDL2/SDL_opengl.h.html#468" title="0x0B90" data-ref="_M/GL_STENCIL_TEST">GL_STENCIL_TEST</a> );</td></tr>
+<tr><th id="334">334</th><td>		}</td></tr>
+<tr><th id="335">335</th><td>		<a class="ref" href="tr_local.h.html#r_measureOverdraw" title='r_measureOverdraw' data-ref="r_measureOverdraw">r_measureOverdraw</a>-&gt;<a class="ref" href="../qcommon/q_shared.h.html#cvar_s::modified" title='cvar_s::modified' data-ref="cvar_s::modified">modified</a> = <a class="enum" href="../qcommon/q_shared.h.html#qfalse" title='qfalse' data-ref="qfalse">qfalse</a>;</td></tr>
+<tr><th id="336">336</th><td>	}</td></tr>
+<tr><th id="337">337</th><td></td></tr>
+<tr><th id="338">338</th><td>	<i>//</i></td></tr>
+<tr><th id="339">339</th><td><i>	// texturemode stuff</i></td></tr>
+<tr><th id="340">340</th><td><i>	//</i></td></tr>
+<tr><th id="341">341</th><td>	<b>if</b> ( <a class="ref" href="tr_local.h.html#r_textureMode" title='r_textureMode' data-ref="r_textureMode">r_textureMode</a>-&gt;<a class="ref" href="../qcommon/q_shared.h.html#cvar_s::modified" title='cvar_s::modified' data-ref="cvar_s::modified">modified</a> ) {</td></tr>
+<tr><th id="342">342</th><td>		<a class="ref" href="#R_IssuePendingRenderCommands" title='R_IssuePendingRenderCommands' data-ref="R_IssuePendingRenderCommands">R_IssuePendingRenderCommands</a>();</td></tr>
+<tr><th id="343">343</th><td>		<a class="ref" href="tr_local.h.html#GL_TextureMode" title='GL_TextureMode' data-ref="GL_TextureMode">GL_TextureMode</a>( <a class="ref" href="tr_local.h.html#r_textureMode" title='r_textureMode' data-ref="r_textureMode">r_textureMode</a>-&gt;<a class="ref" href="../qcommon/q_shared.h.html#cvar_s::string" title='cvar_s::string' data-ref="cvar_s::string">string</a> );</td></tr>
+<tr><th id="344">344</th><td>		<a class="ref" href="tr_local.h.html#r_textureMode" title='r_textureMode' data-ref="r_textureMode">r_textureMode</a>-&gt;<a class="ref" href="../qcommon/q_shared.h.html#cvar_s::modified" title='cvar_s::modified' data-ref="cvar_s::modified">modified</a> = <a class="enum" href="../qcommon/q_shared.h.html#qfalse" title='qfalse' data-ref="qfalse">qfalse</a>;</td></tr>
+<tr><th id="345">345</th><td>	}</td></tr>
+<tr><th id="346">346</th><td></td></tr>
+<tr><th id="347">347</th><td>	<i>//</i></td></tr>
+<tr><th id="348">348</th><td><i>	// gamma stuff</i></td></tr>
+<tr><th id="349">349</th><td><i>	//</i></td></tr>
+<tr><th id="350">350</th><td>	<b>if</b> ( <a class="ref" href="tr_local.h.html#r_gamma" title='r_gamma' data-ref="r_gamma">r_gamma</a>-&gt;<a class="ref" href="../qcommon/q_shared.h.html#cvar_s::modified" title='cvar_s::modified' data-ref="cvar_s::modified">modified</a> ) {</td></tr>
+<tr><th id="351">351</th><td>		<a class="ref" href="tr_local.h.html#r_gamma" title='r_gamma' data-ref="r_gamma">r_gamma</a>-&gt;<a class="ref" href="../qcommon/q_shared.h.html#cvar_s::modified" title='cvar_s::modified' data-ref="cvar_s::modified">modified</a> = <a class="enum" href="../qcommon/q_shared.h.html#qfalse" title='qfalse' data-ref="qfalse">qfalse</a>;</td></tr>
+<tr><th id="352">352</th><td></td></tr>
+<tr><th id="353">353</th><td>		<a class="ref" href="#R_IssuePendingRenderCommands" title='R_IssuePendingRenderCommands' data-ref="R_IssuePendingRenderCommands">R_IssuePendingRenderCommands</a>();</td></tr>
+<tr><th id="354">354</th><td>		<a class="ref" href="tr_local.h.html#R_SetColorMappings" title='R_SetColorMappings' data-ref="R_SetColorMappings">R_SetColorMappings</a>();</td></tr>
+<tr><th id="355">355</th><td>	}</td></tr>
+<tr><th id="356">356</th><td></td></tr>
+<tr><th id="357">357</th><td>	<i>// check for errors</i></td></tr>
+<tr><th id="358">358</th><td>	<b>if</b> ( !<a class="ref" href="tr_local.h.html#r_ignoreGLErrors" title='r_ignoreGLErrors' data-ref="r_ignoreGLErrors">r_ignoreGLErrors</a>-&gt;<a class="ref" href="../qcommon/q_shared.h.html#cvar_s::integer" title='cvar_s::integer' data-ref="cvar_s::integer">integer</a> )</td></tr>
+<tr><th id="359">359</th><td>	{</td></tr>
+<tr><th id="360">360</th><td>		<em>int</em>	<dfn class="local col9 decl" id="29err" title='err' data-type='int' data-ref="29err">err</dfn>;</td></tr>
+<tr><th id="361">361</th><td></td></tr>
+<tr><th id="362">362</th><td>		<a class="ref" href="#R_IssuePendingRenderCommands" title='R_IssuePendingRenderCommands' data-ref="R_IssuePendingRenderCommands">R_IssuePendingRenderCommands</a>();</td></tr>
+<tr><th id="363">363</th><td>		<b>if</b> ((<a class="local col9 ref" href="#29err" title='err' data-ref="29err">err</a> = <a class="macro" href="../renderercommon/qgl.h.html#147" title="glGetError" data-ref="_M/qglGetError">qglGetError</a>()) != <a class="macro" href="../../../include/SDL2/SDL_opengl.h.html#712" title="0" data-ref="_M/GL_NO_ERROR">GL_NO_ERROR</a>)</td></tr>
+<tr><th id="364">364</th><td>			<a class="ref" href="../renderercommon/tr_common.h.html#ri" title='ri' data-ref="ri">ri</a>.<a class="ref" href="../renderercommon/tr_public.h.html#(anonymous)::Error" title='(anonymous struct)::Error' data-ref="(anonymous)::Error">Error</a>(<a class="enum" href="../qcommon/q_shared.h.html#ERR_FATAL" title='ERR_FATAL' data-ref="ERR_FATAL">ERR_FATAL</a>, <q>"RE_BeginFrame() - glGetError() failed (0x%x)!"</q>, <a class="local col9 ref" href="#29err" title='err' data-ref="29err">err</a>);</td></tr>
+<tr><th id="365">365</th><td>	}</td></tr>
+<tr><th id="366">366</th><td></td></tr>
+<tr><th id="367">367</th><td>	<b>if</b> (<a class="ref" href="../renderercommon/tr_common.h.html#glConfig" title='glConfig' data-ref="glConfig">glConfig</a>.<a class="ref" href="../renderercommon/tr_types.h.html#(anonymous)::stereoEnabled" title='(anonymous struct)::stereoEnabled' data-ref="(anonymous)::stereoEnabled">stereoEnabled</a>) {</td></tr>
+<tr><th id="368">368</th><td>		<b>if</b>( !(<a class="local col7 ref" href="#27cmd" title='cmd' data-ref="27cmd">cmd</a> = <a class="ref" href="#R_GetCommandBuffer" title='R_GetCommandBuffer' data-ref="R_GetCommandBuffer">R_GetCommandBuffer</a>(<b>sizeof</b>(*<a class="local col7 ref" href="#27cmd" title='cmd' data-ref="27cmd">cmd</a>))) )</td></tr>
+<tr><th id="369">369</th><td>			<b>return</b>;</td></tr>
+<tr><th id="370">370</th><td>			</td></tr>
+<tr><th id="371">371</th><td>		<a class="local col7 ref" href="#27cmd" title='cmd' data-ref="27cmd">cmd</a>-&gt;<a class="ref" href="tr_local.h.html#(anonymous)::commandId" title='(anonymous struct)::commandId' data-ref="(anonymous)::commandId">commandId</a> = <a class="enum" href="tr_local.h.html#RC_DRAW_BUFFER" title='RC_DRAW_BUFFER' data-ref="RC_DRAW_BUFFER">RC_DRAW_BUFFER</a>;</td></tr>
+<tr><th id="372">372</th><td>		</td></tr>
+<tr><th id="373">373</th><td>		<b>if</b> ( <a class="local col6 ref" href="#26stereoFrame" title='stereoFrame' data-ref="26stereoFrame">stereoFrame</a> == <a class="enum" href="../renderercommon/tr_types.h.html#STEREO_LEFT" title='STEREO_LEFT' data-ref="STEREO_LEFT">STEREO_LEFT</a> ) {</td></tr>
+<tr><th id="374">374</th><td>			<a class="local col7 ref" href="#27cmd" title='cmd' data-ref="27cmd">cmd</a>-&gt;<a class="ref" href="tr_local.h.html#(anonymous)::buffer" title='(anonymous struct)::buffer' data-ref="(anonymous)::buffer">buffer</a> = (<em>int</em>)<a class="macro" href="../../../include/SDL2/SDL_opengl.h.html#492" title="0x0402" data-ref="_M/GL_BACK_LEFT">GL_BACK_LEFT</a>;</td></tr>
+<tr><th id="375">375</th><td>		} <b>else</b> <b>if</b> ( <a class="local col6 ref" href="#26stereoFrame" title='stereoFrame' data-ref="26stereoFrame">stereoFrame</a> == <a class="enum" href="../renderercommon/tr_types.h.html#STEREO_RIGHT" title='STEREO_RIGHT' data-ref="STEREO_RIGHT">STEREO_RIGHT</a> ) {</td></tr>
+<tr><th id="376">376</th><td>			<a class="local col7 ref" href="#27cmd" title='cmd' data-ref="27cmd">cmd</a>-&gt;<a class="ref" href="tr_local.h.html#(anonymous)::buffer" title='(anonymous struct)::buffer' data-ref="(anonymous)::buffer">buffer</a> = (<em>int</em>)<a class="macro" href="../../../include/SDL2/SDL_opengl.h.html#493" title="0x0403" data-ref="_M/GL_BACK_RIGHT">GL_BACK_RIGHT</a>;</td></tr>
+<tr><th id="377">377</th><td>		} <b>else</b> {</td></tr>
+<tr><th id="378">378</th><td>			<a class="ref" href="../renderercommon/tr_common.h.html#ri" title='ri' data-ref="ri">ri</a>.<a class="ref" href="../renderercommon/tr_public.h.html#(anonymous)::Error" title='(anonymous struct)::Error' data-ref="(anonymous)::Error">Error</a>( <a class="enum" href="../qcommon/q_shared.h.html#ERR_FATAL" title='ERR_FATAL' data-ref="ERR_FATAL">ERR_FATAL</a>, <q>"RE_BeginFrame: Stereo is enabled, but stereoFrame was %i"</q>, <a class="local col6 ref" href="#26stereoFrame" title='stereoFrame' data-ref="26stereoFrame">stereoFrame</a> );</td></tr>
+<tr><th id="379">379</th><td>		}</td></tr>
+<tr><th id="380">380</th><td>	}</td></tr>
+<tr><th id="381">381</th><td>	<b>else</b></td></tr>
+<tr><th id="382">382</th><td>	{</td></tr>
+<tr><th id="383">383</th><td>		<b>if</b>(<a class="ref" href="tr_local.h.html#r_anaglyphMode" title='r_anaglyphMode' data-ref="r_anaglyphMode">r_anaglyphMode</a>-&gt;<a class="ref" href="../qcommon/q_shared.h.html#cvar_s::integer" title='cvar_s::integer' data-ref="cvar_s::integer">integer</a>)</td></tr>
+<tr><th id="384">384</th><td>		{</td></tr>
+<tr><th id="385">385</th><td>			<b>if</b>(<a class="ref" href="tr_local.h.html#r_anaglyphMode" title='r_anaglyphMode' data-ref="r_anaglyphMode">r_anaglyphMode</a>-&gt;<a class="ref" href="../qcommon/q_shared.h.html#cvar_s::modified" title='cvar_s::modified' data-ref="cvar_s::modified">modified</a>)</td></tr>
+<tr><th id="386">386</th><td>			{</td></tr>
+<tr><th id="387">387</th><td>				<i>// clear both, front and backbuffer.</i></td></tr>
+<tr><th id="388">388</th><td>				<a class="macro" href="../renderercommon/qgl.h.html#94" title="glColorMask" data-ref="_M/qglColorMask">qglColorMask</a>(<a class="macro" href="../../../include/SDL2/SDL_opengl.h.html#193" title="1" data-ref="_M/GL_TRUE">GL_TRUE</a>, <a class="macro" href="../../../include/SDL2/SDL_opengl.h.html#193" title="1" data-ref="_M/GL_TRUE">GL_TRUE</a>, <a class="macro" href="../../../include/SDL2/SDL_opengl.h.html#193" title="1" data-ref="_M/GL_TRUE">GL_TRUE</a>, <a class="macro" href="../../../include/SDL2/SDL_opengl.h.html#193" title="1" data-ref="_M/GL_TRUE">GL_TRUE</a>);</td></tr>
+<tr><th id="389">389</th><td>				<a class="macro" href="../renderercommon/qgl.h.html#57" title="glClearColor" data-ref="_M/qglClearColor">qglClearColor</a>(<var>0.0f</var>, <var>0.0f</var>, <var>0.0f</var>, <var>1.0f</var>);</td></tr>
+<tr><th id="390">390</th><td>				</td></tr>
+<tr><th id="391">391</th><td>				<a class="macro" href="../renderercommon/qgl.h.html#111" title="glDrawBuffer" data-ref="_M/qglDrawBuffer">qglDrawBuffer</a>(<a class="macro" href="../../../include/SDL2/SDL_opengl.h.html#289" title="0x0404" data-ref="_M/GL_FRONT">GL_FRONT</a>);</td></tr>
+<tr><th id="392">392</th><td>				<a class="macro" href="../renderercommon/qgl.h.html#55" title="glClear" data-ref="_M/qglClear">qglClear</a>(<a class="macro" href="../../../include/SDL2/SDL_opengl.h.html#735" title="0x00004000" data-ref="_M/GL_COLOR_BUFFER_BIT">GL_COLOR_BUFFER_BIT</a>);</td></tr>
+<tr><th id="393">393</th><td>				<a class="macro" href="../renderercommon/qgl.h.html#111" title="glDrawBuffer" data-ref="_M/qglDrawBuffer">qglDrawBuffer</a>(<a class="macro" href="../../../include/SDL2/SDL_opengl.h.html#290" title="0x0405" data-ref="_M/GL_BACK">GL_BACK</a>);</td></tr>
+<tr><th id="394">394</th><td>				<a class="macro" href="../renderercommon/qgl.h.html#55" title="glClear" data-ref="_M/qglClear">qglClear</a>(<a class="macro" href="../../../include/SDL2/SDL_opengl.h.html#735" title="0x00004000" data-ref="_M/GL_COLOR_BUFFER_BIT">GL_COLOR_BUFFER_BIT</a>);</td></tr>
+<tr><th id="395">395</th><td>				</td></tr>
+<tr><th id="396">396</th><td>				<a class="ref" href="tr_local.h.html#r_anaglyphMode" title='r_anaglyphMode' data-ref="r_anaglyphMode">r_anaglyphMode</a>-&gt;<a class="ref" href="../qcommon/q_shared.h.html#cvar_s::modified" title='cvar_s::modified' data-ref="cvar_s::modified">modified</a> = <a class="enum" href="../qcommon/q_shared.h.html#qfalse" title='qfalse' data-ref="qfalse">qfalse</a>;</td></tr>
+<tr><th id="397">397</th><td>			}</td></tr>
+<tr><th id="398">398</th><td>			</td></tr>
+<tr><th id="399">399</th><td>			<b>if</b>(<a class="local col6 ref" href="#26stereoFrame" title='stereoFrame' data-ref="26stereoFrame">stereoFrame</a> == <a class="enum" href="../renderercommon/tr_types.h.html#STEREO_LEFT" title='STEREO_LEFT' data-ref="STEREO_LEFT">STEREO_LEFT</a>)</td></tr>
+<tr><th id="400">400</th><td>			{</td></tr>
+<tr><th id="401">401</th><td>				<b>if</b>( !(<a class="local col7 ref" href="#27cmd" title='cmd' data-ref="27cmd">cmd</a> = <a class="ref" href="#R_GetCommandBuffer" title='R_GetCommandBuffer' data-ref="R_GetCommandBuffer">R_GetCommandBuffer</a>(<b>sizeof</b>(*<a class="local col7 ref" href="#27cmd" title='cmd' data-ref="27cmd">cmd</a>))) )</td></tr>
+<tr><th id="402">402</th><td>					<b>return</b>;</td></tr>
+<tr><th id="403">403</th><td>				</td></tr>
+<tr><th id="404">404</th><td>				<b>if</b>( !(<a class="local col8 ref" href="#28colcmd" title='colcmd' data-ref="28colcmd">colcmd</a> = <a class="ref" href="#R_GetCommandBuffer" title='R_GetCommandBuffer' data-ref="R_GetCommandBuffer">R_GetCommandBuffer</a>(<b>sizeof</b>(*<a class="local col8 ref" href="#28colcmd" title='colcmd' data-ref="28colcmd">colcmd</a>))) )</td></tr>
+<tr><th id="405">405</th><td>					<b>return</b>;</td></tr>
+<tr><th id="406">406</th><td>			}</td></tr>
+<tr><th id="407">407</th><td>			<b>else</b> <b>if</b>(<a class="local col6 ref" href="#26stereoFrame" title='stereoFrame' data-ref="26stereoFrame">stereoFrame</a> == <a class="enum" href="../renderercommon/tr_types.h.html#STEREO_RIGHT" title='STEREO_RIGHT' data-ref="STEREO_RIGHT">STEREO_RIGHT</a>)</td></tr>
+<tr><th id="408">408</th><td>			{</td></tr>
+<tr><th id="409">409</th><td>				<a class="typedef" href="tr_local.h.html#clearDepthCommand_t" title='clearDepthCommand_t' data-type='struct clearDepthCommand_t' data-ref="clearDepthCommand_t">clearDepthCommand_t</a> *<dfn class="local col0 decl" id="30cldcmd" title='cldcmd' data-type='clearDepthCommand_t *' data-ref="30cldcmd">cldcmd</dfn>;</td></tr>
+<tr><th id="410">410</th><td>				</td></tr>
+<tr><th id="411">411</th><td>				<b>if</b>( !(<a class="local col0 ref" href="#30cldcmd" title='cldcmd' data-ref="30cldcmd">cldcmd</a> = <a class="ref" href="#R_GetCommandBuffer" title='R_GetCommandBuffer' data-ref="R_GetCommandBuffer">R_GetCommandBuffer</a>(<b>sizeof</b>(*<a class="local col0 ref" href="#30cldcmd" title='cldcmd' data-ref="30cldcmd">cldcmd</a>))) )</td></tr>
+<tr><th id="412">412</th><td>					<b>return</b>;</td></tr>
+<tr><th id="413">413</th><td></td></tr>
+<tr><th id="414">414</th><td>				<a class="local col0 ref" href="#30cldcmd" title='cldcmd' data-ref="30cldcmd">cldcmd</a>-&gt;<a class="ref" href="tr_local.h.html#(anonymous)::commandId" title='(anonymous struct)::commandId' data-ref="(anonymous)::commandId">commandId</a> = <a class="enum" href="tr_local.h.html#RC_CLEARDEPTH" title='RC_CLEARDEPTH' data-ref="RC_CLEARDEPTH">RC_CLEARDEPTH</a>;</td></tr>
+<tr><th id="415">415</th><td></td></tr>
+<tr><th id="416">416</th><td>				<b>if</b>( !(<a class="local col8 ref" href="#28colcmd" title='colcmd' data-ref="28colcmd">colcmd</a> = <a class="ref" href="#R_GetCommandBuffer" title='R_GetCommandBuffer' data-ref="R_GetCommandBuffer">R_GetCommandBuffer</a>(<b>sizeof</b>(*<a class="local col8 ref" href="#28colcmd" title='colcmd' data-ref="28colcmd">colcmd</a>))) )</td></tr>
+<tr><th id="417">417</th><td>					<b>return</b>;</td></tr>
+<tr><th id="418">418</th><td>			}</td></tr>
+<tr><th id="419">419</th><td>			<b>else</b></td></tr>
+<tr><th id="420">420</th><td>				<a class="ref" href="../renderercommon/tr_common.h.html#ri" title='ri' data-ref="ri">ri</a>.<a class="ref" href="../renderercommon/tr_public.h.html#(anonymous)::Error" title='(anonymous struct)::Error' data-ref="(anonymous)::Error">Error</a>( <a class="enum" href="../qcommon/q_shared.h.html#ERR_FATAL" title='ERR_FATAL' data-ref="ERR_FATAL">ERR_FATAL</a>, <q>"RE_BeginFrame: Stereo is enabled, but stereoFrame was %i"</q>, <a class="local col6 ref" href="#26stereoFrame" title='stereoFrame' data-ref="26stereoFrame">stereoFrame</a> );</td></tr>
+<tr><th id="421">421</th><td></td></tr>
+<tr><th id="422">422</th><td>			<a class="ref" href="#R_SetColorMode" title='R_SetColorMode' data-ref="R_SetColorMode">R_SetColorMode</a>(<a class="local col8 ref" href="#28colcmd" title='colcmd' data-ref="28colcmd">colcmd</a>-&gt;<a class="ref" href="tr_local.h.html#(anonymous)::rgba" title='(anonymous struct)::rgba' data-ref="(anonymous)::rgba">rgba</a>, <a class="local col6 ref" href="#26stereoFrame" title='stereoFrame' data-ref="26stereoFrame">stereoFrame</a>, <a class="ref" href="tr_local.h.html#r_anaglyphMode" title='r_anaglyphMode' data-ref="r_anaglyphMode">r_anaglyphMode</a>-&gt;<a class="ref" href="../qcommon/q_shared.h.html#cvar_s::integer" title='cvar_s::integer' data-ref="cvar_s::integer">integer</a>);</td></tr>
+<tr><th id="423">423</th><td>			<a class="local col8 ref" href="#28colcmd" title='colcmd' data-ref="28colcmd">colcmd</a>-&gt;<a class="ref" href="tr_local.h.html#(anonymous)::commandId" title='(anonymous struct)::commandId' data-ref="(anonymous)::commandId">commandId</a> = <a class="enum" href="tr_local.h.html#RC_COLORMASK" title='RC_COLORMASK' data-ref="RC_COLORMASK">RC_COLORMASK</a>;</td></tr>
+<tr><th id="424">424</th><td>		}</td></tr>
+<tr><th id="425">425</th><td>		<b>else</b></td></tr>
+<tr><th id="426">426</th><td>		{</td></tr>
+<tr><th id="427">427</th><td>			<b>if</b>(<a class="local col6 ref" href="#26stereoFrame" title='stereoFrame' data-ref="26stereoFrame">stereoFrame</a> != <a class="enum" href="../renderercommon/tr_types.h.html#STEREO_CENTER" title='STEREO_CENTER' data-ref="STEREO_CENTER">STEREO_CENTER</a>)</td></tr>
+<tr><th id="428">428</th><td>				<a class="ref" href="../renderercommon/tr_common.h.html#ri" title='ri' data-ref="ri">ri</a>.<a class="ref" href="../renderercommon/tr_public.h.html#(anonymous)::Error" title='(anonymous struct)::Error' data-ref="(anonymous)::Error">Error</a>( <a class="enum" href="../qcommon/q_shared.h.html#ERR_FATAL" title='ERR_FATAL' data-ref="ERR_FATAL">ERR_FATAL</a>, <q>"RE_BeginFrame: Stereo is disabled, but stereoFrame was %i"</q>, <a class="local col6 ref" href="#26stereoFrame" title='stereoFrame' data-ref="26stereoFrame">stereoFrame</a> );</td></tr>
+<tr><th id="429">429</th><td></td></tr>
+<tr><th id="430">430</th><td>			<b>if</b>( !(<a class="local col7 ref" href="#27cmd" title='cmd' data-ref="27cmd">cmd</a> = <a class="ref" href="#R_GetCommandBuffer" title='R_GetCommandBuffer' data-ref="R_GetCommandBuffer">R_GetCommandBuffer</a>(<b>sizeof</b>(*<a class="local col7 ref" href="#27cmd" title='cmd' data-ref="27cmd">cmd</a>))) )</td></tr>
+<tr><th id="431">431</th><td>				<b>return</b>;</td></tr>
+<tr><th id="432">432</th><td>		}</td></tr>
+<tr><th id="433">433</th><td></td></tr>
+<tr><th id="434">434</th><td>		<b>if</b>(<a class="local col7 ref" href="#27cmd" title='cmd' data-ref="27cmd">cmd</a>)</td></tr>
+<tr><th id="435">435</th><td>		{</td></tr>
+<tr><th id="436">436</th><td>			<a class="local col7 ref" href="#27cmd" title='cmd' data-ref="27cmd">cmd</a>-&gt;<a class="ref" href="tr_local.h.html#(anonymous)::commandId" title='(anonymous struct)::commandId' data-ref="(anonymous)::commandId">commandId</a> = <a class="enum" href="tr_local.h.html#RC_DRAW_BUFFER" title='RC_DRAW_BUFFER' data-ref="RC_DRAW_BUFFER">RC_DRAW_BUFFER</a>;</td></tr>
+<tr><th id="437">437</th><td></td></tr>
+<tr><th id="438">438</th><td>			<b>if</b>(<a class="ref" href="tr_local.h.html#r_anaglyphMode" title='r_anaglyphMode' data-ref="r_anaglyphMode">r_anaglyphMode</a>-&gt;<a class="ref" href="../qcommon/q_shared.h.html#cvar_s::modified" title='cvar_s::modified' data-ref="cvar_s::modified">modified</a>)</td></tr>
+<tr><th id="439">439</th><td>			{</td></tr>
+<tr><th id="440">440</th><td>				<a class="macro" href="../renderercommon/qgl.h.html#94" title="glColorMask" data-ref="_M/qglColorMask">qglColorMask</a>(<a class="macro" href="../../../include/SDL2/SDL_opengl.h.html#193" title="1" data-ref="_M/GL_TRUE">GL_TRUE</a>, <a class="macro" href="../../../include/SDL2/SDL_opengl.h.html#193" title="1" data-ref="_M/GL_TRUE">GL_TRUE</a>, <a class="macro" href="../../../include/SDL2/SDL_opengl.h.html#193" title="1" data-ref="_M/GL_TRUE">GL_TRUE</a>, <a class="macro" href="../../../include/SDL2/SDL_opengl.h.html#193" title="1" data-ref="_M/GL_TRUE">GL_TRUE</a>);</td></tr>
+<tr><th id="441">441</th><td>				<a class="ref" href="tr_local.h.html#r_anaglyphMode" title='r_anaglyphMode' data-ref="r_anaglyphMode">r_anaglyphMode</a>-&gt;<a class="ref" href="../qcommon/q_shared.h.html#cvar_s::modified" title='cvar_s::modified' data-ref="cvar_s::modified">modified</a> = <a class="enum" href="../qcommon/q_shared.h.html#qfalse" title='qfalse' data-ref="qfalse">qfalse</a>;</td></tr>
+<tr><th id="442">442</th><td>			}</td></tr>
+<tr><th id="443">443</th><td></td></tr>
+<tr><th id="444">444</th><td>			<b>if</b> (!<a class="ref" href="../qcommon/q_shared.h.html#Q_stricmp" title='Q_stricmp' data-ref="Q_stricmp">Q_stricmp</a>(<a class="ref" href="../renderercommon/tr_common.h.html#r_drawBuffer" title='r_drawBuffer' data-ref="r_drawBuffer">r_drawBuffer</a>-&gt;<a class="ref" href="../qcommon/q_shared.h.html#cvar_s::string" title='cvar_s::string' data-ref="cvar_s::string">string</a>, <q>"GL_FRONT"</q>))</td></tr>
+<tr><th id="445">445</th><td>				<a class="local col7 ref" href="#27cmd" title='cmd' data-ref="27cmd">cmd</a>-&gt;<a class="ref" href="tr_local.h.html#(anonymous)::buffer" title='(anonymous struct)::buffer' data-ref="(anonymous)::buffer">buffer</a> = (<em>int</em>)<a class="macro" href="../../../include/SDL2/SDL_opengl.h.html#289" title="0x0404" data-ref="_M/GL_FRONT">GL_FRONT</a>;</td></tr>
+<tr><th id="446">446</th><td>			<b>else</b></td></tr>
+<tr><th id="447">447</th><td>				<a class="local col7 ref" href="#27cmd" title='cmd' data-ref="27cmd">cmd</a>-&gt;<a class="ref" href="tr_local.h.html#(anonymous)::buffer" title='(anonymous struct)::buffer' data-ref="(anonymous)::buffer">buffer</a> = (<em>int</em>)<a class="macro" href="../../../include/SDL2/SDL_opengl.h.html#290" title="0x0405" data-ref="_M/GL_BACK">GL_BACK</a>;</td></tr>
+<tr><th id="448">448</th><td>		}</td></tr>
+<tr><th id="449">449</th><td>	}</td></tr>
+<tr><th id="450">450</th><td>	</td></tr>
+<tr><th id="451">451</th><td>	<a class="ref" href="tr_local.h.html#tr" title='tr' data-ref="tr">tr</a>.<a class="ref" href="tr_local.h.html#(anonymous)::refdef" title='(anonymous struct)::refdef' data-ref="(anonymous)::refdef">refdef</a>.<a class="ref" href="tr_local.h.html#(anonymous)::stereoFrame" title='(anonymous struct)::stereoFrame' data-ref="(anonymous)::stereoFrame">stereoFrame</a> = <a class="local col6 ref" href="#26stereoFrame" title='stereoFrame' data-ref="26stereoFrame">stereoFrame</a>;</td></tr>
+<tr><th id="452">452</th><td>}</td></tr>
+<tr><th id="453">453</th><td></td></tr>
+<tr><th id="454">454</th><td></td></tr>
+<tr><th id="455">455</th><td><i>/*</i></td></tr>
+<tr><th id="456">456</th><td><i>=============</i></td></tr>
+<tr><th id="457">457</th><td><i>RE_EndFrame</i></td></tr>
+<tr><th id="458">458</th><td><i></i></td></tr>
+<tr><th id="459">459</th><td><i>Returns the number of msec spent in the back end</i></td></tr>
+<tr><th id="460">460</th><td><i>=============</i></td></tr>
+<tr><th id="461">461</th><td><i>*/</i></td></tr>
+<tr><th id="462">462</th><td><em>void</em> <dfn class="decl def" id="RE_EndFrame" title='RE_EndFrame' data-ref="RE_EndFrame">RE_EndFrame</dfn>( <em>int</em> *<dfn class="local col1 decl" id="31frontEndMsec" title='frontEndMsec' data-type='int *' data-ref="31frontEndMsec">frontEndMsec</dfn>, <em>int</em> *<dfn class="local col2 decl" id="32backEndMsec" title='backEndMsec' data-type='int *' data-ref="32backEndMsec">backEndMsec</dfn> ) {</td></tr>
+<tr><th id="463">463</th><td>	<a class="typedef" href="tr_local.h.html#swapBuffersCommand_t" title='swapBuffersCommand_t' data-type='struct swapBuffersCommand_t' data-ref="swapBuffersCommand_t">swapBuffersCommand_t</a>	*<dfn class="local col3 decl" id="33cmd" title='cmd' data-type='swapBuffersCommand_t *' data-ref="33cmd">cmd</dfn>;</td></tr>
+<tr><th id="464">464</th><td></td></tr>
+<tr><th id="465">465</th><td>	<b>if</b> ( !<a class="ref" href="tr_local.h.html#tr" title='tr' data-ref="tr">tr</a>.<a class="ref" href="tr_local.h.html#(anonymous)::registered" title='(anonymous struct)::registered' data-ref="(anonymous)::registered">registered</a> ) {</td></tr>
+<tr><th id="466">466</th><td>		<b>return</b>;</td></tr>
+<tr><th id="467">467</th><td>	}</td></tr>
+<tr><th id="468">468</th><td>	<a class="local col3 ref" href="#33cmd" title='cmd' data-ref="33cmd">cmd</a> = <a class="ref" href="#R_GetCommandBufferReserved" title='R_GetCommandBufferReserved' data-ref="R_GetCommandBufferReserved">R_GetCommandBufferReserved</a>( <b>sizeof</b>( *<a class="local col3 ref" href="#33cmd" title='cmd' data-ref="33cmd">cmd</a> ), <var>0</var> );</td></tr>
+<tr><th id="469">469</th><td>	<b>if</b> ( !<a class="local col3 ref" href="#33cmd" title='cmd' data-ref="33cmd">cmd</a> ) {</td></tr>
+<tr><th id="470">470</th><td>		<b>return</b>;</td></tr>
+<tr><th id="471">471</th><td>	}</td></tr>
+<tr><th id="472">472</th><td>	<a class="local col3 ref" href="#33cmd" title='cmd' data-ref="33cmd">cmd</a>-&gt;<a class="ref" href="tr_local.h.html#(anonymous)::commandId" title='(anonymous struct)::commandId' data-ref="(anonymous)::commandId">commandId</a> = <a class="enum" href="tr_local.h.html#RC_SWAP_BUFFERS" title='RC_SWAP_BUFFERS' data-ref="RC_SWAP_BUFFERS">RC_SWAP_BUFFERS</a>;</td></tr>
+<tr><th id="473">473</th><td></td></tr>
+<tr><th id="474">474</th><td>	<a class="ref" href="#R_IssueRenderCommands" title='R_IssueRenderCommands' data-ref="R_IssueRenderCommands">R_IssueRenderCommands</a>( <a class="enum" href="../qcommon/q_shared.h.html#qtrue" title='qtrue' data-ref="qtrue">qtrue</a> );</td></tr>
+<tr><th id="475">475</th><td></td></tr>
+<tr><th id="476">476</th><td>	<a class="ref" href="tr_local.h.html#R_InitNextFrame" title='R_InitNextFrame' data-ref="R_InitNextFrame">R_InitNextFrame</a>();</td></tr>
+<tr><th id="477">477</th><td></td></tr>
+<tr><th id="478">478</th><td>	<b>if</b> ( <a class="local col1 ref" href="#31frontEndMsec" title='frontEndMsec' data-ref="31frontEndMsec">frontEndMsec</a> ) {</td></tr>
+<tr><th id="479">479</th><td>		*<a class="local col1 ref" href="#31frontEndMsec" title='frontEndMsec' data-ref="31frontEndMsec">frontEndMsec</a> = <a class="ref" href="tr_local.h.html#tr" title='tr' data-ref="tr">tr</a>.<a class="ref" href="tr_local.h.html#(anonymous)::frontEndMsec" title='(anonymous struct)::frontEndMsec' data-ref="(anonymous)::frontEndMsec">frontEndMsec</a>;</td></tr>
+<tr><th id="480">480</th><td>	}</td></tr>
+<tr><th id="481">481</th><td>	<a class="ref" href="tr_local.h.html#tr" title='tr' data-ref="tr">tr</a>.<a class="ref" href="tr_local.h.html#(anonymous)::frontEndMsec" title='(anonymous struct)::frontEndMsec' data-ref="(anonymous)::frontEndMsec">frontEndMsec</a> = <var>0</var>;</td></tr>
+<tr><th id="482">482</th><td>	<b>if</b> ( <a class="local col2 ref" href="#32backEndMsec" title='backEndMsec' data-ref="32backEndMsec">backEndMsec</a> ) {</td></tr>
+<tr><th id="483">483</th><td>		*<a class="local col2 ref" href="#32backEndMsec" title='backEndMsec' data-ref="32backEndMsec">backEndMsec</a> = <a class="ref" href="tr_local.h.html#backEnd" title='backEnd' data-ref="backEnd">backEnd</a>.<a class="ref" href="tr_local.h.html#(anonymous)::pc" title='(anonymous struct)::pc' data-ref="(anonymous)::pc">pc</a>.<a class="ref" href="tr_local.h.html#(anonymous)::msec" title='(anonymous struct)::msec' data-ref="(anonymous)::msec">msec</a>;</td></tr>
+<tr><th id="484">484</th><td>	}</td></tr>
+<tr><th id="485">485</th><td>	<a class="ref" href="tr_local.h.html#backEnd" title='backEnd' data-ref="backEnd">backEnd</a>.<a class="ref" href="tr_local.h.html#(anonymous)::pc" title='(anonymous struct)::pc' data-ref="(anonymous)::pc">pc</a>.<a class="ref" href="tr_local.h.html#(anonymous)::msec" title='(anonymous struct)::msec' data-ref="(anonymous)::msec">msec</a> = <var>0</var>;</td></tr>
+<tr><th id="486">486</th><td>}</td></tr>
+<tr><th id="487">487</th><td></td></tr>
+<tr><th id="488">488</th><td><i>/*</i></td></tr>
+<tr><th id="489">489</th><td><i>=============</i></td></tr>
+<tr><th id="490">490</th><td><i>RE_TakeVideoFrame</i></td></tr>
+<tr><th id="491">491</th><td><i>=============</i></td></tr>
+<tr><th id="492">492</th><td><i>*/</i></td></tr>
+<tr><th id="493">493</th><td><em>void</em> <dfn class="decl def" id="RE_TakeVideoFrame" title='RE_TakeVideoFrame' data-ref="RE_TakeVideoFrame">RE_TakeVideoFrame</dfn>( <em>int</em> <dfn class="local col4 decl" id="34width" title='width' data-type='int' data-ref="34width">width</dfn>, <em>int</em> <dfn class="local col5 decl" id="35height" title='height' data-type='int' data-ref="35height">height</dfn>,</td></tr>
+<tr><th id="494">494</th><td>		<a class="typedef" href="../qcommon/q_shared.h.html#byte" title='byte' data-type='unsigned char' data-ref="byte">byte</a> *<dfn class="local col6 decl" id="36captureBuffer" title='captureBuffer' data-type='byte *' data-ref="36captureBuffer">captureBuffer</dfn>, <a class="typedef" href="../qcommon/q_shared.h.html#byte" title='byte' data-type='unsigned char' data-ref="byte">byte</a> *<dfn class="local col7 decl" id="37encodeBuffer" title='encodeBuffer' data-type='byte *' data-ref="37encodeBuffer">encodeBuffer</dfn>, <a class="typedef" href="../qcommon/q_shared.h.html#qboolean" title='qboolean' data-type='enum qboolean' data-ref="qboolean">qboolean</a> <dfn class="local col8 decl" id="38motionJpeg" title='motionJpeg' data-type='qboolean' data-ref="38motionJpeg">motionJpeg</dfn> )</td></tr>
+<tr><th id="495">495</th><td>{</td></tr>
+<tr><th id="496">496</th><td>	<a class="typedef" href="tr_local.h.html#videoFrameCommand_t" title='videoFrameCommand_t' data-type='struct videoFrameCommand_t' data-ref="videoFrameCommand_t">videoFrameCommand_t</a>	*<dfn class="local col9 decl" id="39cmd" title='cmd' data-type='videoFrameCommand_t *' data-ref="39cmd">cmd</dfn>;</td></tr>
+<tr><th id="497">497</th><td></td></tr>
+<tr><th id="498">498</th><td>	<b>if</b>( !<a class="ref" href="tr_local.h.html#tr" title='tr' data-ref="tr">tr</a>.<a class="ref" href="tr_local.h.html#(anonymous)::registered" title='(anonymous struct)::registered' data-ref="(anonymous)::registered">registered</a> ) {</td></tr>
+<tr><th id="499">499</th><td>		<b>return</b>;</td></tr>
+<tr><th id="500">500</th><td>	}</td></tr>
+<tr><th id="501">501</th><td></td></tr>
+<tr><th id="502">502</th><td>	<a class="local col9 ref" href="#39cmd" title='cmd' data-ref="39cmd">cmd</a> = <a class="ref" href="#R_GetCommandBuffer" title='R_GetCommandBuffer' data-ref="R_GetCommandBuffer">R_GetCommandBuffer</a>( <b>sizeof</b>( *<a class="local col9 ref" href="#39cmd" title='cmd' data-ref="39cmd">cmd</a> ) );</td></tr>
+<tr><th id="503">503</th><td>	<b>if</b>( !<a class="local col9 ref" href="#39cmd" title='cmd' data-ref="39cmd">cmd</a> ) {</td></tr>
+<tr><th id="504">504</th><td>		<b>return</b>;</td></tr>
+<tr><th id="505">505</th><td>	}</td></tr>
+<tr><th id="506">506</th><td></td></tr>
+<tr><th id="507">507</th><td>	<a class="local col9 ref" href="#39cmd" title='cmd' data-ref="39cmd">cmd</a>-&gt;<a class="ref" href="tr_local.h.html#(anonymous)::commandId" title='(anonymous struct)::commandId' data-ref="(anonymous)::commandId">commandId</a> = <a class="enum" href="tr_local.h.html#RC_VIDEOFRAME" title='RC_VIDEOFRAME' data-ref="RC_VIDEOFRAME">RC_VIDEOFRAME</a>;</td></tr>
+<tr><th id="508">508</th><td></td></tr>
+<tr><th id="509">509</th><td>	<a class="local col9 ref" href="#39cmd" title='cmd' data-ref="39cmd">cmd</a>-&gt;<a class="ref" href="tr_local.h.html#(anonymous)::width" title='(anonymous struct)::width' data-ref="(anonymous)::width">width</a> = <a class="local col4 ref" href="#34width" title='width' data-ref="34width">width</a>;</td></tr>
+<tr><th id="510">510</th><td>	<a class="local col9 ref" href="#39cmd" title='cmd' data-ref="39cmd">cmd</a>-&gt;<a class="ref" href="tr_local.h.html#(anonymous)::height" title='(anonymous struct)::height' data-ref="(anonymous)::height">height</a> = <a class="local col5 ref" href="#35height" title='height' data-ref="35height">height</a>;</td></tr>
+<tr><th id="511">511</th><td>	<a class="local col9 ref" href="#39cmd" title='cmd' data-ref="39cmd">cmd</a>-&gt;<a class="ref" href="tr_local.h.html#(anonymous)::captureBuffer" title='(anonymous struct)::captureBuffer' data-ref="(anonymous)::captureBuffer">captureBuffer</a> = <a class="local col6 ref" href="#36captureBuffer" title='captureBuffer' data-ref="36captureBuffer">captureBuffer</a>;</td></tr>
+<tr><th id="512">512</th><td>	<a class="local col9 ref" href="#39cmd" title='cmd' data-ref="39cmd">cmd</a>-&gt;<a class="ref" href="tr_local.h.html#(anonymous)::encodeBuffer" title='(anonymous struct)::encodeBuffer' data-ref="(anonymous)::encodeBuffer">encodeBuffer</a> = <a class="local col7 ref" href="#37encodeBuffer" title='encodeBuffer' data-ref="37encodeBuffer">encodeBuffer</a>;</td></tr>
+<tr><th id="513">513</th><td>	<a class="local col9 ref" href="#39cmd" title='cmd' data-ref="39cmd">cmd</a>-&gt;<a class="ref" href="tr_local.h.html#(anonymous)::motionJpeg" title='(anonymous struct)::motionJpeg' data-ref="(anonymous)::motionJpeg">motionJpeg</a> = <a class="local col8 ref" href="#38motionJpeg" title='motionJpeg' data-ref="38motionJpeg">motionJpeg</a>;</td></tr>
+<tr><th id="514">514</th><td>}</td></tr>
+<tr><th id="515">515</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated on <em>2017-Aug-29</em> from project codebrowser revision <em>63e07af</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

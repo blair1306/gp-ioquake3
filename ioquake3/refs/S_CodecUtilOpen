@@ -1,0 +1,10 @@
+<dec f='codebrowser/code/client/snd_codec.h' l='79' type='snd_stream_t * S_CodecUtilOpen(const char * filename, snd_codec_t * codec)'/>
+<def f='codebrowser/code/client/snd_codec.c' l='198' ll='225' type='snd_stream_t * S_CodecUtilOpen(const char * filename, snd_codec_t * codec)'/>
+<doc f='codebrowser/code/client/snd_codec.c' l='193'>/*
+=================
+S_CodecUtilOpen
+=================
+*/</doc>
+<doc f='codebrowser/code/client/snd_codec.h' l='78'>// Util functions (used by codecs)</doc>
+<use f='codebrowser/code/client/snd_codec_opus.c' l='235' u='c' c='S_OggOpus_CodecOpenStream'/>
+<use f='codebrowser/code/client/snd_codec_wav.c' l='248' u='c' c='S_WAV_CodecOpenStream'/>

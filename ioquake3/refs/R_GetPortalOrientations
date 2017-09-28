@@ -1,0 +1,24 @@
+<def f='codebrowser/code/renderergl1/tr_main.c' l='669' ll='786' type='qboolean R_GetPortalOrientations(drawSurf_t * drawSurf, int entityNum, orientation_t * surface, orientation_t * camera, vec_t * pvsOrigin, qboolean * mirror)'/>
+<use f='codebrowser/code/renderergl1/tr_main.c' l='975' u='c' c='R_MirrorViewBySurface'/>
+<doc f='codebrowser/code/renderergl1/tr_main.c' l='659'>/*
+=================
+R_GetPortalOrientation
+
+entityNum is the entity that the portal surface is a part of, which may
+be moving and rotating.
+
+Returns qtrue if it should be mirrored
+=================
+*/</doc>
+<def f='codebrowser/code/renderergl2/tr_main.c' l='1019' ll='1136' type='qboolean R_GetPortalOrientations(drawSurf_t * drawSurf, int entityNum, orientation_t * surface, orientation_t * camera, vec_t * pvsOrigin, qboolean * mirror)'/>
+<use f='codebrowser/code/renderergl2/tr_main.c' l='1331' u='c' c='R_MirrorViewBySurface'/>
+<doc f='codebrowser/code/renderergl2/tr_main.c' l='1009'>/*
+=================
+R_GetPortalOrientation
+
+entityNum is the entity that the portal surface is a part of, which may
+be moving and rotating.
+
+Returns qtrue if it should be mirrored
+=================
+*/</doc>

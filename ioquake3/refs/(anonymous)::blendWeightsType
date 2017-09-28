@@ -1,0 +1,16 @@
+<dec f='codebrowser/code/renderergl1/tr_local.h' l='609' type='byte'/>
+<offset>768</offset>
+<doc f='codebrowser/code/renderergl1/tr_local.h' l='606'>// depending upon the exporter, blend indices and weights might be int/float
+	// as opposed to the recommended byte/byte, for example Noesis exports
+	// int/float whereas the official IQM tool exports byte/byte</doc>
+<doc f='codebrowser/code/renderergl1/tr_local.h' l='609'>// IQM_UBYTE or IQM_FLOAT</doc>
+<use f='codebrowser/code/renderergl1/tr_model_iqm.c' l='496' u='w' c='R_LoadIQM'/>
+<use f='codebrowser/code/renderergl1/tr_model_iqm.c' l='1059' u='r' c='RB_IQMSurfaceAnim'/>
+<dec f='codebrowser/code/renderergl2/tr_local.h' l='954' type='byte'/>
+<offset>768</offset>
+<doc f='codebrowser/code/renderergl2/tr_local.h' l='951'>// depending upon the exporter, blend indices and weights might be int/float
+	// as opposed to the recommended byte/byte, for example Noesis exports
+	// int/float whereas the official IQM tool exports byte/byte</doc>
+<doc f='codebrowser/code/renderergl2/tr_local.h' l='954'>// IQM_UBYTE or IQM_FLOAT</doc>
+<use f='codebrowser/code/renderergl2/tr_model_iqm.c' l='496' u='w' c='R_LoadIQM'/>
+<use f='codebrowser/code/renderergl2/tr_model_iqm.c' l='1065' u='r' c='RB_IQMSurfaceAnim'/>

@@ -1,0 +1,12 @@
+<dec f='codebrowser/code/qcommon/qcommon.h' l='569' type='void Cvar_Restart(qboolean unsetVM)'/>
+<use f='codebrowser/code/qcommon/common.c' l='2410' u='c' c='Com_GameRestart'/>
+<def f='codebrowser/code/qcommon/cvar.c' l='1193' ll='1217' type='void Cvar_Restart(qboolean unsetVM)'/>
+<use f='codebrowser/code/qcommon/cvar.c' l='1229' u='c' c='Cvar_Restart_f'/>
+<doc f='codebrowser/code/qcommon/cvar.c' l='1184'>/*
+============
+Cvar_Restart
+
+Resets all cvars to their hardcoded values and removes userdefined variables
+and variables added via the VMs if requested.
+============
+*/</doc>

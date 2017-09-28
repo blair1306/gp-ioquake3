@@ -1,0 +1,9 @@
+<dec f='codebrowser/code/opusfile-0.8/include/opusfile.h' l='782'/>
+<doc f='codebrowser/code/opusfile-0.8/include/opusfile.h' l='774'>/**Proxy connections through the given host.
+   If no port is specified via #OP_HTTP_PROXY_PORT, the port number defaults
+    to 8080 (http-alt).
+   All proxy parameters are ignored for non-http and non-https URLs.
+   \param _host &lt;code&gt;const char *&lt;/code&gt;: The proxy server hostname.
+                This may be &lt;code&gt;NULL&lt;/code&gt; to disable the use of a proxy
+                 server.
+   \hideinitializer*/</doc>

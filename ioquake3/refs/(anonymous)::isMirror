@@ -1,0 +1,18 @@
+<dec f='codebrowser/code/renderergl1/tr_local.h' l='451' type='qboolean'/>
+<offset>2112</offset>
+<doc f='codebrowser/code/renderergl1/tr_local.h' l='451'>// the portal is a mirror, invert the face culling</doc>
+<use f='codebrowser/code/renderergl1/tr_backend.c' l='143' u='r' c='GL_Cull'/>
+<use f='codebrowser/code/renderergl1/tr_main.c' l='976' u='a' c='R_MirrorViewBySurface'/>
+<use f='codebrowser/code/renderergl1/tr_shade_calc.c' l='394' u='r' c='AutospriteDeform'/>
+<use f='codebrowser/code/renderergl1/tr_surface.c' l='179' u='r' c='RB_SurfaceSprite'/>
+<dec f='codebrowser/code/renderergl2/tr_local.h' l='797' type='qboolean'/>
+<offset>3136</offset>
+<doc f='codebrowser/code/renderergl2/tr_local.h' l='797'>// the portal is a mirror, invert the face culling</doc>
+<use f='codebrowser/code/renderergl2/tr_main.c' l='1332' u='a' c='R_MirrorViewBySurface'/>
+<use f='codebrowser/code/renderergl2/tr_main.c' l='1798' u='w' c='R_RenderDlightCubemaps'/>
+<use f='codebrowser/code/renderergl2/tr_main.c' l='2093' u='w' c='R_RenderPshadowMaps'/>
+<use f='codebrowser/code/renderergl2/tr_main.c' l='2500' u='w' c='R_RenderSunShadowMaps'/>
+<use f='codebrowser/code/renderergl2/tr_main.c' l='2643' u='w' c='R_RenderCubemapSide'/>
+<use f='codebrowser/code/renderergl2/tr_shade.c' l='1467' u='r' c='RB_StageIteratorGeneric'/>
+<use f='codebrowser/code/renderergl2/tr_shade_calc.c' l='401' u='r' c='AutospriteDeform'/>
+<use f='codebrowser/code/renderergl2/tr_surface.c' l='270' u='r' c='RB_SurfaceSprite'/>

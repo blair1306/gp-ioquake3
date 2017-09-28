@@ -1,0 +1,14 @@
+<dec f='codebrowser/code/qcommon/qcommon.h' l='359' type='vm_t * VM_Create(const char * module, intptr_t (*)(intptr_t *) systemCalls, vmInterpret_t interpret)'/>
+<use f='codebrowser/code/client/cl_cgame.c' l='736' u='c' c='CL_InitCGame'/>
+<use f='codebrowser/code/client/cl_ui.c' l='1119' u='c' c='CL_InitUI'/>
+<use f='codebrowser/code/qcommon/vm.c' l='549' u='c' c='VM_Restart'/>
+<def f='codebrowser/code/qcommon/vm.c' l='576' ll='687' type='vm_t * VM_Create(const char * module, intptr_t (*)(intptr_t *) systemCalls, vmInterpret_t interpret)'/>
+<doc f='codebrowser/code/qcommon/vm.c' l='568'>/*
+================
+VM_Create
+
+If image ends in .qvm it will be interpreted, otherwise
+it will attempt to load as a system dll
+================
+*/</doc>
+<use f='codebrowser/code/server/sv_game.c' l='940' u='c' c='SV_InitGameProgs'/>

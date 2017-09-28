@@ -1,0 +1,22 @@
+<dec f='codebrowser/code/botlib/be_aas_bsp.h' l='86' type='int AAS_FloatForBSPEpairKey(int ent, char * key, float * value)'/>
+<dec f='codebrowser/code/botlib/be_aas_bsp.h' l='86' type='int AAS_FloatForBSPEpairKey(int ent, char * key, float * value)'/>
+<def f='codebrowser/code/botlib/be_aas_bspq3.c' l='323' ll='331' type='int AAS_FloatForBSPEpairKey(int ent, char * key, float * value)'/>
+<doc f='codebrowser/code/botlib/be_aas_bspq3.c' l='317'>//===========================================================================
+//
+// Parameter:				-
+// Returns:					-
+// Changes Globals:		-
+//===========================================================================</doc>
+<doc f='codebrowser/code/botlib/be_aas_bsp.h' l='85'>//get a float for the BSP epair key</doc>
+<use f='codebrowser/code/botlib/be_aas_reach.c' l='223' u='c' c='AAS_GetJumpPadInfo'/>
+<use f='codebrowser/code/botlib/be_aas_reach.c' l='2863' u='c' c='AAS_Reachability_Teleport'/>
+<use f='codebrowser/code/botlib/be_aas_reach.c' l='2980' u='c' c='AAS_Reachability_Elevator'/>
+<use f='codebrowser/code/botlib/be_aas_reach.c' l='2983' u='c' c='AAS_Reachability_Elevator'/>
+<use f='codebrowser/code/botlib/be_aas_reach.c' l='2986' u='c' c='AAS_Reachability_Elevator'/>
+<use f='codebrowser/code/botlib/be_aas_reach.c' l='3292' u='c' c='AAS_Reachability_FuncBobbing'/>
+<use f='codebrowser/code/botlib/be_ai_goal.c' l='508' u='c' c='BotInitInfoEntities'/>
+<use f='codebrowser/code/botlib/be_ai_goal.c' l='509' u='c' c='BotInitInfoEntities'/>
+<use f='codebrowser/code/botlib/be_ai_goal.c' l='510' u='c' c='BotInitInfoEntities'/>
+<use f='codebrowser/code/botlib/be_ai_goal.c' l='511' u='c' c='BotInitInfoEntities'/>
+<use f='codebrowser/code/botlib/be_ai_goal.c' l='634' u='c' c='BotInitLevelItems'/>
+<use f='codebrowser/code/botlib/be_interface.c' l='704' u='r' c='Init_AAS_Export'/>

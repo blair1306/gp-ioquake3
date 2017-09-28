@@ -1,0 +1,58 @@
+<dec f='codebrowser/code/cgame/cg_local.h' l='128' type='int'/>
+<offset>96</offset>
+<doc f='codebrowser/code/cgame/cg_local.h' l='128'>// time when -&gt;frame will be exactly on</doc>
+<dec f='codebrowser/code/ui/ui_shared.h' l='373' type='int'/>
+<offset>3264</offset>
+<use f='codebrowser/code/cgame/cg_players.c' l='1123' u='r' c='CG_SetLerpFrameAnimation'/>
+<use f='codebrowser/code/cgame/cg_players.c' l='1155' u='r' c='CG_RunLerpFrame'/>
+<use f='codebrowser/code/cgame/cg_players.c' l='1157' u='r' c='CG_RunLerpFrame'/>
+<use f='codebrowser/code/cgame/cg_players.c' l='1165' u='w' c='CG_RunLerpFrame'/>
+<use f='codebrowser/code/cgame/cg_players.c' l='1167' u='w' c='CG_RunLerpFrame'/>
+<use f='codebrowser/code/cgame/cg_players.c' l='1169' u='r' c='CG_RunLerpFrame'/>
+<use f='codebrowser/code/cgame/cg_players.c' l='1185' u='w' c='CG_RunLerpFrame'/>
+<use f='codebrowser/code/cgame/cg_players.c' l='1197' u='r' c='CG_RunLerpFrame'/>
+<use f='codebrowser/code/cgame/cg_players.c' l='1198' u='w' c='CG_RunLerpFrame'/>
+<use f='codebrowser/code/cgame/cg_players.c' l='1205' u='r' c='CG_RunLerpFrame'/>
+<use f='codebrowser/code/cgame/cg_players.c' l='1206' u='w' c='CG_RunLerpFrame'/>
+<use f='codebrowser/code/cgame/cg_players.c' l='1213' u='r' c='CG_RunLerpFrame'/>
+<use f='codebrowser/code/cgame/cg_players.c' l='1216' u='r' c='CG_RunLerpFrame'/>
+<use f='codebrowser/code/cgame/cg_players.c' l='1227' u='w' c='CG_ClearLerpFrame'/>
+<dec f='codebrowser/code/q3_ui/ui_local.h' l='460' type='int'/>
+<offset>96</offset>
+<doc f='codebrowser/code/q3_ui/ui_local.h' l='460'>// time when -&gt;frame will be exactly on</doc>
+<use f='codebrowser/code/q3_ui/ui_players.c' l='356' u='r' c='UI_SetLerpFrameAnimation'/>
+<use f='codebrowser/code/q3_ui/ui_players.c' l='376' u='r' c='UI_RunLerpFrame'/>
+<use f='codebrowser/code/q3_ui/ui_players.c' l='378' u='r' c='UI_RunLerpFrame'/>
+<use f='codebrowser/code/q3_ui/ui_players.c' l='383' u='w' c='UI_RunLerpFrame'/>
+<use f='codebrowser/code/q3_ui/ui_players.c' l='385' u='w' c='UI_RunLerpFrame'/>
+<use f='codebrowser/code/q3_ui/ui_players.c' l='387' u='r' c='UI_RunLerpFrame'/>
+<use f='codebrowser/code/q3_ui/ui_players.c' l='397' u='w' c='UI_RunLerpFrame'/>
+<use f='codebrowser/code/q3_ui/ui_players.c' l='401' u='r' c='UI_RunLerpFrame'/>
+<use f='codebrowser/code/q3_ui/ui_players.c' l='402' u='w' c='UI_RunLerpFrame'/>
+<use f='codebrowser/code/q3_ui/ui_players.c' l='406' u='r' c='UI_RunLerpFrame'/>
+<use f='codebrowser/code/q3_ui/ui_players.c' l='407' u='w' c='UI_RunLerpFrame'/>
+<use f='codebrowser/code/q3_ui/ui_players.c' l='414' u='r' c='UI_RunLerpFrame'/>
+<use f='codebrowser/code/q3_ui/ui_players.c' l='417' u='r' c='UI_RunLerpFrame'/>
+<dec f='codebrowser/code/ui/ui_local.h' l='507' type='int'/>
+<use f='codebrowser/code/ui/ui_atoms.c' l='344' u='w' c='UI_ConsoleCommand'/>
+<offset>96</offset>
+<doc f='codebrowser/code/ui/ui_local.h' l='507'>// time when -&gt;frame will be exactly on</doc>
+<use f='codebrowser/code/ui/ui_main.c' l='600' u='w' c='_UI_Refresh'/>
+<use f='codebrowser/code/ui/ui_main.c' l='603' u='r' c='_UI_Refresh'/>
+<use f='codebrowser/code/ui/ui_players.c' l='357' u='r' c='UI_SetLerpFrameAnimation'/>
+<use f='codebrowser/code/ui/ui_players.c' l='377' u='r' c='UI_RunLerpFrame'/>
+<use f='codebrowser/code/ui/ui_players.c' l='379' u='r' c='UI_RunLerpFrame'/>
+<use f='codebrowser/code/ui/ui_players.c' l='384' u='w' c='UI_RunLerpFrame'/>
+<use f='codebrowser/code/ui/ui_players.c' l='386' u='w' c='UI_RunLerpFrame'/>
+<use f='codebrowser/code/ui/ui_players.c' l='388' u='r' c='UI_RunLerpFrame'/>
+<use f='codebrowser/code/ui/ui_players.c' l='398' u='w' c='UI_RunLerpFrame'/>
+<use f='codebrowser/code/ui/ui_players.c' l='402' u='r' c='UI_RunLerpFrame'/>
+<use f='codebrowser/code/ui/ui_players.c' l='403' u='w' c='UI_RunLerpFrame'/>
+<use f='codebrowser/code/ui/ui_players.c' l='407' u='r' c='UI_RunLerpFrame'/>
+<use f='codebrowser/code/ui/ui_players.c' l='408' u='w' c='UI_RunLerpFrame'/>
+<use f='codebrowser/code/ui/ui_players.c' l='415' u='r' c='UI_RunLerpFrame'/>
+<use f='codebrowser/code/ui/ui_players.c' l='418' u='r' c='UI_RunLerpFrame'/>
+<use f='codebrowser/code/ui/ui_players.c' l='432' u='r' c='UI_PlayerAnimation'/>
+<use f='codebrowser/code/ui/ui_players.c' l='449' u='r' c='UI_PlayerAnimation'/>
+<use f='codebrowser/code/ui/ui_players.c' l='500' u='r' c='UI_SwingAngles'/>
+<use f='codebrowser/code/ui/ui_players.c' l='507' u='r' c='UI_SwingAngles'/>

@@ -1,0 +1,54 @@
+<dec f='codebrowser/code/renderercommon/tr_common.h' l='123' type='image_t * R_CreateImage(const char * name, byte * pic, int width, int height, imgType_t type, imgFlags_t flags, int internalFormat)'/>
+<use f='codebrowser/code/renderergl1/tr_bsp.c' l='205' u='c' c='R_LoadLightmaps'/>
+<def f='codebrowser/code/renderergl1/tr_image.c' l='845' ll='916' type='image_t * R_CreateImage(const char * name, byte * pic, int width, int height, imgType_t type, imgFlags_t flags, int internalFormat)'/>
+<use f='codebrowser/code/renderergl1/tr_image.c' l='1067' u='c' c='R_FindImageFile'/>
+<use f='codebrowser/code/renderergl1/tr_image.c' l='1103' u='c' c='R_CreateDlightImage'/>
+<use f='codebrowser/code/renderergl1/tr_image.c' l='1186' u='c' c='R_CreateFogImage'/>
+<use f='codebrowser/code/renderergl1/tr_image.c' l='1223' u='c' c='R_CreateDefaultImage'/>
+<use f='codebrowser/code/renderergl1/tr_image.c' l='1239' u='c' c='R_CreateBuiltinImages'/>
+<use f='codebrowser/code/renderergl1/tr_image.c' l='1252' u='c' c='R_CreateBuiltinImages'/>
+<use f='codebrowser/code/renderergl1/tr_image.c' l='1257' u='c' c='R_CreateBuiltinImages'/>
+<doc f='codebrowser/code/renderergl1/tr_image.c' l='838'>/*
+================
+R_CreateImage
+
+This is the only way any image_t are created
+================
+*/</doc>
+<use f='codebrowser/code/renderergl2/tr_bsp.c' l='296' u='c' c='R_LoadLightmaps'/>
+<use f='codebrowser/code/renderergl2/tr_bsp.c' l='299' u='c' c='R_LoadLightmaps'/>
+<use f='codebrowser/code/renderergl2/tr_bsp.c' l='459' u='c' c='R_LoadLightmaps'/>
+<use f='codebrowser/code/renderergl2/tr_bsp.c' l='488' u='c' c='R_LoadLightmaps'/>
+<use f='codebrowser/code/renderergl2/tr_bsp.c' l='2650' u='c' c='R_RenderMissingCubemaps'/>
+<def f='codebrowser/code/renderergl2/tr_image.c' l='2249' ll='2252' type='image_t * R_CreateImage(const char * name, byte * pic, int width, int height, imgType_t type, imgFlags_t flags, int internalFormat)'/>
+<use f='codebrowser/code/renderergl2/tr_image.c' l='2533' u='c' c='R_FindImageFile'/>
+<use f='codebrowser/code/renderergl2/tr_image.c' l='2588' u='c' c='R_CreateDlightImage'/>
+<use f='codebrowser/code/renderergl2/tr_image.c' l='2671' u='c' c='R_CreateFogImage'/>
+<use f='codebrowser/code/renderergl2/tr_image.c' l='2708' u='c' c='R_CreateDefaultImage'/>
+<use f='codebrowser/code/renderergl2/tr_image.c' l='2724' u='c' c='R_CreateBuiltinImages'/>
+<use f='codebrowser/code/renderergl2/tr_image.c' l='2730' u='c' c='R_CreateBuiltinImages'/>
+<use f='codebrowser/code/renderergl2/tr_image.c' l='2745' u='c' c='R_CreateBuiltinImages'/>
+<use f='codebrowser/code/renderergl2/tr_image.c' l='2750' u='c' c='R_CreateBuiltinImages'/>
+<use f='codebrowser/code/renderergl2/tr_image.c' l='2769' u='c' c='R_CreateBuiltinImages'/>
+<use f='codebrowser/code/renderergl2/tr_image.c' l='2772' u='c' c='R_CreateBuiltinImages'/>
+<use f='codebrowser/code/renderergl2/tr_image.c' l='2775' u='c' c='R_CreateBuiltinImages'/>
+<use f='codebrowser/code/renderergl2/tr_image.c' l='2778' u='c' c='R_CreateBuiltinImages'/>
+<use f='codebrowser/code/renderergl2/tr_image.c' l='2780' u='c' c='R_CreateBuiltinImages'/>
+<use f='codebrowser/code/renderergl2/tr_image.c' l='2781' u='c' c='R_CreateBuiltinImages'/>
+<use f='codebrowser/code/renderergl2/tr_image.c' l='2792' u='c' c='R_CreateBuiltinImages'/>
+<use f='codebrowser/code/renderergl2/tr_image.c' l='2793' u='c' c='R_CreateBuiltinImages'/>
+<use f='codebrowser/code/renderergl2/tr_image.c' l='2794' u='c' c='R_CreateBuiltinImages'/>
+<use f='codebrowser/code/renderergl2/tr_image.c' l='2799' u='c' c='R_CreateBuiltinImages'/>
+<use f='codebrowser/code/renderergl2/tr_image.c' l='2803' u='c' c='R_CreateBuiltinImages'/>
+<use f='codebrowser/code/renderergl2/tr_image.c' l='2808' u='c' c='R_CreateBuiltinImages'/>
+<use f='codebrowser/code/renderergl2/tr_image.c' l='2813' u='c' c='R_CreateBuiltinImages'/>
+<use f='codebrowser/code/renderergl2/tr_image.c' l='2822' u='c' c='R_CreateBuiltinImages'/>
+<use f='codebrowser/code/renderergl2/tr_image.c' l='2827' u='c' c='R_CreateBuiltinImages'/>
+<use f='codebrowser/code/renderergl2/tr_image.c' l='2832' u='c' c='R_CreateBuiltinImages'/>
+<doc f='codebrowser/code/renderergl2/tr_image.c' l='2242'>/*
+================
+R_CreateImage
+
+Wrapper for R_CreateImage2(), for the old parameters.
+================
+*/</doc>

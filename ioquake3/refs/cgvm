@@ -1,0 +1,24 @@
+<dec f='codebrowser/code/client/client.h' l='363' type='vm_t *'/>
+<doc f='codebrowser/code/client/client.h' l='361'>//=============================================================================</doc>
+<doc f='codebrowser/code/client/client.h' l='363'>// interface to cgame dll or vm</doc>
+<use f='codebrowser/code/client/cl_cgame.c' l='389' u='r' c='CL_ShutdownCGame'/>
+<use f='codebrowser/code/client/cl_cgame.c' l='392' u='r' c='CL_ShutdownCGame'/>
+<use f='codebrowser/code/client/cl_cgame.c' l='393' u='r' c='CL_ShutdownCGame'/>
+<use f='codebrowser/code/client/cl_cgame.c' l='394' u='w' c='CL_ShutdownCGame'/>
+<use f='codebrowser/code/client/cl_cgame.c' l='736' u='w' c='CL_InitCGame'/>
+<use f='codebrowser/code/client/cl_cgame.c' l='737' u='r' c='CL_InitCGame'/>
+<use f='codebrowser/code/client/cl_cgame.c' l='745' u='r' c='CL_InitCGame'/>
+<use f='codebrowser/code/client/cl_cgame.c' l='781' u='r' c='CL_GameCommand'/>
+<use f='codebrowser/code/client/cl_cgame.c' l='785' u='r' c='CL_GameCommand'/>
+<use f='codebrowser/code/client/cl_cgame.c' l='796' u='r' c='CL_CGameRendering'/>
+<use f='codebrowser/code/client/cl_console.c' l='129' u='r' c='Con_MessageMode3_f'/>
+<use f='codebrowser/code/client/cl_console.c' l='146' u='r' c='Con_MessageMode4_f'/>
+<use f='codebrowser/code/client/cl_input.c' l='366' u='r' c='CL_MouseEvent'/>
+<use f='codebrowser/code/client/cl_keys.c' l='1285' u='r' c='CL_KeyDownEvent'/>
+<use f='codebrowser/code/client/cl_keys.c' l='1316' u='r' c='CL_KeyDownEvent'/>
+<use f='codebrowser/code/client/cl_keys.c' l='1317' u='r' c='CL_KeyDownEvent'/>
+<use f='codebrowser/code/client/cl_keys.c' l='1357' u='r' c='CL_KeyUpEvent'/>
+<use f='codebrowser/code/client/cl_keys.c' l='1358' u='r' c='CL_KeyUpEvent'/>
+<def f='codebrowser/code/client/cl_main.c' l='128' type='vm_t *'/>
+<use f='codebrowser/code/client/cl_main.c' l='362' u='r' c='CL_VoipParseTargets'/>
+<use f='codebrowser/code/client/cl_main.c' l='367' u='r' c='CL_VoipParseTargets'/>

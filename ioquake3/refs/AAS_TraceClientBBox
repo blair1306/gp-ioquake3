@@ -1,0 +1,35 @@
+<dec f='codebrowser/code/botlib/be_aas_sample.h' l='56' type='aas_trace_t AAS_TraceClientBBox(vec_t * start, vec_t * end, int presencetype, int passent)'/>
+<dec f='codebrowser/code/botlib/be_aas_sample.h' l='56' type='aas_trace_t AAS_TraceClientBBox(vec_t * start, vec_t * end, int presencetype, int passent)'/>
+<doc f='codebrowser/code/botlib/be_aas_sample.h' l='55'>//returns the result of the trace of a client bbox</doc>
+<use f='codebrowser/code/botlib/be_aas_move.c' l='194' u='c' c='AAS_OnGround'/>
+<use f='codebrowser/code/botlib/be_aas_move.c' l='642' u='c' c='AAS_ClientMovementPrediction'/>
+<use f='codebrowser/code/botlib/be_aas_move.c' l='779' u='c' c='AAS_ClientMovementPrediction'/>
+<use f='codebrowser/code/botlib/be_aas_move.c' l='941' u='c' c='AAS_ClientMovementPrediction'/>
+<use f='codebrowser/code/botlib/be_aas_reach.c' l='239' u='c' c='AAS_GetJumpPadInfo'/>
+<use f='codebrowser/code/botlib/be_aas_reach.c' l='401' u='c' c='AAS_BestReachableArea'/>
+<use f='codebrowser/code/botlib/be_aas_reach.c' l='1546' u='c' c='AAS_Reachability_Step_Barrier_WaterJump_WalkOffLedge'/>
+<use f='codebrowser/code/botlib/be_aas_reach.c' l='2222' u='c' c='AAS_Reachability_Jump'/>
+<use f='codebrowser/code/botlib/be_aas_reach.c' l='2245' u='c' c='AAS_Reachability_Jump'/>
+<use f='codebrowser/code/botlib/be_aas_reach.c' l='2580' u='c' c='AAS_Reachability_Ladder'/>
+<use f='codebrowser/code/botlib/be_aas_reach.c' l='2845' u='c' c='AAS_Reachability_Teleport'/>
+<use f='codebrowser/code/botlib/be_aas_reach.c' l='3088' u='c' c='AAS_Reachability_Elevator'/>
+<use f='codebrowser/code/botlib/be_aas_reach.c' l='3814' u='c' c='AAS_Reachability_Grapple'/>
+<use f='codebrowser/code/botlib/be_aas_reach.c' l='3867' u='c' c='AAS_Reachability_Grapple'/>
+<use f='codebrowser/code/botlib/be_aas_reach.c' l='3874' u='c' c='AAS_Reachability_Grapple'/>
+<use f='codebrowser/code/botlib/be_aas_reach.c' l='4029' u='c' c='AAS_Reachability_WeaponJump'/>
+<use f='codebrowser/code/botlib/be_aas_reach.c' l='4225' u='c' c='AAS_Reachability_WalkOffLedge'/>
+<use f='codebrowser/code/botlib/be_aas_route.c' l='2037' u='c' c='AAS_RandomGoalArea'/>
+<def f='codebrowser/code/botlib/be_aas_sample.c' l='448' ll='717' type='aas_trace_t AAS_TraceClientBBox(vec_t * start, vec_t * end, int presencetype, int passent)'/>
+<doc f='codebrowser/code/botlib/be_aas_sample.c' l='441'>//===========================================================================
+// recursive subdivision of the line by the BSP tree.
+//
+// Parameter:				-
+// Returns:					-
+// Changes Globals:		-
+//===========================================================================</doc>
+<use f='codebrowser/code/botlib/be_ai_move.c' l='347' u='c' c='BotReachabilityArea'/>
+<use f='codebrowser/code/botlib/be_ai_move.c' l='1010' u='c' c='BotGapDistance'/>
+<use f='codebrowser/code/botlib/be_ai_move.c' l='1021' u='c' c='BotGapDistance'/>
+<use f='codebrowser/code/botlib/be_ai_move.c' l='1054' u='c' c='BotCheckBarrierJump'/>
+<use f='codebrowser/code/botlib/be_ai_move.c' l='1068' u='c' c='BotCheckBarrierJump'/>
+<use f='codebrowser/code/botlib/be_ai_move.c' l='1076' u='c' c='BotCheckBarrierJump'/>

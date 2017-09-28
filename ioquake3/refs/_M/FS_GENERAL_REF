@@ -1,0 +1,17 @@
+<dec f='codebrowser/code/qcommon/qcommon.h' l='593'/>
+<doc f='codebrowser/code/qcommon/qcommon.h' l='580'>/*
+==============================================================
+
+FILESYSTEM
+
+No stdio calls should be used by any part of the game, because
+we need to deal with all sorts of directory and seperator char
+issues.
+==============================================================
+*/
+
+// referenced flags
+// these are in loop specific order so don&apos;t change the order</doc>
+<use f='codebrowser/code/qcommon/files.c' l='1261' u='c'/>
+<use f='codebrowser/code/qcommon/files.c' l='1273' u='c'/>
+<use f='codebrowser/code/qcommon/files.c' l='3738' u='c'/>

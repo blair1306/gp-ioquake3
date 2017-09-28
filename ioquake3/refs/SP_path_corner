@@ -1,0 +1,12 @@
+<def f='codebrowser/code/game/g_mover.c' l='1404' ll='1411' type='void SP_path_corner(gentity_t * self)'/>
+<doc f='codebrowser/code/game/g_mover.c' l='1398'>/*QUAKED path_corner (.5 .3 0) (-8 -8 -8) (8 8 8)
+Train path corners.
+Target: next path corner and other targets to fire
+&quot;speed&quot; speed to move to the next corner
+&quot;wait&quot; seconds to wait before behining move to next corner
+*/</doc>
+<dec f='codebrowser/code/game/g_spawn.c' l='160' type='void SP_path_corner(gentity_t * self)'/>
+<use f='codebrowser/code/game/g_spawn.c' l='233'/>
+<use f='codebrowser/code/game/g_spawn.c' l='233'/>
+<use f='codebrowser/code/game/g_spawn.c' l='233'/>
+<use f='codebrowser/code/game/g_spawn.c' l='233'/>

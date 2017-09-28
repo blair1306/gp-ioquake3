@@ -1,0 +1,120 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>config.h source code [codebrowser/code/tools/lcc/src/config.h] - Woboq Code Browser</title>
+<link rel="stylesheet" href="../../../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'codebrowser/code/tools/lcc/src/config.h'; var root_path = '../../../../..'; var data_path = '../../../../../../data';</script>
+<script src='../../../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../../../..'>codebrowser</a>/<a href='../../..'>code</a>/<a href='../..'>tools</a>/<a href='..'>lcc</a>/<a href='./'>src</a>/<a href='config.h.html'>config.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><b>typedef</b> <b>struct</b> {</td></tr>
+<tr><th id="2">2</th><td>	<em>unsigned</em> <em>char</em> <dfn class="decl" id="(anonymous)::max_unaligned_load" title='(anonymous struct)::max_unaligned_load' data-ref="(anonymous)::max_unaligned_load">max_unaligned_load</dfn>;</td></tr>
+<tr><th id="3">3</th><td>	<a class="typedef" href="c.h.html#Symbol" title='Symbol' data-type='struct symbol *' data-ref="Symbol">Symbol</a> (*<dfn class="decl" id="(anonymous)::rmap" title='(anonymous struct)::rmap' data-ref="(anonymous)::rmap">rmap</dfn>)(<em>int</em>);</td></tr>
+<tr><th id="4">4</th><td></td></tr>
+<tr><th id="5">5</th><td>	<em>void</em> (*<dfn class="decl" id="(anonymous)::blkfetch" title='(anonymous struct)::blkfetch' data-ref="(anonymous)::blkfetch">blkfetch</dfn>)(<em>int</em> <dfn class="local col6 decl" id="516size" title='size' data-type='int' data-ref="516size">size</dfn>, <em>int</em> <dfn class="local col7 decl" id="517off" title='off' data-type='int' data-ref="517off">off</dfn>, <em>int</em> <dfn class="local col8 decl" id="518reg" title='reg' data-type='int' data-ref="518reg">reg</dfn>, <em>int</em> <dfn class="local col9 decl" id="519tmp" title='tmp' data-type='int' data-ref="519tmp">tmp</dfn>);</td></tr>
+<tr><th id="6">6</th><td>	<em>void</em> (*<dfn class="decl" id="(anonymous)::blkstore" title='(anonymous struct)::blkstore' data-ref="(anonymous)::blkstore">blkstore</dfn>)(<em>int</em> <dfn class="local col0 decl" id="520size" title='size' data-type='int' data-ref="520size">size</dfn>, <em>int</em> <dfn class="local col1 decl" id="521off" title='off' data-type='int' data-ref="521off">off</dfn>, <em>int</em> <dfn class="local col2 decl" id="522reg" title='reg' data-type='int' data-ref="522reg">reg</dfn>, <em>int</em> <dfn class="local col3 decl" id="523tmp" title='tmp' data-type='int' data-ref="523tmp">tmp</dfn>);</td></tr>
+<tr><th id="7">7</th><td>	<em>void</em> (*<dfn class="decl" id="(anonymous)::blkloop" title='(anonymous struct)::blkloop' data-ref="(anonymous)::blkloop">blkloop</dfn>)(<em>int</em> <dfn class="local col4 decl" id="524dreg" title='dreg' data-type='int' data-ref="524dreg">dreg</dfn>, <em>int</em> <dfn class="local col5 decl" id="525doff" title='doff' data-type='int' data-ref="525doff">doff</dfn>,</td></tr>
+<tr><th id="8">8</th><td>	                 <em>int</em> <dfn class="local col6 decl" id="526sreg" title='sreg' data-type='int' data-ref="526sreg">sreg</dfn>, <em>int</em> <dfn class="local col7 decl" id="527soff" title='soff' data-type='int' data-ref="527soff">soff</dfn>,</td></tr>
+<tr><th id="9">9</th><td>	                 <em>int</em> <dfn class="local col8 decl" id="528size" title='size' data-type='int' data-ref="528size">size</dfn>, <em>int</em> <dfn class="local col9 decl" id="529tmps" title='tmps' data-type='int *' data-ref="529tmps">tmps</dfn>[]);</td></tr>
+<tr><th id="10">10</th><td>	<em>void</em> (*<dfn class="decl" id="(anonymous)::_label" title='(anonymous struct)::_label' data-ref="(anonymous)::_label">_label</dfn>)(<a class="typedef" href="c.h.html#Node" title='Node' data-type='struct node *' data-ref="Node">Node</a>);</td></tr>
+<tr><th id="11">11</th><td>	<em>int</em> (*<dfn class="decl" id="(anonymous)::_rule" title='(anonymous struct)::_rule' data-ref="(anonymous)::_rule">_rule</dfn>)(<em>void</em>*, <em>int</em>);</td></tr>
+<tr><th id="12">12</th><td>	<em>short</em> **<dfn class="decl" id="(anonymous)::_nts" title='(anonymous struct)::_nts' data-ref="(anonymous)::_nts">_nts</dfn>;</td></tr>
+<tr><th id="13">13</th><td>	<em>void</em> (*<dfn class="decl" id="(anonymous)::_kids" title='(anonymous struct)::_kids' data-ref="(anonymous)::_kids">_kids</dfn>)(<a class="typedef" href="c.h.html#Node" title='Node' data-type='struct node *' data-ref="Node">Node</a>, <em>int</em>, <a class="typedef" href="c.h.html#Node" title='Node' data-type='struct node *' data-ref="Node">Node</a>*);</td></tr>
+<tr><th id="14">14</th><td>	<em>char</em> **<dfn class="decl" id="(anonymous)::_string" title='(anonymous struct)::_string' data-ref="(anonymous)::_string">_string</dfn>;</td></tr>
+<tr><th id="15">15</th><td>	<em>char</em> **<dfn class="decl" id="(anonymous)::_templates" title='(anonymous struct)::_templates' data-ref="(anonymous)::_templates">_templates</dfn>;</td></tr>
+<tr><th id="16">16</th><td>	<em>char</em> *<dfn class="decl" id="(anonymous)::_isinstruction" title='(anonymous struct)::_isinstruction' data-ref="(anonymous)::_isinstruction">_isinstruction</dfn>;</td></tr>
+<tr><th id="17">17</th><td>	<em>char</em> **<dfn class="decl" id="(anonymous)::_ntname" title='(anonymous struct)::_ntname' data-ref="(anonymous)::_ntname">_ntname</dfn>;</td></tr>
+<tr><th id="18">18</th><td>	<em>void</em> (*<dfn class="decl" id="(anonymous)::emit2" title='(anonymous struct)::emit2' data-ref="(anonymous)::emit2">emit2</dfn>)(<a class="typedef" href="c.h.html#Node" title='Node' data-type='struct node *' data-ref="Node">Node</a>);</td></tr>
+<tr><th id="19">19</th><td>	<em>void</em> (*<dfn class="decl" id="(anonymous)::doarg" title='(anonymous struct)::doarg' data-ref="(anonymous)::doarg">doarg</dfn>)(<a class="typedef" href="c.h.html#Node" title='Node' data-type='struct node *' data-ref="Node">Node</a>);</td></tr>
+<tr><th id="20">20</th><td>	<em>void</em> (*<dfn class="decl" id="(anonymous)::target" title='(anonymous struct)::target' data-ref="(anonymous)::target">target</dfn>)(<a class="typedef" href="c.h.html#Node" title='Node' data-type='struct node *' data-ref="Node">Node</a>);</td></tr>
+<tr><th id="21">21</th><td>	<em>void</em> (*<dfn class="decl" id="(anonymous)::clobber" title='(anonymous struct)::clobber' data-ref="(anonymous)::clobber">clobber</dfn>)(<a class="typedef" href="c.h.html#Node" title='Node' data-type='struct node *' data-ref="Node">Node</a>);</td></tr>
+<tr><th id="22">22</th><td>} <dfn class="typedef" id="Xinterface" title='Xinterface' data-type='struct Xinterface' data-ref="Xinterface">Xinterface</dfn>;</td></tr>
+<tr><th id="23">23</th><td><b>extern</b> <em>int</em>     <dfn class="decl" id="askregvar" title='askregvar' data-ref="askregvar">askregvar</dfn>(<a class="typedef" href="c.h.html#Symbol" title='Symbol' data-type='struct symbol *' data-ref="Symbol">Symbol</a>, <a class="typedef" href="c.h.html#Symbol" title='Symbol' data-type='struct symbol *' data-ref="Symbol">Symbol</a>);</td></tr>
+<tr><th id="24">24</th><td><b>extern</b> <em>void</em>    <dfn class="decl" id="blkcopy" title='blkcopy' data-ref="blkcopy">blkcopy</dfn>(<em>int</em>, <em>int</em>, <em>int</em>, <em>int</em>, <em>int</em>, <em>int</em>[]);</td></tr>
+<tr><th id="25">25</th><td><b>extern</b> <em>int</em>     <dfn class="decl" id="getregnum" title='getregnum' data-ref="getregnum">getregnum</dfn>(<a class="typedef" href="c.h.html#Node" title='Node' data-type='struct node *' data-ref="Node">Node</a>);</td></tr>
+<tr><th id="26">26</th><td><b>extern</b> <em>int</em>     <dfn class="decl" id="mayrecalc" title='mayrecalc' data-ref="mayrecalc">mayrecalc</dfn>(<a class="typedef" href="c.h.html#Node" title='Node' data-type='struct node *' data-ref="Node">Node</a>);</td></tr>
+<tr><th id="27">27</th><td><b>extern</b> <em>int</em>     <dfn class="decl" id="mkactual" title='mkactual' data-ref="mkactual">mkactual</dfn>(<em>int</em>, <em>int</em>);</td></tr>
+<tr><th id="28">28</th><td><b>extern</b> <em>void</em>    <dfn class="decl" id="mkauto" title='mkauto' data-ref="mkauto">mkauto</dfn>(<a class="typedef" href="c.h.html#Symbol" title='Symbol' data-type='struct symbol *' data-ref="Symbol">Symbol</a>);</td></tr>
+<tr><th id="29">29</th><td><b>extern</b> <a class="typedef" href="c.h.html#Symbol" title='Symbol' data-type='struct symbol *' data-ref="Symbol">Symbol</a>  <dfn class="decl" id="mkreg" title='mkreg' data-ref="mkreg">mkreg</dfn>(<em>char</em> *, <em>int</em>, <em>int</em>, <em>int</em>);</td></tr>
+<tr><th id="30">30</th><td><b>extern</b> <a class="typedef" href="c.h.html#Symbol" title='Symbol' data-type='struct symbol *' data-ref="Symbol">Symbol</a>  <dfn class="decl" id="mkwildcard" title='mkwildcard' data-ref="mkwildcard">mkwildcard</dfn>(<a class="typedef" href="c.h.html#Symbol" title='Symbol' data-type='struct symbol *' data-ref="Symbol">Symbol</a> *);</td></tr>
+<tr><th id="31">31</th><td><b>extern</b> <em>int</em>     <dfn class="decl" id="move" title='move' data-ref="move">move</dfn>(<a class="typedef" href="c.h.html#Node" title='Node' data-type='struct node *' data-ref="Node">Node</a>);</td></tr>
+<tr><th id="32">32</th><td><b>extern</b> <em>int</em>     <dfn class="decl" id="notarget" title='notarget' data-ref="notarget">notarget</dfn>(<a class="typedef" href="c.h.html#Node" title='Node' data-type='struct node *' data-ref="Node">Node</a>);</td></tr>
+<tr><th id="33">33</th><td><b>extern</b> <em>void</em>    <dfn class="decl" id="parseflags" title='parseflags' data-ref="parseflags">parseflags</dfn>(<em>int</em>, <em>char</em> **);</td></tr>
+<tr><th id="34">34</th><td><b>extern</b> <em>int</em>     <dfn class="decl" id="range" title='range' data-ref="range">range</dfn>(<a class="typedef" href="c.h.html#Node" title='Node' data-type='struct node *' data-ref="Node">Node</a>, <em>int</em>, <em>int</em>);</td></tr>
+<tr><th id="35">35</th><td><b>extern</b> <em>unsigned</em> <dfn class="decl" id="regloc" title='regloc' data-ref="regloc">regloc</dfn>(<a class="typedef" href="c.h.html#Symbol" title='Symbol' data-type='struct symbol *' data-ref="Symbol">Symbol</a>);  <i>/* omit */</i></td></tr>
+<tr><th id="36">36</th><td><b>extern</b> <em>void</em>    <dfn class="decl" id="rtarget" title='rtarget' data-ref="rtarget">rtarget</dfn>(<a class="typedef" href="c.h.html#Node" title='Node' data-type='struct node *' data-ref="Node">Node</a>, <em>int</em>, <a class="typedef" href="c.h.html#Symbol" title='Symbol' data-type='struct symbol *' data-ref="Symbol">Symbol</a>);</td></tr>
+<tr><th id="37">37</th><td><b>extern</b> <em>void</em>    <dfn class="decl" id="setreg" title='setreg' data-ref="setreg">setreg</dfn>(<a class="typedef" href="c.h.html#Node" title='Node' data-type='struct node *' data-ref="Node">Node</a>, <a class="typedef" href="c.h.html#Symbol" title='Symbol' data-type='struct symbol *' data-ref="Symbol">Symbol</a>);</td></tr>
+<tr><th id="38">38</th><td><b>extern</b> <em>void</em>    <dfn class="decl" id="spill" title='spill' data-ref="spill">spill</dfn>(<em>unsigned</em>, <em>int</em>, <a class="typedef" href="c.h.html#Node" title='Node' data-type='struct node *' data-ref="Node">Node</a>);</td></tr>
+<tr><th id="39">39</th><td><b>extern</b> <em>int</em>     <dfn class="decl" id="widens" title='widens' data-ref="widens">widens</dfn>(<a class="typedef" href="c.h.html#Node" title='Node' data-type='struct node *' data-ref="Node">Node</a>);</td></tr>
+<tr><th id="40">40</th><td></td></tr>
+<tr><th id="41">41</th><td><b>extern</b> <em>int</em>      <dfn class="decl" id="argoffset" title='argoffset' data-ref="argoffset">argoffset</dfn>, <dfn class="decl" id="maxargoffset" title='maxargoffset' data-ref="maxargoffset">maxargoffset</dfn>;</td></tr>
+<tr><th id="42">42</th><td><b>extern</b> <em>int</em>      <dfn class="decl" id="bflag" title='bflag' data-ref="bflag">bflag</dfn>, <dfn class="decl" id="dflag" title='dflag' data-ref="dflag">dflag</dfn>;</td></tr>
+<tr><th id="43">43</th><td><b>extern</b> <em>int</em>      <dfn class="decl" id="dalign" title='dalign' data-ref="dalign">dalign</dfn>, <dfn class="decl" id="salign" title='salign' data-ref="salign">salign</dfn>;</td></tr>
+<tr><th id="44">44</th><td><b>extern</b> <em>int</em>      <dfn class="decl" id="framesize" title='framesize' data-ref="framesize">framesize</dfn>;</td></tr>
+<tr><th id="45">45</th><td><b>extern</b> <em>unsigned</em> <dfn class="decl" id="freemask" title='freemask' data-ref="freemask">freemask</dfn>[], <dfn class="decl" id="usedmask" title='usedmask' data-ref="usedmask">usedmask</dfn>[];</td></tr>
+<tr><th id="46">46</th><td><b>extern</b> <em>int</em>      <dfn class="decl" id="offset" title='offset' data-ref="offset">offset</dfn>, <dfn class="decl" id="maxoffset" title='maxoffset' data-ref="maxoffset">maxoffset</dfn>;</td></tr>
+<tr><th id="47">47</th><td><b>extern</b> <em>int</em>      <dfn class="decl" id="swap" title='swap' data-ref="swap">swap</dfn>;</td></tr>
+<tr><th id="48">48</th><td><b>extern</b> <em>unsigned</em> <dfn class="decl" id="tmask" title='tmask' data-ref="tmask">tmask</dfn>[], <dfn class="decl" id="vmask" title='vmask' data-ref="vmask">vmask</dfn>[];</td></tr>
+<tr><th id="49">49</th><td><b>typedef</b> <b>struct</b> {</td></tr>
+<tr><th id="50">50</th><td>	<em>unsigned</em> <dfn class="decl" id="(anonymous)::listed" title='(anonymous struct)::listed' data-ref="(anonymous)::listed">listed</dfn>:<var>1</var>;</td></tr>
+<tr><th id="51">51</th><td>	<em>unsigned</em> <dfn class="decl" id="(anonymous)::registered" title='(anonymous struct)::registered' data-ref="(anonymous)::registered">registered</dfn>:<var>1</var>;</td></tr>
+<tr><th id="52">52</th><td>	<em>unsigned</em> <dfn class="decl" id="(anonymous)::emitted" title='(anonymous struct)::emitted' data-ref="(anonymous)::emitted">emitted</dfn>:<var>1</var>;</td></tr>
+<tr><th id="53">53</th><td>	<em>unsigned</em> <dfn class="decl" id="(anonymous)::copy" title='(anonymous struct)::copy' data-ref="(anonymous)::copy">copy</dfn>:<var>1</var>;</td></tr>
+<tr><th id="54">54</th><td>	<em>unsigned</em> <dfn class="decl" id="(anonymous)::equatable" title='(anonymous struct)::equatable' data-ref="(anonymous)::equatable">equatable</dfn>:<var>1</var>;</td></tr>
+<tr><th id="55">55</th><td>	<em>unsigned</em> <dfn class="decl" id="(anonymous)::spills" title='(anonymous struct)::spills' data-ref="(anonymous)::spills">spills</dfn>:<var>1</var>;</td></tr>
+<tr><th id="56">56</th><td>	<em>unsigned</em> <dfn class="decl" id="(anonymous)::mayrecalc" title='(anonymous struct)::mayrecalc' data-ref="(anonymous)::mayrecalc">mayrecalc</dfn>:<var>1</var>;</td></tr>
+<tr><th id="57">57</th><td>	<em>void</em> *<dfn class="decl" id="(anonymous)::state" title='(anonymous struct)::state' data-ref="(anonymous)::state">state</dfn>;</td></tr>
+<tr><th id="58">58</th><td>	<em>short</em> <dfn class="decl" id="(anonymous)::inst" title='(anonymous struct)::inst' data-ref="(anonymous)::inst">inst</dfn>;</td></tr>
+<tr><th id="59">59</th><td>	<a class="typedef" href="c.h.html#Node" title='Node' data-type='struct node *' data-ref="Node">Node</a> <dfn class="decl" id="(anonymous)::kids" title='(anonymous struct)::kids' data-ref="(anonymous)::kids">kids</dfn>[<var>3</var>];</td></tr>
+<tr><th id="60">60</th><td>	<a class="typedef" href="c.h.html#Node" title='Node' data-type='struct node *' data-ref="Node">Node</a> <dfn class="decl" id="(anonymous)::prev" title='(anonymous struct)::prev' data-ref="(anonymous)::prev">prev</dfn>, <dfn class="decl" id="(anonymous)::next" title='(anonymous struct)::next' data-ref="(anonymous)::next">next</dfn>;</td></tr>
+<tr><th id="61">61</th><td>	<a class="typedef" href="c.h.html#Node" title='Node' data-type='struct node *' data-ref="Node">Node</a> <dfn class="decl" id="(anonymous)::prevuse" title='(anonymous struct)::prevuse' data-ref="(anonymous)::prevuse">prevuse</dfn>;</td></tr>
+<tr><th id="62">62</th><td>	<em>short</em> <dfn class="decl" id="(anonymous)::argno" title='(anonymous struct)::argno' data-ref="(anonymous)::argno">argno</dfn>;</td></tr>
+<tr><th id="63">63</th><td>} <dfn class="typedef" id="Xnode" title='Xnode' data-type='struct Xnode' data-ref="Xnode">Xnode</dfn>;</td></tr>
+<tr><th id="64">64</th><td><b>typedef</b> <b>struct</b> {</td></tr>
+<tr><th id="65">65</th><td>	<a class="typedef" href="c.h.html#Symbol" title='Symbol' data-type='struct symbol *' data-ref="Symbol">Symbol</a> <dfn class="local col0 decl" id="530vbl" title='vbl' data-type='Symbol' data-ref="530vbl">vbl</dfn>;</td></tr>
+<tr><th id="66">66</th><td>	<em>short</em> <dfn class="local col1 decl" id="531set" title='set' data-type='short' data-ref="531set">set</dfn>;</td></tr>
+<tr><th id="67">67</th><td>	<em>short</em> <dfn class="local col2 decl" id="532number" title='number' data-type='short' data-ref="532number">number</dfn>;</td></tr>
+<tr><th id="68">68</th><td>	<em>unsigned</em> <dfn class="local col3 decl" id="533mask" title='mask' data-type='unsigned int' data-ref="533mask">mask</dfn>;</td></tr>
+<tr><th id="69">69</th><td>} *<dfn class="typedef" id="Regnode" title='Regnode' data-type='struct (anonymous struct at /home/jon/workspace/ioq3/code/tools/lcc/src/config.h:64:9) *' data-ref="Regnode">Regnode</dfn>;</td></tr>
+<tr><th id="70">70</th><td><b>enum</b> { <dfn class="enum" id="IREG" title='IREG' data-ref="IREG">IREG</dfn>=<var>0</var>, <dfn class="enum" id="FREG" title='FREG' data-ref="FREG">FREG</dfn>=<var>1</var> };</td></tr>
+<tr><th id="71">71</th><td><b>typedef</b> <b>struct</b> {</td></tr>
+<tr><th id="72">72</th><td>	<em>char</em> *<dfn class="decl" id="(anonymous)::name" title='(anonymous struct)::name' data-ref="(anonymous)::name">name</dfn>;</td></tr>
+<tr><th id="73">73</th><td>	<em>unsigned</em> <em>int</em> <dfn class="decl" id="(anonymous)::eaddr" title='(anonymous struct)::eaddr' data-ref="(anonymous)::eaddr">eaddr</dfn>;  <i>/* omit */</i></td></tr>
+<tr><th id="74">74</th><td>	<em>int</em> <dfn class="decl" id="(anonymous)::offset" title='(anonymous struct)::offset' data-ref="(anonymous)::offset">offset</dfn>;</td></tr>
+<tr><th id="75">75</th><td>	<a class="typedef" href="c.h.html#Node" title='Node' data-type='struct node *' data-ref="Node">Node</a> <dfn class="decl" id="(anonymous)::lastuse" title='(anonymous struct)::lastuse' data-ref="(anonymous)::lastuse">lastuse</dfn>;</td></tr>
+<tr><th id="76">76</th><td>	<em>int</em> <dfn class="decl" id="(anonymous)::usecount" title='(anonymous struct)::usecount' data-ref="(anonymous)::usecount">usecount</dfn>;</td></tr>
+<tr><th id="77">77</th><td>	<a class="typedef" href="#Regnode" title='Regnode' data-type='struct (anonymous struct at /home/jon/workspace/ioq3/code/tools/lcc/src/config.h:64:9) *' data-ref="Regnode">Regnode</a> <dfn class="decl" id="(anonymous)::regnode" title='(anonymous struct)::regnode' data-ref="(anonymous)::regnode">regnode</dfn>;</td></tr>
+<tr><th id="78">78</th><td>	<a class="typedef" href="c.h.html#Symbol" title='Symbol' data-type='struct symbol *' data-ref="Symbol">Symbol</a> *<dfn class="decl" id="(anonymous)::wildcard" title='(anonymous struct)::wildcard' data-ref="(anonymous)::wildcard">wildcard</dfn>;</td></tr>
+<tr><th id="79">79</th><td>} <dfn class="typedef" id="Xsymbol" title='Xsymbol' data-type='struct Xsymbol' data-ref="Xsymbol">Xsymbol</dfn>;</td></tr>
+<tr><th id="80">80</th><td><b>enum</b> { <dfn class="enum" id="RX" title='RX' data-ref="RX">RX</dfn>=<var>2</var> };</td></tr>
+<tr><th id="81">81</th><td><b>typedef</b> <b>struct</b> {</td></tr>
+<tr><th id="82">82</th><td>	<em>int</em> <dfn class="decl" id="(anonymous)::offset" title='(anonymous struct)::offset' data-ref="(anonymous)::offset">offset</dfn>;</td></tr>
+<tr><th id="83">83</th><td>	<em>unsigned</em> <dfn class="decl" id="(anonymous)::freemask" title='(anonymous struct)::freemask' data-ref="(anonymous)::freemask">freemask</dfn>[<var>2</var>];</td></tr>
+<tr><th id="84">84</th><td>} <dfn class="typedef" id="Env" title='Env' data-type='struct Env' data-ref="Env">Env</dfn>;</td></tr>
+<tr><th id="85">85</th><td></td></tr>
+<tr><th id="86">86</th><td><u>#define <dfn class="macro" id="_M/LBURG_MAX" data-ref="_M/LBURG_MAX">LBURG_MAX</dfn> SHRT_MAX</u></td></tr>
+<tr><th id="87">87</th><td></td></tr>
+<tr><th id="88">88</th><td><b>enum</b> { <dfn class="enum" id="VREG" title='VREG' data-ref="VREG">VREG</dfn>=(<var>44</var>&lt;&lt;<var>4</var>) };</td></tr>
+<tr><th id="89">89</th><td></td></tr>
+<tr><th id="90">90</th><td><i>/* Exported for the front end */</i></td></tr>
+<tr><th id="91">91</th><td><b>extern</b> <em>void</em>             <dfn class="decl" id="blockbeg" title='blockbeg' data-ref="blockbeg">blockbeg</dfn>(<a class="typedef" href="#Env" title='Env' data-type='struct Env' data-ref="Env">Env</a> *);</td></tr>
+<tr><th id="92">92</th><td><b>extern</b> <em>void</em>             <dfn class="decl" id="blockend" title='blockend' data-ref="blockend">blockend</dfn>(<a class="typedef" href="#Env" title='Env' data-type='struct Env' data-ref="Env">Env</a> *);</td></tr>
+<tr><th id="93">93</th><td><b>extern</b> <em>void</em>             <dfn class="decl" id="emit" title='emit' data-ref="emit">emit</dfn>(<a class="typedef" href="c.h.html#Node" title='Node' data-type='struct node *' data-ref="Node">Node</a>);</td></tr>
+<tr><th id="94">94</th><td><b>extern</b> <a class="typedef" href="c.h.html#Node" title='Node' data-type='struct node *' data-ref="Node">Node</a>             <dfn class="decl" id="gen" title='gen' data-ref="gen">gen</dfn>(<a class="typedef" href="c.h.html#Node" title='Node' data-type='struct node *' data-ref="Node">Node</a>);</td></tr>
+<tr><th id="95">95</th><td></td></tr>
+<tr><th id="96">96</th><td><b>extern</b> <em>unsigned</em>         <dfn class="decl" id="emitbin" title='emitbin' data-ref="emitbin">emitbin</dfn>(<a class="typedef" href="c.h.html#Node" title='Node' data-type='struct node *' data-ref="Node">Node</a>, <em>int</em>);</td></tr>
+<tr><th id="97">97</th><td></td></tr>
+<tr><th id="98">98</th><td><u>#<span data-ppcond="98">ifdef</span> <span class="macro" data-ref="_M/NDEBUG">NDEBUG</span></u></td></tr>
+<tr><th id="99">99</th><td><u>#define debug(x) (void)0</u></td></tr>
+<tr><th id="100">100</th><td><u>#<span data-ppcond="98">else</span></u></td></tr>
+<tr><th id="101">101</th><td><u>#define <dfn class="macro" id="_M/debug" data-ref="_M/debug">debug</dfn>(x) (void)(dflag&amp;&amp;((x),0))</u></td></tr>
+<tr><th id="102">102</th><td><u>#<span data-ppcond="98">endif</span></u></td></tr>
+<tr><th id="103">103</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='../../../../build/release-linux-x86_64/tools/rcc/dagcheck.c.html'>codebrowser/build/release-linux-x86_64/tools/rcc/dagcheck.c</a><br/>Generated on <em>2017-Aug-29</em> from project codebrowser revision <em>63e07af</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

@@ -1,0 +1,12 @@
+<dec f='codebrowser/code/game/g_team.h' l='76' type='void Team_FragBonuses(gentity_t * targ, gentity_t * inflictor, gentity_t * attacker)'/>
+<use f='codebrowser/code/game/g_combat.c' l='546' u='c' c='player_die'/>
+<def f='codebrowser/code/game/g_team.c' l='271' ll='468' type='void Team_FragBonuses(gentity_t * targ, gentity_t * inflictor, gentity_t * attacker)'/>
+<doc f='codebrowser/code/game/g_team.c' l='262'>/*
+================
+Team_FragBonuses
+
+Calculate the bonuses for flag defense, flag carrier defense, etc.
+Note that bonuses are not cumulative.  You get one, they are in importance
+order.
+================
+*/</doc>

@@ -1,0 +1,10 @@
+<dec f='codebrowser/code/botlib/l_script.h' l='191' type='struct script_s *'/>
+<offset>17536</offset>
+<doc f='codebrowser/code/botlib/l_script.h' l='191'>//next script in a chain</doc>
+<use f='codebrowser/code/botlib/l_precomp.c' l='223' u='r' c='PC_PushScript'/>
+<use f='codebrowser/code/botlib/l_precomp.c' l='232' u='w' c='PC_PushScript'/>
+<use f='codebrowser/code/botlib/l_precomp.c' l='327' u='r' c='PC_ReadSourceToken'/>
+<use f='codebrowser/code/botlib/l_precomp.c' l='330' u='r' c='PC_ReadSourceToken'/>
+<use f='codebrowser/code/botlib/l_precomp.c' l='2999' u='w' c='LoadSourceFile'/>
+<use f='codebrowser/code/botlib/l_precomp.c' l='3032' u='w' c='LoadSourceMemory'/>
+<use f='codebrowser/code/botlib/l_precomp.c' l='3069' u='r' c='FreeSource'/>

@@ -1,0 +1,15 @@
+<dec f='codebrowser/code/cgame/cg_local.h' l='1022' type='int [2]'/>
+<offset>261728</offset>
+<use f='codebrowser/code/cgame/cg_draw.c' l='2144' u='r' c='CG_DrawTeamVote'/>
+<use f='codebrowser/code/cgame/cg_draw.c' l='2154' u='r' c='CG_DrawTeamVote'/>
+<use f='codebrowser/code/cgame/cg_servercmds.c' l='320' u='w' c='CG_ConfigStringModified'/>
+<dec f='codebrowser/code/game/g_local.h' l='378' type='int [2]'/>
+<offset>35840</offset>
+<doc f='codebrowser/code/game/g_local.h' l='378'>// level.time vote was called</doc>
+<use f='codebrowser/code/game/g_cmds.c' l='1489' u='r' c='Cmd_CallTeamVote_f'/>
+<use f='codebrowser/code/game/g_cmds.c' l='1584' u='w' c='Cmd_CallTeamVote_f'/>
+<use f='codebrowser/code/game/g_cmds.c' l='1594' u='r' c='Cmd_CallTeamVote_f'/>
+<use f='codebrowser/code/game/g_cmds.c' l='1617' u='r' c='Cmd_TeamVote_f'/>
+<use f='codebrowser/code/game/g_main.c' l='1686' u='r' c='CheckTeamVote'/>
+<use f='codebrowser/code/game/g_main.c' l='1689' u='r' c='CheckTeamVote'/>
+<use f='codebrowser/code/game/g_main.c' l='1711' u='w' c='CheckTeamVote'/>

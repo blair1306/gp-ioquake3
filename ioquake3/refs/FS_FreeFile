@@ -1,0 +1,19 @@
+<dec f='codebrowser/code/qcommon/qcommon.h' l='680' type='void FS_FreeFile(void * buffer)'/>
+<doc f='codebrowser/code/qcommon/qcommon.h' l='678'>// forces flush on files we&apos;re writing to.</doc>
+<use f='codebrowser/code/client/cl_main.c' l='3258' u='r' c='CL_InitRef'/>
+<use f='codebrowser/code/qcommon/cm_load.c' l='651' u='c' c='CM_LoadMap'/>
+<use f='codebrowser/code/qcommon/cmd.c' l='295' u='c' c='Cmd_Exec_f'/>
+<def f='codebrowser/code/qcommon/files.c' l='1955' ll='1970' type='void FS_FreeFile(void * buffer)'/>
+<doc f='codebrowser/code/qcommon/files.c' l='1950'>/*
+=============
+FS_FreeFile
+=============
+*/</doc>
+<use f='codebrowser/code/qcommon/vm.c' l='297' u='c' c='VM_LoadSymbols'/>
+<use f='codebrowser/code/qcommon/vm.c' l='410' u='c' c='VM_LoadQVM'/>
+<use f='codebrowser/code/qcommon/vm.c' l='429' u='c' c='VM_LoadQVM'/>
+<use f='codebrowser/code/qcommon/vm.c' l='436' u='c' c='VM_LoadQVM'/>
+<use f='codebrowser/code/qcommon/vm.c' l='465' u='c' c='VM_LoadQVM'/>
+<use f='codebrowser/code/qcommon/vm.c' l='502' u='c' c='VM_LoadQVM'/>
+<use f='codebrowser/code/qcommon/vm.c' l='563' u='c' c='VM_Restart'/>
+<use f='codebrowser/code/qcommon/vm.c' l='675' u='c' c='VM_Create'/>

@@ -1,0 +1,12 @@
+<dec f='codebrowser/code/cgame/cg_local.h' l='1504' type='void trap_FS_Write(const void * buffer, int len, fileHandle_t f)'/>
+<def f='codebrowser/code/cgame/cg_syscalls.c' l='96' ll='98' type='void trap_FS_Write(const void * buffer, int len, fileHandle_t f)'/>
+<dec f='codebrowser/code/game/g_local.h' l='758' type='void trap_FS_Write(const void * buffer, int len, fileHandle_t f)'/>
+<use f='codebrowser/code/game/g_main.c' l='1135' u='c' c='G_LogPrintf'/>
+<def f='codebrowser/code/game/g_syscalls.c' l='74' ll='76' type='void trap_FS_Write(const void * buffer, int len, fileHandle_t f)'/>
+<dec f='codebrowser/code/q3_ui/ui_local.h' l='642' type='void trap_FS_Write(const void * buffer, int len, fileHandle_t f)'/>
+<dec f='codebrowser/code/ui/ui_local.h' l='933' type='void trap_FS_Write(const void * buffer, int len, fileHandle_t f)'/>
+<use f='codebrowser/code/ui/ui_atoms.c' l='217' u='c' c='UI_ClearScores'/>
+<use f='codebrowser/code/ui/ui_atoms.c' l='218' u='c' c='UI_ClearScores'/>
+<use f='codebrowser/code/ui/ui_atoms.c' l='310' u='c' c='UI_CalcPostGameStats'/>
+<use f='codebrowser/code/ui/ui_atoms.c' l='311' u='c' c='UI_CalcPostGameStats'/>
+<def f='codebrowser/code/ui/ui_syscalls.c' l='116' ll='118' type='void trap_FS_Write(const void * buffer, int len, fileHandle_t f)'/>

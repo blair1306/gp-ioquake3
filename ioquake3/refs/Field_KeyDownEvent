@@ -1,0 +1,15 @@
+<dec f='codebrowser/code/client/keys.h' l='34' type='void Field_KeyDownEvent(field_t * edit, int key)'/>
+<doc f='codebrowser/code/client/keys.h' l='33'>// NOTE TTimo the declaration of field_t and Field_Clear is now in qcommon/qcommon.h</doc>
+<def f='codebrowser/code/client/cl_keys.c' l='456' ll='510' type='void Field_KeyDownEvent(field_t * edit, int key)'/>
+<use f='codebrowser/code/client/cl_keys.c' l='738' u='c' c='Console_Key'/>
+<use f='codebrowser/code/client/cl_keys.c' l='784' u='c' c='Message_Key'/>
+<doc f='codebrowser/code/client/cl_keys.c' l='446'>/*
+=================
+Field_KeyDownEvent
+
+Performs the basic line editing functions for the console,
+in-game talk, and menu fields
+
+Key events are used for non-printable characters, others are gotten from char events.
+=================
+*/</doc>

@@ -1,0 +1,38 @@
+<dec f='codebrowser/code/renderergl1/tr_local.h' l='400' type='struct dlight_s *'/>
+<dec f='codebrowser/code/renderergl1/tr_local.h' l='1554' type='dlight_t [32]'/>
+<offset>8388608</offset>
+<use f='codebrowser/code/renderergl1/tr_backend.c' l='578' u='r' c='RB_RenderDrawSurfList'/>
+<use f='codebrowser/code/renderergl1/tr_backend.c' l='596' u='r' c='RB_RenderDrawSurfList'/>
+<use f='codebrowser/code/renderergl1/tr_flares.c' l='230' u='r' c='RB_AddDlightFlares'/>
+<use f='codebrowser/code/renderergl1/tr_light.c' l='68' u='r' c='R_DlightBmodel'/>
+<use f='codebrowser/code/renderergl1/tr_light.c' l='72' u='r' c='R_DlightBmodel'/>
+<use f='codebrowser/code/renderergl1/tr_light.c' l='342' u='r' c='R_SetupEntityLighting'/>
+<use f='codebrowser/code/renderergl1/tr_scene.c' l='248' u='a' c='RE_AddDynamicLightToScene'/>
+<use f='codebrowser/code/renderergl1/tr_scene.c' l='356' u='w' c='RE_RenderScene'/>
+<use f='codebrowser/code/renderergl1/tr_scene.c' l='356' u='a' c='RE_RenderScene'/>
+<use f='codebrowser/code/renderergl1/tr_shade.c' l='616' u='r' c='ProjectDlightTexture_scalar'/>
+<use f='codebrowser/code/renderergl1/tr_world.c' l='171' u='r' c='R_DlightFace'/>
+<use f='codebrowser/code/renderergl1/tr_world.c' l='195' u='r' c='R_DlightGrid'/>
+<use f='codebrowser/code/renderergl1/tr_world.c' l='432' u='r' c='R_RecursiveWorldNode'/>
+<dec f='codebrowser/code/renderergl2/tr_local.h' l='724' type='struct dlight_s *'/>
+<dec f='codebrowser/code/renderergl2/tr_local.h' l='2400' type='dlight_t [32]'/>
+<offset>8388608</offset>
+<use f='codebrowser/code/renderergl2/tr_backend.c' l='514' u='r' c='RB_RenderDrawSurfList'/>
+<use f='codebrowser/code/renderergl2/tr_backend.c' l='532' u='r' c='RB_RenderDrawSurfList'/>
+<use f='codebrowser/code/renderergl2/tr_flares.c' l='230' u='r' c='RB_AddDlightFlares'/>
+<use f='codebrowser/code/renderergl2/tr_light.c' l='68' u='r' c='R_DlightBmodel'/>
+<use f='codebrowser/code/renderergl2/tr_light.c' l='72' u='r' c='R_DlightBmodel'/>
+<use f='codebrowser/code/renderergl2/tr_light.c' l='373' u='r' c='R_SetupEntityLighting'/>
+<use f='codebrowser/code/renderergl2/tr_main.c' l='1804' u='r' c='R_RenderDlightCubemaps'/>
+<use f='codebrowser/code/renderergl2/tr_main.c' l='1806' u='r' c='R_RenderDlightCubemaps'/>
+<use f='codebrowser/code/renderergl2/tr_main.c' l='1806' u='r' c='R_RenderDlightCubemaps'/>
+<use f='codebrowser/code/renderergl2/tr_main.c' l='1806' u='r' c='R_RenderDlightCubemaps'/>
+<use f='codebrowser/code/renderergl2/tr_scene.c' l='257' u='a' c='RE_AddDynamicLightToScene'/>
+<use f='codebrowser/code/renderergl2/tr_scene.c' l='412' u='w' c='RE_BeginScene'/>
+<use f='codebrowser/code/renderergl2/tr_scene.c' l='412' u='a' c='RE_BeginScene'/>
+<use f='codebrowser/code/renderergl2/tr_shade.c' l='342' u='r' c='ProjectDlightTexture'/>
+<use f='codebrowser/code/renderergl2/tr_shade.c' l='673' u='r' c='ForwardDlight'/>
+<use f='codebrowser/code/renderergl2/tr_world.c' l='168' u='r' c='R_DlightSurface'/>
+<use f='codebrowser/code/renderergl2/tr_world.c' l='183' u='r' c='R_DlightSurface'/>
+<use f='codebrowser/code/renderergl2/tr_world.c' l='202' u='r' c='R_DlightSurface'/>
+<use f='codebrowser/code/renderergl2/tr_world.c' l='489' u='r' c='R_RecursiveWorldNode'/>

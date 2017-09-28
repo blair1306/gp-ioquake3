@@ -1,0 +1,15 @@
+<dec f='codebrowser/code/botlib/be_aas_entity.h' l='54' type='void AAS_EntityInfo(int entnum, aas_entityinfo_t * info)'/>
+<dec f='codebrowser/code/botlib/be_aas_entity.h' l='54' type='void AAS_EntityInfo(int entnum, aas_entityinfo_t * info)'/>
+<doc f='codebrowser/code/botlib/be_aas_entity.h' l='53'>//returns the info of the given entity</doc>
+<def f='codebrowser/code/botlib/be_aas_entity.c' l='171' ll='188' type='void AAS_EntityInfo(int entnum, aas_entityinfo_t * info)'/>
+<doc f='codebrowser/code/botlib/be_aas_entity.c' l='165'>//===========================================================================
+//
+// Parameter:			-
+// Returns:				-
+// Changes Globals:		-
+//===========================================================================</doc>
+<use f='codebrowser/code/botlib/be_ai_goal.c' l='978' u='c' c='BotFindEntityForLevelItem'/>
+<use f='codebrowser/code/botlib/be_ai_goal.c' l='1041' u='c' c='BotUpdateEntityItems'/>
+<use f='codebrowser/code/botlib/be_ai_goal.c' l='1656' u='c' c='BotItemGoalInVisButNotVisible'/>
+<use f='codebrowser/code/botlib/be_ai_move.c' l='2506' u='c' c='GrappleState'/>
+<use f='codebrowser/code/botlib/be_interface.c' l='682' u='r' c='Init_AAS_Export'/>

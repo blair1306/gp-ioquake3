@@ -1,0 +1,15 @@
+<dec f='include/stdio.h' l='709' type='size_t fread(void *restrict __ptr, size_t __size, size_t __n, FILE *restrict __stream)'/>
+<doc f='include/stdio.h' l='705'>/* Read chunks of generic data from STREAM.
+
+   This function is a possible cancellation point and therefore not
+   marked with __THROW.  */</doc>
+<use f='codebrowser/code/jpeg-8c/jdatasrc.c' l='102' macro='1' u='c'/>
+<use f='codebrowser/code/opusfile-0.8/src/stream.c' l='58' u='c' c='op_fread'/>
+<use f='codebrowser/code/qcommon/files.c' l='1552' u='c' c='FS_Read'/>
+<use f='codebrowser/code/qcommon/files.c' l='2500' u='c' c='FS_GetModDescription'/>
+<use f='codebrowser/code/qcommon/ioapi.c' l='102' u='c' c='fread_file_func'/>
+<use f='codebrowser/code/sys/sys_main.c' l='215' u='c' c='Sys_WritePIDFile'/>
+<use f='codebrowser/code/sys/sys_unix.c' l='170' u='c' c='Sys_RandomBytes'/>
+<use f='codebrowser/code/tools/asm/cmdlib.c' l='682' u='c' c='SafeRead'/>
+<use f='codebrowser/code/tools/lcc/src/bytecode.c' l='264' u='c' c='LoadSourceFile'/>
+<use f='codebrowser/code/tools/lcc/src/input.c' l='53' u='c' c='fillbuf'/>

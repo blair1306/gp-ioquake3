@@ -1,0 +1,14 @@
+<dec f='codebrowser/code/client/client.h' l='468' type='void CL_Vid_Restart_f()'/>
+<def f='codebrowser/code/client/cl_main.c' l='1930' ll='1992' type='void CL_Vid_Restart_f()'/>
+<use f='codebrowser/code/client/cl_main.c' l='2020' u='c' c='CL_Snd_Restart_f'/>
+<use f='codebrowser/code/client/cl_main.c' l='3670' u='r' c='CL_Init'/>
+<doc f='codebrowser/code/client/cl_main.c' l='1920'>/*
+=================
+CL_Vid_Restart_f
+
+Restart the video subsystem
+
+we also have to reload the UI and CGame because the renderer
+doesn&apos;t know what graphics to reload
+=================
+*/</doc>

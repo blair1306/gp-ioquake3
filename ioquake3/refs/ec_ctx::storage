@@ -1,0 +1,22 @@
+<dec f='codebrowser/code/opus-1.1.4/celt/entcode.h' l='66' type='opus_uint32'/>
+<offset>64</offset>
+<doc f='codebrowser/code/opus-1.1.4/celt/entcode.h' l='65'>/*The size of the buffer.*/</doc>
+<use f='codebrowser/code/opus-1.1.4/celt/celt_decoder.c' l='360' u='r' c='tf_decode'/>
+<use f='codebrowser/code/opus-1.1.4/celt/celt_encoder.c' l='721' u='r' c='tf_encode'/>
+<use f='codebrowser/code/opus-1.1.4/celt/entdec.c' l='92' u='r' c='ec_read_byte'/>
+<use f='codebrowser/code/opus-1.1.4/celt/entdec.c' l='96' u='r' c='ec_read_byte_from_end'/>
+<use f='codebrowser/code/opus-1.1.4/celt/entdec.c' l='97' u='r' c='ec_read_byte_from_end'/>
+<use f='codebrowser/code/opus-1.1.4/celt/entdec.c' l='121' u='w' c='ec_dec_init'/>
+<use f='codebrowser/code/opus-1.1.4/celt/entenc.c' l='61' u='r' c='ec_write_byte'/>
+<use f='codebrowser/code/opus-1.1.4/celt/entenc.c' l='67' u='r' c='ec_write_byte_at_end'/>
+<use f='codebrowser/code/opus-1.1.4/celt/entenc.c' l='68' u='r' c='ec_write_byte_at_end'/>
+<use f='codebrowser/code/opus-1.1.4/celt/entenc.c' l='124' u='w' c='ec_enc_init'/>
+<use f='codebrowser/code/opus-1.1.4/celt/entenc.c' l='240' u='r' c='ec_enc_shrink'/>
+<use f='codebrowser/code/opus-1.1.4/celt/entenc.c' l='240' u='r' c='ec_enc_shrink'/>
+<use f='codebrowser/code/opus-1.1.4/celt/entenc.c' l='241' u='w' c='ec_enc_shrink'/>
+<use f='codebrowser/code/opus-1.1.4/celt/entenc.c' l='278' u='r' c='ec_enc_done'/>
+<use f='codebrowser/code/opus-1.1.4/celt/entenc.c' l='281' u='r' c='ec_enc_done'/>
+<use f='codebrowser/code/opus-1.1.4/celt/entenc.c' l='286' u='r' c='ec_enc_done'/>
+<use f='codebrowser/code/opus-1.1.4/celt/entenc.c' l='290' u='r' c='ec_enc_done'/>
+<use f='codebrowser/code/opus-1.1.4/celt/quant_bands.c' l='446' u='r' c='unquant_coarse_energy'/>
+<use f='codebrowser/code/opus-1.1.4/src/opus_decoder.c' l='424' u='w' c='opus_decode_frame'/>

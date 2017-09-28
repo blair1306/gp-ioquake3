@@ -1,0 +1,21 @@
+<dec f='codebrowser/code/renderergl1/tr_local.h' l='167' type='9'/>
+<use f='codebrowser/code/renderergl1/tr_shade.c' l='809' c='ComputeColors'/>
+<use f='codebrowser/code/renderergl1/tr_shader.c' l='898' u='r' c='ParseStage'/>
+<use f='codebrowser/code/renderergl1/tr_shader.c' l='1077' u='r' c='ParseStage'/>
+<use f='codebrowser/code/renderergl1/tr_shader.c' l='1716' u='r' c='ComputeStageIteratorFunc'/>
+<use f='codebrowser/code/renderergl1/tr_shader.c' l='2139' u='r' c='VertexLightingCollapse'/>
+<use f='codebrowser/code/renderergl1/tr_shader.c' l='2613' u='r' c='R_FindShader'/>
+<use f='codebrowser/code/renderergl1/tr_shader.c' l='2705' u='r' c='RE_RegisterShaderFromImage'/>
+<dec f='codebrowser/code/renderergl2/tr_local.h' l='246' type='11'/>
+<use f='codebrowser/code/renderergl2/tr_glsl.c' l='323' c='GLSL_GetShaderHeader'/>
+<use f='codebrowser/code/renderergl2/tr_glsl.c' l='1420' c='GLSL_GetGenericShaderProgram'/>
+<use f='codebrowser/code/renderergl2/tr_shade.c' l='497' c='ComputeShaderColors'/>
+<use f='codebrowser/code/renderergl2/tr_shade.c' l='1118' u='r' c='RB_IterateStagesGeneric'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='1209' u='r' c='ParseStage'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='1388' u='r' c='ParseStage'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='2183' c='ComputeVertexAttribs'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='2500' u='r' c='CollapseStagesToGLSL'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='2610' u='r' c='CollapseStagesToGLSL'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='2845' u='r' c='VertexLightingCollapse'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='3331' u='r' c='R_FindShader'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='3417' u='r' c='RE_RegisterShaderFromImage'/>

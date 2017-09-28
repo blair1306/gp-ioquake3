@@ -1,0 +1,42 @@
+<dec f='codebrowser/code/game/ai_dmq3.h' l='106' type='int TeamPlayIsOn()'/>
+<use f='codebrowser/code/game/ai_chat.c' l='395' u='c' c='BotChat_EnterGame'/>
+<use f='codebrowser/code/game/ai_chat.c' l='428' u='c' c='BotChat_ExitGame'/>
+<use f='codebrowser/code/game/ai_chat.c' l='462' u='c' c='BotChat_StartLevel'/>
+<use f='codebrowser/code/game/ai_chat.c' l='496' u='c' c='BotChat_EndLevel'/>
+<use f='codebrowser/code/game/ai_chat.c' l='570' u='c' c='BotChat_Death'/>
+<use f='codebrowser/code/game/ai_chat.c' l='578' u='c' c='BotChat_Death'/>
+<use f='codebrowser/code/game/ai_chat.c' l='675' u='c' c='BotChat_Kill'/>
+<use f='codebrowser/code/game/ai_chat.c' l='682' u='c' c='BotChat_Kill'/>
+<use f='codebrowser/code/game/ai_chat.c' l='729' u='c' c='BotChat_EnemySuicide'/>
+<use f='codebrowser/code/game/ai_chat.c' l='769' u='c' c='BotChat_HitTalking'/>
+<use f='codebrowser/code/game/ai_chat.c' l='809' u='c' c='BotChat_HitNoDeath'/>
+<use f='codebrowser/code/game/ai_chat.c' l='847' u='c' c='BotChat_HitNoKill'/>
+<use f='codebrowser/code/game/ai_chat.c' l='907' u='c' c='BotChat_Random'/>
+<doc f='codebrowser/code/game/ai_dmq3.h' l='105'>//returns true if teamplay is on</doc>
+<use f='codebrowser/code/game/ai_cmd.c' l='482' u='c' c='BotMatch_HelpAccompany'/>
+<use f='codebrowser/code/game/ai_cmd.c' l='605' u='c' c='BotMatch_DefendKeyArea'/>
+<use f='codebrowser/code/game/ai_cmd.c' l='653' u='c' c='BotMatch_GetItem'/>
+<use f='codebrowser/code/game/ai_cmd.c' l='694' u='c' c='BotMatch_Camp'/>
+<use f='codebrowser/code/game/ai_cmd.c' l='784' u='c' c='BotMatch_Patrol'/>
+<use f='codebrowser/code/game/ai_cmd.c' l='1102' u='c' c='BotMatch_JoinSubteam'/>
+<use f='codebrowser/code/game/ai_cmd.c' l='1126' u='c' c='BotMatch_LeaveSubteam'/>
+<use f='codebrowser/code/game/ai_cmd.c' l='1146' u='c' c='BotMatch_WhichTeam'/>
+<use f='codebrowser/code/game/ai_cmd.c' l='1171' u='c' c='BotMatch_CheckPoint'/>
+<use f='codebrowser/code/game/ai_cmd.c' l='1225' u='c' c='BotMatch_FormationSpace'/>
+<use f='codebrowser/code/game/ai_cmd.c' l='1248' u='c' c='BotMatch_Dismiss'/>
+<use f='codebrowser/code/game/ai_cmd.c' l='1273' u='c' c='BotMatch_Suicide'/>
+<use f='codebrowser/code/game/ai_cmd.c' l='1295' u='c' c='BotMatch_StartTeamLeaderShip'/>
+<use f='codebrowser/code/game/ai_cmd.c' l='1322' u='c' c='BotMatch_StopTeamLeaderShip'/>
+<use f='codebrowser/code/game/ai_cmd.c' l='1350' u='c' c='BotMatch_WhoIsTeamLeader'/>
+<use f='codebrowser/code/game/ai_cmd.c' l='1544' u='c' c='BotMatch_WhereAreYou'/>
+<use f='codebrowser/code/game/ai_cmd.c' l='1611' u='c' c='BotMatch_LeadTheWay'/>
+<use f='codebrowser/code/game/ai_cmd.c' l='1680' u='c' c='BotMatch_Kill'/>
+<def f='codebrowser/code/game/ai_dmq3.c' l='2188' ll='2190' type='int TeamPlayIsOn()'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='4687' u='c' c='BotCheckConsoleMessages'/>
+<doc f='codebrowser/code/game/ai_dmq3.c' l='2183'>/*
+==================
+TeamPlayIsOn
+==================
+*/</doc>
+<use f='codebrowser/code/game/ai_vcmd.c' l='441' u='c' c='BotVoiceChat_WhoIsLeader'/>
+<use f='codebrowser/code/game/ai_vcmd.c' l='520' u='c' c='BotVoiceChatCommand'/>

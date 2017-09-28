@@ -1,0 +1,11 @@
+<dec f='codebrowser/code/game/ai_main.h' l='111' type='int'/>
+<offset>576</offset>
+<doc f='codebrowser/code/game/ai_main.h' l='111'>//true if bot has to shoot to activate</doc>
+<use f='codebrowser/code/game/ai_dmnet.c' l='1493' u='r' c='AINode_Seek_ActivateEntity'/>
+<use f='codebrowser/code/game/ai_dmnet.c' l='1540' u='r' c='AINode_Seek_ActivateEntity'/>
+<use f='codebrowser/code/game/ai_dmnet.c' l='1580' u='r' c='AINode_Seek_ActivateEntity'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='3832' u='w' c='BotFuncButtonActivateGoal'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='3865' u='w' c='BotFuncButtonActivateGoal'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='3992' u='w' c='BotFuncDoorActivateGoal'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='4015' u='w' c='BotTriggerMultipleActivateGoal'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='4386' u='r' c='BotPrintActivateGoalInfo'/>

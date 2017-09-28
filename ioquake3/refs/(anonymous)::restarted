@@ -1,0 +1,10 @@
+<dec f='codebrowser/code/game/g_local.h' l='355' type='qboolean'/>
+<offset>608</offset>
+<doc f='codebrowser/code/game/g_local.h' l='353'>// we changed gametype</doc>
+<doc f='codebrowser/code/game/g_local.h' l='355'>// waiting for a map_restart to fire</doc>
+<use f='codebrowser/code/game/g_client.c' l='1314' u='w' c='ClientDisconnect'/>
+<use f='codebrowser/code/game/g_main.c' l='1055' u='r' c='ExitLevel'/>
+<use f='codebrowser/code/game/g_main.c' l='1058' u='w' c='ExitLevel'/>
+<use f='codebrowser/code/game/g_main.c' l='1496' u='w' c='CheckTournament'/>
+<use f='codebrowser/code/game/g_main.c' l='1551' u='w' c='CheckTournament'/>
+<use f='codebrowser/code/game/g_main.c' l='1772' u='r' c='G_RunFrame'/>

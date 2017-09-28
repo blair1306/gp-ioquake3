@@ -1,0 +1,23 @@
+<dec f='codebrowser/code/cgame/cg_local.h' l='1483' type='void trap_Error(const char * fmt)'/>
+<doc f='codebrowser/code/cgame/cg_local.h' l='1482'>// abort the game</doc>
+<use f='codebrowser/code/cgame/cg_main.c' l='438' u='c' c='CG_Error'/>
+<use f='codebrowser/code/cgame/cg_main.c' l='449' u='c' c='Com_Error'/>
+<def f='codebrowser/code/cgame/cg_syscalls.c' l='49' ll='54' type='void trap_Error(const char * fmt)'/>
+<dec f='codebrowser/code/game/g_local.h' l='750' type='void trap_Error(const char * text)'/>
+<use f='codebrowser/code/game/g_main.c' l='259' u='c' c='G_Error'/>
+<use f='codebrowser/code/game/g_main.c' l='551' u='c' c='Com_Error'/>
+<def f='codebrowser/code/game/g_syscalls.c' l='48' ll='53' type='void trap_Error(const char * text)'/>
+<dec f='codebrowser/code/q3_ui/ui_local.h' l='626' type='void trap_Error(const char * string)'/>
+<use f='codebrowser/code/q3_ui/ui_atoms.c' l='41' u='c' c='Com_Error'/>
+<use f='codebrowser/code/q3_ui/ui_atoms.c' l='99' u='c' c='UI_PushMenu'/>
+<use f='codebrowser/code/q3_ui/ui_atoms.c' l='141' u='c' c='UI_PopMenu'/>
+<use f='codebrowser/code/q3_ui/ui_mfield.c' l='63' u='c' c='MField_Draw'/>
+<use f='codebrowser/code/q3_ui/ui_players.c' l='350' u='c' c='UI_SetLerpFrameAnimation'/>
+<use f='codebrowser/code/q3_ui/ui_qmenu.c' l='1302' u='c' c='Menu_AddItem'/>
+<use f='codebrowser/code/q3_ui/ui_qmenu.c' l='1356' u='c' c='Menu_AddItem'/>
+<use f='codebrowser/code/q3_ui/ui_qmenu.c' l='1548' u='c' c='Menu_Draw'/>
+<dec f='codebrowser/code/ui/ui_local.h' l='917' type='void trap_Error(const char * string)'/>
+<use f='codebrowser/code/ui/ui_atoms.c' l='40' u='c' c='Com_Error'/>
+<use f='codebrowser/code/ui/ui_main.c' l='937' u='c' c='UI_LoadMenus'/>
+<use f='codebrowser/code/ui/ui_players.c' l='351' u='c' c='UI_SetLerpFrameAnimation'/>
+<def f='codebrowser/code/ui/ui_syscalls.c' l='47' ll='52' type='void trap_Error(const char * string)'/>

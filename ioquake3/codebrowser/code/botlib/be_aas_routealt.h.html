@@ -1,0 +1,58 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>be_aas_routealt.h source code [codebrowser/code/botlib/be_aas_routealt.h] - Woboq Code Browser</title>
+<link rel="stylesheet" href="../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'codebrowser/code/botlib/be_aas_routealt.h'; var root_path = '../../..'; var data_path = '../../../../data';</script>
+<script src='../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../..'>codebrowser</a>/<a href='..'>code</a>/<a href='./'>botlib</a>/<a href='be_aas_routealt.h.html'>be_aas_routealt.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/*</i></td></tr>
+<tr><th id="2">2</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="3">3</th><td><i>Copyright (C) 1999-2005 Id Software, Inc.</i></td></tr>
+<tr><th id="4">4</th><td><i></i></td></tr>
+<tr><th id="5">5</th><td><i>This file is part of Quake III Arena source code.</i></td></tr>
+<tr><th id="6">6</th><td><i></i></td></tr>
+<tr><th id="7">7</th><td><i>Quake III Arena source code is free software; you can redistribute it</i></td></tr>
+<tr><th id="8">8</th><td><i>and/or modify it under the terms of the GNU General Public License as</i></td></tr>
+<tr><th id="9">9</th><td><i>published by the Free Software Foundation; either version 2 of the License,</i></td></tr>
+<tr><th id="10">10</th><td><i>or (at your option) any later version.</i></td></tr>
+<tr><th id="11">11</th><td><i></i></td></tr>
+<tr><th id="12">12</th><td><i>Quake III Arena source code is distributed in the hope that it will be</i></td></tr>
+<tr><th id="13">13</th><td><i>useful, but WITHOUT ANY WARRANTY; without even the implied warranty of</i></td></tr>
+<tr><th id="14">14</th><td><i>MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</i></td></tr>
+<tr><th id="15">15</th><td><i>GNU General Public License for more details.</i></td></tr>
+<tr><th id="16">16</th><td><i></i></td></tr>
+<tr><th id="17">17</th><td><i>You should have received a copy of the GNU General Public License</i></td></tr>
+<tr><th id="18">18</th><td><i>along with Quake III Arena source code; if not, write to the Free Software</i></td></tr>
+<tr><th id="19">19</th><td><i>Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA</i></td></tr>
+<tr><th id="20">20</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="21">21</th><td><i>*/</i></td></tr>
+<tr><th id="22">22</th><td></td></tr>
+<tr><th id="23">23</th><td><i>/*****************************************************************************</i></td></tr>
+<tr><th id="24">24</th><td><i> * name:		be_aas_routealt.h</i></td></tr>
+<tr><th id="25">25</th><td><i> *</i></td></tr>
+<tr><th id="26">26</th><td><i> * desc:		AAS</i></td></tr>
+<tr><th id="27">27</th><td><i> *</i></td></tr>
+<tr><th id="28">28</th><td><i> * $Archive: /source/code/botlib/be_aas_routealt.h $</i></td></tr>
+<tr><th id="29">29</th><td><i> *</i></td></tr>
+<tr><th id="30">30</th><td><i> *****************************************************************************/</i></td></tr>
+<tr><th id="31">31</th><td></td></tr>
+<tr><th id="32">32</th><td><u>#<span data-ppcond="32">ifdef</span> <span class="macro" data-ref="_M/AASINTERN">AASINTERN</span></u></td></tr>
+<tr><th id="33">33</th><td><em>void</em> AAS_InitAlternativeRouting(<em>void</em>);</td></tr>
+<tr><th id="34">34</th><td><em>void</em> AAS_ShutdownAlternativeRouting(<em>void</em>);</td></tr>
+<tr><th id="35">35</th><td><u>#<span data-ppcond="32">endif</span> //AASINTERN</u></td></tr>
+<tr><th id="36">36</th><td></td></tr>
+<tr><th id="37">37</th><td></td></tr>
+<tr><th id="38">38</th><td><em>int</em> <dfn class="decl" id="AAS_AlternativeRouteGoals" title='AAS_AlternativeRouteGoals' data-ref="AAS_AlternativeRouteGoals">AAS_AlternativeRouteGoals</dfn>(<a class="typedef" href="../qcommon/q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="local col0 decl" id="570start" title='start' data-type='vec_t *' data-ref="570start">start</dfn>, <em>int</em> <dfn class="local col1 decl" id="571startareanum" title='startareanum' data-type='int' data-ref="571startareanum">startareanum</dfn>, <a class="typedef" href="../qcommon/q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="local col2 decl" id="572goal" title='goal' data-type='vec_t *' data-ref="572goal">goal</dfn>, <em>int</em> <dfn class="local col3 decl" id="573goalareanum" title='goalareanum' data-type='int' data-ref="573goalareanum">goalareanum</dfn>, <em>int</em> <dfn class="local col4 decl" id="574travelflags" title='travelflags' data-type='int' data-ref="574travelflags">travelflags</dfn>,</td></tr>
+<tr><th id="39">39</th><td>										<a class="typedef" href="be_aas.h.html#aas_altroutegoal_t" title='aas_altroutegoal_t' data-type='struct aas_altroutegoal_s' data-ref="aas_altroutegoal_t">aas_altroutegoal_t</a> *<dfn class="local col5 decl" id="575altroutegoals" title='altroutegoals' data-type='aas_altroutegoal_t *' data-ref="575altroutegoals">altroutegoals</dfn>, <em>int</em> <dfn class="local col6 decl" id="576maxaltroutegoals" title='maxaltroutegoals' data-type='int' data-ref="576maxaltroutegoals">maxaltroutegoals</dfn>,</td></tr>
+<tr><th id="40">40</th><td>										<em>int</em> <dfn class="local col7 decl" id="577type" title='type' data-type='int' data-ref="577type">type</dfn>);</td></tr>
+<tr><th id="41">41</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='be_aas_bspq3.c.html'>codebrowser/code/botlib/be_aas_bspq3.c</a><br/>Generated on <em>2017-Aug-29</em> from project codebrowser revision <em>63e07af</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

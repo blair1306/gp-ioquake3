@@ -1,0 +1,77 @@
+<def f='codebrowser/code/botlib/be_aas_route.c' l='697' ll='729' type='int AAS_FreeOldestCache()'/>
+<use f='codebrowser/code/botlib/be_aas_route.c' l='1625' u='c' c='AAS_AreaRouteToGoalArea'/>
+<doc f='codebrowser/code/botlib/be_aas_route.c' l='622'>/*
+int AAS_FreeOldestCache(void)
+{
+	int i, j, bestcluster, bestarea, freed;
+	float besttime;
+	aas_routingcache_t *cache, *bestcache;
+
+	freed = qfalse;
+	besttime = 999999999;
+	bestcache = NULL;
+	bestcluster = 0;
+	bestarea = 0;
+	//refresh cluster cache
+	for (i = 0; i &lt; aasworld.numclusters; i++)
+	{
+		for (j = 0; j &lt; aasworld.clusters[i].numareas; j++)
+		{
+			for (cache = aasworld.clusterareacache[i][j]; cache; cache = cache-&gt;next)
+			{
+				//never remove cache leading towards a portal
+				if (aasworld.areasettings[cache-&gt;areanum].cluster &lt; 0) continue;
+				//if this cache is older than the cache we found so far
+				if (cache-&gt;time &lt; besttime)
+				{
+					bestcache = cache;
+					bestcluster = i;
+					bestarea = j;
+					besttime = cache-&gt;time;
+				} //end if
+			} //end for
+		} //end for
+	} //end for
+	if (bestcache)
+	{
+		cache = bestcache;
+		if (cache-&gt;prev) cache-&gt;prev-&gt;next = cache-&gt;next;
+		else aasworld.clusterareacache[bestcluster][bestarea] = cache-&gt;next;
+		if (cache-&gt;next) cache-&gt;next-&gt;prev = cache-&gt;prev;
+		AAS_FreeRoutingCache(cache);
+		freed = qtrue;
+	} //end if
+	besttime = 999999999;
+	bestcache = NULL;
+	bestarea = 0;
+	for (i = 0; i &lt; aasworld.numareas; i++)
+	{
+		//refresh portal cache
+		for (cache = aasworld.portalcache[i]; cache; cache = cache-&gt;next)
+		{
+			if (cache-&gt;time &lt; besttime)
+			{
+				bestcache = cache;
+				bestarea = i;
+				besttime = cache-&gt;time;
+			} //end if
+		} //end for
+	} //end for
+	if (bestcache)
+	{
+		cache = bestcache;
+		if (cache-&gt;prev) cache-&gt;prev-&gt;next = cache-&gt;next;
+		else aasworld.portalcache[bestarea] = cache-&gt;next;
+		if (cache-&gt;next) cache-&gt;next-&gt;prev = cache-&gt;prev;
+		AAS_FreeRoutingCache(cache);
+		freed = qtrue;
+	} //end if
+	return freed;
+} //end of the function AAS_FreeOldestCache
+*/
+//===========================================================================
+//
+// Parameter:			-
+// Returns:				-
+// Changes Globals:		-
+//===========================================================================</doc>

@@ -1,0 +1,13 @@
+<def f='codebrowser/code/qcommon/common.c' l='800' type='memzone_t *'/>
+<use f='codebrowser/code/qcommon/common.c' l='878' u='r' c='Z_Free'/>
+<use f='codebrowser/code/qcommon/common.c' l='924' u='r' c='Z_FreeTags'/>
+<use f='codebrowser/code/qcommon/common.c' l='962' u='r' c='Z_TagMalloc'/>
+<use f='codebrowser/code/qcommon/common.c' l='992' u='r' c='Z_TagMalloc'/>
+<use f='codebrowser/code/qcommon/common.c' l='1160' u='r' c='Z_LogHeap'/>
+<use f='codebrowser/code/qcommon/common.c' l='1325' u='r' c='Com_Meminfo_f'/>
+<use f='codebrowser/code/qcommon/common.c' l='1330' u='r' c='Com_Meminfo_f'/>
+<use f='codebrowser/code/qcommon/common.c' l='1425' u='w' c='Com_InitSmallZoneMemory'/>
+<use f='codebrowser/code/qcommon/common.c' l='1426' u='r' c='Com_InitSmallZoneMemory'/>
+<use f='codebrowser/code/qcommon/common.c' l='1429' u='r' c='Com_InitSmallZoneMemory'/>
+<doc f='codebrowser/code/qcommon/common.c' l='798'>// we also have a small zone for small allocations that would only
+// fragment the main zone (think of cvar and cmd strings)</doc>

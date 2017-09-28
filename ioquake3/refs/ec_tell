@@ -1,0 +1,43 @@
+<def f='codebrowser/code/opus-1.1.4/celt/entcode.h' l='111' ll='113' type='int ec_tell(ec_ctx * _this)'/>
+<doc f='codebrowser/code/opus-1.1.4/celt/entcode.h' l='105'>/*Returns the number of bits &quot;used&quot; by the encoded or decoded symbols so far.
+  This same number can be computed in either the encoder or the decoder, and is
+   suitable for making coding decisions.
+  Return: The number of bits.
+          This will always be slightly larger than the exact value (e.g., all
+           rounding error is in the positive direction).*/</doc>
+<use f='codebrowser/code/opus-1.1.4/celt/celt_decoder.c' l='361' u='c' c='tf_decode'/>
+<use f='codebrowser/code/opus-1.1.4/celt/celt_decoder.c' l='371' u='c' c='tf_decode'/>
+<use f='codebrowser/code/opus-1.1.4/celt/celt_decoder.c' l='851' u='c' c='celt_decode_with_ec'/>
+<use f='codebrowser/code/opus-1.1.4/celt/celt_decoder.c' l='863' u='c' c='celt_decode_with_ec'/>
+<use f='codebrowser/code/opus-1.1.4/celt/celt_decoder.c' l='877' u='c' c='celt_decode_with_ec'/>
+<use f='codebrowser/code/opus-1.1.4/celt/celt_decoder.c' l='881' u='c' c='celt_decode_with_ec'/>
+<use f='codebrowser/code/opus-1.1.4/celt/celt_decoder.c' l='887' u='c' c='celt_decode_with_ec'/>
+<use f='codebrowser/code/opus-1.1.4/celt/celt_decoder.c' l='906' u='c' c='celt_decode_with_ec'/>
+<use f='codebrowser/code/opus-1.1.4/celt/celt_decoder.c' l='990' u='c' c='celt_decode_with_ec'/>
+<use f='codebrowser/code/opus-1.1.4/celt/celt_decoder.c' l='1070' u='c' c='celt_decode_with_ec'/>
+<use f='codebrowser/code/opus-1.1.4/celt/celt_encoder.c' l='722' u='c' c='tf_encode'/>
+<use f='codebrowser/code/opus-1.1.4/celt/celt_encoder.c' l='733' u='c' c='tf_encode'/>
+<use f='codebrowser/code/opus-1.1.4/celt/celt_encoder.c' l='1418' u='c' c='celt_encode_with_ec'/>
+<use f='codebrowser/code/opus-1.1.4/celt/celt_encoder.c' l='1544' u='c' c='celt_encode_with_ec'/>
+<use f='codebrowser/code/opus-1.1.4/celt/celt_encoder.c' l='1595' u='c' c='celt_encode_with_ec'/>
+<use f='codebrowser/code/opus-1.1.4/celt/celt_encoder.c' l='1739' u='c' c='celt_encode_with_ec'/>
+<use f='codebrowser/code/opus-1.1.4/celt/celt_encoder.c' l='1755' u='c' c='celt_encode_with_ec'/>
+<use f='codebrowser/code/opus-1.1.4/celt/celt_encoder.c' l='1795' u='c' c='celt_encode_with_ec'/>
+<use f='codebrowser/code/opus-1.1.4/celt/celt_encoder.c' l='2051' u='c' c='celt_encode_with_ec'/>
+<use f='codebrowser/code/opus-1.1.4/celt/quant_bands.c' l='216' u='c' c='quant_coarse_energy_impl'/>
+<use f='codebrowser/code/opus-1.1.4/celt/quant_bands.c' l='281' u='c' c='quant_coarse_energy'/>
+<use f='codebrowser/code/opus-1.1.4/celt/quant_bands.c' l='460' u='c' c='unquant_coarse_energy'/>
+<use f='codebrowser/code/opus-1.1.4/silk/enc_API.c' l='380' u='c' c='silk_Encode'/>
+<use f='codebrowser/code/opus-1.1.4/silk/enc_API.c' l='403' u='c' c='silk_Encode'/>
+<use f='codebrowser/code/opus-1.1.4/silk/float/encode_frame_FLP.c' l='204' u='c' c='silk_encode_frame_FLP'/>
+<use f='codebrowser/code/opus-1.1.4/silk/float/encode_frame_FLP.c' l='313' u='c' c='silk_encode_frame_FLP'/>
+<use f='codebrowser/code/opus-1.1.4/src/opus_decoder.c' l='399' u='c' c='opus_decode_frame'/>
+<use f='codebrowser/code/opus-1.1.4/src/opus_decoder.c' l='413' u='c' c='opus_decode_frame'/>
+<use f='codebrowser/code/opus-1.1.4/src/opus_decoder.c' l='417' u='c' c='opus_decode_frame'/>
+<use f='codebrowser/code/opus-1.1.4/src/opus_encoder.c' l='1732' u='c' c='opus_encode_native'/>
+<use f='codebrowser/code/opus-1.1.4/src/opus_encoder.c' l='1809' u='c' c='opus_encode_native'/>
+<use f='codebrowser/code/opus-1.1.4/src/opus_encoder.c' l='1812' u='c' c='opus_encode_native'/>
+<use f='codebrowser/code/opus-1.1.4/src/opus_encoder.c' l='1821' u='c' c='opus_encode_native'/>
+<use f='codebrowser/code/opus-1.1.4/src/opus_encoder.c' l='1842' u='c' c='opus_encode_native'/>
+<use f='codebrowser/code/opus-1.1.4/src/opus_encoder.c' l='1885' u='c' c='opus_encode_native'/>
+<use f='codebrowser/code/opus-1.1.4/src/opus_encoder.c' l='1940' u='c' c='opus_encode_native'/>

@@ -1,0 +1,9 @@
+<dec f='codebrowser/code/qcommon/qcommon.h' l='677' type='void FS_ForceFlush(fileHandle_t f)'/>
+<doc f='codebrowser/code/qcommon/qcommon.h' l='670'>// returns the length of the file
+// a null buffer will just return the file length without loading
+// as a quick check for existance. -1 length == not present
+// A 0 byte will always be appended at the end, so string ops are safe.
+// the buffer should be considered read-only, because it may be cached
+// for other uses.</doc>
+<use f='codebrowser/code/qcommon/common.c' l='218' u='c' c='Com_Printf'/>
+<def f='codebrowser/code/qcommon/files.c' l='420' ll='425' type='void FS_ForceFlush(fileHandle_t f)'/>

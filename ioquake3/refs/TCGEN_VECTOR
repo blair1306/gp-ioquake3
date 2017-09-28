@@ -1,0 +1,11 @@
+<dec f='codebrowser/code/renderergl1/tr_local.h' l='179' type='6'/>
+<doc f='codebrowser/code/renderergl1/tr_local.h' l='179'>// S and T from world coordinates</doc>
+<use f='codebrowser/code/renderergl1/tr_shade.c' l='1037' c='ComputeTexCoords'/>
+<use f='codebrowser/code/renderergl1/tr_shader.c' l='1006' u='r' c='ParseStage'/>
+<dec f='codebrowser/code/renderergl2/tr_local.h' l='258' type='6'/>
+<doc f='codebrowser/code/renderergl2/tr_local.h' l='258'>// S and T from world coordinates</doc>
+<use f='codebrowser/code/renderergl2/tr_glsl.c' l='316' c='GLSL_GetShaderHeader'/>
+<use f='codebrowser/code/renderergl2/tr_shade.c' l='1170' u='r' c='RB_IterateStagesGeneric'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='1317' u='r' c='ParseStage'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='2403' c='CollapseStagesToGLSL'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='2494' u='r' c='CollapseStagesToGLSL'/>

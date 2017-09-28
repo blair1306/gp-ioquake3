@@ -1,0 +1,13 @@
+<dec f='codebrowser/code/jpeg-8c/jpeglib.h' l='509' type='int'/>
+<offset>1248</offset>
+<doc f='codebrowser/code/jpeg-8c/jpeglib.h' l='503'>/* When quantizing colors, the output colormap is described by these fields.
+   * The application can supply a colormap by setting colormap non-NULL before
+   * calling jpeg_start_decompress; otherwise a colormap is created during
+   * jpeg_start_decompress or jpeg_start_output.
+   * The map has out_color_components rows and actual_number_of_colors columns.
+   */</doc>
+<doc f='codebrowser/code/jpeg-8c/jpeglib.h' l='509'>/* number of entries in use */</doc>
+<use f='codebrowser/code/jpeg-8c/jquant1.c' l='749' u='w' c='start_pass_1_quant'/>
+<use f='codebrowser/code/jpeg-8c/jquant2.c' l='564' u='w' c='select_colors'/>
+<use f='codebrowser/code/jpeg-8c/jquant2.c' l='657' u='r' c='find_nearby_colors'/>
+<use f='codebrowser/code/jpeg-8c/jquant2.c' l='1192' u='r' c='start_pass_2_quant'/>

@@ -1,0 +1,14 @@
+<dec f='codebrowser/code/client/snd_public.h' l='36' type='void S_RawSamples(int stream, int samples, int rate, int width, int channels, const byte * data, float volume, int entityNum)'/>
+<dec f='codebrowser/code/client/snd_public.h' l='36' type='void S_RawSamples(int stream, int samples, int rate, int width, int channels, const byte * data, float volume, int entityNum)'/>
+<doc f='codebrowser/code/client/snd_public.h' l='34'>// cinematics and voice-over-network will send raw samples
+// 1.0 volume will be direct output of source samples</doc>
+<use f='codebrowser/code/client/cl_cin.c' l='1152' u='c' c='RoQInterrupt'/>
+<use f='codebrowser/code/client/cl_cin.c' l='1162' u='c' c='RoQInterrupt'/>
+<use f='codebrowser/code/client/cl_parse.c' l='684' u='c' c='CL_PlayVoip'/>
+<use f='codebrowser/code/client/cl_parse.c' l='690' u='c' c='CL_PlayVoip'/>
+<def f='codebrowser/code/client/snd_main.c' l='131' ll='136' type='void S_RawSamples(int stream, int samples, int rate, int width, int channels, const byte * data, float volume, int entityNum)'/>
+<doc f='codebrowser/code/client/snd_main.c' l='126'>/*
+=================
+S_RawSamples
+=================
+*/</doc>

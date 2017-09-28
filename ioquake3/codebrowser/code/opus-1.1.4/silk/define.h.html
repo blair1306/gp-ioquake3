@@ -1,0 +1,253 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>define.h source code [codebrowser/code/opus-1.1.4/silk/define.h] - Woboq Code Browser</title>
+<link rel="stylesheet" href="../../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'codebrowser/code/opus-1.1.4/silk/define.h'; var root_path = '../../../..'; var data_path = '../../../../../data';</script>
+<script src='../../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../../..'>codebrowser</a>/<a href='../..'>code</a>/<a href='..'>opus-1.1.4</a>/<a href='./'>silk</a>/<a href='define.h.html'>define.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/***********************************************************************</i></td></tr>
+<tr><th id="2">2</th><td><i>Copyright (c) 2006-2011, Skype Limited. All rights reserved.</i></td></tr>
+<tr><th id="3">3</th><td><i>Redistribution and use in source and binary forms, with or without</i></td></tr>
+<tr><th id="4">4</th><td><i>modification, are permitted provided that the following conditions</i></td></tr>
+<tr><th id="5">5</th><td><i>are met:</i></td></tr>
+<tr><th id="6">6</th><td><i>- Redistributions of source code must retain the above copyright notice,</i></td></tr>
+<tr><th id="7">7</th><td><i>this list of conditions and the following disclaimer.</i></td></tr>
+<tr><th id="8">8</th><td><i>- Redistributions in binary form must reproduce the above copyright</i></td></tr>
+<tr><th id="9">9</th><td><i>notice, this list of conditions and the following disclaimer in the</i></td></tr>
+<tr><th id="10">10</th><td><i>documentation and/or other materials provided with the distribution.</i></td></tr>
+<tr><th id="11">11</th><td><i>- Neither the name of Internet Society, IETF or IETF Trust, nor the</i></td></tr>
+<tr><th id="12">12</th><td><i>names of specific contributors, may be used to endorse or promote</i></td></tr>
+<tr><th id="13">13</th><td><i>products derived from this software without specific prior written</i></td></tr>
+<tr><th id="14">14</th><td><i>permission.</i></td></tr>
+<tr><th id="15">15</th><td><i>THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"</i></td></tr>
+<tr><th id="16">16</th><td><i>AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE</i></td></tr>
+<tr><th id="17">17</th><td><i>IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE</i></td></tr>
+<tr><th id="18">18</th><td><i>ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE</i></td></tr>
+<tr><th id="19">19</th><td><i>LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR</i></td></tr>
+<tr><th id="20">20</th><td><i>CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF</i></td></tr>
+<tr><th id="21">21</th><td><i>SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS</i></td></tr>
+<tr><th id="22">22</th><td><i>INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN</i></td></tr>
+<tr><th id="23">23</th><td><i>CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)</i></td></tr>
+<tr><th id="24">24</th><td><i>ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE</i></td></tr>
+<tr><th id="25">25</th><td><i>POSSIBILITY OF SUCH DAMAGE.</i></td></tr>
+<tr><th id="26">26</th><td><i>***********************************************************************/</i></td></tr>
+<tr><th id="27">27</th><td></td></tr>
+<tr><th id="28">28</th><td><u>#<span data-ppcond="28">ifndef</span> <span class="macro" data-ref="_M/SILK_DEFINE_H">SILK_DEFINE_H</span></u></td></tr>
+<tr><th id="29">29</th><td><u>#define <dfn class="macro" id="_M/SILK_DEFINE_H" data-ref="_M/SILK_DEFINE_H">SILK_DEFINE_H</dfn></u></td></tr>
+<tr><th id="30">30</th><td></td></tr>
+<tr><th id="31">31</th><td><u>#include <a href="errors.h.html">"errors.h"</a></u></td></tr>
+<tr><th id="32">32</th><td><u>#include <a href="typedef.h.html">"typedef.h"</a></u></td></tr>
+<tr><th id="33">33</th><td></td></tr>
+<tr><th id="34">34</th><td><u>#<span data-ppcond="34">ifdef</span> <span class="macro" data-ref="_M/__cplusplus">__cplusplus</span></u></td></tr>
+<tr><th id="35">35</th><td><b>extern</b> <q>"C"</q></td></tr>
+<tr><th id="36">36</th><td>{</td></tr>
+<tr><th id="37">37</th><td><u>#<span data-ppcond="34">endif</span></u></td></tr>
+<tr><th id="38">38</th><td></td></tr>
+<tr><th id="39">39</th><td><i>/* Max number of encoder channels (1/2) */</i></td></tr>
+<tr><th id="40">40</th><td><u>#define <dfn class="macro" id="_M/ENCODER_NUM_CHANNELS" data-ref="_M/ENCODER_NUM_CHANNELS">ENCODER_NUM_CHANNELS</dfn>                    2</u></td></tr>
+<tr><th id="41">41</th><td><i>/* Number of decoder channels (1/2) */</i></td></tr>
+<tr><th id="42">42</th><td><u>#define <dfn class="macro" id="_M/DECODER_NUM_CHANNELS" data-ref="_M/DECODER_NUM_CHANNELS">DECODER_NUM_CHANNELS</dfn>                    2</u></td></tr>
+<tr><th id="43">43</th><td></td></tr>
+<tr><th id="44">44</th><td><u>#define <dfn class="macro" id="_M/MAX_FRAMES_PER_PACKET" data-ref="_M/MAX_FRAMES_PER_PACKET">MAX_FRAMES_PER_PACKET</dfn>                   3</u></td></tr>
+<tr><th id="45">45</th><td></td></tr>
+<tr><th id="46">46</th><td><i>/* Limits on bitrate */</i></td></tr>
+<tr><th id="47">47</th><td><u>#define <dfn class="macro" id="_M/MIN_TARGET_RATE_BPS" data-ref="_M/MIN_TARGET_RATE_BPS">MIN_TARGET_RATE_BPS</dfn>                     5000</u></td></tr>
+<tr><th id="48">48</th><td><u>#define <dfn class="macro" id="_M/MAX_TARGET_RATE_BPS" data-ref="_M/MAX_TARGET_RATE_BPS">MAX_TARGET_RATE_BPS</dfn>                     80000</u></td></tr>
+<tr><th id="49">49</th><td><u>#define <dfn class="macro" id="_M/TARGET_RATE_TAB_SZ" data-ref="_M/TARGET_RATE_TAB_SZ">TARGET_RATE_TAB_SZ</dfn>                      8</u></td></tr>
+<tr><th id="50">50</th><td></td></tr>
+<tr><th id="51">51</th><td><i>/* LBRR thresholds */</i></td></tr>
+<tr><th id="52">52</th><td><u>#define <dfn class="macro" id="_M/LBRR_NB_MIN_RATE_BPS" data-ref="_M/LBRR_NB_MIN_RATE_BPS">LBRR_NB_MIN_RATE_BPS</dfn>                    12000</u></td></tr>
+<tr><th id="53">53</th><td><u>#define <dfn class="macro" id="_M/LBRR_MB_MIN_RATE_BPS" data-ref="_M/LBRR_MB_MIN_RATE_BPS">LBRR_MB_MIN_RATE_BPS</dfn>                    14000</u></td></tr>
+<tr><th id="54">54</th><td><u>#define <dfn class="macro" id="_M/LBRR_WB_MIN_RATE_BPS" data-ref="_M/LBRR_WB_MIN_RATE_BPS">LBRR_WB_MIN_RATE_BPS</dfn>                    16000</u></td></tr>
+<tr><th id="55">55</th><td></td></tr>
+<tr><th id="56">56</th><td><i>/* DTX settings */</i></td></tr>
+<tr><th id="57">57</th><td><u>#define <dfn class="macro" id="_M/NB_SPEECH_FRAMES_BEFORE_DTX" data-ref="_M/NB_SPEECH_FRAMES_BEFORE_DTX">NB_SPEECH_FRAMES_BEFORE_DTX</dfn>             10      /* eq 200 ms */</u></td></tr>
+<tr><th id="58">58</th><td><u>#define <dfn class="macro" id="_M/MAX_CONSECUTIVE_DTX" data-ref="_M/MAX_CONSECUTIVE_DTX">MAX_CONSECUTIVE_DTX</dfn>                     20      /* eq 400 ms */</u></td></tr>
+<tr><th id="59">59</th><td></td></tr>
+<tr><th id="60">60</th><td><i>/* Maximum sampling frequency */</i></td></tr>
+<tr><th id="61">61</th><td><u>#define <dfn class="macro" id="_M/MAX_FS_KHZ" data-ref="_M/MAX_FS_KHZ">MAX_FS_KHZ</dfn>                              16</u></td></tr>
+<tr><th id="62">62</th><td><u>#define <dfn class="macro" id="_M/MAX_API_FS_KHZ" data-ref="_M/MAX_API_FS_KHZ">MAX_API_FS_KHZ</dfn>                          48</u></td></tr>
+<tr><th id="63">63</th><td></td></tr>
+<tr><th id="64">64</th><td><i>/* Signal types */</i></td></tr>
+<tr><th id="65">65</th><td><u>#define <dfn class="macro" id="_M/TYPE_NO_VOICE_ACTIVITY" data-ref="_M/TYPE_NO_VOICE_ACTIVITY">TYPE_NO_VOICE_ACTIVITY</dfn>                  0</u></td></tr>
+<tr><th id="66">66</th><td><u>#define <dfn class="macro" id="_M/TYPE_UNVOICED" data-ref="_M/TYPE_UNVOICED">TYPE_UNVOICED</dfn>                           1</u></td></tr>
+<tr><th id="67">67</th><td><u>#define <dfn class="macro" id="_M/TYPE_VOICED" data-ref="_M/TYPE_VOICED">TYPE_VOICED</dfn>                             2</u></td></tr>
+<tr><th id="68">68</th><td></td></tr>
+<tr><th id="69">69</th><td><i>/* Conditional coding types */</i></td></tr>
+<tr><th id="70">70</th><td><u>#define <dfn class="macro" id="_M/CODE_INDEPENDENTLY" data-ref="_M/CODE_INDEPENDENTLY">CODE_INDEPENDENTLY</dfn>                      0</u></td></tr>
+<tr><th id="71">71</th><td><u>#define <dfn class="macro" id="_M/CODE_INDEPENDENTLY_NO_LTP_SCALING" data-ref="_M/CODE_INDEPENDENTLY_NO_LTP_SCALING">CODE_INDEPENDENTLY_NO_LTP_SCALING</dfn>       1</u></td></tr>
+<tr><th id="72">72</th><td><u>#define <dfn class="macro" id="_M/CODE_CONDITIONALLY" data-ref="_M/CODE_CONDITIONALLY">CODE_CONDITIONALLY</dfn>                      2</u></td></tr>
+<tr><th id="73">73</th><td></td></tr>
+<tr><th id="74">74</th><td><i>/* Settings for stereo processing */</i></td></tr>
+<tr><th id="75">75</th><td><u>#define <dfn class="macro" id="_M/STEREO_QUANT_TAB_SIZE" data-ref="_M/STEREO_QUANT_TAB_SIZE">STEREO_QUANT_TAB_SIZE</dfn>                   16</u></td></tr>
+<tr><th id="76">76</th><td><u>#define <dfn class="macro" id="_M/STEREO_QUANT_SUB_STEPS" data-ref="_M/STEREO_QUANT_SUB_STEPS">STEREO_QUANT_SUB_STEPS</dfn>                  5</u></td></tr>
+<tr><th id="77">77</th><td><u>#define <dfn class="macro" id="_M/STEREO_INTERP_LEN_MS" data-ref="_M/STEREO_INTERP_LEN_MS">STEREO_INTERP_LEN_MS</dfn>                    8       /* must be even */</u></td></tr>
+<tr><th id="78">78</th><td><u>#define <dfn class="macro" id="_M/STEREO_RATIO_SMOOTH_COEF" data-ref="_M/STEREO_RATIO_SMOOTH_COEF">STEREO_RATIO_SMOOTH_COEF</dfn>                0.01    /* smoothing coef for signal norms and stereo width */</u></td></tr>
+<tr><th id="79">79</th><td></td></tr>
+<tr><th id="80">80</th><td><i>/* Range of pitch lag estimates */</i></td></tr>
+<tr><th id="81">81</th><td><u>#define <dfn class="macro" id="_M/PITCH_EST_MIN_LAG_MS" data-ref="_M/PITCH_EST_MIN_LAG_MS">PITCH_EST_MIN_LAG_MS</dfn>                    2       /* 2 ms -&gt; 500 Hz */</u></td></tr>
+<tr><th id="82">82</th><td><u>#define <dfn class="macro" id="_M/PITCH_EST_MAX_LAG_MS" data-ref="_M/PITCH_EST_MAX_LAG_MS">PITCH_EST_MAX_LAG_MS</dfn>                    18      /* 18 ms -&gt; 56 Hz */</u></td></tr>
+<tr><th id="83">83</th><td></td></tr>
+<tr><th id="84">84</th><td><i>/* Maximum number of subframes */</i></td></tr>
+<tr><th id="85">85</th><td><u>#define <dfn class="macro" id="_M/MAX_NB_SUBFR" data-ref="_M/MAX_NB_SUBFR">MAX_NB_SUBFR</dfn>                            4</u></td></tr>
+<tr><th id="86">86</th><td></td></tr>
+<tr><th id="87">87</th><td><i>/* Number of samples per frame */</i></td></tr>
+<tr><th id="88">88</th><td><u>#define <dfn class="macro" id="_M/LTP_MEM_LENGTH_MS" data-ref="_M/LTP_MEM_LENGTH_MS">LTP_MEM_LENGTH_MS</dfn>                       20</u></td></tr>
+<tr><th id="89">89</th><td><u>#define <dfn class="macro" id="_M/SUB_FRAME_LENGTH_MS" data-ref="_M/SUB_FRAME_LENGTH_MS">SUB_FRAME_LENGTH_MS</dfn>                     5</u></td></tr>
+<tr><th id="90">90</th><td><u>#define <dfn class="macro" id="_M/MAX_SUB_FRAME_LENGTH" data-ref="_M/MAX_SUB_FRAME_LENGTH">MAX_SUB_FRAME_LENGTH</dfn>                    ( SUB_FRAME_LENGTH_MS * MAX_FS_KHZ )</u></td></tr>
+<tr><th id="91">91</th><td><u>#define <dfn class="macro" id="_M/MAX_FRAME_LENGTH_MS" data-ref="_M/MAX_FRAME_LENGTH_MS">MAX_FRAME_LENGTH_MS</dfn>                     ( SUB_FRAME_LENGTH_MS * MAX_NB_SUBFR )</u></td></tr>
+<tr><th id="92">92</th><td><u>#define <dfn class="macro" id="_M/MAX_FRAME_LENGTH" data-ref="_M/MAX_FRAME_LENGTH">MAX_FRAME_LENGTH</dfn>                        ( MAX_FRAME_LENGTH_MS * MAX_FS_KHZ )</u></td></tr>
+<tr><th id="93">93</th><td></td></tr>
+<tr><th id="94">94</th><td><i>/* Milliseconds of lookahead for pitch analysis */</i></td></tr>
+<tr><th id="95">95</th><td><u>#define <dfn class="macro" id="_M/LA_PITCH_MS" data-ref="_M/LA_PITCH_MS">LA_PITCH_MS</dfn>                             2</u></td></tr>
+<tr><th id="96">96</th><td><u>#define <dfn class="macro" id="_M/LA_PITCH_MAX" data-ref="_M/LA_PITCH_MAX">LA_PITCH_MAX</dfn>                            ( LA_PITCH_MS * MAX_FS_KHZ )</u></td></tr>
+<tr><th id="97">97</th><td></td></tr>
+<tr><th id="98">98</th><td><i>/* Order of LPC used in find pitch */</i></td></tr>
+<tr><th id="99">99</th><td><u>#define <dfn class="macro" id="_M/MAX_FIND_PITCH_LPC_ORDER" data-ref="_M/MAX_FIND_PITCH_LPC_ORDER">MAX_FIND_PITCH_LPC_ORDER</dfn>                16</u></td></tr>
+<tr><th id="100">100</th><td></td></tr>
+<tr><th id="101">101</th><td><i>/* Length of LPC window used in find pitch */</i></td></tr>
+<tr><th id="102">102</th><td><u>#define <dfn class="macro" id="_M/FIND_PITCH_LPC_WIN_MS" data-ref="_M/FIND_PITCH_LPC_WIN_MS">FIND_PITCH_LPC_WIN_MS</dfn>                   ( 20 + (LA_PITCH_MS &lt;&lt; 1) )</u></td></tr>
+<tr><th id="103">103</th><td><u>#define <dfn class="macro" id="_M/FIND_PITCH_LPC_WIN_MS_2_SF" data-ref="_M/FIND_PITCH_LPC_WIN_MS_2_SF">FIND_PITCH_LPC_WIN_MS_2_SF</dfn>              ( 10 + (LA_PITCH_MS &lt;&lt; 1) )</u></td></tr>
+<tr><th id="104">104</th><td><u>#define <dfn class="macro" id="_M/FIND_PITCH_LPC_WIN_MAX" data-ref="_M/FIND_PITCH_LPC_WIN_MAX">FIND_PITCH_LPC_WIN_MAX</dfn>                  ( FIND_PITCH_LPC_WIN_MS * MAX_FS_KHZ )</u></td></tr>
+<tr><th id="105">105</th><td></td></tr>
+<tr><th id="106">106</th><td><i>/* Milliseconds of lookahead for noise shape analysis */</i></td></tr>
+<tr><th id="107">107</th><td><u>#define <dfn class="macro" id="_M/LA_SHAPE_MS" data-ref="_M/LA_SHAPE_MS">LA_SHAPE_MS</dfn>                             5</u></td></tr>
+<tr><th id="108">108</th><td><u>#define <dfn class="macro" id="_M/LA_SHAPE_MAX" data-ref="_M/LA_SHAPE_MAX">LA_SHAPE_MAX</dfn>                            ( LA_SHAPE_MS * MAX_FS_KHZ )</u></td></tr>
+<tr><th id="109">109</th><td></td></tr>
+<tr><th id="110">110</th><td><i>/* Maximum length of LPC window used in noise shape analysis */</i></td></tr>
+<tr><th id="111">111</th><td><u>#define <dfn class="macro" id="_M/SHAPE_LPC_WIN_MAX" data-ref="_M/SHAPE_LPC_WIN_MAX">SHAPE_LPC_WIN_MAX</dfn>                       ( 15 * MAX_FS_KHZ )</u></td></tr>
+<tr><th id="112">112</th><td></td></tr>
+<tr><th id="113">113</th><td><i>/* dB level of lowest gain quantization level */</i></td></tr>
+<tr><th id="114">114</th><td><u>#define <dfn class="macro" id="_M/MIN_QGAIN_DB" data-ref="_M/MIN_QGAIN_DB">MIN_QGAIN_DB</dfn>                            2</u></td></tr>
+<tr><th id="115">115</th><td><i>/* dB level of highest gain quantization level */</i></td></tr>
+<tr><th id="116">116</th><td><u>#define <dfn class="macro" id="_M/MAX_QGAIN_DB" data-ref="_M/MAX_QGAIN_DB">MAX_QGAIN_DB</dfn>                            88</u></td></tr>
+<tr><th id="117">117</th><td><i>/* Number of gain quantization levels */</i></td></tr>
+<tr><th id="118">118</th><td><u>#define <dfn class="macro" id="_M/N_LEVELS_QGAIN" data-ref="_M/N_LEVELS_QGAIN">N_LEVELS_QGAIN</dfn>                          64</u></td></tr>
+<tr><th id="119">119</th><td><i>/* Max increase in gain quantization index */</i></td></tr>
+<tr><th id="120">120</th><td><u>#define <dfn class="macro" id="_M/MAX_DELTA_GAIN_QUANT" data-ref="_M/MAX_DELTA_GAIN_QUANT">MAX_DELTA_GAIN_QUANT</dfn>                    36</u></td></tr>
+<tr><th id="121">121</th><td><i>/* Max decrease in gain quantization index */</i></td></tr>
+<tr><th id="122">122</th><td><u>#define <dfn class="macro" id="_M/MIN_DELTA_GAIN_QUANT" data-ref="_M/MIN_DELTA_GAIN_QUANT">MIN_DELTA_GAIN_QUANT</dfn>                    -4</u></td></tr>
+<tr><th id="123">123</th><td></td></tr>
+<tr><th id="124">124</th><td><i>/* Quantization offsets (multiples of 4) */</i></td></tr>
+<tr><th id="125">125</th><td><u>#define <dfn class="macro" id="_M/OFFSET_VL_Q10" data-ref="_M/OFFSET_VL_Q10">OFFSET_VL_Q10</dfn>                           32</u></td></tr>
+<tr><th id="126">126</th><td><u>#define <dfn class="macro" id="_M/OFFSET_VH_Q10" data-ref="_M/OFFSET_VH_Q10">OFFSET_VH_Q10</dfn>                           100</u></td></tr>
+<tr><th id="127">127</th><td><u>#define <dfn class="macro" id="_M/OFFSET_UVL_Q10" data-ref="_M/OFFSET_UVL_Q10">OFFSET_UVL_Q10</dfn>                          100</u></td></tr>
+<tr><th id="128">128</th><td><u>#define <dfn class="macro" id="_M/OFFSET_UVH_Q10" data-ref="_M/OFFSET_UVH_Q10">OFFSET_UVH_Q10</dfn>                          240</u></td></tr>
+<tr><th id="129">129</th><td></td></tr>
+<tr><th id="130">130</th><td><u>#define <dfn class="macro" id="_M/QUANT_LEVEL_ADJUST_Q10" data-ref="_M/QUANT_LEVEL_ADJUST_Q10">QUANT_LEVEL_ADJUST_Q10</dfn>                  80</u></td></tr>
+<tr><th id="131">131</th><td></td></tr>
+<tr><th id="132">132</th><td><i>/* Maximum numbers of iterations used to stabilize an LPC vector */</i></td></tr>
+<tr><th id="133">133</th><td><u>#define <dfn class="macro" id="_M/MAX_LPC_STABILIZE_ITERATIONS" data-ref="_M/MAX_LPC_STABILIZE_ITERATIONS">MAX_LPC_STABILIZE_ITERATIONS</dfn>            16</u></td></tr>
+<tr><th id="134">134</th><td><u>#define <dfn class="macro" id="_M/MAX_PREDICTION_POWER_GAIN" data-ref="_M/MAX_PREDICTION_POWER_GAIN">MAX_PREDICTION_POWER_GAIN</dfn>               1e4f</u></td></tr>
+<tr><th id="135">135</th><td><u>#define <dfn class="macro" id="_M/MAX_PREDICTION_POWER_GAIN_AFTER_RESET" data-ref="_M/MAX_PREDICTION_POWER_GAIN_AFTER_RESET">MAX_PREDICTION_POWER_GAIN_AFTER_RESET</dfn>   1e2f</u></td></tr>
+<tr><th id="136">136</th><td></td></tr>
+<tr><th id="137">137</th><td><u>#define <dfn class="macro" id="_M/MAX_LPC_ORDER" data-ref="_M/MAX_LPC_ORDER">MAX_LPC_ORDER</dfn>                           16</u></td></tr>
+<tr><th id="138">138</th><td><u>#define <dfn class="macro" id="_M/MIN_LPC_ORDER" data-ref="_M/MIN_LPC_ORDER">MIN_LPC_ORDER</dfn>                           10</u></td></tr>
+<tr><th id="139">139</th><td></td></tr>
+<tr><th id="140">140</th><td><i>/* Find Pred Coef defines */</i></td></tr>
+<tr><th id="141">141</th><td><u>#define <dfn class="macro" id="_M/LTP_ORDER" data-ref="_M/LTP_ORDER">LTP_ORDER</dfn>                               5</u></td></tr>
+<tr><th id="142">142</th><td></td></tr>
+<tr><th id="143">143</th><td><i>/* LTP quantization settings */</i></td></tr>
+<tr><th id="144">144</th><td><u>#define <dfn class="macro" id="_M/NB_LTP_CBKS" data-ref="_M/NB_LTP_CBKS">NB_LTP_CBKS</dfn>                             3</u></td></tr>
+<tr><th id="145">145</th><td></td></tr>
+<tr><th id="146">146</th><td><i>/* Flag to use harmonic noise shaping */</i></td></tr>
+<tr><th id="147">147</th><td><u>#define <dfn class="macro" id="_M/USE_HARM_SHAPING" data-ref="_M/USE_HARM_SHAPING">USE_HARM_SHAPING</dfn>                        1</u></td></tr>
+<tr><th id="148">148</th><td></td></tr>
+<tr><th id="149">149</th><td><i>/* Max LPC order of noise shaping filters */</i></td></tr>
+<tr><th id="150">150</th><td><u>#define <dfn class="macro" id="_M/MAX_SHAPE_LPC_ORDER" data-ref="_M/MAX_SHAPE_LPC_ORDER">MAX_SHAPE_LPC_ORDER</dfn>                     16</u></td></tr>
+<tr><th id="151">151</th><td></td></tr>
+<tr><th id="152">152</th><td><u>#define <dfn class="macro" id="_M/HARM_SHAPE_FIR_TAPS" data-ref="_M/HARM_SHAPE_FIR_TAPS">HARM_SHAPE_FIR_TAPS</dfn>                     3</u></td></tr>
+<tr><th id="153">153</th><td></td></tr>
+<tr><th id="154">154</th><td><i>/* Maximum number of delayed decision states */</i></td></tr>
+<tr><th id="155">155</th><td><u>#define <dfn class="macro" id="_M/MAX_DEL_DEC_STATES" data-ref="_M/MAX_DEL_DEC_STATES">MAX_DEL_DEC_STATES</dfn>                      4</u></td></tr>
+<tr><th id="156">156</th><td></td></tr>
+<tr><th id="157">157</th><td><u>#define <dfn class="macro" id="_M/LTP_BUF_LENGTH" data-ref="_M/LTP_BUF_LENGTH">LTP_BUF_LENGTH</dfn>                          512</u></td></tr>
+<tr><th id="158">158</th><td><u>#define <dfn class="macro" id="_M/LTP_MASK" data-ref="_M/LTP_MASK">LTP_MASK</dfn>                                ( LTP_BUF_LENGTH - 1 )</u></td></tr>
+<tr><th id="159">159</th><td></td></tr>
+<tr><th id="160">160</th><td><u>#define <dfn class="macro" id="_M/DECISION_DELAY" data-ref="_M/DECISION_DELAY">DECISION_DELAY</dfn>                          32</u></td></tr>
+<tr><th id="161">161</th><td><u>#define <dfn class="macro" id="_M/DECISION_DELAY_MASK" data-ref="_M/DECISION_DELAY_MASK">DECISION_DELAY_MASK</dfn>                     ( DECISION_DELAY - 1 )</u></td></tr>
+<tr><th id="162">162</th><td></td></tr>
+<tr><th id="163">163</th><td><i>/* Number of subframes for excitation entropy coding */</i></td></tr>
+<tr><th id="164">164</th><td><u>#define <dfn class="macro" id="_M/SHELL_CODEC_FRAME_LENGTH" data-ref="_M/SHELL_CODEC_FRAME_LENGTH">SHELL_CODEC_FRAME_LENGTH</dfn>                16</u></td></tr>
+<tr><th id="165">165</th><td><u>#define <dfn class="macro" id="_M/LOG2_SHELL_CODEC_FRAME_LENGTH" data-ref="_M/LOG2_SHELL_CODEC_FRAME_LENGTH">LOG2_SHELL_CODEC_FRAME_LENGTH</dfn>           4</u></td></tr>
+<tr><th id="166">166</th><td><u>#define <dfn class="macro" id="_M/MAX_NB_SHELL_BLOCKS" data-ref="_M/MAX_NB_SHELL_BLOCKS">MAX_NB_SHELL_BLOCKS</dfn>                     ( MAX_FRAME_LENGTH / SHELL_CODEC_FRAME_LENGTH )</u></td></tr>
+<tr><th id="167">167</th><td></td></tr>
+<tr><th id="168">168</th><td><i>/* Number of rate levels, for entropy coding of excitation */</i></td></tr>
+<tr><th id="169">169</th><td><u>#define <dfn class="macro" id="_M/N_RATE_LEVELS" data-ref="_M/N_RATE_LEVELS">N_RATE_LEVELS</dfn>                           10</u></td></tr>
+<tr><th id="170">170</th><td></td></tr>
+<tr><th id="171">171</th><td><i>/* Maximum sum of pulses per shell coding frame */</i></td></tr>
+<tr><th id="172">172</th><td><u>#define <dfn class="macro" id="_M/SILK_MAX_PULSES" data-ref="_M/SILK_MAX_PULSES">SILK_MAX_PULSES</dfn>                         16</u></td></tr>
+<tr><th id="173">173</th><td></td></tr>
+<tr><th id="174">174</th><td><u>#define <dfn class="macro" id="_M/MAX_MATRIX_SIZE" data-ref="_M/MAX_MATRIX_SIZE">MAX_MATRIX_SIZE</dfn>                         MAX_LPC_ORDER /* Max of LPC Order and LTP order */</u></td></tr>
+<tr><th id="175">175</th><td></td></tr>
+<tr><th id="176">176</th><td><u>#<span data-ppcond="176">if</span>( <a class="macro" href="#137" title="16" data-ref="_M/MAX_LPC_ORDER">MAX_LPC_ORDER</a> &gt; <a class="macro" href="#160" title="32" data-ref="_M/DECISION_DELAY">DECISION_DELAY</a> )</u></td></tr>
+<tr><th id="177">177</th><td><u># define NSQ_LPC_BUF_LENGTH                     MAX_LPC_ORDER</u></td></tr>
+<tr><th id="178">178</th><td><u>#<span data-ppcond="176">else</span></u></td></tr>
+<tr><th id="179">179</th><td><u># define <dfn class="macro" id="_M/NSQ_LPC_BUF_LENGTH" data-ref="_M/NSQ_LPC_BUF_LENGTH">NSQ_LPC_BUF_LENGTH</dfn>                     DECISION_DELAY</u></td></tr>
+<tr><th id="180">180</th><td><u>#<span data-ppcond="176">endif</span></u></td></tr>
+<tr><th id="181">181</th><td></td></tr>
+<tr><th id="182">182</th><td><i>/***************************/</i></td></tr>
+<tr><th id="183">183</th><td><i>/* Voice activity detector */</i></td></tr>
+<tr><th id="184">184</th><td><i>/***************************/</i></td></tr>
+<tr><th id="185">185</th><td><u>#define <dfn class="macro" id="_M/VAD_N_BANDS" data-ref="_M/VAD_N_BANDS">VAD_N_BANDS</dfn>                             4</u></td></tr>
+<tr><th id="186">186</th><td></td></tr>
+<tr><th id="187">187</th><td><u>#define <dfn class="macro" id="_M/VAD_INTERNAL_SUBFRAMES_LOG2" data-ref="_M/VAD_INTERNAL_SUBFRAMES_LOG2">VAD_INTERNAL_SUBFRAMES_LOG2</dfn>             2</u></td></tr>
+<tr><th id="188">188</th><td><u>#define <dfn class="macro" id="_M/VAD_INTERNAL_SUBFRAMES" data-ref="_M/VAD_INTERNAL_SUBFRAMES">VAD_INTERNAL_SUBFRAMES</dfn>                  ( 1 &lt;&lt; VAD_INTERNAL_SUBFRAMES_LOG2 )</u></td></tr>
+<tr><th id="189">189</th><td></td></tr>
+<tr><th id="190">190</th><td><u>#define <dfn class="macro" id="_M/VAD_NOISE_LEVEL_SMOOTH_COEF_Q16" data-ref="_M/VAD_NOISE_LEVEL_SMOOTH_COEF_Q16">VAD_NOISE_LEVEL_SMOOTH_COEF_Q16</dfn>         1024    /* Must be &lt;  4096 */</u></td></tr>
+<tr><th id="191">191</th><td><u>#define <dfn class="macro" id="_M/VAD_NOISE_LEVELS_BIAS" data-ref="_M/VAD_NOISE_LEVELS_BIAS">VAD_NOISE_LEVELS_BIAS</dfn>                   50</u></td></tr>
+<tr><th id="192">192</th><td></td></tr>
+<tr><th id="193">193</th><td><i>/* Sigmoid settings */</i></td></tr>
+<tr><th id="194">194</th><td><u>#define <dfn class="macro" id="_M/VAD_NEGATIVE_OFFSET_Q5" data-ref="_M/VAD_NEGATIVE_OFFSET_Q5">VAD_NEGATIVE_OFFSET_Q5</dfn>                  128     /* sigmoid is 0 at -128 */</u></td></tr>
+<tr><th id="195">195</th><td><u>#define <dfn class="macro" id="_M/VAD_SNR_FACTOR_Q16" data-ref="_M/VAD_SNR_FACTOR_Q16">VAD_SNR_FACTOR_Q16</dfn>                      45000</u></td></tr>
+<tr><th id="196">196</th><td></td></tr>
+<tr><th id="197">197</th><td><i>/* smoothing for SNR measurement */</i></td></tr>
+<tr><th id="198">198</th><td><u>#define <dfn class="macro" id="_M/VAD_SNR_SMOOTH_COEF_Q18" data-ref="_M/VAD_SNR_SMOOTH_COEF_Q18">VAD_SNR_SMOOTH_COEF_Q18</dfn>                 4096</u></td></tr>
+<tr><th id="199">199</th><td></td></tr>
+<tr><th id="200">200</th><td><i>/* Size of the piecewise linear cosine approximation table for the LSFs */</i></td></tr>
+<tr><th id="201">201</th><td><u>#define <dfn class="macro" id="_M/LSF_COS_TAB_SZ_FIX" data-ref="_M/LSF_COS_TAB_SZ_FIX">LSF_COS_TAB_SZ_FIX</dfn>                      128</u></td></tr>
+<tr><th id="202">202</th><td></td></tr>
+<tr><th id="203">203</th><td><i>/******************/</i></td></tr>
+<tr><th id="204">204</th><td><i>/* NLSF quantizer */</i></td></tr>
+<tr><th id="205">205</th><td><i>/******************/</i></td></tr>
+<tr><th id="206">206</th><td><u>#define <dfn class="macro" id="_M/NLSF_W_Q" data-ref="_M/NLSF_W_Q">NLSF_W_Q</dfn>                                2</u></td></tr>
+<tr><th id="207">207</th><td><u>#define <dfn class="macro" id="_M/NLSF_VQ_MAX_VECTORS" data-ref="_M/NLSF_VQ_MAX_VECTORS">NLSF_VQ_MAX_VECTORS</dfn>                     32</u></td></tr>
+<tr><th id="208">208</th><td><u>#define <dfn class="macro" id="_M/NLSF_VQ_MAX_SURVIVORS" data-ref="_M/NLSF_VQ_MAX_SURVIVORS">NLSF_VQ_MAX_SURVIVORS</dfn>                   32</u></td></tr>
+<tr><th id="209">209</th><td><u>#define <dfn class="macro" id="_M/NLSF_QUANT_MAX_AMPLITUDE" data-ref="_M/NLSF_QUANT_MAX_AMPLITUDE">NLSF_QUANT_MAX_AMPLITUDE</dfn>                4</u></td></tr>
+<tr><th id="210">210</th><td><u>#define <dfn class="macro" id="_M/NLSF_QUANT_MAX_AMPLITUDE_EXT" data-ref="_M/NLSF_QUANT_MAX_AMPLITUDE_EXT">NLSF_QUANT_MAX_AMPLITUDE_EXT</dfn>            10</u></td></tr>
+<tr><th id="211">211</th><td><u>#define <dfn class="macro" id="_M/NLSF_QUANT_LEVEL_ADJ" data-ref="_M/NLSF_QUANT_LEVEL_ADJ">NLSF_QUANT_LEVEL_ADJ</dfn>                    0.1</u></td></tr>
+<tr><th id="212">212</th><td><u>#define <dfn class="macro" id="_M/NLSF_QUANT_DEL_DEC_STATES_LOG2" data-ref="_M/NLSF_QUANT_DEL_DEC_STATES_LOG2">NLSF_QUANT_DEL_DEC_STATES_LOG2</dfn>          2</u></td></tr>
+<tr><th id="213">213</th><td><u>#define <dfn class="macro" id="_M/NLSF_QUANT_DEL_DEC_STATES" data-ref="_M/NLSF_QUANT_DEL_DEC_STATES">NLSF_QUANT_DEL_DEC_STATES</dfn>               ( 1 &lt;&lt; NLSF_QUANT_DEL_DEC_STATES_LOG2 )</u></td></tr>
+<tr><th id="214">214</th><td></td></tr>
+<tr><th id="215">215</th><td><i>/* Transition filtering for mode switching */</i></td></tr>
+<tr><th id="216">216</th><td><u>#define <dfn class="macro" id="_M/TRANSITION_TIME_MS" data-ref="_M/TRANSITION_TIME_MS">TRANSITION_TIME_MS</dfn>                      5120    /* 5120 = 64 * FRAME_LENGTH_MS * ( TRANSITION_INT_NUM - 1 ) = 64*(20*4)*/</u></td></tr>
+<tr><th id="217">217</th><td><u>#define <dfn class="macro" id="_M/TRANSITION_NB" data-ref="_M/TRANSITION_NB">TRANSITION_NB</dfn>                           3       /* Hardcoded in tables */</u></td></tr>
+<tr><th id="218">218</th><td><u>#define <dfn class="macro" id="_M/TRANSITION_NA" data-ref="_M/TRANSITION_NA">TRANSITION_NA</dfn>                           2       /* Hardcoded in tables */</u></td></tr>
+<tr><th id="219">219</th><td><u>#define <dfn class="macro" id="_M/TRANSITION_INT_NUM" data-ref="_M/TRANSITION_INT_NUM">TRANSITION_INT_NUM</dfn>                      5       /* Hardcoded in tables */</u></td></tr>
+<tr><th id="220">220</th><td><u>#define <dfn class="macro" id="_M/TRANSITION_FRAMES" data-ref="_M/TRANSITION_FRAMES">TRANSITION_FRAMES</dfn>                       ( TRANSITION_TIME_MS / MAX_FRAME_LENGTH_MS )</u></td></tr>
+<tr><th id="221">221</th><td><u>#define <dfn class="macro" id="_M/TRANSITION_INT_STEPS" data-ref="_M/TRANSITION_INT_STEPS">TRANSITION_INT_STEPS</dfn>                    ( TRANSITION_FRAMES  / ( TRANSITION_INT_NUM - 1 ) )</u></td></tr>
+<tr><th id="222">222</th><td></td></tr>
+<tr><th id="223">223</th><td><i>/* BWE factors to apply after packet loss */</i></td></tr>
+<tr><th id="224">224</th><td><u>#define <dfn class="macro" id="_M/BWE_AFTER_LOSS_Q16" data-ref="_M/BWE_AFTER_LOSS_Q16">BWE_AFTER_LOSS_Q16</dfn>                      63570</u></td></tr>
+<tr><th id="225">225</th><td></td></tr>
+<tr><th id="226">226</th><td><i>/* Defines for CN generation */</i></td></tr>
+<tr><th id="227">227</th><td><u>#define <dfn class="macro" id="_M/CNG_BUF_MASK_MAX" data-ref="_M/CNG_BUF_MASK_MAX">CNG_BUF_MASK_MAX</dfn>                        255     /* 2^floor(log2(MAX_FRAME_LENGTH))-1    */</u></td></tr>
+<tr><th id="228">228</th><td><u>#define <dfn class="macro" id="_M/CNG_GAIN_SMTH_Q16" data-ref="_M/CNG_GAIN_SMTH_Q16">CNG_GAIN_SMTH_Q16</dfn>                       4634    /* 0.25^(1/4)                           */</u></td></tr>
+<tr><th id="229">229</th><td><u>#define <dfn class="macro" id="_M/CNG_NLSF_SMTH_Q16" data-ref="_M/CNG_NLSF_SMTH_Q16">CNG_NLSF_SMTH_Q16</dfn>                       16348   /* 0.25                                 */</u></td></tr>
+<tr><th id="230">230</th><td></td></tr>
+<tr><th id="231">231</th><td><u>#<span data-ppcond="231">ifdef</span> <span class="macro" data-ref="_M/__cplusplus">__cplusplus</span></u></td></tr>
+<tr><th id="232">232</th><td>}</td></tr>
+<tr><th id="233">233</th><td><u>#<span data-ppcond="231">endif</span></u></td></tr>
+<tr><th id="234">234</th><td></td></tr>
+<tr><th id="235">235</th><td><u>#<span data-ppcond="28">endif</span></u></td></tr>
+<tr><th id="236">236</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='A2NLSF.c.html'>codebrowser/code/opus-1.1.4/silk/A2NLSF.c</a><br/>Generated on <em>2017-Aug-29</em> from project codebrowser revision <em>63e07af</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

@@ -1,0 +1,10 @@
+<dec f='codebrowser/code/qcommon/qcommon.h' l='1092' type='char * Sys_GetClipboardData()'/>
+<doc f='codebrowser/code/qcommon/qcommon.h' l='1092'>// note that this isn&apos;t journaled...</doc>
+<use f='codebrowser/code/client/cl_keys.c' l='431' u='c' c='Field_Paste'/>
+<use f='codebrowser/code/client/cl_ui.c' l='597' u='c' c='CL_GetClipboardData'/>
+<def f='codebrowser/code/sys/sys_main.c' l='135' ll='157' type='char * Sys_GetClipboardData()'/>
+<doc f='codebrowser/code/sys/sys_main.c' l='130'>/*
+==================
+Sys_GetClipboardData
+==================
+*/</doc>

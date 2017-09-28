@@ -1,0 +1,24 @@
+<dec f='codebrowser/code/renderergl1/tr_local.h' l='1185' type='shader_t * R_FindShaderByName(const char * name)'/>
+<use f='codebrowser/code/renderergl1/tr_shader.c' l='74' u='c' c='R_RemapShader'/>
+<use f='codebrowser/code/renderergl1/tr_shader.c' l='84' u='c' c='R_RemapShader'/>
+<def f='codebrowser/code/renderergl1/tr_shader.c' l='2453' ll='2481' type='shader_t * R_FindShaderByName(const char * name)'/>
+<doc f='codebrowser/code/renderergl1/tr_shader.c' l='2445'>/*
+==================
+R_FindShaderByName
+
+Will always return a valid shader, but it might be the
+default shader if the real one can&apos;t be found.
+==================
+*/</doc>
+<dec f='codebrowser/code/renderergl2/tr_local.h' l='1933' type='shader_t * R_FindShaderByName(const char * name)'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='74' u='c' c='R_RemapShader'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='84' u='c' c='R_RemapShader'/>
+<def f='codebrowser/code/renderergl2/tr_shader.c' l='3174' ll='3202' type='shader_t * R_FindShaderByName(const char * name)'/>
+<doc f='codebrowser/code/renderergl2/tr_shader.c' l='3166'>/*
+==================
+R_FindShaderByName
+
+Will always return a valid shader, but it might be the
+default shader if the real one can&apos;t be found.
+==================
+*/</doc>

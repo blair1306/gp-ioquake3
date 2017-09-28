@@ -1,0 +1,31 @@
+<dec f='codebrowser/code/qcommon/q_shared.h' l='1008' type='byte'/>
+<offset>128</offset>
+<doc f='codebrowser/code/qcommon/q_shared.h' l='1008'>// for fast side tests: 0,1,2 = axial, 3 = nonaxial</doc>
+<use f='codebrowser/code/game/ai_main.c' l='151' u='w' c='BotAI_Trace'/>
+<use f='codebrowser/code/game/ai_main.c' l='151' u='r' c='BotAI_Trace'/>
+<use f='codebrowser/code/qcommon/cm_load.c' l='343' u='w' c='CMod_LoadPlanes'/>
+<use f='codebrowser/code/qcommon/cm_load.c' l='777' u='w' c='CM_InitBoxHull'/>
+<use f='codebrowser/code/qcommon/cm_load.c' l='783' u='w' c='CM_InitBoxHull'/>
+<use f='codebrowser/code/qcommon/cm_test.c' l='41' u='r' c='CM_PointLeafnum_r'/>
+<use f='codebrowser/code/qcommon/cm_test.c' l='42' u='r' c='CM_PointLeafnum_r'/>
+<use f='codebrowser/code/qcommon/cm_trace.c' l='1063' u='r' c='CM_TraceThroughTree'/>
+<use f='codebrowser/code/qcommon/cm_trace.c' l='1064' u='r' c='CM_TraceThroughTree'/>
+<use f='codebrowser/code/qcommon/cm_trace.c' l='1065' u='r' c='CM_TraceThroughTree'/>
+<use f='codebrowser/code/qcommon/cm_trace.c' l='1066' u='r' c='CM_TraceThroughTree'/>
+<use f='codebrowser/code/qcommon/q_math.c' l='658' u='r' c='BoxOnPlaneSide'/>
+<use f='codebrowser/code/qcommon/q_math.c' l='660' u='r' c='BoxOnPlaneSide'/>
+<use f='codebrowser/code/qcommon/q_math.c' l='662' u='r' c='BoxOnPlaneSide'/>
+<use f='codebrowser/code/renderergl1/tr_bsp.c' l='366' u='w' c='ParseFace'/>
+<use f='codebrowser/code/renderergl1/tr_bsp.c' l='1523' u='w' c='R_LoadPlanes'/>
+<use f='codebrowser/code/renderergl1/tr_main.c' l='502' u='w' c='R_SetupFrustum'/>
+<use f='codebrowser/code/renderergl2/tr_bsp.c' l='773' u='w' c='ParseFace'/>
+<use f='codebrowser/code/renderergl2/tr_bsp.c' l='2042' u='w' c='R_LoadPlanes'/>
+<use f='codebrowser/code/renderergl2/tr_main.c' l='729' u='w' c='R_SetupFrustum'/>
+<use f='codebrowser/code/renderergl2/tr_main.c' l='741' u='w' c='R_SetupFrustum'/>
+<use f='codebrowser/code/renderergl2/tr_main.c' l='926' u='w' c='R_SetupProjectionOrtho'/>
+<use f='codebrowser/code/renderergl2/tr_main.c' l='2067' u='w' c='R_RenderPshadowMaps'/>
+<use f='codebrowser/code/renderergl2/tr_main.c' l='2176' u='w' c='R_RenderPshadowMaps'/>
+<use f='codebrowser/code/server/sv_bot.c' l='190' u='w' c='BotImport_Trace'/>
+<use f='codebrowser/code/server/sv_bot.c' l='190' u='r' c='BotImport_Trace'/>
+<use f='codebrowser/code/server/sv_bot.c' l='216' u='w' c='BotImport_EntityTrace'/>
+<use f='codebrowser/code/server/sv_bot.c' l='216' u='r' c='BotImport_EntityTrace'/>

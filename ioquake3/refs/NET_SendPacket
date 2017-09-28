@@ -1,0 +1,9 @@
+<dec f='codebrowser/code/qcommon/qcommon.h' l='174' type='void NET_SendPacket(netsrc_t sock, int length, const void * data, netadr_t to)'/>
+<use f='codebrowser/code/client/cl_main.c' l='1893' u='c' c='CL_Rcon_f'/>
+<use f='codebrowser/code/client/cl_main.c' l='4158' u='c' c='CL_LocalServers_f'/>
+<use f='codebrowser/code/client/cl_main.c' l='4160' u='c' c='CL_LocalServers_f'/>
+<use f='codebrowser/code/qcommon/net_chan.c' l='142' u='c' c='Netchan_TransmitNextFragment'/>
+<use f='codebrowser/code/qcommon/net_chan.c' l='217' u='c' c='Netchan_Transmit'/>
+<def f='codebrowser/code/qcommon/net_chan.c' l='537' ll='564' type='void NET_SendPacket(netsrc_t sock, int length, const void * data, netadr_t to)'/>
+<use f='codebrowser/code/qcommon/net_chan.c' l='589' u='c' c='NET_OutOfBandPrint'/>
+<use f='codebrowser/code/qcommon/net_chan.c' l='618' u='c' c='NET_OutOfBandData'/>

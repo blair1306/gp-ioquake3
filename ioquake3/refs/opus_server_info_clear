@@ -1,0 +1,11 @@
+<dec f='codebrowser/code/opusfile-0.8/include/opusfile.h' l='763' type='void opus_server_info_clear(OpusServerInfo * _info)'/>
+<doc f='codebrowser/code/opusfile-0.8/include/opusfile.h' l='757'>/**Clears the #OpusServerInfo structure.
+   This should be called on an #OpusServerInfo structure after it is no longer
+    needed.
+   It will free all memory used by the structure members.
+   \param _info The #OpusServerInfo structure to clear.
+   \note If you use this function, you must link against &lt;tt&gt;libopusurl&lt;/tt&gt;.*/</doc>
+<def f='codebrowser/code/opusfile-0.8/src/http.c' l='3256' ll='3263' type='void opus_server_info_clear(OpusServerInfo * _info)'/>
+<use f='codebrowser/code/opusfile-0.8/src/http.c' l='3378' u='c' c='op_url_stream_vcreate_impl'/>
+<use f='codebrowser/code/opusfile-0.8/src/http.c' l='3421' u='c' c='op_vopen_url'/>
+<use f='codebrowser/code/opusfile-0.8/src/http.c' l='3451' u='c' c='op_vtest_url'/>

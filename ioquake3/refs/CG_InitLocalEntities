@@ -1,0 +1,14 @@
+<dec f='codebrowser/code/cgame/cg_local.h' l='1389' type='void CG_InitLocalEntities()'/>
+<doc f='codebrowser/code/cgame/cg_local.h' l='1386'>//
+// cg_localents.c
+//</doc>
+<def f='codebrowser/code/cgame/cg_localents.c' l='41' ll='51' type='void CG_InitLocalEntities()'/>
+<doc f='codebrowser/code/cgame/cg_localents.c' l='34'>/*
+===================
+CG_InitLocalEntities
+
+This is called at startup and for tournement restarts
+===================
+*/</doc>
+<use f='codebrowser/code/cgame/cg_main.c' l='1923' u='c' c='CG_Init'/>
+<use f='codebrowser/code/cgame/cg_servercmds.c' l='452' u='c' c='CG_MapRestart'/>

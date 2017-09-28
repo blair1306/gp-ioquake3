@@ -1,0 +1,8 @@
+<dec f='codebrowser/code/qcommon/cm_local.h' l='175' type='int'/>
+<offset>384</offset>
+<doc f='codebrowser/code/qcommon/cm_local.h' l='175'>// for overflows where each leaf can&apos;t be stored individually</doc>
+<use f='codebrowser/code/qcommon/cm_test.c' l='80' u='w' c='CM_StoreLeafs'/>
+<use f='codebrowser/code/qcommon/cm_test.c' l='183' u='w' c='CM_BoxLeafnums'/>
+<use f='codebrowser/code/qcommon/cm_test.c' l='188' u='r' c='CM_BoxLeafnums'/>
+<use f='codebrowser/code/qcommon/cm_test.c' l='208' u='w' c='CM_BoxBrushes'/>
+<use f='codebrowser/code/qcommon/cm_trace.c' l='428' u='w' c='CM_PositionTest'/>

@@ -1,0 +1,11 @@
+<dec f='codebrowser/code/game/g_local.h' l='238' type='qboolean'/>
+<offset>224</offset>
+<doc f='codebrowser/code/game/g_local.h' l='238'>// true if &quot;ip&quot; info key is &quot;localhost&quot;</doc>
+<use f='codebrowser/code/game/g_active.c' l='379' u='r' c='ClientInactivityTimer'/>
+<use f='codebrowser/code/game/g_client.c' l='940' u='w' c='ClientConnect'/>
+<use f='codebrowser/code/game/g_client.c' l='1083' u='r' c='ClientSpawn'/>
+<use f='codebrowser/code/game/g_cmds.c' l='422' u='r' c='Cmd_LevelShot_f'/>
+<use f='codebrowser/code/game/g_cmds.c' l='557' u='r' c='SetTeam'/>
+<use f='codebrowser/code/game/g_cmds.c' l='1396' u='r' c='Cmd_CallVote_f'/>
+<use f='codebrowser/code/game/g_cmds.c' l='1715' u='r' c='ClientCommand'/>
+<use f='codebrowser/code/game/g_session.c' l='112' u='r' c='G_InitSessionData'/>

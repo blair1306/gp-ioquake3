@@ -1,0 +1,46 @@
+<def f='codebrowser/code/renderergl1/tr_local.h' l='1206' ll='1232'/>
+<size>104064</size>
+<mbr r='shaderCommands_s::indexes' o='0' t='glIndex_t [6000]'/>
+<mbr r='shaderCommands_s::xyz' o='192000' t='vec4_t [1000]'/>
+<mbr r='shaderCommands_s::normal' o='320000' t='vec4_t [1000]'/>
+<mbr r='shaderCommands_s::texCoords' o='448000' t='vec2_t [1000][2]'/>
+<mbr r='shaderCommands_s::vertexColors' o='576000' t='color4ub_t [1000]'/>
+<mbr r='shaderCommands_s::vertexDlightBits' o='608000' t='int [1000]'/>
+<mbr r='shaderCommands_s::svars' o='640000' t='stageVars_t'/>
+<mbr r='shaderCommands_s::constantColor255' o='800000' t='color4ub_t [1000]'/>
+<mbr r='shaderCommands_s::shader' o='832000' t='shader_t *'/>
+<mbr r='shaderCommands_s::shaderTime' o='832064' t='double'/>
+<mbr r='shaderCommands_s::fogNum' o='832128' t='int'/>
+<mbr r='shaderCommands_s::dlightBits' o='832160' t='int'/>
+<mbr r='shaderCommands_s::numIndexes' o='832192' t='int'/>
+<mbr r='shaderCommands_s::numVertexes' o='832224' t='int'/>
+<mbr r='shaderCommands_s::numPasses' o='832256' t='int'/>
+<mbr r='shaderCommands_s::currentStageIteratorFunc' o='832320' t='void (*)(void)'/>
+<mbr r='shaderCommands_s::xstages' o='832384' t='shaderStage_t **'/>
+<def f='codebrowser/code/renderergl2/tr_local.h' l='1962' ll='1999'/>
+<size>148192</size>
+<mbr r='shaderCommands_s::indexes' o='0' t='glIndex_t [6000]'/>
+<mbr r='shaderCommands_s::xyz' o='192000' t='vec4_t [1000]'/>
+<mbr r='shaderCommands_s::normal' o='320000' t='int16_t [1000][4]'/>
+<mbr r='shaderCommands_s::tangent' o='384000' t='int16_t [1000][4]'/>
+<mbr r='shaderCommands_s::texCoords' o='448000' t='vec2_t [1000]'/>
+<mbr r='shaderCommands_s::lightCoords' o='512000' t='vec2_t [1000]'/>
+<mbr r='shaderCommands_s::color' o='576000' t='uint16_t [1000][4]'/>
+<mbr r='shaderCommands_s::lightdir' o='640000' t='int16_t [1000][4]'/>
+<mbr r='shaderCommands_s::attribPointers' o='704000' t='void *[13]'/>
+<mbr r='shaderCommands_s::vao' o='704832' t='vao_t *'/>
+<mbr r='shaderCommands_s::useInternalVao' o='704896' t='qboolean'/>
+<mbr r='shaderCommands_s::useCacheVao' o='704928' t='qboolean'/>
+<mbr r='shaderCommands_s::svars' o='705024' t='stageVars_t'/>
+<mbr r='shaderCommands_s::shader' o='1185024' t='shader_t *'/>
+<mbr r='shaderCommands_s::shaderTime' o='1185088' t='double'/>
+<mbr r='shaderCommands_s::fogNum' o='1185152' t='int'/>
+<mbr r='shaderCommands_s::cubemapIndex' o='1185184' t='int'/>
+<mbr r='shaderCommands_s::dlightBits' o='1185216' t='int'/>
+<mbr r='shaderCommands_s::pshadowBits' o='1185248' t='int'/>
+<mbr r='shaderCommands_s::firstIndex' o='1185280' t='int'/>
+<mbr r='shaderCommands_s::numIndexes' o='1185312' t='int'/>
+<mbr r='shaderCommands_s::numVertexes' o='1185344' t='int'/>
+<mbr r='shaderCommands_s::numPasses' o='1185376' t='int'/>
+<mbr r='shaderCommands_s::currentStageIteratorFunc' o='1185408' t='void (*)(void)'/>
+<mbr r='shaderCommands_s::xstages' o='1185472' t='shaderStage_t **'/>

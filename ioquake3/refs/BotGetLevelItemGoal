@@ -1,0 +1,11 @@
+<dec f='codebrowser/code/botlib/be_ai_goal.h' l='88' type='int BotGetLevelItemGoal(int index, char * classname, bot_goal_t * goal)'/>
+<def f='codebrowser/code/botlib/be_ai_goal.c' l='856' ll='902' type='int BotGetLevelItemGoal(int index, char * name, bot_goal_t * goal)'/>
+<doc f='codebrowser/code/botlib/be_ai_goal.c' l='850'>//===========================================================================
+//
+// Parameter:			-
+// Returns:				-
+// Changes Globals:		-
+//===========================================================================</doc>
+<doc f='codebrowser/code/botlib/be_ai_goal.h' l='86'>//search for a goal for the given classname, the index can be used
+//as a start point for the search when multiple goals are available with that same classname</doc>
+<use f='codebrowser/code/botlib/be_interface.c' l='821' u='r' c='Init_AI_Export'/>

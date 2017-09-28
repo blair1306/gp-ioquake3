@@ -1,0 +1,11 @@
+<dec f='codebrowser/code/game/g_local.h' l='454' type='void SaveRegisteredItems()'/>
+<def f='codebrowser/code/game/g_items.c' l='845' ll='863' type='void SaveRegisteredItems()'/>
+<doc f='codebrowser/code/game/g_items.c' l='837'>/*
+===============
+SaveRegisteredItems
+
+Write the needed items to a config string
+so the client will know which ones to precache
+===============
+*/</doc>
+<use f='codebrowser/code/game/g_main.c' l='495' u='c' c='G_InitGame'/>

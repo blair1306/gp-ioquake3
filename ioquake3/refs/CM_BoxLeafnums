@@ -1,0 +1,10 @@
+<dec f='codebrowser/code/qcommon/cm_public.h' l='55' type='int CM_BoxLeafnums(const vec_t * mins, const vec_t * maxs, int * list, int listsize, int * lastLeaf)'/>
+<doc f='codebrowser/code/qcommon/cm_public.h' l='53'>// only returns non-solid leafs
+// overflow if return listsize and if *lastLeaf != list[listsize-1]</doc>
+<def f='codebrowser/code/qcommon/cm_test.c' l='172' ll='190' type='int CM_BoxLeafnums(const vec_t * mins, const vec_t * maxs, int * list, int listsize, int * lastLeaf)'/>
+<doc f='codebrowser/code/qcommon/cm_test.c' l='167'>/*
+==================
+CM_BoxLeafnums
+==================
+*/</doc>
+<use f='codebrowser/code/server/sv_world.c' l='288' u='c' c='SV_LinkEntity'/>

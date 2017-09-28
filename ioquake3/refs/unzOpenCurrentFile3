@@ -1,0 +1,17 @@
+<dec f='codebrowser/code/qcommon/unzip.h' l='280' type='int unzOpenCurrentFile3(unzFile file, int * method, int * level, int raw, const char * password)'/>
+<doc f='codebrowser/code/qcommon/unzip.h' l='271'>/*
+  Same than unzOpenCurrentFile, but open for read raw the file (not uncompress)
+    if raw==1
+  *method will receive method of compression, *level will receive level of
+     compression
+  note : you can set level parameter as NULL (if you did not want known level,
+         but you CANNOT set method parameter as NULL
+*/</doc>
+<def f='codebrowser/code/qcommon/unzip.c' l='1059' ll='1201' type='int unzOpenCurrentFile3(unzFile file, int * method, int * level, int raw, const char * password)'/>
+<use f='codebrowser/code/qcommon/unzip.c' l='1206' u='c' c='unzOpenCurrentFile'/>
+<use f='codebrowser/code/qcommon/unzip.c' l='1213' u='c' c='unzOpenCurrentFilePassword'/>
+<use f='codebrowser/code/qcommon/unzip.c' l='1222' u='c' c='unzOpenCurrentFile2'/>
+<doc f='codebrowser/code/qcommon/unzip.c' l='1055'>/*
+  Open for reading data the current file in the zipfile.
+  If there is no error and the file is opened, the return value is UNZ_OK.
+*/</doc>

@@ -1,0 +1,141 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>string.c source code [codebrowser/code/tools/lcc/src/string.c] - Woboq Code Browser</title>
+<meta name="woboq:interestingDefinitions" content="string "/>
+<link rel="stylesheet" href="../../../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'codebrowser/code/tools/lcc/src/string.c'; var root_path = '../../../../..'; var data_path = '../../../../../../data';</script>
+<script src='../../../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../../../..'>codebrowser</a>/<a href='../../..'>code</a>/<a href='../..'>tools</a>/<a href='..'>lcc</a>/<a href='./'>src</a>/<a href='string.c.html'>string.c</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><u>#include <a href="c.h.html">"c.h"</a></u></td></tr>
+<tr><th id="2">2</th><td></td></tr>
+<tr><th id="3">3</th><td></td></tr>
+<tr><th id="4">4</th><td><em>static</em> <b>struct</b> <dfn class="type def" id="string" title='string' data-ref="string"><a class="type" href="#string" title='string' data-ref="string">string</a></dfn> {</td></tr>
+<tr><th id="5">5</th><td>	<em>char</em> *<dfn class="tu decl" id="string::str" title='string::str' data-type='char *' data-ref="string::str">str</dfn>;</td></tr>
+<tr><th id="6">6</th><td>	<em>int</em> <dfn class="tu decl" id="string::len" title='string::len' data-type='int' data-ref="string::len">len</dfn>;</td></tr>
+<tr><th id="7">7</th><td>	<b>struct</b> <a class="type" href="#string" title='string' data-ref="string">string</a> *<dfn class="tu decl" id="string::link" title='string::link' data-type='struct string *' data-ref="string::link">link</dfn>;</td></tr>
+<tr><th id="8">8</th><td>} *<dfn class="tu decl def" id="buckets" title='buckets' data-type='struct string *[1024]' data-ref="buckets">buckets</dfn>[<var>1024</var>];</td></tr>
+<tr><th id="9">9</th><td><em>static</em> <em>int</em> <dfn class="tu decl def" id="scatter" title='scatter' data-type='int [256]' data-ref="scatter">scatter</dfn>[] = {	<i  data-doc="scatter">/* map characters to random values */</i></td></tr>
+<tr><th id="10">10</th><td>	<var>2078917053</var>, <var>143302914</var>, <var>1027100827</var>, <var>1953210302</var>, <var>755253631</var>,</td></tr>
+<tr><th id="11">11</th><td>	<var>2002600785</var>, <var>1405390230</var>, <var>45248011</var>, <var>1099951567</var>, <var>433832350</var>,</td></tr>
+<tr><th id="12">12</th><td>	<var>2018585307</var>, <var>438263339</var>, <var>813528929</var>, <var>1703199216</var>, <var>618906479</var>,</td></tr>
+<tr><th id="13">13</th><td>	<var>573714703</var>, <var>766270699</var>, <var>275680090</var>, <var>1510320440</var>, <var>1583583926</var>,</td></tr>
+<tr><th id="14">14</th><td>	<var>1723401032</var>, <var>1965443329</var>, <var>1098183682</var>, <var>1636505764</var>, <var>980071615</var>,</td></tr>
+<tr><th id="15">15</th><td>	<var>1011597961</var>, <var>643279273</var>, <var>1315461275</var>, <var>157584038</var>, <var>1069844923</var>,</td></tr>
+<tr><th id="16">16</th><td>	<var>471560540</var>, <var>89017443</var>, <var>1213147837</var>, <var>1498661368</var>, <var>2042227746</var>,</td></tr>
+<tr><th id="17">17</th><td>	<var>1968401469</var>, <var>1353778505</var>, <var>1300134328</var>, <var>2013649480</var>, <var>306246424</var>,</td></tr>
+<tr><th id="18">18</th><td>	<var>1733966678</var>, <var>1884751139</var>, <var>744509763</var>, <var>400011959</var>, <var>1440466707</var>,</td></tr>
+<tr><th id="19">19</th><td>	<var>1363416242</var>, <var>973726663</var>, <var>59253759</var>, <var>1639096332</var>, <var>336563455</var>,</td></tr>
+<tr><th id="20">20</th><td>	<var>1642837685</var>, <var>1215013716</var>, <var>154523136</var>, <var>593537720</var>, <var>704035832</var>,</td></tr>
+<tr><th id="21">21</th><td>	<var>1134594751</var>, <var>1605135681</var>, <var>1347315106</var>, <var>302572379</var>, <var>1762719719</var>,</td></tr>
+<tr><th id="22">22</th><td>	<var>269676381</var>, <var>774132919</var>, <var>1851737163</var>, <var>1482824219</var>, <var>125310639</var>,</td></tr>
+<tr><th id="23">23</th><td>	<var>1746481261</var>, <var>1303742040</var>, <var>1479089144</var>, <var>899131941</var>, <var>1169907872</var>,</td></tr>
+<tr><th id="24">24</th><td>	<var>1785335569</var>, <var>485614972</var>, <var>907175364</var>, <var>382361684</var>, <var>885626931</var>,</td></tr>
+<tr><th id="25">25</th><td>	<var>200158423</var>, <var>1745777927</var>, <var>1859353594</var>, <var>259412182</var>, <var>1237390611</var>,</td></tr>
+<tr><th id="26">26</th><td>	<var>48433401</var>, <var>1902249868</var>, <var>304920680</var>, <var>202956538</var>, <var>348303940</var>,</td></tr>
+<tr><th id="27">27</th><td>	<var>1008956512</var>, <var>1337551289</var>, <var>1953439621</var>, <var>208787970</var>, <var>1640123668</var>,</td></tr>
+<tr><th id="28">28</th><td>	<var>1568675693</var>, <var>478464352</var>, <var>266772940</var>, <var>1272929208</var>, <var>1961288571</var>,</td></tr>
+<tr><th id="29">29</th><td>	<var>392083579</var>, <var>871926821</var>, <var>1117546963</var>, <var>1871172724</var>, <var>1771058762</var>,</td></tr>
+<tr><th id="30">30</th><td>	<var>139971187</var>, <var>1509024645</var>, <var>109190086</var>, <var>1047146551</var>, <var>1891386329</var>,</td></tr>
+<tr><th id="31">31</th><td>	<var>994817018</var>, <var>1247304975</var>, <var>1489680608</var>, <var>706686964</var>, <var>1506717157</var>,</td></tr>
+<tr><th id="32">32</th><td>	<var>579587572</var>, <var>755120366</var>, <var>1261483377</var>, <var>884508252</var>, <var>958076904</var>,</td></tr>
+<tr><th id="33">33</th><td>	<var>1609787317</var>, <var>1893464764</var>, <var>148144545</var>, <var>1415743291</var>, <var>2102252735</var>,</td></tr>
+<tr><th id="34">34</th><td>	<var>1788268214</var>, <var>836935336</var>, <var>433233439</var>, <var>2055041154</var>, <var>2109864544</var>,</td></tr>
+<tr><th id="35">35</th><td>	<var>247038362</var>, <var>299641085</var>, <var>834307717</var>, <var>1364585325</var>, <var>23330161</var>,</td></tr>
+<tr><th id="36">36</th><td>	<var>457882831</var>, <var>1504556512</var>, <var>1532354806</var>, <var>567072918</var>, <var>404219416</var>,</td></tr>
+<tr><th id="37">37</th><td>	<var>1276257488</var>, <var>1561889936</var>, <var>1651524391</var>, <var>618454448</var>, <var>121093252</var>,</td></tr>
+<tr><th id="38">38</th><td>	<var>1010757900</var>, <var>1198042020</var>, <var>876213618</var>, <var>124757630</var>, <var>2082550272</var>,</td></tr>
+<tr><th id="39">39</th><td>	<var>1834290522</var>, <var>1734544947</var>, <var>1828531389</var>, <var>1982435068</var>, <var>1002804590</var>,</td></tr>
+<tr><th id="40">40</th><td>	<var>1783300476</var>, <var>1623219634</var>, <var>1839739926</var>, <var>69050267</var>, <var>1530777140</var>,</td></tr>
+<tr><th id="41">41</th><td>	<var>1802120822</var>, <var>316088629</var>, <var>1830418225</var>, <var>488944891</var>, <var>1680673954</var>,</td></tr>
+<tr><th id="42">42</th><td>	<var>1853748387</var>, <var>946827723</var>, <var>1037746818</var>, <var>1238619545</var>, <var>1513900641</var>,</td></tr>
+<tr><th id="43">43</th><td>	<var>1441966234</var>, <var>367393385</var>, <var>928306929</var>, <var>946006977</var>, <var>985847834</var>,</td></tr>
+<tr><th id="44">44</th><td>	<var>1049400181</var>, <var>1956764878</var>, <var>36406206</var>, <var>1925613800</var>, <var>2081522508</var>,</td></tr>
+<tr><th id="45">45</th><td>	<var>2118956479</var>, <var>1612420674</var>, <var>1668583807</var>, <var>1800004220</var>, <var>1447372094</var>,</td></tr>
+<tr><th id="46">46</th><td>	<var>523904750</var>, <var>1435821048</var>, <var>923108080</var>, <var>216161028</var>, <var>1504871315</var>,</td></tr>
+<tr><th id="47">47</th><td>	<var>306401572</var>, <var>2018281851</var>, <var>1820959944</var>, <var>2136819798</var>, <var>359743094</var>,</td></tr>
+<tr><th id="48">48</th><td>	<var>1354150250</var>, <var>1843084537</var>, <var>1306570817</var>, <var>244413420</var>, <var>934220434</var>,</td></tr>
+<tr><th id="49">49</th><td>	<var>672987810</var>, <var>1686379655</var>, <var>1301613820</var>, <var>1601294739</var>, <var>484902984</var>,</td></tr>
+<tr><th id="50">50</th><td>	<var>139978006</var>, <var>503211273</var>, <var>294184214</var>, <var>176384212</var>, <var>281341425</var>,</td></tr>
+<tr><th id="51">51</th><td>	<var>228223074</var>, <var>147857043</var>, <var>1893762099</var>, <var>1896806882</var>, <var>1947861263</var>,</td></tr>
+<tr><th id="52">52</th><td>	<var>1193650546</var>, <var>273227984</var>, <var>1236198663</var>, <var>2116758626</var>, <var>489389012</var>,</td></tr>
+<tr><th id="53">53</th><td>	<var>593586330</var>, <var>275676551</var>, <var>360187215</var>, <var>267062626</var>, <var>265012701</var>,</td></tr>
+<tr><th id="54">54</th><td>	<var>719930310</var>, <var>1621212876</var>, <var>2108097238</var>, <var>2026501127</var>, <var>1865626297</var>,</td></tr>
+<tr><th id="55">55</th><td>	<var>894834024</var>, <var>552005290</var>, <var>1404522304</var>, <var>48964196</var>, <var>5816381</var>,</td></tr>
+<tr><th id="56">56</th><td>	<var>1889425288</var>, <var>188942202</var>, <var>509027654</var>, <var>36125855</var>, <var>365326415</var>,</td></tr>
+<tr><th id="57">57</th><td>	<var>790369079</var>, <var>264348929</var>, <var>513183458</var>, <var>536647531</var>, <var>13672163</var>,</td></tr>
+<tr><th id="58">58</th><td>	<var>313561074</var>, <var>1730298077</var>, <var>286900147</var>, <var>1549759737</var>, <var>1699573055</var>,</td></tr>
+<tr><th id="59">59</th><td>	<var>776289160</var>, <var>2143346068</var>, <var>1975249606</var>, <var>1136476375</var>, <var>262925046</var>,</td></tr>
+<tr><th id="60">60</th><td>	<var>92778659</var>, <var>1856406685</var>, <var>1884137923</var>, <var>53392249</var>, <var>1735424165</var>,</td></tr>
+<tr><th id="61">61</th><td>	<var>1602280572</var></td></tr>
+<tr><th id="62">62</th><td>};</td></tr>
+<tr><th id="63">63</th><td><em>char</em> *<dfn class="decl def" id="string" title='string' data-ref="string">string</dfn>(<em>const</em> <em>char</em> *<dfn class="local col1 decl" id="1str" title='str' data-type='const char *' data-ref="1str">str</dfn>) {</td></tr>
+<tr><th id="64">64</th><td>	<em>const</em> <em>char</em> *<dfn class="local col2 decl" id="2s" title='s' data-type='const char *' data-ref="2s">s</dfn>;</td></tr>
+<tr><th id="65">65</th><td></td></tr>
+<tr><th id="66">66</th><td>	<b>for</b> (<a class="local col2 ref" href="#2s" title='s' data-ref="2s">s</a> = <a class="local col1 ref" href="#1str" title='str' data-ref="1str">str</a>; *<a class="local col2 ref" href="#2s" title='s' data-ref="2s">s</a>; <a class="local col2 ref" href="#2s" title='s' data-ref="2s">s</a>++)</td></tr>
+<tr><th id="67">67</th><td>		;</td></tr>
+<tr><th id="68">68</th><td>	<b>return</b> <a class="ref" href="#stringn" title='stringn' data-ref="stringn">stringn</a>(<a class="local col1 ref" href="#1str" title='str' data-ref="1str">str</a>, <a class="local col2 ref" href="#2s" title='s' data-ref="2s">s</a> - <a class="local col1 ref" href="#1str" title='str' data-ref="1str">str</a>);</td></tr>
+<tr><th id="69">69</th><td>}</td></tr>
+<tr><th id="70">70</th><td><em>char</em> *<dfn class="decl def" id="stringd" title='stringd' data-ref="stringd">stringd</dfn>(<em>long</em> <dfn class="local col3 decl" id="3n" title='n' data-type='long' data-ref="3n">n</dfn>) {</td></tr>
+<tr><th id="71">71</th><td>	<em>char</em> <dfn class="local col4 decl" id="4str" title='str' data-type='char [25]' data-ref="4str">str</dfn>[<var>25</var>], *<dfn class="local col5 decl" id="5s" title='s' data-type='char *' data-ref="5s">s</dfn> = <a class="local col4 ref" href="#4str" title='str' data-ref="4str">str</a> + <b>sizeof</b> (<a class="local col4 ref" href="#4str" title='str' data-ref="4str">str</a>);</td></tr>
+<tr><th id="72">72</th><td>	<em>unsigned</em> <em>long</em> <dfn class="local col6 decl" id="6m" title='m' data-type='unsigned long' data-ref="6m">m</dfn>;</td></tr>
+<tr><th id="73">73</th><td></td></tr>
+<tr><th id="74">74</th><td>	<b>if</b> (<a class="local col3 ref" href="#3n" title='n' data-ref="3n">n</a> == <span class="macro" title="(-9223372036854775807L -1L)" data-ref="_M/LONG_MIN">LONG_MIN</span>)</td></tr>
+<tr><th id="75">75</th><td>		<a class="local col6 ref" href="#6m" title='m' data-ref="6m">m</a> = (<em>unsigned</em> <em>long</em>)<span class="macro" title="9223372036854775807L" data-ref="_M/LONG_MAX">LONG_MAX</span> + <var>1</var>;</td></tr>
+<tr><th id="76">76</th><td>	<b>else</b> <b>if</b> (<a class="local col3 ref" href="#3n" title='n' data-ref="3n">n</a> &lt; <var>0</var>)</td></tr>
+<tr><th id="77">77</th><td>		<a class="local col6 ref" href="#6m" title='m' data-ref="6m">m</a> = -<a class="local col3 ref" href="#3n" title='n' data-ref="3n">n</a>;</td></tr>
+<tr><th id="78">78</th><td>	<b>else</b></td></tr>
+<tr><th id="79">79</th><td>		<a class="local col6 ref" href="#6m" title='m' data-ref="6m">m</a> = <a class="local col3 ref" href="#3n" title='n' data-ref="3n">n</a>;</td></tr>
+<tr><th id="80">80</th><td>	<b>do</b></td></tr>
+<tr><th id="81">81</th><td>		*--<a class="local col5 ref" href="#5s" title='s' data-ref="5s">s</a> = <a class="local col6 ref" href="#6m" title='m' data-ref="6m">m</a>%<var>10</var> + <kbd>'0'</kbd>;</td></tr>
+<tr><th id="82">82</th><td>	<b>while</b> ((<a class="local col6 ref" href="#6m" title='m' data-ref="6m">m</a> /= <var>10</var>) != <var>0</var>);</td></tr>
+<tr><th id="83">83</th><td>	<b>if</b> (<a class="local col3 ref" href="#3n" title='n' data-ref="3n">n</a> &lt; <var>0</var>)</td></tr>
+<tr><th id="84">84</th><td>		*--<a class="local col5 ref" href="#5s" title='s' data-ref="5s">s</a> = <kbd>'-'</kbd>;</td></tr>
+<tr><th id="85">85</th><td>	<b>return</b> <a class="ref" href="#stringn" title='stringn' data-ref="stringn">stringn</a>(<a class="local col5 ref" href="#5s" title='s' data-ref="5s">s</a>, <a class="local col4 ref" href="#4str" title='str' data-ref="4str">str</a> + <b>sizeof</b> (<a class="local col4 ref" href="#4str" title='str' data-ref="4str">str</a>) - <a class="local col5 ref" href="#5s" title='s' data-ref="5s">s</a>);</td></tr>
+<tr><th id="86">86</th><td>}</td></tr>
+<tr><th id="87">87</th><td><em>char</em> *<dfn class="decl def" id="stringn" title='stringn' data-ref="stringn">stringn</dfn>(<em>const</em> <em>char</em> *<dfn class="local col7 decl" id="7str" title='str' data-type='const char *' data-ref="7str">str</dfn>, <em>int</em> <dfn class="local col8 decl" id="8len" title='len' data-type='int' data-ref="8len">len</dfn>) {</td></tr>
+<tr><th id="88">88</th><td>	<em>int</em> <dfn class="local col9 decl" id="9i" title='i' data-type='int' data-ref="9i">i</dfn>;</td></tr>
+<tr><th id="89">89</th><td>	<em>unsigned</em> <em>int</em> <dfn class="local col0 decl" id="10h" title='h' data-type='unsigned int' data-ref="10h">h</dfn>;</td></tr>
+<tr><th id="90">90</th><td>	<em>const</em> <em>char</em> *<dfn class="local col1 decl" id="11end" title='end' data-type='const char *' data-ref="11end">end</dfn>;</td></tr>
+<tr><th id="91">91</th><td>	<b>struct</b> <a class="type" href="#string" title='string' data-ref="string">string</a> *<dfn class="local col2 decl" id="12p" title='p' data-type='struct string *' data-ref="12p">p</dfn>;</td></tr>
+<tr><th id="92">92</th><td></td></tr>
+<tr><th id="93">93</th><td>	<a class="macro" href="../../../../../include/assert.h.html#88" title="((str) ? (void) (0) : __assert_fail (&quot;str&quot;, &quot;/home/jon/workspace/ioq3/code/tools/lcc/src/string.c&quot;, 93, __PRETTY_FUNCTION__))" data-ref="_M/assert">assert</a>(<a class="local col7 ref" href="#7str" title='str' data-ref="7str">str</a>);</td></tr>
+<tr><th id="94">94</th><td>	<b>for</b> (<a class="local col0 ref" href="#10h" title='h' data-ref="10h">h</a> = <var>0</var>, <a class="local col9 ref" href="#9i" title='i' data-ref="9i">i</a> = <a class="local col8 ref" href="#8len" title='len' data-ref="8len">len</a>, <a class="local col1 ref" href="#11end" title='end' data-ref="11end">end</a> = <a class="local col7 ref" href="#7str" title='str' data-ref="7str">str</a>; <a class="local col9 ref" href="#9i" title='i' data-ref="9i">i</a> &gt; <var>0</var>; <a class="local col9 ref" href="#9i" title='i' data-ref="9i">i</a>--)</td></tr>
+<tr><th id="95">95</th><td>		<a class="local col0 ref" href="#10h" title='h' data-ref="10h">h</a> = (<a class="local col0 ref" href="#10h" title='h' data-ref="10h">h</a>&lt;&lt;<var>1</var>) + <a class="tu ref" href="#scatter" title='scatter' data-use='r' data-ref="scatter">scatter</a>[*(<em>unsigned</em> <em>char</em> *)<a class="local col1 ref" href="#11end" title='end' data-ref="11end">end</a>++];</td></tr>
+<tr><th id="96">96</th><td>	<a class="local col0 ref" href="#10h" title='h' data-ref="10h">h</a> &amp;= <a class="macro" href="c.h.html#30" title="((int)(sizeof (buckets)/sizeof ((buckets)[0])))" data-ref="_M/NELEMS">NELEMS</a>(<a class="tu ref" href="#buckets" title='buckets' data-use='r' data-ref="buckets">buckets</a>)-<var>1</var>;</td></tr>
+<tr><th id="97">97</th><td>	<b>for</b> (<a class="local col2 ref" href="#12p" title='p' data-ref="12p">p</a> = <a class="tu ref" href="#buckets" title='buckets' data-use='r' data-ref="buckets">buckets</a>[<a class="local col0 ref" href="#10h" title='h' data-ref="10h">h</a>]; <a class="local col2 ref" href="#12p" title='p' data-ref="12p">p</a>; <a class="local col2 ref" href="#12p" title='p' data-ref="12p">p</a> = <a class="local col2 ref" href="#12p" title='p' data-ref="12p">p</a>-&gt;<a class="tu ref" href="#string::link" title='string::link' data-use='r' data-ref="string::link">link</a>)</td></tr>
+<tr><th id="98">98</th><td>		<b>if</b> (<a class="local col8 ref" href="#8len" title='len' data-ref="8len">len</a> == <a class="local col2 ref" href="#12p" title='p' data-ref="12p">p</a>-&gt;<a class="tu ref" href="#string::len" title='string::len' data-use='r' data-ref="string::len">len</a>) {</td></tr>
+<tr><th id="99">99</th><td>			<em>const</em> <em>char</em> *<dfn class="local col3 decl" id="13s1" title='s1' data-type='const char *' data-ref="13s1">s1</dfn> = <a class="local col7 ref" href="#7str" title='str' data-ref="7str">str</a>;</td></tr>
+<tr><th id="100">100</th><td>			<em>char</em> *<dfn class="local col4 decl" id="14s2" title='s2' data-type='char *' data-ref="14s2">s2</dfn> = <a class="local col2 ref" href="#12p" title='p' data-ref="12p">p</a>-&gt;<a class="tu ref" href="#string::str" title='string::str' data-use='r' data-ref="string::str">str</a>;</td></tr>
+<tr><th id="101">101</th><td>			<b>do</b> {</td></tr>
+<tr><th id="102">102</th><td>				<b>if</b> (<a class="local col3 ref" href="#13s1" title='s1' data-ref="13s1">s1</a> == <a class="local col1 ref" href="#11end" title='end' data-ref="11end">end</a>)</td></tr>
+<tr><th id="103">103</th><td>					<b>return</b> <a class="local col2 ref" href="#12p" title='p' data-ref="12p">p</a>-&gt;<a class="tu ref" href="#string::str" title='string::str' data-use='r' data-ref="string::str">str</a>;</td></tr>
+<tr><th id="104">104</th><td>			} <b>while</b> (*<a class="local col3 ref" href="#13s1" title='s1' data-ref="13s1">s1</a>++ == *<a class="local col4 ref" href="#14s2" title='s2' data-ref="14s2">s2</a>++);</td></tr>
+<tr><th id="105">105</th><td>		}</td></tr>
+<tr><th id="106">106</th><td>	{</td></tr>
+<tr><th id="107">107</th><td>		<em>static</em> <em>char</em> *<dfn class="local col5 decl" id="15next" title='next' data-type='char *' data-ref="15next">next</dfn>, *<dfn class="local col6 decl" id="16strlimit" title='strlimit' data-type='char *' data-ref="16strlimit">strlimit</dfn>;</td></tr>
+<tr><th id="108">108</th><td>		<b>if</b> (<a class="local col8 ref" href="#8len" title='len' data-ref="8len">len</a> + <var>1</var> &gt;= <a class="local col6 ref" href="#16strlimit" title='strlimit' data-ref="16strlimit">strlimit</a> - <a class="local col5 ref" href="#15next" title='next' data-ref="15next">next</a>) {</td></tr>
+<tr><th id="109">109</th><td>			<em>int</em> <dfn class="local col7 decl" id="17n" title='n' data-type='int' data-ref="17n">n</dfn> = <a class="local col8 ref" href="#8len" title='len' data-ref="8len">len</a> + <var>4</var>*<var>1024</var>;</td></tr>
+<tr><th id="110">110</th><td>			<a class="local col5 ref" href="#15next" title='next' data-ref="15next">next</a> = <a class="ref" href="c.h.html#allocate" title='allocate' data-ref="allocate">allocate</a>(<a class="local col7 ref" href="#17n" title='n' data-ref="17n">n</a>, <a class="enum" href="c.h.html#PERM" title='PERM' data-ref="PERM">PERM</a>);</td></tr>
+<tr><th id="111">111</th><td>			<a class="local col6 ref" href="#16strlimit" title='strlimit' data-ref="16strlimit">strlimit</a> = <a class="local col5 ref" href="#15next" title='next' data-ref="15next">next</a> + <a class="local col7 ref" href="#17n" title='n' data-ref="17n">n</a>;</td></tr>
+<tr><th id="112">112</th><td>		}</td></tr>
+<tr><th id="113">113</th><td>		<a class="macro" href="c.h.html#8" title="((p) = allocate(sizeof *(p), (PERM)))" data-ref="_M/NEW">NEW</a>(<a class="local col2 ref" href="#12p" title='p' data-ref="12p">p</a>, <a class="enum" href="c.h.html#PERM" title='PERM' data-ref="PERM">PERM</a>);</td></tr>
+<tr><th id="114">114</th><td>		<a class="local col2 ref" href="#12p" title='p' data-ref="12p">p</a>-&gt;<a class="tu ref" href="#string::len" title='string::len' data-use='w' data-ref="string::len">len</a> = <a class="local col8 ref" href="#8len" title='len' data-ref="8len">len</a>;</td></tr>
+<tr><th id="115">115</th><td>		<b>for</b> (<a class="local col2 ref" href="#12p" title='p' data-ref="12p">p</a>-&gt;<a class="tu ref" href="#string::str" title='string::str' data-use='w' data-ref="string::str">str</a> = <a class="local col5 ref" href="#15next" title='next' data-ref="15next">next</a>; <a class="local col7 ref" href="#7str" title='str' data-ref="7str">str</a> &lt; <a class="local col1 ref" href="#11end" title='end' data-ref="11end">end</a>; )</td></tr>
+<tr><th id="116">116</th><td>			*<a class="local col5 ref" href="#15next" title='next' data-ref="15next">next</a>++ = *<a class="local col7 ref" href="#7str" title='str' data-ref="7str">str</a>++;</td></tr>
+<tr><th id="117">117</th><td>		*<a class="local col5 ref" href="#15next" title='next' data-ref="15next">next</a>++ = <var>0</var>;</td></tr>
+<tr><th id="118">118</th><td>		<a class="local col2 ref" href="#12p" title='p' data-ref="12p">p</a>-&gt;<a class="tu ref" href="#string::link" title='string::link' data-use='w' data-ref="string::link">link</a> = <a class="tu ref" href="#buckets" title='buckets' data-use='r' data-ref="buckets">buckets</a>[<a class="local col0 ref" href="#10h" title='h' data-ref="10h">h</a>];</td></tr>
+<tr><th id="119">119</th><td>		<a class="tu ref" href="#buckets" title='buckets' data-use='w' data-ref="buckets">buckets</a>[<a class="local col0 ref" href="#10h" title='h' data-ref="10h">h</a>] = <a class="local col2 ref" href="#12p" title='p' data-ref="12p">p</a>;</td></tr>
+<tr><th id="120">120</th><td>		<b>return</b> <a class="local col2 ref" href="#12p" title='p' data-ref="12p">p</a>-&gt;<a class="tu ref" href="#string::str" title='string::str' data-use='r' data-ref="string::str">str</a>;</td></tr>
+<tr><th id="121">121</th><td>	}</td></tr>
+<tr><th id="122">122</th><td>}</td></tr>
+<tr><th id="123">123</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated on <em>2017-Aug-29</em> from project codebrowser revision <em>63e07af</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

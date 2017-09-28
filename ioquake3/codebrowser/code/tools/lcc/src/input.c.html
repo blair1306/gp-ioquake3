@@ -1,0 +1,153 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>input.c source code [codebrowser/code/tools/lcc/src/input.c] - Woboq Code Browser</title>
+<link rel="stylesheet" href="../../../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'codebrowser/code/tools/lcc/src/input.c'; var root_path = '../../../../..'; var data_path = '../../../../../../data';</script>
+<script src='../../../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../../../..'>codebrowser</a>/<a href='../../..'>code</a>/<a href='../..'>tools</a>/<a href='..'>lcc</a>/<a href='./'>src</a>/<a href='input.c.html'>input.c</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><u>#include <a href="c.h.html">"c.h"</a></u></td></tr>
+<tr><th id="2">2</th><td></td></tr>
+<tr><th id="3">3</th><td></td></tr>
+<tr><th id="4">4</th><td><em>static</em> <em>void</em> <a class="tu decl" href="#pragma" title='pragma' data-type='void pragma()' data-ref="pragma">pragma</a>(<em>void</em>);</td></tr>
+<tr><th id="5">5</th><td><em>static</em> <em>void</em> <a class="tu decl" href="#resynch" title='resynch' data-type='void resynch()' data-ref="resynch">resynch</a>(<em>void</em>);</td></tr>
+<tr><th id="6">6</th><td></td></tr>
+<tr><th id="7">7</th><td><em>static</em> <em>int</em> <dfn class="tu decl def" id="bsize" title='bsize' data-type='int' data-ref="bsize">bsize</dfn>;</td></tr>
+<tr><th id="8">8</th><td><em>static</em> <em>unsigned</em> <em>char</em> <dfn class="tu decl def" id="buffer" title='buffer' data-type='unsigned char [4610]' data-ref="buffer">buffer</dfn>[<a class="macro" href="c.h.html#13" title="512" data-ref="_M/MAXLINE">MAXLINE</a>+<var>1</var> + <a class="macro" href="c.h.html#14" title="4096" data-ref="_M/BUFSIZE">BUFSIZE</a>+<var>1</var>];</td></tr>
+<tr><th id="9">9</th><td><em>unsigned</em> <em>char</em> *<dfn class="decl def" id="cp" title='cp' data-ref="cp">cp</dfn>;	<i>/* current input character */</i></td></tr>
+<tr><th id="10">10</th><td><em>char</em> *<dfn class="decl def" id="file" title='file' data-ref="file">file</dfn>;		<i>/* current input file name */</i></td></tr>
+<tr><th id="11">11</th><td><em>char</em> *<dfn class="decl def" id="firstfile" title='firstfile' data-ref="firstfile">firstfile</dfn>;	<i>/* first input file */</i></td></tr>
+<tr><th id="12">12</th><td><em>unsigned</em> <em>char</em> *<dfn class="decl def" id="limit" title='limit' data-ref="limit">limit</dfn>;	<i>/* points to last character + 1 */</i></td></tr>
+<tr><th id="13">13</th><td><em>char</em> *<dfn class="decl def" id="line" title='line' data-ref="line">line</dfn>;		<i>/* current line */</i></td></tr>
+<tr><th id="14">14</th><td><em>int</em> <dfn class="decl def" id="lineno" title='lineno' data-ref="lineno">lineno</dfn>;		<i>/* line number of current line */</i></td></tr>
+<tr><th id="15">15</th><td></td></tr>
+<tr><th id="16">16</th><td><em>void</em> <dfn class="decl def" id="nextline" title='nextline' data-ref="nextline">nextline</dfn>(<em>void</em>) {</td></tr>
+<tr><th id="17">17</th><td>	<b>do</b> {</td></tr>
+<tr><th id="18">18</th><td>		<b>if</b> (<a class="ref" href="c.h.html#cp" title='cp' data-ref="cp">cp</a> &gt;= <a class="ref" href="c.h.html#limit" title='limit' data-ref="limit">limit</a>) {</td></tr>
+<tr><th id="19">19</th><td>			<a class="ref" href="#fillbuf" title='fillbuf' data-ref="fillbuf">fillbuf</a>();</td></tr>
+<tr><th id="20">20</th><td>			<b>if</b> (<a class="ref" href="c.h.html#cp" title='cp' data-ref="cp">cp</a> &gt;= <a class="ref" href="c.h.html#limit" title='limit' data-ref="limit">limit</a>)</td></tr>
+<tr><th id="21">21</th><td>				<a class="ref" href="c.h.html#cp" title='cp' data-ref="cp">cp</a> = <a class="ref" href="c.h.html#limit" title='limit' data-ref="limit">limit</a>;</td></tr>
+<tr><th id="22">22</th><td>			<b>if</b> (<a class="ref" href="c.h.html#cp" title='cp' data-ref="cp">cp</a> == <a class="ref" href="c.h.html#limit" title='limit' data-ref="limit">limit</a>)</td></tr>
+<tr><th id="23">23</th><td>				<b>return</b>;</td></tr>
+<tr><th id="24">24</th><td>		} <b>else</b> {</td></tr>
+<tr><th id="25">25</th><td>			<a class="ref" href="c.h.html#lineno" title='lineno' data-ref="lineno">lineno</a>++;</td></tr>
+<tr><th id="26">26</th><td>			<b>for</b> (<a class="ref" href="c.h.html#line" title='line' data-ref="line">line</a> = (<em>char</em> *)<a class="ref" href="c.h.html#cp" title='cp' data-ref="cp">cp</a>; *<a class="ref" href="c.h.html#cp" title='cp' data-ref="cp">cp</a>==<kbd>' '</kbd> || *<a class="ref" href="c.h.html#cp" title='cp' data-ref="cp">cp</a>==<kbd>'\t'</kbd>; <a class="ref" href="c.h.html#cp" title='cp' data-ref="cp">cp</a>++)</td></tr>
+<tr><th id="27">27</th><td>				;</td></tr>
+<tr><th id="28">28</th><td>			<b>if</b> (*<a class="ref" href="c.h.html#cp" title='cp' data-ref="cp">cp</a> == <kbd>'#'</kbd>) {</td></tr>
+<tr><th id="29">29</th><td>				<a class="tu ref" href="#resynch" title='resynch' data-use='c' data-ref="resynch">resynch</a>();</td></tr>
+<tr><th id="30">30</th><td>				<a class="ref" href="#nextline" title='nextline' data-ref="nextline">nextline</a>();</td></tr>
+<tr><th id="31">31</th><td>			}</td></tr>
+<tr><th id="32">32</th><td>		}</td></tr>
+<tr><th id="33">33</th><td>	} <b>while</b> (*<a class="ref" href="c.h.html#cp" title='cp' data-ref="cp">cp</a> == <kbd>'\n'</kbd> &amp;&amp; <a class="ref" href="c.h.html#cp" title='cp' data-ref="cp">cp</a> == <a class="ref" href="c.h.html#limit" title='limit' data-ref="limit">limit</a>);</td></tr>
+<tr><th id="34">34</th><td>}</td></tr>
+<tr><th id="35">35</th><td><em>void</em> <dfn class="decl def" id="fillbuf" title='fillbuf' data-ref="fillbuf">fillbuf</dfn>(<em>void</em>) {</td></tr>
+<tr><th id="36">36</th><td>	<b>if</b> (<a class="tu ref" href="#bsize" title='bsize' data-use='r' data-ref="bsize">bsize</a> == <var>0</var>)</td></tr>
+<tr><th id="37">37</th><td>		<b>return</b>;</td></tr>
+<tr><th id="38">38</th><td>	<b>if</b> (<a class="ref" href="c.h.html#cp" title='cp' data-ref="cp">cp</a> &gt;= <a class="ref" href="c.h.html#limit" title='limit' data-ref="limit">limit</a>)</td></tr>
+<tr><th id="39">39</th><td>		<a class="ref" href="c.h.html#cp" title='cp' data-ref="cp">cp</a> = &amp;<a class="tu ref" href="#buffer" title='buffer' data-use='a' data-ref="buffer">buffer</a>[<a class="macro" href="c.h.html#13" title="512" data-ref="_M/MAXLINE">MAXLINE</a>+<var>1</var>];</td></tr>
+<tr><th id="40">40</th><td>	<b>else</b></td></tr>
+<tr><th id="41">41</th><td>		{</td></tr>
+<tr><th id="42">42</th><td>			<em>int</em> <dfn class="local col1 decl" id="1n" title='n' data-type='int' data-ref="1n">n</dfn> = <a class="ref" href="c.h.html#limit" title='limit' data-ref="limit">limit</a> - <a class="ref" href="c.h.html#cp" title='cp' data-ref="cp">cp</a>;</td></tr>
+<tr><th id="43">43</th><td>			<em>unsigned</em> <em>char</em> *<dfn class="local col2 decl" id="2s" title='s' data-type='unsigned char *' data-ref="2s">s</dfn> = &amp;<a class="tu ref" href="#buffer" title='buffer' data-use='a' data-ref="buffer">buffer</a>[<a class="macro" href="c.h.html#13" title="512" data-ref="_M/MAXLINE">MAXLINE</a>+<var>1</var>] - <a class="local col1 ref" href="#1n" title='n' data-ref="1n">n</a>;</td></tr>
+<tr><th id="44">44</th><td>			<a class="macro" href="../../../../../include/assert.h.html#88" title="((s &gt;= buffer) ? (void) (0) : __assert_fail (&quot;s &gt;= buffer&quot;, &quot;/home/jon/workspace/ioq3/code/tools/lcc/src/input.c&quot;, 44, __PRETTY_FUNCTION__))" data-ref="_M/assert">assert</a>(<a class="local col2 ref" href="#2s" title='s' data-ref="2s">s</a> &gt;= <a class="tu ref" href="#buffer" title='buffer' data-use='r' data-ref="buffer">buffer</a>);</td></tr>
+<tr><th id="45">45</th><td>			<a class="ref" href="c.h.html#line" title='line' data-ref="line">line</a> = (<em>char</em> *)<a class="local col2 ref" href="#2s" title='s' data-ref="2s">s</a> - ((<em>char</em> *)<a class="ref" href="c.h.html#cp" title='cp' data-ref="cp">cp</a> - <a class="ref" href="c.h.html#line" title='line' data-ref="line">line</a>);</td></tr>
+<tr><th id="46">46</th><td>			<b>while</b> (<a class="ref" href="c.h.html#cp" title='cp' data-ref="cp">cp</a> &lt; <a class="ref" href="c.h.html#limit" title='limit' data-ref="limit">limit</a>)</td></tr>
+<tr><th id="47">47</th><td>				*<a class="local col2 ref" href="#2s" title='s' data-ref="2s">s</a>++ = *<a class="ref" href="c.h.html#cp" title='cp' data-ref="cp">cp</a>++;</td></tr>
+<tr><th id="48">48</th><td>			<a class="ref" href="c.h.html#cp" title='cp' data-ref="cp">cp</a> = &amp;<a class="tu ref" href="#buffer" title='buffer' data-use='a' data-ref="buffer">buffer</a>[<a class="macro" href="c.h.html#13" title="512" data-ref="_M/MAXLINE">MAXLINE</a>+<var>1</var>] - <a class="local col1 ref" href="#1n" title='n' data-ref="1n">n</a>;</td></tr>
+<tr><th id="49">49</th><td>		}</td></tr>
+<tr><th id="50">50</th><td>	<b>if</b> (<a class="ref" href="../../../../../include/stdio.h.html#feof" title='feof' data-ref="feof">feof</a>(<a class="macro" href="../../../../../include/stdio.h.html#172" title="stdin" data-ref="_M/stdin">stdin</a>))</td></tr>
+<tr><th id="51">51</th><td>		<a class="tu ref" href="#bsize" title='bsize' data-use='w' data-ref="bsize">bsize</a> = <var>0</var>;</td></tr>
+<tr><th id="52">52</th><td>	<b>else</b></td></tr>
+<tr><th id="53">53</th><td>		<a class="tu ref" href="#bsize" title='bsize' data-use='w' data-ref="bsize">bsize</a> = <a class="ref" href="../../../../../include/stdio.h.html#fread" title='fread' data-ref="fread">fread</a>(&amp;<a class="tu ref" href="#buffer" title='buffer' data-use='a' data-ref="buffer">buffer</a>[<a class="macro" href="c.h.html#13" title="512" data-ref="_M/MAXLINE">MAXLINE</a>+<var>1</var>], <var>1</var>, <a class="macro" href="c.h.html#14" title="4096" data-ref="_M/BUFSIZE">BUFSIZE</a>, <a class="macro" href="../../../../../include/stdio.h.html#172" title="stdin" data-ref="_M/stdin">stdin</a>);</td></tr>
+<tr><th id="54">54</th><td>	<b>if</b> (<a class="tu ref" href="#bsize" title='bsize' data-use='r' data-ref="bsize">bsize</a> &lt; <var>0</var>) {</td></tr>
+<tr><th id="55">55</th><td>		<a class="ref" href="c.h.html#error" title='error' data-ref="error">error</a>(<q>"read error\n"</q>);</td></tr>
+<tr><th id="56">56</th><td>		<a class="ref" href="../../../../../include/stdlib.h.html#exit" title='exit' data-ref="exit">exit</a>(<a class="macro" href="../../../../../include/stdlib.h.html#133" title="1" data-ref="_M/EXIT_FAILURE">EXIT_FAILURE</a>);</td></tr>
+<tr><th id="57">57</th><td>	}</td></tr>
+<tr><th id="58">58</th><td>	<a class="ref" href="c.h.html#limit" title='limit' data-ref="limit">limit</a> = &amp;<a class="tu ref" href="#buffer" title='buffer' data-use='a' data-ref="buffer">buffer</a>[<a class="macro" href="c.h.html#13" title="512" data-ref="_M/MAXLINE">MAXLINE</a>+<var>1</var>+<a class="tu ref" href="#bsize" title='bsize' data-use='r' data-ref="bsize">bsize</a>];</td></tr>
+<tr><th id="59">59</th><td>	*<a class="ref" href="c.h.html#limit" title='limit' data-ref="limit">limit</a> = <kbd>'\n'</kbd>;</td></tr>
+<tr><th id="60">60</th><td>}</td></tr>
+<tr><th id="61">61</th><td><em>void</em> <dfn class="decl def" id="input_init" title='input_init' data-ref="input_init">input_init</dfn>(<em>int</em> <dfn class="local col3 decl" id="3argc" title='argc' data-type='int' data-ref="3argc">argc</dfn>, <em>char</em> *<dfn class="local col4 decl" id="4argv" title='argv' data-type='char **' data-ref="4argv">argv</dfn>[]) {</td></tr>
+<tr><th id="62">62</th><td>	<em>static</em> <em>int</em> <dfn class="local col5 decl" id="5inited" title='inited' data-type='int' data-ref="5inited">inited</dfn>;</td></tr>
+<tr><th id="63">63</th><td></td></tr>
+<tr><th id="64">64</th><td>	<b>if</b> (<a class="local col5 ref" href="#5inited" title='inited' data-ref="5inited">inited</a>)</td></tr>
+<tr><th id="65">65</th><td>		<b>return</b>;</td></tr>
+<tr><th id="66">66</th><td>	<a class="local col5 ref" href="#5inited" title='inited' data-ref="5inited">inited</a> = <var>1</var>;</td></tr>
+<tr><th id="67">67</th><td>	<a class="ref" href="c.h.html#main_init" title='main_init' data-ref="main_init">main_init</a>(<a class="local col3 ref" href="#3argc" title='argc' data-ref="3argc">argc</a>, <a class="local col4 ref" href="#4argv" title='argv' data-ref="4argv">argv</a>);</td></tr>
+<tr><th id="68">68</th><td>	<a class="ref" href="c.h.html#limit" title='limit' data-ref="limit">limit</a> = <a class="ref" href="c.h.html#cp" title='cp' data-ref="cp">cp</a> = &amp;<a class="tu ref" href="#buffer" title='buffer' data-use='a' data-ref="buffer">buffer</a>[<a class="macro" href="c.h.html#13" title="512" data-ref="_M/MAXLINE">MAXLINE</a>+<var>1</var>];</td></tr>
+<tr><th id="69">69</th><td>	<a class="tu ref" href="#bsize" title='bsize' data-use='w' data-ref="bsize">bsize</a> = -<var>1</var>;</td></tr>
+<tr><th id="70">70</th><td>	<a class="ref" href="c.h.html#lineno" title='lineno' data-ref="lineno">lineno</a> = <var>0</var>;</td></tr>
+<tr><th id="71">71</th><td>	<a class="ref" href="c.h.html#file" title='file' data-ref="file">file</a> = <span class="macro" title="((void*)0)" data-ref="_M/NULL">NULL</span>;</td></tr>
+<tr><th id="72">72</th><td>	<a class="ref" href="#fillbuf" title='fillbuf' data-ref="fillbuf">fillbuf</a>();</td></tr>
+<tr><th id="73">73</th><td>	<b>if</b> (<a class="ref" href="c.h.html#cp" title='cp' data-ref="cp">cp</a> &gt;= <a class="ref" href="c.h.html#limit" title='limit' data-ref="limit">limit</a>)</td></tr>
+<tr><th id="74">74</th><td>		<a class="ref" href="c.h.html#cp" title='cp' data-ref="cp">cp</a> = <a class="ref" href="c.h.html#limit" title='limit' data-ref="limit">limit</a>;</td></tr>
+<tr><th id="75">75</th><td>	<a class="ref" href="#nextline" title='nextline' data-ref="nextline">nextline</a>();</td></tr>
+<tr><th id="76">76</th><td>}</td></tr>
+<tr><th id="77">77</th><td></td></tr>
+<tr><th id="78">78</th><td><i  data-doc="pragma">/* pragma - handle #pragma ref id... */</i></td></tr>
+<tr><th id="79">79</th><td><em>static</em> <em>void</em> <dfn class="tu decl def" id="pragma" title='pragma' data-type='void pragma()' data-ref="pragma">pragma</dfn>(<em>void</em>) {</td></tr>
+<tr><th id="80">80</th><td>	<b>if</b> ((<a class="ref" href="c.h.html#t" title='t' data-ref="t">t</a> = <a class="ref" href="c.h.html#gettok" title='gettok' data-ref="gettok">gettok</a>()) == <a class="enum" href="token.h.html#36" title='ID' data-ref="ID">ID</a> &amp;&amp; <a class="ref" href="../../../../../include/string.h.html#strcmp" title='strcmp' data-ref="strcmp">strcmp</a>(<a class="ref" href="c.h.html#token" title='token' data-ref="token">token</a>, <q>"ref"</q>) == <var>0</var>)</td></tr>
+<tr><th id="81">81</th><td>		<b>for</b> (;;) {</td></tr>
+<tr><th id="82">82</th><td>			<b>while</b> (*<a class="ref" href="c.h.html#cp" title='cp' data-ref="cp">cp</a> == <kbd>' '</kbd> || *<a class="ref" href="c.h.html#cp" title='cp' data-ref="cp">cp</a> == <kbd>'\t'</kbd>)</td></tr>
+<tr><th id="83">83</th><td>				<a class="ref" href="c.h.html#cp" title='cp' data-ref="cp">cp</a>++;</td></tr>
+<tr><th id="84">84</th><td>			<b>if</b> (*<a class="ref" href="c.h.html#cp" title='cp' data-ref="cp">cp</a> == <kbd>'\n'</kbd> || *<a class="ref" href="c.h.html#cp" title='cp' data-ref="cp">cp</a> == <var>0</var>)</td></tr>
+<tr><th id="85">85</th><td>				<b>break</b>;</td></tr>
+<tr><th id="86">86</th><td>			<b>if</b> ((<a class="ref" href="c.h.html#t" title='t' data-ref="t">t</a> = <a class="ref" href="c.h.html#gettok" title='gettok' data-ref="gettok">gettok</a>()) == <a class="enum" href="token.h.html#36" title='ID' data-ref="ID">ID</a> &amp;&amp; <a class="ref" href="c.h.html#tsym" title='tsym' data-ref="tsym">tsym</a>) {</td></tr>
+<tr><th id="87">87</th><td>				<a class="ref" href="c.h.html#tsym" title='tsym' data-ref="tsym">tsym</a>-&gt;<a class="ref" href="c.h.html#symbol::ref" title='symbol::ref' data-ref="symbol::ref">ref</a>++;</td></tr>
+<tr><th id="88">88</th><td>				<a class="ref" href="c.h.html#use" title='use' data-ref="use">use</a>(<a class="ref" href="c.h.html#tsym" title='tsym' data-ref="tsym">tsym</a>, <a class="ref" href="c.h.html#src" title='src' data-ref="src">src</a>);</td></tr>
+<tr><th id="89">89</th><td>			}	</td></tr>
+<tr><th id="90">90</th><td>		}</td></tr>
+<tr><th id="91">91</th><td>}</td></tr>
+<tr><th id="92">92</th><td></td></tr>
+<tr><th id="93">93</th><td><i  data-doc="resynch">/* resynch - set line number/file name in # n [ "file" ] and #pragma ... */</i></td></tr>
+<tr><th id="94">94</th><td><em>static</em> <em>void</em> <dfn class="tu decl def" id="resynch" title='resynch' data-type='void resynch()' data-ref="resynch">resynch</dfn>(<em>void</em>) {</td></tr>
+<tr><th id="95">95</th><td>	<b>for</b> (<a class="ref" href="c.h.html#cp" title='cp' data-ref="cp">cp</a>++; *<a class="ref" href="c.h.html#cp" title='cp' data-ref="cp">cp</a> == <kbd>' '</kbd> || *<a class="ref" href="c.h.html#cp" title='cp' data-ref="cp">cp</a> == <kbd>'\t'</kbd>; )</td></tr>
+<tr><th id="96">96</th><td>		<a class="ref" href="c.h.html#cp" title='cp' data-ref="cp">cp</a>++;</td></tr>
+<tr><th id="97">97</th><td>	<b>if</b> (<a class="ref" href="c.h.html#limit" title='limit' data-ref="limit">limit</a> - <a class="ref" href="c.h.html#cp" title='cp' data-ref="cp">cp</a> &lt; <a class="macro" href="c.h.html#13" title="512" data-ref="_M/MAXLINE">MAXLINE</a>)</td></tr>
+<tr><th id="98">98</th><td>		<a class="ref" href="#fillbuf" title='fillbuf' data-ref="fillbuf">fillbuf</a>();</td></tr>
+<tr><th id="99">99</th><td>	<b>if</b> (<a class="ref" href="../../../../../include/string.h.html#strncmp" title='strncmp' data-ref="strncmp">strncmp</a>((<em>char</em> *)<a class="ref" href="c.h.html#cp" title='cp' data-ref="cp">cp</a>, <q>"pragma"</q>, <var>6</var>) == <var>0</var>) {</td></tr>
+<tr><th id="100">100</th><td>		<a class="ref" href="c.h.html#cp" title='cp' data-ref="cp">cp</a> += <var>6</var>;</td></tr>
+<tr><th id="101">101</th><td>		<a class="tu ref" href="#pragma" title='pragma' data-use='c' data-ref="pragma">pragma</a>();</td></tr>
+<tr><th id="102">102</th><td>	} <b>else</b> <b>if</b> (*<a class="ref" href="c.h.html#cp" title='cp' data-ref="cp">cp</a> &gt;= <kbd>'0'</kbd> &amp;&amp; *<a class="ref" href="c.h.html#cp" title='cp' data-ref="cp">cp</a> &lt;= <kbd>'9'</kbd>) {</td></tr>
+<tr><th id="103">103</th><td>	<dfn class="lbl" id="6line" data-ref="6line">line</dfn>:	<b>for</b> (<a class="ref" href="c.h.html#lineno" title='lineno' data-ref="lineno">lineno</a> = <var>0</var>; *<a class="ref" href="c.h.html#cp" title='cp' data-ref="cp">cp</a> &gt;= <kbd>'0'</kbd> &amp;&amp; *<a class="ref" href="c.h.html#cp" title='cp' data-ref="cp">cp</a> &lt;= <kbd>'9'</kbd>; )</td></tr>
+<tr><th id="104">104</th><td>			<a class="ref" href="c.h.html#lineno" title='lineno' data-ref="lineno">lineno</a> = <var>10</var>*<a class="ref" href="c.h.html#lineno" title='lineno' data-ref="lineno">lineno</a> + *<a class="ref" href="c.h.html#cp" title='cp' data-ref="cp">cp</a>++ - <kbd>'0'</kbd>;</td></tr>
+<tr><th id="105">105</th><td>		<a class="ref" href="c.h.html#lineno" title='lineno' data-ref="lineno">lineno</a>--;</td></tr>
+<tr><th id="106">106</th><td>		<b>while</b> (*<a class="ref" href="c.h.html#cp" title='cp' data-ref="cp">cp</a> == <kbd>' '</kbd> || *<a class="ref" href="c.h.html#cp" title='cp' data-ref="cp">cp</a> == <kbd>'\t'</kbd>)</td></tr>
+<tr><th id="107">107</th><td>			<a class="ref" href="c.h.html#cp" title='cp' data-ref="cp">cp</a>++;</td></tr>
+<tr><th id="108">108</th><td>		<b>if</b> (*<a class="ref" href="c.h.html#cp" title='cp' data-ref="cp">cp</a> == <kbd>'"'</kbd>) {</td></tr>
+<tr><th id="109">109</th><td>			<a class="ref" href="c.h.html#file" title='file' data-ref="file">file</a> = (<em>char</em> *)++<a class="ref" href="c.h.html#cp" title='cp' data-ref="cp">cp</a>;</td></tr>
+<tr><th id="110">110</th><td>			<b>while</b> (*<a class="ref" href="c.h.html#cp" title='cp' data-ref="cp">cp</a> &amp;&amp; *<a class="ref" href="c.h.html#cp" title='cp' data-ref="cp">cp</a> != <kbd>'"'</kbd> &amp;&amp; *<a class="ref" href="c.h.html#cp" title='cp' data-ref="cp">cp</a> != <kbd>'\n'</kbd>)</td></tr>
+<tr><th id="111">111</th><td>				<a class="ref" href="c.h.html#cp" title='cp' data-ref="cp">cp</a>++;</td></tr>
+<tr><th id="112">112</th><td>			<a class="ref" href="c.h.html#file" title='file' data-ref="file">file</a> = <a class="ref" href="c.h.html#stringn" title='stringn' data-ref="stringn">stringn</a>(<a class="ref" href="c.h.html#file" title='file' data-ref="file">file</a>, (<em>char</em> *)<a class="ref" href="c.h.html#cp" title='cp' data-ref="cp">cp</a> - <a class="ref" href="c.h.html#file" title='file' data-ref="file">file</a>);</td></tr>
+<tr><th id="113">113</th><td>			<b>if</b> (*<a class="ref" href="c.h.html#cp" title='cp' data-ref="cp">cp</a> == <kbd>'\n'</kbd>)</td></tr>
+<tr><th id="114">114</th><td>				<a class="ref" href="c.h.html#warning" title='warning' data-ref="warning">warning</a>(<q>"missing \" in preprocessor line\n"</q>);</td></tr>
+<tr><th id="115">115</th><td>			<b>if</b> (<a class="ref" href="c.h.html#firstfile" title='firstfile' data-ref="firstfile">firstfile</a> == <var>0</var>)</td></tr>
+<tr><th id="116">116</th><td>				<a class="ref" href="c.h.html#firstfile" title='firstfile' data-ref="firstfile">firstfile</a> = <a class="ref" href="c.h.html#file" title='file' data-ref="file">file</a>;</td></tr>
+<tr><th id="117">117</th><td>		}</td></tr>
+<tr><th id="118">118</th><td>	} <b>else</b> <b>if</b> (<a class="ref" href="../../../../../include/string.h.html#strncmp" title='strncmp' data-ref="strncmp">strncmp</a>((<em>char</em> *)<a class="ref" href="c.h.html#cp" title='cp' data-ref="cp">cp</a>, <q>"line"</q>, <var>4</var>) == <var>0</var>) {</td></tr>
+<tr><th id="119">119</th><td>		<b>for</b> (<a class="ref" href="c.h.html#cp" title='cp' data-ref="cp">cp</a> += <var>4</var>; *<a class="ref" href="c.h.html#cp" title='cp' data-ref="cp">cp</a> == <kbd>' '</kbd> || *<a class="ref" href="c.h.html#cp" title='cp' data-ref="cp">cp</a> == <kbd>'\t'</kbd>; )</td></tr>
+<tr><th id="120">120</th><td>			<a class="ref" href="c.h.html#cp" title='cp' data-ref="cp">cp</a>++;</td></tr>
+<tr><th id="121">121</th><td>		<b>if</b> (*<a class="ref" href="c.h.html#cp" title='cp' data-ref="cp">cp</a> &gt;= <kbd>'0'</kbd> &amp;&amp; *<a class="ref" href="c.h.html#cp" title='cp' data-ref="cp">cp</a> &lt;= <kbd>'9'</kbd>)</td></tr>
+<tr><th id="122">122</th><td>			<b>goto</b> <a class="lbl" href="#6line" data-ref="6line">line</a>;</td></tr>
+<tr><th id="123">123</th><td>		<b>if</b> (<a class="ref" href="c.h.html#Aflag" title='Aflag' data-ref="Aflag">Aflag</a> &gt;= <var>2</var>)</td></tr>
+<tr><th id="124">124</th><td>			<a class="ref" href="c.h.html#warning" title='warning' data-ref="warning">warning</a>(<q>"unrecognized control line\n"</q>);</td></tr>
+<tr><th id="125">125</th><td>	} <b>else</b> <b>if</b> (<a class="ref" href="c.h.html#Aflag" title='Aflag' data-ref="Aflag">Aflag</a> &gt;= <var>2</var> &amp;&amp; *<a class="ref" href="c.h.html#cp" title='cp' data-ref="cp">cp</a> != <kbd>'\n'</kbd>)</td></tr>
+<tr><th id="126">126</th><td>		<a class="ref" href="c.h.html#warning" title='warning' data-ref="warning">warning</a>(<q>"unrecognized control line\n"</q>);</td></tr>
+<tr><th id="127">127</th><td>	<b>while</b> (*<a class="ref" href="c.h.html#cp" title='cp' data-ref="cp">cp</a>)</td></tr>
+<tr><th id="128">128</th><td>		<b>if</b> (*<a class="ref" href="c.h.html#cp" title='cp' data-ref="cp">cp</a>++ == <kbd>'\n'</kbd>) {</td></tr>
+<tr><th id="129">129</th><td>			<b>if</b> (<a class="ref" href="c.h.html#cp" title='cp' data-ref="cp">cp</a> == <a class="ref" href="c.h.html#limit" title='limit' data-ref="limit">limit</a> + <var>1</var>)</td></tr>
+<tr><th id="130">130</th><td>				<a class="ref" href="#nextline" title='nextline' data-ref="nextline">nextline</a>();</td></tr>
+<tr><th id="131">131</th><td>			<b>else</b></td></tr>
+<tr><th id="132">132</th><td>				<b>break</b>;</td></tr>
+<tr><th id="133">133</th><td>		}</td></tr>
+<tr><th id="134">134</th><td>}</td></tr>
+<tr><th id="135">135</th><td></td></tr>
+<tr><th id="136">136</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated on <em>2017-Aug-29</em> from project codebrowser revision <em>63e07af</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

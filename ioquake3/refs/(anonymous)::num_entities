@@ -1,0 +1,49 @@
+<dec f='codebrowser/code/game/g_local.h' l='334' type='int'/>
+<offset>160</offset>
+<doc f='codebrowser/code/game/g_local.h' l='334'>// MAX_CLIENTS &lt;= num_entities &lt;= ENTITYNUM_MAX_NORMAL</doc>
+<use f='codebrowser/code/game/ai_dmq3.c' l='3793' u='r' c='BotModelMinsMaxs'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='5315' u='r' c='BotSetEntityNumForGoalWithModel'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='5344' u='r' c='BotSetEntityNumForGoal'/>
+<use f='codebrowser/code/game/g_combat.c' l='244' u='r' c='GibEntity'/>
+<use f='codebrowser/code/game/g_main.c' l='280' u='r' c='G_FindTeams'/>
+<use f='codebrowser/code/game/g_main.c' l='290' u='r' c='G_FindTeams'/>
+<use f='codebrowser/code/game/g_main.c' l='469' u='w' c='G_InitGame'/>
+<use f='codebrowser/code/game/g_main.c' l='476' u='r' c='G_InitGame'/>
+<use f='codebrowser/code/game/g_main.c' l='1787' u='r' c='G_RunFrame'/>
+<use f='codebrowser/code/game/g_svcmds.c' l='324' u='r' c='Svcmd_EntityList_f'/>
+<use f='codebrowser/code/game/g_target.c' l='438' u='r' c='target_location_linkup'/>
+<use f='codebrowser/code/game/g_utils.c' l='168' u='r' c='G_Find'/>
+<use f='codebrowser/code/game/g_utils.c' l='398' u='r' c='G_Spawn'/>
+<use f='codebrowser/code/game/g_utils.c' l='413' u='r' c='G_Spawn'/>
+<use f='codebrowser/code/game/g_utils.c' l='417' u='r' c='G_Spawn'/>
+<use f='codebrowser/code/game/g_utils.c' l='425' u='w' c='G_Spawn'/>
+<use f='codebrowser/code/game/g_utils.c' l='428' u='r' c='G_Spawn'/>
+<use f='codebrowser/code/game/g_utils.c' l='444' u='r' c='G_EntitiesFree'/>
+<use f='codebrowser/code/game/g_utils.c' l='450' u='r' c='G_EntitiesFree'/>
+<dec f='codebrowser/code/renderergl1/tr_local.h' l='396' type='int'/>
+<offset>3072</offset>
+<use f='codebrowser/code/renderergl1/tr_main.c' l='707' u='r' c='R_GetPortalOrientations'/>
+<use f='codebrowser/code/renderergl1/tr_main.c' l='819' u='r' c='IsMirror'/>
+<use f='codebrowser/code/renderergl1/tr_main.c' l='1193' u='r' c='R_AddEntitySurfaces'/>
+<use f='codebrowser/code/renderergl1/tr_scene.c' l='352' u='w' c='RE_RenderScene'/>
+<dec f='codebrowser/code/renderergl2/tr_local.h' l='720' type='int'/>
+<offset>3104</offset>
+<use f='codebrowser/code/renderergl2/tr_main.c' l='1057' u='r' c='R_GetPortalOrientations'/>
+<use f='codebrowser/code/renderergl2/tr_main.c' l='1169' u='r' c='IsMirror'/>
+<use f='codebrowser/code/renderergl2/tr_main.c' l='1643' u='r' c='R_AddEntitySurfaces'/>
+<use f='codebrowser/code/renderergl2/tr_main.c' l='1863' u='r' c='R_RenderPshadowMaps'/>
+<use f='codebrowser/code/renderergl2/tr_scene.c' l='408' u='w' c='RE_BeginScene'/>
+<dec f='codebrowser/code/server/server.h' l='89' type='int'/>
+<dec f='codebrowser/code/server/server.h' l='106' type='int'/>
+<use f='codebrowser/code/server/sv_bot.c' l='630' u='r' c='SV_BotGetSnapshotEntity'/>
+<offset>4032</offset>
+<doc f='codebrowser/code/server/server.h' l='89'>// current number, &lt;= MAX_GENTITIES</doc>
+<use f='codebrowser/code/server/sv_game.c' l='257' u='w' c='SV_LocateGameData'/>
+<use f='codebrowser/code/server/sv_init.c' l='221' u='r' c='SV_CreateBaseline'/>
+<use f='codebrowser/code/server/sv_snapshot.c' l='65' u='r' c='SV_EmitPacketEntities'/>
+<use f='codebrowser/code/server/sv_snapshot.c' l='72' u='r' c='SV_EmitPacketEntities'/>
+<use f='codebrowser/code/server/sv_snapshot.c' l='73' u='r' c='SV_EmitPacketEntities'/>
+<use f='codebrowser/code/server/sv_snapshot.c' l='319' u='r' c='SV_AddEntitiesVisibleFromPoint'/>
+<use f='codebrowser/code/server/sv_snapshot.c' l='465' u='w' c='SV_BuildClientSnapshot'/>
+<use f='codebrowser/code/server/sv_snapshot.c' l='508' u='w' c='SV_BuildClientSnapshot'/>
+<use f='codebrowser/code/server/sv_snapshot.c' l='519' u='w' c='SV_BuildClientSnapshot'/>

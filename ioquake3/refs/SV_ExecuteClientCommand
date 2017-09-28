@@ -1,0 +1,11 @@
+<dec f='codebrowser/code/server/server.h' l='381' type='void SV_ExecuteClientCommand(client_t * cl, const char * s, qboolean clientOK)'/>
+<use f='codebrowser/code/server/sv_bot.c' l='426' u='c' c='BotClientCommand'/>
+<def f='codebrowser/code/server/sv_client.c' l='1564' ll='1588' type='void SV_ExecuteClientCommand(client_t * cl, const char * s, qboolean clientOK)'/>
+<use f='codebrowser/code/server/sv_client.c' l='1637' u='c' c='SV_ClientCommand'/>
+<doc f='codebrowser/code/server/sv_client.c' l='1557'>/*
+==================
+SV_ExecuteClientCommand
+
+Also called by bot code
+==================
+*/</doc>

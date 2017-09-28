@@ -1,0 +1,51 @@
+<dec f='codebrowser/code/game/g_local.h' l='144' type='int'/>
+<offset>6688</offset>
+<use f='codebrowser/code/game/g_active.c' l='75' u='r' c='P_DamageFeedback'/>
+<use f='codebrowser/code/game/g_active.c' l='125' u='r' c='P_WorldEffects'/>
+<use f='codebrowser/code/game/g_active.c' l='148' u='r' c='P_WorldEffects'/>
+<use f='codebrowser/code/game/g_active.c' l='438' u='r' c='ClientTimerActions'/>
+<use f='codebrowser/code/game/g_active.c' l='439' u='w' c='ClientTimerActions'/>
+<use f='codebrowser/code/game/g_active.c' l='440' u='r' c='ClientTimerActions'/>
+<use f='codebrowser/code/game/g_active.c' l='441' u='w' c='ClientTimerActions'/>
+<use f='codebrowser/code/game/g_active.c' l='444' u='r' c='ClientTimerActions'/>
+<use f='codebrowser/code/game/g_active.c' l='445' u='w' c='ClientTimerActions'/>
+<use f='codebrowser/code/game/g_active.c' l='446' u='r' c='ClientTimerActions'/>
+<use f='codebrowser/code/game/g_active.c' l='447' u='w' c='ClientTimerActions'/>
+<use f='codebrowser/code/game/g_active.c' l='454' u='r' c='ClientTimerActions'/>
+<use f='codebrowser/code/game/g_active.c' l='455' u='w' c='ClientTimerActions'/>
+<use f='codebrowser/code/game/g_active.c' l='627' u='w' c='ClientEvents'/>
+<use f='codebrowser/code/game/g_active.c' l='1166' u='r' c='ClientEndFrame'/>
+<use f='codebrowser/code/game/g_client.c' l='491' u='r' c='CopyToBodyQue'/>
+<use f='codebrowser/code/game/g_client.c' l='1179' u='w' c='ClientSpawn'/>
+<use f='codebrowser/code/game/g_cmds.c' l='121' u='r' c='CheatsOk'/>
+<use f='codebrowser/code/game/g_cmds.c' l='260' u='w' c='Cmd_Give_f'/>
+<use f='codebrowser/code/game/g_cmds.c' l='478' u='r' c='Cmd_Kill_f'/>
+<use f='codebrowser/code/game/g_cmds.c' l='482' u='w' c='Cmd_Kill_f'/>
+<use f='codebrowser/code/game/g_cmds.c' l='614' u='w' c='SetTeam'/>
+<use f='codebrowser/code/game/g_combat.c' l='268' u='r' c='body_die'/>
+<use f='codebrowser/code/game/g_combat.c' l='272' u='w' c='body_die'/>
+<use f='codebrowser/code/game/g_combat.c' l='616' u='r' c='player_die'/>
+<use f='codebrowser/code/game/g_combat.c' l='638' u='r' c='player_die'/>
+<use f='codebrowser/code/game/g_combat.c' l='639' u='w' c='player_die'/>
+<use f='codebrowser/code/game/g_combat.c' l='959' u='r' c='G_Damage'/>
+<use f='codebrowser/code/game/g_combat.c' l='967' u='r' c='G_Damage'/>
+<use f='codebrowser/code/game/g_combat.c' l='987' u='r' c='G_Damage'/>
+<use f='codebrowser/code/game/g_combat.c' l='1028' u='w' c='G_Damage'/>
+<use f='codebrowser/code/game/g_combat.c' l='1028' u='r' c='G_Damage'/>
+<use f='codebrowser/code/game/g_combat.c' l='1030' u='r' c='G_Damage'/>
+<use f='codebrowser/code/game/g_combat.c' l='1033' u='r' c='G_Damage'/>
+<use f='codebrowser/code/game/g_combat.c' l='1037' u='r' c='G_Damage'/>
+<use f='codebrowser/code/game/g_combat.c' l='1038' u='w' c='G_Damage'/>
+<use f='codebrowser/code/game/g_items.c' l='301' u='w' c='Pickup_Health'/>
+<use f='codebrowser/code/game/g_items.c' l='303' u='r' c='Pickup_Health'/>
+<use f='codebrowser/code/game/g_items.c' l='304' u='w' c='Pickup_Health'/>
+<use f='codebrowser/code/game/g_items.c' l='306' u='r' c='Pickup_Health'/>
+<use f='codebrowser/code/game/g_items.c' l='432' u='r' c='Touch_Item'/>
+<use f='codebrowser/code/game/g_main.c' l='1011' u='r' c='BeginIntermission'/>
+<use f='codebrowser/code/game/g_mover.c' l='1233' u='r' c='SP_func_button'/>
+<use f='codebrowser/code/game/g_spawn.c' l='106' u='a'/>
+<use f='codebrowser/code/game/g_spawn.c' l='106' u='a'/>
+<use f='codebrowser/code/game/g_spawn.c' l='106' u='a'/>
+<use f='codebrowser/code/game/g_spawn.c' l='106' u='a'/>
+<use f='codebrowser/code/game/g_target.c' l='442' u='w' c='target_location_linkup'/>
+<use f='codebrowser/code/game/g_team.c' l='1140' u='r' c='CheckTeamStatus'/>

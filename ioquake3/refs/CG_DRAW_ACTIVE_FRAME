@@ -1,0 +1,8 @@
+<dec f='codebrowser/code/cgame/cg_public.h' l='218' type='3'/>
+<doc f='codebrowser/code/cgame/cg_public.h' l='212'>//	qboolean (*CG_ConsoleCommand)( void );
+	// a console command has been issued locally that is not recognized by the
+	// main game system.
+	// use Cmd_Argc() / Cmd_Argv() to read the command, return qfalse if the
+	// command is not known to the game</doc>
+<use f='codebrowser/code/cgame/cg_main.c' l='57' c='vmMain'/>
+<use f='codebrowser/code/client/cl_cgame.c' l='796' u='r' c='CL_CGameRendering'/>

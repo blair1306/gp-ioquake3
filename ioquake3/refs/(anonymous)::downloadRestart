@@ -1,0 +1,9 @@
+<dec f='codebrowser/code/client/client.h' l='216' type='qboolean'/>
+<offset>1199264</offset>
+<doc f='codebrowser/code/client/client.h' l='216'>// if true, we need to do another FS_Restart because we downloaded a pak</doc>
+<use f='codebrowser/code/client/cl_curl.c' l='352' u='w' c='CL_cURL_PerformDownload'/>
+<use f='codebrowser/code/client/cl_main.c' l='2097' u='r' c='CL_DownloadsComplete'/>
+<use f='codebrowser/code/client/cl_main.c' l='2099' u='w' c='CL_DownloadsComplete'/>
+<use f='codebrowser/code/client/cl_main.c' l='2109' u='r' c='CL_DownloadsComplete'/>
+<use f='codebrowser/code/client/cl_main.c' l='2110' u='w' c='CL_DownloadsComplete'/>
+<use f='codebrowser/code/client/cl_main.c' l='2275' u='w' c='CL_NextDownload'/>

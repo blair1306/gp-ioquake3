@@ -1,0 +1,11 @@
+<dec f='codebrowser/code/client/client.h' l='544' type='void Con_CheckResize()'/>
+<def f='codebrowser/code/client/cl_console.c' l='281' ll='337' type='void Con_CheckResize()'/>
+<use f='codebrowser/code/client/cl_console.c' l='459' u='c' c='CL_ConsolePrint'/>
+<use f='codebrowser/code/client/cl_console.c' l='754' u='c' c='Con_DrawConsole'/>
+<doc f='codebrowser/code/client/cl_console.c' l='274'>/*
+================
+Con_CheckResize
+
+If the line width has changed, reformat the buffer.
+================
+*/</doc>

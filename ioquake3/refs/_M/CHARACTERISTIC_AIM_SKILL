@@ -1,0 +1,8 @@
+<dec f='codebrowser/code/game/chars.h' l='61'/>
+<doc f='codebrowser/code/game/chars.h' l='55'>//skill when aiming
+// &gt;  0.0 &amp;&amp; &lt;  0.9 = aim is affected by enemy movement
+// &gt;  0.4 &amp;&amp; &lt;= 0.8 = enemy linear leading
+// &gt;  0.8 &amp;&amp; &lt;= 1.0 = enemy exact movement leading
+// &gt;  0.5 &amp;&amp; &lt;= 1.0 = prediction shots when enemy is not visible
+// &gt;  0.6 &amp;&amp; &lt;= 1.0 = splash damage by shooting nearby geometry</doc>
+<use f='codebrowser/code/game/ai_dmq3.c' l='3309' u='c'/>

@@ -1,0 +1,19 @@
+<dec f='codebrowser/code/renderergl1/tr_local.h' l='1231' type='shaderStage_t **'/>
+<offset>832384</offset>
+<use f='codebrowser/code/renderergl1/tr_shade.c' l='326' u='w' c='RB_BeginSurface'/>
+<use f='codebrowser/code/renderergl1/tr_shade.c' l='351' u='r' c='DrawMultitextured'/>
+<use f='codebrowser/code/renderergl1/tr_shade.c' l='1115' u='r' c='RB_IterateStagesGeneric'/>
+<use f='codebrowser/code/renderergl1/tr_shade.c' l='1332' u='r' c='RB_StageIteratorVertexLitTexture'/>
+<use f='codebrowser/code/renderergl1/tr_shade.c' l='1333' u='r' c='RB_StageIteratorVertexLitTexture'/>
+<use f='codebrowser/code/renderergl1/tr_shade.c' l='1404' u='r' c='RB_StageIteratorLightmappedMultitexture'/>
+<use f='codebrowser/code/renderergl1/tr_shade.c' l='1417' u='r' c='RB_StageIteratorLightmappedMultitexture'/>
+<use f='codebrowser/code/renderergl1/tr_sky.c' l='625' u='r' c='R_BuildCloudData'/>
+<dec f='codebrowser/code/renderergl2/tr_local.h' l='1998' type='shaderStage_t **'/>
+<offset>1185472</offset>
+<use f='codebrowser/code/renderergl2/tr_glsl.c' l='1410' u='r' c='GLSL_GetGenericShaderProgram'/>
+<use f='codebrowser/code/renderergl2/tr_shade.c' l='159' u='w' c='RB_BeginSurface'/>
+<use f='codebrowser/code/renderergl2/tr_shade.c' l='652' u='r' c='ForwardDlight'/>
+<use f='codebrowser/code/renderergl2/tr_shade.c' l='988' u='r' c='RB_IterateStagesGeneric'/>
+<use f='codebrowser/code/renderergl2/tr_shade.c' l='1543' u='r' c='RB_StageIteratorGeneric'/>
+<use f='codebrowser/code/renderergl2/tr_shade.c' l='1544' u='r' c='RB_StageIteratorGeneric'/>
+<use f='codebrowser/code/renderergl2/tr_sky.c' l='716' u='r' c='R_BuildCloudData'/>

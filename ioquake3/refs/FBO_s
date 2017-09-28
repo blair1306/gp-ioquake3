@@ -1,0 +1,16 @@
+<def f='codebrowser/code/renderergl2/tr_fbo.h' l='30' ll='53'/>
+<size>304</size>
+<mbr r='FBO_s::name' o='0' t='char [64]'/>
+<mbr r='FBO_s::index' o='512' t='int'/>
+<mbr r='FBO_s::frameBuffer' o='544' t='uint32_t'/>
+<mbr r='FBO_s::colorBuffers' o='576' t='uint32_t [16]'/>
+<mbr r='FBO_s::colorFormat' o='1088' t='int'/>
+<mbr r='FBO_s::colorImage' o='1152' t='struct image_s *[16]'/>
+<mbr r='FBO_s::depthBuffer' o='2176' t='uint32_t'/>
+<mbr r='FBO_s::depthFormat' o='2208' t='int'/>
+<mbr r='FBO_s::stencilBuffer' o='2240' t='uint32_t'/>
+<mbr r='FBO_s::stencilFormat' o='2272' t='int'/>
+<mbr r='FBO_s::packedDepthStencilBuffer' o='2304' t='uint32_t'/>
+<mbr r='FBO_s::packedDepthStencilFormat' o='2336' t='int'/>
+<mbr r='FBO_s::width' o='2368' t='int'/>
+<mbr r='FBO_s::height' o='2400' t='int'/>

@@ -1,0 +1,10 @@
+<def f='codebrowser/code/cgame/cg_snapshot.c' l='83' ll='115' type='void CG_SetInitialSnapshot(snapshot_t * snap)'/>
+<use f='codebrowser/code/cgame/cg_snapshot.c' l='351' u='c' c='CG_ProcessSnapshots'/>
+<doc f='codebrowser/code/cgame/cg_snapshot.c' l='75'>/*
+==================
+CG_SetInitialSnapshot
+
+This will only happen on the very first snapshot.
+All other times will use CG_TransitionSnapshot instead.
+==================
+*/</doc>

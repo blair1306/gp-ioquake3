@@ -1,0 +1,28 @@
+<dec f='codebrowser/code/renderergl1/tr_local.h' l='1362' type='void RE_RenderScene(const refdef_t * fd)'/>
+<use f='codebrowser/code/renderergl1/tr_init.c' l='1357' u='r' c='GetRefAPI'/>
+<def f='codebrowser/code/renderergl1/tr_scene.c' l='288' ll='411' type='void RE_RenderScene(const refdef_t * fd)'/>
+<doc f='codebrowser/code/renderergl1/tr_scene.c' l='277'>/*
+@@@@@@@@@@@@@@@@@@@@@
+RE_RenderScene
+
+Draw a 3D view into a part of the window, then return
+to 2D drawing.
+
+Rendering a scene may require multiple views to be rendered
+to handle mirrors,
+@@@@@@@@@@@@@@@@@@@@@
+*/</doc>
+<dec f='codebrowser/code/renderergl2/tr_local.h' l='2195' type='void RE_RenderScene(const refdef_t * fd)'/>
+<use f='codebrowser/code/renderergl2/tr_init.c' l='1606' u='r' c='GetRefAPI'/>
+<def f='codebrowser/code/renderergl2/tr_scene.c' l='458' ll='573' type='void RE_RenderScene(const refdef_t * fd)'/>
+<doc f='codebrowser/code/renderergl2/tr_scene.c' l='447'>/*
+@@@@@@@@@@@@@@@@@@@@@
+RE_RenderScene
+
+Draw a 3D view into a part of the window, then return
+to 2D drawing.
+
+Rendering a scene may require multiple views to be rendered
+to handle mirrors,
+@@@@@@@@@@@@@@@@@@@@@
+*/</doc>

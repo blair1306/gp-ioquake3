@@ -1,0 +1,16 @@
+<dec f='codebrowser/code/cgame/cg_local.h' l='1345' type='void CG_PositionRotatedEntityOnTag(refEntity_t * entity, const refEntity_t * parent, qhandle_t parentModel, char * tagName)'/>
+<def f='codebrowser/code/cgame/cg_ents.c' l='65' ll='85' type='void CG_PositionRotatedEntityOnTag(refEntity_t * entity, const refEntity_t * parent, qhandle_t parentModel, char * tagName)'/>
+<use f='codebrowser/code/cgame/cg_ents.c' l='369' u='c' c='CG_Item'/>
+<doc f='codebrowser/code/cgame/cg_ents.c' l='57'>/*
+======================
+CG_PositionRotatedEntityOnTag
+
+Modifies the entities position and axis by the given
+tag location
+======================
+*/</doc>
+<use f='codebrowser/code/cgame/cg_players.c' l='1759' u='c' c='CG_PlayerFlag'/>
+<use f='codebrowser/code/cgame/cg_players.c' l='2348' u='c' c='CG_Player'/>
+<use f='codebrowser/code/cgame/cg_players.c' l='2570' u='c' c='CG_Player'/>
+<use f='codebrowser/code/cgame/cg_weapons.c' l='1283' u='c' c='CG_AddPlayerWeapon'/>
+<use f='codebrowser/code/cgame/cg_weapons.c' l='1334' u='c' c='CG_AddPlayerWeapon'/>

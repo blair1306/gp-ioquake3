@@ -1,0 +1,76 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>be_interface.h source code [codebrowser/code/botlib/be_interface.h] - Woboq Code Browser</title>
+<meta name="woboq:interestingDefinitions" content="botlib_globals_s "/>
+<link rel="stylesheet" href="../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'codebrowser/code/botlib/be_interface.h'; var root_path = '../../..'; var data_path = '../../../../data';</script>
+<script src='../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../..'>codebrowser</a>/<a href='..'>code</a>/<a href='./'>botlib</a>/<a href='be_interface.h.html'>be_interface.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/*</i></td></tr>
+<tr><th id="2">2</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="3">3</th><td><i>Copyright (C) 1999-2005 Id Software, Inc.</i></td></tr>
+<tr><th id="4">4</th><td><i></i></td></tr>
+<tr><th id="5">5</th><td><i>This file is part of Quake III Arena source code.</i></td></tr>
+<tr><th id="6">6</th><td><i></i></td></tr>
+<tr><th id="7">7</th><td><i>Quake III Arena source code is free software; you can redistribute it</i></td></tr>
+<tr><th id="8">8</th><td><i>and/or modify it under the terms of the GNU General Public License as</i></td></tr>
+<tr><th id="9">9</th><td><i>published by the Free Software Foundation; either version 2 of the License,</i></td></tr>
+<tr><th id="10">10</th><td><i>or (at your option) any later version.</i></td></tr>
+<tr><th id="11">11</th><td><i></i></td></tr>
+<tr><th id="12">12</th><td><i>Quake III Arena source code is distributed in the hope that it will be</i></td></tr>
+<tr><th id="13">13</th><td><i>useful, but WITHOUT ANY WARRANTY; without even the implied warranty of</i></td></tr>
+<tr><th id="14">14</th><td><i>MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</i></td></tr>
+<tr><th id="15">15</th><td><i>GNU General Public License for more details.</i></td></tr>
+<tr><th id="16">16</th><td><i></i></td></tr>
+<tr><th id="17">17</th><td><i>You should have received a copy of the GNU General Public License</i></td></tr>
+<tr><th id="18">18</th><td><i>along with Quake III Arena source code; if not, write to the Free Software</i></td></tr>
+<tr><th id="19">19</th><td><i>Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA</i></td></tr>
+<tr><th id="20">20</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="21">21</th><td><i>*/</i></td></tr>
+<tr><th id="22">22</th><td></td></tr>
+<tr><th id="23">23</th><td><i>/*****************************************************************************</i></td></tr>
+<tr><th id="24">24</th><td><i> * name:		be_interface.h</i></td></tr>
+<tr><th id="25">25</th><td><i> *</i></td></tr>
+<tr><th id="26">26</th><td><i> * desc:		botlib interface</i></td></tr>
+<tr><th id="27">27</th><td><i> *</i></td></tr>
+<tr><th id="28">28</th><td><i> * $Archive: /source/code/botlib/be_interface.h $</i></td></tr>
+<tr><th id="29">29</th><td><i> *</i></td></tr>
+<tr><th id="30">30</th><td><i> *****************************************************************************/</i></td></tr>
+<tr><th id="31">31</th><td><i></i></td></tr>
+<tr><th id="32">32</th><td><i>//#define DEBUG			//debug code</i></td></tr>
+<tr><th id="33">33</th><td><u>#define <dfn class="macro" id="_M/RANDOMIZE" data-ref="_M/RANDOMIZE">RANDOMIZE</dfn>		//randomize bot behaviour</u></td></tr>
+<tr><th id="34">34</th><td></td></tr>
+<tr><th id="35">35</th><td><i>//FIXME: get rid of this global structure</i></td></tr>
+<tr><th id="36">36</th><td><b>typedef</b> <b>struct</b> <dfn class="type def" id="botlib_globals_s" title='botlib_globals_s' data-ref="botlib_globals_s"><a class="type" href="#botlib_globals_s" title='botlib_globals_s' data-ref="botlib_globals_s">botlib_globals_s</a></dfn></td></tr>
+<tr><th id="37">37</th><td>{</td></tr>
+<tr><th id="38">38</th><td>	<em>int</em> <dfn class="decl" id="botlib_globals_s::botlibsetup" title='botlib_globals_s::botlibsetup' data-ref="botlib_globals_s::botlibsetup">botlibsetup</dfn>;						<i>//true when the bot library has been setup</i></td></tr>
+<tr><th id="39">39</th><td>	<em>int</em> <dfn class="decl" id="botlib_globals_s::maxentities" title='botlib_globals_s::maxentities' data-ref="botlib_globals_s::maxentities">maxentities</dfn>;						<i>//maximum number of entities</i></td></tr>
+<tr><th id="40">40</th><td>	<em>int</em> <dfn class="decl" id="botlib_globals_s::maxclients" title='botlib_globals_s::maxclients' data-ref="botlib_globals_s::maxclients">maxclients</dfn>;							<i>//maximum number of clients</i></td></tr>
+<tr><th id="41">41</th><td>	<em>float</em> <dfn class="decl" id="botlib_globals_s::time" title='botlib_globals_s::time' data-ref="botlib_globals_s::time">time</dfn>;								<i>//the global time</i></td></tr>
+<tr><th id="42">42</th><td><u>#<span data-ppcond="42">ifdef</span> <span class="macro" data-ref="_M/DEBUG">DEBUG</span></u></td></tr>
+<tr><th id="43">43</th><td>	qboolean debug;							<i>//true if debug is on</i></td></tr>
+<tr><th id="44">44</th><td>	<em>int</em> goalareanum;</td></tr>
+<tr><th id="45">45</th><td>	vec3_t goalorigin;</td></tr>
+<tr><th id="46">46</th><td>	<em>int</em> runai;</td></tr>
+<tr><th id="47">47</th><td><u>#<span data-ppcond="42">endif</span></u></td></tr>
+<tr><th id="48">48</th><td>} <dfn class="typedef" id="botlib_globals_t" title='botlib_globals_t' data-type='struct botlib_globals_s' data-ref="botlib_globals_t">botlib_globals_t</dfn>;</td></tr>
+<tr><th id="49">49</th><td></td></tr>
+<tr><th id="50">50</th><td></td></tr>
+<tr><th id="51">51</th><td><b>extern</b> <a class="typedef" href="#botlib_globals_t" title='botlib_globals_t' data-type='struct botlib_globals_s' data-ref="botlib_globals_t">botlib_globals_t</a> <dfn class="decl" id="botlibglobals" title='botlibglobals' data-ref="botlibglobals">botlibglobals</dfn>;</td></tr>
+<tr><th id="52">52</th><td><b>extern</b> <a class="typedef" href="botlib.h.html#botlib_import_t" title='botlib_import_t' data-type='struct botlib_import_s' data-ref="botlib_import_t">botlib_import_t</a> <dfn class="decl" id="botimport" title='botimport' data-ref="botimport">botimport</dfn>;</td></tr>
+<tr><th id="53">53</th><td><b>extern</b> <em>int</em> <dfn class="decl" id="botDeveloper" title='botDeveloper' data-ref="botDeveloper">botDeveloper</dfn>;					<i>//true if developer is on</i></td></tr>
+<tr><th id="54">54</th><td></td></tr>
+<tr><th id="55">55</th><td><i>//</i></td></tr>
+<tr><th id="56">56</th><td><em>int</em> <dfn class="decl" id="Sys_MilliSeconds" title='Sys_MilliSeconds' data-ref="Sys_MilliSeconds">Sys_MilliSeconds</dfn>(<em>void</em>);</td></tr>
+<tr><th id="57">57</th><td></td></tr>
+<tr><th id="58">58</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='be_aas_debug.c.html'>codebrowser/code/botlib/be_aas_debug.c</a><br/>Generated on <em>2017-Aug-29</em> from project codebrowser revision <em>63e07af</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

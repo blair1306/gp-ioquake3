@@ -1,0 +1,8 @@
+<dec f='codebrowser/code/renderergl1/tr_local.h' l='352' type='qboolean'/>
+<offset>2016</offset>
+<doc f='codebrowser/code/renderergl1/tr_local.h' l='352'>// not all shaders will need all data to be gathered</doc>
+<use f='codebrowser/code/renderergl1/tr_shader.c' l='2555' u='w' c='R_FindShader'/>
+<use f='codebrowser/code/renderergl1/tr_shader.c' l='2693' u='w' c='RE_RegisterShaderFromImage'/>
+<use f='codebrowser/code/renderergl1/tr_surface.c' l='251' u='r' c='RB_SurfaceTriangles'/>
+<use f='codebrowser/code/renderergl1/tr_surface.c' l='936' u='r' c='RB_SurfaceFace'/>
+<use f='codebrowser/code/renderergl1/tr_surface.c' l='1078' u='r' c='RB_SurfaceGrid'/>

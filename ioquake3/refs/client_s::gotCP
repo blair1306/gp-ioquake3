@@ -1,0 +1,7 @@
+<dec f='codebrowser/code/server/server.h' l='178' type='qboolean'/>
+<offset>681376</offset>
+<doc f='codebrowser/code/server/server.h' l='178'>// TTimo - additional flag to distinguish between a bad pure checksum, and no cp command at all</doc>
+<use f='codebrowser/code/server/sv_client.c' l='724' u='w' c='SV_SendClientGameState'/>
+<use f='codebrowser/code/server/sv_client.c' l='1361' u='w' c='SV_VerifyPaks_f'/>
+<use f='codebrowser/code/server/sv_client.c' l='1383' u='w' c='SV_ResetPureClient_f'/>
+<use f='codebrowser/code/server/sv_client.c' l='1725' u='r' c='SV_UserMove'/>

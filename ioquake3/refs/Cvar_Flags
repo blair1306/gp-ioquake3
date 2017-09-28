@@ -1,0 +1,12 @@
+<dec f='codebrowser/code/qcommon/qcommon.h' l='538' type='int Cvar_Flags(const char * var_name)'/>
+<doc f='codebrowser/code/qcommon/qcommon.h' l='536'>// returns an empty string if not defined</doc>
+<use f='codebrowser/code/client/cl_parse.c' l='411' u='c' c='CL_SystemInfoChanged'/>
+<use f='codebrowser/code/client/cl_parse.c' l='539' u='c' c='CL_ParseGamestate'/>
+<use f='codebrowser/code/qcommon/common.c' l='496' u='c' c='Com_StartupVariable'/>
+<def f='codebrowser/code/qcommon/cvar.c' l='167' ll='180' type='int Cvar_Flags(const char * var_name)'/>
+<use f='codebrowser/code/qcommon/cvar.c' l='640' u='c' c='Cvar_SetSafe'/>
+<doc f='codebrowser/code/qcommon/cvar.c' l='162'>/*
+============
+Cvar_Flags
+============
+*/</doc>

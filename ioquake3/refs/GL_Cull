@@ -1,0 +1,30 @@
+<dec f='codebrowser/code/renderergl1/tr_local.h' l='1104' type='void GL_Cull(int cullType)'/>
+<def f='codebrowser/code/renderergl1/tr_backend.c' l='126' ll='150' type='void GL_Cull(int cullType)'/>
+<use f='codebrowser/code/renderergl1/tr_backend.c' l='714' u='c' c='RB_SetGL2D'/>
+<doc f='codebrowser/code/renderergl1/tr_backend.c' l='123'>/*
+** GL_Cull
+*/</doc>
+<use f='codebrowser/code/renderergl1/tr_main.c' l='1342' u='c' c='R_DebugGraphics'/>
+<use f='codebrowser/code/renderergl1/tr_shade.c' l='1192' u='c' c='RB_StageIteratorGeneric'/>
+<use f='codebrowser/code/renderergl1/tr_shade.c' l='1311' u='c' c='RB_StageIteratorVertexLitTexture'/>
+<use f='codebrowser/code/renderergl1/tr_shade.c' l='1381' u='c' c='RB_StageIteratorLightmappedMultitexture'/>
+<use f='codebrowser/code/renderergl1/tr_shadows.c' l='220' u='c' c='RB_ShadowTessEnd'/>
+<use f='codebrowser/code/renderergl1/tr_shadows.c' l='225' u='c' c='RB_ShadowTessEnd'/>
+<use f='codebrowser/code/renderergl1/tr_shadows.c' l='257' u='c' c='RB_ShadowFinish'/>
+<use f='codebrowser/code/renderergl1/tr_sky.c' l='772' u='c' c='RB_StageIteratorSky'/>
+<dec f='codebrowser/code/renderergl2/tr_local.h' l='1849' type='void GL_Cull(int cullType)'/>
+<def f='codebrowser/code/renderergl2/tr_backend.c' l='68' ll='91' type='void GL_Cull(int cullType)'/>
+<use f='codebrowser/code/renderergl2/tr_backend.c' l='659' u='c' c='RB_SetGL2D'/>
+<doc f='codebrowser/code/renderergl2/tr_backend.c' l='65'>/*
+** GL_Cull
+*/</doc>
+<use f='codebrowser/code/renderergl2/tr_fbo.c' l='564' u='c' c='FBO_BlitFromTexture'/>
+<use f='codebrowser/code/renderergl2/tr_main.c' l='1725' u='c' c='R_DebugGraphics'/>
+<use f='codebrowser/code/renderergl2/tr_shade.c' l='1458' u='c' c='RB_StageIteratorGeneric'/>
+<use f='codebrowser/code/renderergl2/tr_shade.c' l='1474' u='c' c='RB_StageIteratorGeneric'/>
+<use f='codebrowser/code/renderergl2/tr_shade.c' l='1476' u='c' c='RB_StageIteratorGeneric'/>
+<use f='codebrowser/code/renderergl2/tr_shadows.c' l='220' u='c' c='RB_ShadowTessEnd'/>
+<use f='codebrowser/code/renderergl2/tr_shadows.c' l='225' u='c' c='RB_ShadowTessEnd'/>
+<use f='codebrowser/code/renderergl2/tr_shadows.c' l='257' u='c' c='RB_ShadowFinish'/>
+<use f='codebrowser/code/renderergl2/tr_sky.c' l='376' u='c' c='DrawSkySide'/>
+<use f='codebrowser/code/renderergl2/tr_sky.c' l='869' u='c' c='RB_StageIteratorSky'/>

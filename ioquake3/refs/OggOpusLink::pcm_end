@@ -1,0 +1,21 @@
+<dec f='codebrowser/code/opusfile-0.8/src/internal.h' l='141' type='ogg_int64_t'/>
+<offset>192</offset>
+<doc f='codebrowser/code/opusfile-0.8/src/internal.h' l='139'>/*The granule position of the last sample.
+    This is only valid for seekable sources.*/</doc>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='860' u='w' c='op_find_initial_pcm_offset'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='869' u='w' c='op_find_initial_pcm_offset'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='998' u='w' c='op_find_final_pcm_offset'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='1240' u='r' c='op_bisect_forward_serialno'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='1269' u='w' c='op_bisect_forward_serialno'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='1282' u='r' c='op_bisect_forward_serialno'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='1555' u='w' c='op_open1'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='1746' u='r' c='op_pcm_total'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='1752' u='r' c='op_pcm_total'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='2014' u='r' c='op_fetch_and_process_page'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='2107' u='r' c='op_raw_seek'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='2130' u='r' c='op_get_granulepos'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='2215' u='r' c='op_pcm_seek_page'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='2616' u='r' c='op_get_pcm_offset'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='2621' u='r' c='op_get_pcm_offset'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='2622' u='r' c='op_get_pcm_offset'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='2652' u='r' c='op_pcm_tell'/>

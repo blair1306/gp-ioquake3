@@ -1,0 +1,16 @@
+<dec f='codebrowser/code/client/client.h' l='514' type='char * Key_KeynumToString(int keynum)'/>
+<def f='codebrowser/code/client/cl_keys.c' l='862' ll='900' type='char * Key_KeynumToString(int keynum)'/>
+<use f='codebrowser/code/client/cl_keys.c' l='1026' u='c' c='Key_Bind_f'/>
+<use f='codebrowser/code/client/cl_keys.c' l='1028' u='c' c='Key_Bind_f'/>
+<use f='codebrowser/code/client/cl_keys.c' l='1058' u='c' c='Key_WriteBindings'/>
+<use f='codebrowser/code/client/cl_keys.c' l='1077' u='c' c='Key_Bindlist_f'/>
+<doc f='codebrowser/code/client/cl_keys.c' l='854'>/*
+===================
+Key_KeynumToString
+
+Returns a string (either a single ascii char, a K_* name, or a 0x11 hex string) for the
+given keynum.
+===================
+*/</doc>
+<use f='codebrowser/code/client/cl_ui.c' l='615' u='c' c='Key_KeynumToStringBuf'/>
+<use f='codebrowser/code/sdl/sdl_input.c' l='89' u='c' c='IN_PrintKey'/>

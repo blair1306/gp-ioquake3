@@ -1,0 +1,20 @@
+<dec f='codebrowser/code/game/ai_dmq3.h' l='54' type='qboolean BotIsObserver(bot_state_t * bs)'/>
+<use f='codebrowser/code/game/ai_chat.c' l='459' u='c' c='BotChat_StartLevel'/>
+<use f='codebrowser/code/game/ai_chat.c' l='493' u='c' c='BotChat_EndLevel'/>
+<use f='codebrowser/code/game/ai_chat.c' l='880' u='c' c='BotChat_Random'/>
+<doc f='codebrowser/code/game/ai_dmq3.h' l='53'>//returns true if the bot is in observer mode</doc>
+<use f='codebrowser/code/game/ai_dmnet.c' l='1180' u='c' c='AINode_Observer'/>
+<use f='codebrowser/code/game/ai_dmnet.c' l='1456' u='c' c='AINode_Seek_ActivateEntity'/>
+<use f='codebrowser/code/game/ai_dmnet.c' l='1672' u='c' c='AINode_Seek_NBG'/>
+<use f='codebrowser/code/game/ai_dmnet.c' l='1809' u='c' c='AINode_Seek_LTG'/>
+<use f='codebrowser/code/game/ai_dmnet.c' l='1998' u='c' c='AINode_Battle_Fight'/>
+<use f='codebrowser/code/game/ai_dmnet.c' l='2170' u='c' c='AINode_Battle_Chase'/>
+<use f='codebrowser/code/game/ai_dmnet.c' l='2310' u='c' c='AINode_Battle_Retreat'/>
+<use f='codebrowser/code/game/ai_dmnet.c' l='2499' u='c' c='AINode_Battle_NBG'/>
+<def f='codebrowser/code/game/ai_dmq3.c' l='2081' ll='2087' type='qboolean BotIsObserver(bot_state_t * bs)'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='5266' u='c' c='BotDeathmatchAI'/>
+<doc f='codebrowser/code/game/ai_dmq3.c' l='2076'>/*
+==================
+BotIsObserver
+==================
+*/</doc>

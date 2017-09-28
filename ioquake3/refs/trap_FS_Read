@@ -1,0 +1,21 @@
+<dec f='codebrowser/code/cgame/cg_local.h' l='1503' type='void trap_FS_Read(void * buffer, int len, fileHandle_t f)'/>
+<use f='codebrowser/code/cgame/cg_players.c' l='113' u='c' c='CG_ParseAnimationFile'/>
+<def f='codebrowser/code/cgame/cg_syscalls.c' l='92' ll='94' type='void trap_FS_Read(void * buffer, int len, fileHandle_t f)'/>
+<dec f='codebrowser/code/game/g_local.h' l='757' type='void trap_FS_Read(void * buffer, int len, fileHandle_t f)'/>
+<use f='codebrowser/code/game/g_bot.c' l='140' u='c' c='G_LoadArenasFromFile'/>
+<use f='codebrowser/code/game/g_bot.c' l='917' u='c' c='G_LoadBotsFromFile'/>
+<def f='codebrowser/code/game/g_syscalls.c' l='70' ll='72' type='void trap_FS_Read(void * buffer, int len, fileHandle_t f)'/>
+<dec f='codebrowser/code/q3_ui/ui_local.h' l='641' type='void trap_FS_Read(void * buffer, int len, fileHandle_t f)'/>
+<use f='codebrowser/code/q3_ui/ui_gameinfo.c' l='156' u='c' c='UI_LoadArenasFromFile'/>
+<use f='codebrowser/code/q3_ui/ui_gameinfo.c' l='345' u='c' c='UI_LoadBotsFromFile'/>
+<use f='codebrowser/code/q3_ui/ui_players.c' l='955' u='c' c='UI_ParseAnimationFile'/>
+<dec f='codebrowser/code/ui/ui_local.h' l='932' type='void trap_FS_Read(void * buffer, int len, fileHandle_t f)'/>
+<use f='codebrowser/code/ui/ui_atoms.c' l='160' u='c' c='UI_LoadBestScores'/>
+<use f='codebrowser/code/ui/ui_atoms.c' l='162' u='c' c='UI_LoadBestScores'/>
+<use f='codebrowser/code/ui/ui_atoms.c' l='261' u='c' c='UI_CalcPostGameStats'/>
+<use f='codebrowser/code/ui/ui_atoms.c' l='263' u='c' c='UI_CalcPostGameStats'/>
+<use f='codebrowser/code/ui/ui_gameinfo.c' l='123' u='c' c='UI_LoadArenasFromFile'/>
+<use f='codebrowser/code/ui/ui_gameinfo.c' l='234' u='c' c='UI_LoadBotsFromFile'/>
+<use f='codebrowser/code/ui/ui_main.c' l='677' u='c' c='GetMenuBuffer'/>
+<use f='codebrowser/code/ui/ui_players.c' l='1040' u='c' c='UI_ParseAnimationFile'/>
+<def f='codebrowser/code/ui/ui_syscalls.c' l='112' ll='114' type='void trap_FS_Read(void * buffer, int len, fileHandle_t f)'/>

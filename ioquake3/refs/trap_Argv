@@ -1,0 +1,38 @@
+<dec f='codebrowser/code/cgame/cg_local.h' l='1497' type='void trap_Argv(int n, char * buffer, int bufferLength)'/>
+<use f='codebrowser/code/cgame/cg_consolecmds.c' l='43' u='c' c='CG_TargetCommand_f'/>
+<use f='codebrowser/code/cgame/cg_main.c' l='471' u='c' c='CG_Argv'/>
+<def f='codebrowser/code/cgame/cg_syscalls.c' l='80' ll='82' type='void trap_Argv(int n, char * buffer, int bufferLength)'/>
+<dec f='codebrowser/code/game/g_local.h' l='754' type='void trap_Argv(int n, char * buffer, int bufferLength)'/>
+<use f='codebrowser/code/game/g_bot.c' l='763' u='c' c='Svcmd_AddBot_f'/>
+<use f='codebrowser/code/game/g_bot.c' l='770' u='c' c='Svcmd_AddBot_f'/>
+<use f='codebrowser/code/game/g_bot.c' l='779' u='c' c='Svcmd_AddBot_f'/>
+<use f='codebrowser/code/game/g_bot.c' l='782' u='c' c='Svcmd_AddBot_f'/>
+<use f='codebrowser/code/game/g_bot.c' l='791' u='c' c='Svcmd_AddBot_f'/>
+<use f='codebrowser/code/game/g_cmds.c' l='143' u='c' c='ConcatArgs'/>
+<use f='codebrowser/code/game/g_cmds.c' l='459' u='c' c='Cmd_TeamTask_f'/>
+<use f='codebrowser/code/game/g_cmds.c' l='716' u='c' c='Cmd_Team_f'/>
+<use f='codebrowser/code/game/g_cmds.c' l='740' u='c' c='Cmd_Follow_f'/>
+<use f='codebrowser/code/game/g_cmds.c' l='984' u='c' c='Cmd_Tell_f'/>
+<use f='codebrowser/code/game/g_cmds.c' l='1237' u='c' c='Cmd_GameCommand_f'/>
+<use f='codebrowser/code/game/g_cmds.c' l='1245' u='c' c='Cmd_GameCommand_f'/>
+<use f='codebrowser/code/game/g_cmds.c' l='1315' u='c' c='Cmd_CallVote_f'/>
+<use f='codebrowser/code/game/g_cmds.c' l='1316' u='c' c='Cmd_CallVote_f'/>
+<use f='codebrowser/code/game/g_cmds.c' l='1451' u='c' c='Cmd_Vote_f'/>
+<use f='codebrowser/code/game/g_cmds.c' l='1503' u='c' c='Cmd_CallTeamVote_f'/>
+<use f='codebrowser/code/game/g_cmds.c' l='1508' u='c' c='Cmd_CallTeamVote_f'/>
+<use f='codebrowser/code/game/g_cmds.c' l='1634' u='c' c='Cmd_TeamVote_f'/>
+<use f='codebrowser/code/game/g_cmds.c' l='1670' u='c' c='Cmd_SetViewpos_f'/>
+<use f='codebrowser/code/game/g_cmds.c' l='1674' u='c' c='Cmd_SetViewpos_f'/>
+<use f='codebrowser/code/game/g_cmds.c' l='1718' u='c' c='ClientCommand'/>
+<use f='codebrowser/code/game/g_cmds.c' l='1727' u='c' c='ClientCommand'/>
+<use f='codebrowser/code/game/g_svcmds.c' l='273' u='c' c='Svcmd_AddIP_f'/>
+<use f='codebrowser/code/game/g_svcmds.c' l='295' u='c' c='Svcmd_RemoveIP_f'/>
+<use f='codebrowser/code/game/g_svcmds.c' l='432' u='c' c='Svcmd_ForceTeam_f'/>
+<use f='codebrowser/code/game/g_svcmds.c' l='439' u='c' c='Svcmd_ForceTeam_f'/>
+<use f='codebrowser/code/game/g_svcmds.c' l='454' u='c' c='ConsoleCommand'/>
+<def f='codebrowser/code/game/g_syscalls.c' l='62' ll='64' type='void trap_Argv(int n, char * buffer, int bufferLength)'/>
+<dec f='codebrowser/code/q3_ui/ui_local.h' l='638' type='void trap_Argv(int n, char * buffer, int bufferLength)'/>
+<use f='codebrowser/code/q3_ui/ui_atoms.c' l='938' u='c' c='UI_Argv'/>
+<dec f='codebrowser/code/ui/ui_local.h' l='929' type='void trap_Argv(int n, char * buffer, int bufferLength)'/>
+<use f='codebrowser/code/ui/ui_atoms.c' l='98' u='c' c='UI_Argv'/>
+<def f='codebrowser/code/ui/ui_syscalls.c' l='100' ll='102' type='void trap_Argv(int n, char * buffer, int bufferLength)'/>

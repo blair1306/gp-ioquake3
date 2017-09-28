@@ -1,0 +1,16 @@
+<dec f='codebrowser/code/qcommon/qcommon.h' l='561' type='char * Cvar_InfoString(int bit)'/>
+<use f='codebrowser/code/client/cl_main.c' l='2075' u='c' c='CL_Clientinfo_f'/>
+<use f='codebrowser/code/client/cl_main.c' l='2380' u='c' c='CL_CheckForResend'/>
+<use f='codebrowser/code/client/cl_main.c' l='2921' u='c' c='CL_CheckUserinfo'/>
+<def f='codebrowser/code/qcommon/cvar.c' l='1237' ll='1251' type='char * Cvar_InfoString(int bit)'/>
+<use f='codebrowser/code/qcommon/cvar.c' l='1283' u='c' c='Cvar_InfoStringBuffer'/>
+<doc f='codebrowser/code/qcommon/cvar.c' l='1232'>/*
+=====================
+Cvar_InfoString
+=====================
+*/</doc>
+<use f='codebrowser/code/server/sv_ccmds.c' l='1401' u='c' c='SV_Serverinfo_f'/>
+<use f='codebrowser/code/server/sv_game.c' l='244' u='c' c='SV_GetServerinfo'/>
+<use f='codebrowser/code/server/sv_init.c' l='599' u='c' c='SV_SpawnServer'/>
+<use f='codebrowser/code/server/sv_main.c' l='560' u='c' c='SVC_Status'/>
+<use f='codebrowser/code/server/sv_main.c' l='1117' u='c' c='SV_Frame'/>

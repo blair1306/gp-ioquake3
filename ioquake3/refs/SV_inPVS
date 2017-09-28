@@ -1,0 +1,11 @@
+<dec f='codebrowser/code/server/server.h' l='415' type='qboolean SV_inPVS(const vec_t * p1, const vec_t * p2)'/>
+<use f='codebrowser/code/server/sv_bot.c' l='241' u='c' c='BotImport_inPVS'/>
+<def f='codebrowser/code/server/sv_game.c' l='146' ll='166' type='qboolean SV_inPVS(const vec_t * p1, const vec_t * p2)'/>
+<use f='codebrowser/code/server/sv_game.c' l='374' u='c' c='SV_GameSystemCalls'/>
+<doc f='codebrowser/code/server/sv_game.c' l='139'>/*
+=================
+SV_inPVS
+
+Also checks portalareas so that doors block sight
+=================
+*/</doc>

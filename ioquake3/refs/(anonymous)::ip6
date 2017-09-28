@@ -1,0 +1,18 @@
+<dec f='codebrowser/code/qcommon/qcommon.h' l='163' type='byte [16]'/>
+<offset>64</offset>
+<use f='codebrowser/code/client/cl_main.c' l='2516' u='r' c='CL_ServersResponsePacket'/>
+<use f='codebrowser/code/client/cl_main.c' l='2519' u='r' c='CL_ServersResponsePacket'/>
+<use f='codebrowser/code/client/cl_main.c' l='2520' u='w' c='CL_ServersResponsePacket'/>
+<use f='codebrowser/code/qcommon/net_ip.c' l='225' u='a' c='NetadrToSockadr'/>
+<use f='codebrowser/code/qcommon/net_ip.c' l='247' u='r' c='SockadrToNetadr'/>
+<use f='codebrowser/code/qcommon/net_ip.c' l='247' u='r' c='SockadrToNetadr'/>
+<use f='codebrowser/code/qcommon/net_ip.c' l='411' u='a' c='NET_CompareBaseAdrMask'/>
+<use f='codebrowser/code/qcommon/net_ip.c' l='412' u='a' c='NET_CompareBaseAdrMask'/>
+<use f='codebrowser/code/qcommon/net_ip.c' l='735' u='r' c='Sys_IsLANAddress'/>
+<use f='codebrowser/code/qcommon/net_ip.c' l='735' u='r' c='Sys_IsLANAddress'/>
+<use f='codebrowser/code/qcommon/net_ip.c' l='737' u='r' c='Sys_IsLANAddress'/>
+<use f='codebrowser/code/qcommon/net_ip.c' l='760' u='r' c='Sys_IsLANAddress'/>
+<use f='codebrowser/code/qcommon/net_ip.c' l='762' u='r' c='Sys_IsLANAddress'/>
+<use f='codebrowser/code/server/sv_main.c' l='378' u='r' c='SVC_HashForAddress'/>
+<use f='codebrowser/code/server/sv_main.c' l='414' u='r' c='SVC_BucketForAddress'/>
+<use f='codebrowser/code/server/sv_main.c' l='450' u='r' c='SVC_BucketForAddress'/>

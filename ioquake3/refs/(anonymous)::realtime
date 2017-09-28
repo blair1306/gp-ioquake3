@@ -1,0 +1,72 @@
+<dec f='codebrowser/code/client/client.h' l='323' type='int'/>
+<offset>256</offset>
+<doc f='codebrowser/code/client/client.h' l='323'>// ignores pause</doc>
+<use f='codebrowser/code/client/cl_cgame.c' l='834' u='r' c='CL_AdjustTimeDelta'/>
+<use f='codebrowser/code/client/cl_cgame.c' l='886' u='r' c='CL_FirstSnapshot'/>
+<use f='codebrowser/code/client/cl_cgame.c' l='1001' u='r' c='CL_SetCGameTime'/>
+<use f='codebrowser/code/client/cl_cgame.c' l='1012' u='r' c='CL_SetCGameTime'/>
+<use f='codebrowser/code/client/cl_console.c' l='414' u='r' c='Con_Linefeed'/>
+<use f='codebrowser/code/client/cl_console.c' l='518' u='r' c='CL_ConsolePrint'/>
+<use f='codebrowser/code/client/cl_console.c' l='584' u='r' c='Con_DrawNotify'/>
+<use f='codebrowser/code/client/cl_curl.c' l='266' u='r' c='CL_cURL_BeginDownload'/>
+<use f='codebrowser/code/client/cl_input.c' l='683' u='r' c='CL_ReadyToSendPacket'/>
+<use f='codebrowser/code/client/cl_input.c' l='692' u='r' c='CL_ReadyToSendPacket'/>
+<use f='codebrowser/code/client/cl_input.c' l='713' u='r' c='CL_ReadyToSendPacket'/>
+<use f='codebrowser/code/client/cl_input.c' l='885' u='r' c='CL_WritePacket'/>
+<use f='codebrowser/code/client/cl_input.c' l='888' u='r' c='CL_WritePacket'/>
+<use f='codebrowser/code/client/cl_keys.c' l='389' u='r' c='Field_VariableSizeDraw'/>
+<use f='codebrowser/code/client/cl_main.c' l='978' u='r' c='CL_ReadDemoMessage'/>
+<use f='codebrowser/code/client/cl_main.c' l='2177' u='r' c='CL_BeginDownload'/>
+<use f='codebrowser/code/client/cl_main.c' l='2352' u='r' c='CL_CheckForResend'/>
+<use f='codebrowser/code/client/cl_main.c' l='2356' u='r' c='CL_CheckForResend'/>
+<use f='codebrowser/code/client/cl_main.c' l='2810' u='r' c='CL_PacketEvent'/>
+<use f='codebrowser/code/client/cl_main.c' l='2848' u='r' c='CL_PacketEvent'/>
+<use f='codebrowser/code/client/cl_main.c' l='2872' u='r' c='CL_CheckTimeout'/>
+<use f='codebrowser/code/client/cl_main.c' l='2946' u='w' c='CL_Frame'/>
+<use f='codebrowser/code/client/cl_main.c' l='3025' u='w' c='CL_Frame'/>
+<use f='codebrowser/code/client/cl_main.c' l='3506' u='w' c='CL_Init'/>
+<use f='codebrowser/code/client/cl_parse.c' l='312' u='r' c='CL_ParseSnapshot'/>
+<use f='codebrowser/code/client/cl_scrn.c' l='512' u='r' c='SCR_DrawScreenField'/>
+<use f='codebrowser/code/client/cl_scrn.c' l='523' u='r' c='SCR_DrawScreenField'/>
+<use f='codebrowser/code/client/cl_scrn.c' l='539' u='r' c='SCR_DrawScreenField'/>
+<use f='codebrowser/code/client/cl_ui.c' l='1167' u='r' c='UI_GameCommand'/>
+<dec f='codebrowser/code/q3_ui/ui_local.h' l='536' type='int'/>
+<offset>32</offset>
+<use f='codebrowser/code/q3_ui/ui_atoms.c' l='558' u='r' c='UI_DrawProportionalString'/>
+<use f='codebrowser/code/q3_ui/ui_atoms.c' l='709' u='r' c='UI_DrawString'/>
+<use f='codebrowser/code/q3_ui/ui_atoms.c' l='734' u='r' c='UI_DrawString'/>
+<use f='codebrowser/code/q3_ui/ui_atoms.c' l='1002' u='r' c='UI_ConsoleCommand'/>
+<use f='codebrowser/code/q3_ui/ui_atoms.c' l='1003' u='w' c='UI_ConsoleCommand'/>
+<use f='codebrowser/code/q3_ui/ui_atoms.c' l='1198' u='r' c='UI_Refresh'/>
+<use f='codebrowser/code/q3_ui/ui_atoms.c' l='1199' u='w' c='UI_Refresh'/>
+<use f='codebrowser/code/q3_ui/ui_connect.c' l='112' u='r' c='UI_DisplayDownloadInfo'/>
+<use f='codebrowser/code/q3_ui/ui_connect.c' l='113' u='r' c='UI_DisplayDownloadInfo'/>
+<use f='codebrowser/code/q3_ui/ui_controls2.c' l='751' u='r' c='Controls_DrawPlayer'/>
+<use f='codebrowser/code/q3_ui/ui_menu.c' l='189' u='r' c='Main_MenuDraw'/>
+<use f='codebrowser/code/q3_ui/ui_menu.c' l='201' u='r' c='Main_MenuDraw'/>
+<use f='codebrowser/code/q3_ui/ui_playermodel.c' l='380' u='r' c='PlayerModel_DrawPlayer'/>
+<use f='codebrowser/code/q3_ui/ui_playersettings.c' l='250' u='r' c='PlayerSettings_DrawPlayer'/>
+<use f='codebrowser/code/q3_ui/ui_qmenu.c' l='343' u='r' c='Bitmap_Draw'/>
+<use f='codebrowser/code/q3_ui/ui_servers2.c' l='834' u='r' c='ArenaServers_DoRefresh'/>
+<use f='codebrowser/code/q3_ui/ui_servers2.c' l='851' u='r' c='ArenaServers_DoRefresh'/>
+<use f='codebrowser/code/q3_ui/ui_servers2.c' l='856' u='r' c='ArenaServers_DoRefresh'/>
+<use f='codebrowser/code/q3_ui/ui_servers2.c' l='863' u='r' c='ArenaServers_DoRefresh'/>
+<use f='codebrowser/code/q3_ui/ui_servers2.c' l='886' u='r' c='ArenaServers_DoRefresh'/>
+<use f='codebrowser/code/q3_ui/ui_servers2.c' l='961' u='r' c='ArenaServers_DoRefresh'/>
+<use f='codebrowser/code/q3_ui/ui_servers2.c' l='1006' u='r' c='ArenaServers_StartRefresh'/>
+<use f='codebrowser/code/q3_ui/ui_splevel.c' l='623' u='r' c='UI_SPLevelMenu_MenuDraw'/>
+<use f='codebrowser/code/q3_ui/ui_sppostgame.c' l='180' u='r' c='UI_SPPostgameMenu_MenuKey'/>
+<use f='codebrowser/code/q3_ui/ui_sppostgame.c' l='187' u='r' c='UI_SPPostgameMenu_MenuKey'/>
+<use f='codebrowser/code/q3_ui/ui_sppostgame.c' l='188' u='r' c='UI_SPPostgameMenu_MenuKey'/>
+<use f='codebrowser/code/q3_ui/ui_sppostgame.c' l='194' u='r' c='UI_SPPostgameMenu_MenuKey'/>
+<use f='codebrowser/code/q3_ui/ui_sppostgame.c' l='195' u='r' c='UI_SPPostgameMenu_MenuKey'/>
+<use f='codebrowser/code/q3_ui/ui_sppostgame.c' l='317' u='r' c='UI_SPPostgameMenu_MenuDraw'/>
+<use f='codebrowser/code/q3_ui/ui_sppostgame.c' l='328' u='r' c='UI_SPPostgameMenu_MenuDraw'/>
+<use f='codebrowser/code/q3_ui/ui_sppostgame.c' l='333' u='r' c='UI_SPPostgameMenu_MenuDraw'/>
+<use f='codebrowser/code/q3_ui/ui_sppostgame.c' l='341' u='r' c='UI_SPPostgameMenu_MenuDraw'/>
+<use f='codebrowser/code/q3_ui/ui_sppostgame.c' l='384' u='r' c='UI_SPPostgameMenu_MenuDraw'/>
+<use f='codebrowser/code/q3_ui/ui_sppostgame.c' l='436' u='r' c='UI_SPPostgameMenu_Init'/>
+<use f='codebrowser/code/q3_ui/ui_sppostgame.c' l='609' u='r' c='UI_SPPostgameMenu_f'/>
+<use f='codebrowser/code/q3_ui/ui_sppostgame.c' l='610' u='r' c='UI_SPPostgameMenu_f'/>
+<dec f='codebrowser/code/ui/ui_local.h' l='581' type='int'/>
+<offset>32</offset>

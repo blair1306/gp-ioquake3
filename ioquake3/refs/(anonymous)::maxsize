@@ -1,0 +1,19 @@
+<dec f='codebrowser/code/qcommon/qcommon.h' l='47' type='int'/>
+<offset>192</offset>
+<use f='codebrowser/code/client/cl_main.c' l='968' u='r' c='CL_ReadDemoMessage'/>
+<use f='codebrowser/code/qcommon/huffman.c' l='366' u='r' c='Huff_Decompress'/>
+<use f='codebrowser/code/qcommon/huffman.c' l='367' u='r' c='Huff_Decompress'/>
+<use f='codebrowser/code/qcommon/msg.c' l='50' u='w' c='MSG_Init'/>
+<use f='codebrowser/code/qcommon/msg.c' l='59' u='w' c='MSG_InitOOB'/>
+<use f='codebrowser/code/qcommon/msg.c' l='123' u='r' c='MSG_WriteBits'/>
+<use f='codebrowser/code/qcommon/msg.c' l='150' u='r' c='MSG_WriteBits'/>
+<use f='codebrowser/code/qcommon/msg.c' l='162' u='r' c='MSG_WriteBits'/>
+<use f='codebrowser/code/qcommon/msg.c' l='165' u='r' c='MSG_WriteBits'/>
+<use f='codebrowser/code/qcommon/net_chan.c' l='377' u='r' c='Netchan_Process'/>
+<use f='codebrowser/code/qcommon/net_ip.c' l='533' u='r' c='NET_GetPacket'/>
+<use f='codebrowser/code/qcommon/net_ip.c' l='564' u='r' c='NET_GetPacket'/>
+<use f='codebrowser/code/qcommon/net_ip.c' l='577' u='r' c='NET_GetPacket'/>
+<use f='codebrowser/code/qcommon/net_ip.c' l='591' u='r' c='NET_GetPacket'/>
+<use f='codebrowser/code/qcommon/net_ip.c' l='605' u='r' c='NET_GetPacket'/>
+<use f='codebrowser/code/qcommon/net_ip.c' l='619' u='r' c='NET_GetPacket'/>
+<use f='codebrowser/code/server/sv_snapshot.c' l='547' u='r' c='SV_WriteVoipToClient'/>

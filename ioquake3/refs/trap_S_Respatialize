@@ -1,0 +1,5 @@
+<dec f='codebrowser/code/cgame/cg_local.h' l='1567' type='void trap_S_Respatialize(int entityNum, const vec_t * origin, vec3_t * axis, int inwater)'/>
+<doc f='codebrowser/code/cgame/cg_local.h' l='1565'>// respatialize recalculates the volumes of sound as they should be heard by the
+// given entityNum and position</doc>
+<def f='codebrowser/code/cgame/cg_syscalls.c' l='217' ll='219' type='void trap_S_Respatialize(int entityNum, const vec_t * origin, vec3_t * axis, int inwater)'/>
+<use f='codebrowser/code/cgame/cg_view.c' l='838' u='c' c='CG_DrawActiveFrame'/>

@@ -1,0 +1,21 @@
+<dec f='codebrowser/code/renderergl1/tr_local.h' l='1223' type='int'/>
+<offset>832160</offset>
+<doc f='codebrowser/code/renderergl1/tr_local.h' l='1223'>// or together of all vertexDlightBits</doc>
+<use f='codebrowser/code/renderergl1/tr_shade.c' l='325' u='w' c='RB_BeginSurface'/>
+<use f='codebrowser/code/renderergl1/tr_shade.c' l='610' u='r' c='ProjectDlightTexture_scalar'/>
+<use f='codebrowser/code/renderergl1/tr_shade.c' l='1251' u='r' c='RB_StageIteratorGeneric'/>
+<use f='codebrowser/code/renderergl1/tr_shade.c' l='1339' u='r' c='RB_StageIteratorVertexLitTexture'/>
+<use f='codebrowser/code/renderergl1/tr_shade.c' l='1446' u='r' c='RB_StageIteratorLightmappedMultitexture'/>
+<use f='codebrowser/code/renderergl1/tr_surface.c' l='235' u='w' c='RB_SurfaceTriangles'/>
+<use f='codebrowser/code/renderergl1/tr_surface.c' l='922' u='w' c='RB_SurfaceFace'/>
+<use f='codebrowser/code/renderergl1/tr_surface.c' l='1014' u='w' c='RB_SurfaceGrid'/>
+<dec f='codebrowser/code/renderergl2/tr_local.h' l='1988' type='int'/>
+<offset>1185216</offset>
+<doc f='codebrowser/code/renderergl2/tr_local.h' l='1988'>// or together of all vertexDlightBits</doc>
+<use f='codebrowser/code/renderergl2/tr_shade.c' l='157' u='w' c='RB_BeginSurface'/>
+<use f='codebrowser/code/renderergl2/tr_shade.c' l='338' u='r' c='ProjectDlightTexture'/>
+<use f='codebrowser/code/renderergl2/tr_shade.c' l='669' u='r' c='ForwardDlight'/>
+<use f='codebrowser/code/renderergl2/tr_shade.c' l='1541' u='r' c='RB_StageIteratorGeneric'/>
+<use f='codebrowser/code/renderergl2/tr_surface.c' l='403' u='w' c='RB_SurfaceVertsAndIndexes'/>
+<use f='codebrowser/code/renderergl2/tr_surface.c' l='423' u='w' c='RB_SurfaceVaoCached'/>
+<use f='codebrowser/code/renderergl2/tr_surface.c' l='972' u='w' c='RB_SurfaceGrid'/>

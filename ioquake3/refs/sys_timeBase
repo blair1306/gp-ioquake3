@@ -1,0 +1,7 @@
+<def f='codebrowser/code/sys/sys_unix.c' l='131' type='unsigned long'/>
+<use f='codebrowser/code/sys/sys_unix.c' l='144' u='r' c='Sys_Milliseconds'/>
+<use f='codebrowser/code/sys/sys_unix.c' l='146' u='w' c='Sys_Milliseconds'/>
+<use f='codebrowser/code/sys/sys_unix.c' l='150' u='r' c='Sys_Milliseconds'/>
+<doc f='codebrowser/code/sys/sys_unix.c' l='128'>/* base time in seconds, that&apos;s our origin
+   timeval:tv_sec is an int:
+   assuming this wraps every 0x7fffffff - ~68 years since the Epoch (1970) - we&apos;re safe till 2038 */</doc>

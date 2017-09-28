@@ -1,0 +1,33 @@
+<dec f='codebrowser/code/renderergl1/tr_local.h' l='912' type='int'/>
+<offset>9024</offset>
+<doc f='codebrowser/code/renderergl1/tr_local.h' l='912'>// r_overbrightBits-&gt;integer, but set to 0 if no hw gamma</doc>
+<use f='codebrowser/code/renderergl1/tr_bsp.c' l='104' u='r' c='R_ColorShiftLightingBytes'/>
+<use f='codebrowser/code/renderergl1/tr_image.c' l='1277' u='w' c='R_SetColorMappings'/>
+<use f='codebrowser/code/renderergl1/tr_image.c' l='1279' u='w' c='R_SetColorMappings'/>
+<use f='codebrowser/code/renderergl1/tr_image.c' l='1285' u='w' c='R_SetColorMappings'/>
+<use f='codebrowser/code/renderergl1/tr_image.c' l='1290' u='r' c='R_SetColorMappings'/>
+<use f='codebrowser/code/renderergl1/tr_image.c' l='1291' u='w' c='R_SetColorMappings'/>
+<use f='codebrowser/code/renderergl1/tr_image.c' l='1294' u='r' c='R_SetColorMappings'/>
+<use f='codebrowser/code/renderergl1/tr_image.c' l='1295' u='w' c='R_SetColorMappings'/>
+<use f='codebrowser/code/renderergl1/tr_image.c' l='1298' u='r' c='R_SetColorMappings'/>
+<use f='codebrowser/code/renderergl1/tr_image.c' l='1299' u='w' c='R_SetColorMappings'/>
+<use f='codebrowser/code/renderergl1/tr_image.c' l='1302' u='r' c='R_SetColorMappings'/>
+<use f='codebrowser/code/renderergl1/tr_image.c' l='1318' u='r' c='R_SetColorMappings'/>
+<use f='codebrowser/code/renderergl1/tr_init.c' l='939' u='r' c='GfxInfo_f'/>
+<use f='codebrowser/code/renderergl1/tr_init.c' l='943' u='r' c='GfxInfo_f'/>
+<dec f='codebrowser/code/renderergl2/tr_local.h' l='1546' type='int'/>
+<offset>474752</offset>
+<doc f='codebrowser/code/renderergl2/tr_local.h' l='1546'>// r_overbrightBits-&gt;integer, but set to 0 if no hw gamma</doc>
+<use f='codebrowser/code/renderergl2/tr_bsp.c' l='108' u='r' c='R_ColorShiftLightingBytes'/>
+<use f='codebrowser/code/renderergl2/tr_bsp.c' l='142' u='r' c='R_ColorShiftLightingFloats'/>
+<use f='codebrowser/code/renderergl2/tr_image.c' l='2849' u='w' c='R_SetColorMappings'/>
+<use f='codebrowser/code/renderergl2/tr_image.c' l='2852' u='r' c='R_SetColorMappings'/>
+<use f='codebrowser/code/renderergl2/tr_image.c' l='2853' u='w' c='R_SetColorMappings'/>
+<use f='codebrowser/code/renderergl2/tr_image.c' l='2854' u='r' c='R_SetColorMappings'/>
+<use f='codebrowser/code/renderergl2/tr_image.c' l='2855' u='w' c='R_SetColorMappings'/>
+<use f='codebrowser/code/renderergl2/tr_image.c' l='2859' u='r' c='R_SetColorMappings'/>
+<use f='codebrowser/code/renderergl2/tr_image.c' l='2860' u='w' c='R_SetColorMappings'/>
+<use f='codebrowser/code/renderergl2/tr_image.c' l='2863' u='r' c='R_SetColorMappings'/>
+<use f='codebrowser/code/renderergl2/tr_init.c' l='1064' u='r' c='GfxInfo_f'/>
+<use f='codebrowser/code/renderergl2/tr_init.c' l='1068' u='r' c='GfxInfo_f'/>
+<use f='codebrowser/code/renderergl2/tr_shade.c' l='407' u='r' c='ComputeShaderColors'/>

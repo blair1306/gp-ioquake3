@@ -1,0 +1,74 @@
+<dec f='codebrowser/code/qcommon/qfiles.h' l='226' type='char [64]'/>
+<dec f='codebrowser/code/qcommon/qfiles.h' l='400' type='char [64]'/>
+<dec f='codebrowser/code/qcommon/qfiles.h' l='445' type='char [64]'/>
+<offset>0</offset>
+<dec f='codebrowser/code/q3_ui/ui_local.h' l='243' type='qhandle_t'/>
+<offset>832</offset>
+<use f='codebrowser/code/q3_ui/ui_playermodel.c' l='134' u='w' c='PlayerModel_UpdateGrid'/>
+<use f='codebrowser/code/q3_ui/ui_qmenu.c' l='273' u='w' c='Bitmap_Init'/>
+<use f='codebrowser/code/q3_ui/ui_qmenu.c' l='306' u='r' c='Bitmap_Draw'/>
+<use f='codebrowser/code/q3_ui/ui_qmenu.c' l='308' u='w' c='Bitmap_Draw'/>
+<use f='codebrowser/code/q3_ui/ui_qmenu.c' l='309' u='r' c='Bitmap_Draw'/>
+<use f='codebrowser/code/q3_ui/ui_qmenu.c' l='310' u='w' c='Bitmap_Draw'/>
+<use f='codebrowser/code/q3_ui/ui_qmenu.c' l='318' u='r' c='Bitmap_Draw'/>
+<use f='codebrowser/code/q3_ui/ui_qmenu.c' l='321' u='r' c='Bitmap_Draw'/>
+<use f='codebrowser/code/q3_ui/ui_qmenu.c' l='327' u='r' c='Bitmap_Draw'/>
+<use f='codebrowser/code/q3_ui/ui_qmenu.c' l='328' u='r' c='Bitmap_Draw'/>
+<use f='codebrowser/code/q3_ui/ui_servers2.c' l='399' u='w' c='ArenaServers_UpdatePicture'/>
+<use f='codebrowser/code/q3_ui/ui_splevel.c' l='243' u='w' c='UI_SPLevelMenu_SetMenuArena'/>
+<use f='codebrowser/code/q3_ui/ui_splevel.c' l='291' u='w' c='UI_SPLevelMenu_SetMenuItems'/>
+<use f='codebrowser/code/q3_ui/ui_splevel.c' l='292' u='w' c='UI_SPLevelMenu_SetMenuItems'/>
+<use f='codebrowser/code/q3_ui/ui_splevel.c' l='293' u='w' c='UI_SPLevelMenu_SetMenuItems'/>
+<use f='codebrowser/code/q3_ui/ui_splevel.c' l='312' u='w' c='UI_SPLevelMenu_SetMenuItems'/>
+<use f='codebrowser/code/q3_ui/ui_splevel.c' l='313' u='w' c='UI_SPLevelMenu_SetMenuItems'/>
+<use f='codebrowser/code/q3_ui/ui_splevel.c' l='314' u='w' c='UI_SPLevelMenu_SetMenuItems'/>
+<use f='codebrowser/code/q3_ui/ui_splevel.c' l='570' u='w' c='UI_SPLevelMenu_MenuDraw'/>
+<use f='codebrowser/code/q3_ui/ui_spskill.c' l='121' u='w' c='UI_SPSkillMenu_SkillEvent'/>
+<use f='codebrowser/code/q3_ui/ui_spskill.c' l='317' u='w' c='UI_SPSkillMenu_Init'/>
+<use f='codebrowser/code/q3_ui/ui_startserver.c' l='183' u='w' c='StartServer_Update'/>
+<use f='codebrowser/code/q3_ui/ui_startserver.c' l='194' u='w' c='StartServer_Update'/>
+<use f='codebrowser/code/q3_ui/ui_startserver.c' l='341' u='r' c='StartServer_LevelshotDraw'/>
+<use f='codebrowser/code/q3_ui/ui_startserver.c' l='342' u='w' c='StartServer_LevelshotDraw'/>
+<use f='codebrowser/code/q3_ui/ui_startserver.c' l='343' u='r' c='StartServer_LevelshotDraw'/>
+<use f='codebrowser/code/q3_ui/ui_startserver.c' l='344' u='w' c='StartServer_LevelshotDraw'/>
+<use f='codebrowser/code/q3_ui/ui_startserver.c' l='356' u='r' c='StartServer_LevelshotDraw'/>
+<use f='codebrowser/code/q3_ui/ui_startserver.c' l='357' u='r' c='StartServer_LevelshotDraw'/>
+<use f='codebrowser/code/q3_ui/ui_startserver.c' l='1674' u='w' c='UI_BotSelectMenu_UpdateGrid'/>
+<dec f='codebrowser/code/renderergl1/tr_local.h' l='423' type='shader_t *'/>
+<dec f='codebrowser/code/renderergl1/tr_local.h' l='1484' type='shader_t *'/>
+<use f='codebrowser/code/renderergl1/tr_animation.c' l='268' u='r' c='R_MDRAddAnimSurfaces'/>
+<offset>64</offset>
+<use f='codebrowser/code/renderergl1/tr_backend.c' l='860' u='r' c='RB_StretchPic'/>
+<use f='codebrowser/code/renderergl1/tr_bsp.c' l='290' u='r' c='ShaderForShaderNum'/>
+<use f='codebrowser/code/renderergl1/tr_bsp.c' l='1614' u='r' c='R_LoadFogs'/>
+<use f='codebrowser/code/renderergl1/tr_cmds.c' l='225' u='w' c='RE_StretchPic'/>
+<use f='codebrowser/code/renderergl1/tr_image.c' l='1563' u='w' c='RE_RegisterSkin'/>
+<use f='codebrowser/code/renderergl1/tr_image.c' l='1600' u='w' c='RE_RegisterSkin'/>
+<use f='codebrowser/code/renderergl1/tr_image.c' l='1642' u='w' c='R_InitSkins'/>
+<use f='codebrowser/code/renderergl1/tr_image.c' l='1674' u='r' c='R_SkinList_f'/>
+<use f='codebrowser/code/renderergl1/tr_mesh.c' l='365' u='r' c='R_AddMD3Surfaces'/>
+<use f='codebrowser/code/renderergl1/tr_model.c' l='723' u='r' c='R_LoadMDR'/>
+<use f='codebrowser/code/renderergl1/tr_model.c' l='723' u='r' c='R_LoadMDR'/>
+<use f='codebrowser/code/renderergl1/tr_model.c' l='723' u='r' c='R_LoadMDR'/>
+<use f='codebrowser/code/renderergl1/tr_model.c' l='750' u='r' c='R_LoadMDR'/>
+<use f='codebrowser/code/renderergl1/tr_model_iqm.c' l='908' u='r' c='R_AddIQMSurfaces'/>
+<dec f='codebrowser/code/renderergl2/tr_local.h' l='757' type='shader_t *'/>
+<dec f='codebrowser/code/renderergl2/tr_local.h' l='2311' type='shader_t *'/>
+<use f='codebrowser/code/renderergl2/tr_animation.c' l='272' u='r' c='R_MDRAddAnimSurfaces'/>
+<offset>64</offset>
+<use f='codebrowser/code/renderergl2/tr_backend.c' l='810' u='r' c='RB_StretchPic'/>
+<use f='codebrowser/code/renderergl2/tr_bsp.c' l='619' u='r' c='ShaderForShaderNum'/>
+<use f='codebrowser/code/renderergl2/tr_bsp.c' l='2133' u='r' c='R_LoadFogs'/>
+<use f='codebrowser/code/renderergl2/tr_cmds.c' l='271' u='w' c='RE_StretchPic'/>
+<use f='codebrowser/code/renderergl2/tr_image.c' l='3114' u='w' c='RE_RegisterSkin'/>
+<use f='codebrowser/code/renderergl2/tr_image.c' l='3151' u='w' c='RE_RegisterSkin'/>
+<use f='codebrowser/code/renderergl2/tr_image.c' l='3193' u='w' c='R_InitSkins'/>
+<use f='codebrowser/code/renderergl2/tr_image.c' l='3225' u='r' c='R_SkinList_f'/>
+<use f='codebrowser/code/renderergl2/tr_mesh.c' l='369' u='r' c='R_AddMD3Surfaces'/>
+<use f='codebrowser/code/renderergl2/tr_model.c' l='1013' u='r' c='R_LoadMDR'/>
+<use f='codebrowser/code/renderergl2/tr_model.c' l='1013' u='r' c='R_LoadMDR'/>
+<use f='codebrowser/code/renderergl2/tr_model.c' l='1013' u='r' c='R_LoadMDR'/>
+<use f='codebrowser/code/renderergl2/tr_model.c' l='1040' u='r' c='R_LoadMDR'/>
+<use f='codebrowser/code/renderergl2/tr_model_iqm.c' l='912' u='r' c='R_AddIQMSurfaces'/>
+<dec f='codebrowser/code/ui/ui_local.h' l='280' type='qhandle_t'/>
+<offset>832</offset>

@@ -1,0 +1,9 @@
+<dec f='codebrowser/code/game/g_local.h' l='493' type='qboolean G_RadiusDamage(vec_t * origin, gentity_t * attacker, float damage, float radius, gentity_t * ignore, int mod)'/>
+<def f='codebrowser/code/game/g_combat.c' l='1160' ll='1222' type='qboolean G_RadiusDamage(vec_t * origin, gentity_t * attacker, float damage, float radius, gentity_t * ignore, int mod)'/>
+<doc f='codebrowser/code/game/g_combat.c' l='1155'>/*
+============
+G_RadiusDamage
+============
+*/</doc>
+<use f='codebrowser/code/game/g_missile.c' l='86' u='c' c='G_ExplodeMissile'/>
+<use f='codebrowser/code/game/g_missile.c' l='432' u='c' c='G_MissileImpact'/>

@@ -1,0 +1,19 @@
+<dec f='codebrowser/code/server/server.h' l='492' type='void SV_Netchan_Transmit(client_t * client, msg_t * msg)'/>
+<doc f='codebrowser/code/server/server.h' l='487'>// clip to a specific entity
+
+//
+// sv_net_chan.c
+//</doc>
+<use f='codebrowser/code/server/sv_client.c' l='1194' u='c' c='SV_SendDownloadMessages'/>
+<def f='codebrowser/code/server/sv_net_chan.c' l='224' ll='255' type='void SV_Netchan_Transmit(client_t * client, msg_t * msg)'/>
+<doc f='codebrowser/code/server/sv_net_chan.c' l='213'>/*
+===============
+SV_Netchan_Transmit
+TTimo
+https://zerowing.idsoftware.com/bugzilla/show_bug.cgi?id=462
+if there are some unsent fragments (which may happen if the snapshots
+and the gamestate are fragmenting, and collide on send for instance)
+then buffer them and make sure they get sent in correct order
+================
+*/</doc>
+<use f='codebrowser/code/server/sv_snapshot.c' l='585' u='c' c='SV_SendMessageToClient'/>

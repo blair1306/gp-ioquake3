@@ -1,0 +1,14 @@
+<dec f='codebrowser/code/qcommon/qcommon.h' l='614' type='void FS_Restart(int checksumFeed)'/>
+<use f='codebrowser/code/client/cl_main.c' l='2098' u='c' c='CL_DownloadsComplete'/>
+<use f='codebrowser/code/client/cl_main.c' l='2112' u='c' c='CL_DownloadsComplete'/>
+<use f='codebrowser/code/qcommon/common.c' l='2407' u='c' c='Com_GameRestart'/>
+<use f='codebrowser/code/qcommon/files.c' l='3854' u='c' c='FS_PureServerSetLoadedPaks'/>
+<def f='codebrowser/code/qcommon/files.c' l='3976' ll='4035' type='void FS_Restart(int checksumFeed)'/>
+<use f='codebrowser/code/qcommon/files.c' l='4011' u='c' c='FS_Restart'/>
+<use f='codebrowser/code/qcommon/files.c' l='4061' u='c' c='FS_ConditionalRestart'/>
+<doc f='codebrowser/code/qcommon/files.c' l='3971'>/*
+================
+FS_Restart
+================
+*/</doc>
+<use f='codebrowser/code/server/sv_init.c' l='472' u='c' c='SV_SpawnServer'/>

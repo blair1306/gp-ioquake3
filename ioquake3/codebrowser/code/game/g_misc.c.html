@@ -1,0 +1,500 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>g_misc.c source code [codebrowser/code/game/g_misc.c] - Woboq Code Browser</title>
+<link rel="stylesheet" href="../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'codebrowser/code/game/g_misc.c'; var root_path = '../../..'; var data_path = '../../../../data';</script>
+<script src='../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../..'>codebrowser</a>/<a href='..'>code</a>/<a href='./'>game</a>/<a href='g_misc.c.html'>g_misc.c</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/*</i></td></tr>
+<tr><th id="2">2</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="3">3</th><td><i>Copyright (C) 1999-2005 Id Software, Inc.</i></td></tr>
+<tr><th id="4">4</th><td><i></i></td></tr>
+<tr><th id="5">5</th><td><i>This file is part of Quake III Arena source code.</i></td></tr>
+<tr><th id="6">6</th><td><i></i></td></tr>
+<tr><th id="7">7</th><td><i>Quake III Arena source code is free software; you can redistribute it</i></td></tr>
+<tr><th id="8">8</th><td><i>and/or modify it under the terms of the GNU General Public License as</i></td></tr>
+<tr><th id="9">9</th><td><i>published by the Free Software Foundation; either version 2 of the License,</i></td></tr>
+<tr><th id="10">10</th><td><i>or (at your option) any later version.</i></td></tr>
+<tr><th id="11">11</th><td><i></i></td></tr>
+<tr><th id="12">12</th><td><i>Quake III Arena source code is distributed in the hope that it will be</i></td></tr>
+<tr><th id="13">13</th><td><i>useful, but WITHOUT ANY WARRANTY; without even the implied warranty of</i></td></tr>
+<tr><th id="14">14</th><td><i>MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</i></td></tr>
+<tr><th id="15">15</th><td><i>GNU General Public License for more details.</i></td></tr>
+<tr><th id="16">16</th><td><i></i></td></tr>
+<tr><th id="17">17</th><td><i>You should have received a copy of the GNU General Public License</i></td></tr>
+<tr><th id="18">18</th><td><i>along with Quake III Arena source code; if not, write to the Free Software</i></td></tr>
+<tr><th id="19">19</th><td><i>Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA</i></td></tr>
+<tr><th id="20">20</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="21">21</th><td><i>*/</i></td></tr>
+<tr><th id="22">22</th><td><i>//</i></td></tr>
+<tr><th id="23">23</th><td><i>// g_misc.c</i></td></tr>
+<tr><th id="24">24</th><td></td></tr>
+<tr><th id="25">25</th><td><u>#include <a href="g_local.h.html">"g_local.h"</a></u></td></tr>
+<tr><th id="26">26</th><td></td></tr>
+<tr><th id="27">27</th><td></td></tr>
+<tr><th id="28">28</th><td><i>/*QUAKED func_group (0 0 0) ?</i></td></tr>
+<tr><th id="29">29</th><td><i>Used to group brushes together just for editor convenience.  They are turned into normal brushes by the utilities.</i></td></tr>
+<tr><th id="30">30</th><td><i>*/</i></td></tr>
+<tr><th id="31">31</th><td></td></tr>
+<tr><th id="32">32</th><td></td></tr>
+<tr><th id="33">33</th><td><i>/*QUAKED info_camp (0 0.5 0) (-4 -4 -4) (4 4 4)</i></td></tr>
+<tr><th id="34">34</th><td><i>Used as a positional target for calculations in the utilities (spotlights, etc), but removed during gameplay.</i></td></tr>
+<tr><th id="35">35</th><td><i>*/</i></td></tr>
+<tr><th id="36">36</th><td><em>void</em> <dfn class="decl def" id="SP_info_camp" title='SP_info_camp' data-ref="SP_info_camp">SP_info_camp</dfn>( <a class="typedef" href="g_local.h.html#gentity_t" title='gentity_t' data-type='struct gentity_s' data-ref="gentity_t">gentity_t</a> *<dfn class="local col1 decl" id="1self" title='self' data-type='gentity_t *' data-ref="1self">self</dfn> ) {</td></tr>
+<tr><th id="37">37</th><td>	<a class="ref" href="g_local.h.html#G_SetOrigin" title='G_SetOrigin' data-ref="G_SetOrigin">G_SetOrigin</a>( <a class="local col1 ref" href="#1self" title='self' data-ref="1self">self</a>, <a class="local col1 ref" href="#1self" title='self' data-ref="1self">self</a>-&gt;<a class="ref" href="g_local.h.html#gentity_s::s" title='gentity_s::s' data-ref="gentity_s::s">s</a>.<a class="ref" href="../qcommon/q_shared.h.html#entityState_s::origin" title='entityState_s::origin' data-ref="entityState_s::origin">origin</a> );</td></tr>
+<tr><th id="38">38</th><td>}</td></tr>
+<tr><th id="39">39</th><td></td></tr>
+<tr><th id="40">40</th><td></td></tr>
+<tr><th id="41">41</th><td><i>/*QUAKED info_null (0 0.5 0) (-4 -4 -4) (4 4 4)</i></td></tr>
+<tr><th id="42">42</th><td><i>Used as a positional target for calculations in the utilities (spotlights, etc), but removed during gameplay.</i></td></tr>
+<tr><th id="43">43</th><td><i>*/</i></td></tr>
+<tr><th id="44">44</th><td><em>void</em> <dfn class="decl def" id="SP_info_null" title='SP_info_null' data-ref="SP_info_null">SP_info_null</dfn>( <a class="typedef" href="g_local.h.html#gentity_t" title='gentity_t' data-type='struct gentity_s' data-ref="gentity_t">gentity_t</a> *<dfn class="local col2 decl" id="2self" title='self' data-type='gentity_t *' data-ref="2self">self</dfn> ) {</td></tr>
+<tr><th id="45">45</th><td>	<a class="ref" href="g_local.h.html#G_FreeEntity" title='G_FreeEntity' data-ref="G_FreeEntity">G_FreeEntity</a>( <a class="local col2 ref" href="#2self" title='self' data-ref="2self">self</a> );</td></tr>
+<tr><th id="46">46</th><td>}</td></tr>
+<tr><th id="47">47</th><td></td></tr>
+<tr><th id="48">48</th><td></td></tr>
+<tr><th id="49">49</th><td><i>/*QUAKED info_notnull (0 0.5 0) (-4 -4 -4) (4 4 4)</i></td></tr>
+<tr><th id="50">50</th><td><i>Used as a positional target for in-game calculation, like jumppad targets.</i></td></tr>
+<tr><th id="51">51</th><td><i>target_position does the same thing</i></td></tr>
+<tr><th id="52">52</th><td><i>*/</i></td></tr>
+<tr><th id="53">53</th><td><em>void</em> <dfn class="decl def" id="SP_info_notnull" title='SP_info_notnull' data-ref="SP_info_notnull">SP_info_notnull</dfn>( <a class="typedef" href="g_local.h.html#gentity_t" title='gentity_t' data-type='struct gentity_s' data-ref="gentity_t">gentity_t</a> *<dfn class="local col3 decl" id="3self" title='self' data-type='gentity_t *' data-ref="3self">self</dfn> ){</td></tr>
+<tr><th id="54">54</th><td>	<a class="ref" href="g_local.h.html#G_SetOrigin" title='G_SetOrigin' data-ref="G_SetOrigin">G_SetOrigin</a>( <a class="local col3 ref" href="#3self" title='self' data-ref="3self">self</a>, <a class="local col3 ref" href="#3self" title='self' data-ref="3self">self</a>-&gt;<a class="ref" href="g_local.h.html#gentity_s::s" title='gentity_s::s' data-ref="gentity_s::s">s</a>.<a class="ref" href="../qcommon/q_shared.h.html#entityState_s::origin" title='entityState_s::origin' data-ref="entityState_s::origin">origin</a> );</td></tr>
+<tr><th id="55">55</th><td>}</td></tr>
+<tr><th id="56">56</th><td></td></tr>
+<tr><th id="57">57</th><td></td></tr>
+<tr><th id="58">58</th><td><i>/*QUAKED light (0 1 0) (-8 -8 -8) (8 8 8) linear</i></td></tr>
+<tr><th id="59">59</th><td><i>Non-displayed light.</i></td></tr>
+<tr><th id="60">60</th><td><i>"light" overrides the default 300 intensity.</i></td></tr>
+<tr><th id="61">61</th><td><i>Linear checbox gives linear falloff instead of inverse square</i></td></tr>
+<tr><th id="62">62</th><td><i>Lights pointed at a target will be spotlights.</i></td></tr>
+<tr><th id="63">63</th><td><i>"radius" overrides the default 64 unit radius of a spotlight at the target point.</i></td></tr>
+<tr><th id="64">64</th><td><i>*/</i></td></tr>
+<tr><th id="65">65</th><td><em>void</em> <dfn class="decl def" id="SP_light" title='SP_light' data-ref="SP_light">SP_light</dfn>( <a class="typedef" href="g_local.h.html#gentity_t" title='gentity_t' data-type='struct gentity_s' data-ref="gentity_t">gentity_t</a> *<dfn class="local col4 decl" id="4self" title='self' data-type='gentity_t *' data-ref="4self">self</dfn> ) {</td></tr>
+<tr><th id="66">66</th><td>	<a class="ref" href="g_local.h.html#G_FreeEntity" title='G_FreeEntity' data-ref="G_FreeEntity">G_FreeEntity</a>( <a class="local col4 ref" href="#4self" title='self' data-ref="4self">self</a> );</td></tr>
+<tr><th id="67">67</th><td>}</td></tr>
+<tr><th id="68">68</th><td></td></tr>
+<tr><th id="69">69</th><td></td></tr>
+<tr><th id="70">70</th><td></td></tr>
+<tr><th id="71">71</th><td><i>/*</i></td></tr>
+<tr><th id="72">72</th><td><i>=================================================================================</i></td></tr>
+<tr><th id="73">73</th><td><i></i></td></tr>
+<tr><th id="74">74</th><td><i>TELEPORTERS</i></td></tr>
+<tr><th id="75">75</th><td><i></i></td></tr>
+<tr><th id="76">76</th><td><i>=================================================================================</i></td></tr>
+<tr><th id="77">77</th><td><i>*/</i></td></tr>
+<tr><th id="78">78</th><td></td></tr>
+<tr><th id="79">79</th><td><em>void</em> <dfn class="decl def" id="TeleportPlayer" title='TeleportPlayer' data-ref="TeleportPlayer">TeleportPlayer</dfn>( <a class="typedef" href="g_local.h.html#gentity_t" title='gentity_t' data-type='struct gentity_s' data-ref="gentity_t">gentity_t</a> *<dfn class="local col5 decl" id="5player" title='player' data-type='gentity_t *' data-ref="5player">player</dfn>, <a class="typedef" href="../qcommon/q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="local col6 decl" id="6origin" title='origin' data-type='vec_t *' data-ref="6origin">origin</dfn>, <a class="typedef" href="../qcommon/q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="local col7 decl" id="7angles" title='angles' data-type='vec_t *' data-ref="7angles">angles</dfn> ) {</td></tr>
+<tr><th id="80">80</th><td>	<a class="typedef" href="g_local.h.html#gentity_t" title='gentity_t' data-type='struct gentity_s' data-ref="gentity_t">gentity_t</a>	*<dfn class="local col8 decl" id="8tent" title='tent' data-type='gentity_t *' data-ref="8tent">tent</dfn>;</td></tr>
+<tr><th id="81">81</th><td>	<a class="typedef" href="../qcommon/q_shared.h.html#qboolean" title='qboolean' data-type='enum qboolean' data-ref="qboolean">qboolean</a> <dfn class="local col9 decl" id="9noAngles" title='noAngles' data-type='qboolean' data-ref="9noAngles">noAngles</dfn>;</td></tr>
+<tr><th id="82">82</th><td></td></tr>
+<tr><th id="83">83</th><td>	<a class="local col9 ref" href="#9noAngles" title='noAngles' data-ref="9noAngles">noAngles</a> = (<a class="local col7 ref" href="#7angles" title='angles' data-ref="7angles">angles</a>[<var>0</var>] &gt; <var>999999.0</var>);</td></tr>
+<tr><th id="84">84</th><td>	<i>// use temp events at source and destination to prevent the effect</i></td></tr>
+<tr><th id="85">85</th><td><i>	// from getting dropped by a second player event</i></td></tr>
+<tr><th id="86">86</th><td>	<b>if</b> ( <a class="local col5 ref" href="#5player" title='player' data-ref="5player">player</a>-&gt;<a class="ref" href="g_local.h.html#gentity_s::client" title='gentity_s::client' data-ref="gentity_s::client">client</a>-&gt;<a class="ref" href="g_local.h.html#gclient_s::sess" title='gclient_s::sess' data-ref="gclient_s::sess">sess</a>.<a class="ref" href="g_local.h.html#(anonymous)::sessionTeam" title='(anonymous struct)::sessionTeam' data-ref="(anonymous)::sessionTeam">sessionTeam</a> != <a class="enum" href="bg_public.h.html#TEAM_SPECTATOR" title='TEAM_SPECTATOR' data-ref="TEAM_SPECTATOR">TEAM_SPECTATOR</a> ) {</td></tr>
+<tr><th id="87">87</th><td>		<a class="local col8 ref" href="#8tent" title='tent' data-ref="8tent">tent</a> = <a class="ref" href="g_local.h.html#G_TempEntity" title='G_TempEntity' data-ref="G_TempEntity">G_TempEntity</a>( <a class="local col5 ref" href="#5player" title='player' data-ref="5player">player</a>-&gt;<a class="ref" href="g_local.h.html#gentity_s::client" title='gentity_s::client' data-ref="gentity_s::client">client</a>-&gt;<a class="ref" href="g_local.h.html#gclient_s::ps" title='gclient_s::ps' data-ref="gclient_s::ps">ps</a>.<a class="ref" href="../qcommon/q_shared.h.html#playerState_s::origin" title='playerState_s::origin' data-ref="playerState_s::origin">origin</a>, <a class="enum" href="bg_public.h.html#EV_PLAYER_TELEPORT_OUT" title='EV_PLAYER_TELEPORT_OUT' data-ref="EV_PLAYER_TELEPORT_OUT">EV_PLAYER_TELEPORT_OUT</a> );</td></tr>
+<tr><th id="88">88</th><td>		<a class="local col8 ref" href="#8tent" title='tent' data-ref="8tent">tent</a>-&gt;<a class="ref" href="g_local.h.html#gentity_s::s" title='gentity_s::s' data-ref="gentity_s::s">s</a>.<a class="ref" href="../qcommon/q_shared.h.html#entityState_s::clientNum" title='entityState_s::clientNum' data-ref="entityState_s::clientNum">clientNum</a> = <a class="local col5 ref" href="#5player" title='player' data-ref="5player">player</a>-&gt;<a class="ref" href="g_local.h.html#gentity_s::s" title='gentity_s::s' data-ref="gentity_s::s">s</a>.<a class="ref" href="../qcommon/q_shared.h.html#entityState_s::clientNum" title='entityState_s::clientNum' data-ref="entityState_s::clientNum">clientNum</a>;</td></tr>
+<tr><th id="89">89</th><td></td></tr>
+<tr><th id="90">90</th><td>		<a class="local col8 ref" href="#8tent" title='tent' data-ref="8tent">tent</a> = <a class="ref" href="g_local.h.html#G_TempEntity" title='G_TempEntity' data-ref="G_TempEntity">G_TempEntity</a>( <a class="local col6 ref" href="#6origin" title='origin' data-ref="6origin">origin</a>, <a class="enum" href="bg_public.h.html#EV_PLAYER_TELEPORT_IN" title='EV_PLAYER_TELEPORT_IN' data-ref="EV_PLAYER_TELEPORT_IN">EV_PLAYER_TELEPORT_IN</a> );</td></tr>
+<tr><th id="91">91</th><td>		<a class="local col8 ref" href="#8tent" title='tent' data-ref="8tent">tent</a>-&gt;<a class="ref" href="g_local.h.html#gentity_s::s" title='gentity_s::s' data-ref="gentity_s::s">s</a>.<a class="ref" href="../qcommon/q_shared.h.html#entityState_s::clientNum" title='entityState_s::clientNum' data-ref="entityState_s::clientNum">clientNum</a> = <a class="local col5 ref" href="#5player" title='player' data-ref="5player">player</a>-&gt;<a class="ref" href="g_local.h.html#gentity_s::s" title='gentity_s::s' data-ref="gentity_s::s">s</a>.<a class="ref" href="../qcommon/q_shared.h.html#entityState_s::clientNum" title='entityState_s::clientNum' data-ref="entityState_s::clientNum">clientNum</a>;</td></tr>
+<tr><th id="92">92</th><td>	}</td></tr>
+<tr><th id="93">93</th><td></td></tr>
+<tr><th id="94">94</th><td>	<i>// unlink to make sure it can't possibly interfere with G_KillBox</i></td></tr>
+<tr><th id="95">95</th><td>	<a class="ref" href="g_local.h.html#trap_UnlinkEntity" title='trap_UnlinkEntity' data-ref="trap_UnlinkEntity">trap_UnlinkEntity</a> (<a class="local col5 ref" href="#5player" title='player' data-ref="5player">player</a>);</td></tr>
+<tr><th id="96">96</th><td></td></tr>
+<tr><th id="97">97</th><td>	<a class="macro" href="../qcommon/q_shared.h.html#545" title="((player-&gt;client-&gt;ps.origin)[0]=(origin)[0],(player-&gt;client-&gt;ps.origin)[1]=(origin)[1],(player-&gt;client-&gt;ps.origin)[2]=(origin)[2])" data-ref="_M/VectorCopy">VectorCopy</a> ( <a class="local col6 ref" href="#6origin" title='origin' data-ref="6origin">origin</a>, <a class="local col5 ref" href="#5player" title='player' data-ref="5player">player</a>-&gt;<a class="ref" href="g_local.h.html#gentity_s::client" title='gentity_s::client' data-ref="gentity_s::client">client</a>-&gt;<a class="ref" href="g_local.h.html#gclient_s::ps" title='gclient_s::ps' data-ref="gclient_s::ps">ps</a>.<a class="ref" href="../qcommon/q_shared.h.html#playerState_s::origin" title='playerState_s::origin' data-ref="playerState_s::origin">origin</a> );</td></tr>
+<tr><th id="98">98</th><td>	<a class="local col5 ref" href="#5player" title='player' data-ref="5player">player</a>-&gt;<a class="ref" href="g_local.h.html#gentity_s::client" title='gentity_s::client' data-ref="gentity_s::client">client</a>-&gt;<a class="ref" href="g_local.h.html#gclient_s::ps" title='gclient_s::ps' data-ref="gclient_s::ps">ps</a>.<a class="ref" href="../qcommon/q_shared.h.html#playerState_s::origin" title='playerState_s::origin' data-ref="playerState_s::origin">origin</a>[<var>2</var>] += <var>1</var>;</td></tr>
+<tr><th id="99">99</th><td>	<b>if</b> (!<a class="local col9 ref" href="#9noAngles" title='noAngles' data-ref="9noAngles">noAngles</a>) {</td></tr>
+<tr><th id="100">100</th><td>	<i>// spit the player out</i></td></tr>
+<tr><th id="101">101</th><td>	<a class="ref" href="../qcommon/q_shared.h.html#AngleVectors" title='AngleVectors' data-ref="AngleVectors">AngleVectors</a>( <a class="local col7 ref" href="#7angles" title='angles' data-ref="7angles">angles</a>, <a class="local col5 ref" href="#5player" title='player' data-ref="5player">player</a>-&gt;<a class="ref" href="g_local.h.html#gentity_s::client" title='gentity_s::client' data-ref="gentity_s::client">client</a>-&gt;<a class="ref" href="g_local.h.html#gclient_s::ps" title='gclient_s::ps' data-ref="gclient_s::ps">ps</a>.<a class="ref" href="../qcommon/q_shared.h.html#playerState_s::velocity" title='playerState_s::velocity' data-ref="playerState_s::velocity">velocity</a>, <span class="macro" title="((void*)0)" data-ref="_M/NULL">NULL</span>, <span class="macro" title="((void*)0)" data-ref="_M/NULL">NULL</span> );</td></tr>
+<tr><th id="102">102</th><td>	<a class="macro" href="../qcommon/q_shared.h.html#546" title="((player-&gt;client-&gt;ps.velocity)[0]=(player-&gt;client-&gt;ps.velocity)[0]*(400),(player-&gt;client-&gt;ps.velocity)[1]=(player-&gt;client-&gt;ps.velocity)[1]*(400),(player-&gt;client-&gt;ps.velocity)[2]=(player-&gt;client-&gt;ps.velocity)[2]*(400))" data-ref="_M/VectorScale">VectorScale</a>( <a class="local col5 ref" href="#5player" title='player' data-ref="5player">player</a>-&gt;<a class="ref" href="g_local.h.html#gentity_s::client" title='gentity_s::client' data-ref="gentity_s::client">client</a>-&gt;<a class="ref" href="g_local.h.html#gclient_s::ps" title='gclient_s::ps' data-ref="gclient_s::ps">ps</a>.<a class="ref" href="../qcommon/q_shared.h.html#playerState_s::velocity" title='playerState_s::velocity' data-ref="playerState_s::velocity">velocity</a>, <var>400</var>, <a class="local col5 ref" href="#5player" title='player' data-ref="5player">player</a>-&gt;<a class="ref" href="g_local.h.html#gentity_s::client" title='gentity_s::client' data-ref="gentity_s::client">client</a>-&gt;<a class="ref" href="g_local.h.html#gclient_s::ps" title='gclient_s::ps' data-ref="gclient_s::ps">ps</a>.<a class="ref" href="../qcommon/q_shared.h.html#playerState_s::velocity" title='playerState_s::velocity' data-ref="playerState_s::velocity">velocity</a> );</td></tr>
+<tr><th id="103">103</th><td>	<a class="local col5 ref" href="#5player" title='player' data-ref="5player">player</a>-&gt;<a class="ref" href="g_local.h.html#gentity_s::client" title='gentity_s::client' data-ref="gentity_s::client">client</a>-&gt;<a class="ref" href="g_local.h.html#gclient_s::ps" title='gclient_s::ps' data-ref="gclient_s::ps">ps</a>.<a class="ref" href="../qcommon/q_shared.h.html#playerState_s::pm_time" title='playerState_s::pm_time' data-ref="playerState_s::pm_time">pm_time</a> = <var>160</var>;		<i>// hold time</i></td></tr>
+<tr><th id="104">104</th><td>	<a class="local col5 ref" href="#5player" title='player' data-ref="5player">player</a>-&gt;<a class="ref" href="g_local.h.html#gentity_s::client" title='gentity_s::client' data-ref="gentity_s::client">client</a>-&gt;<a class="ref" href="g_local.h.html#gclient_s::ps" title='gclient_s::ps' data-ref="gclient_s::ps">ps</a>.<a class="ref" href="../qcommon/q_shared.h.html#playerState_s::pm_flags" title='playerState_s::pm_flags' data-ref="playerState_s::pm_flags">pm_flags</a> |= <a class="macro" href="bg_public.h.html#148" title="64" data-ref="_M/PMF_TIME_KNOCKBACK">PMF_TIME_KNOCKBACK</a>;</td></tr>
+<tr><th id="105">105</th><td>	<i>// set angles</i></td></tr>
+<tr><th id="106">106</th><td>	<a class="ref" href="g_local.h.html#SetClientViewAngle" title='SetClientViewAngle' data-ref="SetClientViewAngle">SetClientViewAngle</a>(<a class="local col5 ref" href="#5player" title='player' data-ref="5player">player</a>, <a class="local col7 ref" href="#7angles" title='angles' data-ref="7angles">angles</a>);</td></tr>
+<tr><th id="107">107</th><td>	}</td></tr>
+<tr><th id="108">108</th><td>	<i>// toggle the teleport bit so the client knows to not lerp</i></td></tr>
+<tr><th id="109">109</th><td>	<a class="local col5 ref" href="#5player" title='player' data-ref="5player">player</a>-&gt;<a class="ref" href="g_local.h.html#gentity_s::client" title='gentity_s::client' data-ref="gentity_s::client">client</a>-&gt;<a class="ref" href="g_local.h.html#gclient_s::ps" title='gclient_s::ps' data-ref="gclient_s::ps">ps</a>.<a class="ref" href="../qcommon/q_shared.h.html#playerState_s::eFlags" title='playerState_s::eFlags' data-ref="playerState_s::eFlags">eFlags</a> ^= <a class="macro" href="bg_public.h.html#246" title="0x00000004" data-ref="_M/EF_TELEPORT_BIT">EF_TELEPORT_BIT</a>;</td></tr>
+<tr><th id="110">110</th><td>	<i>// kill anything at the destination</i></td></tr>
+<tr><th id="111">111</th><td>	<b>if</b> ( <a class="local col5 ref" href="#5player" title='player' data-ref="5player">player</a>-&gt;<a class="ref" href="g_local.h.html#gentity_s::client" title='gentity_s::client' data-ref="gentity_s::client">client</a>-&gt;<a class="ref" href="g_local.h.html#gclient_s::sess" title='gclient_s::sess' data-ref="gclient_s::sess">sess</a>.<a class="ref" href="g_local.h.html#(anonymous)::sessionTeam" title='(anonymous struct)::sessionTeam' data-ref="(anonymous)::sessionTeam">sessionTeam</a> != <a class="enum" href="bg_public.h.html#TEAM_SPECTATOR" title='TEAM_SPECTATOR' data-ref="TEAM_SPECTATOR">TEAM_SPECTATOR</a> ) {</td></tr>
+<tr><th id="112">112</th><td>		<a class="ref" href="g_local.h.html#G_KillBox" title='G_KillBox' data-ref="G_KillBox">G_KillBox</a> (<a class="local col5 ref" href="#5player" title='player' data-ref="5player">player</a>);</td></tr>
+<tr><th id="113">113</th><td>	}</td></tr>
+<tr><th id="114">114</th><td></td></tr>
+<tr><th id="115">115</th><td>	<i>// save results of pmove</i></td></tr>
+<tr><th id="116">116</th><td>	<a class="ref" href="bg_public.h.html#BG_PlayerStateToEntityState" title='BG_PlayerStateToEntityState' data-ref="BG_PlayerStateToEntityState">BG_PlayerStateToEntityState</a>( &amp;<a class="local col5 ref" href="#5player" title='player' data-ref="5player">player</a>-&gt;<a class="ref" href="g_local.h.html#gentity_s::client" title='gentity_s::client' data-ref="gentity_s::client">client</a>-&gt;<a class="ref" href="g_local.h.html#gclient_s::ps" title='gclient_s::ps' data-ref="gclient_s::ps">ps</a>, &amp;<a class="local col5 ref" href="#5player" title='player' data-ref="5player">player</a>-&gt;<a class="ref" href="g_local.h.html#gentity_s::s" title='gentity_s::s' data-ref="gentity_s::s">s</a>, <a class="enum" href="../qcommon/q_shared.h.html#qtrue" title='qtrue' data-ref="qtrue">qtrue</a> );</td></tr>
+<tr><th id="117">117</th><td></td></tr>
+<tr><th id="118">118</th><td>	<i>// use the precise origin for linking</i></td></tr>
+<tr><th id="119">119</th><td>	<a class="macro" href="../qcommon/q_shared.h.html#545" title="((player-&gt;r.currentOrigin)[0]=(player-&gt;client-&gt;ps.origin)[0],(player-&gt;r.currentOrigin)[1]=(player-&gt;client-&gt;ps.origin)[1],(player-&gt;r.currentOrigin)[2]=(player-&gt;client-&gt;ps.origin)[2])" data-ref="_M/VectorCopy">VectorCopy</a>( <a class="local col5 ref" href="#5player" title='player' data-ref="5player">player</a>-&gt;<a class="ref" href="g_local.h.html#gentity_s::client" title='gentity_s::client' data-ref="gentity_s::client">client</a>-&gt;<a class="ref" href="g_local.h.html#gclient_s::ps" title='gclient_s::ps' data-ref="gclient_s::ps">ps</a>.<a class="ref" href="../qcommon/q_shared.h.html#playerState_s::origin" title='playerState_s::origin' data-ref="playerState_s::origin">origin</a>, <a class="local col5 ref" href="#5player" title='player' data-ref="5player">player</a>-&gt;<a class="ref" href="g_local.h.html#gentity_s::r" title='gentity_s::r' data-ref="gentity_s::r">r</a>.<a class="ref" href="g_public.h.html#(anonymous)::currentOrigin" title='(anonymous struct)::currentOrigin' data-ref="(anonymous)::currentOrigin">currentOrigin</a> );</td></tr>
+<tr><th id="120">120</th><td></td></tr>
+<tr><th id="121">121</th><td>	<b>if</b> ( <a class="local col5 ref" href="#5player" title='player' data-ref="5player">player</a>-&gt;<a class="ref" href="g_local.h.html#gentity_s::client" title='gentity_s::client' data-ref="gentity_s::client">client</a>-&gt;<a class="ref" href="g_local.h.html#gclient_s::sess" title='gclient_s::sess' data-ref="gclient_s::sess">sess</a>.<a class="ref" href="g_local.h.html#(anonymous)::sessionTeam" title='(anonymous struct)::sessionTeam' data-ref="(anonymous)::sessionTeam">sessionTeam</a> != <a class="enum" href="bg_public.h.html#TEAM_SPECTATOR" title='TEAM_SPECTATOR' data-ref="TEAM_SPECTATOR">TEAM_SPECTATOR</a> ) {</td></tr>
+<tr><th id="122">122</th><td>		<a class="ref" href="g_local.h.html#trap_LinkEntity" title='trap_LinkEntity' data-ref="trap_LinkEntity">trap_LinkEntity</a> (<a class="local col5 ref" href="#5player" title='player' data-ref="5player">player</a>);</td></tr>
+<tr><th id="123">123</th><td>	}</td></tr>
+<tr><th id="124">124</th><td>}</td></tr>
+<tr><th id="125">125</th><td></td></tr>
+<tr><th id="126">126</th><td></td></tr>
+<tr><th id="127">127</th><td><i>/*QUAKED misc_teleporter_dest (1 0 0) (-32 -32 -24) (32 32 -16)</i></td></tr>
+<tr><th id="128">128</th><td><i>Point teleporters at these.</i></td></tr>
+<tr><th id="129">129</th><td><i>Now that we don't have teleport destination pads, this is just</i></td></tr>
+<tr><th id="130">130</th><td><i>an info_notnull</i></td></tr>
+<tr><th id="131">131</th><td><i>*/</i></td></tr>
+<tr><th id="132">132</th><td><em>void</em> <dfn class="decl def" id="SP_misc_teleporter_dest" title='SP_misc_teleporter_dest' data-ref="SP_misc_teleporter_dest">SP_misc_teleporter_dest</dfn>( <a class="typedef" href="g_local.h.html#gentity_t" title='gentity_t' data-type='struct gentity_s' data-ref="gentity_t">gentity_t</a> *<dfn class="local col0 decl" id="10ent" title='ent' data-type='gentity_t *' data-ref="10ent">ent</dfn> ) {</td></tr>
+<tr><th id="133">133</th><td>}</td></tr>
+<tr><th id="134">134</th><td></td></tr>
+<tr><th id="135">135</th><td></td></tr>
+<tr><th id="136">136</th><td><i>//===========================================================</i></td></tr>
+<tr><th id="137">137</th><td></td></tr>
+<tr><th id="138">138</th><td><i>/*QUAKED misc_model (1 0 0) (-16 -16 -16) (16 16 16)</i></td></tr>
+<tr><th id="139">139</th><td><i>"model"		arbitrary .md3 file to display</i></td></tr>
+<tr><th id="140">140</th><td><i>*/</i></td></tr>
+<tr><th id="141">141</th><td><em>void</em> <dfn class="decl def" id="SP_misc_model" title='SP_misc_model' data-ref="SP_misc_model">SP_misc_model</dfn>( <a class="typedef" href="g_local.h.html#gentity_t" title='gentity_t' data-type='struct gentity_s' data-ref="gentity_t">gentity_t</a> *<dfn class="local col1 decl" id="11ent" title='ent' data-type='gentity_t *' data-ref="11ent">ent</dfn> ) {</td></tr>
+<tr><th id="142">142</th><td></td></tr>
+<tr><th id="143">143</th><td><u>#<span data-ppcond="143">if</span> 0</u></td></tr>
+<tr><th id="144">144</th><td>	ent-&gt;s.modelindex = G_ModelIndex( ent-&gt;model );</td></tr>
+<tr><th id="145">145</th><td>	VectorSet (ent-&gt;mins, -<var>16</var>, -<var>16</var>, -<var>16</var>);</td></tr>
+<tr><th id="146">146</th><td>	VectorSet (ent-&gt;maxs, <var>16</var>, <var>16</var>, <var>16</var>);</td></tr>
+<tr><th id="147">147</th><td>	trap_LinkEntity (ent);</td></tr>
+<tr><th id="148">148</th><td></td></tr>
+<tr><th id="149">149</th><td>	G_SetOrigin( ent, ent-&gt;s.origin );</td></tr>
+<tr><th id="150">150</th><td>	VectorCopy( ent-&gt;s.angles, ent-&gt;s.apos.trBase );</td></tr>
+<tr><th id="151">151</th><td><u>#<span data-ppcond="143">else</span></u></td></tr>
+<tr><th id="152">152</th><td>	<a class="ref" href="g_local.h.html#G_FreeEntity" title='G_FreeEntity' data-ref="G_FreeEntity">G_FreeEntity</a>( <a class="local col1 ref" href="#11ent" title='ent' data-ref="11ent">ent</a> );</td></tr>
+<tr><th id="153">153</th><td><u>#<span data-ppcond="143">endif</span></u></td></tr>
+<tr><th id="154">154</th><td>}</td></tr>
+<tr><th id="155">155</th><td></td></tr>
+<tr><th id="156">156</th><td><i>//===========================================================</i></td></tr>
+<tr><th id="157">157</th><td></td></tr>
+<tr><th id="158">158</th><td><em>void</em> <dfn class="decl def" id="locateCamera" title='locateCamera' data-ref="locateCamera">locateCamera</dfn>( <a class="typedef" href="g_local.h.html#gentity_t" title='gentity_t' data-type='struct gentity_s' data-ref="gentity_t">gentity_t</a> *<dfn class="local col2 decl" id="12ent" title='ent' data-type='gentity_t *' data-ref="12ent">ent</dfn> ) {</td></tr>
+<tr><th id="159">159</th><td>	<a class="typedef" href="../qcommon/q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a>		<dfn class="local col3 decl" id="13dir" title='dir' data-type='vec3_t' data-ref="13dir">dir</dfn>;</td></tr>
+<tr><th id="160">160</th><td>	<a class="typedef" href="g_local.h.html#gentity_t" title='gentity_t' data-type='struct gentity_s' data-ref="gentity_t">gentity_t</a>	*<dfn class="local col4 decl" id="14target" title='target' data-type='gentity_t *' data-ref="14target">target</dfn>;</td></tr>
+<tr><th id="161">161</th><td>	<a class="typedef" href="g_local.h.html#gentity_t" title='gentity_t' data-type='struct gentity_s' data-ref="gentity_t">gentity_t</a>	*<dfn class="local col5 decl" id="15owner" title='owner' data-type='gentity_t *' data-ref="15owner">owner</dfn>;</td></tr>
+<tr><th id="162">162</th><td></td></tr>
+<tr><th id="163">163</th><td>	<a class="local col5 ref" href="#15owner" title='owner' data-ref="15owner">owner</a> = <a class="ref" href="g_local.h.html#G_PickTarget" title='G_PickTarget' data-ref="G_PickTarget">G_PickTarget</a>( <a class="local col2 ref" href="#12ent" title='ent' data-ref="12ent">ent</a>-&gt;<a class="ref" href="g_local.h.html#gentity_s::target" title='gentity_s::target' data-ref="gentity_s::target">target</a> );</td></tr>
+<tr><th id="164">164</th><td>	<b>if</b> ( !<a class="local col5 ref" href="#15owner" title='owner' data-ref="15owner">owner</a> ) {</td></tr>
+<tr><th id="165">165</th><td>		<a class="ref" href="g_local.h.html#G_Printf" title='G_Printf' data-ref="G_Printf">G_Printf</a>( <q>"Couldn't find target for misc_partal_surface\n"</q> );</td></tr>
+<tr><th id="166">166</th><td>		<a class="ref" href="g_local.h.html#G_FreeEntity" title='G_FreeEntity' data-ref="G_FreeEntity">G_FreeEntity</a>( <a class="local col2 ref" href="#12ent" title='ent' data-ref="12ent">ent</a> );</td></tr>
+<tr><th id="167">167</th><td>		<b>return</b>;</td></tr>
+<tr><th id="168">168</th><td>	}</td></tr>
+<tr><th id="169">169</th><td>	<a class="local col2 ref" href="#12ent" title='ent' data-ref="12ent">ent</a>-&gt;<a class="ref" href="g_local.h.html#gentity_s::r" title='gentity_s::r' data-ref="gentity_s::r">r</a>.<a class="ref" href="g_public.h.html#(anonymous)::ownerNum" title='(anonymous struct)::ownerNum' data-ref="(anonymous)::ownerNum">ownerNum</a> = <a class="local col5 ref" href="#15owner" title='owner' data-ref="15owner">owner</a>-&gt;<a class="ref" href="g_local.h.html#gentity_s::s" title='gentity_s::s' data-ref="gentity_s::s">s</a>.<a class="ref" href="../qcommon/q_shared.h.html#entityState_s::number" title='entityState_s::number' data-ref="entityState_s::number">number</a>;</td></tr>
+<tr><th id="170">170</th><td></td></tr>
+<tr><th id="171">171</th><td>	<i>// frame holds the rotate speed</i></td></tr>
+<tr><th id="172">172</th><td>	<b>if</b> ( <a class="local col5 ref" href="#15owner" title='owner' data-ref="15owner">owner</a>-&gt;<a class="ref" href="g_local.h.html#gentity_s::spawnflags" title='gentity_s::spawnflags' data-ref="gentity_s::spawnflags">spawnflags</a> &amp; <var>1</var> ) {</td></tr>
+<tr><th id="173">173</th><td>		<a class="local col2 ref" href="#12ent" title='ent' data-ref="12ent">ent</a>-&gt;<a class="ref" href="g_local.h.html#gentity_s::s" title='gentity_s::s' data-ref="gentity_s::s">s</a>.<a class="ref" href="../qcommon/q_shared.h.html#entityState_s::frame" title='entityState_s::frame' data-ref="entityState_s::frame">frame</a> = <var>25</var>;</td></tr>
+<tr><th id="174">174</th><td>	} <b>else</b> <b>if</b> ( <a class="local col5 ref" href="#15owner" title='owner' data-ref="15owner">owner</a>-&gt;<a class="ref" href="g_local.h.html#gentity_s::spawnflags" title='gentity_s::spawnflags' data-ref="gentity_s::spawnflags">spawnflags</a> &amp; <var>2</var> ) {</td></tr>
+<tr><th id="175">175</th><td>		<a class="local col2 ref" href="#12ent" title='ent' data-ref="12ent">ent</a>-&gt;<a class="ref" href="g_local.h.html#gentity_s::s" title='gentity_s::s' data-ref="gentity_s::s">s</a>.<a class="ref" href="../qcommon/q_shared.h.html#entityState_s::frame" title='entityState_s::frame' data-ref="entityState_s::frame">frame</a> = <var>75</var>;</td></tr>
+<tr><th id="176">176</th><td>	}</td></tr>
+<tr><th id="177">177</th><td></td></tr>
+<tr><th id="178">178</th><td>	<i>// swing camera ?</i></td></tr>
+<tr><th id="179">179</th><td>	<b>if</b> ( <a class="local col5 ref" href="#15owner" title='owner' data-ref="15owner">owner</a>-&gt;<a class="ref" href="g_local.h.html#gentity_s::spawnflags" title='gentity_s::spawnflags' data-ref="gentity_s::spawnflags">spawnflags</a> &amp; <var>4</var> ) {</td></tr>
+<tr><th id="180">180</th><td>		<i>// set to 0 for no rotation at all</i></td></tr>
+<tr><th id="181">181</th><td>		<a class="local col2 ref" href="#12ent" title='ent' data-ref="12ent">ent</a>-&gt;<a class="ref" href="g_local.h.html#gentity_s::s" title='gentity_s::s' data-ref="gentity_s::s">s</a>.<a class="ref" href="../qcommon/q_shared.h.html#entityState_s::powerups" title='entityState_s::powerups' data-ref="entityState_s::powerups">powerups</a> = <var>0</var>;</td></tr>
+<tr><th id="182">182</th><td>	}</td></tr>
+<tr><th id="183">183</th><td>	<b>else</b> {</td></tr>
+<tr><th id="184">184</th><td>		<a class="local col2 ref" href="#12ent" title='ent' data-ref="12ent">ent</a>-&gt;<a class="ref" href="g_local.h.html#gentity_s::s" title='gentity_s::s' data-ref="gentity_s::s">s</a>.<a class="ref" href="../qcommon/q_shared.h.html#entityState_s::powerups" title='entityState_s::powerups' data-ref="entityState_s::powerups">powerups</a> = <var>1</var>;</td></tr>
+<tr><th id="185">185</th><td>	}</td></tr>
+<tr><th id="186">186</th><td></td></tr>
+<tr><th id="187">187</th><td>	<i>// clientNum holds the rotate offset</i></td></tr>
+<tr><th id="188">188</th><td>	<a class="local col2 ref" href="#12ent" title='ent' data-ref="12ent">ent</a>-&gt;<a class="ref" href="g_local.h.html#gentity_s::s" title='gentity_s::s' data-ref="gentity_s::s">s</a>.<a class="ref" href="../qcommon/q_shared.h.html#entityState_s::clientNum" title='entityState_s::clientNum' data-ref="entityState_s::clientNum">clientNum</a> = <a class="local col5 ref" href="#15owner" title='owner' data-ref="15owner">owner</a>-&gt;<a class="ref" href="g_local.h.html#gentity_s::s" title='gentity_s::s' data-ref="gentity_s::s">s</a>.<a class="ref" href="../qcommon/q_shared.h.html#entityState_s::clientNum" title='entityState_s::clientNum' data-ref="entityState_s::clientNum">clientNum</a>;</td></tr>
+<tr><th id="189">189</th><td></td></tr>
+<tr><th id="190">190</th><td>	<a class="macro" href="../qcommon/q_shared.h.html#545" title="((ent-&gt;s.origin2)[0]=(owner-&gt;s.origin)[0],(ent-&gt;s.origin2)[1]=(owner-&gt;s.origin)[1],(ent-&gt;s.origin2)[2]=(owner-&gt;s.origin)[2])" data-ref="_M/VectorCopy">VectorCopy</a>( <a class="local col5 ref" href="#15owner" title='owner' data-ref="15owner">owner</a>-&gt;<a class="ref" href="g_local.h.html#gentity_s::s" title='gentity_s::s' data-ref="gentity_s::s">s</a>.<a class="ref" href="../qcommon/q_shared.h.html#entityState_s::origin" title='entityState_s::origin' data-ref="entityState_s::origin">origin</a>, <a class="local col2 ref" href="#12ent" title='ent' data-ref="12ent">ent</a>-&gt;<a class="ref" href="g_local.h.html#gentity_s::s" title='gentity_s::s' data-ref="gentity_s::s">s</a>.<a class="ref" href="../qcommon/q_shared.h.html#entityState_s::origin2" title='entityState_s::origin2' data-ref="entityState_s::origin2">origin2</a> );</td></tr>
+<tr><th id="191">191</th><td></td></tr>
+<tr><th id="192">192</th><td>	<i>// see if the portal_camera has a target</i></td></tr>
+<tr><th id="193">193</th><td>	<a class="local col4 ref" href="#14target" title='target' data-ref="14target">target</a> = <a class="ref" href="g_local.h.html#G_PickTarget" title='G_PickTarget' data-ref="G_PickTarget">G_PickTarget</a>( <a class="local col5 ref" href="#15owner" title='owner' data-ref="15owner">owner</a>-&gt;<a class="ref" href="g_local.h.html#gentity_s::target" title='gentity_s::target' data-ref="gentity_s::target">target</a> );</td></tr>
+<tr><th id="194">194</th><td>	<b>if</b> ( <a class="local col4 ref" href="#14target" title='target' data-ref="14target">target</a> ) {</td></tr>
+<tr><th id="195">195</th><td>		<a class="macro" href="../qcommon/q_shared.h.html#543" title="((dir)[0]=(target-&gt;s.origin)[0]-(owner-&gt;s.origin)[0],(dir)[1]=(target-&gt;s.origin)[1]-(owner-&gt;s.origin)[1],(dir)[2]=(target-&gt;s.origin)[2]-(owner-&gt;s.origin)[2])" data-ref="_M/VectorSubtract">VectorSubtract</a>( <a class="local col4 ref" href="#14target" title='target' data-ref="14target">target</a>-&gt;<a class="ref" href="g_local.h.html#gentity_s::s" title='gentity_s::s' data-ref="gentity_s::s">s</a>.<a class="ref" href="../qcommon/q_shared.h.html#entityState_s::origin" title='entityState_s::origin' data-ref="entityState_s::origin">origin</a>, <a class="local col5 ref" href="#15owner" title='owner' data-ref="15owner">owner</a>-&gt;<a class="ref" href="g_local.h.html#gentity_s::s" title='gentity_s::s' data-ref="gentity_s::s">s</a>.<a class="ref" href="../qcommon/q_shared.h.html#entityState_s::origin" title='entityState_s::origin' data-ref="entityState_s::origin">origin</a>, <a class="local col3 ref" href="#13dir" title='dir' data-ref="13dir">dir</a> );</td></tr>
+<tr><th id="196">196</th><td>		<a class="ref" href="../qcommon/q_shared.h.html#VectorNormalize" title='VectorNormalize' data-ref="VectorNormalize">VectorNormalize</a>( <a class="local col3 ref" href="#13dir" title='dir' data-ref="13dir">dir</a> );</td></tr>
+<tr><th id="197">197</th><td>	} <b>else</b> {</td></tr>
+<tr><th id="198">198</th><td>		<a class="ref" href="g_local.h.html#G_SetMovedir" title='G_SetMovedir' data-ref="G_SetMovedir">G_SetMovedir</a>( <a class="local col5 ref" href="#15owner" title='owner' data-ref="15owner">owner</a>-&gt;<a class="ref" href="g_local.h.html#gentity_s::s" title='gentity_s::s' data-ref="gentity_s::s">s</a>.<a class="ref" href="../qcommon/q_shared.h.html#entityState_s::angles" title='entityState_s::angles' data-ref="entityState_s::angles">angles</a>, <a class="local col3 ref" href="#13dir" title='dir' data-ref="13dir">dir</a> );</td></tr>
+<tr><th id="199">199</th><td>	}</td></tr>
+<tr><th id="200">200</th><td></td></tr>
+<tr><th id="201">201</th><td>	<a class="local col2 ref" href="#12ent" title='ent' data-ref="12ent">ent</a>-&gt;<a class="ref" href="g_local.h.html#gentity_s::s" title='gentity_s::s' data-ref="gentity_s::s">s</a>.<a class="ref" href="../qcommon/q_shared.h.html#entityState_s::eventParm" title='entityState_s::eventParm' data-ref="entityState_s::eventParm">eventParm</a> = <a class="ref" href="../qcommon/q_shared.h.html#DirToByte" title='DirToByte' data-ref="DirToByte">DirToByte</a>( <a class="local col3 ref" href="#13dir" title='dir' data-ref="13dir">dir</a> );</td></tr>
+<tr><th id="202">202</th><td>}</td></tr>
+<tr><th id="203">203</th><td></td></tr>
+<tr><th id="204">204</th><td><i>/*QUAKED misc_portal_surface (0 0 1) (-8 -8 -8) (8 8 8)</i></td></tr>
+<tr><th id="205">205</th><td><i>The portal surface nearest this entity will show a view from the targeted misc_portal_camera, or a mirror view if untargeted.</i></td></tr>
+<tr><th id="206">206</th><td><i>This must be within 64 world units of the surface!</i></td></tr>
+<tr><th id="207">207</th><td><i>*/</i></td></tr>
+<tr><th id="208">208</th><td><em>void</em> <dfn class="decl def" id="SP_misc_portal_surface" title='SP_misc_portal_surface' data-ref="SP_misc_portal_surface">SP_misc_portal_surface</dfn>(<a class="typedef" href="g_local.h.html#gentity_t" title='gentity_t' data-type='struct gentity_s' data-ref="gentity_t">gentity_t</a> *<dfn class="local col6 decl" id="16ent" title='ent' data-type='gentity_t *' data-ref="16ent">ent</dfn>) {</td></tr>
+<tr><th id="209">209</th><td>	<a class="macro" href="../qcommon/q_shared.h.html#571" title="((ent-&gt;r.mins)[0]=(ent-&gt;r.mins)[1]=(ent-&gt;r.mins)[2]=0)" data-ref="_M/VectorClear">VectorClear</a>( <a class="local col6 ref" href="#16ent" title='ent' data-ref="16ent">ent</a>-&gt;<a class="ref" href="g_local.h.html#gentity_s::r" title='gentity_s::r' data-ref="gentity_s::r">r</a>.<a class="ref" href="g_public.h.html#(anonymous)::mins" title='(anonymous struct)::mins' data-ref="(anonymous)::mins">mins</a> );</td></tr>
+<tr><th id="210">210</th><td>	<a class="macro" href="../qcommon/q_shared.h.html#571" title="((ent-&gt;r.maxs)[0]=(ent-&gt;r.maxs)[1]=(ent-&gt;r.maxs)[2]=0)" data-ref="_M/VectorClear">VectorClear</a>( <a class="local col6 ref" href="#16ent" title='ent' data-ref="16ent">ent</a>-&gt;<a class="ref" href="g_local.h.html#gentity_s::r" title='gentity_s::r' data-ref="gentity_s::r">r</a>.<a class="ref" href="g_public.h.html#(anonymous)::maxs" title='(anonymous struct)::maxs' data-ref="(anonymous)::maxs">maxs</a> );</td></tr>
+<tr><th id="211">211</th><td>	<a class="ref" href="g_local.h.html#trap_LinkEntity" title='trap_LinkEntity' data-ref="trap_LinkEntity">trap_LinkEntity</a> (<a class="local col6 ref" href="#16ent" title='ent' data-ref="16ent">ent</a>);</td></tr>
+<tr><th id="212">212</th><td></td></tr>
+<tr><th id="213">213</th><td>	<a class="local col6 ref" href="#16ent" title='ent' data-ref="16ent">ent</a>-&gt;<a class="ref" href="g_local.h.html#gentity_s::r" title='gentity_s::r' data-ref="gentity_s::r">r</a>.<a class="ref" href="g_public.h.html#(anonymous)::svFlags" title='(anonymous struct)::svFlags' data-ref="(anonymous)::svFlags">svFlags</a> = <a class="macro" href="g_public.h.html#40" title="0x00000040" data-ref="_M/SVF_PORTAL">SVF_PORTAL</a>;</td></tr>
+<tr><th id="214">214</th><td>	<a class="local col6 ref" href="#16ent" title='ent' data-ref="16ent">ent</a>-&gt;<a class="ref" href="g_local.h.html#gentity_s::s" title='gentity_s::s' data-ref="gentity_s::s">s</a>.<a class="ref" href="../qcommon/q_shared.h.html#entityState_s::eType" title='entityState_s::eType' data-ref="entityState_s::eType">eType</a> = <a class="enum" href="bg_public.h.html#ET_PORTAL" title='ET_PORTAL' data-ref="ET_PORTAL">ET_PORTAL</a>;</td></tr>
+<tr><th id="215">215</th><td></td></tr>
+<tr><th id="216">216</th><td>	<b>if</b> ( !<a class="local col6 ref" href="#16ent" title='ent' data-ref="16ent">ent</a>-&gt;<a class="ref" href="g_local.h.html#gentity_s::target" title='gentity_s::target' data-ref="gentity_s::target">target</a> ) {</td></tr>
+<tr><th id="217">217</th><td>		<a class="macro" href="../qcommon/q_shared.h.html#545" title="((ent-&gt;s.origin2)[0]=(ent-&gt;s.origin)[0],(ent-&gt;s.origin2)[1]=(ent-&gt;s.origin)[1],(ent-&gt;s.origin2)[2]=(ent-&gt;s.origin)[2])" data-ref="_M/VectorCopy">VectorCopy</a>( <a class="local col6 ref" href="#16ent" title='ent' data-ref="16ent">ent</a>-&gt;<a class="ref" href="g_local.h.html#gentity_s::s" title='gentity_s::s' data-ref="gentity_s::s">s</a>.<a class="ref" href="../qcommon/q_shared.h.html#entityState_s::origin" title='entityState_s::origin' data-ref="entityState_s::origin">origin</a>, <a class="local col6 ref" href="#16ent" title='ent' data-ref="16ent">ent</a>-&gt;<a class="ref" href="g_local.h.html#gentity_s::s" title='gentity_s::s' data-ref="gentity_s::s">s</a>.<a class="ref" href="../qcommon/q_shared.h.html#entityState_s::origin2" title='entityState_s::origin2' data-ref="entityState_s::origin2">origin2</a> );</td></tr>
+<tr><th id="218">218</th><td>	} <b>else</b> {</td></tr>
+<tr><th id="219">219</th><td>		<a class="local col6 ref" href="#16ent" title='ent' data-ref="16ent">ent</a>-&gt;<a class="ref" href="g_local.h.html#gentity_s::think" title='gentity_s::think' data-ref="gentity_s::think">think</a> = <a class="ref" href="#locateCamera" title='locateCamera' data-ref="locateCamera">locateCamera</a>;</td></tr>
+<tr><th id="220">220</th><td>		<a class="local col6 ref" href="#16ent" title='ent' data-ref="16ent">ent</a>-&gt;<a class="ref" href="g_local.h.html#gentity_s::nextthink" title='gentity_s::nextthink' data-ref="gentity_s::nextthink">nextthink</a> = <a class="ref" href="g_local.h.html#level" title='level' data-ref="level">level</a>.<a class="ref" href="g_local.h.html#(anonymous)::time" title='(anonymous struct)::time' data-ref="(anonymous)::time">time</a> + <var>100</var>;</td></tr>
+<tr><th id="221">221</th><td>	}</td></tr>
+<tr><th id="222">222</th><td>}</td></tr>
+<tr><th id="223">223</th><td></td></tr>
+<tr><th id="224">224</th><td><i>/*QUAKED misc_portal_camera (0 0 1) (-8 -8 -8) (8 8 8) slowrotate fastrotate noswing</i></td></tr>
+<tr><th id="225">225</th><td><i>The target for a misc_portal_director.  You can set either angles or target another entity to determine the direction of view.</i></td></tr>
+<tr><th id="226">226</th><td><i>"roll" an angle modifier to orient the camera around the target vector;</i></td></tr>
+<tr><th id="227">227</th><td><i>*/</i></td></tr>
+<tr><th id="228">228</th><td><em>void</em> <dfn class="decl def" id="SP_misc_portal_camera" title='SP_misc_portal_camera' data-ref="SP_misc_portal_camera">SP_misc_portal_camera</dfn>(<a class="typedef" href="g_local.h.html#gentity_t" title='gentity_t' data-type='struct gentity_s' data-ref="gentity_t">gentity_t</a> *<dfn class="local col7 decl" id="17ent" title='ent' data-type='gentity_t *' data-ref="17ent">ent</dfn>) {</td></tr>
+<tr><th id="229">229</th><td>	<em>float</em>	<dfn class="local col8 decl" id="18roll" title='roll' data-type='float' data-ref="18roll">roll</dfn>;</td></tr>
+<tr><th id="230">230</th><td></td></tr>
+<tr><th id="231">231</th><td>	<a class="macro" href="../qcommon/q_shared.h.html#571" title="((ent-&gt;r.mins)[0]=(ent-&gt;r.mins)[1]=(ent-&gt;r.mins)[2]=0)" data-ref="_M/VectorClear">VectorClear</a>( <a class="local col7 ref" href="#17ent" title='ent' data-ref="17ent">ent</a>-&gt;<a class="ref" href="g_local.h.html#gentity_s::r" title='gentity_s::r' data-ref="gentity_s::r">r</a>.<a class="ref" href="g_public.h.html#(anonymous)::mins" title='(anonymous struct)::mins' data-ref="(anonymous)::mins">mins</a> );</td></tr>
+<tr><th id="232">232</th><td>	<a class="macro" href="../qcommon/q_shared.h.html#571" title="((ent-&gt;r.maxs)[0]=(ent-&gt;r.maxs)[1]=(ent-&gt;r.maxs)[2]=0)" data-ref="_M/VectorClear">VectorClear</a>( <a class="local col7 ref" href="#17ent" title='ent' data-ref="17ent">ent</a>-&gt;<a class="ref" href="g_local.h.html#gentity_s::r" title='gentity_s::r' data-ref="gentity_s::r">r</a>.<a class="ref" href="g_public.h.html#(anonymous)::maxs" title='(anonymous struct)::maxs' data-ref="(anonymous)::maxs">maxs</a> );</td></tr>
+<tr><th id="233">233</th><td>	<a class="ref" href="g_local.h.html#trap_LinkEntity" title='trap_LinkEntity' data-ref="trap_LinkEntity">trap_LinkEntity</a> (<a class="local col7 ref" href="#17ent" title='ent' data-ref="17ent">ent</a>);</td></tr>
+<tr><th id="234">234</th><td></td></tr>
+<tr><th id="235">235</th><td>	<a class="ref" href="g_local.h.html#G_SpawnFloat" title='G_SpawnFloat' data-ref="G_SpawnFloat">G_SpawnFloat</a>( <q>"roll"</q>, <q>"0"</q>, &amp;<a class="local col8 ref" href="#18roll" title='roll' data-ref="18roll">roll</a> );</td></tr>
+<tr><th id="236">236</th><td></td></tr>
+<tr><th id="237">237</th><td>	<a class="local col7 ref" href="#17ent" title='ent' data-ref="17ent">ent</a>-&gt;<a class="ref" href="g_local.h.html#gentity_s::s" title='gentity_s::s' data-ref="gentity_s::s">s</a>.<a class="ref" href="../qcommon/q_shared.h.html#entityState_s::clientNum" title='entityState_s::clientNum' data-ref="entityState_s::clientNum">clientNum</a> = <a class="local col8 ref" href="#18roll" title='roll' data-ref="18roll">roll</a>/<var>360.0</var> * <var>256</var>;</td></tr>
+<tr><th id="238">238</th><td>}</td></tr>
+<tr><th id="239">239</th><td></td></tr>
+<tr><th id="240">240</th><td><i>/*</i></td></tr>
+<tr><th id="241">241</th><td><i>======================================================================</i></td></tr>
+<tr><th id="242">242</th><td><i></i></td></tr>
+<tr><th id="243">243</th><td><i>  SHOOTERS</i></td></tr>
+<tr><th id="244">244</th><td><i></i></td></tr>
+<tr><th id="245">245</th><td><i>======================================================================</i></td></tr>
+<tr><th id="246">246</th><td><i>*/</i></td></tr>
+<tr><th id="247">247</th><td></td></tr>
+<tr><th id="248">248</th><td><em>void</em> <dfn class="decl def" id="Use_Shooter" title='Use_Shooter' data-ref="Use_Shooter">Use_Shooter</dfn>( <a class="typedef" href="g_local.h.html#gentity_t" title='gentity_t' data-type='struct gentity_s' data-ref="gentity_t">gentity_t</a> *<dfn class="local col9 decl" id="19ent" title='ent' data-type='gentity_t *' data-ref="19ent">ent</dfn>, <a class="typedef" href="g_local.h.html#gentity_t" title='gentity_t' data-type='struct gentity_s' data-ref="gentity_t">gentity_t</a> *<dfn class="local col0 decl" id="20other" title='other' data-type='gentity_t *' data-ref="20other">other</dfn>, <a class="typedef" href="g_local.h.html#gentity_t" title='gentity_t' data-type='struct gentity_s' data-ref="gentity_t">gentity_t</a> *<dfn class="local col1 decl" id="21activator" title='activator' data-type='gentity_t *' data-ref="21activator">activator</dfn> ) {</td></tr>
+<tr><th id="249">249</th><td>	<a class="typedef" href="../qcommon/q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a>		<dfn class="local col2 decl" id="22dir" title='dir' data-type='vec3_t' data-ref="22dir">dir</dfn>;</td></tr>
+<tr><th id="250">250</th><td>	<em>float</em>		<dfn class="local col3 decl" id="23deg" title='deg' data-type='float' data-ref="23deg">deg</dfn>;</td></tr>
+<tr><th id="251">251</th><td>	<a class="typedef" href="../qcommon/q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a>		<dfn class="local col4 decl" id="24up" title='up' data-type='vec3_t' data-ref="24up">up</dfn>, <dfn class="local col5 decl" id="25right" title='right' data-type='vec3_t' data-ref="25right">right</dfn>;</td></tr>
+<tr><th id="252">252</th><td></td></tr>
+<tr><th id="253">253</th><td>	<i>// see if we have a target</i></td></tr>
+<tr><th id="254">254</th><td>	<b>if</b> ( <a class="local col9 ref" href="#19ent" title='ent' data-ref="19ent">ent</a>-&gt;<a class="ref" href="g_local.h.html#gentity_s::enemy" title='gentity_s::enemy' data-ref="gentity_s::enemy">enemy</a> ) {</td></tr>
+<tr><th id="255">255</th><td>		<a class="macro" href="../qcommon/q_shared.h.html#543" title="((dir)[0]=(ent-&gt;enemy-&gt;r.currentOrigin)[0]-(ent-&gt;s.origin)[0],(dir)[1]=(ent-&gt;enemy-&gt;r.currentOrigin)[1]-(ent-&gt;s.origin)[1],(dir)[2]=(ent-&gt;enemy-&gt;r.currentOrigin)[2]-(ent-&gt;s.origin)[2])" data-ref="_M/VectorSubtract">VectorSubtract</a>( <a class="local col9 ref" href="#19ent" title='ent' data-ref="19ent">ent</a>-&gt;<a class="ref" href="g_local.h.html#gentity_s::enemy" title='gentity_s::enemy' data-ref="gentity_s::enemy">enemy</a>-&gt;<a class="ref" href="g_local.h.html#gentity_s::r" title='gentity_s::r' data-ref="gentity_s::r">r</a>.<a class="ref" href="g_public.h.html#(anonymous)::currentOrigin" title='(anonymous struct)::currentOrigin' data-ref="(anonymous)::currentOrigin">currentOrigin</a>, <a class="local col9 ref" href="#19ent" title='ent' data-ref="19ent">ent</a>-&gt;<a class="ref" href="g_local.h.html#gentity_s::s" title='gentity_s::s' data-ref="gentity_s::s">s</a>.<a class="ref" href="../qcommon/q_shared.h.html#entityState_s::origin" title='entityState_s::origin' data-ref="entityState_s::origin">origin</a>, <a class="local col2 ref" href="#22dir" title='dir' data-ref="22dir">dir</a> );</td></tr>
+<tr><th id="256">256</th><td>		<a class="ref" href="../qcommon/q_shared.h.html#VectorNormalize" title='VectorNormalize' data-ref="VectorNormalize">VectorNormalize</a>( <a class="local col2 ref" href="#22dir" title='dir' data-ref="22dir">dir</a> );</td></tr>
+<tr><th id="257">257</th><td>	} <b>else</b> {</td></tr>
+<tr><th id="258">258</th><td>		<a class="macro" href="../qcommon/q_shared.h.html#545" title="((dir)[0]=(ent-&gt;movedir)[0],(dir)[1]=(ent-&gt;movedir)[1],(dir)[2]=(ent-&gt;movedir)[2])" data-ref="_M/VectorCopy">VectorCopy</a>( <a class="local col9 ref" href="#19ent" title='ent' data-ref="19ent">ent</a>-&gt;<a class="ref" href="g_local.h.html#gentity_s::movedir" title='gentity_s::movedir' data-ref="gentity_s::movedir">movedir</a>, <a class="local col2 ref" href="#22dir" title='dir' data-ref="22dir">dir</a> );</td></tr>
+<tr><th id="259">259</th><td>	}</td></tr>
+<tr><th id="260">260</th><td></td></tr>
+<tr><th id="261">261</th><td>	<i>// randomize a bit</i></td></tr>
+<tr><th id="262">262</th><td>	<a class="ref" href="../qcommon/q_shared.h.html#PerpendicularVector" title='PerpendicularVector' data-ref="PerpendicularVector">PerpendicularVector</a>( <a class="local col4 ref" href="#24up" title='up' data-ref="24up">up</a>, <a class="local col2 ref" href="#22dir" title='dir' data-ref="22dir">dir</a> );</td></tr>
+<tr><th id="263">263</th><td>	<a class="ref" href="../qcommon/q_shared.h.html#CrossProduct" title='CrossProduct' data-ref="CrossProduct">CrossProduct</a>( <a class="local col4 ref" href="#24up" title='up' data-ref="24up">up</a>, <a class="local col2 ref" href="#22dir" title='dir' data-ref="22dir">dir</a>, <a class="local col5 ref" href="#25right" title='right' data-ref="25right">right</a> );</td></tr>
+<tr><th id="264">264</th><td></td></tr>
+<tr><th id="265">265</th><td>	<a class="local col3 ref" href="#23deg" title='deg' data-ref="23deg">deg</a> = <a class="macro" href="../qcommon/q_shared.h.html#683" title="(2.0 * (((rand () &amp; 0x7fff) / ((float)0x7fff)) - 0.5))" data-ref="_M/crandom">crandom</a>() * <a class="local col9 ref" href="#19ent" title='ent' data-ref="19ent">ent</a>-&gt;<a class="ref" href="g_local.h.html#gentity_s::random" title='gentity_s::random' data-ref="gentity_s::random">random</a>;</td></tr>
+<tr><th id="266">266</th><td>	<a class="macro" href="../qcommon/q_shared.h.html#547" title="((dir)[0]=(dir)[0]+(up)[0]*(deg),(dir)[1]=(dir)[1]+(up)[1]*(deg),(dir)[2]=(dir)[2]+(up)[2]*(deg))" data-ref="_M/VectorMA">VectorMA</a>( <a class="local col2 ref" href="#22dir" title='dir' data-ref="22dir">dir</a>, <a class="local col3 ref" href="#23deg" title='deg' data-ref="23deg">deg</a>, <a class="local col4 ref" href="#24up" title='up' data-ref="24up">up</a>, <a class="local col2 ref" href="#22dir" title='dir' data-ref="22dir">dir</a> );</td></tr>
+<tr><th id="267">267</th><td></td></tr>
+<tr><th id="268">268</th><td>	<a class="local col3 ref" href="#23deg" title='deg' data-ref="23deg">deg</a> = <a class="macro" href="../qcommon/q_shared.h.html#683" title="(2.0 * (((rand () &amp; 0x7fff) / ((float)0x7fff)) - 0.5))" data-ref="_M/crandom">crandom</a>() * <a class="local col9 ref" href="#19ent" title='ent' data-ref="19ent">ent</a>-&gt;<a class="ref" href="g_local.h.html#gentity_s::random" title='gentity_s::random' data-ref="gentity_s::random">random</a>;</td></tr>
+<tr><th id="269">269</th><td>	<a class="macro" href="../qcommon/q_shared.h.html#547" title="((dir)[0]=(dir)[0]+(right)[0]*(deg),(dir)[1]=(dir)[1]+(right)[1]*(deg),(dir)[2]=(dir)[2]+(right)[2]*(deg))" data-ref="_M/VectorMA">VectorMA</a>( <a class="local col2 ref" href="#22dir" title='dir' data-ref="22dir">dir</a>, <a class="local col3 ref" href="#23deg" title='deg' data-ref="23deg">deg</a>, <a class="local col5 ref" href="#25right" title='right' data-ref="25right">right</a>, <a class="local col2 ref" href="#22dir" title='dir' data-ref="22dir">dir</a> );</td></tr>
+<tr><th id="270">270</th><td></td></tr>
+<tr><th id="271">271</th><td>	<a class="ref" href="../qcommon/q_shared.h.html#VectorNormalize" title='VectorNormalize' data-ref="VectorNormalize">VectorNormalize</a>( <a class="local col2 ref" href="#22dir" title='dir' data-ref="22dir">dir</a> );</td></tr>
+<tr><th id="272">272</th><td></td></tr>
+<tr><th id="273">273</th><td>	<b>switch</b> ( <a class="local col9 ref" href="#19ent" title='ent' data-ref="19ent">ent</a>-&gt;<a class="ref" href="g_local.h.html#gentity_s::s" title='gentity_s::s' data-ref="gentity_s::s">s</a>.<a class="ref" href="../qcommon/q_shared.h.html#entityState_s::weapon" title='entityState_s::weapon' data-ref="entityState_s::weapon">weapon</a> ) {</td></tr>
+<tr><th id="274">274</th><td>	<b>case</b> <a class="enum" href="bg_public.h.html#WP_GRENADE_LAUNCHER" title='WP_GRENADE_LAUNCHER' data-ref="WP_GRENADE_LAUNCHER">WP_GRENADE_LAUNCHER</a>:</td></tr>
+<tr><th id="275">275</th><td>		<a class="ref" href="g_local.h.html#fire_grenade" title='fire_grenade' data-ref="fire_grenade">fire_grenade</a>( <a class="local col9 ref" href="#19ent" title='ent' data-ref="19ent">ent</a>, <a class="local col9 ref" href="#19ent" title='ent' data-ref="19ent">ent</a>-&gt;<a class="ref" href="g_local.h.html#gentity_s::s" title='gentity_s::s' data-ref="gentity_s::s">s</a>.<a class="ref" href="../qcommon/q_shared.h.html#entityState_s::origin" title='entityState_s::origin' data-ref="entityState_s::origin">origin</a>, <a class="local col2 ref" href="#22dir" title='dir' data-ref="22dir">dir</a> );</td></tr>
+<tr><th id="276">276</th><td>		<b>break</b>;</td></tr>
+<tr><th id="277">277</th><td>	<b>case</b> <a class="enum" href="bg_public.h.html#WP_ROCKET_LAUNCHER" title='WP_ROCKET_LAUNCHER' data-ref="WP_ROCKET_LAUNCHER">WP_ROCKET_LAUNCHER</a>:</td></tr>
+<tr><th id="278">278</th><td>		<a class="ref" href="g_local.h.html#fire_rocket" title='fire_rocket' data-ref="fire_rocket">fire_rocket</a>( <a class="local col9 ref" href="#19ent" title='ent' data-ref="19ent">ent</a>, <a class="local col9 ref" href="#19ent" title='ent' data-ref="19ent">ent</a>-&gt;<a class="ref" href="g_local.h.html#gentity_s::s" title='gentity_s::s' data-ref="gentity_s::s">s</a>.<a class="ref" href="../qcommon/q_shared.h.html#entityState_s::origin" title='entityState_s::origin' data-ref="entityState_s::origin">origin</a>, <a class="local col2 ref" href="#22dir" title='dir' data-ref="22dir">dir</a> );</td></tr>
+<tr><th id="279">279</th><td>		<b>break</b>;</td></tr>
+<tr><th id="280">280</th><td>	<b>case</b> <a class="enum" href="bg_public.h.html#WP_PLASMAGUN" title='WP_PLASMAGUN' data-ref="WP_PLASMAGUN">WP_PLASMAGUN</a>:</td></tr>
+<tr><th id="281">281</th><td>		<a class="ref" href="g_local.h.html#fire_plasma" title='fire_plasma' data-ref="fire_plasma">fire_plasma</a>( <a class="local col9 ref" href="#19ent" title='ent' data-ref="19ent">ent</a>, <a class="local col9 ref" href="#19ent" title='ent' data-ref="19ent">ent</a>-&gt;<a class="ref" href="g_local.h.html#gentity_s::s" title='gentity_s::s' data-ref="gentity_s::s">s</a>.<a class="ref" href="../qcommon/q_shared.h.html#entityState_s::origin" title='entityState_s::origin' data-ref="entityState_s::origin">origin</a>, <a class="local col2 ref" href="#22dir" title='dir' data-ref="22dir">dir</a> );</td></tr>
+<tr><th id="282">282</th><td>		<b>break</b>;</td></tr>
+<tr><th id="283">283</th><td>	}</td></tr>
+<tr><th id="284">284</th><td></td></tr>
+<tr><th id="285">285</th><td>	<a class="ref" href="g_local.h.html#G_AddEvent" title='G_AddEvent' data-ref="G_AddEvent">G_AddEvent</a>( <a class="local col9 ref" href="#19ent" title='ent' data-ref="19ent">ent</a>, <a class="enum" href="bg_public.h.html#EV_FIRE_WEAPON" title='EV_FIRE_WEAPON' data-ref="EV_FIRE_WEAPON">EV_FIRE_WEAPON</a>, <var>0</var> );</td></tr>
+<tr><th id="286">286</th><td>}</td></tr>
+<tr><th id="287">287</th><td></td></tr>
+<tr><th id="288">288</th><td></td></tr>
+<tr><th id="289">289</th><td><em>static</em> <em>void</em> <dfn class="tu decl def" id="InitShooter_Finish" title='InitShooter_Finish' data-type='void InitShooter_Finish(gentity_t * ent)' data-ref="InitShooter_Finish">InitShooter_Finish</dfn>( <a class="typedef" href="g_local.h.html#gentity_t" title='gentity_t' data-type='struct gentity_s' data-ref="gentity_t">gentity_t</a> *<dfn class="local col6 decl" id="26ent" title='ent' data-type='gentity_t *' data-ref="26ent">ent</dfn> ) {</td></tr>
+<tr><th id="290">290</th><td>	<a class="local col6 ref" href="#26ent" title='ent' data-ref="26ent">ent</a>-&gt;<a class="ref" href="g_local.h.html#gentity_s::enemy" title='gentity_s::enemy' data-ref="gentity_s::enemy">enemy</a> = <a class="ref" href="g_local.h.html#G_PickTarget" title='G_PickTarget' data-ref="G_PickTarget">G_PickTarget</a>( <a class="local col6 ref" href="#26ent" title='ent' data-ref="26ent">ent</a>-&gt;<a class="ref" href="g_local.h.html#gentity_s::target" title='gentity_s::target' data-ref="gentity_s::target">target</a> );</td></tr>
+<tr><th id="291">291</th><td>	<a class="local col6 ref" href="#26ent" title='ent' data-ref="26ent">ent</a>-&gt;<a class="ref" href="g_local.h.html#gentity_s::think" title='gentity_s::think' data-ref="gentity_s::think">think</a> = <var>0</var>;</td></tr>
+<tr><th id="292">292</th><td>	<a class="local col6 ref" href="#26ent" title='ent' data-ref="26ent">ent</a>-&gt;<a class="ref" href="g_local.h.html#gentity_s::nextthink" title='gentity_s::nextthink' data-ref="gentity_s::nextthink">nextthink</a> = <var>0</var>;</td></tr>
+<tr><th id="293">293</th><td>}</td></tr>
+<tr><th id="294">294</th><td></td></tr>
+<tr><th id="295">295</th><td><em>void</em> <dfn class="decl def" id="InitShooter" title='InitShooter' data-ref="InitShooter">InitShooter</dfn>( <a class="typedef" href="g_local.h.html#gentity_t" title='gentity_t' data-type='struct gentity_s' data-ref="gentity_t">gentity_t</a> *<dfn class="local col7 decl" id="27ent" title='ent' data-type='gentity_t *' data-ref="27ent">ent</dfn>, <em>int</em> <dfn class="local col8 decl" id="28weapon" title='weapon' data-type='int' data-ref="28weapon">weapon</dfn> ) {</td></tr>
+<tr><th id="296">296</th><td>	<a class="local col7 ref" href="#27ent" title='ent' data-ref="27ent">ent</a>-&gt;<a class="ref" href="g_local.h.html#gentity_s::use" title='gentity_s::use' data-ref="gentity_s::use">use</a> = <a class="ref" href="#Use_Shooter" title='Use_Shooter' data-ref="Use_Shooter">Use_Shooter</a>;</td></tr>
+<tr><th id="297">297</th><td>	<a class="local col7 ref" href="#27ent" title='ent' data-ref="27ent">ent</a>-&gt;<a class="ref" href="g_local.h.html#gentity_s::s" title='gentity_s::s' data-ref="gentity_s::s">s</a>.<a class="ref" href="../qcommon/q_shared.h.html#entityState_s::weapon" title='entityState_s::weapon' data-ref="entityState_s::weapon">weapon</a> = <a class="local col8 ref" href="#28weapon" title='weapon' data-ref="28weapon">weapon</a>;</td></tr>
+<tr><th id="298">298</th><td></td></tr>
+<tr><th id="299">299</th><td>	<a class="ref" href="g_local.h.html#RegisterItem" title='RegisterItem' data-ref="RegisterItem">RegisterItem</a>( <a class="ref" href="bg_public.h.html#BG_FindItemForWeapon" title='BG_FindItemForWeapon' data-ref="BG_FindItemForWeapon">BG_FindItemForWeapon</a>( <a class="local col8 ref" href="#28weapon" title='weapon' data-ref="28weapon">weapon</a> ) );</td></tr>
+<tr><th id="300">300</th><td></td></tr>
+<tr><th id="301">301</th><td>	<a class="ref" href="g_local.h.html#G_SetMovedir" title='G_SetMovedir' data-ref="G_SetMovedir">G_SetMovedir</a>( <a class="local col7 ref" href="#27ent" title='ent' data-ref="27ent">ent</a>-&gt;<a class="ref" href="g_local.h.html#gentity_s::s" title='gentity_s::s' data-ref="gentity_s::s">s</a>.<a class="ref" href="../qcommon/q_shared.h.html#entityState_s::angles" title='entityState_s::angles' data-ref="entityState_s::angles">angles</a>, <a class="local col7 ref" href="#27ent" title='ent' data-ref="27ent">ent</a>-&gt;<a class="ref" href="g_local.h.html#gentity_s::movedir" title='gentity_s::movedir' data-ref="gentity_s::movedir">movedir</a> );</td></tr>
+<tr><th id="302">302</th><td></td></tr>
+<tr><th id="303">303</th><td>	<b>if</b> ( !<a class="local col7 ref" href="#27ent" title='ent' data-ref="27ent">ent</a>-&gt;<a class="ref" href="g_local.h.html#gentity_s::random" title='gentity_s::random' data-ref="gentity_s::random">random</a> ) {</td></tr>
+<tr><th id="304">304</th><td>		<a class="local col7 ref" href="#27ent" title='ent' data-ref="27ent">ent</a>-&gt;<a class="ref" href="g_local.h.html#gentity_s::random" title='gentity_s::random' data-ref="gentity_s::random">random</a> = <var>1.0</var>;</td></tr>
+<tr><th id="305">305</th><td>	}</td></tr>
+<tr><th id="306">306</th><td>	<a class="local col7 ref" href="#27ent" title='ent' data-ref="27ent">ent</a>-&gt;<a class="ref" href="g_local.h.html#gentity_s::random" title='gentity_s::random' data-ref="gentity_s::random">random</a> = <a class="ref" href="../../../include/x86_64-linux-gnu/bits/mathcalls.h.html#65" title='sin' data-ref="sin">sin</a>( <a class="macro" href="../../../include/math.h.html#418" title="3.14159265358979323846" data-ref="_M/M_PI">M_PI</a> * <a class="local col7 ref" href="#27ent" title='ent' data-ref="27ent">ent</a>-&gt;<a class="ref" href="g_local.h.html#gentity_s::random" title='gentity_s::random' data-ref="gentity_s::random">random</a> / <var>180</var> );</td></tr>
+<tr><th id="307">307</th><td>	<i>// target might be a moving object, so we can't set movedir for it</i></td></tr>
+<tr><th id="308">308</th><td>	<b>if</b> ( <a class="local col7 ref" href="#27ent" title='ent' data-ref="27ent">ent</a>-&gt;<a class="ref" href="g_local.h.html#gentity_s::target" title='gentity_s::target' data-ref="gentity_s::target">target</a> ) {</td></tr>
+<tr><th id="309">309</th><td>		<a class="local col7 ref" href="#27ent" title='ent' data-ref="27ent">ent</a>-&gt;<a class="ref" href="g_local.h.html#gentity_s::think" title='gentity_s::think' data-ref="gentity_s::think">think</a> = <a class="tu ref" href="#InitShooter_Finish" title='InitShooter_Finish' data-use='r' data-ref="InitShooter_Finish">InitShooter_Finish</a>;</td></tr>
+<tr><th id="310">310</th><td>		<a class="local col7 ref" href="#27ent" title='ent' data-ref="27ent">ent</a>-&gt;<a class="ref" href="g_local.h.html#gentity_s::nextthink" title='gentity_s::nextthink' data-ref="gentity_s::nextthink">nextthink</a> = <a class="ref" href="g_local.h.html#level" title='level' data-ref="level">level</a>.<a class="ref" href="g_local.h.html#(anonymous)::time" title='(anonymous struct)::time' data-ref="(anonymous)::time">time</a> + <var>500</var>;</td></tr>
+<tr><th id="311">311</th><td>	}</td></tr>
+<tr><th id="312">312</th><td>	<a class="ref" href="g_local.h.html#trap_LinkEntity" title='trap_LinkEntity' data-ref="trap_LinkEntity">trap_LinkEntity</a>( <a class="local col7 ref" href="#27ent" title='ent' data-ref="27ent">ent</a> );</td></tr>
+<tr><th id="313">313</th><td>}</td></tr>
+<tr><th id="314">314</th><td></td></tr>
+<tr><th id="315">315</th><td><i>/*QUAKED shooter_rocket (1 0 0) (-16 -16 -16) (16 16 16)</i></td></tr>
+<tr><th id="316">316</th><td><i>Fires at either the target or the current direction.</i></td></tr>
+<tr><th id="317">317</th><td><i>"random" the number of degrees of deviance from the taget. (1.0 default)</i></td></tr>
+<tr><th id="318">318</th><td><i>*/</i></td></tr>
+<tr><th id="319">319</th><td><em>void</em> <dfn class="decl def" id="SP_shooter_rocket" title='SP_shooter_rocket' data-ref="SP_shooter_rocket">SP_shooter_rocket</dfn>( <a class="typedef" href="g_local.h.html#gentity_t" title='gentity_t' data-type='struct gentity_s' data-ref="gentity_t">gentity_t</a> *<dfn class="local col9 decl" id="29ent" title='ent' data-type='gentity_t *' data-ref="29ent">ent</dfn> ) {</td></tr>
+<tr><th id="320">320</th><td>	<a class="ref" href="#InitShooter" title='InitShooter' data-ref="InitShooter">InitShooter</a>( <a class="local col9 ref" href="#29ent" title='ent' data-ref="29ent">ent</a>, <a class="enum" href="bg_public.h.html#WP_ROCKET_LAUNCHER" title='WP_ROCKET_LAUNCHER' data-ref="WP_ROCKET_LAUNCHER">WP_ROCKET_LAUNCHER</a> );</td></tr>
+<tr><th id="321">321</th><td>}</td></tr>
+<tr><th id="322">322</th><td></td></tr>
+<tr><th id="323">323</th><td><i>/*QUAKED shooter_plasma (1 0 0) (-16 -16 -16) (16 16 16)</i></td></tr>
+<tr><th id="324">324</th><td><i>Fires at either the target or the current direction.</i></td></tr>
+<tr><th id="325">325</th><td><i>"random" is the number of degrees of deviance from the taget. (1.0 default)</i></td></tr>
+<tr><th id="326">326</th><td><i>*/</i></td></tr>
+<tr><th id="327">327</th><td><em>void</em> <dfn class="decl def" id="SP_shooter_plasma" title='SP_shooter_plasma' data-ref="SP_shooter_plasma">SP_shooter_plasma</dfn>( <a class="typedef" href="g_local.h.html#gentity_t" title='gentity_t' data-type='struct gentity_s' data-ref="gentity_t">gentity_t</a> *<dfn class="local col0 decl" id="30ent" title='ent' data-type='gentity_t *' data-ref="30ent">ent</dfn> ) {</td></tr>
+<tr><th id="328">328</th><td>	<a class="ref" href="#InitShooter" title='InitShooter' data-ref="InitShooter">InitShooter</a>( <a class="local col0 ref" href="#30ent" title='ent' data-ref="30ent">ent</a>, <a class="enum" href="bg_public.h.html#WP_PLASMAGUN" title='WP_PLASMAGUN' data-ref="WP_PLASMAGUN">WP_PLASMAGUN</a>);</td></tr>
+<tr><th id="329">329</th><td>}</td></tr>
+<tr><th id="330">330</th><td></td></tr>
+<tr><th id="331">331</th><td><i>/*QUAKED shooter_grenade (1 0 0) (-16 -16 -16) (16 16 16)</i></td></tr>
+<tr><th id="332">332</th><td><i>Fires at either the target or the current direction.</i></td></tr>
+<tr><th id="333">333</th><td><i>"random" is the number of degrees of deviance from the taget. (1.0 default)</i></td></tr>
+<tr><th id="334">334</th><td><i>*/</i></td></tr>
+<tr><th id="335">335</th><td><em>void</em> <dfn class="decl def" id="SP_shooter_grenade" title='SP_shooter_grenade' data-ref="SP_shooter_grenade">SP_shooter_grenade</dfn>( <a class="typedef" href="g_local.h.html#gentity_t" title='gentity_t' data-type='struct gentity_s' data-ref="gentity_t">gentity_t</a> *<dfn class="local col1 decl" id="31ent" title='ent' data-type='gentity_t *' data-ref="31ent">ent</dfn> ) {</td></tr>
+<tr><th id="336">336</th><td>	<a class="ref" href="#InitShooter" title='InitShooter' data-ref="InitShooter">InitShooter</a>( <a class="local col1 ref" href="#31ent" title='ent' data-ref="31ent">ent</a>, <a class="enum" href="bg_public.h.html#WP_GRENADE_LAUNCHER" title='WP_GRENADE_LAUNCHER' data-ref="WP_GRENADE_LAUNCHER">WP_GRENADE_LAUNCHER</a>);</td></tr>
+<tr><th id="337">337</th><td>}</td></tr>
+<tr><th id="338">338</th><td></td></tr>
+<tr><th id="339">339</th><td></td></tr>
+<tr><th id="340">340</th><td><u>#<span data-ppcond="340">ifdef</span> <span class="macro" data-ref="_M/MISSIONPACK">MISSIONPACK</span></u></td></tr>
+<tr><th id="341">341</th><td><em>static</em> <em>void</em> PortalDie (gentity_t *self, gentity_t *inflictor, gentity_t *attacker, <em>int</em> damage, <em>int</em> mod) {</td></tr>
+<tr><th id="342">342</th><td>	G_FreeEntity( self );</td></tr>
+<tr><th id="343">343</th><td>	<i>//FIXME do something more interesting</i></td></tr>
+<tr><th id="344">344</th><td>}</td></tr>
+<tr><th id="345">345</th><td></td></tr>
+<tr><th id="346">346</th><td></td></tr>
+<tr><th id="347">347</th><td><em>void</em> DropPortalDestination( gentity_t *player ) {</td></tr>
+<tr><th id="348">348</th><td>	gentity_t	*ent;</td></tr>
+<tr><th id="349">349</th><td>	vec3_t		snapped;</td></tr>
+<tr><th id="350">350</th><td></td></tr>
+<tr><th id="351">351</th><td>	<i>// create the portal destination</i></td></tr>
+<tr><th id="352">352</th><td>	ent = G_Spawn();</td></tr>
+<tr><th id="353">353</th><td>	ent-&gt;s.modelindex = G_ModelIndex( <q>"models/powerups/teleporter/tele_exit.md3"</q> );</td></tr>
+<tr><th id="354">354</th><td></td></tr>
+<tr><th id="355">355</th><td>	VectorCopy( player-&gt;s.pos.trBase, snapped );</td></tr>
+<tr><th id="356">356</th><td>	SnapVector( snapped );</td></tr>
+<tr><th id="357">357</th><td>	G_SetOrigin( ent, snapped );</td></tr>
+<tr><th id="358">358</th><td>	VectorCopy( player-&gt;r.mins, ent-&gt;r.mins );</td></tr>
+<tr><th id="359">359</th><td>	VectorCopy( player-&gt;r.maxs, ent-&gt;r.maxs );</td></tr>
+<tr><th id="360">360</th><td></td></tr>
+<tr><th id="361">361</th><td>	ent-&gt;classname = <q>"hi_portal destination"</q>;</td></tr>
+<tr><th id="362">362</th><td>	ent-&gt;s.pos.trType = TR_STATIONARY;</td></tr>
+<tr><th id="363">363</th><td></td></tr>
+<tr><th id="364">364</th><td>	ent-&gt;r.contents = CONTENTS_CORPSE;</td></tr>
+<tr><th id="365">365</th><td>	ent-&gt;takedamage = qtrue;</td></tr>
+<tr><th id="366">366</th><td>	ent-&gt;health = <var>200</var>;</td></tr>
+<tr><th id="367">367</th><td>	ent-&gt;die = PortalDie;</td></tr>
+<tr><th id="368">368</th><td></td></tr>
+<tr><th id="369">369</th><td>	VectorCopy( player-&gt;s.apos.trBase, ent-&gt;s.angles );</td></tr>
+<tr><th id="370">370</th><td></td></tr>
+<tr><th id="371">371</th><td>	ent-&gt;think = G_FreeEntity;</td></tr>
+<tr><th id="372">372</th><td>	ent-&gt;nextthink = level.time + <var>2</var> * <var>60</var> * <var>1000</var>;</td></tr>
+<tr><th id="373">373</th><td></td></tr>
+<tr><th id="374">374</th><td>	trap_LinkEntity( ent );</td></tr>
+<tr><th id="375">375</th><td></td></tr>
+<tr><th id="376">376</th><td>	player-&gt;client-&gt;portalID = ++level.portalSequence;</td></tr>
+<tr><th id="377">377</th><td>	ent-&gt;count = player-&gt;client-&gt;portalID;</td></tr>
+<tr><th id="378">378</th><td></td></tr>
+<tr><th id="379">379</th><td>	<i>// give the item back so they can drop the source now</i></td></tr>
+<tr><th id="380">380</th><td>	player-&gt;client-&gt;ps.stats[STAT_HOLDABLE_ITEM] = BG_FindItem( <q>"Portal"</q> ) - bg_itemlist;</td></tr>
+<tr><th id="381">381</th><td>}</td></tr>
+<tr><th id="382">382</th><td></td></tr>
+<tr><th id="383">383</th><td></td></tr>
+<tr><th id="384">384</th><td><em>static</em> <em>void</em> PortalTouch( gentity_t *self, gentity_t *other, trace_t *trace) {</td></tr>
+<tr><th id="385">385</th><td>	gentity_t	*destination;</td></tr>
+<tr><th id="386">386</th><td></td></tr>
+<tr><th id="387">387</th><td>	<i>// see if we will even let other try to use it</i></td></tr>
+<tr><th id="388">388</th><td>	<b>if</b>( other-&gt;health &lt;= <var>0</var> ) {</td></tr>
+<tr><th id="389">389</th><td>		<b>return</b>;</td></tr>
+<tr><th id="390">390</th><td>	}</td></tr>
+<tr><th id="391">391</th><td>	<b>if</b>( !other-&gt;client ) {</td></tr>
+<tr><th id="392">392</th><td>		<b>return</b>;</td></tr>
+<tr><th id="393">393</th><td>	}</td></tr>
+<tr><th id="394">394</th><td><i>//	if( other-&gt;client-&gt;ps.persistant[PERS_TEAM] != self-&gt;spawnflags ) {</i></td></tr>
+<tr><th id="395">395</th><td><i>//		return;</i></td></tr>
+<tr><th id="396">396</th><td><i>//	}</i></td></tr>
+<tr><th id="397">397</th><td></td></tr>
+<tr><th id="398">398</th><td>	<b>if</b> ( other-&gt;client-&gt;ps.powerups[PW_NEUTRALFLAG] ) {		<i>// only happens in One Flag CTF</i></td></tr>
+<tr><th id="399">399</th><td>		Drop_Item( other, BG_FindItemForPowerup( PW_NEUTRALFLAG ), <var>0</var> );</td></tr>
+<tr><th id="400">400</th><td>		other-&gt;client-&gt;ps.powerups[PW_NEUTRALFLAG] = <var>0</var>;</td></tr>
+<tr><th id="401">401</th><td>	}</td></tr>
+<tr><th id="402">402</th><td>	<b>else</b> <b>if</b> ( other-&gt;client-&gt;ps.powerups[PW_REDFLAG] ) {		<i>// only happens in standard CTF</i></td></tr>
+<tr><th id="403">403</th><td>		Drop_Item( other, BG_FindItemForPowerup( PW_REDFLAG ), <var>0</var> );</td></tr>
+<tr><th id="404">404</th><td>		other-&gt;client-&gt;ps.powerups[PW_REDFLAG] = <var>0</var>;</td></tr>
+<tr><th id="405">405</th><td>	}</td></tr>
+<tr><th id="406">406</th><td>	<b>else</b> <b>if</b> ( other-&gt;client-&gt;ps.powerups[PW_BLUEFLAG] ) {	<i>// only happens in standard CTF</i></td></tr>
+<tr><th id="407">407</th><td>		Drop_Item( other, BG_FindItemForPowerup( PW_BLUEFLAG ), <var>0</var> );</td></tr>
+<tr><th id="408">408</th><td>		other-&gt;client-&gt;ps.powerups[PW_BLUEFLAG] = <var>0</var>;</td></tr>
+<tr><th id="409">409</th><td>	}</td></tr>
+<tr><th id="410">410</th><td></td></tr>
+<tr><th id="411">411</th><td>	<i>// find the destination</i></td></tr>
+<tr><th id="412">412</th><td>	destination = NULL;</td></tr>
+<tr><th id="413">413</th><td>	<b>while</b>( (destination = G_Find(destination, FOFS(classname), <q>"hi_portal destination"</q>)) != NULL ) {</td></tr>
+<tr><th id="414">414</th><td>		<b>if</b>( destination-&gt;count == self-&gt;count ) {</td></tr>
+<tr><th id="415">415</th><td>			<b>break</b>;</td></tr>
+<tr><th id="416">416</th><td>		}</td></tr>
+<tr><th id="417">417</th><td>	}</td></tr>
+<tr><th id="418">418</th><td></td></tr>
+<tr><th id="419">419</th><td>	<i>// if there is not one, die!</i></td></tr>
+<tr><th id="420">420</th><td>	<b>if</b>( !destination ) {</td></tr>
+<tr><th id="421">421</th><td>		<b>if</b>( self-&gt;pos1[<var>0</var>] || self-&gt;pos1[<var>1</var>] || self-&gt;pos1[<var>2</var>] ) {</td></tr>
+<tr><th id="422">422</th><td>			TeleportPlayer( other, self-&gt;pos1, self-&gt;s.angles );</td></tr>
+<tr><th id="423">423</th><td>		}</td></tr>
+<tr><th id="424">424</th><td>		G_Damage( other, other, other, NULL, NULL, <var>100000</var>, DAMAGE_NO_PROTECTION, MOD_TELEFRAG );</td></tr>
+<tr><th id="425">425</th><td>		<b>return</b>;</td></tr>
+<tr><th id="426">426</th><td>	}</td></tr>
+<tr><th id="427">427</th><td></td></tr>
+<tr><th id="428">428</th><td>	TeleportPlayer( other, destination-&gt;s.pos.trBase, destination-&gt;s.angles );</td></tr>
+<tr><th id="429">429</th><td>}</td></tr>
+<tr><th id="430">430</th><td></td></tr>
+<tr><th id="431">431</th><td></td></tr>
+<tr><th id="432">432</th><td><em>static</em> <em>void</em> PortalEnable( gentity_t *self ) {</td></tr>
+<tr><th id="433">433</th><td>	self-&gt;touch = PortalTouch;</td></tr>
+<tr><th id="434">434</th><td>	self-&gt;think = G_FreeEntity;</td></tr>
+<tr><th id="435">435</th><td>	self-&gt;nextthink = level.time + <var>2</var> * <var>60</var> * <var>1000</var>;</td></tr>
+<tr><th id="436">436</th><td>}</td></tr>
+<tr><th id="437">437</th><td></td></tr>
+<tr><th id="438">438</th><td></td></tr>
+<tr><th id="439">439</th><td><em>void</em> DropPortalSource( gentity_t *player ) {</td></tr>
+<tr><th id="440">440</th><td>	gentity_t	*ent;</td></tr>
+<tr><th id="441">441</th><td>	gentity_t	*destination;</td></tr>
+<tr><th id="442">442</th><td>	vec3_t		snapped;</td></tr>
+<tr><th id="443">443</th><td></td></tr>
+<tr><th id="444">444</th><td>	<i>// create the portal source</i></td></tr>
+<tr><th id="445">445</th><td>	ent = G_Spawn();</td></tr>
+<tr><th id="446">446</th><td>	ent-&gt;s.modelindex = G_ModelIndex( <q>"models/powerups/teleporter/tele_enter.md3"</q> );</td></tr>
+<tr><th id="447">447</th><td></td></tr>
+<tr><th id="448">448</th><td>	VectorCopy( player-&gt;s.pos.trBase, snapped );</td></tr>
+<tr><th id="449">449</th><td>	SnapVector( snapped );</td></tr>
+<tr><th id="450">450</th><td>	G_SetOrigin( ent, snapped );</td></tr>
+<tr><th id="451">451</th><td>	VectorCopy( player-&gt;r.mins, ent-&gt;r.mins );</td></tr>
+<tr><th id="452">452</th><td>	VectorCopy( player-&gt;r.maxs, ent-&gt;r.maxs );</td></tr>
+<tr><th id="453">453</th><td></td></tr>
+<tr><th id="454">454</th><td>	ent-&gt;classname = <q>"hi_portal source"</q>;</td></tr>
+<tr><th id="455">455</th><td>	ent-&gt;s.pos.trType = TR_STATIONARY;</td></tr>
+<tr><th id="456">456</th><td></td></tr>
+<tr><th id="457">457</th><td>	ent-&gt;r.contents = CONTENTS_CORPSE | CONTENTS_TRIGGER;</td></tr>
+<tr><th id="458">458</th><td>	ent-&gt;takedamage = qtrue;</td></tr>
+<tr><th id="459">459</th><td>	ent-&gt;health = <var>200</var>;</td></tr>
+<tr><th id="460">460</th><td>	ent-&gt;die = PortalDie;</td></tr>
+<tr><th id="461">461</th><td></td></tr>
+<tr><th id="462">462</th><td>	trap_LinkEntity( ent );</td></tr>
+<tr><th id="463">463</th><td></td></tr>
+<tr><th id="464">464</th><td>	ent-&gt;count = player-&gt;client-&gt;portalID;</td></tr>
+<tr><th id="465">465</th><td>	player-&gt;client-&gt;portalID = <var>0</var>;</td></tr>
+<tr><th id="466">466</th><td></td></tr>
+<tr><th id="467">467</th><td><i>//	ent-&gt;spawnflags = player-&gt;client-&gt;ps.persistant[PERS_TEAM];</i></td></tr>
+<tr><th id="468">468</th><td></td></tr>
+<tr><th id="469">469</th><td>	ent-&gt;nextthink = level.time + <var>1000</var>;</td></tr>
+<tr><th id="470">470</th><td>	ent-&gt;think = PortalEnable;</td></tr>
+<tr><th id="471">471</th><td></td></tr>
+<tr><th id="472">472</th><td>	<i>// find the destination</i></td></tr>
+<tr><th id="473">473</th><td>	destination = NULL;</td></tr>
+<tr><th id="474">474</th><td>	<b>while</b>( (destination = G_Find(destination, FOFS(classname), <q>"hi_portal destination"</q>)) != NULL ) {</td></tr>
+<tr><th id="475">475</th><td>		<b>if</b>( destination-&gt;count == ent-&gt;count ) {</td></tr>
+<tr><th id="476">476</th><td>			VectorCopy( destination-&gt;s.pos.trBase, ent-&gt;pos1 );</td></tr>
+<tr><th id="477">477</th><td>			<b>break</b>;</td></tr>
+<tr><th id="478">478</th><td>		}</td></tr>
+<tr><th id="479">479</th><td>	}</td></tr>
+<tr><th id="480">480</th><td></td></tr>
+<tr><th id="481">481</th><td>}</td></tr>
+<tr><th id="482">482</th><td><u>#<span data-ppcond="340">endif</span></u></td></tr>
+<tr><th id="483">483</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated on <em>2017-Aug-29</em> from project codebrowser revision <em>63e07af</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

@@ -1,0 +1,18 @@
+<dec f='codebrowser/code/opusfile-0.8/include/opusfile.h' l='444' type='ogg_int64_t opus_granule_sample(const OpusHead * _head, ogg_int64_t _gp)'/>
+<doc f='codebrowser/code/opusfile-0.8/include/opusfile.h' l='430'>/**Converts a granule position to a sample offset for a given Ogg Opus stream.
+   The sample offset is simply &lt;code&gt;_gp-_head-&gt;pre_skip&lt;/code&gt;.
+   Granule position values smaller than OpusHead#pre_skip correspond to audio
+    that should never be played, and thus have no associated sample offset.
+   This function returns -1 for such values.
+   This function also correctly handles extremely large granule positions,
+    which may have wrapped around to a negative number when stored in a signed
+    ogg_int64_t value.
+   \param _head The #OpusHead information from the ID header of the stream.
+   \param _gp   The granule position to convert.
+   \return The sample offset associated with the given granule position
+            (counting at a 48 kHz sampling rate), or the special value -1 on
+            error (i.e., the granule position was smaller than the pre-skip
+            amount).*/</doc>
+<def f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='752' ll='757' type='ogg_int64_t opus_granule_sample(const OpusHead * _head, ogg_int64_t _gp)'/>
+<doc f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='750'>/*This function more properly belongs in info.c, but we define it here to allow
+   the static granule position manipulation functions to remain static.*/</doc>

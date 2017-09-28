@@ -1,0 +1,73 @@
+<dec f='codebrowser/code/qcommon/qcommon.h' l='453' type='int Cmd_Argc()'/>
+<use f='codebrowser/code/client/cl_cgame.c' l='288' u='c' c='CL_GetServerCommand'/>
+<use f='codebrowser/code/client/cl_cgame.c' l='433' u='c' c='CL_CgameSystemCalls'/>
+<use f='codebrowser/code/client/cl_console.c' l='189' u='c' c='Con_Dump_f'/>
+<use f='codebrowser/code/client/cl_keys.c' l='968' u='c' c='Key_Unbind_f'/>
+<use f='codebrowser/code/client/cl_keys.c' l='1009' u='c' c='Key_Bind_f'/>
+<use f='codebrowser/code/client/cl_main.c' l='271' u='c' c='CL_Voip_f'/>
+<use f='codebrowser/code/client/cl_main.c' l='701' u='c' c='CL_Record_f'/>
+<use f='codebrowser/code/client/cl_main.c' l='723' u='c' c='CL_Record_f'/>
+<use f='codebrowser/code/client/cl_main.c' l='1077' u='c' c='CL_PlayDemo_f'/>
+<use f='codebrowser/code/client/cl_main.c' l='1509' u='c' c='CL_ForwardCommandToServer'/>
+<use f='codebrowser/code/client/cl_main.c' l='1655' u='c' c='CL_ForwardToServer_f'/>
+<use f='codebrowser/code/client/cl_main.c' l='1696' u='c' c='CL_Connect_f'/>
+<use f='codebrowser/code/client/cl_main.c' l='3238' u='r' c='CL_InitRef'/>
+<use f='codebrowser/code/client/cl_main.c' l='3349' u='c' c='CL_Video_f'/>
+<use f='codebrowser/code/client/cl_main.c' l='3449' u='c' c='CL_Sayto_f'/>
+<use f='codebrowser/code/client/cl_main.c' l='4179' u='c' c='CL_GlobalServers_f'/>
+<use f='codebrowser/code/client/cl_main.c' l='4434' u='c' c='CL_Ping_f'/>
+<use f='codebrowser/code/client/cl_main.c' l='4588' u='c' c='CL_ServerStatus_f'/>
+<use f='codebrowser/code/client/cl_ui.c' l='771' u='c' c='CL_UISystemCalls'/>
+<use f='codebrowser/code/client/snd_main.c' l='410' u='c' c='S_Play_f'/>
+<use f='codebrowser/code/client/snd_main.c' l='438' u='c' c='S_Music_f'/>
+<use f='codebrowser/code/qcommon/cmd.c' l='53' u='c' c='Cmd_Wait_f'/>
+<use f='codebrowser/code/qcommon/cmd.c' l='277' u='c' c='Cmd_Exec_f'/>
+<use f='codebrowser/code/qcommon/cmd.c' l='309' u='c' c='Cmd_Vstr_f'/>
+<def f='codebrowser/code/qcommon/cmd.c' l='361' ll='363' type='int Cmd_Argc()'/>
+<use f='codebrowser/code/qcommon/cmd.c' l='769' u='c' c='Cmd_ExecuteString'/>
+<use f='codebrowser/code/qcommon/cmd.c' l='830' u='c' c='Cmd_List_f'/>
+<doc f='codebrowser/code/qcommon/cmd.c' l='356'>/*
+============
+Cmd_Argc
+============
+*/</doc>
+<use f='codebrowser/code/qcommon/common.c' l='1296' u='c' c='Com_Meminfo_f'/>
+<use f='codebrowser/code/qcommon/common.c' l='2280' u='c' c='Com_Error_f'/>
+<use f='codebrowser/code/qcommon/common.c' l='2300' u='c' c='Com_Freeze_f'/>
+<use f='codebrowser/code/qcommon/common.c' l='2336' u='c' c='Com_Setenv_f'/>
+<use f='codebrowser/code/qcommon/common.c' l='2988' u='c' c='Com_WriteConfig_f'/>
+<use f='codebrowser/code/qcommon/common.c' l='3484' u='c' c='Field_CompleteCommand'/>
+<use f='codebrowser/code/qcommon/cvar.c' l='761' u='c' c='Cvar_Command'/>
+<use f='codebrowser/code/qcommon/cvar.c' l='785' u='c' c='Cvar_Print_f'/>
+<use f='codebrowser/code/qcommon/cvar.c' l='810' u='c' c='Cvar_Toggle_f'/>
+<use f='codebrowser/code/qcommon/cvar.c' l='858' u='c' c='Cvar_Set_f'/>
+<use f='codebrowser/code/qcommon/cvar.c' l='902' u='c' c='Cvar_Reset_f'/>
+<use f='codebrowser/code/qcommon/cvar.c' l='959' u='c' c='Cvar_List_f'/>
+<use f='codebrowser/code/qcommon/cvar.c' l='1035' u='c' c='Cvar_ListModified_f'/>
+<use f='codebrowser/code/qcommon/cvar.c' l='1165' u='c' c='Cvar_Unset_f'/>
+<use f='codebrowser/code/qcommon/files.c' l='2628' u='c' c='FS_Dir_f'/>
+<use f='codebrowser/code/qcommon/files.c' l='2628' u='c' c='FS_Dir_f'/>
+<use f='codebrowser/code/qcommon/files.c' l='2633' u='c' c='FS_Dir_f'/>
+<use f='codebrowser/code/qcommon/files.c' l='2744' u='c' c='FS_NewDir_f'/>
+<use f='codebrowser/code/qcommon/files.c' l='2809' u='c' c='FS_TouchFile_f'/>
+<use f='codebrowser/code/qcommon/files.c' l='3833' u='c' c='FS_PureServerSetLoadedPaks'/>
+<use f='codebrowser/code/qcommon/files.c' l='3868' u='c' c='FS_PureServerSetLoadedPaks'/>
+<use f='codebrowser/code/qcommon/files.c' l='3893' u='c' c='FS_PureServerSetReferencedPaks'/>
+<use f='codebrowser/code/qcommon/files.c' l='3913' u='c' c='FS_PureServerSetReferencedPaks'/>
+<use f='codebrowser/code/server/sv_ccmds.c' l='53' u='c' c='SV_GetPlayerByHandle'/>
+<use f='codebrowser/code/server/sv_ccmds.c' l='116' u='c' c='SV_GetPlayerByNum'/>
+<use f='codebrowser/code/server/sv_ccmds.c' l='251' u='c' c='SV_MapRestart_f'/>
+<use f='codebrowser/code/server/sv_ccmds.c' l='377' u='c' c='SV_Kick_f'/>
+<use f='codebrowser/code/server/sv_ccmds.c' l='496' u='c' c='SV_KickNum_f'/>
+<use f='codebrowser/code/server/sv_ccmds.c' l='534' u='c' c='SV_Ban_f'/>
+<use f='codebrowser/code/server/sv_ccmds.c' l='590' u='c' c='SV_BanNum_f'/>
+<use f='codebrowser/code/server/sv_ccmds.c' l='841' u='c' c='SV_AddBanToList'/>
+<use f='codebrowser/code/server/sv_ccmds.c' l='983' u='c' c='SV_DelBanFromList'/>
+<use f='codebrowser/code/server/sv_ccmds.c' l='1249' u='c' c='SV_ConSay_f'/>
+<use f='codebrowser/code/server/sv_ccmds.c' l='1283' u='c' c='SV_ConTell_f'/>
+<use f='codebrowser/code/server/sv_ccmds.c' l='1329' u='c' c='SV_ConSayto_f'/>
+<use f='codebrowser/code/server/sv_ccmds.c' l='1440' u='c' c='SV_DumpUser_f'/>
+<use f='codebrowser/code/server/sv_client.c' l='967' u='c' c='SV_WriteDownloadToClient'/>
+<use f='codebrowser/code/server/sv_client.c' l='1246' u='c' c='SV_VerifyPaks_f'/>
+<use f='codebrowser/code/server/sv_client.c' l='1322' u='c' c='SV_VerifyPaks_f'/>
+<use f='codebrowser/code/server/sv_game.c' l='317' u='c' c='SV_GameSystemCalls'/>

@@ -1,0 +1,28 @@
+<dec f='codebrowser/code/game/ai_main.h' l='289' type='void BotAI_Trace(bsp_trace_t * bsptrace, vec_t * start, vec_t * mins, vec_t * maxs, vec_t * end, int passent, int contentmask)'/>
+<use f='codebrowser/code/game/ai_chat.c' l='377' u='c' c='BotValidChatPosition'/>
+<use f='codebrowser/code/game/ai_cmd.c' l='1490' u='c' c='BotNearestVisibleItem'/>
+<use f='codebrowser/code/game/ai_dmnet.c' l='124' u='c' c='BotGetAirGoal'/>
+<use f='codebrowser/code/game/ai_dmnet.c' l='127' u='c' c='BotGetAirGoal'/>
+<use f='codebrowser/code/game/ai_dmnet.c' l='1363' u='c' c='BotClearPath'/>
+<use f='codebrowser/code/game/ai_dmnet.c' l='1420' u='c' c='BotClearPath'/>
+<use f='codebrowser/code/game/ai_dmnet.c' l='1495' u='c' c='AINode_Seek_ActivateEntity'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='2602' u='c' c='BotRoamGoal'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='2615' u='c' c='BotRoamGoal'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='2876' u='c' c='BotEntityVisible'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='2885' u='c' c='BotEntityVisible'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='2900' u='c' c='BotEntityVisible'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='2906' u='c' c='BotEntityVisible'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='3393' u='c' c='BotAimAtEnemy'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='3456' u='c' c='BotAimAtEnemy'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='3462' u='c' c='BotAimAtEnemy'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='3473' u='c' c='BotAimAtEnemy'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='3517' u='c' c='BotAimAtEnemy'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='3629' u='c' c='BotCheckAttack'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='3646' u='c' c='BotCheckAttack'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='3867' u='c' c='BotFuncButtonActivateGoal'/>
+<def f='codebrowser/code/game/ai_main.c' l='139' ll='158' type='void BotAI_Trace(bsp_trace_t * bsptrace, vec_t * start, vec_t * mins, vec_t * maxs, vec_t * end, int passent, int contentmask)'/>
+<doc f='codebrowser/code/game/ai_main.c' l='134'>/*
+==================
+BotAI_Trace
+==================
+*/</doc>

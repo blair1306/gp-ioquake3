@@ -1,0 +1,9 @@
+<dec f='codebrowser/code/cgame/cg_local.h' l='1523' type='void trap_UpdateScreen()'/>
+<doc f='codebrowser/code/cgame/cg_local.h' l='1522'>// force a screen update, only used during gamestate load</doc>
+<use f='codebrowser/code/cgame/cg_info.c' l='71' u='c' c='CG_LoadingString'/>
+<def f='codebrowser/code/cgame/cg_syscalls.c' l='124' ll='126' type='void trap_UpdateScreen()'/>
+<dec f='codebrowser/code/q3_ui/ui_local.h' l='656' type='void trap_UpdateScreen()'/>
+<use f='codebrowser/code/q3_ui/ui_atoms.c' l='1188' u='c' c='UI_UpdateScreen'/>
+<dec f='codebrowser/code/ui/ui_local.h' l='948' type='void trap_UpdateScreen()'/>
+<use f='codebrowser/code/ui/ui_atoms.c' l='515' u='c' c='UI_UpdateScreen'/>
+<def f='codebrowser/code/ui/ui_syscalls.c' l='180' ll='182' type='void trap_UpdateScreen()'/>

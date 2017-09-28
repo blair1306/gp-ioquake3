@@ -1,0 +1,62 @@
+<dec f='codebrowser/code/jpeg-8c/jpeglib.h' l='490' type='JDIMENSION'/>
+<offset>1088</offset>
+<doc f='codebrowser/code/jpeg-8c/jpeglib.h' l='484'>/* Description of actual output image that will be returned to application.
+   * These fields are computed by jpeg_start_decompress().
+   * You can also use jpeg_calc_output_dimensions() to determine these values
+   * in advance of calling jpeg_start_decompress().
+   */</doc>
+<doc f='codebrowser/code/jpeg-8c/jpeglib.h' l='490'>/* scaled image width */</doc>
+<use f='codebrowser/code/jpeg-8c/jctrans.c' l='80' u='r' c='jpeg_copy_critical_parameters'/>
+<use f='codebrowser/code/jpeg-8c/jdcolor.c' l='129' u='r' c='ycc_rgb_convert'/>
+<use f='codebrowser/code/jpeg-8c/jdcolor.c' l='176' u='r' c='null_convert'/>
+<use f='codebrowser/code/jpeg-8c/jdcolor.c' l='206' u='r' c='grayscale_convert'/>
+<use f='codebrowser/code/jpeg-8c/jdcolor.c' l='223' u='r' c='gray_rgb_convert'/>
+<use f='codebrowser/code/jpeg-8c/jdcolor.c' l='254' u='r' c='ycck_cmyk_convert'/>
+<use f='codebrowser/code/jpeg-8c/jdinput.c' l='59' u='w' c='jpeg_core_output_dimensions'/>
+<use f='codebrowser/code/jpeg-8c/jdinput.c' l='67' u='w' c='jpeg_core_output_dimensions'/>
+<use f='codebrowser/code/jpeg-8c/jdinput.c' l='75' u='w' c='jpeg_core_output_dimensions'/>
+<use f='codebrowser/code/jpeg-8c/jdinput.c' l='83' u='w' c='jpeg_core_output_dimensions'/>
+<use f='codebrowser/code/jpeg-8c/jdinput.c' l='91' u='w' c='jpeg_core_output_dimensions'/>
+<use f='codebrowser/code/jpeg-8c/jdinput.c' l='99' u='w' c='jpeg_core_output_dimensions'/>
+<use f='codebrowser/code/jpeg-8c/jdinput.c' l='107' u='w' c='jpeg_core_output_dimensions'/>
+<use f='codebrowser/code/jpeg-8c/jdinput.c' l='115' u='w' c='jpeg_core_output_dimensions'/>
+<use f='codebrowser/code/jpeg-8c/jdinput.c' l='123' u='w' c='jpeg_core_output_dimensions'/>
+<use f='codebrowser/code/jpeg-8c/jdinput.c' l='131' u='w' c='jpeg_core_output_dimensions'/>
+<use f='codebrowser/code/jpeg-8c/jdinput.c' l='139' u='w' c='jpeg_core_output_dimensions'/>
+<use f='codebrowser/code/jpeg-8c/jdinput.c' l='147' u='w' c='jpeg_core_output_dimensions'/>
+<use f='codebrowser/code/jpeg-8c/jdinput.c' l='155' u='w' c='jpeg_core_output_dimensions'/>
+<use f='codebrowser/code/jpeg-8c/jdinput.c' l='163' u='w' c='jpeg_core_output_dimensions'/>
+<use f='codebrowser/code/jpeg-8c/jdinput.c' l='171' u='w' c='jpeg_core_output_dimensions'/>
+<use f='codebrowser/code/jpeg-8c/jdinput.c' l='179' u='w' c='jpeg_core_output_dimensions'/>
+<use f='codebrowser/code/jpeg-8c/jdmaster.c' l='283' u='r' c='master_selection'/>
+<use f='codebrowser/code/jpeg-8c/jdmerge.c' l='249' u='r' c='h2v1_merged_upsample'/>
+<use f='codebrowser/code/jpeg-8c/jdmerge.c' l='269' u='r' c='h2v1_merged_upsample'/>
+<use f='codebrowser/code/jpeg-8c/jdmerge.c' l='313' u='r' c='h2v2_merged_upsample'/>
+<use f='codebrowser/code/jpeg-8c/jdmerge.c' l='343' u='r' c='h2v2_merged_upsample'/>
+<use f='codebrowser/code/jpeg-8c/jdmerge.c' l='381' u='r' c='jinit_merged_upsampler'/>
+<use f='codebrowser/code/jpeg-8c/jdpostct.c' l='275' u='r' c='jinit_d_post_controller'/>
+<use f='codebrowser/code/jpeg-8c/jdpostct.c' l='286' u='r' c='jinit_d_post_controller'/>
+<use f='codebrowser/code/jpeg-8c/jdsample.c' l='210' u='r' c='int_upsample'/>
+<use f='codebrowser/code/jpeg-8c/jdsample.c' l='220' u='r' c='int_upsample'/>
+<use f='codebrowser/code/jpeg-8c/jdsample.c' l='246' u='r' c='h2v1_upsample'/>
+<use f='codebrowser/code/jpeg-8c/jdsample.c' l='275' u='r' c='h2v2_upsample'/>
+<use f='codebrowser/code/jpeg-8c/jdsample.c' l='282' u='r' c='h2v2_upsample'/>
+<use f='codebrowser/code/jpeg-8c/jdsample.c' l='356' u='r' c='jinit_upsampler'/>
+<use f='codebrowser/code/jpeg-8c/jquant1.c' l='469' u='r' c='color_quantize'/>
+<use f='codebrowser/code/jpeg-8c/jquant1.c' l='499' u='r' c='color_quantize3'/>
+<use f='codebrowser/code/jpeg-8c/jquant1.c' l='529' u='r' c='quantize_ord_dither'/>
+<use f='codebrowser/code/jpeg-8c/jquant1.c' l='582' u='r' c='quantize3_ord_dither'/>
+<use f='codebrowser/code/jpeg-8c/jquant1.c' l='632' u='r' c='quantize_fs_dither'/>
+<use f='codebrowser/code/jpeg-8c/jquant1.c' l='728' u='r' c='alloc_fs_workspace'/>
+<use f='codebrowser/code/jpeg-8c/jquant1.c' l='782' u='r' c='start_pass_1_quant'/>
+<use f='codebrowser/code/jpeg-8c/jquant2.c' l='233' u='r' c='prescan_quantize'/>
+<use f='codebrowser/code/jpeg-8c/jquant2.c' l='926' u='r' c='pass2_no_dither'/>
+<use f='codebrowser/code/jpeg-8c/jquant2.c' l='966' u='r' c='pass2_fs_dither'/>
+<use f='codebrowser/code/jpeg-8c/jquant2.c' l='1199' u='r' c='start_pass_2_quant'/>
+<use f='codebrowser/code/jpeg-8c/jquant2.c' l='1304' u='r' c='jinit_2pass_quantizer'/>
+<use f='codebrowser/code/renderercommon/tr_image_jpg.c' l='188' u='r' c='R_LoadJPG'/>
+<use f='codebrowser/code/renderercommon/tr_image_jpg.c' l='190' u='r' c='R_LoadJPG'/>
+<use f='codebrowser/code/renderercommon/tr_image_jpg.c' l='191' u='r' c='R_LoadJPG'/>
+<use f='codebrowser/code/renderercommon/tr_image_jpg.c' l='200' u='r' c='R_LoadJPG'/>
+<use f='codebrowser/code/renderercommon/tr_image_jpg.c' l='204' u='r' c='R_LoadJPG'/>
+<use f='codebrowser/code/renderercommon/tr_image_jpg.c' l='208' u='r' c='R_LoadJPG'/>

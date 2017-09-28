@@ -1,0 +1,633 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>SigProc_FIX.h source code [codebrowser/code/opus-1.1.4/silk/SigProc_FIX.h] - Woboq Code Browser</title>
+<link rel="stylesheet" href="../../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'codebrowser/code/opus-1.1.4/silk/SigProc_FIX.h'; var root_path = '../../../..'; var data_path = '../../../../../data';</script>
+<script src='../../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../../..'>codebrowser</a>/<a href='../..'>code</a>/<a href='..'>opus-1.1.4</a>/<a href='./'>silk</a>/<a href='SigProc_FIX.h.html'>SigProc_FIX.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/***********************************************************************</i></td></tr>
+<tr><th id="2">2</th><td><i>Copyright (c) 2006-2011, Skype Limited. All rights reserved.</i></td></tr>
+<tr><th id="3">3</th><td><i>Redistribution and use in source and binary forms, with or without</i></td></tr>
+<tr><th id="4">4</th><td><i>modification, are permitted provided that the following conditions</i></td></tr>
+<tr><th id="5">5</th><td><i>are met:</i></td></tr>
+<tr><th id="6">6</th><td><i>- Redistributions of source code must retain the above copyright notice,</i></td></tr>
+<tr><th id="7">7</th><td><i>this list of conditions and the following disclaimer.</i></td></tr>
+<tr><th id="8">8</th><td><i>- Redistributions in binary form must reproduce the above copyright</i></td></tr>
+<tr><th id="9">9</th><td><i>notice, this list of conditions and the following disclaimer in the</i></td></tr>
+<tr><th id="10">10</th><td><i>documentation and/or other materials provided with the distribution.</i></td></tr>
+<tr><th id="11">11</th><td><i>- Neither the name of Internet Society, IETF or IETF Trust, nor the</i></td></tr>
+<tr><th id="12">12</th><td><i>names of specific contributors, may be used to endorse or promote</i></td></tr>
+<tr><th id="13">13</th><td><i>products derived from this software without specific prior written</i></td></tr>
+<tr><th id="14">14</th><td><i>permission.</i></td></tr>
+<tr><th id="15">15</th><td><i>THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"</i></td></tr>
+<tr><th id="16">16</th><td><i>AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE</i></td></tr>
+<tr><th id="17">17</th><td><i>IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE</i></td></tr>
+<tr><th id="18">18</th><td><i>ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE</i></td></tr>
+<tr><th id="19">19</th><td><i>LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR</i></td></tr>
+<tr><th id="20">20</th><td><i>CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF</i></td></tr>
+<tr><th id="21">21</th><td><i>SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS</i></td></tr>
+<tr><th id="22">22</th><td><i>INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN</i></td></tr>
+<tr><th id="23">23</th><td><i>CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)</i></td></tr>
+<tr><th id="24">24</th><td><i>ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE</i></td></tr>
+<tr><th id="25">25</th><td><i>POSSIBILITY OF SUCH DAMAGE.</i></td></tr>
+<tr><th id="26">26</th><td><i>***********************************************************************/</i></td></tr>
+<tr><th id="27">27</th><td></td></tr>
+<tr><th id="28">28</th><td><u>#<span data-ppcond="28">ifndef</span> <span class="macro" data-ref="_M/SILK_SIGPROC_FIX_H">SILK_SIGPROC_FIX_H</span></u></td></tr>
+<tr><th id="29">29</th><td><u>#define <dfn class="macro" id="_M/SILK_SIGPROC_FIX_H" data-ref="_M/SILK_SIGPROC_FIX_H">SILK_SIGPROC_FIX_H</dfn></u></td></tr>
+<tr><th id="30">30</th><td></td></tr>
+<tr><th id="31">31</th><td><u>#<span data-ppcond="31">ifdef</span>  <span class="macro" data-ref="_M/__cplusplus">__cplusplus</span></u></td></tr>
+<tr><th id="32">32</th><td><b>extern</b> <q>"C"</q></td></tr>
+<tr><th id="33">33</th><td>{</td></tr>
+<tr><th id="34">34</th><td><u>#<span data-ppcond="31">endif</span></u></td></tr>
+<tr><th id="35">35</th><td></td></tr>
+<tr><th id="36">36</th><td><i>/*#define silk_MACRO_COUNT */</i>          <i>/* Used to enable WMOPS counting */</i></td></tr>
+<tr><th id="37">37</th><td></td></tr>
+<tr><th id="38">38</th><td><u>#define <dfn class="macro" id="_M/SILK_MAX_ORDER_LPC" data-ref="_M/SILK_MAX_ORDER_LPC">SILK_MAX_ORDER_LPC</dfn>            16            /* max order of the LPC analysis in schur() and k2a() */</u></td></tr>
+<tr><th id="39">39</th><td></td></tr>
+<tr><th id="40">40</th><td><u>#include <a href="../../../../include/string.h.html">&lt;string.h&gt;</a>                                 /* for memset(), memcpy(), memmove() */</u></td></tr>
+<tr><th id="41">41</th><td><u>#include <a href="typedef.h.html">"typedef.h"</a></u></td></tr>
+<tr><th id="42">42</th><td><u>#include <a href="resampler_structs.h.html">"resampler_structs.h"</a></u></td></tr>
+<tr><th id="43">43</th><td><u>#include <a href="macros.h.html">"macros.h"</a></u></td></tr>
+<tr><th id="44">44</th><td><u>#include <a href="../celt/cpu_support.h.html">"cpu_support.h"</a></u></td></tr>
+<tr><th id="45">45</th><td></td></tr>
+<tr><th id="46">46</th><td><u>#<span data-ppcond="46">if</span> defined(<span class="macro" data-ref="_M/OPUS_X86_MAY_HAVE_SSE4_1">OPUS_X86_MAY_HAVE_SSE4_1</span>)</u></td></tr>
+<tr><th id="47">47</th><td><u>#include "x86/SigProc_FIX_sse.h"</u></td></tr>
+<tr><th id="48">48</th><td><u>#<span data-ppcond="46">endif</span></u></td></tr>
+<tr><th id="49">49</th><td></td></tr>
+<tr><th id="50">50</th><td><i>/********************************************************************/</i></td></tr>
+<tr><th id="51">51</th><td><i>/*                    SIGNAL PROCESSING FUNCTIONS                   */</i></td></tr>
+<tr><th id="52">52</th><td><i>/********************************************************************/</i></td></tr>
+<tr><th id="53">53</th><td></td></tr>
+<tr><th id="54">54</th><td><i class="doc">/*!</i></td></tr>
+<tr><th id="55">55</th><td><i class="doc"> * Initialize/reset the resampler state for a given pair of input/output sampling rates</i></td></tr>
+<tr><th id="56">56</th><td><i class="doc">*/</i></td></tr>
+<tr><th id="57">57</th><td><a class="macro" href="../include/opus_types.h.html#151" title="int" data-ref="_M/opus_int">opus_int</a> <dfn class="decl" id="silk_resampler_init" title='silk_resampler_init' data-ref="silk_resampler_init">silk_resampler_init</dfn>(</td></tr>
+<tr><th id="58">58</th><td>    <a class="typedef" href="resampler_structs.h.html#silk_resampler_state_struct" title='silk_resampler_state_struct' data-type='struct _silk_resampler_state_struct' data-ref="silk_resampler_state_struct">silk_resampler_state_struct</a> *<dfn class="local col3 decl" id="3S" title='S' data-type='silk_resampler_state_struct *' data-ref="3S">S</dfn>,                 <i>/* I/O  Resampler state                                             */</i></td></tr>
+<tr><th id="59">59</th><td>    <a class="typedef" href="../include/opus_types.h.html#opus_int32" title='opus_int32' data-type='int32_t' data-ref="opus_int32">opus_int32</a>                  <dfn class="local col4 decl" id="4Fs_Hz_in" title='Fs_Hz_in' data-type='opus_int32' data-ref="4Fs_Hz_in">Fs_Hz_in</dfn>,           <i>/* I    Input sampling rate (Hz)                                    */</i></td></tr>
+<tr><th id="60">60</th><td>    <a class="typedef" href="../include/opus_types.h.html#opus_int32" title='opus_int32' data-type='int32_t' data-ref="opus_int32">opus_int32</a>                  <dfn class="local col5 decl" id="5Fs_Hz_out" title='Fs_Hz_out' data-type='opus_int32' data-ref="5Fs_Hz_out">Fs_Hz_out</dfn>,          <i>/* I    Output sampling rate (Hz)                                   */</i></td></tr>
+<tr><th id="61">61</th><td>    <a class="macro" href="../include/opus_types.h.html#151" title="int" data-ref="_M/opus_int">opus_int</a>                    <dfn class="local col6 decl" id="6forEnc" title='forEnc' data-type='int' data-ref="6forEnc">forEnc</dfn>              <i>/* I    If 1: encoder; if 0: decoder                                */</i></td></tr>
+<tr><th id="62">62</th><td>);</td></tr>
+<tr><th id="63">63</th><td></td></tr>
+<tr><th id="64">64</th><td><i class="doc">/*!</i></td></tr>
+<tr><th id="65">65</th><td><i class="doc"> * Resampler: convert from one sampling rate to another</i></td></tr>
+<tr><th id="66">66</th><td><i class="doc"> */</i></td></tr>
+<tr><th id="67">67</th><td><a class="macro" href="../include/opus_types.h.html#151" title="int" data-ref="_M/opus_int">opus_int</a> <dfn class="decl" id="silk_resampler" title='silk_resampler' data-ref="silk_resampler">silk_resampler</dfn>(</td></tr>
+<tr><th id="68">68</th><td>    <a class="typedef" href="resampler_structs.h.html#silk_resampler_state_struct" title='silk_resampler_state_struct' data-type='struct _silk_resampler_state_struct' data-ref="silk_resampler_state_struct">silk_resampler_state_struct</a> *<dfn class="local col7 decl" id="7S" title='S' data-type='silk_resampler_state_struct *' data-ref="7S">S</dfn>,                 <i>/* I/O  Resampler state                                             */</i></td></tr>
+<tr><th id="69">69</th><td>    <a class="typedef" href="../include/opus_types.h.html#opus_int16" title='opus_int16' data-type='int16_t' data-ref="opus_int16">opus_int16</a>                  <dfn class="local col8 decl" id="8out" title='out' data-type='opus_int16 *' data-ref="8out">out</dfn>[],              <i>/* O    Output signal                                               */</i></td></tr>
+<tr><th id="70">70</th><td>    <em>const</em> <a class="typedef" href="../include/opus_types.h.html#opus_int16" title='opus_int16' data-type='int16_t' data-ref="opus_int16">opus_int16</a>            <dfn class="local col9 decl" id="9in" title='in' data-type='const opus_int16 *' data-ref="9in">in</dfn>[],               <i>/* I    Input signal                                                */</i></td></tr>
+<tr><th id="71">71</th><td>    <a class="typedef" href="../include/opus_types.h.html#opus_int32" title='opus_int32' data-type='int32_t' data-ref="opus_int32">opus_int32</a>                  <dfn class="local col0 decl" id="10inLen" title='inLen' data-type='opus_int32' data-ref="10inLen">inLen</dfn>               <i>/* I    Number of input samples                                     */</i></td></tr>
+<tr><th id="72">72</th><td>);</td></tr>
+<tr><th id="73">73</th><td></td></tr>
+<tr><th id="74">74</th><td><i class="doc">/*!</i></td></tr>
+<tr><th id="75">75</th><td><i class="doc">* Downsample 2x, mediocre quality</i></td></tr>
+<tr><th id="76">76</th><td><i class="doc">*/</i></td></tr>
+<tr><th id="77">77</th><td><em>void</em> <dfn class="decl" id="silk_resampler_down2" title='silk_resampler_down2' data-ref="silk_resampler_down2">silk_resampler_down2</dfn>(</td></tr>
+<tr><th id="78">78</th><td>    <a class="typedef" href="../include/opus_types.h.html#opus_int32" title='opus_int32' data-type='int32_t' data-ref="opus_int32">opus_int32</a>                  *<dfn class="local col1 decl" id="11S" title='S' data-type='opus_int32 *' data-ref="11S">S</dfn>,                 <i>/* I/O  State vector [ 2 ]                                          */</i></td></tr>
+<tr><th id="79">79</th><td>    <a class="typedef" href="../include/opus_types.h.html#opus_int16" title='opus_int16' data-type='int16_t' data-ref="opus_int16">opus_int16</a>                  *<dfn class="local col2 decl" id="12out" title='out' data-type='opus_int16 *' data-ref="12out">out</dfn>,               <i>/* O    Output signal [ len ]                                       */</i></td></tr>
+<tr><th id="80">80</th><td>    <em>const</em> <a class="typedef" href="../include/opus_types.h.html#opus_int16" title='opus_int16' data-type='int16_t' data-ref="opus_int16">opus_int16</a>            *<dfn class="local col3 decl" id="13in" title='in' data-type='const opus_int16 *' data-ref="13in">in</dfn>,                <i>/* I    Input signal [ floor(len/2) ]                               */</i></td></tr>
+<tr><th id="81">81</th><td>    <a class="typedef" href="../include/opus_types.h.html#opus_int32" title='opus_int32' data-type='int32_t' data-ref="opus_int32">opus_int32</a>                  <dfn class="local col4 decl" id="14inLen" title='inLen' data-type='opus_int32' data-ref="14inLen">inLen</dfn>               <i>/* I    Number of input samples                                     */</i></td></tr>
+<tr><th id="82">82</th><td>);</td></tr>
+<tr><th id="83">83</th><td></td></tr>
+<tr><th id="84">84</th><td><i class="doc">/*!</i></td></tr>
+<tr><th id="85">85</th><td><i class="doc"> * Downsample by a factor 2/3, low quality</i></td></tr>
+<tr><th id="86">86</th><td><i class="doc">*/</i></td></tr>
+<tr><th id="87">87</th><td><em>void</em> <dfn class="decl" id="silk_resampler_down2_3" title='silk_resampler_down2_3' data-ref="silk_resampler_down2_3">silk_resampler_down2_3</dfn>(</td></tr>
+<tr><th id="88">88</th><td>    <a class="typedef" href="../include/opus_types.h.html#opus_int32" title='opus_int32' data-type='int32_t' data-ref="opus_int32">opus_int32</a>                  *<dfn class="local col5 decl" id="15S" title='S' data-type='opus_int32 *' data-ref="15S">S</dfn>,                 <i>/* I/O  State vector [ 6 ]                                          */</i></td></tr>
+<tr><th id="89">89</th><td>    <a class="typedef" href="../include/opus_types.h.html#opus_int16" title='opus_int16' data-type='int16_t' data-ref="opus_int16">opus_int16</a>                  *<dfn class="local col6 decl" id="16out" title='out' data-type='opus_int16 *' data-ref="16out">out</dfn>,               <i>/* O    Output signal [ floor(2*inLen/3) ]                          */</i></td></tr>
+<tr><th id="90">90</th><td>    <em>const</em> <a class="typedef" href="../include/opus_types.h.html#opus_int16" title='opus_int16' data-type='int16_t' data-ref="opus_int16">opus_int16</a>            *<dfn class="local col7 decl" id="17in" title='in' data-type='const opus_int16 *' data-ref="17in">in</dfn>,                <i>/* I    Input signal [ inLen ]                                      */</i></td></tr>
+<tr><th id="91">91</th><td>    <a class="typedef" href="../include/opus_types.h.html#opus_int32" title='opus_int32' data-type='int32_t' data-ref="opus_int32">opus_int32</a>                  <dfn class="local col8 decl" id="18inLen" title='inLen' data-type='opus_int32' data-ref="18inLen">inLen</dfn>               <i>/* I    Number of input samples                                     */</i></td></tr>
+<tr><th id="92">92</th><td>);</td></tr>
+<tr><th id="93">93</th><td></td></tr>
+<tr><th id="94">94</th><td><i class="doc">/*!</i></td></tr>
+<tr><th id="95">95</th><td><i class="doc"> * second order ARMA filter;</i></td></tr>
+<tr><th id="96">96</th><td><i class="doc"> * slower than biquad() but uses more precise coefficients</i></td></tr>
+<tr><th id="97">97</th><td><i class="doc"> * can handle (slowly) varying coefficients</i></td></tr>
+<tr><th id="98">98</th><td><i class="doc"> */</i></td></tr>
+<tr><th id="99">99</th><td><em>void</em> <dfn class="decl" id="silk_biquad_alt" title='silk_biquad_alt' data-ref="silk_biquad_alt">silk_biquad_alt</dfn>(</td></tr>
+<tr><th id="100">100</th><td>    <em>const</em> <a class="typedef" href="../include/opus_types.h.html#opus_int16" title='opus_int16' data-type='int16_t' data-ref="opus_int16">opus_int16</a>            *<dfn class="local col9 decl" id="19in" title='in' data-type='const opus_int16 *' data-ref="19in">in</dfn>,                <i>/* I     input signal                                               */</i></td></tr>
+<tr><th id="101">101</th><td>    <em>const</em> <a class="typedef" href="../include/opus_types.h.html#opus_int32" title='opus_int32' data-type='int32_t' data-ref="opus_int32">opus_int32</a>            *<dfn class="local col0 decl" id="20B_Q28" title='B_Q28' data-type='const opus_int32 *' data-ref="20B_Q28">B_Q28</dfn>,             <i>/* I     MA coefficients [3]                                        */</i></td></tr>
+<tr><th id="102">102</th><td>    <em>const</em> <a class="typedef" href="../include/opus_types.h.html#opus_int32" title='opus_int32' data-type='int32_t' data-ref="opus_int32">opus_int32</a>            *<dfn class="local col1 decl" id="21A_Q28" title='A_Q28' data-type='const opus_int32 *' data-ref="21A_Q28">A_Q28</dfn>,             <i>/* I     AR coefficients [2]                                        */</i></td></tr>
+<tr><th id="103">103</th><td>    <a class="typedef" href="../include/opus_types.h.html#opus_int32" title='opus_int32' data-type='int32_t' data-ref="opus_int32">opus_int32</a>                  *<dfn class="local col2 decl" id="22S" title='S' data-type='opus_int32 *' data-ref="22S">S</dfn>,                 <i>/* I/O   State vector [2]                                           */</i></td></tr>
+<tr><th id="104">104</th><td>    <a class="typedef" href="../include/opus_types.h.html#opus_int16" title='opus_int16' data-type='int16_t' data-ref="opus_int16">opus_int16</a>                  *<dfn class="local col3 decl" id="23out" title='out' data-type='opus_int16 *' data-ref="23out">out</dfn>,               <i>/* O     output signal                                              */</i></td></tr>
+<tr><th id="105">105</th><td>    <em>const</em> <a class="typedef" href="../include/opus_types.h.html#opus_int32" title='opus_int32' data-type='int32_t' data-ref="opus_int32">opus_int32</a>            <dfn class="local col4 decl" id="24len" title='len' data-type='const opus_int32' data-ref="24len">len</dfn>,                <i>/* I     signal length (must be even)                               */</i></td></tr>
+<tr><th id="106">106</th><td>    <a class="macro" href="../include/opus_types.h.html#151" title="int" data-ref="_M/opus_int">opus_int</a>                    <dfn class="local col5 decl" id="25stride" title='stride' data-type='int' data-ref="25stride">stride</dfn>              <i>/* I     Operate on interleaved signal if &gt; 1                       */</i></td></tr>
+<tr><th id="107">107</th><td>);</td></tr>
+<tr><th id="108">108</th><td></td></tr>
+<tr><th id="109">109</th><td><i>/* Variable order MA prediction error filter. */</i></td></tr>
+<tr><th id="110">110</th><td><em>void</em> <dfn class="decl" id="silk_LPC_analysis_filter" title='silk_LPC_analysis_filter' data-ref="silk_LPC_analysis_filter">silk_LPC_analysis_filter</dfn>(</td></tr>
+<tr><th id="111">111</th><td>    <a class="typedef" href="../include/opus_types.h.html#opus_int16" title='opus_int16' data-type='int16_t' data-ref="opus_int16">opus_int16</a>                  *<dfn class="local col6 decl" id="26out" title='out' data-type='opus_int16 *' data-ref="26out">out</dfn>,               <i>/* O    Output signal                                               */</i></td></tr>
+<tr><th id="112">112</th><td>    <em>const</em> <a class="typedef" href="../include/opus_types.h.html#opus_int16" title='opus_int16' data-type='int16_t' data-ref="opus_int16">opus_int16</a>            *<dfn class="local col7 decl" id="27in" title='in' data-type='const opus_int16 *' data-ref="27in">in</dfn>,                <i>/* I    Input signal                                                */</i></td></tr>
+<tr><th id="113">113</th><td>    <em>const</em> <a class="typedef" href="../include/opus_types.h.html#opus_int16" title='opus_int16' data-type='int16_t' data-ref="opus_int16">opus_int16</a>            *<dfn class="local col8 decl" id="28B" title='B' data-type='const opus_int16 *' data-ref="28B">B</dfn>,                 <i>/* I    MA prediction coefficients, Q12 [order]                     */</i></td></tr>
+<tr><th id="114">114</th><td>    <em>const</em> <a class="typedef" href="../include/opus_types.h.html#opus_int32" title='opus_int32' data-type='int32_t' data-ref="opus_int32">opus_int32</a>            <dfn class="local col9 decl" id="29len" title='len' data-type='const opus_int32' data-ref="29len">len</dfn>,                <i>/* I    Signal length                                               */</i></td></tr>
+<tr><th id="115">115</th><td>    <em>const</em> <a class="typedef" href="../include/opus_types.h.html#opus_int32" title='opus_int32' data-type='int32_t' data-ref="opus_int32">opus_int32</a>            <dfn class="local col0 decl" id="30d" title='d' data-type='const opus_int32' data-ref="30d">d</dfn>,                  <i>/* I    Filter order                                                */</i></td></tr>
+<tr><th id="116">116</th><td>    <em>int</em>                         <dfn class="local col1 decl" id="31arch" title='arch' data-type='int' data-ref="31arch">arch</dfn>                <i>/* I    Run-time architecture                                       */</i></td></tr>
+<tr><th id="117">117</th><td>);</td></tr>
+<tr><th id="118">118</th><td></td></tr>
+<tr><th id="119">119</th><td><i>/* Chirp (bandwidth expand) LP AR filter */</i></td></tr>
+<tr><th id="120">120</th><td><em>void</em> <dfn class="decl" id="silk_bwexpander" title='silk_bwexpander' data-ref="silk_bwexpander">silk_bwexpander</dfn>(</td></tr>
+<tr><th id="121">121</th><td>    <a class="typedef" href="../include/opus_types.h.html#opus_int16" title='opus_int16' data-type='int16_t' data-ref="opus_int16">opus_int16</a>                  *<dfn class="local col2 decl" id="32ar" title='ar' data-type='opus_int16 *' data-ref="32ar">ar</dfn>,                <i>/* I/O  AR filter to be expanded (without leading 1)                */</i></td></tr>
+<tr><th id="122">122</th><td>    <em>const</em> <a class="macro" href="../include/opus_types.h.html#151" title="int" data-ref="_M/opus_int">opus_int</a>              <dfn class="local col3 decl" id="33d" title='d' data-type='const int' data-ref="33d">d</dfn>,                  <i>/* I    Length of ar                                                */</i></td></tr>
+<tr><th id="123">123</th><td>    <a class="typedef" href="../include/opus_types.h.html#opus_int32" title='opus_int32' data-type='int32_t' data-ref="opus_int32">opus_int32</a>                  <dfn class="local col4 decl" id="34chirp_Q16" title='chirp_Q16' data-type='opus_int32' data-ref="34chirp_Q16">chirp_Q16</dfn>           <i>/* I    Chirp factor (typically in the range 0 to 1)                */</i></td></tr>
+<tr><th id="124">124</th><td>);</td></tr>
+<tr><th id="125">125</th><td></td></tr>
+<tr><th id="126">126</th><td><i>/* Chirp (bandwidth expand) LP AR filter */</i></td></tr>
+<tr><th id="127">127</th><td><em>void</em> <dfn class="decl" id="silk_bwexpander_32" title='silk_bwexpander_32' data-ref="silk_bwexpander_32">silk_bwexpander_32</dfn>(</td></tr>
+<tr><th id="128">128</th><td>    <a class="typedef" href="../include/opus_types.h.html#opus_int32" title='opus_int32' data-type='int32_t' data-ref="opus_int32">opus_int32</a>                  *<dfn class="local col5 decl" id="35ar" title='ar' data-type='opus_int32 *' data-ref="35ar">ar</dfn>,                <i>/* I/O  AR filter to be expanded (without leading 1)                */</i></td></tr>
+<tr><th id="129">129</th><td>    <em>const</em> <a class="macro" href="../include/opus_types.h.html#151" title="int" data-ref="_M/opus_int">opus_int</a>              <dfn class="local col6 decl" id="36d" title='d' data-type='const int' data-ref="36d">d</dfn>,                  <i>/* I    Length of ar                                                */</i></td></tr>
+<tr><th id="130">130</th><td>    <a class="typedef" href="../include/opus_types.h.html#opus_int32" title='opus_int32' data-type='int32_t' data-ref="opus_int32">opus_int32</a>                  <dfn class="local col7 decl" id="37chirp_Q16" title='chirp_Q16' data-type='opus_int32' data-ref="37chirp_Q16">chirp_Q16</dfn>           <i>/* I    Chirp factor in Q16                                         */</i></td></tr>
+<tr><th id="131">131</th><td>);</td></tr>
+<tr><th id="132">132</th><td></td></tr>
+<tr><th id="133">133</th><td><i>/* Compute inverse of LPC prediction gain, and                           */</i></td></tr>
+<tr><th id="134">134</th><td><i>/* test if LPC coefficients are stable (all poles within unit circle)    */</i></td></tr>
+<tr><th id="135">135</th><td><a class="typedef" href="../include/opus_types.h.html#opus_int32" title='opus_int32' data-type='int32_t' data-ref="opus_int32">opus_int32</a> <dfn class="decl" id="silk_LPC_inverse_pred_gain" title='silk_LPC_inverse_pred_gain' data-ref="silk_LPC_inverse_pred_gain">silk_LPC_inverse_pred_gain</dfn>(              <i>/* O   Returns inverse prediction gain in energy domain, Q30        */</i></td></tr>
+<tr><th id="136">136</th><td>    <em>const</em> <a class="typedef" href="../include/opus_types.h.html#opus_int16" title='opus_int16' data-type='int16_t' data-ref="opus_int16">opus_int16</a>            *<dfn class="local col8 decl" id="38A_Q12" title='A_Q12' data-type='const opus_int16 *' data-ref="38A_Q12">A_Q12</dfn>,             <i>/* I   Prediction coefficients, Q12 [order]                         */</i></td></tr>
+<tr><th id="137">137</th><td>    <em>const</em> <a class="macro" href="../include/opus_types.h.html#151" title="int" data-ref="_M/opus_int">opus_int</a>              <dfn class="local col9 decl" id="39order" title='order' data-type='const int' data-ref="39order">order</dfn>               <i>/* I   Prediction order                                             */</i></td></tr>
+<tr><th id="138">138</th><td>);</td></tr>
+<tr><th id="139">139</th><td></td></tr>
+<tr><th id="140">140</th><td><i>/* For input in Q24 domain */</i></td></tr>
+<tr><th id="141">141</th><td><a class="typedef" href="../include/opus_types.h.html#opus_int32" title='opus_int32' data-type='int32_t' data-ref="opus_int32">opus_int32</a> <dfn class="decl" id="silk_LPC_inverse_pred_gain_Q24" title='silk_LPC_inverse_pred_gain_Q24' data-ref="silk_LPC_inverse_pred_gain_Q24">silk_LPC_inverse_pred_gain_Q24</dfn>(          <i>/* O    Returns inverse prediction gain in energy domain, Q30       */</i></td></tr>
+<tr><th id="142">142</th><td>    <em>const</em> <a class="typedef" href="../include/opus_types.h.html#opus_int32" title='opus_int32' data-type='int32_t' data-ref="opus_int32">opus_int32</a>            *<dfn class="local col0 decl" id="40A_Q24" title='A_Q24' data-type='const opus_int32 *' data-ref="40A_Q24">A_Q24</dfn>,             <i>/* I    Prediction coefficients [order]                             */</i></td></tr>
+<tr><th id="143">143</th><td>    <em>const</em> <a class="macro" href="../include/opus_types.h.html#151" title="int" data-ref="_M/opus_int">opus_int</a>              <dfn class="local col1 decl" id="41order" title='order' data-type='const int' data-ref="41order">order</dfn>               <i>/* I    Prediction order                                            */</i></td></tr>
+<tr><th id="144">144</th><td>);</td></tr>
+<tr><th id="145">145</th><td></td></tr>
+<tr><th id="146">146</th><td><i>/* Split signal in two decimated bands using first-order allpass filters */</i></td></tr>
+<tr><th id="147">147</th><td><em>void</em> <dfn class="decl" id="silk_ana_filt_bank_1" title='silk_ana_filt_bank_1' data-ref="silk_ana_filt_bank_1">silk_ana_filt_bank_1</dfn>(</td></tr>
+<tr><th id="148">148</th><td>    <em>const</em> <a class="typedef" href="../include/opus_types.h.html#opus_int16" title='opus_int16' data-type='int16_t' data-ref="opus_int16">opus_int16</a>            *<dfn class="local col2 decl" id="42in" title='in' data-type='const opus_int16 *' data-ref="42in">in</dfn>,                <i>/* I    Input signal [N]                                            */</i></td></tr>
+<tr><th id="149">149</th><td>    <a class="typedef" href="../include/opus_types.h.html#opus_int32" title='opus_int32' data-type='int32_t' data-ref="opus_int32">opus_int32</a>                  *<dfn class="local col3 decl" id="43S" title='S' data-type='opus_int32 *' data-ref="43S">S</dfn>,                 <i>/* I/O  State vector [2]                                            */</i></td></tr>
+<tr><th id="150">150</th><td>    <a class="typedef" href="../include/opus_types.h.html#opus_int16" title='opus_int16' data-type='int16_t' data-ref="opus_int16">opus_int16</a>                  *<dfn class="local col4 decl" id="44outL" title='outL' data-type='opus_int16 *' data-ref="44outL">outL</dfn>,              <i>/* O    Low band [N/2]                                              */</i></td></tr>
+<tr><th id="151">151</th><td>    <a class="typedef" href="../include/opus_types.h.html#opus_int16" title='opus_int16' data-type='int16_t' data-ref="opus_int16">opus_int16</a>                  *<dfn class="local col5 decl" id="45outH" title='outH' data-type='opus_int16 *' data-ref="45outH">outH</dfn>,              <i>/* O    High band [N/2]                                             */</i></td></tr>
+<tr><th id="152">152</th><td>    <em>const</em> <a class="typedef" href="../include/opus_types.h.html#opus_int32" title='opus_int32' data-type='int32_t' data-ref="opus_int32">opus_int32</a>            <dfn class="local col6 decl" id="46N" title='N' data-type='const opus_int32' data-ref="46N">N</dfn>                   <i>/* I    Number of input samples                                     */</i></td></tr>
+<tr><th id="153">153</th><td>);</td></tr>
+<tr><th id="154">154</th><td></td></tr>
+<tr><th id="155">155</th><td><i>/********************************************************************/</i></td></tr>
+<tr><th id="156">156</th><td><i>/*                        SCALAR FUNCTIONS                          */</i></td></tr>
+<tr><th id="157">157</th><td><i>/********************************************************************/</i></td></tr>
+<tr><th id="158">158</th><td></td></tr>
+<tr><th id="159">159</th><td><i>/* Approximation of 128 * log2() (exact inverse of approx 2^() below) */</i></td></tr>
+<tr><th id="160">160</th><td><i>/* Convert input to a log scale    */</i></td></tr>
+<tr><th id="161">161</th><td><a class="typedef" href="../include/opus_types.h.html#opus_int32" title='opus_int32' data-type='int32_t' data-ref="opus_int32">opus_int32</a> <dfn class="decl" id="silk_lin2log" title='silk_lin2log' data-ref="silk_lin2log">silk_lin2log</dfn>(</td></tr>
+<tr><th id="162">162</th><td>    <em>const</em> <a class="typedef" href="../include/opus_types.h.html#opus_int32" title='opus_int32' data-type='int32_t' data-ref="opus_int32">opus_int32</a>            <dfn class="local col7 decl" id="47inLin" title='inLin' data-type='const opus_int32' data-ref="47inLin">inLin</dfn>               <i>/* I  input in linear scale                                         */</i></td></tr>
+<tr><th id="163">163</th><td>);</td></tr>
+<tr><th id="164">164</th><td></td></tr>
+<tr><th id="165">165</th><td><i>/* Approximation of a sigmoid function */</i></td></tr>
+<tr><th id="166">166</th><td><a class="macro" href="../include/opus_types.h.html#151" title="int" data-ref="_M/opus_int">opus_int</a> <dfn class="decl" id="silk_sigm_Q15" title='silk_sigm_Q15' data-ref="silk_sigm_Q15">silk_sigm_Q15</dfn>(</td></tr>
+<tr><th id="167">167</th><td>    <a class="macro" href="../include/opus_types.h.html#151" title="int" data-ref="_M/opus_int">opus_int</a>                    <dfn class="local col8 decl" id="48in_Q5" title='in_Q5' data-type='int' data-ref="48in_Q5">in_Q5</dfn>               <i>/* I                                                                */</i></td></tr>
+<tr><th id="168">168</th><td>);</td></tr>
+<tr><th id="169">169</th><td></td></tr>
+<tr><th id="170">170</th><td><i>/* Approximation of 2^() (exact inverse of approx log2() above) */</i></td></tr>
+<tr><th id="171">171</th><td><i>/* Convert input to a linear scale */</i></td></tr>
+<tr><th id="172">172</th><td><a class="typedef" href="../include/opus_types.h.html#opus_int32" title='opus_int32' data-type='int32_t' data-ref="opus_int32">opus_int32</a> <dfn class="decl" id="silk_log2lin" title='silk_log2lin' data-ref="silk_log2lin">silk_log2lin</dfn>(</td></tr>
+<tr><th id="173">173</th><td>    <em>const</em> <a class="typedef" href="../include/opus_types.h.html#opus_int32" title='opus_int32' data-type='int32_t' data-ref="opus_int32">opus_int32</a>            <dfn class="local col9 decl" id="49inLog_Q7" title='inLog_Q7' data-type='const opus_int32' data-ref="49inLog_Q7">inLog_Q7</dfn>            <i>/* I  input on log scale                                            */</i></td></tr>
+<tr><th id="174">174</th><td>);</td></tr>
+<tr><th id="175">175</th><td></td></tr>
+<tr><th id="176">176</th><td><i>/* Compute number of bits to right shift the sum of squares of a vector    */</i></td></tr>
+<tr><th id="177">177</th><td><i>/* of int16s to make it fit in an int32                                    */</i></td></tr>
+<tr><th id="178">178</th><td><em>void</em> <dfn class="decl" id="silk_sum_sqr_shift" title='silk_sum_sqr_shift' data-ref="silk_sum_sqr_shift">silk_sum_sqr_shift</dfn>(</td></tr>
+<tr><th id="179">179</th><td>    <a class="typedef" href="../include/opus_types.h.html#opus_int32" title='opus_int32' data-type='int32_t' data-ref="opus_int32">opus_int32</a>                  *<dfn class="local col0 decl" id="50energy" title='energy' data-type='opus_int32 *' data-ref="50energy">energy</dfn>,            <i>/* O   Energy of x, after shifting to the right                     */</i></td></tr>
+<tr><th id="180">180</th><td>    <a class="macro" href="../include/opus_types.h.html#151" title="int" data-ref="_M/opus_int">opus_int</a>                    *<dfn class="local col1 decl" id="51shift" title='shift' data-type='int *' data-ref="51shift">shift</dfn>,             <i>/* O   Number of bits right shift applied to energy                 */</i></td></tr>
+<tr><th id="181">181</th><td>    <em>const</em> <a class="typedef" href="../include/opus_types.h.html#opus_int16" title='opus_int16' data-type='int16_t' data-ref="opus_int16">opus_int16</a>            *<dfn class="local col2 decl" id="52x" title='x' data-type='const opus_int16 *' data-ref="52x">x</dfn>,                 <i>/* I   Input vector                                                 */</i></td></tr>
+<tr><th id="182">182</th><td>    <a class="macro" href="../include/opus_types.h.html#151" title="int" data-ref="_M/opus_int">opus_int</a>                    <dfn class="local col3 decl" id="53len" title='len' data-type='int' data-ref="53len">len</dfn>                 <i>/* I   Length of input vector                                       */</i></td></tr>
+<tr><th id="183">183</th><td>);</td></tr>
+<tr><th id="184">184</th><td></td></tr>
+<tr><th id="185">185</th><td><i>/* Calculates the reflection coefficients from the correlation sequence    */</i></td></tr>
+<tr><th id="186">186</th><td><i>/* Faster than schur64(), but much less accurate.                          */</i></td></tr>
+<tr><th id="187">187</th><td><i>/* uses SMLAWB(), requiring armv5E and higher.                             */</i></td></tr>
+<tr><th id="188">188</th><td><a class="typedef" href="../include/opus_types.h.html#opus_int32" title='opus_int32' data-type='int32_t' data-ref="opus_int32">opus_int32</a> <dfn class="decl" id="silk_schur" title='silk_schur' data-ref="silk_schur">silk_schur</dfn>(                              <i>/* O    Returns residual energy                                     */</i></td></tr>
+<tr><th id="189">189</th><td>    <a class="typedef" href="../include/opus_types.h.html#opus_int16" title='opus_int16' data-type='int16_t' data-ref="opus_int16">opus_int16</a>                  *<dfn class="local col4 decl" id="54rc_Q15" title='rc_Q15' data-type='opus_int16 *' data-ref="54rc_Q15">rc_Q15</dfn>,            <i>/* O    reflection coefficients [order] Q15                         */</i></td></tr>
+<tr><th id="190">190</th><td>    <em>const</em> <a class="typedef" href="../include/opus_types.h.html#opus_int32" title='opus_int32' data-type='int32_t' data-ref="opus_int32">opus_int32</a>            *<dfn class="local col5 decl" id="55c" title='c' data-type='const opus_int32 *' data-ref="55c">c</dfn>,                 <i>/* I    correlations [order+1]                                      */</i></td></tr>
+<tr><th id="191">191</th><td>    <em>const</em> <a class="typedef" href="../include/opus_types.h.html#opus_int32" title='opus_int32' data-type='int32_t' data-ref="opus_int32">opus_int32</a>            <dfn class="local col6 decl" id="56order" title='order' data-type='const opus_int32' data-ref="56order">order</dfn>               <i>/* I    prediction order                                            */</i></td></tr>
+<tr><th id="192">192</th><td>);</td></tr>
+<tr><th id="193">193</th><td></td></tr>
+<tr><th id="194">194</th><td><i>/* Calculates the reflection coefficients from the correlation sequence    */</i></td></tr>
+<tr><th id="195">195</th><td><i>/* Slower than schur(), but more accurate.                                 */</i></td></tr>
+<tr><th id="196">196</th><td><i>/* Uses SMULL(), available on armv4                                        */</i></td></tr>
+<tr><th id="197">197</th><td><a class="typedef" href="../include/opus_types.h.html#opus_int32" title='opus_int32' data-type='int32_t' data-ref="opus_int32">opus_int32</a> <dfn class="decl" id="silk_schur64" title='silk_schur64' data-ref="silk_schur64">silk_schur64</dfn>(                            <i>/* O    returns residual energy                                     */</i></td></tr>
+<tr><th id="198">198</th><td>    <a class="typedef" href="../include/opus_types.h.html#opus_int32" title='opus_int32' data-type='int32_t' data-ref="opus_int32">opus_int32</a>                  <dfn class="local col7 decl" id="57rc_Q16" title='rc_Q16' data-type='opus_int32 *' data-ref="57rc_Q16">rc_Q16</dfn>[],           <i>/* O    Reflection coefficients [order] Q16                         */</i></td></tr>
+<tr><th id="199">199</th><td>    <em>const</em> <a class="typedef" href="../include/opus_types.h.html#opus_int32" title='opus_int32' data-type='int32_t' data-ref="opus_int32">opus_int32</a>            <dfn class="local col8 decl" id="58c" title='c' data-type='const opus_int32 *' data-ref="58c">c</dfn>[],                <i>/* I    Correlations [order+1]                                      */</i></td></tr>
+<tr><th id="200">200</th><td>    <a class="typedef" href="../include/opus_types.h.html#opus_int32" title='opus_int32' data-type='int32_t' data-ref="opus_int32">opus_int32</a>                  <dfn class="local col9 decl" id="59order" title='order' data-type='opus_int32' data-ref="59order">order</dfn>               <i>/* I    Prediction order                                            */</i></td></tr>
+<tr><th id="201">201</th><td>);</td></tr>
+<tr><th id="202">202</th><td></td></tr>
+<tr><th id="203">203</th><td><i>/* Step up function, converts reflection coefficients to prediction coefficients */</i></td></tr>
+<tr><th id="204">204</th><td><em>void</em> <dfn class="decl" id="silk_k2a" title='silk_k2a' data-ref="silk_k2a">silk_k2a</dfn>(</td></tr>
+<tr><th id="205">205</th><td>    <a class="typedef" href="../include/opus_types.h.html#opus_int32" title='opus_int32' data-type='int32_t' data-ref="opus_int32">opus_int32</a>                  *<dfn class="local col0 decl" id="60A_Q24" title='A_Q24' data-type='opus_int32 *' data-ref="60A_Q24">A_Q24</dfn>,             <i>/* O    Prediction coefficients [order] Q24                         */</i></td></tr>
+<tr><th id="206">206</th><td>    <em>const</em> <a class="typedef" href="../include/opus_types.h.html#opus_int16" title='opus_int16' data-type='int16_t' data-ref="opus_int16">opus_int16</a>            *<dfn class="local col1 decl" id="61rc_Q15" title='rc_Q15' data-type='const opus_int16 *' data-ref="61rc_Q15">rc_Q15</dfn>,            <i>/* I    Reflection coefficients [order] Q15                         */</i></td></tr>
+<tr><th id="207">207</th><td>    <em>const</em> <a class="typedef" href="../include/opus_types.h.html#opus_int32" title='opus_int32' data-type='int32_t' data-ref="opus_int32">opus_int32</a>            <dfn class="local col2 decl" id="62order" title='order' data-type='const opus_int32' data-ref="62order">order</dfn>               <i>/* I    Prediction order                                            */</i></td></tr>
+<tr><th id="208">208</th><td>);</td></tr>
+<tr><th id="209">209</th><td></td></tr>
+<tr><th id="210">210</th><td><i>/* Step up function, converts reflection coefficients to prediction coefficients */</i></td></tr>
+<tr><th id="211">211</th><td><em>void</em> <dfn class="decl" id="silk_k2a_Q16" title='silk_k2a_Q16' data-ref="silk_k2a_Q16">silk_k2a_Q16</dfn>(</td></tr>
+<tr><th id="212">212</th><td>    <a class="typedef" href="../include/opus_types.h.html#opus_int32" title='opus_int32' data-type='int32_t' data-ref="opus_int32">opus_int32</a>                  *<dfn class="local col3 decl" id="63A_Q24" title='A_Q24' data-type='opus_int32 *' data-ref="63A_Q24">A_Q24</dfn>,             <i>/* O    Prediction coefficients [order] Q24                         */</i></td></tr>
+<tr><th id="213">213</th><td>    <em>const</em> <a class="typedef" href="../include/opus_types.h.html#opus_int32" title='opus_int32' data-type='int32_t' data-ref="opus_int32">opus_int32</a>            *<dfn class="local col4 decl" id="64rc_Q16" title='rc_Q16' data-type='const opus_int32 *' data-ref="64rc_Q16">rc_Q16</dfn>,            <i>/* I    Reflection coefficients [order] Q16                         */</i></td></tr>
+<tr><th id="214">214</th><td>    <em>const</em> <a class="typedef" href="../include/opus_types.h.html#opus_int32" title='opus_int32' data-type='int32_t' data-ref="opus_int32">opus_int32</a>            <dfn class="local col5 decl" id="65order" title='order' data-type='const opus_int32' data-ref="65order">order</dfn>               <i>/* I    Prediction order                                            */</i></td></tr>
+<tr><th id="215">215</th><td>);</td></tr>
+<tr><th id="216">216</th><td></td></tr>
+<tr><th id="217">217</th><td><i>/* Apply sine window to signal vector.                              */</i></td></tr>
+<tr><th id="218">218</th><td><i>/* Window types:                                                    */</i></td></tr>
+<tr><th id="219">219</th><td><i>/*    1 -&gt; sine window from 0 to pi/2                               */</i></td></tr>
+<tr><th id="220">220</th><td><i>/*    2 -&gt; sine window from pi/2 to pi                              */</i></td></tr>
+<tr><th id="221">221</th><td><i>/* every other sample of window is linearly interpolated, for speed */</i></td></tr>
+<tr><th id="222">222</th><td><em>void</em> <dfn class="decl" id="silk_apply_sine_window" title='silk_apply_sine_window' data-ref="silk_apply_sine_window">silk_apply_sine_window</dfn>(</td></tr>
+<tr><th id="223">223</th><td>    <a class="typedef" href="../include/opus_types.h.html#opus_int16" title='opus_int16' data-type='int16_t' data-ref="opus_int16">opus_int16</a>                  <dfn class="local col6 decl" id="66px_win" title='px_win' data-type='opus_int16 *' data-ref="66px_win">px_win</dfn>[],           <i>/* O    Pointer to windowed signal                                  */</i></td></tr>
+<tr><th id="224">224</th><td>    <em>const</em> <a class="typedef" href="../include/opus_types.h.html#opus_int16" title='opus_int16' data-type='int16_t' data-ref="opus_int16">opus_int16</a>            <dfn class="local col7 decl" id="67px" title='px' data-type='const opus_int16 *' data-ref="67px">px</dfn>[],               <i>/* I    Pointer to input signal                                     */</i></td></tr>
+<tr><th id="225">225</th><td>    <em>const</em> <a class="macro" href="../include/opus_types.h.html#151" title="int" data-ref="_M/opus_int">opus_int</a>              <dfn class="local col8 decl" id="68win_type" title='win_type' data-type='const int' data-ref="68win_type">win_type</dfn>,           <i>/* I    Selects a window type                                       */</i></td></tr>
+<tr><th id="226">226</th><td>    <em>const</em> <a class="macro" href="../include/opus_types.h.html#151" title="int" data-ref="_M/opus_int">opus_int</a>              <dfn class="local col9 decl" id="69length" title='length' data-type='const int' data-ref="69length">length</dfn>              <i>/* I    Window length, multiple of 4                                */</i></td></tr>
+<tr><th id="227">227</th><td>);</td></tr>
+<tr><th id="228">228</th><td></td></tr>
+<tr><th id="229">229</th><td><i>/* Compute autocorrelation */</i></td></tr>
+<tr><th id="230">230</th><td><em>void</em> <dfn class="decl" id="silk_autocorr" title='silk_autocorr' data-ref="silk_autocorr">silk_autocorr</dfn>(</td></tr>
+<tr><th id="231">231</th><td>    <a class="typedef" href="../include/opus_types.h.html#opus_int32" title='opus_int32' data-type='int32_t' data-ref="opus_int32">opus_int32</a>                  *<dfn class="local col0 decl" id="70results" title='results' data-type='opus_int32 *' data-ref="70results">results</dfn>,           <i>/* O    Result (length correlationCount)                            */</i></td></tr>
+<tr><th id="232">232</th><td>    <a class="macro" href="../include/opus_types.h.html#151" title="int" data-ref="_M/opus_int">opus_int</a>                    *<dfn class="local col1 decl" id="71scale" title='scale' data-type='int *' data-ref="71scale">scale</dfn>,             <i>/* O    Scaling of the correlation vector                           */</i></td></tr>
+<tr><th id="233">233</th><td>    <em>const</em> <a class="typedef" href="../include/opus_types.h.html#opus_int16" title='opus_int16' data-type='int16_t' data-ref="opus_int16">opus_int16</a>            *<dfn class="local col2 decl" id="72inputData" title='inputData' data-type='const opus_int16 *' data-ref="72inputData">inputData</dfn>,         <i>/* I    Input data to correlate                                     */</i></td></tr>
+<tr><th id="234">234</th><td>    <em>const</em> <a class="macro" href="../include/opus_types.h.html#151" title="int" data-ref="_M/opus_int">opus_int</a>              <dfn class="local col3 decl" id="73inputDataSize" title='inputDataSize' data-type='const int' data-ref="73inputDataSize">inputDataSize</dfn>,      <i>/* I    Length of input                                             */</i></td></tr>
+<tr><th id="235">235</th><td>    <em>const</em> <a class="macro" href="../include/opus_types.h.html#151" title="int" data-ref="_M/opus_int">opus_int</a>              <dfn class="local col4 decl" id="74correlationCount" title='correlationCount' data-type='const int' data-ref="74correlationCount">correlationCount</dfn>,   <i>/* I    Number of correlation taps to compute                       */</i></td></tr>
+<tr><th id="236">236</th><td>    <em>int</em>                         <dfn class="local col5 decl" id="75arch" title='arch' data-type='int' data-ref="75arch">arch</dfn>                <i>/* I    Run-time architecture                                       */</i></td></tr>
+<tr><th id="237">237</th><td>);</td></tr>
+<tr><th id="238">238</th><td></td></tr>
+<tr><th id="239">239</th><td><em>void</em> <dfn class="decl" id="silk_decode_pitch" title='silk_decode_pitch' data-ref="silk_decode_pitch">silk_decode_pitch</dfn>(</td></tr>
+<tr><th id="240">240</th><td>    <a class="typedef" href="../include/opus_types.h.html#opus_int16" title='opus_int16' data-type='int16_t' data-ref="opus_int16">opus_int16</a>                  <dfn class="local col6 decl" id="76lagIndex" title='lagIndex' data-type='opus_int16' data-ref="76lagIndex">lagIndex</dfn>,           <i>/* I                                                                */</i></td></tr>
+<tr><th id="241">241</th><td>    <a class="macro" href="../include/opus_types.h.html#153" title="signed char" data-ref="_M/opus_int8">opus_int8</a>                   <dfn class="local col7 decl" id="77contourIndex" title='contourIndex' data-type='signed char' data-ref="77contourIndex">contourIndex</dfn>,       <i>/* O                                                                */</i></td></tr>
+<tr><th id="242">242</th><td>    <a class="macro" href="../include/opus_types.h.html#151" title="int" data-ref="_M/opus_int">opus_int</a>                    <dfn class="local col8 decl" id="78pitch_lags" title='pitch_lags' data-type='int *' data-ref="78pitch_lags">pitch_lags</dfn>[],       <i>/* O    4 pitch values                                              */</i></td></tr>
+<tr><th id="243">243</th><td>    <em>const</em> <a class="macro" href="../include/opus_types.h.html#151" title="int" data-ref="_M/opus_int">opus_int</a>              <dfn class="local col9 decl" id="79Fs_kHz" title='Fs_kHz' data-type='const int' data-ref="79Fs_kHz">Fs_kHz</dfn>,             <i>/* I    sampling frequency (kHz)                                    */</i></td></tr>
+<tr><th id="244">244</th><td>    <em>const</em> <a class="macro" href="../include/opus_types.h.html#151" title="int" data-ref="_M/opus_int">opus_int</a>              <dfn class="local col0 decl" id="80nb_subfr" title='nb_subfr' data-type='const int' data-ref="80nb_subfr">nb_subfr</dfn>            <i>/* I    number of sub frames                                        */</i></td></tr>
+<tr><th id="245">245</th><td>);</td></tr>
+<tr><th id="246">246</th><td></td></tr>
+<tr><th id="247">247</th><td><a class="macro" href="../include/opus_types.h.html#151" title="int" data-ref="_M/opus_int">opus_int</a> <dfn class="decl" id="silk_pitch_analysis_core" title='silk_pitch_analysis_core' data-ref="silk_pitch_analysis_core">silk_pitch_analysis_core</dfn>(                  <i>/* O    Voicing estimate: 0 voiced, 1 unvoiced                      */</i></td></tr>
+<tr><th id="248">248</th><td>    <em>const</em> <a class="typedef" href="../include/opus_types.h.html#opus_int16" title='opus_int16' data-type='int16_t' data-ref="opus_int16">opus_int16</a>            *<dfn class="local col1 decl" id="81frame" title='frame' data-type='const opus_int16 *' data-ref="81frame">frame</dfn>,             <i>/* I    Signal of length PE_FRAME_LENGTH_MS*Fs_kHz                  */</i></td></tr>
+<tr><th id="249">249</th><td>    <a class="macro" href="../include/opus_types.h.html#151" title="int" data-ref="_M/opus_int">opus_int</a>                    *<dfn class="local col2 decl" id="82pitch_out" title='pitch_out' data-type='int *' data-ref="82pitch_out">pitch_out</dfn>,         <i>/* O    4 pitch lag values                                          */</i></td></tr>
+<tr><th id="250">250</th><td>    <a class="typedef" href="../include/opus_types.h.html#opus_int16" title='opus_int16' data-type='int16_t' data-ref="opus_int16">opus_int16</a>                  *<dfn class="local col3 decl" id="83lagIndex" title='lagIndex' data-type='opus_int16 *' data-ref="83lagIndex">lagIndex</dfn>,          <i>/* O    Lag Index                                                   */</i></td></tr>
+<tr><th id="251">251</th><td>    <a class="macro" href="../include/opus_types.h.html#153" title="signed char" data-ref="_M/opus_int8">opus_int8</a>                   *<dfn class="local col4 decl" id="84contourIndex" title='contourIndex' data-type='signed char *' data-ref="84contourIndex">contourIndex</dfn>,      <i>/* O    Pitch contour Index                                         */</i></td></tr>
+<tr><th id="252">252</th><td>    <a class="macro" href="../include/opus_types.h.html#151" title="int" data-ref="_M/opus_int">opus_int</a>                    *<dfn class="local col5 decl" id="85LTPCorr_Q15" title='LTPCorr_Q15' data-type='int *' data-ref="85LTPCorr_Q15">LTPCorr_Q15</dfn>,       <i>/* I/O  Normalized correlation; input: value from previous frame    */</i></td></tr>
+<tr><th id="253">253</th><td>    <a class="macro" href="../include/opus_types.h.html#151" title="int" data-ref="_M/opus_int">opus_int</a>                    <dfn class="local col6 decl" id="86prevLag" title='prevLag' data-type='int' data-ref="86prevLag">prevLag</dfn>,            <i>/* I    Last lag of previous frame; set to zero is unvoiced         */</i></td></tr>
+<tr><th id="254">254</th><td>    <em>const</em> <a class="typedef" href="../include/opus_types.h.html#opus_int32" title='opus_int32' data-type='int32_t' data-ref="opus_int32">opus_int32</a>            <dfn class="local col7 decl" id="87search_thres1_Q16" title='search_thres1_Q16' data-type='const opus_int32' data-ref="87search_thres1_Q16">search_thres1_Q16</dfn>,  <i>/* I    First stage threshold for lag candidates 0 - 1              */</i></td></tr>
+<tr><th id="255">255</th><td>    <em>const</em> <a class="macro" href="../include/opus_types.h.html#151" title="int" data-ref="_M/opus_int">opus_int</a>              <dfn class="local col8 decl" id="88search_thres2_Q13" title='search_thres2_Q13' data-type='const int' data-ref="88search_thres2_Q13">search_thres2_Q13</dfn>,  <i>/* I    Final threshold for lag candidates 0 - 1                    */</i></td></tr>
+<tr><th id="256">256</th><td>    <em>const</em> <a class="macro" href="../include/opus_types.h.html#151" title="int" data-ref="_M/opus_int">opus_int</a>              <dfn class="local col9 decl" id="89Fs_kHz" title='Fs_kHz' data-type='const int' data-ref="89Fs_kHz">Fs_kHz</dfn>,             <i>/* I    Sample frequency (kHz)                                      */</i></td></tr>
+<tr><th id="257">257</th><td>    <em>const</em> <a class="macro" href="../include/opus_types.h.html#151" title="int" data-ref="_M/opus_int">opus_int</a>              <dfn class="local col0 decl" id="90complexity" title='complexity' data-type='const int' data-ref="90complexity">complexity</dfn>,         <i>/* I    Complexity setting, 0-2, where 2 is highest                 */</i></td></tr>
+<tr><th id="258">258</th><td>    <em>const</em> <a class="macro" href="../include/opus_types.h.html#151" title="int" data-ref="_M/opus_int">opus_int</a>              <dfn class="local col1 decl" id="91nb_subfr" title='nb_subfr' data-type='const int' data-ref="91nb_subfr">nb_subfr</dfn>,           <i>/* I    number of 5 ms subframes                                    */</i></td></tr>
+<tr><th id="259">259</th><td>    <em>int</em>                         <dfn class="local col2 decl" id="92arch" title='arch' data-type='int' data-ref="92arch">arch</dfn>                <i>/* I    Run-time architecture                                       */</i></td></tr>
+<tr><th id="260">260</th><td>);</td></tr>
+<tr><th id="261">261</th><td></td></tr>
+<tr><th id="262">262</th><td><i>/* Compute Normalized Line Spectral Frequencies (NLSFs) from whitening filter coefficients      */</i></td></tr>
+<tr><th id="263">263</th><td><i>/* If not all roots are found, the a_Q16 coefficients are bandwidth expanded until convergence. */</i></td></tr>
+<tr><th id="264">264</th><td><em>void</em> <a class="decl" href="A2NLSF.c.html#silk_A2NLSF" title='silk_A2NLSF' data-ref="silk_A2NLSF" id="silk_A2NLSF">silk_A2NLSF</a>(</td></tr>
+<tr><th id="265">265</th><td>    <a class="typedef" href="../include/opus_types.h.html#opus_int16" title='opus_int16' data-type='int16_t' data-ref="opus_int16">opus_int16</a>                  *<dfn class="local col3 decl" id="93NLSF" title='NLSF' data-type='opus_int16 *' data-ref="93NLSF">NLSF</dfn>,              <i>/* O    Normalized Line Spectral Frequencies in Q15 (0..2^15-1) [d] */</i></td></tr>
+<tr><th id="266">266</th><td>    <a class="typedef" href="../include/opus_types.h.html#opus_int32" title='opus_int32' data-type='int32_t' data-ref="opus_int32">opus_int32</a>                  *<dfn class="local col4 decl" id="94a_Q16" title='a_Q16' data-type='opus_int32 *' data-ref="94a_Q16">a_Q16</dfn>,             <i>/* I/O  Monic whitening filter coefficients in Q16 [d]              */</i></td></tr>
+<tr><th id="267">267</th><td>    <em>const</em> <a class="macro" href="../include/opus_types.h.html#151" title="int" data-ref="_M/opus_int">opus_int</a>              <dfn class="local col5 decl" id="95d" title='d' data-type='const int' data-ref="95d">d</dfn>                   <i>/* I    Filter order (must be even)                                 */</i></td></tr>
+<tr><th id="268">268</th><td>);</td></tr>
+<tr><th id="269">269</th><td></td></tr>
+<tr><th id="270">270</th><td><i>/* compute whitening filter coefficients from normalized line spectral frequencies */</i></td></tr>
+<tr><th id="271">271</th><td><em>void</em> <dfn class="decl" id="silk_NLSF2A" title='silk_NLSF2A' data-ref="silk_NLSF2A">silk_NLSF2A</dfn>(</td></tr>
+<tr><th id="272">272</th><td>    <a class="typedef" href="../include/opus_types.h.html#opus_int16" title='opus_int16' data-type='int16_t' data-ref="opus_int16">opus_int16</a>                  *<dfn class="local col6 decl" id="96a_Q12" title='a_Q12' data-type='opus_int16 *' data-ref="96a_Q12">a_Q12</dfn>,             <i>/* O    monic whitening filter coefficients in Q12,  [ d ]          */</i></td></tr>
+<tr><th id="273">273</th><td>    <em>const</em> <a class="typedef" href="../include/opus_types.h.html#opus_int16" title='opus_int16' data-type='int16_t' data-ref="opus_int16">opus_int16</a>            *<dfn class="local col7 decl" id="97NLSF" title='NLSF' data-type='const opus_int16 *' data-ref="97NLSF">NLSF</dfn>,              <i>/* I    normalized line spectral frequencies in Q15, [ d ]          */</i></td></tr>
+<tr><th id="274">274</th><td>    <em>const</em> <a class="macro" href="../include/opus_types.h.html#151" title="int" data-ref="_M/opus_int">opus_int</a>              <dfn class="local col8 decl" id="98d" title='d' data-type='const int' data-ref="98d">d</dfn>                   <i>/* I    filter order (should be even)                               */</i></td></tr>
+<tr><th id="275">275</th><td>);</td></tr>
+<tr><th id="276">276</th><td></td></tr>
+<tr><th id="277">277</th><td><em>void</em> <dfn class="decl" id="silk_insertion_sort_increasing" title='silk_insertion_sort_increasing' data-ref="silk_insertion_sort_increasing">silk_insertion_sort_increasing</dfn>(</td></tr>
+<tr><th id="278">278</th><td>    <a class="typedef" href="../include/opus_types.h.html#opus_int32" title='opus_int32' data-type='int32_t' data-ref="opus_int32">opus_int32</a>                  *<dfn class="local col9 decl" id="99a" title='a' data-type='opus_int32 *' data-ref="99a">a</dfn>,                 <i>/* I/O   Unsorted / Sorted vector                                   */</i></td></tr>
+<tr><th id="279">279</th><td>    <a class="macro" href="../include/opus_types.h.html#151" title="int" data-ref="_M/opus_int">opus_int</a>                    *<dfn class="local col0 decl" id="100idx" title='idx' data-type='int *' data-ref="100idx">idx</dfn>,               <i>/* O     Index vector for the sorted elements                       */</i></td></tr>
+<tr><th id="280">280</th><td>    <em>const</em> <a class="macro" href="../include/opus_types.h.html#151" title="int" data-ref="_M/opus_int">opus_int</a>              <dfn class="local col1 decl" id="101L" title='L' data-type='const int' data-ref="101L">L</dfn>,                  <i>/* I     Vector length                                              */</i></td></tr>
+<tr><th id="281">281</th><td>    <em>const</em> <a class="macro" href="../include/opus_types.h.html#151" title="int" data-ref="_M/opus_int">opus_int</a>              <dfn class="local col2 decl" id="102K" title='K' data-type='const int' data-ref="102K">K</dfn>                   <i>/* I     Number of correctly sorted positions                       */</i></td></tr>
+<tr><th id="282">282</th><td>);</td></tr>
+<tr><th id="283">283</th><td></td></tr>
+<tr><th id="284">284</th><td><em>void</em> <dfn class="decl" id="silk_insertion_sort_decreasing_int16" title='silk_insertion_sort_decreasing_int16' data-ref="silk_insertion_sort_decreasing_int16">silk_insertion_sort_decreasing_int16</dfn>(</td></tr>
+<tr><th id="285">285</th><td>    <a class="typedef" href="../include/opus_types.h.html#opus_int16" title='opus_int16' data-type='int16_t' data-ref="opus_int16">opus_int16</a>                  *<dfn class="local col3 decl" id="103a" title='a' data-type='opus_int16 *' data-ref="103a">a</dfn>,                 <i>/* I/O   Unsorted / Sorted vector                                   */</i></td></tr>
+<tr><th id="286">286</th><td>    <a class="macro" href="../include/opus_types.h.html#151" title="int" data-ref="_M/opus_int">opus_int</a>                    *<dfn class="local col4 decl" id="104idx" title='idx' data-type='int *' data-ref="104idx">idx</dfn>,               <i>/* O     Index vector for the sorted elements                       */</i></td></tr>
+<tr><th id="287">287</th><td>    <em>const</em> <a class="macro" href="../include/opus_types.h.html#151" title="int" data-ref="_M/opus_int">opus_int</a>              <dfn class="local col5 decl" id="105L" title='L' data-type='const int' data-ref="105L">L</dfn>,                  <i>/* I     Vector length                                              */</i></td></tr>
+<tr><th id="288">288</th><td>    <em>const</em> <a class="macro" href="../include/opus_types.h.html#151" title="int" data-ref="_M/opus_int">opus_int</a>              <dfn class="local col6 decl" id="106K" title='K' data-type='const int' data-ref="106K">K</dfn>                   <i>/* I     Number of correctly sorted positions                       */</i></td></tr>
+<tr><th id="289">289</th><td>);</td></tr>
+<tr><th id="290">290</th><td></td></tr>
+<tr><th id="291">291</th><td><em>void</em> <dfn class="decl" id="silk_insertion_sort_increasing_all_values_int16" title='silk_insertion_sort_increasing_all_values_int16' data-ref="silk_insertion_sort_increasing_all_values_int16">silk_insertion_sort_increasing_all_values_int16</dfn>(</td></tr>
+<tr><th id="292">292</th><td>     <a class="typedef" href="../include/opus_types.h.html#opus_int16" title='opus_int16' data-type='int16_t' data-ref="opus_int16">opus_int16</a>                 *<dfn class="local col7 decl" id="107a" title='a' data-type='opus_int16 *' data-ref="107a">a</dfn>,                 <i>/* I/O   Unsorted / Sorted vector                                   */</i></td></tr>
+<tr><th id="293">293</th><td>     <em>const</em> <a class="macro" href="../include/opus_types.h.html#151" title="int" data-ref="_M/opus_int">opus_int</a>             <dfn class="local col8 decl" id="108L" title='L' data-type='const int' data-ref="108L">L</dfn>                   <i>/* I     Vector length                                              */</i></td></tr>
+<tr><th id="294">294</th><td>);</td></tr>
+<tr><th id="295">295</th><td></td></tr>
+<tr><th id="296">296</th><td><i>/* NLSF stabilizer, for a single input data vector */</i></td></tr>
+<tr><th id="297">297</th><td><em>void</em> <dfn class="decl" id="silk_NLSF_stabilize" title='silk_NLSF_stabilize' data-ref="silk_NLSF_stabilize">silk_NLSF_stabilize</dfn>(</td></tr>
+<tr><th id="298">298</th><td>          <a class="typedef" href="../include/opus_types.h.html#opus_int16" title='opus_int16' data-type='int16_t' data-ref="opus_int16">opus_int16</a>            *<dfn class="local col9 decl" id="109NLSF_Q15" title='NLSF_Q15' data-type='opus_int16 *' data-ref="109NLSF_Q15">NLSF_Q15</dfn>,          <i>/* I/O   Unstable/stabilized normalized LSF vector in Q15 [L]       */</i></td></tr>
+<tr><th id="299">299</th><td>    <em>const</em> <a class="typedef" href="../include/opus_types.h.html#opus_int16" title='opus_int16' data-type='int16_t' data-ref="opus_int16">opus_int16</a>            *<dfn class="local col0 decl" id="110NDeltaMin_Q15" title='NDeltaMin_Q15' data-type='const opus_int16 *' data-ref="110NDeltaMin_Q15">NDeltaMin_Q15</dfn>,     <i>/* I     Min distance vector, NDeltaMin_Q15[L] must be &gt;= 1 [L+1]   */</i></td></tr>
+<tr><th id="300">300</th><td>    <em>const</em> <a class="macro" href="../include/opus_types.h.html#151" title="int" data-ref="_M/opus_int">opus_int</a>              <dfn class="local col1 decl" id="111L" title='L' data-type='const int' data-ref="111L">L</dfn>                   <i>/* I     Number of NLSF parameters in the input vector              */</i></td></tr>
+<tr><th id="301">301</th><td>);</td></tr>
+<tr><th id="302">302</th><td></td></tr>
+<tr><th id="303">303</th><td><i>/* Laroia low complexity NLSF weights */</i></td></tr>
+<tr><th id="304">304</th><td><em>void</em> <dfn class="decl" id="silk_NLSF_VQ_weights_laroia" title='silk_NLSF_VQ_weights_laroia' data-ref="silk_NLSF_VQ_weights_laroia">silk_NLSF_VQ_weights_laroia</dfn>(</td></tr>
+<tr><th id="305">305</th><td>    <a class="typedef" href="../include/opus_types.h.html#opus_int16" title='opus_int16' data-type='int16_t' data-ref="opus_int16">opus_int16</a>                  *<dfn class="local col2 decl" id="112pNLSFW_Q_OUT" title='pNLSFW_Q_OUT' data-type='opus_int16 *' data-ref="112pNLSFW_Q_OUT">pNLSFW_Q_OUT</dfn>,      <i>/* O     Pointer to input vector weights [D]                        */</i></td></tr>
+<tr><th id="306">306</th><td>    <em>const</em> <a class="typedef" href="../include/opus_types.h.html#opus_int16" title='opus_int16' data-type='int16_t' data-ref="opus_int16">opus_int16</a>            *<dfn class="local col3 decl" id="113pNLSF_Q15" title='pNLSF_Q15' data-type='const opus_int16 *' data-ref="113pNLSF_Q15">pNLSF_Q15</dfn>,         <i>/* I     Pointer to input vector         [D]                        */</i></td></tr>
+<tr><th id="307">307</th><td>    <em>const</em> <a class="macro" href="../include/opus_types.h.html#151" title="int" data-ref="_M/opus_int">opus_int</a>              <dfn class="local col4 decl" id="114D" title='D' data-type='const int' data-ref="114D">D</dfn>                   <i>/* I     Input vector dimension (even)                              */</i></td></tr>
+<tr><th id="308">308</th><td>);</td></tr>
+<tr><th id="309">309</th><td></td></tr>
+<tr><th id="310">310</th><td><i>/* Compute reflection coefficients from input signal */</i></td></tr>
+<tr><th id="311">311</th><td><em>void</em> <dfn class="decl" id="silk_burg_modified_c" title='silk_burg_modified_c' data-ref="silk_burg_modified_c">silk_burg_modified_c</dfn>(</td></tr>
+<tr><th id="312">312</th><td>    <a class="typedef" href="../include/opus_types.h.html#opus_int32" title='opus_int32' data-type='int32_t' data-ref="opus_int32">opus_int32</a>                  *<dfn class="local col5 decl" id="115res_nrg" title='res_nrg' data-type='opus_int32 *' data-ref="115res_nrg">res_nrg</dfn>,           <i>/* O    Residual energy                                             */</i></td></tr>
+<tr><th id="313">313</th><td>    <a class="macro" href="../include/opus_types.h.html#151" title="int" data-ref="_M/opus_int">opus_int</a>                    *<dfn class="local col6 decl" id="116res_nrg_Q" title='res_nrg_Q' data-type='int *' data-ref="116res_nrg_Q">res_nrg_Q</dfn>,         <i>/* O    Residual energy Q value                                     */</i></td></tr>
+<tr><th id="314">314</th><td>    <a class="typedef" href="../include/opus_types.h.html#opus_int32" title='opus_int32' data-type='int32_t' data-ref="opus_int32">opus_int32</a>                  <dfn class="local col7 decl" id="117A_Q16" title='A_Q16' data-type='opus_int32 *' data-ref="117A_Q16">A_Q16</dfn>[],            <i>/* O    Prediction coefficients (length order)                      */</i></td></tr>
+<tr><th id="315">315</th><td>    <em>const</em> <a class="typedef" href="../include/opus_types.h.html#opus_int16" title='opus_int16' data-type='int16_t' data-ref="opus_int16">opus_int16</a>            <dfn class="local col8 decl" id="118x" title='x' data-type='const opus_int16 *' data-ref="118x">x</dfn>[],                <i>/* I    Input signal, length: nb_subfr * ( D + subfr_length )       */</i></td></tr>
+<tr><th id="316">316</th><td>    <em>const</em> <a class="typedef" href="../include/opus_types.h.html#opus_int32" title='opus_int32' data-type='int32_t' data-ref="opus_int32">opus_int32</a>            <dfn class="local col9 decl" id="119minInvGain_Q30" title='minInvGain_Q30' data-type='const opus_int32' data-ref="119minInvGain_Q30">minInvGain_Q30</dfn>,     <i>/* I    Inverse of max prediction gain                              */</i></td></tr>
+<tr><th id="317">317</th><td>    <em>const</em> <a class="macro" href="../include/opus_types.h.html#151" title="int" data-ref="_M/opus_int">opus_int</a>              <dfn class="local col0 decl" id="120subfr_length" title='subfr_length' data-type='const int' data-ref="120subfr_length">subfr_length</dfn>,       <i>/* I    Input signal subframe length (incl. D preceding samples)    */</i></td></tr>
+<tr><th id="318">318</th><td>    <em>const</em> <a class="macro" href="../include/opus_types.h.html#151" title="int" data-ref="_M/opus_int">opus_int</a>              <dfn class="local col1 decl" id="121nb_subfr" title='nb_subfr' data-type='const int' data-ref="121nb_subfr">nb_subfr</dfn>,           <i>/* I    Number of subframes stacked in x                            */</i></td></tr>
+<tr><th id="319">319</th><td>    <em>const</em> <a class="macro" href="../include/opus_types.h.html#151" title="int" data-ref="_M/opus_int">opus_int</a>              <dfn class="local col2 decl" id="122D" title='D' data-type='const int' data-ref="122D">D</dfn>,                  <i>/* I    Order                                                       */</i></td></tr>
+<tr><th id="320">320</th><td>    <em>int</em>                         <dfn class="local col3 decl" id="123arch" title='arch' data-type='int' data-ref="123arch">arch</dfn>                <i>/* I    Run-time architecture                                       */</i></td></tr>
+<tr><th id="321">321</th><td>);</td></tr>
+<tr><th id="322">322</th><td></td></tr>
+<tr><th id="323">323</th><td><i>/* Copy and multiply a vector by a constant */</i></td></tr>
+<tr><th id="324">324</th><td><em>void</em> <dfn class="decl" id="silk_scale_copy_vector16" title='silk_scale_copy_vector16' data-ref="silk_scale_copy_vector16">silk_scale_copy_vector16</dfn>(</td></tr>
+<tr><th id="325">325</th><td>    <a class="typedef" href="../include/opus_types.h.html#opus_int16" title='opus_int16' data-type='int16_t' data-ref="opus_int16">opus_int16</a>                  *<dfn class="local col4 decl" id="124data_out" title='data_out' data-type='opus_int16 *' data-ref="124data_out">data_out</dfn>,</td></tr>
+<tr><th id="326">326</th><td>    <em>const</em> <a class="typedef" href="../include/opus_types.h.html#opus_int16" title='opus_int16' data-type='int16_t' data-ref="opus_int16">opus_int16</a>            *<dfn class="local col5 decl" id="125data_in" title='data_in' data-type='const opus_int16 *' data-ref="125data_in">data_in</dfn>,</td></tr>
+<tr><th id="327">327</th><td>    <a class="typedef" href="../include/opus_types.h.html#opus_int32" title='opus_int32' data-type='int32_t' data-ref="opus_int32">opus_int32</a>                  <dfn class="local col6 decl" id="126gain_Q16" title='gain_Q16' data-type='opus_int32' data-ref="126gain_Q16">gain_Q16</dfn>,           <i>/* I    Gain in Q16                                                 */</i></td></tr>
+<tr><th id="328">328</th><td>    <em>const</em> <a class="macro" href="../include/opus_types.h.html#151" title="int" data-ref="_M/opus_int">opus_int</a>              <dfn class="local col7 decl" id="127dataSize" title='dataSize' data-type='const int' data-ref="127dataSize">dataSize</dfn>            <i>/* I    Length                                                      */</i></td></tr>
+<tr><th id="329">329</th><td>);</td></tr>
+<tr><th id="330">330</th><td></td></tr>
+<tr><th id="331">331</th><td><i>/* Some for the LTP related function requires Q26 to work.*/</i></td></tr>
+<tr><th id="332">332</th><td><em>void</em> <dfn class="decl" id="silk_scale_vector32_Q26_lshift_18" title='silk_scale_vector32_Q26_lshift_18' data-ref="silk_scale_vector32_Q26_lshift_18">silk_scale_vector32_Q26_lshift_18</dfn>(</td></tr>
+<tr><th id="333">333</th><td>    <a class="typedef" href="../include/opus_types.h.html#opus_int32" title='opus_int32' data-type='int32_t' data-ref="opus_int32">opus_int32</a>                  *<dfn class="local col8 decl" id="128data1" title='data1' data-type='opus_int32 *' data-ref="128data1">data1</dfn>,             <i>/* I/O  Q0/Q18                                                      */</i></td></tr>
+<tr><th id="334">334</th><td>    <a class="typedef" href="../include/opus_types.h.html#opus_int32" title='opus_int32' data-type='int32_t' data-ref="opus_int32">opus_int32</a>                  <dfn class="local col9 decl" id="129gain_Q26" title='gain_Q26' data-type='opus_int32' data-ref="129gain_Q26">gain_Q26</dfn>,           <i>/* I    Q26                                                         */</i></td></tr>
+<tr><th id="335">335</th><td>    <a class="macro" href="../include/opus_types.h.html#151" title="int" data-ref="_M/opus_int">opus_int</a>                    <dfn class="local col0 decl" id="130dataSize" title='dataSize' data-type='int' data-ref="130dataSize">dataSize</dfn>            <i>/* I    length                                                      */</i></td></tr>
+<tr><th id="336">336</th><td>);</td></tr>
+<tr><th id="337">337</th><td></td></tr>
+<tr><th id="338">338</th><td><i>/********************************************************************/</i></td></tr>
+<tr><th id="339">339</th><td><i>/*                        INLINE ARM MATH                           */</i></td></tr>
+<tr><th id="340">340</th><td><i>/********************************************************************/</i></td></tr>
+<tr><th id="341">341</th><td></td></tr>
+<tr><th id="342">342</th><td><i>/*    return sum( inVec1[i] * inVec2[i] ) */</i></td></tr>
+<tr><th id="343">343</th><td></td></tr>
+<tr><th id="344">344</th><td><a class="typedef" href="../include/opus_types.h.html#opus_int32" title='opus_int32' data-type='int32_t' data-ref="opus_int32">opus_int32</a> <dfn class="decl" id="silk_inner_prod_aligned" title='silk_inner_prod_aligned' data-ref="silk_inner_prod_aligned">silk_inner_prod_aligned</dfn>(</td></tr>
+<tr><th id="345">345</th><td>    <em>const</em> <a class="typedef" href="../include/opus_types.h.html#opus_int16" title='opus_int16' data-type='int16_t' data-ref="opus_int16">opus_int16</a> *<em>const</em>     <dfn class="local col1 decl" id="131inVec1" title='inVec1' data-type='const opus_int16 *const' data-ref="131inVec1">inVec1</dfn>,             <i>/*    I input vector 1                                              */</i></td></tr>
+<tr><th id="346">346</th><td>    <em>const</em> <a class="typedef" href="../include/opus_types.h.html#opus_int16" title='opus_int16' data-type='int16_t' data-ref="opus_int16">opus_int16</a> *<em>const</em>     <dfn class="local col2 decl" id="132inVec2" title='inVec2' data-type='const opus_int16 *const' data-ref="132inVec2">inVec2</dfn>,             <i>/*    I input vector 2                                              */</i></td></tr>
+<tr><th id="347">347</th><td>    <em>const</em> <a class="macro" href="../include/opus_types.h.html#151" title="int" data-ref="_M/opus_int">opus_int</a>              <dfn class="local col3 decl" id="133len" title='len' data-type='const int' data-ref="133len">len</dfn>,                <i>/*    I vector lengths                                              */</i></td></tr>
+<tr><th id="348">348</th><td>    <em>int</em>                         <dfn class="local col4 decl" id="134arch" title='arch' data-type='int' data-ref="134arch">arch</dfn>                <i>/*    I Run-time architecture                                       */</i></td></tr>
+<tr><th id="349">349</th><td>);</td></tr>
+<tr><th id="350">350</th><td></td></tr>
+<tr><th id="351">351</th><td></td></tr>
+<tr><th id="352">352</th><td><a class="typedef" href="../include/opus_types.h.html#opus_int32" title='opus_int32' data-type='int32_t' data-ref="opus_int32">opus_int32</a> <dfn class="decl" id="silk_inner_prod_aligned_scale" title='silk_inner_prod_aligned_scale' data-ref="silk_inner_prod_aligned_scale">silk_inner_prod_aligned_scale</dfn>(</td></tr>
+<tr><th id="353">353</th><td>    <em>const</em> <a class="typedef" href="../include/opus_types.h.html#opus_int16" title='opus_int16' data-type='int16_t' data-ref="opus_int16">opus_int16</a> *<em>const</em>     <dfn class="local col5 decl" id="135inVec1" title='inVec1' data-type='const opus_int16 *const' data-ref="135inVec1">inVec1</dfn>,             <i>/*    I input vector 1                                              */</i></td></tr>
+<tr><th id="354">354</th><td>    <em>const</em> <a class="typedef" href="../include/opus_types.h.html#opus_int16" title='opus_int16' data-type='int16_t' data-ref="opus_int16">opus_int16</a> *<em>const</em>     <dfn class="local col6 decl" id="136inVec2" title='inVec2' data-type='const opus_int16 *const' data-ref="136inVec2">inVec2</dfn>,             <i>/*    I input vector 2                                              */</i></td></tr>
+<tr><th id="355">355</th><td>    <em>const</em> <a class="macro" href="../include/opus_types.h.html#151" title="int" data-ref="_M/opus_int">opus_int</a>              <dfn class="local col7 decl" id="137scale" title='scale' data-type='const int' data-ref="137scale">scale</dfn>,              <i>/*    I number of bits to shift                                     */</i></td></tr>
+<tr><th id="356">356</th><td>    <em>const</em> <a class="macro" href="../include/opus_types.h.html#151" title="int" data-ref="_M/opus_int">opus_int</a>              <dfn class="local col8 decl" id="138len" title='len' data-type='const int' data-ref="138len">len</dfn>                 <i>/*    I vector lengths                                              */</i></td></tr>
+<tr><th id="357">357</th><td>);</td></tr>
+<tr><th id="358">358</th><td></td></tr>
+<tr><th id="359">359</th><td><a class="macro" href="../include/opus_types.h.html#152" title="long long" data-ref="_M/opus_int64">opus_int64</a> <dfn class="decl" id="silk_inner_prod16_aligned_64_c" title='silk_inner_prod16_aligned_64_c' data-ref="silk_inner_prod16_aligned_64_c">silk_inner_prod16_aligned_64_c</dfn>(</td></tr>
+<tr><th id="360">360</th><td>    <em>const</em> <a class="typedef" href="../include/opus_types.h.html#opus_int16" title='opus_int16' data-type='int16_t' data-ref="opus_int16">opus_int16</a>            *<dfn class="local col9 decl" id="139inVec1" title='inVec1' data-type='const opus_int16 *' data-ref="139inVec1">inVec1</dfn>,            <i>/*    I input vector 1                                              */</i></td></tr>
+<tr><th id="361">361</th><td>    <em>const</em> <a class="typedef" href="../include/opus_types.h.html#opus_int16" title='opus_int16' data-type='int16_t' data-ref="opus_int16">opus_int16</a>            *<dfn class="local col0 decl" id="140inVec2" title='inVec2' data-type='const opus_int16 *' data-ref="140inVec2">inVec2</dfn>,            <i>/*    I input vector 2                                              */</i></td></tr>
+<tr><th id="362">362</th><td>    <em>const</em> <a class="macro" href="../include/opus_types.h.html#151" title="int" data-ref="_M/opus_int">opus_int</a>              <dfn class="local col1 decl" id="141len" title='len' data-type='const int' data-ref="141len">len</dfn>                 <i>/*    I vector lengths                                              */</i></td></tr>
+<tr><th id="363">363</th><td>);</td></tr>
+<tr><th id="364">364</th><td></td></tr>
+<tr><th id="365">365</th><td><i>/********************************************************************/</i></td></tr>
+<tr><th id="366">366</th><td><i>/*                                MACROS                            */</i></td></tr>
+<tr><th id="367">367</th><td><i>/********************************************************************/</i></td></tr>
+<tr><th id="368">368</th><td></td></tr>
+<tr><th id="369">369</th><td><i>/* Rotate a32 right by 'rot' bits. Negative rot values result in rotating</i></td></tr>
+<tr><th id="370">370</th><td><i>   left. Output is 32bit int.</i></td></tr>
+<tr><th id="371">371</th><td><i>   Note: contemporary compilers recognize the C expression below and</i></td></tr>
+<tr><th id="372">372</th><td><i>   compile it into a 'ror' instruction if available. No need for OPUS_INLINE ASM! */</i></td></tr>
+<tr><th id="373">373</th><td><em>static</em> <a class="macro" href="../include/opus_defines.h.html#110" title="inline" data-ref="_M/OPUS_INLINE">OPUS_INLINE</a> <a class="typedef" href="../include/opus_types.h.html#opus_int32" title='opus_int32' data-type='int32_t' data-ref="opus_int32">opus_int32</a> <dfn class="decl def" id="silk_ROR32" title='silk_ROR32' data-ref="silk_ROR32">silk_ROR32</dfn>( <a class="typedef" href="../include/opus_types.h.html#opus_int32" title='opus_int32' data-type='int32_t' data-ref="opus_int32">opus_int32</a> <dfn class="local col2 decl" id="142a32" title='a32' data-type='opus_int32' data-ref="142a32">a32</dfn>, <a class="macro" href="../include/opus_types.h.html#151" title="int" data-ref="_M/opus_int">opus_int</a> <dfn class="local col3 decl" id="143rot" title='rot' data-type='int' data-ref="143rot">rot</dfn> )</td></tr>
+<tr><th id="374">374</th><td>{</td></tr>
+<tr><th id="375">375</th><td>    <a class="typedef" href="../include/opus_types.h.html#opus_uint32" title='opus_uint32' data-type='uint32_t' data-ref="opus_uint32">opus_uint32</a> <dfn class="local col4 decl" id="144x" title='x' data-type='opus_uint32' data-ref="144x">x</dfn> = (<a class="typedef" href="../include/opus_types.h.html#opus_uint32" title='opus_uint32' data-type='uint32_t' data-ref="opus_uint32">opus_uint32</a>) <a class="local col2 ref" href="#142a32" title='a32' data-ref="142a32">a32</a>;</td></tr>
+<tr><th id="376">376</th><td>    <a class="typedef" href="../include/opus_types.h.html#opus_uint32" title='opus_uint32' data-type='uint32_t' data-ref="opus_uint32">opus_uint32</a> <dfn class="local col5 decl" id="145r" title='r' data-type='opus_uint32' data-ref="145r">r</dfn> = (<a class="typedef" href="../include/opus_types.h.html#opus_uint32" title='opus_uint32' data-type='uint32_t' data-ref="opus_uint32">opus_uint32</a>) <a class="local col3 ref" href="#143rot" title='rot' data-ref="143rot">rot</a>;</td></tr>
+<tr><th id="377">377</th><td>    <a class="typedef" href="../include/opus_types.h.html#opus_uint32" title='opus_uint32' data-type='uint32_t' data-ref="opus_uint32">opus_uint32</a> <dfn class="local col6 decl" id="146m" title='m' data-type='opus_uint32' data-ref="146m">m</dfn> = (<a class="typedef" href="../include/opus_types.h.html#opus_uint32" title='opus_uint32' data-type='uint32_t' data-ref="opus_uint32">opus_uint32</a>) -<a class="local col3 ref" href="#143rot" title='rot' data-ref="143rot">rot</a>;</td></tr>
+<tr><th id="378">378</th><td>    <b>if</b>( <a class="local col3 ref" href="#143rot" title='rot' data-ref="143rot">rot</a> == <var>0</var> ) {</td></tr>
+<tr><th id="379">379</th><td>        <b>return</b> <a class="local col2 ref" href="#142a32" title='a32' data-ref="142a32">a32</a>;</td></tr>
+<tr><th id="380">380</th><td>    } <b>else</b> <b>if</b>( <a class="local col3 ref" href="#143rot" title='rot' data-ref="143rot">rot</a> &lt; <var>0</var> ) {</td></tr>
+<tr><th id="381">381</th><td>        <b>return</b> (<a class="typedef" href="../include/opus_types.h.html#opus_int32" title='opus_int32' data-type='int32_t' data-ref="opus_int32">opus_int32</a>) ((<a class="local col4 ref" href="#144x" title='x' data-ref="144x">x</a> &lt;&lt; <a class="local col6 ref" href="#146m" title='m' data-ref="146m">m</a>) | (<a class="local col4 ref" href="#144x" title='x' data-ref="144x">x</a> &gt;&gt; (<var>32</var> - <a class="local col6 ref" href="#146m" title='m' data-ref="146m">m</a>)));</td></tr>
+<tr><th id="382">382</th><td>    } <b>else</b> {</td></tr>
+<tr><th id="383">383</th><td>        <b>return</b> (<a class="typedef" href="../include/opus_types.h.html#opus_int32" title='opus_int32' data-type='int32_t' data-ref="opus_int32">opus_int32</a>) ((<a class="local col4 ref" href="#144x" title='x' data-ref="144x">x</a> &lt;&lt; (<var>32</var> - <a class="local col5 ref" href="#145r" title='r' data-ref="145r">r</a>)) | (<a class="local col4 ref" href="#144x" title='x' data-ref="144x">x</a> &gt;&gt; <a class="local col5 ref" href="#145r" title='r' data-ref="145r">r</a>));</td></tr>
+<tr><th id="384">384</th><td>    }</td></tr>
+<tr><th id="385">385</th><td>}</td></tr>
+<tr><th id="386">386</th><td></td></tr>
+<tr><th id="387">387</th><td><i>/* Allocate opus_int16 aligned to 4-byte memory address */</i></td></tr>
+<tr><th id="388">388</th><td><u>#<span data-ppcond="388">if</span> EMBEDDED_ARM</u></td></tr>
+<tr><th id="389">389</th><td><u>#define silk_DWORD_ALIGN __attribute__((aligned(4)))</u></td></tr>
+<tr><th id="390">390</th><td><u>#<span data-ppcond="388">else</span></u></td></tr>
+<tr><th id="391">391</th><td><u>#define <dfn class="macro" id="_M/silk_DWORD_ALIGN" data-ref="_M/silk_DWORD_ALIGN">silk_DWORD_ALIGN</dfn></u></td></tr>
+<tr><th id="392">392</th><td><u>#<span data-ppcond="388">endif</span></u></td></tr>
+<tr><th id="393">393</th><td></td></tr>
+<tr><th id="394">394</th><td><i>/* Useful Macros that can be adjusted to other platforms */</i></td></tr>
+<tr><th id="395">395</th><td><u>#define <dfn class="macro" id="_M/silk_memcpy" data-ref="_M/silk_memcpy">silk_memcpy</dfn>(dest, src, size)        memcpy((dest), (src), (size))</u></td></tr>
+<tr><th id="396">396</th><td><u>#define <dfn class="macro" id="_M/silk_memset" data-ref="_M/silk_memset">silk_memset</dfn>(dest, src, size)        memset((dest), (src), (size))</u></td></tr>
+<tr><th id="397">397</th><td><u>#define <dfn class="macro" id="_M/silk_memmove" data-ref="_M/silk_memmove">silk_memmove</dfn>(dest, src, size)       memmove((dest), (src), (size))</u></td></tr>
+<tr><th id="398">398</th><td></td></tr>
+<tr><th id="399">399</th><td><i>/* Fixed point macros */</i></td></tr>
+<tr><th id="400">400</th><td></td></tr>
+<tr><th id="401">401</th><td><i>/* (a32 * b32) output have to be 32bit int */</i></td></tr>
+<tr><th id="402">402</th><td><u>#define <dfn class="macro" id="_M/silk_MUL" data-ref="_M/silk_MUL">silk_MUL</dfn>(a32, b32)                  ((a32) * (b32))</u></td></tr>
+<tr><th id="403">403</th><td></td></tr>
+<tr><th id="404">404</th><td><i>/* (a32 * b32) output have to be 32bit uint */</i></td></tr>
+<tr><th id="405">405</th><td><u>#define <dfn class="macro" id="_M/silk_MUL_uint" data-ref="_M/silk_MUL_uint">silk_MUL_uint</dfn>(a32, b32)             silk_MUL(a32, b32)</u></td></tr>
+<tr><th id="406">406</th><td></td></tr>
+<tr><th id="407">407</th><td><i>/* a32 + (b32 * c32) output have to be 32bit int */</i></td></tr>
+<tr><th id="408">408</th><td><u>#define <dfn class="macro" id="_M/silk_MLA" data-ref="_M/silk_MLA">silk_MLA</dfn>(a32, b32, c32)             silk_ADD32((a32),((b32) * (c32)))</u></td></tr>
+<tr><th id="409">409</th><td></td></tr>
+<tr><th id="410">410</th><td><i>/* a32 + (b32 * c32) output have to be 32bit uint */</i></td></tr>
+<tr><th id="411">411</th><td><u>#define <dfn class="macro" id="_M/silk_MLA_uint" data-ref="_M/silk_MLA_uint">silk_MLA_uint</dfn>(a32, b32, c32)        silk_MLA(a32, b32, c32)</u></td></tr>
+<tr><th id="412">412</th><td></td></tr>
+<tr><th id="413">413</th><td><i>/* ((a32 &gt;&gt; 16)  * (b32 &gt;&gt; 16)) output have to be 32bit int */</i></td></tr>
+<tr><th id="414">414</th><td><u>#define <dfn class="macro" id="_M/silk_SMULTT" data-ref="_M/silk_SMULTT">silk_SMULTT</dfn>(a32, b32)               (((a32) &gt;&gt; 16) * ((b32) &gt;&gt; 16))</u></td></tr>
+<tr><th id="415">415</th><td></td></tr>
+<tr><th id="416">416</th><td><i>/* a32 + ((a32 &gt;&gt; 16)  * (b32 &gt;&gt; 16)) output have to be 32bit int */</i></td></tr>
+<tr><th id="417">417</th><td><u>#define <dfn class="macro" id="_M/silk_SMLATT" data-ref="_M/silk_SMLATT">silk_SMLATT</dfn>(a32, b32, c32)          silk_ADD32((a32),((b32) &gt;&gt; 16) * ((c32) &gt;&gt; 16))</u></td></tr>
+<tr><th id="418">418</th><td></td></tr>
+<tr><th id="419">419</th><td><u>#define <dfn class="macro" id="_M/silk_SMLALBB" data-ref="_M/silk_SMLALBB">silk_SMLALBB</dfn>(a64, b16, c16)         silk_ADD64((a64),(opus_int64)((opus_int32)(b16) * (opus_int32)(c16)))</u></td></tr>
+<tr><th id="420">420</th><td></td></tr>
+<tr><th id="421">421</th><td><i>/* (a32 * b32) */</i></td></tr>
+<tr><th id="422">422</th><td><u>#define <dfn class="macro" id="_M/silk_SMULL" data-ref="_M/silk_SMULL">silk_SMULL</dfn>(a32, b32)                ((opus_int64)(a32) * /*(opus_int64)*/(b32))</u></td></tr>
+<tr><th id="423">423</th><td></td></tr>
+<tr><th id="424">424</th><td><i>/* Adds two signed 32-bit values in a way that can overflow, while not relying on undefined behaviour</i></td></tr>
+<tr><th id="425">425</th><td><i>   (just standard two's complement implementation-specific behaviour) */</i></td></tr>
+<tr><th id="426">426</th><td><u>#define <dfn class="macro" id="_M/silk_ADD32_ovflw" data-ref="_M/silk_ADD32_ovflw">silk_ADD32_ovflw</dfn>(a, b)              ((opus_int32)((opus_uint32)(a) + (opus_uint32)(b)))</u></td></tr>
+<tr><th id="427">427</th><td><i>/* Subtractss two signed 32-bit values in a way that can overflow, while not relying on undefined behaviour</i></td></tr>
+<tr><th id="428">428</th><td><i>   (just standard two's complement implementation-specific behaviour) */</i></td></tr>
+<tr><th id="429">429</th><td><u>#define <dfn class="macro" id="_M/silk_SUB32_ovflw" data-ref="_M/silk_SUB32_ovflw">silk_SUB32_ovflw</dfn>(a, b)              ((opus_int32)((opus_uint32)(a) - (opus_uint32)(b)))</u></td></tr>
+<tr><th id="430">430</th><td></td></tr>
+<tr><th id="431">431</th><td><i>/* Multiply-accumulate macros that allow overflow in the addition (ie, no asserts in debug mode) */</i></td></tr>
+<tr><th id="432">432</th><td><u>#define <dfn class="macro" id="_M/silk_MLA_ovflw" data-ref="_M/silk_MLA_ovflw">silk_MLA_ovflw</dfn>(a32, b32, c32)       silk_ADD32_ovflw((a32), (opus_uint32)(b32) * (opus_uint32)(c32))</u></td></tr>
+<tr><th id="433">433</th><td><u>#define <dfn class="macro" id="_M/silk_SMLABB_ovflw" data-ref="_M/silk_SMLABB_ovflw">silk_SMLABB_ovflw</dfn>(a32, b32, c32)    (silk_ADD32_ovflw((a32) , ((opus_int32)((opus_int16)(b32))) * (opus_int32)((opus_int16)(c32))))</u></td></tr>
+<tr><th id="434">434</th><td></td></tr>
+<tr><th id="435">435</th><td><u>#define <dfn class="macro" id="_M/silk_DIV32_16" data-ref="_M/silk_DIV32_16">silk_DIV32_16</dfn>(a32, b16)             ((opus_int32)((a32) / (b16)))</u></td></tr>
+<tr><th id="436">436</th><td><u>#define <dfn class="macro" id="_M/silk_DIV32" data-ref="_M/silk_DIV32">silk_DIV32</dfn>(a32, b32)                ((opus_int32)((a32) / (b32)))</u></td></tr>
+<tr><th id="437">437</th><td></td></tr>
+<tr><th id="438">438</th><td><i>/* These macros enables checking for overflow in silk_API_Debug.h*/</i></td></tr>
+<tr><th id="439">439</th><td><u>#define <dfn class="macro" id="_M/silk_ADD16" data-ref="_M/silk_ADD16">silk_ADD16</dfn>(a, b)                    ((a) + (b))</u></td></tr>
+<tr><th id="440">440</th><td><u>#define <dfn class="macro" id="_M/silk_ADD32" data-ref="_M/silk_ADD32">silk_ADD32</dfn>(a, b)                    ((a) + (b))</u></td></tr>
+<tr><th id="441">441</th><td><u>#define <dfn class="macro" id="_M/silk_ADD64" data-ref="_M/silk_ADD64">silk_ADD64</dfn>(a, b)                    ((a) + (b))</u></td></tr>
+<tr><th id="442">442</th><td></td></tr>
+<tr><th id="443">443</th><td><u>#define <dfn class="macro" id="_M/silk_SUB16" data-ref="_M/silk_SUB16">silk_SUB16</dfn>(a, b)                    ((a) - (b))</u></td></tr>
+<tr><th id="444">444</th><td><u>#define <dfn class="macro" id="_M/silk_SUB32" data-ref="_M/silk_SUB32">silk_SUB32</dfn>(a, b)                    ((a) - (b))</u></td></tr>
+<tr><th id="445">445</th><td><u>#define <dfn class="macro" id="_M/silk_SUB64" data-ref="_M/silk_SUB64">silk_SUB64</dfn>(a, b)                    ((a) - (b))</u></td></tr>
+<tr><th id="446">446</th><td></td></tr>
+<tr><th id="447">447</th><td><u>#define <dfn class="macro" id="_M/silk_SAT8" data-ref="_M/silk_SAT8">silk_SAT8</dfn>(a)                        ((a) &gt; silk_int8_MAX ? silk_int8_MAX  :       \</u></td></tr>
+<tr><th id="448">448</th><td><u>                                            ((a) &lt; silk_int8_MIN ? silk_int8_MIN  : (a)))</u></td></tr>
+<tr><th id="449">449</th><td><u>#define <dfn class="macro" id="_M/silk_SAT16" data-ref="_M/silk_SAT16">silk_SAT16</dfn>(a)                       ((a) &gt; silk_int16_MAX ? silk_int16_MAX :      \</u></td></tr>
+<tr><th id="450">450</th><td><u>                                            ((a) &lt; silk_int16_MIN ? silk_int16_MIN : (a)))</u></td></tr>
+<tr><th id="451">451</th><td><u>#define <dfn class="macro" id="_M/silk_SAT32" data-ref="_M/silk_SAT32">silk_SAT32</dfn>(a)                       ((a) &gt; silk_int32_MAX ? silk_int32_MAX :      \</u></td></tr>
+<tr><th id="452">452</th><td><u>                                            ((a) &lt; silk_int32_MIN ? silk_int32_MIN : (a)))</u></td></tr>
+<tr><th id="453">453</th><td></td></tr>
+<tr><th id="454">454</th><td><u>#define <dfn class="macro" id="_M/silk_CHECK_FIT8" data-ref="_M/silk_CHECK_FIT8">silk_CHECK_FIT8</dfn>(a)                  (a)</u></td></tr>
+<tr><th id="455">455</th><td><u>#define <dfn class="macro" id="_M/silk_CHECK_FIT16" data-ref="_M/silk_CHECK_FIT16">silk_CHECK_FIT16</dfn>(a)                 (a)</u></td></tr>
+<tr><th id="456">456</th><td><u>#define <dfn class="macro" id="_M/silk_CHECK_FIT32" data-ref="_M/silk_CHECK_FIT32">silk_CHECK_FIT32</dfn>(a)                 (a)</u></td></tr>
+<tr><th id="457">457</th><td></td></tr>
+<tr><th id="458">458</th><td><u>#define <dfn class="macro" id="_M/silk_ADD_SAT16" data-ref="_M/silk_ADD_SAT16">silk_ADD_SAT16</dfn>(a, b)                (opus_int16)silk_SAT16( silk_ADD32( (opus_int32)(a), (b) ) )</u></td></tr>
+<tr><th id="459">459</th><td><u>#define <dfn class="macro" id="_M/silk_ADD_SAT64" data-ref="_M/silk_ADD_SAT64">silk_ADD_SAT64</dfn>(a, b)                ((((a) + (b)) &amp; 0x8000000000000000LL) == 0 ?                            \</u></td></tr>
+<tr><th id="460">460</th><td><u>                                            ((((a) &amp; (b)) &amp; 0x8000000000000000LL) != 0 ? silk_int64_MIN : (a)+(b)) : \</u></td></tr>
+<tr><th id="461">461</th><td><u>                                            ((((a) | (b)) &amp; 0x8000000000000000LL) == 0 ? silk_int64_MAX : (a)+(b)) )</u></td></tr>
+<tr><th id="462">462</th><td></td></tr>
+<tr><th id="463">463</th><td><u>#define <dfn class="macro" id="_M/silk_SUB_SAT16" data-ref="_M/silk_SUB_SAT16">silk_SUB_SAT16</dfn>(a, b)                (opus_int16)silk_SAT16( silk_SUB32( (opus_int32)(a), (b) ) )</u></td></tr>
+<tr><th id="464">464</th><td><u>#define <dfn class="macro" id="_M/silk_SUB_SAT64" data-ref="_M/silk_SUB_SAT64">silk_SUB_SAT64</dfn>(a, b)                ((((a)-(b)) &amp; 0x8000000000000000LL) == 0 ?                                               \</u></td></tr>
+<tr><th id="465">465</th><td><u>                                            (( (a) &amp; ((b)^0x8000000000000000LL) &amp; 0x8000000000000000LL) ? silk_int64_MIN : (a)-(b)) : \</u></td></tr>
+<tr><th id="466">466</th><td><u>                                            ((((a)^0x8000000000000000LL) &amp; (b)  &amp; 0x8000000000000000LL) ? silk_int64_MAX : (a)-(b)) )</u></td></tr>
+<tr><th id="467">467</th><td></td></tr>
+<tr><th id="468">468</th><td><i>/* Saturation for positive input values */</i></td></tr>
+<tr><th id="469">469</th><td><u>#define <dfn class="macro" id="_M/silk_POS_SAT32" data-ref="_M/silk_POS_SAT32">silk_POS_SAT32</dfn>(a)                   ((a) &gt; silk_int32_MAX ? silk_int32_MAX : (a))</u></td></tr>
+<tr><th id="470">470</th><td></td></tr>
+<tr><th id="471">471</th><td><i>/* Add with saturation for positive input values */</i></td></tr>
+<tr><th id="472">472</th><td><u>#define <dfn class="macro" id="_M/silk_ADD_POS_SAT8" data-ref="_M/silk_ADD_POS_SAT8">silk_ADD_POS_SAT8</dfn>(a, b)             ((((a)+(b)) &amp; 0x80)                 ? silk_int8_MAX  : ((a)+(b)))</u></td></tr>
+<tr><th id="473">473</th><td><u>#define <dfn class="macro" id="_M/silk_ADD_POS_SAT16" data-ref="_M/silk_ADD_POS_SAT16">silk_ADD_POS_SAT16</dfn>(a, b)            ((((a)+(b)) &amp; 0x8000)               ? silk_int16_MAX : ((a)+(b)))</u></td></tr>
+<tr><th id="474">474</th><td><u>#define <dfn class="macro" id="_M/silk_ADD_POS_SAT32" data-ref="_M/silk_ADD_POS_SAT32">silk_ADD_POS_SAT32</dfn>(a, b)            ((((a)+(b)) &amp; 0x80000000)           ? silk_int32_MAX : ((a)+(b)))</u></td></tr>
+<tr><th id="475">475</th><td><u>#define <dfn class="macro" id="_M/silk_ADD_POS_SAT64" data-ref="_M/silk_ADD_POS_SAT64">silk_ADD_POS_SAT64</dfn>(a, b)            ((((a)+(b)) &amp; 0x8000000000000000LL) ? silk_int64_MAX : ((a)+(b)))</u></td></tr>
+<tr><th id="476">476</th><td></td></tr>
+<tr><th id="477">477</th><td><u>#define <dfn class="macro" id="_M/silk_LSHIFT8" data-ref="_M/silk_LSHIFT8">silk_LSHIFT8</dfn>(a, shift)              ((opus_int8)((opus_uint8)(a)&lt;&lt;(shift)))         /* shift &gt;= 0, shift &lt; 8  */</u></td></tr>
+<tr><th id="478">478</th><td><u>#define <dfn class="macro" id="_M/silk_LSHIFT16" data-ref="_M/silk_LSHIFT16">silk_LSHIFT16</dfn>(a, shift)             ((opus_int16)((opus_uint16)(a)&lt;&lt;(shift)))       /* shift &gt;= 0, shift &lt; 16 */</u></td></tr>
+<tr><th id="479">479</th><td><u>#define <dfn class="macro" id="_M/silk_LSHIFT32" data-ref="_M/silk_LSHIFT32">silk_LSHIFT32</dfn>(a, shift)             ((opus_int32)((opus_uint32)(a)&lt;&lt;(shift)))       /* shift &gt;= 0, shift &lt; 32 */</u></td></tr>
+<tr><th id="480">480</th><td><u>#define <dfn class="macro" id="_M/silk_LSHIFT64" data-ref="_M/silk_LSHIFT64">silk_LSHIFT64</dfn>(a, shift)             ((opus_int64)((opus_uint64)(a)&lt;&lt;(shift)))       /* shift &gt;= 0, shift &lt; 64 */</u></td></tr>
+<tr><th id="481">481</th><td><u>#define <dfn class="macro" id="_M/silk_LSHIFT" data-ref="_M/silk_LSHIFT">silk_LSHIFT</dfn>(a, shift)               silk_LSHIFT32(a, shift)                         /* shift &gt;= 0, shift &lt; 32 */</u></td></tr>
+<tr><th id="482">482</th><td></td></tr>
+<tr><th id="483">483</th><td><u>#define <dfn class="macro" id="_M/silk_RSHIFT8" data-ref="_M/silk_RSHIFT8">silk_RSHIFT8</dfn>(a, shift)              ((a)&gt;&gt;(shift))                                  /* shift &gt;= 0, shift &lt; 8  */</u></td></tr>
+<tr><th id="484">484</th><td><u>#define <dfn class="macro" id="_M/silk_RSHIFT16" data-ref="_M/silk_RSHIFT16">silk_RSHIFT16</dfn>(a, shift)             ((a)&gt;&gt;(shift))                                  /* shift &gt;= 0, shift &lt; 16 */</u></td></tr>
+<tr><th id="485">485</th><td><u>#define <dfn class="macro" id="_M/silk_RSHIFT32" data-ref="_M/silk_RSHIFT32">silk_RSHIFT32</dfn>(a, shift)             ((a)&gt;&gt;(shift))                                  /* shift &gt;= 0, shift &lt; 32 */</u></td></tr>
+<tr><th id="486">486</th><td><u>#define <dfn class="macro" id="_M/silk_RSHIFT64" data-ref="_M/silk_RSHIFT64">silk_RSHIFT64</dfn>(a, shift)             ((a)&gt;&gt;(shift))                                  /* shift &gt;= 0, shift &lt; 64 */</u></td></tr>
+<tr><th id="487">487</th><td><u>#define <dfn class="macro" id="_M/silk_RSHIFT" data-ref="_M/silk_RSHIFT">silk_RSHIFT</dfn>(a, shift)               silk_RSHIFT32(a, shift)                         /* shift &gt;= 0, shift &lt; 32 */</u></td></tr>
+<tr><th id="488">488</th><td></td></tr>
+<tr><th id="489">489</th><td><i>/* saturates before shifting */</i></td></tr>
+<tr><th id="490">490</th><td><u>#define <dfn class="macro" id="_M/silk_LSHIFT_SAT32" data-ref="_M/silk_LSHIFT_SAT32">silk_LSHIFT_SAT32</dfn>(a, shift)         (silk_LSHIFT32( silk_LIMIT( (a), silk_RSHIFT32( silk_int32_MIN, (shift) ), \</u></td></tr>
+<tr><th id="491">491</th><td><u>                                                    silk_RSHIFT32( silk_int32_MAX, (shift) ) ), (shift) ))</u></td></tr>
+<tr><th id="492">492</th><td></td></tr>
+<tr><th id="493">493</th><td><u>#define <dfn class="macro" id="_M/silk_LSHIFT_ovflw" data-ref="_M/silk_LSHIFT_ovflw">silk_LSHIFT_ovflw</dfn>(a, shift)         ((opus_int32)((opus_uint32)(a) &lt;&lt; (shift)))     /* shift &gt;= 0, allowed to overflow */</u></td></tr>
+<tr><th id="494">494</th><td><u>#define <dfn class="macro" id="_M/silk_LSHIFT_uint" data-ref="_M/silk_LSHIFT_uint">silk_LSHIFT_uint</dfn>(a, shift)          ((a) &lt;&lt; (shift))                                /* shift &gt;= 0 */</u></td></tr>
+<tr><th id="495">495</th><td><u>#define <dfn class="macro" id="_M/silk_RSHIFT_uint" data-ref="_M/silk_RSHIFT_uint">silk_RSHIFT_uint</dfn>(a, shift)          ((a) &gt;&gt; (shift))                                /* shift &gt;= 0 */</u></td></tr>
+<tr><th id="496">496</th><td></td></tr>
+<tr><th id="497">497</th><td><u>#define <dfn class="macro" id="_M/silk_ADD_LSHIFT" data-ref="_M/silk_ADD_LSHIFT">silk_ADD_LSHIFT</dfn>(a, b, shift)        ((a) + silk_LSHIFT((b), (shift)))               /* shift &gt;= 0 */</u></td></tr>
+<tr><th id="498">498</th><td><u>#define <dfn class="macro" id="_M/silk_ADD_LSHIFT32" data-ref="_M/silk_ADD_LSHIFT32">silk_ADD_LSHIFT32</dfn>(a, b, shift)      silk_ADD32((a), silk_LSHIFT32((b), (shift)))    /* shift &gt;= 0 */</u></td></tr>
+<tr><th id="499">499</th><td><u>#define <dfn class="macro" id="_M/silk_ADD_LSHIFT_uint" data-ref="_M/silk_ADD_LSHIFT_uint">silk_ADD_LSHIFT_uint</dfn>(a, b, shift)   ((a) + silk_LSHIFT_uint((b), (shift)))          /* shift &gt;= 0 */</u></td></tr>
+<tr><th id="500">500</th><td><u>#define <dfn class="macro" id="_M/silk_ADD_RSHIFT" data-ref="_M/silk_ADD_RSHIFT">silk_ADD_RSHIFT</dfn>(a, b, shift)        ((a) + silk_RSHIFT((b), (shift)))               /* shift &gt;= 0 */</u></td></tr>
+<tr><th id="501">501</th><td><u>#define <dfn class="macro" id="_M/silk_ADD_RSHIFT32" data-ref="_M/silk_ADD_RSHIFT32">silk_ADD_RSHIFT32</dfn>(a, b, shift)      silk_ADD32((a), silk_RSHIFT32((b), (shift)))    /* shift &gt;= 0 */</u></td></tr>
+<tr><th id="502">502</th><td><u>#define <dfn class="macro" id="_M/silk_ADD_RSHIFT_uint" data-ref="_M/silk_ADD_RSHIFT_uint">silk_ADD_RSHIFT_uint</dfn>(a, b, shift)   ((a) + silk_RSHIFT_uint((b), (shift)))          /* shift &gt;= 0 */</u></td></tr>
+<tr><th id="503">503</th><td><u>#define <dfn class="macro" id="_M/silk_SUB_LSHIFT32" data-ref="_M/silk_SUB_LSHIFT32">silk_SUB_LSHIFT32</dfn>(a, b, shift)      silk_SUB32((a), silk_LSHIFT32((b), (shift)))    /* shift &gt;= 0 */</u></td></tr>
+<tr><th id="504">504</th><td><u>#define <dfn class="macro" id="_M/silk_SUB_RSHIFT32" data-ref="_M/silk_SUB_RSHIFT32">silk_SUB_RSHIFT32</dfn>(a, b, shift)      silk_SUB32((a), silk_RSHIFT32((b), (shift)))    /* shift &gt;= 0 */</u></td></tr>
+<tr><th id="505">505</th><td></td></tr>
+<tr><th id="506">506</th><td><i>/* Requires that shift &gt; 0 */</i></td></tr>
+<tr><th id="507">507</th><td><u>#define <dfn class="macro" id="_M/silk_RSHIFT_ROUND" data-ref="_M/silk_RSHIFT_ROUND">silk_RSHIFT_ROUND</dfn>(a, shift)         ((shift) == 1 ? ((a) &gt;&gt; 1) + ((a) &amp; 1) : (((a) &gt;&gt; ((shift) - 1)) + 1) &gt;&gt; 1)</u></td></tr>
+<tr><th id="508">508</th><td><u>#define <dfn class="macro" id="_M/silk_RSHIFT_ROUND64" data-ref="_M/silk_RSHIFT_ROUND64">silk_RSHIFT_ROUND64</dfn>(a, shift)       ((shift) == 1 ? ((a) &gt;&gt; 1) + ((a) &amp; 1) : (((a) &gt;&gt; ((shift) - 1)) + 1) &gt;&gt; 1)</u></td></tr>
+<tr><th id="509">509</th><td></td></tr>
+<tr><th id="510">510</th><td><i>/* Number of rightshift required to fit the multiplication */</i></td></tr>
+<tr><th id="511">511</th><td><u>#define <dfn class="macro" id="_M/silk_NSHIFT_MUL_32_32" data-ref="_M/silk_NSHIFT_MUL_32_32">silk_NSHIFT_MUL_32_32</dfn>(a, b)         ( -(31- (32-silk_CLZ32(silk_abs(a)) + (32-silk_CLZ32(silk_abs(b))))) )</u></td></tr>
+<tr><th id="512">512</th><td><u>#define <dfn class="macro" id="_M/silk_NSHIFT_MUL_16_16" data-ref="_M/silk_NSHIFT_MUL_16_16">silk_NSHIFT_MUL_16_16</dfn>(a, b)         ( -(15- (16-silk_CLZ16(silk_abs(a)) + (16-silk_CLZ16(silk_abs(b))))) )</u></td></tr>
+<tr><th id="513">513</th><td></td></tr>
+<tr><th id="514">514</th><td></td></tr>
+<tr><th id="515">515</th><td><u>#define <dfn class="macro" id="_M/silk_min" data-ref="_M/silk_min">silk_min</dfn>(a, b)                      (((a) &lt; (b)) ? (a) : (b))</u></td></tr>
+<tr><th id="516">516</th><td><u>#define <dfn class="macro" id="_M/silk_max" data-ref="_M/silk_max">silk_max</dfn>(a, b)                      (((a) &gt; (b)) ? (a) : (b))</u></td></tr>
+<tr><th id="517">517</th><td></td></tr>
+<tr><th id="518">518</th><td><i>/* Macro to convert floating-point constants to fixed-point */</i></td></tr>
+<tr><th id="519">519</th><td><u>#define <dfn class="macro" id="_M/SILK_FIX_CONST" data-ref="_M/SILK_FIX_CONST">SILK_FIX_CONST</dfn>( C, Q )              ((opus_int32)((C) * ((opus_int64)1 &lt;&lt; (Q)) + 0.5))</u></td></tr>
+<tr><th id="520">520</th><td></td></tr>
+<tr><th id="521">521</th><td><i>/* silk_min() versions with typecast in the function call */</i></td></tr>
+<tr><th id="522">522</th><td><em>static</em> <a class="macro" href="../include/opus_defines.h.html#110" title="inline" data-ref="_M/OPUS_INLINE">OPUS_INLINE</a> <a class="macro" href="../include/opus_types.h.html#151" title="int" data-ref="_M/opus_int">opus_int</a> <dfn class="decl def" id="silk_min_int" title='silk_min_int' data-ref="silk_min_int">silk_min_int</dfn>(<a class="macro" href="../include/opus_types.h.html#151" title="int" data-ref="_M/opus_int">opus_int</a> <dfn class="local col7 decl" id="147a" title='a' data-type='int' data-ref="147a">a</dfn>, <a class="macro" href="../include/opus_types.h.html#151" title="int" data-ref="_M/opus_int">opus_int</a> <dfn class="local col8 decl" id="148b" title='b' data-type='int' data-ref="148b">b</dfn>)</td></tr>
+<tr><th id="523">523</th><td>{</td></tr>
+<tr><th id="524">524</th><td>    <b>return</b> (((<a class="local col7 ref" href="#147a" title='a' data-ref="147a">a</a>) &lt; (<a class="local col8 ref" href="#148b" title='b' data-ref="148b">b</a>)) ? (<a class="local col7 ref" href="#147a" title='a' data-ref="147a">a</a>) : (<a class="local col8 ref" href="#148b" title='b' data-ref="148b">b</a>));</td></tr>
+<tr><th id="525">525</th><td>}</td></tr>
+<tr><th id="526">526</th><td><em>static</em> <a class="macro" href="../include/opus_defines.h.html#110" title="inline" data-ref="_M/OPUS_INLINE">OPUS_INLINE</a> <a class="typedef" href="../include/opus_types.h.html#opus_int16" title='opus_int16' data-type='int16_t' data-ref="opus_int16">opus_int16</a> <dfn class="decl def" id="silk_min_16" title='silk_min_16' data-ref="silk_min_16">silk_min_16</dfn>(<a class="typedef" href="../include/opus_types.h.html#opus_int16" title='opus_int16' data-type='int16_t' data-ref="opus_int16">opus_int16</a> <dfn class="local col9 decl" id="149a" title='a' data-type='opus_int16' data-ref="149a">a</dfn>, <a class="typedef" href="../include/opus_types.h.html#opus_int16" title='opus_int16' data-type='int16_t' data-ref="opus_int16">opus_int16</a> <dfn class="local col0 decl" id="150b" title='b' data-type='opus_int16' data-ref="150b">b</dfn>)</td></tr>
+<tr><th id="527">527</th><td>{</td></tr>
+<tr><th id="528">528</th><td>    <b>return</b> (((<a class="local col9 ref" href="#149a" title='a' data-ref="149a">a</a>) &lt; (<a class="local col0 ref" href="#150b" title='b' data-ref="150b">b</a>)) ? (<a class="local col9 ref" href="#149a" title='a' data-ref="149a">a</a>) : (<a class="local col0 ref" href="#150b" title='b' data-ref="150b">b</a>));</td></tr>
+<tr><th id="529">529</th><td>}</td></tr>
+<tr><th id="530">530</th><td><em>static</em> <a class="macro" href="../include/opus_defines.h.html#110" title="inline" data-ref="_M/OPUS_INLINE">OPUS_INLINE</a> <a class="typedef" href="../include/opus_types.h.html#opus_int32" title='opus_int32' data-type='int32_t' data-ref="opus_int32">opus_int32</a> <dfn class="decl def" id="silk_min_32" title='silk_min_32' data-ref="silk_min_32">silk_min_32</dfn>(<a class="typedef" href="../include/opus_types.h.html#opus_int32" title='opus_int32' data-type='int32_t' data-ref="opus_int32">opus_int32</a> <dfn class="local col1 decl" id="151a" title='a' data-type='opus_int32' data-ref="151a">a</dfn>, <a class="typedef" href="../include/opus_types.h.html#opus_int32" title='opus_int32' data-type='int32_t' data-ref="opus_int32">opus_int32</a> <dfn class="local col2 decl" id="152b" title='b' data-type='opus_int32' data-ref="152b">b</dfn>)</td></tr>
+<tr><th id="531">531</th><td>{</td></tr>
+<tr><th id="532">532</th><td>    <b>return</b> (((<a class="local col1 ref" href="#151a" title='a' data-ref="151a">a</a>) &lt; (<a class="local col2 ref" href="#152b" title='b' data-ref="152b">b</a>)) ? (<a class="local col1 ref" href="#151a" title='a' data-ref="151a">a</a>) : (<a class="local col2 ref" href="#152b" title='b' data-ref="152b">b</a>));</td></tr>
+<tr><th id="533">533</th><td>}</td></tr>
+<tr><th id="534">534</th><td><em>static</em> <a class="macro" href="../include/opus_defines.h.html#110" title="inline" data-ref="_M/OPUS_INLINE">OPUS_INLINE</a> <a class="macro" href="../include/opus_types.h.html#152" title="long long" data-ref="_M/opus_int64">opus_int64</a> <dfn class="decl def" id="silk_min_64" title='silk_min_64' data-ref="silk_min_64">silk_min_64</dfn>(<a class="macro" href="../include/opus_types.h.html#152" title="long long" data-ref="_M/opus_int64">opus_int64</a> <dfn class="local col3 decl" id="153a" title='a' data-type='long long' data-ref="153a">a</dfn>, <a class="macro" href="../include/opus_types.h.html#152" title="long long" data-ref="_M/opus_int64">opus_int64</a> <dfn class="local col4 decl" id="154b" title='b' data-type='long long' data-ref="154b">b</dfn>)</td></tr>
+<tr><th id="535">535</th><td>{</td></tr>
+<tr><th id="536">536</th><td>    <b>return</b> (((<a class="local col3 ref" href="#153a" title='a' data-ref="153a">a</a>) &lt; (<a class="local col4 ref" href="#154b" title='b' data-ref="154b">b</a>)) ? (<a class="local col3 ref" href="#153a" title='a' data-ref="153a">a</a>) : (<a class="local col4 ref" href="#154b" title='b' data-ref="154b">b</a>));</td></tr>
+<tr><th id="537">537</th><td>}</td></tr>
+<tr><th id="538">538</th><td></td></tr>
+<tr><th id="539">539</th><td><i>/* silk_min() versions with typecast in the function call */</i></td></tr>
+<tr><th id="540">540</th><td><em>static</em> <a class="macro" href="../include/opus_defines.h.html#110" title="inline" data-ref="_M/OPUS_INLINE">OPUS_INLINE</a> <a class="macro" href="../include/opus_types.h.html#151" title="int" data-ref="_M/opus_int">opus_int</a> <dfn class="decl def" id="silk_max_int" title='silk_max_int' data-ref="silk_max_int">silk_max_int</dfn>(<a class="macro" href="../include/opus_types.h.html#151" title="int" data-ref="_M/opus_int">opus_int</a> <dfn class="local col5 decl" id="155a" title='a' data-type='int' data-ref="155a">a</dfn>, <a class="macro" href="../include/opus_types.h.html#151" title="int" data-ref="_M/opus_int">opus_int</a> <dfn class="local col6 decl" id="156b" title='b' data-type='int' data-ref="156b">b</dfn>)</td></tr>
+<tr><th id="541">541</th><td>{</td></tr>
+<tr><th id="542">542</th><td>    <b>return</b> (((<a class="local col5 ref" href="#155a" title='a' data-ref="155a">a</a>) &gt; (<a class="local col6 ref" href="#156b" title='b' data-ref="156b">b</a>)) ? (<a class="local col5 ref" href="#155a" title='a' data-ref="155a">a</a>) : (<a class="local col6 ref" href="#156b" title='b' data-ref="156b">b</a>));</td></tr>
+<tr><th id="543">543</th><td>}</td></tr>
+<tr><th id="544">544</th><td><em>static</em> <a class="macro" href="../include/opus_defines.h.html#110" title="inline" data-ref="_M/OPUS_INLINE">OPUS_INLINE</a> <a class="typedef" href="../include/opus_types.h.html#opus_int16" title='opus_int16' data-type='int16_t' data-ref="opus_int16">opus_int16</a> <dfn class="decl def" id="silk_max_16" title='silk_max_16' data-ref="silk_max_16">silk_max_16</dfn>(<a class="typedef" href="../include/opus_types.h.html#opus_int16" title='opus_int16' data-type='int16_t' data-ref="opus_int16">opus_int16</a> <dfn class="local col7 decl" id="157a" title='a' data-type='opus_int16' data-ref="157a">a</dfn>, <a class="typedef" href="../include/opus_types.h.html#opus_int16" title='opus_int16' data-type='int16_t' data-ref="opus_int16">opus_int16</a> <dfn class="local col8 decl" id="158b" title='b' data-type='opus_int16' data-ref="158b">b</dfn>)</td></tr>
+<tr><th id="545">545</th><td>{</td></tr>
+<tr><th id="546">546</th><td>    <b>return</b> (((<a class="local col7 ref" href="#157a" title='a' data-ref="157a">a</a>) &gt; (<a class="local col8 ref" href="#158b" title='b' data-ref="158b">b</a>)) ? (<a class="local col7 ref" href="#157a" title='a' data-ref="157a">a</a>) : (<a class="local col8 ref" href="#158b" title='b' data-ref="158b">b</a>));</td></tr>
+<tr><th id="547">547</th><td>}</td></tr>
+<tr><th id="548">548</th><td><em>static</em> <a class="macro" href="../include/opus_defines.h.html#110" title="inline" data-ref="_M/OPUS_INLINE">OPUS_INLINE</a> <a class="typedef" href="../include/opus_types.h.html#opus_int32" title='opus_int32' data-type='int32_t' data-ref="opus_int32">opus_int32</a> <dfn class="decl def" id="silk_max_32" title='silk_max_32' data-ref="silk_max_32">silk_max_32</dfn>(<a class="typedef" href="../include/opus_types.h.html#opus_int32" title='opus_int32' data-type='int32_t' data-ref="opus_int32">opus_int32</a> <dfn class="local col9 decl" id="159a" title='a' data-type='opus_int32' data-ref="159a">a</dfn>, <a class="typedef" href="../include/opus_types.h.html#opus_int32" title='opus_int32' data-type='int32_t' data-ref="opus_int32">opus_int32</a> <dfn class="local col0 decl" id="160b" title='b' data-type='opus_int32' data-ref="160b">b</dfn>)</td></tr>
+<tr><th id="549">549</th><td>{</td></tr>
+<tr><th id="550">550</th><td>    <b>return</b> (((<a class="local col9 ref" href="#159a" title='a' data-ref="159a">a</a>) &gt; (<a class="local col0 ref" href="#160b" title='b' data-ref="160b">b</a>)) ? (<a class="local col9 ref" href="#159a" title='a' data-ref="159a">a</a>) : (<a class="local col0 ref" href="#160b" title='b' data-ref="160b">b</a>));</td></tr>
+<tr><th id="551">551</th><td>}</td></tr>
+<tr><th id="552">552</th><td><em>static</em> <a class="macro" href="../include/opus_defines.h.html#110" title="inline" data-ref="_M/OPUS_INLINE">OPUS_INLINE</a> <a class="macro" href="../include/opus_types.h.html#152" title="long long" data-ref="_M/opus_int64">opus_int64</a> <dfn class="decl def" id="silk_max_64" title='silk_max_64' data-ref="silk_max_64">silk_max_64</dfn>(<a class="macro" href="../include/opus_types.h.html#152" title="long long" data-ref="_M/opus_int64">opus_int64</a> <dfn class="local col1 decl" id="161a" title='a' data-type='long long' data-ref="161a">a</dfn>, <a class="macro" href="../include/opus_types.h.html#152" title="long long" data-ref="_M/opus_int64">opus_int64</a> <dfn class="local col2 decl" id="162b" title='b' data-type='long long' data-ref="162b">b</dfn>)</td></tr>
+<tr><th id="553">553</th><td>{</td></tr>
+<tr><th id="554">554</th><td>    <b>return</b> (((<a class="local col1 ref" href="#161a" title='a' data-ref="161a">a</a>) &gt; (<a class="local col2 ref" href="#162b" title='b' data-ref="162b">b</a>)) ? (<a class="local col1 ref" href="#161a" title='a' data-ref="161a">a</a>) : (<a class="local col2 ref" href="#162b" title='b' data-ref="162b">b</a>));</td></tr>
+<tr><th id="555">555</th><td>}</td></tr>
+<tr><th id="556">556</th><td></td></tr>
+<tr><th id="557">557</th><td><u>#define <dfn class="macro" id="_M/silk_LIMIT" data-ref="_M/silk_LIMIT">silk_LIMIT</dfn>( a, limit1, limit2)      ((limit1) &gt; (limit2) ? ((a) &gt; (limit1) ? (limit1) : ((a) &lt; (limit2) ? (limit2) : (a))) \</u></td></tr>
+<tr><th id="558">558</th><td><u>                                                                 : ((a) &gt; (limit2) ? (limit2) : ((a) &lt; (limit1) ? (limit1) : (a))))</u></td></tr>
+<tr><th id="559">559</th><td></td></tr>
+<tr><th id="560">560</th><td><u>#define <dfn class="macro" id="_M/silk_LIMIT_int" data-ref="_M/silk_LIMIT_int">silk_LIMIT_int</dfn>                      silk_LIMIT</u></td></tr>
+<tr><th id="561">561</th><td><u>#define <dfn class="macro" id="_M/silk_LIMIT_16" data-ref="_M/silk_LIMIT_16">silk_LIMIT_16</dfn>                       silk_LIMIT</u></td></tr>
+<tr><th id="562">562</th><td><u>#define <dfn class="macro" id="_M/silk_LIMIT_32" data-ref="_M/silk_LIMIT_32">silk_LIMIT_32</dfn>                       silk_LIMIT</u></td></tr>
+<tr><th id="563">563</th><td></td></tr>
+<tr><th id="564">564</th><td><u>#define <dfn class="macro" id="_M/silk_abs" data-ref="_M/silk_abs">silk_abs</dfn>(a)                         (((a) &gt;  0)  ? (a) : -(a))            /* Be careful, silk_abs returns wrong when input equals to silk_intXX_MIN */</u></td></tr>
+<tr><th id="565">565</th><td><u>#define <dfn class="macro" id="_M/silk_abs_int" data-ref="_M/silk_abs_int">silk_abs_int</dfn>(a)                     (((a) ^ ((a) &gt;&gt; (8 * sizeof(a) - 1))) - ((a) &gt;&gt; (8 * sizeof(a) - 1)))</u></td></tr>
+<tr><th id="566">566</th><td><u>#define <dfn class="macro" id="_M/silk_abs_int32" data-ref="_M/silk_abs_int32">silk_abs_int32</dfn>(a)                   (((a) ^ ((a) &gt;&gt; 31)) - ((a) &gt;&gt; 31))</u></td></tr>
+<tr><th id="567">567</th><td><u>#define <dfn class="macro" id="_M/silk_abs_int64" data-ref="_M/silk_abs_int64">silk_abs_int64</dfn>(a)                   (((a) &gt;  0)  ? (a) : -(a))</u></td></tr>
+<tr><th id="568">568</th><td></td></tr>
+<tr><th id="569">569</th><td><u>#define <dfn class="macro" id="_M/silk_sign" data-ref="_M/silk_sign">silk_sign</dfn>(a)                        ((a) &gt; 0 ? 1 : ( (a) &lt; 0 ? -1 : 0 ))</u></td></tr>
+<tr><th id="570">570</th><td></td></tr>
+<tr><th id="571">571</th><td><i>/* PSEUDO-RANDOM GENERATOR                                                          */</i></td></tr>
+<tr><th id="572">572</th><td><i>/* Make sure to store the result as the seed for the next call (also in between     */</i></td></tr>
+<tr><th id="573">573</th><td><i>/* frames), otherwise result won't be random at all. When only using some of the    */</i></td></tr>
+<tr><th id="574">574</th><td><i>/* bits, take the most significant bits by right-shifting.                          */</i></td></tr>
+<tr><th id="575">575</th><td><u>#define <dfn class="macro" id="_M/silk_RAND" data-ref="_M/silk_RAND">silk_RAND</dfn>(seed)                     (silk_MLA_ovflw(907633515, (seed), 196314165))</u></td></tr>
+<tr><th id="576">576</th><td></td></tr>
+<tr><th id="577">577</th><td><i>/*  Add some multiplication functions that can be easily mapped to ARM. */</i></td></tr>
+<tr><th id="578">578</th><td></td></tr>
+<tr><th id="579">579</th><td><i>/*    silk_SMMUL: Signed top word multiply.</i></td></tr>
+<tr><th id="580">580</th><td><i>          ARMv6        2 instruction cycles.</i></td></tr>
+<tr><th id="581">581</th><td><i>          ARMv3M+      3 instruction cycles. use SMULL and ignore LSB registers.(except xM)*/</i></td></tr>
+<tr><th id="582">582</th><td><i>/*#define silk_SMMUL(a32, b32)                (opus_int32)silk_RSHIFT(silk_SMLAL(silk_SMULWB((a32), (b32)), (a32), silk_RSHIFT_ROUND((b32), 16)), 16)*/</i></td></tr>
+<tr><th id="583">583</th><td><i>/* the following seems faster on x86 */</i></td></tr>
+<tr><th id="584">584</th><td><u>#define <dfn class="macro" id="_M/silk_SMMUL" data-ref="_M/silk_SMMUL">silk_SMMUL</dfn>(a32, b32)                (opus_int32)silk_RSHIFT64(silk_SMULL((a32), (b32)), 32)</u></td></tr>
+<tr><th id="585">585</th><td></td></tr>
+<tr><th id="586">586</th><td><u>#<span data-ppcond="586">if</span> !defined(<span class="macro" data-ref="_M/OPUS_X86_MAY_HAVE_SSE4_1">OPUS_X86_MAY_HAVE_SSE4_1</span>)</u></td></tr>
+<tr><th id="587">587</th><td><u>#define <dfn class="macro" id="_M/silk_burg_modified" data-ref="_M/silk_burg_modified">silk_burg_modified</dfn>(res_nrg, res_nrg_Q, A_Q16, x, minInvGain_Q30, subfr_length, nb_subfr, D, arch) \</u></td></tr>
+<tr><th id="588">588</th><td><u>    ((void)(arch), silk_burg_modified_c(res_nrg, res_nrg_Q, A_Q16, x, minInvGain_Q30, subfr_length, nb_subfr, D, arch))</u></td></tr>
+<tr><th id="589">589</th><td></td></tr>
+<tr><th id="590">590</th><td><u>#define <dfn class="macro" id="_M/silk_inner_prod16_aligned_64" data-ref="_M/silk_inner_prod16_aligned_64">silk_inner_prod16_aligned_64</dfn>(inVec1, inVec2, len, arch) \</u></td></tr>
+<tr><th id="591">591</th><td><u>    ((void)(arch),silk_inner_prod16_aligned_64_c(inVec1, inVec2, len))</u></td></tr>
+<tr><th id="592">592</th><td><u>#<span data-ppcond="586">endif</span></u></td></tr>
+<tr><th id="593">593</th><td></td></tr>
+<tr><th id="594">594</th><td><u>#include <a href="Inlines.h.html">"Inlines.h"</a></u></td></tr>
+<tr><th id="595">595</th><td><u>#include <a href="MacroCount.h.html">"MacroCount.h"</a></u></td></tr>
+<tr><th id="596">596</th><td><u>#include <a href="MacroDebug.h.html">"MacroDebug.h"</a></u></td></tr>
+<tr><th id="597">597</th><td></td></tr>
+<tr><th id="598">598</th><td><u>#<span data-ppcond="598">ifdef</span> <span class="macro" data-ref="_M/OPUS_ARM_INLINE_ASM">OPUS_ARM_INLINE_ASM</span></u></td></tr>
+<tr><th id="599">599</th><td><u>#include "arm/SigProc_FIX_armv4.h"</u></td></tr>
+<tr><th id="600">600</th><td><u>#<span data-ppcond="598">endif</span></u></td></tr>
+<tr><th id="601">601</th><td></td></tr>
+<tr><th id="602">602</th><td><u>#<span data-ppcond="602">ifdef</span> <span class="macro" data-ref="_M/OPUS_ARM_INLINE_EDSP">OPUS_ARM_INLINE_EDSP</span></u></td></tr>
+<tr><th id="603">603</th><td><u>#include "arm/SigProc_FIX_armv5e.h"</u></td></tr>
+<tr><th id="604">604</th><td><u>#<span data-ppcond="602">endif</span></u></td></tr>
+<tr><th id="605">605</th><td></td></tr>
+<tr><th id="606">606</th><td><u>#<span data-ppcond="606">if</span> defined(<span class="macro" data-ref="_M/MIPSr1_ASM">MIPSr1_ASM</span>)</u></td></tr>
+<tr><th id="607">607</th><td><u>#include "mips/sigproc_fix_mipsr1.h"</u></td></tr>
+<tr><th id="608">608</th><td><u>#<span data-ppcond="606">endif</span></u></td></tr>
+<tr><th id="609">609</th><td></td></tr>
+<tr><th id="610">610</th><td></td></tr>
+<tr><th id="611">611</th><td><u>#<span data-ppcond="611">ifdef</span>  <span class="macro" data-ref="_M/__cplusplus">__cplusplus</span></u></td></tr>
+<tr><th id="612">612</th><td>}</td></tr>
+<tr><th id="613">613</th><td><u>#<span data-ppcond="611">endif</span></u></td></tr>
+<tr><th id="614">614</th><td></td></tr>
+<tr><th id="615">615</th><td><u>#<span data-ppcond="28">endif</span> /* SILK_SIGPROC_FIX_H */</u></td></tr>
+<tr><th id="616">616</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='A2NLSF.c.html'>codebrowser/code/opus-1.1.4/silk/A2NLSF.c</a><br/>Generated on <em>2017-Aug-29</em> from project codebrowser revision <em>63e07af</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

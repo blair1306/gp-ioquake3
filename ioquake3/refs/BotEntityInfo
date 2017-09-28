@@ -1,0 +1,43 @@
+<dec f='codebrowser/code/game/ai_main.h' l='281' type='void BotEntityInfo(int entnum, aas_entityinfo_t * info)'/>
+<use f='codebrowser/code/game/ai_chat.c' l='325' u='c' c='BotVisibleEnemies'/>
+<use f='codebrowser/code/game/ai_chat.c' l='820' u='c' c='BotChat_HitNoDeath'/>
+<use f='codebrowser/code/game/ai_chat.c' l='858' u='c' c='BotChat_HitNoKill'/>
+<doc f='codebrowser/code/game/ai_main.h' l='280'>//returns info about the entity</doc>
+<use f='codebrowser/code/game/ai_cmd.c' l='525' u='c' c='BotMatch_HelpAccompany'/>
+<use f='codebrowser/code/game/ai_cmd.c' l='723' u='c' c='BotMatch_Camp'/>
+<use f='codebrowser/code/game/ai_cmd.c' l='1645' u='c' c='BotMatch_LeadTheWay'/>
+<use f='codebrowser/code/game/ai_dmnet.c' l='360' u='c' c='BotGetLongTermGoal'/>
+<use f='codebrowser/code/game/ai_dmnet.c' l='406' u='c' c='BotGetLongTermGoal'/>
+<use f='codebrowser/code/game/ai_dmnet.c' l='416' u='c' c='BotGetLongTermGoal'/>
+<use f='codebrowser/code/game/ai_dmnet.c' l='1067' u='c' c='BotLongTermGoal'/>
+<use f='codebrowser/code/game/ai_dmnet.c' l='1513' u='c' c='AINode_Seek_ActivateEntity'/>
+<use f='codebrowser/code/game/ai_dmnet.c' l='2025' u='c' c='AINode_Battle_Fight'/>
+<use f='codebrowser/code/game/ai_dmnet.c' l='2330' u='c' c='AINode_Battle_Retreat'/>
+<use f='codebrowser/code/game/ai_dmnet.c' l='2519' u='c' c='AINode_Battle_NBG'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='542' u='c' c='BotCTFSeekGoals'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='1798' u='c' c='BotUpdateBattleInventory'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='2300' u='c' c='BotWantsToRetreat'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='2330' u='c' c='BotWantsToChase'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='2670' u='c' c='BotAttackMove'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='2833' u='c' c='BotEntityVisible'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='2950' u='c' c='BotFindEnemy'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='2996' u='c' c='BotFindEnemy'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='3073' u='c' c='BotTeamFlagCarrierVisible'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='3106' u='c' c='BotTeamFlagCarrier'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='3136' u='c' c='BotEnemyFlagCarrierVisible'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='3175' u='c' c='BotVisibleTeamMatesAndEnemies'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='3287' u='c' c='BotAimAtEnemy'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='3353' u='c' c='BotAimAtEnemy'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='3578' u='c' c='BotCheckAttack'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='3717' u='c' c='BotMapScripts'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='4174' u='c' c='BotGetActivateGoal'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='4359' u='c' c='BotGoForActivateGoal'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='4458' u='c' c='BotAIBlocked'/>
+<def f='codebrowser/code/game/ai_main.c' l='687' ll='689' type='void BotEntityInfo(int entnum, aas_entityinfo_t * info)'/>
+<doc f='codebrowser/code/game/ai_main.c' l='682'>/*
+==============
+BotEntityInfo
+==============
+*/</doc>
+<use f='codebrowser/code/game/ai_vcmd.c' l='264' u='c' c='BotVoiceChat_Camp'/>
+<use f='codebrowser/code/game/ai_vcmd.c' l='319' u='c' c='BotVoiceChat_FollowMe'/>

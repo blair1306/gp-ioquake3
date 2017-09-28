@@ -1,0 +1,28 @@
+<dec f='codebrowser/code/game/g_local.h' l='778' type='void trap_Trace(trace_t * results, const vec_t * start, const vec_t * mins, const vec_t * maxs, const vec_t * end, int passEntityNum, int contentmask)'/>
+<use f='codebrowser/code/game/ai_main.c' l='142' u='c' c='BotAI_Trace'/>
+<use f='codebrowser/code/game/g_active.c' l='337' u='r' c='SpectatorThink'/>
+<use f='codebrowser/code/game/g_active.c' l='912' u='r' c='ClientThink_real'/>
+<use f='codebrowser/code/game/g_combat.c' l='1072' u='c' c='CanDamage'/>
+<use f='codebrowser/code/game/g_combat.c' l='1083' u='c' c='CanDamage'/>
+<use f='codebrowser/code/game/g_combat.c' l='1092' u='c' c='CanDamage'/>
+<use f='codebrowser/code/game/g_combat.c' l='1101' u='c' c='CanDamage'/>
+<use f='codebrowser/code/game/g_combat.c' l='1110' u='c' c='CanDamage'/>
+<use f='codebrowser/code/game/g_combat.c' l='1119' u='c' c='CanDamage'/>
+<use f='codebrowser/code/game/g_combat.c' l='1128' u='c' c='CanDamage'/>
+<use f='codebrowser/code/game/g_combat.c' l='1137' u='c' c='CanDamage'/>
+<use f='codebrowser/code/game/g_combat.c' l='1146' u='c' c='CanDamage'/>
+<use f='codebrowser/code/game/g_items.c' l='107' u='c' c='Pickup_Powerup'/>
+<use f='codebrowser/code/game/g_items.c' l='680' u='c' c='FinishSpawningItem'/>
+<use f='codebrowser/code/game/g_items.c' l='987' u='c' c='G_RunItem'/>
+<use f='codebrowser/code/game/g_missile.c' l='471' u='c' c='G_RunMissile'/>
+<use f='codebrowser/code/game/g_missile.c' l='475' u='c' c='G_RunMissile'/>
+<use f='codebrowser/code/game/g_mover.c' l='61' u='c' c='G_TestEntityPosition'/>
+<use f='codebrowser/code/game/g_mover.c' l='63' u='c' c='G_TestEntityPosition'/>
+<use f='codebrowser/code/game/g_mover.c' l='212' u='c' c='G_CheckProxMinePosition'/>
+<def f='codebrowser/code/game/g_syscalls.c' l='152' ll='154' type='void trap_Trace(trace_t * results, const vec_t * start, const vec_t * mins, const vec_t * maxs, const vec_t * end, int passEntityNum, int contentmask)'/>
+<use f='codebrowser/code/game/g_target.c' l='270' u='c' c='target_laser_think'/>
+<use f='codebrowser/code/game/g_weapon.c' l='83' u='c' c='CheckGauntletAttack'/>
+<use f='codebrowser/code/game/g_weapon.c' l='188' u='c' c='Bullet_Fire'/>
+<use f='codebrowser/code/game/g_weapon.c' l='283' u='c' c='ShotgunPellet'/>
+<use f='codebrowser/code/game/g_weapon.c' l='467' u='c' c='weapon_railgun_fire'/>
+<use f='codebrowser/code/game/g_weapon.c' l='629' u='c' c='Weapon_LightningFire'/>

@@ -1,0 +1,32 @@
+<dec f='codebrowser/code/renderercommon/tr_public.h' l='129' type='void *(*)(int)'/>
+<offset>384</offset>
+<doc f='codebrowser/code/renderercommon/tr_public.h' l='128'>// dynamic memory allocator for things that need to be freed</doc>
+<use f='codebrowser/code/client/cl_main.c' l='3244' u='w' c='CL_InitRef'/>
+<use f='codebrowser/code/renderercommon/tr_image_bmp.c' l='181' u='r' c='R_LoadBMP'/>
+<use f='codebrowser/code/renderercommon/tr_image_jpg.c' l='206' u='r' c='R_LoadJPG'/>
+<use f='codebrowser/code/renderercommon/tr_image_pcx.c' l='111' u='r' c='R_LoadPCX'/>
+<use f='codebrowser/code/renderercommon/tr_image_pcx.c' l='155' u='r' c='R_LoadPCX'/>
+<use f='codebrowser/code/renderercommon/tr_image_png.c' l='236' u='r' c='ReadBufferedFile'/>
+<use f='codebrowser/code/renderercommon/tr_image_png.c' l='626' u='r' c='DecompressIDATs'/>
+<use f='codebrowser/code/renderercommon/tr_image_png.c' l='728' u='r' c='DecompressIDATs'/>
+<use f='codebrowser/code/renderercommon/tr_image_png.c' l='2401' u='r' c='R_LoadPNG'/>
+<use f='codebrowser/code/renderercommon/tr_image_tga.c' l='129' u='r' c='R_LoadTGA'/>
+<use f='codebrowser/code/renderergl1/tr_curve.c' l='300' u='r' c='R_CreateSurfaceGridMesh'/>
+<use f='codebrowser/code/renderergl1/tr_curve.c' l='303' u='r' c='R_CreateSurfaceGridMesh'/>
+<use f='codebrowser/code/renderergl1/tr_curve.c' l='306' u='r' c='R_CreateSurfaceGridMesh'/>
+<use f='codebrowser/code/renderergl2/tr_backend.c' l='1697' u='r' c='RB_ExportCubemaps'/>
+<use f='codebrowser/code/renderergl2/tr_bsp.c' l='244' u='r' c='R_LoadLightmaps'/>
+<use f='codebrowser/code/renderergl2/tr_bsp.c' l='2802' u='r' c='RE_LoadWorldMap'/>
+<use f='codebrowser/code/renderergl2/tr_bsp.c' l='2848' u='r' c='RE_LoadWorldMap'/>
+<use f='codebrowser/code/renderergl2/tr_curve.c' l='378' u='r' c='R_CreateSurfaceGridMesh'/>
+<use f='codebrowser/code/renderergl2/tr_curve.c' l='381' u='r' c='R_CreateSurfaceGridMesh'/>
+<use f='codebrowser/code/renderergl2/tr_curve.c' l='385' u='r' c='R_CreateSurfaceGridMesh'/>
+<use f='codebrowser/code/renderergl2/tr_curve.c' l='389' u='r' c='R_CreateSurfaceGridMesh'/>
+<use f='codebrowser/code/renderergl2/tr_glsl.c' l='196' u='r' c='GLSL_PrintLog'/>
+<use f='codebrowser/code/renderergl2/tr_glsl.c' l='679' u='r' c='GLSL_InitUniforms'/>
+<use f='codebrowser/code/renderergl2/tr_image.c' l='2458' u='r' c='R_FindImageFile'/>
+<use f='codebrowser/code/renderergl2/tr_image_dds.c' l='449' u='r' c='R_LoadDDS'/>
+<use f='codebrowser/code/renderergl2/tr_image_dds.c' l='466' u='r' c='R_SaveDDS'/>
+<use f='codebrowser/code/renderergl2/tr_model.c' l='603' u='r' c='R_LoadMD3'/>
+<use f='codebrowser/code/renderergl2/tr_model.c' l='604' u='r' c='R_LoadMD3'/>
+<use f='codebrowser/code/renderergl2/tr_model.c' l='710' u='r' c='R_LoadMD3'/>

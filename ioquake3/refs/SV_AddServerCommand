@@ -1,0 +1,16 @@
+<dec f='codebrowser/code/server/server.h' l='397' type='void SV_AddServerCommand(client_t * client, const char * cmd)'/>
+<doc f='codebrowser/code/server/server.h' l='394'>//
+// sv_snapshot.c
+//</doc>
+<use f='codebrowser/code/server/sv_ccmds.c' l='329' u='c' c='SV_MapRestart_f'/>
+<def f='codebrowser/code/server/sv_main.c' l='143' ll='172' type='void SV_AddServerCommand(client_t * client, const char * cmd)'/>
+<use f='codebrowser/code/server/sv_main.c' l='203' u='c' c='SV_SendServerCommand'/>
+<use f='codebrowser/code/server/sv_main.c' l='214' u='c' c='SV_SendServerCommand'/>
+<doc f='codebrowser/code/server/sv_main.c' l='135'>/*
+======================
+SV_AddServerCommand
+
+The given command will be transmitted to the client, and is guaranteed to
+not have future snapshot_t executed before it is executed
+======================
+*/</doc>

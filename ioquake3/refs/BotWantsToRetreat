@@ -1,0 +1,14 @@
+<dec f='codebrowser/code/game/ai_dmq3.h' l='90' type='int BotWantsToRetreat(bot_state_t * bs)'/>
+<doc f='codebrowser/code/game/ai_dmq3.h' l='89'>//returns true if the bot wants to retreat</doc>
+<use f='codebrowser/code/game/ai_dmnet.c' l='1627' u='c' c='AINode_Seek_ActivateEntity'/>
+<use f='codebrowser/code/game/ai_dmnet.c' l='1761' u='c' c='AINode_Seek_NBG'/>
+<use f='codebrowser/code/game/ai_dmnet.c' l='1850' u='c' c='AINode_Seek_LTG'/>
+<use f='codebrowser/code/game/ai_dmnet.c' l='2139' u='c' c='AINode_Battle_Fight'/>
+<use f='codebrowser/code/game/ai_dmnet.c' l='2280' u='c' c='AINode_Battle_Chase'/>
+<def f='codebrowser/code/game/ai_dmq3.c' l='2266' ll='2315' type='int BotWantsToRetreat(bot_state_t * bs)'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='3044' u='c' c='BotFindEnemy'/>
+<doc f='codebrowser/code/game/ai_dmq3.c' l='2261'>/*
+==================
+BotWantsToRetreat
+==================
+*/</doc>

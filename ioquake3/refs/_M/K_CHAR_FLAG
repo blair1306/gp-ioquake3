@@ -1,0 +1,12 @@
+<dec f='codebrowser/code/client/keycodes.h' l='307'/>
+<doc f='codebrowser/code/client/keycodes.h' l='304'>// The menu code needs to get both key and char events, but
+// to avoid duplicating the paths, the char events are just
+// distinguished by or&apos;ing in K_CHAR_FLAG (ugly)</doc>
+<use f='codebrowser/code/client/cl_keys.c' l='1397' u='c'/>
+<use f='codebrowser/code/q3_ui/ui_controls2.c' l='931' u='c'/>
+<use f='codebrowser/code/q3_ui/ui_credits.c' l='93' u='c'/>
+<use f='codebrowser/code/q3_ui/ui_mfield.c' l='415' u='c'/>
+<use f='codebrowser/code/q3_ui/ui_mfield.c' l='417' u='c'/>
+<use f='codebrowser/code/ui/ui_shared.c' l='2087' u='c'/>
+<use f='codebrowser/code/ui/ui_shared.c' l='2088' u='c'/>
+<use f='codebrowser/code/ui/ui_shared.c' l='3534' u='c'/>

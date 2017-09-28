@@ -1,0 +1,17 @@
+<def f='codebrowser/code/game/g_mover.c' l='1600' ll='1633' type='void SP_func_pendulum(gentity_t * ent)'/>
+<doc f='codebrowser/code/game/g_mover.c' l='1589'>/*QUAKED func_pendulum (0 .5 .8) ?
+You need to have an origin brush as part of this entity.
+Pendulums always swing north / south on unrotated models.  Add an angles field to the model to allow rotation in other directions.
+Pendulum frequency is a physical constant based on the length of the beam and gravity.
+&quot;model2&quot;	.md3 model to also draw
+&quot;speed&quot;		the number of degrees each way the pendulum swings, (30 default)
+&quot;phase&quot;		the 0.0 to 1.0 offset in the cycle to start at
+&quot;dmg&quot;		damage to inflict when blocked (2 default)
+&quot;color&quot;		constantLight color
+&quot;light&quot;		constantLight radius
+*/</doc>
+<dec f='codebrowser/code/game/g_spawn.c' l='130' type='void SP_func_pendulum(gentity_t * ent)'/>
+<use f='codebrowser/code/game/g_spawn.c' l='200'/>
+<use f='codebrowser/code/game/g_spawn.c' l='200'/>
+<use f='codebrowser/code/game/g_spawn.c' l='200'/>
+<use f='codebrowser/code/game/g_spawn.c' l='200'/>

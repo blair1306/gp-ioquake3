@@ -1,0 +1,24 @@
+<dec f='codebrowser/code/q3_ui/ui_local.h' l='757' type='char * UI_GetBotInfoByNumber(int num)'/>
+<use f='codebrowser/code/q3_ui/ui_addbots.c' l='150' u='c' c='UI_AddBotsMenu_SetBotNames'/>
+<use f='codebrowser/code/q3_ui/ui_addbots.c' l='204' u='c' c='UI_AddBotsMenu_SortCompare'/>
+<use f='codebrowser/code/q3_ui/ui_addbots.c' l='205' u='c' c='UI_AddBotsMenu_SortCompare'/>
+<def f='codebrowser/code/q3_ui/ui_gameinfo.c' l='395' ll='401' type='char * UI_GetBotInfoByNumber(int num)'/>
+<doc f='codebrowser/code/q3_ui/ui_gameinfo.c' l='390'>/*
+===============
+UI_GetBotInfoByNumber
+===============
+*/</doc>
+<use f='codebrowser/code/q3_ui/ui_splevel.c' l='204' u='c' c='UI_SPLevelMenu_SetBots'/>
+<use f='codebrowser/code/q3_ui/ui_startserver.c' l='1101' u='c' c='ServerOptions_InitBotNames'/>
+<use f='codebrowser/code/q3_ui/ui_startserver.c' l='1579' u='c' c='UI_BotSelectMenu_SortCompare'/>
+<use f='codebrowser/code/q3_ui/ui_startserver.c' l='1580' u='c' c='UI_BotSelectMenu_SortCompare'/>
+<use f='codebrowser/code/q3_ui/ui_startserver.c' l='1653' u='c' c='UI_BotSelectMenu_UpdateGrid'/>
+<use f='codebrowser/code/q3_ui/ui_startserver.c' l='1718' u='c' c='UI_BotSelectMenu_Default'/>
+<dec f='codebrowser/code/ui/ui_local.h' l='1068' type='char * UI_GetBotInfoByNumber(int num)'/>
+<def f='codebrowser/code/ui/ui_gameinfo.c' l='285' ll='291' type='char * UI_GetBotInfoByNumber(int num)'/>
+<use f='codebrowser/code/ui/ui_gameinfo.c' l='319' u='c' c='UI_GetBotNameByNumber'/>
+<doc f='codebrowser/code/ui/ui_gameinfo.c' l='280'>/*
+===============
+UI_GetBotInfoByNumber
+===============
+*/</doc>

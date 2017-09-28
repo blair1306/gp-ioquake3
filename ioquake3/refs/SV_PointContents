@@ -1,0 +1,15 @@
+<dec f='codebrowser/code/server/server.h' l='470' type='int SV_PointContents(const vec_t * p, int passEntityNum)'/>
+<use f='codebrowser/code/server/sv_bot.c' l='232' u='c' c='BotImport_PointContents'/>
+<doc f='codebrowser/code/server/server.h' l='462'>// fills in a table of entity numbers with entities that have bounding boxes
+// that intersect the given area.  It is possible for a non-axial bmodel
+// to be returned that doesn&apos;t actually intersect the area on an exact
+// test.
+// returns the number of pointers filled in
+// The world entity is never returned in this list.</doc>
+<use f='codebrowser/code/server/sv_game.c' l='369' u='c' c='SV_GameSystemCalls'/>
+<def f='codebrowser/code/server/sv_world.c' l='653' ll='685' type='int SV_PointContents(const vec_t * p, int passEntityNum)'/>
+<doc f='codebrowser/code/server/sv_world.c' l='648'>/*
+=============
+SV_PointContents
+=============
+*/</doc>

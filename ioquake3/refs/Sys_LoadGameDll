@@ -1,0 +1,11 @@
+<dec f='codebrowser/code/qcommon/qcommon.h' l='1082' type='void * Sys_LoadGameDll(const char * name, intptr_t (**)(int, ...) entryPoint, intptr_t (*)(intptr_t, ...) systemcalls)'/>
+<doc f='codebrowser/code/qcommon/qcommon.h' l='1081'>// general development dll loading for virtual machine testing</doc>
+<use f='codebrowser/code/qcommon/vm.c' l='621' u='c' c='VM_Create'/>
+<def f='codebrowser/code/sys/sys_main.c' l='573' ll='612' type='void * Sys_LoadGameDll(const char * name, intptr_t (**)(int, ...) entryPoint, intptr_t (*)(intptr_t, ...) systemcalls)'/>
+<doc f='codebrowser/code/sys/sys_main.c' l='566'>/*
+=================
+Sys_LoadGameDll
+
+Used to load a development dll instead of a virtual machine
+=================
+*/</doc>

@@ -1,0 +1,16 @@
+<dec f='codebrowser/code/qcommon/qcommon.h' l='56' type='void MSG_WriteData(msg_t * buf, const void * data, int length)'/>
+<use f='codebrowser/code/client/cl_input.c' l='807' u='c' c='CL_WritePacket'/>
+<use f='codebrowser/code/client/cl_input.c' l='810' u='c' c='CL_WritePacket'/>
+<use f='codebrowser/code/client/cl_input.c' l='831' u='c' c='CL_WritePacket'/>
+<def f='codebrowser/code/qcommon/msg.c' l='288' ll='293' type='void MSG_WriteData(msg_t * buf, const void * data, int length)'/>
+<use f='codebrowser/code/qcommon/msg.c' l='316' u='c' c='MSG_WriteString'/>
+<use f='codebrowser/code/qcommon/msg.c' l='324' u='c' c='MSG_WriteString'/>
+<use f='codebrowser/code/qcommon/msg.c' l='336' u='c' c='MSG_WriteString'/>
+<use f='codebrowser/code/qcommon/msg.c' l='342' u='c' c='MSG_WriteBigString'/>
+<use f='codebrowser/code/qcommon/msg.c' l='350' u='c' c='MSG_WriteBigString'/>
+<use f='codebrowser/code/qcommon/msg.c' l='362' u='c' c='MSG_WriteBigString'/>
+<use f='codebrowser/code/qcommon/net_chan.c' l='139' u='c' c='Netchan_TransmitNextFragment'/>
+<use f='codebrowser/code/qcommon/net_chan.c' l='214' u='c' c='Netchan_Transmit'/>
+<use f='codebrowser/code/server/sv_client.c' l='1119' u='c' c='SV_WriteDownloadToClient'/>
+<use f='codebrowser/code/server/sv_snapshot.c' l='190' u='c' c='SV_WriteSnapshotToClient'/>
+<use f='codebrowser/code/server/sv_snapshot.c' l='557' u='c' c='SV_WriteVoipToClient'/>

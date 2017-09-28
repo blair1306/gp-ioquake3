@@ -1,0 +1,77 @@
+<def f='codebrowser/code/botlib/botlib.h' l='300' ll='396'/>
+<size>600</size>
+<mbr r='ai_export_s::BotLoadCharacter' o='0' t='int (*)(char *, float)'/>
+<mbr r='ai_export_s::BotFreeCharacter' o='64' t='void (*)(int)'/>
+<mbr r='ai_export_s::Characteristic_Float' o='128' t='float (*)(int, int)'/>
+<mbr r='ai_export_s::Characteristic_BFloat' o='192' t='float (*)(int, int, float, float)'/>
+<mbr r='ai_export_s::Characteristic_Integer' o='256' t='int (*)(int, int)'/>
+<mbr r='ai_export_s::Characteristic_BInteger' o='320' t='int (*)(int, int, int, int)'/>
+<mbr r='ai_export_s::Characteristic_String' o='384' t='void (*)(int, int, char *, int)'/>
+<mbr r='ai_export_s::BotAllocChatState' o='448' t='int (*)(void)'/>
+<mbr r='ai_export_s::BotFreeChatState' o='512' t='void (*)(int)'/>
+<mbr r='ai_export_s::BotQueueConsoleMessage' o='576' t='void (*)(int, int, char *)'/>
+<mbr r='ai_export_s::BotRemoveConsoleMessage' o='640' t='void (*)(int, int)'/>
+<mbr r='ai_export_s::BotNextConsoleMessage' o='704' t='int (*)(int, struct bot_consolemessage_s *)'/>
+<mbr r='ai_export_s::BotNumConsoleMessages' o='768' t='int (*)(int)'/>
+<mbr r='ai_export_s::BotInitialChat' o='832' t='void (*)(int, char *, int, char *, char *, char *, char *, char *, char *, char *, char *)'/>
+<mbr r='ai_export_s::BotNumInitialChats' o='896' t='int (*)(int, char *)'/>
+<mbr r='ai_export_s::BotReplyChat' o='960' t='int (*)(int, char *, int, int, char *, char *, char *, char *, char *, char *, char *, char *)'/>
+<mbr r='ai_export_s::BotChatLength' o='1024' t='int (*)(int)'/>
+<mbr r='ai_export_s::BotEnterChat' o='1088' t='void (*)(int, int, int)'/>
+<mbr r='ai_export_s::BotGetChatMessage' o='1152' t='void (*)(int, char *, int)'/>
+<mbr r='ai_export_s::StringContains' o='1216' t='int (*)(char *, char *, int)'/>
+<mbr r='ai_export_s::BotFindMatch' o='1280' t='int (*)(char *, struct bot_match_s *, unsigned long)'/>
+<mbr r='ai_export_s::BotMatchVariable' o='1344' t='void (*)(struct bot_match_s *, int, char *, int)'/>
+<mbr r='ai_export_s::UnifyWhiteSpaces' o='1408' t='void (*)(char *)'/>
+<mbr r='ai_export_s::BotReplaceSynonyms' o='1472' t='void (*)(char *, unsigned long)'/>
+<mbr r='ai_export_s::BotLoadChatFile' o='1536' t='int (*)(int, char *, char *)'/>
+<mbr r='ai_export_s::BotSetChatGender' o='1600' t='void (*)(int, int)'/>
+<mbr r='ai_export_s::BotSetChatName' o='1664' t='void (*)(int, char *, int)'/>
+<mbr r='ai_export_s::BotResetGoalState' o='1728' t='void (*)(int)'/>
+<mbr r='ai_export_s::BotResetAvoidGoals' o='1792' t='void (*)(int)'/>
+<mbr r='ai_export_s::BotRemoveFromAvoidGoals' o='1856' t='void (*)(int, int)'/>
+<mbr r='ai_export_s::BotPushGoal' o='1920' t='void (*)(int, struct bot_goal_s *)'/>
+<mbr r='ai_export_s::BotPopGoal' o='1984' t='void (*)(int)'/>
+<mbr r='ai_export_s::BotEmptyGoalStack' o='2048' t='void (*)(int)'/>
+<mbr r='ai_export_s::BotDumpAvoidGoals' o='2112' t='void (*)(int)'/>
+<mbr r='ai_export_s::BotDumpGoalStack' o='2176' t='void (*)(int)'/>
+<mbr r='ai_export_s::BotGoalName' o='2240' t='void (*)(int, char *, int)'/>
+<mbr r='ai_export_s::BotGetTopGoal' o='2304' t='int (*)(int, struct bot_goal_s *)'/>
+<mbr r='ai_export_s::BotGetSecondGoal' o='2368' t='int (*)(int, struct bot_goal_s *)'/>
+<mbr r='ai_export_s::BotChooseLTGItem' o='2432' t='int (*)(int, vec_t *, int *, int)'/>
+<mbr r='ai_export_s::BotChooseNBGItem' o='2496' t='int (*)(int, vec_t *, int *, int, struct bot_goal_s *, float)'/>
+<mbr r='ai_export_s::BotTouchingGoal' o='2560' t='int (*)(vec_t *, struct bot_goal_s *)'/>
+<mbr r='ai_export_s::BotItemGoalInVisButNotVisible' o='2624' t='int (*)(int, vec_t *, vec_t *, struct bot_goal_s *)'/>
+<mbr r='ai_export_s::BotGetLevelItemGoal' o='2688' t='int (*)(int, char *, struct bot_goal_s *)'/>
+<mbr r='ai_export_s::BotGetNextCampSpotGoal' o='2752' t='int (*)(int, struct bot_goal_s *)'/>
+<mbr r='ai_export_s::BotGetMapLocationGoal' o='2816' t='int (*)(char *, struct bot_goal_s *)'/>
+<mbr r='ai_export_s::BotAvoidGoalTime' o='2880' t='float (*)(int, int)'/>
+<mbr r='ai_export_s::BotSetAvoidGoalTime' o='2944' t='void (*)(int, int, float)'/>
+<mbr r='ai_export_s::BotInitLevelItems' o='3008' t='void (*)(void)'/>
+<mbr r='ai_export_s::BotUpdateEntityItems' o='3072' t='void (*)(void)'/>
+<mbr r='ai_export_s::BotLoadItemWeights' o='3136' t='int (*)(int, char *)'/>
+<mbr r='ai_export_s::BotFreeItemWeights' o='3200' t='void (*)(int)'/>
+<mbr r='ai_export_s::BotInterbreedGoalFuzzyLogic' o='3264' t='void (*)(int, int, int)'/>
+<mbr r='ai_export_s::BotSaveGoalFuzzyLogic' o='3328' t='void (*)(int, char *)'/>
+<mbr r='ai_export_s::BotMutateGoalFuzzyLogic' o='3392' t='void (*)(int, float)'/>
+<mbr r='ai_export_s::BotAllocGoalState' o='3456' t='int (*)(int)'/>
+<mbr r='ai_export_s::BotFreeGoalState' o='3520' t='void (*)(int)'/>
+<mbr r='ai_export_s::BotResetMoveState' o='3584' t='void (*)(int)'/>
+<mbr r='ai_export_s::BotMoveToGoal' o='3648' t='void (*)(struct bot_moveresult_s *, int, struct bot_goal_s *, int)'/>
+<mbr r='ai_export_s::BotMoveInDirection' o='3712' t='int (*)(int, vec_t *, float, int)'/>
+<mbr r='ai_export_s::BotResetAvoidReach' o='3776' t='void (*)(int)'/>
+<mbr r='ai_export_s::BotResetLastAvoidReach' o='3840' t='void (*)(int)'/>
+<mbr r='ai_export_s::BotReachabilityArea' o='3904' t='int (*)(vec_t *, int)'/>
+<mbr r='ai_export_s::BotMovementViewTarget' o='3968' t='int (*)(int, struct bot_goal_s *, int, float, vec_t *)'/>
+<mbr r='ai_export_s::BotPredictVisiblePosition' o='4032' t='int (*)(vec_t *, int, struct bot_goal_s *, int, vec_t *)'/>
+<mbr r='ai_export_s::BotAllocMoveState' o='4096' t='int (*)(void)'/>
+<mbr r='ai_export_s::BotFreeMoveState' o='4160' t='void (*)(int)'/>
+<mbr r='ai_export_s::BotInitMoveState' o='4224' t='void (*)(int, struct bot_initmove_s *)'/>
+<mbr r='ai_export_s::BotAddAvoidSpot' o='4288' t='void (*)(int, vec_t *, float, int)'/>
+<mbr r='ai_export_s::BotChooseBestFightWeapon' o='4352' t='int (*)(int, int *)'/>
+<mbr r='ai_export_s::BotGetWeaponInfo' o='4416' t='void (*)(int, int, struct weaponinfo_s *)'/>
+<mbr r='ai_export_s::BotLoadWeaponWeights' o='4480' t='int (*)(int, char *)'/>
+<mbr r='ai_export_s::BotAllocWeaponState' o='4544' t='int (*)(void)'/>
+<mbr r='ai_export_s::BotFreeWeaponState' o='4608' t='void (*)(int)'/>
+<mbr r='ai_export_s::BotResetWeaponState' o='4672' t='void (*)(int)'/>
+<mbr r='ai_export_s::GeneticParentsAndChildSelection' o='4736' t='int (*)(int, float *, int *, int *, int *)'/>

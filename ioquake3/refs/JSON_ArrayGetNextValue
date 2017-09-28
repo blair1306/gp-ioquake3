@@ -1,0 +1,8 @@
+<dec f='codebrowser/code/qcommon/json.h' l='45' type='const char * JSON_ArrayGetNextValue(const char * json, const char * jsonEnd)'/>
+<def f='codebrowser/code/qcommon/json.h' l='180' ll='188' type='const char * JSON_ArrayGetNextValue(const char * json, const char * jsonEnd)'/>
+<use f='codebrowser/code/qcommon/json.h' l='194' u='c' c='JSON_ArrayGetIndex'/>
+<use f='codebrowser/code/qcommon/json.h' l='209' u='c' c='JSON_ArrayGetValue'/>
+<use f='codebrowser/code/qcommon/json.h' l='223' u='c' c='JSON_ObjectGetNamedValue'/>
+<doc f='codebrowser/code/qcommon/json.h' l='42'>// Get pointer to next value in array
+// When given pointer to a value, returns pointer to the next value
+// returns NULL when no next value.</doc>

@@ -1,0 +1,22 @@
+<dec f='codebrowser/code/renderergl1/tr_local.h' l='1275' type='void RB_AddFlare(void * surface, int fogNum, vec_t * point, vec_t * color, vec_t * normal)'/>
+<def f='codebrowser/code/renderergl1/tr_flares.c' l='130' ll='214' type='void RB_AddFlare(void * surface, int fogNum, vec_t * point, vec_t * color, vec_t * normal)'/>
+<use f='codebrowser/code/renderergl1/tr_flares.c' l='258' u='c' c='RB_AddDlightFlares'/>
+<doc f='codebrowser/code/renderergl1/tr_flares.c' l='123'>/*
+==================
+RB_AddFlare
+
+This is called at surface tesselation time
+==================
+*/</doc>
+<use f='codebrowser/code/renderergl1/tr_surface.c' l='1218' u='c' c='RB_SurfaceFlare'/>
+<dec f='codebrowser/code/renderergl2/tr_local.h' l='2046' type='void RB_AddFlare(void * surface, int fogNum, vec_t * point, vec_t * color, vec_t * normal)'/>
+<def f='codebrowser/code/renderergl2/tr_flares.c' l='130' ll='214' type='void RB_AddFlare(void * surface, int fogNum, vec_t * point, vec_t * color, vec_t * normal)'/>
+<use f='codebrowser/code/renderergl2/tr_flares.c' l='258' u='c' c='RB_AddDlightFlares'/>
+<doc f='codebrowser/code/renderergl2/tr_flares.c' l='123'>/*
+==================
+RB_AddFlare
+
+This is called at surface tesselation time
+==================
+*/</doc>
+<use f='codebrowser/code/renderergl2/tr_surface.c' l='1209' u='c' c='RB_SurfaceFlare'/>

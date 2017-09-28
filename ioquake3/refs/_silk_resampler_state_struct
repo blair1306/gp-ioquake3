@@ -1,0 +1,14 @@
+<def f='codebrowser/code/opus-1.1.4/silk/resampler_structs.h' l='38' ll='54'/>
+<size>304</size>
+<mbr r='_silk_resampler_state_struct::sIIR' o='0' t='opus_int32 [6]'/>
+<mbr r='_silk_resampler_state_struct::sFIR' o='192' t='union (anonymous union at /home/jon/workspace/ioq3/code/opus-1.1.4/silk/resampler_structs.h:40:5)'/>
+<mbr r='_silk_resampler_state_struct::delayBuf' o='1344' t='opus_int16 [48]'/>
+<mbr r='_silk_resampler_state_struct::resampler_function' o='2112' t='int'/>
+<mbr r='_silk_resampler_state_struct::batchSize' o='2144' t='int'/>
+<mbr r='_silk_resampler_state_struct::invRatio_Q16' o='2176' t='opus_int32'/>
+<mbr r='_silk_resampler_state_struct::FIR_Order' o='2208' t='int'/>
+<mbr r='_silk_resampler_state_struct::FIR_Fracs' o='2240' t='int'/>
+<mbr r='_silk_resampler_state_struct::Fs_in_kHz' o='2272' t='int'/>
+<mbr r='_silk_resampler_state_struct::Fs_out_kHz' o='2304' t='int'/>
+<mbr r='_silk_resampler_state_struct::inputDelay' o='2336' t='int'/>
+<mbr r='_silk_resampler_state_struct::Coefs' o='2368' t='const opus_int16 *'/>

@@ -1,0 +1,10 @@
+<dec f='codebrowser/code/botlib/be_aas_file.h' l='36' type='qboolean AAS_WriteAASFile(char * filename)'/>
+<def f='codebrowser/code/botlib/be_aas_file.c' l='523' ll='582' type='qboolean AAS_WriteAASFile(char * filename)'/>
+<doc f='codebrowser/code/botlib/be_aas_file.c' l='516'>//===========================================================================
+// aas data is useless after writing to file because it is byte swapped
+//
+// Parameter:				-
+// Returns:					-
+// Changes Globals:		-
+//===========================================================================</doc>
+<use f='codebrowser/code/botlib/be_aas_main.c' l='127' u='c' c='AAS_ContinueInit'/>

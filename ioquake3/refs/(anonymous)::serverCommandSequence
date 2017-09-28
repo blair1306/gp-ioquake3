@@ -1,0 +1,24 @@
+<dec f='codebrowser/code/cgame/cg_public.h' l='53' type='int'/>
+<dec f='codebrowser/code/cgame/cg_local.h' l='999' type='int'/>
+<offset>251552</offset>
+<doc f='codebrowser/code/cgame/cg_local.h' l='999'>// reliable command stream counter</doc>
+<doc f='codebrowser/code/cgame/cg_public.h' l='53'>// snapshot becomes current</doc>
+<use f='codebrowser/code/cgame/cg_draw.c' l='718' u='r' c='CG_DrawSnapshot'/>
+<use f='codebrowser/code/cgame/cg_main.c' l='1855' u='w' c='CG_Init'/>
+<use f='codebrowser/code/cgame/cg_servercmds.c' l='1117' u='r' c='CG_ExecuteNewServerCommands'/>
+<use f='codebrowser/code/cgame/cg_servercmds.c' l='1118' u='w' c='CG_ExecuteNewServerCommands'/>
+<use f='codebrowser/code/cgame/cg_snapshot.c' l='95' u='r' c='CG_SetInitialSnapshot'/>
+<use f='codebrowser/code/cgame/cg_snapshot.c' l='138' u='r' c='CG_TransitionSnapshot'/>
+<dec f='codebrowser/code/client/client.h' l='193' type='int'/>
+<offset>565920</offset>
+<doc f='codebrowser/code/client/client.h' l='192'>// reliable messages received from server</doc>
+<use f='codebrowser/code/client/cl_cgame.c' l='149' u='w' c='CL_GetSnapshot'/>
+<use f='codebrowser/code/client/cl_cgame.c' l='266' u='r' c='CL_GetServerCommand'/>
+<use f='codebrowser/code/client/cl_cgame.c' l='275' u='r' c='CL_GetServerCommand'/>
+<use f='codebrowser/code/client/cl_input.c' l='774' u='r' c='CL_WritePacket'/>
+<use f='codebrowser/code/client/cl_input.c' l='870' u='r' c='CL_WritePacket'/>
+<use f='codebrowser/code/client/cl_main.c' l='778' u='r' c='CL_Record_f'/>
+<use f='codebrowser/code/client/cl_parse.c' l='221' u='r' c='CL_ParseSnapshot'/>
+<use f='codebrowser/code/client/cl_parse.c' l='479' u='w' c='CL_ParseGamestate'/>
+<use f='codebrowser/code/client/cl_parse.c' l='843' u='r' c='CL_ParseCommandString'/>
+<use f='codebrowser/code/client/cl_parse.c' l='846' u='w' c='CL_ParseCommandString'/>

@@ -1,0 +1,18 @@
+<dec f='codebrowser/code/opusfile-0.8/include/opusfile.h' l='591' type='int opus_tags_get_track_gain(const OpusTags * _tags, int * _gain_q8)'/>
+<doc f='codebrowser/code/opusfile-0.8/include/opusfile.h' l='576'>/**Get the track gain from an R128_TRACK_GAIN tag, if one was specified.
+   This searches for the first R128_TRACK_GAIN tag with a valid signed,
+    16-bit decimal integer value and returns the value.
+   This routine is exposed merely for convenience for applications which wish
+    to do something special with the track gain (i.e., display it).
+   If you simply wish to apply the track gain instead of the header gain, you
+    can use op_set_gain_offset() with an #OP_TRACK_GAIN type and no offset.
+   \param      _tags    An initialized #OpusTags structure.
+   \param[out] _gain_q8 The track gain, in 1/256ths of a dB.
+                        This will lie in the range [-32768,32767], and should
+                         be applied in &lt;em&gt;addition&lt;/em&gt; to the header gain.
+                        On error, no value is returned, and the previous
+                         contents remain unchanged.
+   \return 0 on success, or a negative value on error.
+   \retval #OP_FALSE There was no track gain available in the given tags.*/</doc>
+<def f='codebrowser/code/opusfile-0.8/src/info.c' l='437' ll='439' type='int opus_tags_get_track_gain(const OpusTags * _tags, int * _gain_q8)'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='1321' u='c' c='op_update_gain'/>

@@ -1,0 +1,4 @@
+<dec f='codebrowser/code/opus-1.1.4/celt/celt.h' l='199' type='void celt_preemphasis(const opus_val16 *restrict pcmp, celt_sig *restrict inp, int N, int CC, int upsample, const opus_val16 * coef, celt_sig * mem, int clip)'/>
+<def f='codebrowser/code/opus-1.1.4/celt/celt_encoder.c' l='462' ll='533' type='void celt_preemphasis(const opus_val16 *restrict pcmp, celt_sig *restrict inp, int N, int CC, int upsample, const opus_val16 * coef, celt_sig * mem, int clip)'/>
+<use f='codebrowser/code/opus-1.1.4/celt/celt_encoder.c' l='1551' u='c' c='celt_encode_with_ec'/>
+<use f='codebrowser/code/opus-1.1.4/src/opus_multistream_encoder.c' l='273' u='c' c='surround_analysis'/>

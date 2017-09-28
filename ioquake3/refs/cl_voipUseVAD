@@ -1,0 +1,12 @@
+<dec f='codebrowser/code/client/client.h' l='438' type='cvar_t *'/>
+<doc f='codebrowser/code/client/client.h' l='435'>// cl_voipSendTarget is a string: &quot;all&quot; to broadcast to everyone, &quot;none&quot; to
+//  send to no one, or a comma-separated list of client numbers:
+//  &quot;0,7,2,23&quot; ... an empty string is treated like &quot;all&quot;.</doc>
+<def f='codebrowser/code/client/cl_main.c' l='40' type='cvar_t *'/>
+<use f='codebrowser/code/client/cl_main.c' l='408' u='r' c='CL_CaptureVoip'/>
+<use f='codebrowser/code/client/cl_main.c' l='441' u='r' c='CL_CaptureVoip'/>
+<use f='codebrowser/code/client/cl_main.c' l='443' u='r' c='CL_CaptureVoip'/>
+<use f='codebrowser/code/client/cl_main.c' l='1407' u='r' c='CL_Disconnect'/>
+<use f='codebrowser/code/client/cl_main.c' l='1408' u='r' c='CL_Disconnect'/>
+<use f='codebrowser/code/client/cl_main.c' l='1412' u='r' c='CL_Disconnect'/>
+<use f='codebrowser/code/client/cl_main.c' l='3648' u='w' c='CL_Init'/>

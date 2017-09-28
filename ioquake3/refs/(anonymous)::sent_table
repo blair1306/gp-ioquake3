@@ -1,0 +1,28 @@
+<dec f='codebrowser/code/jpeg-8c/jpeglib.h' l='103' type='boolean'/>
+<dec f='codebrowser/code/jpeg-8c/jpeglib.h' l='119' type='boolean'/>
+<offset>2208</offset>
+<doc f='codebrowser/code/jpeg-8c/jpeglib.h' l='98'>/* This field is used only during compression.  It&apos;s initialized FALSE when
+   * the table is created, and set TRUE when it&apos;s been output to the file.
+   * You could suppress output of a table by setting this to TRUE.
+   * (See jpeg_suppress_tables for an example.)
+   */</doc>
+<doc f='codebrowser/code/jpeg-8c/jpeglib.h' l='103'>/* TRUE when table has been output */</doc>
+<doc f='codebrowser/code/jpeg-8c/jpeglib.h' l='114'>/* This field is used only during compression.  It&apos;s initialized FALSE when
+   * the table is created, and set TRUE when it&apos;s been output to the file.
+   * You could suppress output of a table by setting this to TRUE.
+   * (See jpeg_suppress_tables for an example.)
+   */</doc>
+<doc f='codebrowser/code/jpeg-8c/jpeglib.h' l='119'>/* TRUE when table has been output */</doc>
+<use f='codebrowser/code/jpeg-8c/jcapimin.c' l='135' u='w' c='jpeg_suppress_tables'/>
+<use f='codebrowser/code/jpeg-8c/jcapimin.c' l='140' u='w' c='jpeg_suppress_tables'/>
+<use f='codebrowser/code/jpeg-8c/jcapimin.c' l='142' u='w' c='jpeg_suppress_tables'/>
+<use f='codebrowser/code/jpeg-8c/jchuff.c' l='1388' u='w' c='jpeg_gen_optimal_table'/>
+<use f='codebrowser/code/jpeg-8c/jcmarker.c' l='162' u='r' c='emit_dqt'/>
+<use f='codebrowser/code/jpeg-8c/jcmarker.c' l='178' u='w' c='emit_dqt'/>
+<use f='codebrowser/code/jpeg-8c/jcmarker.c' l='202' u='r' c='emit_dht'/>
+<use f='codebrowser/code/jpeg-8c/jcmarker.c' l='218' u='w' c='emit_dht'/>
+<use f='codebrowser/code/jpeg-8c/jcomapi.c' l='92' u='w' c='jpeg_alloc_quant_table'/>
+<use f='codebrowser/code/jpeg-8c/jcomapi.c' l='104' u='w' c='jpeg_alloc_huff_table'/>
+<use f='codebrowser/code/jpeg-8c/jcparam.c' l='60' u='w' c='jpeg_add_quant_table'/>
+<use f='codebrowser/code/jpeg-8c/jcparam.c' l='194' u='w' c='add_huff_table'/>
+<use f='codebrowser/code/jpeg-8c/jctrans.c' l='101' u='w' c='jpeg_copy_critical_parameters'/>

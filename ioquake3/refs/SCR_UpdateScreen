@@ -1,0 +1,18 @@
+<dec f='codebrowser/code/client/client.h' l='566' type='void SCR_UpdateScreen()'/>
+<use f='codebrowser/code/client/cl_cgame.c' l='471' u='c' c='CL_CgameSystemCalls'/>
+<use f='codebrowser/code/client/cl_keys.c' l='659' u='c' c='Console_Key'/>
+<use f='codebrowser/code/client/cl_main.c' l='1305' u='c' c='CL_MapLoading'/>
+<use f='codebrowser/code/client/cl_main.c' l='1313' u='c' c='CL_MapLoading'/>
+<use f='codebrowser/code/client/cl_main.c' l='1472' u='c' c='CL_Disconnect'/>
+<use f='codebrowser/code/client/cl_main.c' l='2947' u='c' c='CL_Frame'/>
+<use f='codebrowser/code/client/cl_main.c' l='3048' u='c' c='CL_Frame'/>
+<def f='codebrowser/code/client/cl_scrn.c' l='559' ll='593' type='void SCR_UpdateScreen()'/>
+<doc f='codebrowser/code/client/cl_scrn.c' l='551'>/*
+==================
+SCR_UpdateScreen
+
+This is called every frame, and can also be called explicitly to flush
+text to the screen.
+==================
+*/</doc>
+<use f='codebrowser/code/client/cl_ui.c' l='852' u='c' c='CL_UISystemCalls'/>

@@ -1,0 +1,24 @@
+<dec f='codebrowser/code/botlib/l_script.h' l='215' type='void StripDoubleQuotes(char * string)'/>
+<use f='codebrowser/code/botlib/be_aas_bspq3.c' l='421' u='c' c='AAS_ParseBSPEntities'/>
+<use f='codebrowser/code/botlib/be_aas_bspq3.c' l='430' u='c' c='AAS_ParseBSPEntities'/>
+<doc f='codebrowser/code/botlib/l_script.h' l='214'>//remove any leading and trailing double quotes from the token</doc>
+<use f='codebrowser/code/botlib/be_ai_char.c' l='304' u='c' c='BotLoadCharacterFromFile'/>
+<use f='codebrowser/code/botlib/be_ai_chat.c' l='698' u='c' c='BotLoadSynonyms'/>
+<use f='codebrowser/code/botlib/be_ai_chat.c' l='891' u='c' c='BotLoadChatMessage'/>
+<use f='codebrowser/code/botlib/be_ai_chat.c' l='1225' u='c' c='BotLoadMatchPieces'/>
+<use f='codebrowser/code/botlib/be_ai_chat.c' l='1921' u='c' c='BotLoadReplyChat'/>
+<use f='codebrowser/code/botlib/be_ai_chat.c' l='1943' u='c' c='BotLoadReplyChat'/>
+<use f='codebrowser/code/botlib/be_ai_chat.c' l='2080' u='c' c='BotLoadInitialChat'/>
+<use f='codebrowser/code/botlib/be_ai_chat.c' l='2113' u='c' c='BotLoadInitialChat'/>
+<use f='codebrowser/code/botlib/be_ai_goal.c' l='316' u='c' c='LoadItemConfig'/>
+<use f='codebrowser/code/botlib/be_ai_weight.c' l='353' u='c' c='ReadWeightConfig'/>
+<use f='codebrowser/code/botlib/l_precomp.c' l='993' u='c' c='PC_Directive_include'/>
+<use f='codebrowser/code/botlib/l_precomp.c' l='3182' u='c' c='PC_ReadTokenHandle'/>
+<def f='codebrowser/code/botlib/l_script.c' l='1119' ll='1129' type='void StripDoubleQuotes(char * string)'/>
+<doc f='codebrowser/code/botlib/l_script.c' l='1113'>//============================================================================
+//
+// Parameter:				-
+// Returns:					-
+// Changes Globals:		-
+//============================================================================</doc>
+<use f='codebrowser/code/botlib/l_struct.c' l='222' u='c' c='ReadString'/>

@@ -1,0 +1,24 @@
+<dec f='codebrowser/code/renderergl2/tr_fbo.h' l='61' type='void FBO_Blit(FBO_t * src, int * srcBox, vec_t * srcTexScale, FBO_t * dst, int * dstBox, struct shaderProgram_s * shaderProgram, vec_t * color, int blend)'/>
+<use f='codebrowser/code/renderergl2/tr_backend.c' l='1502' u='c' c='RB_PostProcess'/>
+<use f='codebrowser/code/renderergl2/tr_backend.c' l='1530' u='c' c='RB_PostProcess'/>
+<def f='codebrowser/code/renderergl2/tr_fbo.c' l='591' ll='614' type='void FBO_Blit(FBO_t * src, int * inSrcBox, vec_t * srcTexScale, FBO_t * dst, int * dstBox, struct shaderProgram_s * shaderProgram, vec_t * color, int blend)'/>
+<use f='codebrowser/code/renderergl2/tr_fbo.c' l='623' u='c' c='FBO_FastBlit'/>
+<use f='codebrowser/code/renderergl2/tr_postprocess.c' l='43' u='c' c='RB_ToneMap'/>
+<use f='codebrowser/code/renderergl2/tr_postprocess.c' l='79' u='c' c='RB_ToneMap'/>
+<use f='codebrowser/code/renderergl2/tr_postprocess.c' l='93' u='c' c='RB_ToneMap'/>
+<use f='codebrowser/code/renderergl2/tr_postprocess.c' l='147' u='c' c='RB_BokehBlur'/>
+<use f='codebrowser/code/renderergl2/tr_postprocess.c' l='154' u='c' c='RB_BokehBlur'/>
+<use f='codebrowser/code/renderergl2/tr_postprocess.c' l='158' u='c' c='RB_BokehBlur'/>
+<use f='codebrowser/code/renderergl2/tr_postprocess.c' l='181' u='c' c='RB_BokehBlur'/>
+<use f='codebrowser/code/renderergl2/tr_postprocess.c' l='183' u='c' c='RB_BokehBlur'/>
+<use f='codebrowser/code/renderergl2/tr_postprocess.c' l='186' u='c' c='RB_BokehBlur'/>
+<use f='codebrowser/code/renderergl2/tr_postprocess.c' l='245' u='c' c='RB_RadialBlur'/>
+<use f='codebrowser/code/renderergl2/tr_postprocess.c' l='260' u='c' c='RB_RadialBlur'/>
+<use f='codebrowser/code/renderergl2/tr_postprocess.c' l='362' u='c' c='RB_SunRays'/>
+<use f='codebrowser/code/renderergl2/tr_postprocess.c' l='388' u='c' c='RB_SunRays'/>
+<use f='codebrowser/code/renderergl2/tr_postprocess.c' l='420' u='c' c='RB_BlurAxis'/>
+<use f='codebrowser/code/renderergl2/tr_postprocess.c' l='426' u='c' c='RB_BlurAxis'/>
+<use f='codebrowser/code/renderergl2/tr_postprocess.c' l='428' u='c' c='RB_BlurAxis'/>
+<use f='codebrowser/code/renderergl2/tr_postprocess.c' l='434' u='c' c='RB_BlurAxis'/>
+<use f='codebrowser/code/renderergl2/tr_postprocess.c' l='436' u='c' c='RB_BlurAxis'/>
+<use f='codebrowser/code/renderergl2/tr_postprocess.c' l='481' u='c' c='RB_GaussianBlur'/>

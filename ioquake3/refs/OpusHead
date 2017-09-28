@@ -1,0 +1,14 @@
+<def f='codebrowser/code/opusfile-0.8/include/opusfile.h' l='215' ll='268'/>
+<size>288</size>
+<doc f='codebrowser/code/opusfile-0.8/include/opusfile.h' l='212'>/**Ogg Opus bitstream information.
+   This contains the basic playback parameters for a stream, and corresponds to
+    the initial ID header packet of an Ogg Opus stream.*/</doc>
+<mbr r='OpusHead::version' o='0' t='int'/>
+<mbr r='OpusHead::channel_count' o='32' t='int'/>
+<mbr r='OpusHead::pre_skip' o='64' t='unsigned int'/>
+<mbr r='OpusHead::input_sample_rate' o='96' t='opus_uint32'/>
+<mbr r='OpusHead::output_gain' o='128' t='int'/>
+<mbr r='OpusHead::mapping_family' o='160' t='int'/>
+<mbr r='OpusHead::stream_count' o='192' t='int'/>
+<mbr r='OpusHead::coupled_count' o='224' t='int'/>
+<mbr r='OpusHead::mapping' o='256' t='unsigned char [255]'/>

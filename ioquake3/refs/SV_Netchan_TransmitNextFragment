@@ -1,0 +1,11 @@
+<dec f='codebrowser/code/server/server.h' l='493' type='int SV_Netchan_TransmitNextFragment(client_t * client)'/>
+<use f='codebrowser/code/server/sv_client.c' l='1154' u='c' c='SV_SendQueuedMessages'/>
+<def f='codebrowser/code/server/sv_net_chan.c' l='196' ll='210' type='int SV_Netchan_TransmitNextFragment(client_t * client)'/>
+<doc f='codebrowser/code/server/sv_net_chan.c' l='187'>/*
+=================
+SV_Netchan_TransmitNextFragment
+Transmit the next fragment and the next queued packet
+Return number of ms until next message can be sent based on throughput given by client rate,
+-1 if no packet was sent.
+=================
+*/</doc>

@@ -1,0 +1,17 @@
+<dec f='codebrowser/code/cgame/cg_local.h' l='1659' type='e_status trap_CIN_StopCinematic(int handle)'/>
+<def f='codebrowser/code/cgame/cg_syscalls.c' l='406' ll='408' type='e_status trap_CIN_StopCinematic(int handle)'/>
+<doc f='codebrowser/code/cgame/cg_syscalls.c' l='404'>// stops playing the cinematic and ends it.  should always return FMV_EOF
+// cinematics must be stopped in reverse order of when they are started</doc>
+<dec f='codebrowser/code/ui/ui_local.h' l='990' type='e_status trap_CIN_StopCinematic(int handle)'/>
+<use f='codebrowser/code/ui/ui_main.c' l='2307' u='c' c='UI_ClanName_HandleKey'/>
+<use f='codebrowser/code/ui/ui_main.c' l='3302' u='c' c='UI_RunMenuScript'/>
+<use f='codebrowser/code/ui/ui_main.c' l='4476' u='c' c='UI_FeederSelection'/>
+<use f='codebrowser/code/ui/ui_main.c' l='4502' u='c' c='UI_FeederSelection'/>
+<use f='codebrowser/code/ui/ui_main.c' l='4529' u='c' c='UI_FeederSelection'/>
+<use f='codebrowser/code/ui/ui_main.c' l='4951' u='c' c='UI_StopCinematic'/>
+<use f='codebrowser/code/ui/ui_main.c' l='4956' u='c' c='UI_StopCinematic'/>
+<use f='codebrowser/code/ui/ui_main.c' l='4961' u='c' c='UI_StopCinematic'/>
+<use f='codebrowser/code/ui/ui_main.c' l='4968' u='c' c='UI_StopCinematic'/>
+<def f='codebrowser/code/ui/ui_syscalls.c' l='371' ll='373' type='e_status trap_CIN_StopCinematic(int handle)'/>
+<doc f='codebrowser/code/ui/ui_syscalls.c' l='369'>// stops playing the cinematic and ends it.  should always return FMV_EOF
+// cinematics must be stopped in reverse order of when they are started</doc>

@@ -1,0 +1,163 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>mlp.c source code [codebrowser/code/opus-1.1.4/src/mlp.c] - Woboq Code Browser</title>
+<link rel="stylesheet" href="../../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'codebrowser/code/opus-1.1.4/src/mlp.c'; var root_path = '../../../..'; var data_path = '../../../../../data';</script>
+<script src='../../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../../..'>codebrowser</a>/<a href='../..'>code</a>/<a href='..'>opus-1.1.4</a>/<a href='./'>src</a>/<a href='mlp.c.html'>mlp.c</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/* Copyright (c) 2008-2011 Octasic Inc.</i></td></tr>
+<tr><th id="2">2</th><td><i>   Written by Jean-Marc Valin */</i></td></tr>
+<tr><th id="3">3</th><td><i>/*</i></td></tr>
+<tr><th id="4">4</th><td><i>   Redistribution and use in source and binary forms, with or without</i></td></tr>
+<tr><th id="5">5</th><td><i>   modification, are permitted provided that the following conditions</i></td></tr>
+<tr><th id="6">6</th><td><i>   are met:</i></td></tr>
+<tr><th id="7">7</th><td><i></i></td></tr>
+<tr><th id="8">8</th><td><i>   - Redistributions of source code must retain the above copyright</i></td></tr>
+<tr><th id="9">9</th><td><i>   notice, this list of conditions and the following disclaimer.</i></td></tr>
+<tr><th id="10">10</th><td><i></i></td></tr>
+<tr><th id="11">11</th><td><i>   - Redistributions in binary form must reproduce the above copyright</i></td></tr>
+<tr><th id="12">12</th><td><i>   notice, this list of conditions and the following disclaimer in the</i></td></tr>
+<tr><th id="13">13</th><td><i>   documentation and/or other materials provided with the distribution.</i></td></tr>
+<tr><th id="14">14</th><td><i></i></td></tr>
+<tr><th id="15">15</th><td><i>   THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS</i></td></tr>
+<tr><th id="16">16</th><td><i>   ``AS IS'' AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT</i></td></tr>
+<tr><th id="17">17</th><td><i>   LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR</i></td></tr>
+<tr><th id="18">18</th><td><i>   A PARTICULAR PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL THE FOUNDATION OR</i></td></tr>
+<tr><th id="19">19</th><td><i>   CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,</i></td></tr>
+<tr><th id="20">20</th><td><i>   EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,</i></td></tr>
+<tr><th id="21">21</th><td><i>   PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR</i></td></tr>
+<tr><th id="22">22</th><td><i>   PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF</i></td></tr>
+<tr><th id="23">23</th><td><i>   LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING</i></td></tr>
+<tr><th id="24">24</th><td><i>   NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS</i></td></tr>
+<tr><th id="25">25</th><td><i>   SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</i></td></tr>
+<tr><th id="26">26</th><td><i>*/</i></td></tr>
+<tr><th id="27">27</th><td></td></tr>
+<tr><th id="28">28</th><td><u>#<span data-ppcond="28">ifdef</span> <span class="macro" data-ref="_M/HAVE_CONFIG_H">HAVE_CONFIG_H</span></u></td></tr>
+<tr><th id="29">29</th><td><u>#include "config.h"</u></td></tr>
+<tr><th id="30">30</th><td><u>#<span data-ppcond="28">endif</span></u></td></tr>
+<tr><th id="31">31</th><td></td></tr>
+<tr><th id="32">32</th><td><u>#include <a href="../include/opus_types.h.html">"opus_types.h"</a></u></td></tr>
+<tr><th id="33">33</th><td><u>#include <a href="../include/opus_defines.h.html">"opus_defines.h"</a></u></td></tr>
+<tr><th id="34">34</th><td></td></tr>
+<tr><th id="35">35</th><td><u>#include <a href="../../../../include/math.h.html">&lt;math.h&gt;</a></u></td></tr>
+<tr><th id="36">36</th><td><u>#include <a href="mlp.h.html">"mlp.h"</a></u></td></tr>
+<tr><th id="37">37</th><td><u>#include <a href="../celt/arch.h.html">"arch.h"</a></u></td></tr>
+<tr><th id="38">38</th><td><u>#include <a href="tansig_table.h.html">"tansig_table.h"</a></u></td></tr>
+<tr><th id="39">39</th><td><u>#define <dfn class="macro" id="_M/MAX_NEURONS" data-ref="_M/MAX_NEURONS">MAX_NEURONS</dfn> 100</u></td></tr>
+<tr><th id="40">40</th><td></td></tr>
+<tr><th id="41">41</th><td><u>#<span data-ppcond="41">if</span> 0</u></td></tr>
+<tr><th id="42">42</th><td><em>static</em> OPUS_INLINE opus_val16 tansig_approx(opus_val32 _x) <i>/* Q19 */</i></td></tr>
+<tr><th id="43">43</th><td>{</td></tr>
+<tr><th id="44">44</th><td>    <em>int</em> i;</td></tr>
+<tr><th id="45">45</th><td>    opus_val16 xx; <i>/* Q11 */</i></td></tr>
+<tr><th id="46">46</th><td>    <i>/*double x, y;*/</i></td></tr>
+<tr><th id="47">47</th><td>    opus_val16 dy, yy; <i>/* Q14 */</i></td></tr>
+<tr><th id="48">48</th><td>    <i>/*x = 1.9073e-06*_x;*/</i></td></tr>
+<tr><th id="49">49</th><td>    <b>if</b> (_x&gt;=QCONST32(<var>8</var>,<var>19</var>))</td></tr>
+<tr><th id="50">50</th><td>        <b>return</b> QCONST32(<var>1.</var>,<var>14</var>);</td></tr>
+<tr><th id="51">51</th><td>    <b>if</b> (_x&lt;=-QCONST32(<var>8</var>,<var>19</var>))</td></tr>
+<tr><th id="52">52</th><td>        <b>return</b> -QCONST32(<var>1.</var>,<var>14</var>);</td></tr>
+<tr><th id="53">53</th><td>    xx = EXTRACT16(SHR32(_x, <var>8</var>));</td></tr>
+<tr><th id="54">54</th><td>    <i>/*i = lrint(25*x);*/</i></td></tr>
+<tr><th id="55">55</th><td>    i = SHR32(ADD32(<var>1024</var>,MULT16_16(<var>25</var>, xx)),<var>11</var>);</td></tr>
+<tr><th id="56">56</th><td>    <i>/*x -= .04*i;*/</i></td></tr>
+<tr><th id="57">57</th><td>    xx -= EXTRACT16(SHR32(MULT16_16(<var>20972</var>,i),<var>8</var>));</td></tr>
+<tr><th id="58">58</th><td>    <i>/*x = xx*(1./2048);*/</i></td></tr>
+<tr><th id="59">59</th><td>    <i>/*y = tansig_table[250+i];*/</i></td></tr>
+<tr><th id="60">60</th><td>    yy = tansig_table[<var>250</var>+i];</td></tr>
+<tr><th id="61">61</th><td>    <i>/*y = yy*(1./16384);*/</i></td></tr>
+<tr><th id="62">62</th><td>    dy = <var>16384</var>-MULT16_16_Q14(yy,yy);</td></tr>
+<tr><th id="63">63</th><td>    yy = yy + MULT16_16_Q14(MULT16_16_Q11(xx,dy),(<var>16384</var> - MULT16_16_Q11(yy,xx)));</td></tr>
+<tr><th id="64">64</th><td>    <b>return</b> yy;</td></tr>
+<tr><th id="65">65</th><td>}</td></tr>
+<tr><th id="66">66</th><td><u>#<span data-ppcond="41">else</span></u></td></tr>
+<tr><th id="67">67</th><td><i  data-doc="tansig_approx">/*extern const float tansig_table[501];*/</i></td></tr>
+<tr><th id="68">68</th><td><em>static</em> <a class="macro" href="../include/opus_defines.h.html#110" title="inline" data-ref="_M/OPUS_INLINE">OPUS_INLINE</a> <em>float</em> <dfn class="tu decl def" id="tansig_approx" title='tansig_approx' data-type='float tansig_approx(float x)' data-ref="tansig_approx">tansig_approx</dfn>(<em>float</em> <dfn class="local col1 decl" id="1x" title='x' data-type='float' data-ref="1x">x</dfn>)</td></tr>
+<tr><th id="69">69</th><td>{</td></tr>
+<tr><th id="70">70</th><td>    <em>int</em> <dfn class="local col2 decl" id="2i" title='i' data-type='int' data-ref="2i">i</dfn>;</td></tr>
+<tr><th id="71">71</th><td>    <em>float</em> <dfn class="local col3 decl" id="3y" title='y' data-type='float' data-ref="3y">y</dfn>, <dfn class="local col4 decl" id="4dy" title='dy' data-type='float' data-ref="4dy">dy</dfn>;</td></tr>
+<tr><th id="72">72</th><td>    <em>float</em> <dfn class="local col5 decl" id="5sign" title='sign' data-type='float' data-ref="5sign">sign</dfn>=<var>1</var>;</td></tr>
+<tr><th id="73">73</th><td>    <i>/* Tests are reversed to catch NaNs */</i></td></tr>
+<tr><th id="74">74</th><td>    <b>if</b> (!(<a class="local col1 ref" href="#1x" title='x' data-ref="1x">x</a>&lt;<var>8</var>))</td></tr>
+<tr><th id="75">75</th><td>        <b>return</b> <var>1</var>;</td></tr>
+<tr><th id="76">76</th><td>    <b>if</b> (!(<a class="local col1 ref" href="#1x" title='x' data-ref="1x">x</a>&gt;-<var>8</var>))</td></tr>
+<tr><th id="77">77</th><td>        <b>return</b> -<var>1</var>;</td></tr>
+<tr><th id="78">78</th><td><u>#<span data-ppcond="78">ifndef</span> <span class="macro" data-ref="_M/FIXED_POINT">FIXED_POINT</span></u></td></tr>
+<tr><th id="79">79</th><td>    <i>/* Another check in case of -ffast-math */</i></td></tr>
+<tr><th id="80">80</th><td>    <b>if</b> (<a class="ref" href="../celt/arch.h.html#celt_isnan" title='celt_isnan' data-ref="celt_isnan">celt_isnan</a>(<a class="local col1 ref" href="#1x" title='x' data-ref="1x">x</a>))</td></tr>
+<tr><th id="81">81</th><td>       <b>return</b> <var>0</var>;</td></tr>
+<tr><th id="82">82</th><td><u>#<span data-ppcond="78">endif</span></u></td></tr>
+<tr><th id="83">83</th><td>    <b>if</b> (<a class="local col1 ref" href="#1x" title='x' data-ref="1x">x</a>&lt;<var>0</var>)</td></tr>
+<tr><th id="84">84</th><td>    {</td></tr>
+<tr><th id="85">85</th><td>       <a class="local col1 ref" href="#1x" title='x' data-ref="1x">x</a>=-<a class="local col1 ref" href="#1x" title='x' data-ref="1x">x</a>;</td></tr>
+<tr><th id="86">86</th><td>       <a class="local col5 ref" href="#5sign" title='sign' data-ref="5sign">sign</a>=-<var>1</var>;</td></tr>
+<tr><th id="87">87</th><td>    }</td></tr>
+<tr><th id="88">88</th><td>    <a class="local col2 ref" href="#2i" title='i' data-ref="2i">i</a> = (<em>int</em>)<a class="ref" href="../../../../include/x86_64-linux-gnu/bits/mathcalls.h.html#184" title='floor' data-ref="floor">floor</a>(<var>.5f</var>+<var>25</var>*<a class="local col1 ref" href="#1x" title='x' data-ref="1x">x</a>);</td></tr>
+<tr><th id="89">89</th><td>    <a class="local col1 ref" href="#1x" title='x' data-ref="1x">x</a> -= <var>.04f</var>*<a class="local col2 ref" href="#2i" title='i' data-ref="2i">i</a>;</td></tr>
+<tr><th id="90">90</th><td>    <a class="local col3 ref" href="#3y" title='y' data-ref="3y">y</a> = <a class="ref" href="tansig_table.h.html#tansig_table" title='tansig_table' data-ref="tansig_table">tansig_table</a>[<a class="local col2 ref" href="#2i" title='i' data-ref="2i">i</a>];</td></tr>
+<tr><th id="91">91</th><td>    <a class="local col4 ref" href="#4dy" title='dy' data-ref="4dy">dy</a> = <var>1</var>-<a class="local col3 ref" href="#3y" title='y' data-ref="3y">y</a>*<a class="local col3 ref" href="#3y" title='y' data-ref="3y">y</a>;</td></tr>
+<tr><th id="92">92</th><td>    <a class="local col3 ref" href="#3y" title='y' data-ref="3y">y</a> = <a class="local col3 ref" href="#3y" title='y' data-ref="3y">y</a> + <a class="local col1 ref" href="#1x" title='x' data-ref="1x">x</a>*<a class="local col4 ref" href="#4dy" title='dy' data-ref="4dy">dy</a>*(<var>1</var> - <a class="local col3 ref" href="#3y" title='y' data-ref="3y">y</a>*<a class="local col1 ref" href="#1x" title='x' data-ref="1x">x</a>);</td></tr>
+<tr><th id="93">93</th><td>    <b>return</b> <a class="local col5 ref" href="#5sign" title='sign' data-ref="5sign">sign</a>*<a class="local col3 ref" href="#3y" title='y' data-ref="3y">y</a>;</td></tr>
+<tr><th id="94">94</th><td>}</td></tr>
+<tr><th id="95">95</th><td><u>#<span data-ppcond="41">endif</span></u></td></tr>
+<tr><th id="96">96</th><td></td></tr>
+<tr><th id="97">97</th><td><u>#<span data-ppcond="97">if</span> 0</u></td></tr>
+<tr><th id="98">98</th><td><em>void</em> mlp_process(<em>const</em> MLP *m, <em>const</em> opus_val16 *in, opus_val16 *out)</td></tr>
+<tr><th id="99">99</th><td>{</td></tr>
+<tr><th id="100">100</th><td>    <em>int</em> j;</td></tr>
+<tr><th id="101">101</th><td>    opus_val16 hidden[MAX_NEURONS];</td></tr>
+<tr><th id="102">102</th><td>    <em>const</em> opus_val16 *W = m-&gt;weights;</td></tr>
+<tr><th id="103">103</th><td>    <i>/* Copy to tmp_in */</i></td></tr>
+<tr><th id="104">104</th><td>    <b>for</b> (j=<var>0</var>;j&lt;m-&gt;topo[<var>1</var>];j++)</td></tr>
+<tr><th id="105">105</th><td>    {</td></tr>
+<tr><th id="106">106</th><td>        <em>int</em> k;</td></tr>
+<tr><th id="107">107</th><td>        opus_val32 sum = SHL32(EXTEND32(*W++),<var>8</var>);</td></tr>
+<tr><th id="108">108</th><td>        <b>for</b> (k=<var>0</var>;k&lt;m-&gt;topo[<var>0</var>];k++)</td></tr>
+<tr><th id="109">109</th><td>            sum = MAC16_16(sum, in[k],*W++);</td></tr>
+<tr><th id="110">110</th><td>        hidden[j] = tansig_approx(sum);</td></tr>
+<tr><th id="111">111</th><td>    }</td></tr>
+<tr><th id="112">112</th><td>    <b>for</b> (j=<var>0</var>;j&lt;m-&gt;topo[<var>2</var>];j++)</td></tr>
+<tr><th id="113">113</th><td>    {</td></tr>
+<tr><th id="114">114</th><td>        <em>int</em> k;</td></tr>
+<tr><th id="115">115</th><td>        opus_val32 sum = SHL32(EXTEND32(*W++),<var>14</var>);</td></tr>
+<tr><th id="116">116</th><td>        <b>for</b> (k=<var>0</var>;k&lt;m-&gt;topo[<var>1</var>];k++)</td></tr>
+<tr><th id="117">117</th><td>            sum = MAC16_16(sum, hidden[k], *W++);</td></tr>
+<tr><th id="118">118</th><td>        out[j] = tansig_approx(EXTRACT16(PSHR32(sum,<var>17</var>)));</td></tr>
+<tr><th id="119">119</th><td>    }</td></tr>
+<tr><th id="120">120</th><td>}</td></tr>
+<tr><th id="121">121</th><td><u>#<span data-ppcond="97">else</span></u></td></tr>
+<tr><th id="122">122</th><td><em>void</em> <dfn class="decl def" id="mlp_process" title='mlp_process' data-ref="mlp_process">mlp_process</dfn>(<em>const</em> <a class="typedef" href="mlp.h.html#MLP" title='MLP' data-type='struct MLP' data-ref="MLP">MLP</a> *<dfn class="local col6 decl" id="6m" title='m' data-type='const MLP *' data-ref="6m">m</dfn>, <em>const</em> <em>float</em> *<dfn class="local col7 decl" id="7in" title='in' data-type='const float *' data-ref="7in">in</dfn>, <em>float</em> *<dfn class="local col8 decl" id="8out" title='out' data-type='float *' data-ref="8out">out</dfn>)</td></tr>
+<tr><th id="123">123</th><td>{</td></tr>
+<tr><th id="124">124</th><td>    <em>int</em> <dfn class="local col9 decl" id="9j" title='j' data-type='int' data-ref="9j">j</dfn>;</td></tr>
+<tr><th id="125">125</th><td>    <em>float</em> <dfn class="local col0 decl" id="10hidden" title='hidden' data-type='float [100]' data-ref="10hidden">hidden</dfn>[<a class="macro" href="#39" title="100" data-ref="_M/MAX_NEURONS">MAX_NEURONS</a>];</td></tr>
+<tr><th id="126">126</th><td>    <em>const</em> <em>float</em> *<dfn class="local col1 decl" id="11W" title='W' data-type='const float *' data-ref="11W">W</dfn> = <a class="local col6 ref" href="#6m" title='m' data-ref="6m">m</a>-&gt;<a class="ref" href="mlp.h.html#(anonymous)::weights" title='(anonymous struct)::weights' data-ref="(anonymous)::weights">weights</a>;</td></tr>
+<tr><th id="127">127</th><td>    <i>/* Copy to tmp_in */</i></td></tr>
+<tr><th id="128">128</th><td>    <b>for</b> (<a class="local col9 ref" href="#9j" title='j' data-ref="9j">j</a>=<var>0</var>;<a class="local col9 ref" href="#9j" title='j' data-ref="9j">j</a>&lt;<a class="local col6 ref" href="#6m" title='m' data-ref="6m">m</a>-&gt;<a class="ref" href="mlp.h.html#(anonymous)::topo" title='(anonymous struct)::topo' data-ref="(anonymous)::topo">topo</a>[<var>1</var>];<a class="local col9 ref" href="#9j" title='j' data-ref="9j">j</a>++)</td></tr>
+<tr><th id="129">129</th><td>    {</td></tr>
+<tr><th id="130">130</th><td>        <em>int</em> <dfn class="local col2 decl" id="12k" title='k' data-type='int' data-ref="12k">k</dfn>;</td></tr>
+<tr><th id="131">131</th><td>        <em>float</em> <dfn class="local col3 decl" id="13sum" title='sum' data-type='float' data-ref="13sum">sum</dfn> = *<a class="local col1 ref" href="#11W" title='W' data-ref="11W">W</a>++;</td></tr>
+<tr><th id="132">132</th><td>        <b>for</b> (<a class="local col2 ref" href="#12k" title='k' data-ref="12k">k</a>=<var>0</var>;<a class="local col2 ref" href="#12k" title='k' data-ref="12k">k</a>&lt;<a class="local col6 ref" href="#6m" title='m' data-ref="6m">m</a>-&gt;<a class="ref" href="mlp.h.html#(anonymous)::topo" title='(anonymous struct)::topo' data-ref="(anonymous)::topo">topo</a>[<var>0</var>];<a class="local col2 ref" href="#12k" title='k' data-ref="12k">k</a>++)</td></tr>
+<tr><th id="133">133</th><td>            <a class="local col3 ref" href="#13sum" title='sum' data-ref="13sum">sum</a> = <a class="local col3 ref" href="#13sum" title='sum' data-ref="13sum">sum</a> + <a class="local col7 ref" href="#7in" title='in' data-ref="7in">in</a>[<a class="local col2 ref" href="#12k" title='k' data-ref="12k">k</a>]**<a class="local col1 ref" href="#11W" title='W' data-ref="11W">W</a>++;</td></tr>
+<tr><th id="134">134</th><td>        <a class="local col0 ref" href="#10hidden" title='hidden' data-ref="10hidden">hidden</a>[<a class="local col9 ref" href="#9j" title='j' data-ref="9j">j</a>] = <a class="tu ref" href="#tansig_approx" title='tansig_approx' data-use='c' data-ref="tansig_approx">tansig_approx</a>(<a class="local col3 ref" href="#13sum" title='sum' data-ref="13sum">sum</a>);</td></tr>
+<tr><th id="135">135</th><td>    }</td></tr>
+<tr><th id="136">136</th><td>    <b>for</b> (<a class="local col9 ref" href="#9j" title='j' data-ref="9j">j</a>=<var>0</var>;<a class="local col9 ref" href="#9j" title='j' data-ref="9j">j</a>&lt;<a class="local col6 ref" href="#6m" title='m' data-ref="6m">m</a>-&gt;<a class="ref" href="mlp.h.html#(anonymous)::topo" title='(anonymous struct)::topo' data-ref="(anonymous)::topo">topo</a>[<var>2</var>];<a class="local col9 ref" href="#9j" title='j' data-ref="9j">j</a>++)</td></tr>
+<tr><th id="137">137</th><td>    {</td></tr>
+<tr><th id="138">138</th><td>        <em>int</em> <dfn class="local col4 decl" id="14k" title='k' data-type='int' data-ref="14k">k</dfn>;</td></tr>
+<tr><th id="139">139</th><td>        <em>float</em> <dfn class="local col5 decl" id="15sum" title='sum' data-type='float' data-ref="15sum">sum</dfn> = *<a class="local col1 ref" href="#11W" title='W' data-ref="11W">W</a>++;</td></tr>
+<tr><th id="140">140</th><td>        <b>for</b> (<a class="local col4 ref" href="#14k" title='k' data-ref="14k">k</a>=<var>0</var>;<a class="local col4 ref" href="#14k" title='k' data-ref="14k">k</a>&lt;<a class="local col6 ref" href="#6m" title='m' data-ref="6m">m</a>-&gt;<a class="ref" href="mlp.h.html#(anonymous)::topo" title='(anonymous struct)::topo' data-ref="(anonymous)::topo">topo</a>[<var>1</var>];<a class="local col4 ref" href="#14k" title='k' data-ref="14k">k</a>++)</td></tr>
+<tr><th id="141">141</th><td>            <a class="local col5 ref" href="#15sum" title='sum' data-ref="15sum">sum</a> = <a class="local col5 ref" href="#15sum" title='sum' data-ref="15sum">sum</a> + <a class="local col0 ref" href="#10hidden" title='hidden' data-ref="10hidden">hidden</a>[<a class="local col4 ref" href="#14k" title='k' data-ref="14k">k</a>]**<a class="local col1 ref" href="#11W" title='W' data-ref="11W">W</a>++;</td></tr>
+<tr><th id="142">142</th><td>        <a class="local col8 ref" href="#8out" title='out' data-ref="8out">out</a>[<a class="local col9 ref" href="#9j" title='j' data-ref="9j">j</a>] = <a class="tu ref" href="#tansig_approx" title='tansig_approx' data-use='c' data-ref="tansig_approx">tansig_approx</a>(<a class="local col5 ref" href="#15sum" title='sum' data-ref="15sum">sum</a>);</td></tr>
+<tr><th id="143">143</th><td>    }</td></tr>
+<tr><th id="144">144</th><td>}</td></tr>
+<tr><th id="145">145</th><td><u>#<span data-ppcond="97">endif</span></u></td></tr>
+<tr><th id="146">146</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated on <em>2017-Aug-29</em> from project codebrowser revision <em>63e07af</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

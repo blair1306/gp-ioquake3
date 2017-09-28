@@ -1,0 +1,12 @@
+<dec f='codebrowser/code/jpeg-8c/jpeglib.h' l='799' type='void *(*)(j_common_ptr, int, size_t)'/>
+<offset>64</offset>
+<use f='codebrowser/code/jpeg-8c/jccoefct.c' l='446' u='r' c='jinit_c_coef_controller'/>
+<use f='codebrowser/code/jpeg-8c/jctrans.c' l='376' u='r' c='transencode_coef_controller'/>
+<use f='codebrowser/code/jpeg-8c/jdcoefct.c' l='727' u='r' c='jinit_d_coef_controller'/>
+<use f='codebrowser/code/jpeg-8c/jdmarker.c' l='801' u='r' c='save_marker'/>
+<use f='codebrowser/code/jpeg-8c/jdmerge.c' l='388' u='r' c='jinit_merged_upsampler'/>
+<use f='codebrowser/code/jpeg-8c/jmemmgr.c' l='1068' u='w' c='jinit_memory_mgr'/>
+<use f='codebrowser/code/jpeg-8c/jquant1.c' l='731' u='r' c='alloc_fs_workspace'/>
+<use f='codebrowser/code/jpeg-8c/jquant2.c' l='1203' u='r' c='start_pass_2_quant'/>
+<use f='codebrowser/code/jpeg-8c/jquant2.c' l='1266' u='r' c='jinit_2pass_quantizer'/>
+<use f='codebrowser/code/jpeg-8c/jquant2.c' l='1302' u='r' c='jinit_2pass_quantizer'/>

@@ -1,0 +1,23 @@
+<dec f='codebrowser/code/client/client.h' l='330' type='serverInfo_t [4096]'/>
+<offset>188864</offset>
+<use f='codebrowser/code/client/cl_main.c' l='2547' u='a' c='CL_ServersResponsePacket'/>
+<use f='codebrowser/code/client/cl_main.c' l='2554' u='m' c='CL_ServersResponsePacket'/>
+<use f='codebrowser/code/client/cl_main.c' l='3809' u='m' c='CL_SetServerInfoByAddress'/>
+<use f='codebrowser/code/client/cl_main.c' l='3810' u='a' c='CL_SetServerInfoByAddress'/>
+<use f='codebrowser/code/client/cl_main.c' l='4500' u='a' c='CL_UpdateVisiblePings_f'/>
+<use f='codebrowser/code/client/cl_ui.c' l='59' u='r' c='LAN_LoadCachedServers'/>
+<use f='codebrowser/code/client/cl_ui.c' l='60' u='a' c='LAN_LoadCachedServers'/>
+<use f='codebrowser/code/client/cl_ui.c' l='60' u='r' c='LAN_LoadCachedServers'/>
+<use f='codebrowser/code/client/cl_ui.c' l='80' u='r' c='LAN_SaveServersToCache'/>
+<use f='codebrowser/code/client/cl_ui.c' l='82' u='a' c='LAN_SaveServersToCache'/>
+<use f='codebrowser/code/client/cl_ui.c' l='82' u='r' c='LAN_SaveServersToCache'/>
+<use f='codebrowser/code/client/cl_ui.c' l='105' u='a' c='LAN_ResetPings'/>
+<use f='codebrowser/code/client/cl_ui.c' l='141' u='a' c='LAN_AddServer'/>
+<use f='codebrowser/code/client/cl_ui.c' l='184' u='a' c='LAN_RemoveServer'/>
+<use f='codebrowser/code/client/cl_ui.c' l='246' u='m' c='LAN_GetServerAddressString'/>
+<use f='codebrowser/code/client/cl_ui.c' l='278' u='a' c='LAN_GetServerInfo'/>
+<use f='codebrowser/code/client/cl_ui.c' l='327' u='a' c='LAN_GetServerPing'/>
+<use f='codebrowser/code/client/cl_ui.c' l='357' u='a' c='LAN_GetServerPtr'/>
+<use f='codebrowser/code/client/cl_ui.c' l='499' u='a' c='LAN_MarkServerVisible'/>
+<use f='codebrowser/code/client/cl_ui.c' l='522' u='m' c='LAN_MarkServerVisible'/>
+<use f='codebrowser/code/client/cl_ui.c' l='550' u='m' c='LAN_ServerIsVisible'/>

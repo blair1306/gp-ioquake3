@@ -1,0 +1,11 @@
+<dec f='codebrowser/code/botlib/be_aas_move.h' l='45' type='int AAS_ClientMovementHitBBox(struct aas_clientmove_s * move, int entnum, vec_t * origin, int presencetype, int onground, vec_t * velocity, vec_t * cmdmove, int cmdframes, int maxframes, float frametime, vec_t * mins, vec_t * maxs, int visualize)'/>
+<dec f='codebrowser/code/botlib/be_aas_move.h' l='45' type='int AAS_ClientMovementHitBBox(struct aas_clientmove_s * move, int entnum, vec_t * origin, int presencetype, int onground, vec_t * velocity, vec_t * cmdmove, int cmdframes, int maxframes, float frametime, vec_t * mins, vec_t * maxs, int visualize)'/>
+<doc f='codebrowser/code/botlib/be_aas_move.h' l='44'>//predict movement until bounding box is hit</doc>
+<def f='codebrowser/code/botlib/be_aas_move.c' l='1003' ll='1015' type='int AAS_ClientMovementHitBBox(struct aas_clientmove_s * move, int entnum, vec_t * origin, int presencetype, int onground, vec_t * velocity, vec_t * cmdmove, int cmdframes, int maxframes, float frametime, vec_t * mins, vec_t * maxs, int visualize)'/>
+<doc f='codebrowser/code/botlib/be_aas_move.c' l='997'>//===========================================================================
+//
+// Parameter:			-
+// Returns:				-
+// Changes Globals:		-
+//===========================================================================</doc>
+<use f='codebrowser/code/botlib/be_aas_reach.c' l='330' u='c' c='AAS_BestReachableFromJumpPadArea'/>

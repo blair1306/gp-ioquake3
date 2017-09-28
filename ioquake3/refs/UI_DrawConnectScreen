@@ -1,0 +1,28 @@
+<dec f='codebrowser/code/q3_ui/ui_local.h' l='356' type='void UI_DrawConnectScreen(qboolean overlay)'/>
+<doc f='codebrowser/code/q3_ui/ui_local.h' l='353'>//
+// ui_connect.c
+//</doc>
+<def f='codebrowser/code/q3_ui/ui_connect.c' l='162' ll='253' type='void UI_DrawConnectScreen(qboolean overlay)'/>
+<doc f='codebrowser/code/q3_ui/ui_connect.c' l='154'>/*
+========================
+UI_DrawConnectScreen
+
+This will also be overlaid on the cgame info screen during loading
+to prevent it from blinking away too rapidly on local or lan games.
+========================
+*/</doc>
+<use f='codebrowser/code/q3_ui/ui_main.c' l='79' u='c' c='vmMain'/>
+<dec f='codebrowser/code/ui/ui_local.h' l='403' type='void UI_DrawConnectScreen(qboolean overlay)'/>
+<doc f='codebrowser/code/ui/ui_local.h' l='400'>//
+// ui_connect.c
+//</doc>
+<use f='codebrowser/code/ui/ui_main.c' l='193' u='c' c='vmMain'/>
+<def f='codebrowser/code/ui/ui_main.c' l='5532' ll='5613' type='void UI_DrawConnectScreen(qboolean overlay)'/>
+<doc f='codebrowser/code/ui/ui_main.c' l='5524'>/*
+========================
+UI_DrawConnectScreen
+
+This will also be overlaid on the cgame info screen during loading
+to prevent it from blinking away too rapidly on local or lan games.
+========================
+*/</doc>

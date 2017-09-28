@@ -1,0 +1,62 @@
+<dec f='codebrowser/code/botlib/l_libvar.h' l='54' type='float LibVarValue(const char * var_name, const char * value)'/>
+<doc f='codebrowser/code/botlib/l_libvar.h' l='53'>//creates the library variable if not existing already and returns the value</doc>
+<use f='codebrowser/code/botlib/be_aas_main.c' l='125' u='c' c='AAS_ContinueInit'/>
+<use f='codebrowser/code/botlib/be_aas_main.c' l='295' u='c' c='AAS_Setup'/>
+<use f='codebrowser/code/botlib/be_aas_main.c' l='296' u='c' c='AAS_Setup'/>
+<use f='codebrowser/code/botlib/be_aas_move.c' l='79' u='c' c='AAS_InitSettings'/>
+<use f='codebrowser/code/botlib/be_aas_move.c' l='80' u='c' c='AAS_InitSettings'/>
+<use f='codebrowser/code/botlib/be_aas_move.c' l='81' u='c' c='AAS_InitSettings'/>
+<use f='codebrowser/code/botlib/be_aas_move.c' l='82' u='c' c='AAS_InitSettings'/>
+<use f='codebrowser/code/botlib/be_aas_move.c' l='83' u='c' c='AAS_InitSettings'/>
+<use f='codebrowser/code/botlib/be_aas_move.c' l='84' u='c' c='AAS_InitSettings'/>
+<use f='codebrowser/code/botlib/be_aas_move.c' l='85' u='c' c='AAS_InitSettings'/>
+<use f='codebrowser/code/botlib/be_aas_move.c' l='86' u='c' c='AAS_InitSettings'/>
+<use f='codebrowser/code/botlib/be_aas_move.c' l='87' u='c' c='AAS_InitSettings'/>
+<use f='codebrowser/code/botlib/be_aas_move.c' l='88' u='c' c='AAS_InitSettings'/>
+<use f='codebrowser/code/botlib/be_aas_move.c' l='89' u='c' c='AAS_InitSettings'/>
+<use f='codebrowser/code/botlib/be_aas_move.c' l='90' u='c' c='AAS_InitSettings'/>
+<use f='codebrowser/code/botlib/be_aas_move.c' l='91' u='c' c='AAS_InitSettings'/>
+<use f='codebrowser/code/botlib/be_aas_move.c' l='92' u='c' c='AAS_InitSettings'/>
+<use f='codebrowser/code/botlib/be_aas_move.c' l='93' u='c' c='AAS_InitSettings'/>
+<use f='codebrowser/code/botlib/be_aas_move.c' l='94' u='c' c='AAS_InitSettings'/>
+<use f='codebrowser/code/botlib/be_aas_move.c' l='95' u='c' c='AAS_InitSettings'/>
+<use f='codebrowser/code/botlib/be_aas_move.c' l='96' u='c' c='AAS_InitSettings'/>
+<use f='codebrowser/code/botlib/be_aas_move.c' l='97' u='c' c='AAS_InitSettings'/>
+<use f='codebrowser/code/botlib/be_aas_move.c' l='98' u='c' c='AAS_InitSettings'/>
+<use f='codebrowser/code/botlib/be_aas_move.c' l='99' u='c' c='AAS_InitSettings'/>
+<use f='codebrowser/code/botlib/be_aas_move.c' l='100' u='c' c='AAS_InitSettings'/>
+<use f='codebrowser/code/botlib/be_aas_move.c' l='101' u='c' c='AAS_InitSettings'/>
+<use f='codebrowser/code/botlib/be_aas_move.c' l='102' u='c' c='AAS_InitSettings'/>
+<use f='codebrowser/code/botlib/be_aas_move.c' l='103' u='c' c='AAS_InitSettings'/>
+<use f='codebrowser/code/botlib/be_aas_move.c' l='104' u='c' c='AAS_InitSettings'/>
+<use f='codebrowser/code/botlib/be_aas_move.c' l='105' u='c' c='AAS_InitSettings'/>
+<use f='codebrowser/code/botlib/be_aas_move.c' l='106' u='c' c='AAS_InitSettings'/>
+<use f='codebrowser/code/botlib/be_aas_move.c' l='107' u='c' c='AAS_InitSettings'/>
+<use f='codebrowser/code/botlib/be_aas_move.c' l='108' u='c' c='AAS_InitSettings'/>
+<use f='codebrowser/code/botlib/be_aas_move.c' l='109' u='c' c='AAS_InitSettings'/>
+<use f='codebrowser/code/botlib/be_aas_move.c' l='110' u='c' c='AAS_InitSettings'/>
+<use f='codebrowser/code/botlib/be_aas_move.c' l='111' u='c' c='AAS_InitSettings'/>
+<use f='codebrowser/code/botlib/be_aas_move.c' l='112' u='c' c='AAS_InitSettings'/>
+<use f='codebrowser/code/botlib/be_aas_move.c' l='113' u='c' c='AAS_InitSettings'/>
+<use f='codebrowser/code/botlib/be_aas_move.c' l='114' u='c' c='AAS_InitSettings'/>
+<use f='codebrowser/code/botlib/be_aas_reach.c' l='303' u='c' c='AAS_BestReachableFromJumpPadArea'/>
+<use f='codebrowser/code/botlib/be_aas_reach.c' l='3509' u='c' c='AAS_Reachability_JumpPad'/>
+<use f='codebrowser/code/botlib/be_aas_route.c' l='1245' u='c' c='AAS_InitRouting'/>
+<use f='codebrowser/code/botlib/be_aas_sample.c' l='106' u='c' c='AAS_InitAASLinkHeap'/>
+<use f='codebrowser/code/botlib/be_ai_chat.c' l='246' u='c' c='InitConsoleMessageHeap'/>
+<use f='codebrowser/code/botlib/be_ai_chat.c' l='2984' u='c' c='BotSetupChatAI'/>
+<use f='codebrowser/code/botlib/be_ai_goal.c' l='276' u='c' c='LoadItemConfig'/>
+<use f='codebrowser/code/botlib/be_ai_goal.c' l='377' u='c' c='InitLevelItemHeap'/>
+<use f='codebrowser/code/botlib/be_ai_goal.c' l='1776' u='c' c='BotSetupGoalAI'/>
+<use f='codebrowser/code/botlib/be_ai_weap.c' l='208' u='c' c='LoadWeaponConfig'/>
+<use f='codebrowser/code/botlib/be_ai_weap.c' l='215' u='c' c='LoadWeaponConfig'/>
+<use f='codebrowser/code/botlib/be_interface.c' l='171' u='c' c='Export_BotLibSetup'/>
+<use f='codebrowser/code/botlib/be_interface.c' l='172' u='c' c='Export_BotLibSetup'/>
+<def f='codebrowser/code/botlib/l_libvar.c' l='226' ll='232' type='float LibVarValue(const char * var_name, const char * value)'/>
+<doc f='codebrowser/code/botlib/l_libvar.c' l='220'>//===========================================================================
+//
+// Parameter:				-
+// Returns:					-
+// Changes Globals:		-
+//===========================================================================</doc>
+<use f='codebrowser/code/botlib/l_log.c' l='61' u='c' c='Log_Open'/>

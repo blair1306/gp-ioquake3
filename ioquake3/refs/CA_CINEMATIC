@@ -1,0 +1,13 @@
+<dec f='codebrowser/code/qcommon/q_shared.h' l='1334' type='9'/>
+<doc f='codebrowser/code/qcommon/q_shared.h' l='1334'>// playing a cinematic or a static pic, not connected to a server</doc>
+<use f='codebrowser/code/client/cl_cin.c' l='1317' u='r' c='CIN_StopCinematic'/>
+<use f='codebrowser/code/client/cl_cin.c' l='1358' u='r' c='CIN_RunCinematic'/>
+<use f='codebrowser/code/client/cl_cin.c' l='1478' u='r' c='CIN_PlayCinematic'/>
+<use f='codebrowser/code/client/cl_cin.c' l='1613' u='r' c='CL_PlayCinematic_f'/>
+<use f='codebrowser/code/client/cl_input.c' l='677' u='r' c='CL_ReadyToSendPacket'/>
+<use f='codebrowser/code/client/cl_input.c' l='754' u='r' c='CL_WritePacket'/>
+<use f='codebrowser/code/client/cl_keys.c' l='1266' u='r' c='CL_KeyDownEvent'/>
+<use f='codebrowser/code/client/cl_main.c' l='1668' u='r' c='CL_Disconnect_f'/>
+<use f='codebrowser/code/client/cl_main.c' l='1984' u='r' c='CL_Vid_Restart_f'/>
+<use f='codebrowser/code/client/cl_main.c' l='2871' u='r' c='CL_CheckTimeout'/>
+<use f='codebrowser/code/client/cl_scrn.c' l='499' c='SCR_DrawScreenField'/>

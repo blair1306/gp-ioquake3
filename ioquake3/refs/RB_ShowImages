@@ -1,0 +1,30 @@
+<dec f='codebrowser/code/renderergl1/tr_local.h' l='1249' type='void RB_ShowImages()'/>
+<def f='codebrowser/code/renderergl1/tr_backend.c' l='977' ll='1025' type='void RB_ShowImages()'/>
+<use f='codebrowser/code/renderergl1/tr_backend.c' l='1057' u='c' c='RB_ClearDepth'/>
+<use f='codebrowser/code/renderergl1/tr_backend.c' l='1080' u='c' c='RB_SwapBuffers'/>
+<doc f='codebrowser/code/renderergl1/tr_backend.c' l='967'>/*
+===============
+RB_ShowImages
+
+Draw all the images to the screen, on top of whatever
+was there.  This is used to test for texture thrashing.
+
+Also called by RE_EndRegistration
+===============
+*/</doc>
+<use f='codebrowser/code/renderergl1/tr_init.c' l='1302' u='c' c='RE_EndRegistration'/>
+<dec f='codebrowser/code/renderergl2/tr_local.h' l='2020' type='void RB_ShowImages()'/>
+<def f='codebrowser/code/renderergl2/tr_backend.c' l='1225' ll='1272' type='void RB_ShowImages()'/>
+<use f='codebrowser/code/renderergl2/tr_backend.c' l='1318' u='c' c='RB_ClearDepth'/>
+<use f='codebrowser/code/renderergl2/tr_backend.c' l='1362' u='c' c='RB_SwapBuffers'/>
+<doc f='codebrowser/code/renderergl2/tr_backend.c' l='1215'>/*
+===============
+RB_ShowImages
+
+Draw all the images to the screen, on top of whatever
+was there.  This is used to test for texture thrashing.
+
+Also called by RE_EndRegistration
+===============
+*/</doc>
+<use f='codebrowser/code/renderergl2/tr_init.c' l='1551' u='c' c='RE_EndRegistration'/>

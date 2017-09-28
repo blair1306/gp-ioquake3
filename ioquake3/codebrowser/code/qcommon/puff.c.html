@@ -1,0 +1,777 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>puff.c source code [codebrowser/code/qcommon/puff.c] - Woboq Code Browser</title>
+<meta name="woboq:interestingDefinitions" content="huffman,state "/>
+<link rel="stylesheet" href="../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'codebrowser/code/qcommon/puff.c'; var root_path = '../../..'; var data_path = '../../../../data';</script>
+<script src='../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../..'>codebrowser</a>/<a href='..'>code</a>/<a href='./'>qcommon</a>/<a href='puff.c.html'>puff.c</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/*</i></td></tr>
+<tr><th id="2">2</th><td><i> *  This is a modified version of Mark Adlers work,</i></td></tr>
+<tr><th id="3">3</th><td><i> *  see below for the original copyright.</i></td></tr>
+<tr><th id="4">4</th><td><i> *  2006 - Joerg Dietrich &lt;dietrich_joerg@gmx.de&gt;</i></td></tr>
+<tr><th id="5">5</th><td><i> */</i></td></tr>
+<tr><th id="6">6</th><td></td></tr>
+<tr><th id="7">7</th><td><i>/*</i></td></tr>
+<tr><th id="8">8</th><td><i> * puff.c</i></td></tr>
+<tr><th id="9">9</th><td><i> * Copyright (C) 2002-2004 Mark Adler</i></td></tr>
+<tr><th id="10">10</th><td><i> * For conditions of distribution and use, see copyright notice in puff.h</i></td></tr>
+<tr><th id="11">11</th><td><i> * version 1.8, 9 Jan 2004</i></td></tr>
+<tr><th id="12">12</th><td><i> *</i></td></tr>
+<tr><th id="13">13</th><td><i> * puff.c is a simple inflate written to be an unambiguous way to specify the</i></td></tr>
+<tr><th id="14">14</th><td><i> * deflate format.  It is not written for speed but rather simplicity.  As a</i></td></tr>
+<tr><th id="15">15</th><td><i> * side benefit, this code might actually be useful when small code is more</i></td></tr>
+<tr><th id="16">16</th><td><i> * important than speed, such as bootstrap applications.  For typical deflate</i></td></tr>
+<tr><th id="17">17</th><td><i> * data, zlib's inflate() is about four times as fast as puff().  zlib's</i></td></tr>
+<tr><th id="18">18</th><td><i> * inflate compiles to around 20K on my machine, whereas puff.c compiles to</i></td></tr>
+<tr><th id="19">19</th><td><i> * around 4K on my machine (a PowerPC using GNU cc).  If the faster decode()</i></td></tr>
+<tr><th id="20">20</th><td><i> * function here is used, then puff() is only twice as slow as zlib's</i></td></tr>
+<tr><th id="21">21</th><td><i> * inflate().</i></td></tr>
+<tr><th id="22">22</th><td><i> *</i></td></tr>
+<tr><th id="23">23</th><td><i> * All dynamically allocated memory comes from the stack.  The stack required</i></td></tr>
+<tr><th id="24">24</th><td><i> * is less than 2K bytes.  This code is compatible with 16-bit int's and</i></td></tr>
+<tr><th id="25">25</th><td><i> * assumes that long's are at least 32 bits.  puff.c uses the short data type,</i></td></tr>
+<tr><th id="26">26</th><td><i> * assumed to be 16 bits, for arrays in order to to conserve memory.  The code</i></td></tr>
+<tr><th id="27">27</th><td><i> * works whether integers are stored big endian or little endian.</i></td></tr>
+<tr><th id="28">28</th><td><i> *</i></td></tr>
+<tr><th id="29">29</th><td><i> * In the comments below are "Format notes" that describe the inflate process</i></td></tr>
+<tr><th id="30">30</th><td><i> * and document some of the less obvious aspects of the format.  This source</i></td></tr>
+<tr><th id="31">31</th><td><i> * code is meant to supplement RFC 1951, which formally describes the deflate</i></td></tr>
+<tr><th id="32">32</th><td><i> * format:</i></td></tr>
+<tr><th id="33">33</th><td><i> *</i></td></tr>
+<tr><th id="34">34</th><td><i> *    <a href="http://www.zlib.org/rfc-deflate.html">http://www.zlib.org/rfc-deflate.html</a></i></td></tr>
+<tr><th id="35">35</th><td><i> */</i></td></tr>
+<tr><th id="36">36</th><td></td></tr>
+<tr><th id="37">37</th><td><i>/*</i></td></tr>
+<tr><th id="38">38</th><td><i> * Change history:</i></td></tr>
+<tr><th id="39">39</th><td><i> *</i></td></tr>
+<tr><th id="40">40</th><td><i> * 1.0  10 Feb 2002     - First version</i></td></tr>
+<tr><th id="41">41</th><td><i> * 1.1  17 Feb 2002     - Clarifications of some comments and notes</i></td></tr>
+<tr><th id="42">42</th><td><i> *                      - Update puff() dest and source pointers on negative</i></td></tr>
+<tr><th id="43">43</th><td><i> *                        errors to facilitate debugging deflators</i></td></tr>
+<tr><th id="44">44</th><td><i> *                      - Remove longest from struct huffman -- not needed</i></td></tr>
+<tr><th id="45">45</th><td><i> *                      - Simplify offs[] index in construct()</i></td></tr>
+<tr><th id="46">46</th><td><i> *                      - Add input size and checking, using longjmp() to</i></td></tr>
+<tr><th id="47">47</th><td><i> *                        maintain easy readability</i></td></tr>
+<tr><th id="48">48</th><td><i> *                      - Use short data type for large arrays</i></td></tr>
+<tr><th id="49">49</th><td><i> *                      - Use pointers instead of long to specify source and</i></td></tr>
+<tr><th id="50">50</th><td><i> *                        destination sizes to avoid arbitrary 4 GB limits</i></td></tr>
+<tr><th id="51">51</th><td><i> * 1.2  17 Mar 2002     - Add faster version of decode(), doubles speed (!),</i></td></tr>
+<tr><th id="52">52</th><td><i> *                        but leave simple version for readabilty</i></td></tr>
+<tr><th id="53">53</th><td><i> *                      - Make sure invalid distances detected if pointers</i></td></tr>
+<tr><th id="54">54</th><td><i> *                        are 16 bits</i></td></tr>
+<tr><th id="55">55</th><td><i> *                      - Fix fixed codes table error</i></td></tr>
+<tr><th id="56">56</th><td><i> *                      - Provide a scanning mode for determining size of</i></td></tr>
+<tr><th id="57">57</th><td><i> *                        uncompressed data</i></td></tr>
+<tr><th id="58">58</th><td><i> * 1.3  20 Mar 2002     - Go back to lengths for puff() parameters [Jean-loup]</i></td></tr>
+<tr><th id="59">59</th><td><i> *                      - Add a puff.h file for the interface</i></td></tr>
+<tr><th id="60">60</th><td><i> *                      - Add braces in puff() for else do [Jean-loup]</i></td></tr>
+<tr><th id="61">61</th><td><i> *                      - Use indexes instead of pointers for readability</i></td></tr>
+<tr><th id="62">62</th><td><i> * 1.4  31 Mar 2002     - Simplify construct() code set check</i></td></tr>
+<tr><th id="63">63</th><td><i> *                      - Fix some comments</i></td></tr>
+<tr><th id="64">64</th><td><i> *                      - Add FIXLCODES #define</i></td></tr>
+<tr><th id="65">65</th><td><i> * 1.5   6 Apr 2002     - Minor comment fixes</i></td></tr>
+<tr><th id="66">66</th><td><i> * 1.6   7 Aug 2002     - Minor format changes</i></td></tr>
+<tr><th id="67">67</th><td><i> * 1.7   3 Mar 2003     - Added test code for distribution</i></td></tr>
+<tr><th id="68">68</th><td><i> *                      - Added zlib-like license</i></td></tr>
+<tr><th id="69">69</th><td><i> * 1.8   9 Jan 2004     - Added some comments on no distance codes case</i></td></tr>
+<tr><th id="70">70</th><td><i> */</i></td></tr>
+<tr><th id="71">71</th><td></td></tr>
+<tr><th id="72">72</th><td><u>#include <a href="../../../include/setjmp.h.html">&lt;setjmp.h&gt;</a>             /* for setjmp(), longjmp(), and jmp_buf */</u></td></tr>
+<tr><th id="73">73</th><td><u>#include <a href="puff.h.html">"puff.h"</a>		/* prototype for puff() */</u></td></tr>
+<tr><th id="74">74</th><td></td></tr>
+<tr><th id="75">75</th><td><u>#define <dfn class="macro" id="_M/local" data-ref="_M/local">local</dfn> static            /* for local function definitions */</u></td></tr>
+<tr><th id="76">76</th><td></td></tr>
+<tr><th id="77">77</th><td><i>/*</i></td></tr>
+<tr><th id="78">78</th><td><i> * Maximums for allocations and loops.  It is not useful to change these --</i></td></tr>
+<tr><th id="79">79</th><td><i> * they are fixed by the deflate format.</i></td></tr>
+<tr><th id="80">80</th><td><i> */</i></td></tr>
+<tr><th id="81">81</th><td><u>#define <dfn class="macro" id="_M/MAXBITS" data-ref="_M/MAXBITS">MAXBITS</dfn> 15              /* maximum bits in a code */</u></td></tr>
+<tr><th id="82">82</th><td><u>#define <dfn class="macro" id="_M/MAXLCODES" data-ref="_M/MAXLCODES">MAXLCODES</dfn> 286           /* maximum number of literal/length codes */</u></td></tr>
+<tr><th id="83">83</th><td><u>#define <dfn class="macro" id="_M/MAXDCODES" data-ref="_M/MAXDCODES">MAXDCODES</dfn> 30            /* maximum number of distance codes */</u></td></tr>
+<tr><th id="84">84</th><td><u>#define <dfn class="macro" id="_M/MAXCODES" data-ref="_M/MAXCODES">MAXCODES</dfn> (MAXLCODES+MAXDCODES)  /* maximum codes lengths to read */</u></td></tr>
+<tr><th id="85">85</th><td><u>#define <dfn class="macro" id="_M/FIXLCODES" data-ref="_M/FIXLCODES">FIXLCODES</dfn> 288           /* number of fixed literal/length codes */</u></td></tr>
+<tr><th id="86">86</th><td></td></tr>
+<tr><th id="87">87</th><td><i>/* input and output state */</i></td></tr>
+<tr><th id="88">88</th><td><b>struct</b> <dfn class="type def" id="state" title='state' data-ref="state">state</dfn> {</td></tr>
+<tr><th id="89">89</th><td>    <i  data-doc="state::out">/* output state */</i></td></tr>
+<tr><th id="90">90</th><td>    <a class="typedef" href="../../../include/stdint.h.html#uint8_t" title='uint8_t' data-type='unsigned char' data-ref="uint8_t">uint8_t</a> *<dfn class="tu decl" id="state::out" title='state::out' data-type='uint8_t *' data-ref="state::out">out</dfn>;         <i  data-doc="state::out">/* output buffer */</i></td></tr>
+<tr><th id="91">91</th><td>    <a class="typedef" href="../../../include/stdint.h.html#uint32_t" title='uint32_t' data-type='unsigned int' data-ref="uint32_t">uint32_t</a> <dfn class="tu decl" id="state::outlen" title='state::outlen' data-type='uint32_t' data-ref="state::outlen">outlen</dfn>;       <i  data-doc="state::outlen">/* available space at out */</i></td></tr>
+<tr><th id="92">92</th><td>    <a class="typedef" href="../../../include/stdint.h.html#uint32_t" title='uint32_t' data-type='unsigned int' data-ref="uint32_t">uint32_t</a> <dfn class="tu decl" id="state::outcnt" title='state::outcnt' data-type='uint32_t' data-ref="state::outcnt">outcnt</dfn>;       <i  data-doc="state::outcnt">/* bytes written to out so far */</i></td></tr>
+<tr><th id="93">93</th><td></td></tr>
+<tr><th id="94">94</th><td>    <i  data-doc="state::in">/* input state */</i></td></tr>
+<tr><th id="95">95</th><td>    <a class="typedef" href="../../../include/stdint.h.html#uint8_t" title='uint8_t' data-type='unsigned char' data-ref="uint8_t">uint8_t</a> *<dfn class="tu decl" id="state::in" title='state::in' data-type='uint8_t *' data-ref="state::in">in</dfn>;          <i  data-doc="state::in">/* input buffer */</i></td></tr>
+<tr><th id="96">96</th><td>    <a class="typedef" href="../../../include/stdint.h.html#uint32_t" title='uint32_t' data-type='unsigned int' data-ref="uint32_t">uint32_t</a> <dfn class="tu decl" id="state::inlen" title='state::inlen' data-type='uint32_t' data-ref="state::inlen">inlen</dfn>;        <i  data-doc="state::inlen">/* available input at in */</i></td></tr>
+<tr><th id="97">97</th><td>    <a class="typedef" href="../../../include/stdint.h.html#uint32_t" title='uint32_t' data-type='unsigned int' data-ref="uint32_t">uint32_t</a> <dfn class="tu decl" id="state::incnt" title='state::incnt' data-type='uint32_t' data-ref="state::incnt">incnt</dfn>;        <i  data-doc="state::incnt">/* bytes read so far */</i></td></tr>
+<tr><th id="98">98</th><td>    <a class="typedef" href="../../../include/x86_64-linux-gnu/sys/types.h.html#196" title='int32_t' data-type='int' data-ref="int32_t">int32_t</a> <dfn class="tu decl" id="state::bitbuf" title='state::bitbuf' data-type='int32_t' data-ref="state::bitbuf">bitbuf</dfn>;                 <i  data-doc="state::bitbuf">/* bit buffer */</i></td></tr>
+<tr><th id="99">99</th><td>    <a class="typedef" href="../../../include/x86_64-linux-gnu/sys/types.h.html#196" title='int32_t' data-type='int' data-ref="int32_t">int32_t</a> <dfn class="tu decl" id="state::bitcnt" title='state::bitcnt' data-type='int32_t' data-ref="state::bitcnt">bitcnt</dfn>;                 <i  data-doc="state::bitcnt">/* number of bits in bit buffer */</i></td></tr>
+<tr><th id="100">100</th><td></td></tr>
+<tr><th id="101">101</th><td>    <i  data-doc="state::env">/* input limit error return state for bits() and decode() */</i></td></tr>
+<tr><th id="102">102</th><td>    <a class="typedef" href="../../../include/setjmp.h.html#jmp_buf" title='jmp_buf' data-type='struct __jmp_buf_tag [1]' data-ref="jmp_buf">jmp_buf</a> <dfn class="tu decl" id="state::env" title='state::env' data-type='jmp_buf' data-ref="state::env">env</dfn>;</td></tr>
+<tr><th id="103">103</th><td>};</td></tr>
+<tr><th id="104">104</th><td></td></tr>
+<tr><th id="105">105</th><td><i>/*</i></td></tr>
+<tr><th id="106">106</th><td><i> * Return need bits from the input stream.  This always leaves less than</i></td></tr>
+<tr><th id="107">107</th><td><i> * eight bits in the buffer.  bits() works properly for need == 0.</i></td></tr>
+<tr><th id="108">108</th><td><i> *</i></td></tr>
+<tr><th id="109">109</th><td><i> * Format notes:</i></td></tr>
+<tr><th id="110">110</th><td><i> *</i></td></tr>
+<tr><th id="111">111</th><td><i> * - Bits are stored in bytes from the least significant bit to the most</i></td></tr>
+<tr><th id="112">112</th><td><i> *   significant bit.  Therefore bits are dropped from the bottom of the bit</i></td></tr>
+<tr><th id="113">113</th><td><i> *   buffer, using shift right, and new bytes are appended to the top of the</i></td></tr>
+<tr><th id="114">114</th><td><i> *   bit buffer, using shift left.</i></td></tr>
+<tr><th id="115">115</th><td><i> */</i></td></tr>
+<tr><th id="116">116</th><td><a class="macro" href="#75" title="static" data-ref="_M/local">local</a> <a class="typedef" href="../../../include/x86_64-linux-gnu/sys/types.h.html#196" title='int32_t' data-type='int' data-ref="int32_t">int32_t</a> <dfn class="tu decl def" id="bits" title='bits' data-type='int32_t bits(struct state * s, int32_t need)' data-ref="bits">bits</dfn>(<b>struct</b> <a class="type" href="#state" title='state' data-ref="state">state</a> *<dfn class="local col5 decl" id="5s" title='s' data-type='struct state *' data-ref="5s">s</dfn>, <a class="typedef" href="../../../include/x86_64-linux-gnu/sys/types.h.html#196" title='int32_t' data-type='int' data-ref="int32_t">int32_t</a> <dfn class="local col6 decl" id="6need" title='need' data-type='int32_t' data-ref="6need">need</dfn>)</td></tr>
+<tr><th id="117">117</th><td>{</td></tr>
+<tr><th id="118">118</th><td>    <a class="typedef" href="../../../include/x86_64-linux-gnu/sys/types.h.html#196" title='int32_t' data-type='int' data-ref="int32_t">int32_t</a> <dfn class="local col7 decl" id="7val" title='val' data-type='int32_t' data-ref="7val">val</dfn>;           <i>/* bit accumulator (can use up to 20 bits) */</i></td></tr>
+<tr><th id="119">119</th><td></td></tr>
+<tr><th id="120">120</th><td>    <i>/* load at least need bits into val */</i></td></tr>
+<tr><th id="121">121</th><td>    <a class="local col7 ref" href="#7val" title='val' data-ref="7val">val</a> = <a class="local col5 ref" href="#5s" title='s' data-ref="5s">s</a>-&gt;<a class="tu ref" href="#state::bitbuf" title='state::bitbuf' data-use='r' data-ref="state::bitbuf">bitbuf</a>;</td></tr>
+<tr><th id="122">122</th><td>    <b>while</b> (<a class="local col5 ref" href="#5s" title='s' data-ref="5s">s</a>-&gt;<a class="tu ref" href="#state::bitcnt" title='state::bitcnt' data-use='r' data-ref="state::bitcnt">bitcnt</a> &lt; <a class="local col6 ref" href="#6need" title='need' data-ref="6need">need</a>) {</td></tr>
+<tr><th id="123">123</th><td>        <b>if</b> (<a class="local col5 ref" href="#5s" title='s' data-ref="5s">s</a>-&gt;<a class="tu ref" href="#state::incnt" title='state::incnt' data-use='r' data-ref="state::incnt">incnt</a> == <a class="local col5 ref" href="#5s" title='s' data-ref="5s">s</a>-&gt;<a class="tu ref" href="#state::inlen" title='state::inlen' data-use='r' data-ref="state::inlen">inlen</a>) <a class="ref" href="../../../include/setjmp.h.html#longjmp" title='longjmp' data-ref="longjmp">longjmp</a>(<a class="local col5 ref" href="#5s" title='s' data-ref="5s">s</a>-&gt;<a class="tu ref" href="#state::env" title='state::env' data-use='r' data-ref="state::env">env</a>, <var>1</var>);   <i>/* out of input */</i></td></tr>
+<tr><th id="124">124</th><td>        <a class="local col7 ref" href="#7val" title='val' data-ref="7val">val</a> |= (<a class="typedef" href="../../../include/x86_64-linux-gnu/sys/types.h.html#196" title='int32_t' data-type='int' data-ref="int32_t">int32_t</a>)(<a class="local col5 ref" href="#5s" title='s' data-ref="5s">s</a>-&gt;<a class="tu ref" href="#state::in" title='state::in' data-use='r' data-ref="state::in">in</a>[<a class="local col5 ref" href="#5s" title='s' data-ref="5s">s</a>-&gt;<a class="tu ref" href="#state::incnt" title='state::incnt' data-use='w' data-ref="state::incnt">incnt</a>++]) &lt;&lt; <a class="local col5 ref" href="#5s" title='s' data-ref="5s">s</a>-&gt;<a class="tu ref" href="#state::bitcnt" title='state::bitcnt' data-use='r' data-ref="state::bitcnt">bitcnt</a>;  <i>/* load eight bits */</i></td></tr>
+<tr><th id="125">125</th><td>        <a class="local col5 ref" href="#5s" title='s' data-ref="5s">s</a>-&gt;<a class="tu ref" href="#state::bitcnt" title='state::bitcnt' data-use='w' data-ref="state::bitcnt">bitcnt</a> += <var>8</var>;</td></tr>
+<tr><th id="126">126</th><td>    }</td></tr>
+<tr><th id="127">127</th><td></td></tr>
+<tr><th id="128">128</th><td>    <i>/* drop need bits and update buffer, always zero to seven bits left */</i></td></tr>
+<tr><th id="129">129</th><td>    <a class="local col5 ref" href="#5s" title='s' data-ref="5s">s</a>-&gt;<a class="tu ref" href="#state::bitbuf" title='state::bitbuf' data-use='w' data-ref="state::bitbuf">bitbuf</a> = (<a class="typedef" href="../../../include/x86_64-linux-gnu/sys/types.h.html#196" title='int32_t' data-type='int' data-ref="int32_t">int32_t</a>)(<a class="local col7 ref" href="#7val" title='val' data-ref="7val">val</a> &gt;&gt; <a class="local col6 ref" href="#6need" title='need' data-ref="6need">need</a>);</td></tr>
+<tr><th id="130">130</th><td>    <a class="local col5 ref" href="#5s" title='s' data-ref="5s">s</a>-&gt;<a class="tu ref" href="#state::bitcnt" title='state::bitcnt' data-use='w' data-ref="state::bitcnt">bitcnt</a> -= <a class="local col6 ref" href="#6need" title='need' data-ref="6need">need</a>;</td></tr>
+<tr><th id="131">131</th><td></td></tr>
+<tr><th id="132">132</th><td>    <i>/* return need bits, zeroing the bits above that */</i></td></tr>
+<tr><th id="133">133</th><td>    <b>return</b> (<a class="typedef" href="../../../include/x86_64-linux-gnu/sys/types.h.html#196" title='int32_t' data-type='int' data-ref="int32_t">int32_t</a>)(<a class="local col7 ref" href="#7val" title='val' data-ref="7val">val</a> &amp; ((<var>1L</var> &lt;&lt; <a class="local col6 ref" href="#6need" title='need' data-ref="6need">need</a>) - <var>1</var>));</td></tr>
+<tr><th id="134">134</th><td>}</td></tr>
+<tr><th id="135">135</th><td></td></tr>
+<tr><th id="136">136</th><td><i>/*</i></td></tr>
+<tr><th id="137">137</th><td><i> * Process a stored block.</i></td></tr>
+<tr><th id="138">138</th><td><i> *</i></td></tr>
+<tr><th id="139">139</th><td><i> * Format notes:</i></td></tr>
+<tr><th id="140">140</th><td><i> *</i></td></tr>
+<tr><th id="141">141</th><td><i> * - After the two-bit stored block type (00), the stored block length and</i></td></tr>
+<tr><th id="142">142</th><td><i> *   stored bytes are byte-aligned for fast copying.  Therefore any leftover</i></td></tr>
+<tr><th id="143">143</th><td><i> *   bits in the byte that has the last bit of the type, as many as seven, are</i></td></tr>
+<tr><th id="144">144</th><td><i> *   discarded.  The value of the discarded bits are not defined and should not</i></td></tr>
+<tr><th id="145">145</th><td><i> *   be checked against any expectation.</i></td></tr>
+<tr><th id="146">146</th><td><i> *</i></td></tr>
+<tr><th id="147">147</th><td><i> * - The second inverted copy of the stored block length does not have to be</i></td></tr>
+<tr><th id="148">148</th><td><i> *   checked, but it's probably a good idea to do so anyway.</i></td></tr>
+<tr><th id="149">149</th><td><i> *</i></td></tr>
+<tr><th id="150">150</th><td><i> * - A stored block can have zero length.  This is sometimes used to byte-align</i></td></tr>
+<tr><th id="151">151</th><td><i> *   subsets of the compressed data for random access or partial recovery.</i></td></tr>
+<tr><th id="152">152</th><td><i> */</i></td></tr>
+<tr><th id="153">153</th><td><a class="macro" href="#75" title="static" data-ref="_M/local">local</a> <a class="typedef" href="../../../include/x86_64-linux-gnu/sys/types.h.html#196" title='int32_t' data-type='int' data-ref="int32_t">int32_t</a> <dfn class="tu decl def" id="stored" title='stored' data-type='int32_t stored(struct state * s)' data-ref="stored">stored</dfn>(<b>struct</b> <a class="type" href="#state" title='state' data-ref="state">state</a> *<dfn class="local col8 decl" id="8s" title='s' data-type='struct state *' data-ref="8s">s</dfn>)</td></tr>
+<tr><th id="154">154</th><td>{</td></tr>
+<tr><th id="155">155</th><td>    <a class="typedef" href="../../../include/stdint.h.html#uint32_t" title='uint32_t' data-type='unsigned int' data-ref="uint32_t">uint32_t</a> <dfn class="local col9 decl" id="9len" title='len' data-type='uint32_t' data-ref="9len">len</dfn>;       <i>/* length of stored block */</i></td></tr>
+<tr><th id="156">156</th><td></td></tr>
+<tr><th id="157">157</th><td>    <i>/* discard leftover bits from current byte (assumes s-&gt;bitcnt &lt; 8) */</i></td></tr>
+<tr><th id="158">158</th><td>    <a class="local col8 ref" href="#8s" title='s' data-ref="8s">s</a>-&gt;<a class="tu ref" href="#state::bitbuf" title='state::bitbuf' data-use='w' data-ref="state::bitbuf">bitbuf</a> = <var>0</var>;</td></tr>
+<tr><th id="159">159</th><td>    <a class="local col8 ref" href="#8s" title='s' data-ref="8s">s</a>-&gt;<a class="tu ref" href="#state::bitcnt" title='state::bitcnt' data-use='w' data-ref="state::bitcnt">bitcnt</a> = <var>0</var>;</td></tr>
+<tr><th id="160">160</th><td></td></tr>
+<tr><th id="161">161</th><td>    <i>/* get length and check against its one's complement */</i></td></tr>
+<tr><th id="162">162</th><td>    <b>if</b> (<a class="local col8 ref" href="#8s" title='s' data-ref="8s">s</a>-&gt;<a class="tu ref" href="#state::incnt" title='state::incnt' data-use='r' data-ref="state::incnt">incnt</a> + <var>4</var> &gt; <a class="local col8 ref" href="#8s" title='s' data-ref="8s">s</a>-&gt;<a class="tu ref" href="#state::inlen" title='state::inlen' data-use='r' data-ref="state::inlen">inlen</a>) <b>return</b> <var>2</var>;      <i>/* not enough input */</i></td></tr>
+<tr><th id="163">163</th><td>    <a class="local col9 ref" href="#9len" title='len' data-ref="9len">len</a> = <a class="local col8 ref" href="#8s" title='s' data-ref="8s">s</a>-&gt;<a class="tu ref" href="#state::in" title='state::in' data-use='r' data-ref="state::in">in</a>[<a class="local col8 ref" href="#8s" title='s' data-ref="8s">s</a>-&gt;<a class="tu ref" href="#state::incnt" title='state::incnt' data-use='w' data-ref="state::incnt">incnt</a>++];</td></tr>
+<tr><th id="164">164</th><td>    <a class="local col9 ref" href="#9len" title='len' data-ref="9len">len</a> |= <a class="local col8 ref" href="#8s" title='s' data-ref="8s">s</a>-&gt;<a class="tu ref" href="#state::in" title='state::in' data-use='r' data-ref="state::in">in</a>[<a class="local col8 ref" href="#8s" title='s' data-ref="8s">s</a>-&gt;<a class="tu ref" href="#state::incnt" title='state::incnt' data-use='w' data-ref="state::incnt">incnt</a>++] &lt;&lt; <var>8</var>;</td></tr>
+<tr><th id="165">165</th><td>    <b>if</b> (<a class="local col8 ref" href="#8s" title='s' data-ref="8s">s</a>-&gt;<a class="tu ref" href="#state::in" title='state::in' data-use='r' data-ref="state::in">in</a>[<a class="local col8 ref" href="#8s" title='s' data-ref="8s">s</a>-&gt;<a class="tu ref" href="#state::incnt" title='state::incnt' data-use='w' data-ref="state::incnt">incnt</a>++] != (~<a class="local col9 ref" href="#9len" title='len' data-ref="9len">len</a> &amp; <var>0xff</var>) ||</td></tr>
+<tr><th id="166">166</th><td>        <a class="local col8 ref" href="#8s" title='s' data-ref="8s">s</a>-&gt;<a class="tu ref" href="#state::in" title='state::in' data-use='r' data-ref="state::in">in</a>[<a class="local col8 ref" href="#8s" title='s' data-ref="8s">s</a>-&gt;<a class="tu ref" href="#state::incnt" title='state::incnt' data-use='w' data-ref="state::incnt">incnt</a>++] != ((~<a class="local col9 ref" href="#9len" title='len' data-ref="9len">len</a> &gt;&gt; <var>8</var>) &amp; <var>0xff</var>))</td></tr>
+<tr><th id="167">167</th><td>        <b>return</b> -<var>2</var>;                              <i>/* didn't match complement! */</i></td></tr>
+<tr><th id="168">168</th><td></td></tr>
+<tr><th id="169">169</th><td>    <i>/* copy len bytes from in to out */</i></td></tr>
+<tr><th id="170">170</th><td>    <b>if</b> (<a class="local col8 ref" href="#8s" title='s' data-ref="8s">s</a>-&gt;<a class="tu ref" href="#state::incnt" title='state::incnt' data-use='r' data-ref="state::incnt">incnt</a> + <a class="local col9 ref" href="#9len" title='len' data-ref="9len">len</a> &gt; <a class="local col8 ref" href="#8s" title='s' data-ref="8s">s</a>-&gt;<a class="tu ref" href="#state::inlen" title='state::inlen' data-use='r' data-ref="state::inlen">inlen</a>) <b>return</b> <var>2</var>;    <i>/* not enough input */</i></td></tr>
+<tr><th id="171">171</th><td>    <b>if</b> (<a class="local col8 ref" href="#8s" title='s' data-ref="8s">s</a>-&gt;<a class="tu ref" href="#state::out" title='state::out' data-use='r' data-ref="state::out">out</a> != <span class="macro" title="((void*)0)" data-ref="_M/NULL">NULL</span>) {</td></tr>
+<tr><th id="172">172</th><td>        <b>if</b> (<a class="local col8 ref" href="#8s" title='s' data-ref="8s">s</a>-&gt;<a class="tu ref" href="#state::outcnt" title='state::outcnt' data-use='r' data-ref="state::outcnt">outcnt</a> + <a class="local col9 ref" href="#9len" title='len' data-ref="9len">len</a> &gt; <a class="local col8 ref" href="#8s" title='s' data-ref="8s">s</a>-&gt;<a class="tu ref" href="#state::outlen" title='state::outlen' data-use='r' data-ref="state::outlen">outlen</a>)</td></tr>
+<tr><th id="173">173</th><td>            <b>return</b> <var>1</var>;                           <i>/* not enough output space */</i></td></tr>
+<tr><th id="174">174</th><td>        <b>while</b> (<a class="local col9 ref" href="#9len" title='len' data-ref="9len">len</a>--)</td></tr>
+<tr><th id="175">175</th><td>            <a class="local col8 ref" href="#8s" title='s' data-ref="8s">s</a>-&gt;<a class="tu ref" href="#state::out" title='state::out' data-use='r' data-ref="state::out">out</a>[<a class="local col8 ref" href="#8s" title='s' data-ref="8s">s</a>-&gt;<a class="tu ref" href="#state::outcnt" title='state::outcnt' data-use='w' data-ref="state::outcnt">outcnt</a>++] = <a class="local col8 ref" href="#8s" title='s' data-ref="8s">s</a>-&gt;<a class="tu ref" href="#state::in" title='state::in' data-use='r' data-ref="state::in">in</a>[<a class="local col8 ref" href="#8s" title='s' data-ref="8s">s</a>-&gt;<a class="tu ref" href="#state::incnt" title='state::incnt' data-use='w' data-ref="state::incnt">incnt</a>++];</td></tr>
+<tr><th id="176">176</th><td>    }</td></tr>
+<tr><th id="177">177</th><td>    <b>else</b> {                                      <i>/* just scanning */</i></td></tr>
+<tr><th id="178">178</th><td>        <a class="local col8 ref" href="#8s" title='s' data-ref="8s">s</a>-&gt;<a class="tu ref" href="#state::outcnt" title='state::outcnt' data-use='w' data-ref="state::outcnt">outcnt</a> += <a class="local col9 ref" href="#9len" title='len' data-ref="9len">len</a>;</td></tr>
+<tr><th id="179">179</th><td>        <a class="local col8 ref" href="#8s" title='s' data-ref="8s">s</a>-&gt;<a class="tu ref" href="#state::incnt" title='state::incnt' data-use='w' data-ref="state::incnt">incnt</a> += <a class="local col9 ref" href="#9len" title='len' data-ref="9len">len</a>;</td></tr>
+<tr><th id="180">180</th><td>    }</td></tr>
+<tr><th id="181">181</th><td></td></tr>
+<tr><th id="182">182</th><td>    <i>/* done with a valid stored block */</i></td></tr>
+<tr><th id="183">183</th><td>    <b>return</b> <var>0</var>;</td></tr>
+<tr><th id="184">184</th><td>}</td></tr>
+<tr><th id="185">185</th><td></td></tr>
+<tr><th id="186">186</th><td><i>/*</i></td></tr>
+<tr><th id="187">187</th><td><i> * Huffman code decoding tables.  count[1..MAXBITS] is the number of symbols of</i></td></tr>
+<tr><th id="188">188</th><td><i> * each length, which for a canonical code are stepped through in order.</i></td></tr>
+<tr><th id="189">189</th><td><i> * symbol[] are the symbol values in canonical order, where the number of</i></td></tr>
+<tr><th id="190">190</th><td><i> * entries is the sum of the counts in count[].  The decoding process can be</i></td></tr>
+<tr><th id="191">191</th><td><i> * seen in the function decode() below.</i></td></tr>
+<tr><th id="192">192</th><td><i> */</i></td></tr>
+<tr><th id="193">193</th><td><b>struct</b> <dfn class="type def" id="huffman" title='huffman' data-ref="huffman">huffman</dfn> {</td></tr>
+<tr><th id="194">194</th><td>    <a class="typedef" href="../../../include/x86_64-linux-gnu/sys/types.h.html#195" title='int16_t' data-type='short' data-ref="int16_t">int16_t</a> *<dfn class="tu decl" id="huffman::count" title='huffman::count' data-type='int16_t *' data-ref="huffman::count">count</dfn>;       <i  data-doc="huffman::count">/* number of symbols of each length */</i></td></tr>
+<tr><th id="195">195</th><td>    <a class="typedef" href="../../../include/x86_64-linux-gnu/sys/types.h.html#195" title='int16_t' data-type='short' data-ref="int16_t">int16_t</a> *<dfn class="tu decl" id="huffman::symbol" title='huffman::symbol' data-type='int16_t *' data-ref="huffman::symbol">symbol</dfn>;      <i  data-doc="huffman::symbol">/* canonically ordered symbols */</i></td></tr>
+<tr><th id="196">196</th><td>};</td></tr>
+<tr><th id="197">197</th><td></td></tr>
+<tr><th id="198">198</th><td><i>/*</i></td></tr>
+<tr><th id="199">199</th><td><i> * Decode a code from the stream s using huffman table h.  Return the symbol or</i></td></tr>
+<tr><th id="200">200</th><td><i> * a negative value if there is an error.  If all of the lengths are zero, i.e.</i></td></tr>
+<tr><th id="201">201</th><td><i> * an empty code, or if the code is incomplete and an invalid code is received,</i></td></tr>
+<tr><th id="202">202</th><td><i> * then -9 is returned after reading MAXBITS bits.</i></td></tr>
+<tr><th id="203">203</th><td><i> *</i></td></tr>
+<tr><th id="204">204</th><td><i> * Format notes:</i></td></tr>
+<tr><th id="205">205</th><td><i> *</i></td></tr>
+<tr><th id="206">206</th><td><i> * - The codes as stored in the compressed data are bit-reversed relative to</i></td></tr>
+<tr><th id="207">207</th><td><i> *   a simple integer ordering of codes of the same lengths.  Hence below the</i></td></tr>
+<tr><th id="208">208</th><td><i> *   bits are pulled from the compressed data one at a time and used to</i></td></tr>
+<tr><th id="209">209</th><td><i> *   build the code value reversed from what is in the stream in order to</i></td></tr>
+<tr><th id="210">210</th><td><i> *   permit simple integer comparisons for decoding.  A table-based decoding</i></td></tr>
+<tr><th id="211">211</th><td><i> *   scheme (as used in zlib) does not need to do this reversal.</i></td></tr>
+<tr><th id="212">212</th><td><i> *</i></td></tr>
+<tr><th id="213">213</th><td><i> * - The first code for the shortest length is all zeros.  Subsequent codes of</i></td></tr>
+<tr><th id="214">214</th><td><i> *   the same length are simply integer increments of the previous code.  When</i></td></tr>
+<tr><th id="215">215</th><td><i> *   moving up a length, a zero bit is appended to the code.  For a complete</i></td></tr>
+<tr><th id="216">216</th><td><i> *   code, the last code of the longest length will be all ones.</i></td></tr>
+<tr><th id="217">217</th><td><i> *</i></td></tr>
+<tr><th id="218">218</th><td><i> * - Incomplete codes are handled by this decoder, since they are permitted</i></td></tr>
+<tr><th id="219">219</th><td><i> *   in the deflate format.  See the format notes for fixed() and dynamic().</i></td></tr>
+<tr><th id="220">220</th><td><i> */</i></td></tr>
+<tr><th id="221">221</th><td><a class="macro" href="#75" title="static" data-ref="_M/local">local</a> <a class="typedef" href="../../../include/x86_64-linux-gnu/sys/types.h.html#196" title='int32_t' data-type='int' data-ref="int32_t">int32_t</a> <dfn class="tu decl def" id="decode" title='decode' data-type='int32_t decode(struct state * s, struct huffman * h)' data-ref="decode">decode</dfn>(<b>struct</b> <a class="type" href="#state" title='state' data-ref="state">state</a> *<dfn class="local col0 decl" id="10s" title='s' data-type='struct state *' data-ref="10s">s</dfn>, <b>struct</b> <a class="type" href="#huffman" title='huffman' data-ref="huffman">huffman</a> *<dfn class="local col1 decl" id="11h" title='h' data-type='struct huffman *' data-ref="11h">h</dfn>)</td></tr>
+<tr><th id="222">222</th><td>{</td></tr>
+<tr><th id="223">223</th><td>    <a class="typedef" href="../../../include/x86_64-linux-gnu/sys/types.h.html#196" title='int32_t' data-type='int' data-ref="int32_t">int32_t</a> <dfn class="local col2 decl" id="12len" title='len' data-type='int32_t' data-ref="12len">len</dfn>;            <i>/* current number of bits in code */</i></td></tr>
+<tr><th id="224">224</th><td>    <a class="typedef" href="../../../include/x86_64-linux-gnu/sys/types.h.html#196" title='int32_t' data-type='int' data-ref="int32_t">int32_t</a> <dfn class="local col3 decl" id="13code" title='code' data-type='int32_t' data-ref="13code">code</dfn>;           <i>/* len bits being decoded */</i></td></tr>
+<tr><th id="225">225</th><td>    <a class="typedef" href="../../../include/x86_64-linux-gnu/sys/types.h.html#196" title='int32_t' data-type='int' data-ref="int32_t">int32_t</a> <dfn class="local col4 decl" id="14first" title='first' data-type='int32_t' data-ref="14first">first</dfn>;          <i>/* first code of length len */</i></td></tr>
+<tr><th id="226">226</th><td>    <a class="typedef" href="../../../include/x86_64-linux-gnu/sys/types.h.html#196" title='int32_t' data-type='int' data-ref="int32_t">int32_t</a> <dfn class="local col5 decl" id="15count" title='count' data-type='int32_t' data-ref="15count">count</dfn>;          <i>/* number of codes of length len */</i></td></tr>
+<tr><th id="227">227</th><td>    <a class="typedef" href="../../../include/x86_64-linux-gnu/sys/types.h.html#196" title='int32_t' data-type='int' data-ref="int32_t">int32_t</a> <dfn class="local col6 decl" id="16index" title='index' data-type='int32_t' data-ref="16index">index</dfn>;          <i>/* index of first code of length len in symbol table */</i></td></tr>
+<tr><th id="228">228</th><td>    <a class="typedef" href="../../../include/x86_64-linux-gnu/sys/types.h.html#196" title='int32_t' data-type='int' data-ref="int32_t">int32_t</a> <dfn class="local col7 decl" id="17bitbuf" title='bitbuf' data-type='int32_t' data-ref="17bitbuf">bitbuf</dfn>;         <i>/* bits from stream */</i></td></tr>
+<tr><th id="229">229</th><td>    <a class="typedef" href="../../../include/x86_64-linux-gnu/sys/types.h.html#196" title='int32_t' data-type='int' data-ref="int32_t">int32_t</a> <dfn class="local col8 decl" id="18left" title='left' data-type='int32_t' data-ref="18left">left</dfn>;           <i>/* bits left in next or left to process */</i></td></tr>
+<tr><th id="230">230</th><td>    <a class="typedef" href="../../../include/x86_64-linux-gnu/sys/types.h.html#195" title='int16_t' data-type='short' data-ref="int16_t">int16_t</a> *<dfn class="local col9 decl" id="19next" title='next' data-type='int16_t *' data-ref="19next">next</dfn>;        <i>/* next number of codes */</i></td></tr>
+<tr><th id="231">231</th><td></td></tr>
+<tr><th id="232">232</th><td>    <a class="local col7 ref" href="#17bitbuf" title='bitbuf' data-ref="17bitbuf">bitbuf</a> = <a class="local col0 ref" href="#10s" title='s' data-ref="10s">s</a>-&gt;<a class="tu ref" href="#state::bitbuf" title='state::bitbuf' data-use='r' data-ref="state::bitbuf">bitbuf</a>;</td></tr>
+<tr><th id="233">233</th><td>    <a class="local col8 ref" href="#18left" title='left' data-ref="18left">left</a> = <a class="local col0 ref" href="#10s" title='s' data-ref="10s">s</a>-&gt;<a class="tu ref" href="#state::bitcnt" title='state::bitcnt' data-use='r' data-ref="state::bitcnt">bitcnt</a>;</td></tr>
+<tr><th id="234">234</th><td>    <a class="local col3 ref" href="#13code" title='code' data-ref="13code">code</a> = <a class="local col4 ref" href="#14first" title='first' data-ref="14first">first</a> = <a class="local col6 ref" href="#16index" title='index' data-ref="16index">index</a> = <var>0</var>;</td></tr>
+<tr><th id="235">235</th><td>    <a class="local col2 ref" href="#12len" title='len' data-ref="12len">len</a> = <var>1</var>;</td></tr>
+<tr><th id="236">236</th><td>    <a class="local col9 ref" href="#19next" title='next' data-ref="19next">next</a> = <a class="local col1 ref" href="#11h" title='h' data-ref="11h">h</a>-&gt;<a class="tu ref" href="#huffman::count" title='huffman::count' data-use='r' data-ref="huffman::count">count</a> + <var>1</var>;</td></tr>
+<tr><th id="237">237</th><td>    <b>while</b> (<var>1</var>) {</td></tr>
+<tr><th id="238">238</th><td>        <b>while</b> (<a class="local col8 ref" href="#18left" title='left' data-ref="18left">left</a>--) {</td></tr>
+<tr><th id="239">239</th><td>            <a class="local col3 ref" href="#13code" title='code' data-ref="13code">code</a> |= <a class="local col7 ref" href="#17bitbuf" title='bitbuf' data-ref="17bitbuf">bitbuf</a> &amp; <var>1</var>;</td></tr>
+<tr><th id="240">240</th><td>            <a class="local col7 ref" href="#17bitbuf" title='bitbuf' data-ref="17bitbuf">bitbuf</a> &gt;&gt;= <var>1</var>;</td></tr>
+<tr><th id="241">241</th><td>            <a class="local col5 ref" href="#15count" title='count' data-ref="15count">count</a> = *<a class="local col9 ref" href="#19next" title='next' data-ref="19next">next</a>++;</td></tr>
+<tr><th id="242">242</th><td>            <b>if</b> (<a class="local col3 ref" href="#13code" title='code' data-ref="13code">code</a> &lt; <a class="local col4 ref" href="#14first" title='first' data-ref="14first">first</a> + <a class="local col5 ref" href="#15count" title='count' data-ref="15count">count</a>) { <i>/* if length len, return symbol */</i></td></tr>
+<tr><th id="243">243</th><td>                <a class="local col0 ref" href="#10s" title='s' data-ref="10s">s</a>-&gt;<a class="tu ref" href="#state::bitbuf" title='state::bitbuf' data-use='w' data-ref="state::bitbuf">bitbuf</a> = <a class="local col7 ref" href="#17bitbuf" title='bitbuf' data-ref="17bitbuf">bitbuf</a>;</td></tr>
+<tr><th id="244">244</th><td>                <a class="local col0 ref" href="#10s" title='s' data-ref="10s">s</a>-&gt;<a class="tu ref" href="#state::bitcnt" title='state::bitcnt' data-use='w' data-ref="state::bitcnt">bitcnt</a> = (<a class="local col0 ref" href="#10s" title='s' data-ref="10s">s</a>-&gt;<a class="tu ref" href="#state::bitcnt" title='state::bitcnt' data-use='r' data-ref="state::bitcnt">bitcnt</a> - <a class="local col2 ref" href="#12len" title='len' data-ref="12len">len</a>) &amp; <var>7</var>;</td></tr>
+<tr><th id="245">245</th><td>                <b>return</b> <a class="local col1 ref" href="#11h" title='h' data-ref="11h">h</a>-&gt;<a class="tu ref" href="#huffman::symbol" title='huffman::symbol' data-use='r' data-ref="huffman::symbol">symbol</a>[<a class="local col6 ref" href="#16index" title='index' data-ref="16index">index</a> + (<a class="local col3 ref" href="#13code" title='code' data-ref="13code">code</a> - <a class="local col4 ref" href="#14first" title='first' data-ref="14first">first</a>)];</td></tr>
+<tr><th id="246">246</th><td>            }</td></tr>
+<tr><th id="247">247</th><td>            <a class="local col6 ref" href="#16index" title='index' data-ref="16index">index</a> += <a class="local col5 ref" href="#15count" title='count' data-ref="15count">count</a>;             <i>/* else update for next length */</i></td></tr>
+<tr><th id="248">248</th><td>            <a class="local col4 ref" href="#14first" title='first' data-ref="14first">first</a> += <a class="local col5 ref" href="#15count" title='count' data-ref="15count">count</a>;</td></tr>
+<tr><th id="249">249</th><td>            <a class="local col4 ref" href="#14first" title='first' data-ref="14first">first</a> &lt;&lt;= <var>1</var>;</td></tr>
+<tr><th id="250">250</th><td>            <a class="local col3 ref" href="#13code" title='code' data-ref="13code">code</a> &lt;&lt;= <var>1</var>;</td></tr>
+<tr><th id="251">251</th><td>            <a class="local col2 ref" href="#12len" title='len' data-ref="12len">len</a>++;</td></tr>
+<tr><th id="252">252</th><td>        }</td></tr>
+<tr><th id="253">253</th><td>        <a class="local col8 ref" href="#18left" title='left' data-ref="18left">left</a> = (<a class="macro" href="#81" title="15" data-ref="_M/MAXBITS">MAXBITS</a>+<var>1</var>) - <a class="local col2 ref" href="#12len" title='len' data-ref="12len">len</a>;</td></tr>
+<tr><th id="254">254</th><td>        <b>if</b> (<a class="local col8 ref" href="#18left" title='left' data-ref="18left">left</a> == <var>0</var>) <b>break</b>;</td></tr>
+<tr><th id="255">255</th><td>        <b>if</b> (<a class="local col0 ref" href="#10s" title='s' data-ref="10s">s</a>-&gt;<a class="tu ref" href="#state::incnt" title='state::incnt' data-use='r' data-ref="state::incnt">incnt</a> == <a class="local col0 ref" href="#10s" title='s' data-ref="10s">s</a>-&gt;<a class="tu ref" href="#state::inlen" title='state::inlen' data-use='r' data-ref="state::inlen">inlen</a>) <a class="ref" href="../../../include/setjmp.h.html#longjmp" title='longjmp' data-ref="longjmp">longjmp</a>(<a class="local col0 ref" href="#10s" title='s' data-ref="10s">s</a>-&gt;<a class="tu ref" href="#state::env" title='state::env' data-use='r' data-ref="state::env">env</a>, <var>1</var>);   <i>/* out of input */</i></td></tr>
+<tr><th id="256">256</th><td>        <a class="local col7 ref" href="#17bitbuf" title='bitbuf' data-ref="17bitbuf">bitbuf</a> = <a class="local col0 ref" href="#10s" title='s' data-ref="10s">s</a>-&gt;<a class="tu ref" href="#state::in" title='state::in' data-use='r' data-ref="state::in">in</a>[<a class="local col0 ref" href="#10s" title='s' data-ref="10s">s</a>-&gt;<a class="tu ref" href="#state::incnt" title='state::incnt' data-use='w' data-ref="state::incnt">incnt</a>++];</td></tr>
+<tr><th id="257">257</th><td>        <b>if</b> (<a class="local col8 ref" href="#18left" title='left' data-ref="18left">left</a> &gt; <var>8</var>) <a class="local col8 ref" href="#18left" title='left' data-ref="18left">left</a> = <var>8</var>;</td></tr>
+<tr><th id="258">258</th><td>    }</td></tr>
+<tr><th id="259">259</th><td>    <b>return</b> -<var>9</var>;                          <i>/* ran out of codes */</i></td></tr>
+<tr><th id="260">260</th><td>}</td></tr>
+<tr><th id="261">261</th><td></td></tr>
+<tr><th id="262">262</th><td><i>/*</i></td></tr>
+<tr><th id="263">263</th><td><i> * Given the list of code lengths length[0..n-1] representing a canonical</i></td></tr>
+<tr><th id="264">264</th><td><i> * Huffman code for n symbols, construct the tables required to decode those</i></td></tr>
+<tr><th id="265">265</th><td><i> * codes.  Those tables are the number of codes of each length, and the symbols</i></td></tr>
+<tr><th id="266">266</th><td><i> * sorted by length, retaining their original order within each length.  The</i></td></tr>
+<tr><th id="267">267</th><td><i> * return value is zero for a complete code set, negative for an over-</i></td></tr>
+<tr><th id="268">268</th><td><i> * subscribed code set, and positive for an incomplete code set.  The tables</i></td></tr>
+<tr><th id="269">269</th><td><i> * can be used if the return value is zero or positive, but they cannot be used</i></td></tr>
+<tr><th id="270">270</th><td><i> * if the return value is negative.  If the return value is zero, it is not</i></td></tr>
+<tr><th id="271">271</th><td><i> * possible for decode() using that table to return an error--any stream of</i></td></tr>
+<tr><th id="272">272</th><td><i> * enough bits will resolve to a symbol.  If the return value is positive, then</i></td></tr>
+<tr><th id="273">273</th><td><i> * it is possible for decode() using that table to return an error for received</i></td></tr>
+<tr><th id="274">274</th><td><i> * codes past the end of the incomplete lengths.</i></td></tr>
+<tr><th id="275">275</th><td><i> *</i></td></tr>
+<tr><th id="276">276</th><td><i> * Not used by decode(), but used for error checking, h-&gt;count[0] is the number</i></td></tr>
+<tr><th id="277">277</th><td><i> * of the n symbols not in the code.  So n - h-&gt;count[0] is the number of</i></td></tr>
+<tr><th id="278">278</th><td><i> * codes.  This is useful for checking for incomplete codes that have more than</i></td></tr>
+<tr><th id="279">279</th><td><i> * one symbol, which is an error in a dynamic block.</i></td></tr>
+<tr><th id="280">280</th><td><i> *</i></td></tr>
+<tr><th id="281">281</th><td><i> * Assumption: for all i in 0..n-1, 0 &lt;= length[i] &lt;= MAXBITS</i></td></tr>
+<tr><th id="282">282</th><td><i> * This is assured by the construction of the length arrays in dynamic() and</i></td></tr>
+<tr><th id="283">283</th><td><i> * fixed() and is not verified by construct().</i></td></tr>
+<tr><th id="284">284</th><td><i> *</i></td></tr>
+<tr><th id="285">285</th><td><i> * Format notes:</i></td></tr>
+<tr><th id="286">286</th><td><i> *</i></td></tr>
+<tr><th id="287">287</th><td><i> * - Permitted and expected examples of incomplete codes are one of the fixed</i></td></tr>
+<tr><th id="288">288</th><td><i> *   codes and any code with a single symbol which in deflate is coded as one</i></td></tr>
+<tr><th id="289">289</th><td><i> *   bit instead of zero bits.  See the format notes for fixed() and dynamic().</i></td></tr>
+<tr><th id="290">290</th><td><i> *</i></td></tr>
+<tr><th id="291">291</th><td><i> * - Within a given code length, the symbols are kept in ascending order for</i></td></tr>
+<tr><th id="292">292</th><td><i> *   the code bits definition.</i></td></tr>
+<tr><th id="293">293</th><td><i> */</i></td></tr>
+<tr><th id="294">294</th><td><a class="macro" href="#75" title="static" data-ref="_M/local">local</a> <a class="typedef" href="../../../include/x86_64-linux-gnu/sys/types.h.html#196" title='int32_t' data-type='int' data-ref="int32_t">int32_t</a> <dfn class="tu decl def" id="construct" title='construct' data-type='int32_t construct(struct huffman * h, int16_t * length, int32_t n)' data-ref="construct">construct</dfn>(<b>struct</b> <a class="type" href="#huffman" title='huffman' data-ref="huffman">huffman</a> *<dfn class="local col0 decl" id="20h" title='h' data-type='struct huffman *' data-ref="20h">h</dfn>, <a class="typedef" href="../../../include/x86_64-linux-gnu/sys/types.h.html#195" title='int16_t' data-type='short' data-ref="int16_t">int16_t</a> *<dfn class="local col1 decl" id="21length" title='length' data-type='int16_t *' data-ref="21length">length</dfn>, <a class="typedef" href="../../../include/x86_64-linux-gnu/sys/types.h.html#196" title='int32_t' data-type='int' data-ref="int32_t">int32_t</a> <dfn class="local col2 decl" id="22n" title='n' data-type='int32_t' data-ref="22n">n</dfn>)</td></tr>
+<tr><th id="295">295</th><td>{</td></tr>
+<tr><th id="296">296</th><td>    <a class="typedef" href="../../../include/x86_64-linux-gnu/sys/types.h.html#196" title='int32_t' data-type='int' data-ref="int32_t">int32_t</a> <dfn class="local col3 decl" id="23symbol" title='symbol' data-type='int32_t' data-ref="23symbol">symbol</dfn>;         <i>/* current symbol when stepping through length[] */</i></td></tr>
+<tr><th id="297">297</th><td>    <a class="typedef" href="../../../include/x86_64-linux-gnu/sys/types.h.html#196" title='int32_t' data-type='int' data-ref="int32_t">int32_t</a> <dfn class="local col4 decl" id="24len" title='len' data-type='int32_t' data-ref="24len">len</dfn>;            <i>/* current length when stepping through h-&gt;count[] */</i></td></tr>
+<tr><th id="298">298</th><td>    <a class="typedef" href="../../../include/x86_64-linux-gnu/sys/types.h.html#196" title='int32_t' data-type='int' data-ref="int32_t">int32_t</a> <dfn class="local col5 decl" id="25left" title='left' data-type='int32_t' data-ref="25left">left</dfn>;           <i>/* number of possible codes left of current length */</i></td></tr>
+<tr><th id="299">299</th><td>    <a class="typedef" href="../../../include/x86_64-linux-gnu/sys/types.h.html#195" title='int16_t' data-type='short' data-ref="int16_t">int16_t</a> <dfn class="local col6 decl" id="26offs" title='offs' data-type='int16_t [16]' data-ref="26offs">offs</dfn>[<a class="macro" href="#81" title="15" data-ref="_M/MAXBITS">MAXBITS</a>+<var>1</var>];      <i>/* offsets in symbol table for each length */</i></td></tr>
+<tr><th id="300">300</th><td></td></tr>
+<tr><th id="301">301</th><td>    <i>/* count number of codes of each length */</i></td></tr>
+<tr><th id="302">302</th><td>    <b>for</b> (<a class="local col4 ref" href="#24len" title='len' data-ref="24len">len</a> = <var>0</var>; <a class="local col4 ref" href="#24len" title='len' data-ref="24len">len</a> &lt;= <a class="macro" href="#81" title="15" data-ref="_M/MAXBITS">MAXBITS</a>; <a class="local col4 ref" href="#24len" title='len' data-ref="24len">len</a>++)</td></tr>
+<tr><th id="303">303</th><td>        <a class="local col0 ref" href="#20h" title='h' data-ref="20h">h</a>-&gt;<a class="tu ref" href="#huffman::count" title='huffman::count' data-use='r' data-ref="huffman::count">count</a>[<a class="local col4 ref" href="#24len" title='len' data-ref="24len">len</a>] = <var>0</var>;</td></tr>
+<tr><th id="304">304</th><td>    <b>for</b> (<a class="local col3 ref" href="#23symbol" title='symbol' data-ref="23symbol">symbol</a> = <var>0</var>; <a class="local col3 ref" href="#23symbol" title='symbol' data-ref="23symbol">symbol</a> &lt; <a class="local col2 ref" href="#22n" title='n' data-ref="22n">n</a>; <a class="local col3 ref" href="#23symbol" title='symbol' data-ref="23symbol">symbol</a>++)</td></tr>
+<tr><th id="305">305</th><td>        (<a class="local col0 ref" href="#20h" title='h' data-ref="20h">h</a>-&gt;<a class="tu ref" href="#huffman::count" title='huffman::count' data-use='r' data-ref="huffman::count">count</a>[<a class="local col1 ref" href="#21length" title='length' data-ref="21length">length</a>[<a class="local col3 ref" href="#23symbol" title='symbol' data-ref="23symbol">symbol</a>]])++;   <i>/* assumes lengths are within bounds */</i></td></tr>
+<tr><th id="306">306</th><td>    <b>if</b> (<a class="local col0 ref" href="#20h" title='h' data-ref="20h">h</a>-&gt;<a class="tu ref" href="#huffman::count" title='huffman::count' data-use='r' data-ref="huffman::count">count</a>[<var>0</var>] == <a class="local col2 ref" href="#22n" title='n' data-ref="22n">n</a>)               <i>/* no codes! */</i></td></tr>
+<tr><th id="307">307</th><td>        <b>return</b> <var>0</var>;                       <i>/* complete, but decode() will fail */</i></td></tr>
+<tr><th id="308">308</th><td></td></tr>
+<tr><th id="309">309</th><td>    <i>/* check for an over-subscribed or incomplete set of lengths */</i></td></tr>
+<tr><th id="310">310</th><td>    <a class="local col5 ref" href="#25left" title='left' data-ref="25left">left</a> = <var>1</var>;                           <i>/* one possible code of zero length */</i></td></tr>
+<tr><th id="311">311</th><td>    <b>for</b> (<a class="local col4 ref" href="#24len" title='len' data-ref="24len">len</a> = <var>1</var>; <a class="local col4 ref" href="#24len" title='len' data-ref="24len">len</a> &lt;= <a class="macro" href="#81" title="15" data-ref="_M/MAXBITS">MAXBITS</a>; <a class="local col4 ref" href="#24len" title='len' data-ref="24len">len</a>++) {</td></tr>
+<tr><th id="312">312</th><td>        <a class="local col5 ref" href="#25left" title='left' data-ref="25left">left</a> &lt;&lt;= <var>1</var>;                     <i>/* one more bit, double codes left */</i></td></tr>
+<tr><th id="313">313</th><td>        <a class="local col5 ref" href="#25left" title='left' data-ref="25left">left</a> -= <a class="local col0 ref" href="#20h" title='h' data-ref="20h">h</a>-&gt;<a class="tu ref" href="#huffman::count" title='huffman::count' data-use='r' data-ref="huffman::count">count</a>[<a class="local col4 ref" href="#24len" title='len' data-ref="24len">len</a>];          <i>/* deduct count from possible codes */</i></td></tr>
+<tr><th id="314">314</th><td>        <b>if</b> (<a class="local col5 ref" href="#25left" title='left' data-ref="25left">left</a> &lt; <var>0</var>) <b>return</b> <a class="local col5 ref" href="#25left" title='left' data-ref="25left">left</a>;      <i>/* over-subscribed--return negative */</i></td></tr>
+<tr><th id="315">315</th><td>    }                                   <i>/* left &gt; 0 means incomplete */</i></td></tr>
+<tr><th id="316">316</th><td></td></tr>
+<tr><th id="317">317</th><td>    <i>/* generate offsets into symbol table for each length for sorting */</i></td></tr>
+<tr><th id="318">318</th><td>    <a class="local col6 ref" href="#26offs" title='offs' data-ref="26offs">offs</a>[<var>1</var>] = <var>0</var>;</td></tr>
+<tr><th id="319">319</th><td>    <b>for</b> (<a class="local col4 ref" href="#24len" title='len' data-ref="24len">len</a> = <var>1</var>; <a class="local col4 ref" href="#24len" title='len' data-ref="24len">len</a> &lt; <a class="macro" href="#81" title="15" data-ref="_M/MAXBITS">MAXBITS</a>; <a class="local col4 ref" href="#24len" title='len' data-ref="24len">len</a>++)</td></tr>
+<tr><th id="320">320</th><td>        <a class="local col6 ref" href="#26offs" title='offs' data-ref="26offs">offs</a>[<a class="local col4 ref" href="#24len" title='len' data-ref="24len">len</a> + <var>1</var>] = <a class="local col6 ref" href="#26offs" title='offs' data-ref="26offs">offs</a>[<a class="local col4 ref" href="#24len" title='len' data-ref="24len">len</a>] + <a class="local col0 ref" href="#20h" title='h' data-ref="20h">h</a>-&gt;<a class="tu ref" href="#huffman::count" title='huffman::count' data-use='r' data-ref="huffman::count">count</a>[<a class="local col4 ref" href="#24len" title='len' data-ref="24len">len</a>];</td></tr>
+<tr><th id="321">321</th><td></td></tr>
+<tr><th id="322">322</th><td>    <i>/*</i></td></tr>
+<tr><th id="323">323</th><td><i>     * put symbols in table sorted by length, by symbol order within each</i></td></tr>
+<tr><th id="324">324</th><td><i>     * length</i></td></tr>
+<tr><th id="325">325</th><td><i>     */</i></td></tr>
+<tr><th id="326">326</th><td>    <b>for</b> (<a class="local col3 ref" href="#23symbol" title='symbol' data-ref="23symbol">symbol</a> = <var>0</var>; <a class="local col3 ref" href="#23symbol" title='symbol' data-ref="23symbol">symbol</a> &lt; <a class="local col2 ref" href="#22n" title='n' data-ref="22n">n</a>; <a class="local col3 ref" href="#23symbol" title='symbol' data-ref="23symbol">symbol</a>++)</td></tr>
+<tr><th id="327">327</th><td>        <b>if</b> (<a class="local col1 ref" href="#21length" title='length' data-ref="21length">length</a>[<a class="local col3 ref" href="#23symbol" title='symbol' data-ref="23symbol">symbol</a>] != <var>0</var>)</td></tr>
+<tr><th id="328">328</th><td>            <a class="local col0 ref" href="#20h" title='h' data-ref="20h">h</a>-&gt;<a class="tu ref" href="#huffman::symbol" title='huffman::symbol' data-use='r' data-ref="huffman::symbol">symbol</a>[<a class="local col6 ref" href="#26offs" title='offs' data-ref="26offs">offs</a>[<a class="local col1 ref" href="#21length" title='length' data-ref="21length">length</a>[<a class="local col3 ref" href="#23symbol" title='symbol' data-ref="23symbol">symbol</a>]]++] = <a class="local col3 ref" href="#23symbol" title='symbol' data-ref="23symbol">symbol</a>;</td></tr>
+<tr><th id="329">329</th><td></td></tr>
+<tr><th id="330">330</th><td>    <i>/* return zero for complete set, positive for incomplete set */</i></td></tr>
+<tr><th id="331">331</th><td>    <b>return</b> <a class="local col5 ref" href="#25left" title='left' data-ref="25left">left</a>;</td></tr>
+<tr><th id="332">332</th><td>}</td></tr>
+<tr><th id="333">333</th><td></td></tr>
+<tr><th id="334">334</th><td><i>/*</i></td></tr>
+<tr><th id="335">335</th><td><i> * Decode literal/length and distance codes until an end-of-block code.</i></td></tr>
+<tr><th id="336">336</th><td><i> *</i></td></tr>
+<tr><th id="337">337</th><td><i> * Format notes:</i></td></tr>
+<tr><th id="338">338</th><td><i> *</i></td></tr>
+<tr><th id="339">339</th><td><i> * - Compressed data that is after the block type if fixed or after the code</i></td></tr>
+<tr><th id="340">340</th><td><i> *   description if dynamic is a combination of literals and length/distance</i></td></tr>
+<tr><th id="341">341</th><td><i> *   pairs terminated by and end-of-block code.  Literals are simply Huffman</i></td></tr>
+<tr><th id="342">342</th><td><i> *   coded bytes.  A length/distance pair is a coded length followed by a</i></td></tr>
+<tr><th id="343">343</th><td><i> *   coded distance to represent a string that occurs earlier in the</i></td></tr>
+<tr><th id="344">344</th><td><i> *   uncompressed data that occurs again at the current location.</i></td></tr>
+<tr><th id="345">345</th><td><i> *</i></td></tr>
+<tr><th id="346">346</th><td><i> * - Literals, lengths, and the end-of-block code are combined into a single</i></td></tr>
+<tr><th id="347">347</th><td><i> *   code of up to 286 symbols.  They are 256 literals (0..255), 29 length</i></td></tr>
+<tr><th id="348">348</th><td><i> *   symbols (257..285), and the end-of-block symbol (256).</i></td></tr>
+<tr><th id="349">349</th><td><i> *</i></td></tr>
+<tr><th id="350">350</th><td><i> * - There are 256 possible lengths (3..258), and so 29 symbols are not enough</i></td></tr>
+<tr><th id="351">351</th><td><i> *   to represent all of those.  Lengths 3..10 and 258 are in fact represented</i></td></tr>
+<tr><th id="352">352</th><td><i> *   by just a length symbol.  Lengths 11..257 are represented as a symbol and</i></td></tr>
+<tr><th id="353">353</th><td><i> *   some number of extra bits that are added as an integer to the base length</i></td></tr>
+<tr><th id="354">354</th><td><i> *   of the length symbol.  The number of extra bits is determined by the base</i></td></tr>
+<tr><th id="355">355</th><td><i> *   length symbol.  These are in the static arrays below, lens[] for the base</i></td></tr>
+<tr><th id="356">356</th><td><i> *   lengths and lext[] for the corresponding number of extra bits.</i></td></tr>
+<tr><th id="357">357</th><td><i> *</i></td></tr>
+<tr><th id="358">358</th><td><i> * - The reason that 258 gets its own symbol is that the longest length is used</i></td></tr>
+<tr><th id="359">359</th><td><i> *   often in highly redundant files.  Note that 258 can also be coded as the</i></td></tr>
+<tr><th id="360">360</th><td><i> *   base value 227 plus the maximum extra value of 31.  While a good deflate</i></td></tr>
+<tr><th id="361">361</th><td><i> *   should never do this, it is not an error, and should be decoded properly.</i></td></tr>
+<tr><th id="362">362</th><td><i> *</i></td></tr>
+<tr><th id="363">363</th><td><i> * - If a length is decoded, including its extra bits if any, then it is</i></td></tr>
+<tr><th id="364">364</th><td><i> *   followed a distance code.  There are up to 30 distance symbols.  Again</i></td></tr>
+<tr><th id="365">365</th><td><i> *   there are many more possible distances (1..32768), so extra bits are added</i></td></tr>
+<tr><th id="366">366</th><td><i> *   to a base value represented by the symbol.  The distances 1..4 get their</i></td></tr>
+<tr><th id="367">367</th><td><i> *   own symbol, but the rest require extra bits.  The base distances and</i></td></tr>
+<tr><th id="368">368</th><td><i> *   corresponding number of extra bits are below in the static arrays dist[]</i></td></tr>
+<tr><th id="369">369</th><td><i> *   and dext[].</i></td></tr>
+<tr><th id="370">370</th><td><i> *</i></td></tr>
+<tr><th id="371">371</th><td><i> * - Literal bytes are simply written to the output.  A length/distance pair is</i></td></tr>
+<tr><th id="372">372</th><td><i> *   an instruction to copy previously uncompressed bytes to the output.  The</i></td></tr>
+<tr><th id="373">373</th><td><i> *   copy is from distance bytes back in the output stream, copying for length</i></td></tr>
+<tr><th id="374">374</th><td><i> *   bytes.</i></td></tr>
+<tr><th id="375">375</th><td><i> *</i></td></tr>
+<tr><th id="376">376</th><td><i> * - Distances pointing before the beginning of the output data are not</i></td></tr>
+<tr><th id="377">377</th><td><i> *   permitted.</i></td></tr>
+<tr><th id="378">378</th><td><i> *</i></td></tr>
+<tr><th id="379">379</th><td><i> * - Overlapped copies, where the length is greater than the distance, are</i></td></tr>
+<tr><th id="380">380</th><td><i> *   allowed and common.  For example, a distance of one and a length of 258</i></td></tr>
+<tr><th id="381">381</th><td><i> *   simply copies the last byte 258 times.  A distance of four and a length of</i></td></tr>
+<tr><th id="382">382</th><td><i> *   twelve copies the last four bytes three times.  A simple forward copy</i></td></tr>
+<tr><th id="383">383</th><td><i> *   ignoring whether the length is greater than the distance or not implements</i></td></tr>
+<tr><th id="384">384</th><td><i> *   this correctly.  You should not use memcpy() since its behavior is not</i></td></tr>
+<tr><th id="385">385</th><td><i> *   defined for overlapped arrays.  You should not use memmove() or bcopy()</i></td></tr>
+<tr><th id="386">386</th><td><i> *   since though their behavior -is- defined for overlapping arrays, it is</i></td></tr>
+<tr><th id="387">387</th><td><i> *   defined to do the wrong thing in this case.</i></td></tr>
+<tr><th id="388">388</th><td><i> */</i></td></tr>
+<tr><th id="389">389</th><td><a class="macro" href="#75" title="static" data-ref="_M/local">local</a> <a class="typedef" href="../../../include/x86_64-linux-gnu/sys/types.h.html#196" title='int32_t' data-type='int' data-ref="int32_t">int32_t</a> <dfn class="tu decl def" id="codes" title='codes' data-type='int32_t codes(struct state * s, struct huffman * lencode, struct huffman * distcode)' data-ref="codes">codes</dfn>(<b>struct</b> <a class="type" href="#state" title='state' data-ref="state">state</a> *<dfn class="local col7 decl" id="27s" title='s' data-type='struct state *' data-ref="27s">s</dfn>,</td></tr>
+<tr><th id="390">390</th><td>                <b>struct</b> <a class="type" href="#huffman" title='huffman' data-ref="huffman">huffman</a> *<dfn class="local col8 decl" id="28lencode" title='lencode' data-type='struct huffman *' data-ref="28lencode">lencode</dfn>,</td></tr>
+<tr><th id="391">391</th><td>                <b>struct</b> <a class="type" href="#huffman" title='huffman' data-ref="huffman">huffman</a> *<dfn class="local col9 decl" id="29distcode" title='distcode' data-type='struct huffman *' data-ref="29distcode">distcode</dfn>)</td></tr>
+<tr><th id="392">392</th><td>{</td></tr>
+<tr><th id="393">393</th><td>    <a class="typedef" href="../../../include/x86_64-linux-gnu/sys/types.h.html#196" title='int32_t' data-type='int' data-ref="int32_t">int32_t</a> <dfn class="local col0 decl" id="30symbol" title='symbol' data-type='int32_t' data-ref="30symbol">symbol</dfn>;         <i>/* decoded symbol */</i></td></tr>
+<tr><th id="394">394</th><td>    <a class="typedef" href="../../../include/x86_64-linux-gnu/sys/types.h.html#196" title='int32_t' data-type='int' data-ref="int32_t">int32_t</a> <dfn class="local col1 decl" id="31len" title='len' data-type='int32_t' data-ref="31len">len</dfn>;            <i>/* length for copy */</i></td></tr>
+<tr><th id="395">395</th><td>    <a class="typedef" href="../../../include/stdint.h.html#uint32_t" title='uint32_t' data-type='unsigned int' data-ref="uint32_t">uint32_t</a> <dfn class="local col2 decl" id="32dist" title='dist' data-type='uint32_t' data-ref="32dist">dist</dfn>;          <i>/* distance for copy */</i></td></tr>
+<tr><th id="396">396</th><td>    <em>static</em> <em>const</em> <a class="typedef" href="../../../include/x86_64-linux-gnu/sys/types.h.html#195" title='int16_t' data-type='short' data-ref="int16_t">int16_t</a> <dfn class="local col3 decl" id="33lens" title='lens' data-type='const int16_t [29]' data-ref="33lens">lens</dfn>[<var>29</var>] = { <i>/* Size base for length codes 257..285 */</i></td></tr>
+<tr><th id="397">397</th><td>        <var>3</var>, <var>4</var>, <var>5</var>, <var>6</var>, <var>7</var>, <var>8</var>, <var>9</var>, <var>10</var>, <var>11</var>, <var>13</var>, <var>15</var>, <var>17</var>, <var>19</var>, <var>23</var>, <var>27</var>, <var>31</var>,</td></tr>
+<tr><th id="398">398</th><td>        <var>35</var>, <var>43</var>, <var>51</var>, <var>59</var>, <var>67</var>, <var>83</var>, <var>99</var>, <var>115</var>, <var>131</var>, <var>163</var>, <var>195</var>, <var>227</var>, <var>258</var>};</td></tr>
+<tr><th id="399">399</th><td>    <em>static</em> <em>const</em> <a class="typedef" href="../../../include/x86_64-linux-gnu/sys/types.h.html#195" title='int16_t' data-type='short' data-ref="int16_t">int16_t</a> <dfn class="local col4 decl" id="34lext" title='lext' data-type='const int16_t [29]' data-ref="34lext">lext</dfn>[<var>29</var>] = { <i>/* Extra bits for length codes 257..285 */</i></td></tr>
+<tr><th id="400">400</th><td>        <var>0</var>, <var>0</var>, <var>0</var>, <var>0</var>, <var>0</var>, <var>0</var>, <var>0</var>, <var>0</var>, <var>1</var>, <var>1</var>, <var>1</var>, <var>1</var>, <var>2</var>, <var>2</var>, <var>2</var>, <var>2</var>,</td></tr>
+<tr><th id="401">401</th><td>        <var>3</var>, <var>3</var>, <var>3</var>, <var>3</var>, <var>4</var>, <var>4</var>, <var>4</var>, <var>4</var>, <var>5</var>, <var>5</var>, <var>5</var>, <var>5</var>, <var>0</var>};</td></tr>
+<tr><th id="402">402</th><td>    <em>static</em> <em>const</em> <a class="typedef" href="../../../include/x86_64-linux-gnu/sys/types.h.html#195" title='int16_t' data-type='short' data-ref="int16_t">int16_t</a> <dfn class="local col5 decl" id="35dists" title='dists' data-type='const int16_t [30]' data-ref="35dists">dists</dfn>[<var>30</var>] = { <i>/* Offset base for distance codes 0..29 */</i></td></tr>
+<tr><th id="403">403</th><td>        <var>1</var>, <var>2</var>, <var>3</var>, <var>4</var>, <var>5</var>, <var>7</var>, <var>9</var>, <var>13</var>, <var>17</var>, <var>25</var>, <var>33</var>, <var>49</var>, <var>65</var>, <var>97</var>, <var>129</var>, <var>193</var>,</td></tr>
+<tr><th id="404">404</th><td>        <var>257</var>, <var>385</var>, <var>513</var>, <var>769</var>, <var>1025</var>, <var>1537</var>, <var>2049</var>, <var>3073</var>, <var>4097</var>, <var>6145</var>,</td></tr>
+<tr><th id="405">405</th><td>        <var>8193</var>, <var>12289</var>, <var>16385</var>, <var>24577</var>};</td></tr>
+<tr><th id="406">406</th><td>    <em>static</em> <em>const</em> <a class="typedef" href="../../../include/x86_64-linux-gnu/sys/types.h.html#195" title='int16_t' data-type='short' data-ref="int16_t">int16_t</a> <dfn class="local col6 decl" id="36dext" title='dext' data-type='const int16_t [30]' data-ref="36dext">dext</dfn>[<var>30</var>] = { <i>/* Extra bits for distance codes 0..29 */</i></td></tr>
+<tr><th id="407">407</th><td>        <var>0</var>, <var>0</var>, <var>0</var>, <var>0</var>, <var>1</var>, <var>1</var>, <var>2</var>, <var>2</var>, <var>3</var>, <var>3</var>, <var>4</var>, <var>4</var>, <var>5</var>, <var>5</var>, <var>6</var>, <var>6</var>,</td></tr>
+<tr><th id="408">408</th><td>        <var>7</var>, <var>7</var>, <var>8</var>, <var>8</var>, <var>9</var>, <var>9</var>, <var>10</var>, <var>10</var>, <var>11</var>, <var>11</var>,</td></tr>
+<tr><th id="409">409</th><td>        <var>12</var>, <var>12</var>, <var>13</var>, <var>13</var>};</td></tr>
+<tr><th id="410">410</th><td></td></tr>
+<tr><th id="411">411</th><td>    <i>/* decode literals and length/distance pairs */</i></td></tr>
+<tr><th id="412">412</th><td>    <b>do</b> {</td></tr>
+<tr><th id="413">413</th><td>        <a class="local col0 ref" href="#30symbol" title='symbol' data-ref="30symbol">symbol</a> = <a class="tu ref" href="#decode" title='decode' data-use='c' data-ref="decode">decode</a>(<a class="local col7 ref" href="#27s" title='s' data-ref="27s">s</a>, <a class="local col8 ref" href="#28lencode" title='lencode' data-ref="28lencode">lencode</a>);</td></tr>
+<tr><th id="414">414</th><td>        <b>if</b> (<a class="local col0 ref" href="#30symbol" title='symbol' data-ref="30symbol">symbol</a> &lt; <var>0</var>) <b>return</b> <a class="local col0 ref" href="#30symbol" title='symbol' data-ref="30symbol">symbol</a>;  <i>/* invalid symbol */</i></td></tr>
+<tr><th id="415">415</th><td>        <b>if</b> (<a class="local col0 ref" href="#30symbol" title='symbol' data-ref="30symbol">symbol</a> &lt; <var>256</var>) {             <i>/* literal: symbol is the byte */</i></td></tr>
+<tr><th id="416">416</th><td>            <i>/* write out the literal */</i></td></tr>
+<tr><th id="417">417</th><td>            <b>if</b> (<a class="local col7 ref" href="#27s" title='s' data-ref="27s">s</a>-&gt;<a class="tu ref" href="#state::out" title='state::out' data-use='r' data-ref="state::out">out</a> != <span class="macro" title="((void*)0)" data-ref="_M/NULL">NULL</span>) {</td></tr>
+<tr><th id="418">418</th><td>                <b>if</b> (<a class="local col7 ref" href="#27s" title='s' data-ref="27s">s</a>-&gt;<a class="tu ref" href="#state::outcnt" title='state::outcnt' data-use='r' data-ref="state::outcnt">outcnt</a> == <a class="local col7 ref" href="#27s" title='s' data-ref="27s">s</a>-&gt;<a class="tu ref" href="#state::outlen" title='state::outlen' data-use='r' data-ref="state::outlen">outlen</a>) <b>return</b> <var>1</var>;</td></tr>
+<tr><th id="419">419</th><td>                <a class="local col7 ref" href="#27s" title='s' data-ref="27s">s</a>-&gt;<a class="tu ref" href="#state::out" title='state::out' data-use='r' data-ref="state::out">out</a>[<a class="local col7 ref" href="#27s" title='s' data-ref="27s">s</a>-&gt;<a class="tu ref" href="#state::outcnt" title='state::outcnt' data-use='r' data-ref="state::outcnt">outcnt</a>] = <a class="local col0 ref" href="#30symbol" title='symbol' data-ref="30symbol">symbol</a>;</td></tr>
+<tr><th id="420">420</th><td>            }</td></tr>
+<tr><th id="421">421</th><td>            <a class="local col7 ref" href="#27s" title='s' data-ref="27s">s</a>-&gt;<a class="tu ref" href="#state::outcnt" title='state::outcnt' data-use='w' data-ref="state::outcnt">outcnt</a>++;</td></tr>
+<tr><th id="422">422</th><td>        }</td></tr>
+<tr><th id="423">423</th><td>        <b>else</b> <b>if</b> (<a class="local col0 ref" href="#30symbol" title='symbol' data-ref="30symbol">symbol</a> &gt; <var>256</var>) {        <i>/* length */</i></td></tr>
+<tr><th id="424">424</th><td>            <i>/* get and compute length */</i></td></tr>
+<tr><th id="425">425</th><td>            <a class="local col0 ref" href="#30symbol" title='symbol' data-ref="30symbol">symbol</a> -= <var>257</var>;</td></tr>
+<tr><th id="426">426</th><td>            <b>if</b> (<a class="local col0 ref" href="#30symbol" title='symbol' data-ref="30symbol">symbol</a> &gt;= <var>29</var>) <b>return</b> -<var>9</var>;        <i>/* invalid fixed code */</i></td></tr>
+<tr><th id="427">427</th><td>            <a class="local col1 ref" href="#31len" title='len' data-ref="31len">len</a> = <a class="local col3 ref" href="#33lens" title='lens' data-ref="33lens">lens</a>[<a class="local col0 ref" href="#30symbol" title='symbol' data-ref="30symbol">symbol</a>] + <a class="tu ref" href="#bits" title='bits' data-use='c' data-ref="bits">bits</a>(<a class="local col7 ref" href="#27s" title='s' data-ref="27s">s</a>, <a class="local col4 ref" href="#34lext" title='lext' data-ref="34lext">lext</a>[<a class="local col0 ref" href="#30symbol" title='symbol' data-ref="30symbol">symbol</a>]);</td></tr>
+<tr><th id="428">428</th><td></td></tr>
+<tr><th id="429">429</th><td>            <i>/* get and check distance */</i></td></tr>
+<tr><th id="430">430</th><td>            <a class="local col0 ref" href="#30symbol" title='symbol' data-ref="30symbol">symbol</a> = <a class="tu ref" href="#decode" title='decode' data-use='c' data-ref="decode">decode</a>(<a class="local col7 ref" href="#27s" title='s' data-ref="27s">s</a>, <a class="local col9 ref" href="#29distcode" title='distcode' data-ref="29distcode">distcode</a>);</td></tr>
+<tr><th id="431">431</th><td>            <b>if</b> (<a class="local col0 ref" href="#30symbol" title='symbol' data-ref="30symbol">symbol</a> &lt; <var>0</var>) <b>return</b> <a class="local col0 ref" href="#30symbol" title='symbol' data-ref="30symbol">symbol</a>;      <i>/* invalid symbol */</i></td></tr>
+<tr><th id="432">432</th><td>            <a class="local col2 ref" href="#32dist" title='dist' data-ref="32dist">dist</a> = <a class="local col5 ref" href="#35dists" title='dists' data-ref="35dists">dists</a>[<a class="local col0 ref" href="#30symbol" title='symbol' data-ref="30symbol">symbol</a>] + <a class="tu ref" href="#bits" title='bits' data-use='c' data-ref="bits">bits</a>(<a class="local col7 ref" href="#27s" title='s' data-ref="27s">s</a>, <a class="local col6 ref" href="#36dext" title='dext' data-ref="36dext">dext</a>[<a class="local col0 ref" href="#30symbol" title='symbol' data-ref="30symbol">symbol</a>]);</td></tr>
+<tr><th id="433">433</th><td>            <b>if</b> (<a class="local col2 ref" href="#32dist" title='dist' data-ref="32dist">dist</a> &gt; <a class="local col7 ref" href="#27s" title='s' data-ref="27s">s</a>-&gt;<a class="tu ref" href="#state::outcnt" title='state::outcnt' data-use='r' data-ref="state::outcnt">outcnt</a>)</td></tr>
+<tr><th id="434">434</th><td>                <b>return</b> -<var>10</var>;     <i>/* distance too far back */</i></td></tr>
+<tr><th id="435">435</th><td></td></tr>
+<tr><th id="436">436</th><td>            <i>/* copy length bytes from distance bytes back */</i></td></tr>
+<tr><th id="437">437</th><td>            <b>if</b> (<a class="local col7 ref" href="#27s" title='s' data-ref="27s">s</a>-&gt;<a class="tu ref" href="#state::out" title='state::out' data-use='r' data-ref="state::out">out</a> != <span class="macro" title="((void*)0)" data-ref="_M/NULL">NULL</span>) {</td></tr>
+<tr><th id="438">438</th><td>                <b>if</b> (<a class="local col7 ref" href="#27s" title='s' data-ref="27s">s</a>-&gt;<a class="tu ref" href="#state::outcnt" title='state::outcnt' data-use='r' data-ref="state::outcnt">outcnt</a> + <a class="local col1 ref" href="#31len" title='len' data-ref="31len">len</a> &gt; <a class="local col7 ref" href="#27s" title='s' data-ref="27s">s</a>-&gt;<a class="tu ref" href="#state::outlen" title='state::outlen' data-use='r' data-ref="state::outlen">outlen</a>) <b>return</b> <var>1</var>;</td></tr>
+<tr><th id="439">439</th><td>                <b>while</b> (<a class="local col1 ref" href="#31len" title='len' data-ref="31len">len</a>--) {</td></tr>
+<tr><th id="440">440</th><td>                    <a class="local col7 ref" href="#27s" title='s' data-ref="27s">s</a>-&gt;<a class="tu ref" href="#state::out" title='state::out' data-use='r' data-ref="state::out">out</a>[<a class="local col7 ref" href="#27s" title='s' data-ref="27s">s</a>-&gt;<a class="tu ref" href="#state::outcnt" title='state::outcnt' data-use='r' data-ref="state::outcnt">outcnt</a>] = <a class="local col7 ref" href="#27s" title='s' data-ref="27s">s</a>-&gt;<a class="tu ref" href="#state::out" title='state::out' data-use='r' data-ref="state::out">out</a>[<a class="local col7 ref" href="#27s" title='s' data-ref="27s">s</a>-&gt;<a class="tu ref" href="#state::outcnt" title='state::outcnt' data-use='r' data-ref="state::outcnt">outcnt</a> - <a class="local col2 ref" href="#32dist" title='dist' data-ref="32dist">dist</a>];</td></tr>
+<tr><th id="441">441</th><td>                    <a class="local col7 ref" href="#27s" title='s' data-ref="27s">s</a>-&gt;<a class="tu ref" href="#state::outcnt" title='state::outcnt' data-use='w' data-ref="state::outcnt">outcnt</a>++;</td></tr>
+<tr><th id="442">442</th><td>                }</td></tr>
+<tr><th id="443">443</th><td>            }</td></tr>
+<tr><th id="444">444</th><td>            <b>else</b></td></tr>
+<tr><th id="445">445</th><td>                <a class="local col7 ref" href="#27s" title='s' data-ref="27s">s</a>-&gt;<a class="tu ref" href="#state::outcnt" title='state::outcnt' data-use='w' data-ref="state::outcnt">outcnt</a> += <a class="local col1 ref" href="#31len" title='len' data-ref="31len">len</a>;</td></tr>
+<tr><th id="446">446</th><td>        }</td></tr>
+<tr><th id="447">447</th><td>    } <b>while</b> (<a class="local col0 ref" href="#30symbol" title='symbol' data-ref="30symbol">symbol</a> != <var>256</var>);            <i>/* end of block symbol */</i></td></tr>
+<tr><th id="448">448</th><td></td></tr>
+<tr><th id="449">449</th><td>    <i>/* done with a valid fixed or dynamic block */</i></td></tr>
+<tr><th id="450">450</th><td>    <b>return</b> <var>0</var>;</td></tr>
+<tr><th id="451">451</th><td>}</td></tr>
+<tr><th id="452">452</th><td></td></tr>
+<tr><th id="453">453</th><td><i>/*</i></td></tr>
+<tr><th id="454">454</th><td><i> * Process a fixed codes block.</i></td></tr>
+<tr><th id="455">455</th><td><i> *</i></td></tr>
+<tr><th id="456">456</th><td><i> * Format notes:</i></td></tr>
+<tr><th id="457">457</th><td><i> *</i></td></tr>
+<tr><th id="458">458</th><td><i> * - This block type can be useful for compressing small amounts of data for</i></td></tr>
+<tr><th id="459">459</th><td><i> *   which the size of the code descriptions in a dynamic block exceeds the</i></td></tr>
+<tr><th id="460">460</th><td><i> *   benefit of custom codes for that block.  For fixed codes, no bits are</i></td></tr>
+<tr><th id="461">461</th><td><i> *   spent on code descriptions.  Instead the code lengths for literal/length</i></td></tr>
+<tr><th id="462">462</th><td><i> *   codes and distance codes are fixed.  The specific lengths for each symbol</i></td></tr>
+<tr><th id="463">463</th><td><i> *   can be seen in the "for" loops below.</i></td></tr>
+<tr><th id="464">464</th><td><i> *</i></td></tr>
+<tr><th id="465">465</th><td><i> * - The literal/length code is complete, but has two symbols that are invalid</i></td></tr>
+<tr><th id="466">466</th><td><i> *   and should result in an error if received.  This cannot be implemented</i></td></tr>
+<tr><th id="467">467</th><td><i> *   simply as an incomplete code since those two symbols are in the "middle"</i></td></tr>
+<tr><th id="468">468</th><td><i> *   of the code.  They are eight bits long and the longest literal/length\</i></td></tr>
+<tr><th id="469">469</th><td><i> *   code is nine bits.  Therefore the code must be constructed with those</i></td></tr>
+<tr><th id="470">470</th><td><i> *   symbols, and the invalid symbols must be detected after decoding.</i></td></tr>
+<tr><th id="471">471</th><td><i> *</i></td></tr>
+<tr><th id="472">472</th><td><i> * - The fixed distance codes also have two invalid symbols that should result</i></td></tr>
+<tr><th id="473">473</th><td><i> *   in an error if received.  Since all of the distance codes are the same</i></td></tr>
+<tr><th id="474">474</th><td><i> *   length, this can be implemented as an incomplete code.  Then the invalid</i></td></tr>
+<tr><th id="475">475</th><td><i> *   codes are detected while decoding.</i></td></tr>
+<tr><th id="476">476</th><td><i> */</i></td></tr>
+<tr><th id="477">477</th><td><a class="macro" href="#75" title="static" data-ref="_M/local">local</a> <a class="typedef" href="../../../include/x86_64-linux-gnu/sys/types.h.html#196" title='int32_t' data-type='int' data-ref="int32_t">int32_t</a> <dfn class="tu decl def" id="fixed" title='fixed' data-type='int32_t fixed(struct state * s)' data-ref="fixed">fixed</dfn>(<b>struct</b> <a class="type" href="#state" title='state' data-ref="state">state</a> *<dfn class="local col7 decl" id="37s" title='s' data-type='struct state *' data-ref="37s">s</dfn>)</td></tr>
+<tr><th id="478">478</th><td>{</td></tr>
+<tr><th id="479">479</th><td>    <em>static</em> <a class="typedef" href="../../../include/x86_64-linux-gnu/sys/types.h.html#196" title='int32_t' data-type='int' data-ref="int32_t">int32_t</a> <dfn class="local col8 decl" id="38virgin" title='virgin' data-type='int32_t' data-ref="38virgin">virgin</dfn> = <var>1</var>;</td></tr>
+<tr><th id="480">480</th><td>    <em>static</em> <a class="typedef" href="../../../include/x86_64-linux-gnu/sys/types.h.html#195" title='int16_t' data-type='short' data-ref="int16_t">int16_t</a> <dfn class="local col9 decl" id="39lencnt" title='lencnt' data-type='int16_t [16]' data-ref="39lencnt">lencnt</dfn>[<a class="macro" href="#81" title="15" data-ref="_M/MAXBITS">MAXBITS</a>+<var>1</var>], <dfn class="local col0 decl" id="40lensym" title='lensym' data-type='int16_t [288]' data-ref="40lensym">lensym</dfn>[<a class="macro" href="#85" title="288" data-ref="_M/FIXLCODES">FIXLCODES</a>];</td></tr>
+<tr><th id="481">481</th><td>    <em>static</em> <a class="typedef" href="../../../include/x86_64-linux-gnu/sys/types.h.html#195" title='int16_t' data-type='short' data-ref="int16_t">int16_t</a> <dfn class="local col1 decl" id="41distcnt" title='distcnt' data-type='int16_t [16]' data-ref="41distcnt">distcnt</dfn>[<a class="macro" href="#81" title="15" data-ref="_M/MAXBITS">MAXBITS</a>+<var>1</var>], <dfn class="local col2 decl" id="42distsym" title='distsym' data-type='int16_t [30]' data-ref="42distsym">distsym</dfn>[<a class="macro" href="#83" title="30" data-ref="_M/MAXDCODES">MAXDCODES</a>];</td></tr>
+<tr><th id="482">482</th><td>    <em>static</em> <b>struct</b> <a class="type" href="#huffman" title='huffman' data-ref="huffman">huffman</a> <dfn class="local col3 decl" id="43lencode" title='lencode' data-type='struct huffman' data-ref="43lencode">lencode</dfn> = {<a class="local col9 ref" href="#39lencnt" title='lencnt' data-ref="39lencnt">lencnt</a>, <a class="local col0 ref" href="#40lensym" title='lensym' data-ref="40lensym">lensym</a>};</td></tr>
+<tr><th id="483">483</th><td>    <em>static</em> <b>struct</b> <a class="type" href="#huffman" title='huffman' data-ref="huffman">huffman</a> <dfn class="local col4 decl" id="44distcode" title='distcode' data-type='struct huffman' data-ref="44distcode">distcode</dfn> = {<a class="local col1 ref" href="#41distcnt" title='distcnt' data-ref="41distcnt">distcnt</a>, <a class="local col2 ref" href="#42distsym" title='distsym' data-ref="42distsym">distsym</a>};</td></tr>
+<tr><th id="484">484</th><td></td></tr>
+<tr><th id="485">485</th><td>    <i>/* build fixed huffman tables if first call (may not be thread safe) */</i></td></tr>
+<tr><th id="486">486</th><td>    <b>if</b> (<a class="local col8 ref" href="#38virgin" title='virgin' data-ref="38virgin">virgin</a>) {</td></tr>
+<tr><th id="487">487</th><td>        <a class="typedef" href="../../../include/x86_64-linux-gnu/sys/types.h.html#196" title='int32_t' data-type='int' data-ref="int32_t">int32_t</a> <dfn class="local col5 decl" id="45symbol" title='symbol' data-type='int32_t' data-ref="45symbol">symbol</dfn>;</td></tr>
+<tr><th id="488">488</th><td>        <a class="typedef" href="../../../include/x86_64-linux-gnu/sys/types.h.html#195" title='int16_t' data-type='short' data-ref="int16_t">int16_t</a> <dfn class="local col6 decl" id="46lengths" title='lengths' data-type='int16_t [288]' data-ref="46lengths">lengths</dfn>[<a class="macro" href="#85" title="288" data-ref="_M/FIXLCODES">FIXLCODES</a>];</td></tr>
+<tr><th id="489">489</th><td></td></tr>
+<tr><th id="490">490</th><td>        <i>/* literal/length table */</i></td></tr>
+<tr><th id="491">491</th><td>        <b>for</b> (<a class="local col5 ref" href="#45symbol" title='symbol' data-ref="45symbol">symbol</a> = <var>0</var>; <a class="local col5 ref" href="#45symbol" title='symbol' data-ref="45symbol">symbol</a> &lt; <var>144</var>; <a class="local col5 ref" href="#45symbol" title='symbol' data-ref="45symbol">symbol</a>++)</td></tr>
+<tr><th id="492">492</th><td>            <a class="local col6 ref" href="#46lengths" title='lengths' data-ref="46lengths">lengths</a>[<a class="local col5 ref" href="#45symbol" title='symbol' data-ref="45symbol">symbol</a>] = <var>8</var>;</td></tr>
+<tr><th id="493">493</th><td>        <b>for</b> (; <a class="local col5 ref" href="#45symbol" title='symbol' data-ref="45symbol">symbol</a> &lt; <var>256</var>; <a class="local col5 ref" href="#45symbol" title='symbol' data-ref="45symbol">symbol</a>++)</td></tr>
+<tr><th id="494">494</th><td>            <a class="local col6 ref" href="#46lengths" title='lengths' data-ref="46lengths">lengths</a>[<a class="local col5 ref" href="#45symbol" title='symbol' data-ref="45symbol">symbol</a>] = <var>9</var>;</td></tr>
+<tr><th id="495">495</th><td>        <b>for</b> (; <a class="local col5 ref" href="#45symbol" title='symbol' data-ref="45symbol">symbol</a> &lt; <var>280</var>; <a class="local col5 ref" href="#45symbol" title='symbol' data-ref="45symbol">symbol</a>++)</td></tr>
+<tr><th id="496">496</th><td>            <a class="local col6 ref" href="#46lengths" title='lengths' data-ref="46lengths">lengths</a>[<a class="local col5 ref" href="#45symbol" title='symbol' data-ref="45symbol">symbol</a>] = <var>7</var>;</td></tr>
+<tr><th id="497">497</th><td>        <b>for</b> (; <a class="local col5 ref" href="#45symbol" title='symbol' data-ref="45symbol">symbol</a> &lt; <a class="macro" href="#85" title="288" data-ref="_M/FIXLCODES">FIXLCODES</a>; <a class="local col5 ref" href="#45symbol" title='symbol' data-ref="45symbol">symbol</a>++)</td></tr>
+<tr><th id="498">498</th><td>            <a class="local col6 ref" href="#46lengths" title='lengths' data-ref="46lengths">lengths</a>[<a class="local col5 ref" href="#45symbol" title='symbol' data-ref="45symbol">symbol</a>] = <var>8</var>;</td></tr>
+<tr><th id="499">499</th><td>        <a class="tu ref" href="#construct" title='construct' data-use='c' data-ref="construct">construct</a>(&amp;<a class="local col3 ref" href="#43lencode" title='lencode' data-ref="43lencode">lencode</a>, <a class="local col6 ref" href="#46lengths" title='lengths' data-ref="46lengths">lengths</a>, <a class="macro" href="#85" title="288" data-ref="_M/FIXLCODES">FIXLCODES</a>);</td></tr>
+<tr><th id="500">500</th><td></td></tr>
+<tr><th id="501">501</th><td>        <i>/* distance table */</i></td></tr>
+<tr><th id="502">502</th><td>        <b>for</b> (<a class="local col5 ref" href="#45symbol" title='symbol' data-ref="45symbol">symbol</a> = <var>0</var>; <a class="local col5 ref" href="#45symbol" title='symbol' data-ref="45symbol">symbol</a> &lt; <a class="macro" href="#83" title="30" data-ref="_M/MAXDCODES">MAXDCODES</a>; <a class="local col5 ref" href="#45symbol" title='symbol' data-ref="45symbol">symbol</a>++)</td></tr>
+<tr><th id="503">503</th><td>            <a class="local col6 ref" href="#46lengths" title='lengths' data-ref="46lengths">lengths</a>[<a class="local col5 ref" href="#45symbol" title='symbol' data-ref="45symbol">symbol</a>] = <var>5</var>;</td></tr>
+<tr><th id="504">504</th><td>        <a class="tu ref" href="#construct" title='construct' data-use='c' data-ref="construct">construct</a>(&amp;<a class="local col4 ref" href="#44distcode" title='distcode' data-ref="44distcode">distcode</a>, <a class="local col6 ref" href="#46lengths" title='lengths' data-ref="46lengths">lengths</a>, <a class="macro" href="#83" title="30" data-ref="_M/MAXDCODES">MAXDCODES</a>);</td></tr>
+<tr><th id="505">505</th><td></td></tr>
+<tr><th id="506">506</th><td>        <i>/* do this just once */</i></td></tr>
+<tr><th id="507">507</th><td>        <a class="local col8 ref" href="#38virgin" title='virgin' data-ref="38virgin">virgin</a> = <var>0</var>;</td></tr>
+<tr><th id="508">508</th><td>    }</td></tr>
+<tr><th id="509">509</th><td></td></tr>
+<tr><th id="510">510</th><td>    <i>/* decode data until end-of-block code */</i></td></tr>
+<tr><th id="511">511</th><td>    <b>return</b> <a class="tu ref" href="#codes" title='codes' data-use='c' data-ref="codes">codes</a>(<a class="local col7 ref" href="#37s" title='s' data-ref="37s">s</a>, &amp;<a class="local col3 ref" href="#43lencode" title='lencode' data-ref="43lencode">lencode</a>, &amp;<a class="local col4 ref" href="#44distcode" title='distcode' data-ref="44distcode">distcode</a>);</td></tr>
+<tr><th id="512">512</th><td>}</td></tr>
+<tr><th id="513">513</th><td></td></tr>
+<tr><th id="514">514</th><td><i>/*</i></td></tr>
+<tr><th id="515">515</th><td><i> * Process a dynamic codes block.</i></td></tr>
+<tr><th id="516">516</th><td><i> *</i></td></tr>
+<tr><th id="517">517</th><td><i> * Format notes:</i></td></tr>
+<tr><th id="518">518</th><td><i> *</i></td></tr>
+<tr><th id="519">519</th><td><i> * - A dynamic block starts with a description of the literal/length and</i></td></tr>
+<tr><th id="520">520</th><td><i> *   distance codes for that block.  New dynamic blocks allow the compressor to</i></td></tr>
+<tr><th id="521">521</th><td><i> *   rapidly adapt to changing data with new codes optimized for that data.</i></td></tr>
+<tr><th id="522">522</th><td><i> *</i></td></tr>
+<tr><th id="523">523</th><td><i> * - The codes used by the deflate format are "canonical", which means that</i></td></tr>
+<tr><th id="524">524</th><td><i> *   the actual bits of the codes are generated in an unambiguous way simply</i></td></tr>
+<tr><th id="525">525</th><td><i> *   from the number of bits in each code.  Therefore the code descriptions</i></td></tr>
+<tr><th id="526">526</th><td><i> *   are simply a list of code lengths for each symbol.</i></td></tr>
+<tr><th id="527">527</th><td><i> *</i></td></tr>
+<tr><th id="528">528</th><td><i> * - The code lengths are stored in order for the symbols, so lengths are</i></td></tr>
+<tr><th id="529">529</th><td><i> *   provided for each of the literal/length symbols, and for each of the</i></td></tr>
+<tr><th id="530">530</th><td><i> *   distance symbols.</i></td></tr>
+<tr><th id="531">531</th><td><i> *</i></td></tr>
+<tr><th id="532">532</th><td><i> * - If a symbol is not used in the block, this is represented by a zero as</i></td></tr>
+<tr><th id="533">533</th><td><i> *   as the code length.  This does not mean a zero-length code, but rather</i></td></tr>
+<tr><th id="534">534</th><td><i> *   that no code should be created for this symbol.  There is no way in the</i></td></tr>
+<tr><th id="535">535</th><td><i> *   deflate format to represent a zero-length code.</i></td></tr>
+<tr><th id="536">536</th><td><i> *</i></td></tr>
+<tr><th id="537">537</th><td><i> * - The maximum number of bits in a code is 15, so the possible lengths for</i></td></tr>
+<tr><th id="538">538</th><td><i> *   any code are 1..15.</i></td></tr>
+<tr><th id="539">539</th><td><i> *</i></td></tr>
+<tr><th id="540">540</th><td><i> * - The fact that a length of zero is not permitted for a code has an</i></td></tr>
+<tr><th id="541">541</th><td><i> *   interesting consequence.  Normally if only one symbol is used for a given</i></td></tr>
+<tr><th id="542">542</th><td><i> *   code, then in fact that code could be represented with zero bits.  However</i></td></tr>
+<tr><th id="543">543</th><td><i> *   in deflate, that code has to be at least one bit.  So for example, if</i></td></tr>
+<tr><th id="544">544</th><td><i> *   only a single distance base symbol appears in a block, then it will be</i></td></tr>
+<tr><th id="545">545</th><td><i> *   represented by a single code of length one, in particular one 0 bit.  This</i></td></tr>
+<tr><th id="546">546</th><td><i> *   is an incomplete code, since if a 1 bit is received, it has no meaning,</i></td></tr>
+<tr><th id="547">547</th><td><i> *   and should result in an error.  So incomplete distance codes of one symbol</i></td></tr>
+<tr><th id="548">548</th><td><i> *   should be permitted, and the receipt of invalid codes should be handled.</i></td></tr>
+<tr><th id="549">549</th><td><i> *</i></td></tr>
+<tr><th id="550">550</th><td><i> * - It is also possible to have a single literal/length code, but that code</i></td></tr>
+<tr><th id="551">551</th><td><i> *   must be the end-of-block code, since every dynamic block has one.  This</i></td></tr>
+<tr><th id="552">552</th><td><i> *   is not the most efficient way to create an empty block (an empty fixed</i></td></tr>
+<tr><th id="553">553</th><td><i> *   block is fewer bits), but it is allowed by the format.  So incomplete</i></td></tr>
+<tr><th id="554">554</th><td><i> *   literal/length codes of one symbol should also be permitted.</i></td></tr>
+<tr><th id="555">555</th><td><i> *</i></td></tr>
+<tr><th id="556">556</th><td><i> * - If there are only literal codes and no lengths, then there are no distance</i></td></tr>
+<tr><th id="557">557</th><td><i> *   codes.  This is represented by one distance code with zero bits.</i></td></tr>
+<tr><th id="558">558</th><td><i> *</i></td></tr>
+<tr><th id="559">559</th><td><i> * - The list of up to 286 length/literal lengths and up to 30 distance lengths</i></td></tr>
+<tr><th id="560">560</th><td><i> *   are themselves compressed using Huffman codes and run-length encoding.  In</i></td></tr>
+<tr><th id="561">561</th><td><i> *   the list of code lengths, a 0 symbol means no code, a 1..15 symbol means</i></td></tr>
+<tr><th id="562">562</th><td><i> *   that length, and the symbols 16, 17, and 18 are run-length instructions.</i></td></tr>
+<tr><th id="563">563</th><td><i> *   Each of 16, 17, and 18 are follwed by extra bits to define the length of</i></td></tr>
+<tr><th id="564">564</th><td><i> *   the run.  16 copies the last length 3 to 6 times.  17 represents 3 to 10</i></td></tr>
+<tr><th id="565">565</th><td><i> *   zero lengths, and 18 represents 11 to 138 zero lengths.  Unused symbols</i></td></tr>
+<tr><th id="566">566</th><td><i> *   are common, hence the special coding for zero lengths.</i></td></tr>
+<tr><th id="567">567</th><td><i> *</i></td></tr>
+<tr><th id="568">568</th><td><i> * - The symbols for 0..18 are Huffman coded, and so that code must be</i></td></tr>
+<tr><th id="569">569</th><td><i> *   described first.  This is simply a sequence of up to 19 three-bit values</i></td></tr>
+<tr><th id="570">570</th><td><i> *   representing no code (0) or the code length for that symbol (1..7).</i></td></tr>
+<tr><th id="571">571</th><td><i> *</i></td></tr>
+<tr><th id="572">572</th><td><i> * - A dynamic block starts with three fixed-size counts from which is computed</i></td></tr>
+<tr><th id="573">573</th><td><i> *   the number of literal/length code lengths, the number of distance code</i></td></tr>
+<tr><th id="574">574</th><td><i> *   lengths, and the number of code length code lengths (ok, you come up with</i></td></tr>
+<tr><th id="575">575</th><td><i> *   a better name!) in the code descriptions.  For the literal/length and</i></td></tr>
+<tr><th id="576">576</th><td><i> *   distance codes, lengths after those provided are considered zero, i.e. no</i></td></tr>
+<tr><th id="577">577</th><td><i> *   code.  The code length code lengths are received in a permuted order (see</i></td></tr>
+<tr><th id="578">578</th><td><i> *   the order[] array below) to make a short code length code length list more</i></td></tr>
+<tr><th id="579">579</th><td><i> *   likely.  As it turns out, very short and very long codes are less likely</i></td></tr>
+<tr><th id="580">580</th><td><i> *   to be seen in a dynamic code description, hence what may appear initially</i></td></tr>
+<tr><th id="581">581</th><td><i> *   to be a peculiar ordering.</i></td></tr>
+<tr><th id="582">582</th><td><i> *</i></td></tr>
+<tr><th id="583">583</th><td><i> * - Given the number of literal/length code lengths (nlen) and distance code</i></td></tr>
+<tr><th id="584">584</th><td><i> *   lengths (ndist), then they are treated as one long list of nlen + ndist</i></td></tr>
+<tr><th id="585">585</th><td><i> *   code lengths.  Therefore run-length coding can and often does cross the</i></td></tr>
+<tr><th id="586">586</th><td><i> *   boundary between the two sets of lengths.</i></td></tr>
+<tr><th id="587">587</th><td><i> *</i></td></tr>
+<tr><th id="588">588</th><td><i> * - So to summarize, the code description at the start of a dynamic block is</i></td></tr>
+<tr><th id="589">589</th><td><i> *   three counts for the number of code lengths for the literal/length codes,</i></td></tr>
+<tr><th id="590">590</th><td><i> *   the distance codes, and the code length codes.  This is followed by the</i></td></tr>
+<tr><th id="591">591</th><td><i> *   code length code lengths, three bits each.  This is used to construct the</i></td></tr>
+<tr><th id="592">592</th><td><i> *   code length code which is used to read the remainder of the lengths.  Then</i></td></tr>
+<tr><th id="593">593</th><td><i> *   the literal/length code lengths and distance lengths are read as a single</i></td></tr>
+<tr><th id="594">594</th><td><i> *   set of lengths using the code length codes.  Codes are constructed from</i></td></tr>
+<tr><th id="595">595</th><td><i> *   the resulting two sets of lengths, and then finally you can start</i></td></tr>
+<tr><th id="596">596</th><td><i> *   decoding actual compressed data in the block.</i></td></tr>
+<tr><th id="597">597</th><td><i> *</i></td></tr>
+<tr><th id="598">598</th><td><i> * - For reference, a "typical" size for the code description in a dynamic</i></td></tr>
+<tr><th id="599">599</th><td><i> *   block is around 80 bytes.</i></td></tr>
+<tr><th id="600">600</th><td><i> */</i></td></tr>
+<tr><th id="601">601</th><td><a class="macro" href="#75" title="static" data-ref="_M/local">local</a> <a class="typedef" href="../../../include/x86_64-linux-gnu/sys/types.h.html#196" title='int32_t' data-type='int' data-ref="int32_t">int32_t</a> <dfn class="tu decl def" id="dynamic" title='dynamic' data-type='int32_t dynamic(struct state * s)' data-ref="dynamic">dynamic</dfn>(<b>struct</b> <a class="type" href="#state" title='state' data-ref="state">state</a> *<dfn class="local col7 decl" id="47s" title='s' data-type='struct state *' data-ref="47s">s</dfn>)</td></tr>
+<tr><th id="602">602</th><td>{</td></tr>
+<tr><th id="603">603</th><td>    <a class="typedef" href="../../../include/x86_64-linux-gnu/sys/types.h.html#196" title='int32_t' data-type='int' data-ref="int32_t">int32_t</a> <dfn class="local col8 decl" id="48nlen" title='nlen' data-type='int32_t' data-ref="48nlen">nlen</dfn>, <dfn class="local col9 decl" id="49ndist" title='ndist' data-type='int32_t' data-ref="49ndist">ndist</dfn>, <dfn class="local col0 decl" id="50ncode" title='ncode' data-type='int32_t' data-ref="50ncode">ncode</dfn>;             <i>/* number of lengths in descriptor */</i></td></tr>
+<tr><th id="604">604</th><td>    <a class="typedef" href="../../../include/x86_64-linux-gnu/sys/types.h.html#196" title='int32_t' data-type='int' data-ref="int32_t">int32_t</a> <dfn class="local col1 decl" id="51index" title='index' data-type='int32_t' data-ref="51index">index</dfn>;                          <i>/* index of lengths[] */</i></td></tr>
+<tr><th id="605">605</th><td>    <a class="typedef" href="../../../include/x86_64-linux-gnu/sys/types.h.html#196" title='int32_t' data-type='int' data-ref="int32_t">int32_t</a> <dfn class="local col2 decl" id="52err" title='err' data-type='int32_t' data-ref="52err">err</dfn>;                            <i>/* construct() return value */</i></td></tr>
+<tr><th id="606">606</th><td>    <a class="typedef" href="../../../include/x86_64-linux-gnu/sys/types.h.html#195" title='int16_t' data-type='short' data-ref="int16_t">int16_t</a> <dfn class="local col3 decl" id="53lengths" title='lengths' data-type='int16_t [316]' data-ref="53lengths">lengths</dfn>[<a class="macro" href="#84" title="(286+30)" data-ref="_M/MAXCODES">MAXCODES</a>];            <i>/* descriptor code lengths */</i></td></tr>
+<tr><th id="607">607</th><td>    <a class="typedef" href="../../../include/x86_64-linux-gnu/sys/types.h.html#195" title='int16_t' data-type='short' data-ref="int16_t">int16_t</a> <dfn class="local col4 decl" id="54lencnt" title='lencnt' data-type='int16_t [16]' data-ref="54lencnt">lencnt</dfn>[<a class="macro" href="#81" title="15" data-ref="_M/MAXBITS">MAXBITS</a>+<var>1</var>], <dfn class="local col5 decl" id="55lensym" title='lensym' data-type='int16_t [286]' data-ref="55lensym">lensym</dfn>[<a class="macro" href="#82" title="286" data-ref="_M/MAXLCODES">MAXLCODES</a>];         <i>/* lencode memory */</i></td></tr>
+<tr><th id="608">608</th><td>    <a class="typedef" href="../../../include/x86_64-linux-gnu/sys/types.h.html#195" title='int16_t' data-type='short' data-ref="int16_t">int16_t</a> <dfn class="local col6 decl" id="56distcnt" title='distcnt' data-type='int16_t [16]' data-ref="56distcnt">distcnt</dfn>[<a class="macro" href="#81" title="15" data-ref="_M/MAXBITS">MAXBITS</a>+<var>1</var>], <dfn class="local col7 decl" id="57distsym" title='distsym' data-type='int16_t [30]' data-ref="57distsym">distsym</dfn>[<a class="macro" href="#83" title="30" data-ref="_M/MAXDCODES">MAXDCODES</a>];       <i>/* distcode memory */</i></td></tr>
+<tr><th id="609">609</th><td>    <b>struct</b> <a class="type" href="#huffman" title='huffman' data-ref="huffman">huffman</a> <dfn class="local col8 decl" id="58lencode" title='lencode' data-type='struct huffman' data-ref="58lencode">lencode</dfn> = {<a class="local col4 ref" href="#54lencnt" title='lencnt' data-ref="54lencnt">lencnt</a>, <a class="local col5 ref" href="#55lensym" title='lensym' data-ref="55lensym">lensym</a>};          <i>/* length code */</i></td></tr>
+<tr><th id="610">610</th><td>    <b>struct</b> <a class="type" href="#huffman" title='huffman' data-ref="huffman">huffman</a> <dfn class="local col9 decl" id="59distcode" title='distcode' data-type='struct huffman' data-ref="59distcode">distcode</dfn> = {<a class="local col6 ref" href="#56distcnt" title='distcnt' data-ref="56distcnt">distcnt</a>, <a class="local col7 ref" href="#57distsym" title='distsym' data-ref="57distsym">distsym</a>};       <i>/* distance code */</i></td></tr>
+<tr><th id="611">611</th><td>    <em>static</em> <em>const</em> <a class="typedef" href="../../../include/x86_64-linux-gnu/sys/types.h.html#195" title='int16_t' data-type='short' data-ref="int16_t">int16_t</a> <dfn class="local col0 decl" id="60order" title='order' data-type='const int16_t [19]' data-ref="60order">order</dfn>[<var>19</var>] =      <i>/* permutation of code length codes */</i></td></tr>
+<tr><th id="612">612</th><td>        {<var>16</var>, <var>17</var>, <var>18</var>, <var>0</var>, <var>8</var>, <var>7</var>, <var>9</var>, <var>6</var>, <var>10</var>, <var>5</var>, <var>11</var>, <var>4</var>, <var>12</var>, <var>3</var>, <var>13</var>, <var>2</var>, <var>14</var>, <var>1</var>, <var>15</var>};</td></tr>
+<tr><th id="613">613</th><td></td></tr>
+<tr><th id="614">614</th><td>    <i>/* get number of lengths in each table, check lengths */</i></td></tr>
+<tr><th id="615">615</th><td>    <a class="local col8 ref" href="#48nlen" title='nlen' data-ref="48nlen">nlen</a> = <a class="tu ref" href="#bits" title='bits' data-use='c' data-ref="bits">bits</a>(<a class="local col7 ref" href="#47s" title='s' data-ref="47s">s</a>, <var>5</var>) + <var>257</var>;</td></tr>
+<tr><th id="616">616</th><td>    <a class="local col9 ref" href="#49ndist" title='ndist' data-ref="49ndist">ndist</a> = <a class="tu ref" href="#bits" title='bits' data-use='c' data-ref="bits">bits</a>(<a class="local col7 ref" href="#47s" title='s' data-ref="47s">s</a>, <var>5</var>) + <var>1</var>;</td></tr>
+<tr><th id="617">617</th><td>    <a class="local col0 ref" href="#50ncode" title='ncode' data-ref="50ncode">ncode</a> = <a class="tu ref" href="#bits" title='bits' data-use='c' data-ref="bits">bits</a>(<a class="local col7 ref" href="#47s" title='s' data-ref="47s">s</a>, <var>4</var>) + <var>4</var>;</td></tr>
+<tr><th id="618">618</th><td>    <b>if</b> (<a class="local col8 ref" href="#48nlen" title='nlen' data-ref="48nlen">nlen</a> &gt; <a class="macro" href="#82" title="286" data-ref="_M/MAXLCODES">MAXLCODES</a> || <a class="local col9 ref" href="#49ndist" title='ndist' data-ref="49ndist">ndist</a> &gt; <a class="macro" href="#83" title="30" data-ref="_M/MAXDCODES">MAXDCODES</a>)</td></tr>
+<tr><th id="619">619</th><td>        <b>return</b> -<var>3</var>;                      <i>/* bad counts */</i></td></tr>
+<tr><th id="620">620</th><td></td></tr>
+<tr><th id="621">621</th><td>    <i>/* read code length code lengths (really), missing lengths are zero */</i></td></tr>
+<tr><th id="622">622</th><td>    <b>for</b> (<a class="local col1 ref" href="#51index" title='index' data-ref="51index">index</a> = <var>0</var>; <a class="local col1 ref" href="#51index" title='index' data-ref="51index">index</a> &lt; <a class="local col0 ref" href="#50ncode" title='ncode' data-ref="50ncode">ncode</a>; <a class="local col1 ref" href="#51index" title='index' data-ref="51index">index</a>++)</td></tr>
+<tr><th id="623">623</th><td>        <a class="local col3 ref" href="#53lengths" title='lengths' data-ref="53lengths">lengths</a>[<a class="local col0 ref" href="#60order" title='order' data-ref="60order">order</a>[<a class="local col1 ref" href="#51index" title='index' data-ref="51index">index</a>]] = <a class="tu ref" href="#bits" title='bits' data-use='c' data-ref="bits">bits</a>(<a class="local col7 ref" href="#47s" title='s' data-ref="47s">s</a>, <var>3</var>);</td></tr>
+<tr><th id="624">624</th><td>    <b>for</b> (; <a class="local col1 ref" href="#51index" title='index' data-ref="51index">index</a> &lt; <var>19</var>; <a class="local col1 ref" href="#51index" title='index' data-ref="51index">index</a>++)</td></tr>
+<tr><th id="625">625</th><td>        <a class="local col3 ref" href="#53lengths" title='lengths' data-ref="53lengths">lengths</a>[<a class="local col0 ref" href="#60order" title='order' data-ref="60order">order</a>[<a class="local col1 ref" href="#51index" title='index' data-ref="51index">index</a>]] = <var>0</var>;</td></tr>
+<tr><th id="626">626</th><td></td></tr>
+<tr><th id="627">627</th><td>    <i>/* build huffman table for code lengths codes (use lencode temporarily) */</i></td></tr>
+<tr><th id="628">628</th><td>    <a class="local col2 ref" href="#52err" title='err' data-ref="52err">err</a> = <a class="tu ref" href="#construct" title='construct' data-use='c' data-ref="construct">construct</a>(&amp;<a class="local col8 ref" href="#58lencode" title='lencode' data-ref="58lencode">lencode</a>, <a class="local col3 ref" href="#53lengths" title='lengths' data-ref="53lengths">lengths</a>, <var>19</var>);</td></tr>
+<tr><th id="629">629</th><td>    <b>if</b> (<a class="local col2 ref" href="#52err" title='err' data-ref="52err">err</a> != <var>0</var>) <b>return</b> -<var>4</var>;            <i>/* require complete code set here */</i></td></tr>
+<tr><th id="630">630</th><td></td></tr>
+<tr><th id="631">631</th><td>    <i>/* read length/literal and distance code length tables */</i></td></tr>
+<tr><th id="632">632</th><td>    <a class="local col1 ref" href="#51index" title='index' data-ref="51index">index</a> = <var>0</var>;</td></tr>
+<tr><th id="633">633</th><td>    <b>while</b> (<a class="local col1 ref" href="#51index" title='index' data-ref="51index">index</a> &lt; <a class="local col8 ref" href="#48nlen" title='nlen' data-ref="48nlen">nlen</a> + <a class="local col9 ref" href="#49ndist" title='ndist' data-ref="49ndist">ndist</a>) {</td></tr>
+<tr><th id="634">634</th><td>        <a class="typedef" href="../../../include/x86_64-linux-gnu/sys/types.h.html#196" title='int32_t' data-type='int' data-ref="int32_t">int32_t</a> <dfn class="local col1 decl" id="61symbol" title='symbol' data-type='int32_t' data-ref="61symbol">symbol</dfn>;             <i>/* decoded value */</i></td></tr>
+<tr><th id="635">635</th><td>        <a class="typedef" href="../../../include/x86_64-linux-gnu/sys/types.h.html#196" title='int32_t' data-type='int' data-ref="int32_t">int32_t</a> <dfn class="local col2 decl" id="62len" title='len' data-type='int32_t' data-ref="62len">len</dfn>;                <i>/* last length to repeat */</i></td></tr>
+<tr><th id="636">636</th><td></td></tr>
+<tr><th id="637">637</th><td>        <a class="local col1 ref" href="#61symbol" title='symbol' data-ref="61symbol">symbol</a> = <a class="tu ref" href="#decode" title='decode' data-use='c' data-ref="decode">decode</a>(<a class="local col7 ref" href="#47s" title='s' data-ref="47s">s</a>, &amp;<a class="local col8 ref" href="#58lencode" title='lencode' data-ref="58lencode">lencode</a>);</td></tr>
+<tr><th id="638">638</th><td>        <b>if</b> (<a class="local col1 ref" href="#61symbol" title='symbol' data-ref="61symbol">symbol</a> &lt; <var>16</var>)                <i>/* length in 0..15 */</i></td></tr>
+<tr><th id="639">639</th><td>            <a class="local col3 ref" href="#53lengths" title='lengths' data-ref="53lengths">lengths</a>[<a class="local col1 ref" href="#51index" title='index' data-ref="51index">index</a>++] = <a class="local col1 ref" href="#61symbol" title='symbol' data-ref="61symbol">symbol</a>;</td></tr>
+<tr><th id="640">640</th><td>        <b>else</b> {                          <i>/* repeat instruction */</i></td></tr>
+<tr><th id="641">641</th><td>            <a class="local col2 ref" href="#62len" title='len' data-ref="62len">len</a> = <var>0</var>;                    <i>/* assume repeating zeros */</i></td></tr>
+<tr><th id="642">642</th><td>            <b>if</b> (<a class="local col1 ref" href="#61symbol" title='symbol' data-ref="61symbol">symbol</a> == <var>16</var>) {         <i>/* repeat last length 3..6 times */</i></td></tr>
+<tr><th id="643">643</th><td>                <b>if</b> (<a class="local col1 ref" href="#51index" title='index' data-ref="51index">index</a> == <var>0</var>) <b>return</b> -<var>5</var>;      <i>/* no last length! */</i></td></tr>
+<tr><th id="644">644</th><td>                <a class="local col2 ref" href="#62len" title='len' data-ref="62len">len</a> = <a class="local col3 ref" href="#53lengths" title='lengths' data-ref="53lengths">lengths</a>[<a class="local col1 ref" href="#51index" title='index' data-ref="51index">index</a> - <var>1</var>];       <i>/* last length */</i></td></tr>
+<tr><th id="645">645</th><td>                <a class="local col1 ref" href="#61symbol" title='symbol' data-ref="61symbol">symbol</a> = <var>3</var> + <a class="tu ref" href="#bits" title='bits' data-use='c' data-ref="bits">bits</a>(<a class="local col7 ref" href="#47s" title='s' data-ref="47s">s</a>, <var>2</var>);</td></tr>
+<tr><th id="646">646</th><td>            }</td></tr>
+<tr><th id="647">647</th><td>            <b>else</b> <b>if</b> (<a class="local col1 ref" href="#61symbol" title='symbol' data-ref="61symbol">symbol</a> == <var>17</var>)      <i>/* repeat zero 3..10 times */</i></td></tr>
+<tr><th id="648">648</th><td>                <a class="local col1 ref" href="#61symbol" title='symbol' data-ref="61symbol">symbol</a> = <var>3</var> + <a class="tu ref" href="#bits" title='bits' data-use='c' data-ref="bits">bits</a>(<a class="local col7 ref" href="#47s" title='s' data-ref="47s">s</a>, <var>3</var>);</td></tr>
+<tr><th id="649">649</th><td>            <b>else</b>                        <i>/* == 18, repeat zero 11..138 times */</i></td></tr>
+<tr><th id="650">650</th><td>                <a class="local col1 ref" href="#61symbol" title='symbol' data-ref="61symbol">symbol</a> = <var>11</var> + <a class="tu ref" href="#bits" title='bits' data-use='c' data-ref="bits">bits</a>(<a class="local col7 ref" href="#47s" title='s' data-ref="47s">s</a>, <var>7</var>);</td></tr>
+<tr><th id="651">651</th><td>            <b>if</b> (<a class="local col1 ref" href="#51index" title='index' data-ref="51index">index</a> + <a class="local col1 ref" href="#61symbol" title='symbol' data-ref="61symbol">symbol</a> &gt; <a class="local col8 ref" href="#48nlen" title='nlen' data-ref="48nlen">nlen</a> + <a class="local col9 ref" href="#49ndist" title='ndist' data-ref="49ndist">ndist</a>)</td></tr>
+<tr><th id="652">652</th><td>                <b>return</b> -<var>6</var>;              <i>/* too many lengths! */</i></td></tr>
+<tr><th id="653">653</th><td>            <b>while</b> (<a class="local col1 ref" href="#61symbol" title='symbol' data-ref="61symbol">symbol</a>--)            <i>/* repeat last or zero symbol times */</i></td></tr>
+<tr><th id="654">654</th><td>                <a class="local col3 ref" href="#53lengths" title='lengths' data-ref="53lengths">lengths</a>[<a class="local col1 ref" href="#51index" title='index' data-ref="51index">index</a>++] = <a class="local col2 ref" href="#62len" title='len' data-ref="62len">len</a>;</td></tr>
+<tr><th id="655">655</th><td>        }</td></tr>
+<tr><th id="656">656</th><td>    }</td></tr>
+<tr><th id="657">657</th><td></td></tr>
+<tr><th id="658">658</th><td>    <i>/* build huffman table for literal/length codes */</i></td></tr>
+<tr><th id="659">659</th><td>    <a class="local col2 ref" href="#52err" title='err' data-ref="52err">err</a> = <a class="tu ref" href="#construct" title='construct' data-use='c' data-ref="construct">construct</a>(&amp;<a class="local col8 ref" href="#58lencode" title='lencode' data-ref="58lencode">lencode</a>, <a class="local col3 ref" href="#53lengths" title='lengths' data-ref="53lengths">lengths</a>, <a class="local col8 ref" href="#48nlen" title='nlen' data-ref="48nlen">nlen</a>);</td></tr>
+<tr><th id="660">660</th><td>    <b>if</b> (<a class="local col2 ref" href="#52err" title='err' data-ref="52err">err</a> &lt; <var>0</var> || (<a class="local col2 ref" href="#52err" title='err' data-ref="52err">err</a> &gt; <var>0</var> &amp;&amp; <a class="local col8 ref" href="#48nlen" title='nlen' data-ref="48nlen">nlen</a> - <a class="local col8 ref" href="#58lencode" title='lencode' data-ref="58lencode">lencode</a>.<a class="tu ref" href="#huffman::count" title='huffman::count' data-use='r' data-ref="huffman::count">count</a>[<var>0</var>] != <var>1</var>))</td></tr>
+<tr><th id="661">661</th><td>        <b>return</b> -<var>7</var>;      <i>/* only allow incomplete codes if just one code */</i></td></tr>
+<tr><th id="662">662</th><td></td></tr>
+<tr><th id="663">663</th><td>    <i>/* build huffman table for distance codes */</i></td></tr>
+<tr><th id="664">664</th><td>    <a class="local col2 ref" href="#52err" title='err' data-ref="52err">err</a> = <a class="tu ref" href="#construct" title='construct' data-use='c' data-ref="construct">construct</a>(&amp;<a class="local col9 ref" href="#59distcode" title='distcode' data-ref="59distcode">distcode</a>, <a class="local col3 ref" href="#53lengths" title='lengths' data-ref="53lengths">lengths</a> + <a class="local col8 ref" href="#48nlen" title='nlen' data-ref="48nlen">nlen</a>, <a class="local col9 ref" href="#49ndist" title='ndist' data-ref="49ndist">ndist</a>);</td></tr>
+<tr><th id="665">665</th><td>    <b>if</b> (<a class="local col2 ref" href="#52err" title='err' data-ref="52err">err</a> &lt; <var>0</var> || (<a class="local col2 ref" href="#52err" title='err' data-ref="52err">err</a> &gt; <var>0</var> &amp;&amp; <a class="local col9 ref" href="#49ndist" title='ndist' data-ref="49ndist">ndist</a> - <a class="local col9 ref" href="#59distcode" title='distcode' data-ref="59distcode">distcode</a>.<a class="tu ref" href="#huffman::count" title='huffman::count' data-use='r' data-ref="huffman::count">count</a>[<var>0</var>] != <var>1</var>))</td></tr>
+<tr><th id="666">666</th><td>        <b>return</b> -<var>8</var>;      <i>/* only allow incomplete codes if just one code */</i></td></tr>
+<tr><th id="667">667</th><td></td></tr>
+<tr><th id="668">668</th><td>    <i>/* decode data until end-of-block code */</i></td></tr>
+<tr><th id="669">669</th><td>    <b>return</b> <a class="tu ref" href="#codes" title='codes' data-use='c' data-ref="codes">codes</a>(<a class="local col7 ref" href="#47s" title='s' data-ref="47s">s</a>, &amp;<a class="local col8 ref" href="#58lencode" title='lencode' data-ref="58lencode">lencode</a>, &amp;<a class="local col9 ref" href="#59distcode" title='distcode' data-ref="59distcode">distcode</a>);</td></tr>
+<tr><th id="670">670</th><td>}</td></tr>
+<tr><th id="671">671</th><td></td></tr>
+<tr><th id="672">672</th><td><i>/*</i></td></tr>
+<tr><th id="673">673</th><td><i> * Inflate source to dest.  On return, destlen and sourcelen are updated to the</i></td></tr>
+<tr><th id="674">674</th><td><i> * size of the uncompressed data and the size of the deflate data respectively.</i></td></tr>
+<tr><th id="675">675</th><td><i> * On success, the return value of puff() is zero.  If there is an error in the</i></td></tr>
+<tr><th id="676">676</th><td><i> * source data, i.e. it is not in the deflate format, then a negative value is</i></td></tr>
+<tr><th id="677">677</th><td><i> * returned.  If there is not enough input available or there is not enough</i></td></tr>
+<tr><th id="678">678</th><td><i> * output space, then a positive error is returned.  In that case, destlen and</i></td></tr>
+<tr><th id="679">679</th><td><i> * sourcelen are not updated to facilitate retrying from the beginning with the</i></td></tr>
+<tr><th id="680">680</th><td><i> * provision of more input data or more output space.  In the case of invalid</i></td></tr>
+<tr><th id="681">681</th><td><i> * inflate data (a negative error), the dest and source pointers are updated to</i></td></tr>
+<tr><th id="682">682</th><td><i> * facilitate the debugging of deflators.</i></td></tr>
+<tr><th id="683">683</th><td><i> *</i></td></tr>
+<tr><th id="684">684</th><td><i> * puff() also has a mode to determine the size of the uncompressed output with</i></td></tr>
+<tr><th id="685">685</th><td><i> * no output written.  For this dest must be (uint8_t *)0.  In this case,</i></td></tr>
+<tr><th id="686">686</th><td><i> * the input value of *destlen is ignored, and on return *destlen is set to the</i></td></tr>
+<tr><th id="687">687</th><td><i> * size of the uncompressed output.</i></td></tr>
+<tr><th id="688">688</th><td><i> *</i></td></tr>
+<tr><th id="689">689</th><td><i> * The return codes are:</i></td></tr>
+<tr><th id="690">690</th><td><i> *</i></td></tr>
+<tr><th id="691">691</th><td><i> *   2:  available inflate data did not terminate</i></td></tr>
+<tr><th id="692">692</th><td><i> *   1:  output space exhausted before completing inflate</i></td></tr>
+<tr><th id="693">693</th><td><i> *   0:  successful inflate</i></td></tr>
+<tr><th id="694">694</th><td><i> *  -1:  invalid block type (type == 3)</i></td></tr>
+<tr><th id="695">695</th><td><i> *  -2:  stored block length did not match one's complement</i></td></tr>
+<tr><th id="696">696</th><td><i> *  -3:  dynamic block code description: too many length or distance codes</i></td></tr>
+<tr><th id="697">697</th><td><i> *  -4:  dynamic block code description: code lengths codes incomplete</i></td></tr>
+<tr><th id="698">698</th><td><i> *  -5:  dynamic block code description: repeat lengths with no first length</i></td></tr>
+<tr><th id="699">699</th><td><i> *  -6:  dynamic block code description: repeat more than specified lengths</i></td></tr>
+<tr><th id="700">700</th><td><i> *  -7:  dynamic block code description: invalid literal/length code lengths</i></td></tr>
+<tr><th id="701">701</th><td><i> *  -8:  dynamic block code description: invalid distance code lengths</i></td></tr>
+<tr><th id="702">702</th><td><i> *  -9:  invalid literal/length or distance code in fixed or dynamic block</i></td></tr>
+<tr><th id="703">703</th><td><i> * -10:  distance is too far back in fixed or dynamic block</i></td></tr>
+<tr><th id="704">704</th><td><i> *</i></td></tr>
+<tr><th id="705">705</th><td><i> * Format notes:</i></td></tr>
+<tr><th id="706">706</th><td><i> *</i></td></tr>
+<tr><th id="707">707</th><td><i> * - Three bits are read for each block to determine the kind of block and</i></td></tr>
+<tr><th id="708">708</th><td><i> *   whether or not it is the last block.  Then the block is decoded and the</i></td></tr>
+<tr><th id="709">709</th><td><i> *   process repeated if it was not the last block.</i></td></tr>
+<tr><th id="710">710</th><td><i> *</i></td></tr>
+<tr><th id="711">711</th><td><i> * - The leftover bits in the last byte of the deflate data after the last</i></td></tr>
+<tr><th id="712">712</th><td><i> *   block (if it was a fixed or dynamic block) are undefined and have no</i></td></tr>
+<tr><th id="713">713</th><td><i> *   expected values to check.</i></td></tr>
+<tr><th id="714">714</th><td><i> */</i></td></tr>
+<tr><th id="715">715</th><td><a class="typedef" href="../../../include/x86_64-linux-gnu/sys/types.h.html#196" title='int32_t' data-type='int' data-ref="int32_t">int32_t</a> <dfn class="decl def" id="puff" title='puff' data-ref="puff">puff</dfn>(<a class="typedef" href="../../../include/stdint.h.html#uint8_t" title='uint8_t' data-type='unsigned char' data-ref="uint8_t">uint8_t</a>  *<dfn class="local col3 decl" id="63dest" title='dest' data-type='uint8_t *' data-ref="63dest">dest</dfn>,           <i>/* pointer to destination pointer */</i></td></tr>
+<tr><th id="716">716</th><td>             <a class="typedef" href="../../../include/stdint.h.html#uint32_t" title='uint32_t' data-type='unsigned int' data-ref="uint32_t">uint32_t</a> *<dfn class="local col4 decl" id="64destlen" title='destlen' data-type='uint32_t *' data-ref="64destlen">destlen</dfn>,        <i>/* amount of output space */</i></td></tr>
+<tr><th id="717">717</th><td>             <a class="typedef" href="../../../include/stdint.h.html#uint8_t" title='uint8_t' data-type='unsigned char' data-ref="uint8_t">uint8_t</a>  *<dfn class="local col5 decl" id="65source" title='source' data-type='uint8_t *' data-ref="65source">source</dfn>,         <i>/* pointer to source data pointer */</i></td></tr>
+<tr><th id="718">718</th><td>             <a class="typedef" href="../../../include/stdint.h.html#uint32_t" title='uint32_t' data-type='unsigned int' data-ref="uint32_t">uint32_t</a> *<dfn class="local col6 decl" id="66sourcelen" title='sourcelen' data-type='uint32_t *' data-ref="66sourcelen">sourcelen</dfn>)      <i>/* amount of input available */</i></td></tr>
+<tr><th id="719">719</th><td>{</td></tr>
+<tr><th id="720">720</th><td>    <b>struct</b> <a class="type" href="#state" title='state' data-ref="state">state</a> <dfn class="local col7 decl" id="67s" title='s' data-type='struct state' data-ref="67s">s</dfn>;             <i>/* input/output state */</i></td></tr>
+<tr><th id="721">721</th><td>    <a class="typedef" href="../../../include/x86_64-linux-gnu/sys/types.h.html#196" title='int32_t' data-type='int' data-ref="int32_t">int32_t</a> <dfn class="local col8 decl" id="68last" title='last' data-type='int32_t' data-ref="68last">last</dfn>, <dfn class="local col9 decl" id="69type" title='type' data-type='int32_t' data-ref="69type">type</dfn>;             <i>/* block information */</i></td></tr>
+<tr><th id="722">722</th><td>    <a class="typedef" href="../../../include/x86_64-linux-gnu/sys/types.h.html#196" title='int32_t' data-type='int' data-ref="int32_t">int32_t</a> <dfn class="local col0 decl" id="70err" title='err' data-type='int32_t' data-ref="70err">err</dfn>;                    <i>/* return value */</i></td></tr>
+<tr><th id="723">723</th><td></td></tr>
+<tr><th id="724">724</th><td>    <i>/* initialize output state */</i></td></tr>
+<tr><th id="725">725</th><td>    <a class="local col7 ref" href="#67s" title='s' data-ref="67s">s</a>.<a class="tu ref" href="#state::out" title='state::out' data-use='w' data-ref="state::out">out</a> = <a class="local col3 ref" href="#63dest" title='dest' data-ref="63dest">dest</a>;</td></tr>
+<tr><th id="726">726</th><td>    <a class="local col7 ref" href="#67s" title='s' data-ref="67s">s</a>.<a class="tu ref" href="#state::outlen" title='state::outlen' data-use='w' data-ref="state::outlen">outlen</a> = *<a class="local col4 ref" href="#64destlen" title='destlen' data-ref="64destlen">destlen</a>;                <i>/* ignored if dest is NULL */</i></td></tr>
+<tr><th id="727">727</th><td>    <a class="local col7 ref" href="#67s" title='s' data-ref="67s">s</a>.<a class="tu ref" href="#state::outcnt" title='state::outcnt' data-use='w' data-ref="state::outcnt">outcnt</a> = <var>0</var>;</td></tr>
+<tr><th id="728">728</th><td></td></tr>
+<tr><th id="729">729</th><td>    <i>/* initialize input state */</i></td></tr>
+<tr><th id="730">730</th><td>    <a class="local col7 ref" href="#67s" title='s' data-ref="67s">s</a>.<a class="tu ref" href="#state::in" title='state::in' data-use='w' data-ref="state::in">in</a> = <a class="local col5 ref" href="#65source" title='source' data-ref="65source">source</a>;</td></tr>
+<tr><th id="731">731</th><td>    <a class="local col7 ref" href="#67s" title='s' data-ref="67s">s</a>.<a class="tu ref" href="#state::inlen" title='state::inlen' data-use='w' data-ref="state::inlen">inlen</a> = *<a class="local col6 ref" href="#66sourcelen" title='sourcelen' data-ref="66sourcelen">sourcelen</a>;</td></tr>
+<tr><th id="732">732</th><td>    <a class="local col7 ref" href="#67s" title='s' data-ref="67s">s</a>.<a class="tu ref" href="#state::incnt" title='state::incnt' data-use='w' data-ref="state::incnt">incnt</a> = <var>0</var>;</td></tr>
+<tr><th id="733">733</th><td>    <a class="local col7 ref" href="#67s" title='s' data-ref="67s">s</a>.<a class="tu ref" href="#state::bitbuf" title='state::bitbuf' data-use='w' data-ref="state::bitbuf">bitbuf</a> = <var>0</var>;</td></tr>
+<tr><th id="734">734</th><td>    <a class="local col7 ref" href="#67s" title='s' data-ref="67s">s</a>.<a class="tu ref" href="#state::bitcnt" title='state::bitcnt' data-use='w' data-ref="state::bitcnt">bitcnt</a> = <var>0</var>;</td></tr>
+<tr><th id="735">735</th><td></td></tr>
+<tr><th id="736">736</th><td>    <i>/* return if bits() or decode() tries to read past available input */</i></td></tr>
+<tr><th id="737">737</th><td>    <b>if</b> (<a class="macro" href="../../../include/setjmp.h.html#67" title="_setjmp (s.env)" data-ref="_M/setjmp">setjmp</a>(<a class="local col7 ref" href="#67s" title='s' data-ref="67s">s</a>.<a class="tu ref" href="#state::env" title='state::env' data-use='r' data-ref="state::env">env</a>) != <var>0</var>)             <i>/* if came back here via longjmp() */</i></td></tr>
+<tr><th id="738">738</th><td>        <a class="local col0 ref" href="#70err" title='err' data-ref="70err">err</a> = <var>2</var>;                        <i>/* then skip do-loop, return error */</i></td></tr>
+<tr><th id="739">739</th><td>    <b>else</b> {</td></tr>
+<tr><th id="740">740</th><td>        <i>/* process blocks until last block or error */</i></td></tr>
+<tr><th id="741">741</th><td>        <b>do</b> {</td></tr>
+<tr><th id="742">742</th><td>            <a class="local col8 ref" href="#68last" title='last' data-ref="68last">last</a> = <a class="tu ref" href="#bits" title='bits' data-use='c' data-ref="bits">bits</a>(&amp;<a class="local col7 ref" href="#67s" title='s' data-ref="67s">s</a>, <var>1</var>);         <i>/* one if last block */</i></td></tr>
+<tr><th id="743">743</th><td>            <a class="local col9 ref" href="#69type" title='type' data-ref="69type">type</a> = <a class="tu ref" href="#bits" title='bits' data-use='c' data-ref="bits">bits</a>(&amp;<a class="local col7 ref" href="#67s" title='s' data-ref="67s">s</a>, <var>2</var>);         <i>/* block type 0..3 */</i></td></tr>
+<tr><th id="744">744</th><td>            <a class="local col0 ref" href="#70err" title='err' data-ref="70err">err</a> = <a class="local col9 ref" href="#69type" title='type' data-ref="69type">type</a> == <var>0</var> ? <a class="tu ref" href="#stored" title='stored' data-use='c' data-ref="stored">stored</a>(&amp;<a class="local col7 ref" href="#67s" title='s' data-ref="67s">s</a>) :</td></tr>
+<tr><th id="745">745</th><td>                  (<a class="local col9 ref" href="#69type" title='type' data-ref="69type">type</a> == <var>1</var> ? <a class="tu ref" href="#fixed" title='fixed' data-use='c' data-ref="fixed">fixed</a>(&amp;<a class="local col7 ref" href="#67s" title='s' data-ref="67s">s</a>) :</td></tr>
+<tr><th id="746">746</th><td>                   (<a class="local col9 ref" href="#69type" title='type' data-ref="69type">type</a> == <var>2</var> ? <a class="tu ref" href="#dynamic" title='dynamic' data-use='c' data-ref="dynamic">dynamic</a>(&amp;<a class="local col7 ref" href="#67s" title='s' data-ref="67s">s</a>) :</td></tr>
+<tr><th id="747">747</th><td>                    -<var>1</var>));               <i>/* type == 3, invalid */</i></td></tr>
+<tr><th id="748">748</th><td>            <b>if</b> (<a class="local col0 ref" href="#70err" title='err' data-ref="70err">err</a> != <var>0</var>) <b>break</b>;        <i>/* return with error */</i></td></tr>
+<tr><th id="749">749</th><td>        } <b>while</b> (!<a class="local col8 ref" href="#68last" title='last' data-ref="68last">last</a>);</td></tr>
+<tr><th id="750">750</th><td>    }</td></tr>
+<tr><th id="751">751</th><td></td></tr>
+<tr><th id="752">752</th><td>    <i>/* update the lengths and return */</i></td></tr>
+<tr><th id="753">753</th><td>    <b>if</b> (<a class="local col0 ref" href="#70err" title='err' data-ref="70err">err</a> &lt;= <var>0</var>) {</td></tr>
+<tr><th id="754">754</th><td>        *<a class="local col4 ref" href="#64destlen" title='destlen' data-ref="64destlen">destlen</a> = <a class="local col7 ref" href="#67s" title='s' data-ref="67s">s</a>.<a class="tu ref" href="#state::outcnt" title='state::outcnt' data-use='r' data-ref="state::outcnt">outcnt</a>;</td></tr>
+<tr><th id="755">755</th><td>        *<a class="local col6 ref" href="#66sourcelen" title='sourcelen' data-ref="66sourcelen">sourcelen</a> = <a class="local col7 ref" href="#67s" title='s' data-ref="67s">s</a>.<a class="tu ref" href="#state::incnt" title='state::incnt' data-use='r' data-ref="state::incnt">incnt</a>;</td></tr>
+<tr><th id="756">756</th><td>    }</td></tr>
+<tr><th id="757">757</th><td>    <b>return</b> <a class="local col0 ref" href="#70err" title='err' data-ref="70err">err</a>;</td></tr>
+<tr><th id="758">758</th><td>}</td></tr>
+<tr><th id="759">759</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated on <em>2017-Aug-29</em> from project codebrowser revision <em>63e07af</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

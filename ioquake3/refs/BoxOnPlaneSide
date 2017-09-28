@@ -1,0 +1,25 @@
+<dec f='codebrowser/code/qcommon/q_shared.h' l='692' type='int BoxOnPlaneSide(vec_t * emins, vec_t * emaxs, struct cplane_s * plane)'/>
+<use f='codebrowser/code/qcommon/cm_test.c' l='153' u='c' c='CM_BoxLeafnums_r'/>
+<def f='codebrowser/code/qcommon/q_math.c' l='652' ll='686' type='int BoxOnPlaneSide(vec_t * emins, vec_t * emaxs, struct cplane_s * p)'/>
+<doc f='codebrowser/code/qcommon/q_math.c' l='645'>/*
+==================
+BoxOnPlaneSide
+
+Returns 1, 2, or 1 + 2
+==================
+*/</doc>
+<use f='codebrowser/code/renderergl1/tr_marks.c' l='141' u='c' c='R_BoxSurfaces_r'/>
+<use f='codebrowser/code/renderergl1/tr_marks.c' l='168' u='c' c='R_BoxSurfaces_r'/>
+<use f='codebrowser/code/renderergl1/tr_world.c' l='373' u='c' c='R_RecursiveWorldNode'/>
+<use f='codebrowser/code/renderergl1/tr_world.c' l='383' u='c' c='R_RecursiveWorldNode'/>
+<use f='codebrowser/code/renderergl1/tr_world.c' l='393' u='c' c='R_RecursiveWorldNode'/>
+<use f='codebrowser/code/renderergl1/tr_world.c' l='403' u='c' c='R_RecursiveWorldNode'/>
+<use f='codebrowser/code/renderergl2/tr_main.c' l='305' u='c' c='R_CullBox'/>
+<use f='codebrowser/code/renderergl2/tr_marks.c' l='142' u='c' c='R_BoxSurfaces_r'/>
+<use f='codebrowser/code/renderergl2/tr_marks.c' l='171' u='c' c='R_BoxSurfaces_r'/>
+<use f='codebrowser/code/renderergl2/tr_world.c' l='273' u='c' c='R_PshadowSurface'/>
+<use f='codebrowser/code/renderergl2/tr_world.c' l='421' u='c' c='R_RecursiveWorldNode'/>
+<use f='codebrowser/code/renderergl2/tr_world.c' l='431' u='c' c='R_RecursiveWorldNode'/>
+<use f='codebrowser/code/renderergl2/tr_world.c' l='441' u='c' c='R_RecursiveWorldNode'/>
+<use f='codebrowser/code/renderergl2/tr_world.c' l='451' u='c' c='R_RecursiveWorldNode'/>
+<use f='codebrowser/code/renderergl2/tr_world.c' l='461' u='c' c='R_RecursiveWorldNode'/>

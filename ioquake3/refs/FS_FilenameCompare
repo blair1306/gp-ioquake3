@@ -1,0 +1,22 @@
+<dec f='codebrowser/code/qcommon/qcommon.h' l='703' type='qboolean FS_FilenameCompare(const char * s1, const char * s2)'/>
+<doc f='codebrowser/code/qcommon/qcommon.h' l='701'>// seek on a file</doc>
+<use f='codebrowser/code/qcommon/common.c' l='2442' u='c' c='Com_GameRestart_f'/>
+<def f='codebrowser/code/qcommon/files.c' l='1032' ll='1059' type='qboolean FS_FilenameCompare(const char * s1, const char * s2)'/>
+<use f='codebrowser/code/qcommon/files.c' l='1187' u='c' c='FS_FOpenFileReadDir'/>
+<use f='codebrowser/code/qcommon/files.c' l='1251' u='c' c='FS_FOpenFileReadDir'/>
+<use f='codebrowser/code/qcommon/files.c' l='1502' u='c' c='FS_FindVM'/>
+<use f='codebrowser/code/qcommon/files.c' l='1793' u='c' c='FS_FileIsInPAK'/>
+<use f='codebrowser/code/qcommon/files.c' l='3043' u='c' c='FS_idPak'/>
+<use f='codebrowser/code/qcommon/files.c' l='3947' u='c' c='FS_InitFilesystem'/>
+<use f='codebrowser/code/qcommon/files.c' l='4049' u='c' c='FS_ConditionalRestart'/>
+<use f='codebrowser/code/qcommon/files.c' l='4050' u='c' c='FS_ConditionalRestart'/>
+<use f='codebrowser/code/qcommon/files.c' l='4051' u='c' c='FS_ConditionalRestart'/>
+<doc f='codebrowser/code/qcommon/files.c' l='1025'>/*
+===========
+FS_FilenameCompare
+
+Ignore case and seprator char distinctions
+===========
+*/</doc>
+<use f='codebrowser/code/server/sv_client.c' l='971' u='c' c='SV_WriteDownloadToClient'/>
+<use f='codebrowser/code/sys/sys_main.c' l='544' u='c' c='Sys_LoadDll'/>

@@ -1,0 +1,8 @@
+<def f='codebrowser/code/opus-1.1.4/silk/Inlines.h' l='143' ll='182' type='opus_int32 silk_INVERSE32_varQ(const opus_int32 b32, const int Qres)'/>
+<doc f='codebrowser/code/opus-1.1.4/silk/Inlines.h' l='142'>/* Invert int32 value and return result as int32 in a given Q-domain */</doc>
+<doc f='codebrowser/code/opus-1.1.4/silk/Inlines.h' l='143'>/* O    returns a good approximation of &quot;(1 &lt;&lt; Qres) / b32&quot; */</doc>
+<use f='codebrowser/code/opus-1.1.4/silk/LPC_inv_pred_gain.c' l='69' u='c' c='LPC_inverse_pred_gain_QA'/>
+<use f='codebrowser/code/opus-1.1.4/silk/NSQ.c' l='374' u='c' c='silk_nsq_scale_states'/>
+<use f='codebrowser/code/opus-1.1.4/silk/NSQ_del_dec.c' l='652' u='c' c='silk_nsq_del_dec_scale_states'/>
+<use f='codebrowser/code/opus-1.1.4/silk/PLC.c' l='297' u='c' c='silk_PLC_conceal'/>
+<use f='codebrowser/code/opus-1.1.4/silk/decode_core.c' l='107' u='c' c='silk_decode_core'/>

@@ -1,0 +1,50 @@
+<dec f='codebrowser/code/renderergl2/tr_local.h' l='1841' type='void GL_BindToTMU(image_t * image, int tmu)'/>
+<doc f='codebrowser/code/renderergl2/tr_local.h' l='1838'>/*
+** GL wrapper/helper functions
+*/</doc>
+<def f='codebrowser/code/renderergl2/tr_backend.c' l='43' ll='62' type='void GL_BindToTMU(image_t * image, int tmu)'/>
+<use f='codebrowser/code/renderergl2/tr_backend.c' l='710' u='c' c='RE_StretchRaw'/>
+<use f='codebrowser/code/renderergl2/tr_backend.c' l='984' u='c' c='RB_DrawSurfs'/>
+<use f='codebrowser/code/renderergl2/tr_backend.c' l='988' u='c' c='RB_DrawSurfs'/>
+<use f='codebrowser/code/renderergl2/tr_backend.c' l='989' u='c' c='RB_DrawSurfs'/>
+<use f='codebrowser/code/renderergl2/tr_backend.c' l='990' u='c' c='RB_DrawSurfs'/>
+<use f='codebrowser/code/renderergl2/tr_backend.c' l='991' u='c' c='RB_DrawSurfs'/>
+<use f='codebrowser/code/renderergl2/tr_backend.c' l='1000' u='c' c='RB_DrawSurfs'/>
+<use f='codebrowser/code/renderergl2/tr_backend.c' l='1033' u='c' c='RB_DrawSurfs'/>
+<use f='codebrowser/code/renderergl2/tr_backend.c' l='1034' u='c' c='RB_DrawSurfs'/>
+<use f='codebrowser/code/renderergl2/tr_backend.c' l='1044' u='c' c='RB_DrawSurfs'/>
+<use f='codebrowser/code/renderergl2/tr_backend.c' l='1045' u='c' c='RB_DrawSurfs'/>
+<use f='codebrowser/code/renderergl2/tr_backend.c' l='1081' u='c' c='RB_DrawSurfs'/>
+<use f='codebrowser/code/renderergl2/tr_backend.c' l='1098' u='c' c='RB_DrawSurfs'/>
+<use f='codebrowser/code/renderergl2/tr_backend.c' l='1099' u='c' c='RB_DrawSurfs'/>
+<use f='codebrowser/code/renderergl2/tr_backend.c' l='1113' u='c' c='RB_DrawSurfs'/>
+<use f='codebrowser/code/renderergl2/tr_backend.c' l='1114' u='c' c='RB_DrawSurfs'/>
+<use f='codebrowser/code/renderergl2/tr_backend.c' l='1256' u='c' c='RB_ShowImages'/>
+<doc f='codebrowser/code/renderergl2/tr_backend.c' l='40'>/*
+** GL_BindToTMU
+*/</doc>
+<use f='codebrowser/code/renderergl2/tr_fbo.c' l='566' u='c' c='FBO_BlitFromTexture'/>
+<use f='codebrowser/code/renderergl2/tr_main.c' l='1724' u='c' c='R_DebugGraphics'/>
+<use f='codebrowser/code/renderergl2/tr_postprocess.c' l='89' u='c' c='RB_ToneMap'/>
+<use f='codebrowser/code/renderergl2/tr_postprocess.c' l='91' u='c' c='RB_ToneMap'/>
+<use f='codebrowser/code/renderergl2/tr_shade.c' l='73' u='c' c='R_BindAnimatedImageToTMU'/>
+<use f='codebrowser/code/renderergl2/tr_shade.c' l='78' u='c' c='R_BindAnimatedImageToTMU'/>
+<use f='codebrowser/code/renderergl2/tr_shade.c' l='92' u='c' c='R_BindAnimatedImageToTMU'/>
+<use f='codebrowser/code/renderergl2/tr_shade.c' l='104' u='c' c='DrawTris'/>
+<use f='codebrowser/code/renderergl2/tr_shade.c' l='376' u='c' c='ProjectDlightTexture'/>
+<use f='codebrowser/code/renderergl2/tr_shade.c' l='774' u='c' c='ForwardDlight'/>
+<use f='codebrowser/code/renderergl2/tr_shade.c' l='781' u='c' c='ForwardDlight'/>
+<use f='codebrowser/code/renderergl2/tr_shade.c' l='791' u='c' c='ForwardDlight'/>
+<use f='codebrowser/code/renderergl2/tr_shade.c' l='867' u='c' c='ProjectPshadowVBOGLSL'/>
+<use f='codebrowser/code/renderergl2/tr_shade.c' l='1207' u='c' c='RB_IterateStagesGeneric'/>
+<use f='codebrowser/code/renderergl2/tr_shade.c' l='1220' u='c' c='RB_IterateStagesGeneric'/>
+<use f='codebrowser/code/renderergl2/tr_shade.c' l='1246' u='c' c='RB_IterateStagesGeneric'/>
+<use f='codebrowser/code/renderergl2/tr_shade.c' l='1256' u='c' c='RB_IterateStagesGeneric'/>
+<use f='codebrowser/code/renderergl2/tr_shade.c' l='1287' u='c' c='RB_IterateStagesGeneric'/>
+<use f='codebrowser/code/renderergl2/tr_shade.c' l='1295' u='c' c='RB_IterateStagesGeneric'/>
+<use f='codebrowser/code/renderergl2/tr_shade.c' l='1303' u='c' c='RB_IterateStagesGeneric'/>
+<use f='codebrowser/code/renderergl2/tr_shade.c' l='1334' u='c' c='RB_IterateStagesGeneric'/>
+<use f='codebrowser/code/renderergl2/tr_shadows.c' l='209' u='c' c='RB_ShadowTessEnd'/>
+<use f='codebrowser/code/renderergl2/tr_shadows.c' l='259' u='c' c='RB_ShadowFinish'/>
+<use f='codebrowser/code/renderergl2/tr_sky.c' l='375' u='c' c='DrawSkySide'/>
+<use f='codebrowser/code/renderergl2/tr_surface.c' l='516' u='c' c='RB_SurfaceBeam'/>

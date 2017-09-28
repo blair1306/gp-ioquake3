@@ -1,0 +1,8 @@
+<dec f='codebrowser/code/opus-1.1.4/include/opus.h' l='778' type='OpusRepacketizer * opus_repacketizer_init(OpusRepacketizer * rp)'/>
+<use f='codebrowser/code/opus-1.1.4/src/opus_encoder.c' l='1384' u='c' c='opus_encode_native'/>
+<use f='codebrowser/code/opus-1.1.4/src/opus_multistream_encoder.c' l='973' u='c' c='opus_multistream_encode_native'/>
+<def f='codebrowser/code/opus-1.1.4/src/repacketizer.c' l='42' ll='46' type='OpusRepacketizer * opus_repacketizer_init(OpusRepacketizer * rp)'/>
+<use f='codebrowser/code/opus-1.1.4/src/repacketizer.c' l='53' u='c' c='opus_repacketizer_create'/>
+<use f='codebrowser/code/opus-1.1.4/src/repacketizer.c' l='249' u='c' c='opus_packet_pad'/>
+<use f='codebrowser/code/opus-1.1.4/src/repacketizer.c' l='268' u='c' c='opus_packet_unpad'/>
+<use f='codebrowser/code/opus-1.1.4/src/repacketizer.c' l='329' u='c' c='opus_multistream_packet_unpad'/>

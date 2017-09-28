@@ -1,0 +1,10 @@
+<dec f='codebrowser/code/cgame/cg_local.h' l='1598' type='void trap_R_ModelBounds(clipHandle_t model, vec_t * mins, vec_t * maxs)'/>
+<use f='codebrowser/code/cgame/cg_draw.c' l='328' u='c' c='CG_DrawHead'/>
+<use f='codebrowser/code/cgame/cg_draw.c' l='373' u='c' c='CG_DrawFlagModel'/>
+<use f='codebrowser/code/cgame/cg_main.c' l='1038' u='c' c='CG_RegisterGraphics'/>
+<use f='codebrowser/code/cgame/cg_newdraw.c' l='529' u='c' c='CG_DrawSelectedPlayerHead'/>
+<def f='codebrowser/code/cgame/cg_syscalls.c' l='294' ll='296' type='void trap_R_ModelBounds(clipHandle_t model, vec_t * mins, vec_t * maxs)'/>
+<use f='codebrowser/code/cgame/cg_weapons.c' l='641' u='c' c='CG_RegisterWeapon'/>
+<dec f='codebrowser/code/ui/ui_local.h' l='947' type='void trap_R_ModelBounds(clipHandle_t model, vec_t * mins, vec_t * maxs)'/>
+<use f='codebrowser/code/ui/ui_main.c' l='5106' u='a' c='_UI_Init'/>
+<def f='codebrowser/code/ui/ui_syscalls.c' l='176' ll='178' type='void trap_R_ModelBounds(clipHandle_t model, vec_t * mins, vec_t * maxs)'/>

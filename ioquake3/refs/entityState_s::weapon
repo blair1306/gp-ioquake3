@@ -1,0 +1,63 @@
+<dec f='codebrowser/code/qcommon/q_shared.h' l='1317' type='int'/>
+<offset>1536</offset>
+<doc f='codebrowser/code/qcommon/q_shared.h' l='1317'>// determines weapon and flash model, etc</doc>
+<use f='codebrowser/code/cgame/cg_draw.c' l='548' u='r' c='CG_DrawStatusBar'/>
+<use f='codebrowser/code/cgame/cg_draw.c' l='548' u='r' c='CG_DrawStatusBar'/>
+<use f='codebrowser/code/cgame/cg_draw.c' l='554' u='r' c='CG_DrawStatusBar'/>
+<use f='codebrowser/code/cgame/cg_draw.c' l='578' u='r' c='CG_DrawStatusBar'/>
+<use f='codebrowser/code/cgame/cg_draw.c' l='579' u='r' c='CG_DrawStatusBar'/>
+<use f='codebrowser/code/cgame/cg_ents.c' l='421' u='r' c='CG_Missile'/>
+<use f='codebrowser/code/cgame/cg_ents.c' l='422' u='w' c='CG_Missile'/>
+<use f='codebrowser/code/cgame/cg_ents.c' l='424' u='r' c='CG_Missile'/>
+<use f='codebrowser/code/cgame/cg_ents.c' l='471' u='r' c='CG_Missile'/>
+<use f='codebrowser/code/cgame/cg_ents.c' l='530' u='r' c='CG_Grapple'/>
+<use f='codebrowser/code/cgame/cg_ents.c' l='531' u='w' c='CG_Grapple'/>
+<use f='codebrowser/code/cgame/cg_ents.c' l='533' u='r' c='CG_Grapple'/>
+<use f='codebrowser/code/cgame/cg_event.c' l='968' u='r' c='CG_EntityEvent'/>
+<use f='codebrowser/code/cgame/cg_event.c' l='974' u='r' c='CG_EntityEvent'/>
+<use f='codebrowser/code/cgame/cg_event.c' l='980' u='r' c='CG_EntityEvent'/>
+<use f='codebrowser/code/cgame/cg_event.c' l='985' u='w' c='CG_EntityEvent'/>
+<use f='codebrowser/code/cgame/cg_event.c' l='1000' u='r' c='CG_EntityEvent'/>
+<use f='codebrowser/code/cgame/cg_newdraw.c' l='216' u='r' c='CG_DrawPlayerAmmoIcon'/>
+<use f='codebrowser/code/cgame/cg_newdraw.c' l='216' u='r' c='CG_DrawPlayerAmmoIcon'/>
+<use f='codebrowser/code/cgame/cg_newdraw.c' l='222' u='r' c='CG_DrawPlayerAmmoIcon'/>
+<use f='codebrowser/code/cgame/cg_newdraw.c' l='236' u='r' c='CG_DrawPlayerAmmoValue'/>
+<use f='codebrowser/code/cgame/cg_newdraw.c' l='237' u='r' c='CG_DrawPlayerAmmoValue'/>
+<use f='codebrowser/code/cgame/cg_newdraw.c' l='912' u='r' c='CG_GetValue'/>
+<use f='codebrowser/code/cgame/cg_newdraw.c' l='913' u='r' c='CG_GetValue'/>
+<use f='codebrowser/code/cgame/cg_weapons.c' l='974' u='r' c='CG_LightningBolt'/>
+<use f='codebrowser/code/cgame/cg_weapons.c' l='1208' u='r' c='CG_AddPlayerWeapon'/>
+<use f='codebrowser/code/cgame/cg_weapons.c' l='1684' u='r' c='CG_FireWeapon'/>
+<use f='codebrowser/code/cgame/cg_weapons.c' l='1687' u='r' c='CG_FireWeapon'/>
+<use f='codebrowser/code/cgame/cg_weapons.c' l='1691' u='r' c='CG_FireWeapon'/>
+<use f='codebrowser/code/cgame/cg_weapons.c' l='1698' u='r' c='CG_FireWeapon'/>
+<use f='codebrowser/code/cgame/cg_weapons.c' l='1704' u='r' c='CG_FireWeapon'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='4719' u='r' c='BotCheckForGrenades'/>
+<use f='codebrowser/code/game/ai_main.c' l='1504' u='r' c='BotAIStartFrame'/>
+<use f='codebrowser/code/game/ai_main.c' l='1547' u='r' c='BotAIStartFrame'/>
+<use f='codebrowser/code/game/bg_misc.c' l='1518' u='w' c='BG_PlayerStateToEntityState'/>
+<use f='codebrowser/code/game/bg_misc.c' l='1598' u='w' c='BG_PlayerStateToEntityStateExtraPolate'/>
+<use f='codebrowser/code/game/g_arenas.c' l='165' u='r' c='SpawnModelOnVictoryPad'/>
+<use f='codebrowser/code/game/g_arenas.c' l='166' u='w' c='SpawnModelOnVictoryPad'/>
+<use f='codebrowser/code/game/g_arenas.c' l='168' u='r' c='SpawnModelOnVictoryPad'/>
+<use f='codebrowser/code/game/g_arenas.c' l='205' u='r' c='CelebrateStop'/>
+<use f='codebrowser/code/game/g_combat.c' l='84' u='r' c='TossClientItems'/>
+<use f='codebrowser/code/game/g_combat.c' l='592' u='w' c='player_die'/>
+<use f='codebrowser/code/game/g_misc.c' l='273' u='r' c='Use_Shooter'/>
+<use f='codebrowser/code/game/g_misc.c' l='297' u='w' c='InitShooter'/>
+<use f='codebrowser/code/game/g_missile.c' l='533' u='w' c='fire_plasma'/>
+<use f='codebrowser/code/game/g_missile.c' l='574' u='w' c='fire_grenade'/>
+<use f='codebrowser/code/game/g_missile.c' l='616' u='w' c='fire_bfg'/>
+<use f='codebrowser/code/game/g_missile.c' l='656' u='w' c='fire_rocket'/>
+<use f='codebrowser/code/game/g_missile.c' l='693' u='w' c='fire_grapple'/>
+<use f='codebrowser/code/game/g_weapon.c' l='99' u='w' c='CheckGauntletAttack'/>
+<use f='codebrowser/code/game/g_weapon.c' l='99' u='r' c='CheckGauntletAttack'/>
+<use f='codebrowser/code/game/g_weapon.c' l='680' u='w' c='Weapon_LightningFire'/>
+<use f='codebrowser/code/game/g_weapon.c' l='680' u='r' c='Weapon_LightningFire'/>
+<use f='codebrowser/code/game/g_weapon.c' l='827' u='r' c='FireWeapon'/>
+<use f='codebrowser/code/game/g_weapon.c' l='827' u='r' c='FireWeapon'/>
+<use f='codebrowser/code/game/g_weapon.c' l='845' u='r' c='FireWeapon'/>
+<use f='codebrowser/code/qcommon/msg.c' l='804' u='a'/>
+<use f='codebrowser/code/qcommon/msg.c' l='804' u='a'/>
+<use f='codebrowser/code/qcommon/msg.c' l='804' u='a'/>
+<use f='codebrowser/code/qcommon/msg.c' l='804' u='a'/>

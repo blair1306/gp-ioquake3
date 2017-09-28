@@ -1,0 +1,18 @@
+<dec f='codebrowser/code/client/client.h' l='513' type='int Key_StringToKeynum(char * str)'/>
+<def f='codebrowser/code/client/cl_keys.c' l='826' ll='852' type='int Key_StringToKeynum(char * str)'/>
+<use f='codebrowser/code/client/cl_keys.c' l='974' u='c' c='Key_Unbind_f'/>
+<use f='codebrowser/code/client/cl_keys.c' l='1016' u='c' c='Key_Bind_f'/>
+<doc f='codebrowser/code/client/cl_keys.c' l='813'>/*
+===================
+Key_StringToKeynum
+
+Returns a key number to be used to index keys[] by looking at
+the given string.  Single ascii characters return themselves, while
+the K_* names are matched up.
+
+0x11 will be interpreted as raw hex, which will allow new controlers
+
+to be configured even if they don&apos;t have defined names.
+===================
+*/</doc>
+<use f='codebrowser/code/sdl/sdl_input.c' l='152' u='c' c='IN_IsConsoleKey'/>

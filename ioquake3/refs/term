@@ -1,0 +1,15 @@
+<def f='codebrowser/code/tools/lcc/lburg/lburg.h' l='10' ll='17'/>
+<dec f='codebrowser/code/tools/lcc/lburg/lburg.h' l='31' type='Term term(char * id, int esn)'/>
+<use f='codebrowser/code/tools/lcc/lburg/gram.c' l='40' u='c' c='yyparse'/>
+<size>40</size>
+<doc f='codebrowser/code/tools/lcc/lburg/lburg.h' l='10'>/* terminals: */</doc>
+<mbr r='term::name' o='0' t='char *'/>
+<mbr r='term::kind' o='64' t='Kind'/>
+<mbr r='term::esn' o='96' t='int'/>
+<mbr r='term::arity' o='128' t='int'/>
+<mbr r='term::link' o='192' t='Term'/>
+<mbr r='term::rules' o='256' t='Rule'/>
+<def f='codebrowser/code/tools/lcc/lburg/lburg.c' l='191' ll='209' type='Term term(char * id, int esn)'/>
+<use f='codebrowser/code/tools/lcc/lburg/lburg.c' l='223' u='c' c='tree'/>
+<use f='codebrowser/code/tools/lcc/lburg/lburg.c' l='228' u='c' c='tree'/>
+<doc f='codebrowser/code/tools/lcc/lburg/lburg.c' l='190'>/* term - create a new terminal id with external symbol number esn */</doc>

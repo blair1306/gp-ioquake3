@@ -1,0 +1,10 @@
+<dec f='codebrowser/code/client/snd_local.h' l='221' type='void S_AdpcmGetSamples(sndBuffer * chunk, short * to)'/>
+<def f='codebrowser/code/client/snd_adpcm.c' l='271' ll='282' type='void S_AdpcmGetSamples(sndBuffer * chunk, short * to)'/>
+<doc f='codebrowser/code/client/snd_adpcm.c' l='266'>/*
+====================
+S_AdpcmGetSamples
+====================
+*/</doc>
+<use f='codebrowser/code/client/snd_mix.c' l='547' u='c' c='S_PaintChannelFromWavelet'/>
+<use f='codebrowser/code/client/snd_mix.c' l='594' u='c' c='S_PaintChannelFromADPCM'/>
+<use f='codebrowser/code/client/snd_mix.c' l='608' u='c' c='S_PaintChannelFromADPCM'/>

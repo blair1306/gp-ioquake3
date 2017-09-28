@@ -1,0 +1,12 @@
+<dec f='codebrowser/code/qcommon/qcommon.h' l='1053' type='int SV_SendQueuedPackets()'/>
+<use f='codebrowser/code/qcommon/common.c' l='3149' u='c' c='Com_Frame'/>
+<def f='codebrowser/code/server/sv_main.c' l='1220' ll='1288' type='int SV_SendQueuedPackets()'/>
+<doc f='codebrowser/code/server/sv_main.c' l='1210'>/*
+====================
+SV_SendQueuedPackets
+
+Send download messages and queued packets in the time that we&apos;re idle, i.e.
+not computing a server frame or sending client snapshots.
+Return the time in msec until we expect to be called next
+====================
+*/</doc>

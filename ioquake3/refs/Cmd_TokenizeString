@@ -1,0 +1,24 @@
+<dec f='codebrowser/code/qcommon/qcommon.h' l='465' type='void Cmd_TokenizeString(const char * text)'/>
+<doc f='codebrowser/code/qcommon/qcommon.h' l='461'>// The functions that execute commands get their parameters with these
+// functions. Cmd_Argv () will return an empty string, not a NULL
+// if arg &gt; argc, so string operations are allways safe.</doc>
+<use f='codebrowser/code/client/cl_cgame.c' l='286' u='c' c='CL_GetServerCommand'/>
+<use f='codebrowser/code/client/cl_cgame.c' l='327' u='c' c='CL_GetServerCommand'/>
+<use f='codebrowser/code/client/cl_cgame.c' l='336' u='c' c='CL_GetServerCommand'/>
+<use f='codebrowser/code/client/cl_main.c' l='2600' u='c' c='CL_ConnectionlessPacket'/>
+<def f='codebrowser/code/qcommon/cmd.c' l='606' ll='608' type='void Cmd_TokenizeString(const char * text_in)'/>
+<use f='codebrowser/code/qcommon/cmd.c' l='768' u='c' c='Cmd_ExecuteString'/>
+<doc f='codebrowser/code/qcommon/cmd.c' l='601'>/*
+============
+Cmd_TokenizeString
+============
+*/</doc>
+<use f='codebrowser/code/qcommon/common.c' l='460' u='c' c='Com_SafeMode'/>
+<use f='codebrowser/code/qcommon/common.c' l='487' u='c' c='Com_StartupVariable'/>
+<use f='codebrowser/code/qcommon/files.c' l='3831' u='c' c='FS_PureServerSetLoadedPaks'/>
+<use f='codebrowser/code/qcommon/files.c' l='3866' u='c' c='FS_PureServerSetLoadedPaks'/>
+<use f='codebrowser/code/qcommon/files.c' l='3891' u='c' c='FS_PureServerSetReferencedPaks'/>
+<use f='codebrowser/code/qcommon/files.c' l='3911' u='c' c='FS_PureServerSetReferencedPaks'/>
+<use f='codebrowser/code/server/sv_client.c' l='1321' u='c' c='SV_VerifyPaks_f'/>
+<use f='codebrowser/code/server/sv_client.c' l='1568' u='c' c='SV_ExecuteClientCommand'/>
+<use f='codebrowser/code/server/sv_main.c' l='791' u='c' c='SV_ConnectionlessPacket'/>

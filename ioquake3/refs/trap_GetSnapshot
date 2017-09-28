@@ -1,0 +1,5 @@
+<dec f='codebrowser/code/cgame/cg_local.h' l='1620' type='qboolean trap_GetSnapshot(int snapshotNumber, snapshot_t * snapshot)'/>
+<doc f='codebrowser/code/cgame/cg_local.h' l='1618'>// a snapshot get can fail if the snapshot (or the entties it holds) is so
+// old that it has fallen out of the client system queue</doc>
+<use f='codebrowser/code/cgame/cg_snapshot.c' l='275' u='c' c='CG_ReadNextSnapshot'/>
+<def f='codebrowser/code/cgame/cg_syscalls.c' l='319' ll='321' type='qboolean trap_GetSnapshot(int snapshotNumber, snapshot_t * snapshot)'/>

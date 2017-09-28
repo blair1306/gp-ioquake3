@@ -1,0 +1,16 @@
+<dec f='codebrowser/code/jpeg-8c/jpeglib.h' l='658' type='struct jpeg_decomp_master *'/>
+<offset>4544</offset>
+<doc f='codebrowser/code/jpeg-8c/jpeglib.h' l='655'>/*
+   * Links to decompression subobjects (methods, private variables of modules)
+   */</doc>
+<use f='codebrowser/code/jpeg-8c/jdapimin.c' l='377' u='r' c='jpeg_finish_decompress'/>
+<use f='codebrowser/code/jpeg-8c/jdapistd.c' l='99' u='r' c='output_pass_setup'/>
+<use f='codebrowser/code/jpeg-8c/jdapistd.c' l='104' u='r' c='output_pass_setup'/>
+<use f='codebrowser/code/jpeg-8c/jdapistd.c' l='123' u='r' c='output_pass_setup'/>
+<use f='codebrowser/code/jpeg-8c/jdapistd.c' l='124' u='r' c='output_pass_setup'/>
+<use f='codebrowser/code/jpeg-8c/jdapistd.c' l='259' u='r' c='jpeg_finish_output'/>
+<use f='codebrowser/code/jpeg-8c/jdmaster.c' l='273' u='r' c='master_selection'/>
+<use f='codebrowser/code/jpeg-8c/jdmaster.c' l='416' u='r' c='prepare_for_output_pass'/>
+<use f='codebrowser/code/jpeg-8c/jdmaster.c' l='476' u='r' c='finish_output_pass'/>
+<use f='codebrowser/code/jpeg-8c/jdmaster.c' l='493' u='r' c='jpeg_new_colormap'/>
+<use f='codebrowser/code/jpeg-8c/jdmaster.c' l='526' u='w' c='jinit_master_decompress'/>

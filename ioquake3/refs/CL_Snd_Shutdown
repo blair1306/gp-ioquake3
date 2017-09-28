@@ -1,0 +1,13 @@
+<dec f='codebrowser/code/qcommon/qcommon.h' l='1027' type='void CL_Snd_Shutdown()'/>
+<doc f='codebrowser/code/qcommon/qcommon.h' l='1025'>// start all the client stuff using the hunk</doc>
+<def f='codebrowser/code/client/cl_main.c' l='2001' ll='2005' type='void CL_Snd_Shutdown()'/>
+<use f='codebrowser/code/client/cl_main.c' l='2018' u='c' c='CL_Snd_Restart_f'/>
+<use f='codebrowser/code/client/cl_main.c' l='3739' u='c' c='CL_Shutdown'/>
+<doc f='codebrowser/code/client/cl_main.c' l='1994'>/*
+=================
+CL_Snd_Restart
+
+Restart the sound subsystem
+=================
+*/</doc>
+<def f='codebrowser/code/null/null_client.c' l='98' ll='100' type='void CL_Snd_Shutdown()'/>

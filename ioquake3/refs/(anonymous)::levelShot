@@ -1,0 +1,17 @@
+<dec f='codebrowser/code/cgame/cg_local.h' l='456' type='qboolean'/>
+<offset>96</offset>
+<doc f='codebrowser/code/cgame/cg_local.h' l='456'>// taking a level menu screenshot</doc>
+<use f='codebrowser/code/cgame/cg_draw.c' l='2530' u='r' c='CG_Draw2D'/>
+<use f='codebrowser/code/cgame/cg_servercmds.c' l='463' u='w' c='CG_MapRestart'/>
+<use f='codebrowser/code/cgame/cg_servercmds.c' l='1100' u='w' c='CG_ServerCommand'/>
+<dec f='codebrowser/code/ui/ui_local.h' l='677' type='qhandle_t'/>
+<offset>864</offset>
+<use f='codebrowser/code/ui/ui_gameinfo.c' l='176' u='w' c='UI_LoadArenas'/>
+<use f='codebrowser/code/ui/ui_main.c' l='1212' u='r' c='UI_DrawMapPreview'/>
+<use f='codebrowser/code/ui/ui_main.c' l='1213' u='w' c='UI_DrawMapPreview'/>
+<use f='codebrowser/code/ui/ui_main.c' l='1216' u='r' c='UI_DrawMapPreview'/>
+<use f='codebrowser/code/ui/ui_main.c' l='1217' u='r' c='UI_DrawMapPreview'/>
+<use f='codebrowser/code/ui/ui_main.c' l='4446' u='r' c='UI_FeederItemImage'/>
+<use f='codebrowser/code/ui/ui_main.c' l='4447' u='w' c='UI_FeederItemImage'/>
+<use f='codebrowser/code/ui/ui_main.c' l='4449' u='r' c='UI_FeederItemImage'/>
+<use f='codebrowser/code/ui/ui_main.c' l='4865' u='w' c='MapList_Parse'/>

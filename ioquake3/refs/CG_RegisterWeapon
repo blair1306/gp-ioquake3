@@ -1,0 +1,13 @@
+<dec f='codebrowser/code/cgame/cg_local.h' l='1357' type='void CG_RegisterWeapon(int weaponNum)'/>
+<def f='codebrowser/code/cgame/cg_weapons.c' l='606' ll='818' type='void CG_RegisterWeapon(int weaponNum)'/>
+<use f='codebrowser/code/cgame/cg_weapons.c' l='850' u='c' c='CG_RegisterItemVisuals'/>
+<use f='codebrowser/code/cgame/cg_weapons.c' l='1210' u='c' c='CG_AddPlayerWeapon'/>
+<use f='codebrowser/code/cgame/cg_weapons.c' l='1405' u='c' c='CG_AddViewWeapon'/>
+<use f='codebrowser/code/cgame/cg_weapons.c' l='1491' u='c' c='CG_DrawWeaponSelect'/>
+<doc f='codebrowser/code/cgame/cg_weapons.c' l='599'>/*
+=================
+CG_RegisterWeapon
+
+The server says this item is used on this level
+=================
+*/</doc>

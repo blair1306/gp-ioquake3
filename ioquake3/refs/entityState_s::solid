@@ -1,0 +1,19 @@
+<dec f='codebrowser/code/qcommon/q_shared.h' l='1310' type='int'/>
+<offset>1408</offset>
+<doc f='codebrowser/code/qcommon/q_shared.h' l='1310'>// for client side prediction, trap_linkentity sets this properly</doc>
+<use f='codebrowser/code/cgame/cg_ents.c' l='105' u='r' c='CG_SetEntitySoundPosition'/>
+<use f='codebrowser/code/cgame/cg_ents.c' l='589' u='r' c='CG_Mover'/>
+<use f='codebrowser/code/cgame/cg_predict.c' l='71' u='r' c='CG_BuildSolidList'/>
+<use f='codebrowser/code/cgame/cg_predict.c' l='103' u='r' c='CG_ClipMoveToEntities'/>
+<use f='codebrowser/code/cgame/cg_predict.c' l='110' u='r' c='CG_ClipMoveToEntities'/>
+<use f='codebrowser/code/cgame/cg_predict.c' l='111' u='r' c='CG_ClipMoveToEntities'/>
+<use f='codebrowser/code/cgame/cg_predict.c' l='112' u='r' c='CG_ClipMoveToEntities'/>
+<use f='codebrowser/code/cgame/cg_predict.c' l='180' u='r' c='CG_PointContents'/>
+<use f='codebrowser/code/cgame/cg_predict.c' l='354' u='r' c='CG_TouchTriggerPrediction'/>
+<use f='codebrowser/code/qcommon/msg.c' l='812' u='a'/>
+<use f='codebrowser/code/qcommon/msg.c' l='812' u='a'/>
+<use f='codebrowser/code/qcommon/msg.c' l='812' u='a'/>
+<use f='codebrowser/code/qcommon/msg.c' l='812' u='a'/>
+<use f='codebrowser/code/server/sv_world.c' l='224' u='w' c='SV_LinkEntity'/>
+<use f='codebrowser/code/server/sv_world.c' l='247' u='w' c='SV_LinkEntity'/>
+<use f='codebrowser/code/server/sv_world.c' l='249' u='w' c='SV_LinkEntity'/>

@@ -1,0 +1,14 @@
+<dec f='codebrowser/code/client/snd_local.h' l='67' type='int'/>
+<dec f='codebrowser/code/client/snd_local.h' l='120' type='int'/>
+<offset>128</offset>
+<doc f='codebrowser/code/client/snd_local.h' l='67'>// mono samples in buffer</doc>
+<use f='codebrowser/code/client/snd_adpcm.c' l='248' u='r' c='S_AdpcmMemoryNeeded'/>
+<use f='codebrowser/code/client/snd_dma.c' l='102' u='r' c='S_Base_SoundInfo'/>
+<use f='codebrowser/code/client/snd_dma.c' l='711' u='r' c='S_Base_ClearSoundBuffer'/>
+<use f='codebrowser/code/client/snd_dma.c' l='1248' u='r' c='S_GetSoundtime'/>
+<use f='codebrowser/code/client/snd_dma.c' l='1343' u='r' c='S_Update_'/>
+<use f='codebrowser/code/client/snd_mix.c' l='125' u='r' c='S_TransferStereo16'/>
+<use f='codebrowser/code/client/snd_mix.c' l='129' u='r' c='S_TransferStereo16'/>
+<use f='codebrowser/code/client/snd_mix.c' l='183' u='r' c='S_TransferPaintBuffer'/>
+<use f='codebrowser/code/sdl/sdl_snd.c' l='233' u='w' c='SNDDMA_Init'/>
+<use f='codebrowser/code/sdl/sdl_snd.c' l='236' u='r' c='SNDDMA_Init'/>

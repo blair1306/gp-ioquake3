@@ -1,0 +1,25 @@
+<dec f='codebrowser/code/qcommon/q_shared.h' l='1333' type='8'/>
+<doc f='codebrowser/code/qcommon/q_shared.h' l='1333'>// game views should be displayed</doc>
+<use f='codebrowser/code/client/cl_cgame.c' l='883' u='r' c='CL_FirstSnapshot'/>
+<use f='codebrowser/code/client/cl_cgame.c' l='944' u='r' c='CL_SetCGameTime'/>
+<use f='codebrowser/code/client/cl_cgame.c' l='961' u='r' c='CL_SetCGameTime'/>
+<use f='codebrowser/code/client/cl_cgame.c' l='1074' u='r' c='CL_SetCGameTime'/>
+<use f='codebrowser/code/client/cl_console.c' l='768' u='r' c='Con_DrawConsole'/>
+<use f='codebrowser/code/client/cl_input.c' l='689' u='r' c='CL_ReadyToSendPacket'/>
+<use f='codebrowser/code/client/cl_keys.c' l='616' u='r' c='Console_Key'/>
+<use f='codebrowser/code/client/cl_keys.c' l='764' u='r' c='Message_Key'/>
+<use f='codebrowser/code/client/cl_keys.c' l='1290' u='r' c='CL_KeyDownEvent'/>
+<use f='codebrowser/code/client/cl_main.c' l='252' u='r' c='CL_Voip_f'/>
+<use f='codebrowser/code/client/cl_main.c' l='451' u='r' c='CL_CaptureVoip'/>
+<use f='codebrowser/code/client/cl_main.c' l='713' u='r' c='CL_Record_f'/>
+<use f='codebrowser/code/client/cl_main.c' l='1649' u='r' c='CL_ForwardToServer_f'/>
+<use f='codebrowser/code/client/cl_main.c' l='2051' u='r' c='CL_Configstrings_f'/>
+<use f='codebrowser/code/client/cl_main.c' l='2970' u='r' c='CL_Frame'/>
+<use f='codebrowser/code/client/cl_main.c' l='2982' u='r' c='CL_Frame'/>
+<use f='codebrowser/code/client/cl_main.c' l='3013' u='r' c='CL_Frame'/>
+<use f='codebrowser/code/client/cl_main.c' l='4592' u='r' c='CL_ServerStatus_f'/>
+<use f='codebrowser/code/client/cl_scrn.c' l='365' u='r' c='SCR_DrawVoipMeter'/>
+<use f='codebrowser/code/client/cl_scrn.c' l='526' c='SCR_DrawScreenField'/>
+<use f='codebrowser/code/client/cl_ui.c' l='1129' u='r' c='CL_InitUI'/>
+<use f='codebrowser/code/client/cl_ui.c' l='1141' u='r' c='CL_InitUI'/>
+<use f='codebrowser/code/sdl/sdl_input.c' l='1167' u='r' c='IN_Frame'/>

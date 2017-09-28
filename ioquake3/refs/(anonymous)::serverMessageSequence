@@ -1,0 +1,17 @@
+<dec f='codebrowser/code/client/client.h' l='190' type='int'/>
+<offset>565888</offset>
+<doc f='codebrowser/code/client/client.h' l='184'>// server message (unreliable) and command (reliable) sequence
+	// numbers are NOT cleared at level changes, but continue to
+	// increase as long as the connection is valid
+
+	// message sequence is used by both the network layer and the
+	// delta compression layer</doc>
+<use f='codebrowser/code/client/cl_cgame.c' l='745' u='r' c='CL_InitCGame'/>
+<use f='codebrowser/code/client/cl_input.c' l='771' u='r' c='CL_WritePacket'/>
+<use f='codebrowser/code/client/cl_input.c' l='856' u='r' c='CL_WritePacket'/>
+<use f='codebrowser/code/client/cl_input.c' l='868' u='r' c='CL_WritePacket'/>
+<use f='codebrowser/code/client/cl_main.c' l='621' u='r' c='CL_WriteDemoMessage'/>
+<use f='codebrowser/code/client/cl_main.c' l='815' u='r' c='CL_Record_f'/>
+<use f='codebrowser/code/client/cl_main.c' l='952' u='w' c='CL_ReadDemoMessage'/>
+<use f='codebrowser/code/client/cl_main.c' l='2846' u='w' c='CL_PacketEvent'/>
+<use f='codebrowser/code/client/cl_parse.c' l='229' u='r' c='CL_ParseSnapshot'/>

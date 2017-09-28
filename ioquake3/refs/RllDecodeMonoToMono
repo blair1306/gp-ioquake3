@@ -1,0 +1,14 @@
+<def f='codebrowser/code/client/cl_cin.c' l='198' ll='212' type='long RllDecodeMonoToMono(unsigned char * from, short * to, unsigned int size, char signedOutput, unsigned short flag)'/>
+<doc f='codebrowser/code/client/cl_cin.c' l='185'>//-----------------------------------------------------------------------------
+// RllDecodeMonoToMono
+//
+// Decode mono source data into a mono buffer.
+//
+// Parameters:	from -&gt; buffer holding encoded data
+//				to -&gt;	buffer to hold decoded data
+//				size =	number of bytes of input (= # of shorts of output)
+//				signedOutput = 0 for unsigned output, non-zero for signed output
+//				flag = flags from asset header
+//
+// Returns:		Number of samples placed in output buffer
+//-----------------------------------------------------------------------------</doc>

@@ -1,0 +1,39 @@
+<dec f='codebrowser/code/qcommon/qcommon.h' l='407' type='void Cbuf_AddText(const char * text)'/>
+<doc f='codebrowser/code/qcommon/qcommon.h' l='405'>// allocates an initial text buffer that will grow as needed</doc>
+<use f='codebrowser/code/client/cl_cgame.c' l='356' u='c' c='CL_GetServerCommand'/>
+<use f='codebrowser/code/client/cl_cgame.c' l='454' u='c' c='CL_CgameSystemCalls'/>
+<use f='codebrowser/code/client/cl_cgame.c' l='896' u='c' c='CL_FirstSnapshot'/>
+<use f='codebrowser/code/client/cl_keys.c' l='609' u='c' c='Console_Key'/>
+<use f='codebrowser/code/client/cl_keys.c' l='631' u='c' c='Console_Key'/>
+<use f='codebrowser/code/client/cl_keys.c' l='632' u='c' c='Console_Key'/>
+<use f='codebrowser/code/client/cl_keys.c' l='639' u='c' c='Console_Key'/>
+<use f='codebrowser/code/client/cl_keys.c' l='642' u='c' c='Console_Key'/>
+<use f='codebrowser/code/client/cl_keys.c' l='643' u='c' c='Console_Key'/>
+<use f='codebrowser/code/client/cl_keys.c' l='1212' u='c' c='CL_ParseBinding'/>
+<use f='codebrowser/code/client/cl_keys.c' l='1219' u='c' c='CL_ParseBinding'/>
+<use f='codebrowser/code/client/cl_keys.c' l='1220' u='c' c='CL_ParseBinding'/>
+<use f='codebrowser/code/client/cl_main.c' l='1169' u='c' c='CL_StartDemoLoop'/>
+<use f='codebrowser/code/client/cl_main.c' l='1192' u='c' c='CL_NextDemo'/>
+<use f='codebrowser/code/client/cl_main.c' l='1193' u='c' c='CL_NextDemo'/>
+<use f='codebrowser/code/client/cl_main.c' l='1684' u='c' c='CL_Reconnect_f'/>
+<use f='codebrowser/code/client/cl_main.c' l='4199' u='c' c='CL_GlobalServers_f'/>
+<def f='codebrowser/code/qcommon/cmd.c' l='90' ll='102' type='void Cbuf_AddText(const char * text)'/>
+<use f='codebrowser/code/qcommon/cmd.c' l='160' u='c' c='Cbuf_ExecuteText'/>
+<doc f='codebrowser/code/qcommon/cmd.c' l='83'>/*
+============
+Cbuf_AddText
+
+Adds command text at the end of the buffer, does NOT add a final \n
+============
+*/</doc>
+<use f='codebrowser/code/qcommon/common.c' l='533' u='c' c='Com_AddStartupCommands'/>
+<use f='codebrowser/code/qcommon/common.c' l='534' u='c' c='Com_AddStartupCommands'/>
+<use f='codebrowser/code/qcommon/common.c' l='2230' u='c' c='Com_EventLoop'/>
+<use f='codebrowser/code/qcommon/common.c' l='2231' u='c' c='Com_EventLoop'/>
+<use f='codebrowser/code/qcommon/common.c' l='2833' u='c' c='Com_Init'/>
+<use f='codebrowser/code/qcommon/files.c' l='4026' u='c' c='FS_Restart'/>
+<use f='codebrowser/code/sdl/sdl_input.c' l='1196' u='c' c='IN_Frame'/>
+<use f='codebrowser/code/server/sv_init.c' l='702' u='c' c='SV_Init'/>
+<use f='codebrowser/code/server/sv_main.c' l='1099' u='c' c='SV_Frame'/>
+<use f='codebrowser/code/server/sv_main.c' l='1105' u='c' c='SV_Frame'/>
+<use f='codebrowser/code/server/sv_main.c' l='1111' u='c' c='SV_Frame'/>

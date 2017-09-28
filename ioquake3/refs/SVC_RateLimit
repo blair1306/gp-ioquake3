@@ -1,0 +1,12 @@
+<dec f='codebrowser/code/server/server.h' l='332' type='qboolean SVC_RateLimit(leakyBucket_t * bucket, int burst, int period)'/>
+<use f='codebrowser/code/server/sv_client.c' l='79' u='c' c='SV_GetChallenge'/>
+<def f='codebrowser/code/server/sv_main.c' l='480' ll='503' type='qboolean SVC_RateLimit(leakyBucket_t * bucket, int burst, int period)'/>
+<use f='codebrowser/code/server/sv_main.c' l='515' u='c' c='SVC_RateLimitAddress'/>
+<use f='codebrowser/code/server/sv_main.c' l='551' u='c' c='SVC_Status'/>
+<use f='codebrowser/code/server/sv_main.c' l='614' u='c' c='SVC_Info'/>
+<use f='codebrowser/code/server/sv_main.c' l='724' u='c' c='SVC_RemoteCommand'/>
+<doc f='codebrowser/code/server/sv_main.c' l='475'>/*
+================
+SVC_RateLimit
+================
+*/</doc>

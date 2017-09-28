@@ -1,0 +1,14 @@
+<dec f='codebrowser/code/renderergl1/tr_local.h' l='320' type='int'/>
+<offset>576</offset>
+<doc f='codebrowser/code/renderergl1/tr_local.h' l='320'>// this shader == tr.sortedShaders[sortedIndex]</doc>
+<use f='codebrowser/code/renderergl1/tr_main.c' l='1111' u='r' c='R_AddDrawSurf'/>
+<use f='codebrowser/code/renderergl1/tr_shader.c' l='2018' u='w' c='SortNewShader'/>
+<use f='codebrowser/code/renderergl1/tr_shader.c' l='2025' u='w' c='SortNewShader'/>
+<use f='codebrowser/code/renderergl1/tr_shader.c' l='2059' u='w' c='GeneratePermanentShader'/>
+<dec f='codebrowser/code/renderergl2/tr_local.h' l='433' type='int'/>
+<offset>576</offset>
+<doc f='codebrowser/code/renderergl2/tr_local.h' l='433'>// this shader == tr.sortedShaders[sortedIndex]</doc>
+<use f='codebrowser/code/renderergl2/tr_main.c' l='1470' u='r' c='R_AddDrawSurf'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='2724' u='w' c='SortNewShader'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='2731' u='w' c='SortNewShader'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='2765' u='w' c='GeneratePermanentShader'/>

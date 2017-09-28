@@ -1,0 +1,20 @@
+<dec f='codebrowser/code/botlib/be_aas_reach.h' l='52' type='int AAS_AreaCrouch(int areanum)'/>
+<dec f='codebrowser/code/botlib/be_aas_reach.h' l='52' type='int AAS_AreaCrouch(int areanum)'/>
+<doc f='codebrowser/code/botlib/be_aas_reach.h' l='51'>//returns true if the area is crouch only</doc>
+<def f='codebrowser/code/botlib/be_aas_reach.c' l='656' ll='660' type='int AAS_AreaCrouch(int areanum)'/>
+<use f='codebrowser/code/botlib/be_aas_reach.c' l='1030' u='c' c='AAS_Reachability_EqualFloorHeight'/>
+<use f='codebrowser/code/botlib/be_aas_reach.c' l='1030' u='c' c='AAS_Reachability_EqualFloorHeight'/>
+<use f='codebrowser/code/botlib/be_aas_reach.c' l='1371' u='c' c='AAS_Reachability_Step_Barrier_WaterJump_WalkOffLedge'/>
+<use f='codebrowser/code/botlib/be_aas_reach.c' l='1371' u='c' c='AAS_Reachability_Step_Barrier_WaterJump_WalkOffLedge'/>
+<use f='codebrowser/code/botlib/be_aas_reach.c' l='1473' u='c' c='AAS_Reachability_Step_Barrier_WaterJump_WalkOffLedge'/>
+<use f='codebrowser/code/botlib/be_aas_reach.c' l='1473' u='c' c='AAS_Reachability_Step_Barrier_WaterJump_WalkOffLedge'/>
+<use f='codebrowser/code/botlib/be_aas_reach.c' l='2123' u='c' c='AAS_Reachability_Jump'/>
+<use f='codebrowser/code/botlib/be_aas_reach.c' l='2123' u='c' c='AAS_Reachability_Jump'/>
+<doc f='codebrowser/code/botlib/be_aas_reach.c' l='649'>//===========================================================================
+// returns true if a player can only crouch in the area
+//
+// Parameter:				-
+// Returns:					-
+// Changes Globals:		-
+//===========================================================================</doc>
+<use f='codebrowser/code/botlib/be_aas_route.c' l='482' u='c' c='AAS_AreaTravelTime'/>

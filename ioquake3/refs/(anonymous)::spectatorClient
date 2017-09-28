@@ -1,0 +1,23 @@
+<dec f='codebrowser/code/game/g_local.h' l='224' type='int'/>
+<offset>96</offset>
+<doc f='codebrowser/code/game/g_local.h' l='224'>// for chasecam and follow mode</doc>
+<use f='codebrowser/code/game/g_active.c' l='1061' u='r' c='SpectatorClientEndFrame'/>
+<use f='codebrowser/code/game/g_active.c' l='1079' u='r' c='SpectatorClientEndFrame'/>
+<use f='codebrowser/code/game/g_client.c' l='1276' u='r' c='ClientDisconnect'/>
+<use f='codebrowser/code/game/g_cmds.c' l='625' u='w' c='SetTeam'/>
+<use f='codebrowser/code/game/g_cmds.c' l='768' u='w' c='Cmd_Follow_f'/>
+<use f='codebrowser/code/game/g_cmds.c' l='795' u='r' c='Cmd_FollowCycle_f'/>
+<use f='codebrowser/code/game/g_cmds.c' l='796' u='r' c='Cmd_FollowCycle_f'/>
+<use f='codebrowser/code/game/g_cmds.c' l='797' u='w' c='Cmd_FollowCycle_f'/>
+<use f='codebrowser/code/game/g_cmds.c' l='798' u='r' c='Cmd_FollowCycle_f'/>
+<use f='codebrowser/code/game/g_cmds.c' l='799' u='w' c='Cmd_FollowCycle_f'/>
+<use f='codebrowser/code/game/g_cmds.c' l='804' u='r' c='Cmd_FollowCycle_f'/>
+<use f='codebrowser/code/game/g_cmds.c' l='826' u='w' c='Cmd_FollowCycle_f'/>
+<use f='codebrowser/code/game/g_combat.c' l='585' u='r' c='player_die'/>
+<use f='codebrowser/code/game/g_main.c' l='607' u='r' c='AddTournamentPlayer'/>
+<use f='codebrowser/code/game/g_main.c' l='733' u='r' c='SortRanks'/>
+<use f='codebrowser/code/game/g_main.c' l='736' u='r' c='SortRanks'/>
+<use f='codebrowser/code/game/g_session.c' l='51' u='r' c='G_WriteClientSessionData'/>
+<use f='codebrowser/code/game/g_session.c' l='83' u='a' c='G_ReadSessionData'/>
+<use f='codebrowser/code/game/g_team.c' l='1067' u='r' c='TeamplayInfoMessage'/>
+<use f='codebrowser/code/game/g_team.c' l='1070' u='r' c='TeamplayInfoMessage'/>

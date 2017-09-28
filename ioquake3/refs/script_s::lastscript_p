@@ -1,0 +1,9 @@
+<dec f='codebrowser/code/botlib/l_script.h' l='180' type='char *'/>
+<offset>8384</offset>
+<doc f='codebrowser/code/botlib/l_script.h' l='180'>//script pointer before reading token</doc>
+<use f='codebrowser/code/botlib/l_script.c' l='860' u='w' c='PS_ReadToken'/>
+<use f='codebrowser/code/botlib/l_script.c' l='1033' u='r' c='PS_CheckTokenString'/>
+<use f='codebrowser/code/botlib/l_script.c' l='1055' u='r' c='PS_CheckTokenType'/>
+<use f='codebrowser/code/botlib/l_script.c' l='1240' u='w' c='ResetScript'/>
+<use f='codebrowser/code/botlib/l_script.c' l='1362' u='w' c='LoadScriptFile'/>
+<use f='codebrowser/code/botlib/l_script.c' l='1408' u='w' c='LoadScriptMemory'/>

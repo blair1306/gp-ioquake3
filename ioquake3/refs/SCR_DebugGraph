@@ -1,0 +1,13 @@
+<dec f='codebrowser/code/qcommon/qcommon.h' l='1039' type='void SCR_DebugGraph(float value)'/>
+<dec f='codebrowser/code/client/client.h' l='568' type='void SCR_DebugGraph(float value)'/>
+<doc f='codebrowser/code/qcommon/qcommon.h' l='1037'>// call before filesystem access</doc>
+<doc f='codebrowser/code/qcommon/qcommon.h' l='1039'>// FIXME: move logging to common?</doc>
+<use f='codebrowser/code/client/cl_input.c' l='613' u='c' c='CL_CreateCmd'/>
+<use f='codebrowser/code/client/cl_input.c' l='616' u='c' c='CL_CreateCmd'/>
+<use f='codebrowser/code/client/cl_main.c' l='3028' u='c' c='CL_Frame'/>
+<def f='codebrowser/code/client/cl_scrn.c' l='408' ll='412' type='void SCR_DebugGraph(float value)'/>
+<doc f='codebrowser/code/client/cl_scrn.c' l='403'>/*
+==============
+SCR_DebugGraph
+==============
+*/</doc>

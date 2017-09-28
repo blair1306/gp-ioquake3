@@ -1,0 +1,19 @@
+<dec f='codebrowser/code/game/bg_public.h' l='703' type='void BG_PlayerStateToEntityState(playerState_t * ps, entityState_t * s, qboolean snap)'/>
+<use f='codebrowser/code/cgame/cg_ents.c' l='1036' u='c' c='CG_AddPacketEntities'/>
+<use f='codebrowser/code/cgame/cg_snapshot.c' l='90' u='c' c='CG_SetInitialSnapshot'/>
+<use f='codebrowser/code/cgame/cg_snapshot.c' l='154' u='c' c='CG_TransitionSnapshot'/>
+<use f='codebrowser/code/cgame/cg_snapshot.c' l='203' u='c' c='CG_SetNextSnap'/>
+<def f='codebrowser/code/game/bg_misc.c' l='1464' ll='1530' type='void BG_PlayerStateToEntityState(playerState_t * ps, entityState_t * s, qboolean snap)'/>
+<doc f='codebrowser/code/game/bg_misc.c' l='1456'>/*
+========================
+BG_PlayerStateToEntityState
+
+This is done after each set of usercmd_t on the server,
+and after local prediction on the client
+========================
+*/</doc>
+<use f='codebrowser/code/game/g_active.c' l='726' u='c' c='SendPendingPredictableEvents'/>
+<use f='codebrowser/code/game/g_active.c' l='948' u='c' c='ClientThink_real'/>
+<use f='codebrowser/code/game/g_active.c' l='1175' u='c' c='ClientEndFrame'/>
+<use f='codebrowser/code/game/g_client.c' l='1242' u='c' c='ClientSpawn'/>
+<use f='codebrowser/code/game/g_misc.c' l='116' u='c' c='TeleportPlayer'/>

@@ -1,0 +1,5 @@
+<dec f='codebrowser/code/opus-1.1.4/silk/main.h' l='220' type='void silk_VQ_WMat_EC_c(signed char * ind, opus_int32 * rate_dist_Q14, int * gain_Q7, const opus_int16 * in_Q14, const opus_int32 * W_Q18, const signed char * cb_Q7, const unsigned char * cb_gain_Q7, const unsigned char * cl_Q5, const int mu_Q9, const opus_int32 max_gain_Q7, int L)'/>
+<doc f='codebrowser/code/opus-1.1.4/silk/main.h' l='219'>/* Entropy constrained matrix-weighted VQ, for a single input data vector */</doc>
+<def f='codebrowser/code/opus-1.1.4/silk/VQ_WMat_EC.c' l='35' ll='120' type='void silk_VQ_WMat_EC_c(signed char * ind, opus_int32 * rate_dist_Q14, int * gain_Q7, const opus_int16 * in_Q14, const opus_int32 * W_Q18, const signed char * cb_Q7, const unsigned char * cb_gain_Q7, const unsigned char * cl_Q5, const int mu_Q9, const opus_int32 max_gain_Q7, int L)'/>
+<doc f='codebrowser/code/opus-1.1.4/silk/VQ_WMat_EC.c' l='34'>/* Entropy constrained matrix-weighted VQ, hard-coded to 5-element vectors, for a single input data vector */</doc>
+<use f='codebrowser/code/opus-1.1.4/silk/quant_LTP_gains.c' l='83' macro='1' u='c'/>

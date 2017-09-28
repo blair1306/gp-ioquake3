@@ -1,0 +1,14 @@
+<dec f='codebrowser/code/qcommon/qcommon.h' l='668' type='long FS_ReadFileDir(const char * qpath, void * searchPath, qboolean unpure, void ** buffer)'/>
+<doc f='codebrowser/code/qcommon/qcommon.h' l='666'>// note: you can&apos;t just fclose from another DLL, due to MS libc issues</doc>
+<def f='codebrowser/code/qcommon/files.c' l='1815' ll='1935' type='long FS_ReadFileDir(const char * qpath, void * searchPath, qboolean unpure, void ** buffer)'/>
+<use f='codebrowser/code/qcommon/files.c' l='1947' u='c' c='FS_ReadFile'/>
+<doc f='codebrowser/code/qcommon/files.c' l='1806'>/*
+============
+FS_ReadFileDir
+
+Filename are relative to the quake search path
+a null buffer will just return the file length without loading
+If searchPath is non-NULL search only in that specific search path
+============
+*/</doc>
+<use f='codebrowser/code/qcommon/vm.c' l='380' u='c' c='VM_LoadQVM'/>

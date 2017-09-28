@@ -1,0 +1,29 @@
+<dec f='codebrowser/code/renderergl1/tr_local.h' l='709' type='fog_t *'/>
+<use f='codebrowser/code/renderergl1/tr_animation.c' l='155' u='r' c='R_MDRComputeFogNum'/>
+<offset>1792</offset>
+<use f='codebrowser/code/renderergl1/tr_bsp.c' l='1555' u='w' c='R_LoadFogs'/>
+<use f='codebrowser/code/renderergl1/tr_bsp.c' l='1556' u='r' c='R_LoadFogs'/>
+<use f='codebrowser/code/renderergl1/tr_flares.c' l='233' u='r' c='RB_AddDlightFlares'/>
+<use f='codebrowser/code/renderergl1/tr_flares.c' l='241' u='r' c='RB_AddDlightFlares'/>
+<use f='codebrowser/code/renderergl1/tr_main.c' l='1019' u='r' c='R_SpriteFogNum'/>
+<use f='codebrowser/code/renderergl1/tr_mesh.c' l='259' u='r' c='R_ComputeFogNum'/>
+<use f='codebrowser/code/renderergl1/tr_model_iqm.c' l='813' u='r' c='R_ComputeIQMFogNum'/>
+<use f='codebrowser/code/renderergl1/tr_scene.c' l='171' u='r' c='RE_AddPolyToScene'/>
+<use f='codebrowser/code/renderergl1/tr_shade.c' l='769' u='r' c='RB_FogPass'/>
+<use f='codebrowser/code/renderergl1/tr_shade.c' l='860' u='r' c='ComputeColors'/>
+<use f='codebrowser/code/renderergl1/tr_shade_calc.c' l='818' u='r' c='RB_CalcFogTexCoords'/>
+<dec f='codebrowser/code/renderergl2/tr_local.h' l='1115' type='fog_t *'/>
+<use f='codebrowser/code/renderergl2/tr_animation.c' l='155' u='r' c='R_MDRComputeFogNum'/>
+<offset>2048</offset>
+<use f='codebrowser/code/renderergl2/tr_bsp.c' l='2074' u='w' c='R_LoadFogs'/>
+<use f='codebrowser/code/renderergl2/tr_bsp.c' l='2075' u='r' c='R_LoadFogs'/>
+<use f='codebrowser/code/renderergl2/tr_flares.c' l='233' u='r' c='RB_AddDlightFlares'/>
+<use f='codebrowser/code/renderergl2/tr_flares.c' l='241' u='r' c='RB_AddDlightFlares'/>
+<use f='codebrowser/code/renderergl2/tr_main.c' l='1378' u='r' c='R_SpriteFogNum'/>
+<use f='codebrowser/code/renderergl2/tr_mesh.c' l='260' u='r' c='R_ComputeFogNum'/>
+<use f='codebrowser/code/renderergl2/tr_model_iqm.c' l='813' u='r' c='R_ComputeIQMFogNum'/>
+<use f='codebrowser/code/renderergl2/tr_scene.c' l='175' u='r' c='RE_AddPolyToScene'/>
+<use f='codebrowser/code/renderergl2/tr_shade.c' l='466' u='r' c='ComputeShaderColors'/>
+<use f='codebrowser/code/renderergl2/tr_shade.c' l='579' u='r' c='ComputeFogValues'/>
+<use f='codebrowser/code/renderergl2/tr_shade.c' l='917' u='r' c='RB_FogPass'/>
+<use f='codebrowser/code/renderergl2/tr_shade_calc.c' l='688' u='r' c='RB_CalcFogTexCoords'/>

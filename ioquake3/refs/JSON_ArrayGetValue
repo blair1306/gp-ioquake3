@@ -1,0 +1,5 @@
+<dec f='codebrowser/code/qcommon/json.h' l='54' type='const char * JSON_ArrayGetValue(const char * json, const char * jsonEnd, unsigned int index)'/>
+<def f='codebrowser/code/qcommon/json.h' l='207' ll='213' type='const char * JSON_ArrayGetValue(const char * json, const char * jsonEnd, unsigned int index)'/>
+<use f='codebrowser/code/renderergl2/tr_bsp.c' l='2502' u='c' c='R_LoadEnvironmentJson'/>
+<doc f='codebrowser/code/qcommon/json.h' l='52'>// Get pointer to indexed value from array
+// returns NULL if not an array, no index, or out of data</doc>

@@ -1,0 +1,9 @@
+<dec f='include/x86_64-linux-gnu/sys/socket.h' l='226' type='int setsockopt(int __fd, int __level, int __optname, const void * __optval, socklen_t __optlen)'/>
+<doc f='include/x86_64-linux-gnu/sys/socket.h' l='223'>/* Set socket FD&apos;s option OPTNAME at protocol level LEVEL
+   to *OPTVAL (which is OPTLEN bytes long).
+   Returns 0 on success, -1 for errors.  */</doc>
+<use f='codebrowser/code/qcommon/net_ip.c' l='842' u='c' c='NET_IPSocket'/>
+<use f='codebrowser/code/qcommon/net_ip.c' l='918' u='c' c='NET_IP6Socket'/>
+<use f='codebrowser/code/qcommon/net_ip.c' l='1022' u='c' c='NET_JoinMulticast6'/>
+<use f='codebrowser/code/qcommon/net_ip.c' l='1036' u='c' c='NET_JoinMulticast6'/>
+<use f='codebrowser/code/qcommon/net_ip.c' l='1056' u='c' c='NET_LeaveMulticast6'/>

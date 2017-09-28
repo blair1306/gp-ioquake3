@@ -1,0 +1,11 @@
+<dec f='codebrowser/code/game/g_spawn.c' l='154' type='void SP_target_push(gentity_t * ent)'/>
+<use f='codebrowser/code/game/g_spawn.c' l='230'/>
+<use f='codebrowser/code/game/g_spawn.c' l='230'/>
+<use f='codebrowser/code/game/g_spawn.c' l='230'/>
+<use f='codebrowser/code/game/g_spawn.c' l='230'/>
+<def f='codebrowser/code/game/g_trigger.c' l='242' ll='261' type='void SP_target_push(gentity_t * self)'/>
+<doc f='codebrowser/code/game/g_trigger.c' l='237'>/*QUAKED target_push (.5 .5 .5) (-8 -8 -8) (8 8 8) bouncepad
+Pushes the activator in the direction.of angle, or towards a target apex.
+&quot;speed&quot;		defaults to 1000
+if &quot;bouncepad&quot;, play bounce noise instead of windfly
+*/</doc>

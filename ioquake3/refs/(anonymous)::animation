@@ -1,0 +1,16 @@
+<dec f='codebrowser/code/cgame/cg_local.h' l='138' type='animation_t *'/>
+<offset>320</offset>
+<use f='codebrowser/code/cgame/cg_players.c' l='1122' u='w' c='CG_SetLerpFrameAnimation'/>
+<use f='codebrowser/code/cgame/cg_players.c' l='1149' u='r' c='CG_RunLerpFrame'/>
+<use f='codebrowser/code/cgame/cg_players.c' l='1160' u='r' c='CG_RunLerpFrame'/>
+<use f='codebrowser/code/cgame/cg_players.c' l='1229' u='r' c='CG_ClearLerpFrame'/>
+<dec f='codebrowser/code/q3_ui/ui_local.h' l='470' type='animation_t *'/>
+<offset>320</offset>
+<use f='codebrowser/code/q3_ui/ui_players.c' l='355' u='w' c='UI_SetLerpFrameAnimation'/>
+<use f='codebrowser/code/q3_ui/ui_players.c' l='370' u='r' c='UI_RunLerpFrame'/>
+<use f='codebrowser/code/q3_ui/ui_players.c' l='381' u='r' c='UI_RunLerpFrame'/>
+<dec f='codebrowser/code/ui/ui_local.h' l='517' type='animation_t *'/>
+<offset>320</offset>
+<use f='codebrowser/code/ui/ui_players.c' l='356' u='w' c='UI_SetLerpFrameAnimation'/>
+<use f='codebrowser/code/ui/ui_players.c' l='371' u='r' c='UI_RunLerpFrame'/>
+<use f='codebrowser/code/ui/ui_players.c' l='382' u='r' c='UI_RunLerpFrame'/>

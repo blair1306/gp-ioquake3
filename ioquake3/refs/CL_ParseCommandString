@@ -1,0 +1,10 @@
+<def f='codebrowser/code/client/cl_parse.c' l='834' ll='850' type='void CL_ParseCommandString(msg_t * msg)'/>
+<use f='codebrowser/code/client/cl_parse.c' l='908' u='c' c='CL_ParseServerMessage'/>
+<doc f='codebrowser/code/client/cl_parse.c' l='826'>/*
+=====================
+CL_ParseCommandString
+
+Command strings are just saved off until cgame asks for them
+when it transitions a snapshot
+=====================
+*/</doc>

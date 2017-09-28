@@ -1,0 +1,15 @@
+<dec f='codebrowser/code/qcommon/q_shared.h' l='710' type='qboolean PlaneFromPoints(vec_t * plane, const vec_t * a, const vec_t * b, const vec_t * c)'/>
+<def f='codebrowser/code/qcommon/q_math.c' l='270' ll='282' type='qboolean PlaneFromPoints(vec_t * plane, const vec_t * a, const vec_t * b, const vec_t * c)'/>
+<doc f='codebrowser/code/qcommon/q_math.c' l='262'>/*
+=====================
+PlaneFromPoints
+
+Returns false if the triangle is degenrate.
+The normal will point out of the clock for clockwise ordered points
+=====================
+*/</doc>
+<use f='codebrowser/code/renderergl1/tr_main.c' l='642' u='c' c='R_PlaneForSurface'/>
+<use f='codebrowser/code/renderergl1/tr_main.c' l='648' u='c' c='R_PlaneForSurface'/>
+<use f='codebrowser/code/renderergl2/tr_main.c' l='992' u='c' c='R_PlaneForSurface'/>
+<use f='codebrowser/code/renderergl2/tr_main.c' l='998' u='c' c='R_PlaneForSurface'/>
+<dec f='codebrowser/code/tools/asm/mathlib.h' l='88' type='qboolean PlaneFromPoints(vec_t * plane, const vec_t * a, const vec_t * b, const vec_t * c)'/>

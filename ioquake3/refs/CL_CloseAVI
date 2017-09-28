@@ -1,0 +1,14 @@
+<dec f='codebrowser/code/client/client.h' l='636' type='qboolean CL_CloseAVI()'/>
+<use f='codebrowser/code/client/cl_avi.c' l='444' u='c' c='CL_CheckFileSize'/>
+<def f='codebrowser/code/client/cl_avi.c' l='590' ll='655' type='qboolean CL_CloseAVI()'/>
+<doc f='codebrowser/code/client/cl_avi.c' l='583'>/*
+===============
+CL_CloseAVI
+
+Closes the AVI file and writes an index chunk
+===============
+*/</doc>
+<use f='codebrowser/code/client/cl_main.c' l='1208' u='c' c='CL_ShutdownAll'/>
+<use f='codebrowser/code/client/cl_main.c' l='1473' u='c' c='CL_Disconnect'/>
+<use f='codebrowser/code/client/cl_main.c' l='1934' u='c' c='CL_Vid_Restart_f'/>
+<use f='codebrowser/code/client/cl_main.c' l='3395' u='c' c='CL_StopVideo_f'/>

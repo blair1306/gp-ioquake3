@@ -1,0 +1,68 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>ui_sparena.c source code [codebrowser/code/q3_ui/ui_sparena.c] - Woboq Code Browser</title>
+<link rel="stylesheet" href="../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'codebrowser/code/q3_ui/ui_sparena.c'; var root_path = '../../..'; var data_path = '../../../../data';</script>
+<script src='../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../..'>codebrowser</a>/<a href='..'>code</a>/<a href='./'>q3_ui</a>/<a href='ui_sparena.c.html'>ui_sparena.c</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/*</i></td></tr>
+<tr><th id="2">2</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="3">3</th><td><i>Copyright (C) 1999-2005 Id Software, Inc.</i></td></tr>
+<tr><th id="4">4</th><td><i></i></td></tr>
+<tr><th id="5">5</th><td><i>This file is part of Quake III Arena source code.</i></td></tr>
+<tr><th id="6">6</th><td><i></i></td></tr>
+<tr><th id="7">7</th><td><i>Quake III Arena source code is free software; you can redistribute it</i></td></tr>
+<tr><th id="8">8</th><td><i>and/or modify it under the terms of the GNU General Public License as</i></td></tr>
+<tr><th id="9">9</th><td><i>published by the Free Software Foundation; either version 2 of the License,</i></td></tr>
+<tr><th id="10">10</th><td><i>or (at your option) any later version.</i></td></tr>
+<tr><th id="11">11</th><td><i></i></td></tr>
+<tr><th id="12">12</th><td><i>Quake III Arena source code is distributed in the hope that it will be</i></td></tr>
+<tr><th id="13">13</th><td><i>useful, but WITHOUT ANY WARRANTY; without even the implied warranty of</i></td></tr>
+<tr><th id="14">14</th><td><i>MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</i></td></tr>
+<tr><th id="15">15</th><td><i>GNU General Public License for more details.</i></td></tr>
+<tr><th id="16">16</th><td><i></i></td></tr>
+<tr><th id="17">17</th><td><i>You should have received a copy of the GNU General Public License</i></td></tr>
+<tr><th id="18">18</th><td><i>along with Quake III Arena source code; if not, write to the Free Software</i></td></tr>
+<tr><th id="19">19</th><td><i>Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA</i></td></tr>
+<tr><th id="20">20</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="21">21</th><td><i>*/</i></td></tr>
+<tr><th id="22">22</th><td><i>//</i></td></tr>
+<tr><th id="23">23</th><td><u>#include <a href="ui_local.h.html">"ui_local.h"</a></u></td></tr>
+<tr><th id="24">24</th><td></td></tr>
+<tr><th id="25">25</th><td><em>void</em> <dfn class="decl def" id="UI_SPArena_Start" title='UI_SPArena_Start' data-ref="UI_SPArena_Start">UI_SPArena_Start</dfn>( <em>const</em> <em>char</em> *<dfn class="local col1 decl" id="1arenaInfo" title='arenaInfo' data-type='const char *' data-ref="1arenaInfo">arenaInfo</dfn> ) {</td></tr>
+<tr><th id="26">26</th><td>	<em>char</em>	*<dfn class="local col2 decl" id="2map" title='map' data-type='char *' data-ref="2map">map</dfn>;</td></tr>
+<tr><th id="27">27</th><td>	<em>int</em>		<dfn class="local col3 decl" id="3level" title='level' data-type='int' data-ref="3level">level</dfn>;</td></tr>
+<tr><th id="28">28</th><td>	<em>int</em>		<dfn class="local col4 decl" id="4n" title='n' data-type='int' data-ref="4n">n</dfn>;</td></tr>
+<tr><th id="29">29</th><td>	<em>char</em>	*<dfn class="local col5 decl" id="5txt" title='txt' data-type='char *' data-ref="5txt">txt</dfn>;</td></tr>
+<tr><th id="30">30</th><td></td></tr>
+<tr><th id="31">31</th><td>	<a class="local col4 ref" href="#4n" title='n' data-ref="4n">n</a> = (<em>int</em>)<a class="ref" href="ui_local.h.html#trap_Cvar_VariableValue" title='trap_Cvar_VariableValue' data-ref="trap_Cvar_VariableValue">trap_Cvar_VariableValue</a>( <q>"sv_maxclients"</q> );</td></tr>
+<tr><th id="32">32</th><td>	<b>if</b> ( <a class="local col4 ref" href="#4n" title='n' data-ref="4n">n</a> &lt; <var>8</var> ) {</td></tr>
+<tr><th id="33">33</th><td>		<a class="ref" href="ui_local.h.html#trap_Cvar_SetValue" title='trap_Cvar_SetValue' data-ref="trap_Cvar_SetValue">trap_Cvar_SetValue</a>( <q>"sv_maxclients"</q>, <var>8</var> );</td></tr>
+<tr><th id="34">34</th><td>	}</td></tr>
+<tr><th id="35">35</th><td></td></tr>
+<tr><th id="36">36</th><td>	<a class="local col3 ref" href="#3level" title='level' data-ref="3level">level</a> = <a class="ref" href="../../../include/stdlib.h.html#atoi" title='atoi' data-ref="atoi">atoi</a>( <a class="ref" href="../qcommon/q_shared.h.html#Info_ValueForKey" title='Info_ValueForKey' data-ref="Info_ValueForKey">Info_ValueForKey</a>( <a class="local col1 ref" href="#1arenaInfo" title='arenaInfo' data-ref="1arenaInfo">arenaInfo</a>, <q>"num"</q> ) );</td></tr>
+<tr><th id="37">37</th><td>	<a class="local col5 ref" href="#5txt" title='txt' data-ref="5txt">txt</a> = <a class="ref" href="../qcommon/q_shared.h.html#Info_ValueForKey" title='Info_ValueForKey' data-ref="Info_ValueForKey">Info_ValueForKey</a>( <a class="local col1 ref" href="#1arenaInfo" title='arenaInfo' data-ref="1arenaInfo">arenaInfo</a>, <q>"special"</q> );</td></tr>
+<tr><th id="38">38</th><td>	<b>if</b>( <a class="local col5 ref" href="#5txt" title='txt' data-ref="5txt">txt</a>[<var>0</var>] ) {</td></tr>
+<tr><th id="39">39</th><td>		<b>if</b>( <a class="ref" href="../qcommon/q_shared.h.html#Q_stricmp" title='Q_stricmp' data-ref="Q_stricmp">Q_stricmp</a>( <a class="local col5 ref" href="#5txt" title='txt' data-ref="5txt">txt</a>, <q>"training"</q> ) == <var>0</var> ) {</td></tr>
+<tr><th id="40">40</th><td>			<a class="local col3 ref" href="#3level" title='level' data-ref="3level">level</a> = -<var>4</var>;</td></tr>
+<tr><th id="41">41</th><td>		}</td></tr>
+<tr><th id="42">42</th><td>		<b>else</b> <b>if</b>( <a class="ref" href="../qcommon/q_shared.h.html#Q_stricmp" title='Q_stricmp' data-ref="Q_stricmp">Q_stricmp</a>( <a class="local col5 ref" href="#5txt" title='txt' data-ref="5txt">txt</a>, <q>"final"</q> ) == <var>0</var> ) {</td></tr>
+<tr><th id="43">43</th><td>			<a class="local col3 ref" href="#3level" title='level' data-ref="3level">level</a> = <a class="ref" href="ui_local.h.html#UI_GetNumSPTiers" title='UI_GetNumSPTiers' data-ref="UI_GetNumSPTiers">UI_GetNumSPTiers</a>() * <a class="macro" href="../game/bg_public.h.html#709" title="4" data-ref="_M/ARENAS_PER_TIER">ARENAS_PER_TIER</a>;</td></tr>
+<tr><th id="44">44</th><td>		}</td></tr>
+<tr><th id="45">45</th><td>	}</td></tr>
+<tr><th id="46">46</th><td>	<a class="ref" href="ui_local.h.html#trap_Cvar_SetValue" title='trap_Cvar_SetValue' data-ref="trap_Cvar_SetValue">trap_Cvar_SetValue</a>( <q>"ui_spSelection"</q>, <a class="local col3 ref" href="#3level" title='level' data-ref="3level">level</a> );</td></tr>
+<tr><th id="47">47</th><td></td></tr>
+<tr><th id="48">48</th><td>	<a class="local col2 ref" href="#2map" title='map' data-ref="2map">map</a> = <a class="ref" href="../qcommon/q_shared.h.html#Info_ValueForKey" title='Info_ValueForKey' data-ref="Info_ValueForKey">Info_ValueForKey</a>( <a class="local col1 ref" href="#1arenaInfo" title='arenaInfo' data-ref="1arenaInfo">arenaInfo</a>, <q>"map"</q> );</td></tr>
+<tr><th id="49">49</th><td>	<a class="ref" href="ui_local.h.html#trap_Cmd_ExecuteText" title='trap_Cmd_ExecuteText' data-ref="trap_Cmd_ExecuteText">trap_Cmd_ExecuteText</a>( <a class="enum" href="../qcommon/q_shared.h.html#EXEC_APPEND" title='EXEC_APPEND' data-ref="EXEC_APPEND">EXEC_APPEND</a>, <a class="ref" href="../qcommon/q_shared.h.html#va" title='va' data-ref="va">va</a>( <q>"spmap %s\n"</q>, <a class="local col2 ref" href="#2map" title='map' data-ref="2map">map</a> ) );</td></tr>
+<tr><th id="50">50</th><td>}</td></tr>
+<tr><th id="51">51</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated on <em>2017-Aug-29</em> from project codebrowser revision <em>63e07af</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

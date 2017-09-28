@@ -1,0 +1,12 @@
+<dec f='codebrowser/code/game/g_local.h' l='304' type='gentity_t *'/>
+<offset>6080</offset>
+<doc f='codebrowser/code/game/g_local.h' l='304'>// grapple hook if out</doc>
+<use f='codebrowser/code/game/g_active.c' l='853' u='r' c='ClientThink_real'/>
+<use f='codebrowser/code/game/g_active.c' l='854' u='r' c='ClientThink_real'/>
+<use f='codebrowser/code/game/g_combat.c' l='455' u='r' c='player_die'/>
+<use f='codebrowser/code/game/g_combat.c' l='456' u='r' c='player_die'/>
+<use f='codebrowser/code/game/g_missile.c' l='488' u='r' c='G_RunMissile'/>
+<use f='codebrowser/code/game/g_missile.c' l='489' u='w' c='G_RunMissile'/>
+<use f='codebrowser/code/game/g_missile.c' l='708' u='w' c='fire_grapple'/>
+<use f='codebrowser/code/game/g_weapon.c' l='576' u='r' c='Weapon_GrapplingHook_Fire'/>
+<use f='codebrowser/code/game/g_weapon.c' l='584' u='w' c='Weapon_HookFree'/>

@@ -1,0 +1,26 @@
+<def f='codebrowser/code/botlib/botlib.h' l='268' ll='298'/>
+<size>192</size>
+<mbr r='ea_export_s::EA_Command' o='0' t='void (*)(int, char *)'/>
+<mbr r='ea_export_s::EA_Say' o='64' t='void (*)(int, char *)'/>
+<mbr r='ea_export_s::EA_SayTeam' o='128' t='void (*)(int, char *)'/>
+<mbr r='ea_export_s::EA_Action' o='192' t='void (*)(int, int)'/>
+<mbr r='ea_export_s::EA_Gesture' o='256' t='void (*)(int)'/>
+<mbr r='ea_export_s::EA_Talk' o='320' t='void (*)(int)'/>
+<mbr r='ea_export_s::EA_Attack' o='384' t='void (*)(int)'/>
+<mbr r='ea_export_s::EA_Use' o='448' t='void (*)(int)'/>
+<mbr r='ea_export_s::EA_Respawn' o='512' t='void (*)(int)'/>
+<mbr r='ea_export_s::EA_MoveUp' o='576' t='void (*)(int)'/>
+<mbr r='ea_export_s::EA_MoveDown' o='640' t='void (*)(int)'/>
+<mbr r='ea_export_s::EA_MoveForward' o='704' t='void (*)(int)'/>
+<mbr r='ea_export_s::EA_MoveBack' o='768' t='void (*)(int)'/>
+<mbr r='ea_export_s::EA_MoveLeft' o='832' t='void (*)(int)'/>
+<mbr r='ea_export_s::EA_MoveRight' o='896' t='void (*)(int)'/>
+<mbr r='ea_export_s::EA_Crouch' o='960' t='void (*)(int)'/>
+<mbr r='ea_export_s::EA_SelectWeapon' o='1024' t='void (*)(int, int)'/>
+<mbr r='ea_export_s::EA_Jump' o='1088' t='void (*)(int)'/>
+<mbr r='ea_export_s::EA_DelayedJump' o='1152' t='void (*)(int)'/>
+<mbr r='ea_export_s::EA_Move' o='1216' t='void (*)(int, vec_t *, float)'/>
+<mbr r='ea_export_s::EA_View' o='1280' t='void (*)(int, vec_t *)'/>
+<mbr r='ea_export_s::EA_EndRegular' o='1344' t='void (*)(int, float)'/>
+<mbr r='ea_export_s::EA_GetInput' o='1408' t='void (*)(int, float, bot_input_t *)'/>
+<mbr r='ea_export_s::EA_ResetInput' o='1472' t='void (*)(int)'/>

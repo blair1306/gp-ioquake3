@@ -1,0 +1,28 @@
+<dec f='codebrowser/code/opusfile-0.8/include/opusfile.h' l='1410' type='int op_test_open(OggOpusFile * _of)'/>
+<doc f='codebrowser/code/opusfile-0.8/include/opusfile.h' l='1384'>/**Finish opening a stream partially opened with op_test_callbacks() or one of
+    the associated convenience functions.
+   If this function fails, you are still responsible for freeing the
+    \c OggOpusFile with op_free().
+   \param _of The \c OggOpusFile to finish opening.
+   \return 0 on success, or a negative value on error.
+   \retval #OP_EREAD         An underlying read, seek, or tell operation failed
+                              when it should have succeeded.
+   \retval #OP_EFAULT        There was a memory allocation failure, or an
+                              internal library error.
+   \retval #OP_EIMPL         The stream used a feature that is not implemented,
+                              such as an unsupported channel family.
+   \retval #OP_EINVAL        The stream was not partially opened with
+                              op_test_callbacks() or one of the associated
+                              convenience functions.
+   \retval #OP_ENOTFORMAT    The stream contained a link that did not have any
+                              logical Opus streams in it.
+   \retval #OP_EBADHEADER    A required header packet was not properly
+                              formatted, contained illegal values, or was
+                              missing altogether.
+   \retval #OP_EVERSION      An ID header contained an unrecognized version
+                              number.
+   \retval #OP_EBADLINK      We failed to find data we had seen before after
+                              seeking.
+   \retval #OP_EBADTIMESTAMP The first or last timestamp in a link failed basic
+                              validity checks.*/</doc>
+<def f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='1680' ll='1688' type='int op_test_open(OggOpusFile * _of)'/>

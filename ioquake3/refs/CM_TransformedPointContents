@@ -1,0 +1,12 @@
+<dec f='codebrowser/code/qcommon/cm_public.h' l='39' type='int CM_TransformedPointContents(const vec_t * p, clipHandle_t model, const vec_t * origin, const vec_t * angles)'/>
+<use f='codebrowser/code/client/cl_cgame.c' l='487' u='c' c='CL_CgameSystemCalls'/>
+<def f='codebrowser/code/qcommon/cm_test.c' l='283' ll='304' type='int CM_TransformedPointContents(const vec_t * p, clipHandle_t model, const vec_t * origin, const vec_t * angles)'/>
+<doc f='codebrowser/code/qcommon/cm_test.c' l='275'>/*
+==================
+CM_TransformedPointContents
+
+Handles offseting and rotation of the end points for moving and
+rotating entities
+==================
+*/</doc>
+<use f='codebrowser/code/server/sv_world.c' l='679' u='c' c='SV_PointContents'/>

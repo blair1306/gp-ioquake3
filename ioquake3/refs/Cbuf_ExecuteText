@@ -1,0 +1,19 @@
+<dec f='codebrowser/code/qcommon/qcommon.h' l='410' type='void Cbuf_ExecuteText(int exec_when, const char * text)'/>
+<doc f='codebrowser/code/qcommon/qcommon.h' l='408'>// Adds command text at the end of the buffer, does NOT add a final \n</doc>
+<use f='codebrowser/code/client/cl_cin.c' l='1291' u='c' c='RoQShutdown'/>
+<use f='codebrowser/code/client/cl_main.c' l='3010' u='c' c='CL_Frame'/>
+<use f='codebrowser/code/client/cl_main.c' l='3240' u='r' c='CL_InitRef'/>
+<use f='codebrowser/code/client/cl_ui.c' l='786' u='c' c='CL_UISystemCalls'/>
+<def f='codebrowser/code/qcommon/cmd.c' l='143' ll='165' type='void Cbuf_ExecuteText(int exec_when, const char * text)'/>
+<doc f='codebrowser/code/qcommon/cmd.c' l='138'>/*
+============
+Cbuf_ExecuteText
+============
+*/</doc>
+<use f='codebrowser/code/qcommon/common.c' l='2366' u='c' c='Com_ExecuteCfg'/>
+<use f='codebrowser/code/qcommon/common.c' l='2372' u='c' c='Com_ExecuteCfg'/>
+<use f='codebrowser/code/qcommon/common.c' l='2374' u='c' c='Com_ExecuteCfg'/>
+<use f='codebrowser/code/qcommon/common.c' l='2905' u='c' c='Com_ReadFromPipe'/>
+<use f='codebrowser/code/qcommon/common.c' l='2913' u='c' c='Com_ReadFromPipe'/>
+<use f='codebrowser/code/sdl/sdl_input.c' l='1111' u='c' c='IN_ProcessEvents'/>
+<use f='codebrowser/code/server/sv_game.c' l='322' u='c' c='SV_GameSystemCalls'/>

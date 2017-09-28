@@ -1,0 +1,32 @@
+<dec f='codebrowser/code/opusfile-0.8/src/internal.h' l='204' type='ogg_packet [255]'/>
+<offset>4608</offset>
+<doc f='codebrowser/code/opusfile-0.8/src/internal.h' l='200'>/*Re-timestamped packets from a single page.
+    Buffering these relies on the undocumented libogg behavior that ogg_packet
+     pointers remain valid until the next page is submitted to the
+     ogg_stream_state they came from.*/</doc>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='779' u='r' c='op_collect_audio_packets'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='793' u='m' c='op_collect_audio_packets'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='794' u='m' c='op_collect_audio_packets'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='802' u='m' c='op_collect_audio_packets'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='802' u='m' c='op_collect_audio_packets'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='898' u='m' c='op_find_initial_pcm_offset'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='902' u='m' c='op_find_initial_pcm_offset'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='939' u='m' c='op_find_initial_pcm_offset'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='942' u='m' c='op_find_initial_pcm_offset'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='947' u='m' c='op_find_initial_pcm_offset'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='949' u='m' c='op_find_initial_pcm_offset'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='1438' u='r' c='op_open_seekable2'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='1450' u='r' c='op_open_seekable2'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='1450' u='r' c='op_open_seekable2'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='1963' u='m' c='op_fetch_and_process_page'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='1964' u='m' c='op_fetch_and_process_page'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='1983' u='m' c='op_fetch_and_process_page'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='2032' u='m' c='op_fetch_and_process_page'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='2039' u='m' c='op_fetch_and_process_page'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='2073' u='m' c='op_fetch_and_process_page'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='2250' u='m' c='op_pcm_seek_page'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='2287' u='m' c='op_pcm_seek_page'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='2288' u='m' c='op_pcm_seek_page'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='2288' u='m' c='op_pcm_seek_page'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='2569' u='m' c='op_pcm_seek'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='2774' u='r' c='op_read_native'/>

@@ -1,0 +1,9 @@
+<dec f='codebrowser/code/cgame/cg_local.h' l='323' type='int'/>
+<offset>928</offset>
+<doc f='codebrowser/code/cgame/cg_local.h' l='323'>// you only get this info about your teammates</doc>
+<use f='codebrowser/code/cgame/cg_draw.c' l='918' u='r' c='CG_DrawTeamOverlay'/>
+<use f='codebrowser/code/cgame/cg_draw.c' l='920' u='r' c='CG_DrawTeamOverlay'/>
+<use f='codebrowser/code/cgame/cg_newdraw.c' l='316' u='r' c='CG_DrawSelectedPlayerHealth'/>
+<use f='codebrowser/code/cgame/cg_newdraw.c' l='906' u='r' c='CG_GetValue'/>
+<use f='codebrowser/code/cgame/cg_newdraw.c' l='1306' u='r' c='CG_DrawNewTeamInfo'/>
+<use f='codebrowser/code/cgame/cg_servercmds.c' l='139' u='w' c='CG_ParseTeamInfo'/>

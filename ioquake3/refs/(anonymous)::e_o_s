@@ -1,0 +1,19 @@
+<dec f='codebrowser/code/libogg-1.3.2/include/ogg/ogg.h' l='72' type='int'/>
+<dec f='codebrowser/code/libogg-1.3.2/include/ogg/ogg.h' l='94' type='long'/>
+<offset>192</offset>
+<doc f='codebrowser/code/libogg-1.3.2/include/ogg/ogg.h' l='72'>/* set when we have buffered the last packet in the
+                             logical bitstream */</doc>
+<use f='codebrowser/code/libogg-1.3.2/src/framing.c' l='375' u='w' c='ogg_stream_iovecin'/>
+<use f='codebrowser/code/libogg-1.3.2/src/framing.c' l='384' u='r' c='ogg_stream_packetin'/>
+<use f='codebrowser/code/libogg-1.3.2/src/framing.c' l='456' u='r' c='ogg_stream_flush_i'/>
+<use f='codebrowser/code/libogg-1.3.2/src/framing.c' l='555' u='r' c='ogg_stream_pageout'/>
+<use f='codebrowser/code/libogg-1.3.2/src/framing.c' l='570' u='r' c='ogg_stream_pageout_fill'/>
+<use f='codebrowser/code/libogg-1.3.2/src/framing.c' l='579' u='r' c='ogg_stream_eos'/>
+<use f='codebrowser/code/libogg-1.3.2/src/framing.c' l='926' u='w' c='ogg_stream_pagein'/>
+<use f='codebrowser/code/libogg-1.3.2/src/framing.c' l='960' u='w' c='ogg_stream_reset'/>
+<use f='codebrowser/code/libogg-1.3.2/src/framing.c' l='1013' u='w' c='_packetout'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='902' u='r' c='op_find_initial_pcm_offset'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='942' u='w' c='op_find_initial_pcm_offset'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='1964' u='r' c='op_fetch_and_process_page'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='2032' u='w' c='op_fetch_and_process_page'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='2782' u='r' c='op_read_native'/>

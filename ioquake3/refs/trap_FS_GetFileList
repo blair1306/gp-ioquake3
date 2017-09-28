@@ -1,0 +1,26 @@
+<dec f='codebrowser/code/game/g_local.h' l='760' type='int trap_FS_GetFileList(const char * path, const char * extension, char * listbuf, int bufsize)'/>
+<use f='codebrowser/code/game/g_bot.c' l='172' u='c' c='G_LoadArenas'/>
+<use f='codebrowser/code/game/g_bot.c' l='953' u='c' c='G_LoadBots'/>
+<def f='codebrowser/code/game/g_syscalls.c' l='82' ll='84' type='int trap_FS_GetFileList(const char * path, const char * extension, char * listbuf, int bufsize)'/>
+<dec f='codebrowser/code/q3_ui/ui_local.h' l='644' type='int trap_FS_GetFileList(const char * path, const char * extension, char * listbuf, int bufsize)'/>
+<use f='codebrowser/code/q3_ui/ui_demo2.c' l='225' u='c' c='Demos_MenuInit'/>
+<use f='codebrowser/code/q3_ui/ui_demo2.c' l='249' u='c' c='Demos_MenuInit'/>
+<use f='codebrowser/code/q3_ui/ui_gameinfo.c' l='191' u='c' c='UI_LoadArenas'/>
+<use f='codebrowser/code/q3_ui/ui_gameinfo.c' l='378' u='c' c='UI_LoadBots'/>
+<use f='codebrowser/code/q3_ui/ui_loadconfig.c' l='208' u='c' c='LoadConfig_MenuInit'/>
+<use f='codebrowser/code/q3_ui/ui_menu.c' l='246' u='c' c='UI_TeamArenaExists'/>
+<use f='codebrowser/code/q3_ui/ui_mods.c' l='131' u='c' c='UI_Mods_LoadMods'/>
+<use f='codebrowser/code/q3_ui/ui_playermodel.c' l='409' u='c' c='PlayerModel_BuildList'/>
+<use f='codebrowser/code/q3_ui/ui_playermodel.c' l='421' u='c' c='PlayerModel_BuildList'/>
+<dec f='codebrowser/code/ui/ui_local.h' l='935' type='int trap_FS_GetFileList(const char * path, const char * extension, char * listbuf, int bufsize)'/>
+<use f='codebrowser/code/ui/ui_atoms.c' l='207' u='c' c='UI_ClearScores'/>
+<use f='codebrowser/code/ui/ui_gameinfo.c' l='157' u='c' c='UI_LoadArenas'/>
+<use f='codebrowser/code/ui/ui_gameinfo.c' l='268' u='c' c='UI_LoadBots'/>
+<use f='codebrowser/code/ui/ui_main.c' l='2804' u='c' c='UI_LoadMods'/>
+<use f='codebrowser/code/ui/ui_main.c' l='2831' u='c' c='UI_LoadTeams'/>
+<use f='codebrowser/code/ui/ui_main.c' l='2855' u='c' c='UI_LoadMovies'/>
+<use f='codebrowser/code/ui/ui_main.c' l='2898' u='c' c='UI_LoadDemos'/>
+<use f='codebrowser/code/ui/ui_main.c' l='2920' u='c' c='UI_LoadDemos'/>
+<use f='codebrowser/code/ui/ui_main.c' l='5019' u='c' c='UI_BuildQ3Model_List'/>
+<use f='codebrowser/code/ui/ui_main.c' l='5031' u='c' c='UI_BuildQ3Model_List'/>
+<def f='codebrowser/code/ui/ui_syscalls.c' l='124' ll='126' type='int trap_FS_GetFileList(const char * path, const char * extension, char * listbuf, int bufsize)'/>

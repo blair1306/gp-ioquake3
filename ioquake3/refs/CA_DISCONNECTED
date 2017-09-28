@@ -1,0 +1,20 @@
+<dec f='codebrowser/code/qcommon/q_shared.h' l='1326' type='1'/>
+<doc f='codebrowser/code/qcommon/q_shared.h' l='1326'>// not talking to a server</doc>
+<use f='codebrowser/code/client/cl_cin.c' l='1284' u='r' c='RoQShutdown'/>
+<use f='codebrowser/code/client/cl_console.c' l='72' u='r' c='Con_ToggleConsole_f'/>
+<use f='codebrowser/code/client/cl_console.c' l='542' u='r' c='Con_DrawInput'/>
+<use f='codebrowser/code/client/cl_console.c' l='757' u='r' c='Con_DrawConsole'/>
+<use f='codebrowser/code/client/cl_keys.c' l='658' u='r' c='Console_Key'/>
+<use f='codebrowser/code/client/cl_keys.c' l='1184' u='r' c='CL_ParseBinding'/>
+<use f='codebrowser/code/client/cl_keys.c' l='1194' u='r' c='CL_ParseBinding'/>
+<use f='codebrowser/code/client/cl_keys.c' l='1293' u='r' c='CL_KeyDownEvent'/>
+<use f='codebrowser/code/client/cl_keys.c' l='1321' u='r' c='CL_KeyDownEvent'/>
+<use f='codebrowser/code/client/cl_keys.c' l='1403' u='r' c='CL_CharEvent'/>
+<use f='codebrowser/code/client/cl_main.c' l='1286' u='r' c='CL_MapLoading'/>
+<use f='codebrowser/code/client/cl_main.c' l='1456' u='r' c='CL_Disconnect'/>
+<use f='codebrowser/code/client/cl_main.c' l='1668' u='r' c='CL_Disconnect_f'/>
+<use f='codebrowser/code/client/cl_main.c' l='1746' u='r' c='CL_Connect_f'/>
+<use f='codebrowser/code/client/cl_main.c' l='2960' u='r' c='CL_Frame'/>
+<use f='codebrowser/code/client/cl_main.c' l='3502' u='r' c='CL_Init'/>
+<use f='codebrowser/code/client/cl_scrn.c' l='502' c='SCR_DrawScreenField'/>
+<use f='codebrowser/code/sdl/sdl_input.c' l='1167' u='r' c='IN_Frame'/>

@@ -1,0 +1,11 @@
+<dec f='codebrowser/code/game/g_team.h' l='83' type='qboolean Team_GetLocationMsg(gentity_t * ent, char * loc, int loclen)'/>
+<use f='codebrowser/code/game/g_cmds.c' l='893' u='c' c='G_Say'/>
+<use f='codebrowser/code/game/g_cmds.c' l='904' u='c' c='G_Say'/>
+<def f='codebrowser/code/game/g_team.c' l='936' ll='955' type='qboolean Team_GetLocationMsg(gentity_t * ent, char * loc, int loclen)'/>
+<doc f='codebrowser/code/game/g_team.c' l='929'>/*
+===========
+Team_GetLocation
+
+Report a location for the player. Uses placed nearby target_location entities
+============
+*/</doc>

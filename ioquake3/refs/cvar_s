@@ -1,0 +1,21 @@
+<def f='codebrowser/code/qcommon/q_shared.h' l='923' ll='944'/>
+<size>120</size>
+<mbr r='cvar_s::name' o='0' t='char *'/>
+<mbr r='cvar_s::string' o='64' t='char *'/>
+<mbr r='cvar_s::resetString' o='128' t='char *'/>
+<mbr r='cvar_s::latchedString' o='192' t='char *'/>
+<mbr r='cvar_s::flags' o='256' t='int'/>
+<mbr r='cvar_s::modified' o='288' t='qboolean'/>
+<mbr r='cvar_s::modificationCount' o='320' t='int'/>
+<mbr r='cvar_s::value' o='352' t='float'/>
+<mbr r='cvar_s::integer' o='384' t='int'/>
+<mbr r='cvar_s::validate' o='416' t='qboolean'/>
+<mbr r='cvar_s::integral' o='448' t='qboolean'/>
+<mbr r='cvar_s::min' o='480' t='float'/>
+<mbr r='cvar_s::max' o='512' t='float'/>
+<mbr r='cvar_s::description' o='576' t='char *'/>
+<mbr r='cvar_s::next' o='640' t='cvar_t *'/>
+<mbr r='cvar_s::prev' o='704' t='cvar_t *'/>
+<mbr r='cvar_s::hashNext' o='768' t='cvar_t *'/>
+<mbr r='cvar_s::hashPrev' o='832' t='cvar_t *'/>
+<mbr r='cvar_s::hashIndex' o='896' t='int'/>

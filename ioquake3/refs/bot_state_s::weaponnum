@@ -1,0 +1,20 @@
+<dec f='codebrowser/code/game/ai_main.h' l='219' type='int'/>
+<offset>51360</offset>
+<doc f='codebrowser/code/game/ai_main.h' l='219'>//current weapon number</doc>
+<use f='codebrowser/code/game/ai_dmnet.c' l='1624' u='w' c='AINode_Seek_ActivateEntity'/>
+<use f='codebrowser/code/game/ai_dmnet.c' l='1758' u='w' c='AINode_Seek_NBG'/>
+<use f='codebrowser/code/game/ai_dmnet.c' l='1958' u='w' c='AINode_Seek_LTG'/>
+<use f='codebrowser/code/game/ai_dmnet.c' l='2276' u='w' c='AINode_Battle_Chase'/>
+<use f='codebrowser/code/game/ai_dmnet.c' l='2469' u='w' c='AINode_Battle_Retreat'/>
+<use f='codebrowser/code/game/ai_dmnet.c' l='2616' u='w' c='AINode_Battle_NBG'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='1569' u='r' c='BotChooseWeapon'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='1573' u='r' c='BotChooseWeapon'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='1574' u='w' c='BotChooseWeapon'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='1576' u='r' c='BotChooseWeapon'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='2201' u='r' c='BotAggression'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='2246' u='r' c='BotFeelingBad'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='2252' u='r' c='BotFeelingBad'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='3320' u='r' c='BotAimAtEnemy'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='3616' u='r' c='BotCheckAttack'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='3634' u='r' c='BotCheckAttack'/>
+<use f='codebrowser/code/game/ai_main.c' l='1063' u='r' c='BotAI'/>

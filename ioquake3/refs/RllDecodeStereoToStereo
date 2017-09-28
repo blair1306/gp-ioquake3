@@ -1,0 +1,15 @@
+<def f='codebrowser/code/client/cl_cin.c' l='261' ll='283' type='long RllDecodeStereoToStereo(unsigned char * from, short * to, unsigned int size, char signedOutput, unsigned short flag)'/>
+<use f='codebrowser/code/client/cl_cin.c' l='1161' u='c' c='RoQInterrupt'/>
+<doc f='codebrowser/code/client/cl_cin.c' l='248'>//-----------------------------------------------------------------------------
+// RllDecodeStereoToStereo
+//
+// Decode stereo source data into a stereo buffer.
+//
+// Parameters:	from -&gt; buffer holding encoded data
+//				to -&gt;	buffer to hold decoded data
+//				size =	number of bytes of input (= 1/2 # of bytes of output)
+//				signedOutput = 0 for unsigned output, non-zero for signed output
+//				flag = flags from asset header
+//
+// Returns:		Number of samples placed in output buffer
+//-----------------------------------------------------------------------------</doc>

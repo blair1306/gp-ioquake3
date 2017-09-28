@@ -1,0 +1,30 @@
+<def f='codebrowser/code/renderergl1/tr_bsp.c' l='1133' ll='1157' type='int R_TryStitchingPatch(int grid1num)'/>
+<use f='codebrowser/code/renderergl1/tr_bsp.c' l='1185' u='c' c='R_StitchAllPatches'/>
+<doc f='codebrowser/code/renderergl1/tr_bsp.c' l='1120'>/*
+===============
+R_TryStitchPatch
+
+This function will try to stitch patches in the same LoD group together for the highest LoD.
+
+Only single missing vertice cracks will be fixed.
+
+Vertices will be joined at the patch side a crack is first found, at the other side
+of the patch (on the same row or column) the vertices will not be joined and cracks
+might still appear at that side.
+===============
+*/</doc>
+<def f='codebrowser/code/renderergl2/tr_bsp.c' l='1583' ll='1607' type='int R_TryStitchingPatch(int grid1num)'/>
+<use f='codebrowser/code/renderergl2/tr_bsp.c' l='1635' u='c' c='R_StitchAllPatches'/>
+<doc f='codebrowser/code/renderergl2/tr_bsp.c' l='1570'>/*
+===============
+R_TryStitchPatch
+
+This function will try to stitch patches in the same LoD group together for the highest LoD.
+
+Only single missing vertice cracks will be fixed.
+
+Vertices will be joined at the patch side a crack is first found, at the other side
+of the patch (on the same row or column) the vertices will not be joined and cracks
+might still appear at that side.
+===============
+*/</doc>

@@ -1,0 +1,11 @@
+<dec f='codebrowser/code/qcommon/qcommon.h' l='951' type='void Hunk_ClearToMark()'/>
+<use f='codebrowser/code/client/cl_main.c' l='1256' u='c' c='CL_ClearMemory'/>
+<use f='codebrowser/code/client/cl_main.c' l='1949' u='c' c='CL_Vid_Restart_f'/>
+<def f='codebrowser/code/qcommon/common.c' l='1626' ll='1629' type='void Hunk_ClearToMark()'/>
+<doc f='codebrowser/code/qcommon/common.c' l='1619'>/*
+=================
+Hunk_ClearToMark
+
+The client calls this before starting a vid_restart or snd_restart
+=================
+*/</doc>

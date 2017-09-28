@@ -1,0 +1,7 @@
+<dec f='codebrowser/code/qcommon/qcommon.h' l='943' type='void * S_Malloc(int size)'/>
+<doc f='codebrowser/code/qcommon/qcommon.h' l='943'>// NOT 0 filled memory only for small allocations</doc>
+<use f='codebrowser/code/qcommon/cmd.c' l='651' u='c' c='Cmd_AddCommand'/>
+<def f='codebrowser/code/qcommon/common.c' l='1069' ll='1071' type='void * S_Malloc(int size)'/>
+<use f='codebrowser/code/qcommon/common.c' l='1203' u='c' c='CopyString'/>
+<use f='codebrowser/code/qcommon/net_chan.c' l='498' u='c' c='NET_QueuePacket'/>
+<use f='codebrowser/code/qcommon/net_chan.c' l='499' u='c' c='NET_QueuePacket'/>

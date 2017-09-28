@@ -1,0 +1,14 @@
+<dec f='codebrowser/code/qcommon/qcommon.h' l='697' type='int FS_FOpenFileByMode(const char * qpath, fileHandle_t * f, fsMode_t mode)'/>
+<doc f='codebrowser/code/qcommon/qcommon.h' l='695'>// like fprintf</doc>
+<use f='codebrowser/code/client/cl_cgame.c' l='441' u='c' c='CL_CgameSystemCalls'/>
+<use f='codebrowser/code/client/cl_ui.c' l='790' u='c' c='CL_UISystemCalls'/>
+<def f='codebrowser/code/qcommon/files.c' l='4076' ll='4117' type='int FS_FOpenFileByMode(const char * qpath, fileHandle_t * f, fsMode_t mode)'/>
+<doc f='codebrowser/code/qcommon/files.c' l='4068'>/*
+========================================================================================
+
+Handle based file calls for virtual machines
+
+========================================================================================
+*/</doc>
+<use f='codebrowser/code/server/sv_bot.c' l='545' u='r' c='SV_BotInitBotLib'/>
+<use f='codebrowser/code/server/sv_game.c' l='326' u='c' c='SV_GameSystemCalls'/>

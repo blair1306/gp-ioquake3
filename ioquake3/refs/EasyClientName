@@ -1,0 +1,55 @@
+<dec f='codebrowser/code/game/ai_dmq3.h' l='76' type='char * EasyClientName(int client, char * name, int size)'/>
+<use f='codebrowser/code/game/ai_chat.c' l='156' u='c' c='BotFirstClientInRankings'/>
+<use f='codebrowser/code/game/ai_chat.c' l='185' u='c' c='BotLastClientInRankings'/>
+<use f='codebrowser/code/game/ai_chat.c' l='220' u='c' c='BotRandomOpponentName'/>
+<use f='codebrowser/code/game/ai_chat.c' l='224' u='c' c='BotRandomOpponentName'/>
+<use f='codebrowser/code/game/ai_chat.c' l='405' u='c' c='BotChat_EnterGame'/>
+<use f='codebrowser/code/game/ai_chat.c' l='438' u='c' c='BotChat_ExitGame'/>
+<use f='codebrowser/code/game/ai_chat.c' l='476' u='c' c='BotChat_StartLevel'/>
+<use f='codebrowser/code/game/ai_chat.c' l='515' u='c' c='BotChat_EndLevel'/>
+<use f='codebrowser/code/game/ai_chat.c' l='524' u='c' c='BotChat_EndLevel'/>
+<use f='codebrowser/code/game/ai_chat.c' l='533' u='c' c='BotChat_EndLevel'/>
+<use f='codebrowser/code/game/ai_chat.c' l='566' u='c' c='BotChat_Death'/>
+<use f='codebrowser/code/game/ai_chat.c' l='672' u='c' c='BotChat_Kill'/>
+<use f='codebrowser/code/game/ai_chat.c' l='740' u='c' c='BotChat_EnemySuicide'/>
+<use f='codebrowser/code/game/ai_chat.c' l='905' u='c' c='BotChat_Random'/>
+<use f='codebrowser/code/game/ai_chat.c' l='967' u='c' c='BotChatTest'/>
+<use f='codebrowser/code/game/ai_chat.c' l='979' u='c' c='BotChatTest'/>
+<use f='codebrowser/code/game/ai_chat.c' l='991' u='c' c='BotChatTest'/>
+<use f='codebrowser/code/game/ai_chat.c' l='999' u='c' c='BotChatTest'/>
+<use f='codebrowser/code/game/ai_chat.c' l='1011' u='c' c='BotChatTest'/>
+<use f='codebrowser/code/game/ai_chat.c' l='1023' u='c' c='BotChatTest'/>
+<use f='codebrowser/code/game/ai_chat.c' l='1031' u='c' c='BotChatTest'/>
+<use f='codebrowser/code/game/ai_chat.c' l='1115' u='c' c='BotChatTest'/>
+<use f='codebrowser/code/game/ai_chat.c' l='1179' u='c' c='BotChatTest'/>
+<doc f='codebrowser/code/game/ai_dmq3.h' l='75'>//returns a simplified client name</doc>
+<use f='codebrowser/code/game/ai_cmd.c' l='1043' u='c' c='BotMatch_TaskPreference'/>
+<use f='codebrowser/code/game/ai_cmd.c' l='1375' u='c' c='BotMatch_WhatAreYouDoing'/>
+<use f='codebrowser/code/game/ai_cmd.c' l='1381' u='c' c='BotMatch_WhatAreYouDoing'/>
+<use f='codebrowser/code/game/ai_dmnet.c' l='348' u='c' c='BotGetLongTermGoal'/>
+<use f='codebrowser/code/game/ai_dmnet.c' l='393' u='c' c='BotGetLongTermGoal'/>
+<use f='codebrowser/code/game/ai_dmnet.c' l='401' u='c' c='BotGetLongTermGoal'/>
+<use f='codebrowser/code/game/ai_dmnet.c' l='457' u='c' c='BotGetLongTermGoal'/>
+<use f='codebrowser/code/game/ai_dmnet.c' l='517' u='c' c='BotGetLongTermGoal'/>
+<use f='codebrowser/code/game/ai_dmnet.c' l='570' u='c' c='BotGetLongTermGoal'/>
+<use f='codebrowser/code/game/ai_dmnet.c' l='577' u='c' c='BotGetLongTermGoal'/>
+<use f='codebrowser/code/game/ai_dmnet.c' l='626' u='c' c='BotGetLongTermGoal'/>
+<use f='codebrowser/code/game/ai_dmnet.c' l='650' u='c' c='BotGetLongTermGoal'/>
+<use f='codebrowser/code/game/ai_dmnet.c' l='1055' u='c' c='BotLongTermGoal'/>
+<use f='codebrowser/code/game/ai_dmnet.c' l='1062' u='c' c='BotLongTermGoal'/>
+<use f='codebrowser/code/game/ai_dmnet.c' l='1094' u='c' c='BotLongTermGoal'/>
+<use f='codebrowser/code/game/ai_dmnet.c' l='1110' u='c' c='BotLongTermGoal'/>
+<def f='codebrowser/code/game/ai_dmq3.c' l='1483' ll='1526' type='char * EasyClientName(int client, char * buf, int size)'/>
+<doc f='codebrowser/code/game/ai_dmq3.c' l='1478'>/*
+==================
+EasyClientName
+==================
+*/</doc>
+<use f='codebrowser/code/game/ai_main.c' l='313' u='c' c='BotReportStatus'/>
+<use f='codebrowser/code/game/ai_main.c' l='319' u='c' c='BotReportStatus'/>
+<use f='codebrowser/code/game/ai_main.c' l='461' u='c' c='BotSetInfoConfigString'/>
+<use f='codebrowser/code/game/ai_main.c' l='467' u='c' c='BotSetInfoConfigString'/>
+<use f='codebrowser/code/game/ai_vcmd.c' l='281' u='c' c='BotVoiceChat_Camp'/>
+<use f='codebrowser/code/game/ai_vcmd.c' l='333' u='c' c='BotVoiceChat_FollowMe'/>
+<use f='codebrowser/code/game/ai_vcmd.c' l='466' u='c' c='BotVoiceChat_WantOnDefense'/>
+<use f='codebrowser/code/game/ai_vcmd.c' l='487' u='c' c='BotVoiceChat_WantOnOffense'/>

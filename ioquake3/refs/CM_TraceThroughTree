@@ -1,0 +1,16 @@
+<def f='codebrowser/code/qcommon/cm_trace.c' l='1035' ll='1137' type='void CM_TraceThroughTree(traceWork_t * tw, int num, float p1f, float p2f, vec_t * p1, vec_t * p2)'/>
+<use f='codebrowser/code/qcommon/cm_trace.c' l='1080' u='c' c='CM_TraceThroughTree'/>
+<use f='codebrowser/code/qcommon/cm_trace.c' l='1084' u='c' c='CM_TraceThroughTree'/>
+<use f='codebrowser/code/qcommon/cm_trace.c' l='1119' u='c' c='CM_TraceThroughTree'/>
+<use f='codebrowser/code/qcommon/cm_trace.c' l='1136' u='c' c='CM_TraceThroughTree'/>
+<use f='codebrowser/code/qcommon/cm_trace.c' l='1339' u='c' c='CM_Trace'/>
+<doc f='codebrowser/code/qcommon/cm_trace.c' l='1025'>/*
+==================
+CM_TraceThroughTree
+
+Traverse all the contacted leafs from the start to the end position.
+If the trace is a point, they will be exactly in order, but for larger
+trace volumes it is possible to hit something in a later leaf with
+a smaller intercept fraction.
+==================
+*/</doc>

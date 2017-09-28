@@ -1,0 +1,13 @@
+<dec f='codebrowser/code/jpeg-8c/jpeglib.h' l='328' type='JHUFF_TBL *[4]'/>
+<offset>1280</offset>
+<doc f='codebrowser/code/jpeg-8c/jpeglib.h' l='324'>/* ptrs to coefficient quantization tables, or NULL if not defined,
+   * and corresponding scale factors (percentage, initialized 100).
+   */</doc>
+<use f='codebrowser/code/jpeg-8c/jcapimin.c' l='73' u='w' c='jpeg_CreateCompress'/>
+<use f='codebrowser/code/jpeg-8c/jcapimin.c' l='139' u='r' c='jpeg_suppress_tables'/>
+<use f='codebrowser/code/jpeg-8c/jchuff.c' l='179' u='r' c='jpeg_make_c_derived_tbl'/>
+<use f='codebrowser/code/jpeg-8c/jchuff.c' l='1422' u='a' c='finish_pass_gather'/>
+<use f='codebrowser/code/jpeg-8c/jcmarker.c' l='196' u='r' c='emit_dht'/>
+<use f='codebrowser/code/jpeg-8c/jcmarker.c' l='647' u='r' c='write_tables_only'/>
+<use f='codebrowser/code/jpeg-8c/jcparam.c' l='263' u='a' c='std_huff_tables'/>
+<use f='codebrowser/code/jpeg-8c/jcparam.c' l='267' u='a' c='std_huff_tables'/>

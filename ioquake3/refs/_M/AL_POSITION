@@ -1,0 +1,23 @@
+<dec f='codebrowser/code/AL/al.h' l='144'/>
+<doc f='codebrowser/code/AL/al.h' l='130'>/**
+ * Source or listener position.
+ * Type:    ALfloat[3], ALint[3]
+ * Default: {0, 0, 0}
+ *
+ * The source or listener location in three dimensional space.
+ *
+ * OpenAL, like OpenGL, uses a right handed coordinate system, where in a
+ * frontal default view X (thumb) points right, Y points up (index finger), and
+ * Z points towards the viewer/camera (middle finger).
+ *
+ * To switch from a left handed coordinate system, flip the sign on the Z
+ * coordinate.
+ */</doc>
+<use f='codebrowser/code/client/snd_openal.c' l='825' u='c'/>
+<use f='codebrowser/code/client/snd_openal.c' l='1286' u='c'/>
+<use f='codebrowser/code/client/snd_openal.c' l='1373' u='c'/>
+<use f='codebrowser/code/client/snd_openal.c' l='1397' u='c'/>
+<use f='codebrowser/code/client/snd_openal.c' l='1629' u='c'/>
+<use f='codebrowser/code/client/snd_openal.c' l='1719' u='c'/>
+<use f='codebrowser/code/client/snd_openal.c' l='1946' u='c'/>
+<use f='codebrowser/code/client/snd_openal.c' l='2259' u='c'/>

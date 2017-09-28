@@ -1,0 +1,12 @@
+<dec f='codebrowser/code/opusfile-0.8/include/opusfile.h' l='364' type='char *'/>
+<offset>64</offset>
+<doc f='codebrowser/code/opusfile-0.8/include/opusfile.h' l='358'>/**The MIME type of the picture, in printable ASCII characters 0x20-0x7E.
+     The MIME type may also be &lt;code&gt;&quot;--&gt;&quot;&lt;/code&gt; to signify that the data part
+      is a URL pointing to the picture instead of the picture data itself.
+     In this case, a terminating NUL is appended to the URL string in #data,
+      but #data_length is set to the length of the string excluding that
+      terminating NUL.*/</doc>
+<use f='codebrowser/code/opusfile-0.8/src/info.c' l='610' u='r' c='opus_picture_tag_parse_impl'/>
+<use f='codebrowser/code/opusfile-0.8/src/info.c' l='614' u='w' c='opus_picture_tag_parse_impl'/>
+<use f='codebrowser/code/opusfile-0.8/src/info.c' l='621' u='r' c='opus_picture_tag_parse_impl'/>
+<use f='codebrowser/code/opusfile-0.8/src/info.c' l='756' u='r' c='opus_picture_tag_clear'/>

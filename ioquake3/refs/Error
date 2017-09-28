@@ -1,0 +1,27 @@
+<dec f='codebrowser/code/tools/asm/cmdlib.h' l='93' type='void Error(const char * error)'/>
+<def f='codebrowser/code/tools/asm/cmdlib.c' l='143' ll='155' type='void Error(const char * error)'/>
+<use f='codebrowser/code/tools/asm/cmdlib.c' l='291' u='c' c='SetQdirFromPath'/>
+<use f='codebrowser/code/tools/asm/cmdlib.c' l='295' u='c' c='SetQdirFromPath'/>
+<use f='codebrowser/code/tools/asm/cmdlib.c' l='316' u='c' c='ExpandPath'/>
+<use f='codebrowser/code/tools/asm/cmdlib.c' l='329' u='c' c='ExpandGamePath'/>
+<use f='codebrowser/code/tools/asm/cmdlib.c' l='427' u='c' c='Q_mkdir'/>
+<use f='codebrowser/code/tools/asm/cmdlib.c' l='662' u='c' c='SafeOpenWrite'/>
+<use f='codebrowser/code/tools/asm/cmdlib.c' l='674' u='c' c='SafeOpenRead'/>
+<use f='codebrowser/code/tools/asm/cmdlib.c' l='683' u='c' c='SafeRead'/>
+<use f='codebrowser/code/tools/asm/cmdlib.c' l='690' u='c' c='SafeWrite'/>
+<use f='codebrowser/code/tools/asm/cmdlib.c' l='953' u='c' c='ParseHex'/>
+<doc f='codebrowser/code/tools/asm/cmdlib.c' l='136'>/*
+=================
+Error
+
+For abnormal program terminations in console apps
+=================
+*/</doc>
+<use f='codebrowser/code/tools/asm/q3asm.c' l='508' u='c' c='EmitByte'/>
+<use f='codebrowser/code/tools/asm/q3asm.c' l='521' u='c' c='EmitInt'/>
+<use f='codebrowser/code/tools/asm/q3asm.c' l='1521' u='c' c='ShowHelp'/>
+<use f='codebrowser/code/tools/asm/q3asm.c' l='1567' u='c' c='main'/>
+<use f='codebrowser/code/tools/asm/q3asm.c' l='1577' u='c' c='main'/>
+<use f='codebrowser/code/tools/asm/q3asm.c' l='1586' u='c' c='main'/>
+<use f='codebrowser/code/tools/asm/q3asm.c' l='1613' u='c' c='main'/>
+<use f='codebrowser/code/tools/asm/q3asm.c' l='1623' u='c' c='main'/>

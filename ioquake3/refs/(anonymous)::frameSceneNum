@@ -1,0 +1,32 @@
+<dec f='codebrowser/code/renderergl1/tr_local.h' l='452' type='int'/>
+<dec f='codebrowser/code/renderergl1/tr_local.h' l='877' type='int'/>
+<offset>160</offset>
+<doc f='codebrowser/code/renderergl1/tr_local.h' l='452'>// copied from tr.frameSceneNum</doc>
+<doc f='codebrowser/code/renderergl1/tr_local.h' l='875'>// and every R_MarkFragments call</doc>
+<doc f='codebrowser/code/renderergl1/tr_local.h' l='877'>// zeroed at RE_BeginFrame</doc>
+<use f='codebrowser/code/renderergl1/tr_cmds.c' l='298' u='w' c='RE_BeginFrame'/>
+<use f='codebrowser/code/renderergl1/tr_flares.c' l='171' u='r' c='RB_AddFlare'/>
+<use f='codebrowser/code/renderergl1/tr_flares.c' l='189' u='r' c='RB_AddFlare'/>
+<use f='codebrowser/code/renderergl1/tr_flares.c' l='493' u='r' c='RB_RenderFlares'/>
+<use f='codebrowser/code/renderergl1/tr_flares.c' l='528' u='r' c='RB_RenderFlares'/>
+<use f='codebrowser/code/renderergl1/tr_main.c' l='1366' u='w' c='R_RenderView'/>
+<use f='codebrowser/code/renderergl1/tr_main.c' l='1366' u='r' c='R_RenderView'/>
+<use f='codebrowser/code/renderergl1/tr_scene.c' l='374' u='w' c='RE_RenderScene'/>
+<dec f='codebrowser/code/renderergl2/tr_local.h' l='799' type='int'/>
+<dec f='codebrowser/code/renderergl2/tr_local.h' l='1440' type='int'/>
+<offset>480</offset>
+<doc f='codebrowser/code/renderergl2/tr_local.h' l='799'>// copied from tr.frameSceneNum</doc>
+<doc f='codebrowser/code/renderergl2/tr_local.h' l='1438'>// and every R_MarkFragments call</doc>
+<doc f='codebrowser/code/renderergl2/tr_local.h' l='1440'>// zeroed at RE_BeginFrame</doc>
+<use f='codebrowser/code/renderergl2/tr_cmds.c' l='344' u='w' c='RE_BeginFrame'/>
+<use f='codebrowser/code/renderergl2/tr_flares.c' l='171' u='r' c='RB_AddFlare'/>
+<use f='codebrowser/code/renderergl2/tr_flares.c' l='189' u='r' c='RB_AddFlare'/>
+<use f='codebrowser/code/renderergl2/tr_flares.c' l='508' u='r' c='RB_RenderFlares'/>
+<use f='codebrowser/code/renderergl2/tr_flares.c' l='543' u='r' c='RB_RenderFlares'/>
+<use f='codebrowser/code/renderergl2/tr_main.c' l='1749' u='w' c='R_RenderView'/>
+<use f='codebrowser/code/renderergl2/tr_main.c' l='1749' u='r' c='R_RenderView'/>
+<use f='codebrowser/code/renderergl2/tr_main.c' l='2114' u='w' c='R_RenderPshadowMaps'/>
+<use f='codebrowser/code/renderergl2/tr_main.c' l='2114' u='r' c='R_RenderPshadowMaps'/>
+<use f='codebrowser/code/renderergl2/tr_main.c' l='2523' u='w' c='R_RenderSunShadowMaps'/>
+<use f='codebrowser/code/renderergl2/tr_main.c' l='2523' u='r' c='R_RenderSunShadowMaps'/>
+<use f='codebrowser/code/renderergl2/tr_scene.c' l='433' u='w' c='RE_BeginScene'/>

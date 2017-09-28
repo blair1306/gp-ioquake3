@@ -1,0 +1,9 @@
+<dec f='codebrowser/code/jpeg-8c/jpeglib.h' l='688' type='void (*)(j_common_ptr)'/>
+<offset>128</offset>
+<doc f='codebrowser/code/jpeg-8c/jpeglib.h' l='687'>/* Routine that actually outputs a trace or error message */</doc>
+<use f='codebrowser/code/jpeg-8c/jerror.c' l='75' u='r' c='error_exit'/>
+<use f='codebrowser/code/jpeg-8c/jerror.c' l='140' u='r' c='emit_message'/>
+<use f='codebrowser/code/jpeg-8c/jerror.c' l='146' u='r' c='emit_message'/>
+<use f='codebrowser/code/jpeg-8c/jerror.c' l='237' u='w' c='jpeg_std_error'/>
+<use f='codebrowser/code/renderercommon/tr_image_jpg.c' l='133' u='w' c='R_LoadJPG'/>
+<use f='codebrowser/code/renderercommon/tr_image_jpg.c' l='400' u='w' c='RE_SaveJPGToBuffer'/>

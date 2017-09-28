@@ -1,0 +1,14 @@
+<dec f='codebrowser/code/q3_ui/ui_local.h' l='318' type='void UI_MainMenu()'/>
+<use f='codebrowser/code/q3_ui/ui_atoms.c' l='814' u='c' c='UI_SetActiveMenu'/>
+<use f='codebrowser/code/q3_ui/ui_menu.c' l='147' u='c' c='ErrorMessage_Key'/>
+<def f='codebrowser/code/q3_ui/ui_menu.c' l='269' ll='423' type='void UI_MainMenu()'/>
+<doc f='codebrowser/code/q3_ui/ui_menu.c' l='260'>/*
+===============
+UI_MainMenu
+
+The main menu only comes up when not in a game,
+so make sure that the attract loop server is down
+and that local cinematics are killed
+===============
+*/</doc>
+<dec f='codebrowser/code/ui/ui_local.h' l='367' type='void UI_MainMenu()'/>

@@ -1,0 +1,6 @@
+<dec f='codebrowser/code/game/bg_public.h' l='168' type='qboolean'/>
+<offset>320</offset>
+<doc f='codebrowser/code/game/bg_public.h' l='168'>// if the game is setup for no footsteps by the server</doc>
+<use f='codebrowser/code/cgame/cg_predict.c' l='455' u='w' c='CG_PredictPlayerState'/>
+<use f='codebrowser/code/game/bg_pmove.c' l='1409' u='r' c='PM_Footsteps'/>
+<use f='codebrowser/code/game/g_active.c' l='915' u='w' c='ClientThink_real'/>

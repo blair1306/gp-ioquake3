@@ -1,0 +1,13 @@
+<dec f='codebrowser/code/botlib/aasfile.h' l='169' type='int'/>
+<offset>64</offset>
+<doc f='codebrowser/code/botlib/aasfile.h' l='169'>//number of cluster portals</doc>
+<use f='codebrowser/code/botlib/be_aas_cluster.c' l='167' u='r' c='AAS_UpdatePortal'/>
+<use f='codebrowser/code/botlib/be_aas_cluster.c' l='169' u='w' c='AAS_UpdatePortal'/>
+<use f='codebrowser/code/botlib/be_aas_cluster.c' l='296' u='r' c='AAS_NumberClusterPortals'/>
+<use f='codebrowser/code/botlib/be_aas_cluster.c' l='339' u='r' c='AAS_NumberClusterAreas'/>
+<use f='codebrowser/code/botlib/be_aas_cluster.c' l='369' u='r' c='AAS_NumberClusterAreas'/>
+<use f='codebrowser/code/botlib/be_aas_cluster.c' l='420' u='w' c='AAS_FindClusters'/>
+<use f='codebrowser/code/botlib/be_aas_file.c' l='172' u='w' c='AAS_SwapAASData'/>
+<use f='codebrowser/code/botlib/be_aas_file.c' l='172' u='r' c='AAS_SwapAASData'/>
+<use f='codebrowser/code/botlib/be_aas_route.c' l='1495' u='r' c='AAS_UpdatePortalRoutingCache'/>
+<use f='codebrowser/code/botlib/be_aas_route.c' l='1719' u='r' c='AAS_AreaRouteToGoalArea'/>

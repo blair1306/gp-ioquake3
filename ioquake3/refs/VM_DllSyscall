@@ -1,0 +1,40 @@
+<def f='codebrowser/code/qcommon/vm.c' l='338' ll='356' type='intptr_t VM_DllSyscall(intptr_t arg)'/>
+<use f='codebrowser/code/qcommon/vm.c' l='621' u='r' c='VM_Create'/>
+<doc f='codebrowser/code/qcommon/vm.c' l='300'>/*
+============
+VM_DllSyscall
+
+Dlls will call this directly
+
+ rcg010206 The horror; the horror.
+
+  The syscall mechanism relies on stack manipulation to get its args.
+   This is likely due to C&apos;s inability to pass &quot;...&quot; parameters to
+   a function in one clean chunk. On PowerPC Linux, these parameters
+   are not necessarily passed on the stack, so while (&amp;arg[0] == arg)
+   is true, (&amp;arg[1] == 2nd function parameter) is not necessarily
+   accurate, as arg&apos;s value might have been stored to the stack or
+   other piece of scratch memory to give it a valid address, but the
+   next parameter might still be sitting in a register.
+
+  Quake&apos;s syscall system also assumes that the stack grows downward,
+   and that any needed types can be squeezed, safely, into a signed int.
+
+  This hack below copies all needed values for an argument to a
+   array in memory, so that Quake can get the correct values. This can
+   also be used on systems where the stack grows upwards, as the
+   presumably standard and safe stdargs.h macros are used.
+
+  As for having enough space in a signed int for your datatypes, well,
+   it might be better to wait for DOOM 3 before you start porting.  :)
+
+  The original code, while probably still inherently dangerous, seems
+   to work well enough for the platforms it already works on. Rather
+   than add the performance hit for those platforms, the original code
+   is still in use there.
+
+  For speed, we just grab 15 arguments, and don&apos;t worry about exactly
+   how many the syscall actually needs; the extra is thrown away.
+ 
+============
+*/</doc>

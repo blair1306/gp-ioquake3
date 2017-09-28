@@ -1,0 +1,12 @@
+<dec f='codebrowser/code/botlib/be_ea.h' l='54' type='void EA_SelectWeapon(int client, int weapon)'/>
+<doc f='codebrowser/code/botlib/be_ea.h' l='53'>//regular elementary actions</doc>
+<use f='codebrowser/code/botlib/be_ai_move.c' l='2750' u='c' c='BotTravel_RocketJump'/>
+<use f='codebrowser/code/botlib/be_ai_move.c' l='2810' u='c' c='BotTravel_BFGJump'/>
+<def f='codebrowser/code/botlib/be_ea.c' l='145' ll='152' type='void EA_SelectWeapon(int client, int weapon)'/>
+<doc f='codebrowser/code/botlib/be_ea.c' l='139'>//===========================================================================
+//
+// Parameter:			-
+// Returns:				-
+// Changes Globals:		-
+//===========================================================================</doc>
+<use f='codebrowser/code/botlib/be_interface.c' l='753' u='r' c='Init_EA_Export'/>

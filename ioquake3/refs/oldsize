@@ -1,0 +1,16 @@
+<dec f='codebrowser/code/qcommon/huffman.c' l='395' type='int'/>
+<def f='codebrowser/code/qcommon/msg.c' l='40' type='int'/>
+<use f='codebrowser/code/qcommon/msg.c' l='108' u='w' c='MSG_WriteBits'/>
+<use f='codebrowser/code/qcommon/msg.c' l='695' u='w' c='MSG_WriteDeltaUsercmdKey'/>
+<use f='codebrowser/code/qcommon/msg.c' l='914' u='w' c='MSG_WriteDeltaEntity'/>
+<use f='codebrowser/code/qcommon/msg.c' l='934' u='w' c='MSG_WriteDeltaEntity'/>
+<use f='codebrowser/code/qcommon/msg.c' l='1189' u='w' c='MSG_WriteDeltaPlayerstate'/>
+<use f='codebrowser/code/qcommon/msg.c' l='1255' u='w' c='MSG_WriteDeltaPlayerstate'/>
+<doc f='codebrowser/code/qcommon/msg.c' l='31'>/*
+==============================================================================
+
+			MESSAGE IO FUNCTIONS
+
+Handles byte ordering and avoids alignment errors
+==============================================================================
+*/</doc>

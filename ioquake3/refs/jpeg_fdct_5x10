@@ -1,0 +1,8 @@
+<dec f='codebrowser/code/jpeg-8c/jdct.h' l='223' type='void jpeg_fdct_5x10(DCTELEM * data, JSAMPARRAY sample_data, JDIMENSION start_col)'/>
+<use f='codebrowser/code/jpeg-8c/jcdctmgr.c' l='299' u='r' c='start_pass_fdctmgr'/>
+<def f='codebrowser/code/jpeg-8c/jfdctint.c' l='3858' ll='3995' macro='1' type='void jpeg_fdct_5x10(DCTELEM * data, JSAMPARRAY sample_data, JDIMENSION start_col)'/>
+<doc f='codebrowser/code/jpeg-8c/jfdctint.c' l='3852'>/*
+ * Perform the forward DCT on a 5x10 sample block.
+ *
+ * 5-point FDCT in pass 1 (rows), 10-point in pass 2 (columns).
+ */</doc>

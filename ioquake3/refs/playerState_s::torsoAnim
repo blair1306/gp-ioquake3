@@ -1,0 +1,15 @@
+<dec f='codebrowser/code/qcommon/q_shared.h' l='1164' type='int'/>
+<offset>672</offset>
+<doc f='codebrowser/code/qcommon/q_shared.h' l='1164'>// mask off ANIM_TOGGLEBIT</doc>
+<use f='codebrowser/code/game/bg_misc.c' l='1493' u='r' c='BG_PlayerStateToEntityState'/>
+<use f='codebrowser/code/game/bg_misc.c' l='1573' u='r' c='BG_PlayerStateToEntityStateExtraPolate'/>
+<use f='codebrowser/code/game/bg_pmove.c' l='97' u='w' c='PM_StartTorsoAnim'/>
+<use f='codebrowser/code/game/bg_pmove.c' l='97' u='r' c='PM_StartTorsoAnim'/>
+<use f='codebrowser/code/game/bg_pmove.c' l='122' u='r' c='PM_ContinueTorsoAnim'/>
+<use f='codebrowser/code/game/g_client.c' l='1198' u='w' c='ClientSpawn'/>
+<use f='codebrowser/code/game/g_combat.c' l='644' u='w' c='player_die'/>
+<use f='codebrowser/code/game/g_combat.c' l='645' u='r' c='player_die'/>
+<use f='codebrowser/code/qcommon/msg.c' l='1116' u='a'/>
+<use f='codebrowser/code/qcommon/msg.c' l='1116' u='a'/>
+<use f='codebrowser/code/qcommon/msg.c' l='1116' u='a'/>
+<use f='codebrowser/code/qcommon/msg.c' l='1116' u='a'/>

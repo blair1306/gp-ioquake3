@@ -1,0 +1,193 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>tr_image_pcx.c source code [codebrowser/code/renderercommon/tr_image_pcx.c] - Woboq Code Browser</title>
+<link rel="stylesheet" href="../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'codebrowser/code/renderercommon/tr_image_pcx.c'; var root_path = '../../..'; var data_path = '../../../../data';</script>
+<script src='../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../..'>codebrowser</a>/<a href='..'>code</a>/<a href='./'>renderercommon</a>/<a href='tr_image_pcx.c.html'>tr_image_pcx.c</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/*</i></td></tr>
+<tr><th id="2">2</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="3">3</th><td><i>Copyright (C) 1999-2005 Id Software, Inc.</i></td></tr>
+<tr><th id="4">4</th><td><i>              2008 Ludwig Nussel</i></td></tr>
+<tr><th id="5">5</th><td><i></i></td></tr>
+<tr><th id="6">6</th><td><i>This file is part of Quake III Arena source code.</i></td></tr>
+<tr><th id="7">7</th><td><i></i></td></tr>
+<tr><th id="8">8</th><td><i>Quake III Arena source code is free software; you can redistribute it</i></td></tr>
+<tr><th id="9">9</th><td><i>and/or modify it under the terms of the GNU General Public License as</i></td></tr>
+<tr><th id="10">10</th><td><i>published by the Free Software Foundation; either version 2 of the License,</i></td></tr>
+<tr><th id="11">11</th><td><i>or (at your option) any later version.</i></td></tr>
+<tr><th id="12">12</th><td><i></i></td></tr>
+<tr><th id="13">13</th><td><i>Quake III Arena source code is distributed in the hope that it will be</i></td></tr>
+<tr><th id="14">14</th><td><i>useful, but WITHOUT ANY WARRANTY; without even the implied warranty of</i></td></tr>
+<tr><th id="15">15</th><td><i>MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</i></td></tr>
+<tr><th id="16">16</th><td><i>GNU General Public License for more details.</i></td></tr>
+<tr><th id="17">17</th><td><i></i></td></tr>
+<tr><th id="18">18</th><td><i>You should have received a copy of the GNU General Public License</i></td></tr>
+<tr><th id="19">19</th><td><i>along with Quake III Arena source code; if not, write to the Free Software</i></td></tr>
+<tr><th id="20">20</th><td><i>Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA</i></td></tr>
+<tr><th id="21">21</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="22">22</th><td><i>*/</i></td></tr>
+<tr><th id="23">23</th><td></td></tr>
+<tr><th id="24">24</th><td><u>#include <a href="tr_common.h.html">"tr_common.h"</a></u></td></tr>
+<tr><th id="25">25</th><td></td></tr>
+<tr><th id="26">26</th><td><i>/*</i></td></tr>
+<tr><th id="27">27</th><td><i>========================================================================</i></td></tr>
+<tr><th id="28">28</th><td><i></i></td></tr>
+<tr><th id="29">29</th><td><i>PCX files are used for 8 bit images</i></td></tr>
+<tr><th id="30">30</th><td><i></i></td></tr>
+<tr><th id="31">31</th><td><i>========================================================================</i></td></tr>
+<tr><th id="32">32</th><td><i>*/</i></td></tr>
+<tr><th id="33">33</th><td></td></tr>
+<tr><th id="34">34</th><td><b>typedef</b> <b>struct</b> {</td></tr>
+<tr><th id="35">35</th><td>	<em>char</em>	<dfn class="tu decl" id="(anonymous)::manufacturer" title='(anonymous struct)::manufacturer' data-type='char' data-ref="(anonymous)::manufacturer">manufacturer</dfn>;</td></tr>
+<tr><th id="36">36</th><td>	<em>char</em>	<dfn class="tu decl" id="(anonymous)::version" title='(anonymous struct)::version' data-type='char' data-ref="(anonymous)::version">version</dfn>;</td></tr>
+<tr><th id="37">37</th><td>	<em>char</em>	<dfn class="tu decl" id="(anonymous)::encoding" title='(anonymous struct)::encoding' data-type='char' data-ref="(anonymous)::encoding">encoding</dfn>;</td></tr>
+<tr><th id="38">38</th><td>	<em>char</em>	<dfn class="tu decl" id="(anonymous)::bits_per_pixel" title='(anonymous struct)::bits_per_pixel' data-type='char' data-ref="(anonymous)::bits_per_pixel">bits_per_pixel</dfn>;</td></tr>
+<tr><th id="39">39</th><td>	<em>unsigned</em> <em>short</em>	<dfn class="tu decl" id="(anonymous)::xmin" title='(anonymous struct)::xmin' data-type='unsigned short' data-ref="(anonymous)::xmin">xmin</dfn>,<dfn class="tu decl" id="(anonymous)::ymin" title='(anonymous struct)::ymin' data-type='unsigned short' data-ref="(anonymous)::ymin">ymin</dfn>,<dfn class="tu decl" id="(anonymous)::xmax" title='(anonymous struct)::xmax' data-type='unsigned short' data-ref="(anonymous)::xmax">xmax</dfn>,<dfn class="tu decl" id="(anonymous)::ymax" title='(anonymous struct)::ymax' data-type='unsigned short' data-ref="(anonymous)::ymax">ymax</dfn>;</td></tr>
+<tr><th id="40">40</th><td>	<em>unsigned</em> <em>short</em>	<dfn class="tu decl" id="(anonymous)::hres" title='(anonymous struct)::hres' data-type='unsigned short' data-ref="(anonymous)::hres">hres</dfn>,<dfn class="tu decl" id="(anonymous)::vres" title='(anonymous struct)::vres' data-type='unsigned short' data-ref="(anonymous)::vres">vres</dfn>;</td></tr>
+<tr><th id="41">41</th><td>	<em>unsigned</em> <em>char</em>	<dfn class="tu decl" id="(anonymous)::palette" title='(anonymous struct)::palette' data-type='unsigned char [48]' data-ref="(anonymous)::palette">palette</dfn>[<var>48</var>];</td></tr>
+<tr><th id="42">42</th><td>	<em>char</em>	<dfn class="tu decl" id="(anonymous)::reserved" title='(anonymous struct)::reserved' data-type='char' data-ref="(anonymous)::reserved">reserved</dfn>;</td></tr>
+<tr><th id="43">43</th><td>	<em>char</em>	<dfn class="tu decl" id="(anonymous)::color_planes" title='(anonymous struct)::color_planes' data-type='char' data-ref="(anonymous)::color_planes">color_planes</dfn>;</td></tr>
+<tr><th id="44">44</th><td>	<em>unsigned</em> <em>short</em>	<dfn class="tu decl" id="(anonymous)::bytes_per_line" title='(anonymous struct)::bytes_per_line' data-type='unsigned short' data-ref="(anonymous)::bytes_per_line">bytes_per_line</dfn>;</td></tr>
+<tr><th id="45">45</th><td>	<em>unsigned</em> <em>short</em>	<dfn class="tu decl" id="(anonymous)::palette_type" title='(anonymous struct)::palette_type' data-type='unsigned short' data-ref="(anonymous)::palette_type">palette_type</dfn>;</td></tr>
+<tr><th id="46">46</th><td>	<em>unsigned</em> <em>short</em>	<dfn class="tu decl" id="(anonymous)::hscreensize" title='(anonymous struct)::hscreensize' data-type='unsigned short' data-ref="(anonymous)::hscreensize">hscreensize</dfn>, <dfn class="tu decl" id="(anonymous)::vscreensize" title='(anonymous struct)::vscreensize' data-type='unsigned short' data-ref="(anonymous)::vscreensize">vscreensize</dfn>;</td></tr>
+<tr><th id="47">47</th><td>	<em>char</em>	<dfn class="tu decl" id="(anonymous)::filler" title='(anonymous struct)::filler' data-type='char [54]' data-ref="(anonymous)::filler">filler</dfn>[<var>54</var>];</td></tr>
+<tr><th id="48">48</th><td>	<em>unsigned</em> <em>char</em>	<dfn class="tu decl" id="(anonymous)::data" title='(anonymous struct)::data' data-type='unsigned char []' data-ref="(anonymous)::data">data</dfn>[];</td></tr>
+<tr><th id="49">49</th><td>} <dfn class="typedef" id="pcx_t" title='pcx_t' data-type='struct pcx_t' data-ref="pcx_t">pcx_t</dfn>;</td></tr>
+<tr><th id="50">50</th><td></td></tr>
+<tr><th id="51">51</th><td><em>void</em> <dfn class="decl def" id="R_LoadPCX" title='R_LoadPCX' data-ref="R_LoadPCX">R_LoadPCX</dfn> ( <em>const</em> <em>char</em> *<dfn class="local col1 decl" id="1filename" title='filename' data-type='const char *' data-ref="1filename">filename</dfn>, <a class="typedef" href="../qcommon/q_shared.h.html#byte" title='byte' data-type='unsigned char' data-ref="byte">byte</a> **<dfn class="local col2 decl" id="2pic" title='pic' data-type='byte **' data-ref="2pic">pic</dfn>, <em>int</em> *<dfn class="local col3 decl" id="3width" title='width' data-type='int *' data-ref="3width">width</dfn>, <em>int</em> *<dfn class="local col4 decl" id="4height" title='height' data-type='int *' data-ref="4height">height</dfn>)</td></tr>
+<tr><th id="52">52</th><td>{</td></tr>
+<tr><th id="53">53</th><td>	<b>union</b> {</td></tr>
+<tr><th id="54">54</th><td>		<a class="typedef" href="../qcommon/q_shared.h.html#byte" title='byte' data-type='unsigned char' data-ref="byte">byte</a> *<dfn class="local col5 decl" id="5b" title='b' data-type='byte *' data-ref="5b">b</dfn>;</td></tr>
+<tr><th id="55">55</th><td>		<em>void</em> *<dfn class="local col6 decl" id="6v" title='v' data-type='void *' data-ref="6v">v</dfn>;</td></tr>
+<tr><th id="56">56</th><td>	} <dfn class="local col7 decl" id="7raw" title='raw' data-type='union (anonymous union at /home/jon/workspace/ioq3/code/renderercommon/tr_image_pcx.c:53:2)' data-ref="7raw">raw</dfn>;</td></tr>
+<tr><th id="57">57</th><td>	<a class="typedef" href="../qcommon/q_shared.h.html#byte" title='byte' data-type='unsigned char' data-ref="byte">byte</a>	*<dfn class="local col8 decl" id="8end" title='end' data-type='byte *' data-ref="8end">end</dfn>;</td></tr>
+<tr><th id="58">58</th><td>	<a class="typedef" href="#pcx_t" title='pcx_t' data-type='struct pcx_t' data-ref="pcx_t">pcx_t</a>	*<dfn class="local col9 decl" id="9pcx" title='pcx' data-type='pcx_t *' data-ref="9pcx">pcx</dfn>;</td></tr>
+<tr><th id="59">59</th><td>	<em>int</em>		<dfn class="local col0 decl" id="10len" title='len' data-type='int' data-ref="10len">len</dfn>;</td></tr>
+<tr><th id="60">60</th><td>	<em>unsigned</em> <em>char</em>	<dfn class="local col1 decl" id="11dataByte" title='dataByte' data-type='unsigned char' data-ref="11dataByte">dataByte</dfn> = <var>0</var>, <dfn class="local col2 decl" id="12runLength" title='runLength' data-type='unsigned char' data-ref="12runLength">runLength</dfn> = <var>0</var>;</td></tr>
+<tr><th id="61">61</th><td>	<a class="typedef" href="../qcommon/q_shared.h.html#byte" title='byte' data-type='unsigned char' data-ref="byte">byte</a>	*<dfn class="local col3 decl" id="13out" title='out' data-type='byte *' data-ref="13out">out</dfn>, *<dfn class="local col4 decl" id="14pix" title='pix' data-type='byte *' data-ref="14pix">pix</dfn>;</td></tr>
+<tr><th id="62">62</th><td>	<em>unsigned</em> <em>short</em> <dfn class="local col5 decl" id="15w" title='w' data-type='unsigned short' data-ref="15w">w</dfn>, <dfn class="local col6 decl" id="16h" title='h' data-type='unsigned short' data-ref="16h">h</dfn>;</td></tr>
+<tr><th id="63">63</th><td>	<a class="typedef" href="../qcommon/q_shared.h.html#byte" title='byte' data-type='unsigned char' data-ref="byte">byte</a>	*<dfn class="local col7 decl" id="17pic8" title='pic8' data-type='byte *' data-ref="17pic8">pic8</dfn>;</td></tr>
+<tr><th id="64">64</th><td>	<a class="typedef" href="../qcommon/q_shared.h.html#byte" title='byte' data-type='unsigned char' data-ref="byte">byte</a>	*<dfn class="local col8 decl" id="18palette" title='palette' data-type='byte *' data-ref="18palette">palette</dfn>;</td></tr>
+<tr><th id="65">65</th><td>	<em>int</em>	<dfn class="local col9 decl" id="19i" title='i' data-type='int' data-ref="19i">i</dfn>;</td></tr>
+<tr><th id="66">66</th><td>	<em>unsigned</em> <dfn class="local col0 decl" id="20size" title='size' data-type='unsigned int' data-ref="20size">size</dfn> = <var>0</var>;</td></tr>
+<tr><th id="67">67</th><td></td></tr>
+<tr><th id="68">68</th><td>	<b>if</b> (<a class="local col3 ref" href="#3width" title='width' data-ref="3width">width</a>)</td></tr>
+<tr><th id="69">69</th><td>		*<a class="local col3 ref" href="#3width" title='width' data-ref="3width">width</a> = <var>0</var>;</td></tr>
+<tr><th id="70">70</th><td>	<b>if</b> (<a class="local col4 ref" href="#4height" title='height' data-ref="4height">height</a>)</td></tr>
+<tr><th id="71">71</th><td>		*<a class="local col4 ref" href="#4height" title='height' data-ref="4height">height</a> = <var>0</var>;</td></tr>
+<tr><th id="72">72</th><td>	*<a class="local col2 ref" href="#2pic" title='pic' data-ref="2pic">pic</a> = <span class="macro" title="((void*)0)" data-ref="_M/NULL">NULL</span>;</td></tr>
+<tr><th id="73">73</th><td></td></tr>
+<tr><th id="74">74</th><td>	<i>//</i></td></tr>
+<tr><th id="75">75</th><td><i>	// load the file</i></td></tr>
+<tr><th id="76">76</th><td><i>	//</i></td></tr>
+<tr><th id="77">77</th><td>	<a class="local col0 ref" href="#10len" title='len' data-ref="10len">len</a> = <a class="ref" href="tr_common.h.html#ri" title='ri' data-ref="ri">ri</a>.<a class="ref" href="tr_public.h.html#(anonymous)::FS_ReadFile" title='(anonymous struct)::FS_ReadFile' data-ref="(anonymous)::FS_ReadFile">FS_ReadFile</a>( ( <em>char</em> * ) <a class="local col1 ref" href="#1filename" title='filename' data-ref="1filename">filename</a>, &amp;<a class="local col7 ref" href="#7raw" title='raw' data-ref="7raw">raw</a>.<a class="local col6 ref" href="#6v" title='v' data-ref="6v">v</a>);</td></tr>
+<tr><th id="78">78</th><td>	<b>if</b> (!<a class="local col7 ref" href="#7raw" title='raw' data-ref="7raw">raw</a>.<a class="local col5 ref" href="#5b" title='b' data-ref="5b">b</a> || <a class="local col0 ref" href="#10len" title='len' data-ref="10len">len</a> &lt; <var>0</var>) {</td></tr>
+<tr><th id="79">79</th><td>		<b>return</b>;</td></tr>
+<tr><th id="80">80</th><td>	}</td></tr>
+<tr><th id="81">81</th><td></td></tr>
+<tr><th id="82">82</th><td>	<b>if</b>((<em>unsigned</em>)<a class="local col0 ref" href="#10len" title='len' data-ref="10len">len</a> &lt; <b>sizeof</b>(<a class="typedef" href="#pcx_t" title='pcx_t' data-type='struct pcx_t' data-ref="pcx_t">pcx_t</a>))</td></tr>
+<tr><th id="83">83</th><td>	{</td></tr>
+<tr><th id="84">84</th><td>		<a class="ref" href="tr_common.h.html#ri" title='ri' data-ref="ri">ri</a>.<a class="ref" href="tr_public.h.html#(anonymous)::Printf" title='(anonymous struct)::Printf' data-ref="(anonymous)::Printf">Printf</a> (<a class="enum" href="../qcommon/q_shared.h.html#PRINT_ALL" title='PRINT_ALL' data-ref="PRINT_ALL">PRINT_ALL</a>, <q>"PCX truncated: %s\n"</q>, <a class="local col1 ref" href="#1filename" title='filename' data-ref="1filename">filename</a>);</td></tr>
+<tr><th id="85">85</th><td>		<a class="ref" href="tr_common.h.html#ri" title='ri' data-ref="ri">ri</a>.<a class="ref" href="tr_public.h.html#(anonymous)::FS_FreeFile" title='(anonymous struct)::FS_FreeFile' data-ref="(anonymous)::FS_FreeFile">FS_FreeFile</a> (<a class="local col7 ref" href="#7raw" title='raw' data-ref="7raw">raw</a>.<a class="local col6 ref" href="#6v" title='v' data-ref="6v">v</a>);</td></tr>
+<tr><th id="86">86</th><td>		<b>return</b>;</td></tr>
+<tr><th id="87">87</th><td>	}</td></tr>
+<tr><th id="88">88</th><td></td></tr>
+<tr><th id="89">89</th><td>	<i>//</i></td></tr>
+<tr><th id="90">90</th><td><i>	// parse the PCX file</i></td></tr>
+<tr><th id="91">91</th><td><i>	//</i></td></tr>
+<tr><th id="92">92</th><td>	<a class="local col9 ref" href="#9pcx" title='pcx' data-ref="9pcx">pcx</a> = (<a class="typedef" href="#pcx_t" title='pcx_t' data-type='struct pcx_t' data-ref="pcx_t">pcx_t</a> *)<a class="local col7 ref" href="#7raw" title='raw' data-ref="7raw">raw</a>.<a class="local col5 ref" href="#5b" title='b' data-ref="5b">b</a>;</td></tr>
+<tr><th id="93">93</th><td>	<a class="local col8 ref" href="#8end" title='end' data-ref="8end">end</a> = <a class="local col7 ref" href="#7raw" title='raw' data-ref="7raw">raw</a>.<a class="local col5 ref" href="#5b" title='b' data-ref="5b">b</a>+<a class="local col0 ref" href="#10len" title='len' data-ref="10len">len</a>;</td></tr>
+<tr><th id="94">94</th><td></td></tr>
+<tr><th id="95">95</th><td>	<a class="local col5 ref" href="#15w" title='w' data-ref="15w">w</a> = <a class="macro" href="../qcommon/q_platform.h.html#349" title="" data-ref="_M/LittleShort">LittleShort</a>(<a class="local col9 ref" href="#9pcx" title='pcx' data-ref="9pcx">pcx</a>-&gt;<a class="tu ref" href="#(anonymous)::xmax" title='(anonymous struct)::xmax' data-use='r' data-ref="(anonymous)::xmax">xmax</a>)+<var>1</var>;</td></tr>
+<tr><th id="96">96</th><td>	<a class="local col6 ref" href="#16h" title='h' data-ref="16h">h</a> = <a class="macro" href="../qcommon/q_platform.h.html#349" title="" data-ref="_M/LittleShort">LittleShort</a>(<a class="local col9 ref" href="#9pcx" title='pcx' data-ref="9pcx">pcx</a>-&gt;<a class="tu ref" href="#(anonymous)::ymax" title='(anonymous struct)::ymax' data-use='r' data-ref="(anonymous)::ymax">ymax</a>)+<var>1</var>;</td></tr>
+<tr><th id="97">97</th><td>	<a class="local col0 ref" href="#20size" title='size' data-ref="20size">size</a> = <a class="local col5 ref" href="#15w" title='w' data-ref="15w">w</a>*<a class="local col6 ref" href="#16h" title='h' data-ref="16h">h</a>;</td></tr>
+<tr><th id="98">98</th><td></td></tr>
+<tr><th id="99">99</th><td>	<b>if</b> (<a class="local col9 ref" href="#9pcx" title='pcx' data-ref="9pcx">pcx</a>-&gt;<a class="tu ref" href="#(anonymous)::manufacturer" title='(anonymous struct)::manufacturer' data-use='r' data-ref="(anonymous)::manufacturer">manufacturer</a> != <var>0x0a</var></td></tr>
+<tr><th id="100">100</th><td>		|| <a class="local col9 ref" href="#9pcx" title='pcx' data-ref="9pcx">pcx</a>-&gt;<a class="tu ref" href="#(anonymous)::version" title='(anonymous struct)::version' data-use='r' data-ref="(anonymous)::version">version</a> != <var>5</var></td></tr>
+<tr><th id="101">101</th><td>		|| <a class="local col9 ref" href="#9pcx" title='pcx' data-ref="9pcx">pcx</a>-&gt;<a class="tu ref" href="#(anonymous)::encoding" title='(anonymous struct)::encoding' data-use='r' data-ref="(anonymous)::encoding">encoding</a> != <var>1</var></td></tr>
+<tr><th id="102">102</th><td>		|| <a class="local col9 ref" href="#9pcx" title='pcx' data-ref="9pcx">pcx</a>-&gt;<a class="tu ref" href="#(anonymous)::color_planes" title='(anonymous struct)::color_planes' data-use='r' data-ref="(anonymous)::color_planes">color_planes</a> != <var>1</var></td></tr>
+<tr><th id="103">103</th><td>		|| <a class="local col9 ref" href="#9pcx" title='pcx' data-ref="9pcx">pcx</a>-&gt;<a class="tu ref" href="#(anonymous)::bits_per_pixel" title='(anonymous struct)::bits_per_pixel' data-use='r' data-ref="(anonymous)::bits_per_pixel">bits_per_pixel</a> != <var>8</var></td></tr>
+<tr><th id="104">104</th><td>		|| <a class="local col5 ref" href="#15w" title='w' data-ref="15w">w</a> &gt;= <var>1024</var></td></tr>
+<tr><th id="105">105</th><td>		|| <a class="local col6 ref" href="#16h" title='h' data-ref="16h">h</a> &gt;= <var>1024</var>)</td></tr>
+<tr><th id="106">106</th><td>	{</td></tr>
+<tr><th id="107">107</th><td>		<a class="ref" href="tr_common.h.html#ri" title='ri' data-ref="ri">ri</a>.<a class="ref" href="tr_public.h.html#(anonymous)::Printf" title='(anonymous struct)::Printf' data-ref="(anonymous)::Printf">Printf</a> (<a class="enum" href="../qcommon/q_shared.h.html#PRINT_ALL" title='PRINT_ALL' data-ref="PRINT_ALL">PRINT_ALL</a>, <q>"Bad or unsupported pcx file %s (%dx%d@%d)\n"</q>, <a class="local col1 ref" href="#1filename" title='filename' data-ref="1filename">filename</a>, <a class="local col5 ref" href="#15w" title='w' data-ref="15w">w</a>, <a class="local col6 ref" href="#16h" title='h' data-ref="16h">h</a>, <a class="local col9 ref" href="#9pcx" title='pcx' data-ref="9pcx">pcx</a>-&gt;<a class="tu ref" href="#(anonymous)::bits_per_pixel" title='(anonymous struct)::bits_per_pixel' data-use='r' data-ref="(anonymous)::bits_per_pixel">bits_per_pixel</a>);</td></tr>
+<tr><th id="108">108</th><td>		<b>return</b>;</td></tr>
+<tr><th id="109">109</th><td>	}</td></tr>
+<tr><th id="110">110</th><td></td></tr>
+<tr><th id="111">111</th><td>	<a class="local col4 ref" href="#14pix" title='pix' data-ref="14pix">pix</a> = <a class="local col7 ref" href="#17pic8" title='pic8' data-ref="17pic8">pic8</a> = <a class="ref" href="tr_common.h.html#ri" title='ri' data-ref="ri">ri</a>.<a class="ref" href="tr_public.h.html#(anonymous)::Malloc" title='(anonymous struct)::Malloc' data-ref="(anonymous)::Malloc">Malloc</a> ( <a class="local col0 ref" href="#20size" title='size' data-ref="20size">size</a> );</td></tr>
+<tr><th id="112">112</th><td></td></tr>
+<tr><th id="113">113</th><td>	<a class="local col7 ref" href="#7raw" title='raw' data-ref="7raw">raw</a>.<a class="local col5 ref" href="#5b" title='b' data-ref="5b">b</a> = <a class="local col9 ref" href="#9pcx" title='pcx' data-ref="9pcx">pcx</a>-&gt;<a class="tu ref" href="#(anonymous)::data" title='(anonymous struct)::data' data-use='r' data-ref="(anonymous)::data">data</a>;</td></tr>
+<tr><th id="114">114</th><td>	<i>// FIXME: should use bytes_per_line but original q3 didn't do that either</i></td></tr>
+<tr><th id="115">115</th><td>	<b>while</b>(<a class="local col4 ref" href="#14pix" title='pix' data-ref="14pix">pix</a> &lt; <a class="local col7 ref" href="#17pic8" title='pic8' data-ref="17pic8">pic8</a>+<a class="local col0 ref" href="#20size" title='size' data-ref="20size">size</a>)</td></tr>
+<tr><th id="116">116</th><td>	{</td></tr>
+<tr><th id="117">117</th><td>		<b>if</b>(<a class="local col2 ref" href="#12runLength" title='runLength' data-ref="12runLength">runLength</a> &gt; <var>0</var>) {</td></tr>
+<tr><th id="118">118</th><td>			*<a class="local col4 ref" href="#14pix" title='pix' data-ref="14pix">pix</a>++ = <a class="local col1 ref" href="#11dataByte" title='dataByte' data-ref="11dataByte">dataByte</a>;</td></tr>
+<tr><th id="119">119</th><td>			--<a class="local col2 ref" href="#12runLength" title='runLength' data-ref="12runLength">runLength</a>;</td></tr>
+<tr><th id="120">120</th><td>			<b>continue</b>;</td></tr>
+<tr><th id="121">121</th><td>		}</td></tr>
+<tr><th id="122">122</th><td></td></tr>
+<tr><th id="123">123</th><td>		<b>if</b>(<a class="local col7 ref" href="#7raw" title='raw' data-ref="7raw">raw</a>.<a class="local col5 ref" href="#5b" title='b' data-ref="5b">b</a>+<var>1</var> &gt; <a class="local col8 ref" href="#8end" title='end' data-ref="8end">end</a>)</td></tr>
+<tr><th id="124">124</th><td>			<b>break</b>;</td></tr>
+<tr><th id="125">125</th><td>		<a class="local col1 ref" href="#11dataByte" title='dataByte' data-ref="11dataByte">dataByte</a> = *<a class="local col7 ref" href="#7raw" title='raw' data-ref="7raw">raw</a>.<a class="local col5 ref" href="#5b" title='b' data-ref="5b">b</a>++;</td></tr>
+<tr><th id="126">126</th><td></td></tr>
+<tr><th id="127">127</th><td>		<b>if</b>((<a class="local col1 ref" href="#11dataByte" title='dataByte' data-ref="11dataByte">dataByte</a> &amp; <var>0xC0</var>) == <var>0xC0</var>)</td></tr>
+<tr><th id="128">128</th><td>		{</td></tr>
+<tr><th id="129">129</th><td>			<b>if</b>(<a class="local col7 ref" href="#7raw" title='raw' data-ref="7raw">raw</a>.<a class="local col5 ref" href="#5b" title='b' data-ref="5b">b</a>+<var>1</var> &gt; <a class="local col8 ref" href="#8end" title='end' data-ref="8end">end</a>)</td></tr>
+<tr><th id="130">130</th><td>				<b>break</b>;</td></tr>
+<tr><th id="131">131</th><td>			<a class="local col2 ref" href="#12runLength" title='runLength' data-ref="12runLength">runLength</a> = <a class="local col1 ref" href="#11dataByte" title='dataByte' data-ref="11dataByte">dataByte</a> &amp; <var>0x3F</var>;</td></tr>
+<tr><th id="132">132</th><td>			<a class="local col1 ref" href="#11dataByte" title='dataByte' data-ref="11dataByte">dataByte</a> = *<a class="local col7 ref" href="#7raw" title='raw' data-ref="7raw">raw</a>.<a class="local col5 ref" href="#5b" title='b' data-ref="5b">b</a>++;</td></tr>
+<tr><th id="133">133</th><td>		}</td></tr>
+<tr><th id="134">134</th><td>		<b>else</b></td></tr>
+<tr><th id="135">135</th><td>			<a class="local col2 ref" href="#12runLength" title='runLength' data-ref="12runLength">runLength</a> = <var>1</var>;</td></tr>
+<tr><th id="136">136</th><td>	}</td></tr>
+<tr><th id="137">137</th><td></td></tr>
+<tr><th id="138">138</th><td>	<b>if</b>(<a class="local col4 ref" href="#14pix" title='pix' data-ref="14pix">pix</a> &lt; <a class="local col7 ref" href="#17pic8" title='pic8' data-ref="17pic8">pic8</a>+<a class="local col0 ref" href="#20size" title='size' data-ref="20size">size</a>)</td></tr>
+<tr><th id="139">139</th><td>	{</td></tr>
+<tr><th id="140">140</th><td>		<a class="ref" href="tr_common.h.html#ri" title='ri' data-ref="ri">ri</a>.<a class="ref" href="tr_public.h.html#(anonymous)::Printf" title='(anonymous struct)::Printf' data-ref="(anonymous)::Printf">Printf</a> (<a class="enum" href="../qcommon/q_shared.h.html#PRINT_ALL" title='PRINT_ALL' data-ref="PRINT_ALL">PRINT_ALL</a>, <q>"PCX file truncated: %s\n"</q>, <a class="local col1 ref" href="#1filename" title='filename' data-ref="1filename">filename</a>);</td></tr>
+<tr><th id="141">141</th><td>		<a class="ref" href="tr_common.h.html#ri" title='ri' data-ref="ri">ri</a>.<a class="ref" href="tr_public.h.html#(anonymous)::FS_FreeFile" title='(anonymous struct)::FS_FreeFile' data-ref="(anonymous)::FS_FreeFile">FS_FreeFile</a> (<a class="local col9 ref" href="#9pcx" title='pcx' data-ref="9pcx">pcx</a>);</td></tr>
+<tr><th id="142">142</th><td>		<a class="ref" href="tr_common.h.html#ri" title='ri' data-ref="ri">ri</a>.<a class="ref" href="tr_public.h.html#(anonymous)::Free" title='(anonymous struct)::Free' data-ref="(anonymous)::Free">Free</a> (<a class="local col7 ref" href="#17pic8" title='pic8' data-ref="17pic8">pic8</a>);</td></tr>
+<tr><th id="143">143</th><td>	}</td></tr>
+<tr><th id="144">144</th><td></td></tr>
+<tr><th id="145">145</th><td>	<b>if</b> (<a class="local col7 ref" href="#7raw" title='raw' data-ref="7raw">raw</a>.<a class="local col5 ref" href="#5b" title='b' data-ref="5b">b</a>-(<a class="typedef" href="../qcommon/q_shared.h.html#byte" title='byte' data-type='unsigned char' data-ref="byte">byte</a>*)<a class="local col9 ref" href="#9pcx" title='pcx' data-ref="9pcx">pcx</a> &gt;= <a class="local col8 ref" href="#8end" title='end' data-ref="8end">end</a> - (<a class="typedef" href="../qcommon/q_shared.h.html#byte" title='byte' data-type='unsigned char' data-ref="byte">byte</a>*)<var>769</var> || <a class="local col8 ref" href="#8end" title='end' data-ref="8end">end</a>[-<var>769</var>] != <var>0x0c</var>)</td></tr>
+<tr><th id="146">146</th><td>	{</td></tr>
+<tr><th id="147">147</th><td>		<a class="ref" href="tr_common.h.html#ri" title='ri' data-ref="ri">ri</a>.<a class="ref" href="tr_public.h.html#(anonymous)::Printf" title='(anonymous struct)::Printf' data-ref="(anonymous)::Printf">Printf</a> (<a class="enum" href="../qcommon/q_shared.h.html#PRINT_ALL" title='PRINT_ALL' data-ref="PRINT_ALL">PRINT_ALL</a>, <q>"PCX missing palette: %s\n"</q>, <a class="local col1 ref" href="#1filename" title='filename' data-ref="1filename">filename</a>);</td></tr>
+<tr><th id="148">148</th><td>		<a class="ref" href="tr_common.h.html#ri" title='ri' data-ref="ri">ri</a>.<a class="ref" href="tr_public.h.html#(anonymous)::FS_FreeFile" title='(anonymous struct)::FS_FreeFile' data-ref="(anonymous)::FS_FreeFile">FS_FreeFile</a> (<a class="local col9 ref" href="#9pcx" title='pcx' data-ref="9pcx">pcx</a>);</td></tr>
+<tr><th id="149">149</th><td>		<a class="ref" href="tr_common.h.html#ri" title='ri' data-ref="ri">ri</a>.<a class="ref" href="tr_public.h.html#(anonymous)::Free" title='(anonymous struct)::Free' data-ref="(anonymous)::Free">Free</a> (<a class="local col7 ref" href="#17pic8" title='pic8' data-ref="17pic8">pic8</a>);</td></tr>
+<tr><th id="150">150</th><td>		<b>return</b>;</td></tr>
+<tr><th id="151">151</th><td>	}</td></tr>
+<tr><th id="152">152</th><td></td></tr>
+<tr><th id="153">153</th><td>	<a class="local col8 ref" href="#18palette" title='palette' data-ref="18palette">palette</a> = <a class="local col8 ref" href="#8end" title='end' data-ref="8end">end</a>-<var>768</var>;</td></tr>
+<tr><th id="154">154</th><td></td></tr>
+<tr><th id="155">155</th><td>	<a class="local col4 ref" href="#14pix" title='pix' data-ref="14pix">pix</a> = <a class="local col3 ref" href="#13out" title='out' data-ref="13out">out</a> = <a class="ref" href="tr_common.h.html#ri" title='ri' data-ref="ri">ri</a>.<a class="ref" href="tr_public.h.html#(anonymous)::Malloc" title='(anonymous struct)::Malloc' data-ref="(anonymous)::Malloc">Malloc</a>(<var>4</var> * <a class="local col0 ref" href="#20size" title='size' data-ref="20size">size</a> );</td></tr>
+<tr><th id="156">156</th><td>	<b>for</b> (<a class="local col9 ref" href="#19i" title='i' data-ref="19i">i</a> = <var>0</var> ; <a class="local col9 ref" href="#19i" title='i' data-ref="19i">i</a> &lt; <a class="local col0 ref" href="#20size" title='size' data-ref="20size">size</a> ; <a class="local col9 ref" href="#19i" title='i' data-ref="19i">i</a>++)</td></tr>
+<tr><th id="157">157</th><td>	{</td></tr>
+<tr><th id="158">158</th><td>		<em>unsigned</em> <em>char</em> <dfn class="local col1 decl" id="21p" title='p' data-type='unsigned char' data-ref="21p">p</dfn> = <a class="local col7 ref" href="#17pic8" title='pic8' data-ref="17pic8">pic8</a>[<a class="local col9 ref" href="#19i" title='i' data-ref="19i">i</a>];</td></tr>
+<tr><th id="159">159</th><td>		<a class="local col4 ref" href="#14pix" title='pix' data-ref="14pix">pix</a>[<var>0</var>] = <a class="local col8 ref" href="#18palette" title='palette' data-ref="18palette">palette</a>[<a class="local col1 ref" href="#21p" title='p' data-ref="21p">p</a>*<var>3</var>];</td></tr>
+<tr><th id="160">160</th><td>		<a class="local col4 ref" href="#14pix" title='pix' data-ref="14pix">pix</a>[<var>1</var>] = <a class="local col8 ref" href="#18palette" title='palette' data-ref="18palette">palette</a>[<a class="local col1 ref" href="#21p" title='p' data-ref="21p">p</a>*<var>3</var> + <var>1</var>];</td></tr>
+<tr><th id="161">161</th><td>		<a class="local col4 ref" href="#14pix" title='pix' data-ref="14pix">pix</a>[<var>2</var>] = <a class="local col8 ref" href="#18palette" title='palette' data-ref="18palette">palette</a>[<a class="local col1 ref" href="#21p" title='p' data-ref="21p">p</a>*<var>3</var> + <var>2</var>];</td></tr>
+<tr><th id="162">162</th><td>		<a class="local col4 ref" href="#14pix" title='pix' data-ref="14pix">pix</a>[<var>3</var>] = <var>255</var>;</td></tr>
+<tr><th id="163">163</th><td>		<a class="local col4 ref" href="#14pix" title='pix' data-ref="14pix">pix</a> += <var>4</var>;</td></tr>
+<tr><th id="164">164</th><td>	}</td></tr>
+<tr><th id="165">165</th><td></td></tr>
+<tr><th id="166">166</th><td>	<b>if</b> (<a class="local col3 ref" href="#3width" title='width' data-ref="3width">width</a>)</td></tr>
+<tr><th id="167">167</th><td>		*<a class="local col3 ref" href="#3width" title='width' data-ref="3width">width</a> = <a class="local col5 ref" href="#15w" title='w' data-ref="15w">w</a>;</td></tr>
+<tr><th id="168">168</th><td>	<b>if</b> (<a class="local col4 ref" href="#4height" title='height' data-ref="4height">height</a>)</td></tr>
+<tr><th id="169">169</th><td>		*<a class="local col4 ref" href="#4height" title='height' data-ref="4height">height</a> = <a class="local col6 ref" href="#16h" title='h' data-ref="16h">h</a>;</td></tr>
+<tr><th id="170">170</th><td></td></tr>
+<tr><th id="171">171</th><td>	*<a class="local col2 ref" href="#2pic" title='pic' data-ref="2pic">pic</a> = <a class="local col3 ref" href="#13out" title='out' data-ref="13out">out</a>;</td></tr>
+<tr><th id="172">172</th><td></td></tr>
+<tr><th id="173">173</th><td>	<a class="ref" href="tr_common.h.html#ri" title='ri' data-ref="ri">ri</a>.<a class="ref" href="tr_public.h.html#(anonymous)::FS_FreeFile" title='(anonymous struct)::FS_FreeFile' data-ref="(anonymous)::FS_FreeFile">FS_FreeFile</a> (<a class="local col9 ref" href="#9pcx" title='pcx' data-ref="9pcx">pcx</a>);</td></tr>
+<tr><th id="174">174</th><td>	<a class="ref" href="tr_common.h.html#ri" title='ri' data-ref="ri">ri</a>.<a class="ref" href="tr_public.h.html#(anonymous)::Free" title='(anonymous struct)::Free' data-ref="(anonymous)::Free">Free</a> (<a class="local col7 ref" href="#17pic8" title='pic8' data-ref="17pic8">pic8</a>);</td></tr>
+<tr><th id="175">175</th><td>}</td></tr>
+<tr><th id="176">176</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated on <em>2017-Aug-29</em> from project codebrowser revision <em>63e07af</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

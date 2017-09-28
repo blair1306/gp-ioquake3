@@ -1,0 +1,22 @@
+<dec f='codebrowser/code/qcommon/q_shared.h' l='712' type='void RotatePointAroundVector(vec_t * dst, const vec_t * dir, const vec_t * point, float degrees)'/>
+<use f='codebrowser/code/cgame/cg_marks.c' l='158' u='c' c='CG_ImpactMark'/>
+<use f='codebrowser/code/cgame/cg_weapons.c' l='270' u='c' c='CG_RailTrail'/>
+<def f='codebrowser/code/qcommon/q_math.c' l='291' ll='345' type='void RotatePointAroundVector(vec_t * dst, const vec_t * dir, const vec_t * point, float degrees)'/>
+<use f='codebrowser/code/qcommon/q_math.c' l='362' u='c' c='RotateAroundDirection'/>
+<doc f='codebrowser/code/qcommon/q_math.c' l='284'>/*
+===============
+RotatePointAroundVector
+
+This is not implemented very well...
+===============
+*/</doc>
+<use f='codebrowser/code/renderergl1/tr_main.c' l='753' u='c' c='R_GetPortalOrientations'/>
+<use f='codebrowser/code/renderergl1/tr_main.c' l='760' u='c' c='R_GetPortalOrientations'/>
+<use f='codebrowser/code/renderergl1/tr_main.c' l='767' u='c' c='R_GetPortalOrientations'/>
+<use f='codebrowser/code/renderergl1/tr_surface.c' l='320' u='c' c='RB_SurfaceBeam'/>
+<use f='codebrowser/code/renderergl1/tr_surface.c' l='549' u='c' c='RB_SurfaceLightningBolt'/>
+<use f='codebrowser/code/renderergl2/tr_main.c' l='1103' u='c' c='R_GetPortalOrientations'/>
+<use f='codebrowser/code/renderergl2/tr_main.c' l='1110' u='c' c='R_GetPortalOrientations'/>
+<use f='codebrowser/code/renderergl2/tr_main.c' l='1117' u='c' c='R_GetPortalOrientations'/>
+<use f='codebrowser/code/renderergl2/tr_surface.c' l='511' u='c' c='RB_SurfaceBeam'/>
+<use f='codebrowser/code/renderergl2/tr_surface.c' l='772' u='c' c='RB_SurfaceLightningBolt'/>

@@ -1,0 +1,18 @@
+<dec f='codebrowser/code/game/ai_chat.h' l='56' type='float BotChatTime(bot_state_t * bs)'/>
+<def f='codebrowser/code/game/ai_chat.c' l='944' ll='950' type='float BotChatTime(bot_state_t * bs)'/>
+<doc f='codebrowser/code/game/ai_chat.c' l='939'>/*
+==================
+BotChatTime
+==================
+*/</doc>
+<doc f='codebrowser/code/game/ai_chat.h' l='55'>// time the selected chat takes to type in</doc>
+<use f='codebrowser/code/game/ai_dmnet.c' l='1151' u='c' c='AINode_Intermission'/>
+<use f='codebrowser/code/game/ai_dmnet.c' l='1207' u='c' c='AINode_Stand'/>
+<use f='codebrowser/code/game/ai_dmnet.c' l='1208' u='c' c='AINode_Stand'/>
+<use f='codebrowser/code/game/ai_dmnet.c' l='1244' u='c' c='AIEnter_Respawn'/>
+<use f='codebrowser/code/game/ai_dmnet.c' l='1825' u='c' c='AINode_Seek_LTG'/>
+<use f='codebrowser/code/game/ai_dmnet.c' l='2034' u='c' c='AINode_Battle_Fight'/>
+<use f='codebrowser/code/game/ai_dmnet.c' l='2079' u='c' c='AINode_Battle_Fight'/>
+<use f='codebrowser/code/game/ai_dmnet.c' l='2087' u='c' c='AINode_Battle_Fight'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='4698' u='c' c='BotCheckConsoleMessages'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='5277' u='c' c='BotDeathmatchAI'/>

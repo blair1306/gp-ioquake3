@@ -1,0 +1,10 @@
+<dec f='codebrowser/code/client/snd_public.h' l='43' type='void S_ClearLoopingSounds(qboolean killall)'/>
+<dec f='codebrowser/code/client/snd_public.h' l='43' type='void S_ClearLoopingSounds(qboolean killall)'/>
+<doc f='codebrowser/code/client/snd_public.h' l='42'>// all continuous looping sounds must be added before calling S_Update</doc>
+<use f='codebrowser/code/client/cl_cgame.c' l='509' u='c' c='CL_CgameSystemCalls'/>
+<def f='codebrowser/code/client/snd_main.c' l='155' ll='160' type='void S_ClearLoopingSounds(qboolean killall)'/>
+<doc f='codebrowser/code/client/snd_main.c' l='150'>/*
+=================
+S_ClearLoopingSounds
+=================
+*/</doc>

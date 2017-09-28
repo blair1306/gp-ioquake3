@@ -1,0 +1,130 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>mdct.h source code [codebrowser/code/opus-1.1.4/celt/mdct.h] - Woboq Code Browser</title>
+<link rel="stylesheet" href="../../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'codebrowser/code/opus-1.1.4/celt/mdct.h'; var root_path = '../../../..'; var data_path = '../../../../../data';</script>
+<script src='../../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../../..'>codebrowser</a>/<a href='../..'>code</a>/<a href='..'>opus-1.1.4</a>/<a href='./'>celt</a>/<a href='mdct.h.html'>mdct.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/* Copyright (c) 2007-2008 CSIRO</i></td></tr>
+<tr><th id="2">2</th><td><i>   Copyright (c) 2007-2008 Xiph.Org Foundation</i></td></tr>
+<tr><th id="3">3</th><td><i>   Written by Jean-Marc Valin */</i></td></tr>
+<tr><th id="4">4</th><td><i>/*</i></td></tr>
+<tr><th id="5">5</th><td><i>   Redistribution and use in source and binary forms, with or without</i></td></tr>
+<tr><th id="6">6</th><td><i>   modification, are permitted provided that the following conditions</i></td></tr>
+<tr><th id="7">7</th><td><i>   are met:</i></td></tr>
+<tr><th id="8">8</th><td><i></i></td></tr>
+<tr><th id="9">9</th><td><i>   - Redistributions of source code must retain the above copyright</i></td></tr>
+<tr><th id="10">10</th><td><i>   notice, this list of conditions and the following disclaimer.</i></td></tr>
+<tr><th id="11">11</th><td><i></i></td></tr>
+<tr><th id="12">12</th><td><i>   - Redistributions in binary form must reproduce the above copyright</i></td></tr>
+<tr><th id="13">13</th><td><i>   notice, this list of conditions and the following disclaimer in the</i></td></tr>
+<tr><th id="14">14</th><td><i>   documentation and/or other materials provided with the distribution.</i></td></tr>
+<tr><th id="15">15</th><td><i></i></td></tr>
+<tr><th id="16">16</th><td><i>   THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS</i></td></tr>
+<tr><th id="17">17</th><td><i>   ``AS IS'' AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT</i></td></tr>
+<tr><th id="18">18</th><td><i>   LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR</i></td></tr>
+<tr><th id="19">19</th><td><i>   A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER</i></td></tr>
+<tr><th id="20">20</th><td><i>   OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,</i></td></tr>
+<tr><th id="21">21</th><td><i>   EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,</i></td></tr>
+<tr><th id="22">22</th><td><i>   PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR</i></td></tr>
+<tr><th id="23">23</th><td><i>   PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF</i></td></tr>
+<tr><th id="24">24</th><td><i>   LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING</i></td></tr>
+<tr><th id="25">25</th><td><i>   NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS</i></td></tr>
+<tr><th id="26">26</th><td><i>   SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</i></td></tr>
+<tr><th id="27">27</th><td><i>*/</i></td></tr>
+<tr><th id="28">28</th><td></td></tr>
+<tr><th id="29">29</th><td><i>/* This is a simple MDCT implementation that uses a N/4 complex FFT</i></td></tr>
+<tr><th id="30">30</th><td><i>   to do most of the work. It should be relatively straightforward to</i></td></tr>
+<tr><th id="31">31</th><td><i>   plug in pretty much and FFT here.</i></td></tr>
+<tr><th id="32">32</th><td><i></i></td></tr>
+<tr><th id="33">33</th><td><i>   This replaces the Vorbis FFT (and uses the exact same API), which</i></td></tr>
+<tr><th id="34">34</th><td><i>   was a bit too messy and that was ending up duplicating code</i></td></tr>
+<tr><th id="35">35</th><td><i>   (might as well use the same FFT everywhere).</i></td></tr>
+<tr><th id="36">36</th><td><i></i></td></tr>
+<tr><th id="37">37</th><td><i>   The algorithm is similar to (and inspired from) Fabrice Bellard's</i></td></tr>
+<tr><th id="38">38</th><td><i>   MDCT implementation in FFMPEG, but has differences in signs, ordering</i></td></tr>
+<tr><th id="39">39</th><td><i>   and scaling in many places.</i></td></tr>
+<tr><th id="40">40</th><td><i>*/</i></td></tr>
+<tr><th id="41">41</th><td></td></tr>
+<tr><th id="42">42</th><td><u>#<span data-ppcond="42">ifndef</span> <span class="macro" data-ref="_M/MDCT_H">MDCT_H</span></u></td></tr>
+<tr><th id="43">43</th><td><u>#define <dfn class="macro" id="_M/MDCT_H" data-ref="_M/MDCT_H">MDCT_H</dfn></u></td></tr>
+<tr><th id="44">44</th><td></td></tr>
+<tr><th id="45">45</th><td><u>#include <a href="../include/opus_defines.h.html">"opus_defines.h"</a></u></td></tr>
+<tr><th id="46">46</th><td><u>#include <a href="kiss_fft.h.html">"kiss_fft.h"</a></u></td></tr>
+<tr><th id="47">47</th><td><u>#include <a href="arch.h.html">"arch.h"</a></u></td></tr>
+<tr><th id="48">48</th><td></td></tr>
+<tr><th id="49">49</th><td><b>typedef</b> <b>struct</b> {</td></tr>
+<tr><th id="50">50</th><td>   <em>int</em> <dfn class="decl" id="(anonymous)::n" title='(anonymous struct)::n' data-ref="(anonymous)::n">n</dfn>;</td></tr>
+<tr><th id="51">51</th><td>   <em>int</em> <dfn class="decl" id="(anonymous)::maxshift" title='(anonymous struct)::maxshift' data-ref="(anonymous)::maxshift">maxshift</dfn>;</td></tr>
+<tr><th id="52">52</th><td>   <em>const</em> <a class="typedef" href="kiss_fft.h.html#kiss_fft_state" title='kiss_fft_state' data-type='struct kiss_fft_state' data-ref="kiss_fft_state">kiss_fft_state</a> *<dfn class="decl" id="(anonymous)::kfft" title='(anonymous struct)::kfft' data-ref="(anonymous)::kfft">kfft</dfn>[<var>4</var>];</td></tr>
+<tr><th id="53">53</th><td>   <em>const</em> <a class="macro" href="kiss_fft.h.html#60" title="float" data-ref="_M/kiss_twiddle_scalar">kiss_twiddle_scalar</a> * <a class="macro" href="../include/opus_defines.h.html#98" title="restrict" data-ref="_M/OPUS_RESTRICT">OPUS_RESTRICT</a> <dfn class="decl" id="(anonymous)::trig" title='(anonymous struct)::trig' data-ref="(anonymous)::trig">trig</dfn>;</td></tr>
+<tr><th id="54">54</th><td>} <dfn class="typedef" id="mdct_lookup" title='mdct_lookup' data-type='struct mdct_lookup' data-ref="mdct_lookup">mdct_lookup</dfn>;</td></tr>
+<tr><th id="55">55</th><td></td></tr>
+<tr><th id="56">56</th><td><u>#<span data-ppcond="56">if</span> defined(<span class="macro" data-ref="_M/HAVE_ARM_NE10">HAVE_ARM_NE10</span>)</u></td></tr>
+<tr><th id="57">57</th><td><u>#include "arm/mdct_arm.h"</u></td></tr>
+<tr><th id="58">58</th><td><u>#<span data-ppcond="56">endif</span></u></td></tr>
+<tr><th id="59">59</th><td></td></tr>
+<tr><th id="60">60</th><td></td></tr>
+<tr><th id="61">61</th><td><em>int</em> <dfn class="decl" id="clt_mdct_init" title='clt_mdct_init' data-ref="clt_mdct_init">clt_mdct_init</dfn>(<a class="typedef" href="#mdct_lookup" title='mdct_lookup' data-type='struct mdct_lookup' data-ref="mdct_lookup">mdct_lookup</a> *<dfn class="local col0 decl" id="170l" title='l' data-type='mdct_lookup *' data-ref="170l">l</dfn>,<em>int</em> <dfn class="local col1 decl" id="171N" title='N' data-type='int' data-ref="171N">N</dfn>, <em>int</em> <dfn class="local col2 decl" id="172maxshift" title='maxshift' data-type='int' data-ref="172maxshift">maxshift</dfn>, <em>int</em> <dfn class="local col3 decl" id="173arch" title='arch' data-type='int' data-ref="173arch">arch</dfn>);</td></tr>
+<tr><th id="62">62</th><td><em>void</em> <dfn class="decl" id="clt_mdct_clear" title='clt_mdct_clear' data-ref="clt_mdct_clear">clt_mdct_clear</dfn>(<a class="typedef" href="#mdct_lookup" title='mdct_lookup' data-type='struct mdct_lookup' data-ref="mdct_lookup">mdct_lookup</a> *<dfn class="local col4 decl" id="174l" title='l' data-type='mdct_lookup *' data-ref="174l">l</dfn>, <em>int</em> <dfn class="local col5 decl" id="175arch" title='arch' data-type='int' data-ref="175arch">arch</dfn>);</td></tr>
+<tr><th id="63">63</th><td></td></tr>
+<tr><th id="64">64</th><td><i class="doc">/** Compute a forward MDCT and scale by 4/N, trashes the input array */</i></td></tr>
+<tr><th id="65">65</th><td><em>void</em> <dfn class="decl" id="clt_mdct_forward_c" title='clt_mdct_forward_c' data-ref="clt_mdct_forward_c">clt_mdct_forward_c</dfn>(<em>const</em> <a class="typedef" href="#mdct_lookup" title='mdct_lookup' data-type='struct mdct_lookup' data-ref="mdct_lookup">mdct_lookup</a> *<dfn class="local col6 decl" id="176l" title='l' data-type='const mdct_lookup *' data-ref="176l">l</dfn>, <a class="macro" href="kiss_fft.h.html#59" title="float" data-ref="_M/kiss_fft_scalar">kiss_fft_scalar</a> *<dfn class="local col7 decl" id="177in" title='in' data-type='float *' data-ref="177in">in</dfn>,</td></tr>
+<tr><th id="66">66</th><td>                        <a class="macro" href="kiss_fft.h.html#59" title="float" data-ref="_M/kiss_fft_scalar">kiss_fft_scalar</a> * <a class="macro" href="../include/opus_defines.h.html#98" title="restrict" data-ref="_M/OPUS_RESTRICT">OPUS_RESTRICT</a> <dfn class="local col8 decl" id="178out" title='out' data-type='float *restrict' data-ref="178out">out</dfn>,</td></tr>
+<tr><th id="67">67</th><td>                        <em>const</em> <a class="typedef" href="arch.h.html#opus_val16" title='opus_val16' data-type='float' data-ref="opus_val16">opus_val16</a> *<dfn class="local col9 decl" id="179window" title='window' data-type='const opus_val16 *' data-ref="179window">window</dfn>, <em>int</em> <dfn class="local col0 decl" id="180overlap" title='overlap' data-type='int' data-ref="180overlap">overlap</dfn>,</td></tr>
+<tr><th id="68">68</th><td>                        <em>int</em> <dfn class="local col1 decl" id="181shift" title='shift' data-type='int' data-ref="181shift">shift</dfn>, <em>int</em> <dfn class="local col2 decl" id="182stride" title='stride' data-type='int' data-ref="182stride">stride</dfn>, <em>int</em> <dfn class="local col3 decl" id="183arch" title='arch' data-type='int' data-ref="183arch">arch</dfn>);</td></tr>
+<tr><th id="69">69</th><td></td></tr>
+<tr><th id="70">70</th><td><i class="doc">/** Compute a backward MDCT (no scaling) and performs weighted overlap-add</i></td></tr>
+<tr><th id="71">71</th><td><i class="doc">    (scales implicitly by 1/2) */</i></td></tr>
+<tr><th id="72">72</th><td><em>void</em> <dfn class="decl" id="clt_mdct_backward_c" title='clt_mdct_backward_c' data-ref="clt_mdct_backward_c">clt_mdct_backward_c</dfn>(<em>const</em> <a class="typedef" href="#mdct_lookup" title='mdct_lookup' data-type='struct mdct_lookup' data-ref="mdct_lookup">mdct_lookup</a> *<dfn class="local col4 decl" id="184l" title='l' data-type='const mdct_lookup *' data-ref="184l">l</dfn>, <a class="macro" href="kiss_fft.h.html#59" title="float" data-ref="_M/kiss_fft_scalar">kiss_fft_scalar</a> *<dfn class="local col5 decl" id="185in" title='in' data-type='float *' data-ref="185in">in</dfn>,</td></tr>
+<tr><th id="73">73</th><td>      <a class="macro" href="kiss_fft.h.html#59" title="float" data-ref="_M/kiss_fft_scalar">kiss_fft_scalar</a> * <a class="macro" href="../include/opus_defines.h.html#98" title="restrict" data-ref="_M/OPUS_RESTRICT">OPUS_RESTRICT</a> <dfn class="local col6 decl" id="186out" title='out' data-type='float *restrict' data-ref="186out">out</dfn>,</td></tr>
+<tr><th id="74">74</th><td>      <em>const</em> <a class="typedef" href="arch.h.html#opus_val16" title='opus_val16' data-type='float' data-ref="opus_val16">opus_val16</a> * <a class="macro" href="../include/opus_defines.h.html#98" title="restrict" data-ref="_M/OPUS_RESTRICT">OPUS_RESTRICT</a> <dfn class="local col7 decl" id="187window" title='window' data-type='const opus_val16 *restrict' data-ref="187window">window</dfn>,</td></tr>
+<tr><th id="75">75</th><td>      <em>int</em> <dfn class="local col8 decl" id="188overlap" title='overlap' data-type='int' data-ref="188overlap">overlap</dfn>, <em>int</em> <dfn class="local col9 decl" id="189shift" title='shift' data-type='int' data-ref="189shift">shift</dfn>, <em>int</em> <dfn class="local col0 decl" id="190stride" title='stride' data-type='int' data-ref="190stride">stride</dfn>, <em>int</em> <dfn class="local col1 decl" id="191arch" title='arch' data-type='int' data-ref="191arch">arch</dfn>);</td></tr>
+<tr><th id="76">76</th><td></td></tr>
+<tr><th id="77">77</th><td><u>#<span data-ppcond="77">if</span> !defined(<span class="macro" data-ref="_M/OVERRIDE_OPUS_MDCT">OVERRIDE_OPUS_MDCT</span>)</u></td></tr>
+<tr><th id="78">78</th><td><i>/* Is run-time CPU detection enabled on this platform? */</i></td></tr>
+<tr><th id="79">79</th><td><u>#<span data-ppcond="79">if</span> defined(<span class="macro" data-ref="_M/OPUS_HAVE_RTCD">OPUS_HAVE_RTCD</span>) &amp;&amp; defined(<span class="macro" data-ref="_M/HAVE_ARM_NE10">HAVE_ARM_NE10</span>)</u></td></tr>
+<tr><th id="80">80</th><td></td></tr>
+<tr><th id="81">81</th><td><b>extern</b> <em>void</em> (*<em>const</em> CLT_MDCT_FORWARD_IMPL[OPUS_ARCHMASK+<var>1</var>])(</td></tr>
+<tr><th id="82">82</th><td>      <em>const</em> mdct_lookup *l, kiss_fft_scalar *in,</td></tr>
+<tr><th id="83">83</th><td>      kiss_fft_scalar * OPUS_RESTRICT out, <em>const</em> opus_val16 *window,</td></tr>
+<tr><th id="84">84</th><td>      <em>int</em> overlap, <em>int</em> shift, <em>int</em> stride, <em>int</em> arch);</td></tr>
+<tr><th id="85">85</th><td></td></tr>
+<tr><th id="86">86</th><td><u>#define clt_mdct_forward(_l, _in, _out, _window, _overlap, _shift, _stride, _arch) \</u></td></tr>
+<tr><th id="87">87</th><td><u>   ((*CLT_MDCT_FORWARD_IMPL[(arch)&amp;OPUS_ARCHMASK])(_l, _in, _out, \</u></td></tr>
+<tr><th id="88">88</th><td><u>                                                   _window, _overlap, _shift, \</u></td></tr>
+<tr><th id="89">89</th><td><u>                                                   _stride, _arch))</u></td></tr>
+<tr><th id="90">90</th><td></td></tr>
+<tr><th id="91">91</th><td><b>extern</b> <em>void</em> (*<em>const</em> CLT_MDCT_BACKWARD_IMPL[OPUS_ARCHMASK+<var>1</var>])(</td></tr>
+<tr><th id="92">92</th><td>      <em>const</em> mdct_lookup *l, kiss_fft_scalar *in,</td></tr>
+<tr><th id="93">93</th><td>      kiss_fft_scalar * OPUS_RESTRICT out, <em>const</em> opus_val16 *window,</td></tr>
+<tr><th id="94">94</th><td>      <em>int</em> overlap, <em>int</em> shift, <em>int</em> stride, <em>int</em> arch);</td></tr>
+<tr><th id="95">95</th><td></td></tr>
+<tr><th id="96">96</th><td><u>#define clt_mdct_backward(_l, _in, _out, _window, _overlap, _shift, _stride, _arch) \</u></td></tr>
+<tr><th id="97">97</th><td><u>   (*CLT_MDCT_BACKWARD_IMPL[(arch)&amp;OPUS_ARCHMASK])(_l, _in, _out, \</u></td></tr>
+<tr><th id="98">98</th><td><u>                                                   _window, _overlap, _shift, \</u></td></tr>
+<tr><th id="99">99</th><td><u>                                                   _stride, _arch)</u></td></tr>
+<tr><th id="100">100</th><td></td></tr>
+<tr><th id="101">101</th><td><u>#<span data-ppcond="79">else</span> /* if defined(OPUS_HAVE_RTCD) &amp;&amp; defined(HAVE_ARM_NE10) */</u></td></tr>
+<tr><th id="102">102</th><td></td></tr>
+<tr><th id="103">103</th><td><u>#define <dfn class="macro" id="_M/clt_mdct_forward" data-ref="_M/clt_mdct_forward">clt_mdct_forward</dfn>(_l, _in, _out, _window, _overlap, _shift, _stride, _arch) \</u></td></tr>
+<tr><th id="104">104</th><td><u>   clt_mdct_forward_c(_l, _in, _out, _window, _overlap, _shift, _stride, _arch)</u></td></tr>
+<tr><th id="105">105</th><td></td></tr>
+<tr><th id="106">106</th><td><u>#define <dfn class="macro" id="_M/clt_mdct_backward" data-ref="_M/clt_mdct_backward">clt_mdct_backward</dfn>(_l, _in, _out, _window, _overlap, _shift, _stride, _arch) \</u></td></tr>
+<tr><th id="107">107</th><td><u>   clt_mdct_backward_c(_l, _in, _out, _window, _overlap, _shift, _stride, _arch)</u></td></tr>
+<tr><th id="108">108</th><td></td></tr>
+<tr><th id="109">109</th><td><u>#<span data-ppcond="79">endif</span> /* end if defined(OPUS_HAVE_RTCD) &amp;&amp; defined(HAVE_ARM_NE10) &amp;&amp; !defined(FIXED_POINT) */</u></td></tr>
+<tr><th id="110">110</th><td><u>#<span data-ppcond="77">endif</span> /* end if !defined(OVERRIDE_OPUS_MDCT) */</u></td></tr>
+<tr><th id="111">111</th><td></td></tr>
+<tr><th id="112">112</th><td><u>#<span data-ppcond="42">endif</span></u></td></tr>
+<tr><th id="113">113</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='bands.c.html'>codebrowser/code/opus-1.1.4/celt/bands.c</a><br/>Generated on <em>2017-Aug-29</em> from project codebrowser revision <em>63e07af</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

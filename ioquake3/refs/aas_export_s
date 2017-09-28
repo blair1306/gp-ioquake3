@@ -1,0 +1,24 @@
+<def f='codebrowser/code/botlib/botlib.h' l='208' ll='266'/>
+<size>176</size>
+<mbr r='aas_export_s::AAS_EntityInfo' o='0' t='void (*)(int, struct aas_entityinfo_s *)'/>
+<mbr r='aas_export_s::AAS_Initialized' o='64' t='int (*)(void)'/>
+<mbr r='aas_export_s::AAS_PresenceTypeBoundingBox' o='128' t='void (*)(int, vec_t *, vec_t *)'/>
+<mbr r='aas_export_s::AAS_Time' o='192' t='float (*)(void)'/>
+<mbr r='aas_export_s::AAS_PointAreaNum' o='256' t='int (*)(vec_t *)'/>
+<mbr r='aas_export_s::AAS_PointReachabilityAreaIndex' o='320' t='int (*)(vec_t *)'/>
+<mbr r='aas_export_s::AAS_TraceAreas' o='384' t='int (*)(vec_t *, vec_t *, int *, vec3_t *, int)'/>
+<mbr r='aas_export_s::AAS_BBoxAreas' o='448' t='int (*)(vec_t *, vec_t *, int *, int)'/>
+<mbr r='aas_export_s::AAS_AreaInfo' o='512' t='int (*)(int, struct aas_areainfo_s *)'/>
+<mbr r='aas_export_s::AAS_PointContents' o='576' t='int (*)(vec_t *)'/>
+<mbr r='aas_export_s::AAS_NextBSPEntity' o='640' t='int (*)(int)'/>
+<mbr r='aas_export_s::AAS_ValueForBSPEpairKey' o='704' t='int (*)(int, char *, char *, int)'/>
+<mbr r='aas_export_s::AAS_VectorForBSPEpairKey' o='768' t='int (*)(int, char *, vec_t *)'/>
+<mbr r='aas_export_s::AAS_FloatForBSPEpairKey' o='832' t='int (*)(int, char *, float *)'/>
+<mbr r='aas_export_s::AAS_IntForBSPEpairKey' o='896' t='int (*)(int, char *, int *)'/>
+<mbr r='aas_export_s::AAS_AreaReachability' o='960' t='int (*)(int)'/>
+<mbr r='aas_export_s::AAS_AreaTravelTimeToGoalArea' o='1024' t='int (*)(int, vec_t *, int, int)'/>
+<mbr r='aas_export_s::AAS_EnableRoutingArea' o='1088' t='int (*)(int, int)'/>
+<mbr r='aas_export_s::AAS_PredictRoute' o='1152' t='int (*)(struct aas_predictroute_s *, int, vec_t *, int, int, int, int, int, int, int, int)'/>
+<mbr r='aas_export_s::AAS_AlternativeRouteGoals' o='1216' t='int (*)(vec_t *, int, vec_t *, int, int, struct aas_altroutegoal_s *, int, int)'/>
+<mbr r='aas_export_s::AAS_Swimming' o='1280' t='int (*)(vec_t *)'/>
+<mbr r='aas_export_s::AAS_PredictClientMovement' o='1344' t='int (*)(struct aas_clientmove_s *, int, vec_t *, int, int, vec_t *, vec_t *, int, int, float, int, int, int)'/>

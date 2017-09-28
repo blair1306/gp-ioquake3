@@ -1,0 +1,12 @@
+<dec f='codebrowser/code/game/bg_public.h' l='653' type='qboolean BG_CanItemBeGrabbed(int gametype, const entityState_t * ent, const playerState_t * ps)'/>
+<use f='codebrowser/code/cgame/cg_predict.c' l='276' u='c' c='CG_TouchItem'/>
+<def f='codebrowser/code/game/bg_misc.c' l='1039' ll='1187' type='qboolean BG_CanItemBeGrabbed(int gametype, const entityState_t * ent, const playerState_t * ps)'/>
+<doc f='codebrowser/code/game/bg_misc.c' l='1031'>/*
+================
+BG_CanItemBeGrabbed
+
+Returns false if the item should not be picked up.
+This needs to be the same for client side prediction and server use.
+================
+*/</doc>
+<use f='codebrowser/code/game/g_items.c' l='436' u='c' c='Touch_Item'/>

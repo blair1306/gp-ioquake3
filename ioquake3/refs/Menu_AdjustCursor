@@ -1,0 +1,12 @@
+<dec f='codebrowser/code/q3_ui/ui_local.h' l='261' type='void Menu_AdjustCursor(menuframework_s * menu, int dir)'/>
+<def f='codebrowser/code/q3_ui/ui_qmenu.c' l='1435' ll='1478' type='void Menu_AdjustCursor(menuframework_s * m, int dir)'/>
+<use f='codebrowser/code/q3_ui/ui_qmenu.c' l='1682' u='c' c='Menu_DefaultKey'/>
+<use f='codebrowser/code/q3_ui/ui_qmenu.c' l='1695' u='c' c='Menu_DefaultKey'/>
+<doc f='codebrowser/code/q3_ui/ui_qmenu.c' l='1428'>/*
+** Menu_AdjustCursor
+**
+** This function takes the given menu, the direction, and attempts
+** to adjust the menu&apos;s cursor so that it&apos;s at the next available
+** slot.
+*/</doc>
+<dec f='codebrowser/code/ui/ui_local.h' l='298' type='void Menu_AdjustCursor(menuframework_s * menu, int dir)'/>

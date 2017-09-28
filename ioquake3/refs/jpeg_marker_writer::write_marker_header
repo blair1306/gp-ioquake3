@@ -1,0 +1,6 @@
+<dec f='codebrowser/code/jpeg-8c/jpegint.h' l='131' type='void (*)(j_compress_ptr, int, unsigned int)'/>
+<offset>320</offset>
+<doc f='codebrowser/code/jpeg-8c/jpegint.h' l='130'>/* Probably only COM and APPn markers should be written this way */</doc>
+<use f='codebrowser/code/jpeg-8c/jcapimin.c' l='211' u='r' c='jpeg_write_marker'/>
+<use f='codebrowser/code/jpeg-8c/jcapimin.c' l='230' u='r' c='jpeg_write_m_header'/>
+<use f='codebrowser/code/jpeg-8c/jcmarker.c' l='678' u='w' c='jinit_marker_writer'/>

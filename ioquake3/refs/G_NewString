@@ -1,0 +1,11 @@
+<dec f='codebrowser/code/game/g_local.h' l='422' type='char * G_NewString(const char * string)'/>
+<def f='codebrowser/code/game/g_spawn.c' l='305' ll='330' type='char * G_NewString(const char * string)'/>
+<use f='codebrowser/code/game/g_spawn.c' l='356' u='c' c='G_ParseField'/>
+<doc f='codebrowser/code/game/g_spawn.c' l='297'>/*
+=============
+G_NewString
+
+Builds a copy of the string, translating \n to real linefeeds
+so message texts can be multi-line
+=============
+*/</doc>

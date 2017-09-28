@@ -1,0 +1,5 @@
+<def f='codebrowser/code/qcommon/json.h' l='155' ll='164' type='unsigned int JSON_NoParse(const char * json, const char * jsonEnd)'/>
+<use f='codebrowser/code/qcommon/json.h' l='302' u='c' c='JSON_ValueGetDouble'/>
+<use f='codebrowser/code/qcommon/json.h' l='319' u='c' c='JSON_ValueGetFloat'/>
+<use f='codebrowser/code/qcommon/json.h' l='336' u='c' c='JSON_ValueGetInt'/>
+<doc f='codebrowser/code/qcommon/json.h' l='154'>// returns 0 if value requires more parsing, 1 if no more data/false/null, 2 if true</doc>

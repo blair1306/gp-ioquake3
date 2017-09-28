@@ -1,0 +1,12 @@
+<def f='codebrowser/code/qcommon/q_shared.h' l='1243' ll='1249'/>
+<size>24</size>
+<doc f='codebrowser/code/qcommon/q_shared.h' l='1240'>// then BUTTON_WALKING should be set
+
+// usercmd_t is sent to the server each client frame</doc>
+<mbr r='usercmd_s::serverTime' o='0' t='int'/>
+<mbr r='usercmd_s::angles' o='32' t='int [3]'/>
+<mbr r='usercmd_s::buttons' o='128' t='int'/>
+<mbr r='usercmd_s::weapon' o='160' t='byte'/>
+<mbr r='usercmd_s::forwardmove' o='168' t='signed char'/>
+<mbr r='usercmd_s::rightmove' o='176' t='signed char'/>
+<mbr r='usercmd_s::upmove' o='184' t='signed char'/>

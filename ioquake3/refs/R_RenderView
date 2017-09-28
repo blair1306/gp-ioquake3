@@ -1,0 +1,26 @@
+<dec f='codebrowser/code/renderergl1/tr_local.h' l='1066' type='void R_RenderView(viewParms_t * parms)'/>
+<use f='codebrowser/code/renderergl1/tr_main.c' l='992' u='c' c='R_MirrorViewBySurface'/>
+<def f='codebrowser/code/renderergl1/tr_main.c' l='1355' ll='1392' type='void R_RenderView(viewParms_t * parms)'/>
+<doc f='codebrowser/code/renderergl1/tr_main.c' l='1347'>/*
+================
+R_RenderView
+
+A view may be either the actual camera view,
+or a mirror / remote location
+================
+*/</doc>
+<use f='codebrowser/code/renderergl1/tr_scene.c' l='402' u='c' c='RE_RenderScene'/>
+<dec f='codebrowser/code/renderergl2/tr_local.h' l='1799' type='void R_RenderView(viewParms_t * parms)'/>
+<use f='codebrowser/code/renderergl2/tr_main.c' l='1351' u='c' c='R_MirrorViewBySurface'/>
+<def f='codebrowser/code/renderergl2/tr_main.c' l='1738' ll='1775' type='void R_RenderView(viewParms_t * parms)'/>
+<use f='codebrowser/code/renderergl2/tr_main.c' l='1850' u='c' c='R_RenderDlightCubemaps'/>
+<use f='codebrowser/code/renderergl2/tr_main.c' l='2667' u='c' c='R_RenderCubemapSide'/>
+<doc f='codebrowser/code/renderergl2/tr_main.c' l='1730'>/*
+================
+R_RenderView
+
+A view may be either the actual camera view,
+or a mirror / remote location
+================
+*/</doc>
+<use f='codebrowser/code/renderergl2/tr_scene.c' l='565' u='c' c='RE_RenderScene'/>

@@ -1,0 +1,32 @@
+<dec f='codebrowser/code/opusfile-0.8/include/opusfile.h' l='1079' type='int op_test(OpusHead * _head, const unsigned char * _initial_data, size_t _initial_bytes)'/>
+<doc f='codebrowser/code/opusfile-0.8/include/opusfile.h' l='1049'>/**Test to see if this is an Opus stream.
+   For good results, you will need at least 57 bytes (for a pure Opus-only
+    stream).
+   Something like 512 bytes will give more reliable results for multiplexed
+    streams.
+   This function is meant to be a quick-rejection filter.
+   Its purpose is not to guarantee that a stream is a valid Opus stream, but to
+    ensure that it looks enough like Opus that it isn&apos;t going to be recognized
+    as some other format (except possibly an Opus stream that is also
+    multiplexed with other codecs, such as video).
+   \param[out] _head     The parsed ID header contents.
+                         You may pass &lt;code&gt;NULL&lt;/code&gt; if you do not need
+                          this information.
+                         If the function fails, the contents of this structure
+                          remain untouched.
+   \param _initial_data  An initial buffer of data from the start of the
+                          stream.
+   \param _initial_bytes The number of bytes in \a _initial_data.
+   \return 0 if the data appears to be Opus, or a negative value on error.
+   \retval #OP_FALSE      There was not enough data to tell if this was an Opus
+                           stream or not.
+   \retval #OP_EFAULT     An internal memory allocation failed.
+   \retval #OP_EIMPL      The stream used a feature that is not implemented,
+                           such as an unsupported channel family.
+   \retval #OP_ENOTFORMAT If the data did not contain a recognizable ID
+                           header for an Opus stream.
+   \retval #OP_EVERSION   If the version field signaled a version this library
+                           does not know how to parse.
+   \retval #OP_EBADHEADER The ID header was not properly formatted or contained
+                           illegal values.*/</doc>
+<def f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='73' ll='129' type='int op_test(OpusHead * _head, const unsigned char * _initial_data, size_t _initial_bytes)'/>

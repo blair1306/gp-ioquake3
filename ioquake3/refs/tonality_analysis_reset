@@ -1,0 +1,8 @@
+<dec f='codebrowser/code/opus-1.1.4/src/analysis.h' l='95' type='void tonality_analysis_reset(TonalityAnalysisState * analysis)'/>
+<use f='codebrowser/code/opus-1.1.4/src/analysis.c' l='146' u='c' c='tonality_analysis_init'/>
+<def f='codebrowser/code/opus-1.1.4/src/analysis.c' l='149' ll='154' type='void tonality_analysis_reset(TonalityAnalysisState * tonal)'/>
+<doc f='codebrowser/code/opus-1.1.4/src/analysis.h' l='91'>/** Reset a TonalityAnalysisState stuct.
+ *
+ * Call this when there&apos;s a discontinuity in the data.
+ */</doc>
+<use f='codebrowser/code/opus-1.1.4/src/opus_encoder.c' l='2469' u='c' c='opus_encoder_ctl'/>

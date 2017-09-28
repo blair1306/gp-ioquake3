@@ -1,0 +1,7 @@
+<dec f='codebrowser/code/qcommon/unzip.h' l='253' type='int unzOpenCurrentFile(unzFile file)'/>
+<use f='codebrowser/code/qcommon/files.c' l='1300' u='c' c='FS_FOpenFileReadDir'/>
+<use f='codebrowser/code/qcommon/files.c' l='1699' u='c' c='FS_Seek'/>
+<doc f='codebrowser/code/qcommon/unzip.h' l='249'>/* for reading the content of the current zipfile, you can open it, read data
+   from it, and close it (you can close it before reading all the file)
+   */</doc>
+<def f='codebrowser/code/qcommon/unzip.c' l='1203' ll='1207' type='int unzOpenCurrentFile(unzFile file)'/>

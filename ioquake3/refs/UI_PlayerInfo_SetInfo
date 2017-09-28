@@ -1,0 +1,20 @@
+<dec f='codebrowser/code/q3_ui/ui_local.h' l='528' type='void UI_PlayerInfo_SetInfo(playerInfo_t * pi, int legsAnim, int torsoAnim, vec_t * viewAngles, vec_t * moveAngles, weapon_t weaponNum, qboolean chat)'/>
+<use f='codebrowser/code/q3_ui/ui_controls2.c' l='549' u='c' c='Controls_UpdateModel'/>
+<use f='codebrowser/code/q3_ui/ui_playermodel.c' l='185' u='c' c='PlayerModel_UpdateModel'/>
+<def f='codebrowser/code/q3_ui/ui_players.c' l='1146' ll='1282' type='void UI_PlayerInfo_SetInfo(playerInfo_t * pi, int legsAnim, int torsoAnim, vec_t * viewAngles, vec_t * moveAngles, weapon_t weaponNumber, qboolean chat)'/>
+<doc f='codebrowser/code/q3_ui/ui_players.c' l='1141'>/*
+===============
+UI_PlayerInfo_SetInfo
+===============
+*/</doc>
+<use f='codebrowser/code/q3_ui/ui_playersettings.c' l='246' u='c' c='PlayerSettings_DrawPlayer'/>
+<use f='codebrowser/code/q3_ui/ui_playersettings.c' l='312' u='c' c='PlayerSettings_SetMenuItems'/>
+<dec f='codebrowser/code/ui/ui_local.h' l='572' type='void UI_PlayerInfo_SetInfo(playerInfo_t * pi, int legsAnim, int torsoAnim, vec_t * viewAngles, vec_t * moveAngles, weapon_t weaponNum, qboolean chat)'/>
+<use f='codebrowser/code/ui/ui_main.c' l='1308' u='c' c='UI_DrawPlayerModel'/>
+<use f='codebrowser/code/ui/ui_main.c' l='1503' u='c' c='UI_DrawOpponent'/>
+<def f='codebrowser/code/ui/ui_players.c' l='1264' ll='1373' type='void UI_PlayerInfo_SetInfo(playerInfo_t * pi, int legsAnim, int torsoAnim, vec_t * viewAngles, vec_t * moveAngles, weapon_t weaponNumber, qboolean chat)'/>
+<doc f='codebrowser/code/ui/ui_players.c' l='1259'>/*
+===============
+UI_PlayerInfo_SetInfo
+===============
+*/</doc>

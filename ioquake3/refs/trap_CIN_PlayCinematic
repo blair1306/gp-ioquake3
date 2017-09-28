@@ -1,0 +1,13 @@
+<dec f='codebrowser/code/cgame/cg_local.h' l='1658' type='int trap_CIN_PlayCinematic(const char * arg0, int xpos, int ypos, int width, int height, int bits)'/>
+<def f='codebrowser/code/cgame/cg_syscalls.c' l='400' ll='402' type='int trap_CIN_PlayCinematic(const char * arg0, int xpos, int ypos, int width, int height, int bits)'/>
+<doc f='codebrowser/code/cgame/cg_syscalls.c' l='399'>// this returns a handle.  arg0 is the name in the format &quot;idlogo.roq&quot;, set arg1 to NULL, alteredstates to qfalse (do not alter gamestate)</doc>
+<dec f='codebrowser/code/ui/ui_local.h' l='989' type='int trap_CIN_PlayCinematic(const char * arg0, int xpos, int ypos, int width, int height, int bits)'/>
+<use f='codebrowser/code/ui/ui_main.c' l='1113' u='c' c='UI_DrawClanCinematic'/>
+<use f='codebrowser/code/ui/ui_main.c' l='1135' u='c' c='UI_DrawPreviewCinematic'/>
+<use f='codebrowser/code/ui/ui_main.c' l='1257' u='c' c='UI_DrawMapCinematic'/>
+<use f='codebrowser/code/ui/ui_main.c' l='4486' u='c' c='UI_FeederSelection'/>
+<use f='codebrowser/code/ui/ui_main.c' l='4493' u='c' c='UI_FeederSelection'/>
+<use f='codebrowser/code/ui/ui_main.c' l='4507' u='c' c='UI_FeederSelection'/>
+<use f='codebrowser/code/ui/ui_main.c' l='4946' u='c' c='UI_PlayCinematic'/>
+<def f='codebrowser/code/ui/ui_syscalls.c' l='365' ll='367' type='int trap_CIN_PlayCinematic(const char * arg0, int xpos, int ypos, int width, int height, int bits)'/>
+<doc f='codebrowser/code/ui/ui_syscalls.c' l='364'>// this returns a handle.  arg0 is the name in the format &quot;idlogo.roq&quot;, set arg1 to NULL, alteredstates to qfalse (do not alter gamestate)</doc>

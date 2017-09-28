@@ -1,0 +1,13 @@
+<dec f='codebrowser/code/cgame/cg_local.h' l='1369' type='void CG_AddPlayerWeapon(refEntity_t * parent, playerState_t * ps, centity_t * cent, int team)'/>
+<use f='codebrowser/code/cgame/cg_players.c' l='2586' u='c' c='CG_Player'/>
+<def f='codebrowser/code/cgame/cg_weapons.c' l='1198' ll='1347' type='void CG_AddPlayerWeapon(refEntity_t * parent, playerState_t * ps, centity_t * cent, int team)'/>
+<use f='codebrowser/code/cgame/cg_weapons.c' l='1436' u='c' c='CG_AddViewWeapon'/>
+<doc f='codebrowser/code/cgame/cg_weapons.c' l='1189'>/*
+=============
+CG_AddPlayerWeapon
+
+Used for both the view weapon (ps is valid) and the world modelother character models (ps is NULL)
+The main player will have this called for BOTH cases, so effects like light and
+sound should only be done on the world model case.
+=============
+*/</doc>

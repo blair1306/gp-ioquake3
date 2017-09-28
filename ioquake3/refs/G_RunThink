@@ -1,0 +1,14 @@
+<dec f='codebrowser/code/game/g_local.h' l='605' type='void G_RunThink(gentity_t * ent)'/>
+<use f='codebrowser/code/game/g_items.c' l='974' u='c' c='G_RunItem'/>
+<use f='codebrowser/code/game/g_items.c' l='999' u='c' c='G_RunItem'/>
+<def f='codebrowser/code/game/g_main.c' l='1742' ll='1758' type='void G_RunThink(gentity_t * ent)'/>
+<use f='codebrowser/code/game/g_main.c' l='1843' u='c' c='G_RunFrame'/>
+<doc f='codebrowser/code/game/g_main.c' l='1735'>/*
+=============
+G_RunThink
+
+Runs thinking code for this frame if necessary
+=============
+*/</doc>
+<use f='codebrowser/code/game/g_missile.c' l='510' u='c' c='G_RunMissile'/>
+<use f='codebrowser/code/game/g_mover.c' l='491' u='c' c='G_RunMover'/>

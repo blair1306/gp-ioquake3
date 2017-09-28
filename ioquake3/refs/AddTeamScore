@@ -1,0 +1,11 @@
+<dec f='codebrowser/code/game/g_team.h' l='73' type='void AddTeamScore(vec_t * origin, int team, int score)'/>
+<def f='codebrowser/code/game/g_team.c' l='121' ll='158' type='void AddTeamScore(vec_t * origin, int team, int score)'/>
+<use f='codebrowser/code/game/g_team.c' l='735' u='c' c='Team_TouchOurFlag'/>
+<doc f='codebrowser/code/game/g_team.c' l='113'>/*
+==============
+AddTeamScore
+
+ used for gametype &gt; GT_TEAM
+ for gametype GT_TEAM the level.teamScores is updated in AddScore in g_combat.c
+==============
+*/</doc>

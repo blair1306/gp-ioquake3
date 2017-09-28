@@ -1,0 +1,14 @@
+<def f='codebrowser/code/game/g_active.c' l='750' ll='1014' type='void ClientThink_real(gentity_t * ent)'/>
+<use f='codebrowser/code/game/g_active.c' l='1034' u='c' c='ClientThink'/>
+<use f='codebrowser/code/game/g_active.c' l='1044' u='c' c='G_RunClient'/>
+<doc f='codebrowser/code/game/g_active.c' l='739'>/*
+==============
+ClientThink
+
+This will be called once for each client frame, which will
+usually be a couple times for each server frame on fast clients.
+
+If &quot;g_synchronousClients 1&quot; is set, this will be called exactly
+once for each server frame, which makes for smooth demo recording.
+==============
+*/</doc>

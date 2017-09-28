@@ -1,0 +1,17 @@
+<dec f='codebrowser/code/cgame/cg_local.h' l='1396' type='localEntity_t * CG_SmokePuff(const vec_t * p, const vec_t * vel, float radius, float r, float g, float b, float a, float duration, int startTime, int fadeInTime, int leFlags, qhandle_t hShader)'/>
+<doc f='codebrowser/code/cgame/cg_local.h' l='1393'>//
+// cg_effects.c
+//</doc>
+<def f='codebrowser/code/cgame/cg_effects.c' l='99' ll='163' type='localEntity_t * CG_SmokePuff(const vec_t * p, const vec_t * vel, float radius, float r, float g, float b, float a, float duration, int startTime, int fadeInTime, int leFlags, qhandle_t hShader)'/>
+<doc f='codebrowser/code/cgame/cg_effects.c' l='92'>/*
+=====================
+CG_SmokePuff
+
+Adds a smoke puff or blood trail localEntity.
+=====================
+*/</doc>
+<use f='codebrowser/code/cgame/cg_event.c' l='662' u='c' c='CG_EntityEvent'/>
+<use f='codebrowser/code/cgame/cg_localents.c' l='135' u='c' c='CG_BloodTrail'/>
+<use f='codebrowser/code/cgame/cg_players.c' l='1522' u='c' c='CG_HasteTrail'/>
+<use f='codebrowser/code/cgame/cg_weapons.c' l='378' u='c' c='CG_RocketTrail'/>
+<use f='codebrowser/code/cgame/cg_weapons.c' l='2079' u='c' c='CG_ShotgunFire'/>

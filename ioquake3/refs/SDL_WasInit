@@ -1,0 +1,17 @@
+<dec f='include/SDL2/SDL.h' l='116' type='Uint32 SDL_WasInit(Uint32 flags)'/>
+<doc f='include/SDL2/SDL.h' l='110'>/**
+ *  This function returns a mask of the specified subsystems which have
+ *  previously been initialized.
+ *
+ *  If \c flags is 0, it returns a mask of all initialized subsystems.
+ */</doc>
+<use f='codebrowser/code/sdl/sdl_glimp.c' l='574' u='c' c='GLimp_StartDriverAndSetMode'/>
+<use f='codebrowser/code/sdl/sdl_input.c' l='347' u='c' c='IN_ActivateMouse'/>
+<use f='codebrowser/code/sdl/sdl_input.c' l='382' u='c' c='IN_DeactivateMouse'/>
+<use f='codebrowser/code/sdl/sdl_input.c' l='468' u='c' c='IN_InitJoystick'/>
+<use f='codebrowser/code/sdl/sdl_input.c' l='479' u='c' c='IN_InitJoystick'/>
+<use f='codebrowser/code/sdl/sdl_input.c' l='544' u='c' c='IN_ShutdownJoystick'/>
+<use f='codebrowser/code/sdl/sdl_input.c' l='547' u='c' c='IN_ShutdownJoystick'/>
+<use f='codebrowser/code/sdl/sdl_input.c' l='985' u='c' c='IN_ProcessEvents'/>
+<use f='codebrowser/code/sdl/sdl_input.c' l='1209' u='c' c='IN_Init'/>
+<use f='codebrowser/code/sdl/sdl_snd.c' l='157' u='c' c='SNDDMA_Init'/>

@@ -1,0 +1,10 @@
+<dec f='include/SDL2/SDL_hints.h' l='211'/>
+<doc f='include/SDL2/SDL_hints.h' l='202'>/**
+ *  \brief  A variable controlling whether the window frame and title bar are interactive when the cursor is hidden 
+ *
+ *  This variable can be set to the following values:
+ *    &quot;0&quot;       - The window frame is not interactive when the cursor is hidden (no move, resize, etc)
+ *    &quot;1&quot;       - The window frame is interactive when the cursor is hidden
+ *
+ *  By default SDL will allow interaction with the window frame when the cursor is hidden
+ */</doc>

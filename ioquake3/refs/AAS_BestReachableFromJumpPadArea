@@ -1,0 +1,11 @@
+<dec f='codebrowser/code/botlib/be_aas_reach.h' l='46' type='int AAS_BestReachableFromJumpPadArea(vec_t * origin, vec_t * mins, vec_t * maxs)'/>
+<dec f='codebrowser/code/botlib/be_aas_reach.h' l='46' type='int AAS_BestReachableFromJumpPadArea(vec_t * origin, vec_t * mins, vec_t * maxs)'/>
+<doc f='codebrowser/code/botlib/be_aas_reach.h' l='45'>//returns the best jumppad area from which the bbox at origin is reachable</doc>
+<def f='codebrowser/code/botlib/be_aas_reach.c' l='290' ll='352' type='int AAS_BestReachableFromJumpPadArea(vec_t * origin, vec_t * mins, vec_t * maxs)'/>
+<doc f='codebrowser/code/botlib/be_aas_reach.c' l='284'>//===========================================================================
+//
+// Parameter:			-
+// Returns:				-
+// Changes Globals:		-
+//===========================================================================</doc>
+<use f='codebrowser/code/botlib/be_ai_goal.c' l='607' u='c' c='BotInitLevelItems'/>

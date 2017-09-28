@@ -1,0 +1,47 @@
+<dec f='codebrowser/code/opusfile-0.8/src/internal.h' l='164' type='OggOpusLink *'/>
+<offset>384</offset>
+<doc f='codebrowser/code/opusfile-0.8/src/internal.h' l='161'>/*The cached information from each link in a chained Ogg Opus file.
+    If source isn&apos;t seekable (e.g., it&apos;s a pipe), only the current link
+     appears.*/</doc>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='1114' u='r' c='op_bisect_forward_serialno'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='1141' u='w' c='op_bisect_forward_serialno'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='1289' u='w' c='op_bisect_forward_serialno'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='1306' u='r' c='op_update_gain'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='1314' u='r' c='op_update_gain'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='1321' u='r' c='op_update_gain'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='1350' u='r' c='op_make_decode_ready'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='1379' u='r' c='op_make_decode_ready'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='1396' u='r' c='op_open_seekable2_impl'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='1402' u='r' c='op_open_seekable2_impl'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='1452' u='r' c='op_open_seekable2'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='1454' u='r' c='op_open_seekable2'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='1471' u='r' c='op_decode_clear'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='1480' u='r' c='op_clear'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='1542' u='w' c='op_open1'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='1542' u='r' c='op_open1'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='1549' u='r' c='op_open1'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='1549' u='r' c='op_open1'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='1553' u='r' c='op_open1'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='1554' u='r' c='op_open1'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='1555' u='r' c='op_open1'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='1556' u='r' c='op_open1'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='1558' u='r' c='op_open1'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='1563' u='r' c='op_open1'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='1708' u='r' c='op_serialno'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='1721' u='r' c='op_raw_total'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='1722' u='r' c='op_raw_total'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='1723' u='r' c='op_raw_total'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='1736' u='r' c='op_pcm_total'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='1759' u='r' c='op_head'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='1771' u='r' c='op_tags'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='1840' u='r' c='op_fetch_and_process_page'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='1916' u='r' c='op_fetch_and_process_page'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='2107' u='r' c='op_raw_seek'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='2124' u='r' c='op_get_granulepos'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='2213' u='r' c='op_pcm_seek_page'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='2524' u='r' c='op_pcm_seek'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='2611' u='r' c='op_get_pcm_offset'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='2652' u='r' c='op_pcm_tell'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='2694' u='r' c='op_init_buffer'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='2753' u='r' c='op_read_native'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='2875' u='r' c='op_filter_read_native'/>

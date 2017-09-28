@@ -1,0 +1,52 @@
+<dec f='codebrowser/code/jpeg-8c/jpeglib.h' l='622' type='JSAMPLE *'/>
+<offset>3456</offset>
+<doc f='codebrowser/code/jpeg-8c/jpeglib.h' l='614'>/* The coefficient controller&apos;s input and output progress is measured in
+   * units of &quot;iMCU&quot; (interleaved MCU) rows.  These are the same as MCU rows
+   * in fully interleaved JPEG scans, but are used whether the scan is
+   * interleaved or not.  We define an iMCU row as v_samp_factor DCT block
+   * rows of each component.  Therefore, the IDCT output contains
+   * v_samp_factor*DCT_v_scaled_size sample rows of a component per iMCU row.
+   */</doc>
+<doc f='codebrowser/code/jpeg-8c/jpeglib.h' l='622'>/* table for fast range-limiting */</doc>
+<use f='codebrowser/code/jpeg-8c/jdcolor.c' l='131' u='r' c='ycc_rgb_convert'/>
+<use f='codebrowser/code/jpeg-8c/jdcolor.c' l='256' u='r' c='ycck_cmyk_convert'/>
+<use f='codebrowser/code/jpeg-8c/jdmaster.c' l='241' u='w' c='prepare_range_limit_table'/>
+<use f='codebrowser/code/jpeg-8c/jdmaster.c' l='255' u='r' c='prepare_range_limit_table'/>
+<use f='codebrowser/code/jpeg-8c/jdmerge.c' l='237' u='r' c='h2v1_merged_upsample'/>
+<use f='codebrowser/code/jpeg-8c/jdmerge.c' l='299' u='r' c='h2v2_merged_upsample'/>
+<use f='codebrowser/code/jpeg-8c/jidctflt.c' l='80' u='r' c='jpeg_idct_float'/>
+<use f='codebrowser/code/jpeg-8c/jidctfst.c' l='179' macro='1' u='r'/>
+<use f='codebrowser/code/jpeg-8c/jidctint.c' l='182' macro='1' u='r'/>
+<use f='codebrowser/code/jpeg-8c/jidctint.c' l='438' macro='1' u='r'/>
+<use f='codebrowser/code/jpeg-8c/jidctint.c' l='587' macro='1' u='r'/>
+<use f='codebrowser/code/jpeg-8c/jidctint.c' l='708' macro='1' u='r'/>
+<use f='codebrowser/code/jpeg-8c/jidctint.c' l='823' macro='1' u='r'/>
+<use f='codebrowser/code/jpeg-8c/jidctint.c' l='927' macro='1' u='r'/>
+<use f='codebrowser/code/jpeg-8c/jidctint.c' l='1014' macro='1' u='r'/>
+<use f='codebrowser/code/jpeg-8c/jidctint.c' l='1068' macro='1' u='r'/>
+<use f='codebrowser/code/jpeg-8c/jidctint.c' l='1099' macro='1' u='r'/>
+<use f='codebrowser/code/jpeg-8c/jidctint.c' l='1271' macro='1' u='r'/>
+<use f='codebrowser/code/jpeg-8c/jidctint.c' l='1466' macro='1' u='r'/>
+<use f='codebrowser/code/jpeg-8c/jidctint.c' l='1660' macro='1' u='r'/>
+<use f='codebrowser/code/jpeg-8c/jidctint.c' l='1876' macro='1' u='r'/>
+<use f='codebrowser/code/jpeg-8c/jidctint.c' l='2104' macro='1' u='r'/>
+<use f='codebrowser/code/jpeg-8c/jidctint.c' l='2330' macro='1' u='r'/>
+<use f='codebrowser/code/jpeg-8c/jidctint.c' l='2572' macro='1' u='r'/>
+<use f='codebrowser/code/jpeg-8c/jidctint.c' l='2833' macro='1' u='r'/>
+<use f='codebrowser/code/jpeg-8c/jidctint.c' l='3104' macro='1' u='r'/>
+<use f='codebrowser/code/jpeg-8c/jidctint.c' l='3299' macro='1' u='r'/>
+<use f='codebrowser/code/jpeg-8c/jidctint.c' l='3475' macro='1' u='r'/>
+<use f='codebrowser/code/jpeg-8c/jidctint.c' l='3636' macro='1' u='r'/>
+<use f='codebrowser/code/jpeg-8c/jidctint.c' l='3788' macro='1' u='r'/>
+<use f='codebrowser/code/jpeg-8c/jidctint.c' l='3898' macro='1' u='r'/>
+<use f='codebrowser/code/jpeg-8c/jidctint.c' l='3985' macro='1' u='r'/>
+<use f='codebrowser/code/jpeg-8c/jidctint.c' l='4031' macro='1' u='r'/>
+<use f='codebrowser/code/jpeg-8c/jidctint.c' l='4249' macro='1' u='r'/>
+<use f='codebrowser/code/jpeg-8c/jidctint.c' l='4432' macro='1' u='r'/>
+<use f='codebrowser/code/jpeg-8c/jidctint.c' l='4596' macro='1' u='r'/>
+<use f='codebrowser/code/jpeg-8c/jidctint.c' l='4748' macro='1' u='r'/>
+<use f='codebrowser/code/jpeg-8c/jidctint.c' l='4927' macro='1' u='r'/>
+<use f='codebrowser/code/jpeg-8c/jidctint.c' l='5031' macro='1' u='r'/>
+<use f='codebrowser/code/jpeg-8c/jidctint.c' l='5111' macro='1' u='r'/>
+<use f='codebrowser/code/jpeg-8c/jquant1.c' l='633' u='r' c='quantize_fs_dither'/>
+<use f='codebrowser/code/jpeg-8c/jquant2.c' l='967' u='r' c='pass2_fs_dither'/>

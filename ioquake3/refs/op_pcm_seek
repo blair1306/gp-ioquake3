@@ -1,0 +1,16 @@
+<dec f='codebrowser/code/opusfile-0.8/include/opusfile.h' l='1696' type='int op_pcm_seek(OggOpusFile * _of, ogg_int64_t _pcm_offset)'/>
+<doc f='codebrowser/code/opusfile-0.8/include/opusfile.h' l='1682'>/**Seek to the specified PCM offset, such that decoding will begin at exactly
+    the requested position.
+   \param _of         The \c OggOpusFile in which to seek.
+   \param _pcm_offset The PCM offset to seek to.
+                      This is in samples at 48 kHz relative to the start of the
+                       stream.
+   \return 0 on success, or a negative value on error.
+   \retval #OP_EREAD    An underlying read or seek operation failed.
+   \retval #OP_EINVAL   The stream was only partially open, or the target was
+                         outside the valid range for the stream.
+   \retval #OP_ENOSEEK  This stream is not seekable.
+   \retval #OP_EBADLINK We failed to find data we had seen before, or the
+                         bitstream structure was sufficiently malformed that
+                         seeking to the target destination was impossible.*/</doc>
+<def f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='2508' ll='2595' type='int op_pcm_seek(OggOpusFile * _of, ogg_int64_t _pcm_offset)'/>

@@ -1,0 +1,25 @@
+<def f='codebrowser/code/botlib/botlib.h' l='170' ll='206'/>
+<size>176</size>
+<doc f='codebrowser/code/botlib/botlib.h' l='169'>//bot AI library exported functions</doc>
+<mbr r='botlib_import_s::Print' o='0' t='void (*)(int, char *, ...)'/>
+<mbr r='botlib_import_s::Trace' o='64' t='void (*)(bsp_trace_t *, vec_t *, vec_t *, vec_t *, vec_t *, int, int)'/>
+<mbr r='botlib_import_s::EntityTrace' o='128' t='void (*)(bsp_trace_t *, vec_t *, vec_t *, vec_t *, vec_t *, int, int)'/>
+<mbr r='botlib_import_s::PointContents' o='192' t='int (*)(vec_t *)'/>
+<mbr r='botlib_import_s::inPVS' o='256' t='int (*)(vec_t *, vec_t *)'/>
+<mbr r='botlib_import_s::BSPEntityData' o='320' t='char *(*)(void)'/>
+<mbr r='botlib_import_s::BSPModelMinsMaxsOrigin' o='384' t='void (*)(int, vec_t *, vec_t *, vec_t *, vec_t *)'/>
+<mbr r='botlib_import_s::BotClientCommand' o='448' t='void (*)(int, char *)'/>
+<mbr r='botlib_import_s::GetMemory' o='512' t='void *(*)(int)'/>
+<mbr r='botlib_import_s::FreeMemory' o='576' t='void (*)(void *)'/>
+<mbr r='botlib_import_s::AvailableMemory' o='640' t='int (*)(void)'/>
+<mbr r='botlib_import_s::HunkAlloc' o='704' t='void *(*)(int)'/>
+<mbr r='botlib_import_s::FS_FOpenFile' o='768' t='int (*)(const char *, fileHandle_t *, fsMode_t)'/>
+<mbr r='botlib_import_s::FS_Read' o='832' t='int (*)(void *, int, fileHandle_t)'/>
+<mbr r='botlib_import_s::FS_Write' o='896' t='int (*)(const void *, int, fileHandle_t)'/>
+<mbr r='botlib_import_s::FS_FCloseFile' o='960' t='void (*)(fileHandle_t)'/>
+<mbr r='botlib_import_s::FS_Seek' o='1024' t='int (*)(fileHandle_t, long, int)'/>
+<mbr r='botlib_import_s::DebugLineCreate' o='1088' t='int (*)(void)'/>
+<mbr r='botlib_import_s::DebugLineDelete' o='1152' t='void (*)(int)'/>
+<mbr r='botlib_import_s::DebugLineShow' o='1216' t='void (*)(int, vec_t *, vec_t *, int)'/>
+<mbr r='botlib_import_s::DebugPolygonCreate' o='1280' t='int (*)(int, int, vec3_t *)'/>
+<mbr r='botlib_import_s::DebugPolygonDelete' o='1344' t='void (*)(int)'/>

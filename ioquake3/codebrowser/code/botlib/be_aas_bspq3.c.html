@@ -1,0 +1,506 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>be_aas_bspq3.c source code [codebrowser/code/botlib/be_aas_bspq3.c] - Woboq Code Browser</title>
+<meta name="woboq:interestingDefinitions" content="bsp_entity_s,bsp_epair_s,bsp_s,rgb_s "/>
+<link rel="stylesheet" href="../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'codebrowser/code/botlib/be_aas_bspq3.c'; var root_path = '../../..'; var data_path = '../../../../data';</script>
+<script src='../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../..'>codebrowser</a>/<a href='..'>code</a>/<a href='./'>botlib</a>/<a href='be_aas_bspq3.c.html'>be_aas_bspq3.c</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/*</i></td></tr>
+<tr><th id="2">2</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="3">3</th><td><i>Copyright (C) 1999-2005 Id Software, Inc.</i></td></tr>
+<tr><th id="4">4</th><td><i></i></td></tr>
+<tr><th id="5">5</th><td><i>This file is part of Quake III Arena source code.</i></td></tr>
+<tr><th id="6">6</th><td><i></i></td></tr>
+<tr><th id="7">7</th><td><i>Quake III Arena source code is free software; you can redistribute it</i></td></tr>
+<tr><th id="8">8</th><td><i>and/or modify it under the terms of the GNU General Public License as</i></td></tr>
+<tr><th id="9">9</th><td><i>published by the Free Software Foundation; either version 2 of the License,</i></td></tr>
+<tr><th id="10">10</th><td><i>or (at your option) any later version.</i></td></tr>
+<tr><th id="11">11</th><td><i></i></td></tr>
+<tr><th id="12">12</th><td><i>Quake III Arena source code is distributed in the hope that it will be</i></td></tr>
+<tr><th id="13">13</th><td><i>useful, but WITHOUT ANY WARRANTY; without even the implied warranty of</i></td></tr>
+<tr><th id="14">14</th><td><i>MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</i></td></tr>
+<tr><th id="15">15</th><td><i>GNU General Public License for more details.</i></td></tr>
+<tr><th id="16">16</th><td><i></i></td></tr>
+<tr><th id="17">17</th><td><i>You should have received a copy of the GNU General Public License</i></td></tr>
+<tr><th id="18">18</th><td><i>along with Quake III Arena source code; if not, write to the Free Software</i></td></tr>
+<tr><th id="19">19</th><td><i>Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA</i></td></tr>
+<tr><th id="20">20</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="21">21</th><td><i>*/</i></td></tr>
+<tr><th id="22">22</th><td></td></tr>
+<tr><th id="23">23</th><td><i>/*****************************************************************************</i></td></tr>
+<tr><th id="24">24</th><td><i> * name:		be_aas_bspq3.c</i></td></tr>
+<tr><th id="25">25</th><td><i> *</i></td></tr>
+<tr><th id="26">26</th><td><i> * desc:		BSP, Environment Sampling</i></td></tr>
+<tr><th id="27">27</th><td><i> *</i></td></tr>
+<tr><th id="28">28</th><td><i> * $Archive: /MissionPack/code/botlib/be_aas_bspq3.c $</i></td></tr>
+<tr><th id="29">29</th><td><i> *</i></td></tr>
+<tr><th id="30">30</th><td><i> *****************************************************************************/</i></td></tr>
+<tr><th id="31">31</th><td></td></tr>
+<tr><th id="32">32</th><td><u>#include <a href="../qcommon/q_shared.h.html">"../qcommon/q_shared.h"</a></u></td></tr>
+<tr><th id="33">33</th><td><u>#include <a href="l_memory.h.html">"l_memory.h"</a></u></td></tr>
+<tr><th id="34">34</th><td><u>#include <a href="l_script.h.html">"l_script.h"</a></u></td></tr>
+<tr><th id="35">35</th><td><u>#include <a href="l_precomp.h.html">"l_precomp.h"</a></u></td></tr>
+<tr><th id="36">36</th><td><u>#include <a href="l_struct.h.html">"l_struct.h"</a></u></td></tr>
+<tr><th id="37">37</th><td><u>#include <a href="aasfile.h.html">"aasfile.h"</a></u></td></tr>
+<tr><th id="38">38</th><td><u>#include <a href="botlib.h.html">"botlib.h"</a></u></td></tr>
+<tr><th id="39">39</th><td><u>#include <a href="be_aas.h.html">"be_aas.h"</a></u></td></tr>
+<tr><th id="40">40</th><td><u>#include <a href="be_aas_funcs.h.html">"be_aas_funcs.h"</a></u></td></tr>
+<tr><th id="41">41</th><td><u>#include <a href="be_aas_def.h.html">"be_aas_def.h"</a></u></td></tr>
+<tr><th id="42">42</th><td></td></tr>
+<tr><th id="43">43</th><td><b>extern</b> <a class="typedef" href="botlib.h.html#botlib_import_t" title='botlib_import_t' data-type='struct botlib_import_s' data-ref="botlib_import_t">botlib_import_t</a> <dfn class="decl" id="botimport" title='botimport' data-ref="botimport">botimport</dfn>;</td></tr>
+<tr><th id="44">44</th><td></td></tr>
+<tr><th id="45">45</th><td><i>//#define TRACE_DEBUG</i></td></tr>
+<tr><th id="46">46</th><td></td></tr>
+<tr><th id="47">47</th><td><u>#define <dfn class="macro" id="_M/ON_EPSILON" data-ref="_M/ON_EPSILON">ON_EPSILON</dfn>		0.005</u></td></tr>
+<tr><th id="48">48</th><td><i>//#define DEG2RAD( a ) (( a * M_PI ) / 180.0F)</i></td></tr>
+<tr><th id="49">49</th><td></td></tr>
+<tr><th id="50">50</th><td><u>#define <dfn class="macro" id="_M/MAX_BSPENTITIES" data-ref="_M/MAX_BSPENTITIES">MAX_BSPENTITIES</dfn>		2048</u></td></tr>
+<tr><th id="51">51</th><td></td></tr>
+<tr><th id="52">52</th><td><b>typedef</b> <b>struct</b> <dfn class="type def" id="rgb_s" title='rgb_s' data-ref="rgb_s"><a class="type" href="#rgb_s" title='rgb_s' data-ref="rgb_s">rgb_s</a></dfn></td></tr>
+<tr><th id="53">53</th><td>{</td></tr>
+<tr><th id="54">54</th><td>	<em>int</em> <dfn class="tu decl" id="rgb_s::red" title='rgb_s::red' data-type='int' data-ref="rgb_s::red">red</dfn>;</td></tr>
+<tr><th id="55">55</th><td>	<em>int</em> <dfn class="tu decl" id="rgb_s::green" title='rgb_s::green' data-type='int' data-ref="rgb_s::green">green</dfn>;</td></tr>
+<tr><th id="56">56</th><td>	<em>int</em> <dfn class="tu decl" id="rgb_s::blue" title='rgb_s::blue' data-type='int' data-ref="rgb_s::blue">blue</dfn>;</td></tr>
+<tr><th id="57">57</th><td>} <dfn class="typedef" id="rgb_t" title='rgb_t' data-type='struct rgb_s' data-ref="rgb_t">rgb_t</dfn>;</td></tr>
+<tr><th id="58">58</th><td></td></tr>
+<tr><th id="59">59</th><td><i>//bsp entity epair</i></td></tr>
+<tr><th id="60">60</th><td><b>typedef</b> <b>struct</b> <dfn class="type def" id="bsp_epair_s" title='bsp_epair_s' data-ref="bsp_epair_s"><a class="type" href="#bsp_epair_s" title='bsp_epair_s' data-ref="bsp_epair_s">bsp_epair_s</a></dfn></td></tr>
+<tr><th id="61">61</th><td>{</td></tr>
+<tr><th id="62">62</th><td>	<em>char</em> *<dfn class="tu decl" id="bsp_epair_s::key" title='bsp_epair_s::key' data-type='char *' data-ref="bsp_epair_s::key">key</dfn>;</td></tr>
+<tr><th id="63">63</th><td>	<em>char</em> *<dfn class="tu decl" id="bsp_epair_s::value" title='bsp_epair_s::value' data-type='char *' data-ref="bsp_epair_s::value">value</dfn>;</td></tr>
+<tr><th id="64">64</th><td>	<b>struct</b> <a class="type" href="#bsp_epair_s" title='bsp_epair_s' data-ref="bsp_epair_s">bsp_epair_s</a> *<dfn class="tu decl" id="bsp_epair_s::next" title='bsp_epair_s::next' data-type='struct bsp_epair_s *' data-ref="bsp_epair_s::next">next</dfn>;</td></tr>
+<tr><th id="65">65</th><td>} <dfn class="typedef" id="bsp_epair_t" title='bsp_epair_t' data-type='struct bsp_epair_s' data-ref="bsp_epair_t">bsp_epair_t</dfn>;</td></tr>
+<tr><th id="66">66</th><td></td></tr>
+<tr><th id="67">67</th><td><i>//bsp data entity</i></td></tr>
+<tr><th id="68">68</th><td><b>typedef</b> <b>struct</b> <dfn class="type def" id="bsp_entity_s" title='bsp_entity_s' data-ref="bsp_entity_s"><a class="type" href="#bsp_entity_s" title='bsp_entity_s' data-ref="bsp_entity_s">bsp_entity_s</a></dfn></td></tr>
+<tr><th id="69">69</th><td>{</td></tr>
+<tr><th id="70">70</th><td>	<a class="typedef" href="#bsp_epair_t" title='bsp_epair_t' data-type='struct bsp_epair_s' data-ref="bsp_epair_t">bsp_epair_t</a> *<dfn class="tu decl" id="bsp_entity_s::epairs" title='bsp_entity_s::epairs' data-type='bsp_epair_t *' data-ref="bsp_entity_s::epairs">epairs</dfn>;</td></tr>
+<tr><th id="71">71</th><td>} <dfn class="typedef" id="bsp_entity_t" title='bsp_entity_t' data-type='struct bsp_entity_s' data-ref="bsp_entity_t">bsp_entity_t</dfn>;</td></tr>
+<tr><th id="72">72</th><td></td></tr>
+<tr><th id="73">73</th><td><i>//id Sofware BSP data</i></td></tr>
+<tr><th id="74">74</th><td><b>typedef</b> <b>struct</b> <dfn class="type def" id="bsp_s" title='bsp_s' data-ref="bsp_s"><a class="type" href="#bsp_s" title='bsp_s' data-ref="bsp_s">bsp_s</a></dfn></td></tr>
+<tr><th id="75">75</th><td>{</td></tr>
+<tr><th id="76">76</th><td>	<i  data-doc="bsp_s::loaded">//true when bsp file is loaded</i></td></tr>
+<tr><th id="77">77</th><td>	<em>int</em> <dfn class="tu decl" id="bsp_s::loaded" title='bsp_s::loaded' data-type='int' data-ref="bsp_s::loaded">loaded</dfn>;</td></tr>
+<tr><th id="78">78</th><td>	<i  data-doc="bsp_s::entdatasize">//entity data</i></td></tr>
+<tr><th id="79">79</th><td>	<em>int</em> <dfn class="tu decl" id="bsp_s::entdatasize" title='bsp_s::entdatasize' data-type='int' data-ref="bsp_s::entdatasize">entdatasize</dfn>;</td></tr>
+<tr><th id="80">80</th><td>	<em>char</em> *<dfn class="tu decl" id="bsp_s::dentdata" title='bsp_s::dentdata' data-type='char *' data-ref="bsp_s::dentdata">dentdata</dfn>;</td></tr>
+<tr><th id="81">81</th><td>	<i  data-doc="bsp_s::numentities">//bsp entities</i></td></tr>
+<tr><th id="82">82</th><td>	<em>int</em> <dfn class="tu decl" id="bsp_s::numentities" title='bsp_s::numentities' data-type='int' data-ref="bsp_s::numentities">numentities</dfn>;</td></tr>
+<tr><th id="83">83</th><td>	<a class="typedef" href="#bsp_entity_t" title='bsp_entity_t' data-type='struct bsp_entity_s' data-ref="bsp_entity_t">bsp_entity_t</a> <dfn class="tu decl" id="bsp_s::entities" title='bsp_s::entities' data-type='bsp_entity_t [2048]' data-ref="bsp_s::entities">entities</dfn>[<a class="macro" href="#50" title="2048" data-ref="_M/MAX_BSPENTITIES">MAX_BSPENTITIES</a>];</td></tr>
+<tr><th id="84">84</th><td>} <dfn class="typedef" id="bsp_t" title='bsp_t' data-type='struct bsp_s' data-ref="bsp_t">bsp_t</dfn>;</td></tr>
+<tr><th id="85">85</th><td></td></tr>
+<tr><th id="86">86</th><td><i>//global bsp</i></td></tr>
+<tr><th id="87">87</th><td><a class="typedef" href="#bsp_t" title='bsp_t' data-type='struct bsp_s' data-ref="bsp_t">bsp_t</a> <dfn class="decl def" id="bspworld" title='bspworld' data-ref="bspworld">bspworld</dfn>;</td></tr>
+<tr><th id="88">88</th><td></td></tr>
+<tr><th id="89">89</th><td></td></tr>
+<tr><th id="90">90</th><td><u>#<span data-ppcond="90">ifdef</span> <span class="macro" data-ref="_M/BSP_DEBUG">BSP_DEBUG</span></u></td></tr>
+<tr><th id="91">91</th><td><b>typedef</b> <b>struct</b> cname_s</td></tr>
+<tr><th id="92">92</th><td>{</td></tr>
+<tr><th id="93">93</th><td>	<em>int</em> value;</td></tr>
+<tr><th id="94">94</th><td>	<em>char</em> *name;</td></tr>
+<tr><th id="95">95</th><td>} cname_t;</td></tr>
+<tr><th id="96">96</th><td></td></tr>
+<tr><th id="97">97</th><td>cname_t contentnames[] =</td></tr>
+<tr><th id="98">98</th><td>{</td></tr>
+<tr><th id="99">99</th><td>	{CONTENTS_SOLID,<q>"CONTENTS_SOLID"</q>},</td></tr>
+<tr><th id="100">100</th><td>	{CONTENTS_WINDOW,<q>"CONTENTS_WINDOW"</q>},</td></tr>
+<tr><th id="101">101</th><td>	{CONTENTS_AUX,<q>"CONTENTS_AUX"</q>},</td></tr>
+<tr><th id="102">102</th><td>	{CONTENTS_LAVA,<q>"CONTENTS_LAVA"</q>},</td></tr>
+<tr><th id="103">103</th><td>	{CONTENTS_SLIME,<q>"CONTENTS_SLIME"</q>},</td></tr>
+<tr><th id="104">104</th><td>	{CONTENTS_WATER,<q>"CONTENTS_WATER"</q>},</td></tr>
+<tr><th id="105">105</th><td>	{CONTENTS_MIST,<q>"CONTENTS_MIST"</q>},</td></tr>
+<tr><th id="106">106</th><td>	{LAST_VISIBLE_CONTENTS,<q>"LAST_VISIBLE_CONTENTS"</q>},</td></tr>
+<tr><th id="107">107</th><td></td></tr>
+<tr><th id="108">108</th><td>	{CONTENTS_AREAPORTAL,<q>"CONTENTS_AREAPORTAL"</q>},</td></tr>
+<tr><th id="109">109</th><td>	{CONTENTS_PLAYERCLIP,<q>"CONTENTS_PLAYERCLIP"</q>},</td></tr>
+<tr><th id="110">110</th><td>	{CONTENTS_MONSTERCLIP,<q>"CONTENTS_MONSTERCLIP"</q>},</td></tr>
+<tr><th id="111">111</th><td>	{CONTENTS_CURRENT_0,<q>"CONTENTS_CURRENT_0"</q>},</td></tr>
+<tr><th id="112">112</th><td>	{CONTENTS_CURRENT_90,<q>"CONTENTS_CURRENT_90"</q>},</td></tr>
+<tr><th id="113">113</th><td>	{CONTENTS_CURRENT_180,<q>"CONTENTS_CURRENT_180"</q>},</td></tr>
+<tr><th id="114">114</th><td>	{CONTENTS_CURRENT_270,<q>"CONTENTS_CURRENT_270"</q>},</td></tr>
+<tr><th id="115">115</th><td>	{CONTENTS_CURRENT_UP,<q>"CONTENTS_CURRENT_UP"</q>},</td></tr>
+<tr><th id="116">116</th><td>	{CONTENTS_CURRENT_DOWN,<q>"CONTENTS_CURRENT_DOWN"</q>},</td></tr>
+<tr><th id="117">117</th><td>	{CONTENTS_ORIGIN,<q>"CONTENTS_ORIGIN"</q>},</td></tr>
+<tr><th id="118">118</th><td>	{CONTENTS_MONSTER,<q>"CONTENTS_MONSTER"</q>},</td></tr>
+<tr><th id="119">119</th><td>	{CONTENTS_DEADMONSTER,<q>"CONTENTS_DEADMONSTER"</q>},</td></tr>
+<tr><th id="120">120</th><td>	{CONTENTS_DETAIL,<q>"CONTENTS_DETAIL"</q>},</td></tr>
+<tr><th id="121">121</th><td>	{CONTENTS_TRANSLUCENT,<q>"CONTENTS_TRANSLUCENT"</q>},</td></tr>
+<tr><th id="122">122</th><td>	{CONTENTS_LADDER,<q>"CONTENTS_LADDER"</q>},</td></tr>
+<tr><th id="123">123</th><td>	{<var>0</var>, <var>0</var>}</td></tr>
+<tr><th id="124">124</th><td>};</td></tr>
+<tr><th id="125">125</th><td></td></tr>
+<tr><th id="126">126</th><td><em>void</em> PrintContents(<em>int</em> contents)</td></tr>
+<tr><th id="127">127</th><td>{</td></tr>
+<tr><th id="128">128</th><td>	<em>int</em> i;</td></tr>
+<tr><th id="129">129</th><td></td></tr>
+<tr><th id="130">130</th><td>	<b>for</b> (i = <var>0</var>; contentnames[i].value; i++)</td></tr>
+<tr><th id="131">131</th><td>	{</td></tr>
+<tr><th id="132">132</th><td>		<b>if</b> (contents &amp; contentnames[i].value)</td></tr>
+<tr><th id="133">133</th><td>		{</td></tr>
+<tr><th id="134">134</th><td>			botimport.Print(PRT_MESSAGE, <q>"%s\n"</q>, contentnames[i].name);</td></tr>
+<tr><th id="135">135</th><td>		} <i>//end if</i></td></tr>
+<tr><th id="136">136</th><td>	} <i>//end for</i></td></tr>
+<tr><th id="137">137</th><td>} <i>//end of the function PrintContents</i></td></tr>
+<tr><th id="138">138</th><td></td></tr>
+<tr><th id="139">139</th><td><u>#<span data-ppcond="90">endif</span> // BSP_DEBUG</u></td></tr>
+<tr><th id="140">140</th><td><i>//===========================================================================</i></td></tr>
+<tr><th id="141">141</th><td><i>// traces axial boxes of any size through the world</i></td></tr>
+<tr><th id="142">142</th><td><i>//</i></td></tr>
+<tr><th id="143">143</th><td><i>// Parameter:				-</i></td></tr>
+<tr><th id="144">144</th><td><i>// Returns:					-</i></td></tr>
+<tr><th id="145">145</th><td><i>// Changes Globals:		-</i></td></tr>
+<tr><th id="146">146</th><td><i>//===========================================================================</i></td></tr>
+<tr><th id="147">147</th><td><a class="typedef" href="botlib.h.html#bsp_trace_t" title='bsp_trace_t' data-type='struct bsp_trace_s' data-ref="bsp_trace_t">bsp_trace_t</a> <dfn class="decl def" id="AAS_Trace" title='AAS_Trace' data-ref="AAS_Trace">AAS_Trace</dfn>(<a class="typedef" href="../qcommon/q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="local col2 decl" id="952start" title='start' data-type='vec_t *' data-ref="952start">start</dfn>, <a class="typedef" href="../qcommon/q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="local col3 decl" id="953mins" title='mins' data-type='vec_t *' data-ref="953mins">mins</dfn>, <a class="typedef" href="../qcommon/q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="local col4 decl" id="954maxs" title='maxs' data-type='vec_t *' data-ref="954maxs">maxs</dfn>, <a class="typedef" href="../qcommon/q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="local col5 decl" id="955end" title='end' data-type='vec_t *' data-ref="955end">end</dfn>, <em>int</em> <dfn class="local col6 decl" id="956passent" title='passent' data-type='int' data-ref="956passent">passent</dfn>, <em>int</em> <dfn class="local col7 decl" id="957contentmask" title='contentmask' data-type='int' data-ref="957contentmask">contentmask</dfn>)</td></tr>
+<tr><th id="148">148</th><td>{</td></tr>
+<tr><th id="149">149</th><td>	<a class="typedef" href="botlib.h.html#bsp_trace_t" title='bsp_trace_t' data-type='struct bsp_trace_s' data-ref="bsp_trace_t">bsp_trace_t</a> <dfn class="local col8 decl" id="958bsptrace" title='bsptrace' data-type='bsp_trace_t' data-ref="958bsptrace">bsptrace</dfn>;</td></tr>
+<tr><th id="150">150</th><td>	<a class="ref" href="#botimport" title='botimport' data-ref="botimport">botimport</a>.<a class="ref" href="botlib.h.html#botlib_import_s::Trace" title='botlib_import_s::Trace' data-ref="botlib_import_s::Trace">Trace</a>(&amp;<a class="local col8 ref" href="#958bsptrace" title='bsptrace' data-ref="958bsptrace">bsptrace</a>, <a class="local col2 ref" href="#952start" title='start' data-ref="952start">start</a>, <a class="local col3 ref" href="#953mins" title='mins' data-ref="953mins">mins</a>, <a class="local col4 ref" href="#954maxs" title='maxs' data-ref="954maxs">maxs</a>, <a class="local col5 ref" href="#955end" title='end' data-ref="955end">end</a>, <a class="local col6 ref" href="#956passent" title='passent' data-ref="956passent">passent</a>, <a class="local col7 ref" href="#957contentmask" title='contentmask' data-ref="957contentmask">contentmask</a>);</td></tr>
+<tr><th id="151">151</th><td>	<b>return</b> <a class="local col8 ref" href="#958bsptrace" title='bsptrace' data-ref="958bsptrace">bsptrace</a>;</td></tr>
+<tr><th id="152">152</th><td>} <i>//end of the function AAS_Trace</i></td></tr>
+<tr><th id="153">153</th><td><i>//===========================================================================</i></td></tr>
+<tr><th id="154">154</th><td><i>// returns the contents at the given point</i></td></tr>
+<tr><th id="155">155</th><td><i>//</i></td></tr>
+<tr><th id="156">156</th><td><i>// Parameter:				-</i></td></tr>
+<tr><th id="157">157</th><td><i>// Returns:					-</i></td></tr>
+<tr><th id="158">158</th><td><i>// Changes Globals:		-</i></td></tr>
+<tr><th id="159">159</th><td><i>//===========================================================================</i></td></tr>
+<tr><th id="160">160</th><td><em>int</em> <dfn class="decl def" id="AAS_PointContents" title='AAS_PointContents' data-ref="AAS_PointContents">AAS_PointContents</dfn>(<a class="typedef" href="../qcommon/q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="local col9 decl" id="959point" title='point' data-type='vec_t *' data-ref="959point">point</dfn>)</td></tr>
+<tr><th id="161">161</th><td>{</td></tr>
+<tr><th id="162">162</th><td>	<b>return</b> <a class="ref" href="#botimport" title='botimport' data-ref="botimport">botimport</a>.<a class="ref" href="botlib.h.html#botlib_import_s::PointContents" title='botlib_import_s::PointContents' data-ref="botlib_import_s::PointContents">PointContents</a>(<a class="local col9 ref" href="#959point" title='point' data-ref="959point">point</a>);</td></tr>
+<tr><th id="163">163</th><td>} <i>//end of the function AAS_PointContents</i></td></tr>
+<tr><th id="164">164</th><td><i>//===========================================================================</i></td></tr>
+<tr><th id="165">165</th><td><i>//</i></td></tr>
+<tr><th id="166">166</th><td><i>// Parameter:				-</i></td></tr>
+<tr><th id="167">167</th><td><i>// Returns:					-</i></td></tr>
+<tr><th id="168">168</th><td><i>// Changes Globals:		-</i></td></tr>
+<tr><th id="169">169</th><td><i>//===========================================================================</i></td></tr>
+<tr><th id="170">170</th><td><a class="typedef" href="../qcommon/q_shared.h.html#qboolean" title='qboolean' data-type='enum qboolean' data-ref="qboolean">qboolean</a> <dfn class="decl def" id="AAS_EntityCollision" title='AAS_EntityCollision' data-ref="AAS_EntityCollision">AAS_EntityCollision</dfn>(<em>int</em> <dfn class="local col0 decl" id="960entnum" title='entnum' data-type='int' data-ref="960entnum">entnum</dfn>,</td></tr>
+<tr><th id="171">171</th><td>					<a class="typedef" href="../qcommon/q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="local col1 decl" id="961start" title='start' data-type='vec_t *' data-ref="961start">start</dfn>, <a class="typedef" href="../qcommon/q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="local col2 decl" id="962boxmins" title='boxmins' data-type='vec_t *' data-ref="962boxmins">boxmins</dfn>, <a class="typedef" href="../qcommon/q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="local col3 decl" id="963boxmaxs" title='boxmaxs' data-type='vec_t *' data-ref="963boxmaxs">boxmaxs</dfn>, <a class="typedef" href="../qcommon/q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="local col4 decl" id="964end" title='end' data-type='vec_t *' data-ref="964end">end</dfn>,</td></tr>
+<tr><th id="172">172</th><td>								<em>int</em> <dfn class="local col5 decl" id="965contentmask" title='contentmask' data-type='int' data-ref="965contentmask">contentmask</dfn>, <a class="typedef" href="botlib.h.html#bsp_trace_t" title='bsp_trace_t' data-type='struct bsp_trace_s' data-ref="bsp_trace_t">bsp_trace_t</a> *<dfn class="local col6 decl" id="966trace" title='trace' data-type='bsp_trace_t *' data-ref="966trace">trace</dfn>)</td></tr>
+<tr><th id="173">173</th><td>{</td></tr>
+<tr><th id="174">174</th><td>	<a class="typedef" href="botlib.h.html#bsp_trace_t" title='bsp_trace_t' data-type='struct bsp_trace_s' data-ref="bsp_trace_t">bsp_trace_t</a> <dfn class="local col7 decl" id="967enttrace" title='enttrace' data-type='bsp_trace_t' data-ref="967enttrace">enttrace</dfn>;</td></tr>
+<tr><th id="175">175</th><td></td></tr>
+<tr><th id="176">176</th><td>	<a class="ref" href="#botimport" title='botimport' data-ref="botimport">botimport</a>.<a class="ref" href="botlib.h.html#botlib_import_s::EntityTrace" title='botlib_import_s::EntityTrace' data-ref="botlib_import_s::EntityTrace">EntityTrace</a>(&amp;<a class="local col7 ref" href="#967enttrace" title='enttrace' data-ref="967enttrace">enttrace</a>, <a class="local col1 ref" href="#961start" title='start' data-ref="961start">start</a>, <a class="local col2 ref" href="#962boxmins" title='boxmins' data-ref="962boxmins">boxmins</a>, <a class="local col3 ref" href="#963boxmaxs" title='boxmaxs' data-ref="963boxmaxs">boxmaxs</a>, <a class="local col4 ref" href="#964end" title='end' data-ref="964end">end</a>, <a class="local col0 ref" href="#960entnum" title='entnum' data-ref="960entnum">entnum</a>, <a class="local col5 ref" href="#965contentmask" title='contentmask' data-ref="965contentmask">contentmask</a>);</td></tr>
+<tr><th id="177">177</th><td>	<b>if</b> (<a class="local col7 ref" href="#967enttrace" title='enttrace' data-ref="967enttrace">enttrace</a>.<a class="ref" href="botlib.h.html#bsp_trace_s::fraction" title='bsp_trace_s::fraction' data-ref="bsp_trace_s::fraction">fraction</a> &lt; <a class="local col6 ref" href="#966trace" title='trace' data-ref="966trace">trace</a>-&gt;<a class="ref" href="botlib.h.html#bsp_trace_s::fraction" title='bsp_trace_s::fraction' data-ref="bsp_trace_s::fraction">fraction</a>)</td></tr>
+<tr><th id="178">178</th><td>	{</td></tr>
+<tr><th id="179">179</th><td>		<a class="macro" href="../qcommon/q_shared.h.html#345" title="memcpy" data-ref="_M/Com_Memcpy">Com_Memcpy</a>(<a class="local col6 ref" href="#966trace" title='trace' data-ref="966trace">trace</a>, &amp;<a class="local col7 ref" href="#967enttrace" title='enttrace' data-ref="967enttrace">enttrace</a>, <b>sizeof</b>(<a class="typedef" href="botlib.h.html#bsp_trace_t" title='bsp_trace_t' data-type='struct bsp_trace_s' data-ref="bsp_trace_t">bsp_trace_t</a>));</td></tr>
+<tr><th id="180">180</th><td>		<b>return</b> <a class="enum" href="../qcommon/q_shared.h.html#qtrue" title='qtrue' data-ref="qtrue">qtrue</a>;</td></tr>
+<tr><th id="181">181</th><td>	} <i>//end if</i></td></tr>
+<tr><th id="182">182</th><td>	<b>return</b> <a class="enum" href="../qcommon/q_shared.h.html#qfalse" title='qfalse' data-ref="qfalse">qfalse</a>;</td></tr>
+<tr><th id="183">183</th><td>} <i>//end of the function AAS_EntityCollision</i></td></tr>
+<tr><th id="184">184</th><td><i>//===========================================================================</i></td></tr>
+<tr><th id="185">185</th><td><i>// returns true if in Potentially Hearable Set</i></td></tr>
+<tr><th id="186">186</th><td><i>//</i></td></tr>
+<tr><th id="187">187</th><td><i>// Parameter:				-</i></td></tr>
+<tr><th id="188">188</th><td><i>// Returns:					-</i></td></tr>
+<tr><th id="189">189</th><td><i>// Changes Globals:		-</i></td></tr>
+<tr><th id="190">190</th><td><i>//===========================================================================</i></td></tr>
+<tr><th id="191">191</th><td><a class="typedef" href="../qcommon/q_shared.h.html#qboolean" title='qboolean' data-type='enum qboolean' data-ref="qboolean">qboolean</a> <dfn class="decl def" id="AAS_inPVS" title='AAS_inPVS' data-ref="AAS_inPVS">AAS_inPVS</dfn>(<a class="typedef" href="../qcommon/q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="local col8 decl" id="968p1" title='p1' data-type='vec_t *' data-ref="968p1">p1</dfn>, <a class="typedef" href="../qcommon/q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="local col9 decl" id="969p2" title='p2' data-type='vec_t *' data-ref="969p2">p2</dfn>)</td></tr>
+<tr><th id="192">192</th><td>{</td></tr>
+<tr><th id="193">193</th><td>	<b>return</b> <a class="ref" href="#botimport" title='botimport' data-ref="botimport">botimport</a>.<a class="ref" href="botlib.h.html#botlib_import_s::inPVS" title='botlib_import_s::inPVS' data-ref="botlib_import_s::inPVS">inPVS</a>(<a class="local col8 ref" href="#968p1" title='p1' data-ref="968p1">p1</a>, <a class="local col9 ref" href="#969p2" title='p2' data-ref="969p2">p2</a>);</td></tr>
+<tr><th id="194">194</th><td>} <i>//end of the function AAS_InPVS</i></td></tr>
+<tr><th id="195">195</th><td><i>//===========================================================================</i></td></tr>
+<tr><th id="196">196</th><td><i>// returns true if in Potentially Visible Set</i></td></tr>
+<tr><th id="197">197</th><td><i>//</i></td></tr>
+<tr><th id="198">198</th><td><i>// Parameter:				-</i></td></tr>
+<tr><th id="199">199</th><td><i>// Returns:					-</i></td></tr>
+<tr><th id="200">200</th><td><i>// Changes Globals:		-</i></td></tr>
+<tr><th id="201">201</th><td><i>//===========================================================================</i></td></tr>
+<tr><th id="202">202</th><td><a class="typedef" href="../qcommon/q_shared.h.html#qboolean" title='qboolean' data-type='enum qboolean' data-ref="qboolean">qboolean</a> <dfn class="decl def" id="AAS_inPHS" title='AAS_inPHS' data-ref="AAS_inPHS">AAS_inPHS</dfn>(<a class="typedef" href="../qcommon/q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="local col0 decl" id="970p1" title='p1' data-type='vec_t *' data-ref="970p1">p1</dfn>, <a class="typedef" href="../qcommon/q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="local col1 decl" id="971p2" title='p2' data-type='vec_t *' data-ref="971p2">p2</dfn>)</td></tr>
+<tr><th id="203">203</th><td>{</td></tr>
+<tr><th id="204">204</th><td>	<b>return</b> <a class="enum" href="../qcommon/q_shared.h.html#qtrue" title='qtrue' data-ref="qtrue">qtrue</a>;</td></tr>
+<tr><th id="205">205</th><td>} <i>//end of the function AAS_inPHS</i></td></tr>
+<tr><th id="206">206</th><td><i>//===========================================================================</i></td></tr>
+<tr><th id="207">207</th><td><i>//</i></td></tr>
+<tr><th id="208">208</th><td><i>// Parameter:				-</i></td></tr>
+<tr><th id="209">209</th><td><i>// Returns:					-</i></td></tr>
+<tr><th id="210">210</th><td><i>// Changes Globals:		-</i></td></tr>
+<tr><th id="211">211</th><td><i>//===========================================================================</i></td></tr>
+<tr><th id="212">212</th><td><em>void</em> <dfn class="decl def" id="AAS_BSPModelMinsMaxsOrigin" title='AAS_BSPModelMinsMaxsOrigin' data-ref="AAS_BSPModelMinsMaxsOrigin">AAS_BSPModelMinsMaxsOrigin</dfn>(<em>int</em> <dfn class="local col2 decl" id="972modelnum" title='modelnum' data-type='int' data-ref="972modelnum">modelnum</dfn>, <a class="typedef" href="../qcommon/q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="local col3 decl" id="973angles" title='angles' data-type='vec_t *' data-ref="973angles">angles</dfn>, <a class="typedef" href="../qcommon/q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="local col4 decl" id="974mins" title='mins' data-type='vec_t *' data-ref="974mins">mins</dfn>, <a class="typedef" href="../qcommon/q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="local col5 decl" id="975maxs" title='maxs' data-type='vec_t *' data-ref="975maxs">maxs</dfn>, <a class="typedef" href="../qcommon/q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="local col6 decl" id="976origin" title='origin' data-type='vec_t *' data-ref="976origin">origin</dfn>)</td></tr>
+<tr><th id="213">213</th><td>{</td></tr>
+<tr><th id="214">214</th><td>	<a class="ref" href="#botimport" title='botimport' data-ref="botimport">botimport</a>.<a class="ref" href="botlib.h.html#botlib_import_s::BSPModelMinsMaxsOrigin" title='botlib_import_s::BSPModelMinsMaxsOrigin' data-ref="botlib_import_s::BSPModelMinsMaxsOrigin">BSPModelMinsMaxsOrigin</a>(<a class="local col2 ref" href="#972modelnum" title='modelnum' data-ref="972modelnum">modelnum</a>, <a class="local col3 ref" href="#973angles" title='angles' data-ref="973angles">angles</a>, <a class="local col4 ref" href="#974mins" title='mins' data-ref="974mins">mins</a>, <a class="local col5 ref" href="#975maxs" title='maxs' data-ref="975maxs">maxs</a>, <a class="local col6 ref" href="#976origin" title='origin' data-ref="976origin">origin</a>);</td></tr>
+<tr><th id="215">215</th><td>} <i>//end of the function AAS_BSPModelMinsMaxs</i></td></tr>
+<tr><th id="216">216</th><td><i>//===========================================================================</i></td></tr>
+<tr><th id="217">217</th><td><i>// unlinks the entity from all leaves</i></td></tr>
+<tr><th id="218">218</th><td><i>//</i></td></tr>
+<tr><th id="219">219</th><td><i>// Parameter:				-</i></td></tr>
+<tr><th id="220">220</th><td><i>// Returns:					-</i></td></tr>
+<tr><th id="221">221</th><td><i>// Changes Globals:		-</i></td></tr>
+<tr><th id="222">222</th><td><i>//===========================================================================</i></td></tr>
+<tr><th id="223">223</th><td><em>void</em> <dfn class="decl def" id="AAS_UnlinkFromBSPLeaves" title='AAS_UnlinkFromBSPLeaves' data-ref="AAS_UnlinkFromBSPLeaves">AAS_UnlinkFromBSPLeaves</dfn>(<a class="typedef" href="be_aas_def.h.html#bsp_link_t" title='bsp_link_t' data-type='struct bsp_link_s' data-ref="bsp_link_t">bsp_link_t</a> *<dfn class="local col7 decl" id="977leaves" title='leaves' data-type='bsp_link_t *' data-ref="977leaves">leaves</dfn>)</td></tr>
+<tr><th id="224">224</th><td>{</td></tr>
+<tr><th id="225">225</th><td>} <i>//end of the function AAS_UnlinkFromBSPLeaves</i></td></tr>
+<tr><th id="226">226</th><td><i>//===========================================================================</i></td></tr>
+<tr><th id="227">227</th><td><i>//</i></td></tr>
+<tr><th id="228">228</th><td><i>// Parameter:				-</i></td></tr>
+<tr><th id="229">229</th><td><i>// Returns:					-</i></td></tr>
+<tr><th id="230">230</th><td><i>// Changes Globals:		-</i></td></tr>
+<tr><th id="231">231</th><td><i>//===========================================================================</i></td></tr>
+<tr><th id="232">232</th><td><a class="typedef" href="be_aas_def.h.html#bsp_link_t" title='bsp_link_t' data-type='struct bsp_link_s' data-ref="bsp_link_t">bsp_link_t</a> *<dfn class="decl def" id="AAS_BSPLinkEntity" title='AAS_BSPLinkEntity' data-ref="AAS_BSPLinkEntity">AAS_BSPLinkEntity</dfn>(<a class="typedef" href="../qcommon/q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="local col8 decl" id="978absmins" title='absmins' data-type='vec_t *' data-ref="978absmins">absmins</dfn>, <a class="typedef" href="../qcommon/q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="local col9 decl" id="979absmaxs" title='absmaxs' data-type='vec_t *' data-ref="979absmaxs">absmaxs</dfn>, <em>int</em> <dfn class="local col0 decl" id="980entnum" title='entnum' data-type='int' data-ref="980entnum">entnum</dfn>, <em>int</em> <dfn class="local col1 decl" id="981modelnum" title='modelnum' data-type='int' data-ref="981modelnum">modelnum</dfn>)</td></tr>
+<tr><th id="233">233</th><td>{</td></tr>
+<tr><th id="234">234</th><td>	<b>return</b> <span class="macro" title="((void*)0)" data-ref="_M/NULL">NULL</span>;</td></tr>
+<tr><th id="235">235</th><td>} <i>//end of the function AAS_BSPLinkEntity</i></td></tr>
+<tr><th id="236">236</th><td><i>//===========================================================================</i></td></tr>
+<tr><th id="237">237</th><td><i>//</i></td></tr>
+<tr><th id="238">238</th><td><i>// Parameter:				-</i></td></tr>
+<tr><th id="239">239</th><td><i>// Returns:					-</i></td></tr>
+<tr><th id="240">240</th><td><i>// Changes Globals:		-</i></td></tr>
+<tr><th id="241">241</th><td><i>//===========================================================================</i></td></tr>
+<tr><th id="242">242</th><td><em>int</em> <dfn class="decl def" id="AAS_BoxEntities" title='AAS_BoxEntities' data-ref="AAS_BoxEntities">AAS_BoxEntities</dfn>(<a class="typedef" href="../qcommon/q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="local col2 decl" id="982absmins" title='absmins' data-type='vec_t *' data-ref="982absmins">absmins</dfn>, <a class="typedef" href="../qcommon/q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="local col3 decl" id="983absmaxs" title='absmaxs' data-type='vec_t *' data-ref="983absmaxs">absmaxs</dfn>, <em>int</em> *<dfn class="local col4 decl" id="984list" title='list' data-type='int *' data-ref="984list">list</dfn>, <em>int</em> <dfn class="local col5 decl" id="985maxcount" title='maxcount' data-type='int' data-ref="985maxcount">maxcount</dfn>)</td></tr>
+<tr><th id="243">243</th><td>{</td></tr>
+<tr><th id="244">244</th><td>	<b>return</b> <var>0</var>;</td></tr>
+<tr><th id="245">245</th><td>} <i>//end of the function AAS_BoxEntities</i></td></tr>
+<tr><th id="246">246</th><td><i>//===========================================================================</i></td></tr>
+<tr><th id="247">247</th><td><i>//</i></td></tr>
+<tr><th id="248">248</th><td><i>// Parameter:			-</i></td></tr>
+<tr><th id="249">249</th><td><i>// Returns:				-</i></td></tr>
+<tr><th id="250">250</th><td><i>// Changes Globals:		-</i></td></tr>
+<tr><th id="251">251</th><td><i>//===========================================================================</i></td></tr>
+<tr><th id="252">252</th><td><em>int</em> <dfn class="decl def" id="AAS_NextBSPEntity" title='AAS_NextBSPEntity' data-ref="AAS_NextBSPEntity">AAS_NextBSPEntity</dfn>(<em>int</em> <dfn class="local col6 decl" id="986ent" title='ent' data-type='int' data-ref="986ent">ent</dfn>)</td></tr>
+<tr><th id="253">253</th><td>{</td></tr>
+<tr><th id="254">254</th><td>	<a class="local col6 ref" href="#986ent" title='ent' data-ref="986ent">ent</a>++;</td></tr>
+<tr><th id="255">255</th><td>	<b>if</b> (<a class="local col6 ref" href="#986ent" title='ent' data-ref="986ent">ent</a> &gt;= <var>1</var> &amp;&amp; <a class="local col6 ref" href="#986ent" title='ent' data-ref="986ent">ent</a> &lt; <a class="ref" href="#bspworld" title='bspworld' data-ref="bspworld">bspworld</a>.<a class="tu ref" href="#bsp_s::numentities" title='bsp_s::numentities' data-use='r' data-ref="bsp_s::numentities">numentities</a>) <b>return</b> <a class="local col6 ref" href="#986ent" title='ent' data-ref="986ent">ent</a>;</td></tr>
+<tr><th id="256">256</th><td>	<b>return</b> <var>0</var>;</td></tr>
+<tr><th id="257">257</th><td>} <i>//end of the function AAS_NextBSPEntity</i></td></tr>
+<tr><th id="258">258</th><td><i>//===========================================================================</i></td></tr>
+<tr><th id="259">259</th><td><i>//</i></td></tr>
+<tr><th id="260">260</th><td><i>// Parameter:			-</i></td></tr>
+<tr><th id="261">261</th><td><i>// Returns:				-</i></td></tr>
+<tr><th id="262">262</th><td><i>// Changes Globals:		-</i></td></tr>
+<tr><th id="263">263</th><td><i>//===========================================================================</i></td></tr>
+<tr><th id="264">264</th><td><em>int</em> <dfn class="decl def" id="AAS_BSPEntityInRange" title='AAS_BSPEntityInRange' data-ref="AAS_BSPEntityInRange">AAS_BSPEntityInRange</dfn>(<em>int</em> <dfn class="local col7 decl" id="987ent" title='ent' data-type='int' data-ref="987ent">ent</dfn>)</td></tr>
+<tr><th id="265">265</th><td>{</td></tr>
+<tr><th id="266">266</th><td>	<b>if</b> (<a class="local col7 ref" href="#987ent" title='ent' data-ref="987ent">ent</a> &lt;= <var>0</var> || <a class="local col7 ref" href="#987ent" title='ent' data-ref="987ent">ent</a> &gt;= <a class="ref" href="#bspworld" title='bspworld' data-ref="bspworld">bspworld</a>.<a class="tu ref" href="#bsp_s::numentities" title='bsp_s::numentities' data-use='r' data-ref="bsp_s::numentities">numentities</a>)</td></tr>
+<tr><th id="267">267</th><td>	{</td></tr>
+<tr><th id="268">268</th><td>		<a class="ref" href="#botimport" title='botimport' data-ref="botimport">botimport</a>.<a class="ref" href="botlib.h.html#botlib_import_s::Print" title='botlib_import_s::Print' data-ref="botlib_import_s::Print">Print</a>(<a class="macro" href="botlib.h.html#56" title="1" data-ref="_M/PRT_MESSAGE">PRT_MESSAGE</a>, <q>"bsp entity out of range\n"</q>);</td></tr>
+<tr><th id="269">269</th><td>		<b>return</b> <a class="enum" href="../qcommon/q_shared.h.html#qfalse" title='qfalse' data-ref="qfalse">qfalse</a>;</td></tr>
+<tr><th id="270">270</th><td>	} <i>//end if</i></td></tr>
+<tr><th id="271">271</th><td>	<b>return</b> <a class="enum" href="../qcommon/q_shared.h.html#qtrue" title='qtrue' data-ref="qtrue">qtrue</a>;</td></tr>
+<tr><th id="272">272</th><td>} <i>//end of the function AAS_BSPEntityInRange</i></td></tr>
+<tr><th id="273">273</th><td><i>//===========================================================================</i></td></tr>
+<tr><th id="274">274</th><td><i>//</i></td></tr>
+<tr><th id="275">275</th><td><i>// Parameter:			-</i></td></tr>
+<tr><th id="276">276</th><td><i>// Returns:				-</i></td></tr>
+<tr><th id="277">277</th><td><i>// Changes Globals:		-</i></td></tr>
+<tr><th id="278">278</th><td><i>//===========================================================================</i></td></tr>
+<tr><th id="279">279</th><td><em>int</em> <dfn class="decl def" id="AAS_ValueForBSPEpairKey" title='AAS_ValueForBSPEpairKey' data-ref="AAS_ValueForBSPEpairKey">AAS_ValueForBSPEpairKey</dfn>(<em>int</em> <dfn class="local col8 decl" id="988ent" title='ent' data-type='int' data-ref="988ent">ent</dfn>, <em>char</em> *<dfn class="local col9 decl" id="989key" title='key' data-type='char *' data-ref="989key">key</dfn>, <em>char</em> *<dfn class="local col0 decl" id="990value" title='value' data-type='char *' data-ref="990value">value</dfn>, <em>int</em> <dfn class="local col1 decl" id="991size" title='size' data-type='int' data-ref="991size">size</dfn>)</td></tr>
+<tr><th id="280">280</th><td>{</td></tr>
+<tr><th id="281">281</th><td>	<a class="typedef" href="#bsp_epair_t" title='bsp_epair_t' data-type='struct bsp_epair_s' data-ref="bsp_epair_t">bsp_epair_t</a> *<dfn class="local col2 decl" id="992epair" title='epair' data-type='bsp_epair_t *' data-ref="992epair">epair</dfn>;</td></tr>
+<tr><th id="282">282</th><td></td></tr>
+<tr><th id="283">283</th><td>	<a class="local col0 ref" href="#990value" title='value' data-ref="990value">value</a>[<var>0</var>] = <kbd>'\0'</kbd>;</td></tr>
+<tr><th id="284">284</th><td>	<b>if</b> (!<a class="ref" href="#AAS_BSPEntityInRange" title='AAS_BSPEntityInRange' data-ref="AAS_BSPEntityInRange">AAS_BSPEntityInRange</a>(<a class="local col8 ref" href="#988ent" title='ent' data-ref="988ent">ent</a>)) <b>return</b> <a class="enum" href="../qcommon/q_shared.h.html#qfalse" title='qfalse' data-ref="qfalse">qfalse</a>;</td></tr>
+<tr><th id="285">285</th><td>	<b>for</b> (<a class="local col2 ref" href="#992epair" title='epair' data-ref="992epair">epair</a> = <a class="ref" href="#bspworld" title='bspworld' data-ref="bspworld">bspworld</a>.<a class="tu ref" href="#bsp_s::entities" title='bsp_s::entities' data-use='m' data-ref="bsp_s::entities">entities</a>[<a class="local col8 ref" href="#988ent" title='ent' data-ref="988ent">ent</a>].<a class="tu ref" href="#bsp_entity_s::epairs" title='bsp_entity_s::epairs' data-use='r' data-ref="bsp_entity_s::epairs">epairs</a>; <a class="local col2 ref" href="#992epair" title='epair' data-ref="992epair">epair</a>; <a class="local col2 ref" href="#992epair" title='epair' data-ref="992epair">epair</a> = <a class="local col2 ref" href="#992epair" title='epair' data-ref="992epair">epair</a>-&gt;<a class="tu ref" href="#bsp_epair_s::next" title='bsp_epair_s::next' data-use='r' data-ref="bsp_epair_s::next">next</a>)</td></tr>
+<tr><th id="286">286</th><td>	{</td></tr>
+<tr><th id="287">287</th><td>		<b>if</b> (!<a class="macro" href="../../../include/x86_64-linux-gnu/bits/string2.h.html#799" title="__extension__ ({ size_t __s1_len, __s2_len; (__builtin_constant_p (epair-&gt;key) &amp;&amp; __builtin_constant_p (key) &amp;&amp; (__s1_len = __builtin_strlen (epair-&gt;key), __s2_len = __builtin_strlen (key), (!((size_t)(const void *)((epair-&gt;key) + 1) - (size_t)(const void *)(epair-&gt;key) == 1) || __s1_len &gt;= 4) &amp;&amp; (!((size_t)(const void *)((key) + 1) - (size_t)(const void *)(key) == 1) || __s2_len &gt;= 4)) ? __builtin_strcmp (epair-&gt;key, key) : (__builtin_constant_p (epair-&gt;key) &amp;&amp; ((size_t)(const void *)((epair-&gt;key) + 1) - (size_t)(const void *)(epair-&gt;key) == 1) &amp;&amp; (__s1_len = __builtin_strlen (epair-&gt;key), __s1_len &lt; 4) ? (__builtin_constant_p (key) &amp;&amp; ((size_t)(const void *)((key) + 1) - (size_t)(const void *)(key) == 1) ? __builtin_strcmp (epair-&gt;key, key) : (__extension__ ({ const unsigned char *__s2 = (const unsigned char *) (const char *) (key); int __result = (((const unsigned char *) (const char *) (epair-&gt;key))[0] - __s2[0]); if (__s1_len &gt; 0 &amp;&amp; __result == 0) { __result = (((const unsigned char *) (const char *) (epair-&gt;key))[1] - __s2[1]); if (__s1_len &gt; 1 &amp;&amp; __result == 0) { __result = (((const unsigned char *) (const char *) (epair-&gt;key))[2] - __s2[2]); if (__s1_len &gt; 2 &amp;&amp; __result == 0) __result = (((const unsigned char *) (const char *) (epair-&gt;key))[3] - __s2[3]); } } __result; }))) : (__builtin_constant_p (key) &amp;&amp; ((size_t)(const void *)((key) + 1) - (size_t)(const void *)(key) == 1) &amp;&amp; (__s2_len = __builtin_strlen (key), __s2_len &lt; 4) ? (__builtin_constant_p (epair-&gt;key) &amp;&amp; ((size_t)(const void *)((epair-&gt;key) + 1) - (size_t)(const void *)(epair-&gt;key) == 1) ? __builtin_strcmp (epair-&gt;key, key) : (- (__extension__ ({ const unsigned char *__s2 = (const unsigned char *) (const char *) (epair-&gt;key); int __result = (((const unsigned char *) (const char *) (key))[0] - __s2[0]); if (__s2_len &gt; 0 &amp;&amp; __result == 0) { __result = (((const unsigned char *) (const char *) (key))[1] - __s2[1]); if (__s2_len &gt; 1 &amp;&amp; __result == 0) { __result = (((const unsigned char *) (const char *) (key))[2] - __s2[2]); if (__s2_len &gt; 2 &amp;&amp; __result == 0) __result = (((const unsigned char *) (const char *) (key))[3] - __s2[3]); } } __result; })))) : __builtin_strcmp (epair-&gt;key, key)))); })" data-ref="_M/strcmp">strcmp</a>(<a class="local col2 ref" href="#992epair" title='epair' data-ref="992epair">epair</a>-&gt;<a class="tu ref" href="#bsp_epair_s::key" title='bsp_epair_s::key' data-ref="bsp_epair_s::key"><a class="tu ref" href="#bsp_epair_s::key" title='bsp_epair_s::key' data-use='r' data-ref="bsp_epair_s::key"><a class="tu ref" href="#bsp_epair_s::key" title='bsp_epair_s::key' data-use='r' data-ref="bsp_epair_s::key"><a class="tu ref" href="#bsp_epair_s::key" title='bsp_epair_s::key' data-use='r' data-ref="bsp_epair_s::key"><a class="tu ref" href="#bsp_epair_s::key" title='bsp_epair_s::key' data-use='r' data-ref="bsp_epair_s::key"><a class="tu ref" href="#bsp_epair_s::key" title='bsp_epair_s::key' data-use='r' data-ref="bsp_epair_s::key"><a class="tu ref" href="#bsp_epair_s::key" title='bsp_epair_s::key' data-use='r' data-ref="bsp_epair_s::key"><a class="tu ref" href="#bsp_epair_s::key" title='bsp_epair_s::key' data-use='r' data-ref="bsp_epair_s::key"><a class="tu ref" href="#bsp_epair_s::key" title='bsp_epair_s::key' data-use='r' data-ref="bsp_epair_s::key"><a class="tu ref" href="#bsp_epair_s::key" title='bsp_epair_s::key' data-use='r' data-ref="bsp_epair_s::key"><a class="tu ref" href="#bsp_epair_s::key" title='bsp_epair_s::key' data-use='r' data-ref="bsp_epair_s::key"><a class="tu ref" href="#bsp_epair_s::key" title='bsp_epair_s::key' data-use='r' data-ref="bsp_epair_s::key"><a class="tu ref" href="#bsp_epair_s::key" title='bsp_epair_s::key' data-use='r' data-ref="bsp_epair_s::key"><a class="tu ref" href="#bsp_epair_s::key" title='bsp_epair_s::key' data-use='r' data-ref="bsp_epair_s::key"><a class="tu ref" href="#bsp_epair_s::key" title='bsp_epair_s::key' data-use='r' data-ref="bsp_epair_s::key"><a class="tu ref" href="#bsp_epair_s::key" title='bsp_epair_s::key' data-use='r' data-ref="bsp_epair_s::key"><a class="tu ref" href="#bsp_epair_s::key" title='bsp_epair_s::key' data-use='r' data-ref="bsp_epair_s::key"><a class="tu ref" href="#bsp_epair_s::key" title='bsp_epair_s::key' data-use='r' data-ref="bsp_epair_s::key">key</a></a></a></a></a></a></a></a></a></a></a></a></a></a></a></a></a></a>, <a class="local col9 ref" href="#989key" title='key' data-ref="989key">key</a>))</td></tr>
+<tr><th id="288">288</th><td>		{</td></tr>
+<tr><th id="289">289</th><td>			<a class="macro" href="../../../include/x86_64-linux-gnu/bits/string2.h.html#760" title="__builtin_strncpy (value, epair-&gt;value, size-1)" data-ref="_M/strncpy">strncpy</a>(<a class="local col0 ref" href="#990value" title='value' data-ref="990value">value</a>, <a class="local col2 ref" href="#992epair" title='epair' data-ref="992epair">epair</a>-&gt;<a class="tu ref" href="#bsp_epair_s::value" title='bsp_epair_s::value' data-use='r' data-ref="bsp_epair_s::value">value</a>, <a class="local col1 ref" href="#991size" title='size' data-ref="991size">size</a>-<var>1</var>);</td></tr>
+<tr><th id="290">290</th><td>			<a class="local col0 ref" href="#990value" title='value' data-ref="990value">value</a>[<a class="local col1 ref" href="#991size" title='size' data-ref="991size">size</a>-<var>1</var>] = <kbd>'\0'</kbd>;</td></tr>
+<tr><th id="291">291</th><td>			<b>return</b> <a class="enum" href="../qcommon/q_shared.h.html#qtrue" title='qtrue' data-ref="qtrue">qtrue</a>;</td></tr>
+<tr><th id="292">292</th><td>		} <i>//end if</i></td></tr>
+<tr><th id="293">293</th><td>	} <i>//end for</i></td></tr>
+<tr><th id="294">294</th><td>	<b>return</b> <a class="enum" href="../qcommon/q_shared.h.html#qfalse" title='qfalse' data-ref="qfalse">qfalse</a>;</td></tr>
+<tr><th id="295">295</th><td>} <i>//end of the function AAS_FindBSPEpair</i></td></tr>
+<tr><th id="296">296</th><td><i>//===========================================================================</i></td></tr>
+<tr><th id="297">297</th><td><i>//</i></td></tr>
+<tr><th id="298">298</th><td><i>// Parameter:				-</i></td></tr>
+<tr><th id="299">299</th><td><i>// Returns:					-</i></td></tr>
+<tr><th id="300">300</th><td><i>// Changes Globals:		-</i></td></tr>
+<tr><th id="301">301</th><td><i>//===========================================================================</i></td></tr>
+<tr><th id="302">302</th><td><em>int</em> <dfn class="decl def" id="AAS_VectorForBSPEpairKey" title='AAS_VectorForBSPEpairKey' data-ref="AAS_VectorForBSPEpairKey">AAS_VectorForBSPEpairKey</dfn>(<em>int</em> <dfn class="local col3 decl" id="993ent" title='ent' data-type='int' data-ref="993ent">ent</dfn>, <em>char</em> *<dfn class="local col4 decl" id="994key" title='key' data-type='char *' data-ref="994key">key</dfn>, <a class="typedef" href="../qcommon/q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="local col5 decl" id="995v" title='v' data-type='vec_t *' data-ref="995v">v</dfn>)</td></tr>
+<tr><th id="303">303</th><td>{</td></tr>
+<tr><th id="304">304</th><td>	<em>char</em> <dfn class="local col6 decl" id="996buf" title='buf' data-type='char [128]' data-ref="996buf">buf</dfn>[<a class="macro" href="be_aas_bsp.h.html#58" title="128" data-ref="_M/MAX_EPAIRKEY">MAX_EPAIRKEY</a>];</td></tr>
+<tr><th id="305">305</th><td>	<em>double</em> <dfn class="local col7 decl" id="997v1" title='v1' data-type='double' data-ref="997v1">v1</dfn>, <dfn class="local col8 decl" id="998v2" title='v2' data-type='double' data-ref="998v2">v2</dfn>, <dfn class="local col9 decl" id="999v3" title='v3' data-type='double' data-ref="999v3">v3</dfn>;</td></tr>
+<tr><th id="306">306</th><td></td></tr>
+<tr><th id="307">307</th><td>	<a class="macro" href="../qcommon/q_shared.h.html#571" title="((v)[0]=(v)[1]=(v)[2]=0)" data-ref="_M/VectorClear">VectorClear</a>(<a class="local col5 ref" href="#995v" title='v' data-ref="995v">v</a>);</td></tr>
+<tr><th id="308">308</th><td>	<b>if</b> (!<a class="ref" href="#AAS_ValueForBSPEpairKey" title='AAS_ValueForBSPEpairKey' data-ref="AAS_ValueForBSPEpairKey">AAS_ValueForBSPEpairKey</a>(<a class="local col3 ref" href="#993ent" title='ent' data-ref="993ent">ent</a>, <a class="local col4 ref" href="#994key" title='key' data-ref="994key">key</a>, <a class="local col6 ref" href="#996buf" title='buf' data-ref="996buf">buf</a>, <a class="macro" href="be_aas_bsp.h.html#58" title="128" data-ref="_M/MAX_EPAIRKEY">MAX_EPAIRKEY</a>)) <b>return</b> <a class="enum" href="../qcommon/q_shared.h.html#qfalse" title='qfalse' data-ref="qfalse">qfalse</a>;</td></tr>
+<tr><th id="309">309</th><td>	<i>//scanf into doubles, then assign, so it is vec_t size independent</i></td></tr>
+<tr><th id="310">310</th><td>	<a class="local col7 ref" href="#997v1" title='v1' data-ref="997v1">v1</a> = <a class="local col8 ref" href="#998v2" title='v2' data-ref="998v2">v2</a> = <a class="local col9 ref" href="#999v3" title='v3' data-ref="999v3">v3</a> = <var>0</var>;</td></tr>
+<tr><th id="311">311</th><td>	<a class="ref" href="../../../include/stdio.h.html#__isoc99_sscanf" title='sscanf' data-ref="__isoc99_sscanf">sscanf</a>(<a class="local col6 ref" href="#996buf" title='buf' data-ref="996buf">buf</a>, <q>"%lf %lf %lf"</q>, &amp;<a class="local col7 ref" href="#997v1" title='v1' data-ref="997v1">v1</a>, &amp;<a class="local col8 ref" href="#998v2" title='v2' data-ref="998v2">v2</a>, &amp;<a class="local col9 ref" href="#999v3" title='v3' data-ref="999v3">v3</a>);</td></tr>
+<tr><th id="312">312</th><td>	<a class="local col5 ref" href="#995v" title='v' data-ref="995v">v</a>[<var>0</var>] = <a class="local col7 ref" href="#997v1" title='v1' data-ref="997v1">v1</a>;</td></tr>
+<tr><th id="313">313</th><td>	<a class="local col5 ref" href="#995v" title='v' data-ref="995v">v</a>[<var>1</var>] = <a class="local col8 ref" href="#998v2" title='v2' data-ref="998v2">v2</a>;</td></tr>
+<tr><th id="314">314</th><td>	<a class="local col5 ref" href="#995v" title='v' data-ref="995v">v</a>[<var>2</var>] = <a class="local col9 ref" href="#999v3" title='v3' data-ref="999v3">v3</a>;</td></tr>
+<tr><th id="315">315</th><td>	<b>return</b> <a class="enum" href="../qcommon/q_shared.h.html#qtrue" title='qtrue' data-ref="qtrue">qtrue</a>;</td></tr>
+<tr><th id="316">316</th><td>} <i>//end of the function AAS_VectorForBSPEpairKey</i></td></tr>
+<tr><th id="317">317</th><td><i>//===========================================================================</i></td></tr>
+<tr><th id="318">318</th><td><i>//</i></td></tr>
+<tr><th id="319">319</th><td><i>// Parameter:				-</i></td></tr>
+<tr><th id="320">320</th><td><i>// Returns:					-</i></td></tr>
+<tr><th id="321">321</th><td><i>// Changes Globals:		-</i></td></tr>
+<tr><th id="322">322</th><td><i>//===========================================================================</i></td></tr>
+<tr><th id="323">323</th><td><em>int</em> <dfn class="decl def" id="AAS_FloatForBSPEpairKey" title='AAS_FloatForBSPEpairKey' data-ref="AAS_FloatForBSPEpairKey">AAS_FloatForBSPEpairKey</dfn>(<em>int</em> <dfn class="local col0 decl" id="1000ent" title='ent' data-type='int' data-ref="1000ent">ent</dfn>, <em>char</em> *<dfn class="local col1 decl" id="1001key" title='key' data-type='char *' data-ref="1001key">key</dfn>, <em>float</em> *<dfn class="local col2 decl" id="1002value" title='value' data-type='float *' data-ref="1002value">value</dfn>)</td></tr>
+<tr><th id="324">324</th><td>{</td></tr>
+<tr><th id="325">325</th><td>	<em>char</em> <dfn class="local col3 decl" id="1003buf" title='buf' data-type='char [128]' data-ref="1003buf">buf</dfn>[<a class="macro" href="be_aas_bsp.h.html#58" title="128" data-ref="_M/MAX_EPAIRKEY">MAX_EPAIRKEY</a>];</td></tr>
+<tr><th id="326">326</th><td>	</td></tr>
+<tr><th id="327">327</th><td>	*<a class="local col2 ref" href="#1002value" title='value' data-ref="1002value">value</a> = <var>0</var>;</td></tr>
+<tr><th id="328">328</th><td>	<b>if</b> (!<a class="ref" href="#AAS_ValueForBSPEpairKey" title='AAS_ValueForBSPEpairKey' data-ref="AAS_ValueForBSPEpairKey">AAS_ValueForBSPEpairKey</a>(<a class="local col0 ref" href="#1000ent" title='ent' data-ref="1000ent">ent</a>, <a class="local col1 ref" href="#1001key" title='key' data-ref="1001key">key</a>, <a class="local col3 ref" href="#1003buf" title='buf' data-ref="1003buf">buf</a>, <a class="macro" href="be_aas_bsp.h.html#58" title="128" data-ref="_M/MAX_EPAIRKEY">MAX_EPAIRKEY</a>)) <b>return</b> <a class="enum" href="../qcommon/q_shared.h.html#qfalse" title='qfalse' data-ref="qfalse">qfalse</a>;</td></tr>
+<tr><th id="329">329</th><td>	*<a class="local col2 ref" href="#1002value" title='value' data-ref="1002value">value</a> = <a class="ref" href="../../../include/stdlib.h.html#atof" title='atof' data-ref="atof">atof</a>(<a class="local col3 ref" href="#1003buf" title='buf' data-ref="1003buf">buf</a>);</td></tr>
+<tr><th id="330">330</th><td>	<b>return</b> <a class="enum" href="../qcommon/q_shared.h.html#qtrue" title='qtrue' data-ref="qtrue">qtrue</a>;</td></tr>
+<tr><th id="331">331</th><td>} <i>//end of the function AAS_FloatForBSPEpairKey</i></td></tr>
+<tr><th id="332">332</th><td><i>//===========================================================================</i></td></tr>
+<tr><th id="333">333</th><td><i>//</i></td></tr>
+<tr><th id="334">334</th><td><i>// Parameter:				-</i></td></tr>
+<tr><th id="335">335</th><td><i>// Returns:					-</i></td></tr>
+<tr><th id="336">336</th><td><i>// Changes Globals:		-</i></td></tr>
+<tr><th id="337">337</th><td><i>//===========================================================================</i></td></tr>
+<tr><th id="338">338</th><td><em>int</em> <dfn class="decl def" id="AAS_IntForBSPEpairKey" title='AAS_IntForBSPEpairKey' data-ref="AAS_IntForBSPEpairKey">AAS_IntForBSPEpairKey</dfn>(<em>int</em> <dfn class="local col4 decl" id="1004ent" title='ent' data-type='int' data-ref="1004ent">ent</dfn>, <em>char</em> *<dfn class="local col5 decl" id="1005key" title='key' data-type='char *' data-ref="1005key">key</dfn>, <em>int</em> *<dfn class="local col6 decl" id="1006value" title='value' data-type='int *' data-ref="1006value">value</dfn>)</td></tr>
+<tr><th id="339">339</th><td>{</td></tr>
+<tr><th id="340">340</th><td>	<em>char</em> <dfn class="local col7 decl" id="1007buf" title='buf' data-type='char [128]' data-ref="1007buf">buf</dfn>[<a class="macro" href="be_aas_bsp.h.html#58" title="128" data-ref="_M/MAX_EPAIRKEY">MAX_EPAIRKEY</a>];</td></tr>
+<tr><th id="341">341</th><td>	</td></tr>
+<tr><th id="342">342</th><td>	*<a class="local col6 ref" href="#1006value" title='value' data-ref="1006value">value</a> = <var>0</var>;</td></tr>
+<tr><th id="343">343</th><td>	<b>if</b> (!<a class="ref" href="#AAS_ValueForBSPEpairKey" title='AAS_ValueForBSPEpairKey' data-ref="AAS_ValueForBSPEpairKey">AAS_ValueForBSPEpairKey</a>(<a class="local col4 ref" href="#1004ent" title='ent' data-ref="1004ent">ent</a>, <a class="local col5 ref" href="#1005key" title='key' data-ref="1005key">key</a>, <a class="local col7 ref" href="#1007buf" title='buf' data-ref="1007buf">buf</a>, <a class="macro" href="be_aas_bsp.h.html#58" title="128" data-ref="_M/MAX_EPAIRKEY">MAX_EPAIRKEY</a>)) <b>return</b> <a class="enum" href="../qcommon/q_shared.h.html#qfalse" title='qfalse' data-ref="qfalse">qfalse</a>;</td></tr>
+<tr><th id="344">344</th><td>	*<a class="local col6 ref" href="#1006value" title='value' data-ref="1006value">value</a> = <a class="ref" href="../../../include/stdlib.h.html#atoi" title='atoi' data-ref="atoi">atoi</a>(<a class="local col7 ref" href="#1007buf" title='buf' data-ref="1007buf">buf</a>);</td></tr>
+<tr><th id="345">345</th><td>	<b>return</b> <a class="enum" href="../qcommon/q_shared.h.html#qtrue" title='qtrue' data-ref="qtrue">qtrue</a>;</td></tr>
+<tr><th id="346">346</th><td>} <i>//end of the function AAS_IntForBSPEpairKey</i></td></tr>
+<tr><th id="347">347</th><td><i>//===========================================================================</i></td></tr>
+<tr><th id="348">348</th><td><i>//</i></td></tr>
+<tr><th id="349">349</th><td><i>// Parameter:			-</i></td></tr>
+<tr><th id="350">350</th><td><i>// Returns:				-</i></td></tr>
+<tr><th id="351">351</th><td><i>// Changes Globals:		-</i></td></tr>
+<tr><th id="352">352</th><td><i>//===========================================================================</i></td></tr>
+<tr><th id="353">353</th><td><em>void</em> <dfn class="decl def" id="AAS_FreeBSPEntities" title='AAS_FreeBSPEntities' data-ref="AAS_FreeBSPEntities">AAS_FreeBSPEntities</dfn>(<em>void</em>)</td></tr>
+<tr><th id="354">354</th><td>{</td></tr>
+<tr><th id="355">355</th><td>	<em>int</em> <dfn class="local col8 decl" id="1008i" title='i' data-type='int' data-ref="1008i">i</dfn>;</td></tr>
+<tr><th id="356">356</th><td>	<a class="typedef" href="#bsp_entity_t" title='bsp_entity_t' data-type='struct bsp_entity_s' data-ref="bsp_entity_t">bsp_entity_t</a> *<dfn class="local col9 decl" id="1009ent" title='ent' data-type='bsp_entity_t *' data-ref="1009ent">ent</dfn>;</td></tr>
+<tr><th id="357">357</th><td>	<a class="typedef" href="#bsp_epair_t" title='bsp_epair_t' data-type='struct bsp_epair_s' data-ref="bsp_epair_t">bsp_epair_t</a> *<dfn class="local col0 decl" id="1010epair" title='epair' data-type='bsp_epair_t *' data-ref="1010epair">epair</dfn>, *<dfn class="local col1 decl" id="1011nextepair" title='nextepair' data-type='bsp_epair_t *' data-ref="1011nextepair">nextepair</dfn>;</td></tr>
+<tr><th id="358">358</th><td></td></tr>
+<tr><th id="359">359</th><td>	<b>for</b> (<a class="local col8 ref" href="#1008i" title='i' data-ref="1008i">i</a> = <var>1</var>; <a class="local col8 ref" href="#1008i" title='i' data-ref="1008i">i</a> &lt; <a class="ref" href="#bspworld" title='bspworld' data-ref="bspworld">bspworld</a>.<a class="tu ref" href="#bsp_s::numentities" title='bsp_s::numentities' data-use='r' data-ref="bsp_s::numentities">numentities</a>; <a class="local col8 ref" href="#1008i" title='i' data-ref="1008i">i</a>++)</td></tr>
+<tr><th id="360">360</th><td>	{</td></tr>
+<tr><th id="361">361</th><td>		<a class="local col9 ref" href="#1009ent" title='ent' data-ref="1009ent">ent</a> = &amp;<a class="ref" href="#bspworld" title='bspworld' data-ref="bspworld">bspworld</a>.<a class="tu ref" href="#bsp_s::entities" title='bsp_s::entities' data-use='a' data-ref="bsp_s::entities">entities</a>[<a class="local col8 ref" href="#1008i" title='i' data-ref="1008i">i</a>];</td></tr>
+<tr><th id="362">362</th><td>		<b>for</b> (<a class="local col0 ref" href="#1010epair" title='epair' data-ref="1010epair">epair</a> = <a class="local col9 ref" href="#1009ent" title='ent' data-ref="1009ent">ent</a>-&gt;<a class="tu ref" href="#bsp_entity_s::epairs" title='bsp_entity_s::epairs' data-use='r' data-ref="bsp_entity_s::epairs">epairs</a>; <a class="local col0 ref" href="#1010epair" title='epair' data-ref="1010epair">epair</a>; <a class="local col0 ref" href="#1010epair" title='epair' data-ref="1010epair">epair</a> = <a class="local col1 ref" href="#1011nextepair" title='nextepair' data-ref="1011nextepair">nextepair</a>)</td></tr>
+<tr><th id="363">363</th><td>		{</td></tr>
+<tr><th id="364">364</th><td>			<a class="local col1 ref" href="#1011nextepair" title='nextepair' data-ref="1011nextepair">nextepair</a> = <a class="local col0 ref" href="#1010epair" title='epair' data-ref="1010epair">epair</a>-&gt;<a class="tu ref" href="#bsp_epair_s::next" title='bsp_epair_s::next' data-use='r' data-ref="bsp_epair_s::next">next</a>;</td></tr>
+<tr><th id="365">365</th><td>			<i>//</i></td></tr>
+<tr><th id="366">366</th><td>			<b>if</b> (<a class="local col0 ref" href="#1010epair" title='epair' data-ref="1010epair">epair</a>-&gt;<a class="tu ref" href="#bsp_epair_s::key" title='bsp_epair_s::key' data-use='r' data-ref="bsp_epair_s::key">key</a>) <a class="ref" href="l_memory.h.html#FreeMemory" title='FreeMemory' data-ref="FreeMemory">FreeMemory</a>(<a class="local col0 ref" href="#1010epair" title='epair' data-ref="1010epair">epair</a>-&gt;<a class="tu ref" href="#bsp_epair_s::key" title='bsp_epair_s::key' data-use='r' data-ref="bsp_epair_s::key">key</a>);</td></tr>
+<tr><th id="367">367</th><td>			<b>if</b> (<a class="local col0 ref" href="#1010epair" title='epair' data-ref="1010epair">epair</a>-&gt;<a class="tu ref" href="#bsp_epair_s::value" title='bsp_epair_s::value' data-use='r' data-ref="bsp_epair_s::value">value</a>) <a class="ref" href="l_memory.h.html#FreeMemory" title='FreeMemory' data-ref="FreeMemory">FreeMemory</a>(<a class="local col0 ref" href="#1010epair" title='epair' data-ref="1010epair">epair</a>-&gt;<a class="tu ref" href="#bsp_epair_s::value" title='bsp_epair_s::value' data-use='r' data-ref="bsp_epair_s::value">value</a>);</td></tr>
+<tr><th id="368">368</th><td>			<a class="ref" href="l_memory.h.html#FreeMemory" title='FreeMemory' data-ref="FreeMemory">FreeMemory</a>(<a class="local col0 ref" href="#1010epair" title='epair' data-ref="1010epair">epair</a>);</td></tr>
+<tr><th id="369">369</th><td>		} <i>//end for</i></td></tr>
+<tr><th id="370">370</th><td>	} <i>//end for</i></td></tr>
+<tr><th id="371">371</th><td>	<a class="ref" href="#bspworld" title='bspworld' data-ref="bspworld">bspworld</a>.<a class="tu ref" href="#bsp_s::numentities" title='bsp_s::numentities' data-use='w' data-ref="bsp_s::numentities">numentities</a> = <var>0</var>;</td></tr>
+<tr><th id="372">372</th><td>} <i>//end of the function AAS_FreeBSPEntities</i></td></tr>
+<tr><th id="373">373</th><td><i>//===========================================================================</i></td></tr>
+<tr><th id="374">374</th><td><i>//</i></td></tr>
+<tr><th id="375">375</th><td><i>// Parameter:			-</i></td></tr>
+<tr><th id="376">376</th><td><i>// Returns:				-</i></td></tr>
+<tr><th id="377">377</th><td><i>// Changes Globals:		-</i></td></tr>
+<tr><th id="378">378</th><td><i>//===========================================================================</i></td></tr>
+<tr><th id="379">379</th><td><em>void</em> <dfn class="decl def" id="AAS_ParseBSPEntities" title='AAS_ParseBSPEntities' data-ref="AAS_ParseBSPEntities">AAS_ParseBSPEntities</dfn>(<em>void</em>)</td></tr>
+<tr><th id="380">380</th><td>{</td></tr>
+<tr><th id="381">381</th><td>	<a class="typedef" href="l_script.h.html#script_t" title='script_t' data-type='struct script_s' data-ref="script_t">script_t</a> *<dfn class="local col2 decl" id="1012script" title='script' data-type='script_t *' data-ref="1012script">script</dfn>;</td></tr>
+<tr><th id="382">382</th><td>	<a class="typedef" href="l_script.h.html#token_t" title='token_t' data-type='struct token_s' data-ref="token_t">token_t</a> <dfn class="local col3 decl" id="1013token" title='token' data-type='token_t' data-ref="1013token">token</dfn>;</td></tr>
+<tr><th id="383">383</th><td>	<a class="typedef" href="#bsp_entity_t" title='bsp_entity_t' data-type='struct bsp_entity_s' data-ref="bsp_entity_t">bsp_entity_t</a> *<dfn class="local col4 decl" id="1014ent" title='ent' data-type='bsp_entity_t *' data-ref="1014ent">ent</dfn>;</td></tr>
+<tr><th id="384">384</th><td>	<a class="typedef" href="#bsp_epair_t" title='bsp_epair_t' data-type='struct bsp_epair_s' data-ref="bsp_epair_t">bsp_epair_t</a> *<dfn class="local col5 decl" id="1015epair" title='epair' data-type='bsp_epair_t *' data-ref="1015epair">epair</dfn>;</td></tr>
+<tr><th id="385">385</th><td></td></tr>
+<tr><th id="386">386</th><td>	<a class="local col2 ref" href="#1012script" title='script' data-ref="1012script">script</a> = <a class="ref" href="l_script.h.html#LoadScriptMemory" title='LoadScriptMemory' data-ref="LoadScriptMemory">LoadScriptMemory</a>(<a class="ref" href="#bspworld" title='bspworld' data-ref="bspworld">bspworld</a>.<a class="tu ref" href="#bsp_s::dentdata" title='bsp_s::dentdata' data-use='r' data-ref="bsp_s::dentdata">dentdata</a>, <a class="ref" href="#bspworld" title='bspworld' data-ref="bspworld">bspworld</a>.<a class="tu ref" href="#bsp_s::entdatasize" title='bsp_s::entdatasize' data-use='r' data-ref="bsp_s::entdatasize">entdatasize</a>, <q>"entdata"</q>);</td></tr>
+<tr><th id="387">387</th><td>	<a class="ref" href="l_script.h.html#SetScriptFlags" title='SetScriptFlags' data-ref="SetScriptFlags">SetScriptFlags</a>(<a class="local col2 ref" href="#1012script" title='script' data-ref="1012script">script</a>, <a class="macro" href="l_script.h.html#50" title="0x0004" data-ref="_M/SCFL_NOSTRINGWHITESPACES">SCFL_NOSTRINGWHITESPACES</a>|<a class="macro" href="l_script.h.html#51" title="0x0008" data-ref="_M/SCFL_NOSTRINGESCAPECHARS">SCFL_NOSTRINGESCAPECHARS</a>);<i>//SCFL_PRIMITIVE);</i></td></tr>
+<tr><th id="388">388</th><td></td></tr>
+<tr><th id="389">389</th><td>	<a class="ref" href="#bspworld" title='bspworld' data-ref="bspworld">bspworld</a>.<a class="tu ref" href="#bsp_s::numentities" title='bsp_s::numentities' data-use='w' data-ref="bsp_s::numentities">numentities</a> = <var>1</var>;</td></tr>
+<tr><th id="390">390</th><td></td></tr>
+<tr><th id="391">391</th><td>	<b>while</b>(<a class="ref" href="l_script.h.html#PS_ReadToken" title='PS_ReadToken' data-ref="PS_ReadToken">PS_ReadToken</a>(<a class="local col2 ref" href="#1012script" title='script' data-ref="1012script">script</a>, &amp;<a class="local col3 ref" href="#1013token" title='token' data-ref="1013token">token</a>))</td></tr>
+<tr><th id="392">392</th><td>	{</td></tr>
+<tr><th id="393">393</th><td>		<b>if</b> (<a class="macro" href="../../../include/x86_64-linux-gnu/bits/string2.h.html#799" title="__extension__ ({ size_t __s1_len, __s2_len; (__builtin_constant_p (token.string) &amp;&amp; __builtin_constant_p (&quot;{&quot;) &amp;&amp; (__s1_len = __builtin_strlen (token.string), __s2_len = __builtin_strlen (&quot;{&quot;), (!((size_t)(const void *)((token.string) + 1) - (size_t)(const void *)(token.string) == 1) || __s1_len &gt;= 4) &amp;&amp; (!((size_t)(const void *)((&quot;{&quot;) + 1) - (size_t)(const void *)(&quot;{&quot;) == 1) || __s2_len &gt;= 4)) ? __builtin_strcmp (token.string, &quot;{&quot;) : (__builtin_constant_p (token.string) &amp;&amp; ((size_t)(const void *)((token.string) + 1) - (size_t)(const void *)(token.string) == 1) &amp;&amp; (__s1_len = __builtin_strlen (token.string), __s1_len &lt; 4) ? (__builtin_constant_p (&quot;{&quot;) &amp;&amp; ((size_t)(const void *)((&quot;{&quot;) + 1) - (size_t)(const void *)(&quot;{&quot;) == 1) ? __builtin_strcmp (token.string, &quot;{&quot;) : (__extension__ ({ const unsigned char *__s2 = (const unsigned char *) (const char *) (&quot;{&quot;); int __result = (((const unsigned char *) (const char *) (token.string))[0] - __s2[0]); if (__s1_len &gt; 0 &amp;&amp; __result == 0) { __result = (((const unsigned char *) (const char *) (token.string))[1] - __s2[1]); if (__s1_len &gt; 1 &amp;&amp; __result == 0) { __result = (((const unsigned char *) (const char *) (token.string))[2] - __s2[2]); if (__s1_len &gt; 2 &amp;&amp; __result == 0) __result = (((const unsigned char *) (const char *) (token.string))[3] - __s2[3]); } } __result; }))) : (__builtin_constant_p (&quot;{&quot;) &amp;&amp; ((size_t)(const void *)((&quot;{&quot;) + 1) - (size_t)(const void *)(&quot;{&quot;) == 1) &amp;&amp; (__s2_len = __builtin_strlen (&quot;{&quot;), __s2_len &lt; 4) ? (__builtin_constant_p (token.string) &amp;&amp; ((size_t)(const void *)((token.string) + 1) - (size_t)(const void *)(token.string) == 1) ? __builtin_strcmp (token.string, &quot;{&quot;) : (- (__extension__ ({ const unsigned char *__s2 = (const unsigned char *) (const char *) (token.string); int __result = (((const unsigned char *) (const char *) (&quot;{&quot;))[0] - __s2[0]); if (__s2_len &gt; 0 &amp;&amp; __result == 0) { __result = (((const unsigned char *) (const char *) (&quot;{&quot;))[1] - __s2[1]); if (__s2_len &gt; 1 &amp;&amp; __result == 0) { __result = (((const unsigned char *) (const char *) (&quot;{&quot;))[2] - __s2[2]); if (__s2_len &gt; 2 &amp;&amp; __result == 0) __result = (((const unsigned char *) (const char *) (&quot;{&quot;))[3] - __s2[3]); } } __result; })))) : __builtin_strcmp (token.string, &quot;{&quot;)))); })" data-ref="_M/strcmp">strcmp</a>(<a class="local col3 ref" href="#1013token" title='token' data-ref="1013token">token</a>.<a class="ref" href="l_script.h.html#token_s::string" title='token_s::string' data-ref="token_s::string">string</a>, <q>"{"</q>))</td></tr>
+<tr><th id="394">394</th><td>		{</td></tr>
+<tr><th id="395">395</th><td>			<a class="ref" href="l_script.h.html#ScriptError" title='ScriptError' data-ref="ScriptError">ScriptError</a>(<a class="local col2 ref" href="#1012script" title='script' data-ref="1012script">script</a>, <q>"invalid %s"</q>, <a class="local col3 ref" href="#1013token" title='token' data-ref="1013token">token</a>.<a class="ref" href="l_script.h.html#token_s::string" title='token_s::string' data-ref="token_s::string">string</a>);</td></tr>
+<tr><th id="396">396</th><td>			<a class="ref" href="#AAS_FreeBSPEntities" title='AAS_FreeBSPEntities' data-ref="AAS_FreeBSPEntities">AAS_FreeBSPEntities</a>();</td></tr>
+<tr><th id="397">397</th><td>			<a class="ref" href="l_script.h.html#FreeScript" title='FreeScript' data-ref="FreeScript">FreeScript</a>(<a class="local col2 ref" href="#1012script" title='script' data-ref="1012script">script</a>);</td></tr>
+<tr><th id="398">398</th><td>			<b>return</b>;</td></tr>
+<tr><th id="399">399</th><td>		} <i>//end if</i></td></tr>
+<tr><th id="400">400</th><td>		<b>if</b> (<a class="ref" href="#bspworld" title='bspworld' data-ref="bspworld">bspworld</a>.<a class="tu ref" href="#bsp_s::numentities" title='bsp_s::numentities' data-use='r' data-ref="bsp_s::numentities">numentities</a> &gt;= <a class="macro" href="#50" title="2048" data-ref="_M/MAX_BSPENTITIES">MAX_BSPENTITIES</a>)</td></tr>
+<tr><th id="401">401</th><td>		{</td></tr>
+<tr><th id="402">402</th><td>			<a class="ref" href="#botimport" title='botimport' data-ref="botimport">botimport</a>.<a class="ref" href="botlib.h.html#botlib_import_s::Print" title='botlib_import_s::Print' data-ref="botlib_import_s::Print">Print</a>(<a class="macro" href="botlib.h.html#56" title="1" data-ref="_M/PRT_MESSAGE">PRT_MESSAGE</a>, <q>"too many entities in BSP file\n"</q>);</td></tr>
+<tr><th id="403">403</th><td>			<b>break</b>;</td></tr>
+<tr><th id="404">404</th><td>		} <i>//end if</i></td></tr>
+<tr><th id="405">405</th><td>		<a class="local col4 ref" href="#1014ent" title='ent' data-ref="1014ent">ent</a> = &amp;<a class="ref" href="#bspworld" title='bspworld' data-ref="bspworld">bspworld</a>.<a class="tu ref" href="#bsp_s::entities" title='bsp_s::entities' data-use='a' data-ref="bsp_s::entities">entities</a>[<a class="ref" href="#bspworld" title='bspworld' data-ref="bspworld">bspworld</a>.<a class="tu ref" href="#bsp_s::numentities" title='bsp_s::numentities' data-use='r' data-ref="bsp_s::numentities">numentities</a>];</td></tr>
+<tr><th id="406">406</th><td>		<a class="ref" href="#bspworld" title='bspworld' data-ref="bspworld">bspworld</a>.<a class="tu ref" href="#bsp_s::numentities" title='bsp_s::numentities' data-use='w' data-ref="bsp_s::numentities">numentities</a>++;</td></tr>
+<tr><th id="407">407</th><td>		<a class="local col4 ref" href="#1014ent" title='ent' data-ref="1014ent">ent</a>-&gt;<a class="tu ref" href="#bsp_entity_s::epairs" title='bsp_entity_s::epairs' data-use='w' data-ref="bsp_entity_s::epairs">epairs</a> = <span class="macro" title="((void*)0)" data-ref="_M/NULL">NULL</span>;</td></tr>
+<tr><th id="408">408</th><td>		<b>while</b>(<a class="ref" href="l_script.h.html#PS_ReadToken" title='PS_ReadToken' data-ref="PS_ReadToken">PS_ReadToken</a>(<a class="local col2 ref" href="#1012script" title='script' data-ref="1012script">script</a>, &amp;<a class="local col3 ref" href="#1013token" title='token' data-ref="1013token">token</a>))</td></tr>
+<tr><th id="409">409</th><td>		{</td></tr>
+<tr><th id="410">410</th><td>			<b>if</b> (!<a class="macro" href="../../../include/x86_64-linux-gnu/bits/string2.h.html#799" title="__extension__ ({ size_t __s1_len, __s2_len; (__builtin_constant_p (token.string) &amp;&amp; __builtin_constant_p (&quot;}&quot;) &amp;&amp; (__s1_len = __builtin_strlen (token.string), __s2_len = __builtin_strlen (&quot;}&quot;), (!((size_t)(const void *)((token.string) + 1) - (size_t)(const void *)(token.string) == 1) || __s1_len &gt;= 4) &amp;&amp; (!((size_t)(const void *)((&quot;}&quot;) + 1) - (size_t)(const void *)(&quot;}&quot;) == 1) || __s2_len &gt;= 4)) ? __builtin_strcmp (token.string, &quot;}&quot;) : (__builtin_constant_p (token.string) &amp;&amp; ((size_t)(const void *)((token.string) + 1) - (size_t)(const void *)(token.string) == 1) &amp;&amp; (__s1_len = __builtin_strlen (token.string), __s1_len &lt; 4) ? (__builtin_constant_p (&quot;}&quot;) &amp;&amp; ((size_t)(const void *)((&quot;}&quot;) + 1) - (size_t)(const void *)(&quot;}&quot;) == 1) ? __builtin_strcmp (token.string, &quot;}&quot;) : (__extension__ ({ const unsigned char *__s2 = (const unsigned char *) (const char *) (&quot;}&quot;); int __result = (((const unsigned char *) (const char *) (token.string))[0] - __s2[0]); if (__s1_len &gt; 0 &amp;&amp; __result == 0) { __result = (((const unsigned char *) (const char *) (token.string))[1] - __s2[1]); if (__s1_len &gt; 1 &amp;&amp; __result == 0) { __result = (((const unsigned char *) (const char *) (token.string))[2] - __s2[2]); if (__s1_len &gt; 2 &amp;&amp; __result == 0) __result = (((const unsigned char *) (const char *) (token.string))[3] - __s2[3]); } } __result; }))) : (__builtin_constant_p (&quot;}&quot;) &amp;&amp; ((size_t)(const void *)((&quot;}&quot;) + 1) - (size_t)(const void *)(&quot;}&quot;) == 1) &amp;&amp; (__s2_len = __builtin_strlen (&quot;}&quot;), __s2_len &lt; 4) ? (__builtin_constant_p (token.string) &amp;&amp; ((size_t)(const void *)((token.string) + 1) - (size_t)(const void *)(token.string) == 1) ? __builtin_strcmp (token.string, &quot;}&quot;) : (- (__extension__ ({ const unsigned char *__s2 = (const unsigned char *) (const char *) (token.string); int __result = (((const unsigned char *) (const char *) (&quot;}&quot;))[0] - __s2[0]); if (__s2_len &gt; 0 &amp;&amp; __result == 0) { __result = (((const unsigned char *) (const char *) (&quot;}&quot;))[1] - __s2[1]); if (__s2_len &gt; 1 &amp;&amp; __result == 0) { __result = (((const unsigned char *) (const char *) (&quot;}&quot;))[2] - __s2[2]); if (__s2_len &gt; 2 &amp;&amp; __result == 0) __result = (((const unsigned char *) (const char *) (&quot;}&quot;))[3] - __s2[3]); } } __result; })))) : __builtin_strcmp (token.string, &quot;}&quot;)))); })" data-ref="_M/strcmp">strcmp</a>(<a class="local col3 ref" href="#1013token" title='token' data-ref="1013token">token</a>.<a class="ref" href="l_script.h.html#token_s::string" title='token_s::string' data-ref="token_s::string">string</a>, <q>"}"</q>)) <b>break</b>;</td></tr>
+<tr><th id="411">411</th><td>			<a class="local col5 ref" href="#1015epair" title='epair' data-ref="1015epair">epair</a> = (<a class="typedef" href="#bsp_epair_t" title='bsp_epair_t' data-type='struct bsp_epair_s' data-ref="bsp_epair_t">bsp_epair_t</a> *) <a class="ref" href="l_memory.h.html#GetClearedHunkMemory" title='GetClearedHunkMemory' data-ref="GetClearedHunkMemory">GetClearedHunkMemory</a>(<b>sizeof</b>(<a class="typedef" href="#bsp_epair_t" title='bsp_epair_t' data-type='struct bsp_epair_s' data-ref="bsp_epair_t">bsp_epair_t</a>));</td></tr>
+<tr><th id="412">412</th><td>			<a class="local col5 ref" href="#1015epair" title='epair' data-ref="1015epair">epair</a>-&gt;<a class="tu ref" href="#bsp_epair_s::next" title='bsp_epair_s::next' data-use='w' data-ref="bsp_epair_s::next">next</a> = <a class="local col4 ref" href="#1014ent" title='ent' data-ref="1014ent">ent</a>-&gt;<a class="tu ref" href="#bsp_entity_s::epairs" title='bsp_entity_s::epairs' data-use='r' data-ref="bsp_entity_s::epairs">epairs</a>;</td></tr>
+<tr><th id="413">413</th><td>			<a class="local col4 ref" href="#1014ent" title='ent' data-ref="1014ent">ent</a>-&gt;<a class="tu ref" href="#bsp_entity_s::epairs" title='bsp_entity_s::epairs' data-use='w' data-ref="bsp_entity_s::epairs">epairs</a> = <a class="local col5 ref" href="#1015epair" title='epair' data-ref="1015epair">epair</a>;</td></tr>
+<tr><th id="414">414</th><td>			<b>if</b> (<a class="local col3 ref" href="#1013token" title='token' data-ref="1013token">token</a>.<a class="ref" href="l_script.h.html#token_s::type" title='token_s::type' data-ref="token_s::type">type</a> != <a class="macro" href="l_script.h.html#57" title="1" data-ref="_M/TT_STRING">TT_STRING</a>)</td></tr>
+<tr><th id="415">415</th><td>			{</td></tr>
+<tr><th id="416">416</th><td>				<a class="ref" href="l_script.h.html#ScriptError" title='ScriptError' data-ref="ScriptError">ScriptError</a>(<a class="local col2 ref" href="#1012script" title='script' data-ref="1012script">script</a>, <q>"invalid %s"</q>, <a class="local col3 ref" href="#1013token" title='token' data-ref="1013token">token</a>.<a class="ref" href="l_script.h.html#token_s::string" title='token_s::string' data-ref="token_s::string">string</a>);</td></tr>
+<tr><th id="417">417</th><td>				<a class="ref" href="#AAS_FreeBSPEntities" title='AAS_FreeBSPEntities' data-ref="AAS_FreeBSPEntities">AAS_FreeBSPEntities</a>();</td></tr>
+<tr><th id="418">418</th><td>				<a class="ref" href="l_script.h.html#FreeScript" title='FreeScript' data-ref="FreeScript">FreeScript</a>(<a class="local col2 ref" href="#1012script" title='script' data-ref="1012script">script</a>);</td></tr>
+<tr><th id="419">419</th><td>				<b>return</b>;</td></tr>
+<tr><th id="420">420</th><td>			} <i>//end if</i></td></tr>
+<tr><th id="421">421</th><td>			<a class="ref" href="l_script.h.html#StripDoubleQuotes" title='StripDoubleQuotes' data-ref="StripDoubleQuotes">StripDoubleQuotes</a>(<a class="local col3 ref" href="#1013token" title='token' data-ref="1013token">token</a>.<a class="ref" href="l_script.h.html#token_s::string" title='token_s::string' data-ref="token_s::string">string</a>);</td></tr>
+<tr><th id="422">422</th><td>			<a class="local col5 ref" href="#1015epair" title='epair' data-ref="1015epair">epair</a>-&gt;<a class="tu ref" href="#bsp_epair_s::key" title='bsp_epair_s::key' data-use='w' data-ref="bsp_epair_s::key">key</a> = (<em>char</em> *) <a class="ref" href="l_memory.h.html#GetHunkMemory" title='GetHunkMemory' data-ref="GetHunkMemory">GetHunkMemory</a>(<a class="ref" href="../../../include/string.h.html#strlen" title='strlen' data-ref="strlen">strlen</a>(<a class="local col3 ref" href="#1013token" title='token' data-ref="1013token">token</a>.<a class="ref" href="l_script.h.html#token_s::string" title='token_s::string' data-ref="token_s::string">string</a>) + <var>1</var>);</td></tr>
+<tr><th id="423">423</th><td>			<a class="ref" href="../../../include/string.h.html#strcpy" title='strcpy' data-ref="strcpy">strcpy</a>(<a class="local col5 ref" href="#1015epair" title='epair' data-ref="1015epair">epair</a>-&gt;<a class="tu ref" href="#bsp_epair_s::key" title='bsp_epair_s::key' data-use='r' data-ref="bsp_epair_s::key">key</a>, <a class="local col3 ref" href="#1013token" title='token' data-ref="1013token">token</a>.<a class="ref" href="l_script.h.html#token_s::string" title='token_s::string' data-ref="token_s::string">string</a>);</td></tr>
+<tr><th id="424">424</th><td>			<b>if</b> (!<a class="ref" href="l_script.h.html#PS_ExpectTokenType" title='PS_ExpectTokenType' data-ref="PS_ExpectTokenType">PS_ExpectTokenType</a>(<a class="local col2 ref" href="#1012script" title='script' data-ref="1012script">script</a>, <a class="macro" href="l_script.h.html#57" title="1" data-ref="_M/TT_STRING">TT_STRING</a>, <var>0</var>, &amp;<a class="local col3 ref" href="#1013token" title='token' data-ref="1013token">token</a>))</td></tr>
+<tr><th id="425">425</th><td>			{</td></tr>
+<tr><th id="426">426</th><td>				<a class="ref" href="#AAS_FreeBSPEntities" title='AAS_FreeBSPEntities' data-ref="AAS_FreeBSPEntities">AAS_FreeBSPEntities</a>();</td></tr>
+<tr><th id="427">427</th><td>				<a class="ref" href="l_script.h.html#FreeScript" title='FreeScript' data-ref="FreeScript">FreeScript</a>(<a class="local col2 ref" href="#1012script" title='script' data-ref="1012script">script</a>);</td></tr>
+<tr><th id="428">428</th><td>				<b>return</b>;</td></tr>
+<tr><th id="429">429</th><td>			} <i>//end if</i></td></tr>
+<tr><th id="430">430</th><td>			<a class="ref" href="l_script.h.html#StripDoubleQuotes" title='StripDoubleQuotes' data-ref="StripDoubleQuotes">StripDoubleQuotes</a>(<a class="local col3 ref" href="#1013token" title='token' data-ref="1013token">token</a>.<a class="ref" href="l_script.h.html#token_s::string" title='token_s::string' data-ref="token_s::string">string</a>);</td></tr>
+<tr><th id="431">431</th><td>			<a class="local col5 ref" href="#1015epair" title='epair' data-ref="1015epair">epair</a>-&gt;<a class="tu ref" href="#bsp_epair_s::value" title='bsp_epair_s::value' data-use='w' data-ref="bsp_epair_s::value">value</a> = (<em>char</em> *) <a class="ref" href="l_memory.h.html#GetHunkMemory" title='GetHunkMemory' data-ref="GetHunkMemory">GetHunkMemory</a>(<a class="ref" href="../../../include/string.h.html#strlen" title='strlen' data-ref="strlen">strlen</a>(<a class="local col3 ref" href="#1013token" title='token' data-ref="1013token">token</a>.<a class="ref" href="l_script.h.html#token_s::string" title='token_s::string' data-ref="token_s::string">string</a>) + <var>1</var>);</td></tr>
+<tr><th id="432">432</th><td>			<a class="ref" href="../../../include/string.h.html#strcpy" title='strcpy' data-ref="strcpy">strcpy</a>(<a class="local col5 ref" href="#1015epair" title='epair' data-ref="1015epair">epair</a>-&gt;<a class="tu ref" href="#bsp_epair_s::value" title='bsp_epair_s::value' data-use='r' data-ref="bsp_epair_s::value">value</a>, <a class="local col3 ref" href="#1013token" title='token' data-ref="1013token">token</a>.<a class="ref" href="l_script.h.html#token_s::string" title='token_s::string' data-ref="token_s::string">string</a>);</td></tr>
+<tr><th id="433">433</th><td>		} <i>//end while</i></td></tr>
+<tr><th id="434">434</th><td>		<b>if</b> (<a class="macro" href="../../../include/x86_64-linux-gnu/bits/string2.h.html#799" title="__extension__ ({ size_t __s1_len, __s2_len; (__builtin_constant_p (token.string) &amp;&amp; __builtin_constant_p (&quot;}&quot;) &amp;&amp; (__s1_len = __builtin_strlen (token.string), __s2_len = __builtin_strlen (&quot;}&quot;), (!((size_t)(const void *)((token.string) + 1) - (size_t)(const void *)(token.string) == 1) || __s1_len &gt;= 4) &amp;&amp; (!((size_t)(const void *)((&quot;}&quot;) + 1) - (size_t)(const void *)(&quot;}&quot;) == 1) || __s2_len &gt;= 4)) ? __builtin_strcmp (token.string, &quot;}&quot;) : (__builtin_constant_p (token.string) &amp;&amp; ((size_t)(const void *)((token.string) + 1) - (size_t)(const void *)(token.string) == 1) &amp;&amp; (__s1_len = __builtin_strlen (token.string), __s1_len &lt; 4) ? (__builtin_constant_p (&quot;}&quot;) &amp;&amp; ((size_t)(const void *)((&quot;}&quot;) + 1) - (size_t)(const void *)(&quot;}&quot;) == 1) ? __builtin_strcmp (token.string, &quot;}&quot;) : (__extension__ ({ const unsigned char *__s2 = (const unsigned char *) (const char *) (&quot;}&quot;); int __result = (((const unsigned char *) (const char *) (token.string))[0] - __s2[0]); if (__s1_len &gt; 0 &amp;&amp; __result == 0) { __result = (((const unsigned char *) (const char *) (token.string))[1] - __s2[1]); if (__s1_len &gt; 1 &amp;&amp; __result == 0) { __result = (((const unsigned char *) (const char *) (token.string))[2] - __s2[2]); if (__s1_len &gt; 2 &amp;&amp; __result == 0) __result = (((const unsigned char *) (const char *) (token.string))[3] - __s2[3]); } } __result; }))) : (__builtin_constant_p (&quot;}&quot;) &amp;&amp; ((size_t)(const void *)((&quot;}&quot;) + 1) - (size_t)(const void *)(&quot;}&quot;) == 1) &amp;&amp; (__s2_len = __builtin_strlen (&quot;}&quot;), __s2_len &lt; 4) ? (__builtin_constant_p (token.string) &amp;&amp; ((size_t)(const void *)((token.string) + 1) - (size_t)(const void *)(token.string) == 1) ? __builtin_strcmp (token.string, &quot;}&quot;) : (- (__extension__ ({ const unsigned char *__s2 = (const unsigned char *) (const char *) (token.string); int __result = (((const unsigned char *) (const char *) (&quot;}&quot;))[0] - __s2[0]); if (__s2_len &gt; 0 &amp;&amp; __result == 0) { __result = (((const unsigned char *) (const char *) (&quot;}&quot;))[1] - __s2[1]); if (__s2_len &gt; 1 &amp;&amp; __result == 0) { __result = (((const unsigned char *) (const char *) (&quot;}&quot;))[2] - __s2[2]); if (__s2_len &gt; 2 &amp;&amp; __result == 0) __result = (((const unsigned char *) (const char *) (&quot;}&quot;))[3] - __s2[3]); } } __result; })))) : __builtin_strcmp (token.string, &quot;}&quot;)))); })" data-ref="_M/strcmp">strcmp</a>(<a class="local col3 ref" href="#1013token" title='token' data-ref="1013token">token</a>.<a class="ref" href="l_script.h.html#token_s::string" title='token_s::string' data-ref="token_s::string">string</a>, <q>"}"</q>))</td></tr>
+<tr><th id="435">435</th><td>		{</td></tr>
+<tr><th id="436">436</th><td>			<a class="ref" href="l_script.h.html#ScriptError" title='ScriptError' data-ref="ScriptError">ScriptError</a>(<a class="local col2 ref" href="#1012script" title='script' data-ref="1012script">script</a>, <q>"missing }"</q>);</td></tr>
+<tr><th id="437">437</th><td>			<a class="ref" href="#AAS_FreeBSPEntities" title='AAS_FreeBSPEntities' data-ref="AAS_FreeBSPEntities">AAS_FreeBSPEntities</a>();</td></tr>
+<tr><th id="438">438</th><td>			<a class="ref" href="l_script.h.html#FreeScript" title='FreeScript' data-ref="FreeScript">FreeScript</a>(<a class="local col2 ref" href="#1012script" title='script' data-ref="1012script">script</a>);</td></tr>
+<tr><th id="439">439</th><td>			<b>return</b>;</td></tr>
+<tr><th id="440">440</th><td>		} <i>//end if</i></td></tr>
+<tr><th id="441">441</th><td>	} <i>//end while</i></td></tr>
+<tr><th id="442">442</th><td>	<a class="ref" href="l_script.h.html#FreeScript" title='FreeScript' data-ref="FreeScript">FreeScript</a>(<a class="local col2 ref" href="#1012script" title='script' data-ref="1012script">script</a>);</td></tr>
+<tr><th id="443">443</th><td>} <i>//end of the function AAS_ParseBSPEntities</i></td></tr>
+<tr><th id="444">444</th><td><i>//===========================================================================</i></td></tr>
+<tr><th id="445">445</th><td><i>//</i></td></tr>
+<tr><th id="446">446</th><td><i>// Parameter:				-</i></td></tr>
+<tr><th id="447">447</th><td><i>// Returns:					-</i></td></tr>
+<tr><th id="448">448</th><td><i>// Changes Globals:		-</i></td></tr>
+<tr><th id="449">449</th><td><i>//===========================================================================</i></td></tr>
+<tr><th id="450">450</th><td><em>int</em> <dfn class="decl def" id="AAS_BSPTraceLight" title='AAS_BSPTraceLight' data-ref="AAS_BSPTraceLight">AAS_BSPTraceLight</dfn>(<a class="typedef" href="../qcommon/q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="local col6 decl" id="1016start" title='start' data-type='vec_t *' data-ref="1016start">start</dfn>, <a class="typedef" href="../qcommon/q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="local col7 decl" id="1017end" title='end' data-type='vec_t *' data-ref="1017end">end</dfn>, <a class="typedef" href="../qcommon/q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="local col8 decl" id="1018endpos" title='endpos' data-type='vec_t *' data-ref="1018endpos">endpos</dfn>, <em>int</em> *<dfn class="local col9 decl" id="1019red" title='red' data-type='int *' data-ref="1019red">red</dfn>, <em>int</em> *<dfn class="local col0 decl" id="1020green" title='green' data-type='int *' data-ref="1020green">green</dfn>, <em>int</em> *<dfn class="local col1 decl" id="1021blue" title='blue' data-type='int *' data-ref="1021blue">blue</dfn>)</td></tr>
+<tr><th id="451">451</th><td>{</td></tr>
+<tr><th id="452">452</th><td>	<b>return</b> <var>0</var>;</td></tr>
+<tr><th id="453">453</th><td>} <i>//end of the function AAS_BSPTraceLight</i></td></tr>
+<tr><th id="454">454</th><td><i>//===========================================================================</i></td></tr>
+<tr><th id="455">455</th><td><i>//</i></td></tr>
+<tr><th id="456">456</th><td><i>// Parameter:				-</i></td></tr>
+<tr><th id="457">457</th><td><i>// Returns:					-</i></td></tr>
+<tr><th id="458">458</th><td><i>// Changes Globals:		-</i></td></tr>
+<tr><th id="459">459</th><td><i>//===========================================================================</i></td></tr>
+<tr><th id="460">460</th><td><em>void</em> <dfn class="decl def" id="AAS_DumpBSPData" title='AAS_DumpBSPData' data-ref="AAS_DumpBSPData">AAS_DumpBSPData</dfn>(<em>void</em>)</td></tr>
+<tr><th id="461">461</th><td>{</td></tr>
+<tr><th id="462">462</th><td>	<a class="ref" href="#AAS_FreeBSPEntities" title='AAS_FreeBSPEntities' data-ref="AAS_FreeBSPEntities">AAS_FreeBSPEntities</a>();</td></tr>
+<tr><th id="463">463</th><td></td></tr>
+<tr><th id="464">464</th><td>	<b>if</b> (<a class="ref" href="#bspworld" title='bspworld' data-ref="bspworld">bspworld</a>.<a class="tu ref" href="#bsp_s::dentdata" title='bsp_s::dentdata' data-use='r' data-ref="bsp_s::dentdata">dentdata</a>) <a class="ref" href="l_memory.h.html#FreeMemory" title='FreeMemory' data-ref="FreeMemory">FreeMemory</a>(<a class="ref" href="#bspworld" title='bspworld' data-ref="bspworld">bspworld</a>.<a class="tu ref" href="#bsp_s::dentdata" title='bsp_s::dentdata' data-use='r' data-ref="bsp_s::dentdata">dentdata</a>);</td></tr>
+<tr><th id="465">465</th><td>	<a class="ref" href="#bspworld" title='bspworld' data-ref="bspworld">bspworld</a>.<a class="tu ref" href="#bsp_s::dentdata" title='bsp_s::dentdata' data-use='w' data-ref="bsp_s::dentdata">dentdata</a> = <span class="macro" title="((void*)0)" data-ref="_M/NULL">NULL</span>;</td></tr>
+<tr><th id="466">466</th><td>	<a class="ref" href="#bspworld" title='bspworld' data-ref="bspworld">bspworld</a>.<a class="tu ref" href="#bsp_s::entdatasize" title='bsp_s::entdatasize' data-use='w' data-ref="bsp_s::entdatasize">entdatasize</a> = <var>0</var>;</td></tr>
+<tr><th id="467">467</th><td>	<i>//</i></td></tr>
+<tr><th id="468">468</th><td>	<a class="ref" href="#bspworld" title='bspworld' data-ref="bspworld">bspworld</a>.<a class="tu ref" href="#bsp_s::loaded" title='bsp_s::loaded' data-use='w' data-ref="bsp_s::loaded">loaded</a> = <a class="enum" href="../qcommon/q_shared.h.html#qfalse" title='qfalse' data-ref="qfalse">qfalse</a>;</td></tr>
+<tr><th id="469">469</th><td>	<a class="macro" href="../qcommon/q_shared.h.html#344" title="memset" data-ref="_M/Com_Memset">Com_Memset</a>( &amp;<a class="ref" href="#bspworld" title='bspworld' data-ref="bspworld">bspworld</a>, <var>0</var>, <b>sizeof</b>(<a class="ref" href="#bspworld" title='bspworld' data-ref="bspworld">bspworld</a>) );</td></tr>
+<tr><th id="470">470</th><td>} <i>//end of the function AAS_DumpBSPData</i></td></tr>
+<tr><th id="471">471</th><td><i>//===========================================================================</i></td></tr>
+<tr><th id="472">472</th><td><i>// load a .bsp file</i></td></tr>
+<tr><th id="473">473</th><td><i>//</i></td></tr>
+<tr><th id="474">474</th><td><i>// Parameter:				-</i></td></tr>
+<tr><th id="475">475</th><td><i>// Returns:					-</i></td></tr>
+<tr><th id="476">476</th><td><i>// Changes Globals:		-</i></td></tr>
+<tr><th id="477">477</th><td><i>//===========================================================================</i></td></tr>
+<tr><th id="478">478</th><td><em>int</em> <dfn class="decl def" id="AAS_LoadBSPFile" title='AAS_LoadBSPFile' data-ref="AAS_LoadBSPFile">AAS_LoadBSPFile</dfn>(<em>void</em>)</td></tr>
+<tr><th id="479">479</th><td>{</td></tr>
+<tr><th id="480">480</th><td>	<a class="ref" href="#AAS_DumpBSPData" title='AAS_DumpBSPData' data-ref="AAS_DumpBSPData">AAS_DumpBSPData</a>();</td></tr>
+<tr><th id="481">481</th><td>	<a class="ref" href="#bspworld" title='bspworld' data-ref="bspworld">bspworld</a>.<a class="tu ref" href="#bsp_s::entdatasize" title='bsp_s::entdatasize' data-use='w' data-ref="bsp_s::entdatasize">entdatasize</a> = <a class="ref" href="../../../include/string.h.html#strlen" title='strlen' data-ref="strlen">strlen</a>(<a class="ref" href="#botimport" title='botimport' data-ref="botimport">botimport</a>.<a class="ref" href="botlib.h.html#botlib_import_s::BSPEntityData" title='botlib_import_s::BSPEntityData' data-ref="botlib_import_s::BSPEntityData">BSPEntityData</a>()) + <var>1</var>;</td></tr>
+<tr><th id="482">482</th><td>	<a class="ref" href="#bspworld" title='bspworld' data-ref="bspworld">bspworld</a>.<a class="tu ref" href="#bsp_s::dentdata" title='bsp_s::dentdata' data-use='w' data-ref="bsp_s::dentdata">dentdata</a> = (<em>char</em> *) <a class="ref" href="l_memory.h.html#GetClearedHunkMemory" title='GetClearedHunkMemory' data-ref="GetClearedHunkMemory">GetClearedHunkMemory</a>(<a class="ref" href="#bspworld" title='bspworld' data-ref="bspworld">bspworld</a>.<a class="tu ref" href="#bsp_s::entdatasize" title='bsp_s::entdatasize' data-use='r' data-ref="bsp_s::entdatasize">entdatasize</a>);</td></tr>
+<tr><th id="483">483</th><td>	<a class="macro" href="../qcommon/q_shared.h.html#345" title="memcpy" data-ref="_M/Com_Memcpy">Com_Memcpy</a>(<a class="ref" href="#bspworld" title='bspworld' data-ref="bspworld">bspworld</a>.<a class="tu ref" href="#bsp_s::dentdata" title='bsp_s::dentdata' data-use='r' data-ref="bsp_s::dentdata">dentdata</a>, <a class="ref" href="#botimport" title='botimport' data-ref="botimport">botimport</a>.<a class="ref" href="botlib.h.html#botlib_import_s::BSPEntityData" title='botlib_import_s::BSPEntityData' data-ref="botlib_import_s::BSPEntityData">BSPEntityData</a>(), <a class="ref" href="#bspworld" title='bspworld' data-ref="bspworld">bspworld</a>.<a class="tu ref" href="#bsp_s::entdatasize" title='bsp_s::entdatasize' data-use='r' data-ref="bsp_s::entdatasize">entdatasize</a>);</td></tr>
+<tr><th id="484">484</th><td>	<a class="ref" href="#AAS_ParseBSPEntities" title='AAS_ParseBSPEntities' data-ref="AAS_ParseBSPEntities">AAS_ParseBSPEntities</a>();</td></tr>
+<tr><th id="485">485</th><td>	<a class="ref" href="#bspworld" title='bspworld' data-ref="bspworld">bspworld</a>.<a class="tu ref" href="#bsp_s::loaded" title='bsp_s::loaded' data-use='w' data-ref="bsp_s::loaded">loaded</a> = <a class="enum" href="../qcommon/q_shared.h.html#qtrue" title='qtrue' data-ref="qtrue">qtrue</a>;</td></tr>
+<tr><th id="486">486</th><td>	<b>return</b> <a class="macro" href="botlib.h.html#67" title="0" data-ref="_M/BLERR_NOERROR">BLERR_NOERROR</a>;</td></tr>
+<tr><th id="487">487</th><td>} <i>//end of the function AAS_LoadBSPFile</i></td></tr>
+<tr><th id="488">488</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated on <em>2017-Aug-29</em> from project codebrowser revision <em>63e07af</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

@@ -1,0 +1,11 @@
+<dec f='codebrowser/code/game/g_local.h' l='566' type='void SetClientViewAngle(gentity_t * ent, vec_t * angle)'/>
+<def f='codebrowser/code/game/g_client.c' l='511' ll='523' type='void SetClientViewAngle(gentity_t * ent, vec_t * angle)'/>
+<use f='codebrowser/code/game/g_client.c' l='1188' u='c' c='ClientSpawn'/>
+<doc f='codebrowser/code/game/g_client.c' l='505'>/*
+==================
+SetClientViewAngle
+
+==================
+*/</doc>
+<use f='codebrowser/code/game/g_cmds.c' l='669' u='c' c='StopFollowing'/>
+<use f='codebrowser/code/game/g_misc.c' l='106' u='c' c='TeleportPlayer'/>

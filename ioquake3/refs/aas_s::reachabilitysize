@@ -1,0 +1,20 @@
+<dec f='codebrowser/code/botlib/be_aas_def.h' l='220' type='int'/>
+<offset>2368</offset>
+<doc f='codebrowser/code/botlib/be_aas_def.h' l='219'>//reachablity list</doc>
+<use f='codebrowser/code/botlib/be_aas_file.c' l='133' u='r' c='AAS_SwapAASData'/>
+<use f='codebrowser/code/botlib/be_aas_file.c' l='212' u='w' c='AAS_DumpAASData'/>
+<use f='codebrowser/code/botlib/be_aas_file.c' l='451' u='w' c='AAS_LoadAASFile'/>
+<use f='codebrowser/code/botlib/be_aas_file.c' l='452' u='r' c='AAS_LoadAASFile'/>
+<use f='codebrowser/code/botlib/be_aas_file.c' l='566' u='r' c='AAS_WriteAASFile'/>
+<use f='codebrowser/code/botlib/be_aas_optimize.c' l='291' u='r' c='AAS_Optimize'/>
+<use f='codebrowser/code/botlib/be_aas_reach.c' l='4311' u='w' c='AAS_StoreReachability'/>
+<use f='codebrowser/code/botlib/be_aas_reach.c' l='4315' u='r' c='AAS_StoreReachability'/>
+<use f='codebrowser/code/botlib/be_aas_reach.c' l='4331' u='w' c='AAS_StoreReachability'/>
+<use f='codebrowser/code/botlib/be_aas_reach.c' l='4510' u='r' c='AAS_InitReachability'/>
+<use f='codebrowser/code/botlib/be_aas_route.c' l='434' u='r' c='AAS_CreateReversedReachability'/>
+<use f='codebrowser/code/botlib/be_aas_route.c' l='1160' u='r' c='AAS_InitReachabilityAreas'/>
+<use f='codebrowser/code/botlib/be_aas_route.c' l='1162' u='r' c='AAS_InitReachabilityAreas'/>
+<use f='codebrowser/code/botlib/be_aas_route.c' l='1164' u='r' c='AAS_InitReachabilityAreas'/>
+<use f='codebrowser/code/botlib/be_aas_route.c' l='1930' u='r' c='AAS_ReachabilityFromNum'/>
+<use f='codebrowser/code/botlib/be_aas_route.c' l='1983' u='r' c='AAS_NextModelReachability'/>
+<use f='codebrowser/code/botlib/be_aas_route.c' l='1986' u='r' c='AAS_NextModelReachability'/>

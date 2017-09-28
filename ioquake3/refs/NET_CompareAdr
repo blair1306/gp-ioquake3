@@ -1,0 +1,25 @@
+<dec f='codebrowser/code/qcommon/qcommon.h' l='178' type='qboolean NET_CompareAdr(netadr_t a, netadr_t b)'/>
+<use f='codebrowser/code/client/cl_main.c' l='2419' u='c' c='CL_MotdPacket'/>
+<use f='codebrowser/code/client/cl_main.c' l='2554' u='c' c='CL_ServersResponsePacket'/>
+<use f='codebrowser/code/client/cl_main.c' l='2654' u='c' c='CL_ConnectionlessPacket'/>
+<use f='codebrowser/code/client/cl_main.c' l='2700' u='c' c='CL_ConnectionlessPacket'/>
+<use f='codebrowser/code/client/cl_main.c' l='2754' u='c' c='CL_ConnectionlessPacket'/>
+<use f='codebrowser/code/client/cl_main.c' l='2754' u='c' c='CL_ConnectionlessPacket'/>
+<use f='codebrowser/code/client/cl_main.c' l='2775' u='c' c='CL_ConnectionlessPacket'/>
+<use f='codebrowser/code/client/cl_main.c' l='2775' u='c' c='CL_ConnectionlessPacket'/>
+<use f='codebrowser/code/client/cl_main.c' l='2829' u='c' c='CL_PacketEvent'/>
+<use f='codebrowser/code/client/cl_main.c' l='3803' u='c' c='CL_SetServerInfoByAddress'/>
+<use f='codebrowser/code/client/cl_main.c' l='3809' u='c' c='CL_SetServerInfoByAddress'/>
+<use f='codebrowser/code/client/cl_main.c' l='3815' u='c' c='CL_SetServerInfoByAddress'/>
+<use f='codebrowser/code/client/cl_main.c' l='3870' u='c' c='CL_ServerInfoPacket'/>
+<use f='codebrowser/code/client/cl_main.c' l='3913' u='c' c='CL_ServerInfoPacket'/>
+<use f='codebrowser/code/client/cl_main.c' l='3945' u='c' c='CL_GetServerStatus'/>
+<use f='codebrowser/code/client/cl_main.c' l='3995' u='c' c='CL_ServerStatus'/>
+<use f='codebrowser/code/client/cl_main.c' l='4042' u='c' c='CL_ServerStatusResponse'/>
+<use f='codebrowser/code/client/cl_main.c' l='4522' u='c' c='CL_UpdateVisiblePings_f'/>
+<use f='codebrowser/code/client/cl_ui.c' l='151' u='c' c='LAN_AddServer'/>
+<use f='codebrowser/code/client/cl_ui.c' l='195' u='c' c='LAN_RemoveServer'/>
+<def f='codebrowser/code/qcommon/net_ip.c' l='493' ll='507' type='qboolean NET_CompareAdr(netadr_t a, netadr_t b)'/>
+<use f='codebrowser/code/server/sv_client.c' l='111' u='c' c='SV_GetChallenge'/>
+<use f='codebrowser/code/server/sv_client.c' l='412' u='c' c='SV_DirectConnect'/>
+<use f='codebrowser/code/server/sv_client.c' l='653' u='c' c='SV_DropClient'/>

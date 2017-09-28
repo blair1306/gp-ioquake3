@@ -1,0 +1,17 @@
+<dec f='codebrowser/code/game/ai_dmq3.h' l='44' type='void BotSetupForMovement(bot_state_t * bs)'/>
+<doc f='codebrowser/code/game/ai_dmq3.h' l='43'>//setup movement stuff</doc>
+<use f='codebrowser/code/game/ai_dmnet.c' l='435' u='c' c='BotGetLongTermGoal'/>
+<use f='codebrowser/code/game/ai_dmnet.c' l='1564' u='c' c='AINode_Seek_ActivateEntity'/>
+<use f='codebrowser/code/game/ai_dmnet.c' l='1721' u='c' c='AINode_Seek_NBG'/>
+<use f='codebrowser/code/game/ai_dmnet.c' l='1913' u='c' c='AINode_Seek_LTG'/>
+<use f='codebrowser/code/game/ai_dmnet.c' l='2244' u='c' c='AINode_Battle_Chase'/>
+<use f='codebrowser/code/game/ai_dmnet.c' l='2432' u='c' c='AINode_Battle_Retreat'/>
+<use f='codebrowser/code/game/ai_dmnet.c' l='2576' u='c' c='AINode_Battle_NBG'/>
+<def f='codebrowser/code/game/ai_dmq3.c' l='1585' ll='1615' type='void BotSetupForMovement(bot_state_t * bs)'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='2654' u='c' c='BotAttackMove'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='2668' u='c' c='BotAttackMove'/>
+<doc f='codebrowser/code/game/ai_dmq3.c' l='1580'>/*
+==================
+BotSetupForMovement
+==================
+*/</doc>

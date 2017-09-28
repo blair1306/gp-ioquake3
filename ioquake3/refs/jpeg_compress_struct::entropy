@@ -1,0 +1,29 @@
+<dec f='codebrowser/code/jpeg-8c/jpeglib.h' l='434' type='struct jpeg_entropy_encoder *'/>
+<offset>4480</offset>
+<use f='codebrowser/code/jpeg-8c/jcarith.c' l='135' u='r' c='finish_pass'/>
+<use f='codebrowser/code/jpeg-8c/jcarith.c' l='221' u='r' c='arith_encode'/>
+<use f='codebrowser/code/jpeg-8c/jcarith.c' l='321' u='r' c='emit_restart'/>
+<use f='codebrowser/code/jpeg-8c/jcarith.c' l='364' u='r' c='encode_mcu_DC_first'/>
+<use f='codebrowser/code/jpeg-8c/jcarith.c' l='455' u='r' c='encode_mcu_AC_first'/>
+<use f='codebrowser/code/jpeg-8c/jcarith.c' l='557' u='r' c='encode_mcu_DC_refine'/>
+<use f='codebrowser/code/jpeg-8c/jcarith.c' l='592' u='r' c='encode_mcu_AC_refine'/>
+<use f='codebrowser/code/jpeg-8c/jcarith.c' l='688' u='r' c='encode_mcu'/>
+<use f='codebrowser/code/jpeg-8c/jcarith.c' l='833' u='r' c='start_pass'/>
+<use f='codebrowser/code/jpeg-8c/jcarith.c' l='922' u='w' c='jinit_arith_encoder'/>
+<use f='codebrowser/code/jpeg-8c/jccoefct.c' l='207' u='r' c='compress_data'/>
+<use f='codebrowser/code/jpeg-8c/jccoefct.c' l='385' u='r' c='compress_output'/>
+<use f='codebrowser/code/jpeg-8c/jchuff.c' l='543' u='r' c='encode_mcu_DC_first'/>
+<use f='codebrowser/code/jpeg-8c/jchuff.c' l='630' u='r' c='encode_mcu_AC_first'/>
+<use f='codebrowser/code/jpeg-8c/jchuff.c' l='741' u='r' c='encode_mcu_DC_refine'/>
+<use f='codebrowser/code/jpeg-8c/jchuff.c' l='788' u='r' c='encode_mcu_AC_refine'/>
+<use f='codebrowser/code/jpeg-8c/jchuff.c' l='1018' u='r' c='encode_mcu_huff'/>
+<use f='codebrowser/code/jpeg-8c/jchuff.c' l='1075' u='r' c='finish_pass_huff'/>
+<use f='codebrowser/code/jpeg-8c/jchuff.c' l='1199' u='r' c='encode_mcu_gather'/>
+<use f='codebrowser/code/jpeg-8c/jchuff.c' l='1399' u='r' c='finish_pass_gather'/>
+<use f='codebrowser/code/jpeg-8c/jchuff.c' l='1453' u='r' c='start_pass_huff'/>
+<use f='codebrowser/code/jpeg-8c/jchuff.c' l='1565' u='w' c='jinit_huff_encoder'/>
+<use f='codebrowser/code/jpeg-8c/jcmaster.c' l='682' u='r' c='prepare_for_pass'/>
+<use f='codebrowser/code/jpeg-8c/jcmaster.c' l='701' u='r' c='prepare_for_pass'/>
+<use f='codebrowser/code/jpeg-8c/jcmaster.c' l='720' u='r' c='prepare_for_pass'/>
+<use f='codebrowser/code/jpeg-8c/jcmaster.c' l='774' u='r' c='finish_pass_master'/>
+<use f='codebrowser/code/jpeg-8c/jctrans.c' l='331' u='r' c='compress_output'/>

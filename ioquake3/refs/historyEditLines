@@ -1,0 +1,24 @@
+<dec f='codebrowser/code/client/keys.h' l='40' type='field_t [32]'/>
+<use f='codebrowser/code/client/cl_console.c' l='366' u='a' c='Con_Init'/>
+<use f='codebrowser/code/client/cl_console.c' l='367' u='m' c='Con_Init'/>
+<def f='codebrowser/code/client/cl_keys.c' l='30' type='field_t [32]'/>
+<use f='codebrowser/code/client/cl_keys.c' l='648' u='w' c='Console_Key'/>
+<use f='codebrowser/code/client/cl_keys.c' l='679' u='r' c='Console_Key'/>
+<use f='codebrowser/code/client/cl_keys.c' l='692' u='r' c='Console_Key'/>
+<use f='codebrowser/code/client/cl_keys.c' l='1491' u='m' c='CL_LoadConsoleHistory'/>
+<use f='codebrowser/code/client/cl_keys.c' l='1496' u='m' c='CL_LoadConsoleHistory'/>
+<use f='codebrowser/code/client/cl_keys.c' l='1508' u='m' c='CL_LoadConsoleHistory'/>
+<use f='codebrowser/code/client/cl_keys.c' l='1510' u='m' c='CL_LoadConsoleHistory'/>
+<use f='codebrowser/code/client/cl_keys.c' l='1516' u='a' c='CL_LoadConsoleHistory'/>
+<use f='codebrowser/code/client/cl_keys.c' l='1516' u='a' c='CL_LoadConsoleHistory'/>
+<use f='codebrowser/code/client/cl_keys.c' l='1519' u='a' c='CL_LoadConsoleHistory'/>
+<use f='codebrowser/code/client/cl_keys.c' l='1548' u='m' c='CL_SaveConsoleHistory'/>
+<use f='codebrowser/code/client/cl_keys.c' l='1550' u='m' c='CL_SaveConsoleHistory'/>
+<use f='codebrowser/code/client/cl_keys.c' l='1560' u='m' c='CL_SaveConsoleHistory'/>
+<use f='codebrowser/code/client/cl_keys.c' l='1561' u='m' c='CL_SaveConsoleHistory'/>
+<use f='codebrowser/code/client/cl_keys.c' l='1563' u='m' c='CL_SaveConsoleHistory'/>
+<doc f='codebrowser/code/client/cl_keys.c' l='24'>/*
+
+key up events are sent even if in console mode
+
+*/</doc>

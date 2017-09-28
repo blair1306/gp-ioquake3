@@ -1,0 +1,757 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>bg_public.h source code [codebrowser/code/game/bg_public.h] - Woboq Code Browser</title>
+<meta name="woboq:interestingDefinitions" content="animation_s,gitem_s "/>
+<link rel="stylesheet" href="../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'codebrowser/code/game/bg_public.h'; var root_path = '../../..'; var data_path = '../../../../data';</script>
+<script src='../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../..'>codebrowser</a>/<a href='..'>code</a>/<a href='./'>game</a>/<a href='bg_public.h.html'>bg_public.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/*</i></td></tr>
+<tr><th id="2">2</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="3">3</th><td><i>Copyright (C) 1999-2005 Id Software, Inc.</i></td></tr>
+<tr><th id="4">4</th><td><i></i></td></tr>
+<tr><th id="5">5</th><td><i>This file is part of Quake III Arena source code.</i></td></tr>
+<tr><th id="6">6</th><td><i></i></td></tr>
+<tr><th id="7">7</th><td><i>Quake III Arena source code is free software; you can redistribute it</i></td></tr>
+<tr><th id="8">8</th><td><i>and/or modify it under the terms of the GNU General Public License as</i></td></tr>
+<tr><th id="9">9</th><td><i>published by the Free Software Foundation; either version 2 of the License,</i></td></tr>
+<tr><th id="10">10</th><td><i>or (at your option) any later version.</i></td></tr>
+<tr><th id="11">11</th><td><i></i></td></tr>
+<tr><th id="12">12</th><td><i>Quake III Arena source code is distributed in the hope that it will be</i></td></tr>
+<tr><th id="13">13</th><td><i>useful, but WITHOUT ANY WARRANTY; without even the implied warranty of</i></td></tr>
+<tr><th id="14">14</th><td><i>MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</i></td></tr>
+<tr><th id="15">15</th><td><i>GNU General Public License for more details.</i></td></tr>
+<tr><th id="16">16</th><td><i></i></td></tr>
+<tr><th id="17">17</th><td><i>You should have received a copy of the GNU General Public License</i></td></tr>
+<tr><th id="18">18</th><td><i>along with Quake III Arena source code; if not, write to the Free Software</i></td></tr>
+<tr><th id="19">19</th><td><i>Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA</i></td></tr>
+<tr><th id="20">20</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="21">21</th><td><i>*/</i></td></tr>
+<tr><th id="22">22</th><td><i>//</i></td></tr>
+<tr><th id="23">23</th><td><i>// bg_public.h -- definitions shared by both the server game and client game modules</i></td></tr>
+<tr><th id="24">24</th><td><i></i></td></tr>
+<tr><th id="25">25</th><td><i>// because games can change separately from the main system version, we need a</i></td></tr>
+<tr><th id="26">26</th><td><i>// second version that must match between game and cgame</i></td></tr>
+<tr><th id="27">27</th><td></td></tr>
+<tr><th id="28">28</th><td><u>#define	<dfn class="macro" id="_M/GAME_VERSION" data-ref="_M/GAME_VERSION">GAME_VERSION</dfn>		BASEGAME "-1"</u></td></tr>
+<tr><th id="29">29</th><td></td></tr>
+<tr><th id="30">30</th><td><u>#define	<dfn class="macro" id="_M/DEFAULT_GRAVITY" data-ref="_M/DEFAULT_GRAVITY">DEFAULT_GRAVITY</dfn>		800</u></td></tr>
+<tr><th id="31">31</th><td><u>#define	<dfn class="macro" id="_M/GIB_HEALTH" data-ref="_M/GIB_HEALTH">GIB_HEALTH</dfn>			-40</u></td></tr>
+<tr><th id="32">32</th><td><u>#define	<dfn class="macro" id="_M/ARMOR_PROTECTION" data-ref="_M/ARMOR_PROTECTION">ARMOR_PROTECTION</dfn>	0.66</u></td></tr>
+<tr><th id="33">33</th><td></td></tr>
+<tr><th id="34">34</th><td><u>#define	<dfn class="macro" id="_M/MAX_ITEMS" data-ref="_M/MAX_ITEMS">MAX_ITEMS</dfn>			256</u></td></tr>
+<tr><th id="35">35</th><td></td></tr>
+<tr><th id="36">36</th><td><u>#define	<dfn class="macro" id="_M/RANK_TIED_FLAG" data-ref="_M/RANK_TIED_FLAG">RANK_TIED_FLAG</dfn>		0x4000</u></td></tr>
+<tr><th id="37">37</th><td></td></tr>
+<tr><th id="38">38</th><td><u>#define <dfn class="macro" id="_M/DEFAULT_SHOTGUN_SPREAD" data-ref="_M/DEFAULT_SHOTGUN_SPREAD">DEFAULT_SHOTGUN_SPREAD</dfn>	700</u></td></tr>
+<tr><th id="39">39</th><td><u>#define <dfn class="macro" id="_M/DEFAULT_SHOTGUN_COUNT" data-ref="_M/DEFAULT_SHOTGUN_COUNT">DEFAULT_SHOTGUN_COUNT</dfn>	11</u></td></tr>
+<tr><th id="40">40</th><td></td></tr>
+<tr><th id="41">41</th><td><u>#define	<dfn class="macro" id="_M/ITEM_RADIUS" data-ref="_M/ITEM_RADIUS">ITEM_RADIUS</dfn>			15		// item sizes are needed for client side pickup detection</u></td></tr>
+<tr><th id="42">42</th><td></td></tr>
+<tr><th id="43">43</th><td><u>#define	<dfn class="macro" id="_M/LIGHTNING_RANGE" data-ref="_M/LIGHTNING_RANGE">LIGHTNING_RANGE</dfn>		768</u></td></tr>
+<tr><th id="44">44</th><td></td></tr>
+<tr><th id="45">45</th><td><u>#define	<dfn class="macro" id="_M/SCORE_NOT_PRESENT" data-ref="_M/SCORE_NOT_PRESENT">SCORE_NOT_PRESENT</dfn>	-9999	// for the CS_SCORES[12] when only one player is present</u></td></tr>
+<tr><th id="46">46</th><td></td></tr>
+<tr><th id="47">47</th><td><u>#define	<dfn class="macro" id="_M/VOTE_TIME" data-ref="_M/VOTE_TIME">VOTE_TIME</dfn>			30000	// 30 seconds before vote times out</u></td></tr>
+<tr><th id="48">48</th><td></td></tr>
+<tr><th id="49">49</th><td><u>#define	<dfn class="macro" id="_M/MINS_Z" data-ref="_M/MINS_Z">MINS_Z</dfn>				-24</u></td></tr>
+<tr><th id="50">50</th><td><u>#define	<dfn class="macro" id="_M/DEFAULT_VIEWHEIGHT" data-ref="_M/DEFAULT_VIEWHEIGHT">DEFAULT_VIEWHEIGHT</dfn>	26</u></td></tr>
+<tr><th id="51">51</th><td><u>#define <dfn class="macro" id="_M/CROUCH_VIEWHEIGHT" data-ref="_M/CROUCH_VIEWHEIGHT">CROUCH_VIEWHEIGHT</dfn>	12</u></td></tr>
+<tr><th id="52">52</th><td><u>#define	<dfn class="macro" id="_M/DEAD_VIEWHEIGHT" data-ref="_M/DEAD_VIEWHEIGHT">DEAD_VIEWHEIGHT</dfn>		-16</u></td></tr>
+<tr><th id="53">53</th><td></td></tr>
+<tr><th id="54">54</th><td><i>//</i></td></tr>
+<tr><th id="55">55</th><td><i>// config strings are a general means of communicating variable length strings</i></td></tr>
+<tr><th id="56">56</th><td><i>// from the server to all connected clients.</i></td></tr>
+<tr><th id="57">57</th><td><i>//</i></td></tr>
+<tr><th id="58">58</th><td><i></i></td></tr>
+<tr><th id="59">59</th><td><i>// CS_SERVERINFO and CS_SYSTEMINFO are defined in q_shared.h</i></td></tr>
+<tr><th id="60">60</th><td><u>#define	<dfn class="macro" id="_M/CS_MUSIC" data-ref="_M/CS_MUSIC">CS_MUSIC</dfn>				2</u></td></tr>
+<tr><th id="61">61</th><td><u>#define	<dfn class="macro" id="_M/CS_MESSAGE" data-ref="_M/CS_MESSAGE">CS_MESSAGE</dfn>				3		// from the map worldspawn's message field</u></td></tr>
+<tr><th id="62">62</th><td><u>#define	<dfn class="macro" id="_M/CS_MOTD" data-ref="_M/CS_MOTD">CS_MOTD</dfn>					4		// g_motd string for server message of the day</u></td></tr>
+<tr><th id="63">63</th><td><u>#define	<dfn class="macro" id="_M/CS_WARMUP" data-ref="_M/CS_WARMUP">CS_WARMUP</dfn>				5		// server time when the match will be restarted</u></td></tr>
+<tr><th id="64">64</th><td><u>#define	<dfn class="macro" id="_M/CS_SCORES1" data-ref="_M/CS_SCORES1">CS_SCORES1</dfn>				6</u></td></tr>
+<tr><th id="65">65</th><td><u>#define	<dfn class="macro" id="_M/CS_SCORES2" data-ref="_M/CS_SCORES2">CS_SCORES2</dfn>				7</u></td></tr>
+<tr><th id="66">66</th><td><u>#define <dfn class="macro" id="_M/CS_VOTE_TIME" data-ref="_M/CS_VOTE_TIME">CS_VOTE_TIME</dfn>			8</u></td></tr>
+<tr><th id="67">67</th><td><u>#define <dfn class="macro" id="_M/CS_VOTE_STRING" data-ref="_M/CS_VOTE_STRING">CS_VOTE_STRING</dfn>			9</u></td></tr>
+<tr><th id="68">68</th><td><u>#define	<dfn class="macro" id="_M/CS_VOTE_YES" data-ref="_M/CS_VOTE_YES">CS_VOTE_YES</dfn>				10</u></td></tr>
+<tr><th id="69">69</th><td><u>#define	<dfn class="macro" id="_M/CS_VOTE_NO" data-ref="_M/CS_VOTE_NO">CS_VOTE_NO</dfn>				11</u></td></tr>
+<tr><th id="70">70</th><td></td></tr>
+<tr><th id="71">71</th><td><u>#define <dfn class="macro" id="_M/CS_TEAMVOTE_TIME" data-ref="_M/CS_TEAMVOTE_TIME">CS_TEAMVOTE_TIME</dfn>		12</u></td></tr>
+<tr><th id="72">72</th><td><u>#define <dfn class="macro" id="_M/CS_TEAMVOTE_STRING" data-ref="_M/CS_TEAMVOTE_STRING">CS_TEAMVOTE_STRING</dfn>		14</u></td></tr>
+<tr><th id="73">73</th><td><u>#define	<dfn class="macro" id="_M/CS_TEAMVOTE_YES" data-ref="_M/CS_TEAMVOTE_YES">CS_TEAMVOTE_YES</dfn>			16</u></td></tr>
+<tr><th id="74">74</th><td><u>#define	<dfn class="macro" id="_M/CS_TEAMVOTE_NO" data-ref="_M/CS_TEAMVOTE_NO">CS_TEAMVOTE_NO</dfn>			18</u></td></tr>
+<tr><th id="75">75</th><td></td></tr>
+<tr><th id="76">76</th><td><u>#define	<dfn class="macro" id="_M/CS_GAME_VERSION" data-ref="_M/CS_GAME_VERSION">CS_GAME_VERSION</dfn>			20</u></td></tr>
+<tr><th id="77">77</th><td><u>#define	<dfn class="macro" id="_M/CS_LEVEL_START_TIME" data-ref="_M/CS_LEVEL_START_TIME">CS_LEVEL_START_TIME</dfn>		21		// so the timer only shows the current level</u></td></tr>
+<tr><th id="78">78</th><td><u>#define	<dfn class="macro" id="_M/CS_INTERMISSION" data-ref="_M/CS_INTERMISSION">CS_INTERMISSION</dfn>			22		// when 1, fraglimit/timelimit has been hit and intermission will start in a second or two</u></td></tr>
+<tr><th id="79">79</th><td><u>#define <dfn class="macro" id="_M/CS_FLAGSTATUS" data-ref="_M/CS_FLAGSTATUS">CS_FLAGSTATUS</dfn>			23		// string indicating flag status in CTF</u></td></tr>
+<tr><th id="80">80</th><td><u>#define <dfn class="macro" id="_M/CS_SHADERSTATE" data-ref="_M/CS_SHADERSTATE">CS_SHADERSTATE</dfn>			24</u></td></tr>
+<tr><th id="81">81</th><td><u>#define <dfn class="macro" id="_M/CS_BOTINFO" data-ref="_M/CS_BOTINFO">CS_BOTINFO</dfn>				25</u></td></tr>
+<tr><th id="82">82</th><td></td></tr>
+<tr><th id="83">83</th><td><u>#define	<dfn class="macro" id="_M/CS_ITEMS" data-ref="_M/CS_ITEMS">CS_ITEMS</dfn>				27		// string of 0's and 1's that tell which items are present</u></td></tr>
+<tr><th id="84">84</th><td></td></tr>
+<tr><th id="85">85</th><td><u>#define	<dfn class="macro" id="_M/CS_MODELS" data-ref="_M/CS_MODELS">CS_MODELS</dfn>				32</u></td></tr>
+<tr><th id="86">86</th><td><u>#define	<dfn class="macro" id="_M/CS_SOUNDS" data-ref="_M/CS_SOUNDS">CS_SOUNDS</dfn>				(CS_MODELS+MAX_MODELS)</u></td></tr>
+<tr><th id="87">87</th><td><u>#define	<dfn class="macro" id="_M/CS_PLAYERS" data-ref="_M/CS_PLAYERS">CS_PLAYERS</dfn>				(CS_SOUNDS+MAX_SOUNDS)</u></td></tr>
+<tr><th id="88">88</th><td><u>#define <dfn class="macro" id="_M/CS_LOCATIONS" data-ref="_M/CS_LOCATIONS">CS_LOCATIONS</dfn>			(CS_PLAYERS+MAX_CLIENTS)</u></td></tr>
+<tr><th id="89">89</th><td><u>#define <dfn class="macro" id="_M/CS_PARTICLES" data-ref="_M/CS_PARTICLES">CS_PARTICLES</dfn>			(CS_LOCATIONS+MAX_LOCATIONS)</u> </td></tr>
+<tr><th id="90">90</th><td></td></tr>
+<tr><th id="91">91</th><td><u>#define <dfn class="macro" id="_M/CS_MAX" data-ref="_M/CS_MAX">CS_MAX</dfn>					(CS_PARTICLES+MAX_LOCATIONS)</u></td></tr>
+<tr><th id="92">92</th><td></td></tr>
+<tr><th id="93">93</th><td><u>#<span data-ppcond="93">if</span> (<a class="macro" href="#91" title="(((((32+256)+256)+64)+64)+64)" data-ref="_M/CS_MAX">CS_MAX</a>) &gt; <a class="macro" href="../qcommon/q_shared.h.html#1105" title="1024" data-ref="_M/MAX_CONFIGSTRINGS">MAX_CONFIGSTRINGS</a></u></td></tr>
+<tr><th id="94">94</th><td><u>#error overflow: (CS_MAX) &gt; MAX_CONFIGSTRINGS</u></td></tr>
+<tr><th id="95">95</th><td><u>#<span data-ppcond="93">endif</span></u></td></tr>
+<tr><th id="96">96</th><td></td></tr>
+<tr><th id="97">97</th><td><b>typedef</b> <b>enum</b> {</td></tr>
+<tr><th id="98">98</th><td>	<dfn class="enum" id="GT_FFA" title='GT_FFA' data-ref="GT_FFA">GT_FFA</dfn>,				<i>// free for all</i></td></tr>
+<tr><th id="99">99</th><td>	<dfn class="enum" id="GT_TOURNAMENT" title='GT_TOURNAMENT' data-ref="GT_TOURNAMENT">GT_TOURNAMENT</dfn>,		<i>// one on one tournament</i></td></tr>
+<tr><th id="100">100</th><td>	<dfn class="enum" id="GT_SINGLE_PLAYER" title='GT_SINGLE_PLAYER' data-ref="GT_SINGLE_PLAYER">GT_SINGLE_PLAYER</dfn>,	<i>// single player ffa</i></td></tr>
+<tr><th id="101">101</th><td></td></tr>
+<tr><th id="102">102</th><td>	<i>//-- team games go after this --</i></td></tr>
+<tr><th id="103">103</th><td></td></tr>
+<tr><th id="104">104</th><td>	<dfn class="enum" id="GT_TEAM" title='GT_TEAM' data-ref="GT_TEAM">GT_TEAM</dfn>,			<i>// team deathmatch</i></td></tr>
+<tr><th id="105">105</th><td>	<dfn class="enum" id="GT_CTF" title='GT_CTF' data-ref="GT_CTF">GT_CTF</dfn>,				<i>// capture the flag</i></td></tr>
+<tr><th id="106">106</th><td>	<dfn class="enum" id="GT_1FCTF" title='GT_1FCTF' data-ref="GT_1FCTF">GT_1FCTF</dfn>,</td></tr>
+<tr><th id="107">107</th><td>	<dfn class="enum" id="GT_OBELISK" title='GT_OBELISK' data-ref="GT_OBELISK">GT_OBELISK</dfn>,</td></tr>
+<tr><th id="108">108</th><td>	<dfn class="enum" id="GT_HARVESTER" title='GT_HARVESTER' data-ref="GT_HARVESTER">GT_HARVESTER</dfn>,</td></tr>
+<tr><th id="109">109</th><td>	<dfn class="enum" id="GT_MAX_GAME_TYPE" title='GT_MAX_GAME_TYPE' data-ref="GT_MAX_GAME_TYPE">GT_MAX_GAME_TYPE</dfn></td></tr>
+<tr><th id="110">110</th><td>} <dfn class="typedef" id="gametype_t" title='gametype_t' data-type='enum gametype_t' data-ref="gametype_t">gametype_t</dfn>;</td></tr>
+<tr><th id="111">111</th><td></td></tr>
+<tr><th id="112">112</th><td><b>typedef</b> <b>enum</b> { <dfn class="enum" id="GENDER_MALE" title='GENDER_MALE' data-ref="GENDER_MALE">GENDER_MALE</dfn>, <dfn class="enum" id="GENDER_FEMALE" title='GENDER_FEMALE' data-ref="GENDER_FEMALE">GENDER_FEMALE</dfn>, <dfn class="enum" id="GENDER_NEUTER" title='GENDER_NEUTER' data-ref="GENDER_NEUTER">GENDER_NEUTER</dfn> } <dfn class="typedef" id="gender_t" title='gender_t' data-type='enum gender_t' data-ref="gender_t">gender_t</dfn>;</td></tr>
+<tr><th id="113">113</th><td></td></tr>
+<tr><th id="114">114</th><td><i>/*</i></td></tr>
+<tr><th id="115">115</th><td><i>===================================================================================</i></td></tr>
+<tr><th id="116">116</th><td><i></i></td></tr>
+<tr><th id="117">117</th><td><i>PMOVE MODULE</i></td></tr>
+<tr><th id="118">118</th><td><i></i></td></tr>
+<tr><th id="119">119</th><td><i>The pmove code takes a player_state_t and a usercmd_t and generates a new player_state_t</i></td></tr>
+<tr><th id="120">120</th><td><i>and some other output data.  Used for local prediction on the client game and true</i></td></tr>
+<tr><th id="121">121</th><td><i>movement on the server game.</i></td></tr>
+<tr><th id="122">122</th><td><i>===================================================================================</i></td></tr>
+<tr><th id="123">123</th><td><i>*/</i></td></tr>
+<tr><th id="124">124</th><td></td></tr>
+<tr><th id="125">125</th><td><b>typedef</b> <b>enum</b> {</td></tr>
+<tr><th id="126">126</th><td>	<dfn class="enum" id="PM_NORMAL" title='PM_NORMAL' data-ref="PM_NORMAL">PM_NORMAL</dfn>,		<i>// can accelerate and turn</i></td></tr>
+<tr><th id="127">127</th><td>	<dfn class="enum" id="PM_NOCLIP" title='PM_NOCLIP' data-ref="PM_NOCLIP">PM_NOCLIP</dfn>,		<i>// noclip movement</i></td></tr>
+<tr><th id="128">128</th><td>	<dfn class="enum" id="PM_SPECTATOR" title='PM_SPECTATOR' data-ref="PM_SPECTATOR">PM_SPECTATOR</dfn>,	<i>// still run into walls</i></td></tr>
+<tr><th id="129">129</th><td>	<dfn class="enum" id="PM_DEAD" title='PM_DEAD' data-ref="PM_DEAD">PM_DEAD</dfn>,		<i>// no acceleration or turning, but free falling</i></td></tr>
+<tr><th id="130">130</th><td>	<dfn class="enum" id="PM_FREEZE" title='PM_FREEZE' data-ref="PM_FREEZE">PM_FREEZE</dfn>,		<i>// stuck in place with no control</i></td></tr>
+<tr><th id="131">131</th><td>	<dfn class="enum" id="PM_INTERMISSION" title='PM_INTERMISSION' data-ref="PM_INTERMISSION">PM_INTERMISSION</dfn>,	<i>// no movement or status bar</i></td></tr>
+<tr><th id="132">132</th><td>	<dfn class="enum" id="PM_SPINTERMISSION" title='PM_SPINTERMISSION' data-ref="PM_SPINTERMISSION">PM_SPINTERMISSION</dfn>	<i>// no movement or status bar</i></td></tr>
+<tr><th id="133">133</th><td>} <dfn class="typedef" id="pmtype_t" title='pmtype_t' data-type='enum pmtype_t' data-ref="pmtype_t">pmtype_t</dfn>;</td></tr>
+<tr><th id="134">134</th><td></td></tr>
+<tr><th id="135">135</th><td><b>typedef</b> <b>enum</b> {</td></tr>
+<tr><th id="136">136</th><td>	<dfn class="enum" id="WEAPON_READY" title='WEAPON_READY' data-ref="WEAPON_READY">WEAPON_READY</dfn>, </td></tr>
+<tr><th id="137">137</th><td>	<dfn class="enum" id="WEAPON_RAISING" title='WEAPON_RAISING' data-ref="WEAPON_RAISING">WEAPON_RAISING</dfn>,</td></tr>
+<tr><th id="138">138</th><td>	<dfn class="enum" id="WEAPON_DROPPING" title='WEAPON_DROPPING' data-ref="WEAPON_DROPPING">WEAPON_DROPPING</dfn>,</td></tr>
+<tr><th id="139">139</th><td>	<dfn class="enum" id="WEAPON_FIRING" title='WEAPON_FIRING' data-ref="WEAPON_FIRING">WEAPON_FIRING</dfn></td></tr>
+<tr><th id="140">140</th><td>} <dfn class="typedef" id="weaponstate_t" title='weaponstate_t' data-type='enum weaponstate_t' data-ref="weaponstate_t">weaponstate_t</dfn>;</td></tr>
+<tr><th id="141">141</th><td></td></tr>
+<tr><th id="142">142</th><td><i>// pmove-&gt;pm_flags</i></td></tr>
+<tr><th id="143">143</th><td><u>#define	<dfn class="macro" id="_M/PMF_DUCKED" data-ref="_M/PMF_DUCKED">PMF_DUCKED</dfn>			1</u></td></tr>
+<tr><th id="144">144</th><td><u>#define	<dfn class="macro" id="_M/PMF_JUMP_HELD" data-ref="_M/PMF_JUMP_HELD">PMF_JUMP_HELD</dfn>		2</u></td></tr>
+<tr><th id="145">145</th><td><u>#define	<dfn class="macro" id="_M/PMF_BACKWARDS_JUMP" data-ref="_M/PMF_BACKWARDS_JUMP">PMF_BACKWARDS_JUMP</dfn>	8		// go into backwards land</u></td></tr>
+<tr><th id="146">146</th><td><u>#define	<dfn class="macro" id="_M/PMF_BACKWARDS_RUN" data-ref="_M/PMF_BACKWARDS_RUN">PMF_BACKWARDS_RUN</dfn>	16		// coast down to backwards run</u></td></tr>
+<tr><th id="147">147</th><td><u>#define	<dfn class="macro" id="_M/PMF_TIME_LAND" data-ref="_M/PMF_TIME_LAND">PMF_TIME_LAND</dfn>		32		// pm_time is time before rejump</u></td></tr>
+<tr><th id="148">148</th><td><u>#define	<dfn class="macro" id="_M/PMF_TIME_KNOCKBACK" data-ref="_M/PMF_TIME_KNOCKBACK">PMF_TIME_KNOCKBACK</dfn>	64		// pm_time is an air-accelerate only time</u></td></tr>
+<tr><th id="149">149</th><td><u>#define	<dfn class="macro" id="_M/PMF_TIME_WATERJUMP" data-ref="_M/PMF_TIME_WATERJUMP">PMF_TIME_WATERJUMP</dfn>	256		// pm_time is waterjump</u></td></tr>
+<tr><th id="150">150</th><td><u>#define	<dfn class="macro" id="_M/PMF_RESPAWNED" data-ref="_M/PMF_RESPAWNED">PMF_RESPAWNED</dfn>		512		// clear after attack and jump buttons come up</u></td></tr>
+<tr><th id="151">151</th><td><u>#define	<dfn class="macro" id="_M/PMF_USE_ITEM_HELD" data-ref="_M/PMF_USE_ITEM_HELD">PMF_USE_ITEM_HELD</dfn>	1024</u></td></tr>
+<tr><th id="152">152</th><td><u>#define <dfn class="macro" id="_M/PMF_GRAPPLE_PULL" data-ref="_M/PMF_GRAPPLE_PULL">PMF_GRAPPLE_PULL</dfn>	2048	// pull towards grapple location</u></td></tr>
+<tr><th id="153">153</th><td><u>#define <dfn class="macro" id="_M/PMF_FOLLOW" data-ref="_M/PMF_FOLLOW">PMF_FOLLOW</dfn>			4096	// spectate following another player</u></td></tr>
+<tr><th id="154">154</th><td><u>#define <dfn class="macro" id="_M/PMF_SCOREBOARD" data-ref="_M/PMF_SCOREBOARD">PMF_SCOREBOARD</dfn>		8192	// spectate as a scoreboard</u></td></tr>
+<tr><th id="155">155</th><td><u>#define <dfn class="macro" id="_M/PMF_INVULEXPAND" data-ref="_M/PMF_INVULEXPAND">PMF_INVULEXPAND</dfn>		16384	// invulnerability sphere set to full size</u></td></tr>
+<tr><th id="156">156</th><td></td></tr>
+<tr><th id="157">157</th><td><u>#define	<dfn class="macro" id="_M/PMF_ALL_TIMES" data-ref="_M/PMF_ALL_TIMES">PMF_ALL_TIMES</dfn>	(PMF_TIME_WATERJUMP|PMF_TIME_LAND|PMF_TIME_KNOCKBACK)</u></td></tr>
+<tr><th id="158">158</th><td></td></tr>
+<tr><th id="159">159</th><td><u>#define	<dfn class="macro" id="_M/MAXTOUCH" data-ref="_M/MAXTOUCH">MAXTOUCH</dfn>	32</u></td></tr>
+<tr><th id="160">160</th><td><b>typedef</b> <b>struct</b> {</td></tr>
+<tr><th id="161">161</th><td>	<i>// state (in / out)</i></td></tr>
+<tr><th id="162">162</th><td>	<a class="typedef" href="../qcommon/q_shared.h.html#playerState_t" title='playerState_t' data-type='struct playerState_s' data-ref="playerState_t">playerState_t</a>	*<dfn class="decl" id="(anonymous)::ps" title='(anonymous struct)::ps' data-ref="(anonymous)::ps">ps</dfn>;</td></tr>
+<tr><th id="163">163</th><td></td></tr>
+<tr><th id="164">164</th><td>	<i>// command (in)</i></td></tr>
+<tr><th id="165">165</th><td>	<a class="typedef" href="../qcommon/q_shared.h.html#usercmd_t" title='usercmd_t' data-type='struct usercmd_s' data-ref="usercmd_t">usercmd_t</a>	<dfn class="decl" id="(anonymous)::cmd" title='(anonymous struct)::cmd' data-ref="(anonymous)::cmd">cmd</dfn>;</td></tr>
+<tr><th id="166">166</th><td>	<em>int</em>			<dfn class="decl" id="(anonymous)::tracemask" title='(anonymous struct)::tracemask' data-ref="(anonymous)::tracemask">tracemask</dfn>;			<i>// collide against these types of surfaces</i></td></tr>
+<tr><th id="167">167</th><td>	<em>int</em>			<dfn class="decl" id="(anonymous)::debugLevel" title='(anonymous struct)::debugLevel' data-ref="(anonymous)::debugLevel">debugLevel</dfn>;			<i>// if set, diagnostic output will be printed</i></td></tr>
+<tr><th id="168">168</th><td>	<a class="typedef" href="../qcommon/q_shared.h.html#qboolean" title='qboolean' data-type='enum qboolean' data-ref="qboolean">qboolean</a>	<dfn class="decl" id="(anonymous)::noFootsteps" title='(anonymous struct)::noFootsteps' data-ref="(anonymous)::noFootsteps">noFootsteps</dfn>;		<i>// if the game is setup for no footsteps by the server</i></td></tr>
+<tr><th id="169">169</th><td>	<a class="typedef" href="../qcommon/q_shared.h.html#qboolean" title='qboolean' data-type='enum qboolean' data-ref="qboolean">qboolean</a>	<dfn class="decl" id="(anonymous)::gauntletHit" title='(anonymous struct)::gauntletHit' data-ref="(anonymous)::gauntletHit">gauntletHit</dfn>;		<i>// true if a gauntlet attack would actually hit something</i></td></tr>
+<tr><th id="170">170</th><td></td></tr>
+<tr><th id="171">171</th><td>	<em>int</em>			<dfn class="decl" id="(anonymous)::framecount" title='(anonymous struct)::framecount' data-ref="(anonymous)::framecount">framecount</dfn>;</td></tr>
+<tr><th id="172">172</th><td></td></tr>
+<tr><th id="173">173</th><td>	<i>// results (out)</i></td></tr>
+<tr><th id="174">174</th><td>	<em>int</em>			<dfn class="decl" id="(anonymous)::numtouch" title='(anonymous struct)::numtouch' data-ref="(anonymous)::numtouch">numtouch</dfn>;</td></tr>
+<tr><th id="175">175</th><td>	<em>int</em>			<dfn class="decl" id="(anonymous)::touchents" title='(anonymous struct)::touchents' data-ref="(anonymous)::touchents">touchents</dfn>[<a class="macro" href="#159" title="32" data-ref="_M/MAXTOUCH">MAXTOUCH</a>];</td></tr>
+<tr><th id="176">176</th><td></td></tr>
+<tr><th id="177">177</th><td>	<a class="typedef" href="../qcommon/q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a>		<dfn class="decl" id="(anonymous)::mins" title='(anonymous struct)::mins' data-ref="(anonymous)::mins">mins</dfn>, <dfn class="decl" id="(anonymous)::maxs" title='(anonymous struct)::maxs' data-ref="(anonymous)::maxs">maxs</dfn>;			<i>// bounding box size</i></td></tr>
+<tr><th id="178">178</th><td></td></tr>
+<tr><th id="179">179</th><td>	<em>int</em>			<dfn class="decl" id="(anonymous)::watertype" title='(anonymous struct)::watertype' data-ref="(anonymous)::watertype">watertype</dfn>;</td></tr>
+<tr><th id="180">180</th><td>	<em>int</em>			<dfn class="decl" id="(anonymous)::waterlevel" title='(anonymous struct)::waterlevel' data-ref="(anonymous)::waterlevel">waterlevel</dfn>;</td></tr>
+<tr><th id="181">181</th><td></td></tr>
+<tr><th id="182">182</th><td>	<em>float</em>		<dfn class="decl" id="(anonymous)::xyspeed" title='(anonymous struct)::xyspeed' data-ref="(anonymous)::xyspeed">xyspeed</dfn>;</td></tr>
+<tr><th id="183">183</th><td></td></tr>
+<tr><th id="184">184</th><td>	<i>// for fixed msec Pmove</i></td></tr>
+<tr><th id="185">185</th><td>	<em>int</em>			<dfn class="decl" id="(anonymous)::pmove_fixed" title='(anonymous struct)::pmove_fixed' data-ref="(anonymous)::pmove_fixed">pmove_fixed</dfn>;</td></tr>
+<tr><th id="186">186</th><td>	<em>int</em>			<dfn class="decl" id="(anonymous)::pmove_msec" title='(anonymous struct)::pmove_msec' data-ref="(anonymous)::pmove_msec">pmove_msec</dfn>;</td></tr>
+<tr><th id="187">187</th><td></td></tr>
+<tr><th id="188">188</th><td>	<i>// callbacks to test the world</i></td></tr>
+<tr><th id="189">189</th><td><i>	// these will be different functions during game and cgame</i></td></tr>
+<tr><th id="190">190</th><td>	<em>void</em>		(*<dfn class="decl" id="(anonymous)::trace" title='(anonymous struct)::trace' data-ref="(anonymous)::trace">trace</dfn>)( <a class="typedef" href="../qcommon/q_shared.h.html#trace_t" title='trace_t' data-type='struct trace_t' data-ref="trace_t">trace_t</a> *<dfn class="local col1 decl" id="1results" title='results' data-type='trace_t *' data-ref="1results">results</dfn>, <em>const</em> <a class="typedef" href="../qcommon/q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="local col2 decl" id="2start" title='start' data-type='const vec_t *' data-ref="2start">start</dfn>, <em>const</em> <a class="typedef" href="../qcommon/q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="local col3 decl" id="3mins" title='mins' data-type='const vec_t *' data-ref="3mins">mins</dfn>, <em>const</em> <a class="typedef" href="../qcommon/q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="local col4 decl" id="4maxs" title='maxs' data-type='const vec_t *' data-ref="4maxs">maxs</dfn>, <em>const</em> <a class="typedef" href="../qcommon/q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="local col5 decl" id="5end" title='end' data-type='const vec_t *' data-ref="5end">end</dfn>, <em>int</em> <dfn class="local col6 decl" id="6passEntityNum" title='passEntityNum' data-type='int' data-ref="6passEntityNum">passEntityNum</dfn>, <em>int</em> <dfn class="local col7 decl" id="7contentMask" title='contentMask' data-type='int' data-ref="7contentMask">contentMask</dfn> );</td></tr>
+<tr><th id="191">191</th><td>	<em>int</em>			(*<dfn class="decl" id="(anonymous)::pointcontents" title='(anonymous struct)::pointcontents' data-ref="(anonymous)::pointcontents">pointcontents</dfn>)( <em>const</em> <a class="typedef" href="../qcommon/q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="local col8 decl" id="8point" title='point' data-type='const vec_t *' data-ref="8point">point</dfn>, <em>int</em> <dfn class="local col9 decl" id="9passEntityNum" title='passEntityNum' data-type='int' data-ref="9passEntityNum">passEntityNum</dfn> );</td></tr>
+<tr><th id="192">192</th><td>} <dfn class="typedef" id="pmove_t" title='pmove_t' data-type='struct pmove_t' data-ref="pmove_t">pmove_t</dfn>;</td></tr>
+<tr><th id="193">193</th><td></td></tr>
+<tr><th id="194">194</th><td><i>// if a full pmove isn't done on the client, you can just update the angles</i></td></tr>
+<tr><th id="195">195</th><td><em>void</em> <dfn class="decl" id="PM_UpdateViewAngles" title='PM_UpdateViewAngles' data-ref="PM_UpdateViewAngles">PM_UpdateViewAngles</dfn>( <a class="typedef" href="../qcommon/q_shared.h.html#playerState_t" title='playerState_t' data-type='struct playerState_s' data-ref="playerState_t">playerState_t</a> *<dfn class="local col0 decl" id="10ps" title='ps' data-type='playerState_t *' data-ref="10ps">ps</dfn>, <em>const</em> <a class="typedef" href="../qcommon/q_shared.h.html#usercmd_t" title='usercmd_t' data-type='struct usercmd_s' data-ref="usercmd_t">usercmd_t</a> *<dfn class="local col1 decl" id="11cmd" title='cmd' data-type='const usercmd_t *' data-ref="11cmd">cmd</dfn> );</td></tr>
+<tr><th id="196">196</th><td><em>void</em> <dfn class="decl" id="Pmove" title='Pmove' data-ref="Pmove">Pmove</dfn> (<a class="typedef" href="#pmove_t" title='pmove_t' data-type='struct pmove_t' data-ref="pmove_t">pmove_t</a> *<dfn class="local col2 decl" id="12pmove" title='pmove' data-type='pmove_t *' data-ref="12pmove">pmove</dfn>);</td></tr>
+<tr><th id="197">197</th><td></td></tr>
+<tr><th id="198">198</th><td><i>//===================================================================================</i></td></tr>
+<tr><th id="199">199</th><td><i></i></td></tr>
+<tr><th id="200">200</th><td><i></i></td></tr>
+<tr><th id="201">201</th><td><i>// player_state-&gt;stats[] indexes</i></td></tr>
+<tr><th id="202">202</th><td><i>// NOTE: may not have more than 16</i></td></tr>
+<tr><th id="203">203</th><td><b>typedef</b> <b>enum</b> {</td></tr>
+<tr><th id="204">204</th><td>	<dfn class="enum" id="STAT_HEALTH" title='STAT_HEALTH' data-ref="STAT_HEALTH">STAT_HEALTH</dfn>,</td></tr>
+<tr><th id="205">205</th><td>	<dfn class="enum" id="STAT_HOLDABLE_ITEM" title='STAT_HOLDABLE_ITEM' data-ref="STAT_HOLDABLE_ITEM">STAT_HOLDABLE_ITEM</dfn>,</td></tr>
+<tr><th id="206">206</th><td><u>#<span data-ppcond="206">ifdef</span> <span class="macro" data-ref="_M/MISSIONPACK">MISSIONPACK</span></u></td></tr>
+<tr><th id="207">207</th><td>	STAT_PERSISTANT_POWERUP,</td></tr>
+<tr><th id="208">208</th><td><u>#<span data-ppcond="206">endif</span></u></td></tr>
+<tr><th id="209">209</th><td>	<dfn class="enum" id="STAT_WEAPONS" title='STAT_WEAPONS' data-ref="STAT_WEAPONS">STAT_WEAPONS</dfn>,					<i>// 16 bit fields</i></td></tr>
+<tr><th id="210">210</th><td>	<dfn class="enum" id="STAT_ARMOR" title='STAT_ARMOR' data-ref="STAT_ARMOR">STAT_ARMOR</dfn>,				</td></tr>
+<tr><th id="211">211</th><td>	<dfn class="enum" id="STAT_DEAD_YAW" title='STAT_DEAD_YAW' data-ref="STAT_DEAD_YAW">STAT_DEAD_YAW</dfn>,					<i>// look this direction when dead (FIXME: get rid of?)</i></td></tr>
+<tr><th id="212">212</th><td>	<dfn class="enum" id="STAT_CLIENTS_READY" title='STAT_CLIENTS_READY' data-ref="STAT_CLIENTS_READY">STAT_CLIENTS_READY</dfn>,				<i>// bit mask of clients wishing to exit the intermission (FIXME: configstring?)</i></td></tr>
+<tr><th id="213">213</th><td>	<dfn class="enum" id="STAT_MAX_HEALTH" title='STAT_MAX_HEALTH' data-ref="STAT_MAX_HEALTH">STAT_MAX_HEALTH</dfn>					<i>// health / armor limit, changable by handicap</i></td></tr>
+<tr><th id="214">214</th><td>} <dfn class="typedef" id="statIndex_t" title='statIndex_t' data-type='enum statIndex_t' data-ref="statIndex_t">statIndex_t</dfn>;</td></tr>
+<tr><th id="215">215</th><td></td></tr>
+<tr><th id="216">216</th><td></td></tr>
+<tr><th id="217">217</th><td><i>// player_state-&gt;persistant[] indexes</i></td></tr>
+<tr><th id="218">218</th><td><i>// these fields are the only part of player_state that isn't</i></td></tr>
+<tr><th id="219">219</th><td><i>// cleared on respawn</i></td></tr>
+<tr><th id="220">220</th><td><i>// NOTE: may not have more than 16</i></td></tr>
+<tr><th id="221">221</th><td><b>typedef</b> <b>enum</b> {</td></tr>
+<tr><th id="222">222</th><td>	<dfn class="enum" id="PERS_SCORE" title='PERS_SCORE' data-ref="PERS_SCORE">PERS_SCORE</dfn>,						<i>// !!! MUST NOT CHANGE, SERVER AND GAME BOTH REFERENCE !!!</i></td></tr>
+<tr><th id="223">223</th><td>	<dfn class="enum" id="PERS_HITS" title='PERS_HITS' data-ref="PERS_HITS">PERS_HITS</dfn>,						<i>// total points damage inflicted so damage beeps can sound on change</i></td></tr>
+<tr><th id="224">224</th><td>	<dfn class="enum" id="PERS_RANK" title='PERS_RANK' data-ref="PERS_RANK">PERS_RANK</dfn>,						<i>// player rank or team rank</i></td></tr>
+<tr><th id="225">225</th><td>	<dfn class="enum" id="PERS_TEAM" title='PERS_TEAM' data-ref="PERS_TEAM">PERS_TEAM</dfn>,						<i>// player team</i></td></tr>
+<tr><th id="226">226</th><td>	<dfn class="enum" id="PERS_SPAWN_COUNT" title='PERS_SPAWN_COUNT' data-ref="PERS_SPAWN_COUNT">PERS_SPAWN_COUNT</dfn>,				<i>// incremented every respawn</i></td></tr>
+<tr><th id="227">227</th><td>	<dfn class="enum" id="PERS_PLAYEREVENTS" title='PERS_PLAYEREVENTS' data-ref="PERS_PLAYEREVENTS">PERS_PLAYEREVENTS</dfn>,				<i>// 16 bits that can be flipped for events</i></td></tr>
+<tr><th id="228">228</th><td>	<dfn class="enum" id="PERS_ATTACKER" title='PERS_ATTACKER' data-ref="PERS_ATTACKER">PERS_ATTACKER</dfn>,					<i>// clientnum of last damage inflicter</i></td></tr>
+<tr><th id="229">229</th><td>	<dfn class="enum" id="PERS_ATTACKEE_ARMOR" title='PERS_ATTACKEE_ARMOR' data-ref="PERS_ATTACKEE_ARMOR">PERS_ATTACKEE_ARMOR</dfn>,			<i>// health/armor of last person we attacked</i></td></tr>
+<tr><th id="230">230</th><td>	<dfn class="enum" id="PERS_KILLED" title='PERS_KILLED' data-ref="PERS_KILLED">PERS_KILLED</dfn>,					<i>// count of the number of times you died</i></td></tr>
+<tr><th id="231">231</th><td>	<i>// player awards tracking</i></td></tr>
+<tr><th id="232">232</th><td>	<dfn class="enum" id="PERS_IMPRESSIVE_COUNT" title='PERS_IMPRESSIVE_COUNT' data-ref="PERS_IMPRESSIVE_COUNT">PERS_IMPRESSIVE_COUNT</dfn>,			<i>// two railgun hits in a row</i></td></tr>
+<tr><th id="233">233</th><td>	<dfn class="enum" id="PERS_EXCELLENT_COUNT" title='PERS_EXCELLENT_COUNT' data-ref="PERS_EXCELLENT_COUNT">PERS_EXCELLENT_COUNT</dfn>,			<i>// two successive kills in a short amount of time</i></td></tr>
+<tr><th id="234">234</th><td>	<dfn class="enum" id="PERS_DEFEND_COUNT" title='PERS_DEFEND_COUNT' data-ref="PERS_DEFEND_COUNT">PERS_DEFEND_COUNT</dfn>,				<i>// defend awards</i></td></tr>
+<tr><th id="235">235</th><td>	<dfn class="enum" id="PERS_ASSIST_COUNT" title='PERS_ASSIST_COUNT' data-ref="PERS_ASSIST_COUNT">PERS_ASSIST_COUNT</dfn>,				<i>// assist awards</i></td></tr>
+<tr><th id="236">236</th><td>	<dfn class="enum" id="PERS_GAUNTLET_FRAG_COUNT" title='PERS_GAUNTLET_FRAG_COUNT' data-ref="PERS_GAUNTLET_FRAG_COUNT">PERS_GAUNTLET_FRAG_COUNT</dfn>,		<i>// kills with the guantlet</i></td></tr>
+<tr><th id="237">237</th><td>	<dfn class="enum" id="PERS_CAPTURES" title='PERS_CAPTURES' data-ref="PERS_CAPTURES">PERS_CAPTURES</dfn>					<i>// captures</i></td></tr>
+<tr><th id="238">238</th><td>} <dfn class="typedef" id="persEnum_t" title='persEnum_t' data-type='enum persEnum_t' data-ref="persEnum_t">persEnum_t</dfn>;</td></tr>
+<tr><th id="239">239</th><td></td></tr>
+<tr><th id="240">240</th><td></td></tr>
+<tr><th id="241">241</th><td><i>// entityState_t-&gt;eFlags</i></td></tr>
+<tr><th id="242">242</th><td><u>#define	<dfn class="macro" id="_M/EF_DEAD" data-ref="_M/EF_DEAD">EF_DEAD</dfn>				0x00000001		// don't draw a foe marker over players with EF_DEAD</u></td></tr>
+<tr><th id="243">243</th><td><u>#<span data-ppcond="243">ifdef</span> <span class="macro" data-ref="_M/MISSIONPACK">MISSIONPACK</span></u></td></tr>
+<tr><th id="244">244</th><td><u>#define EF_TICKING			0x00000002		// used to make players play the prox mine ticking sound</u></td></tr>
+<tr><th id="245">245</th><td><u>#<span data-ppcond="243">endif</span></u></td></tr>
+<tr><th id="246">246</th><td><u>#define	<dfn class="macro" id="_M/EF_TELEPORT_BIT" data-ref="_M/EF_TELEPORT_BIT">EF_TELEPORT_BIT</dfn>		0x00000004		// toggled every time the origin abruptly changes</u></td></tr>
+<tr><th id="247">247</th><td><u>#define	<dfn class="macro" id="_M/EF_AWARD_EXCELLENT" data-ref="_M/EF_AWARD_EXCELLENT">EF_AWARD_EXCELLENT</dfn>	0x00000008		// draw an excellent sprite</u></td></tr>
+<tr><th id="248">248</th><td><u>#define <dfn class="macro" id="_M/EF_PLAYER_EVENT" data-ref="_M/EF_PLAYER_EVENT">EF_PLAYER_EVENT</dfn>		0x00000010</u></td></tr>
+<tr><th id="249">249</th><td><u>#define	<dfn class="macro" id="_M/EF_BOUNCE" data-ref="_M/EF_BOUNCE">EF_BOUNCE</dfn>			0x00000010		// for missiles</u></td></tr>
+<tr><th id="250">250</th><td><u>#define	<dfn class="macro" id="_M/EF_BOUNCE_HALF" data-ref="_M/EF_BOUNCE_HALF">EF_BOUNCE_HALF</dfn>		0x00000020		// for missiles</u></td></tr>
+<tr><th id="251">251</th><td><u>#define	<dfn class="macro" id="_M/EF_AWARD_GAUNTLET" data-ref="_M/EF_AWARD_GAUNTLET">EF_AWARD_GAUNTLET</dfn>	0x00000040		// draw a gauntlet sprite</u></td></tr>
+<tr><th id="252">252</th><td><u>#define	<dfn class="macro" id="_M/EF_NODRAW" data-ref="_M/EF_NODRAW">EF_NODRAW</dfn>			0x00000080		// may have an event, but no model (unspawned items)</u></td></tr>
+<tr><th id="253">253</th><td><u>#define	<dfn class="macro" id="_M/EF_FIRING" data-ref="_M/EF_FIRING">EF_FIRING</dfn>			0x00000100		// for lightning gun</u></td></tr>
+<tr><th id="254">254</th><td><u>#define	<dfn class="macro" id="_M/EF_KAMIKAZE" data-ref="_M/EF_KAMIKAZE">EF_KAMIKAZE</dfn>			0x00000200</u></td></tr>
+<tr><th id="255">255</th><td><u>#define	<dfn class="macro" id="_M/EF_MOVER_STOP" data-ref="_M/EF_MOVER_STOP">EF_MOVER_STOP</dfn>		0x00000400		// will push otherwise</u></td></tr>
+<tr><th id="256">256</th><td><u>#define <dfn class="macro" id="_M/EF_AWARD_CAP" data-ref="_M/EF_AWARD_CAP">EF_AWARD_CAP</dfn>		0x00000800		// draw the capture sprite</u></td></tr>
+<tr><th id="257">257</th><td><u>#define	<dfn class="macro" id="_M/EF_TALK" data-ref="_M/EF_TALK">EF_TALK</dfn>				0x00001000		// draw a talk balloon</u></td></tr>
+<tr><th id="258">258</th><td><u>#define	<dfn class="macro" id="_M/EF_CONNECTION" data-ref="_M/EF_CONNECTION">EF_CONNECTION</dfn>		0x00002000		// draw a connection trouble sprite</u></td></tr>
+<tr><th id="259">259</th><td><u>#define	<dfn class="macro" id="_M/EF_VOTED" data-ref="_M/EF_VOTED">EF_VOTED</dfn>			0x00004000		// already cast a vote</u></td></tr>
+<tr><th id="260">260</th><td><u>#define	<dfn class="macro" id="_M/EF_AWARD_IMPRESSIVE" data-ref="_M/EF_AWARD_IMPRESSIVE">EF_AWARD_IMPRESSIVE</dfn>	0x00008000		// draw an impressive sprite</u></td></tr>
+<tr><th id="261">261</th><td><u>#define	<dfn class="macro" id="_M/EF_AWARD_DEFEND" data-ref="_M/EF_AWARD_DEFEND">EF_AWARD_DEFEND</dfn>		0x00010000		// draw a defend sprite</u></td></tr>
+<tr><th id="262">262</th><td><u>#define	<dfn class="macro" id="_M/EF_AWARD_ASSIST" data-ref="_M/EF_AWARD_ASSIST">EF_AWARD_ASSIST</dfn>		0x00020000		// draw a assist sprite</u></td></tr>
+<tr><th id="263">263</th><td><u>#define <dfn class="macro" id="_M/EF_AWARD_DENIED" data-ref="_M/EF_AWARD_DENIED">EF_AWARD_DENIED</dfn>		0x00040000		// denied</u></td></tr>
+<tr><th id="264">264</th><td><u>#define <dfn class="macro" id="_M/EF_TEAMVOTED" data-ref="_M/EF_TEAMVOTED">EF_TEAMVOTED</dfn>		0x00080000		// already cast a team vote</u></td></tr>
+<tr><th id="265">265</th><td></td></tr>
+<tr><th id="266">266</th><td><i>// NOTE: may not have more than 16</i></td></tr>
+<tr><th id="267">267</th><td><b>typedef</b> <b>enum</b> {</td></tr>
+<tr><th id="268">268</th><td>	<dfn class="enum" id="PW_NONE" title='PW_NONE' data-ref="PW_NONE">PW_NONE</dfn>,</td></tr>
+<tr><th id="269">269</th><td></td></tr>
+<tr><th id="270">270</th><td>	<dfn class="enum" id="PW_QUAD" title='PW_QUAD' data-ref="PW_QUAD">PW_QUAD</dfn>,</td></tr>
+<tr><th id="271">271</th><td>	<dfn class="enum" id="PW_BATTLESUIT" title='PW_BATTLESUIT' data-ref="PW_BATTLESUIT">PW_BATTLESUIT</dfn>,</td></tr>
+<tr><th id="272">272</th><td>	<dfn class="enum" id="PW_HASTE" title='PW_HASTE' data-ref="PW_HASTE">PW_HASTE</dfn>,</td></tr>
+<tr><th id="273">273</th><td>	<dfn class="enum" id="PW_INVIS" title='PW_INVIS' data-ref="PW_INVIS">PW_INVIS</dfn>,</td></tr>
+<tr><th id="274">274</th><td>	<dfn class="enum" id="PW_REGEN" title='PW_REGEN' data-ref="PW_REGEN">PW_REGEN</dfn>,</td></tr>
+<tr><th id="275">275</th><td>	<dfn class="enum" id="PW_FLIGHT" title='PW_FLIGHT' data-ref="PW_FLIGHT">PW_FLIGHT</dfn>,</td></tr>
+<tr><th id="276">276</th><td></td></tr>
+<tr><th id="277">277</th><td>	<dfn class="enum" id="PW_REDFLAG" title='PW_REDFLAG' data-ref="PW_REDFLAG">PW_REDFLAG</dfn>,</td></tr>
+<tr><th id="278">278</th><td>	<dfn class="enum" id="PW_BLUEFLAG" title='PW_BLUEFLAG' data-ref="PW_BLUEFLAG">PW_BLUEFLAG</dfn>,</td></tr>
+<tr><th id="279">279</th><td>	<dfn class="enum" id="PW_NEUTRALFLAG" title='PW_NEUTRALFLAG' data-ref="PW_NEUTRALFLAG">PW_NEUTRALFLAG</dfn>,</td></tr>
+<tr><th id="280">280</th><td></td></tr>
+<tr><th id="281">281</th><td>	<dfn class="enum" id="PW_SCOUT" title='PW_SCOUT' data-ref="PW_SCOUT">PW_SCOUT</dfn>,</td></tr>
+<tr><th id="282">282</th><td>	<dfn class="enum" id="PW_GUARD" title='PW_GUARD' data-ref="PW_GUARD">PW_GUARD</dfn>,</td></tr>
+<tr><th id="283">283</th><td>	<dfn class="enum" id="PW_DOUBLER" title='PW_DOUBLER' data-ref="PW_DOUBLER">PW_DOUBLER</dfn>,</td></tr>
+<tr><th id="284">284</th><td>	<dfn class="enum" id="PW_AMMOREGEN" title='PW_AMMOREGEN' data-ref="PW_AMMOREGEN">PW_AMMOREGEN</dfn>,</td></tr>
+<tr><th id="285">285</th><td>	<dfn class="enum" id="PW_INVULNERABILITY" title='PW_INVULNERABILITY' data-ref="PW_INVULNERABILITY">PW_INVULNERABILITY</dfn>,</td></tr>
+<tr><th id="286">286</th><td></td></tr>
+<tr><th id="287">287</th><td>	<dfn class="enum" id="PW_NUM_POWERUPS" title='PW_NUM_POWERUPS' data-ref="PW_NUM_POWERUPS">PW_NUM_POWERUPS</dfn></td></tr>
+<tr><th id="288">288</th><td></td></tr>
+<tr><th id="289">289</th><td>} <dfn class="typedef" id="powerup_t" title='powerup_t' data-type='enum powerup_t' data-ref="powerup_t">powerup_t</dfn>;</td></tr>
+<tr><th id="290">290</th><td></td></tr>
+<tr><th id="291">291</th><td><b>typedef</b> <b>enum</b> {</td></tr>
+<tr><th id="292">292</th><td>	<dfn class="enum" id="HI_NONE" title='HI_NONE' data-ref="HI_NONE">HI_NONE</dfn>,</td></tr>
+<tr><th id="293">293</th><td></td></tr>
+<tr><th id="294">294</th><td>	<dfn class="enum" id="HI_TELEPORTER" title='HI_TELEPORTER' data-ref="HI_TELEPORTER">HI_TELEPORTER</dfn>,</td></tr>
+<tr><th id="295">295</th><td>	<dfn class="enum" id="HI_MEDKIT" title='HI_MEDKIT' data-ref="HI_MEDKIT">HI_MEDKIT</dfn>,</td></tr>
+<tr><th id="296">296</th><td>	<dfn class="enum" id="HI_KAMIKAZE" title='HI_KAMIKAZE' data-ref="HI_KAMIKAZE">HI_KAMIKAZE</dfn>,</td></tr>
+<tr><th id="297">297</th><td>	<dfn class="enum" id="HI_PORTAL" title='HI_PORTAL' data-ref="HI_PORTAL">HI_PORTAL</dfn>,</td></tr>
+<tr><th id="298">298</th><td>	<dfn class="enum" id="HI_INVULNERABILITY" title='HI_INVULNERABILITY' data-ref="HI_INVULNERABILITY">HI_INVULNERABILITY</dfn>,</td></tr>
+<tr><th id="299">299</th><td></td></tr>
+<tr><th id="300">300</th><td>	<dfn class="enum" id="HI_NUM_HOLDABLE" title='HI_NUM_HOLDABLE' data-ref="HI_NUM_HOLDABLE">HI_NUM_HOLDABLE</dfn></td></tr>
+<tr><th id="301">301</th><td>} <dfn class="typedef" id="holdable_t" title='holdable_t' data-type='enum holdable_t' data-ref="holdable_t">holdable_t</dfn>;</td></tr>
+<tr><th id="302">302</th><td></td></tr>
+<tr><th id="303">303</th><td></td></tr>
+<tr><th id="304">304</th><td><b>typedef</b> <b>enum</b> {</td></tr>
+<tr><th id="305">305</th><td>	<dfn class="enum" id="WP_NONE" title='WP_NONE' data-ref="WP_NONE">WP_NONE</dfn>,</td></tr>
+<tr><th id="306">306</th><td></td></tr>
+<tr><th id="307">307</th><td>	<dfn class="enum" id="WP_GAUNTLET" title='WP_GAUNTLET' data-ref="WP_GAUNTLET">WP_GAUNTLET</dfn>,</td></tr>
+<tr><th id="308">308</th><td>	<dfn class="enum" id="WP_MACHINEGUN" title='WP_MACHINEGUN' data-ref="WP_MACHINEGUN">WP_MACHINEGUN</dfn>,</td></tr>
+<tr><th id="309">309</th><td>	<dfn class="enum" id="WP_SHOTGUN" title='WP_SHOTGUN' data-ref="WP_SHOTGUN">WP_SHOTGUN</dfn>,</td></tr>
+<tr><th id="310">310</th><td>	<dfn class="enum" id="WP_GRENADE_LAUNCHER" title='WP_GRENADE_LAUNCHER' data-ref="WP_GRENADE_LAUNCHER">WP_GRENADE_LAUNCHER</dfn>,</td></tr>
+<tr><th id="311">311</th><td>	<dfn class="enum" id="WP_ROCKET_LAUNCHER" title='WP_ROCKET_LAUNCHER' data-ref="WP_ROCKET_LAUNCHER">WP_ROCKET_LAUNCHER</dfn>,</td></tr>
+<tr><th id="312">312</th><td>	<dfn class="enum" id="WP_LIGHTNING" title='WP_LIGHTNING' data-ref="WP_LIGHTNING">WP_LIGHTNING</dfn>,</td></tr>
+<tr><th id="313">313</th><td>	<dfn class="enum" id="WP_RAILGUN" title='WP_RAILGUN' data-ref="WP_RAILGUN">WP_RAILGUN</dfn>,</td></tr>
+<tr><th id="314">314</th><td>	<dfn class="enum" id="WP_PLASMAGUN" title='WP_PLASMAGUN' data-ref="WP_PLASMAGUN">WP_PLASMAGUN</dfn>,</td></tr>
+<tr><th id="315">315</th><td>	<dfn class="enum" id="WP_BFG" title='WP_BFG' data-ref="WP_BFG">WP_BFG</dfn>,</td></tr>
+<tr><th id="316">316</th><td>	<dfn class="enum" id="WP_GRAPPLING_HOOK" title='WP_GRAPPLING_HOOK' data-ref="WP_GRAPPLING_HOOK">WP_GRAPPLING_HOOK</dfn>,</td></tr>
+<tr><th id="317">317</th><td><u>#<span data-ppcond="317">ifdef</span> <span class="macro" data-ref="_M/MISSIONPACK">MISSIONPACK</span></u></td></tr>
+<tr><th id="318">318</th><td>	WP_NAILGUN,</td></tr>
+<tr><th id="319">319</th><td>	WP_PROX_LAUNCHER,</td></tr>
+<tr><th id="320">320</th><td>	WP_CHAINGUN,</td></tr>
+<tr><th id="321">321</th><td><u>#<span data-ppcond="317">endif</span></u></td></tr>
+<tr><th id="322">322</th><td></td></tr>
+<tr><th id="323">323</th><td>	<dfn class="enum" id="WP_NUM_WEAPONS" title='WP_NUM_WEAPONS' data-ref="WP_NUM_WEAPONS">WP_NUM_WEAPONS</dfn></td></tr>
+<tr><th id="324">324</th><td>} <dfn class="typedef" id="weapon_t" title='weapon_t' data-type='enum weapon_t' data-ref="weapon_t">weapon_t</dfn>;</td></tr>
+<tr><th id="325">325</th><td></td></tr>
+<tr><th id="326">326</th><td></td></tr>
+<tr><th id="327">327</th><td><i>// reward sounds (stored in ps-&gt;persistant[PERS_PLAYEREVENTS])</i></td></tr>
+<tr><th id="328">328</th><td><u>#define	<dfn class="macro" id="_M/PLAYEREVENT_DENIEDREWARD" data-ref="_M/PLAYEREVENT_DENIEDREWARD">PLAYEREVENT_DENIEDREWARD</dfn>		0x0001</u></td></tr>
+<tr><th id="329">329</th><td><u>#define	<dfn class="macro" id="_M/PLAYEREVENT_GAUNTLETREWARD" data-ref="_M/PLAYEREVENT_GAUNTLETREWARD">PLAYEREVENT_GAUNTLETREWARD</dfn>		0x0002</u></td></tr>
+<tr><th id="330">330</th><td><u>#define <dfn class="macro" id="_M/PLAYEREVENT_HOLYSHIT" data-ref="_M/PLAYEREVENT_HOLYSHIT">PLAYEREVENT_HOLYSHIT</dfn>			0x0004</u></td></tr>
+<tr><th id="331">331</th><td></td></tr>
+<tr><th id="332">332</th><td><i>// entityState_t-&gt;event values</i></td></tr>
+<tr><th id="333">333</th><td><i>// entity events are for effects that take place relative</i></td></tr>
+<tr><th id="334">334</th><td><i>// to an existing entities origin.  Very network efficient.</i></td></tr>
+<tr><th id="335">335</th><td><i></i></td></tr>
+<tr><th id="336">336</th><td><i>// two bits at the top of the entityState-&gt;event field</i></td></tr>
+<tr><th id="337">337</th><td><i>// will be incremented with each change in the event so</i></td></tr>
+<tr><th id="338">338</th><td><i>// that an identical event started twice in a row can</i></td></tr>
+<tr><th id="339">339</th><td><i>// be distinguished.  And off the value with ~EV_EVENT_BITS</i></td></tr>
+<tr><th id="340">340</th><td><i>// to retrieve the actual event number</i></td></tr>
+<tr><th id="341">341</th><td><u>#define	<dfn class="macro" id="_M/EV_EVENT_BIT1" data-ref="_M/EV_EVENT_BIT1">EV_EVENT_BIT1</dfn>		0x00000100</u></td></tr>
+<tr><th id="342">342</th><td><u>#define	<dfn class="macro" id="_M/EV_EVENT_BIT2" data-ref="_M/EV_EVENT_BIT2">EV_EVENT_BIT2</dfn>		0x00000200</u></td></tr>
+<tr><th id="343">343</th><td><u>#define	<dfn class="macro" id="_M/EV_EVENT_BITS" data-ref="_M/EV_EVENT_BITS">EV_EVENT_BITS</dfn>		(EV_EVENT_BIT1|EV_EVENT_BIT2)</u></td></tr>
+<tr><th id="344">344</th><td></td></tr>
+<tr><th id="345">345</th><td><u>#define	<dfn class="macro" id="_M/EVENT_VALID_MSEC" data-ref="_M/EVENT_VALID_MSEC">EVENT_VALID_MSEC</dfn>	300</u></td></tr>
+<tr><th id="346">346</th><td></td></tr>
+<tr><th id="347">347</th><td><b>typedef</b> <b>enum</b> {</td></tr>
+<tr><th id="348">348</th><td>	<dfn class="enum" id="EV_NONE" title='EV_NONE' data-ref="EV_NONE">EV_NONE</dfn>,</td></tr>
+<tr><th id="349">349</th><td></td></tr>
+<tr><th id="350">350</th><td>	<dfn class="enum" id="EV_FOOTSTEP" title='EV_FOOTSTEP' data-ref="EV_FOOTSTEP">EV_FOOTSTEP</dfn>,</td></tr>
+<tr><th id="351">351</th><td>	<dfn class="enum" id="EV_FOOTSTEP_METAL" title='EV_FOOTSTEP_METAL' data-ref="EV_FOOTSTEP_METAL">EV_FOOTSTEP_METAL</dfn>,</td></tr>
+<tr><th id="352">352</th><td>	<dfn class="enum" id="EV_FOOTSPLASH" title='EV_FOOTSPLASH' data-ref="EV_FOOTSPLASH">EV_FOOTSPLASH</dfn>,</td></tr>
+<tr><th id="353">353</th><td>	<dfn class="enum" id="EV_FOOTWADE" title='EV_FOOTWADE' data-ref="EV_FOOTWADE">EV_FOOTWADE</dfn>,</td></tr>
+<tr><th id="354">354</th><td>	<dfn class="enum" id="EV_SWIM" title='EV_SWIM' data-ref="EV_SWIM">EV_SWIM</dfn>,</td></tr>
+<tr><th id="355">355</th><td></td></tr>
+<tr><th id="356">356</th><td>	<dfn class="enum" id="EV_STEP_4" title='EV_STEP_4' data-ref="EV_STEP_4">EV_STEP_4</dfn>,</td></tr>
+<tr><th id="357">357</th><td>	<dfn class="enum" id="EV_STEP_8" title='EV_STEP_8' data-ref="EV_STEP_8">EV_STEP_8</dfn>,</td></tr>
+<tr><th id="358">358</th><td>	<dfn class="enum" id="EV_STEP_12" title='EV_STEP_12' data-ref="EV_STEP_12">EV_STEP_12</dfn>,</td></tr>
+<tr><th id="359">359</th><td>	<dfn class="enum" id="EV_STEP_16" title='EV_STEP_16' data-ref="EV_STEP_16">EV_STEP_16</dfn>,</td></tr>
+<tr><th id="360">360</th><td></td></tr>
+<tr><th id="361">361</th><td>	<dfn class="enum" id="EV_FALL_SHORT" title='EV_FALL_SHORT' data-ref="EV_FALL_SHORT">EV_FALL_SHORT</dfn>,</td></tr>
+<tr><th id="362">362</th><td>	<dfn class="enum" id="EV_FALL_MEDIUM" title='EV_FALL_MEDIUM' data-ref="EV_FALL_MEDIUM">EV_FALL_MEDIUM</dfn>,</td></tr>
+<tr><th id="363">363</th><td>	<dfn class="enum" id="EV_FALL_FAR" title='EV_FALL_FAR' data-ref="EV_FALL_FAR">EV_FALL_FAR</dfn>,</td></tr>
+<tr><th id="364">364</th><td></td></tr>
+<tr><th id="365">365</th><td>	<dfn class="enum" id="EV_JUMP_PAD" title='EV_JUMP_PAD' data-ref="EV_JUMP_PAD">EV_JUMP_PAD</dfn>,			<i>// boing sound at origin, jump sound on player</i></td></tr>
+<tr><th id="366">366</th><td></td></tr>
+<tr><th id="367">367</th><td>	<dfn class="enum" id="EV_JUMP" title='EV_JUMP' data-ref="EV_JUMP">EV_JUMP</dfn>,</td></tr>
+<tr><th id="368">368</th><td>	<dfn class="enum" id="EV_WATER_TOUCH" title='EV_WATER_TOUCH' data-ref="EV_WATER_TOUCH">EV_WATER_TOUCH</dfn>,	<i>// foot touches</i></td></tr>
+<tr><th id="369">369</th><td>	<dfn class="enum" id="EV_WATER_LEAVE" title='EV_WATER_LEAVE' data-ref="EV_WATER_LEAVE">EV_WATER_LEAVE</dfn>,	<i>// foot leaves</i></td></tr>
+<tr><th id="370">370</th><td>	<dfn class="enum" id="EV_WATER_UNDER" title='EV_WATER_UNDER' data-ref="EV_WATER_UNDER">EV_WATER_UNDER</dfn>,	<i>// head touches</i></td></tr>
+<tr><th id="371">371</th><td>	<dfn class="enum" id="EV_WATER_CLEAR" title='EV_WATER_CLEAR' data-ref="EV_WATER_CLEAR">EV_WATER_CLEAR</dfn>,	<i>// head leaves</i></td></tr>
+<tr><th id="372">372</th><td></td></tr>
+<tr><th id="373">373</th><td>	<dfn class="enum" id="EV_ITEM_PICKUP" title='EV_ITEM_PICKUP' data-ref="EV_ITEM_PICKUP">EV_ITEM_PICKUP</dfn>,			<i>// normal item pickups are predictable</i></td></tr>
+<tr><th id="374">374</th><td>	<dfn class="enum" id="EV_GLOBAL_ITEM_PICKUP" title='EV_GLOBAL_ITEM_PICKUP' data-ref="EV_GLOBAL_ITEM_PICKUP">EV_GLOBAL_ITEM_PICKUP</dfn>,	<i>// powerup / team sounds are broadcast to everyone</i></td></tr>
+<tr><th id="375">375</th><td></td></tr>
+<tr><th id="376">376</th><td>	<dfn class="enum" id="EV_NOAMMO" title='EV_NOAMMO' data-ref="EV_NOAMMO">EV_NOAMMO</dfn>,</td></tr>
+<tr><th id="377">377</th><td>	<dfn class="enum" id="EV_CHANGE_WEAPON" title='EV_CHANGE_WEAPON' data-ref="EV_CHANGE_WEAPON">EV_CHANGE_WEAPON</dfn>,</td></tr>
+<tr><th id="378">378</th><td>	<dfn class="enum" id="EV_FIRE_WEAPON" title='EV_FIRE_WEAPON' data-ref="EV_FIRE_WEAPON">EV_FIRE_WEAPON</dfn>,</td></tr>
+<tr><th id="379">379</th><td></td></tr>
+<tr><th id="380">380</th><td>	<dfn class="enum" id="EV_USE_ITEM0" title='EV_USE_ITEM0' data-ref="EV_USE_ITEM0">EV_USE_ITEM0</dfn>,</td></tr>
+<tr><th id="381">381</th><td>	<dfn class="enum" id="EV_USE_ITEM1" title='EV_USE_ITEM1' data-ref="EV_USE_ITEM1">EV_USE_ITEM1</dfn>,</td></tr>
+<tr><th id="382">382</th><td>	<dfn class="enum" id="EV_USE_ITEM2" title='EV_USE_ITEM2' data-ref="EV_USE_ITEM2">EV_USE_ITEM2</dfn>,</td></tr>
+<tr><th id="383">383</th><td>	<dfn class="enum" id="EV_USE_ITEM3" title='EV_USE_ITEM3' data-ref="EV_USE_ITEM3">EV_USE_ITEM3</dfn>,</td></tr>
+<tr><th id="384">384</th><td>	<dfn class="enum" id="EV_USE_ITEM4" title='EV_USE_ITEM4' data-ref="EV_USE_ITEM4">EV_USE_ITEM4</dfn>,</td></tr>
+<tr><th id="385">385</th><td>	<dfn class="enum" id="EV_USE_ITEM5" title='EV_USE_ITEM5' data-ref="EV_USE_ITEM5">EV_USE_ITEM5</dfn>,</td></tr>
+<tr><th id="386">386</th><td>	<dfn class="enum" id="EV_USE_ITEM6" title='EV_USE_ITEM6' data-ref="EV_USE_ITEM6">EV_USE_ITEM6</dfn>,</td></tr>
+<tr><th id="387">387</th><td>	<dfn class="enum" id="EV_USE_ITEM7" title='EV_USE_ITEM7' data-ref="EV_USE_ITEM7">EV_USE_ITEM7</dfn>,</td></tr>
+<tr><th id="388">388</th><td>	<dfn class="enum" id="EV_USE_ITEM8" title='EV_USE_ITEM8' data-ref="EV_USE_ITEM8">EV_USE_ITEM8</dfn>,</td></tr>
+<tr><th id="389">389</th><td>	<dfn class="enum" id="EV_USE_ITEM9" title='EV_USE_ITEM9' data-ref="EV_USE_ITEM9">EV_USE_ITEM9</dfn>,</td></tr>
+<tr><th id="390">390</th><td>	<dfn class="enum" id="EV_USE_ITEM10" title='EV_USE_ITEM10' data-ref="EV_USE_ITEM10">EV_USE_ITEM10</dfn>,</td></tr>
+<tr><th id="391">391</th><td>	<dfn class="enum" id="EV_USE_ITEM11" title='EV_USE_ITEM11' data-ref="EV_USE_ITEM11">EV_USE_ITEM11</dfn>,</td></tr>
+<tr><th id="392">392</th><td>	<dfn class="enum" id="EV_USE_ITEM12" title='EV_USE_ITEM12' data-ref="EV_USE_ITEM12">EV_USE_ITEM12</dfn>,</td></tr>
+<tr><th id="393">393</th><td>	<dfn class="enum" id="EV_USE_ITEM13" title='EV_USE_ITEM13' data-ref="EV_USE_ITEM13">EV_USE_ITEM13</dfn>,</td></tr>
+<tr><th id="394">394</th><td>	<dfn class="enum" id="EV_USE_ITEM14" title='EV_USE_ITEM14' data-ref="EV_USE_ITEM14">EV_USE_ITEM14</dfn>,</td></tr>
+<tr><th id="395">395</th><td>	<dfn class="enum" id="EV_USE_ITEM15" title='EV_USE_ITEM15' data-ref="EV_USE_ITEM15">EV_USE_ITEM15</dfn>,</td></tr>
+<tr><th id="396">396</th><td></td></tr>
+<tr><th id="397">397</th><td>	<dfn class="enum" id="EV_ITEM_RESPAWN" title='EV_ITEM_RESPAWN' data-ref="EV_ITEM_RESPAWN">EV_ITEM_RESPAWN</dfn>,</td></tr>
+<tr><th id="398">398</th><td>	<dfn class="enum" id="EV_ITEM_POP" title='EV_ITEM_POP' data-ref="EV_ITEM_POP">EV_ITEM_POP</dfn>,</td></tr>
+<tr><th id="399">399</th><td>	<dfn class="enum" id="EV_PLAYER_TELEPORT_IN" title='EV_PLAYER_TELEPORT_IN' data-ref="EV_PLAYER_TELEPORT_IN">EV_PLAYER_TELEPORT_IN</dfn>,</td></tr>
+<tr><th id="400">400</th><td>	<dfn class="enum" id="EV_PLAYER_TELEPORT_OUT" title='EV_PLAYER_TELEPORT_OUT' data-ref="EV_PLAYER_TELEPORT_OUT">EV_PLAYER_TELEPORT_OUT</dfn>,</td></tr>
+<tr><th id="401">401</th><td></td></tr>
+<tr><th id="402">402</th><td>	<dfn class="enum" id="EV_GRENADE_BOUNCE" title='EV_GRENADE_BOUNCE' data-ref="EV_GRENADE_BOUNCE">EV_GRENADE_BOUNCE</dfn>,		<i>// eventParm will be the soundindex</i></td></tr>
+<tr><th id="403">403</th><td></td></tr>
+<tr><th id="404">404</th><td>	<dfn class="enum" id="EV_GENERAL_SOUND" title='EV_GENERAL_SOUND' data-ref="EV_GENERAL_SOUND">EV_GENERAL_SOUND</dfn>,</td></tr>
+<tr><th id="405">405</th><td>	<dfn class="enum" id="EV_GLOBAL_SOUND" title='EV_GLOBAL_SOUND' data-ref="EV_GLOBAL_SOUND">EV_GLOBAL_SOUND</dfn>,		<i>// no attenuation</i></td></tr>
+<tr><th id="406">406</th><td>	<dfn class="enum" id="EV_GLOBAL_TEAM_SOUND" title='EV_GLOBAL_TEAM_SOUND' data-ref="EV_GLOBAL_TEAM_SOUND">EV_GLOBAL_TEAM_SOUND</dfn>,</td></tr>
+<tr><th id="407">407</th><td></td></tr>
+<tr><th id="408">408</th><td>	<dfn class="enum" id="EV_BULLET_HIT_FLESH" title='EV_BULLET_HIT_FLESH' data-ref="EV_BULLET_HIT_FLESH">EV_BULLET_HIT_FLESH</dfn>,</td></tr>
+<tr><th id="409">409</th><td>	<dfn class="enum" id="EV_BULLET_HIT_WALL" title='EV_BULLET_HIT_WALL' data-ref="EV_BULLET_HIT_WALL">EV_BULLET_HIT_WALL</dfn>,</td></tr>
+<tr><th id="410">410</th><td></td></tr>
+<tr><th id="411">411</th><td>	<dfn class="enum" id="EV_MISSILE_HIT" title='EV_MISSILE_HIT' data-ref="EV_MISSILE_HIT">EV_MISSILE_HIT</dfn>,</td></tr>
+<tr><th id="412">412</th><td>	<dfn class="enum" id="EV_MISSILE_MISS" title='EV_MISSILE_MISS' data-ref="EV_MISSILE_MISS">EV_MISSILE_MISS</dfn>,</td></tr>
+<tr><th id="413">413</th><td>	<dfn class="enum" id="EV_MISSILE_MISS_METAL" title='EV_MISSILE_MISS_METAL' data-ref="EV_MISSILE_MISS_METAL">EV_MISSILE_MISS_METAL</dfn>,</td></tr>
+<tr><th id="414">414</th><td>	<dfn class="enum" id="EV_RAILTRAIL" title='EV_RAILTRAIL' data-ref="EV_RAILTRAIL">EV_RAILTRAIL</dfn>,</td></tr>
+<tr><th id="415">415</th><td>	<dfn class="enum" id="EV_SHOTGUN" title='EV_SHOTGUN' data-ref="EV_SHOTGUN">EV_SHOTGUN</dfn>,</td></tr>
+<tr><th id="416">416</th><td>	<dfn class="enum" id="EV_BULLET" title='EV_BULLET' data-ref="EV_BULLET">EV_BULLET</dfn>,				<i>// otherEntity is the shooter</i></td></tr>
+<tr><th id="417">417</th><td></td></tr>
+<tr><th id="418">418</th><td>	<dfn class="enum" id="EV_PAIN" title='EV_PAIN' data-ref="EV_PAIN">EV_PAIN</dfn>,</td></tr>
+<tr><th id="419">419</th><td>	<dfn class="enum" id="EV_DEATH1" title='EV_DEATH1' data-ref="EV_DEATH1">EV_DEATH1</dfn>,</td></tr>
+<tr><th id="420">420</th><td>	<dfn class="enum" id="EV_DEATH2" title='EV_DEATH2' data-ref="EV_DEATH2">EV_DEATH2</dfn>,</td></tr>
+<tr><th id="421">421</th><td>	<dfn class="enum" id="EV_DEATH3" title='EV_DEATH3' data-ref="EV_DEATH3">EV_DEATH3</dfn>,</td></tr>
+<tr><th id="422">422</th><td>	<dfn class="enum" id="EV_OBITUARY" title='EV_OBITUARY' data-ref="EV_OBITUARY">EV_OBITUARY</dfn>,</td></tr>
+<tr><th id="423">423</th><td></td></tr>
+<tr><th id="424">424</th><td>	<dfn class="enum" id="EV_POWERUP_QUAD" title='EV_POWERUP_QUAD' data-ref="EV_POWERUP_QUAD">EV_POWERUP_QUAD</dfn>,</td></tr>
+<tr><th id="425">425</th><td>	<dfn class="enum" id="EV_POWERUP_BATTLESUIT" title='EV_POWERUP_BATTLESUIT' data-ref="EV_POWERUP_BATTLESUIT">EV_POWERUP_BATTLESUIT</dfn>,</td></tr>
+<tr><th id="426">426</th><td>	<dfn class="enum" id="EV_POWERUP_REGEN" title='EV_POWERUP_REGEN' data-ref="EV_POWERUP_REGEN">EV_POWERUP_REGEN</dfn>,</td></tr>
+<tr><th id="427">427</th><td></td></tr>
+<tr><th id="428">428</th><td>	<dfn class="enum" id="EV_GIB_PLAYER" title='EV_GIB_PLAYER' data-ref="EV_GIB_PLAYER">EV_GIB_PLAYER</dfn>,			<i>// gib a previously living player</i></td></tr>
+<tr><th id="429">429</th><td>	<dfn class="enum" id="EV_SCOREPLUM" title='EV_SCOREPLUM' data-ref="EV_SCOREPLUM">EV_SCOREPLUM</dfn>,			<i>// score plum</i></td></tr>
+<tr><th id="430">430</th><td></td></tr>
+<tr><th id="431">431</th><td><i>//#ifdef MISSIONPACK</i></td></tr>
+<tr><th id="432">432</th><td>	<dfn class="enum" id="EV_PROXIMITY_MINE_STICK" title='EV_PROXIMITY_MINE_STICK' data-ref="EV_PROXIMITY_MINE_STICK">EV_PROXIMITY_MINE_STICK</dfn>,</td></tr>
+<tr><th id="433">433</th><td>	<dfn class="enum" id="EV_PROXIMITY_MINE_TRIGGER" title='EV_PROXIMITY_MINE_TRIGGER' data-ref="EV_PROXIMITY_MINE_TRIGGER">EV_PROXIMITY_MINE_TRIGGER</dfn>,</td></tr>
+<tr><th id="434">434</th><td>	<dfn class="enum" id="EV_KAMIKAZE" title='EV_KAMIKAZE' data-ref="EV_KAMIKAZE">EV_KAMIKAZE</dfn>,			<i>// kamikaze explodes</i></td></tr>
+<tr><th id="435">435</th><td>	<dfn class="enum" id="EV_OBELISKEXPLODE" title='EV_OBELISKEXPLODE' data-ref="EV_OBELISKEXPLODE">EV_OBELISKEXPLODE</dfn>,		<i>// obelisk explodes</i></td></tr>
+<tr><th id="436">436</th><td>	<dfn class="enum" id="EV_OBELISKPAIN" title='EV_OBELISKPAIN' data-ref="EV_OBELISKPAIN">EV_OBELISKPAIN</dfn>,			<i>// obelisk is in pain</i></td></tr>
+<tr><th id="437">437</th><td>	<dfn class="enum" id="EV_INVUL_IMPACT" title='EV_INVUL_IMPACT' data-ref="EV_INVUL_IMPACT">EV_INVUL_IMPACT</dfn>,		<i>// invulnerability sphere impact</i></td></tr>
+<tr><th id="438">438</th><td>	<dfn class="enum" id="EV_JUICED" title='EV_JUICED' data-ref="EV_JUICED">EV_JUICED</dfn>,				<i>// invulnerability juiced effect</i></td></tr>
+<tr><th id="439">439</th><td>	<dfn class="enum" id="EV_LIGHTNINGBOLT" title='EV_LIGHTNINGBOLT' data-ref="EV_LIGHTNINGBOLT">EV_LIGHTNINGBOLT</dfn>,		<i>// lightning bolt bounced of invulnerability sphere</i></td></tr>
+<tr><th id="440">440</th><td><i>//#endif</i></td></tr>
+<tr><th id="441">441</th><td></td></tr>
+<tr><th id="442">442</th><td>	<dfn class="enum" id="EV_DEBUG_LINE" title='EV_DEBUG_LINE' data-ref="EV_DEBUG_LINE">EV_DEBUG_LINE</dfn>,</td></tr>
+<tr><th id="443">443</th><td>	<dfn class="enum" id="EV_STOPLOOPINGSOUND" title='EV_STOPLOOPINGSOUND' data-ref="EV_STOPLOOPINGSOUND">EV_STOPLOOPINGSOUND</dfn>,</td></tr>
+<tr><th id="444">444</th><td>	<dfn class="enum" id="EV_TAUNT" title='EV_TAUNT' data-ref="EV_TAUNT">EV_TAUNT</dfn>,</td></tr>
+<tr><th id="445">445</th><td>	<dfn class="enum" id="EV_TAUNT_YES" title='EV_TAUNT_YES' data-ref="EV_TAUNT_YES">EV_TAUNT_YES</dfn>,</td></tr>
+<tr><th id="446">446</th><td>	<dfn class="enum" id="EV_TAUNT_NO" title='EV_TAUNT_NO' data-ref="EV_TAUNT_NO">EV_TAUNT_NO</dfn>,</td></tr>
+<tr><th id="447">447</th><td>	<dfn class="enum" id="EV_TAUNT_FOLLOWME" title='EV_TAUNT_FOLLOWME' data-ref="EV_TAUNT_FOLLOWME">EV_TAUNT_FOLLOWME</dfn>,</td></tr>
+<tr><th id="448">448</th><td>	<dfn class="enum" id="EV_TAUNT_GETFLAG" title='EV_TAUNT_GETFLAG' data-ref="EV_TAUNT_GETFLAG">EV_TAUNT_GETFLAG</dfn>,</td></tr>
+<tr><th id="449">449</th><td>	<dfn class="enum" id="EV_TAUNT_GUARDBASE" title='EV_TAUNT_GUARDBASE' data-ref="EV_TAUNT_GUARDBASE">EV_TAUNT_GUARDBASE</dfn>,</td></tr>
+<tr><th id="450">450</th><td>	<dfn class="enum" id="EV_TAUNT_PATROL" title='EV_TAUNT_PATROL' data-ref="EV_TAUNT_PATROL">EV_TAUNT_PATROL</dfn></td></tr>
+<tr><th id="451">451</th><td></td></tr>
+<tr><th id="452">452</th><td>} <dfn class="typedef" id="entity_event_t" title='entity_event_t' data-type='enum entity_event_t' data-ref="entity_event_t">entity_event_t</dfn>;</td></tr>
+<tr><th id="453">453</th><td></td></tr>
+<tr><th id="454">454</th><td></td></tr>
+<tr><th id="455">455</th><td><b>typedef</b> <b>enum</b> {</td></tr>
+<tr><th id="456">456</th><td>	<dfn class="enum" id="GTS_RED_CAPTURE" title='GTS_RED_CAPTURE' data-ref="GTS_RED_CAPTURE">GTS_RED_CAPTURE</dfn>,</td></tr>
+<tr><th id="457">457</th><td>	<dfn class="enum" id="GTS_BLUE_CAPTURE" title='GTS_BLUE_CAPTURE' data-ref="GTS_BLUE_CAPTURE">GTS_BLUE_CAPTURE</dfn>,</td></tr>
+<tr><th id="458">458</th><td>	<dfn class="enum" id="GTS_RED_RETURN" title='GTS_RED_RETURN' data-ref="GTS_RED_RETURN">GTS_RED_RETURN</dfn>,</td></tr>
+<tr><th id="459">459</th><td>	<dfn class="enum" id="GTS_BLUE_RETURN" title='GTS_BLUE_RETURN' data-ref="GTS_BLUE_RETURN">GTS_BLUE_RETURN</dfn>,</td></tr>
+<tr><th id="460">460</th><td>	<dfn class="enum" id="GTS_RED_TAKEN" title='GTS_RED_TAKEN' data-ref="GTS_RED_TAKEN">GTS_RED_TAKEN</dfn>,</td></tr>
+<tr><th id="461">461</th><td>	<dfn class="enum" id="GTS_BLUE_TAKEN" title='GTS_BLUE_TAKEN' data-ref="GTS_BLUE_TAKEN">GTS_BLUE_TAKEN</dfn>,</td></tr>
+<tr><th id="462">462</th><td>	<dfn class="enum" id="GTS_REDOBELISK_ATTACKED" title='GTS_REDOBELISK_ATTACKED' data-ref="GTS_REDOBELISK_ATTACKED">GTS_REDOBELISK_ATTACKED</dfn>,</td></tr>
+<tr><th id="463">463</th><td>	<dfn class="enum" id="GTS_BLUEOBELISK_ATTACKED" title='GTS_BLUEOBELISK_ATTACKED' data-ref="GTS_BLUEOBELISK_ATTACKED">GTS_BLUEOBELISK_ATTACKED</dfn>,</td></tr>
+<tr><th id="464">464</th><td>	<dfn class="enum" id="GTS_REDTEAM_SCORED" title='GTS_REDTEAM_SCORED' data-ref="GTS_REDTEAM_SCORED">GTS_REDTEAM_SCORED</dfn>,</td></tr>
+<tr><th id="465">465</th><td>	<dfn class="enum" id="GTS_BLUETEAM_SCORED" title='GTS_BLUETEAM_SCORED' data-ref="GTS_BLUETEAM_SCORED">GTS_BLUETEAM_SCORED</dfn>,</td></tr>
+<tr><th id="466">466</th><td>	<dfn class="enum" id="GTS_REDTEAM_TOOK_LEAD" title='GTS_REDTEAM_TOOK_LEAD' data-ref="GTS_REDTEAM_TOOK_LEAD">GTS_REDTEAM_TOOK_LEAD</dfn>,</td></tr>
+<tr><th id="467">467</th><td>	<dfn class="enum" id="GTS_BLUETEAM_TOOK_LEAD" title='GTS_BLUETEAM_TOOK_LEAD' data-ref="GTS_BLUETEAM_TOOK_LEAD">GTS_BLUETEAM_TOOK_LEAD</dfn>,</td></tr>
+<tr><th id="468">468</th><td>	<dfn class="enum" id="GTS_TEAMS_ARE_TIED" title='GTS_TEAMS_ARE_TIED' data-ref="GTS_TEAMS_ARE_TIED">GTS_TEAMS_ARE_TIED</dfn>,</td></tr>
+<tr><th id="469">469</th><td>	<dfn class="enum" id="GTS_KAMIKAZE" title='GTS_KAMIKAZE' data-ref="GTS_KAMIKAZE">GTS_KAMIKAZE</dfn></td></tr>
+<tr><th id="470">470</th><td>} <dfn class="typedef" id="global_team_sound_t" title='global_team_sound_t' data-type='enum global_team_sound_t' data-ref="global_team_sound_t">global_team_sound_t</dfn>;</td></tr>
+<tr><th id="471">471</th><td></td></tr>
+<tr><th id="472">472</th><td><i>// animations</i></td></tr>
+<tr><th id="473">473</th><td><b>typedef</b> <b>enum</b> {</td></tr>
+<tr><th id="474">474</th><td>	<dfn class="enum" id="BOTH_DEATH1" title='BOTH_DEATH1' data-ref="BOTH_DEATH1">BOTH_DEATH1</dfn>,</td></tr>
+<tr><th id="475">475</th><td>	<dfn class="enum" id="BOTH_DEAD1" title='BOTH_DEAD1' data-ref="BOTH_DEAD1">BOTH_DEAD1</dfn>,</td></tr>
+<tr><th id="476">476</th><td>	<dfn class="enum" id="BOTH_DEATH2" title='BOTH_DEATH2' data-ref="BOTH_DEATH2">BOTH_DEATH2</dfn>,</td></tr>
+<tr><th id="477">477</th><td>	<dfn class="enum" id="BOTH_DEAD2" title='BOTH_DEAD2' data-ref="BOTH_DEAD2">BOTH_DEAD2</dfn>,</td></tr>
+<tr><th id="478">478</th><td>	<dfn class="enum" id="BOTH_DEATH3" title='BOTH_DEATH3' data-ref="BOTH_DEATH3">BOTH_DEATH3</dfn>,</td></tr>
+<tr><th id="479">479</th><td>	<dfn class="enum" id="BOTH_DEAD3" title='BOTH_DEAD3' data-ref="BOTH_DEAD3">BOTH_DEAD3</dfn>,</td></tr>
+<tr><th id="480">480</th><td></td></tr>
+<tr><th id="481">481</th><td>	<dfn class="enum" id="TORSO_GESTURE" title='TORSO_GESTURE' data-ref="TORSO_GESTURE">TORSO_GESTURE</dfn>,</td></tr>
+<tr><th id="482">482</th><td></td></tr>
+<tr><th id="483">483</th><td>	<dfn class="enum" id="TORSO_ATTACK" title='TORSO_ATTACK' data-ref="TORSO_ATTACK">TORSO_ATTACK</dfn>,</td></tr>
+<tr><th id="484">484</th><td>	<dfn class="enum" id="TORSO_ATTACK2" title='TORSO_ATTACK2' data-ref="TORSO_ATTACK2">TORSO_ATTACK2</dfn>,</td></tr>
+<tr><th id="485">485</th><td></td></tr>
+<tr><th id="486">486</th><td>	<dfn class="enum" id="TORSO_DROP" title='TORSO_DROP' data-ref="TORSO_DROP">TORSO_DROP</dfn>,</td></tr>
+<tr><th id="487">487</th><td>	<dfn class="enum" id="TORSO_RAISE" title='TORSO_RAISE' data-ref="TORSO_RAISE">TORSO_RAISE</dfn>,</td></tr>
+<tr><th id="488">488</th><td></td></tr>
+<tr><th id="489">489</th><td>	<dfn class="enum" id="TORSO_STAND" title='TORSO_STAND' data-ref="TORSO_STAND">TORSO_STAND</dfn>,</td></tr>
+<tr><th id="490">490</th><td>	<dfn class="enum" id="TORSO_STAND2" title='TORSO_STAND2' data-ref="TORSO_STAND2">TORSO_STAND2</dfn>,</td></tr>
+<tr><th id="491">491</th><td></td></tr>
+<tr><th id="492">492</th><td>	<dfn class="enum" id="LEGS_WALKCR" title='LEGS_WALKCR' data-ref="LEGS_WALKCR">LEGS_WALKCR</dfn>,</td></tr>
+<tr><th id="493">493</th><td>	<dfn class="enum" id="LEGS_WALK" title='LEGS_WALK' data-ref="LEGS_WALK">LEGS_WALK</dfn>,</td></tr>
+<tr><th id="494">494</th><td>	<dfn class="enum" id="LEGS_RUN" title='LEGS_RUN' data-ref="LEGS_RUN">LEGS_RUN</dfn>,</td></tr>
+<tr><th id="495">495</th><td>	<dfn class="enum" id="LEGS_BACK" title='LEGS_BACK' data-ref="LEGS_BACK">LEGS_BACK</dfn>,</td></tr>
+<tr><th id="496">496</th><td>	<dfn class="enum" id="LEGS_SWIM" title='LEGS_SWIM' data-ref="LEGS_SWIM">LEGS_SWIM</dfn>,</td></tr>
+<tr><th id="497">497</th><td></td></tr>
+<tr><th id="498">498</th><td>	<dfn class="enum" id="LEGS_JUMP" title='LEGS_JUMP' data-ref="LEGS_JUMP">LEGS_JUMP</dfn>,</td></tr>
+<tr><th id="499">499</th><td>	<dfn class="enum" id="LEGS_LAND" title='LEGS_LAND' data-ref="LEGS_LAND">LEGS_LAND</dfn>,</td></tr>
+<tr><th id="500">500</th><td></td></tr>
+<tr><th id="501">501</th><td>	<dfn class="enum" id="LEGS_JUMPB" title='LEGS_JUMPB' data-ref="LEGS_JUMPB">LEGS_JUMPB</dfn>,</td></tr>
+<tr><th id="502">502</th><td>	<dfn class="enum" id="LEGS_LANDB" title='LEGS_LANDB' data-ref="LEGS_LANDB">LEGS_LANDB</dfn>,</td></tr>
+<tr><th id="503">503</th><td></td></tr>
+<tr><th id="504">504</th><td>	<dfn class="enum" id="LEGS_IDLE" title='LEGS_IDLE' data-ref="LEGS_IDLE">LEGS_IDLE</dfn>,</td></tr>
+<tr><th id="505">505</th><td>	<dfn class="enum" id="LEGS_IDLECR" title='LEGS_IDLECR' data-ref="LEGS_IDLECR">LEGS_IDLECR</dfn>,</td></tr>
+<tr><th id="506">506</th><td></td></tr>
+<tr><th id="507">507</th><td>	<dfn class="enum" id="LEGS_TURN" title='LEGS_TURN' data-ref="LEGS_TURN">LEGS_TURN</dfn>,</td></tr>
+<tr><th id="508">508</th><td></td></tr>
+<tr><th id="509">509</th><td>	<dfn class="enum" id="TORSO_GETFLAG" title='TORSO_GETFLAG' data-ref="TORSO_GETFLAG">TORSO_GETFLAG</dfn>,</td></tr>
+<tr><th id="510">510</th><td>	<dfn class="enum" id="TORSO_GUARDBASE" title='TORSO_GUARDBASE' data-ref="TORSO_GUARDBASE">TORSO_GUARDBASE</dfn>,</td></tr>
+<tr><th id="511">511</th><td>	<dfn class="enum" id="TORSO_PATROL" title='TORSO_PATROL' data-ref="TORSO_PATROL">TORSO_PATROL</dfn>,</td></tr>
+<tr><th id="512">512</th><td>	<dfn class="enum" id="TORSO_FOLLOWME" title='TORSO_FOLLOWME' data-ref="TORSO_FOLLOWME">TORSO_FOLLOWME</dfn>,</td></tr>
+<tr><th id="513">513</th><td>	<dfn class="enum" id="TORSO_AFFIRMATIVE" title='TORSO_AFFIRMATIVE' data-ref="TORSO_AFFIRMATIVE">TORSO_AFFIRMATIVE</dfn>,</td></tr>
+<tr><th id="514">514</th><td>	<dfn class="enum" id="TORSO_NEGATIVE" title='TORSO_NEGATIVE' data-ref="TORSO_NEGATIVE">TORSO_NEGATIVE</dfn>,</td></tr>
+<tr><th id="515">515</th><td></td></tr>
+<tr><th id="516">516</th><td>	<dfn class="enum" id="MAX_ANIMATIONS" title='MAX_ANIMATIONS' data-ref="MAX_ANIMATIONS">MAX_ANIMATIONS</dfn>,</td></tr>
+<tr><th id="517">517</th><td></td></tr>
+<tr><th id="518">518</th><td>	<dfn class="enum" id="LEGS_BACKCR" title='LEGS_BACKCR' data-ref="LEGS_BACKCR">LEGS_BACKCR</dfn>,</td></tr>
+<tr><th id="519">519</th><td>	<dfn class="enum" id="LEGS_BACKWALK" title='LEGS_BACKWALK' data-ref="LEGS_BACKWALK">LEGS_BACKWALK</dfn>,</td></tr>
+<tr><th id="520">520</th><td>	<dfn class="enum" id="FLAG_RUN" title='FLAG_RUN' data-ref="FLAG_RUN">FLAG_RUN</dfn>,</td></tr>
+<tr><th id="521">521</th><td>	<dfn class="enum" id="FLAG_STAND" title='FLAG_STAND' data-ref="FLAG_STAND">FLAG_STAND</dfn>,</td></tr>
+<tr><th id="522">522</th><td>	<dfn class="enum" id="FLAG_STAND2RUN" title='FLAG_STAND2RUN' data-ref="FLAG_STAND2RUN">FLAG_STAND2RUN</dfn>,</td></tr>
+<tr><th id="523">523</th><td></td></tr>
+<tr><th id="524">524</th><td>	<dfn class="enum" id="MAX_TOTALANIMATIONS" title='MAX_TOTALANIMATIONS' data-ref="MAX_TOTALANIMATIONS">MAX_TOTALANIMATIONS</dfn></td></tr>
+<tr><th id="525">525</th><td>} <dfn class="typedef" id="animNumber_t" title='animNumber_t' data-type='enum animNumber_t' data-ref="animNumber_t">animNumber_t</dfn>;</td></tr>
+<tr><th id="526">526</th><td></td></tr>
+<tr><th id="527">527</th><td></td></tr>
+<tr><th id="528">528</th><td><b>typedef</b> <b>struct</b> <dfn class="type def" id="animation_s" title='animation_s' data-ref="animation_s"><a class="type" href="#animation_s" title='animation_s' data-ref="animation_s">animation_s</a></dfn> {</td></tr>
+<tr><th id="529">529</th><td>	<em>int</em>		<dfn class="decl" id="animation_s::firstFrame" title='animation_s::firstFrame' data-ref="animation_s::firstFrame">firstFrame</dfn>;</td></tr>
+<tr><th id="530">530</th><td>	<em>int</em>		<dfn class="decl" id="animation_s::numFrames" title='animation_s::numFrames' data-ref="animation_s::numFrames">numFrames</dfn>;</td></tr>
+<tr><th id="531">531</th><td>	<em>int</em>		<dfn class="decl" id="animation_s::loopFrames" title='animation_s::loopFrames' data-ref="animation_s::loopFrames">loopFrames</dfn>;			<i>// 0 to numFrames</i></td></tr>
+<tr><th id="532">532</th><td>	<em>int</em>		<dfn class="decl" id="animation_s::frameLerp" title='animation_s::frameLerp' data-ref="animation_s::frameLerp">frameLerp</dfn>;			<i>// msec between frames</i></td></tr>
+<tr><th id="533">533</th><td>	<em>int</em>		<dfn class="decl" id="animation_s::initialLerp" title='animation_s::initialLerp' data-ref="animation_s::initialLerp">initialLerp</dfn>;		<i>// msec to get to first frame</i></td></tr>
+<tr><th id="534">534</th><td>	<em>int</em>		<dfn class="decl" id="animation_s::reversed" title='animation_s::reversed' data-ref="animation_s::reversed">reversed</dfn>;			<i>// true if animation is reversed</i></td></tr>
+<tr><th id="535">535</th><td>	<em>int</em>		<dfn class="decl" id="animation_s::flipflop" title='animation_s::flipflop' data-ref="animation_s::flipflop">flipflop</dfn>;			<i>// true if animation should flipflop back to base</i></td></tr>
+<tr><th id="536">536</th><td>} <dfn class="typedef" id="animation_t" title='animation_t' data-type='struct animation_s' data-ref="animation_t">animation_t</dfn>;</td></tr>
+<tr><th id="537">537</th><td></td></tr>
+<tr><th id="538">538</th><td></td></tr>
+<tr><th id="539">539</th><td><i>// flip the togglebit every time an animation</i></td></tr>
+<tr><th id="540">540</th><td><i>// changes so a restart of the same anim can be detected</i></td></tr>
+<tr><th id="541">541</th><td><u>#define	<dfn class="macro" id="_M/ANIM_TOGGLEBIT" data-ref="_M/ANIM_TOGGLEBIT">ANIM_TOGGLEBIT</dfn>		128</u></td></tr>
+<tr><th id="542">542</th><td></td></tr>
+<tr><th id="543">543</th><td></td></tr>
+<tr><th id="544">544</th><td><b>typedef</b> <b>enum</b> {</td></tr>
+<tr><th id="545">545</th><td>	<dfn class="enum" id="TEAM_FREE" title='TEAM_FREE' data-ref="TEAM_FREE">TEAM_FREE</dfn>,</td></tr>
+<tr><th id="546">546</th><td>	<dfn class="enum" id="TEAM_RED" title='TEAM_RED' data-ref="TEAM_RED">TEAM_RED</dfn>,</td></tr>
+<tr><th id="547">547</th><td>	<dfn class="enum" id="TEAM_BLUE" title='TEAM_BLUE' data-ref="TEAM_BLUE">TEAM_BLUE</dfn>,</td></tr>
+<tr><th id="548">548</th><td>	<dfn class="enum" id="TEAM_SPECTATOR" title='TEAM_SPECTATOR' data-ref="TEAM_SPECTATOR">TEAM_SPECTATOR</dfn>,</td></tr>
+<tr><th id="549">549</th><td></td></tr>
+<tr><th id="550">550</th><td>	<dfn class="enum" id="TEAM_NUM_TEAMS" title='TEAM_NUM_TEAMS' data-ref="TEAM_NUM_TEAMS">TEAM_NUM_TEAMS</dfn></td></tr>
+<tr><th id="551">551</th><td>} <dfn class="typedef" id="team_t" title='team_t' data-type='enum team_t' data-ref="team_t">team_t</dfn>;</td></tr>
+<tr><th id="552">552</th><td></td></tr>
+<tr><th id="553">553</th><td><i>// Time between location updates</i></td></tr>
+<tr><th id="554">554</th><td><u>#define <dfn class="macro" id="_M/TEAM_LOCATION_UPDATE_TIME" data-ref="_M/TEAM_LOCATION_UPDATE_TIME">TEAM_LOCATION_UPDATE_TIME</dfn>		1000</u></td></tr>
+<tr><th id="555">555</th><td></td></tr>
+<tr><th id="556">556</th><td><i>// How many players on the overlay</i></td></tr>
+<tr><th id="557">557</th><td><u>#define <dfn class="macro" id="_M/TEAM_MAXOVERLAY" data-ref="_M/TEAM_MAXOVERLAY">TEAM_MAXOVERLAY</dfn>		32</u></td></tr>
+<tr><th id="558">558</th><td></td></tr>
+<tr><th id="559">559</th><td><i>//team task</i></td></tr>
+<tr><th id="560">560</th><td><b>typedef</b> <b>enum</b> {</td></tr>
+<tr><th id="561">561</th><td>	<dfn class="enum" id="TEAMTASK_NONE" title='TEAMTASK_NONE' data-ref="TEAMTASK_NONE">TEAMTASK_NONE</dfn>,</td></tr>
+<tr><th id="562">562</th><td>	<dfn class="enum" id="TEAMTASK_OFFENSE" title='TEAMTASK_OFFENSE' data-ref="TEAMTASK_OFFENSE">TEAMTASK_OFFENSE</dfn>, </td></tr>
+<tr><th id="563">563</th><td>	<dfn class="enum" id="TEAMTASK_DEFENSE" title='TEAMTASK_DEFENSE' data-ref="TEAMTASK_DEFENSE">TEAMTASK_DEFENSE</dfn>,</td></tr>
+<tr><th id="564">564</th><td>	<dfn class="enum" id="TEAMTASK_PATROL" title='TEAMTASK_PATROL' data-ref="TEAMTASK_PATROL">TEAMTASK_PATROL</dfn>,</td></tr>
+<tr><th id="565">565</th><td>	<dfn class="enum" id="TEAMTASK_FOLLOW" title='TEAMTASK_FOLLOW' data-ref="TEAMTASK_FOLLOW">TEAMTASK_FOLLOW</dfn>,</td></tr>
+<tr><th id="566">566</th><td>	<dfn class="enum" id="TEAMTASK_RETRIEVE" title='TEAMTASK_RETRIEVE' data-ref="TEAMTASK_RETRIEVE">TEAMTASK_RETRIEVE</dfn>,</td></tr>
+<tr><th id="567">567</th><td>	<dfn class="enum" id="TEAMTASK_ESCORT" title='TEAMTASK_ESCORT' data-ref="TEAMTASK_ESCORT">TEAMTASK_ESCORT</dfn>,</td></tr>
+<tr><th id="568">568</th><td>	<dfn class="enum" id="TEAMTASK_CAMP" title='TEAMTASK_CAMP' data-ref="TEAMTASK_CAMP">TEAMTASK_CAMP</dfn></td></tr>
+<tr><th id="569">569</th><td>} <dfn class="typedef" id="teamtask_t" title='teamtask_t' data-type='enum teamtask_t' data-ref="teamtask_t">teamtask_t</dfn>;</td></tr>
+<tr><th id="570">570</th><td></td></tr>
+<tr><th id="571">571</th><td><i>// means of death</i></td></tr>
+<tr><th id="572">572</th><td><b>typedef</b> <b>enum</b> {</td></tr>
+<tr><th id="573">573</th><td>	<dfn class="enum" id="MOD_UNKNOWN" title='MOD_UNKNOWN' data-ref="MOD_UNKNOWN">MOD_UNKNOWN</dfn>,</td></tr>
+<tr><th id="574">574</th><td>	<dfn class="enum" id="MOD_SHOTGUN" title='MOD_SHOTGUN' data-ref="MOD_SHOTGUN">MOD_SHOTGUN</dfn>,</td></tr>
+<tr><th id="575">575</th><td>	<dfn class="enum" id="MOD_GAUNTLET" title='MOD_GAUNTLET' data-ref="MOD_GAUNTLET">MOD_GAUNTLET</dfn>,</td></tr>
+<tr><th id="576">576</th><td>	<dfn class="enum" id="MOD_MACHINEGUN" title='MOD_MACHINEGUN' data-ref="MOD_MACHINEGUN">MOD_MACHINEGUN</dfn>,</td></tr>
+<tr><th id="577">577</th><td>	<dfn class="enum" id="MOD_GRENADE" title='MOD_GRENADE' data-ref="MOD_GRENADE">MOD_GRENADE</dfn>,</td></tr>
+<tr><th id="578">578</th><td>	<dfn class="enum" id="MOD_GRENADE_SPLASH" title='MOD_GRENADE_SPLASH' data-ref="MOD_GRENADE_SPLASH">MOD_GRENADE_SPLASH</dfn>,</td></tr>
+<tr><th id="579">579</th><td>	<dfn class="enum" id="MOD_ROCKET" title='MOD_ROCKET' data-ref="MOD_ROCKET">MOD_ROCKET</dfn>,</td></tr>
+<tr><th id="580">580</th><td>	<dfn class="enum" id="MOD_ROCKET_SPLASH" title='MOD_ROCKET_SPLASH' data-ref="MOD_ROCKET_SPLASH">MOD_ROCKET_SPLASH</dfn>,</td></tr>
+<tr><th id="581">581</th><td>	<dfn class="enum" id="MOD_PLASMA" title='MOD_PLASMA' data-ref="MOD_PLASMA">MOD_PLASMA</dfn>,</td></tr>
+<tr><th id="582">582</th><td>	<dfn class="enum" id="MOD_PLASMA_SPLASH" title='MOD_PLASMA_SPLASH' data-ref="MOD_PLASMA_SPLASH">MOD_PLASMA_SPLASH</dfn>,</td></tr>
+<tr><th id="583">583</th><td>	<dfn class="enum" id="MOD_RAILGUN" title='MOD_RAILGUN' data-ref="MOD_RAILGUN">MOD_RAILGUN</dfn>,</td></tr>
+<tr><th id="584">584</th><td>	<dfn class="enum" id="MOD_LIGHTNING" title='MOD_LIGHTNING' data-ref="MOD_LIGHTNING">MOD_LIGHTNING</dfn>,</td></tr>
+<tr><th id="585">585</th><td>	<dfn class="enum" id="MOD_BFG" title='MOD_BFG' data-ref="MOD_BFG">MOD_BFG</dfn>,</td></tr>
+<tr><th id="586">586</th><td>	<dfn class="enum" id="MOD_BFG_SPLASH" title='MOD_BFG_SPLASH' data-ref="MOD_BFG_SPLASH">MOD_BFG_SPLASH</dfn>,</td></tr>
+<tr><th id="587">587</th><td>	<dfn class="enum" id="MOD_WATER" title='MOD_WATER' data-ref="MOD_WATER">MOD_WATER</dfn>,</td></tr>
+<tr><th id="588">588</th><td>	<dfn class="enum" id="MOD_SLIME" title='MOD_SLIME' data-ref="MOD_SLIME">MOD_SLIME</dfn>,</td></tr>
+<tr><th id="589">589</th><td>	<dfn class="enum" id="MOD_LAVA" title='MOD_LAVA' data-ref="MOD_LAVA">MOD_LAVA</dfn>,</td></tr>
+<tr><th id="590">590</th><td>	<dfn class="enum" id="MOD_CRUSH" title='MOD_CRUSH' data-ref="MOD_CRUSH">MOD_CRUSH</dfn>,</td></tr>
+<tr><th id="591">591</th><td>	<dfn class="enum" id="MOD_TELEFRAG" title='MOD_TELEFRAG' data-ref="MOD_TELEFRAG">MOD_TELEFRAG</dfn>,</td></tr>
+<tr><th id="592">592</th><td>	<dfn class="enum" id="MOD_FALLING" title='MOD_FALLING' data-ref="MOD_FALLING">MOD_FALLING</dfn>,</td></tr>
+<tr><th id="593">593</th><td>	<dfn class="enum" id="MOD_SUICIDE" title='MOD_SUICIDE' data-ref="MOD_SUICIDE">MOD_SUICIDE</dfn>,</td></tr>
+<tr><th id="594">594</th><td>	<dfn class="enum" id="MOD_TARGET_LASER" title='MOD_TARGET_LASER' data-ref="MOD_TARGET_LASER">MOD_TARGET_LASER</dfn>,</td></tr>
+<tr><th id="595">595</th><td>	<dfn class="enum" id="MOD_TRIGGER_HURT" title='MOD_TRIGGER_HURT' data-ref="MOD_TRIGGER_HURT">MOD_TRIGGER_HURT</dfn>,</td></tr>
+<tr><th id="596">596</th><td><u>#<span data-ppcond="596">ifdef</span> <span class="macro" data-ref="_M/MISSIONPACK">MISSIONPACK</span></u></td></tr>
+<tr><th id="597">597</th><td>	MOD_NAIL,</td></tr>
+<tr><th id="598">598</th><td>	MOD_CHAINGUN,</td></tr>
+<tr><th id="599">599</th><td>	MOD_PROXIMITY_MINE,</td></tr>
+<tr><th id="600">600</th><td>	MOD_KAMIKAZE,</td></tr>
+<tr><th id="601">601</th><td>	MOD_JUICED,</td></tr>
+<tr><th id="602">602</th><td><u>#<span data-ppcond="596">endif</span></u></td></tr>
+<tr><th id="603">603</th><td>	<dfn class="enum" id="MOD_GRAPPLE" title='MOD_GRAPPLE' data-ref="MOD_GRAPPLE">MOD_GRAPPLE</dfn></td></tr>
+<tr><th id="604">604</th><td>} <dfn class="typedef" id="meansOfDeath_t" title='meansOfDeath_t' data-type='enum meansOfDeath_t' data-ref="meansOfDeath_t">meansOfDeath_t</dfn>;</td></tr>
+<tr><th id="605">605</th><td></td></tr>
+<tr><th id="606">606</th><td></td></tr>
+<tr><th id="607">607</th><td><i>//---------------------------------------------------------</i></td></tr>
+<tr><th id="608">608</th><td><i></i></td></tr>
+<tr><th id="609">609</th><td><i>// gitem_t-&gt;type</i></td></tr>
+<tr><th id="610">610</th><td><b>typedef</b> <b>enum</b> {</td></tr>
+<tr><th id="611">611</th><td>	<dfn class="enum" id="IT_BAD" title='IT_BAD' data-ref="IT_BAD">IT_BAD</dfn>,</td></tr>
+<tr><th id="612">612</th><td>	<dfn class="enum" id="IT_WEAPON" title='IT_WEAPON' data-ref="IT_WEAPON">IT_WEAPON</dfn>,				<i>// EFX: rotate + upscale + minlight</i></td></tr>
+<tr><th id="613">613</th><td>	<dfn class="enum" id="IT_AMMO" title='IT_AMMO' data-ref="IT_AMMO">IT_AMMO</dfn>,				<i>// EFX: rotate</i></td></tr>
+<tr><th id="614">614</th><td>	<dfn class="enum" id="IT_ARMOR" title='IT_ARMOR' data-ref="IT_ARMOR">IT_ARMOR</dfn>,				<i>// EFX: rotate + minlight</i></td></tr>
+<tr><th id="615">615</th><td>	<dfn class="enum" id="IT_HEALTH" title='IT_HEALTH' data-ref="IT_HEALTH">IT_HEALTH</dfn>,				<i>// EFX: static external sphere + rotating internal</i></td></tr>
+<tr><th id="616">616</th><td>	<dfn class="enum" id="IT_POWERUP" title='IT_POWERUP' data-ref="IT_POWERUP">IT_POWERUP</dfn>,				<i>// instant on, timer based</i></td></tr>
+<tr><th id="617">617</th><td>							<i>// EFX: rotate + external ring that rotates</i></td></tr>
+<tr><th id="618">618</th><td>	<dfn class="enum" id="IT_HOLDABLE" title='IT_HOLDABLE' data-ref="IT_HOLDABLE">IT_HOLDABLE</dfn>,			<i>// single use, holdable item</i></td></tr>
+<tr><th id="619">619</th><td>							<i>// EFX: rotate + bob</i></td></tr>
+<tr><th id="620">620</th><td>	<dfn class="enum" id="IT_PERSISTANT_POWERUP" title='IT_PERSISTANT_POWERUP' data-ref="IT_PERSISTANT_POWERUP">IT_PERSISTANT_POWERUP</dfn>,</td></tr>
+<tr><th id="621">621</th><td>	<dfn class="enum" id="IT_TEAM" title='IT_TEAM' data-ref="IT_TEAM">IT_TEAM</dfn></td></tr>
+<tr><th id="622">622</th><td>} <dfn class="typedef" id="itemType_t" title='itemType_t' data-type='enum itemType_t' data-ref="itemType_t">itemType_t</dfn>;</td></tr>
+<tr><th id="623">623</th><td></td></tr>
+<tr><th id="624">624</th><td><u>#define <dfn class="macro" id="_M/MAX_ITEM_MODELS" data-ref="_M/MAX_ITEM_MODELS">MAX_ITEM_MODELS</dfn> 4</u></td></tr>
+<tr><th id="625">625</th><td></td></tr>
+<tr><th id="626">626</th><td><b>typedef</b> <b>struct</b> <dfn class="type def" id="gitem_s" title='gitem_s' data-ref="gitem_s"><a class="type" href="#gitem_s" title='gitem_s' data-ref="gitem_s">gitem_s</a></dfn> {</td></tr>
+<tr><th id="627">627</th><td>	<em>char</em>		*<dfn class="decl" id="gitem_s::classname" title='gitem_s::classname' data-ref="gitem_s::classname">classname</dfn>;	<i>// spawning name</i></td></tr>
+<tr><th id="628">628</th><td>	<em>char</em>		*<dfn class="decl" id="gitem_s::pickup_sound" title='gitem_s::pickup_sound' data-ref="gitem_s::pickup_sound">pickup_sound</dfn>;</td></tr>
+<tr><th id="629">629</th><td>	<em>char</em>		*<dfn class="decl" id="gitem_s::world_model" title='gitem_s::world_model' data-ref="gitem_s::world_model">world_model</dfn>[<a class="macro" href="#624" title="4" data-ref="_M/MAX_ITEM_MODELS">MAX_ITEM_MODELS</a>];</td></tr>
+<tr><th id="630">630</th><td></td></tr>
+<tr><th id="631">631</th><td>	<em>char</em>		*<dfn class="decl" id="gitem_s::icon" title='gitem_s::icon' data-ref="gitem_s::icon">icon</dfn>;</td></tr>
+<tr><th id="632">632</th><td>	<em>char</em>		*<dfn class="decl" id="gitem_s::pickup_name" title='gitem_s::pickup_name' data-ref="gitem_s::pickup_name">pickup_name</dfn>;	<i>// for printing on pickup</i></td></tr>
+<tr><th id="633">633</th><td></td></tr>
+<tr><th id="634">634</th><td>	<em>int</em>			<dfn class="decl" id="gitem_s::quantity" title='gitem_s::quantity' data-ref="gitem_s::quantity">quantity</dfn>;		<i>// for ammo how much, or duration of powerup</i></td></tr>
+<tr><th id="635">635</th><td>	<a class="typedef" href="#itemType_t" title='itemType_t' data-type='enum itemType_t' data-ref="itemType_t">itemType_t</a>  <dfn class="decl" id="gitem_s::giType" title='gitem_s::giType' data-ref="gitem_s::giType">giType</dfn>;			<i>// IT_* flags</i></td></tr>
+<tr><th id="636">636</th><td></td></tr>
+<tr><th id="637">637</th><td>	<em>int</em>			<dfn class="decl" id="gitem_s::giTag" title='gitem_s::giTag' data-ref="gitem_s::giTag">giTag</dfn>;</td></tr>
+<tr><th id="638">638</th><td></td></tr>
+<tr><th id="639">639</th><td>	<em>char</em>		*<dfn class="decl" id="gitem_s::precaches" title='gitem_s::precaches' data-ref="gitem_s::precaches">precaches</dfn>;		<i>// string of all models and images this item will use</i></td></tr>
+<tr><th id="640">640</th><td>	<em>char</em>		*<dfn class="decl" id="gitem_s::sounds" title='gitem_s::sounds' data-ref="gitem_s::sounds">sounds</dfn>;		<i>// string of all sounds this item will use</i></td></tr>
+<tr><th id="641">641</th><td>} <dfn class="typedef" id="gitem_t" title='gitem_t' data-type='struct gitem_s' data-ref="gitem_t">gitem_t</dfn>;</td></tr>
+<tr><th id="642">642</th><td></td></tr>
+<tr><th id="643">643</th><td><i>// included in both the game dll and the client</i></td></tr>
+<tr><th id="644">644</th><td><b>extern</b>	<a class="typedef" href="#gitem_t" title='gitem_t' data-type='struct gitem_s' data-ref="gitem_t">gitem_t</a>	<dfn class="decl" id="bg_itemlist" title='bg_itemlist' data-ref="bg_itemlist">bg_itemlist</dfn>[];</td></tr>
+<tr><th id="645">645</th><td><b>extern</b>	<em>int</em>		<dfn class="decl" id="bg_numItems" title='bg_numItems' data-ref="bg_numItems">bg_numItems</dfn>;</td></tr>
+<tr><th id="646">646</th><td></td></tr>
+<tr><th id="647">647</th><td><a class="typedef" href="#gitem_t" title='gitem_t' data-type='struct gitem_s' data-ref="gitem_t">gitem_t</a>	*<dfn class="decl" id="BG_FindItem" title='BG_FindItem' data-ref="BG_FindItem">BG_FindItem</dfn>( <em>const</em> <em>char</em> *<dfn class="local col3 decl" id="13pickupName" title='pickupName' data-type='const char *' data-ref="13pickupName">pickupName</dfn> );</td></tr>
+<tr><th id="648">648</th><td><a class="typedef" href="#gitem_t" title='gitem_t' data-type='struct gitem_s' data-ref="gitem_t">gitem_t</a>	*<dfn class="decl" id="BG_FindItemForWeapon" title='BG_FindItemForWeapon' data-ref="BG_FindItemForWeapon">BG_FindItemForWeapon</dfn>( <a class="typedef" href="#weapon_t" title='weapon_t' data-type='enum weapon_t' data-ref="weapon_t">weapon_t</a> <dfn class="local col4 decl" id="14weapon" title='weapon' data-type='weapon_t' data-ref="14weapon">weapon</dfn> );</td></tr>
+<tr><th id="649">649</th><td><a class="typedef" href="#gitem_t" title='gitem_t' data-type='struct gitem_s' data-ref="gitem_t">gitem_t</a>	*<dfn class="decl" id="BG_FindItemForPowerup" title='BG_FindItemForPowerup' data-ref="BG_FindItemForPowerup">BG_FindItemForPowerup</dfn>( <a class="typedef" href="#powerup_t" title='powerup_t' data-type='enum powerup_t' data-ref="powerup_t">powerup_t</a> <dfn class="local col5 decl" id="15pw" title='pw' data-type='powerup_t' data-ref="15pw">pw</dfn> );</td></tr>
+<tr><th id="650">650</th><td><a class="typedef" href="#gitem_t" title='gitem_t' data-type='struct gitem_s' data-ref="gitem_t">gitem_t</a>	*<dfn class="decl" id="BG_FindItemForHoldable" title='BG_FindItemForHoldable' data-ref="BG_FindItemForHoldable">BG_FindItemForHoldable</dfn>( <a class="typedef" href="#holdable_t" title='holdable_t' data-type='enum holdable_t' data-ref="holdable_t">holdable_t</a> <dfn class="local col6 decl" id="16pw" title='pw' data-type='holdable_t' data-ref="16pw">pw</dfn> );</td></tr>
+<tr><th id="651">651</th><td><u>#define	<dfn class="macro" id="_M/ITEM_INDEX" data-ref="_M/ITEM_INDEX">ITEM_INDEX</dfn>(x) ((x)-bg_itemlist)</u></td></tr>
+<tr><th id="652">652</th><td></td></tr>
+<tr><th id="653">653</th><td><a class="typedef" href="../qcommon/q_shared.h.html#qboolean" title='qboolean' data-type='enum qboolean' data-ref="qboolean">qboolean</a>	<dfn class="decl" id="BG_CanItemBeGrabbed" title='BG_CanItemBeGrabbed' data-ref="BG_CanItemBeGrabbed">BG_CanItemBeGrabbed</dfn>( <em>int</em> <dfn class="local col7 decl" id="17gametype" title='gametype' data-type='int' data-ref="17gametype">gametype</dfn>, <em>const</em> <a class="typedef" href="../qcommon/q_shared.h.html#entityState_t" title='entityState_t' data-type='struct entityState_s' data-ref="entityState_t">entityState_t</a> *<dfn class="local col8 decl" id="18ent" title='ent' data-type='const entityState_t *' data-ref="18ent">ent</dfn>, <em>const</em> <a class="typedef" href="../qcommon/q_shared.h.html#playerState_t" title='playerState_t' data-type='struct playerState_s' data-ref="playerState_t">playerState_t</a> *<dfn class="local col9 decl" id="19ps" title='ps' data-type='const playerState_t *' data-ref="19ps">ps</dfn> );</td></tr>
+<tr><th id="654">654</th><td></td></tr>
+<tr><th id="655">655</th><td></td></tr>
+<tr><th id="656">656</th><td><i>// g_dmflags-&gt;integer flags</i></td></tr>
+<tr><th id="657">657</th><td><u>#define	<dfn class="macro" id="_M/DF_NO_FALLING" data-ref="_M/DF_NO_FALLING">DF_NO_FALLING</dfn>			8</u></td></tr>
+<tr><th id="658">658</th><td><u>#define <dfn class="macro" id="_M/DF_FIXED_FOV" data-ref="_M/DF_FIXED_FOV">DF_FIXED_FOV</dfn>			16</u></td></tr>
+<tr><th id="659">659</th><td><u>#define	<dfn class="macro" id="_M/DF_NO_FOOTSTEPS" data-ref="_M/DF_NO_FOOTSTEPS">DF_NO_FOOTSTEPS</dfn>			32</u></td></tr>
+<tr><th id="660">660</th><td></td></tr>
+<tr><th id="661">661</th><td><i>// content masks</i></td></tr>
+<tr><th id="662">662</th><td><u>#define	<dfn class="macro" id="_M/MASK_ALL" data-ref="_M/MASK_ALL">MASK_ALL</dfn>				(-1)</u></td></tr>
+<tr><th id="663">663</th><td><u>#define	<dfn class="macro" id="_M/MASK_SOLID" data-ref="_M/MASK_SOLID">MASK_SOLID</dfn>				(CONTENTS_SOLID)</u></td></tr>
+<tr><th id="664">664</th><td><u>#define	<dfn class="macro" id="_M/MASK_PLAYERSOLID" data-ref="_M/MASK_PLAYERSOLID">MASK_PLAYERSOLID</dfn>		(CONTENTS_SOLID|CONTENTS_PLAYERCLIP|CONTENTS_BODY)</u></td></tr>
+<tr><th id="665">665</th><td><u>#define	<dfn class="macro" id="_M/MASK_DEADSOLID" data-ref="_M/MASK_DEADSOLID">MASK_DEADSOLID</dfn>			(CONTENTS_SOLID|CONTENTS_PLAYERCLIP)</u></td></tr>
+<tr><th id="666">666</th><td><u>#define	<dfn class="macro" id="_M/MASK_WATER" data-ref="_M/MASK_WATER">MASK_WATER</dfn>				(CONTENTS_WATER|CONTENTS_LAVA|CONTENTS_SLIME)</u></td></tr>
+<tr><th id="667">667</th><td><u>#define	<dfn class="macro" id="_M/MASK_OPAQUE" data-ref="_M/MASK_OPAQUE">MASK_OPAQUE</dfn>				(CONTENTS_SOLID|CONTENTS_SLIME|CONTENTS_LAVA)</u></td></tr>
+<tr><th id="668">668</th><td><u>#define	<dfn class="macro" id="_M/MASK_SHOT" data-ref="_M/MASK_SHOT">MASK_SHOT</dfn>				(CONTENTS_SOLID|CONTENTS_BODY|CONTENTS_CORPSE)</u></td></tr>
+<tr><th id="669">669</th><td></td></tr>
+<tr><th id="670">670</th><td></td></tr>
+<tr><th id="671">671</th><td><i>//</i></td></tr>
+<tr><th id="672">672</th><td><i>// entityState_t-&gt;eType</i></td></tr>
+<tr><th id="673">673</th><td><i>//</i></td></tr>
+<tr><th id="674">674</th><td><b>typedef</b> <b>enum</b> {</td></tr>
+<tr><th id="675">675</th><td>	<dfn class="enum" id="ET_GENERAL" title='ET_GENERAL' data-ref="ET_GENERAL">ET_GENERAL</dfn>,</td></tr>
+<tr><th id="676">676</th><td>	<dfn class="enum" id="ET_PLAYER" title='ET_PLAYER' data-ref="ET_PLAYER">ET_PLAYER</dfn>,</td></tr>
+<tr><th id="677">677</th><td>	<dfn class="enum" id="ET_ITEM" title='ET_ITEM' data-ref="ET_ITEM">ET_ITEM</dfn>,</td></tr>
+<tr><th id="678">678</th><td>	<dfn class="enum" id="ET_MISSILE" title='ET_MISSILE' data-ref="ET_MISSILE">ET_MISSILE</dfn>,</td></tr>
+<tr><th id="679">679</th><td>	<dfn class="enum" id="ET_MOVER" title='ET_MOVER' data-ref="ET_MOVER">ET_MOVER</dfn>,</td></tr>
+<tr><th id="680">680</th><td>	<dfn class="enum" id="ET_BEAM" title='ET_BEAM' data-ref="ET_BEAM">ET_BEAM</dfn>,</td></tr>
+<tr><th id="681">681</th><td>	<dfn class="enum" id="ET_PORTAL" title='ET_PORTAL' data-ref="ET_PORTAL">ET_PORTAL</dfn>,</td></tr>
+<tr><th id="682">682</th><td>	<dfn class="enum" id="ET_SPEAKER" title='ET_SPEAKER' data-ref="ET_SPEAKER">ET_SPEAKER</dfn>,</td></tr>
+<tr><th id="683">683</th><td>	<dfn class="enum" id="ET_PUSH_TRIGGER" title='ET_PUSH_TRIGGER' data-ref="ET_PUSH_TRIGGER">ET_PUSH_TRIGGER</dfn>,</td></tr>
+<tr><th id="684">684</th><td>	<dfn class="enum" id="ET_TELEPORT_TRIGGER" title='ET_TELEPORT_TRIGGER' data-ref="ET_TELEPORT_TRIGGER">ET_TELEPORT_TRIGGER</dfn>,</td></tr>
+<tr><th id="685">685</th><td>	<dfn class="enum" id="ET_INVISIBLE" title='ET_INVISIBLE' data-ref="ET_INVISIBLE">ET_INVISIBLE</dfn>,</td></tr>
+<tr><th id="686">686</th><td>	<dfn class="enum" id="ET_GRAPPLE" title='ET_GRAPPLE' data-ref="ET_GRAPPLE">ET_GRAPPLE</dfn>,				<i>// grapple hooked on wall</i></td></tr>
+<tr><th id="687">687</th><td>	<dfn class="enum" id="ET_TEAM" title='ET_TEAM' data-ref="ET_TEAM">ET_TEAM</dfn>,</td></tr>
+<tr><th id="688">688</th><td></td></tr>
+<tr><th id="689">689</th><td>	<dfn class="enum" id="ET_EVENTS" title='ET_EVENTS' data-ref="ET_EVENTS">ET_EVENTS</dfn>				<i>// any of the EV_* events can be added freestanding</i></td></tr>
+<tr><th id="690">690</th><td>							<i>// by setting eType to ET_EVENTS + eventNum</i></td></tr>
+<tr><th id="691">691</th><td><i>							// this avoids having to set eFlags and eventNum</i></td></tr>
+<tr><th id="692">692</th><td>} <dfn class="typedef" id="entityType_t" title='entityType_t' data-type='enum entityType_t' data-ref="entityType_t">entityType_t</dfn>;</td></tr>
+<tr><th id="693">693</th><td></td></tr>
+<tr><th id="694">694</th><td></td></tr>
+<tr><th id="695">695</th><td></td></tr>
+<tr><th id="696">696</th><td><em>void</em>	<dfn class="decl" id="BG_EvaluateTrajectory" title='BG_EvaluateTrajectory' data-ref="BG_EvaluateTrajectory">BG_EvaluateTrajectory</dfn>( <em>const</em> <a class="typedef" href="../qcommon/q_shared.h.html#trajectory_t" title='trajectory_t' data-type='struct trajectory_t' data-ref="trajectory_t">trajectory_t</a> *<dfn class="local col0 decl" id="20tr" title='tr' data-type='const trajectory_t *' data-ref="20tr">tr</dfn>, <em>int</em> <dfn class="local col1 decl" id="21atTime" title='atTime' data-type='int' data-ref="21atTime">atTime</dfn>, <a class="typedef" href="../qcommon/q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="local col2 decl" id="22result" title='result' data-type='vec_t *' data-ref="22result">result</dfn> );</td></tr>
+<tr><th id="697">697</th><td><em>void</em>	<dfn class="decl" id="BG_EvaluateTrajectoryDelta" title='BG_EvaluateTrajectoryDelta' data-ref="BG_EvaluateTrajectoryDelta">BG_EvaluateTrajectoryDelta</dfn>( <em>const</em> <a class="typedef" href="../qcommon/q_shared.h.html#trajectory_t" title='trajectory_t' data-type='struct trajectory_t' data-ref="trajectory_t">trajectory_t</a> *<dfn class="local col3 decl" id="23tr" title='tr' data-type='const trajectory_t *' data-ref="23tr">tr</dfn>, <em>int</em> <dfn class="local col4 decl" id="24atTime" title='atTime' data-type='int' data-ref="24atTime">atTime</dfn>, <a class="typedef" href="../qcommon/q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="local col5 decl" id="25result" title='result' data-type='vec_t *' data-ref="25result">result</dfn> );</td></tr>
+<tr><th id="698">698</th><td></td></tr>
+<tr><th id="699">699</th><td><em>void</em>	<dfn class="decl" id="BG_AddPredictableEventToPlayerstate" title='BG_AddPredictableEventToPlayerstate' data-ref="BG_AddPredictableEventToPlayerstate">BG_AddPredictableEventToPlayerstate</dfn>( <em>int</em> <dfn class="local col6 decl" id="26newEvent" title='newEvent' data-type='int' data-ref="26newEvent">newEvent</dfn>, <em>int</em> <dfn class="local col7 decl" id="27eventParm" title='eventParm' data-type='int' data-ref="27eventParm">eventParm</dfn>, <a class="typedef" href="../qcommon/q_shared.h.html#playerState_t" title='playerState_t' data-type='struct playerState_s' data-ref="playerState_t">playerState_t</a> *<dfn class="local col8 decl" id="28ps" title='ps' data-type='playerState_t *' data-ref="28ps">ps</dfn> );</td></tr>
+<tr><th id="700">700</th><td></td></tr>
+<tr><th id="701">701</th><td><em>void</em>	<dfn class="decl" id="BG_TouchJumpPad" title='BG_TouchJumpPad' data-ref="BG_TouchJumpPad">BG_TouchJumpPad</dfn>( <a class="typedef" href="../qcommon/q_shared.h.html#playerState_t" title='playerState_t' data-type='struct playerState_s' data-ref="playerState_t">playerState_t</a> *<dfn class="local col9 decl" id="29ps" title='ps' data-type='playerState_t *' data-ref="29ps">ps</dfn>, <a class="typedef" href="../qcommon/q_shared.h.html#entityState_t" title='entityState_t' data-type='struct entityState_s' data-ref="entityState_t">entityState_t</a> *<dfn class="local col0 decl" id="30jumppad" title='jumppad' data-type='entityState_t *' data-ref="30jumppad">jumppad</dfn> );</td></tr>
+<tr><th id="702">702</th><td></td></tr>
+<tr><th id="703">703</th><td><em>void</em>	<dfn class="decl" id="BG_PlayerStateToEntityState" title='BG_PlayerStateToEntityState' data-ref="BG_PlayerStateToEntityState">BG_PlayerStateToEntityState</dfn>( <a class="typedef" href="../qcommon/q_shared.h.html#playerState_t" title='playerState_t' data-type='struct playerState_s' data-ref="playerState_t">playerState_t</a> *<dfn class="local col1 decl" id="31ps" title='ps' data-type='playerState_t *' data-ref="31ps">ps</dfn>, <a class="typedef" href="../qcommon/q_shared.h.html#entityState_t" title='entityState_t' data-type='struct entityState_s' data-ref="entityState_t">entityState_t</a> *<dfn class="local col2 decl" id="32s" title='s' data-type='entityState_t *' data-ref="32s">s</dfn>, <a class="typedef" href="../qcommon/q_shared.h.html#qboolean" title='qboolean' data-type='enum qboolean' data-ref="qboolean">qboolean</a> <dfn class="local col3 decl" id="33snap" title='snap' data-type='qboolean' data-ref="33snap">snap</dfn> );</td></tr>
+<tr><th id="704">704</th><td><em>void</em>	<dfn class="decl" id="BG_PlayerStateToEntityStateExtraPolate" title='BG_PlayerStateToEntityStateExtraPolate' data-ref="BG_PlayerStateToEntityStateExtraPolate">BG_PlayerStateToEntityStateExtraPolate</dfn>( <a class="typedef" href="../qcommon/q_shared.h.html#playerState_t" title='playerState_t' data-type='struct playerState_s' data-ref="playerState_t">playerState_t</a> *<dfn class="local col4 decl" id="34ps" title='ps' data-type='playerState_t *' data-ref="34ps">ps</dfn>, <a class="typedef" href="../qcommon/q_shared.h.html#entityState_t" title='entityState_t' data-type='struct entityState_s' data-ref="entityState_t">entityState_t</a> *<dfn class="local col5 decl" id="35s" title='s' data-type='entityState_t *' data-ref="35s">s</dfn>, <em>int</em> <dfn class="local col6 decl" id="36time" title='time' data-type='int' data-ref="36time">time</dfn>, <a class="typedef" href="../qcommon/q_shared.h.html#qboolean" title='qboolean' data-type='enum qboolean' data-ref="qboolean">qboolean</a> <dfn class="local col7 decl" id="37snap" title='snap' data-type='qboolean' data-ref="37snap">snap</dfn> );</td></tr>
+<tr><th id="705">705</th><td></td></tr>
+<tr><th id="706">706</th><td><a class="typedef" href="../qcommon/q_shared.h.html#qboolean" title='qboolean' data-type='enum qboolean' data-ref="qboolean">qboolean</a>	<dfn class="decl" id="BG_PlayerTouchesItem" title='BG_PlayerTouchesItem' data-ref="BG_PlayerTouchesItem">BG_PlayerTouchesItem</dfn>( <a class="typedef" href="../qcommon/q_shared.h.html#playerState_t" title='playerState_t' data-type='struct playerState_s' data-ref="playerState_t">playerState_t</a> *<dfn class="local col8 decl" id="38ps" title='ps' data-type='playerState_t *' data-ref="38ps">ps</dfn>, <a class="typedef" href="../qcommon/q_shared.h.html#entityState_t" title='entityState_t' data-type='struct entityState_s' data-ref="entityState_t">entityState_t</a> *<dfn class="local col9 decl" id="39item" title='item' data-type='entityState_t *' data-ref="39item">item</dfn>, <em>int</em> <dfn class="local col0 decl" id="40atTime" title='atTime' data-type='int' data-ref="40atTime">atTime</dfn> );</td></tr>
+<tr><th id="707">707</th><td></td></tr>
+<tr><th id="708">708</th><td></td></tr>
+<tr><th id="709">709</th><td><u>#define <dfn class="macro" id="_M/ARENAS_PER_TIER" data-ref="_M/ARENAS_PER_TIER">ARENAS_PER_TIER</dfn>		4</u></td></tr>
+<tr><th id="710">710</th><td><u>#define <dfn class="macro" id="_M/MAX_ARENAS" data-ref="_M/MAX_ARENAS">MAX_ARENAS</dfn>			1024</u></td></tr>
+<tr><th id="711">711</th><td><u>#define	<dfn class="macro" id="_M/MAX_ARENAS_TEXT" data-ref="_M/MAX_ARENAS_TEXT">MAX_ARENAS_TEXT</dfn>		8192</u></td></tr>
+<tr><th id="712">712</th><td></td></tr>
+<tr><th id="713">713</th><td><u>#define <dfn class="macro" id="_M/MAX_BOTS" data-ref="_M/MAX_BOTS">MAX_BOTS</dfn>			1024</u></td></tr>
+<tr><th id="714">714</th><td><u>#define <dfn class="macro" id="_M/MAX_BOTS_TEXT" data-ref="_M/MAX_BOTS_TEXT">MAX_BOTS_TEXT</dfn>		8192</u></td></tr>
+<tr><th id="715">715</th><td></td></tr>
+<tr><th id="716">716</th><td></td></tr>
+<tr><th id="717">717</th><td><i>// Kamikaze</i></td></tr>
+<tr><th id="718">718</th><td><i></i></td></tr>
+<tr><th id="719">719</th><td><i>// 1st shockwave times</i></td></tr>
+<tr><th id="720">720</th><td><u>#define <dfn class="macro" id="_M/KAMI_SHOCKWAVE_STARTTIME" data-ref="_M/KAMI_SHOCKWAVE_STARTTIME">KAMI_SHOCKWAVE_STARTTIME</dfn>		0</u></td></tr>
+<tr><th id="721">721</th><td><u>#define <dfn class="macro" id="_M/KAMI_SHOCKWAVEFADE_STARTTIME" data-ref="_M/KAMI_SHOCKWAVEFADE_STARTTIME">KAMI_SHOCKWAVEFADE_STARTTIME</dfn>	1500</u></td></tr>
+<tr><th id="722">722</th><td><u>#define <dfn class="macro" id="_M/KAMI_SHOCKWAVE_ENDTIME" data-ref="_M/KAMI_SHOCKWAVE_ENDTIME">KAMI_SHOCKWAVE_ENDTIME</dfn>			2000</u></td></tr>
+<tr><th id="723">723</th><td><i>// explosion/implosion times</i></td></tr>
+<tr><th id="724">724</th><td><u>#define <dfn class="macro" id="_M/KAMI_EXPLODE_STARTTIME" data-ref="_M/KAMI_EXPLODE_STARTTIME">KAMI_EXPLODE_STARTTIME</dfn>			250</u></td></tr>
+<tr><th id="725">725</th><td><u>#define <dfn class="macro" id="_M/KAMI_IMPLODE_STARTTIME" data-ref="_M/KAMI_IMPLODE_STARTTIME">KAMI_IMPLODE_STARTTIME</dfn>			2000</u></td></tr>
+<tr><th id="726">726</th><td><u>#define <dfn class="macro" id="_M/KAMI_IMPLODE_ENDTIME" data-ref="_M/KAMI_IMPLODE_ENDTIME">KAMI_IMPLODE_ENDTIME</dfn>			2250</u></td></tr>
+<tr><th id="727">727</th><td><i>// 2nd shockwave times</i></td></tr>
+<tr><th id="728">728</th><td><u>#define <dfn class="macro" id="_M/KAMI_SHOCKWAVE2_STARTTIME" data-ref="_M/KAMI_SHOCKWAVE2_STARTTIME">KAMI_SHOCKWAVE2_STARTTIME</dfn>		2000</u></td></tr>
+<tr><th id="729">729</th><td><u>#define <dfn class="macro" id="_M/KAMI_SHOCKWAVE2FADE_STARTTIME" data-ref="_M/KAMI_SHOCKWAVE2FADE_STARTTIME">KAMI_SHOCKWAVE2FADE_STARTTIME</dfn>	2500</u></td></tr>
+<tr><th id="730">730</th><td><u>#define <dfn class="macro" id="_M/KAMI_SHOCKWAVE2_ENDTIME" data-ref="_M/KAMI_SHOCKWAVE2_ENDTIME">KAMI_SHOCKWAVE2_ENDTIME</dfn>			3000</u></td></tr>
+<tr><th id="731">731</th><td><i>// radius of the models without scaling</i></td></tr>
+<tr><th id="732">732</th><td><u>#define <dfn class="macro" id="_M/KAMI_SHOCKWAVEMODEL_RADIUS" data-ref="_M/KAMI_SHOCKWAVEMODEL_RADIUS">KAMI_SHOCKWAVEMODEL_RADIUS</dfn>		88</u></td></tr>
+<tr><th id="733">733</th><td><u>#define <dfn class="macro" id="_M/KAMI_BOOMSPHEREMODEL_RADIUS" data-ref="_M/KAMI_BOOMSPHEREMODEL_RADIUS">KAMI_BOOMSPHEREMODEL_RADIUS</dfn>		72</u></td></tr>
+<tr><th id="734">734</th><td><i>// maximum radius of the models during the effect</i></td></tr>
+<tr><th id="735">735</th><td><u>#define <dfn class="macro" id="_M/KAMI_SHOCKWAVE_MAXRADIUS" data-ref="_M/KAMI_SHOCKWAVE_MAXRADIUS">KAMI_SHOCKWAVE_MAXRADIUS</dfn>		1320</u></td></tr>
+<tr><th id="736">736</th><td><u>#define <dfn class="macro" id="_M/KAMI_BOOMSPHERE_MAXRADIUS" data-ref="_M/KAMI_BOOMSPHERE_MAXRADIUS">KAMI_BOOMSPHERE_MAXRADIUS</dfn>		720</u></td></tr>
+<tr><th id="737">737</th><td><u>#define <dfn class="macro" id="_M/KAMI_SHOCKWAVE2_MAXRADIUS" data-ref="_M/KAMI_SHOCKWAVE2_MAXRADIUS">KAMI_SHOCKWAVE2_MAXRADIUS</dfn>		704</u></td></tr>
+<tr><th id="738">738</th><td></td></tr>
+<tr><th id="739">739</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='../cgame/cg_consolecmds.c.html'>codebrowser/code/cgame/cg_consolecmds.c</a><br/>Generated on <em>2017-Aug-29</em> from project codebrowser revision <em>63e07af</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

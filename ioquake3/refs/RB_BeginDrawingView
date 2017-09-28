@@ -1,0 +1,20 @@
+<def f='codebrowser/code/renderergl1/tr_backend.c' l='418' ll='495' type='void RB_BeginDrawingView()'/>
+<use f='codebrowser/code/renderergl1/tr_backend.c' l='518' u='c' c='RB_RenderDrawSurfList'/>
+<doc f='codebrowser/code/renderergl1/tr_backend.c' l='410'>/*
+=================
+RB_BeginDrawingView
+
+Any mirrored or portaled views have already been drawn, so prepare
+to actually render the visible surfaces for this view
+=================
+*/</doc>
+<def f='codebrowser/code/renderergl2/tr_backend.c' l='325' ll='417' type='void RB_BeginDrawingView()'/>
+<use f='codebrowser/code/renderergl2/tr_backend.c' l='899' u='c' c='RB_DrawSurfs'/>
+<doc f='codebrowser/code/renderergl2/tr_backend.c' l='317'>/*
+=================
+RB_BeginDrawingView
+
+Any mirrored or portaled views have already been drawn, so prepare
+to actually render the visible surfaces for this view
+=================
+*/</doc>

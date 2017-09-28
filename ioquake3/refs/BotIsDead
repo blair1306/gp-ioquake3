@@ -1,0 +1,17 @@
+<dec f='codebrowser/code/game/ai_dmq3.h' l='52' type='qboolean BotIsDead(bot_state_t * bs)'/>
+<use f='codebrowser/code/game/ai_chat.c' l='353' u='c' c='BotValidChatPosition'/>
+<doc f='codebrowser/code/game/ai_dmq3.h' l='51'>//return true if the bot is dead</doc>
+<use f='codebrowser/code/game/ai_dmnet.c' l='1264' u='c' c='AINode_Respawn'/>
+<use f='codebrowser/code/game/ai_dmnet.c' l='1468' u='c' c='AINode_Seek_ActivateEntity'/>
+<use f='codebrowser/code/game/ai_dmnet.c' l='1682' u='c' c='AINode_Seek_NBG'/>
+<use f='codebrowser/code/game/ai_dmnet.c' l='1819' u='c' c='AINode_Seek_LTG'/>
+<use f='codebrowser/code/game/ai_dmnet.c' l='2009' u='c' c='AINode_Battle_Fight'/>
+<use f='codebrowser/code/game/ai_dmnet.c' l='2180' u='c' c='AINode_Battle_Chase'/>
+<use f='codebrowser/code/game/ai_dmnet.c' l='2320' u='c' c='AINode_Battle_Retreat'/>
+<use f='codebrowser/code/game/ai_dmnet.c' l='2509' u='c' c='AINode_Battle_NBG'/>
+<def f='codebrowser/code/game/ai_dmq3.c' l='2072' ll='2074' type='qboolean BotIsDead(bot_state_t * bs)'/>
+<doc f='codebrowser/code/game/ai_dmq3.c' l='2067'>/*
+==================
+BotIsDead
+==================
+*/</doc>

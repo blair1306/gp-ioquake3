@@ -1,0 +1,13 @@
+<dec f='codebrowser/code/client/client.h' l='581' type='void SCR_DrawSmallChar(int x, int y, int ch)'/>
+<use f='codebrowser/code/client/cl_console.c' l='550' u='c' c='Con_DrawInput'/>
+<use f='codebrowser/code/client/cl_console.c' l='601' u='c' c='Con_DrawNotify'/>
+<use f='codebrowser/code/client/cl_console.c' l='684' u='c' c='Con_DrawSolidConsole'/>
+<use f='codebrowser/code/client/cl_console.c' l='701' u='c' c='Con_DrawSolidConsole'/>
+<use f='codebrowser/code/client/cl_console.c' l='735' u='c' c='Con_DrawSolidConsole'/>
+<use f='codebrowser/code/client/cl_keys.c' l='402' u='c' c='Field_VariableSizeDraw'/>
+<def f='codebrowser/code/client/cl_scrn.c' l='160' ll='186' type='void SCR_DrawSmallChar(int x, int y, int ch)'/>
+<use f='codebrowser/code/client/cl_scrn.c' l='289' u='c' c='SCR_DrawSmallStringExt'/>
+<doc f='codebrowser/code/client/cl_scrn.c' l='156'>/*
+** SCR_DrawSmallChar
+** small chars are drawn at native screen resolution
+*/</doc>

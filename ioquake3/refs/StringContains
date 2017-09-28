@@ -1,0 +1,16 @@
+<dec f='codebrowser/code/botlib/be_ai_chat.h' l='98' type='int StringContains(char * str1, char * str2, int casesensitive)'/>
+<def f='codebrowser/code/botlib/be_ai_chat.c' l='477' ll='501' type='int StringContains(char * str1, char * str2, int casesensitive)'/>
+<use f='codebrowser/code/botlib/be_ai_chat.c' l='1404' u='c' c='StringsMatch'/>
+<use f='codebrowser/code/botlib/be_ai_chat.c' l='1781' u='c' c='BotCheckValidReplyChatKeySet'/>
+<use f='codebrowser/code/botlib/be_ai_chat.c' l='1809' u='c' c='BotCheckValidReplyChatKeySet'/>
+<use f='codebrowser/code/botlib/be_ai_chat.c' l='1822' u='c' c='BotCheckValidReplyChatKeySet'/>
+<use f='codebrowser/code/botlib/be_ai_chat.c' l='2659' u='c' c='BotReplyChat'/>
+<use f='codebrowser/code/botlib/be_ai_chat.c' l='2660' u='c' c='BotReplyChat'/>
+<doc f='codebrowser/code/botlib/be_ai_chat.c' l='471'>//===========================================================================
+//
+// Parameter:				-
+// Returns:					-
+// Changes Globals:		-
+//===========================================================================</doc>
+<doc f='codebrowser/code/botlib/be_ai_chat.h' l='97'>//checks if the first string contains the second one, returns index into first string or -1 if not found</doc>
+<use f='codebrowser/code/botlib/be_interface.c' l='795' u='r' c='Init_AI_Export'/>

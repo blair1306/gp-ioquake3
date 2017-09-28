@@ -1,0 +1,15 @@
+<dec f='codebrowser/code/qcommon/qcommon.h' l='711' type='const char * FS_ReferencedPakNames()'/>
+<doc f='codebrowser/code/qcommon/qcommon.h' l='708'>// Returns a space separated string containing the checksums of all loaded pk3 files.
+// Servers with sv_pure set will get this string and pass it to clients.</doc>
+<use f='codebrowser/code/client/cl_main.c' l='2039' u='c' c='CL_ReferencedPK3List_f'/>
+<def f='codebrowser/code/qcommon/files.c' l='3773' ll='3796' type='const char * FS_ReferencedPakNames()'/>
+<doc f='codebrowser/code/qcommon/files.c' l='3765'>/*
+=====================
+FS_ReferencedPakNames
+
+Returns a space separated string containing the names of all referenced pk3 files.
+The server will send this to the clients so they can check which files should be auto-downloaded. 
+=====================
+*/</doc>
+<use f='codebrowser/code/server/sv_client.c' l='962' u='c' c='SV_WriteDownloadToClient'/>
+<use f='codebrowser/code/server/sv_init.c' l='591' u='c' c='SV_SpawnServer'/>

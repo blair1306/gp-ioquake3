@@ -1,0 +1,34 @@
+<dec f='codebrowser/code/cgame/cg_local.h' l='1505' type='void trap_FS_FCloseFile(fileHandle_t f)'/>
+<use f='codebrowser/code/cgame/cg_players.c' l='110' u='c' c='CG_ParseAnimationFile'/>
+<use f='codebrowser/code/cgame/cg_players.c' l='115' u='c' c='CG_ParseAnimationFile'/>
+<def f='codebrowser/code/cgame/cg_syscalls.c' l='100' ll='102' type='void trap_FS_FCloseFile(fileHandle_t f)'/>
+<dec f='codebrowser/code/game/g_local.h' l='759' type='void trap_FS_FCloseFile(fileHandle_t f)'/>
+<use f='codebrowser/code/game/g_bot.c' l='135' u='c' c='G_LoadArenasFromFile'/>
+<use f='codebrowser/code/game/g_bot.c' l='142' u='c' c='G_LoadArenasFromFile'/>
+<use f='codebrowser/code/game/g_bot.c' l='913' u='c' c='G_LoadBotsFromFile'/>
+<use f='codebrowser/code/game/g_bot.c' l='919' u='c' c='G_LoadBotsFromFile'/>
+<use f='codebrowser/code/game/g_main.c' l='527' u='c' c='G_ShutdownGame'/>
+<def f='codebrowser/code/game/g_syscalls.c' l='78' ll='80' type='void trap_FS_FCloseFile(fileHandle_t f)'/>
+<dec f='codebrowser/code/q3_ui/ui_local.h' l='643' type='void trap_FS_FCloseFile(fileHandle_t f)'/>
+<use f='codebrowser/code/q3_ui/ui_gameinfo.c' l='152' u='c' c='UI_LoadArenasFromFile'/>
+<use f='codebrowser/code/q3_ui/ui_gameinfo.c' l='158' u='c' c='UI_LoadArenasFromFile'/>
+<use f='codebrowser/code/q3_ui/ui_gameinfo.c' l='341' u='c' c='UI_LoadBotsFromFile'/>
+<use f='codebrowser/code/q3_ui/ui_gameinfo.c' l='347' u='c' c='UI_LoadBotsFromFile'/>
+<use f='codebrowser/code/q3_ui/ui_players.c' l='952' u='c' c='UI_ParseAnimationFile'/>
+<use f='codebrowser/code/q3_ui/ui_players.c' l='957' u='c' c='UI_ParseAnimationFile'/>
+<dec f='codebrowser/code/ui/ui_local.h' l='934' type='void trap_FS_FCloseFile(fileHandle_t f)'/>
+<use f='codebrowser/code/ui/ui_atoms.c' l='164' u='c' c='UI_LoadBestScores'/>
+<use f='codebrowser/code/ui/ui_atoms.c' l='182' u='c' c='UI_LoadBestScores'/>
+<use f='codebrowser/code/ui/ui_atoms.c' l='190' u='c' c='UI_LoadBestScores'/>
+<use f='codebrowser/code/ui/ui_atoms.c' l='219' u='c' c='UI_ClearScores'/>
+<use f='codebrowser/code/ui/ui_atoms.c' l='265' u='c' c='UI_CalcPostGameStats'/>
+<use f='codebrowser/code/ui/ui_atoms.c' l='312' u='c' c='UI_CalcPostGameStats'/>
+<use f='codebrowser/code/ui/ui_gameinfo.c' l='119' u='c' c='UI_LoadArenasFromFile'/>
+<use f='codebrowser/code/ui/ui_gameinfo.c' l='125' u='c' c='UI_LoadArenasFromFile'/>
+<use f='codebrowser/code/ui/ui_gameinfo.c' l='230' u='c' c='UI_LoadBotsFromFile'/>
+<use f='codebrowser/code/ui/ui_gameinfo.c' l='236' u='c' c='UI_LoadBotsFromFile'/>
+<use f='codebrowser/code/ui/ui_main.c' l='673' u='c' c='GetMenuBuffer'/>
+<use f='codebrowser/code/ui/ui_main.c' l='679' u='c' c='GetMenuBuffer'/>
+<use f='codebrowser/code/ui/ui_players.c' l='1037' u='c' c='UI_ParseAnimationFile'/>
+<use f='codebrowser/code/ui/ui_players.c' l='1042' u='c' c='UI_ParseAnimationFile'/>
+<def f='codebrowser/code/ui/ui_syscalls.c' l='120' ll='122' type='void trap_FS_FCloseFile(fileHandle_t f)'/>

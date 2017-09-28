@@ -1,0 +1,28 @@
+<dec f='codebrowser/code/qcommon/qcommon.h' l='650' type='long FS_FOpenFileRead(const char * qpath, fileHandle_t * file, qboolean uniqueFILE)'/>
+<use f='codebrowser/code/client/cl_avi.c' l='611' u='c' c='CL_CloseAVI'/>
+<use f='codebrowser/code/client/cl_cin.c' l='1084' u='c' c='RoQReset'/>
+<use f='codebrowser/code/client/cl_cin.c' l='1436' u='c' c='CIN_PlayCinematic'/>
+<use f='codebrowser/code/client/cl_keys.c' l='1474' u='c' c='CL_LoadConsoleHistory'/>
+<use f='codebrowser/code/client/cl_main.c' l='997' u='c' c='CL_WalkDemoExt'/>
+<use f='codebrowser/code/client/cl_main.c' l='1010' u='c' c='CL_WalkDemoExt'/>
+<use f='codebrowser/code/client/cl_main.c' l='1031' u='c' c='CL_WalkDemoExt'/>
+<use f='codebrowser/code/client/cl_main.c' l='1111' u='c' c='CL_PlayDemo_f'/>
+<use f='codebrowser/code/client/snd_codec.c' l='205' u='c' c='S_CodecUtilOpen'/>
+<use f='codebrowser/code/client/snd_codec_wav.c' l='204' u='c' c='S_WAV_CodecLoad'/>
+<use f='codebrowser/code/qcommon/common.c' l='1924' u='c' c='Com_InitJournaling'/>
+<use f='codebrowser/code/qcommon/common.c' l='1925' u='c' c='Com_InitJournaling'/>
+<def f='codebrowser/code/qcommon/files.c' l='1380' ll='1427' type='long FS_FOpenFileRead(const char * filename, fileHandle_t * file, qboolean uniqueFILE)'/>
+<use f='codebrowser/code/qcommon/files.c' l='1883' u='c' c='FS_ReadFileDir'/>
+<use f='codebrowser/code/qcommon/files.c' l='2814' u='c' c='FS_TouchFile_f'/>
+<use f='codebrowser/code/qcommon/files.c' l='4084' u='c' c='FS_FOpenFileByMode'/>
+<doc f='codebrowser/code/qcommon/files.c' l='1370'>/*
+===========
+FS_FOpenFileRead
+
+Finds the file in the search path.
+Returns filesize and an open FILE pointer.
+Used for streaming data out of either a
+separate file or a ZIP file.
+===========
+*/</doc>
+<use f='codebrowser/code/server/sv_init.c' l='387' u='c' c='SV_TouchCGame'/>

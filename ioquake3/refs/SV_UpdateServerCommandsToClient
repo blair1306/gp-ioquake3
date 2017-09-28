@@ -1,0 +1,11 @@
+<dec f='codebrowser/code/server/server.h' l='398' type='void SV_UpdateServerCommandsToClient(client_t * client, msg_t * msg)'/>
+<use f='codebrowser/code/server/sv_client.c' l='741' u='c' c='SV_SendClientGameState'/>
+<def f='codebrowser/code/server/sv_snapshot.c' l='218' ll='228' type='void SV_UpdateServerCommandsToClient(client_t * client, msg_t * msg)'/>
+<use f='codebrowser/code/server/sv_snapshot.c' l='618' u='c' c='SV_SendClientSnapshot'/>
+<doc f='codebrowser/code/server/sv_snapshot.c' l='211'>/*
+==================
+SV_UpdateServerCommandsToClient
+
+(re)send all server commands the client hasn&apos;t acknowledged yet
+==================
+*/</doc>

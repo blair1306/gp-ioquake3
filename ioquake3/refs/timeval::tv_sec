@@ -1,0 +1,9 @@
+<dec f='include/x86_64-linux-gnu/bits/time.h' l='32' type='__time_t'/>
+<offset>0</offset>
+<doc f='include/x86_64-linux-gnu/bits/time.h' l='32'>/* Seconds.  */</doc>
+<use f='codebrowser/code/client/libmumblelink.c' l='77' u='r' c='GetTickCount'/>
+<use f='codebrowser/code/qcommon/net_ip.c' l='1690' u='w' c='NET_Sleep'/>
+<use f='codebrowser/code/sys/con_tty.c' l='492' u='w' c='CON_Input'/>
+<use f='codebrowser/code/sys/sys_unix.c' l='146' u='r' c='Sys_Milliseconds'/>
+<use f='codebrowser/code/sys/sys_unix.c' l='150' u='r' c='Sys_Milliseconds'/>
+<use f='codebrowser/code/sys/sys_unix.c' l='520' u='w' c='Sys_Sleep'/>

@@ -1,0 +1,12 @@
+<dec f='codebrowser/code/game/ai_dmq3.h' l='62' type='qboolean EntityIsInvisible(aas_entityinfo_t * entinfo)'/>
+<use f='codebrowser/code/game/ai_chat.c' l='331' u='c' c='BotVisibleEnemies'/>
+<doc f='codebrowser/code/game/ai_dmq3.h' l='61'>//returns true if the entity is invisible</doc>
+<use f='codebrowser/code/game/ai_dmnet.c' l='2050' u='c' c='AINode_Battle_Fight'/>
+<def f='codebrowser/code/game/ai_dmq3.c' l='240' ll='249' type='qboolean EntityIsInvisible(aas_entityinfo_t * entinfo)'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='3002' u='c' c='BotFindEnemy'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='3355' u='c' c='BotAimAtEnemy'/>
+<doc f='codebrowser/code/game/ai_dmq3.c' l='235'>/*
+==================
+EntityIsInvisible
+==================
+*/</doc>

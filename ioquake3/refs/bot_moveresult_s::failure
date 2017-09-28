@@ -1,0 +1,16 @@
+<dec f='codebrowser/code/botlib/be_ai_move.h' l='92' type='int'/>
+<offset>0</offset>
+<doc f='codebrowser/code/botlib/be_ai_move.h' l='92'>//true if movement failed all together</doc>
+<use f='codebrowser/code/botlib/be_ai_move.c' l='2664' u='w' c='BotTravel_Grapple'/>
+<use f='codebrowser/code/botlib/be_ai_move.c' l='3012' u='w' c='BotMoveToGoal'/>
+<use f='codebrowser/code/botlib/be_ai_move.c' l='3031' u='w' c='BotMoveToGoal'/>
+<use f='codebrowser/code/botlib/be_ai_move.c' l='3153' u='w' c='BotMoveToGoal'/>
+<use f='codebrowser/code/botlib/be_ai_move.c' l='3337' u='w' c='BotMoveToGoal'/>
+<use f='codebrowser/code/game/ai_dmnet.c' l='1568' u='r' c='AINode_Seek_ActivateEntity'/>
+<use f='codebrowser/code/game/ai_dmnet.c' l='1725' u='r' c='AINode_Seek_NBG'/>
+<use f='codebrowser/code/game/ai_dmnet.c' l='1917' u='r' c='AINode_Seek_LTG'/>
+<use f='codebrowser/code/game/ai_dmnet.c' l='2125' u='r' c='AINode_Battle_Fight'/>
+<use f='codebrowser/code/game/ai_dmnet.c' l='2248' u='r' c='AINode_Battle_Chase'/>
+<use f='codebrowser/code/game/ai_dmnet.c' l='2436' u='r' c='AINode_Battle_Retreat'/>
+<use f='codebrowser/code/game/ai_dmnet.c' l='2580' u='r' c='AINode_Battle_NBG'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='4420' u='w' c='BotRandomMove'/>

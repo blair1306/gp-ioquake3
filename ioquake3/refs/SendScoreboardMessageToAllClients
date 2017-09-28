@@ -1,0 +1,12 @@
+<dec f='codebrowser/code/game/g_local.h' l='608' type='void SendScoreboardMessageToAllClients()'/>
+<use f='codebrowser/code/game/g_main.c' l='892' u='c' c='CalculateRanks'/>
+<def f='codebrowser/code/game/g_main.c' l='913' ll='921' type='void SendScoreboardMessageToAllClients()'/>
+<use f='codebrowser/code/game/g_main.c' l='1029' u='c' c='BeginIntermission'/>
+<doc f='codebrowser/code/game/g_main.c' l='905'>/*
+========================
+SendScoreboardMessageToAllClients
+
+Do this at BeginIntermission time and whenever ranks are recalculated
+due to enters/exits/forced team changes
+========================
+*/</doc>

@@ -1,0 +1,85 @@
+<dec f='codebrowser/code/jpeg-8c/jdct.h' l='348'/>
+<doc f='codebrowser/code/jpeg-8c/jdct.h' l='338'>/*
+ * Macros for handling fixed-point arithmetic; these are used by many
+ * but not all of the DCT/IDCT modules.
+ *
+ * All values are expected to be of type INT32.
+ * Fractional constants are scaled left by CONST_BITS bits.
+ * CONST_BITS is defined within each module using these macros,
+ * and may differ from one module to the next.
+ */</doc>
+<use f='codebrowser/code/jpeg-8c/jfdctint.c' l='201' u='c'/>
+<use f='codebrowser/code/jpeg-8c/jfdctint.c' l='218' u='c'/>
+<use f='codebrowser/code/jpeg-8c/jfdctint.c' l='261' u='c'/>
+<use f='codebrowser/code/jpeg-8c/jfdctint.c' l='276' u='c'/>
+<use f='codebrowser/code/jpeg-8c/jfdctint.c' l='293' u='c'/>
+<use f='codebrowser/code/jpeg-8c/jfdctint.c' l='725' u='c'/>
+<use f='codebrowser/code/jpeg-8c/jfdctint.c' l='747' u='c'/>
+<use f='codebrowser/code/jpeg-8c/jfdctint.c' l='760' u='c'/>
+<use f='codebrowser/code/jpeg-8c/jfdctint.c' l='3037' u='c'/>
+<use f='codebrowser/code/jpeg-8c/jfdctint.c' l='3054' u='c'/>
+<use f='codebrowser/code/jpeg-8c/jfdctint.c' l='3091' u='c'/>
+<use f='codebrowser/code/jpeg-8c/jfdctint.c' l='3104' u='c'/>
+<use f='codebrowser/code/jpeg-8c/jfdctint.c' l='3265' u='c'/>
+<use f='codebrowser/code/jpeg-8c/jfdctint.c' l='3287' u='c'/>
+<use f='codebrowser/code/jpeg-8c/jfdctint.c' l='4045' u='c'/>
+<use f='codebrowser/code/jpeg-8c/jfdctint.c' l='4074' u='c'/>
+<use f='codebrowser/code/jpeg-8c/jfdctint.c' l='4089' u='c'/>
+<use f='codebrowser/code/jpeg-8c/jfdctint.c' l='4106' u='c'/>
+<use f='codebrowser/code/jpeg-8c/jfdctint.c' l='4304' u='c'/>
+<use f='codebrowser/code/jpeg-8c/jidctint.c' l='241' u='c'/>
+<use f='codebrowser/code/jpeg-8c/jidctint.c' l='344' u='c'/>
+<use f='codebrowser/code/jpeg-8c/jidctint.c' l='454' u='c'/>
+<use f='codebrowser/code/jpeg-8c/jidctint.c' l='506' u='c'/>
+<use f='codebrowser/code/jpeg-8c/jidctint.c' l='603' u='c'/>
+<use f='codebrowser/code/jpeg-8c/jidctint.c' l='642' u='c'/>
+<use f='codebrowser/code/jpeg-8c/jidctint.c' l='724' u='c'/>
+<use f='codebrowser/code/jpeg-8c/jidctint.c' l='761' u='c'/>
+<use f='codebrowser/code/jpeg-8c/jidctint.c' l='850' u='c'/>
+<use f='codebrowser/code/jpeg-8c/jidctint.c' l='873' u='c'/>
+<use f='codebrowser/code/jpeg-8c/jidctint.c' l='943' u='c'/>
+<use f='codebrowser/code/jpeg-8c/jidctint.c' l='970' u='c'/>
+<use f='codebrowser/code/jpeg-8c/jidctint.c' l='1025' u='c'/>
+<use f='codebrowser/code/jpeg-8c/jidctint.c' l='1115' u='c'/>
+<use f='codebrowser/code/jpeg-8c/jidctint.c' l='1176' u='c'/>
+<use f='codebrowser/code/jpeg-8c/jidctint.c' l='1287' u='c'/>
+<use f='codebrowser/code/jpeg-8c/jidctint.c' l='1359' u='c'/>
+<use f='codebrowser/code/jpeg-8c/jidctint.c' l='1482' u='c'/>
+<use f='codebrowser/code/jpeg-8c/jidctint.c' l='1552' u='c'/>
+<use f='codebrowser/code/jpeg-8c/jidctint.c' l='1676' u='c'/>
+<use f='codebrowser/code/jpeg-8c/jidctint.c' l='1756' u='c'/>
+<use f='codebrowser/code/jpeg-8c/jidctint.c' l='1892' u='c'/>
+<use f='codebrowser/code/jpeg-8c/jidctint.c' l='1977' u='c'/>
+<use f='codebrowser/code/jpeg-8c/jidctint.c' l='2120' u='c'/>
+<use f='codebrowser/code/jpeg-8c/jidctint.c' l='2204' u='c'/>
+<use f='codebrowser/code/jpeg-8c/jidctint.c' l='2346' u='c'/>
+<use f='codebrowser/code/jpeg-8c/jidctint.c' l='2436' u='c'/>
+<use f='codebrowser/code/jpeg-8c/jidctint.c' l='2687' u='c'/>
+<use f='codebrowser/code/jpeg-8c/jidctint.c' l='2892' u='c'/>
+<use f='codebrowser/code/jpeg-8c/jidctint.c' l='2958' u='c'/>
+<use f='codebrowser/code/jpeg-8c/jidctint.c' l='3121' u='c'/>
+<use f='codebrowser/code/jpeg-8c/jidctint.c' l='3174' u='c'/>
+<use f='codebrowser/code/jpeg-8c/jidctint.c' l='3316' u='c'/>
+<use f='codebrowser/code/jpeg-8c/jidctint.c' l='3356' u='c'/>
+<use f='codebrowser/code/jpeg-8c/jidctint.c' l='3492' u='c'/>
+<use f='codebrowser/code/jpeg-8c/jidctint.c' l='3530' u='c'/>
+<use f='codebrowser/code/jpeg-8c/jidctint.c' l='3664' u='c'/>
+<use f='codebrowser/code/jpeg-8c/jidctint.c' l='3697' u='c'/>
+<use f='codebrowser/code/jpeg-8c/jidctint.c' l='3805' u='c'/>
+<use f='codebrowser/code/jpeg-8c/jidctint.c' l='3833' u='c'/>
+<use f='codebrowser/code/jpeg-8c/jidctint.c' l='3934' u='c'/>
+<use f='codebrowser/code/jpeg-8c/jidctint.c' l='3999' u='c'/>
+<use f='codebrowser/code/jpeg-8c/jidctint.c' l='4048' u='c'/>
+<use f='codebrowser/code/jpeg-8c/jidctint.c' l='4157' u='c'/>
+<use f='codebrowser/code/jpeg-8c/jidctint.c' l='4266' u='c'/>
+<use f='codebrowser/code/jpeg-8c/jidctint.c' l='4351' u='c'/>
+<use f='codebrowser/code/jpeg-8c/jidctint.c' l='4449' u='c'/>
+<use f='codebrowser/code/jpeg-8c/jidctint.c' l='4530' u='c'/>
+<use f='codebrowser/code/jpeg-8c/jidctint.c' l='4613' u='c'/>
+<use f='codebrowser/code/jpeg-8c/jidctint.c' l='4686' u='c'/>
+<use f='codebrowser/code/jpeg-8c/jidctint.c' l='4807' u='c'/>
+<use f='codebrowser/code/jpeg-8c/jidctint.c' l='4873' u='c'/>
+<use f='codebrowser/code/jpeg-8c/jidctint.c' l='4944' u='c'/>
+<use f='codebrowser/code/jpeg-8c/jidctint.c' l='4984' u='c'/>
+<use f='codebrowser/code/jpeg-8c/jidctint.c' l='5079' u='c'/>
+<use f='codebrowser/code/jpeg-8c/jidctint.c' l='5122' u='c'/>

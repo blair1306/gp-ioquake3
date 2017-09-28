@@ -1,0 +1,94 @@
+<dec f='codebrowser/code/cgame/cg_local.h' l='994' type='glconfig_t'/>
+<offset>160800</offset>
+<doc f='codebrowser/code/cgame/cg_local.h' l='994'>// rendering configuration</doc>
+<use f='codebrowser/code/cgame/cg_draw.c' l='1979' u='m' c='CG_DrawCrosshair3D'/>
+<use f='codebrowser/code/cgame/cg_drawtools.c' l='295' u='m' c='CG_TileClear'/>
+<use f='codebrowser/code/cgame/cg_drawtools.c' l='296' u='m' c='CG_TileClear'/>
+<use f='codebrowser/code/cgame/cg_effects.c' l='146' u='m' c='CG_SmokePuff'/>
+<use f='codebrowser/code/cgame/cg_info.c' l='171' u='m' c='CG_DrawInformation'/>
+<use f='codebrowser/code/cgame/cg_info.c' l='171' u='m' c='CG_DrawInformation'/>
+<use f='codebrowser/code/cgame/cg_main.c' l='1875' u='a' c='CG_Init'/>
+<use f='codebrowser/code/cgame/cg_main.c' l='1876' u='m' c='CG_Init'/>
+<use f='codebrowser/code/cgame/cg_main.c' l='1877' u='m' c='CG_Init'/>
+<dec f='codebrowser/code/ui/ui_shared.h' l='380' type='glconfig_t'/>
+<offset>498240</offset>
+<use f='codebrowser/code/cgame/cg_particles.c' l='476' u='m' c='CG_AddParticleToScene'/>
+<use f='codebrowser/code/cgame/cg_particles.c' l='581' u='m' c='CG_AddParticleToScene'/>
+<use f='codebrowser/code/cgame/cg_view.c' l='201' u='m' c='CG_CalcVrect'/>
+<use f='codebrowser/code/cgame/cg_view.c' l='204' u='m' c='CG_CalcVrect'/>
+<use f='codebrowser/code/cgame/cg_view.c' l='207' u='m' c='CG_CalcVrect'/>
+<use f='codebrowser/code/cgame/cg_view.c' l='208' u='m' c='CG_CalcVrect'/>
+<use f='codebrowser/code/cgame/cg_view.c' l='572' u='m' c='CG_DamageBlendBlob'/>
+<use f='codebrowser/code/cgame/cg_weapons.c' l='2072' u='m' c='CG_ShotgunFire'/>
+<dec f='codebrowser/code/client/client.h' l='350' type='glconfig_t'/>
+<use f='codebrowser/code/client/cl_avi.c' l='352' u='m' c='CL_OpenAVIForWriting'/>
+<use f='codebrowser/code/client/cl_avi.c' l='353' u='m' c='CL_OpenAVIForWriting'/>
+<offset>7734848</offset>
+<doc f='codebrowser/code/client/client.h' l='349'>// rendering info</doc>
+<use f='codebrowser/code/client/cl_cgame.c' l='53' u='r' c='CL_GetGlconfig'/>
+<use f='codebrowser/code/client/cl_cin.c' l='1000' u='m' c='readQuadInfo'/>
+<use f='codebrowser/code/client/cl_cin.c' l='1000' u='m' c='readQuadInfo'/>
+<use f='codebrowser/code/client/cl_console.c' l='650' u='m' c='Con_DrawSolidConsole'/>
+<use f='codebrowser/code/client/cl_console.c' l='654' u='m' c='Con_DrawSolidConsole'/>
+<use f='codebrowser/code/client/cl_console.c' l='655' u='m' c='Con_DrawSolidConsole'/>
+<use f='codebrowser/code/client/cl_console.c' l='684' u='m' c='Con_DrawSolidConsole'/>
+<use f='codebrowser/code/client/cl_main.c' l='1545' u='m' c='CL_RequestMotd'/>
+<use f='codebrowser/code/client/cl_main.c' l='3125' u='a' c='CL_InitRenderer'/>
+<use f='codebrowser/code/client/cl_main.c' l='3131' u='m' c='CL_InitRenderer'/>
+<use f='codebrowser/code/client/cl_scrn.c' l='71' u='m' c='SCR_AdjustFrom640'/>
+<use f='codebrowser/code/client/cl_scrn.c' l='72' u='m' c='SCR_AdjustFrom640'/>
+<use f='codebrowser/code/client/cl_scrn.c' l='427' u='m' c='SCR_DrawDebugGraph'/>
+<use f='codebrowser/code/client/cl_scrn.c' l='429' u='m' c='SCR_DrawDebugGraph'/>
+<use f='codebrowser/code/client/cl_scrn.c' l='485' u='m' c='SCR_DrawScreenField'/>
+<use f='codebrowser/code/client/cl_scrn.c' l='485' u='m' c='SCR_DrawScreenField'/>
+<use f='codebrowser/code/client/cl_scrn.c' l='487' u='m' c='SCR_DrawScreenField'/>
+<use f='codebrowser/code/client/cl_scrn.c' l='487' u='m' c='SCR_DrawScreenField'/>
+<use f='codebrowser/code/client/cl_scrn.c' l='578' u='m' c='SCR_UpdateScreen'/>
+<use f='codebrowser/code/client/cl_ui.c' l='586' u='r' c='CL_GetGlconfig'/>
+<dec f='codebrowser/code/q3_ui/ui_local.h' l='542' type='glconfig_t'/>
+<offset>768</offset>
+<use f='codebrowser/code/q3_ui/ui_atoms.c' l='1072' u='a' c='UI_Init'/>
+<use f='codebrowser/code/q3_ui/ui_atoms.c' l='1075' u='m' c='UI_Init'/>
+<use f='codebrowser/code/q3_ui/ui_atoms.c' l='1076' u='m' c='UI_Init'/>
+<use f='codebrowser/code/q3_ui/ui_atoms.c' l='1077' u='m' c='UI_Init'/>
+<use f='codebrowser/code/q3_ui/ui_atoms.c' l='1077' u='m' c='UI_Init'/>
+<use f='codebrowser/code/q3_ui/ui_atoms.c' l='1079' u='m' c='UI_Init'/>
+<use f='codebrowser/code/q3_ui/ui_atoms.c' l='1079' u='m' c='UI_Init'/>
+<use f='codebrowser/code/q3_ui/ui_display.c' l='201' u='m' c='UI_DisplayOptionsMenu_Init'/>
+<use f='codebrowser/code/q3_ui/ui_qmenu.c' l='1756' u='m' c='Menu_Cache'/>
+<use f='codebrowser/code/q3_ui/ui_video.c' l='100' u='m' c='DriverInfo_MenuDraw'/>
+<use f='codebrowser/code/q3_ui/ui_video.c' l='101' u='m' c='DriverInfo_MenuDraw'/>
+<use f='codebrowser/code/q3_ui/ui_video.c' l='102' u='m' c='DriverInfo_MenuDraw'/>
+<use f='codebrowser/code/q3_ui/ui_video.c' l='103' u='m' c='DriverInfo_MenuDraw'/>
+<use f='codebrowser/code/q3_ui/ui_video.c' l='103' u='m' c='DriverInfo_MenuDraw'/>
+<use f='codebrowser/code/q3_ui/ui_video.c' l='103' u='m' c='DriverInfo_MenuDraw'/>
+<use f='codebrowser/code/q3_ui/ui_video.c' l='192' u='m' c='UI_DriverInfo_Menu'/>
+<use f='codebrowser/code/q3_ui/ui_video.c' l='1043' u='m' c='GraphicsOptions_MenuInit'/>
+<use f='codebrowser/code/q3_ui/ui_video.c' l='1191' u='m' c='GraphicsOptions_MenuInit'/>
+<use f='codebrowser/code/q3_ui/ui_video.c' l='1192' u='m' c='GraphicsOptions_MenuInit'/>
+<use f='codebrowser/code/sdl/sdl_input.c' l='402' u='m' c='IN_DeactivateMouse'/>
+<use f='codebrowser/code/sdl/sdl_input.c' l='402' u='m' c='IN_DeactivateMouse'/>
+<use f='codebrowser/code/sdl/sdl_input.c' l='1125' u='m' c='IN_ProcessEvents'/>
+<use f='codebrowser/code/sdl/sdl_input.c' l='1125' u='m' c='IN_ProcessEvents'/>
+<use f='codebrowser/code/sdl/sdl_input.c' l='1169' u='m' c='IN_Frame'/>
+<use f='codebrowser/code/sdl/sdl_input.c' l='1174' u='m' c='IN_Frame'/>
+<dec f='codebrowser/code/ui/ui_local.h' l='584' type='glconfig_t'/>
+<offset>128</offset>
+<use f='codebrowser/code/ui/ui_main.c' l='1940' u='m' c='UI_DrawGLInfo'/>
+<use f='codebrowser/code/ui/ui_main.c' l='1941' u='m' c='UI_DrawGLInfo'/>
+<use f='codebrowser/code/ui/ui_main.c' l='1941' u='m' c='UI_DrawGLInfo'/>
+<use f='codebrowser/code/ui/ui_main.c' l='1942' u='m' c='UI_DrawGLInfo'/>
+<use f='codebrowser/code/ui/ui_main.c' l='1942' u='m' c='UI_DrawGLInfo'/>
+<use f='codebrowser/code/ui/ui_main.c' l='1942' u='m' c='UI_DrawGLInfo'/>
+<use f='codebrowser/code/ui/ui_main.c' l='1948' u='m' c='UI_DrawGLInfo'/>
+<use f='codebrowser/code/ui/ui_main.c' l='4981' u='m' c='UI_DrawCinematic'/>
+<use f='codebrowser/code/ui/ui_main.c' l='4982' u='m' c='UI_DrawCinematic'/>
+<use f='codebrowser/code/ui/ui_main.c' l='4983' u='m' c='UI_DrawCinematic'/>
+<use f='codebrowser/code/ui/ui_main.c' l='4984' u='m' c='UI_DrawCinematic'/>
+<use f='codebrowser/code/ui/ui_main.c' l='5081' u='a' c='_UI_Init'/>
+<use f='codebrowser/code/ui/ui_main.c' l='5084' u='m' c='_UI_Init'/>
+<use f='codebrowser/code/ui/ui_main.c' l='5085' u='m' c='_UI_Init'/>
+<use f='codebrowser/code/ui/ui_main.c' l='5086' u='m' c='_UI_Init'/>
+<use f='codebrowser/code/ui/ui_main.c' l='5086' u='m' c='_UI_Init'/>
+<use f='codebrowser/code/ui/ui_main.c' l='5088' u='m' c='_UI_Init'/>
+<use f='codebrowser/code/ui/ui_main.c' l='5088' u='m' c='_UI_Init'/>

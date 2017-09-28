@@ -1,0 +1,17 @@
+<dec f='codebrowser/code/server/server.h' l='184' type='netchan_buffer_t *'/>
+<offset>944320</offset>
+<doc f='codebrowser/code/server/server.h' l='180'>// TTimo
+	// queuing outgoing fragmented messages to send them properly, without udp packet bursts
+	// in case large fragmented messages are stacking up
+	// buffer them into this queue, and hand them out to netchan as needed</doc>
+<use f='codebrowser/code/server/sv_client.c' l='557' u='a' c='SV_DirectConnect'/>
+<use f='codebrowser/code/server/sv_net_chan.c' l='145' u='r' c='SV_Netchan_FreeQueue'/>
+<use f='codebrowser/code/server/sv_net_chan.c' l='151' u='w' c='SV_Netchan_FreeQueue'/>
+<use f='codebrowser/code/server/sv_net_chan.c' l='152' u='a' c='SV_Netchan_FreeQueue'/>
+<use f='codebrowser/code/server/sv_net_chan.c' l='165' u='r' c='SV_Netchan_TransmitNextInQueue'/>
+<use f='codebrowser/code/server/sv_net_chan.c' l='175' u='w' c='SV_Netchan_TransmitNextInQueue'/>
+<use f='codebrowser/code/server/sv_net_chan.c' l='176' u='r' c='SV_Netchan_TransmitNextInQueue'/>
+<use f='codebrowser/code/server/sv_net_chan.c' l='179' u='a' c='SV_Netchan_TransmitNextInQueue'/>
+<use f='codebrowser/code/server/sv_net_chan.c' l='203' u='r' c='SV_Netchan_TransmitNextFragment'/>
+<use f='codebrowser/code/server/sv_net_chan.c' l='228' u='r' c='SV_Netchan_Transmit'/>
+<use f='codebrowser/code/server/sv_snapshot.c' l='659' u='r' c='SV_SendClientMessages'/>

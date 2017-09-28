@@ -1,0 +1,30 @@
+<dec f='codebrowser/code/game/g_local.h' l='607' type='void G_LogPrintf(const char * fmt)'/>
+<use f='codebrowser/code/game/g_client.c' l='866' u='c' c='ClientUserinfoChanged'/>
+<use f='codebrowser/code/game/g_client.c' l='923' u='c' c='ClientConnect'/>
+<use f='codebrowser/code/game/g_client.c' l='958' u='c' c='ClientConnect'/>
+<use f='codebrowser/code/game/g_client.c' l='1029' u='c' c='ClientBegin'/>
+<use f='codebrowser/code/game/g_client.c' l='1299' u='c' c='ClientDisconnect'/>
+<use f='codebrowser/code/game/g_cmds.c' l='887' u='c' c='G_Say'/>
+<use f='codebrowser/code/game/g_cmds.c' l='892' u='c' c='G_Say'/>
+<use f='codebrowser/code/game/g_cmds.c' l='999' u='c' c='Cmd_Tell_f'/>
+<use f='codebrowser/code/game/g_cmds.c' l='1256' u='c' c='Cmd_GameCommand_f'/>
+<use f='codebrowser/code/game/g_combat.c' l='490' u='c' c='player_die'/>
+<use f='codebrowser/code/game/g_items.c' l='440' u='c' c='Touch_Item'/>
+<use f='codebrowser/code/game/g_main.c' l='443' u='c' c='G_InitGame'/>
+<use f='codebrowser/code/game/g_main.c' l='444' u='c' c='G_InitGame'/>
+<use f='codebrowser/code/game/g_main.c' l='525' u='c' c='G_ShutdownGame'/>
+<use f='codebrowser/code/game/g_main.c' l='526' u='c' c='G_ShutdownGame'/>
+<def f='codebrowser/code/game/g_main.c' l='1109' ll='1136' type='void G_LogPrintf(const char * fmt)'/>
+<use f='codebrowser/code/game/g_main.c' l='1152' u='c' c='LogExit'/>
+<use f='codebrowser/code/game/g_main.c' l='1167' u='c' c='LogExit'/>
+<use f='codebrowser/code/game/g_main.c' l='1185' u='c' c='LogExit'/>
+<use f='codebrowser/code/game/g_main.c' l='1461' u='c' c='CheckTournament'/>
+<use f='codebrowser/code/game/g_main.c' l='1518' u='c' c='CheckTournament'/>
+<doc f='codebrowser/code/game/g_main.c' l='1102'>/*
+=================
+G_LogPrintf
+
+Print to the logfile with a time stamp if it is open
+=================
+*/</doc>
+<use f='codebrowser/code/game/g_spawn.c' l='610' u='c' c='SP_worldspawn'/>

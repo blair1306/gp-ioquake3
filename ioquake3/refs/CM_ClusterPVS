@@ -1,0 +1,13 @@
+<dec f='codebrowser/code/qcommon/cm_public.h' l='49' type='byte * CM_ClusterPVS(int cluster)'/>
+<use f='codebrowser/code/client/cl_main.c' l='3254' u='r' c='CL_InitRef'/>
+<def f='codebrowser/code/qcommon/cm_test.c' l='316' ll='322' type='byte * CM_ClusterPVS(int cluster)'/>
+<doc f='codebrowser/code/qcommon/cm_test.c' l='308'>/*
+===============================================================================
+
+PVS
+
+===============================================================================
+*/</doc>
+<use f='codebrowser/code/server/sv_game.c' l='156' u='c' c='SV_inPVS'/>
+<use f='codebrowser/code/server/sv_game.c' l='184' u='c' c='SV_inPVSIgnorePortals'/>
+<use f='codebrowser/code/server/sv_snapshot.c' l='317' u='c' c='SV_AddEntitiesVisibleFromPoint'/>

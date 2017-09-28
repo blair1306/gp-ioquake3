@@ -1,0 +1,14 @@
+<dec f='codebrowser/code/server/server.h' l='408' type='sharedEntity_t * SV_GentityNum(int num)'/>
+<use f='codebrowser/code/server/sv_bot.c' l='62' u='c' c='SV_BotAllocateClient'/>
+<use f='codebrowser/code/server/sv_client.c' l='543' u='c' c='SV_DirectConnect'/>
+<use f='codebrowser/code/server/sv_client.c' l='797' u='c' c='SV_ClientEnterWorld'/>
+<def f='codebrowser/code/server/sv_game.c' l='40' ll='46' type='sharedEntity_t * SV_GentityNum(int num)'/>
+<use f='codebrowser/code/server/sv_game.c' l='67' u='c' c='SV_GEntityForSvEntity'/>
+<use f='codebrowser/code/server/sv_init.c' l='222' u='c' c='SV_CreateBaseline'/>
+<use f='codebrowser/code/server/sv_init.c' l='547' u='c' c='SV_SpawnServer'/>
+<use f='codebrowser/code/server/sv_snapshot.c' l='320' u='c' c='SV_AddEntitiesVisibleFromPoint'/>
+<use f='codebrowser/code/server/sv_snapshot.c' l='511' u='c' c='SV_BuildClientSnapshot'/>
+<use f='codebrowser/code/server/sv_world.c' l='469' u='c' c='SV_ClipToEntity'/>
+<use f='codebrowser/code/server/sv_world.c' l='518' u='c' c='SV_ClipMoveToEntities'/>
+<use f='codebrowser/code/server/sv_world.c' l='530' u='c' c='SV_ClipMoveToEntities'/>
+<use f='codebrowser/code/server/sv_world.c' l='671' u='c' c='SV_PointContents'/>

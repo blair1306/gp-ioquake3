@@ -1,0 +1,6 @@
+<dec f='codebrowser/code/server/server.h' l='223' type='int'/>
+<offset>416</offset>
+<doc f='codebrowser/code/server/server.h' l='223'>// time the challenge response was sent to client</doc>
+<use f='codebrowser/code/server/sv_client.c' l='201' u='w' c='SV_GetChallenge'/>
+<use f='codebrowser/code/server/sv_client.c' l='243' u='w' c='SV_AuthorizeIpPacket'/>
+<use f='codebrowser/code/server/sv_client.c' l='433' u='r' c='SV_DirectConnect'/>

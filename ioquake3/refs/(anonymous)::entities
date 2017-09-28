@@ -1,0 +1,38 @@
+<dec f='codebrowser/code/cgame/cg_public.h' l='50' type='entityState_t [256]'/>
+<offset>4128</offset>
+<doc f='codebrowser/code/cgame/cg_public.h' l='50'>// at the time of this snapshot</doc>
+<use f='codebrowser/code/cgame/cg_ents.c' l='1044' u='m' c='CG_AddPacketEntities'/>
+<use f='codebrowser/code/cgame/cg_predict.c' l='62' u='m' c='CG_BuildSolidList'/>
+<use f='codebrowser/code/cgame/cg_snapshot.c' l='102' u='a' c='CG_SetInitialSnapshot'/>
+<use f='codebrowser/code/cgame/cg_snapshot.c' l='146' u='m' c='CG_TransitionSnapshot'/>
+<use f='codebrowser/code/cgame/cg_snapshot.c' l='158' u='m' c='CG_TransitionSnapshot'/>
+<use f='codebrowser/code/cgame/cg_snapshot.c' l='208' u='a' c='CG_SetNextSnap'/>
+<use f='codebrowser/code/client/cl_cgame.c' l='161' u='w' c='CL_GetSnapshot'/>
+<dec f='codebrowser/code/renderergl1/tr_local.h' l='397' type='trRefEntity_t *'/>
+<dec f='codebrowser/code/renderergl1/tr_local.h' l='1555' type='trRefEntity_t [1023]'/>
+<offset>8399872</offset>
+<use f='codebrowser/code/renderergl1/tr_backend.c' l='564' u='r' c='RB_RenderDrawSurfList'/>
+<use f='codebrowser/code/renderergl1/tr_main.c' l='684' u='r' c='R_GetPortalOrientations'/>
+<use f='codebrowser/code/renderergl1/tr_main.c' l='708' u='r' c='R_GetPortalOrientations'/>
+<use f='codebrowser/code/renderergl1/tr_main.c' l='802' u='r' c='IsMirror'/>
+<use f='codebrowser/code/renderergl1/tr_main.c' l='821' u='r' c='IsMirror'/>
+<use f='codebrowser/code/renderergl1/tr_main.c' l='1195' u='r' c='R_AddEntitySurfaces'/>
+<use f='codebrowser/code/renderergl1/tr_scene.c' l='219' u='m' c='RE_AddRefEntityToScene'/>
+<use f='codebrowser/code/renderergl1/tr_scene.c' l='220' u='m' c='RE_AddRefEntityToScene'/>
+<use f='codebrowser/code/renderergl1/tr_scene.c' l='353' u='w' c='RE_RenderScene'/>
+<use f='codebrowser/code/renderergl1/tr_scene.c' l='353' u='a' c='RE_RenderScene'/>
+<dec f='codebrowser/code/renderergl2/tr_local.h' l='721' type='trRefEntity_t *'/>
+<dec f='codebrowser/code/renderergl2/tr_local.h' l='2401' type='trRefEntity_t [1023]'/>
+<offset>8399872</offset>
+<use f='codebrowser/code/renderergl2/tr_backend.c' l='500' u='r' c='RB_RenderDrawSurfList'/>
+<use f='codebrowser/code/renderergl2/tr_main.c' l='1034' u='r' c='R_GetPortalOrientations'/>
+<use f='codebrowser/code/renderergl2/tr_main.c' l='1058' u='r' c='R_GetPortalOrientations'/>
+<use f='codebrowser/code/renderergl2/tr_main.c' l='1152' u='r' c='IsMirror'/>
+<use f='codebrowser/code/renderergl2/tr_main.c' l='1171' u='r' c='IsMirror'/>
+<use f='codebrowser/code/renderergl2/tr_main.c' l='1558' u='r' c='R_AddEntitySurface'/>
+<use f='codebrowser/code/renderergl2/tr_main.c' l='1865' u='r' c='R_RenderPshadowMaps'/>
+<use f='codebrowser/code/renderergl2/tr_scene.c' l='225' u='m' c='RE_AddRefEntityToScene'/>
+<use f='codebrowser/code/renderergl2/tr_scene.c' l='226' u='m' c='RE_AddRefEntityToScene'/>
+<use f='codebrowser/code/renderergl2/tr_scene.c' l='229' u='m' c='RE_AddRefEntityToScene'/>
+<use f='codebrowser/code/renderergl2/tr_scene.c' l='409' u='w' c='RE_BeginScene'/>
+<use f='codebrowser/code/renderergl2/tr_scene.c' l='409' u='a' c='RE_BeginScene'/>

@@ -1,0 +1,28 @@
+<dec f='codebrowser/code/botlib/l_precomp.h' l='117' type='int PC_ExpectAnyToken(source_t * source, token_t * token)'/>
+<doc f='codebrowser/code/botlib/l_precomp.h' l='116'>//expect a token</doc>
+<use f='codebrowser/code/botlib/be_ai_char.c' l='254' u='c' c='BotLoadCharacterFromFile'/>
+<use f='codebrowser/code/botlib/be_ai_char.c' l='282' u='c' c='BotLoadCharacterFromFile'/>
+<use f='codebrowser/code/botlib/be_ai_char.c' l='325' u='c' c='BotLoadCharacterFromFile'/>
+<use f='codebrowser/code/botlib/be_ai_chat.c' l='887' u='c' c='BotLoadChatMessage'/>
+<use f='codebrowser/code/botlib/be_ai_chat.c' l='2094' u='c' c='BotLoadInitialChat'/>
+<use f='codebrowser/code/botlib/be_ai_chat.c' l='2161' u='c' c='BotLoadInitialChat'/>
+<use f='codebrowser/code/botlib/be_ai_weight.c' l='63' u='c' c='ReadValue'/>
+<use f='codebrowser/code/botlib/be_ai_weight.c' l='68' u='c' c='ReadValue'/>
+<use f='codebrowser/code/botlib/be_ai_weight.c' l='174' u='c' c='ReadFuzzySeperators_r'/>
+<use f='codebrowser/code/botlib/be_ai_weight.c' l='205' u='c' c='ReadFuzzySeperators_r'/>
+<use f='codebrowser/code/botlib/be_ai_weight.c' l='214' u='c' c='ReadFuzzySeperators_r'/>
+<use f='codebrowser/code/botlib/be_ai_weight.c' l='257' u='c' c='ReadFuzzySeperators_r'/>
+<use f='codebrowser/code/botlib/be_ai_weight.c' l='356' u='c' c='ReadWeightConfig'/>
+<use f='codebrowser/code/botlib/be_ai_weight.c' l='366' u='c' c='ReadWeightConfig'/>
+<def f='codebrowser/code/botlib/l_precomp.c' l='2866' ll='2877' type='int PC_ExpectAnyToken(source_t * source, token_t * token)'/>
+<doc f='codebrowser/code/botlib/l_precomp.c' l='2860'>//============================================================================
+//
+// Parameter:				-
+// Returns:					-
+// Changes Globals:		-
+//============================================================================</doc>
+<use f='codebrowser/code/botlib/l_struct.c' l='83' u='c' c='ReadNumber'/>
+<use f='codebrowser/code/botlib/l_struct.c' l='101' u='c' c='ReadNumber'/>
+<use f='codebrowser/code/botlib/l_struct.c' l='195' u='c' c='ReadChar'/>
+<use f='codebrowser/code/botlib/l_struct.c' l='246' u='c' c='ReadStructure'/>
+<use f='codebrowser/code/botlib/l_struct.c' l='312' u='c' c='ReadStructure'/>

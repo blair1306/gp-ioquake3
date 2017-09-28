@@ -1,0 +1,11 @@
+<dec f='codebrowser/code/server/server.h' l='170' type='int'/>
+<offset>547008</offset>
+<doc f='codebrowser/code/server/server.h' l='170'>// svs.time of last sent snapshot</doc>
+<use f='codebrowser/code/server/sv_client.c' l='581' u='w' c='SV_DirectConnect'/>
+<use f='codebrowser/code/server/sv_client.c' l='802' u='w' c='SV_ClientEnterWorld'/>
+<use f='codebrowser/code/server/sv_client.c' l='1368' u='w' c='SV_VerifyPaks_f'/>
+<use f='codebrowser/code/server/sv_client.c' l='1451' u='w' c='SV_UserinfoChanged'/>
+<use f='codebrowser/code/server/sv_init.c' l='552' u='w' c='SV_SpawnServer'/>
+<use f='codebrowser/code/server/sv_init.c' l='730' u='w' c='SV_FinalMessage'/>
+<use f='codebrowser/code/server/sv_snapshot.c' l='670' u='r' c='SV_SendClientMessages'/>
+<use f='codebrowser/code/server/sv_snapshot.c' l='683' u='w' c='SV_SendClientMessages'/>

@@ -1,0 +1,30 @@
+<dec f='codebrowser/code/tools/lcc/src/c.h' l='685' type='Symbol lookup(const char * , Table )'/>
+<dec f='codebrowser/code/tools/lcc/cpp/cpp.h' l='106' type='Nlist * lookup(Token * , int )'/>
+<use f='codebrowser/code/tools/lcc/cpp/cpp.c' l='103' u='c' c='control'/>
+<use f='codebrowser/code/tools/lcc/cpp/cpp.c' l='145' u='c' c='control'/>
+<use f='codebrowser/code/tools/lcc/cpp/eval.c' l='114' u='c' c='eval'/>
+<use f='codebrowser/code/tools/lcc/cpp/eval.c' l='406' u='c' c='tokval'/>
+<use f='codebrowser/code/tools/lcc/cpp/macro.c' l='21' u='c' c='dodefine'/>
+<use f='codebrowser/code/tools/lcc/cpp/macro.c' l='102' u='c' c='doadefine'/>
+<use f='codebrowser/code/tools/lcc/cpp/macro.c' l='109' u='c' c='doadefine'/>
+<use f='codebrowser/code/tools/lcc/cpp/macro.c' l='142' u='c' c='expandrow'/>
+<use f='codebrowser/code/tools/lcc/cpp/nlist.c' l='60' u='c' c='setup_kwtab'/>
+<def f='codebrowser/code/tools/lcc/cpp/nlist.c' l='72' ll='104' type='Nlist * lookup(Token * tp, int install)'/>
+<use f='codebrowser/code/tools/lcc/src/decl.c' l='179' u='c' c='decl'/>
+<use f='codebrowser/code/tools/lcc/src/decl.c' l='213' u='c' c='dclglobal'/>
+<use f='codebrowser/code/tools/lcc/src/decl.c' l='230' u='c' c='dclglobal'/>
+<use f='codebrowser/code/tools/lcc/src/decl.c' l='498' u='c' c='dclparam'/>
+<use f='codebrowser/code/tools/lcc/src/decl.c' l='540' u='c' c='structdcl'/>
+<use f='codebrowser/code/tools/lcc/src/decl.c' l='688' u='c' c='funcdefn'/>
+<use f='codebrowser/code/tools/lcc/src/decl.c' l='745' u='c' c='funcdefn'/>
+<use f='codebrowser/code/tools/lcc/src/decl.c' l='935' u='c' c='dcllocal'/>
+<use f='codebrowser/code/tools/lcc/src/decl.c' l='951' u='c' c='dcllocal'/>
+<use f='codebrowser/code/tools/lcc/src/decl.c' l='953' u='c' c='dcllocal'/>
+<use f='codebrowser/code/tools/lcc/src/decl.c' l='1138' u='c' c='enumdcl'/>
+<use f='codebrowser/code/tools/lcc/src/expr.c' l='361' u='c' c='primary'/>
+<use f='codebrowser/code/tools/lcc/src/lex.c' l='252' u='c' c='gettok'/>
+<use f='codebrowser/code/tools/lcc/src/stmt.c' l='176' u='c' c='statement'/>
+<use f='codebrowser/code/tools/lcc/src/stmt.c' l='245' u='c' c='stmtlabel'/>
+<def f='codebrowser/code/tools/lcc/src/sym.c' l='127' ll='138' type='Symbol lookup(const char * name, Table tp)'/>
+<use f='codebrowser/code/tools/lcc/src/types.c' l='278' u='c' c='newstruct'/>
+<use f='codebrowser/code/tools/lcc/src/types.c' l='508' u='c' c='fieldref'/>

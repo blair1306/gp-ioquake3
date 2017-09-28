@@ -1,0 +1,35 @@
+<dec f='codebrowser/code/renderergl1/tr_local.h' l='1030' type='cvar_t *'/>
+<use f='codebrowser/code/renderergl1/tr_animation.c' l='244' u='r' c='R_MDRAddAnimSurfaces'/>
+<use f='codebrowser/code/renderergl1/tr_animation.c' l='282' u='r' c='R_MDRAddAnimSurfaces'/>
+<use f='codebrowser/code/renderergl1/tr_animation.c' l='291' u='r' c='R_MDRAddAnimSurfaces'/>
+<doc f='codebrowser/code/renderergl1/tr_local.h' l='1030'>// controls shadows: 0 = none, 1 = blur, 2 = stencil, 3 = black planar projection</doc>
+<use f='codebrowser/code/renderergl1/tr_backend.c' l='444' u='r' c='RB_BeginDrawingView'/>
+<use f='codebrowser/code/renderergl1/tr_cmds.c' l='311' u='r' c='RE_BeginFrame'/>
+<def f='codebrowser/code/renderergl1/tr_init.c' l='113' type='cvar_t *'/>
+<use f='codebrowser/code/renderergl1/tr_init.c' l='1134' u='w' c='R_Register'/>
+<use f='codebrowser/code/renderergl1/tr_mesh.c' l='337' u='r' c='R_AddMD3Surfaces'/>
+<use f='codebrowser/code/renderergl1/tr_mesh.c' l='388' u='r' c='R_AddMD3Surfaces'/>
+<use f='codebrowser/code/renderergl1/tr_mesh.c' l='396' u='r' c='R_AddMD3Surfaces'/>
+<use f='codebrowser/code/renderergl1/tr_model_iqm.c' l='887' u='r' c='R_AddIQMSurfaces'/>
+<use f='codebrowser/code/renderergl1/tr_model_iqm.c' l='920' u='r' c='R_AddIQMSurfaces'/>
+<use f='codebrowser/code/renderergl1/tr_model_iqm.c' l='928' u='r' c='R_AddIQMSurfaces'/>
+<use f='codebrowser/code/renderergl1/tr_shadows.c' l='247' u='r' c='RB_ShadowFinish'/>
+<dec f='codebrowser/code/renderergl2/tr_local.h' l='1681' type='cvar_t *'/>
+<use f='codebrowser/code/renderergl2/tr_animation.c' l='246' u='r' c='R_MDRAddAnimSurfaces'/>
+<use f='codebrowser/code/renderergl2/tr_animation.c' l='286' u='r' c='R_MDRAddAnimSurfaces'/>
+<use f='codebrowser/code/renderergl2/tr_animation.c' l='295' u='r' c='R_MDRAddAnimSurfaces'/>
+<doc f='codebrowser/code/renderergl2/tr_local.h' l='1681'>// controls shadows: 0 = none, 1 = blur, 2 = stencil, 3 = black planar projection</doc>
+<use f='codebrowser/code/renderergl2/tr_backend.c' l='369' u='r' c='RB_BeginDrawingView'/>
+<use f='codebrowser/code/renderergl2/tr_backend.c' l='1620' u='r' c='RB_PostProcess'/>
+<use f='codebrowser/code/renderergl2/tr_cmds.c' l='357' u='r' c='RE_BeginFrame'/>
+<def f='codebrowser/code/renderergl2/tr_init.c' l='177' type='cvar_t *'/>
+<use f='codebrowser/code/renderergl2/tr_init.c' l='1347' u='w' c='R_Register'/>
+<use f='codebrowser/code/renderergl2/tr_mesh.c' l='339' u='r' c='R_AddMD3Surfaces'/>
+<use f='codebrowser/code/renderergl2/tr_mesh.c' l='392' u='r' c='R_AddMD3Surfaces'/>
+<use f='codebrowser/code/renderergl2/tr_mesh.c' l='400' u='r' c='R_AddMD3Surfaces'/>
+<use f='codebrowser/code/renderergl2/tr_model_iqm.c' l='889' u='r' c='R_AddIQMSurfaces'/>
+<use f='codebrowser/code/renderergl2/tr_model_iqm.c' l='924' u='r' c='R_AddIQMSurfaces'/>
+<use f='codebrowser/code/renderergl2/tr_model_iqm.c' l='932' u='r' c='R_AddIQMSurfaces'/>
+<use f='codebrowser/code/renderergl2/tr_scene.c' l='486' u='r' c='RE_RenderScene'/>
+<use f='codebrowser/code/renderergl2/tr_shade.c' l='1532' u='r' c='RB_StageIteratorGeneric'/>
+<use f='codebrowser/code/renderergl2/tr_shadows.c' l='247' u='r' c='RB_ShadowFinish'/>

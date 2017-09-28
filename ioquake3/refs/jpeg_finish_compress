@@ -1,0 +1,9 @@
+<dec f='codebrowser/code/jpeg-8c/jpeglib.h' l='995' type='void jpeg_finish_compress(j_compress_ptr cinfo)'/>
+<def f='codebrowser/code/jpeg-8c/jcapimin.c' l='154' ll='189' macro='1' type='void jpeg_finish_compress(j_compress_ptr cinfo)'/>
+<doc f='codebrowser/code/jpeg-8c/jcapimin.c' l='147'>/*
+ * Finish JPEG compression.
+ *
+ * If a multipass operating mode was selected, this may do a great deal of
+ * work including most of the actual output.
+ */</doc>
+<use f='codebrowser/code/renderercommon/tr_image_jpg.c' l='452' u='c' c='RE_SaveJPGToBuffer'/>

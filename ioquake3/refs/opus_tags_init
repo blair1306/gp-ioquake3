@@ -1,0 +1,8 @@
+<dec f='codebrowser/code/opusfile-0.8/include/opusfile.h' l='477' type='void opus_tags_init(OpusTags * _tags)'/>
+<doc f='codebrowser/code/opusfile-0.8/include/opusfile.h' l='473'>/**Initializes an #OpusTags structure.
+   This should be called on a freshly allocated #OpusTags structure before
+    attempting to use it.
+   \param _tags The #OpusTags structure to initialize.*/</doc>
+<def f='codebrowser/code/opusfile-0.8/src/info.c' l='90' ll='92' type='void opus_tags_init(OpusTags * _tags)'/>
+<use f='codebrowser/code/opusfile-0.8/src/info.c' l='225' u='c' c='opus_tags_parse'/>
+<use f='codebrowser/code/opusfile-0.8/src/info.c' l='274' u='c' c='opus_tags_copy'/>

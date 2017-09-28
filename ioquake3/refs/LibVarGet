@@ -1,0 +1,15 @@
+<dec f='codebrowser/code/botlib/l_libvar.h' l='46' type='libvar_t * LibVarGet(const char * var_name)'/>
+<doc f='codebrowser/code/botlib/l_libvar.h' l='45'>//gets the library variable with the given name</doc>
+<def f='codebrowser/code/botlib/l_libvar.c' l='131' ll='143' type='libvar_t * LibVarGet(const char * var_name)'/>
+<use f='codebrowser/code/botlib/l_libvar.c' l='154' u='c' c='LibVarGetString'/>
+<use f='codebrowser/code/botlib/l_libvar.c' l='174' u='c' c='LibVarGetValue'/>
+<use f='codebrowser/code/botlib/l_libvar.c' l='193' u='c' c='LibVar'/>
+<use f='codebrowser/code/botlib/l_libvar.c' l='243' u='c' c='LibVarSet'/>
+<use f='codebrowser/code/botlib/l_libvar.c' l='270' u='c' c='LibVarChanged'/>
+<use f='codebrowser/code/botlib/l_libvar.c' l='290' u='c' c='LibVarSetNotModified'/>
+<doc f='codebrowser/code/botlib/l_libvar.c' l='125'>//===========================================================================
+//
+// Parameter:				-
+// Returns:					-
+// Changes Globals:		-
+//===========================================================================</doc>

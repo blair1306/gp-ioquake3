@@ -1,0 +1,10 @@
+<dec f='codebrowser/code/qcommon/qcommon.h' l='633' type='qboolean FS_CompareZipChecksum(const char * zipfile)'/>
+<use f='codebrowser/code/client/cl_main.c' l='2204' u='c' c='CL_NextDownload'/>
+<def f='codebrowser/code/qcommon/files.c' l='2141' ll='2161' type='qboolean FS_CompareZipChecksum(const char * zipfile)'/>
+<doc f='codebrowser/code/qcommon/files.c' l='2134'>/*
+=================
+FS_GetZipChecksum
+
+Compares whether the given pak file matches a referenced checksum
+=================
+*/</doc>

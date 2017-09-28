@@ -1,0 +1,10 @@
+<dec f='codebrowser/code/game/g_local.h' l='936' type='int trap_BotMovementViewTarget(int movestate, void * goal, int travelflags, float lookahead, vec_t * target)'/>
+<doc f='codebrowser/code/game/g_local.h' l='936'>/* struct bot_goal_s */</doc>
+<use f='codebrowser/code/game/ai_dmnet.c' l='1613' u='c' c='AINode_Seek_ActivateEntity'/>
+<use f='codebrowser/code/game/ai_dmnet.c' l='1749' u='c' c='AINode_Seek_NBG'/>
+<use f='codebrowser/code/game/ai_dmnet.c' l='1941' u='c' c='AINode_Seek_LTG'/>
+<use f='codebrowser/code/game/ai_dmnet.c' l='2265' u='c' c='AINode_Battle_Chase'/>
+<use f='codebrowser/code/game/ai_dmnet.c' l='2458' u='c' c='AINode_Battle_Retreat'/>
+<use f='codebrowser/code/game/ai_dmnet.c' l='2605' u='c' c='AINode_Battle_NBG'/>
+<def f='codebrowser/code/game/g_syscalls.c' l='730' ll='732' type='int trap_BotMovementViewTarget(int movestate, void * goal, int travelflags, float lookahead, vec_t * target)'/>
+<doc f='codebrowser/code/game/g_syscalls.c' l='730'>/* struct bot_goal_s */</doc>

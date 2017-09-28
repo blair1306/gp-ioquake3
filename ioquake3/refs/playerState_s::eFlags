@@ -1,0 +1,62 @@
+<dec f='codebrowser/code/qcommon/q_shared.h' l='1173' type='int'/>
+<offset>832</offset>
+<doc f='codebrowser/code/qcommon/q_shared.h' l='1173'>// copied to entityState_t-&gt;eFlags</doc>
+<use f='codebrowser/code/cgame/cg_snapshot.c' l='174' u='r' c='CG_TransitionSnapshot'/>
+<use f='codebrowser/code/cgame/cg_snapshot.c' l='174' u='r' c='CG_TransitionSnapshot'/>
+<use f='codebrowser/code/cgame/cg_snapshot.c' l='225' u='r' c='CG_SetNextSnap'/>
+<use f='codebrowser/code/cgame/cg_snapshot.c' l='225' u='r' c='CG_SetNextSnap'/>
+<use f='codebrowser/code/cgame/cg_weapons.c' l='1383' u='r' c='CG_AddViewWeapon'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='2061' u='r' c='BotSetTeleportTime'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='2064' u='r' c='BotSetTeleportTime'/>
+<use f='codebrowser/code/game/bg_misc.c' l='1496' u='r' c='BG_PlayerStateToEntityState'/>
+<use f='codebrowser/code/game/bg_misc.c' l='1576' u='r' c='BG_PlayerStateToEntityStateExtraPolate'/>
+<use f='codebrowser/code/game/bg_pmove.c' l='1859' u='w' c='PmoveSingle'/>
+<use f='codebrowser/code/game/bg_pmove.c' l='1861' u='w' c='PmoveSingle'/>
+<use f='codebrowser/code/game/bg_pmove.c' l='1867' u='w' c='PmoveSingle'/>
+<use f='codebrowser/code/game/bg_pmove.c' l='1869' u='w' c='PmoveSingle'/>
+<use f='codebrowser/code/game/g_active.c' l='510' u='w' c='ClientIntermissionThink'/>
+<use f='codebrowser/code/game/g_active.c' l='511' u='w' c='ClientIntermissionThink'/>
+<use f='codebrowser/code/game/g_active.c' l='825' u='w' c='ClientThink_real'/>
+<use f='codebrowser/code/game/g_active.c' l='952' u='r' c='ClientThink_real'/>
+<use f='codebrowser/code/game/g_active.c' l='1072' u='r' c='SpectatorClientEndFrame'/>
+<use f='codebrowser/code/game/g_active.c' l='1072' u='r' c='SpectatorClientEndFrame'/>
+<use f='codebrowser/code/game/g_active.c' l='1075' u='w' c='SpectatorClientEndFrame'/>
+<use f='codebrowser/code/game/g_active.c' l='1161' u='w' c='ClientEndFrame'/>
+<use f='codebrowser/code/game/g_active.c' l='1163' u='w' c='ClientEndFrame'/>
+<use f='codebrowser/code/game/g_client.c' l='1017' u='r' c='ClientBegin'/>
+<use f='codebrowser/code/game/g_client.c' l='1019' u='w' c='ClientBegin'/>
+<use f='codebrowser/code/game/g_client.c' l='1104' u='r' c='ClientSpawn'/>
+<use f='codebrowser/code/game/g_client.c' l='1148' u='w' c='ClientSpawn'/>
+<use f='codebrowser/code/game/g_cmds.c' l='1416' u='w' c='Cmd_CallVote_f'/>
+<use f='codebrowser/code/game/g_cmds.c' l='1418' u='w' c='Cmd_CallVote_f'/>
+<use f='codebrowser/code/game/g_cmds.c' l='1438' u='r' c='Cmd_Vote_f'/>
+<use f='codebrowser/code/game/g_cmds.c' l='1449' u='w' c='Cmd_Vote_f'/>
+<use f='codebrowser/code/game/g_cmds.c' l='1590' u='w' c='Cmd_CallTeamVote_f'/>
+<use f='codebrowser/code/game/g_cmds.c' l='1592' u='w' c='Cmd_CallTeamVote_f'/>
+<use f='codebrowser/code/game/g_cmds.c' l='1621' u='r' c='Cmd_TeamVote_f'/>
+<use f='codebrowser/code/game/g_cmds.c' l='1632' u='w' c='Cmd_TeamVote_f'/>
+<use f='codebrowser/code/game/g_combat.c' l='519' u='w' c='player_die'/>
+<use f='codebrowser/code/game/g_combat.c' l='520' u='w' c='player_die'/>
+<use f='codebrowser/code/game/g_combat.c' l='534' u='w' c='player_die'/>
+<use f='codebrowser/code/game/g_combat.c' l='535' u='w' c='player_die'/>
+<use f='codebrowser/code/game/g_items.c' l='200' u='w' c='Pickup_Holdable'/>
+<use f='codebrowser/code/game/g_main.c' l='947' u='w' c='MoveClientToIntermission'/>
+<use f='codebrowser/code/game/g_misc.c' l='109' u='w' c='TeleportPlayer'/>
+<use f='codebrowser/code/game/g_team.c' l='362' u='w' c='Team_FragBonuses'/>
+<use f='codebrowser/code/game/g_team.c' l='363' u='w' c='Team_FragBonuses'/>
+<use f='codebrowser/code/game/g_team.c' l='440' u='w' c='Team_FragBonuses'/>
+<use f='codebrowser/code/game/g_team.c' l='441' u='w' c='Team_FragBonuses'/>
+<use f='codebrowser/code/game/g_team.c' l='461' u='w' c='Team_FragBonuses'/>
+<use f='codebrowser/code/game/g_team.c' l='462' u='w' c='Team_FragBonuses'/>
+<use f='codebrowser/code/game/g_team.c' l='740' u='w' c='Team_TouchOurFlag'/>
+<use f='codebrowser/code/game/g_team.c' l='741' u='w' c='Team_TouchOurFlag'/>
+<use f='codebrowser/code/game/g_team.c' l='774' u='w' c='Team_TouchOurFlag'/>
+<use f='codebrowser/code/game/g_team.c' l='775' u='w' c='Team_TouchOurFlag'/>
+<use f='codebrowser/code/game/g_team.c' l='785' u='w' c='Team_TouchOurFlag'/>
+<use f='codebrowser/code/game/g_team.c' l='786' u='w' c='Team_TouchOurFlag'/>
+<use f='codebrowser/code/game/g_weapon.c' l='556' u='w' c='weapon_railgun_fire'/>
+<use f='codebrowser/code/game/g_weapon.c' l='557' u='w' c='weapon_railgun_fire'/>
+<use f='codebrowser/code/qcommon/msg.c' l='1124' u='a'/>
+<use f='codebrowser/code/qcommon/msg.c' l='1124' u='a'/>
+<use f='codebrowser/code/qcommon/msg.c' l='1124' u='a'/>
+<use f='codebrowser/code/qcommon/msg.c' l='1124' u='a'/>

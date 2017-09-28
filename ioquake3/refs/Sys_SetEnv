@@ -1,0 +1,11 @@
+<dec f='codebrowser/code/qcommon/qcommon.h' l='1142' type='void Sys_SetEnv(const char * name, const char * value)'/>
+<use f='codebrowser/code/client/cl_main.c' l='3285' u='r' c='CL_InitRef'/>
+<use f='codebrowser/code/qcommon/common.c' l='2343' u='c' c='Com_Setenv_f'/>
+<def f='codebrowser/code/sys/sys_unix.c' l='888' ll='894' type='void Sys_SetEnv(const char * name, const char * value)'/>
+<doc f='codebrowser/code/sys/sys_unix.c' l='880'>/*
+==============
+Sys_SetEnv
+
+set/unset environment variables (empty value removes it)
+==============
+*/</doc>

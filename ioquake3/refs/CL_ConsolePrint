@@ -1,0 +1,12 @@
+<dec f='codebrowser/code/qcommon/qcommon.h' l='999' type='void CL_ConsolePrint(char * text)'/>
+<def f='codebrowser/code/client/cl_console.c' l='434' ll='520' type='void CL_ConsolePrint(char * txt)'/>
+<doc f='codebrowser/code/client/cl_console.c' l='425'>/*
+================
+CL_ConsolePrint
+
+Handles cursor positioning, line wrapping, etc
+All console printing must go through this in order to be logged to disk
+If no console is visible, the text will appear at the top of the game window
+================
+*/</doc>
+<def f='codebrowser/code/null/null_client.c' l='71' ll='72' type='void CL_ConsolePrint(char * txt)'/>

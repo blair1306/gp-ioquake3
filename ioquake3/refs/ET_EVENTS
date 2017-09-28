@@ -1,0 +1,10 @@
+<dec f='codebrowser/code/game/bg_public.h' l='689' type='13'/>
+<doc f='codebrowser/code/game/bg_public.h' l='689'>// any of the EV_* events can be added freestanding</doc>
+<use f='codebrowser/code/cgame/cg_ents.c' l='945' u='r' c='CG_AddCEntity'/>
+<use f='codebrowser/code/cgame/cg_event.c' l='1253' u='r' c='CG_CheckEvents'/>
+<use f='codebrowser/code/cgame/cg_event.c' l='1264' u='r' c='CG_CheckEvents'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='4789' u='r' c='BotCheckEvents'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='4790' u='r' c='BotCheckEvents'/>
+<use f='codebrowser/code/game/ai_main.c' l='1509' u='r' c='BotAIStartFrame'/>
+<use f='codebrowser/code/game/g_active.c' l='728' u='r' c='SendPendingPredictableEvents'/>
+<use f='codebrowser/code/game/g_utils.c' l='495' u='r' c='G_TempEntity'/>

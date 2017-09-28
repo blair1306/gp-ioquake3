@@ -1,0 +1,16 @@
+<dec f='codebrowser/code/libogg-1.3.2/include/ogg/ogg.h' l='199' type='int ogg_page_serialno(const ogg_page * og)'/>
+<def f='codebrowser/code/libogg-1.3.2/src/framing.c' l='59' ll='64' type='int ogg_page_serialno(const ogg_page * og)'/>
+<use f='codebrowser/code/libogg-1.3.2/src/framing.c' l='819' u='c' c='ogg_stream_pagein'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='106' u='c' c='op_test'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='235' u='c' c='op_add_serialno'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='266' u='c' c='op_lookup_page_serialno'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='347' u='c' c='op_get_prev_page_serial'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='438' u='c' c='op_get_last_page'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='497' u='c' c='op_fetch_headers_impl'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='520' u='c' c='op_fetch_headers_impl'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='534' u='c' c='op_fetch_headers_impl'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='876' u='c' c='op_find_initial_pcm_offset'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='1205' u='c' c='op_bisect_forward_serialno'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='1857' u='c' c='op_fetch_and_process_page'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='1881' u='c' c='op_fetch_and_process_page'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='2390' u='c' c='op_pcm_seek_page'/>

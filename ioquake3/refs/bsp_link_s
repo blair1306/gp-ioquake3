@@ -1,0 +1,9 @@
+<def f='codebrowser/code/botlib/be_aas_def.h' l='56' ll='62'/>
+<size>40</size>
+<doc f='codebrowser/code/botlib/be_aas_def.h' l='55'>//structure to link entities to leaves and leaves to entities</doc>
+<mbr r='bsp_link_s::entnum' o='0' t='int'/>
+<mbr r='bsp_link_s::leafnum' o='32' t='int'/>
+<mbr r='bsp_link_s::next_ent' o='64' t='struct bsp_link_s *'/>
+<mbr r='bsp_link_s::prev_ent' o='128' t='struct bsp_link_s *'/>
+<mbr r='bsp_link_s::next_leaf' o='192' t='struct bsp_link_s *'/>
+<mbr r='bsp_link_s::prev_leaf' o='256' t='struct bsp_link_s *'/>

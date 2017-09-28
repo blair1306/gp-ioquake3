@@ -1,0 +1,418 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>cg_snapshot.c source code [codebrowser/code/cgame/cg_snapshot.c] - Woboq Code Browser</title>
+<link rel="stylesheet" href="../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'codebrowser/code/cgame/cg_snapshot.c'; var root_path = '../../..'; var data_path = '../../../../data';</script>
+<script src='../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../..'>codebrowser</a>/<a href='..'>code</a>/<a href='./'>cgame</a>/<a href='cg_snapshot.c.html'>cg_snapshot.c</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/*</i></td></tr>
+<tr><th id="2">2</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="3">3</th><td><i>Copyright (C) 1999-2005 Id Software, Inc.</i></td></tr>
+<tr><th id="4">4</th><td><i></i></td></tr>
+<tr><th id="5">5</th><td><i>This file is part of Quake III Arena source code.</i></td></tr>
+<tr><th id="6">6</th><td><i></i></td></tr>
+<tr><th id="7">7</th><td><i>Quake III Arena source code is free software; you can redistribute it</i></td></tr>
+<tr><th id="8">8</th><td><i>and/or modify it under the terms of the GNU General Public License as</i></td></tr>
+<tr><th id="9">9</th><td><i>published by the Free Software Foundation; either version 2 of the License,</i></td></tr>
+<tr><th id="10">10</th><td><i>or (at your option) any later version.</i></td></tr>
+<tr><th id="11">11</th><td><i></i></td></tr>
+<tr><th id="12">12</th><td><i>Quake III Arena source code is distributed in the hope that it will be</i></td></tr>
+<tr><th id="13">13</th><td><i>useful, but WITHOUT ANY WARRANTY; without even the implied warranty of</i></td></tr>
+<tr><th id="14">14</th><td><i>MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</i></td></tr>
+<tr><th id="15">15</th><td><i>GNU General Public License for more details.</i></td></tr>
+<tr><th id="16">16</th><td><i></i></td></tr>
+<tr><th id="17">17</th><td><i>You should have received a copy of the GNU General Public License</i></td></tr>
+<tr><th id="18">18</th><td><i>along with Quake III Arena source code; if not, write to the Free Software</i></td></tr>
+<tr><th id="19">19</th><td><i>Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA</i></td></tr>
+<tr><th id="20">20</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="21">21</th><td><i>*/</i></td></tr>
+<tr><th id="22">22</th><td><i>//</i></td></tr>
+<tr><th id="23">23</th><td><i>// cg_snapshot.c -- things that happen on snapshot transition,</i></td></tr>
+<tr><th id="24">24</th><td><i>// not necessarily every single rendered frame</i></td></tr>
+<tr><th id="25">25</th><td></td></tr>
+<tr><th id="26">26</th><td><u>#include <a href="cg_local.h.html">"cg_local.h"</a></u></td></tr>
+<tr><th id="27">27</th><td></td></tr>
+<tr><th id="28">28</th><td></td></tr>
+<tr><th id="29">29</th><td></td></tr>
+<tr><th id="30">30</th><td><i  data-doc="CG_ResetEntity">/*</i></td></tr>
+<tr><th id="31">31</th><td><i  data-doc="CG_ResetEntity">==================</i></td></tr>
+<tr><th id="32">32</th><td><i  data-doc="CG_ResetEntity">CG_ResetEntity</i></td></tr>
+<tr><th id="33">33</th><td><i  data-doc="CG_ResetEntity">==================</i></td></tr>
+<tr><th id="34">34</th><td><i  data-doc="CG_ResetEntity">*/</i></td></tr>
+<tr><th id="35">35</th><td><em>static</em> <em>void</em> <dfn class="tu decl def" id="CG_ResetEntity" title='CG_ResetEntity' data-type='void CG_ResetEntity(centity_t * cent)' data-ref="CG_ResetEntity">CG_ResetEntity</dfn>( <a class="typedef" href="cg_local.h.html#centity_t" title='centity_t' data-type='struct centity_s' data-ref="centity_t">centity_t</a> *<dfn class="local col1 decl" id="1cent" title='cent' data-type='centity_t *' data-ref="1cent">cent</dfn> ) {</td></tr>
+<tr><th id="36">36</th><td>	<i>// if the previous snapshot this entity was updated in is at least</i></td></tr>
+<tr><th id="37">37</th><td><i>	// an event window back in time then we can reset the previous event</i></td></tr>
+<tr><th id="38">38</th><td>	<b>if</b> ( <a class="local col1 ref" href="#1cent" title='cent' data-ref="1cent">cent</a>-&gt;<a class="ref" href="cg_local.h.html#centity_s::snapShotTime" title='centity_s::snapShotTime' data-ref="centity_s::snapShotTime">snapShotTime</a> &lt; <a class="ref" href="cg_local.h.html#cg" title='cg' data-ref="cg">cg</a>.<a class="ref" href="cg_local.h.html#(anonymous)::time" title='(anonymous struct)::time' data-ref="(anonymous)::time">time</a> - <a class="macro" href="../game/bg_public.h.html#345" title="300" data-ref="_M/EVENT_VALID_MSEC">EVENT_VALID_MSEC</a> ) {</td></tr>
+<tr><th id="39">39</th><td>		<a class="local col1 ref" href="#1cent" title='cent' data-ref="1cent">cent</a>-&gt;<a class="ref" href="cg_local.h.html#centity_s::previousEvent" title='centity_s::previousEvent' data-ref="centity_s::previousEvent">previousEvent</a> = <var>0</var>;</td></tr>
+<tr><th id="40">40</th><td>	}</td></tr>
+<tr><th id="41">41</th><td></td></tr>
+<tr><th id="42">42</th><td>	<a class="local col1 ref" href="#1cent" title='cent' data-ref="1cent">cent</a>-&gt;<a class="ref" href="cg_local.h.html#centity_s::trailTime" title='centity_s::trailTime' data-ref="centity_s::trailTime">trailTime</a> = <a class="ref" href="cg_local.h.html#cg" title='cg' data-ref="cg">cg</a>.<a class="ref" href="cg_local.h.html#(anonymous)::snap" title='(anonymous struct)::snap' data-ref="(anonymous)::snap">snap</a>-&gt;<a class="ref" href="cg_public.h.html#(anonymous)::serverTime" title='(anonymous struct)::serverTime' data-ref="(anonymous)::serverTime">serverTime</a>;</td></tr>
+<tr><th id="43">43</th><td></td></tr>
+<tr><th id="44">44</th><td>	<a class="macro" href="../qcommon/q_shared.h.html#545" title="((cent-&gt;lerpOrigin)[0]=(cent-&gt;currentState.origin)[0],(cent-&gt;lerpOrigin)[1]=(cent-&gt;currentState.origin)[1],(cent-&gt;lerpOrigin)[2]=(cent-&gt;currentState.origin)[2])" data-ref="_M/VectorCopy">VectorCopy</a> (<a class="local col1 ref" href="#1cent" title='cent' data-ref="1cent">cent</a>-&gt;<a class="ref" href="cg_local.h.html#centity_s::currentState" title='centity_s::currentState' data-ref="centity_s::currentState">currentState</a>.<a class="ref" href="../qcommon/q_shared.h.html#entityState_s::origin" title='entityState_s::origin' data-ref="entityState_s::origin">origin</a>, <a class="local col1 ref" href="#1cent" title='cent' data-ref="1cent">cent</a>-&gt;<a class="ref" href="cg_local.h.html#centity_s::lerpOrigin" title='centity_s::lerpOrigin' data-ref="centity_s::lerpOrigin">lerpOrigin</a>);</td></tr>
+<tr><th id="45">45</th><td>	<a class="macro" href="../qcommon/q_shared.h.html#545" title="((cent-&gt;lerpAngles)[0]=(cent-&gt;currentState.angles)[0],(cent-&gt;lerpAngles)[1]=(cent-&gt;currentState.angles)[1],(cent-&gt;lerpAngles)[2]=(cent-&gt;currentState.angles)[2])" data-ref="_M/VectorCopy">VectorCopy</a> (<a class="local col1 ref" href="#1cent" title='cent' data-ref="1cent">cent</a>-&gt;<a class="ref" href="cg_local.h.html#centity_s::currentState" title='centity_s::currentState' data-ref="centity_s::currentState">currentState</a>.<a class="ref" href="../qcommon/q_shared.h.html#entityState_s::angles" title='entityState_s::angles' data-ref="entityState_s::angles">angles</a>, <a class="local col1 ref" href="#1cent" title='cent' data-ref="1cent">cent</a>-&gt;<a class="ref" href="cg_local.h.html#centity_s::lerpAngles" title='centity_s::lerpAngles' data-ref="centity_s::lerpAngles">lerpAngles</a>);</td></tr>
+<tr><th id="46">46</th><td>	<b>if</b> ( <a class="local col1 ref" href="#1cent" title='cent' data-ref="1cent">cent</a>-&gt;<a class="ref" href="cg_local.h.html#centity_s::currentState" title='centity_s::currentState' data-ref="centity_s::currentState">currentState</a>.<a class="ref" href="../qcommon/q_shared.h.html#entityState_s::eType" title='entityState_s::eType' data-ref="entityState_s::eType">eType</a> == <a class="enum" href="../game/bg_public.h.html#ET_PLAYER" title='ET_PLAYER' data-ref="ET_PLAYER">ET_PLAYER</a> ) {</td></tr>
+<tr><th id="47">47</th><td>		<a class="ref" href="cg_local.h.html#CG_ResetPlayerEntity" title='CG_ResetPlayerEntity' data-ref="CG_ResetPlayerEntity">CG_ResetPlayerEntity</a>( <a class="local col1 ref" href="#1cent" title='cent' data-ref="1cent">cent</a> );</td></tr>
+<tr><th id="48">48</th><td>	}</td></tr>
+<tr><th id="49">49</th><td>}</td></tr>
+<tr><th id="50">50</th><td></td></tr>
+<tr><th id="51">51</th><td><i  data-doc="CG_TransitionEntity">/*</i></td></tr>
+<tr><th id="52">52</th><td><i  data-doc="CG_TransitionEntity">===============</i></td></tr>
+<tr><th id="53">53</th><td><i  data-doc="CG_TransitionEntity">CG_TransitionEntity</i></td></tr>
+<tr><th id="54">54</th><td><i  data-doc="CG_TransitionEntity"></i></td></tr>
+<tr><th id="55">55</th><td><i  data-doc="CG_TransitionEntity">cent-&gt;nextState is moved to cent-&gt;currentState and events are fired</i></td></tr>
+<tr><th id="56">56</th><td><i  data-doc="CG_TransitionEntity">===============</i></td></tr>
+<tr><th id="57">57</th><td><i  data-doc="CG_TransitionEntity">*/</i></td></tr>
+<tr><th id="58">58</th><td><em>static</em> <em>void</em> <dfn class="tu decl def" id="CG_TransitionEntity" title='CG_TransitionEntity' data-type='void CG_TransitionEntity(centity_t * cent)' data-ref="CG_TransitionEntity">CG_TransitionEntity</dfn>( <a class="typedef" href="cg_local.h.html#centity_t" title='centity_t' data-type='struct centity_s' data-ref="centity_t">centity_t</a> *<dfn class="local col2 decl" id="2cent" title='cent' data-type='centity_t *' data-ref="2cent">cent</dfn> ) {</td></tr>
+<tr><th id="59">59</th><td>	<a class="local col2 ref" href="#2cent" title='cent' data-ref="2cent">cent</a>-&gt;<a class="ref" href="cg_local.h.html#centity_s::currentState" title='centity_s::currentState' data-ref="centity_s::currentState">currentState</a> = <a class="local col2 ref" href="#2cent" title='cent' data-ref="2cent">cent</a>-&gt;<a class="ref" href="cg_local.h.html#centity_s::nextState" title='centity_s::nextState' data-ref="centity_s::nextState">nextState</a>;</td></tr>
+<tr><th id="60">60</th><td>	<a class="local col2 ref" href="#2cent" title='cent' data-ref="2cent">cent</a>-&gt;<a class="ref" href="cg_local.h.html#centity_s::currentValid" title='centity_s::currentValid' data-ref="centity_s::currentValid">currentValid</a> = <a class="enum" href="../qcommon/q_shared.h.html#qtrue" title='qtrue' data-ref="qtrue">qtrue</a>;</td></tr>
+<tr><th id="61">61</th><td></td></tr>
+<tr><th id="62">62</th><td>	<i>// reset if the entity wasn't in the last frame or was teleported</i></td></tr>
+<tr><th id="63">63</th><td>	<b>if</b> ( !<a class="local col2 ref" href="#2cent" title='cent' data-ref="2cent">cent</a>-&gt;<a class="ref" href="cg_local.h.html#centity_s::interpolate" title='centity_s::interpolate' data-ref="centity_s::interpolate">interpolate</a> ) {</td></tr>
+<tr><th id="64">64</th><td>		<a class="tu ref" href="#CG_ResetEntity" title='CG_ResetEntity' data-use='c' data-ref="CG_ResetEntity">CG_ResetEntity</a>( <a class="local col2 ref" href="#2cent" title='cent' data-ref="2cent">cent</a> );</td></tr>
+<tr><th id="65">65</th><td>	}</td></tr>
+<tr><th id="66">66</th><td></td></tr>
+<tr><th id="67">67</th><td>	<i>// clear the next state.  if will be set by the next CG_SetNextSnap</i></td></tr>
+<tr><th id="68">68</th><td>	<a class="local col2 ref" href="#2cent" title='cent' data-ref="2cent">cent</a>-&gt;<a class="ref" href="cg_local.h.html#centity_s::interpolate" title='centity_s::interpolate' data-ref="centity_s::interpolate">interpolate</a> = <a class="enum" href="../qcommon/q_shared.h.html#qfalse" title='qfalse' data-ref="qfalse">qfalse</a>;</td></tr>
+<tr><th id="69">69</th><td></td></tr>
+<tr><th id="70">70</th><td>	<i>// check for events</i></td></tr>
+<tr><th id="71">71</th><td>	<a class="ref" href="cg_local.h.html#CG_CheckEvents" title='CG_CheckEvents' data-ref="CG_CheckEvents">CG_CheckEvents</a>( <a class="local col2 ref" href="#2cent" title='cent' data-ref="2cent">cent</a> );</td></tr>
+<tr><th id="72">72</th><td>}</td></tr>
+<tr><th id="73">73</th><td></td></tr>
+<tr><th id="74">74</th><td></td></tr>
+<tr><th id="75">75</th><td><i>/*</i></td></tr>
+<tr><th id="76">76</th><td><i>==================</i></td></tr>
+<tr><th id="77">77</th><td><i>CG_SetInitialSnapshot</i></td></tr>
+<tr><th id="78">78</th><td><i></i></td></tr>
+<tr><th id="79">79</th><td><i>This will only happen on the very first snapshot.</i></td></tr>
+<tr><th id="80">80</th><td><i>All other times will use CG_TransitionSnapshot instead.</i></td></tr>
+<tr><th id="81">81</th><td><i>==================</i></td></tr>
+<tr><th id="82">82</th><td><i>*/</i></td></tr>
+<tr><th id="83">83</th><td><em>void</em> <dfn class="decl def" id="CG_SetInitialSnapshot" title='CG_SetInitialSnapshot' data-ref="CG_SetInitialSnapshot">CG_SetInitialSnapshot</dfn>( <a class="typedef" href="cg_public.h.html#snapshot_t" title='snapshot_t' data-type='struct snapshot_t' data-ref="snapshot_t">snapshot_t</a> *<dfn class="local col3 decl" id="3snap" title='snap' data-type='snapshot_t *' data-ref="3snap">snap</dfn> ) {</td></tr>
+<tr><th id="84">84</th><td>	<em>int</em>				<dfn class="local col4 decl" id="4i" title='i' data-type='int' data-ref="4i">i</dfn>;</td></tr>
+<tr><th id="85">85</th><td>	<a class="typedef" href="cg_local.h.html#centity_t" title='centity_t' data-type='struct centity_s' data-ref="centity_t">centity_t</a>		*<dfn class="local col5 decl" id="5cent" title='cent' data-type='centity_t *' data-ref="5cent">cent</dfn>;</td></tr>
+<tr><th id="86">86</th><td>	<a class="typedef" href="../qcommon/q_shared.h.html#entityState_t" title='entityState_t' data-type='struct entityState_s' data-ref="entityState_t">entityState_t</a>	*<dfn class="local col6 decl" id="6state" title='state' data-type='entityState_t *' data-ref="6state">state</dfn>;</td></tr>
+<tr><th id="87">87</th><td></td></tr>
+<tr><th id="88">88</th><td>	<a class="ref" href="cg_local.h.html#cg" title='cg' data-ref="cg">cg</a>.<a class="ref" href="cg_local.h.html#(anonymous)::snap" title='(anonymous struct)::snap' data-ref="(anonymous)::snap">snap</a> = <a class="local col3 ref" href="#3snap" title='snap' data-ref="3snap">snap</a>;</td></tr>
+<tr><th id="89">89</th><td></td></tr>
+<tr><th id="90">90</th><td>	<a class="ref" href="../game/bg_public.h.html#BG_PlayerStateToEntityState" title='BG_PlayerStateToEntityState' data-ref="BG_PlayerStateToEntityState">BG_PlayerStateToEntityState</a>( &amp;<a class="local col3 ref" href="#3snap" title='snap' data-ref="3snap">snap</a>-&gt;<a class="ref" href="cg_public.h.html#(anonymous)::ps" title='(anonymous struct)::ps' data-ref="(anonymous)::ps">ps</a>, &amp;<a class="ref" href="cg_local.h.html#cg_entities" title='cg_entities' data-ref="cg_entities">cg_entities</a>[ <a class="local col3 ref" href="#3snap" title='snap' data-ref="3snap">snap</a>-&gt;<a class="ref" href="cg_public.h.html#(anonymous)::ps" title='(anonymous struct)::ps' data-ref="(anonymous)::ps">ps</a>.<a class="ref" href="../qcommon/q_shared.h.html#playerState_s::clientNum" title='playerState_s::clientNum' data-ref="playerState_s::clientNum">clientNum</a> ].<a class="ref" href="cg_local.h.html#centity_s::currentState" title='centity_s::currentState' data-ref="centity_s::currentState">currentState</a>, <a class="enum" href="../qcommon/q_shared.h.html#qfalse" title='qfalse' data-ref="qfalse">qfalse</a> );</td></tr>
+<tr><th id="91">91</th><td></td></tr>
+<tr><th id="92">92</th><td>	<i>// sort out solid entities</i></td></tr>
+<tr><th id="93">93</th><td>	<a class="ref" href="cg_local.h.html#CG_BuildSolidList" title='CG_BuildSolidList' data-ref="CG_BuildSolidList">CG_BuildSolidList</a>();</td></tr>
+<tr><th id="94">94</th><td></td></tr>
+<tr><th id="95">95</th><td>	<a class="ref" href="cg_local.h.html#CG_ExecuteNewServerCommands" title='CG_ExecuteNewServerCommands' data-ref="CG_ExecuteNewServerCommands">CG_ExecuteNewServerCommands</a>( <a class="local col3 ref" href="#3snap" title='snap' data-ref="3snap">snap</a>-&gt;<a class="ref" href="cg_public.h.html#(anonymous)::serverCommandSequence" title='(anonymous struct)::serverCommandSequence' data-ref="(anonymous)::serverCommandSequence">serverCommandSequence</a> );</td></tr>
+<tr><th id="96">96</th><td></td></tr>
+<tr><th id="97">97</th><td>	<i>// set our local weapon selection pointer to</i></td></tr>
+<tr><th id="98">98</th><td><i>	// what the server has indicated the current weapon is</i></td></tr>
+<tr><th id="99">99</th><td>	<a class="ref" href="cg_local.h.html#CG_Respawn" title='CG_Respawn' data-ref="CG_Respawn">CG_Respawn</a>();</td></tr>
+<tr><th id="100">100</th><td></td></tr>
+<tr><th id="101">101</th><td>	<b>for</b> ( <a class="local col4 ref" href="#4i" title='i' data-ref="4i">i</a> = <var>0</var> ; <a class="local col4 ref" href="#4i" title='i' data-ref="4i">i</a> &lt; <a class="ref" href="cg_local.h.html#cg" title='cg' data-ref="cg">cg</a>.<a class="ref" href="cg_local.h.html#(anonymous)::snap" title='(anonymous struct)::snap' data-ref="(anonymous)::snap">snap</a>-&gt;<a class="ref" href="cg_public.h.html#(anonymous)::numEntities" title='(anonymous struct)::numEntities' data-ref="(anonymous)::numEntities">numEntities</a> ; <a class="local col4 ref" href="#4i" title='i' data-ref="4i">i</a>++ ) {</td></tr>
+<tr><th id="102">102</th><td>		<a class="local col6 ref" href="#6state" title='state' data-ref="6state">state</a> = &amp;<a class="ref" href="cg_local.h.html#cg" title='cg' data-ref="cg">cg</a>.<a class="ref" href="cg_local.h.html#(anonymous)::snap" title='(anonymous struct)::snap' data-ref="(anonymous)::snap">snap</a>-&gt;<a class="ref" href="cg_public.h.html#(anonymous)::entities" title='(anonymous struct)::entities' data-ref="(anonymous)::entities">entities</a>[ <a class="local col4 ref" href="#4i" title='i' data-ref="4i">i</a> ];</td></tr>
+<tr><th id="103">103</th><td>		<a class="local col5 ref" href="#5cent" title='cent' data-ref="5cent">cent</a> = &amp;<a class="ref" href="cg_local.h.html#cg_entities" title='cg_entities' data-ref="cg_entities">cg_entities</a>[ <a class="local col6 ref" href="#6state" title='state' data-ref="6state">state</a>-&gt;<a class="ref" href="../qcommon/q_shared.h.html#entityState_s::number" title='entityState_s::number' data-ref="entityState_s::number">number</a> ];</td></tr>
+<tr><th id="104">104</th><td></td></tr>
+<tr><th id="105">105</th><td>		<a class="ref" href="../../../include/string.h.html#memcpy" title='memcpy' data-ref="memcpy">memcpy</a>(&amp;<a class="local col5 ref" href="#5cent" title='cent' data-ref="5cent">cent</a>-&gt;<a class="ref" href="cg_local.h.html#centity_s::currentState" title='centity_s::currentState' data-ref="centity_s::currentState">currentState</a>, <a class="local col6 ref" href="#6state" title='state' data-ref="6state">state</a>, <b>sizeof</b>(<a class="typedef" href="../qcommon/q_shared.h.html#entityState_t" title='entityState_t' data-type='struct entityState_s' data-ref="entityState_t">entityState_t</a>));</td></tr>
+<tr><th id="106">106</th><td>		<i>//cent-&gt;currentState = *state;</i></td></tr>
+<tr><th id="107">107</th><td>		<a class="local col5 ref" href="#5cent" title='cent' data-ref="5cent">cent</a>-&gt;<a class="ref" href="cg_local.h.html#centity_s::interpolate" title='centity_s::interpolate' data-ref="centity_s::interpolate">interpolate</a> = <a class="enum" href="../qcommon/q_shared.h.html#qfalse" title='qfalse' data-ref="qfalse">qfalse</a>;</td></tr>
+<tr><th id="108">108</th><td>		<a class="local col5 ref" href="#5cent" title='cent' data-ref="5cent">cent</a>-&gt;<a class="ref" href="cg_local.h.html#centity_s::currentValid" title='centity_s::currentValid' data-ref="centity_s::currentValid">currentValid</a> = <a class="enum" href="../qcommon/q_shared.h.html#qtrue" title='qtrue' data-ref="qtrue">qtrue</a>;</td></tr>
+<tr><th id="109">109</th><td></td></tr>
+<tr><th id="110">110</th><td>		<a class="tu ref" href="#CG_ResetEntity" title='CG_ResetEntity' data-use='c' data-ref="CG_ResetEntity">CG_ResetEntity</a>( <a class="local col5 ref" href="#5cent" title='cent' data-ref="5cent">cent</a> );</td></tr>
+<tr><th id="111">111</th><td></td></tr>
+<tr><th id="112">112</th><td>		<i>// check for events</i></td></tr>
+<tr><th id="113">113</th><td>		<a class="ref" href="cg_local.h.html#CG_CheckEvents" title='CG_CheckEvents' data-ref="CG_CheckEvents">CG_CheckEvents</a>( <a class="local col5 ref" href="#5cent" title='cent' data-ref="5cent">cent</a> );</td></tr>
+<tr><th id="114">114</th><td>	}</td></tr>
+<tr><th id="115">115</th><td>}</td></tr>
+<tr><th id="116">116</th><td></td></tr>
+<tr><th id="117">117</th><td></td></tr>
+<tr><th id="118">118</th><td><i  data-doc="CG_TransitionSnapshot">/*</i></td></tr>
+<tr><th id="119">119</th><td><i  data-doc="CG_TransitionSnapshot">===================</i></td></tr>
+<tr><th id="120">120</th><td><i  data-doc="CG_TransitionSnapshot">CG_TransitionSnapshot</i></td></tr>
+<tr><th id="121">121</th><td><i  data-doc="CG_TransitionSnapshot"></i></td></tr>
+<tr><th id="122">122</th><td><i  data-doc="CG_TransitionSnapshot">The transition point from snap to nextSnap has passed</i></td></tr>
+<tr><th id="123">123</th><td><i  data-doc="CG_TransitionSnapshot">===================</i></td></tr>
+<tr><th id="124">124</th><td><i  data-doc="CG_TransitionSnapshot">*/</i></td></tr>
+<tr><th id="125">125</th><td><em>static</em> <em>void</em> <dfn class="tu decl def" id="CG_TransitionSnapshot" title='CG_TransitionSnapshot' data-type='void CG_TransitionSnapshot()' data-ref="CG_TransitionSnapshot">CG_TransitionSnapshot</dfn>( <em>void</em> ) {</td></tr>
+<tr><th id="126">126</th><td>	<a class="typedef" href="cg_local.h.html#centity_t" title='centity_t' data-type='struct centity_s' data-ref="centity_t">centity_t</a>			*<dfn class="local col7 decl" id="7cent" title='cent' data-type='centity_t *' data-ref="7cent">cent</dfn>;</td></tr>
+<tr><th id="127">127</th><td>	<a class="typedef" href="cg_public.h.html#snapshot_t" title='snapshot_t' data-type='struct snapshot_t' data-ref="snapshot_t">snapshot_t</a>			*<dfn class="local col8 decl" id="8oldFrame" title='oldFrame' data-type='snapshot_t *' data-ref="8oldFrame">oldFrame</dfn>;</td></tr>
+<tr><th id="128">128</th><td>	<em>int</em>					<dfn class="local col9 decl" id="9i" title='i' data-type='int' data-ref="9i">i</dfn>;</td></tr>
+<tr><th id="129">129</th><td></td></tr>
+<tr><th id="130">130</th><td>	<b>if</b> ( !<a class="ref" href="cg_local.h.html#cg" title='cg' data-ref="cg">cg</a>.<a class="ref" href="cg_local.h.html#(anonymous)::snap" title='(anonymous struct)::snap' data-ref="(anonymous)::snap">snap</a> ) {</td></tr>
+<tr><th id="131">131</th><td>		<a class="ref" href="cg_local.h.html#CG_Error" title='CG_Error' data-ref="CG_Error">CG_Error</a>( <q>"CG_TransitionSnapshot: NULL cg.snap"</q> );</td></tr>
+<tr><th id="132">132</th><td>	}</td></tr>
+<tr><th id="133">133</th><td>	<b>if</b> ( !<a class="ref" href="cg_local.h.html#cg" title='cg' data-ref="cg">cg</a>.<a class="ref" href="cg_local.h.html#(anonymous)::nextSnap" title='(anonymous struct)::nextSnap' data-ref="(anonymous)::nextSnap">nextSnap</a> ) {</td></tr>
+<tr><th id="134">134</th><td>		<a class="ref" href="cg_local.h.html#CG_Error" title='CG_Error' data-ref="CG_Error">CG_Error</a>( <q>"CG_TransitionSnapshot: NULL cg.nextSnap"</q> );</td></tr>
+<tr><th id="135">135</th><td>	}</td></tr>
+<tr><th id="136">136</th><td></td></tr>
+<tr><th id="137">137</th><td>	<i>// execute any server string commands before transitioning entities</i></td></tr>
+<tr><th id="138">138</th><td>	<a class="ref" href="cg_local.h.html#CG_ExecuteNewServerCommands" title='CG_ExecuteNewServerCommands' data-ref="CG_ExecuteNewServerCommands">CG_ExecuteNewServerCommands</a>( <a class="ref" href="cg_local.h.html#cg" title='cg' data-ref="cg">cg</a>.<a class="ref" href="cg_local.h.html#(anonymous)::nextSnap" title='(anonymous struct)::nextSnap' data-ref="(anonymous)::nextSnap">nextSnap</a>-&gt;<a class="ref" href="cg_public.h.html#(anonymous)::serverCommandSequence" title='(anonymous struct)::serverCommandSequence' data-ref="(anonymous)::serverCommandSequence">serverCommandSequence</a> );</td></tr>
+<tr><th id="139">139</th><td></td></tr>
+<tr><th id="140">140</th><td>	<i>// if we had a map_restart, set everthing with initial</i></td></tr>
+<tr><th id="141">141</th><td>	<b>if</b> ( <a class="ref" href="cg_local.h.html#cg" title='cg' data-ref="cg">cg</a>.<a class="ref" href="cg_local.h.html#(anonymous)::mapRestart" title='(anonymous struct)::mapRestart' data-ref="(anonymous)::mapRestart">mapRestart</a> ) {</td></tr>
+<tr><th id="142">142</th><td>	}</td></tr>
+<tr><th id="143">143</th><td></td></tr>
+<tr><th id="144">144</th><td>	<i>// clear the currentValid flag for all entities in the existing snapshot</i></td></tr>
+<tr><th id="145">145</th><td>	<b>for</b> ( <a class="local col9 ref" href="#9i" title='i' data-ref="9i">i</a> = <var>0</var> ; <a class="local col9 ref" href="#9i" title='i' data-ref="9i">i</a> &lt; <a class="ref" href="cg_local.h.html#cg" title='cg' data-ref="cg">cg</a>.<a class="ref" href="cg_local.h.html#(anonymous)::snap" title='(anonymous struct)::snap' data-ref="(anonymous)::snap">snap</a>-&gt;<a class="ref" href="cg_public.h.html#(anonymous)::numEntities" title='(anonymous struct)::numEntities' data-ref="(anonymous)::numEntities">numEntities</a> ; <a class="local col9 ref" href="#9i" title='i' data-ref="9i">i</a>++ ) {</td></tr>
+<tr><th id="146">146</th><td>		<a class="local col7 ref" href="#7cent" title='cent' data-ref="7cent">cent</a> = &amp;<a class="ref" href="cg_local.h.html#cg_entities" title='cg_entities' data-ref="cg_entities">cg_entities</a>[ <a class="ref" href="cg_local.h.html#cg" title='cg' data-ref="cg">cg</a>.<a class="ref" href="cg_local.h.html#(anonymous)::snap" title='(anonymous struct)::snap' data-ref="(anonymous)::snap">snap</a>-&gt;<a class="ref" href="cg_public.h.html#(anonymous)::entities" title='(anonymous struct)::entities' data-ref="(anonymous)::entities">entities</a>[ <a class="local col9 ref" href="#9i" title='i' data-ref="9i">i</a> ].<a class="ref" href="../qcommon/q_shared.h.html#entityState_s::number" title='entityState_s::number' data-ref="entityState_s::number">number</a> ];</td></tr>
+<tr><th id="147">147</th><td>		<a class="local col7 ref" href="#7cent" title='cent' data-ref="7cent">cent</a>-&gt;<a class="ref" href="cg_local.h.html#centity_s::currentValid" title='centity_s::currentValid' data-ref="centity_s::currentValid">currentValid</a> = <a class="enum" href="../qcommon/q_shared.h.html#qfalse" title='qfalse' data-ref="qfalse">qfalse</a>;</td></tr>
+<tr><th id="148">148</th><td>	}</td></tr>
+<tr><th id="149">149</th><td></td></tr>
+<tr><th id="150">150</th><td>	<i>// move nextSnap to snap and do the transitions</i></td></tr>
+<tr><th id="151">151</th><td>	<a class="local col8 ref" href="#8oldFrame" title='oldFrame' data-ref="8oldFrame">oldFrame</a> = <a class="ref" href="cg_local.h.html#cg" title='cg' data-ref="cg">cg</a>.<a class="ref" href="cg_local.h.html#(anonymous)::snap" title='(anonymous struct)::snap' data-ref="(anonymous)::snap">snap</a>;</td></tr>
+<tr><th id="152">152</th><td>	<a class="ref" href="cg_local.h.html#cg" title='cg' data-ref="cg">cg</a>.<a class="ref" href="cg_local.h.html#(anonymous)::snap" title='(anonymous struct)::snap' data-ref="(anonymous)::snap">snap</a> = <a class="ref" href="cg_local.h.html#cg" title='cg' data-ref="cg">cg</a>.<a class="ref" href="cg_local.h.html#(anonymous)::nextSnap" title='(anonymous struct)::nextSnap' data-ref="(anonymous)::nextSnap">nextSnap</a>;</td></tr>
+<tr><th id="153">153</th><td></td></tr>
+<tr><th id="154">154</th><td>	<a class="ref" href="../game/bg_public.h.html#BG_PlayerStateToEntityState" title='BG_PlayerStateToEntityState' data-ref="BG_PlayerStateToEntityState">BG_PlayerStateToEntityState</a>( &amp;<a class="ref" href="cg_local.h.html#cg" title='cg' data-ref="cg">cg</a>.<a class="ref" href="cg_local.h.html#(anonymous)::snap" title='(anonymous struct)::snap' data-ref="(anonymous)::snap">snap</a>-&gt;<a class="ref" href="cg_public.h.html#(anonymous)::ps" title='(anonymous struct)::ps' data-ref="(anonymous)::ps">ps</a>, &amp;<a class="ref" href="cg_local.h.html#cg_entities" title='cg_entities' data-ref="cg_entities">cg_entities</a>[ <a class="ref" href="cg_local.h.html#cg" title='cg' data-ref="cg">cg</a>.<a class="ref" href="cg_local.h.html#(anonymous)::snap" title='(anonymous struct)::snap' data-ref="(anonymous)::snap">snap</a>-&gt;<a class="ref" href="cg_public.h.html#(anonymous)::ps" title='(anonymous struct)::ps' data-ref="(anonymous)::ps">ps</a>.<a class="ref" href="../qcommon/q_shared.h.html#playerState_s::clientNum" title='playerState_s::clientNum' data-ref="playerState_s::clientNum">clientNum</a> ].<a class="ref" href="cg_local.h.html#centity_s::currentState" title='centity_s::currentState' data-ref="centity_s::currentState">currentState</a>, <a class="enum" href="../qcommon/q_shared.h.html#qfalse" title='qfalse' data-ref="qfalse">qfalse</a> );</td></tr>
+<tr><th id="155">155</th><td>	<a class="ref" href="cg_local.h.html#cg_entities" title='cg_entities' data-ref="cg_entities">cg_entities</a>[ <a class="ref" href="cg_local.h.html#cg" title='cg' data-ref="cg">cg</a>.<a class="ref" href="cg_local.h.html#(anonymous)::snap" title='(anonymous struct)::snap' data-ref="(anonymous)::snap">snap</a>-&gt;<a class="ref" href="cg_public.h.html#(anonymous)::ps" title='(anonymous struct)::ps' data-ref="(anonymous)::ps">ps</a>.<a class="ref" href="../qcommon/q_shared.h.html#playerState_s::clientNum" title='playerState_s::clientNum' data-ref="playerState_s::clientNum">clientNum</a> ].<a class="ref" href="cg_local.h.html#centity_s::interpolate" title='centity_s::interpolate' data-ref="centity_s::interpolate">interpolate</a> = <a class="enum" href="../qcommon/q_shared.h.html#qfalse" title='qfalse' data-ref="qfalse">qfalse</a>;</td></tr>
+<tr><th id="156">156</th><td></td></tr>
+<tr><th id="157">157</th><td>	<b>for</b> ( <a class="local col9 ref" href="#9i" title='i' data-ref="9i">i</a> = <var>0</var> ; <a class="local col9 ref" href="#9i" title='i' data-ref="9i">i</a> &lt; <a class="ref" href="cg_local.h.html#cg" title='cg' data-ref="cg">cg</a>.<a class="ref" href="cg_local.h.html#(anonymous)::snap" title='(anonymous struct)::snap' data-ref="(anonymous)::snap">snap</a>-&gt;<a class="ref" href="cg_public.h.html#(anonymous)::numEntities" title='(anonymous struct)::numEntities' data-ref="(anonymous)::numEntities">numEntities</a> ; <a class="local col9 ref" href="#9i" title='i' data-ref="9i">i</a>++ ) {</td></tr>
+<tr><th id="158">158</th><td>		<a class="local col7 ref" href="#7cent" title='cent' data-ref="7cent">cent</a> = &amp;<a class="ref" href="cg_local.h.html#cg_entities" title='cg_entities' data-ref="cg_entities">cg_entities</a>[ <a class="ref" href="cg_local.h.html#cg" title='cg' data-ref="cg">cg</a>.<a class="ref" href="cg_local.h.html#(anonymous)::snap" title='(anonymous struct)::snap' data-ref="(anonymous)::snap">snap</a>-&gt;<a class="ref" href="cg_public.h.html#(anonymous)::entities" title='(anonymous struct)::entities' data-ref="(anonymous)::entities">entities</a>[ <a class="local col9 ref" href="#9i" title='i' data-ref="9i">i</a> ].<a class="ref" href="../qcommon/q_shared.h.html#entityState_s::number" title='entityState_s::number' data-ref="entityState_s::number">number</a> ];</td></tr>
+<tr><th id="159">159</th><td>		<a class="tu ref" href="#CG_TransitionEntity" title='CG_TransitionEntity' data-use='c' data-ref="CG_TransitionEntity">CG_TransitionEntity</a>( <a class="local col7 ref" href="#7cent" title='cent' data-ref="7cent">cent</a> );</td></tr>
+<tr><th id="160">160</th><td></td></tr>
+<tr><th id="161">161</th><td>		<i>// remember time of snapshot this entity was last updated in</i></td></tr>
+<tr><th id="162">162</th><td>		<a class="local col7 ref" href="#7cent" title='cent' data-ref="7cent">cent</a>-&gt;<a class="ref" href="cg_local.h.html#centity_s::snapShotTime" title='centity_s::snapShotTime' data-ref="centity_s::snapShotTime">snapShotTime</a> = <a class="ref" href="cg_local.h.html#cg" title='cg' data-ref="cg">cg</a>.<a class="ref" href="cg_local.h.html#(anonymous)::snap" title='(anonymous struct)::snap' data-ref="(anonymous)::snap">snap</a>-&gt;<a class="ref" href="cg_public.h.html#(anonymous)::serverTime" title='(anonymous struct)::serverTime' data-ref="(anonymous)::serverTime">serverTime</a>;</td></tr>
+<tr><th id="163">163</th><td>	}</td></tr>
+<tr><th id="164">164</th><td></td></tr>
+<tr><th id="165">165</th><td>	<a class="ref" href="cg_local.h.html#cg" title='cg' data-ref="cg">cg</a>.<a class="ref" href="cg_local.h.html#(anonymous)::nextSnap" title='(anonymous struct)::nextSnap' data-ref="(anonymous)::nextSnap">nextSnap</a> = <span class="macro" title="((void*)0)" data-ref="_M/NULL">NULL</span>;</td></tr>
+<tr><th id="166">166</th><td></td></tr>
+<tr><th id="167">167</th><td>	<i>// check for playerstate transition events</i></td></tr>
+<tr><th id="168">168</th><td>	<b>if</b> ( <a class="local col8 ref" href="#8oldFrame" title='oldFrame' data-ref="8oldFrame">oldFrame</a> ) {</td></tr>
+<tr><th id="169">169</th><td>		<a class="typedef" href="../qcommon/q_shared.h.html#playerState_t" title='playerState_t' data-type='struct playerState_s' data-ref="playerState_t">playerState_t</a>	*<dfn class="local col0 decl" id="10ops" title='ops' data-type='playerState_t *' data-ref="10ops">ops</dfn>, *<dfn class="local col1 decl" id="11ps" title='ps' data-type='playerState_t *' data-ref="11ps">ps</dfn>;</td></tr>
+<tr><th id="170">170</th><td></td></tr>
+<tr><th id="171">171</th><td>		<a class="local col0 ref" href="#10ops" title='ops' data-ref="10ops">ops</a> = &amp;<a class="local col8 ref" href="#8oldFrame" title='oldFrame' data-ref="8oldFrame">oldFrame</a>-&gt;<a class="ref" href="cg_public.h.html#(anonymous)::ps" title='(anonymous struct)::ps' data-ref="(anonymous)::ps">ps</a>;</td></tr>
+<tr><th id="172">172</th><td>		<a class="local col1 ref" href="#11ps" title='ps' data-ref="11ps">ps</a> = &amp;<a class="ref" href="cg_local.h.html#cg" title='cg' data-ref="cg">cg</a>.<a class="ref" href="cg_local.h.html#(anonymous)::snap" title='(anonymous struct)::snap' data-ref="(anonymous)::snap">snap</a>-&gt;<a class="ref" href="cg_public.h.html#(anonymous)::ps" title='(anonymous struct)::ps' data-ref="(anonymous)::ps">ps</a>;</td></tr>
+<tr><th id="173">173</th><td>		<i>// teleporting checks are irrespective of prediction</i></td></tr>
+<tr><th id="174">174</th><td>		<b>if</b> ( ( <a class="local col1 ref" href="#11ps" title='ps' data-ref="11ps">ps</a>-&gt;<a class="ref" href="../qcommon/q_shared.h.html#playerState_s::eFlags" title='playerState_s::eFlags' data-ref="playerState_s::eFlags">eFlags</a> ^ <a class="local col0 ref" href="#10ops" title='ops' data-ref="10ops">ops</a>-&gt;<a class="ref" href="../qcommon/q_shared.h.html#playerState_s::eFlags" title='playerState_s::eFlags' data-ref="playerState_s::eFlags">eFlags</a> ) &amp; <a class="macro" href="../game/bg_public.h.html#246" title="0x00000004" data-ref="_M/EF_TELEPORT_BIT">EF_TELEPORT_BIT</a> ) {</td></tr>
+<tr><th id="175">175</th><td>			<a class="ref" href="cg_local.h.html#cg" title='cg' data-ref="cg">cg</a>.<a class="ref" href="cg_local.h.html#(anonymous)::thisFrameTeleport" title='(anonymous struct)::thisFrameTeleport' data-ref="(anonymous)::thisFrameTeleport">thisFrameTeleport</a> = <a class="enum" href="../qcommon/q_shared.h.html#qtrue" title='qtrue' data-ref="qtrue">qtrue</a>;	<i>// will be cleared by prediction code</i></td></tr>
+<tr><th id="176">176</th><td>		}</td></tr>
+<tr><th id="177">177</th><td></td></tr>
+<tr><th id="178">178</th><td>		<i>// if we are not doing client side movement prediction for any</i></td></tr>
+<tr><th id="179">179</th><td><i>		// reason, then the client events and view changes will be issued now</i></td></tr>
+<tr><th id="180">180</th><td>		<b>if</b> ( <a class="ref" href="cg_local.h.html#cg" title='cg' data-ref="cg">cg</a>.<a class="ref" href="cg_local.h.html#(anonymous)::demoPlayback" title='(anonymous struct)::demoPlayback' data-ref="(anonymous)::demoPlayback">demoPlayback</a> || (<a class="ref" href="cg_local.h.html#cg" title='cg' data-ref="cg">cg</a>.<a class="ref" href="cg_local.h.html#(anonymous)::snap" title='(anonymous struct)::snap' data-ref="(anonymous)::snap">snap</a>-&gt;<a class="ref" href="cg_public.h.html#(anonymous)::ps" title='(anonymous struct)::ps' data-ref="(anonymous)::ps">ps</a>.<a class="ref" href="../qcommon/q_shared.h.html#playerState_s::pm_flags" title='playerState_s::pm_flags' data-ref="playerState_s::pm_flags">pm_flags</a> &amp; <a class="macro" href="../game/bg_public.h.html#153" title="4096" data-ref="_M/PMF_FOLLOW">PMF_FOLLOW</a>)</td></tr>
+<tr><th id="181">181</th><td>			|| <a class="ref" href="cg_local.h.html#cg_nopredict" title='cg_nopredict' data-ref="cg_nopredict">cg_nopredict</a>.<a class="ref" href="../qcommon/q_shared.h.html#(anonymous)::integer" title='(anonymous struct)::integer' data-ref="(anonymous)::integer">integer</a> || <a class="ref" href="cg_local.h.html#cg_synchronousClients" title='cg_synchronousClients' data-ref="cg_synchronousClients">cg_synchronousClients</a>.<a class="ref" href="../qcommon/q_shared.h.html#(anonymous)::integer" title='(anonymous struct)::integer' data-ref="(anonymous)::integer">integer</a> ) {</td></tr>
+<tr><th id="182">182</th><td>			<a class="ref" href="cg_local.h.html#CG_TransitionPlayerState" title='CG_TransitionPlayerState' data-ref="CG_TransitionPlayerState">CG_TransitionPlayerState</a>( <a class="local col1 ref" href="#11ps" title='ps' data-ref="11ps">ps</a>, <a class="local col0 ref" href="#10ops" title='ops' data-ref="10ops">ops</a> );</td></tr>
+<tr><th id="183">183</th><td>		}</td></tr>
+<tr><th id="184">184</th><td>	}</td></tr>
+<tr><th id="185">185</th><td></td></tr>
+<tr><th id="186">186</th><td>}</td></tr>
+<tr><th id="187">187</th><td></td></tr>
+<tr><th id="188">188</th><td></td></tr>
+<tr><th id="189">189</th><td><i  data-doc="CG_SetNextSnap">/*</i></td></tr>
+<tr><th id="190">190</th><td><i  data-doc="CG_SetNextSnap">===================</i></td></tr>
+<tr><th id="191">191</th><td><i  data-doc="CG_SetNextSnap">CG_SetNextSnap</i></td></tr>
+<tr><th id="192">192</th><td><i  data-doc="CG_SetNextSnap"></i></td></tr>
+<tr><th id="193">193</th><td><i  data-doc="CG_SetNextSnap">A new snapshot has just been read in from the client system.</i></td></tr>
+<tr><th id="194">194</th><td><i  data-doc="CG_SetNextSnap">===================</i></td></tr>
+<tr><th id="195">195</th><td><i  data-doc="CG_SetNextSnap">*/</i></td></tr>
+<tr><th id="196">196</th><td><em>static</em> <em>void</em> <dfn class="tu decl def" id="CG_SetNextSnap" title='CG_SetNextSnap' data-type='void CG_SetNextSnap(snapshot_t * snap)' data-ref="CG_SetNextSnap">CG_SetNextSnap</dfn>( <a class="typedef" href="cg_public.h.html#snapshot_t" title='snapshot_t' data-type='struct snapshot_t' data-ref="snapshot_t">snapshot_t</a> *<dfn class="local col2 decl" id="12snap" title='snap' data-type='snapshot_t *' data-ref="12snap">snap</dfn> ) {</td></tr>
+<tr><th id="197">197</th><td>	<em>int</em>					<dfn class="local col3 decl" id="13num" title='num' data-type='int' data-ref="13num">num</dfn>;</td></tr>
+<tr><th id="198">198</th><td>	<a class="typedef" href="../qcommon/q_shared.h.html#entityState_t" title='entityState_t' data-type='struct entityState_s' data-ref="entityState_t">entityState_t</a>		*<dfn class="local col4 decl" id="14es" title='es' data-type='entityState_t *' data-ref="14es">es</dfn>;</td></tr>
+<tr><th id="199">199</th><td>	<a class="typedef" href="cg_local.h.html#centity_t" title='centity_t' data-type='struct centity_s' data-ref="centity_t">centity_t</a>			*<dfn class="local col5 decl" id="15cent" title='cent' data-type='centity_t *' data-ref="15cent">cent</dfn>;</td></tr>
+<tr><th id="200">200</th><td></td></tr>
+<tr><th id="201">201</th><td>	<a class="ref" href="cg_local.h.html#cg" title='cg' data-ref="cg">cg</a>.<a class="ref" href="cg_local.h.html#(anonymous)::nextSnap" title='(anonymous struct)::nextSnap' data-ref="(anonymous)::nextSnap">nextSnap</a> = <a class="local col2 ref" href="#12snap" title='snap' data-ref="12snap">snap</a>;</td></tr>
+<tr><th id="202">202</th><td></td></tr>
+<tr><th id="203">203</th><td>	<a class="ref" href="../game/bg_public.h.html#BG_PlayerStateToEntityState" title='BG_PlayerStateToEntityState' data-ref="BG_PlayerStateToEntityState">BG_PlayerStateToEntityState</a>( &amp;<a class="local col2 ref" href="#12snap" title='snap' data-ref="12snap">snap</a>-&gt;<a class="ref" href="cg_public.h.html#(anonymous)::ps" title='(anonymous struct)::ps' data-ref="(anonymous)::ps">ps</a>, &amp;<a class="ref" href="cg_local.h.html#cg_entities" title='cg_entities' data-ref="cg_entities">cg_entities</a>[ <a class="local col2 ref" href="#12snap" title='snap' data-ref="12snap">snap</a>-&gt;<a class="ref" href="cg_public.h.html#(anonymous)::ps" title='(anonymous struct)::ps' data-ref="(anonymous)::ps">ps</a>.<a class="ref" href="../qcommon/q_shared.h.html#playerState_s::clientNum" title='playerState_s::clientNum' data-ref="playerState_s::clientNum">clientNum</a> ].<a class="ref" href="cg_local.h.html#centity_s::nextState" title='centity_s::nextState' data-ref="centity_s::nextState">nextState</a>, <a class="enum" href="../qcommon/q_shared.h.html#qfalse" title='qfalse' data-ref="qfalse">qfalse</a> );</td></tr>
+<tr><th id="204">204</th><td>	<a class="ref" href="cg_local.h.html#cg_entities" title='cg_entities' data-ref="cg_entities">cg_entities</a>[ <a class="ref" href="cg_local.h.html#cg" title='cg' data-ref="cg">cg</a>.<a class="ref" href="cg_local.h.html#(anonymous)::snap" title='(anonymous struct)::snap' data-ref="(anonymous)::snap">snap</a>-&gt;<a class="ref" href="cg_public.h.html#(anonymous)::ps" title='(anonymous struct)::ps' data-ref="(anonymous)::ps">ps</a>.<a class="ref" href="../qcommon/q_shared.h.html#playerState_s::clientNum" title='playerState_s::clientNum' data-ref="playerState_s::clientNum">clientNum</a> ].<a class="ref" href="cg_local.h.html#centity_s::interpolate" title='centity_s::interpolate' data-ref="centity_s::interpolate">interpolate</a> = <a class="enum" href="../qcommon/q_shared.h.html#qtrue" title='qtrue' data-ref="qtrue">qtrue</a>;</td></tr>
+<tr><th id="205">205</th><td></td></tr>
+<tr><th id="206">206</th><td>	<i>// check for extrapolation errors</i></td></tr>
+<tr><th id="207">207</th><td>	<b>for</b> ( <a class="local col3 ref" href="#13num" title='num' data-ref="13num">num</a> = <var>0</var> ; <a class="local col3 ref" href="#13num" title='num' data-ref="13num">num</a> &lt; <a class="local col2 ref" href="#12snap" title='snap' data-ref="12snap">snap</a>-&gt;<a class="ref" href="cg_public.h.html#(anonymous)::numEntities" title='(anonymous struct)::numEntities' data-ref="(anonymous)::numEntities">numEntities</a> ; <a class="local col3 ref" href="#13num" title='num' data-ref="13num">num</a>++ ) {</td></tr>
+<tr><th id="208">208</th><td>		<a class="local col4 ref" href="#14es" title='es' data-ref="14es">es</a> = &amp;<a class="local col2 ref" href="#12snap" title='snap' data-ref="12snap">snap</a>-&gt;<a class="ref" href="cg_public.h.html#(anonymous)::entities" title='(anonymous struct)::entities' data-ref="(anonymous)::entities">entities</a>[<a class="local col3 ref" href="#13num" title='num' data-ref="13num">num</a>];</td></tr>
+<tr><th id="209">209</th><td>		<a class="local col5 ref" href="#15cent" title='cent' data-ref="15cent">cent</a> = &amp;<a class="ref" href="cg_local.h.html#cg_entities" title='cg_entities' data-ref="cg_entities">cg_entities</a>[ <a class="local col4 ref" href="#14es" title='es' data-ref="14es">es</a>-&gt;<a class="ref" href="../qcommon/q_shared.h.html#entityState_s::number" title='entityState_s::number' data-ref="entityState_s::number">number</a> ];</td></tr>
+<tr><th id="210">210</th><td></td></tr>
+<tr><th id="211">211</th><td>		<a class="ref" href="../../../include/string.h.html#memcpy" title='memcpy' data-ref="memcpy">memcpy</a>(&amp;<a class="local col5 ref" href="#15cent" title='cent' data-ref="15cent">cent</a>-&gt;<a class="ref" href="cg_local.h.html#centity_s::nextState" title='centity_s::nextState' data-ref="centity_s::nextState">nextState</a>, <a class="local col4 ref" href="#14es" title='es' data-ref="14es">es</a>, <b>sizeof</b>(<a class="typedef" href="../qcommon/q_shared.h.html#entityState_t" title='entityState_t' data-type='struct entityState_s' data-ref="entityState_t">entityState_t</a>));</td></tr>
+<tr><th id="212">212</th><td>		<i>//cent-&gt;nextState = *es;</i></td></tr>
+<tr><th id="213">213</th><td><i></i></td></tr>
+<tr><th id="214">214</th><td><i>		// if this frame is a teleport, or the entity wasn't in the</i></td></tr>
+<tr><th id="215">215</th><td><i>		// previous frame, don't interpolate</i></td></tr>
+<tr><th id="216">216</th><td>		<b>if</b> ( !<a class="local col5 ref" href="#15cent" title='cent' data-ref="15cent">cent</a>-&gt;<a class="ref" href="cg_local.h.html#centity_s::currentValid" title='centity_s::currentValid' data-ref="centity_s::currentValid">currentValid</a> || ( ( <a class="local col5 ref" href="#15cent" title='cent' data-ref="15cent">cent</a>-&gt;<a class="ref" href="cg_local.h.html#centity_s::currentState" title='centity_s::currentState' data-ref="centity_s::currentState">currentState</a>.<a class="ref" href="../qcommon/q_shared.h.html#entityState_s::eFlags" title='entityState_s::eFlags' data-ref="entityState_s::eFlags">eFlags</a> ^ <a class="local col4 ref" href="#14es" title='es' data-ref="14es">es</a>-&gt;<a class="ref" href="../qcommon/q_shared.h.html#entityState_s::eFlags" title='entityState_s::eFlags' data-ref="entityState_s::eFlags">eFlags</a> ) &amp; <a class="macro" href="../game/bg_public.h.html#246" title="0x00000004" data-ref="_M/EF_TELEPORT_BIT">EF_TELEPORT_BIT</a> )  ) {</td></tr>
+<tr><th id="217">217</th><td>			<a class="local col5 ref" href="#15cent" title='cent' data-ref="15cent">cent</a>-&gt;<a class="ref" href="cg_local.h.html#centity_s::interpolate" title='centity_s::interpolate' data-ref="centity_s::interpolate">interpolate</a> = <a class="enum" href="../qcommon/q_shared.h.html#qfalse" title='qfalse' data-ref="qfalse">qfalse</a>;</td></tr>
+<tr><th id="218">218</th><td>		} <b>else</b> {</td></tr>
+<tr><th id="219">219</th><td>			<a class="local col5 ref" href="#15cent" title='cent' data-ref="15cent">cent</a>-&gt;<a class="ref" href="cg_local.h.html#centity_s::interpolate" title='centity_s::interpolate' data-ref="centity_s::interpolate">interpolate</a> = <a class="enum" href="../qcommon/q_shared.h.html#qtrue" title='qtrue' data-ref="qtrue">qtrue</a>;</td></tr>
+<tr><th id="220">220</th><td>		}</td></tr>
+<tr><th id="221">221</th><td>	}</td></tr>
+<tr><th id="222">222</th><td></td></tr>
+<tr><th id="223">223</th><td>	<i>// if the next frame is a teleport for the playerstate, we</i></td></tr>
+<tr><th id="224">224</th><td><i>	// can't interpolate during demos</i></td></tr>
+<tr><th id="225">225</th><td>	<b>if</b> ( <a class="ref" href="cg_local.h.html#cg" title='cg' data-ref="cg">cg</a>.<a class="ref" href="cg_local.h.html#(anonymous)::snap" title='(anonymous struct)::snap' data-ref="(anonymous)::snap">snap</a> &amp;&amp; ( ( <a class="local col2 ref" href="#12snap" title='snap' data-ref="12snap">snap</a>-&gt;<a class="ref" href="cg_public.h.html#(anonymous)::ps" title='(anonymous struct)::ps' data-ref="(anonymous)::ps">ps</a>.<a class="ref" href="../qcommon/q_shared.h.html#playerState_s::eFlags" title='playerState_s::eFlags' data-ref="playerState_s::eFlags">eFlags</a> ^ <a class="ref" href="cg_local.h.html#cg" title='cg' data-ref="cg">cg</a>.<a class="ref" href="cg_local.h.html#(anonymous)::snap" title='(anonymous struct)::snap' data-ref="(anonymous)::snap">snap</a>-&gt;<a class="ref" href="cg_public.h.html#(anonymous)::ps" title='(anonymous struct)::ps' data-ref="(anonymous)::ps">ps</a>.<a class="ref" href="../qcommon/q_shared.h.html#playerState_s::eFlags" title='playerState_s::eFlags' data-ref="playerState_s::eFlags">eFlags</a> ) &amp; <a class="macro" href="../game/bg_public.h.html#246" title="0x00000004" data-ref="_M/EF_TELEPORT_BIT">EF_TELEPORT_BIT</a> ) ) {</td></tr>
+<tr><th id="226">226</th><td>		<a class="ref" href="cg_local.h.html#cg" title='cg' data-ref="cg">cg</a>.<a class="ref" href="cg_local.h.html#(anonymous)::nextFrameTeleport" title='(anonymous struct)::nextFrameTeleport' data-ref="(anonymous)::nextFrameTeleport">nextFrameTeleport</a> = <a class="enum" href="../qcommon/q_shared.h.html#qtrue" title='qtrue' data-ref="qtrue">qtrue</a>;</td></tr>
+<tr><th id="227">227</th><td>	} <b>else</b> {</td></tr>
+<tr><th id="228">228</th><td>		<a class="ref" href="cg_local.h.html#cg" title='cg' data-ref="cg">cg</a>.<a class="ref" href="cg_local.h.html#(anonymous)::nextFrameTeleport" title='(anonymous struct)::nextFrameTeleport' data-ref="(anonymous)::nextFrameTeleport">nextFrameTeleport</a> = <a class="enum" href="../qcommon/q_shared.h.html#qfalse" title='qfalse' data-ref="qfalse">qfalse</a>;</td></tr>
+<tr><th id="229">229</th><td>	}</td></tr>
+<tr><th id="230">230</th><td></td></tr>
+<tr><th id="231">231</th><td>	<i>// if changing follow mode, don't interpolate</i></td></tr>
+<tr><th id="232">232</th><td>	<b>if</b> ( <a class="ref" href="cg_local.h.html#cg" title='cg' data-ref="cg">cg</a>.<a class="ref" href="cg_local.h.html#(anonymous)::nextSnap" title='(anonymous struct)::nextSnap' data-ref="(anonymous)::nextSnap">nextSnap</a>-&gt;<a class="ref" href="cg_public.h.html#(anonymous)::ps" title='(anonymous struct)::ps' data-ref="(anonymous)::ps">ps</a>.<a class="ref" href="../qcommon/q_shared.h.html#playerState_s::clientNum" title='playerState_s::clientNum' data-ref="playerState_s::clientNum">clientNum</a> != <a class="ref" href="cg_local.h.html#cg" title='cg' data-ref="cg">cg</a>.<a class="ref" href="cg_local.h.html#(anonymous)::snap" title='(anonymous struct)::snap' data-ref="(anonymous)::snap">snap</a>-&gt;<a class="ref" href="cg_public.h.html#(anonymous)::ps" title='(anonymous struct)::ps' data-ref="(anonymous)::ps">ps</a>.<a class="ref" href="../qcommon/q_shared.h.html#playerState_s::clientNum" title='playerState_s::clientNum' data-ref="playerState_s::clientNum">clientNum</a> ) {</td></tr>
+<tr><th id="233">233</th><td>		<a class="ref" href="cg_local.h.html#cg" title='cg' data-ref="cg">cg</a>.<a class="ref" href="cg_local.h.html#(anonymous)::nextFrameTeleport" title='(anonymous struct)::nextFrameTeleport' data-ref="(anonymous)::nextFrameTeleport">nextFrameTeleport</a> = <a class="enum" href="../qcommon/q_shared.h.html#qtrue" title='qtrue' data-ref="qtrue">qtrue</a>;</td></tr>
+<tr><th id="234">234</th><td>	}</td></tr>
+<tr><th id="235">235</th><td></td></tr>
+<tr><th id="236">236</th><td>	<i>// if changing server restarts, don't interpolate</i></td></tr>
+<tr><th id="237">237</th><td>	<b>if</b> ( ( <a class="ref" href="cg_local.h.html#cg" title='cg' data-ref="cg">cg</a>.<a class="ref" href="cg_local.h.html#(anonymous)::nextSnap" title='(anonymous struct)::nextSnap' data-ref="(anonymous)::nextSnap">nextSnap</a>-&gt;<a class="ref" href="cg_public.h.html#(anonymous)::snapFlags" title='(anonymous struct)::snapFlags' data-ref="(anonymous)::snapFlags">snapFlags</a> ^ <a class="ref" href="cg_local.h.html#cg" title='cg' data-ref="cg">cg</a>.<a class="ref" href="cg_local.h.html#(anonymous)::snap" title='(anonymous struct)::snap' data-ref="(anonymous)::snap">snap</a>-&gt;<a class="ref" href="cg_public.h.html#(anonymous)::snapFlags" title='(anonymous struct)::snapFlags' data-ref="(anonymous)::snapFlags">snapFlags</a> ) &amp; <a class="macro" href="../qcommon/q_shared.h.html#1082" title="4" data-ref="_M/SNAPFLAG_SERVERCOUNT">SNAPFLAG_SERVERCOUNT</a> ) {</td></tr>
+<tr><th id="238">238</th><td>		<a class="ref" href="cg_local.h.html#cg" title='cg' data-ref="cg">cg</a>.<a class="ref" href="cg_local.h.html#(anonymous)::nextFrameTeleport" title='(anonymous struct)::nextFrameTeleport' data-ref="(anonymous)::nextFrameTeleport">nextFrameTeleport</a> = <a class="enum" href="../qcommon/q_shared.h.html#qtrue" title='qtrue' data-ref="qtrue">qtrue</a>;</td></tr>
+<tr><th id="239">239</th><td>	}</td></tr>
+<tr><th id="240">240</th><td></td></tr>
+<tr><th id="241">241</th><td>	<i>// sort out solid entities</i></td></tr>
+<tr><th id="242">242</th><td>	<a class="ref" href="cg_local.h.html#CG_BuildSolidList" title='CG_BuildSolidList' data-ref="CG_BuildSolidList">CG_BuildSolidList</a>();</td></tr>
+<tr><th id="243">243</th><td>}</td></tr>
+<tr><th id="244">244</th><td></td></tr>
+<tr><th id="245">245</th><td></td></tr>
+<tr><th id="246">246</th><td><i  data-doc="CG_ReadNextSnapshot">/*</i></td></tr>
+<tr><th id="247">247</th><td><i  data-doc="CG_ReadNextSnapshot">========================</i></td></tr>
+<tr><th id="248">248</th><td><i  data-doc="CG_ReadNextSnapshot">CG_ReadNextSnapshot</i></td></tr>
+<tr><th id="249">249</th><td><i  data-doc="CG_ReadNextSnapshot"></i></td></tr>
+<tr><th id="250">250</th><td><i  data-doc="CG_ReadNextSnapshot">This is the only place new snapshots are requested</i></td></tr>
+<tr><th id="251">251</th><td><i  data-doc="CG_ReadNextSnapshot">This may increment cgs.processedSnapshotNum multiple</i></td></tr>
+<tr><th id="252">252</th><td><i  data-doc="CG_ReadNextSnapshot">times if the client system fails to return a</i></td></tr>
+<tr><th id="253">253</th><td><i  data-doc="CG_ReadNextSnapshot">valid snapshot.</i></td></tr>
+<tr><th id="254">254</th><td><i  data-doc="CG_ReadNextSnapshot">========================</i></td></tr>
+<tr><th id="255">255</th><td><i  data-doc="CG_ReadNextSnapshot">*/</i></td></tr>
+<tr><th id="256">256</th><td><em>static</em> <a class="typedef" href="cg_public.h.html#snapshot_t" title='snapshot_t' data-type='struct snapshot_t' data-ref="snapshot_t">snapshot_t</a> *<dfn class="tu decl def" id="CG_ReadNextSnapshot" title='CG_ReadNextSnapshot' data-type='snapshot_t * CG_ReadNextSnapshot()' data-ref="CG_ReadNextSnapshot">CG_ReadNextSnapshot</dfn>( <em>void</em> ) {</td></tr>
+<tr><th id="257">257</th><td>	<a class="typedef" href="../qcommon/q_shared.h.html#qboolean" title='qboolean' data-type='enum qboolean' data-ref="qboolean">qboolean</a>	<dfn class="local col6 decl" id="16r" title='r' data-type='qboolean' data-ref="16r">r</dfn>;</td></tr>
+<tr><th id="258">258</th><td>	<a class="typedef" href="cg_public.h.html#snapshot_t" title='snapshot_t' data-type='struct snapshot_t' data-ref="snapshot_t">snapshot_t</a>	*<dfn class="local col7 decl" id="17dest" title='dest' data-type='snapshot_t *' data-ref="17dest">dest</dfn>;</td></tr>
+<tr><th id="259">259</th><td></td></tr>
+<tr><th id="260">260</th><td>	<b>if</b> ( <a class="ref" href="cg_local.h.html#cg" title='cg' data-ref="cg">cg</a>.<a class="ref" href="cg_local.h.html#(anonymous)::latestSnapshotNum" title='(anonymous struct)::latestSnapshotNum' data-ref="(anonymous)::latestSnapshotNum">latestSnapshotNum</a> &gt; <a class="ref" href="cg_local.h.html#cgs" title='cgs' data-ref="cgs">cgs</a>.<a class="ref" href="cg_local.h.html#(anonymous)::processedSnapshotNum" title='(anonymous struct)::processedSnapshotNum' data-ref="(anonymous)::processedSnapshotNum">processedSnapshotNum</a> + <var>1000</var> ) {</td></tr>
+<tr><th id="261">261</th><td>		<a class="ref" href="cg_local.h.html#CG_Printf" title='CG_Printf' data-ref="CG_Printf">CG_Printf</a>( <q>"WARNING: CG_ReadNextSnapshot: way out of range, %i &gt; %i\n"</q>, </td></tr>
+<tr><th id="262">262</th><td>			<a class="ref" href="cg_local.h.html#cg" title='cg' data-ref="cg">cg</a>.<a class="ref" href="cg_local.h.html#(anonymous)::latestSnapshotNum" title='(anonymous struct)::latestSnapshotNum' data-ref="(anonymous)::latestSnapshotNum">latestSnapshotNum</a>, <a class="ref" href="cg_local.h.html#cgs" title='cgs' data-ref="cgs">cgs</a>.<a class="ref" href="cg_local.h.html#(anonymous)::processedSnapshotNum" title='(anonymous struct)::processedSnapshotNum' data-ref="(anonymous)::processedSnapshotNum">processedSnapshotNum</a> );</td></tr>
+<tr><th id="263">263</th><td>	}</td></tr>
+<tr><th id="264">264</th><td></td></tr>
+<tr><th id="265">265</th><td>	<b>while</b> ( <a class="ref" href="cg_local.h.html#cgs" title='cgs' data-ref="cgs">cgs</a>.<a class="ref" href="cg_local.h.html#(anonymous)::processedSnapshotNum" title='(anonymous struct)::processedSnapshotNum' data-ref="(anonymous)::processedSnapshotNum">processedSnapshotNum</a> &lt; <a class="ref" href="cg_local.h.html#cg" title='cg' data-ref="cg">cg</a>.<a class="ref" href="cg_local.h.html#(anonymous)::latestSnapshotNum" title='(anonymous struct)::latestSnapshotNum' data-ref="(anonymous)::latestSnapshotNum">latestSnapshotNum</a> ) {</td></tr>
+<tr><th id="266">266</th><td>		<i>// decide which of the two slots to load it into</i></td></tr>
+<tr><th id="267">267</th><td>		<b>if</b> ( <a class="ref" href="cg_local.h.html#cg" title='cg' data-ref="cg">cg</a>.<a class="ref" href="cg_local.h.html#(anonymous)::snap" title='(anonymous struct)::snap' data-ref="(anonymous)::snap">snap</a> == &amp;<a class="ref" href="cg_local.h.html#cg" title='cg' data-ref="cg">cg</a>.<a class="ref" href="cg_local.h.html#(anonymous)::activeSnapshots" title='(anonymous struct)::activeSnapshots' data-ref="(anonymous)::activeSnapshots">activeSnapshots</a>[<var>0</var>] ) {</td></tr>
+<tr><th id="268">268</th><td>			<a class="local col7 ref" href="#17dest" title='dest' data-ref="17dest">dest</a> = &amp;<a class="ref" href="cg_local.h.html#cg" title='cg' data-ref="cg">cg</a>.<a class="ref" href="cg_local.h.html#(anonymous)::activeSnapshots" title='(anonymous struct)::activeSnapshots' data-ref="(anonymous)::activeSnapshots">activeSnapshots</a>[<var>1</var>];</td></tr>
+<tr><th id="269">269</th><td>		} <b>else</b> {</td></tr>
+<tr><th id="270">270</th><td>			<a class="local col7 ref" href="#17dest" title='dest' data-ref="17dest">dest</a> = &amp;<a class="ref" href="cg_local.h.html#cg" title='cg' data-ref="cg">cg</a>.<a class="ref" href="cg_local.h.html#(anonymous)::activeSnapshots" title='(anonymous struct)::activeSnapshots' data-ref="(anonymous)::activeSnapshots">activeSnapshots</a>[<var>0</var>];</td></tr>
+<tr><th id="271">271</th><td>		}</td></tr>
+<tr><th id="272">272</th><td></td></tr>
+<tr><th id="273">273</th><td>		<i>// try to read the snapshot from the client system</i></td></tr>
+<tr><th id="274">274</th><td>		<a class="ref" href="cg_local.h.html#cgs" title='cgs' data-ref="cgs">cgs</a>.<a class="ref" href="cg_local.h.html#(anonymous)::processedSnapshotNum" title='(anonymous struct)::processedSnapshotNum' data-ref="(anonymous)::processedSnapshotNum">processedSnapshotNum</a>++;</td></tr>
+<tr><th id="275">275</th><td>		<a class="local col6 ref" href="#16r" title='r' data-ref="16r">r</a> = <a class="ref" href="cg_local.h.html#trap_GetSnapshot" title='trap_GetSnapshot' data-ref="trap_GetSnapshot">trap_GetSnapshot</a>( <a class="ref" href="cg_local.h.html#cgs" title='cgs' data-ref="cgs">cgs</a>.<a class="ref" href="cg_local.h.html#(anonymous)::processedSnapshotNum" title='(anonymous struct)::processedSnapshotNum' data-ref="(anonymous)::processedSnapshotNum">processedSnapshotNum</a>, <a class="local col7 ref" href="#17dest" title='dest' data-ref="17dest">dest</a> );</td></tr>
+<tr><th id="276">276</th><td></td></tr>
+<tr><th id="277">277</th><td>		<i>// FIXME: why would trap_GetSnapshot return a snapshot with the same server time</i></td></tr>
+<tr><th id="278">278</th><td>		<b>if</b> ( <a class="ref" href="cg_local.h.html#cg" title='cg' data-ref="cg">cg</a>.<a class="ref" href="cg_local.h.html#(anonymous)::snap" title='(anonymous struct)::snap' data-ref="(anonymous)::snap">snap</a> &amp;&amp; <a class="local col6 ref" href="#16r" title='r' data-ref="16r">r</a> &amp;&amp; <a class="local col7 ref" href="#17dest" title='dest' data-ref="17dest">dest</a>-&gt;<a class="ref" href="cg_public.h.html#(anonymous)::serverTime" title='(anonymous struct)::serverTime' data-ref="(anonymous)::serverTime">serverTime</a> == <a class="ref" href="cg_local.h.html#cg" title='cg' data-ref="cg">cg</a>.<a class="ref" href="cg_local.h.html#(anonymous)::snap" title='(anonymous struct)::snap' data-ref="(anonymous)::snap">snap</a>-&gt;<a class="ref" href="cg_public.h.html#(anonymous)::serverTime" title='(anonymous struct)::serverTime' data-ref="(anonymous)::serverTime">serverTime</a> ) {</td></tr>
+<tr><th id="279">279</th><td>			<i>//continue;</i></td></tr>
+<tr><th id="280">280</th><td>		}</td></tr>
+<tr><th id="281">281</th><td></td></tr>
+<tr><th id="282">282</th><td>		<i>// if it succeeded, return</i></td></tr>
+<tr><th id="283">283</th><td>		<b>if</b> ( <a class="local col6 ref" href="#16r" title='r' data-ref="16r">r</a> ) {</td></tr>
+<tr><th id="284">284</th><td>			<a class="ref" href="cg_local.h.html#CG_AddLagometerSnapshotInfo" title='CG_AddLagometerSnapshotInfo' data-ref="CG_AddLagometerSnapshotInfo">CG_AddLagometerSnapshotInfo</a>( <a class="local col7 ref" href="#17dest" title='dest' data-ref="17dest">dest</a> );</td></tr>
+<tr><th id="285">285</th><td>			<b>return</b> <a class="local col7 ref" href="#17dest" title='dest' data-ref="17dest">dest</a>;</td></tr>
+<tr><th id="286">286</th><td>		}</td></tr>
+<tr><th id="287">287</th><td></td></tr>
+<tr><th id="288">288</th><td>		<i>// a GetSnapshot will return failure if the snapshot</i></td></tr>
+<tr><th id="289">289</th><td><i>		// never arrived, or  is so old that its entities</i></td></tr>
+<tr><th id="290">290</th><td><i>		// have been shoved off the end of the circular</i></td></tr>
+<tr><th id="291">291</th><td><i>		// buffer in the client system.</i></td></tr>
+<tr><th id="292">292</th><td><i></i></td></tr>
+<tr><th id="293">293</th><td><i>		// record as a dropped packet</i></td></tr>
+<tr><th id="294">294</th><td>		<a class="ref" href="cg_local.h.html#CG_AddLagometerSnapshotInfo" title='CG_AddLagometerSnapshotInfo' data-ref="CG_AddLagometerSnapshotInfo">CG_AddLagometerSnapshotInfo</a>( <span class="macro" title="((void*)0)" data-ref="_M/NULL">NULL</span> );</td></tr>
+<tr><th id="295">295</th><td></td></tr>
+<tr><th id="296">296</th><td>		<i>// If there are additional snapshots, continue trying to</i></td></tr>
+<tr><th id="297">297</th><td><i>		// read them.</i></td></tr>
+<tr><th id="298">298</th><td>	}</td></tr>
+<tr><th id="299">299</th><td></td></tr>
+<tr><th id="300">300</th><td>	<i>// nothing left to read</i></td></tr>
+<tr><th id="301">301</th><td>	<b>return</b> <span class="macro" title="((void*)0)" data-ref="_M/NULL">NULL</span>;</td></tr>
+<tr><th id="302">302</th><td>}</td></tr>
+<tr><th id="303">303</th><td></td></tr>
+<tr><th id="304">304</th><td></td></tr>
+<tr><th id="305">305</th><td><i>/*</i></td></tr>
+<tr><th id="306">306</th><td><i>============</i></td></tr>
+<tr><th id="307">307</th><td><i>CG_ProcessSnapshots</i></td></tr>
+<tr><th id="308">308</th><td><i></i></td></tr>
+<tr><th id="309">309</th><td><i>We are trying to set up a renderable view, so determine</i></td></tr>
+<tr><th id="310">310</th><td><i>what the simulated time is, and try to get snapshots</i></td></tr>
+<tr><th id="311">311</th><td><i>both before and after that time if available.</i></td></tr>
+<tr><th id="312">312</th><td><i></i></td></tr>
+<tr><th id="313">313</th><td><i>If we don't have a valid cg.snap after exiting this function,</i></td></tr>
+<tr><th id="314">314</th><td><i>then a 3D game view cannot be rendered.  This should only happen</i></td></tr>
+<tr><th id="315">315</th><td><i>right after the initial connection.  After cg.snap has been valid</i></td></tr>
+<tr><th id="316">316</th><td><i>once, it will never turn invalid.</i></td></tr>
+<tr><th id="317">317</th><td><i></i></td></tr>
+<tr><th id="318">318</th><td><i>Even if cg.snap is valid, cg.nextSnap may not be, if the snapshot</i></td></tr>
+<tr><th id="319">319</th><td><i>hasn't arrived yet (it becomes an extrapolating situation instead</i></td></tr>
+<tr><th id="320">320</th><td><i>of an interpolating one)</i></td></tr>
+<tr><th id="321">321</th><td><i></i></td></tr>
+<tr><th id="322">322</th><td><i>============</i></td></tr>
+<tr><th id="323">323</th><td><i>*/</i></td></tr>
+<tr><th id="324">324</th><td><em>void</em> <dfn class="decl def" id="CG_ProcessSnapshots" title='CG_ProcessSnapshots' data-ref="CG_ProcessSnapshots">CG_ProcessSnapshots</dfn>( <em>void</em> ) {</td></tr>
+<tr><th id="325">325</th><td>	<a class="typedef" href="cg_public.h.html#snapshot_t" title='snapshot_t' data-type='struct snapshot_t' data-ref="snapshot_t">snapshot_t</a>		*<dfn class="local col8 decl" id="18snap" title='snap' data-type='snapshot_t *' data-ref="18snap">snap</dfn>;</td></tr>
+<tr><th id="326">326</th><td>	<em>int</em>				<dfn class="local col9 decl" id="19n" title='n' data-type='int' data-ref="19n">n</dfn>;</td></tr>
+<tr><th id="327">327</th><td></td></tr>
+<tr><th id="328">328</th><td>	<i>// see what the latest snapshot the client system has is</i></td></tr>
+<tr><th id="329">329</th><td>	<a class="ref" href="cg_local.h.html#trap_GetCurrentSnapshotNumber" title='trap_GetCurrentSnapshotNumber' data-ref="trap_GetCurrentSnapshotNumber">trap_GetCurrentSnapshotNumber</a>( &amp;<a class="local col9 ref" href="#19n" title='n' data-ref="19n">n</a>, &amp;<a class="ref" href="cg_local.h.html#cg" title='cg' data-ref="cg">cg</a>.<a class="ref" href="cg_local.h.html#(anonymous)::latestSnapshotTime" title='(anonymous struct)::latestSnapshotTime' data-ref="(anonymous)::latestSnapshotTime">latestSnapshotTime</a> );</td></tr>
+<tr><th id="330">330</th><td>	<b>if</b> ( <a class="local col9 ref" href="#19n" title='n' data-ref="19n">n</a> != <a class="ref" href="cg_local.h.html#cg" title='cg' data-ref="cg">cg</a>.<a class="ref" href="cg_local.h.html#(anonymous)::latestSnapshotNum" title='(anonymous struct)::latestSnapshotNum' data-ref="(anonymous)::latestSnapshotNum">latestSnapshotNum</a> ) {</td></tr>
+<tr><th id="331">331</th><td>		<b>if</b> ( <a class="local col9 ref" href="#19n" title='n' data-ref="19n">n</a> &lt; <a class="ref" href="cg_local.h.html#cg" title='cg' data-ref="cg">cg</a>.<a class="ref" href="cg_local.h.html#(anonymous)::latestSnapshotNum" title='(anonymous struct)::latestSnapshotNum' data-ref="(anonymous)::latestSnapshotNum">latestSnapshotNum</a> ) {</td></tr>
+<tr><th id="332">332</th><td>			<i>// this should never happen</i></td></tr>
+<tr><th id="333">333</th><td>			<a class="ref" href="cg_local.h.html#CG_Error" title='CG_Error' data-ref="CG_Error">CG_Error</a>( <q>"CG_ProcessSnapshots: n &lt; cg.latestSnapshotNum"</q> );</td></tr>
+<tr><th id="334">334</th><td>		}</td></tr>
+<tr><th id="335">335</th><td>		<a class="ref" href="cg_local.h.html#cg" title='cg' data-ref="cg">cg</a>.<a class="ref" href="cg_local.h.html#(anonymous)::latestSnapshotNum" title='(anonymous struct)::latestSnapshotNum' data-ref="(anonymous)::latestSnapshotNum">latestSnapshotNum</a> = <a class="local col9 ref" href="#19n" title='n' data-ref="19n">n</a>;</td></tr>
+<tr><th id="336">336</th><td>	}</td></tr>
+<tr><th id="337">337</th><td></td></tr>
+<tr><th id="338">338</th><td>	<i>// If we have yet to receive a snapshot, check for it.</i></td></tr>
+<tr><th id="339">339</th><td><i>	// Once we have gotten the first snapshot, cg.snap will</i></td></tr>
+<tr><th id="340">340</th><td><i>	// always have valid data for the rest of the game</i></td></tr>
+<tr><th id="341">341</th><td>	<b>while</b> ( !<a class="ref" href="cg_local.h.html#cg" title='cg' data-ref="cg">cg</a>.<a class="ref" href="cg_local.h.html#(anonymous)::snap" title='(anonymous struct)::snap' data-ref="(anonymous)::snap">snap</a> ) {</td></tr>
+<tr><th id="342">342</th><td>		<a class="local col8 ref" href="#18snap" title='snap' data-ref="18snap">snap</a> = <a class="tu ref" href="#CG_ReadNextSnapshot" title='CG_ReadNextSnapshot' data-use='c' data-ref="CG_ReadNextSnapshot">CG_ReadNextSnapshot</a>();</td></tr>
+<tr><th id="343">343</th><td>		<b>if</b> ( !<a class="local col8 ref" href="#18snap" title='snap' data-ref="18snap">snap</a> ) {</td></tr>
+<tr><th id="344">344</th><td>			<i>// we can't continue until we get a snapshot</i></td></tr>
+<tr><th id="345">345</th><td>			<b>return</b>;</td></tr>
+<tr><th id="346">346</th><td>		}</td></tr>
+<tr><th id="347">347</th><td></td></tr>
+<tr><th id="348">348</th><td>		<i>// set our weapon selection to what</i></td></tr>
+<tr><th id="349">349</th><td><i>		// the playerstate is currently using</i></td></tr>
+<tr><th id="350">350</th><td>		<b>if</b> ( !( <a class="local col8 ref" href="#18snap" title='snap' data-ref="18snap">snap</a>-&gt;<a class="ref" href="cg_public.h.html#(anonymous)::snapFlags" title='(anonymous struct)::snapFlags' data-ref="(anonymous)::snapFlags">snapFlags</a> &amp; <a class="macro" href="../qcommon/q_shared.h.html#1081" title="2" data-ref="_M/SNAPFLAG_NOT_ACTIVE">SNAPFLAG_NOT_ACTIVE</a> ) ) {</td></tr>
+<tr><th id="351">351</th><td>			<a class="ref" href="#CG_SetInitialSnapshot" title='CG_SetInitialSnapshot' data-ref="CG_SetInitialSnapshot">CG_SetInitialSnapshot</a>( <a class="local col8 ref" href="#18snap" title='snap' data-ref="18snap">snap</a> );</td></tr>
+<tr><th id="352">352</th><td>		}</td></tr>
+<tr><th id="353">353</th><td>	}</td></tr>
+<tr><th id="354">354</th><td></td></tr>
+<tr><th id="355">355</th><td>	<i>// loop until we either have a valid nextSnap with a serverTime</i></td></tr>
+<tr><th id="356">356</th><td><i>	// greater than cg.time to interpolate towards, or we run</i></td></tr>
+<tr><th id="357">357</th><td><i>	// out of available snapshots</i></td></tr>
+<tr><th id="358">358</th><td>	<b>do</b> {</td></tr>
+<tr><th id="359">359</th><td>		<i>// if we don't have a nextframe, try and read a new one in</i></td></tr>
+<tr><th id="360">360</th><td>		<b>if</b> ( !<a class="ref" href="cg_local.h.html#cg" title='cg' data-ref="cg">cg</a>.<a class="ref" href="cg_local.h.html#(anonymous)::nextSnap" title='(anonymous struct)::nextSnap' data-ref="(anonymous)::nextSnap">nextSnap</a> ) {</td></tr>
+<tr><th id="361">361</th><td>			<a class="local col8 ref" href="#18snap" title='snap' data-ref="18snap">snap</a> = <a class="tu ref" href="#CG_ReadNextSnapshot" title='CG_ReadNextSnapshot' data-use='c' data-ref="CG_ReadNextSnapshot">CG_ReadNextSnapshot</a>();</td></tr>
+<tr><th id="362">362</th><td></td></tr>
+<tr><th id="363">363</th><td>			<i>// if we still don't have a nextframe, we will just have to</i></td></tr>
+<tr><th id="364">364</th><td><i>			// extrapolate</i></td></tr>
+<tr><th id="365">365</th><td>			<b>if</b> ( !<a class="local col8 ref" href="#18snap" title='snap' data-ref="18snap">snap</a> ) {</td></tr>
+<tr><th id="366">366</th><td>				<b>break</b>;</td></tr>
+<tr><th id="367">367</th><td>			}</td></tr>
+<tr><th id="368">368</th><td></td></tr>
+<tr><th id="369">369</th><td>			<a class="tu ref" href="#CG_SetNextSnap" title='CG_SetNextSnap' data-use='c' data-ref="CG_SetNextSnap">CG_SetNextSnap</a>( <a class="local col8 ref" href="#18snap" title='snap' data-ref="18snap">snap</a> );</td></tr>
+<tr><th id="370">370</th><td></td></tr>
+<tr><th id="371">371</th><td></td></tr>
+<tr><th id="372">372</th><td>			<i>// if time went backwards, we have a level restart</i></td></tr>
+<tr><th id="373">373</th><td>			<b>if</b> ( <a class="ref" href="cg_local.h.html#cg" title='cg' data-ref="cg">cg</a>.<a class="ref" href="cg_local.h.html#(anonymous)::nextSnap" title='(anonymous struct)::nextSnap' data-ref="(anonymous)::nextSnap">nextSnap</a>-&gt;<a class="ref" href="cg_public.h.html#(anonymous)::serverTime" title='(anonymous struct)::serverTime' data-ref="(anonymous)::serverTime">serverTime</a> &lt; <a class="ref" href="cg_local.h.html#cg" title='cg' data-ref="cg">cg</a>.<a class="ref" href="cg_local.h.html#(anonymous)::snap" title='(anonymous struct)::snap' data-ref="(anonymous)::snap">snap</a>-&gt;<a class="ref" href="cg_public.h.html#(anonymous)::serverTime" title='(anonymous struct)::serverTime' data-ref="(anonymous)::serverTime">serverTime</a> ) {</td></tr>
+<tr><th id="374">374</th><td>				<a class="ref" href="cg_local.h.html#CG_Error" title='CG_Error' data-ref="CG_Error">CG_Error</a>( <q>"CG_ProcessSnapshots: Server time went backwards"</q> );</td></tr>
+<tr><th id="375">375</th><td>			}</td></tr>
+<tr><th id="376">376</th><td>		}</td></tr>
+<tr><th id="377">377</th><td></td></tr>
+<tr><th id="378">378</th><td>		<i>// if our time is &lt; nextFrame's, we have a nice interpolating state</i></td></tr>
+<tr><th id="379">379</th><td>		<b>if</b> ( <a class="ref" href="cg_local.h.html#cg" title='cg' data-ref="cg">cg</a>.<a class="ref" href="cg_local.h.html#(anonymous)::time" title='(anonymous struct)::time' data-ref="(anonymous)::time">time</a> &gt;= <a class="ref" href="cg_local.h.html#cg" title='cg' data-ref="cg">cg</a>.<a class="ref" href="cg_local.h.html#(anonymous)::snap" title='(anonymous struct)::snap' data-ref="(anonymous)::snap">snap</a>-&gt;<a class="ref" href="cg_public.h.html#(anonymous)::serverTime" title='(anonymous struct)::serverTime' data-ref="(anonymous)::serverTime">serverTime</a> &amp;&amp; <a class="ref" href="cg_local.h.html#cg" title='cg' data-ref="cg">cg</a>.<a class="ref" href="cg_local.h.html#(anonymous)::time" title='(anonymous struct)::time' data-ref="(anonymous)::time">time</a> &lt; <a class="ref" href="cg_local.h.html#cg" title='cg' data-ref="cg">cg</a>.<a class="ref" href="cg_local.h.html#(anonymous)::nextSnap" title='(anonymous struct)::nextSnap' data-ref="(anonymous)::nextSnap">nextSnap</a>-&gt;<a class="ref" href="cg_public.h.html#(anonymous)::serverTime" title='(anonymous struct)::serverTime' data-ref="(anonymous)::serverTime">serverTime</a> ) {</td></tr>
+<tr><th id="380">380</th><td>			<b>break</b>;</td></tr>
+<tr><th id="381">381</th><td>		}</td></tr>
+<tr><th id="382">382</th><td></td></tr>
+<tr><th id="383">383</th><td>		<i>// we have passed the transition from nextFrame to frame</i></td></tr>
+<tr><th id="384">384</th><td>		<a class="tu ref" href="#CG_TransitionSnapshot" title='CG_TransitionSnapshot' data-use='c' data-ref="CG_TransitionSnapshot">CG_TransitionSnapshot</a>();</td></tr>
+<tr><th id="385">385</th><td>	} <b>while</b> ( <var>1</var> );</td></tr>
+<tr><th id="386">386</th><td></td></tr>
+<tr><th id="387">387</th><td>	<i>// assert our valid conditions upon exiting</i></td></tr>
+<tr><th id="388">388</th><td>	<b>if</b> ( <a class="ref" href="cg_local.h.html#cg" title='cg' data-ref="cg">cg</a>.<a class="ref" href="cg_local.h.html#(anonymous)::snap" title='(anonymous struct)::snap' data-ref="(anonymous)::snap">snap</a> == <span class="macro" title="((void*)0)" data-ref="_M/NULL">NULL</span> ) {</td></tr>
+<tr><th id="389">389</th><td>		<a class="ref" href="cg_local.h.html#CG_Error" title='CG_Error' data-ref="CG_Error">CG_Error</a>( <q>"CG_ProcessSnapshots: cg.snap == NULL"</q> );</td></tr>
+<tr><th id="390">390</th><td>	}</td></tr>
+<tr><th id="391">391</th><td>	<b>if</b> ( <a class="ref" href="cg_local.h.html#cg" title='cg' data-ref="cg">cg</a>.<a class="ref" href="cg_local.h.html#(anonymous)::time" title='(anonymous struct)::time' data-ref="(anonymous)::time">time</a> &lt; <a class="ref" href="cg_local.h.html#cg" title='cg' data-ref="cg">cg</a>.<a class="ref" href="cg_local.h.html#(anonymous)::snap" title='(anonymous struct)::snap' data-ref="(anonymous)::snap">snap</a>-&gt;<a class="ref" href="cg_public.h.html#(anonymous)::serverTime" title='(anonymous struct)::serverTime' data-ref="(anonymous)::serverTime">serverTime</a> ) {</td></tr>
+<tr><th id="392">392</th><td>		<i>// this can happen right after a vid_restart</i></td></tr>
+<tr><th id="393">393</th><td>		<a class="ref" href="cg_local.h.html#cg" title='cg' data-ref="cg">cg</a>.<a class="ref" href="cg_local.h.html#(anonymous)::time" title='(anonymous struct)::time' data-ref="(anonymous)::time">time</a> = <a class="ref" href="cg_local.h.html#cg" title='cg' data-ref="cg">cg</a>.<a class="ref" href="cg_local.h.html#(anonymous)::snap" title='(anonymous struct)::snap' data-ref="(anonymous)::snap">snap</a>-&gt;<a class="ref" href="cg_public.h.html#(anonymous)::serverTime" title='(anonymous struct)::serverTime' data-ref="(anonymous)::serverTime">serverTime</a>;</td></tr>
+<tr><th id="394">394</th><td>	}</td></tr>
+<tr><th id="395">395</th><td>	<b>if</b> ( <a class="ref" href="cg_local.h.html#cg" title='cg' data-ref="cg">cg</a>.<a class="ref" href="cg_local.h.html#(anonymous)::nextSnap" title='(anonymous struct)::nextSnap' data-ref="(anonymous)::nextSnap">nextSnap</a> != <span class="macro" title="((void*)0)" data-ref="_M/NULL">NULL</span> &amp;&amp; <a class="ref" href="cg_local.h.html#cg" title='cg' data-ref="cg">cg</a>.<a class="ref" href="cg_local.h.html#(anonymous)::nextSnap" title='(anonymous struct)::nextSnap' data-ref="(anonymous)::nextSnap">nextSnap</a>-&gt;<a class="ref" href="cg_public.h.html#(anonymous)::serverTime" title='(anonymous struct)::serverTime' data-ref="(anonymous)::serverTime">serverTime</a> &lt;= <a class="ref" href="cg_local.h.html#cg" title='cg' data-ref="cg">cg</a>.<a class="ref" href="cg_local.h.html#(anonymous)::time" title='(anonymous struct)::time' data-ref="(anonymous)::time">time</a> ) {</td></tr>
+<tr><th id="396">396</th><td>		<a class="ref" href="cg_local.h.html#CG_Error" title='CG_Error' data-ref="CG_Error">CG_Error</a>( <q>"CG_ProcessSnapshots: cg.nextSnap-&gt;serverTime &lt;= cg.time"</q> );</td></tr>
+<tr><th id="397">397</th><td>	}</td></tr>
+<tr><th id="398">398</th><td></td></tr>
+<tr><th id="399">399</th><td>}</td></tr>
+<tr><th id="400">400</th><td></td></tr>
+<tr><th id="401">401</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated on <em>2017-Aug-29</em> from project codebrowser revision <em>63e07af</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

@@ -1,0 +1,29 @@
+<dec f='codebrowser/code/cgame/cg_local.h' l='1322' type='void CG_PredictPlayerState()'/>
+<def f='codebrowser/code/cgame/cg_predict.c' l='412' ll='626' type='void CG_PredictPlayerState()'/>
+<doc f='codebrowser/code/cgame/cg_predict.c' l='386'>/*
+=================
+CG_PredictPlayerState
+
+Generates cg.predictedPlayerState for the current cg.time
+cg.predictedPlayerState is guaranteed to be valid after exiting.
+
+For demo playback, this will be an interpolation between two valid
+playerState_t.
+
+For normal gameplay, it will be the result of predicted usercmd_t on
+top of the most recent playerState_t received from the server.
+
+Each new snapshot will usually have one or more new usercmd over the last,
+but we simulate all unacknowledged commands each time, not just the new ones.
+This means that on an internet connection, quite a few pmoves may be issued
+each frame.
+
+OPTIMIZE: don&apos;t re-simulate unless the newly arrived snapshot playerState_t
+differs from the predicted one.  Would require saving all intermediate
+playerState_t during prediction.
+
+We detect prediction errors and allow them to be decayed off over several frames
+to ease the jerk.
+=================
+*/</doc>
+<use f='codebrowser/code/cgame/cg_view.c' l='796' u='c' c='CG_DrawActiveFrame'/>

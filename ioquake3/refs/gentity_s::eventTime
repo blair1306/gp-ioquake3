@@ -1,0 +1,10 @@
+<dec f='codebrowser/code/game/g_local.h' l='94' type='int'/>
+<offset>4640</offset>
+<doc f='codebrowser/code/game/g_local.h' l='94'>// events will be cleared EVENT_VALID_MSEC after set</doc>
+<use f='codebrowser/code/game/ai_dmq3.c' l='4784' u='r' c='BotCheckEvents'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='4787' u='r' c='BotCheckEvents'/>
+<use f='codebrowser/code/game/g_active.c' l='942' u='w' c='ClientThink_real'/>
+<use f='codebrowser/code/game/g_active.c' l='985' u='w' c='ClientThink_real'/>
+<use f='codebrowser/code/game/g_main.c' l='1793' u='r' c='G_RunFrame'/>
+<use f='codebrowser/code/game/g_utils.c' l='498' u='w' c='G_TempEntity'/>
+<use f='codebrowser/code/game/g_utils.c' l='599' u='w' c='G_AddEvent'/>

@@ -1,0 +1,13 @@
+<dec f='codebrowser/code/renderergl1/tr_local.h' l='442' type='qboolean'/>
+<offset>416</offset>
+<doc f='codebrowser/code/renderergl1/tr_local.h' l='441'>// for clipping distance in fog when outside</doc>
+<use f='codebrowser/code/renderergl1/tr_bsp.c' l='1629' u='w' c='R_LoadFogs'/>
+<use f='codebrowser/code/renderergl1/tr_bsp.c' l='1631' u='w' c='R_LoadFogs'/>
+<use f='codebrowser/code/renderergl1/tr_shade_calc.c' l='834' u='r' c='RB_CalcFogTexCoords'/>
+<dec f='codebrowser/code/renderergl2/tr_local.h' l='776' type='qboolean'/>
+<offset>416</offset>
+<doc f='codebrowser/code/renderergl2/tr_local.h' l='775'>// for clipping distance in fog when outside</doc>
+<use f='codebrowser/code/renderergl2/tr_bsp.c' l='2148' u='w' c='R_LoadFogs'/>
+<use f='codebrowser/code/renderergl2/tr_bsp.c' l='2150' u='w' c='R_LoadFogs'/>
+<use f='codebrowser/code/renderergl2/tr_shade.c' l='591' u='r' c='ComputeFogValues'/>
+<use f='codebrowser/code/renderergl2/tr_shade_calc.c' l='704' u='r' c='RB_CalcFogTexCoords'/>

@@ -1,0 +1,27 @@
+<dec f='codebrowser/code/game/g_local.h' l='418' type='qboolean G_SpawnFloat(const char * key, const char * defaultString, float * out)'/>
+<doc f='codebrowser/code/game/g_local.h' l='417'>// spawn string returns a temporary reference, you must CopyString() if you want to keep it</doc>
+<use f='codebrowser/code/game/g_items.c' l='889' u='c' c='G_SpawnItem'/>
+<use f='codebrowser/code/game/g_items.c' l='890' u='c' c='G_SpawnItem'/>
+<use f='codebrowser/code/game/g_items.c' l='906' u='c' c='G_SpawnItem'/>
+<use f='codebrowser/code/game/g_misc.c' l='235' u='c' c='SP_misc_portal_camera'/>
+<use f='codebrowser/code/game/g_mover.c' l='733' u='c' c='InitMover'/>
+<use f='codebrowser/code/game/g_mover.c' l='969' u='c' c='SP_func_door'/>
+<use f='codebrowser/code/game/g_mover.c' l='1126' u='c' c='SP_func_plat'/>
+<use f='codebrowser/code/game/g_mover.c' l='1128' u='c' c='SP_func_plat'/>
+<use f='codebrowser/code/game/g_mover.c' l='1129' u='c' c='SP_func_plat'/>
+<use f='codebrowser/code/game/g_mover.c' l='1136' u='c' c='SP_func_plat'/>
+<use f='codebrowser/code/game/g_mover.c' l='1223' u='c' c='SP_func_button'/>
+<use f='codebrowser/code/game/g_mover.c' l='1555' u='c' c='SP_func_bobbing'/>
+<use f='codebrowser/code/game/g_mover.c' l='1556' u='c' c='SP_func_bobbing'/>
+<use f='codebrowser/code/game/g_mover.c' l='1558' u='c' c='SP_func_bobbing'/>
+<use f='codebrowser/code/game/g_mover.c' l='1606' u='c' c='SP_func_pendulum'/>
+<use f='codebrowser/code/game/g_mover.c' l='1608' u='c' c='SP_func_pendulum'/>
+<def f='codebrowser/code/game/g_spawn.c' l='45' ll='52' type='qboolean G_SpawnFloat(const char * key, const char * defaultString, float * out)'/>
+<use f='codebrowser/code/game/g_target.c' l='106' u='c' c='SP_target_delay'/>
+<use f='codebrowser/code/game/g_target.c' l='107' u='c' c='SP_target_delay'/>
+<use f='codebrowser/code/game/g_target.c' l='202' u='c' c='SP_target_speaker'/>
+<use f='codebrowser/code/game/g_target.c' l='203' u='c' c='SP_target_speaker'/>
+<use f='codebrowser/code/game/g_trigger.c' l='95' u='c' c='SP_trigger_multiple'/>
+<use f='codebrowser/code/game/g_trigger.c' l='96' u='c' c='SP_trigger_multiple'/>
+<use f='codebrowser/code/game/g_trigger.c' l='445' u='c' c='SP_func_timer'/>
+<use f='codebrowser/code/game/g_trigger.c' l='446' u='c' c='SP_func_timer'/>

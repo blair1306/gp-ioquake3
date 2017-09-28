@@ -1,0 +1,42 @@
+<dec f='codebrowser/code/game/g_local.h' l='492' type='void G_Damage(gentity_t * targ, gentity_t * inflictor, gentity_t * attacker, vec_t * dir, vec_t * point, int damage, int dflags, int mod)'/>
+<use f='codebrowser/code/game/g_active.c' l='134' u='c' c='P_WorldEffects'/>
+<use f='codebrowser/code/game/g_active.c' l='155' u='c' c='P_WorldEffects'/>
+<use f='codebrowser/code/game/g_active.c' l='160' u='c' c='P_WorldEffects'/>
+<use f='codebrowser/code/game/g_active.c' l='566' u='c' c='ClientEvents'/>
+<def f='codebrowser/code/game/g_combat.c' l='803' ll='1048' type='void G_Damage(gentity_t * targ, gentity_t * inflictor, gentity_t * attacker, vec_t * dir, vec_t * point, int damage, int dflags, int mod)'/>
+<use f='codebrowser/code/game/g_combat.c' l='1217' u='c' c='G_RadiusDamage'/>
+<doc f='codebrowser/code/game/g_combat.c' l='779'>/*
+============
+G_Damage
+
+targ		entity that is being damaged
+inflictor	entity that is causing the damage
+attacker	entity that caused the inflictor to damage targ
+	example: targ=monster, inflictor=rocket, attacker=player
+
+dir			direction of the attack for knockback
+point		point at which the damage is being inflicted, used for headshots
+damage		amount of damage being inflicted
+knockback	force to be applied against targ as a result of the damage
+
+inflictor, attacker, dir, and point can be NULL for environmental effects
+
+dflags		these flags are used to control how T_Damage works
+	DAMAGE_RADIUS			damage was indirect (from a nearby explosion)
+	DAMAGE_NO_ARMOR			armor does not protect from this damage
+	DAMAGE_NO_KNOCKBACK		do not affect velocity, just view angles
+	DAMAGE_NO_PROTECTION	kills godmode, armor, everything
+============
+*/</doc>
+<use f='codebrowser/code/game/g_missile.c' l='321' u='c' c='G_MissileImpact'/>
+<use f='codebrowser/code/game/g_mover.c' l='388' u='c' c='G_MoverPush'/>
+<use f='codebrowser/code/game/g_mover.c' l='814' u='c' c='Blocked_Door'/>
+<use f='codebrowser/code/game/g_target.c' l='274' u='c' c='target_laser_think'/>
+<use f='codebrowser/code/game/g_target.c' l='409' u='c' c='target_kill_use'/>
+<use f='codebrowser/code/game/g_trigger.c' l='380' u='c' c='hurt_touch'/>
+<use f='codebrowser/code/game/g_utils.c' l='546' u='c' c='G_KillBox'/>
+<use f='codebrowser/code/game/g_weapon.c' l='119' u='c' c='CheckGauntletAttack'/>
+<use f='codebrowser/code/game/g_weapon.c' l='228' u='c' c='Bullet_Fire'/>
+<use f='codebrowser/code/game/g_weapon.c' l='315' u='c' c='ShotgunPellet'/>
+<use f='codebrowser/code/game/g_weapon.c' l='504' u='c' c='weapon_railgun_fire'/>
+<use f='codebrowser/code/game/g_weapon.c' l='671' u='c' c='Weapon_LightningFire'/>

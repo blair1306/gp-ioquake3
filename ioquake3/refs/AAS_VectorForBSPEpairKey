@@ -1,0 +1,19 @@
+<dec f='codebrowser/code/botlib/be_aas_bsp.h' l='84' type='int AAS_VectorForBSPEpairKey(int ent, char * key, vec_t * v)'/>
+<dec f='codebrowser/code/botlib/be_aas_bsp.h' l='84' type='int AAS_VectorForBSPEpairKey(int ent, char * key, vec_t * v)'/>
+<def f='codebrowser/code/botlib/be_aas_bspq3.c' l='302' ll='316' type='int AAS_VectorForBSPEpairKey(int ent, char * key, vec_t * v)'/>
+<doc f='codebrowser/code/botlib/be_aas_bspq3.c' l='296'>//===========================================================================
+//
+// Parameter:				-
+// Returns:					-
+// Changes Globals:		-
+//===========================================================================</doc>
+<doc f='codebrowser/code/botlib/be_aas_bsp.h' l='83'>//get a vector for the BSP epair key</doc>
+<use f='codebrowser/code/botlib/be_aas_reach.c' l='264' u='c' c='AAS_GetJumpPadInfo'/>
+<use f='codebrowser/code/botlib/be_aas_reach.c' l='2833' u='c' c='AAS_Reachability_Teleport'/>
+<use f='codebrowser/code/botlib/be_aas_reach.c' l='2975' u='c' c='AAS_Reachability_Elevator'/>
+<use f='codebrowser/code/botlib/be_aas_reach.c' l='3308' u='c' c='AAS_Reachability_FuncBobbing'/>
+<use f='codebrowser/code/botlib/be_aas_reach.c' l='3949' u='c' c='AAS_SetWeaponJumpAreaFlags'/>
+<use f='codebrowser/code/botlib/be_ai_goal.c' l='494' u='c' c='BotInitInfoEntities'/>
+<use f='codebrowser/code/botlib/be_ai_goal.c' l='505' u='c' c='BotInitInfoEntities'/>
+<use f='codebrowser/code/botlib/be_ai_goal.c' l='587' u='c' c='BotInitLevelItems'/>
+<use f='codebrowser/code/botlib/be_interface.c' l='703' u='r' c='Init_AAS_Export'/>

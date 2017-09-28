@@ -1,0 +1,132 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>be_ai_chat.h source code [codebrowser/code/botlib/be_ai_chat.h] - Woboq Code Browser</title>
+<meta name="woboq:interestingDefinitions" content="bot_consolemessage_s,bot_match_s,bot_matchvariable_s "/>
+<link rel="stylesheet" href="../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'codebrowser/code/botlib/be_ai_chat.h'; var root_path = '../../..'; var data_path = '../../../../data';</script>
+<script src='../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../..'>codebrowser</a>/<a href='..'>code</a>/<a href='./'>botlib</a>/<a href='be_ai_chat.h.html'>be_ai_chat.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/*</i></td></tr>
+<tr><th id="2">2</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="3">3</th><td><i>Copyright (C) 1999-2005 Id Software, Inc.</i></td></tr>
+<tr><th id="4">4</th><td><i></i></td></tr>
+<tr><th id="5">5</th><td><i>This file is part of Quake III Arena source code.</i></td></tr>
+<tr><th id="6">6</th><td><i></i></td></tr>
+<tr><th id="7">7</th><td><i>Quake III Arena source code is free software; you can redistribute it</i></td></tr>
+<tr><th id="8">8</th><td><i>and/or modify it under the terms of the GNU General Public License as</i></td></tr>
+<tr><th id="9">9</th><td><i>published by the Free Software Foundation; either version 2 of the License,</i></td></tr>
+<tr><th id="10">10</th><td><i>or (at your option) any later version.</i></td></tr>
+<tr><th id="11">11</th><td><i></i></td></tr>
+<tr><th id="12">12</th><td><i>Quake III Arena source code is distributed in the hope that it will be</i></td></tr>
+<tr><th id="13">13</th><td><i>useful, but WITHOUT ANY WARRANTY; without even the implied warranty of</i></td></tr>
+<tr><th id="14">14</th><td><i>MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</i></td></tr>
+<tr><th id="15">15</th><td><i>GNU General Public License for more details.</i></td></tr>
+<tr><th id="16">16</th><td><i></i></td></tr>
+<tr><th id="17">17</th><td><i>You should have received a copy of the GNU General Public License</i></td></tr>
+<tr><th id="18">18</th><td><i>along with Quake III Arena source code; if not, write to the Free Software</i></td></tr>
+<tr><th id="19">19</th><td><i>Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA</i></td></tr>
+<tr><th id="20">20</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="21">21</th><td><i>*/</i></td></tr>
+<tr><th id="22">22</th><td><i>//</i></td></tr>
+<tr><th id="23">23</th><td><i>/*****************************************************************************</i></td></tr>
+<tr><th id="24">24</th><td><i> * name:		be_ai_chat.h</i></td></tr>
+<tr><th id="25">25</th><td><i> *</i></td></tr>
+<tr><th id="26">26</th><td><i> * desc:		char AI</i></td></tr>
+<tr><th id="27">27</th><td><i> *</i></td></tr>
+<tr><th id="28">28</th><td><i> * $Archive: /source/code/botlib/be_ai_chat.h $</i></td></tr>
+<tr><th id="29">29</th><td><i> *</i></td></tr>
+<tr><th id="30">30</th><td><i> *****************************************************************************/</i></td></tr>
+<tr><th id="31">31</th><td></td></tr>
+<tr><th id="32">32</th><td><u>#define <dfn class="macro" id="_M/MAX_MESSAGE_SIZE" data-ref="_M/MAX_MESSAGE_SIZE">MAX_MESSAGE_SIZE</dfn>		256</u></td></tr>
+<tr><th id="33">33</th><td><u>#define <dfn class="macro" id="_M/MAX_CHATTYPE_NAME" data-ref="_M/MAX_CHATTYPE_NAME">MAX_CHATTYPE_NAME</dfn>		32</u></td></tr>
+<tr><th id="34">34</th><td><u>#define <dfn class="macro" id="_M/MAX_MATCHVARIABLES" data-ref="_M/MAX_MATCHVARIABLES">MAX_MATCHVARIABLES</dfn>		8</u></td></tr>
+<tr><th id="35">35</th><td></td></tr>
+<tr><th id="36">36</th><td><u>#define <dfn class="macro" id="_M/CHAT_GENDERLESS" data-ref="_M/CHAT_GENDERLESS">CHAT_GENDERLESS</dfn>			0</u></td></tr>
+<tr><th id="37">37</th><td><u>#define <dfn class="macro" id="_M/CHAT_GENDERFEMALE" data-ref="_M/CHAT_GENDERFEMALE">CHAT_GENDERFEMALE</dfn>		1</u></td></tr>
+<tr><th id="38">38</th><td><u>#define <dfn class="macro" id="_M/CHAT_GENDERMALE" data-ref="_M/CHAT_GENDERMALE">CHAT_GENDERMALE</dfn>			2</u></td></tr>
+<tr><th id="39">39</th><td></td></tr>
+<tr><th id="40">40</th><td><u>#define <dfn class="macro" id="_M/CHAT_ALL" data-ref="_M/CHAT_ALL">CHAT_ALL</dfn>					0</u></td></tr>
+<tr><th id="41">41</th><td><u>#define <dfn class="macro" id="_M/CHAT_TEAM" data-ref="_M/CHAT_TEAM">CHAT_TEAM</dfn>					1</u></td></tr>
+<tr><th id="42">42</th><td><u>#define <dfn class="macro" id="_M/CHAT_TELL" data-ref="_M/CHAT_TELL">CHAT_TELL</dfn>					2</u></td></tr>
+<tr><th id="43">43</th><td></td></tr>
+<tr><th id="44">44</th><td><i>//a console message</i></td></tr>
+<tr><th id="45">45</th><td><b>typedef</b> <b>struct</b> <dfn class="type def" id="bot_consolemessage_s" title='bot_consolemessage_s' data-ref="bot_consolemessage_s"><a class="type" href="#bot_consolemessage_s" title='bot_consolemessage_s' data-ref="bot_consolemessage_s">bot_consolemessage_s</a></dfn></td></tr>
+<tr><th id="46">46</th><td>{</td></tr>
+<tr><th id="47">47</th><td>	<em>int</em> <dfn class="decl" id="bot_consolemessage_s::handle" title='bot_consolemessage_s::handle' data-ref="bot_consolemessage_s::handle">handle</dfn>;</td></tr>
+<tr><th id="48">48</th><td>	<em>float</em> <dfn class="decl" id="bot_consolemessage_s::time" title='bot_consolemessage_s::time' data-ref="bot_consolemessage_s::time">time</dfn>;									<i>//message time</i></td></tr>
+<tr><th id="49">49</th><td>	<em>int</em> <dfn class="decl" id="bot_consolemessage_s::type" title='bot_consolemessage_s::type' data-ref="bot_consolemessage_s::type">type</dfn>;									<i>//message type</i></td></tr>
+<tr><th id="50">50</th><td>	<em>char</em> <dfn class="decl" id="bot_consolemessage_s::message" title='bot_consolemessage_s::message' data-ref="bot_consolemessage_s::message">message</dfn>[<a class="macro" href="#32" title="256" data-ref="_M/MAX_MESSAGE_SIZE">MAX_MESSAGE_SIZE</a>];				<i>//message</i></td></tr>
+<tr><th id="51">51</th><td>	<b>struct</b> <a class="type" href="#bot_consolemessage_s" title='bot_consolemessage_s' data-ref="bot_consolemessage_s">bot_consolemessage_s</a> *<dfn class="decl" id="bot_consolemessage_s::prev" title='bot_consolemessage_s::prev' data-ref="bot_consolemessage_s::prev">prev</dfn>, *<dfn class="decl" id="bot_consolemessage_s::next" title='bot_consolemessage_s::next' data-ref="bot_consolemessage_s::next">next</dfn>;	<i>//prev and next in list</i></td></tr>
+<tr><th id="52">52</th><td>} <dfn class="typedef" id="bot_consolemessage_t" title='bot_consolemessage_t' data-type='struct bot_consolemessage_s' data-ref="bot_consolemessage_t">bot_consolemessage_t</dfn>;</td></tr>
+<tr><th id="53">53</th><td></td></tr>
+<tr><th id="54">54</th><td><i>//match variable</i></td></tr>
+<tr><th id="55">55</th><td><b>typedef</b> <b>struct</b> <dfn class="type def" id="bot_matchvariable_s" title='bot_matchvariable_s' data-ref="bot_matchvariable_s"><a class="type" href="#bot_matchvariable_s" title='bot_matchvariable_s' data-ref="bot_matchvariable_s">bot_matchvariable_s</a></dfn></td></tr>
+<tr><th id="56">56</th><td>{</td></tr>
+<tr><th id="57">57</th><td>	<em>char</em> <dfn class="decl" id="bot_matchvariable_s::offset" title='bot_matchvariable_s::offset' data-ref="bot_matchvariable_s::offset">offset</dfn>;</td></tr>
+<tr><th id="58">58</th><td>	<em>int</em> <dfn class="decl" id="bot_matchvariable_s::length" title='bot_matchvariable_s::length' data-ref="bot_matchvariable_s::length">length</dfn>;</td></tr>
+<tr><th id="59">59</th><td>} <dfn class="typedef" id="bot_matchvariable_t" title='bot_matchvariable_t' data-type='struct bot_matchvariable_s' data-ref="bot_matchvariable_t">bot_matchvariable_t</dfn>;</td></tr>
+<tr><th id="60">60</th><td><i>//returned to AI when a match is found</i></td></tr>
+<tr><th id="61">61</th><td><b>typedef</b> <b>struct</b> <dfn class="type def" id="bot_match_s" title='bot_match_s' data-ref="bot_match_s"><a class="type" href="#bot_match_s" title='bot_match_s' data-ref="bot_match_s">bot_match_s</a></dfn></td></tr>
+<tr><th id="62">62</th><td>{</td></tr>
+<tr><th id="63">63</th><td>	<em>char</em> <dfn class="decl" id="bot_match_s::string" title='bot_match_s::string' data-ref="bot_match_s::string">string</dfn>[<a class="macro" href="#32" title="256" data-ref="_M/MAX_MESSAGE_SIZE">MAX_MESSAGE_SIZE</a>];</td></tr>
+<tr><th id="64">64</th><td>	<em>int</em> <dfn class="decl" id="bot_match_s::type" title='bot_match_s::type' data-ref="bot_match_s::type">type</dfn>;</td></tr>
+<tr><th id="65">65</th><td>	<em>int</em> <dfn class="decl" id="bot_match_s::subtype" title='bot_match_s::subtype' data-ref="bot_match_s::subtype">subtype</dfn>;</td></tr>
+<tr><th id="66">66</th><td>	<a class="typedef" href="#bot_matchvariable_t" title='bot_matchvariable_t' data-type='struct bot_matchvariable_s' data-ref="bot_matchvariable_t">bot_matchvariable_t</a> <dfn class="decl" id="bot_match_s::variables" title='bot_match_s::variables' data-ref="bot_match_s::variables">variables</dfn>[<a class="macro" href="#34" title="8" data-ref="_M/MAX_MATCHVARIABLES">MAX_MATCHVARIABLES</a>];</td></tr>
+<tr><th id="67">67</th><td>} <dfn class="typedef" id="bot_match_t" title='bot_match_t' data-type='struct bot_match_s' data-ref="bot_match_t">bot_match_t</dfn>;</td></tr>
+<tr><th id="68">68</th><td></td></tr>
+<tr><th id="69">69</th><td><i>//setup the chat AI</i></td></tr>
+<tr><th id="70">70</th><td><em>int</em> <a class="decl" href="be_ai_chat.c.html#BotSetupChatAI" title='BotSetupChatAI' data-ref="BotSetupChatAI" id="BotSetupChatAI">BotSetupChatAI</a>(<em>void</em>);</td></tr>
+<tr><th id="71">71</th><td><i>//shutdown the chat AI</i></td></tr>
+<tr><th id="72">72</th><td><em>void</em> <a class="decl" href="be_ai_chat.c.html#BotShutdownChatAI" title='BotShutdownChatAI' data-ref="BotShutdownChatAI" id="BotShutdownChatAI">BotShutdownChatAI</a>(<em>void</em>);</td></tr>
+<tr><th id="73">73</th><td><i>//returns the handle to a newly allocated chat state</i></td></tr>
+<tr><th id="74">74</th><td><em>int</em> <a class="decl" href="be_ai_chat.c.html#BotAllocChatState" title='BotAllocChatState' data-ref="BotAllocChatState" id="BotAllocChatState">BotAllocChatState</a>(<em>void</em>);</td></tr>
+<tr><th id="75">75</th><td><i>//frees the chatstate</i></td></tr>
+<tr><th id="76">76</th><td><em>void</em> <a class="decl" href="be_ai_chat.c.html#BotFreeChatState" title='BotFreeChatState' data-ref="BotFreeChatState" id="BotFreeChatState">BotFreeChatState</a>(<em>int</em> <dfn class="local col7 decl" id="37handle" title='handle' data-type='int' data-ref="37handle">handle</dfn>);</td></tr>
+<tr><th id="77">77</th><td><i>//adds a console message to the chat state</i></td></tr>
+<tr><th id="78">78</th><td><em>void</em> <a class="decl" href="be_ai_chat.c.html#BotQueueConsoleMessage" title='BotQueueConsoleMessage' data-ref="BotQueueConsoleMessage" id="BotQueueConsoleMessage">BotQueueConsoleMessage</a>(<em>int</em> <dfn class="local col8 decl" id="38chatstate" title='chatstate' data-type='int' data-ref="38chatstate">chatstate</dfn>, <em>int</em> <dfn class="local col9 decl" id="39type" title='type' data-type='int' data-ref="39type">type</dfn>, <em>char</em> *<dfn class="local col0 decl" id="40message" title='message' data-type='char *' data-ref="40message">message</dfn>);</td></tr>
+<tr><th id="79">79</th><td><i>//removes the console message from the chat state</i></td></tr>
+<tr><th id="80">80</th><td><em>void</em> <a class="decl" href="be_ai_chat.c.html#BotRemoveConsoleMessage" title='BotRemoveConsoleMessage' data-ref="BotRemoveConsoleMessage" id="BotRemoveConsoleMessage">BotRemoveConsoleMessage</a>(<em>int</em> <dfn class="local col1 decl" id="41chatstate" title='chatstate' data-type='int' data-ref="41chatstate">chatstate</dfn>, <em>int</em> <dfn class="local col2 decl" id="42handle" title='handle' data-type='int' data-ref="42handle">handle</dfn>);</td></tr>
+<tr><th id="81">81</th><td><i>//returns the next console message from the state</i></td></tr>
+<tr><th id="82">82</th><td><em>int</em> <a class="decl" href="be_ai_chat.c.html#BotNextConsoleMessage" title='BotNextConsoleMessage' data-ref="BotNextConsoleMessage" id="BotNextConsoleMessage">BotNextConsoleMessage</a>(<em>int</em> <dfn class="local col3 decl" id="43chatstate" title='chatstate' data-type='int' data-ref="43chatstate">chatstate</dfn>, <a class="typedef" href="#bot_consolemessage_t" title='bot_consolemessage_t' data-type='struct bot_consolemessage_s' data-ref="bot_consolemessage_t">bot_consolemessage_t</a> *<dfn class="local col4 decl" id="44cm" title='cm' data-type='bot_consolemessage_t *' data-ref="44cm">cm</dfn>);</td></tr>
+<tr><th id="83">83</th><td><i>//returns the number of console messages currently stored in the state</i></td></tr>
+<tr><th id="84">84</th><td><em>int</em> <a class="decl" href="be_ai_chat.c.html#BotNumConsoleMessages" title='BotNumConsoleMessages' data-ref="BotNumConsoleMessages" id="BotNumConsoleMessages">BotNumConsoleMessages</a>(<em>int</em> <dfn class="local col5 decl" id="45chatstate" title='chatstate' data-type='int' data-ref="45chatstate">chatstate</dfn>);</td></tr>
+<tr><th id="85">85</th><td><i>//selects a chat message of the given type</i></td></tr>
+<tr><th id="86">86</th><td><em>void</em> <a class="decl" href="be_ai_chat.c.html#BotInitialChat" title='BotInitialChat' data-ref="BotInitialChat" id="BotInitialChat">BotInitialChat</a>(<em>int</em> <dfn class="local col6 decl" id="46chatstate" title='chatstate' data-type='int' data-ref="46chatstate">chatstate</dfn>, <em>char</em> *<dfn class="local col7 decl" id="47type" title='type' data-type='char *' data-ref="47type">type</dfn>, <em>int</em> <dfn class="local col8 decl" id="48mcontext" title='mcontext' data-type='int' data-ref="48mcontext">mcontext</dfn>, <em>char</em> *<dfn class="local col9 decl" id="49var0" title='var0' data-type='char *' data-ref="49var0">var0</dfn>, <em>char</em> *<dfn class="local col0 decl" id="50var1" title='var1' data-type='char *' data-ref="50var1">var1</dfn>, <em>char</em> *<dfn class="local col1 decl" id="51var2" title='var2' data-type='char *' data-ref="51var2">var2</dfn>, <em>char</em> *<dfn class="local col2 decl" id="52var3" title='var3' data-type='char *' data-ref="52var3">var3</dfn>, <em>char</em> *<dfn class="local col3 decl" id="53var4" title='var4' data-type='char *' data-ref="53var4">var4</dfn>, <em>char</em> *<dfn class="local col4 decl" id="54var5" title='var5' data-type='char *' data-ref="54var5">var5</dfn>, <em>char</em> *<dfn class="local col5 decl" id="55var6" title='var6' data-type='char *' data-ref="55var6">var6</dfn>, <em>char</em> *<dfn class="local col6 decl" id="56var7" title='var7' data-type='char *' data-ref="56var7">var7</dfn>);</td></tr>
+<tr><th id="87">87</th><td><i>//returns the number of initial chat messages of the given type</i></td></tr>
+<tr><th id="88">88</th><td><em>int</em> <a class="decl" href="be_ai_chat.c.html#BotNumInitialChats" title='BotNumInitialChats' data-ref="BotNumInitialChats" id="BotNumInitialChats">BotNumInitialChats</a>(<em>int</em> <dfn class="local col7 decl" id="57chatstate" title='chatstate' data-type='int' data-ref="57chatstate">chatstate</dfn>, <em>char</em> *<dfn class="local col8 decl" id="58type" title='type' data-type='char *' data-ref="58type">type</dfn>);</td></tr>
+<tr><th id="89">89</th><td><i>//find and select a reply for the given message</i></td></tr>
+<tr><th id="90">90</th><td><em>int</em> <a class="decl" href="be_ai_chat.c.html#BotReplyChat" title='BotReplyChat' data-ref="BotReplyChat" id="BotReplyChat">BotReplyChat</a>(<em>int</em> <dfn class="local col9 decl" id="59chatstate" title='chatstate' data-type='int' data-ref="59chatstate">chatstate</dfn>, <em>char</em> *<dfn class="local col0 decl" id="60message" title='message' data-type='char *' data-ref="60message">message</dfn>, <em>int</em> <dfn class="local col1 decl" id="61mcontext" title='mcontext' data-type='int' data-ref="61mcontext">mcontext</dfn>, <em>int</em> <dfn class="local col2 decl" id="62vcontext" title='vcontext' data-type='int' data-ref="62vcontext">vcontext</dfn>, <em>char</em> *<dfn class="local col3 decl" id="63var0" title='var0' data-type='char *' data-ref="63var0">var0</dfn>, <em>char</em> *<dfn class="local col4 decl" id="64var1" title='var1' data-type='char *' data-ref="64var1">var1</dfn>, <em>char</em> *<dfn class="local col5 decl" id="65var2" title='var2' data-type='char *' data-ref="65var2">var2</dfn>, <em>char</em> *<dfn class="local col6 decl" id="66var3" title='var3' data-type='char *' data-ref="66var3">var3</dfn>, <em>char</em> *<dfn class="local col7 decl" id="67var4" title='var4' data-type='char *' data-ref="67var4">var4</dfn>, <em>char</em> *<dfn class="local col8 decl" id="68var5" title='var5' data-type='char *' data-ref="68var5">var5</dfn>, <em>char</em> *<dfn class="local col9 decl" id="69var6" title='var6' data-type='char *' data-ref="69var6">var6</dfn>, <em>char</em> *<dfn class="local col0 decl" id="70var7" title='var7' data-type='char *' data-ref="70var7">var7</dfn>);</td></tr>
+<tr><th id="91">91</th><td><i>//returns the length of the currently selected chat message</i></td></tr>
+<tr><th id="92">92</th><td><em>int</em> <a class="decl" href="be_ai_chat.c.html#BotChatLength" title='BotChatLength' data-ref="BotChatLength" id="BotChatLength">BotChatLength</a>(<em>int</em> <dfn class="local col1 decl" id="71chatstate" title='chatstate' data-type='int' data-ref="71chatstate">chatstate</dfn>);</td></tr>
+<tr><th id="93">93</th><td><i>//enters the selected chat message</i></td></tr>
+<tr><th id="94">94</th><td><em>void</em> <a class="decl" href="be_ai_chat.c.html#BotEnterChat" title='BotEnterChat' data-ref="BotEnterChat" id="BotEnterChat">BotEnterChat</a>(<em>int</em> <dfn class="local col2 decl" id="72chatstate" title='chatstate' data-type='int' data-ref="72chatstate">chatstate</dfn>, <em>int</em> <dfn class="local col3 decl" id="73clientto" title='clientto' data-type='int' data-ref="73clientto">clientto</dfn>, <em>int</em> <dfn class="local col4 decl" id="74sendto" title='sendto' data-type='int' data-ref="74sendto">sendto</dfn>);</td></tr>
+<tr><th id="95">95</th><td><i>//get the chat message ready to be output</i></td></tr>
+<tr><th id="96">96</th><td><em>void</em> <a class="decl" href="be_ai_chat.c.html#BotGetChatMessage" title='BotGetChatMessage' data-ref="BotGetChatMessage" id="BotGetChatMessage">BotGetChatMessage</a>(<em>int</em> <dfn class="local col5 decl" id="75chatstate" title='chatstate' data-type='int' data-ref="75chatstate">chatstate</dfn>, <em>char</em> *<dfn class="local col6 decl" id="76buf" title='buf' data-type='char *' data-ref="76buf">buf</dfn>, <em>int</em> <dfn class="local col7 decl" id="77size" title='size' data-type='int' data-ref="77size">size</dfn>);</td></tr>
+<tr><th id="97">97</th><td><i>//checks if the first string contains the second one, returns index into first string or -1 if not found</i></td></tr>
+<tr><th id="98">98</th><td><em>int</em> <a class="decl" href="be_ai_chat.c.html#StringContains" title='StringContains' data-ref="StringContains" id="StringContains">StringContains</a>(<em>char</em> *<dfn class="local col8 decl" id="78str1" title='str1' data-type='char *' data-ref="78str1">str1</dfn>, <em>char</em> *<dfn class="local col9 decl" id="79str2" title='str2' data-type='char *' data-ref="79str2">str2</dfn>, <em>int</em> <dfn class="local col0 decl" id="80casesensitive" title='casesensitive' data-type='int' data-ref="80casesensitive">casesensitive</dfn>);</td></tr>
+<tr><th id="99">99</th><td><i>//finds a match for the given string using the match templates</i></td></tr>
+<tr><th id="100">100</th><td><em>int</em> <a class="decl" href="be_ai_chat.c.html#BotFindMatch" title='BotFindMatch' data-ref="BotFindMatch" id="BotFindMatch">BotFindMatch</a>(<em>char</em> *<dfn class="local col1 decl" id="81str" title='str' data-type='char *' data-ref="81str">str</dfn>, <a class="typedef" href="#bot_match_t" title='bot_match_t' data-type='struct bot_match_s' data-ref="bot_match_t">bot_match_t</a> *<dfn class="local col2 decl" id="82match" title='match' data-type='bot_match_t *' data-ref="82match">match</dfn>, <em>unsigned</em> <em>long</em> <em>int</em> <dfn class="local col3 decl" id="83context" title='context' data-type='unsigned long' data-ref="83context">context</dfn>);</td></tr>
+<tr><th id="101">101</th><td><i>//returns a variable from a match</i></td></tr>
+<tr><th id="102">102</th><td><em>void</em> <a class="decl" href="be_ai_chat.c.html#BotMatchVariable" title='BotMatchVariable' data-ref="BotMatchVariable" id="BotMatchVariable">BotMatchVariable</a>(<a class="typedef" href="#bot_match_t" title='bot_match_t' data-type='struct bot_match_s' data-ref="bot_match_t">bot_match_t</a> *<dfn class="local col4 decl" id="84match" title='match' data-type='bot_match_t *' data-ref="84match">match</dfn>, <em>int</em> <dfn class="local col5 decl" id="85variable" title='variable' data-type='int' data-ref="85variable">variable</dfn>, <em>char</em> *<dfn class="local col6 decl" id="86buf" title='buf' data-type='char *' data-ref="86buf">buf</dfn>, <em>int</em> <dfn class="local col7 decl" id="87size" title='size' data-type='int' data-ref="87size">size</dfn>);</td></tr>
+<tr><th id="103">103</th><td><i>//unify all the white spaces in the string</i></td></tr>
+<tr><th id="104">104</th><td><em>void</em> <a class="decl" href="be_ai_chat.c.html#UnifyWhiteSpaces" title='UnifyWhiteSpaces' data-ref="UnifyWhiteSpaces" id="UnifyWhiteSpaces">UnifyWhiteSpaces</a>(<em>char</em> *<dfn class="local col8 decl" id="88string" title='string' data-type='char *' data-ref="88string">string</dfn>);</td></tr>
+<tr><th id="105">105</th><td><i>//replace all the context related synonyms in the string</i></td></tr>
+<tr><th id="106">106</th><td><em>void</em> <a class="decl" href="be_ai_chat.c.html#BotReplaceSynonyms" title='BotReplaceSynonyms' data-ref="BotReplaceSynonyms" id="BotReplaceSynonyms">BotReplaceSynonyms</a>(<em>char</em> *<dfn class="local col9 decl" id="89string" title='string' data-type='char *' data-ref="89string">string</dfn>, <em>unsigned</em> <em>long</em> <em>int</em> <dfn class="local col0 decl" id="90context" title='context' data-type='unsigned long' data-ref="90context">context</dfn>);</td></tr>
+<tr><th id="107">107</th><td><i>//loads a chat file for the chat state</i></td></tr>
+<tr><th id="108">108</th><td><em>int</em> <a class="decl" href="be_ai_chat.c.html#BotLoadChatFile" title='BotLoadChatFile' data-ref="BotLoadChatFile" id="BotLoadChatFile">BotLoadChatFile</a>(<em>int</em> <dfn class="local col1 decl" id="91chatstate" title='chatstate' data-type='int' data-ref="91chatstate">chatstate</dfn>, <em>char</em> *<dfn class="local col2 decl" id="92chatfile" title='chatfile' data-type='char *' data-ref="92chatfile">chatfile</dfn>, <em>char</em> *<dfn class="local col3 decl" id="93chatname" title='chatname' data-type='char *' data-ref="93chatname">chatname</dfn>);</td></tr>
+<tr><th id="109">109</th><td><i>//store the gender of the bot in the chat state</i></td></tr>
+<tr><th id="110">110</th><td><em>void</em> <a class="decl" href="be_ai_chat.c.html#BotSetChatGender" title='BotSetChatGender' data-ref="BotSetChatGender" id="BotSetChatGender">BotSetChatGender</a>(<em>int</em> <dfn class="local col4 decl" id="94chatstate" title='chatstate' data-type='int' data-ref="94chatstate">chatstate</dfn>, <em>int</em> <dfn class="local col5 decl" id="95gender" title='gender' data-type='int' data-ref="95gender">gender</dfn>);</td></tr>
+<tr><th id="111">111</th><td><i>//store the bot name in the chat state</i></td></tr>
+<tr><th id="112">112</th><td><em>void</em> <a class="decl" href="be_ai_chat.c.html#BotSetChatName" title='BotSetChatName' data-ref="BotSetChatName" id="BotSetChatName">BotSetChatName</a>(<em>int</em> <dfn class="local col6 decl" id="96chatstate" title='chatstate' data-type='int' data-ref="96chatstate">chatstate</dfn>, <em>char</em> *<dfn class="local col7 decl" id="97name" title='name' data-type='char *' data-ref="97name">name</dfn>, <em>int</em> <dfn class="local col8 decl" id="98client" title='client' data-type='int' data-ref="98client">client</dfn>);</td></tr>
+<tr><th id="113">113</th><td></td></tr>
+<tr><th id="114">114</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='be_ai_chat.c.html'>codebrowser/code/botlib/be_ai_chat.c</a><br/>Generated on <em>2017-Aug-29</em> from project codebrowser revision <em>63e07af</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

@@ -1,0 +1,15 @@
+<dec f='codebrowser/code/qcommon/qfiles.h' l='395' type='int'/>
+<offset>192</offset>
+<use f='codebrowser/code/qcommon/cm_load.c' l='167' u='r' c='CMod_LoadSubmodels'/>
+<dec f='codebrowser/code/renderergl1/tr_local.h' l='680' type='msurface_t *'/>
+<offset>192</offset>
+<use f='codebrowser/code/renderergl1/tr_bsp.c' l='1336' u='w' c='R_LoadSubmodels'/>
+<use f='codebrowser/code/renderergl1/tr_bsp.c' l='1336' u='r' c='R_LoadSubmodels'/>
+<use f='codebrowser/code/renderergl1/tr_light.c' l='95' u='r' c='R_DlightBmodel'/>
+<use f='codebrowser/code/renderergl1/tr_world.c' l='337' u='r' c='R_AddBrushModelSurfaces'/>
+<dec f='codebrowser/code/renderergl2/tr_local.h' l='1080' type='int'/>
+<offset>192</offset>
+<use f='codebrowser/code/renderergl2/tr_bsp.c' l='1850' u='w' c='R_LoadSubmodels'/>
+<use f='codebrowser/code/renderergl2/tr_bsp.c' l='1850' u='r' c='R_LoadSubmodels'/>
+<use f='codebrowser/code/renderergl2/tr_light.c' l='95' u='r' c='R_DlightBmodel'/>
+<use f='codebrowser/code/renderergl2/tr_world.c' l='377' u='r' c='R_AddBrushModelSurfaces'/>

@@ -1,0 +1,14 @@
+<dec f='codebrowser/code/qcommon/qcommon.h' l='555' type='void Cvar_WriteVariables(fileHandle_t f)'/>
+<doc f='codebrowser/code/qcommon/qcommon.h' l='551'>// called by Cmd_ExecuteString when Cmd_Argv(0) doesn&apos;t match a known
+// command.  Returns true if the command was a variable reference that
+// was handled. (print or change)</doc>
+<use f='codebrowser/code/qcommon/common.c' l='2933' u='c' c='Com_WriteConfigToFile'/>
+<def f='codebrowser/code/qcommon/cvar.c' l='917' ll='947' type='void Cvar_WriteVariables(fileHandle_t f)'/>
+<doc f='codebrowser/code/qcommon/cvar.c' l='909'>/*
+============
+Cvar_WriteVariables
+
+Appends lines containing &quot;set variable value&quot; for all variables
+with the archive flag set to qtrue.
+============
+*/</doc>

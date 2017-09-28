@@ -1,0 +1,12 @@
+<dec f='codebrowser/code/opusfile-0.8/include/opusfile.h' l='503' type='int opus_tags_add_comment(OpusTags * _tags, const char * _comment)'/>
+<doc f='codebrowser/code/opusfile-0.8/include/opusfile.h' l='493'>/**Add a comment to an initialized #OpusTags structure.
+   \note Neither opus_tags_add_comment() nor opus_tags_add() support comments
+    containing embedded NULs, although the bitstream format does support them.
+   To add such tags, you will need to manipulate the #OpusTags structure
+    directly.
+   \param _tags    The #OpusTags structure to add the comment to.
+   \param _comment A NUL-terminated UTF-8 string containing the comment in
+                    &quot;TAG=value&quot; form.
+   \return 0 on success, or a negative value on failure.
+   \retval #OP_EFAULT An internal memory allocation failed.*/</doc>
+<def f='codebrowser/code/opusfile-0.8/src/info.c' l='304' ll='319' type='int opus_tags_add_comment(OpusTags * _tags, const char * _comment)'/>

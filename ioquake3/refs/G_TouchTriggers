@@ -1,0 +1,12 @@
+<dec f='codebrowser/code/game/g_local.h' l='475' type='void G_TouchTriggers(gentity_t * ent)'/>
+<def f='codebrowser/code/game/g_active.c' l='236' ll='310' type='void G_TouchTriggers(gentity_t * ent)'/>
+<use f='codebrowser/code/game/g_active.c' l='345' u='c' c='SpectatorThink'/>
+<use f='codebrowser/code/game/g_active.c' l='971' u='c' c='ClientThink_real'/>
+<doc f='codebrowser/code/game/g_active.c' l='228'>/*
+============
+G_TouchTriggers
+
+Find all trigger entities that ent&apos;s current position touches.
+Spectators will only interact with teleporters.
+============
+*/</doc>

@@ -1,0 +1,9 @@
+<dec f='include/setjmp.h' l='74' type='void longjmp(struct __jmp_buf_tag * __env, int __val)'/>
+<use f='codebrowser/code/qcommon/common.c' l='321' u='c' c='Com_Error'/>
+<use f='codebrowser/code/qcommon/common.c' l='334' u='c' c='Com_Error'/>
+<use f='codebrowser/code/qcommon/common.c' l='354' u='c' c='Com_Error'/>
+<doc f='include/setjmp.h' l='72'>/* Jump to the environment saved in ENV, making the
+   `setjmp&apos; call there return VAL, or 1 if VAL is 0.  */</doc>
+<use f='codebrowser/code/qcommon/puff.c' l='123' u='c' c='bits'/>
+<use f='codebrowser/code/qcommon/puff.c' l='255' u='c' c='decode'/>
+<use f='codebrowser/code/renderercommon/tr_image_jpg.c' l='67' u='c' c='R_JPGErrorExit'/>

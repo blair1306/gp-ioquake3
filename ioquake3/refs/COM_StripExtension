@@ -1,0 +1,38 @@
+<dec f='codebrowser/code/qcommon/q_shared.h' l='737' type='void COM_StripExtension(const char * in, char * out, int destsize)'/>
+<use f='codebrowser/code/cgame/cg_weapons.c' l='658' u='c' c='CG_RegisterWeapon'/>
+<use f='codebrowser/code/cgame/cg_weapons.c' l='662' u='c' c='CG_RegisterWeapon'/>
+<use f='codebrowser/code/cgame/cg_weapons.c' l='666' u='c' c='CG_RegisterWeapon'/>
+<use f='codebrowser/code/client/cl_main.c' l='3008' u='c' c='CL_Frame'/>
+<use f='codebrowser/code/client/snd_codec.c' l='76' u='c' c='S_CodecGetSound'/>
+<use f='codebrowser/code/q3_ui/ui_playermodel.c' l='427' u='c' c='PlayerModel_BuildList'/>
+<use f='codebrowser/code/q3_ui/ui_players.c' l='91' u='c' c='UI_PlayerInfo_SetWeapon'/>
+<use f='codebrowser/code/q3_ui/ui_players.c' l='96' u='c' c='UI_PlayerInfo_SetWeapon'/>
+<use f='codebrowser/code/q3_ui/ui_saveconfig.c' l='88' u='c' c='UI_SaveConfigMenu_SaveEvent'/>
+<use f='codebrowser/code/qcommon/files.c' l='4149' u='c' c='FS_FilenameCompletion'/>
+<def f='codebrowser/code/qcommon/q_shared.c' l='76' ll='87' type='void COM_StripExtension(const char * in, char * out, int destsize)'/>
+<doc f='codebrowser/code/qcommon/q_shared.c' l='71'>/*
+============
+COM_StripExtension
+============
+*/</doc>
+<use f='codebrowser/code/qcommon/vm.c' l='239' u='c' c='VM_LoadSymbols'/>
+<use f='codebrowser/code/renderergl1/tr_bsp.c' l='1831' u='c' c='RE_LoadWorldMap'/>
+<use f='codebrowser/code/renderergl1/tr_image.c' l='987' u='c' c='R_LoadImage'/>
+<use f='codebrowser/code/renderergl1/tr_model.c' l='330' u='c' c='RE_RegisterModel'/>
+<use f='codebrowser/code/renderergl1/tr_shader.c' l='97' u='c' c='R_RemapShader'/>
+<use f='codebrowser/code/renderergl1/tr_shader.c' l='2462' u='c' c='R_FindShaderByName'/>
+<use f='codebrowser/code/renderergl1/tr_shader.c' l='2533' u='c' c='R_FindShader'/>
+<use f='codebrowser/code/renderergl2/tr_backend.c' l='1717' u='c' c='RB_ExportCubemaps'/>
+<use f='codebrowser/code/renderergl2/tr_bsp.c' l='2756' u='c' c='RE_LoadWorldMap'/>
+<use f='codebrowser/code/renderergl2/tr_image.c' l='2317' u='c' c='R_LoadImage'/>
+<use f='codebrowser/code/renderergl2/tr_image.c' l='2349' u='c' c='R_LoadImage'/>
+<use f='codebrowser/code/renderergl2/tr_image.c' l='2444' u='c' c='R_FindImageFile'/>
+<use f='codebrowser/code/renderergl2/tr_model.c' l='331' u='c' c='RE_RegisterModel'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='97' u='c' c='R_RemapShader'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='2261' u='c' c='CollapseStagesToLightall'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='2306' u='c' c='CollapseStagesToLightall'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='3183' u='c' c='R_FindShaderByName'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='3254' u='c' c='R_FindShader'/>
+<use f='codebrowser/code/ui/ui_main.c' l='5037' u='c' c='UI_BuildQ3Model_List'/>
+<use f='codebrowser/code/ui/ui_players.c' l='92' u='c' c='UI_PlayerInfo_SetWeapon'/>
+<use f='codebrowser/code/ui/ui_players.c' l='97' u='c' c='UI_PlayerInfo_SetWeapon'/>

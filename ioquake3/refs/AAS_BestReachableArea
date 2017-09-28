@@ -1,0 +1,15 @@
+<dec f='codebrowser/code/botlib/be_aas_reach.h' l='44' type='int AAS_BestReachableArea(vec_t * origin, vec_t * mins, vec_t * maxs, vec_t * goalorigin)'/>
+<dec f='codebrowser/code/botlib/be_aas_reach.h' l='44' type='int AAS_BestReachableArea(vec_t * origin, vec_t * mins, vec_t * maxs, vec_t * goalorigin)'/>
+<doc f='codebrowser/code/botlib/be_aas_reach.h' l='43'>//returns the best reachable area and goal origin for a bounding box at the given origin</doc>
+<def f='codebrowser/code/botlib/be_aas_reach.c' l='359' ll='448' type='int AAS_BestReachableArea(vec_t * origin, vec_t * mins, vec_t * maxs, vec_t * goalorigin)'/>
+<use f='codebrowser/code/botlib/be_aas_reach.c' l='3963' u='c' c='AAS_SetWeaponJumpAreaFlags'/>
+<doc f='codebrowser/code/botlib/be_aas_reach.c' l='353'>//===========================================================================
+//
+// Parameter:				-
+// Returns:					-
+// Changes Globals:		-
+//===========================================================================</doc>
+<use f='codebrowser/code/botlib/be_ai_goal.c' l='658' u='c' c='BotInitLevelItems'/>
+<use f='codebrowser/code/botlib/be_ai_goal.c' l='1072' u='c' c='BotUpdateEntityItems'/>
+<use f='codebrowser/code/botlib/be_ai_goal.c' l='1113' u='c' c='BotUpdateEntityItems'/>
+<use f='codebrowser/code/botlib/be_ai_goal.c' l='1148' u='c' c='BotUpdateEntityItems'/>

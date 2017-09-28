@@ -1,0 +1,12 @@
+<dec f='codebrowser/code/qcommon/qcommon.h' l='535' type='void Cvar_VariableStringBuffer(const char * var_name, char * buffer, int bufsize)'/>
+<use f='codebrowser/code/client/cl_cgame.c' l='430' u='c' c='CL_CgameSystemCalls'/>
+<use f='codebrowser/code/client/cl_main.c' l='3321' u='c' c='CL_SetModel_f'/>
+<use f='codebrowser/code/client/cl_parse.c' l='526' u='c' c='CL_ParseGamestate'/>
+<use f='codebrowser/code/client/cl_ui.c' l='751' u='c' c='CL_UISystemCalls'/>
+<def f='codebrowser/code/qcommon/cvar.c' l='150' ll='160' type='void Cvar_VariableStringBuffer(const char * var_name, char * buffer, int bufsize)'/>
+<doc f='codebrowser/code/qcommon/cvar.c' l='145'>/*
+============
+Cvar_VariableStringBuffer
+============
+*/</doc>
+<use f='codebrowser/code/server/sv_game.c' l='314' u='c' c='SV_GameSystemCalls'/>

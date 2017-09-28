@@ -1,0 +1,34 @@
+<dec f='codebrowser/code/renderergl1/tr_local.h' l='1391' type='void R_MDRAddAnimSurfaces(trRefEntity_t * ent)'/>
+<def f='codebrowser/code/renderergl1/tr_animation.c' l='181' ll='304' type='void R_MDRAddAnimSurfaces(trRefEntity_t * ent)'/>
+<doc f='codebrowser/code/renderergl1/tr_animation.c' l='173'>/*
+==============
+R_MDRAddAnimSurfaces
+==============
+*/
+
+// much stuff in there is just copied from R_AddMd3Surfaces in tr_mesh.c</doc>
+<doc f='codebrowser/code/renderergl1/tr_local.h' l='1383'>/*
+=============================================================
+
+ANIMATED MODELS
+
+=============================================================
+*/</doc>
+<use f='codebrowser/code/renderergl1/tr_main.c' l='1243' u='c' c='R_AddEntitySurfaces'/>
+<dec f='codebrowser/code/renderergl2/tr_local.h' l='2225' type='void R_MDRAddAnimSurfaces(trRefEntity_t * ent)'/>
+<def f='codebrowser/code/renderergl2/tr_animation.c' l='181' ll='308' type='void R_MDRAddAnimSurfaces(trRefEntity_t * ent)'/>
+<doc f='codebrowser/code/renderergl2/tr_animation.c' l='173'>/*
+==============
+R_MDRAddAnimSurfaces
+==============
+*/
+
+// much stuff in there is just copied from R_AddMd3Surfaces in tr_mesh.c</doc>
+<doc f='codebrowser/code/renderergl2/tr_local.h' l='2217'>/*
+=============================================================
+
+ANIMATED MODELS
+
+=============================================================
+*/</doc>
+<use f='codebrowser/code/renderergl2/tr_main.c' l='1606' u='c' c='R_AddEntitySurface'/>

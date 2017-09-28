@@ -1,0 +1,16 @@
+<dec f='codebrowser/code/qcommon/qcommon.h' l='103' type='void MSG_ReadDeltaEntity(msg_t * msg, entityState_t * from, entityState_t * to, int number)'/>
+<use f='codebrowser/code/client/cl_parse.c' l='75' u='c' c='CL_DeltaEntity'/>
+<use f='codebrowser/code/client/cl_parse.c' l='515' u='c' c='CL_ParseGamestate'/>
+<def f='codebrowser/code/qcommon/msg.c' l='972' ll='1086' type='void MSG_ReadDeltaEntity(msg_t * msg, entityState_t * from, entityState_t * to, int number)'/>
+<doc f='codebrowser/code/qcommon/msg.c' l='960'>/*
+==================
+MSG_ReadDeltaEntity
+
+The entity number has already been read from the message, which
+is how the from state is identified.
+
+If the delta removes the entity, entityState_t-&gt;number will be set to MAX_GENTITIES-1
+
+Can go from either a baseline or a previous packet_entity
+==================
+*/</doc>

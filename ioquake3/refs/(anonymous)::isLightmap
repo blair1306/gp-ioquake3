@@ -1,0 +1,23 @@
+<dec f='codebrowser/code/renderergl1/tr_local.h' l='264' type='qboolean'/>
+<offset>928</offset>
+<use f='codebrowser/code/renderergl1/tr_shade.c' l='1158' u='r' c='RB_IterateStagesGeneric'/>
+<use f='codebrowser/code/renderergl1/tr_shade.c' l='1158' u='r' c='RB_IterateStagesGeneric'/>
+<use f='codebrowser/code/renderergl1/tr_shader.c' l='629' u='w' c='ParseStage'/>
+<use f='codebrowser/code/renderergl1/tr_shader.c' l='1894' u='r' c='CollapseMultitexture'/>
+<use f='codebrowser/code/renderergl1/tr_shader.c' l='2116' u='r' c='VertexLightingCollapse'/>
+<use f='codebrowser/code/renderergl1/tr_shader.c' l='2146' u='r' c='VertexLightingCollapse'/>
+<use f='codebrowser/code/renderergl1/tr_shader.c' l='2272' u='r' c='FinishShader'/>
+<use f='codebrowser/code/renderergl1/tr_shader.c' l='2645' u='w' c='R_FindShader'/>
+<use f='codebrowser/code/renderergl1/tr_shader.c' l='2737' u='w' c='RE_RegisterShaderFromImage'/>
+<dec f='codebrowser/code/renderergl2/tr_local.h' l='343' type='qboolean'/>
+<offset>928</offset>
+<use f='codebrowser/code/renderergl2/tr_shade.c' l='1350' u='r' c='RB_IterateStagesGeneric'/>
+<use f='codebrowser/code/renderergl2/tr_shade.c' l='1350' u='r' c='RB_IterateStagesGeneric'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='641' u='w' c='ParseStage'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='657' u='w' c='ParseStage'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='2591' u='w' c='CollapseStagesToGLSL'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='2822' u='r' c='VertexLightingCollapse'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='2852' u='r' c='VertexLightingCollapse'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='2992' u='r' c='FinishShader'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='3363' u='w' c='R_FindShader'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='3449' u='w' c='RE_RegisterShaderFromImage'/>

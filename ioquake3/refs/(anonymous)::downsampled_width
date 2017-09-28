@@ -1,0 +1,12 @@
+<dec f='codebrowser/code/jpeg-8c/jpeglib.h' l='163' type='JDIMENSION'/>
+<offset>352</offset>
+<doc f='codebrowser/code/jpeg-8c/jpeglib.h' l='157'>/* The downsampled dimensions are the component&apos;s actual, unpadded number
+   * of samples at the main buffer (preprocessing/compression interface);
+   * DCT scaling is included, so
+   * downsampled_width = ceil(image_width * Hi/Hmax * DCT_h_scaled_size/DCTSIZE)
+   * and similarly for height.
+   */</doc>
+<doc f='codebrowser/code/jpeg-8c/jpeglib.h' l='163'>/* actual width in samples */</doc>
+<use f='codebrowser/code/jpeg-8c/jcmaster.c' l='334' u='w' c='initial_setup'/>
+<use f='codebrowser/code/jpeg-8c/jdinput.c' l='362' u='w' c='initial_setup'/>
+<use f='codebrowser/code/jpeg-8c/jdmaster.c' l='142' u='w' c='jpeg_calc_output_dimensions'/>

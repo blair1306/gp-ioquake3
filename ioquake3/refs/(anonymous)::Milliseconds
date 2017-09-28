@@ -1,0 +1,25 @@
+<dec f='codebrowser/code/renderercommon/tr_public.h' l='116' type='int (*)(void)'/>
+<offset>128</offset>
+<doc f='codebrowser/code/renderercommon/tr_public.h' l='114'>// milliseconds should only be used for profiling, never
+	// for anything game related.  Get time from the refdef</doc>
+<use f='codebrowser/code/client/cl_main.c' l='3243' u='w' c='CL_InitRef'/>
+<use f='codebrowser/code/renderergl1/tr_backend.c' l='718' u='r' c='RB_SetGL2D'/>
+<use f='codebrowser/code/renderergl1/tr_backend.c' l='750' u='r' c='RE_StretchRaw'/>
+<use f='codebrowser/code/renderergl1/tr_backend.c' l='782' u='r' c='RE_StretchRaw'/>
+<use f='codebrowser/code/renderergl1/tr_backend.c' l='991' u='r' c='RB_ShowImages'/>
+<use f='codebrowser/code/renderergl1/tr_backend.c' l='1022' u='r' c='RB_ShowImages'/>
+<use f='codebrowser/code/renderergl1/tr_backend.c' l='1125' u='r' c='RB_ExecuteRenderCommands'/>
+<use f='codebrowser/code/renderergl1/tr_backend.c' l='1161' u='r' c='RB_ExecuteRenderCommands'/>
+<use f='codebrowser/code/renderergl1/tr_scene.c' l='301' u='r' c='RE_RenderScene'/>
+<use f='codebrowser/code/renderergl1/tr_scene.c' l='410' u='r' c='RE_RenderScene'/>
+<use f='codebrowser/code/renderergl2/tr_backend.c' l='663' u='r' c='RB_SetGL2D'/>
+<use f='codebrowser/code/renderergl2/tr_backend.c' l='697' u='r' c='RE_StretchRaw'/>
+<use f='codebrowser/code/renderergl2/tr_backend.c' l='713' u='r' c='RE_StretchRaw'/>
+<use f='codebrowser/code/renderergl2/tr_backend.c' l='1237' u='r' c='RB_ShowImages'/>
+<use f='codebrowser/code/renderergl2/tr_backend.c' l='1269' u='r' c='RB_ShowImages'/>
+<use f='codebrowser/code/renderergl2/tr_backend.c' l='1746' u='r' c='RB_ExecuteRenderCommands'/>
+<use f='codebrowser/code/renderergl2/tr_backend.c' l='1795' u='r' c='RB_ExecuteRenderCommands'/>
+<use f='codebrowser/code/renderergl2/tr_glsl.c' l='896' u='r' c='GLSL_InitGPUShaders'/>
+<use f='codebrowser/code/renderergl2/tr_glsl.c' l='1343' u='r' c='GLSL_InitGPUShaders'/>
+<use f='codebrowser/code/renderergl2/tr_scene.c' l='471' u='r' c='RE_RenderScene'/>
+<use f='codebrowser/code/renderergl2/tr_scene.c' l='572' u='r' c='RE_RenderScene'/>

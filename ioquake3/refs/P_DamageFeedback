@@ -1,0 +1,12 @@
+<def f='codebrowser/code/game/g_active.c' l='37' ll='88' type='void P_DamageFeedback(gentity_t * player)'/>
+<use f='codebrowser/code/game/g_active.c' l='1157' u='c' c='ClientEndFrame'/>
+<doc f='codebrowser/code/game/g_active.c' l='27'>/*
+===============
+G_DamageFeedback
+
+Called just before a snapshot is sent to the given player.
+Totals up all damage and generates both the player_state_t
+damage values to that client for pain blends and kicks, and
+global pain sound events for all clients.
+===============
+*/</doc>

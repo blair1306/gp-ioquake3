@@ -1,0 +1,10 @@
+<dec f='codebrowser/code/opus-1.1.4/celt/laplace.h' l='39' type='void ec_laplace_encode(ec_enc * enc, int * value, unsigned int fs, int decay)'/>
+<def f='codebrowser/code/opus-1.1.4/celt/laplace.c' l='51' ll='92' type='void ec_laplace_encode(ec_enc * enc, int * value, unsigned int fs, int decay)'/>
+<doc f='codebrowser/code/opus-1.1.4/celt/laplace.h' l='32'>/** Encode a value that is assumed to be the realisation of a
+    Laplace-distributed random process
+ @param enc Entropy encoder state
+ @param value Value to encode
+ @param fs Probability of 0, multiplied by 32768
+ @param decay Probability of the value +/- 1, multiplied by 16384
+*/</doc>
+<use f='codebrowser/code/opus-1.1.4/celt/quant_bands.c' l='231' u='c' c='quant_coarse_energy_impl'/>

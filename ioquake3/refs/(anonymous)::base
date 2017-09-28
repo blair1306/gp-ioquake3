@@ -1,0 +1,27 @@
+<dec f='codebrowser/code/renderergl1/tr_local.h' l='192' type='float'/>
+<offset>32</offset>
+<use f='codebrowser/code/renderergl1/tr_shade_calc.c' l='66' u='r' c='EvalWaveForm'/>
+<use f='codebrowser/code/renderergl1/tr_shade_calc.c' l='151' u='r' c='RB_CalcDeformVertexes'/>
+<use f='codebrowser/code/renderergl1/tr_shade_calc.c' l='244' u='r' c='RB_CalcMoveVertexes'/>
+<use f='codebrowser/code/renderergl1/tr_shade_calc.c' l='690' u='r' c='RB_CalcWaveColor'/>
+<use f='codebrowser/code/renderergl1/tr_shader.c' l='326' u='w' c='ParseWaveForm'/>
+<use f='codebrowser/code/renderergl1/tr_shader.c' l='386' u='w' c='ParseTexMod'/>
+<use f='codebrowser/code/renderergl1/tr_shader.c' l='473' u='w' c='ParseTexMod'/>
+<dec f='codebrowser/code/renderergl2/tr_local.h' l='271' type='float'/>
+<offset>32</offset>
+<use f='codebrowser/code/renderergl2/tr_shade.c' l='295' u='r' c='ComputeDeformValues'/>
+<use f='codebrowser/code/renderergl2/tr_shade_calc.c' l='66' u='r' c='EvalWaveForm'/>
+<use f='codebrowser/code/renderergl2/tr_shade_calc.c' l='143' u='r' c='RB_CalcDeformVertexes'/>
+<use f='codebrowser/code/renderergl2/tr_shade_calc.c' l='245' u='r' c='RB_CalcMoveVertexes'/>
+<use f='codebrowser/code/renderergl2/tr_shade_calc.c' l='617' u='r' c='RB_CalcWaveColorSingle'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='338' u='w' c='ParseWaveForm'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='398' u='w' c='ParseTexMod'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='485' u='w' c='ParseTexMod'/>
+<dec f='codebrowser/code/ui/ui_local.h' l='642' type='const char *'/>
+<offset>192</offset>
+<use f='codebrowser/code/ui/ui_main.c' l='3604' u='r' c='UI_HeadCountByTeam'/>
+<use f='codebrowser/code/ui/ui_main.c' l='4462' u='r' c='UI_FeederSelection'/>
+<use f='codebrowser/code/ui/ui_main.c' l='4636' u='w' c='Character_Parse'/>
+<use f='codebrowser/code/ui/ui_main.c' l='4638' u='w' c='Character_Parse'/>
+<use f='codebrowser/code/ui/ui_main.c' l='4640' u='w' c='Character_Parse'/>
+<use f='codebrowser/code/ui/ui_main.c' l='4643' u='r' c='Character_Parse'/>

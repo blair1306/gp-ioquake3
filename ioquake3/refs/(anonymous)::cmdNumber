@@ -1,0 +1,12 @@
+<dec f='codebrowser/code/client/client.h' l='124' type='int'/>
+<offset>178912</offset>
+<doc f='codebrowser/code/client/client.h' l='124'>// incremented each frame, because multiple</doc>
+<use f='codebrowser/code/client/cl_cgame.c' l='66' u='r' c='CL_GetUserCmd'/>
+<use f='codebrowser/code/client/cl_cgame.c' l='67' u='r' c='CL_GetUserCmd'/>
+<use f='codebrowser/code/client/cl_cgame.c' l='72' u='r' c='CL_GetUserCmd'/>
+<use f='codebrowser/code/client/cl_cgame.c' l='82' u='r' c='CL_GetCurrentCmdNumber'/>
+<use f='codebrowser/code/client/cl_input.c' l='656' u='w' c='CL_CreateNewCommands'/>
+<use f='codebrowser/code/client/cl_input.c' l='657' u='r' c='CL_CreateNewCommands'/>
+<use f='codebrowser/code/client/cl_input.c' l='792' u='r' c='CL_WritePacket'/>
+<use f='codebrowser/code/client/cl_input.c' l='874' u='r' c='CL_WritePacket'/>
+<use f='codebrowser/code/client/cl_input.c' l='887' u='r' c='CL_WritePacket'/>

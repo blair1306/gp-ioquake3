@@ -1,0 +1,10 @@
+<dec f='codebrowser/code/opusfile-0.8/include/opusfile.h' l='1461' type='int op_link_count(const OggOpusFile * _of)'/>
+<doc f='codebrowser/code/opusfile-0.8/include/opusfile.h' l='1453'>/**Returns the number of links in this chained stream.
+   This function may be called on partially-opened streams, but it will always
+    return 1.
+   The actual number of links is not known until the stream is fully opened.
+   \param _of The \c OggOpusFile from which to retrieve the link count.
+   \return For fully-open seekable sources, this returns the total number of
+            links in the whole stream, which will be at least 1.
+           For partially-open or unseekable sources, this always returns 1.*/</doc>
+<def f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='1701' ll='1703' type='int op_link_count(const OggOpusFile * _of)'/>

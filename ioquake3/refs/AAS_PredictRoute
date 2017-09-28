@@ -1,0 +1,12 @@
+<dec f='codebrowser/code/botlib/be_aas_route.h' l='63' type='int AAS_PredictRoute(struct aas_predictroute_s * route, int areanum, vec_t * origin, int goalareanum, int travelflags, int maxareas, int maxtime, int stopevent, int stopcontents, int stoptfl, int stopareanum)'/>
+<dec f='codebrowser/code/botlib/be_aas_route.h' l='63' type='int AAS_PredictRoute(struct aas_predictroute_s * route, int areanum, vec_t * origin, int goalareanum, int travelflags, int maxareas, int maxtime, int stopevent, int stopcontents, int stoptfl, int stopareanum)'/>
+<doc f='codebrowser/code/botlib/be_aas_route.h' l='62'>//predict a route up to a stop event</doc>
+<def f='codebrowser/code/botlib/be_aas_route.c' l='1804' ll='1906' type='int AAS_PredictRoute(struct aas_predictroute_s * route, int areanum, vec_t * origin, int goalareanum, int travelflags, int maxareas, int maxtime, int stopevent, int stopcontents, int stoptfl, int stopareanum)'/>
+<doc f='codebrowser/code/botlib/be_aas_route.c' l='1797'>//===========================================================================
+// predict the route and stop on one of the stop events
+//
+// Parameter:			-
+// Returns:				-
+// Changes Globals:		-
+//===========================================================================</doc>
+<use f='codebrowser/code/botlib/be_interface.c' l='715' u='r' c='Init_AAS_Export'/>

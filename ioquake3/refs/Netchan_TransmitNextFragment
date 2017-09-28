@@ -1,0 +1,12 @@
+<dec f='codebrowser/code/qcommon/qcommon.h' l='241' type='void Netchan_TransmitNextFragment(netchan_t * chan)'/>
+<use f='codebrowser/code/client/cl_net_chan.c' l='140' u='c' c='CL_Netchan_TransmitNextFragment'/>
+<def f='codebrowser/code/qcommon/net_chan.c' l='109' ll='166' type='void Netchan_TransmitNextFragment(netchan_t * chan)'/>
+<use f='codebrowser/code/qcommon/net_chan.c' l='193' u='c' c='Netchan_Transmit'/>
+<doc f='codebrowser/code/qcommon/net_chan.c' l='102'>/*
+=================
+Netchan_TransmitNextFragment
+
+Send one fragment of the current message
+=================
+*/</doc>
+<use f='codebrowser/code/server/sv_net_chan.c' l='200' u='c' c='SV_Netchan_TransmitNextFragment'/>

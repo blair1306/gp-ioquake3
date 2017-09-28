@@ -1,0 +1,10 @@
+<dec f='codebrowser/code/curl-7.54.0/include/curl/curl.h' l='2030' type='CURLFORMcode curl_formadd(struct curl_httppost ** httppost, struct curl_httppost ** last_post)'/>
+<doc f='codebrowser/code/curl-7.54.0/include/curl/curl.h' l='2021'>/*
+ * NAME curl_formadd()
+ *
+ * DESCRIPTION
+ *
+ * Pretty advanced function for building multi-part formposts. Each invoke
+ * adds one part that together construct a full post. Then use
+ * CURLOPT_HTTPPOST to send it off to libcurl.
+ */</doc>

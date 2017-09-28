@@ -1,0 +1,50 @@
+<dec f='codebrowser/code/game/ai_dmq3.h' l='189' type='int'/>
+<use f='codebrowser/code/game/ai_chat.c' l='397' u='r' c='BotChat_EnterGame'/>
+<use f='codebrowser/code/game/ai_chat.c' l='430' u='r' c='BotChat_ExitGame'/>
+<use f='codebrowser/code/game/ai_chat.c' l='469' u='r' c='BotChat_StartLevel'/>
+<use f='codebrowser/code/game/ai_chat.c' l='506' u='r' c='BotChat_EndLevel'/>
+<use f='codebrowser/code/game/ai_chat.c' l='558' u='r' c='BotChat_Death'/>
+<use f='codebrowser/code/game/ai_chat.c' l='661' u='r' c='BotChat_Kill'/>
+<use f='codebrowser/code/game/ai_chat.c' l='731' u='r' c='BotChat_EnemySuicide'/>
+<use f='codebrowser/code/game/ai_chat.c' l='771' u='r' c='BotChat_HitTalking'/>
+<use f='codebrowser/code/game/ai_chat.c' l='811' u='r' c='BotChat_HitNoDeath'/>
+<use f='codebrowser/code/game/ai_chat.c' l='849' u='r' c='BotChat_HitNoKill'/>
+<use f='codebrowser/code/game/ai_chat.c' l='883' u='r' c='BotChat_Random'/>
+<doc f='codebrowser/code/game/ai_dmq3.h' l='189'>//game type</doc>
+<use f='codebrowser/code/game/ai_cmd.c' l='823' u='r' c='BotMatch_GetFlag'/>
+<use f='codebrowser/code/game/ai_cmd.c' l='853' u='r' c='BotMatch_GetFlag'/>
+<use f='codebrowser/code/game/ai_cmd.c' l='875' u='r' c='BotMatch_AttackEnemyBase'/>
+<use f='codebrowser/code/game/ai_cmd.c' l='966' u='r' c='BotMatch_RushBase'/>
+<use f='codebrowser/code/game/ai_cmd.c' l='1061' u='r' c='BotMatch_ReturnFlag'/>
+<use f='codebrowser/code/game/ai_cmd.c' l='1560' u='r' c='BotMatch_WhereAreYou'/>
+<use f='codebrowser/code/game/ai_cmd.c' l='1717' u='r' c='BotMatch_CTF'/>
+<use f='codebrowser/code/game/ai_dmnet.c' l='752' u='r' c='BotGetLongTermGoal'/>
+<use f='codebrowser/code/game/ai_dmnet.c' l='1880' u='r' c='AINode_Seek_LTG'/>
+<use f='codebrowser/code/game/ai_dmnet.c' l='2406' u='r' c='AINode_Battle_Retreat'/>
+<def f='codebrowser/code/game/ai_dmq3.c' l='74' type='int'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='130' u='r' c='BotCTFCarryingFlag'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='429' u='r' c='BotSetLastOrderedTask'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='454' u='r' c='BotSetLastOrderedTask'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='1332' u='r' c='BotTeamGoals'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='1348' u='r' c='BotTeamGoals'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='1538' u='r' c='BotSynonymContext'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='2189' u='r' c='TeamPlayIsOn'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='2269' u='r' c='BotWantsToRetreat'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='2325' u='r' c='BotWantsToChase'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='2782' u='r' c='BotSameTeam'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='4877' u='r' c='BotCheckEvents'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='5400' u='w' c='BotSetupDeathmatchAI'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='5411' u='r' c='BotSetupDeathmatchAI'/>
+<doc f='codebrowser/code/game/ai_dmq3.c' l='73'>//NOTE: not using a cvars which can be updated because the game should be reloaded anyway</doc>
+<doc f='codebrowser/code/game/ai_dmq3.c' l='74'>//game type</doc>
+<use f='codebrowser/code/game/ai_main.c' l='289' u='r' c='BotReportStatus'/>
+<use f='codebrowser/code/game/ai_main.c' l='439' u='r' c='BotSetInfoConfigString'/>
+<use f='codebrowser/code/game/ai_main.c' l='659' u='r' c='BotInterbreeding'/>
+<use f='codebrowser/code/game/ai_team.c' l='136' u='r' c='BotSortTeamMatesByBaseTravelTime'/>
+<use f='codebrowser/code/game/ai_team.c' l='1932' u='r' c='BotTeamAI'/>
+<use f='codebrowser/code/game/ai_team.c' l='1975' u='r' c='BotTeamAI'/>
+<use f='codebrowser/code/game/ai_vcmd.c' l='74' u='r' c='BotVoiceChat_GetFlag'/>
+<use f='codebrowser/code/game/ai_vcmd.c' l='98' u='r' c='BotVoiceChat_GetFlag'/>
+<use f='codebrowser/code/game/ai_vcmd.c' l='117' u='r' c='BotVoiceChat_Offense'/>
+<use f='codebrowser/code/game/ai_vcmd.c' l='184' u='r' c='BotVoiceChat_Defend'/>
+<use f='codebrowser/code/game/ai_vcmd.c' l='386' u='r' c='BotVoiceChat_ReturnFlag'/>

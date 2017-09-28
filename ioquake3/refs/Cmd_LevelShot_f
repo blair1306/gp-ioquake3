@@ -1,0 +1,12 @@
+<def f='codebrowser/code/game/g_cmds.c' l='420' ll='442' type='void Cmd_LevelShot_f(gentity_t * ent)'/>
+<use f='codebrowser/code/game/g_cmds.c' l='1795' u='c' c='ClientCommand'/>
+<doc f='codebrowser/code/game/g_cmds.c' l='410'>/*
+==================
+Cmd_LevelShot_f
+
+This is just to help generate the level pictures
+for the menus.  It goes to the intermission immediately
+and sends over a command to the client to resize the view,
+hide the scoreboard, and take a special screenshot
+==================
+*/</doc>

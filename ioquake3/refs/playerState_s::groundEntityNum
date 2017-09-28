@@ -1,0 +1,22 @@
+<dec f='codebrowser/code/qcommon/q_shared.h' l='1158' type='int'/>
+<offset>544</offset>
+<doc f='codebrowser/code/qcommon/q_shared.h' l='1156'>// changed by spawns, rotating objects, and teleporters</doc>
+<doc f='codebrowser/code/qcommon/q_shared.h' l='1158'>// ENTITYNUM_NONE = in air</doc>
+<use f='codebrowser/code/cgame/cg_predict.c' l='541' u='r' c='CG_PredictPlayerState'/>
+<use f='codebrowser/code/cgame/cg_predict.c' l='608' u='r' c='CG_PredictPlayerState'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='1597' u='r' c='BotSetupForMovement'/>
+<use f='codebrowser/code/game/bg_misc.c' l='1519' u='r' c='BG_PlayerStateToEntityState'/>
+<use f='codebrowser/code/game/bg_misc.c' l='1599' u='r' c='BG_PlayerStateToEntityStateExtraPolate'/>
+<use f='codebrowser/code/game/bg_pmove.c' l='379' u='w' c='PM_CheckJump'/>
+<use f='codebrowser/code/game/bg_pmove.c' l='1053' u='w' c='PM_CorrectAllSolid'/>
+<use f='codebrowser/code/game/bg_pmove.c' l='1072' u='r' c='PM_GroundTraceMissed'/>
+<use f='codebrowser/code/game/bg_pmove.c' l='1095' u='w' c='PM_GroundTraceMissed'/>
+<use f='codebrowser/code/game/bg_pmove.c' l='1145' u='w' c='PM_GroundTrace'/>
+<use f='codebrowser/code/game/bg_pmove.c' l='1158' u='w' c='PM_GroundTrace'/>
+<use f='codebrowser/code/game/bg_pmove.c' l='1174' u='r' c='PM_GroundTrace'/>
+<use f='codebrowser/code/game/bg_pmove.c' l='1190' u='w' c='PM_GroundTrace'/>
+<use f='codebrowser/code/game/bg_pmove.c' l='1333' u='r' c='PM_Footsteps'/>
+<use f='codebrowser/code/qcommon/msg.c' l='1122' u='a'/>
+<use f='codebrowser/code/qcommon/msg.c' l='1122' u='a'/>
+<use f='codebrowser/code/qcommon/msg.c' l='1122' u='a'/>
+<use f='codebrowser/code/qcommon/msg.c' l='1122' u='a'/>

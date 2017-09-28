@@ -1,0 +1,77 @@
+<dec f='codebrowser/code/qcommon/qcommon.h' l='69' type='void MSG_WriteBits(msg_t * msg, int value, int bits)'/>
+<use f='codebrowser/code/client/cl_input.c' l='830' u='c' c='CL_WritePacket'/>
+<def f='codebrowser/code/qcommon/msg.c' l='105' ll='173' type='void MSG_WriteBits(msg_t * msg, int value, int bits)'/>
+<use f='codebrowser/code/qcommon/msg.c' l='276' u='c' c='MSG_WriteChar'/>
+<use f='codebrowser/code/qcommon/msg.c' l='285' u='c' c='MSG_WriteByte'/>
+<use f='codebrowser/code/qcommon/msg.c' l='301' u='c' c='MSG_WriteShort'/>
+<use f='codebrowser/code/qcommon/msg.c' l='305' u='c' c='MSG_WriteLong'/>
+<use f='codebrowser/code/qcommon/msg.c' l='311' u='c' c='MSG_WriteFloat'/>
+<use f='codebrowser/code/qcommon/msg.c' l='573' u='c' c='MSG_WriteDelta'/>
+<use f='codebrowser/code/qcommon/msg.c' l='576' u='c' c='MSG_WriteDelta'/>
+<use f='codebrowser/code/qcommon/msg.c' l='577' u='c' c='MSG_WriteDelta'/>
+<use f='codebrowser/code/qcommon/msg.c' l='590' u='c' c='MSG_WriteDeltaFloat'/>
+<use f='codebrowser/code/qcommon/msg.c' l='594' u='c' c='MSG_WriteDeltaFloat'/>
+<use f='codebrowser/code/qcommon/msg.c' l='595' u='c' c='MSG_WriteDeltaFloat'/>
+<use f='codebrowser/code/qcommon/msg.c' l='629' u='c' c='MSG_WriteDeltaKey'/>
+<use f='codebrowser/code/qcommon/msg.c' l='632' u='c' c='MSG_WriteDeltaKey'/>
+<use f='codebrowser/code/qcommon/msg.c' l='633' u='c' c='MSG_WriteDeltaKey'/>
+<use f='codebrowser/code/qcommon/msg.c' l='646' u='c' c='MSG_WriteDeltaKeyFloat'/>
+<use f='codebrowser/code/qcommon/msg.c' l='650' u='c' c='MSG_WriteDeltaKeyFloat'/>
+<use f='codebrowser/code/qcommon/msg.c' l='651' u='c' c='MSG_WriteDeltaKeyFloat'/>
+<use f='codebrowser/code/qcommon/msg.c' l='680' u='c' c='MSG_WriteDeltaUsercmdKey'/>
+<use f='codebrowser/code/qcommon/msg.c' l='681' u='c' c='MSG_WriteDeltaUsercmdKey'/>
+<use f='codebrowser/code/qcommon/msg.c' l='683' u='c' c='MSG_WriteDeltaUsercmdKey'/>
+<use f='codebrowser/code/qcommon/msg.c' l='684' u='c' c='MSG_WriteDeltaUsercmdKey'/>
+<use f='codebrowser/code/qcommon/msg.c' l='694' u='c' c='MSG_WriteDeltaUsercmdKey'/>
+<use f='codebrowser/code/qcommon/msg.c' l='699' u='c' c='MSG_WriteDeltaUsercmdKey'/>
+<use f='codebrowser/code/qcommon/msg.c' l='877' u='c' c='MSG_WriteDeltaEntity'/>
+<use f='codebrowser/code/qcommon/msg.c' l='878' u='c' c='MSG_WriteDeltaEntity'/>
+<use f='codebrowser/code/qcommon/msg.c' l='902' u='c' c='MSG_WriteDeltaEntity'/>
+<use f='codebrowser/code/qcommon/msg.c' l='903' u='c' c='MSG_WriteDeltaEntity'/>
+<use f='codebrowser/code/qcommon/msg.c' l='904' u='c' c='MSG_WriteDeltaEntity'/>
+<use f='codebrowser/code/qcommon/msg.c' l='908' u='c' c='MSG_WriteDeltaEntity'/>
+<use f='codebrowser/code/qcommon/msg.c' l='909' u='c' c='MSG_WriteDeltaEntity'/>
+<use f='codebrowser/code/qcommon/msg.c' l='910' u='c' c='MSG_WriteDeltaEntity'/>
+<use f='codebrowser/code/qcommon/msg.c' l='921' u='c' c='MSG_WriteDeltaEntity'/>
+<use f='codebrowser/code/qcommon/msg.c' l='925' u='c' c='MSG_WriteDeltaEntity'/>
+<use f='codebrowser/code/qcommon/msg.c' l='933' u='c' c='MSG_WriteDeltaEntity'/>
+<use f='codebrowser/code/qcommon/msg.c' l='936' u='c' c='MSG_WriteDeltaEntity'/>
+<use f='codebrowser/code/qcommon/msg.c' l='940' u='c' c='MSG_WriteDeltaEntity'/>
+<use f='codebrowser/code/qcommon/msg.c' l='941' u='c' c='MSG_WriteDeltaEntity'/>
+<use f='codebrowser/code/qcommon/msg.c' l='944' u='c' c='MSG_WriteDeltaEntity'/>
+<use f='codebrowser/code/qcommon/msg.c' l='945' u='c' c='MSG_WriteDeltaEntity'/>
+<use f='codebrowser/code/qcommon/msg.c' l='950' u='c' c='MSG_WriteDeltaEntity'/>
+<use f='codebrowser/code/qcommon/msg.c' l='952' u='c' c='MSG_WriteDeltaEntity'/>
+<use f='codebrowser/code/qcommon/msg.c' l='954' u='c' c='MSG_WriteDeltaEntity'/>
+<use f='codebrowser/code/qcommon/msg.c' l='1196' u='c' c='MSG_WriteDeltaPlayerstate'/>
+<use f='codebrowser/code/qcommon/msg.c' l='1200' u='c' c='MSG_WriteDeltaPlayerstate'/>
+<use f='codebrowser/code/qcommon/msg.c' l='1211' u='c' c='MSG_WriteDeltaPlayerstate'/>
+<use f='codebrowser/code/qcommon/msg.c' l='1212' u='c' c='MSG_WriteDeltaPlayerstate'/>
+<use f='codebrowser/code/qcommon/msg.c' l='1215' u='c' c='MSG_WriteDeltaPlayerstate'/>
+<use f='codebrowser/code/qcommon/msg.c' l='1216' u='c' c='MSG_WriteDeltaPlayerstate'/>
+<use f='codebrowser/code/qcommon/msg.c' l='1220' u='c' c='MSG_WriteDeltaPlayerstate'/>
+<use f='codebrowser/code/qcommon/msg.c' l='1254' u='c' c='MSG_WriteDeltaPlayerstate'/>
+<use f='codebrowser/code/qcommon/msg.c' l='1258' u='c' c='MSG_WriteDeltaPlayerstate'/>
+<use f='codebrowser/code/qcommon/msg.c' l='1261' u='c' c='MSG_WriteDeltaPlayerstate'/>
+<use f='codebrowser/code/qcommon/msg.c' l='1262' u='c' c='MSG_WriteDeltaPlayerstate'/>
+<use f='codebrowser/code/qcommon/msg.c' l='1267' u='c' c='MSG_WriteDeltaPlayerstate'/>
+<use f='codebrowser/code/qcommon/msg.c' l='1272' u='c' c='MSG_WriteDeltaPlayerstate'/>
+<use f='codebrowser/code/qcommon/msg.c' l='1273' u='c' c='MSG_WriteDeltaPlayerstate'/>
+<use f='codebrowser/code/qcommon/msg.c' l='1278' u='c' c='MSG_WriteDeltaPlayerstate'/>
+<use f='codebrowser/code/qcommon/msg.c' l='1283' u='c' c='MSG_WriteDeltaPlayerstate'/>
+<use f='codebrowser/code/qcommon/msg.c' l='1284' u='c' c='MSG_WriteDeltaPlayerstate'/>
+<use f='codebrowser/code/qcommon/msg.c' l='1289' u='c' c='MSG_WriteDeltaPlayerstate'/>
+<use f='codebrowser/code/qcommon/msg.c' l='1294' u='c' c='MSG_WriteDeltaPlayerstate'/>
+<use f='codebrowser/code/qcommon/msg.c' l='1295' u='c' c='MSG_WriteDeltaPlayerstate'/>
+<use f='codebrowser/code/qcommon/msg.c' l='1300' u='c' c='MSG_WriteDeltaPlayerstate'/>
+<doc f='codebrowser/code/qcommon/msg.c' l='96'>/*
+=============================================================================
+
+bit functions
+  
+=============================================================================
+*/
+
+// negative bit values include signs</doc>
+<use f='codebrowser/code/server/sv_snapshot.c' l='112' u='c' c='SV_EmitPacketEntities'/>
+<use f='codebrowser/code/server/sv_snapshot.c' l='556' u='c' c='SV_WriteVoipToClient'/>

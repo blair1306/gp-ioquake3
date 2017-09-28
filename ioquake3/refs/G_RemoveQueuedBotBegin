@@ -1,0 +1,11 @@
+<dec f='codebrowser/code/game/g_local.h' l='665' type='void G_RemoveQueuedBotBegin(int clientNum)'/>
+<def f='codebrowser/code/game/g_bot.c' l='543' ll='552' type='void G_RemoveQueuedBotBegin(int clientNum)'/>
+<doc f='codebrowser/code/game/g_bot.c' l='535'>/*
+===============
+G_RemoveQueuedBotBegin
+
+Called on client disconnect to make sure the delayed spawn
+doesn&apos;t happen on a freed index
+===============
+*/</doc>
+<use f='codebrowser/code/game/g_client.c' l='1265' u='c' c='ClientDisconnect'/>

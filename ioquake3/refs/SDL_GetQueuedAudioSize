@@ -1,0 +1,26 @@
+<dec f='include/SDL2/SDL_audio.h' l='544' type='Uint32 SDL_GetQueuedAudioSize(SDL_AudioDeviceID dev)'/>
+<doc f='include/SDL2/SDL_audio.h' l='519'>/**
+ *  Get the number of bytes of still-queued audio.
+ *
+ *  This is the number of bytes that have been queued for playback with
+ *  SDL_QueueAudio(), but have not yet been sent to the hardware.
+ *
+ *  Once we&apos;ve sent it to the hardware, this function can not decide the exact
+ *  byte boundary of what has been played. It&apos;s possible that we just gave the
+ *  hardware several kilobytes right before you called this function, but it
+ *  hasn&apos;t played any of it yet, or maybe half of it, etc.
+ *
+ *  You may not queue audio on a device that is using an application-supplied
+ *  callback; calling this function on such a device always returns 0.
+ *  You have to use the audio callback or queue audio with SDL_QueueAudio(),
+ *  but not both.
+ *
+ *  You should not call SDL_LockAudio() on the device before querying; SDL
+ *  handles locking internally for this function.
+ *
+ *  \param dev The device ID of which we will query queued audio size.
+ *  \return Number of bytes (not samples!) of queued audio.
+ *
+ *  \sa SDL_QueueAudio
+ *  \sa SDL_ClearQueuedAudio
+ */</doc>

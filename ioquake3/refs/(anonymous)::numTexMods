@@ -1,0 +1,19 @@
+<dec f='codebrowser/code/renderergl1/tr_local.h' l='260' type='int'/>
+<offset>800</offset>
+<use f='codebrowser/code/renderergl1/tr_shade.c' l='1056' u='r' c='ComputeTexCoords'/>
+<use f='codebrowser/code/renderergl1/tr_shader.c' l='365' u='r' c='ParseTexMod'/>
+<use f='codebrowser/code/renderergl1/tr_shader.c' l='370' u='r' c='ParseTexMod'/>
+<use f='codebrowser/code/renderergl1/tr_shader.c' l='371' u='w' c='ParseTexMod'/>
+<use f='codebrowser/code/renderergl1/tr_shader.c' l='2071' u='r' c='GeneratePermanentShader'/>
+<use f='codebrowser/code/renderergl1/tr_shader.c' l='2122' u='r' c='VertexLightingCollapse'/>
+<dec f='codebrowser/code/renderergl2/tr_local.h' l='339' type='int'/>
+<offset>800</offset>
+<use f='codebrowser/code/renderergl2/tr_glsl.c' l='1452' u='r' c='GLSL_GetGenericShaderProgram'/>
+<use f='codebrowser/code/renderergl2/tr_shade.c' l='199' u='r' c='ComputeTexMods'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='377' u='r' c='ParseTexMod'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='382' u='r' c='ParseTexMod'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='383' u='w' c='ParseTexMod'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='2322' u='r' c='CollapseStagesToLightall'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='2615' u='r' c='CollapseStagesToGLSL'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='2777' u='r' c='GeneratePermanentShader'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='2828' u='r' c='VertexLightingCollapse'/>

@@ -1,0 +1,23 @@
+<dec f='codebrowser/code/qcommon/q_shared.h' l='719' type='void MatrixMultiply(float (*)[3] in1, float (*)[3] in2, float (*)[3] out)'/>
+<doc f='codebrowser/code/qcommon/q_shared.h' l='715'>// perpendicular vector could be replaced by this
+
+//int	PlaneTypeForNormal (vec3_t normal);</doc>
+<use f='codebrowser/code/cgame/cg_ents.c' l='52' u='c' c='CG_PositionEntityOnTag'/>
+<use f='codebrowser/code/cgame/cg_ents.c' l='83' u='c' c='CG_PositionRotatedEntityOnTag'/>
+<use f='codebrowser/code/cgame/cg_ents.c' l='84' u='c' c='CG_PositionRotatedEntityOnTag'/>
+<use f='codebrowser/code/cgame/cg_weapons.c' l='1265' u='c' c='CG_AddPlayerWeapon'/>
+<use f='codebrowser/code/q3_ui/ui_players.c' l='306' u='c' c='UI_PositionEntityOnTag'/>
+<use f='codebrowser/code/q3_ui/ui_players.c' l='333' u='c' c='UI_PositionRotatedEntityOnTag'/>
+<use f='codebrowser/code/q3_ui/ui_players.c' l='334' u='c' c='UI_PositionRotatedEntityOnTag'/>
+<use f='codebrowser/code/qcommon/q_math.c' l='339' u='c' c='RotatePointAroundVector'/>
+<use f='codebrowser/code/qcommon/q_math.c' l='340' u='c' c='RotatePointAroundVector'/>
+<def f='codebrowser/code/qcommon/q_math.c' l='905' ll='924' type='void MatrixMultiply(float (*)[3] in1, float (*)[3] in2, float (*)[3] out)'/>
+<doc f='codebrowser/code/qcommon/q_math.c' l='900'>/*
+================
+MatrixMultiply
+================
+*/</doc>
+<use f='codebrowser/code/server/sv_game.c' l='828' u='c' c='SV_GameSystemCalls'/>
+<use f='codebrowser/code/ui/ui_players.c' l='307' u='c' c='UI_PositionEntityOnTag'/>
+<use f='codebrowser/code/ui/ui_players.c' l='334' u='c' c='UI_PositionRotatedEntityOnTag'/>
+<use f='codebrowser/code/ui/ui_players.c' l='335' u='c' c='UI_PositionRotatedEntityOnTag'/>

@@ -1,0 +1,8 @@
+<dec f='codebrowser/code/opusfile-0.8/include/opusfile.h' l='671' type='void opus_picture_tag_clear(OpusPictureTag * _pic)'/>
+<doc f='codebrowser/code/opusfile-0.8/include/opusfile.h' l='666'>/**Clears the #OpusPictureTag structure.
+   This should be called on an #OpusPictureTag structure after it is no longer
+    needed.
+   It will free all memory used by the structure members.
+   \param _pic The #OpusPictureTag structure to clear.*/</doc>
+<use f='codebrowser/code/opusfile-0.8/src/info.c' l='743' u='c' c='opus_picture_tag_parse'/>
+<def f='codebrowser/code/opusfile-0.8/src/info.c' l='754' ll='758' type='void opus_picture_tag_clear(OpusPictureTag * _pic)'/>

@@ -1,0 +1,29 @@
+<dec f='codebrowser/code/renderercommon/tr_public.h' l='72' type='void (*)(const float *)'/>
+<offset>1024</offset>
+<doc f='codebrowser/code/renderercommon/tr_public.h' l='72'>// NULL = 1,1,1,1</doc>
+<use f='codebrowser/code/client/cl_cgame.c' l='569' u='r' c='CL_CgameSystemCalls'/>
+<use f='codebrowser/code/client/cl_console.c' l='548' u='r' c='Con_DrawInput'/>
+<use f='codebrowser/code/client/cl_console.c' l='574' u='r' c='Con_DrawNotify'/>
+<use f='codebrowser/code/client/cl_console.c' l='599' u='r' c='Con_DrawNotify'/>
+<use f='codebrowser/code/client/cl_console.c' l='607' u='r' c='Con_DrawNotify'/>
+<use f='codebrowser/code/client/cl_console.c' l='679' u='r' c='Con_DrawSolidConsole'/>
+<use f='codebrowser/code/client/cl_console.c' l='699' u='r' c='Con_DrawSolidConsole'/>
+<use f='codebrowser/code/client/cl_console.c' l='713' u='r' c='Con_DrawSolidConsole'/>
+<use f='codebrowser/code/client/cl_console.c' l='733' u='r' c='Con_DrawSolidConsole'/>
+<use f='codebrowser/code/client/cl_console.c' l='742' u='r' c='Con_DrawSolidConsole'/>
+<use f='codebrowser/code/client/cl_scrn.c' l='95' u='r' c='SCR_FillRect'/>
+<use f='codebrowser/code/client/cl_scrn.c' l='100' u='r' c='SCR_FillRect'/>
+<use f='codebrowser/code/client/cl_scrn.c' l='208' u='r' c='SCR_DrawStringExt'/>
+<use f='codebrowser/code/client/cl_scrn.c' l='225' u='r' c='SCR_DrawStringExt'/>
+<use f='codebrowser/code/client/cl_scrn.c' l='231' u='r' c='SCR_DrawStringExt'/>
+<use f='codebrowser/code/client/cl_scrn.c' l='242' u='r' c='SCR_DrawStringExt'/>
+<use f='codebrowser/code/client/cl_scrn.c' l='276' u='r' c='SCR_DrawSmallStringExt'/>
+<use f='codebrowser/code/client/cl_scrn.c' l='282' u='r' c='SCR_DrawSmallStringExt'/>
+<use f='codebrowser/code/client/cl_scrn.c' l='293' u='r' c='SCR_DrawSmallStringExt'/>
+<use f='codebrowser/code/client/cl_scrn.c' l='430' u='r' c='SCR_DrawDebugGraph'/>
+<use f='codebrowser/code/client/cl_scrn.c' l='433' u='r' c='SCR_DrawDebugGraph'/>
+<use f='codebrowser/code/client/cl_scrn.c' l='486' u='r' c='SCR_DrawScreenField'/>
+<use f='codebrowser/code/client/cl_scrn.c' l='488' u='r' c='SCR_DrawScreenField'/>
+<use f='codebrowser/code/client/cl_ui.c' l='840' u='r' c='CL_UISystemCalls'/>
+<use f='codebrowser/code/renderergl1/tr_init.c' l='1359' u='w' c='GetRefAPI'/>
+<use f='codebrowser/code/renderergl2/tr_init.c' l='1608' u='w' c='GetRefAPI'/>

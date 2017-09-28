@@ -1,0 +1,8 @@
+<dec f='codebrowser/code/jpeg-8c/jpeglib.h' l='1047' type='boolean jpeg_finish_output(j_decompress_ptr cinfo)'/>
+<def f='codebrowser/code/jpeg-8c/jdapistd.c' l='252' ll='273' macro='1' type='boolean jpeg_finish_output(j_decompress_ptr cinfo)'/>
+<doc f='codebrowser/code/jpeg-8c/jdapistd.c' l='245'>/*
+ * Finish up after an output pass in buffered-image mode.
+ *
+ * Returns FALSE if suspended.  The return value need be inspected only if
+ * a suspending data source is used.
+ */</doc>

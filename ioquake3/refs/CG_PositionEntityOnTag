@@ -1,0 +1,11 @@
+<dec f='codebrowser/code/cgame/cg_local.h' l='1343' type='void CG_PositionEntityOnTag(refEntity_t * entity, const refEntity_t * parent, qhandle_t parentModel, char * tagName)'/>
+<def f='codebrowser/code/cgame/cg_ents.c' l='36' ll='54' type='void CG_PositionEntityOnTag(refEntity_t * entity, const refEntity_t * parent, qhandle_t parentModel, char * tagName)'/>
+<doc f='codebrowser/code/cgame/cg_ents.c' l='28'>/*
+======================
+CG_PositionEntityOnTag
+
+Modifies the entities position and axis by the given
+tag location
+======================
+*/</doc>
+<use f='codebrowser/code/cgame/cg_players.c' l='1667' u='c' c='CG_PlayerFlag'/>

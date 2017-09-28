@@ -1,0 +1,105 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>g_team.h source code [codebrowser/code/game/g_team.h] - Woboq Code Browser</title>
+<link rel="stylesheet" href="../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'codebrowser/code/game/g_team.h'; var root_path = '../../..'; var data_path = '../../../../data';</script>
+<script src='../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../..'>codebrowser</a>/<a href='..'>code</a>/<a href='./'>game</a>/<a href='g_team.h.html'>g_team.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/*</i></td></tr>
+<tr><th id="2">2</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="3">3</th><td><i>Copyright (C) 1999-2005 Id Software, Inc.</i></td></tr>
+<tr><th id="4">4</th><td><i></i></td></tr>
+<tr><th id="5">5</th><td><i>This file is part of Quake III Arena source code.</i></td></tr>
+<tr><th id="6">6</th><td><i></i></td></tr>
+<tr><th id="7">7</th><td><i>Quake III Arena source code is free software; you can redistribute it</i></td></tr>
+<tr><th id="8">8</th><td><i>and/or modify it under the terms of the GNU General Public License as</i></td></tr>
+<tr><th id="9">9</th><td><i>published by the Free Software Foundation; either version 2 of the License,</i></td></tr>
+<tr><th id="10">10</th><td><i>or (at your option) any later version.</i></td></tr>
+<tr><th id="11">11</th><td><i></i></td></tr>
+<tr><th id="12">12</th><td><i>Quake III Arena source code is distributed in the hope that it will be</i></td></tr>
+<tr><th id="13">13</th><td><i>useful, but WITHOUT ANY WARRANTY; without even the implied warranty of</i></td></tr>
+<tr><th id="14">14</th><td><i>MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</i></td></tr>
+<tr><th id="15">15</th><td><i>GNU General Public License for more details.</i></td></tr>
+<tr><th id="16">16</th><td><i></i></td></tr>
+<tr><th id="17">17</th><td><i>You should have received a copy of the GNU General Public License</i></td></tr>
+<tr><th id="18">18</th><td><i>along with Quake III Arena source code; if not, write to the Free Software</i></td></tr>
+<tr><th id="19">19</th><td><i>Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA</i></td></tr>
+<tr><th id="20">20</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="21">21</th><td><i>*/</i></td></tr>
+<tr><th id="22">22</th><td><i>//</i></td></tr>
+<tr><th id="23">23</th><td></td></tr>
+<tr><th id="24">24</th><td><u>#<span data-ppcond="24">ifdef</span> <span class="macro" data-ref="_M/MISSIONPACK">MISSIONPACK</span></u></td></tr>
+<tr><th id="25">25</th><td></td></tr>
+<tr><th id="26">26</th><td><u>#define CTF_CAPTURE_BONUS		100		// what you get for capture</u></td></tr>
+<tr><th id="27">27</th><td><u>#define CTF_TEAM_BONUS			25		// what your team gets for capture</u></td></tr>
+<tr><th id="28">28</th><td><u>#define CTF_RECOVERY_BONUS		10		// what you get for recovery</u></td></tr>
+<tr><th id="29">29</th><td><u>#define CTF_FLAG_BONUS			10		// what you get for picking up enemy flag</u></td></tr>
+<tr><th id="30">30</th><td><u>#define CTF_FRAG_CARRIER_BONUS	20		// what you get for fragging enemy flag carrier</u></td></tr>
+<tr><th id="31">31</th><td><u>#define CTF_FLAG_RETURN_TIME	40000	// seconds until auto return</u></td></tr>
+<tr><th id="32">32</th><td></td></tr>
+<tr><th id="33">33</th><td><u>#define CTF_CARRIER_DANGER_PROTECT_BONUS	5	// bonus for fraggin someone who has recently hurt your flag carrier</u></td></tr>
+<tr><th id="34">34</th><td><u>#define CTF_CARRIER_PROTECT_BONUS			2	// bonus for fraggin someone while either you or your target are near your flag carrier</u></td></tr>
+<tr><th id="35">35</th><td><u>#define CTF_FLAG_DEFENSE_BONUS				10	// bonus for fraggin someone while either you or your target are near your flag</u></td></tr>
+<tr><th id="36">36</th><td><u>#define CTF_RETURN_FLAG_ASSIST_BONUS		10	// awarded for returning a flag that causes a capture to happen almost immediately</u></td></tr>
+<tr><th id="37">37</th><td><u>#define CTF_FRAG_CARRIER_ASSIST_BONUS		10	// award for fragging a flag carrier if a capture happens almost immediately</u></td></tr>
+<tr><th id="38">38</th><td></td></tr>
+<tr><th id="39">39</th><td><u>#<span data-ppcond="24">else</span></u></td></tr>
+<tr><th id="40">40</th><td></td></tr>
+<tr><th id="41">41</th><td><u>#define <dfn class="macro" id="_M/CTF_CAPTURE_BONUS" data-ref="_M/CTF_CAPTURE_BONUS">CTF_CAPTURE_BONUS</dfn>		5		// what you get for capture</u></td></tr>
+<tr><th id="42">42</th><td><u>#define <dfn class="macro" id="_M/CTF_TEAM_BONUS" data-ref="_M/CTF_TEAM_BONUS">CTF_TEAM_BONUS</dfn>			0		// what your team gets for capture</u></td></tr>
+<tr><th id="43">43</th><td><u>#define <dfn class="macro" id="_M/CTF_RECOVERY_BONUS" data-ref="_M/CTF_RECOVERY_BONUS">CTF_RECOVERY_BONUS</dfn>		1		// what you get for recovery</u></td></tr>
+<tr><th id="44">44</th><td><u>#define <dfn class="macro" id="_M/CTF_FLAG_BONUS" data-ref="_M/CTF_FLAG_BONUS">CTF_FLAG_BONUS</dfn>			0		// what you get for picking up enemy flag</u></td></tr>
+<tr><th id="45">45</th><td><u>#define <dfn class="macro" id="_M/CTF_FRAG_CARRIER_BONUS" data-ref="_M/CTF_FRAG_CARRIER_BONUS">CTF_FRAG_CARRIER_BONUS</dfn>	2		// what you get for fragging enemy flag carrier</u></td></tr>
+<tr><th id="46">46</th><td><u>#define <dfn class="macro" id="_M/CTF_FLAG_RETURN_TIME" data-ref="_M/CTF_FLAG_RETURN_TIME">CTF_FLAG_RETURN_TIME</dfn>	40000	// seconds until auto return</u></td></tr>
+<tr><th id="47">47</th><td></td></tr>
+<tr><th id="48">48</th><td><u>#define <dfn class="macro" id="_M/CTF_CARRIER_DANGER_PROTECT_BONUS" data-ref="_M/CTF_CARRIER_DANGER_PROTECT_BONUS">CTF_CARRIER_DANGER_PROTECT_BONUS</dfn>	2	// bonus for fraggin someone who has recently hurt your flag carrier</u></td></tr>
+<tr><th id="49">49</th><td><u>#define <dfn class="macro" id="_M/CTF_CARRIER_PROTECT_BONUS" data-ref="_M/CTF_CARRIER_PROTECT_BONUS">CTF_CARRIER_PROTECT_BONUS</dfn>			1	// bonus for fraggin someone while either you or your target are near your flag carrier</u></td></tr>
+<tr><th id="50">50</th><td><u>#define <dfn class="macro" id="_M/CTF_FLAG_DEFENSE_BONUS" data-ref="_M/CTF_FLAG_DEFENSE_BONUS">CTF_FLAG_DEFENSE_BONUS</dfn>				1	// bonus for fraggin someone while either you or your target are near your flag</u></td></tr>
+<tr><th id="51">51</th><td><u>#define <dfn class="macro" id="_M/CTF_RETURN_FLAG_ASSIST_BONUS" data-ref="_M/CTF_RETURN_FLAG_ASSIST_BONUS">CTF_RETURN_FLAG_ASSIST_BONUS</dfn>		1	// awarded for returning a flag that causes a capture to happen almost immediately</u></td></tr>
+<tr><th id="52">52</th><td><u>#define <dfn class="macro" id="_M/CTF_FRAG_CARRIER_ASSIST_BONUS" data-ref="_M/CTF_FRAG_CARRIER_ASSIST_BONUS">CTF_FRAG_CARRIER_ASSIST_BONUS</dfn>		2	// award for fragging a flag carrier if a capture happens almost immediately</u></td></tr>
+<tr><th id="53">53</th><td></td></tr>
+<tr><th id="54">54</th><td><u>#<span data-ppcond="24">endif</span></u></td></tr>
+<tr><th id="55">55</th><td></td></tr>
+<tr><th id="56">56</th><td><u>#define <dfn class="macro" id="_M/CTF_TARGET_PROTECT_RADIUS" data-ref="_M/CTF_TARGET_PROTECT_RADIUS">CTF_TARGET_PROTECT_RADIUS</dfn>			1000	// the radius around an object being defended where a target will be worth extra frags</u></td></tr>
+<tr><th id="57">57</th><td><u>#define <dfn class="macro" id="_M/CTF_ATTACKER_PROTECT_RADIUS" data-ref="_M/CTF_ATTACKER_PROTECT_RADIUS">CTF_ATTACKER_PROTECT_RADIUS</dfn>			1000	// the radius around an object being defended where an attacker will get extra frags when making kills</u></td></tr>
+<tr><th id="58">58</th><td></td></tr>
+<tr><th id="59">59</th><td><u>#define <dfn class="macro" id="_M/CTF_CARRIER_DANGER_PROTECT_TIMEOUT" data-ref="_M/CTF_CARRIER_DANGER_PROTECT_TIMEOUT">CTF_CARRIER_DANGER_PROTECT_TIMEOUT</dfn>	8000</u></td></tr>
+<tr><th id="60">60</th><td><u>#define <dfn class="macro" id="_M/CTF_FRAG_CARRIER_ASSIST_TIMEOUT" data-ref="_M/CTF_FRAG_CARRIER_ASSIST_TIMEOUT">CTF_FRAG_CARRIER_ASSIST_TIMEOUT</dfn>		10000</u></td></tr>
+<tr><th id="61">61</th><td><u>#define <dfn class="macro" id="_M/CTF_RETURN_FLAG_ASSIST_TIMEOUT" data-ref="_M/CTF_RETURN_FLAG_ASSIST_TIMEOUT">CTF_RETURN_FLAG_ASSIST_TIMEOUT</dfn>		10000</u></td></tr>
+<tr><th id="62">62</th><td></td></tr>
+<tr><th id="63">63</th><td><u>#define <dfn class="macro" id="_M/CTF_GRAPPLE_SPEED" data-ref="_M/CTF_GRAPPLE_SPEED">CTF_GRAPPLE_SPEED</dfn>					750 // speed of grapple in flight</u></td></tr>
+<tr><th id="64">64</th><td><u>#define <dfn class="macro" id="_M/CTF_GRAPPLE_PULL_SPEED" data-ref="_M/CTF_GRAPPLE_PULL_SPEED">CTF_GRAPPLE_PULL_SPEED</dfn>				750	// speed player is pulled at</u></td></tr>
+<tr><th id="65">65</th><td></td></tr>
+<tr><th id="66">66</th><td><u>#define <dfn class="macro" id="_M/OVERLOAD_ATTACK_BASE_SOUND_TIME" data-ref="_M/OVERLOAD_ATTACK_BASE_SOUND_TIME">OVERLOAD_ATTACK_BASE_SOUND_TIME</dfn>		20000</u></td></tr>
+<tr><th id="67">67</th><td></td></tr>
+<tr><th id="68">68</th><td><i>// Prototypes</i></td></tr>
+<tr><th id="69">69</th><td></td></tr>
+<tr><th id="70">70</th><td><em>int</em> <dfn class="decl" id="OtherTeam" title='OtherTeam' data-ref="OtherTeam">OtherTeam</dfn>(<em>int</em> <dfn class="local col6 decl" id="236team" title='team' data-type='int' data-ref="236team">team</dfn>);</td></tr>
+<tr><th id="71">71</th><td><em>const</em> <em>char</em> *<dfn class="decl" id="TeamName" title='TeamName' data-ref="TeamName">TeamName</dfn>(<em>int</em> <dfn class="local col7 decl" id="237team" title='team' data-type='int' data-ref="237team">team</dfn>);</td></tr>
+<tr><th id="72">72</th><td><em>const</em> <em>char</em> *<dfn class="decl" id="TeamColorString" title='TeamColorString' data-ref="TeamColorString">TeamColorString</dfn>(<em>int</em> <dfn class="local col8 decl" id="238team" title='team' data-type='int' data-ref="238team">team</dfn>);</td></tr>
+<tr><th id="73">73</th><td><em>void</em> <dfn class="decl" id="AddTeamScore" title='AddTeamScore' data-ref="AddTeamScore">AddTeamScore</dfn>(<a class="typedef" href="../qcommon/q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="local col9 decl" id="239origin" title='origin' data-type='vec_t *' data-ref="239origin">origin</dfn>, <em>int</em> <dfn class="local col0 decl" id="240team" title='team' data-type='int' data-ref="240team">team</dfn>, <em>int</em> <dfn class="local col1 decl" id="241score" title='score' data-type='int' data-ref="241score">score</dfn>);</td></tr>
+<tr><th id="74">74</th><td></td></tr>
+<tr><th id="75">75</th><td><em>void</em> <dfn class="decl" id="Team_DroppedFlagThink" title='Team_DroppedFlagThink' data-ref="Team_DroppedFlagThink">Team_DroppedFlagThink</dfn>(<a class="typedef" href="g_local.h.html#gentity_t" title='gentity_t' data-type='struct gentity_s' data-ref="gentity_t">gentity_t</a> *<dfn class="local col2 decl" id="242ent" title='ent' data-type='gentity_t *' data-ref="242ent">ent</dfn>);</td></tr>
+<tr><th id="76">76</th><td><em>void</em> <dfn class="decl" id="Team_FragBonuses" title='Team_FragBonuses' data-ref="Team_FragBonuses">Team_FragBonuses</dfn>(<a class="typedef" href="g_local.h.html#gentity_t" title='gentity_t' data-type='struct gentity_s' data-ref="gentity_t">gentity_t</a> *<dfn class="local col3 decl" id="243targ" title='targ' data-type='gentity_t *' data-ref="243targ">targ</dfn>, <a class="typedef" href="g_local.h.html#gentity_t" title='gentity_t' data-type='struct gentity_s' data-ref="gentity_t">gentity_t</a> *<dfn class="local col4 decl" id="244inflictor" title='inflictor' data-type='gentity_t *' data-ref="244inflictor">inflictor</dfn>, <a class="typedef" href="g_local.h.html#gentity_t" title='gentity_t' data-type='struct gentity_s' data-ref="gentity_t">gentity_t</a> *<dfn class="local col5 decl" id="245attacker" title='attacker' data-type='gentity_t *' data-ref="245attacker">attacker</dfn>);</td></tr>
+<tr><th id="77">77</th><td><em>void</em> <dfn class="decl" id="Team_CheckHurtCarrier" title='Team_CheckHurtCarrier' data-ref="Team_CheckHurtCarrier">Team_CheckHurtCarrier</dfn>(<a class="typedef" href="g_local.h.html#gentity_t" title='gentity_t' data-type='struct gentity_s' data-ref="gentity_t">gentity_t</a> *<dfn class="local col6 decl" id="246targ" title='targ' data-type='gentity_t *' data-ref="246targ">targ</dfn>, <a class="typedef" href="g_local.h.html#gentity_t" title='gentity_t' data-type='struct gentity_s' data-ref="gentity_t">gentity_t</a> *<dfn class="local col7 decl" id="247attacker" title='attacker' data-type='gentity_t *' data-ref="247attacker">attacker</dfn>);</td></tr>
+<tr><th id="78">78</th><td><em>void</em> <dfn class="decl" id="Team_InitGame" title='Team_InitGame' data-ref="Team_InitGame">Team_InitGame</dfn>(<em>void</em>);</td></tr>
+<tr><th id="79">79</th><td><em>void</em> <dfn class="decl" id="Team_ReturnFlag" title='Team_ReturnFlag' data-ref="Team_ReturnFlag">Team_ReturnFlag</dfn>(<em>int</em> <dfn class="local col8 decl" id="248team" title='team' data-type='int' data-ref="248team">team</dfn>);</td></tr>
+<tr><th id="80">80</th><td><em>void</em> <dfn class="decl" id="Team_FreeEntity" title='Team_FreeEntity' data-ref="Team_FreeEntity">Team_FreeEntity</dfn>(<a class="typedef" href="g_local.h.html#gentity_t" title='gentity_t' data-type='struct gentity_s' data-ref="gentity_t">gentity_t</a> *<dfn class="local col9 decl" id="249ent" title='ent' data-type='gentity_t *' data-ref="249ent">ent</dfn>);</td></tr>
+<tr><th id="81">81</th><td><a class="typedef" href="g_local.h.html#gentity_t" title='gentity_t' data-type='struct gentity_s' data-ref="gentity_t">gentity_t</a> *<dfn class="decl" id="SelectCTFSpawnPoint" title='SelectCTFSpawnPoint' data-ref="SelectCTFSpawnPoint">SelectCTFSpawnPoint</dfn> ( <a class="typedef" href="bg_public.h.html#team_t" title='team_t' data-type='enum team_t' data-ref="team_t">team_t</a> <dfn class="local col0 decl" id="250team" title='team' data-type='team_t' data-ref="250team">team</dfn>, <em>int</em> <dfn class="local col1 decl" id="251teamstate" title='teamstate' data-type='int' data-ref="251teamstate">teamstate</dfn>, <a class="typedef" href="../qcommon/q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="local col2 decl" id="252origin" title='origin' data-type='vec_t *' data-ref="252origin">origin</dfn>, <a class="typedef" href="../qcommon/q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="local col3 decl" id="253angles" title='angles' data-type='vec_t *' data-ref="253angles">angles</dfn>, <a class="typedef" href="../qcommon/q_shared.h.html#qboolean" title='qboolean' data-type='enum qboolean' data-ref="qboolean">qboolean</a> <dfn class="local col4 decl" id="254isbot" title='isbot' data-type='qboolean' data-ref="254isbot">isbot</dfn> );</td></tr>
+<tr><th id="82">82</th><td><a class="typedef" href="g_local.h.html#gentity_t" title='gentity_t' data-type='struct gentity_s' data-ref="gentity_t">gentity_t</a> *<dfn class="decl" id="Team_GetLocation" title='Team_GetLocation' data-ref="Team_GetLocation">Team_GetLocation</dfn>(<a class="typedef" href="g_local.h.html#gentity_t" title='gentity_t' data-type='struct gentity_s' data-ref="gentity_t">gentity_t</a> *<dfn class="local col5 decl" id="255ent" title='ent' data-type='gentity_t *' data-ref="255ent">ent</dfn>);</td></tr>
+<tr><th id="83">83</th><td><a class="typedef" href="../qcommon/q_shared.h.html#qboolean" title='qboolean' data-type='enum qboolean' data-ref="qboolean">qboolean</a> <dfn class="decl" id="Team_GetLocationMsg" title='Team_GetLocationMsg' data-ref="Team_GetLocationMsg">Team_GetLocationMsg</dfn>(<a class="typedef" href="g_local.h.html#gentity_t" title='gentity_t' data-type='struct gentity_s' data-ref="gentity_t">gentity_t</a> *<dfn class="local col6 decl" id="256ent" title='ent' data-type='gentity_t *' data-ref="256ent">ent</dfn>, <em>char</em> *<dfn class="local col7 decl" id="257loc" title='loc' data-type='char *' data-ref="257loc">loc</dfn>, <em>int</em> <dfn class="local col8 decl" id="258loclen" title='loclen' data-type='int' data-ref="258loclen">loclen</dfn>);</td></tr>
+<tr><th id="84">84</th><td><em>void</em> <dfn class="decl" id="TeamplayInfoMessage" title='TeamplayInfoMessage' data-ref="TeamplayInfoMessage">TeamplayInfoMessage</dfn>( <a class="typedef" href="g_local.h.html#gentity_t" title='gentity_t' data-type='struct gentity_s' data-ref="gentity_t">gentity_t</a> *<dfn class="local col9 decl" id="259ent" title='ent' data-type='gentity_t *' data-ref="259ent">ent</dfn> );</td></tr>
+<tr><th id="85">85</th><td><em>void</em> <dfn class="decl" id="CheckTeamStatus" title='CheckTeamStatus' data-ref="CheckTeamStatus">CheckTeamStatus</dfn>(<em>void</em>);</td></tr>
+<tr><th id="86">86</th><td></td></tr>
+<tr><th id="87">87</th><td><em>int</em> <dfn class="decl" id="Pickup_Team" title='Pickup_Team' data-ref="Pickup_Team">Pickup_Team</dfn>( <a class="typedef" href="g_local.h.html#gentity_t" title='gentity_t' data-type='struct gentity_s' data-ref="gentity_t">gentity_t</a> *<dfn class="local col0 decl" id="260ent" title='ent' data-type='gentity_t *' data-ref="260ent">ent</dfn>, <a class="typedef" href="g_local.h.html#gentity_t" title='gentity_t' data-type='struct gentity_s' data-ref="gentity_t">gentity_t</a> *<dfn class="local col1 decl" id="261other" title='other' data-type='gentity_t *' data-ref="261other">other</dfn> );</td></tr>
+<tr><th id="88">88</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='ai_chat.c.html'>codebrowser/code/game/ai_chat.c</a><br/>Generated on <em>2017-Aug-29</em> from project codebrowser revision <em>63e07af</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

@@ -1,0 +1,52 @@
+<dec f='codebrowser/code/cgame/cg_local.h' l='1555' type='void trap_S_StartSound(vec_t * origin, int entityNum, int entchannel, sfxHandle_t sfx)'/>
+<doc f='codebrowser/code/cgame/cg_local.h' l='1553'>// normal sounds will have their volume dynamically changed as their entity
+// moves and the listener moves</doc>
+<use f='codebrowser/code/cgame/cg_ents.c' l='215' u='c' c='CG_Speaker'/>
+<use f='codebrowser/code/cgame/cg_event.c' l='370' u='c' c='CG_UseItem'/>
+<use f='codebrowser/code/cgame/cg_event.c' l='382' u='c' c='CG_UseItem'/>
+<use f='codebrowser/code/cgame/cg_event.c' l='499' u='c' c='CG_PainEvent'/>
+<use f='codebrowser/code/cgame/cg_event.c' l='501' u='c' c='CG_PainEvent'/>
+<use f='codebrowser/code/cgame/cg_event.c' l='504' u='c' c='CG_PainEvent'/>
+<use f='codebrowser/code/cgame/cg_event.c' l='555' u='c' c='CG_EntityEvent'/>
+<use f='codebrowser/code/cgame/cg_event.c' l='562' u='c' c='CG_EntityEvent'/>
+<use f='codebrowser/code/cgame/cg_event.c' l='569' u='c' c='CG_EntityEvent'/>
+<use f='codebrowser/code/cgame/cg_event.c' l='576' u='c' c='CG_EntityEvent'/>
+<use f='codebrowser/code/cgame/cg_event.c' l='583' u='c' c='CG_EntityEvent'/>
+<use f='codebrowser/code/cgame/cg_event.c' l='591' u='c' c='CG_EntityEvent'/>
+<use f='codebrowser/code/cgame/cg_event.c' l='601' u='c' c='CG_EntityEvent'/>
+<use f='codebrowser/code/cgame/cg_event.c' l='610' u='c' c='CG_EntityEvent'/>
+<use f='codebrowser/code/cgame/cg_event.c' l='672' u='c' c='CG_EntityEvent'/>
+<use f='codebrowser/code/cgame/cg_event.c' l='673' u='c' c='CG_EntityEvent'/>
+<use f='codebrowser/code/cgame/cg_event.c' l='678' u='c' c='CG_EntityEvent'/>
+<use f='codebrowser/code/cgame/cg_event.c' l='682' u='c' c='CG_EntityEvent'/>
+<use f='codebrowser/code/cgame/cg_event.c' l='712' u='c' c='CG_EntityEvent'/>
+<use f='codebrowser/code/cgame/cg_event.c' l='716' u='c' c='CG_EntityEvent'/>
+<use f='codebrowser/code/cgame/cg_event.c' l='720' u='c' c='CG_EntityEvent'/>
+<use f='codebrowser/code/cgame/cg_event.c' l='724' u='c' c='CG_EntityEvent'/>
+<use f='codebrowser/code/cgame/cg_event.c' l='743' u='c' c='CG_EntityEvent'/>
+<use f='codebrowser/code/cgame/cg_event.c' l='762' u='c' c='CG_EntityEvent'/>
+<use f='codebrowser/code/cgame/cg_event.c' l='786' u='c' c='CG_EntityEvent'/>
+<use f='codebrowser/code/cgame/cg_event.c' l='808' u='c' c='CG_EntityEvent'/>
+<use f='codebrowser/code/cgame/cg_event.c' l='887' u='c' c='CG_EntityEvent'/>
+<use f='codebrowser/code/cgame/cg_event.c' l='893' u='c' c='CG_EntityEvent'/>
+<use f='codebrowser/code/cgame/cg_event.c' l='899' u='c' c='CG_EntityEvent'/>
+<use f='codebrowser/code/cgame/cg_event.c' l='904' u='c' c='CG_EntityEvent'/>
+<use f='codebrowser/code/cgame/cg_event.c' l='910' u='c' c='CG_EntityEvent'/>
+<use f='codebrowser/code/cgame/cg_event.c' l='912' u='c' c='CG_EntityEvent'/>
+<use f='codebrowser/code/cgame/cg_event.c' l='1023' u='c' c='CG_EntityEvent'/>
+<use f='codebrowser/code/cgame/cg_event.c' l='1026' u='c' c='CG_EntityEvent'/>
+<use f='codebrowser/code/cgame/cg_event.c' l='1033' u='c' c='CG_EntityEvent'/>
+<use f='codebrowser/code/cgame/cg_event.c' l='1036' u='c' c='CG_EntityEvent'/>
+<use f='codebrowser/code/cgame/cg_event.c' l='1173' u='c' c='CG_EntityEvent'/>
+<use f='codebrowser/code/cgame/cg_event.c' l='1175' u='c' c='CG_EntityEvent'/>
+<use f='codebrowser/code/cgame/cg_event.c' l='1195' u='c' c='CG_EntityEvent'/>
+<use f='codebrowser/code/cgame/cg_event.c' l='1203' u='c' c='CG_EntityEvent'/>
+<use f='codebrowser/code/cgame/cg_event.c' l='1211' u='c' c='CG_EntityEvent'/>
+<use f='codebrowser/code/cgame/cg_event.c' l='1220' u='c' c='CG_EntityEvent'/>
+<use f='codebrowser/code/cgame/cg_localents.c' l='196' u='c' c='CG_FragmentBounceSound'/>
+<def f='codebrowser/code/cgame/cg_syscalls.c' l='189' ll='191' type='void trap_S_StartSound(vec_t * origin, int entityNum, int entchannel, sfxHandle_t sfx)'/>
+<use f='codebrowser/code/cgame/cg_view.c' l='711' u='c' c='CG_PowerupTimerSounds'/>
+<use f='codebrowser/code/cgame/cg_weapons.c' l='1710' u='c' c='CG_FireWeapon'/>
+<use f='codebrowser/code/cgame/cg_weapons.c' l='1723' u='c' c='CG_FireWeapon'/>
+<use f='codebrowser/code/cgame/cg_weapons.c' l='1902' u='c' c='CG_MissileHitWall'/>
+<use f='codebrowser/code/cgame/cg_weapons.c' l='2169' u='c' c='CG_Tracer'/>

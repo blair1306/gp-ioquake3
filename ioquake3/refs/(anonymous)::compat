@@ -1,0 +1,21 @@
+<dec f='codebrowser/code/qcommon/qcommon.h' l='233' type='qboolean'/>
+<dec f='codebrowser/code/client/client.h' l='266' type='qboolean'/>
+<offset>1252384</offset>
+<use f='codebrowser/code/client/cl_main.c' l='727' u='r' c='CL_Record_f'/>
+<use f='codebrowser/code/client/cl_main.c' l='739' u='r' c='CL_Record_f'/>
+<use f='codebrowser/code/client/cl_main.c' l='1145' u='w' c='CL_PlayDemo_f'/>
+<use f='codebrowser/code/client/cl_main.c' l='1147' u='w' c='CL_PlayDemo_f'/>
+<use f='codebrowser/code/client/cl_main.c' l='2384' u='w' c='CL_CheckForResend'/>
+<use f='codebrowser/code/client/cl_main.c' l='2386' u='r' c='CL_CheckForResend'/>
+<use f='codebrowser/code/client/cl_main.c' l='2634' u='w' c='CL_ConnectionlessPacket'/>
+<use f='codebrowser/code/client/cl_main.c' l='2650' u='w' c='CL_ConnectionlessPacket'/>
+<use f='codebrowser/code/client/cl_main.c' l='2652' u='r' c='CL_ConnectionlessPacket'/>
+<use f='codebrowser/code/client/cl_main.c' l='2706' u='r' c='CL_ConnectionlessPacket'/>
+<use f='codebrowser/code/client/cl_main.c' l='2728' u='r' c='CL_ConnectionlessPacket'/>
+<use f='codebrowser/code/client/cl_net_chan.c' l='156' u='r' c='CL_Netchan_Transmit'/>
+<use f='codebrowser/code/client/cl_net_chan.c' l='182' u='r' c='CL_Netchan_Process'/>
+<use f='codebrowser/code/client/cl_parse.c' l='358' u='r' c='CL_SystemInfoChanged'/>
+<use f='codebrowser/code/qcommon/net_chan.c' l='98' u='w' c='Netchan_Setup'/>
+<use f='codebrowser/code/qcommon/net_chan.c' l='127' u='r' c='Netchan_TransmitNextFragment'/>
+<use f='codebrowser/code/qcommon/net_chan.c' l='208' u='r' c='Netchan_Transmit'/>
+<use f='codebrowser/code/qcommon/net_chan.c' l='270' u='r' c='Netchan_Process'/>

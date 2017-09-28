@@ -1,0 +1,19 @@
+<dec f='codebrowser/code/qcommon/qcommon.h' l='648' type='long FS_SV_FOpenFileRead(const char * filename, fileHandle_t * fp)'/>
+<use f='codebrowser/code/client/cl_main.c' l='1348' u='c' c='CL_UpdateGUID'/>
+<use f='codebrowser/code/client/cl_main.c' l='3412' u='c' c='CL_GenerateQKey'/>
+<use f='codebrowser/code/client/cl_ui.c' l='55' u='c' c='LAN_LoadCachedServers'/>
+<use f='codebrowser/code/qcommon/common.c' l='2480' u='c' c='Com_ReadCDKey'/>
+<use f='codebrowser/code/qcommon/common.c' l='2510' u='c' c='Com_AppendCDKey'/>
+<def f='codebrowser/code/qcommon/files.c' l='710' ll='798' type='long FS_SV_FOpenFileRead(const char * filename, fileHandle_t * fp)'/>
+<use f='codebrowser/code/qcommon/files.c' l='2495' u='c' c='FS_GetModDescription'/>
+<doc f='codebrowser/code/qcommon/files.c' l='702'>/*
+===========
+FS_SV_FOpenFileRead
+
+Search for a file somewhere below the home path then base path
+in that order
+===========
+*/</doc>
+<use f='codebrowser/code/qcommon/md5.c' l='274' u='c' c='Com_MD5File'/>
+<use f='codebrowser/code/server/sv_ccmds.c' l='654' u='c' c='SV_RehashBans_f'/>
+<use f='codebrowser/code/server/sv_client.c' l='995' u='c' c='SV_WriteDownloadToClient'/>

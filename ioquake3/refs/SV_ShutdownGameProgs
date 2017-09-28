@@ -1,0 +1,13 @@
+<dec f='codebrowser/code/qcommon/common.c' l='1645' type='void SV_ShutdownGameProgs()'/>
+<use f='codebrowser/code/qcommon/common.c' l='1660' u='c' c='Hunk_Clear'/>
+<dec f='codebrowser/code/server/server.h' l='413' type='void SV_ShutdownGameProgs()'/>
+<def f='codebrowser/code/server/sv_game.c' l='859' ll='866' type='void SV_ShutdownGameProgs()'/>
+<doc f='codebrowser/code/server/sv_game.c' l='852'>/*
+===============
+SV_ShutdownGameProgs
+
+Called every time a map changes
+===============
+*/</doc>
+<use f='codebrowser/code/server/sv_init.c' l='410' u='c' c='SV_SpawnServer'/>
+<use f='codebrowser/code/server/sv_init.c' l='761' u='c' c='SV_Shutdown'/>

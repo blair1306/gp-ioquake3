@@ -1,0 +1,84 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>lburg.h source code [codebrowser/code/tools/lcc/lburg/lburg.h] - Woboq Code Browser</title>
+<meta name="woboq:interestingDefinitions" content="nonterm,rule,term,tree "/>
+<link rel="stylesheet" href="../../../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'codebrowser/code/tools/lcc/lburg/lburg.h'; var root_path = '../../../../..'; var data_path = '../../../../../../data';</script>
+<script src='../../../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../../../..'>codebrowser</a>/<a href='../../..'>code</a>/<a href='../..'>tools</a>/<a href='..'>lcc</a>/<a href='./'>lburg</a>/<a href='lburg.h.html'>lburg.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><u>#<span data-ppcond="1">ifndef</span> <span class="macro" data-ref="_M/BURG_INCLUDED">BURG_INCLUDED</span></u></td></tr>
+<tr><th id="2">2</th><td><u>#define <dfn class="macro" id="_M/BURG_INCLUDED" data-ref="_M/BURG_INCLUDED">BURG_INCLUDED</dfn></u></td></tr>
+<tr><th id="3">3</th><td></td></tr>
+<tr><th id="4">4</th><td><i>/* iburg.c: */</i></td></tr>
+<tr><th id="5">5</th><td><b>extern</b> <em>void</em> *<dfn class="decl" id="alloc" title='alloc' data-ref="alloc">alloc</dfn>(<em>int</em> <dfn class="local col1 decl" id="1nbytes" title='nbytes' data-type='int' data-ref="1nbytes">nbytes</dfn>);</td></tr>
+<tr><th id="6">6</th><td></td></tr>
+<tr><th id="7">7</th><td><b>typedef</b> <b>enum</b> { <dfn class="enum" id="TERM" title='TERM' data-ref="TERM">TERM</dfn>=<var>1</var>, <dfn class="enum" id="NONTERM" title='NONTERM' data-ref="NONTERM">NONTERM</dfn> } <dfn class="typedef" id="Kind" title='Kind' data-type='enum Kind' data-ref="Kind">Kind</dfn>;</td></tr>
+<tr><th id="8">8</th><td><b>typedef</b> <b>struct</b> <a class="type" href="#rule" title='rule' data-ref="rule">rule</a> *<dfn class="typedef" id="Rule" title='Rule' data-type='struct rule *' data-ref="Rule">Rule</dfn>;</td></tr>
+<tr><th id="9">9</th><td><b>typedef</b> <b>struct</b> <a class="type" href="#term" title='term' data-ref="term">term</a> *<dfn class="typedef" id="Term" title='Term' data-type='struct term *' data-ref="Term">Term</dfn>;</td></tr>
+<tr><th id="10">10</th><td><b>struct</b> <dfn class="type def" id="term" title='term' data-ref="term">term</dfn> {		<i>/* terminals: */</i></td></tr>
+<tr><th id="11">11</th><td>	<em>char</em> *<dfn class="decl" id="term::name" title='term::name' data-ref="term::name">name</dfn>;		<i>/* terminal name */</i></td></tr>
+<tr><th id="12">12</th><td>	<a class="typedef" href="#Kind" title='Kind' data-type='enum Kind' data-ref="Kind">Kind</a> <dfn class="decl" id="term::kind" title='term::kind' data-ref="term::kind">kind</dfn>;		<i>/* TERM */</i></td></tr>
+<tr><th id="13">13</th><td>	<em>int</em> <dfn class="decl" id="term::esn" title='term::esn' data-ref="term::esn">esn</dfn>;		<i>/* external symbol number */</i></td></tr>
+<tr><th id="14">14</th><td>	<em>int</em> <dfn class="decl" id="term::arity" title='term::arity' data-ref="term::arity">arity</dfn>;		<i>/* operator arity */</i></td></tr>
+<tr><th id="15">15</th><td>	<a class="typedef" href="#Term" title='Term' data-type='struct term *' data-ref="Term">Term</a> <dfn class="decl" id="term::link" title='term::link' data-ref="term::link">link</dfn>;		<i>/* next terminal in esn order */</i></td></tr>
+<tr><th id="16">16</th><td>	<a class="typedef" href="#Rule" title='Rule' data-type='struct rule *' data-ref="Rule">Rule</a> <dfn class="decl" id="term::rules" title='term::rules' data-ref="term::rules">rules</dfn>;		<i>/* rules whose pattern starts with term */</i></td></tr>
+<tr><th id="17">17</th><td>};</td></tr>
+<tr><th id="18">18</th><td></td></tr>
+<tr><th id="19">19</th><td><b>typedef</b> <b>struct</b> <a class="type" href="#nonterm" title='nonterm' data-ref="nonterm">nonterm</a> *<dfn class="typedef" id="Nonterm" title='Nonterm' data-type='struct nonterm *' data-ref="Nonterm">Nonterm</dfn>;</td></tr>
+<tr><th id="20">20</th><td><b>struct</b> <dfn class="type def" id="nonterm" title='nonterm' data-ref="nonterm">nonterm</dfn> {	<i>/* nonterminals: */</i></td></tr>
+<tr><th id="21">21</th><td>	<em>char</em> *<dfn class="decl" id="nonterm::name" title='nonterm::name' data-ref="nonterm::name">name</dfn>;		<i>/* nonterminal name */</i></td></tr>
+<tr><th id="22">22</th><td>	<a class="typedef" href="#Kind" title='Kind' data-type='enum Kind' data-ref="Kind">Kind</a> <dfn class="decl" id="nonterm::kind" title='nonterm::kind' data-ref="nonterm::kind">kind</dfn>;		<i>/* NONTERM */</i></td></tr>
+<tr><th id="23">23</th><td>	<em>int</em> <dfn class="decl" id="nonterm::number" title='nonterm::number' data-ref="nonterm::number">number</dfn>;		<i>/* identifying number */</i></td></tr>
+<tr><th id="24">24</th><td>	<em>int</em> <dfn class="decl" id="nonterm::lhscount" title='nonterm::lhscount' data-ref="nonterm::lhscount">lhscount</dfn>;		<i>/* # times nt appears in a rule lhs */</i></td></tr>
+<tr><th id="25">25</th><td>	<em>int</em> <dfn class="decl" id="nonterm::reached" title='nonterm::reached' data-ref="nonterm::reached">reached</dfn>;		<i>/* 1 iff reached from start nonterminal */</i></td></tr>
+<tr><th id="26">26</th><td>	<a class="typedef" href="#Rule" title='Rule' data-type='struct rule *' data-ref="Rule">Rule</a> <dfn class="decl" id="nonterm::rules" title='nonterm::rules' data-ref="nonterm::rules">rules</dfn>;		<i>/* rules w/nonterminal on lhs */</i></td></tr>
+<tr><th id="27">27</th><td>	<a class="typedef" href="#Rule" title='Rule' data-type='struct rule *' data-ref="Rule">Rule</a> <dfn class="decl" id="nonterm::chain" title='nonterm::chain' data-ref="nonterm::chain">chain</dfn>;		<i>/* chain rules w/nonterminal on rhs */</i></td></tr>
+<tr><th id="28">28</th><td>	<a class="typedef" href="#Nonterm" title='Nonterm' data-type='struct nonterm *' data-ref="Nonterm">Nonterm</a> <dfn class="decl" id="nonterm::link" title='nonterm::link' data-ref="nonterm::link">link</dfn>;		<i>/* next terminal in number order */</i></td></tr>
+<tr><th id="29">29</th><td>};</td></tr>
+<tr><th id="30">30</th><td><b>extern</b> <a class="typedef" href="#Nonterm" title='Nonterm' data-type='struct nonterm *' data-ref="Nonterm">Nonterm</a> <dfn class="decl" id="nonterm" title='nonterm' data-ref="nonterm">nonterm</dfn>(<em>char</em> *<dfn class="local col2 decl" id="2id" title='id' data-type='char *' data-ref="2id">id</dfn>);</td></tr>
+<tr><th id="31">31</th><td><b>extern</b> <a class="typedef" href="#Term" title='Term' data-type='struct term *' data-ref="Term">Term</a> <dfn class="decl" id="term" title='term' data-ref="term">term</dfn>(<em>char</em> *<dfn class="local col3 decl" id="3id" title='id' data-type='char *' data-ref="3id">id</dfn>, <em>int</em> <dfn class="local col4 decl" id="4esn" title='esn' data-type='int' data-ref="4esn">esn</dfn>);</td></tr>
+<tr><th id="32">32</th><td></td></tr>
+<tr><th id="33">33</th><td><b>typedef</b> <b>struct</b> <a class="type" href="#tree" title='tree' data-ref="tree">tree</a> *<dfn class="typedef" id="Tree" title='Tree' data-type='struct tree *' data-ref="Tree">Tree</dfn>;</td></tr>
+<tr><th id="34">34</th><td><b>struct</b> <dfn class="type def" id="tree" title='tree' data-ref="tree">tree</dfn> {		<i>/* tree patterns: */</i></td></tr>
+<tr><th id="35">35</th><td>	<em>void</em> *<dfn class="decl" id="tree::op" title='tree::op' data-ref="tree::op">op</dfn>;		<i>/* a terminal or nonterminal */</i></td></tr>
+<tr><th id="36">36</th><td>	<a class="typedef" href="#Tree" title='Tree' data-type='struct tree *' data-ref="Tree">Tree</a> <dfn class="decl" id="tree::left" title='tree::left' data-ref="tree::left">left</dfn>, <dfn class="decl" id="tree::right" title='tree::right' data-ref="tree::right">right</dfn>;	<i>/* operands */</i></td></tr>
+<tr><th id="37">37</th><td>	<em>int</em> <dfn class="decl" id="tree::nterms" title='tree::nterms' data-ref="tree::nterms">nterms</dfn>;		<i>/* number of terminal nodes in this tree */</i></td></tr>
+<tr><th id="38">38</th><td>};</td></tr>
+<tr><th id="39">39</th><td><b>extern</b> <a class="typedef" href="#Tree" title='Tree' data-type='struct tree *' data-ref="Tree">Tree</a> <dfn class="decl" id="tree" title='tree' data-ref="tree">tree</dfn>(<em>char</em> *<dfn class="local col5 decl" id="5op" title='op' data-type='char *' data-ref="5op">op</dfn>, <a class="typedef" href="#Tree" title='Tree' data-type='struct tree *' data-ref="Tree">Tree</a> <dfn class="local col6 decl" id="6left" title='left' data-type='Tree' data-ref="6left">left</dfn>, <a class="typedef" href="#Tree" title='Tree' data-type='struct tree *' data-ref="Tree">Tree</a> <dfn class="local col7 decl" id="7right" title='right' data-type='Tree' data-ref="7right">right</dfn>);</td></tr>
+<tr><th id="40">40</th><td></td></tr>
+<tr><th id="41">41</th><td><b>struct</b> <dfn class="type def" id="rule" title='rule' data-ref="rule">rule</dfn> {		<i>/* rules: */</i></td></tr>
+<tr><th id="42">42</th><td>	<a class="typedef" href="#Nonterm" title='Nonterm' data-type='struct nonterm *' data-ref="Nonterm">Nonterm</a> <dfn class="decl" id="rule::lhs" title='rule::lhs' data-ref="rule::lhs">lhs</dfn>;		<i>/* lefthand side nonterminal */</i></td></tr>
+<tr><th id="43">43</th><td>	<a class="typedef" href="#Tree" title='Tree' data-type='struct tree *' data-ref="Tree">Tree</a> <dfn class="decl" id="rule::pattern" title='rule::pattern' data-ref="rule::pattern">pattern</dfn>;		<i>/* rule pattern */</i></td></tr>
+<tr><th id="44">44</th><td>	<em>int</em> <dfn class="decl" id="rule::ern" title='rule::ern' data-ref="rule::ern">ern</dfn>;		<i>/* external rule number */</i></td></tr>
+<tr><th id="45">45</th><td>	<em>int</em> <dfn class="decl" id="rule::packed" title='rule::packed' data-ref="rule::packed">packed</dfn>;		<i>/* packed external rule number */</i></td></tr>
+<tr><th id="46">46</th><td>	<em>int</em> <dfn class="decl" id="rule::cost" title='rule::cost' data-ref="rule::cost">cost</dfn>;		<i>/* cost, if a constant */</i></td></tr>
+<tr><th id="47">47</th><td>	<em>char</em> *<dfn class="decl" id="rule::code" title='rule::code' data-ref="rule::code">code</dfn>;		<i>/* cost, if an expression */</i></td></tr>
+<tr><th id="48">48</th><td>	<em>char</em> *<dfn class="decl" id="rule::template" title='rule::template' data-ref="rule::template">template</dfn>;		<i>/* assembler template */</i></td></tr>
+<tr><th id="49">49</th><td>	<a class="typedef" href="#Rule" title='Rule' data-type='struct rule *' data-ref="Rule">Rule</a> <dfn class="decl" id="rule::link" title='rule::link' data-ref="rule::link">link</dfn>;		<i>/* next rule in ern order */</i></td></tr>
+<tr><th id="50">50</th><td>	<a class="typedef" href="#Rule" title='Rule' data-type='struct rule *' data-ref="Rule">Rule</a> <dfn class="decl" id="rule::next" title='rule::next' data-ref="rule::next">next</dfn>;		<i>/* next rule with same pattern root */</i></td></tr>
+<tr><th id="51">51</th><td>	<a class="typedef" href="#Rule" title='Rule' data-type='struct rule *' data-ref="Rule">Rule</a> <dfn class="decl" id="rule::chain" title='rule::chain' data-ref="rule::chain">chain</dfn>;		<i>/* next chain rule with same rhs */</i></td></tr>
+<tr><th id="52">52</th><td>	<a class="typedef" href="#Rule" title='Rule' data-type='struct rule *' data-ref="Rule">Rule</a> <dfn class="decl" id="rule::decode" title='rule::decode' data-ref="rule::decode">decode</dfn>;		<i>/* next rule with same lhs */</i></td></tr>
+<tr><th id="53">53</th><td>	<a class="typedef" href="#Rule" title='Rule' data-type='struct rule *' data-ref="Rule">Rule</a> <dfn class="decl" id="rule::kids" title='rule::kids' data-ref="rule::kids">kids</dfn>;		<i>/* next rule with same _kids pattern */</i></td></tr>
+<tr><th id="54">54</th><td>};</td></tr>
+<tr><th id="55">55</th><td><b>extern</b> <a class="typedef" href="#Rule" title='Rule' data-type='struct rule *' data-ref="Rule">Rule</a> <dfn class="decl" id="rule" title='rule' data-ref="rule">rule</dfn>(<em>char</em> *<dfn class="local col8 decl" id="8id" title='id' data-type='char *' data-ref="8id">id</dfn>, <a class="typedef" href="#Tree" title='Tree' data-type='struct tree *' data-ref="Tree">Tree</a> <dfn class="local col9 decl" id="9pattern" title='pattern' data-type='Tree' data-ref="9pattern">pattern</dfn>, <em>char</em> *<dfn class="local col0 decl" id="10template" title='template' data-type='char *' data-ref="10template">template</dfn>, <em>char</em> *<dfn class="local col1 decl" id="11code" title='code' data-type='char *' data-ref="11code">code</dfn>);</td></tr>
+<tr><th id="56">56</th><td></td></tr>
+<tr><th id="57">57</th><td><i>/* gram.y: */</i></td></tr>
+<tr><th id="58">58</th><td><em>void</em> <a class="decl" href="gram.c.html#yyerror" title='yyerror' data-ref="yyerror" id="yyerror">yyerror</a>(<em>char</em> *<dfn class="local col2 decl" id="12fmt" title='fmt' data-type='char *' data-ref="12fmt">fmt</dfn>, ...);</td></tr>
+<tr><th id="59">59</th><td><em>int</em> <a class="decl" href="gram.c.html#yyparse" title='yyparse' data-ref="yyparse" id="yyparse">yyparse</a>(<em>void</em>);</td></tr>
+<tr><th id="60">60</th><td><em>void</em> <a class="decl" href="gram.c.html#yywarn" title='yywarn' data-ref="yywarn" id="yywarn">yywarn</a>(<em>char</em> *<dfn class="local col3 decl" id="13fmt" title='fmt' data-type='char *' data-ref="13fmt">fmt</dfn>, ...);</td></tr>
+<tr><th id="61">61</th><td><b>extern</b> <em>int</em> <dfn class="decl" id="errcnt" title='errcnt' data-ref="errcnt">errcnt</dfn>;</td></tr>
+<tr><th id="62">62</th><td><b>extern</b> <a class="typedef" href="../../../../../include/stdio.h.html#FILE" title='FILE' data-type='struct _IO_FILE' data-ref="FILE">FILE</a> *<dfn class="decl" id="infp" title='infp' data-ref="infp">infp</dfn>;</td></tr>
+<tr><th id="63">63</th><td><b>extern</b> <a class="typedef" href="../../../../../include/stdio.h.html#FILE" title='FILE' data-type='struct _IO_FILE' data-ref="FILE">FILE</a> *<dfn class="decl" id="outfp" title='outfp' data-ref="outfp">outfp</dfn>;</td></tr>
+<tr><th id="64">64</th><td></td></tr>
+<tr><th id="65">65</th><td><u>#<span data-ppcond="1">endif</span></u></td></tr>
+<tr><th id="66">66</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='gram.c.html'>codebrowser/code/tools/lcc/lburg/gram.c</a><br/>Generated on <em>2017-Aug-29</em> from project codebrowser revision <em>63e07af</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

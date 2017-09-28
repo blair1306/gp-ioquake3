@@ -1,0 +1,12 @@
+<dec f='codebrowser/code/qcommon/qcommon.h' l='1086' type='qboolean Sys_DllExtension(const char * name)'/>
+<use f='codebrowser/code/qcommon/files.c' l='571' u='c' c='FS_CheckFilenameIsMutable'/>
+<use f='codebrowser/code/sys/sys_main.c' l='503' u='c' c='Sys_LoadDll'/>
+<use f='codebrowser/code/sys/sys_main.c' l='582' u='c' c='Sys_LoadGameDll'/>
+<def f='codebrowser/code/sys/sys_unix.c' l='923' ll='955' type='qboolean Sys_DllExtension(const char * name)'/>
+<doc f='codebrowser/code/sys/sys_unix.c' l='916'>/*
+=================
+Sys_DllExtension
+
+Check if filename should be allowed to be loaded as a DLL.
+=================
+*/</doc>

@@ -1,0 +1,13 @@
+<dec f='codebrowser/code/game/g_public.h' l='60' type='qboolean'/>
+<offset>1664</offset>
+<doc f='codebrowser/code/game/g_public.h' l='58'>//  (and is kept only for compatibility, as a struct pad)</doc>
+<doc f='codebrowser/code/game/g_public.h' l='60'>// qfalse if not in any good cluster</doc>
+<use f='codebrowser/code/game/ai_main.c' l='191' u='r' c='BotAI_GetEntityState'/>
+<use f='codebrowser/code/game/ai_main.c' l='1495' u='r' c='BotAIStartFrame'/>
+<use f='codebrowser/code/game/g_client.c' l='1000' u='r' c='ClientBegin'/>
+<use f='codebrowser/code/game/g_main.c' l='1819' u='r' c='G_RunFrame'/>
+<use f='codebrowser/code/game/g_trigger.c' l='347' u='r' c='hurt_use'/>
+<use f='codebrowser/code/server/sv_init.c' l='223' u='r' c='SV_CreateBaseline'/>
+<use f='codebrowser/code/server/sv_snapshot.c' l='323' u='r' c='SV_AddEntitiesVisibleFromPoint'/>
+<use f='codebrowser/code/server/sv_world.c' l='174' u='w' c='SV_UnlinkEntity'/>
+<use f='codebrowser/code/server/sv_world.c' l='354' u='w' c='SV_LinkEntity'/>

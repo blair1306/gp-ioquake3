@@ -1,0 +1,28 @@
+<dec f='codebrowser/code/qcommon/qcommon.h' l='830' type='int Com_Milliseconds()'/>
+<doc f='codebrowser/code/qcommon/qcommon.h' l='830'>// will be journaled properly</doc>
+<use f='codebrowser/code/client/cl_main.c' l='1542' u='c' c='CL_RequestMotd'/>
+<use f='codebrowser/code/client/cl_main.c' l='1771' u='c' c='CL_Connect_f'/>
+<use f='codebrowser/code/client/cl_main.c' l='4004' u='c' c='CL_ServerStatus'/>
+<use f='codebrowser/code/client/cl_main.c' l='4009' u='c' c='CL_ServerStatus'/>
+<use f='codebrowser/code/client/cl_main.c' l='4020' u='c' c='CL_ServerStatus'/>
+<use f='codebrowser/code/client/cl_main.c' l='4113' u='c' c='CL_ServerStatusResponse'/>
+<use f='codebrowser/code/client/snd_dma.c' l='197' u='c' c='S_ChannelMalloc'/>
+<use f='codebrowser/code/client/snd_dma.c' l='558' u='c' c='S_Base_StartSoundEx'/>
+<use f='codebrowser/code/client/snd_dma.c' l='882' u='c' c='S_AddLoopSounds'/>
+<use f='codebrowser/code/client/snd_dma.c' l='1309' u='c' c='S_Update_'/>
+<use f='codebrowser/code/client/snd_dma.c' l='1518' u='c' c='S_FreeOldestSound'/>
+<use f='codebrowser/code/client/snd_mem.c' l='237' u='c' c='S_LoadSound'/>
+<use f='codebrowser/code/client/snd_openal.c' l='532' u='c' c='S_AL_RegisterSound'/>
+<def f='codebrowser/code/qcommon/common.c' l='2254' ll='2267' type='int Com_Milliseconds()'/>
+<use f='codebrowser/code/qcommon/common.c' l='2306' u='c' c='Com_Freeze_f'/>
+<use f='codebrowser/code/qcommon/common.c' l='2309' u='c' c='Com_Freeze_f'/>
+<use f='codebrowser/code/qcommon/common.c' l='2826' u='c' c='Com_Init'/>
+<doc f='codebrowser/code/qcommon/common.c' l='2247'>/*
+================
+Com_Milliseconds
+
+Can be used for profiling, but will be journaled accurately
+================
+*/</doc>
+<use f='codebrowser/code/server/sv_game.c' l='891' u='c' c='SV_InitGameVM'/>
+<use f='codebrowser/code/server/sv_init.c' l='471' u='c' c='SV_SpawnServer'/>

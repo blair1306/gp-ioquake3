@@ -1,0 +1,137 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>be_ai_goal.h source code [codebrowser/code/botlib/be_ai_goal.h] - Woboq Code Browser</title>
+<meta name="woboq:interestingDefinitions" content="bot_goal_s "/>
+<link rel="stylesheet" href="../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'codebrowser/code/botlib/be_ai_goal.h'; var root_path = '../../..'; var data_path = '../../../../data';</script>
+<script src='../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../..'>codebrowser</a>/<a href='..'>code</a>/<a href='./'>botlib</a>/<a href='be_ai_goal.h.html'>be_ai_goal.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/*</i></td></tr>
+<tr><th id="2">2</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="3">3</th><td><i>Copyright (C) 1999-2005 Id Software, Inc.</i></td></tr>
+<tr><th id="4">4</th><td><i></i></td></tr>
+<tr><th id="5">5</th><td><i>This file is part of Quake III Arena source code.</i></td></tr>
+<tr><th id="6">6</th><td><i></i></td></tr>
+<tr><th id="7">7</th><td><i>Quake III Arena source code is free software; you can redistribute it</i></td></tr>
+<tr><th id="8">8</th><td><i>and/or modify it under the terms of the GNU General Public License as</i></td></tr>
+<tr><th id="9">9</th><td><i>published by the Free Software Foundation; either version 2 of the License,</i></td></tr>
+<tr><th id="10">10</th><td><i>or (at your option) any later version.</i></td></tr>
+<tr><th id="11">11</th><td><i></i></td></tr>
+<tr><th id="12">12</th><td><i>Quake III Arena source code is distributed in the hope that it will be</i></td></tr>
+<tr><th id="13">13</th><td><i>useful, but WITHOUT ANY WARRANTY; without even the implied warranty of</i></td></tr>
+<tr><th id="14">14</th><td><i>MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</i></td></tr>
+<tr><th id="15">15</th><td><i>GNU General Public License for more details.</i></td></tr>
+<tr><th id="16">16</th><td><i></i></td></tr>
+<tr><th id="17">17</th><td><i>You should have received a copy of the GNU General Public License</i></td></tr>
+<tr><th id="18">18</th><td><i>along with Quake III Arena source code; if not, write to the Free Software</i></td></tr>
+<tr><th id="19">19</th><td><i>Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA</i></td></tr>
+<tr><th id="20">20</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="21">21</th><td><i>*/</i></td></tr>
+<tr><th id="22">22</th><td><i>//</i></td></tr>
+<tr><th id="23">23</th><td><i>/*****************************************************************************</i></td></tr>
+<tr><th id="24">24</th><td><i> * name:		be_ai_goal.h</i></td></tr>
+<tr><th id="25">25</th><td><i> *</i></td></tr>
+<tr><th id="26">26</th><td><i> * desc:		goal AI</i></td></tr>
+<tr><th id="27">27</th><td><i> *</i></td></tr>
+<tr><th id="28">28</th><td><i> * $Archive: /source/code/botlib/be_ai_goal.h $</i></td></tr>
+<tr><th id="29">29</th><td><i> *</i></td></tr>
+<tr><th id="30">30</th><td><i> *****************************************************************************/</i></td></tr>
+<tr><th id="31">31</th><td></td></tr>
+<tr><th id="32">32</th><td><u>#define <dfn class="macro" id="_M/MAX_AVOIDGOALS" data-ref="_M/MAX_AVOIDGOALS">MAX_AVOIDGOALS</dfn>			256</u></td></tr>
+<tr><th id="33">33</th><td><u>#define <dfn class="macro" id="_M/MAX_GOALSTACK" data-ref="_M/MAX_GOALSTACK">MAX_GOALSTACK</dfn>			8</u></td></tr>
+<tr><th id="34">34</th><td></td></tr>
+<tr><th id="35">35</th><td><u>#define <dfn class="macro" id="_M/GFL_NONE" data-ref="_M/GFL_NONE">GFL_NONE</dfn>				0</u></td></tr>
+<tr><th id="36">36</th><td><u>#define <dfn class="macro" id="_M/GFL_ITEM" data-ref="_M/GFL_ITEM">GFL_ITEM</dfn>				1</u></td></tr>
+<tr><th id="37">37</th><td><u>#define <dfn class="macro" id="_M/GFL_ROAM" data-ref="_M/GFL_ROAM">GFL_ROAM</dfn>				2</u></td></tr>
+<tr><th id="38">38</th><td><u>#define <dfn class="macro" id="_M/GFL_DROPPED" data-ref="_M/GFL_DROPPED">GFL_DROPPED</dfn>				4</u></td></tr>
+<tr><th id="39">39</th><td></td></tr>
+<tr><th id="40">40</th><td><i>//a bot goal</i></td></tr>
+<tr><th id="41">41</th><td><b>typedef</b> <b>struct</b> <dfn class="type def" id="bot_goal_s" title='bot_goal_s' data-ref="bot_goal_s"><a class="type" href="#bot_goal_s" title='bot_goal_s' data-ref="bot_goal_s">bot_goal_s</a></dfn></td></tr>
+<tr><th id="42">42</th><td>{</td></tr>
+<tr><th id="43">43</th><td>	<a class="typedef" href="../qcommon/q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="decl" id="bot_goal_s::origin" title='bot_goal_s::origin' data-ref="bot_goal_s::origin">origin</dfn>;				<i>//origin of the goal</i></td></tr>
+<tr><th id="44">44</th><td>	<em>int</em> <dfn class="decl" id="bot_goal_s::areanum" title='bot_goal_s::areanum' data-ref="bot_goal_s::areanum">areanum</dfn>;				<i>//area number of the goal</i></td></tr>
+<tr><th id="45">45</th><td>	<a class="typedef" href="../qcommon/q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="decl" id="bot_goal_s::mins" title='bot_goal_s::mins' data-ref="bot_goal_s::mins">mins</dfn>, <dfn class="decl" id="bot_goal_s::maxs" title='bot_goal_s::maxs' data-ref="bot_goal_s::maxs">maxs</dfn>;			<i>//mins and maxs of the goal</i></td></tr>
+<tr><th id="46">46</th><td>	<em>int</em> <dfn class="decl" id="bot_goal_s::entitynum" title='bot_goal_s::entitynum' data-ref="bot_goal_s::entitynum">entitynum</dfn>;				<i>//number of the goal entity</i></td></tr>
+<tr><th id="47">47</th><td>	<em>int</em> <dfn class="decl" id="bot_goal_s::number" title='bot_goal_s::number' data-ref="bot_goal_s::number">number</dfn>;					<i>//goal number</i></td></tr>
+<tr><th id="48">48</th><td>	<em>int</em> <dfn class="decl" id="bot_goal_s::flags" title='bot_goal_s::flags' data-ref="bot_goal_s::flags">flags</dfn>;					<i>//goal flags</i></td></tr>
+<tr><th id="49">49</th><td>	<em>int</em> <dfn class="decl" id="bot_goal_s::iteminfo" title='bot_goal_s::iteminfo' data-ref="bot_goal_s::iteminfo">iteminfo</dfn>;				<i>//item information</i></td></tr>
+<tr><th id="50">50</th><td>} <dfn class="typedef" id="bot_goal_t" title='bot_goal_t' data-type='struct bot_goal_s' data-ref="bot_goal_t">bot_goal_t</dfn>;</td></tr>
+<tr><th id="51">51</th><td></td></tr>
+<tr><th id="52">52</th><td><i>//reset the whole goal state, but keep the item weights</i></td></tr>
+<tr><th id="53">53</th><td><em>void</em> <a class="decl" href="be_ai_goal.c.html#BotResetGoalState" title='BotResetGoalState' data-ref="BotResetGoalState" id="BotResetGoalState">BotResetGoalState</a>(<em>int</em> <dfn class="local col2 decl" id="22goalstate" title='goalstate' data-type='int' data-ref="22goalstate">goalstate</dfn>);</td></tr>
+<tr><th id="54">54</th><td><i>//reset avoid goals</i></td></tr>
+<tr><th id="55">55</th><td><em>void</em> <a class="decl" href="be_ai_goal.c.html#BotResetAvoidGoals" title='BotResetAvoidGoals' data-ref="BotResetAvoidGoals" id="BotResetAvoidGoals">BotResetAvoidGoals</a>(<em>int</em> <dfn class="local col3 decl" id="23goalstate" title='goalstate' data-type='int' data-ref="23goalstate">goalstate</dfn>);</td></tr>
+<tr><th id="56">56</th><td><i>//remove the goal with the given number from the avoid goals</i></td></tr>
+<tr><th id="57">57</th><td><em>void</em> <a class="decl" href="be_ai_goal.c.html#BotRemoveFromAvoidGoals" title='BotRemoveFromAvoidGoals' data-ref="BotRemoveFromAvoidGoals" id="BotRemoveFromAvoidGoals">BotRemoveFromAvoidGoals</a>(<em>int</em> <dfn class="local col4 decl" id="24goalstate" title='goalstate' data-type='int' data-ref="24goalstate">goalstate</dfn>, <em>int</em> <dfn class="local col5 decl" id="25number" title='number' data-type='int' data-ref="25number">number</dfn>);</td></tr>
+<tr><th id="58">58</th><td><i>//push a goal onto the goal stack</i></td></tr>
+<tr><th id="59">59</th><td><em>void</em> <a class="decl" href="be_ai_goal.c.html#BotPushGoal" title='BotPushGoal' data-ref="BotPushGoal" id="BotPushGoal">BotPushGoal</a>(<em>int</em> <dfn class="local col6 decl" id="26goalstate" title='goalstate' data-type='int' data-ref="26goalstate">goalstate</dfn>, <a class="typedef" href="#bot_goal_t" title='bot_goal_t' data-type='struct bot_goal_s' data-ref="bot_goal_t">bot_goal_t</a> *<dfn class="local col7 decl" id="27goal" title='goal' data-type='bot_goal_t *' data-ref="27goal">goal</dfn>);</td></tr>
+<tr><th id="60">60</th><td><i>//pop a goal from the goal stack</i></td></tr>
+<tr><th id="61">61</th><td><em>void</em> <a class="decl" href="be_ai_goal.c.html#BotPopGoal" title='BotPopGoal' data-ref="BotPopGoal" id="BotPopGoal">BotPopGoal</a>(<em>int</em> <dfn class="local col8 decl" id="28goalstate" title='goalstate' data-type='int' data-ref="28goalstate">goalstate</dfn>);</td></tr>
+<tr><th id="62">62</th><td><i>//empty the bot's goal stack</i></td></tr>
+<tr><th id="63">63</th><td><em>void</em> <a class="decl" href="be_ai_goal.c.html#BotEmptyGoalStack" title='BotEmptyGoalStack' data-ref="BotEmptyGoalStack" id="BotEmptyGoalStack">BotEmptyGoalStack</a>(<em>int</em> <dfn class="local col9 decl" id="29goalstate" title='goalstate' data-type='int' data-ref="29goalstate">goalstate</dfn>);</td></tr>
+<tr><th id="64">64</th><td><i>//dump the avoid goals</i></td></tr>
+<tr><th id="65">65</th><td><em>void</em> <a class="decl" href="be_ai_goal.c.html#BotDumpAvoidGoals" title='BotDumpAvoidGoals' data-ref="BotDumpAvoidGoals" id="BotDumpAvoidGoals">BotDumpAvoidGoals</a>(<em>int</em> <dfn class="local col0 decl" id="30goalstate" title='goalstate' data-type='int' data-ref="30goalstate">goalstate</dfn>);</td></tr>
+<tr><th id="66">66</th><td><i>//dump the goal stack</i></td></tr>
+<tr><th id="67">67</th><td><em>void</em> <a class="decl" href="be_ai_goal.c.html#BotDumpGoalStack" title='BotDumpGoalStack' data-ref="BotDumpGoalStack" id="BotDumpGoalStack">BotDumpGoalStack</a>(<em>int</em> <dfn class="local col1 decl" id="31goalstate" title='goalstate' data-type='int' data-ref="31goalstate">goalstate</dfn>);</td></tr>
+<tr><th id="68">68</th><td><i>//get the name name of the goal with the given number</i></td></tr>
+<tr><th id="69">69</th><td><em>void</em> <a class="decl" href="be_ai_goal.c.html#BotGoalName" title='BotGoalName' data-ref="BotGoalName" id="BotGoalName">BotGoalName</a>(<em>int</em> <dfn class="local col2 decl" id="32number" title='number' data-type='int' data-ref="32number">number</dfn>, <em>char</em> *<dfn class="local col3 decl" id="33name" title='name' data-type='char *' data-ref="33name">name</dfn>, <em>int</em> <dfn class="local col4 decl" id="34size" title='size' data-type='int' data-ref="34size">size</dfn>);</td></tr>
+<tr><th id="70">70</th><td><i>//get the top goal from the stack</i></td></tr>
+<tr><th id="71">71</th><td><em>int</em> <a class="decl" href="be_ai_goal.c.html#BotGetTopGoal" title='BotGetTopGoal' data-ref="BotGetTopGoal" id="BotGetTopGoal">BotGetTopGoal</a>(<em>int</em> <dfn class="local col5 decl" id="35goalstate" title='goalstate' data-type='int' data-ref="35goalstate">goalstate</dfn>, <a class="typedef" href="#bot_goal_t" title='bot_goal_t' data-type='struct bot_goal_s' data-ref="bot_goal_t">bot_goal_t</a> *<dfn class="local col6 decl" id="36goal" title='goal' data-type='bot_goal_t *' data-ref="36goal">goal</dfn>);</td></tr>
+<tr><th id="72">72</th><td><i>//get the second goal on the stack</i></td></tr>
+<tr><th id="73">73</th><td><em>int</em> <a class="decl" href="be_ai_goal.c.html#BotGetSecondGoal" title='BotGetSecondGoal' data-ref="BotGetSecondGoal" id="BotGetSecondGoal">BotGetSecondGoal</a>(<em>int</em> <dfn class="local col7 decl" id="37goalstate" title='goalstate' data-type='int' data-ref="37goalstate">goalstate</dfn>, <a class="typedef" href="#bot_goal_t" title='bot_goal_t' data-type='struct bot_goal_s' data-ref="bot_goal_t">bot_goal_t</a> *<dfn class="local col8 decl" id="38goal" title='goal' data-type='bot_goal_t *' data-ref="38goal">goal</dfn>);</td></tr>
+<tr><th id="74">74</th><td><i>//choose the best long term goal item for the bot</i></td></tr>
+<tr><th id="75">75</th><td><em>int</em> <a class="decl" href="be_ai_goal.c.html#BotChooseLTGItem" title='BotChooseLTGItem' data-ref="BotChooseLTGItem" id="BotChooseLTGItem">BotChooseLTGItem</a>(<em>int</em> <dfn class="local col9 decl" id="39goalstate" title='goalstate' data-type='int' data-ref="39goalstate">goalstate</dfn>, <a class="typedef" href="../qcommon/q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="local col0 decl" id="40origin" title='origin' data-type='vec_t *' data-ref="40origin">origin</dfn>, <em>int</em> *<dfn class="local col1 decl" id="41inventory" title='inventory' data-type='int *' data-ref="41inventory">inventory</dfn>, <em>int</em> <dfn class="local col2 decl" id="42travelflags" title='travelflags' data-type='int' data-ref="42travelflags">travelflags</dfn>);</td></tr>
+<tr><th id="76">76</th><td><i>//choose the best nearby goal item for the bot</i></td></tr>
+<tr><th id="77">77</th><td><i>//the item may not be further away from the current bot position than maxtime</i></td></tr>
+<tr><th id="78">78</th><td><i>//also the travel time from the nearby goal towards the long term goal may not</i></td></tr>
+<tr><th id="79">79</th><td><i>//be larger than the travel time towards the long term goal from the current bot position</i></td></tr>
+<tr><th id="80">80</th><td><em>int</em> <a class="decl" href="be_ai_goal.c.html#BotChooseNBGItem" title='BotChooseNBGItem' data-ref="BotChooseNBGItem" id="BotChooseNBGItem">BotChooseNBGItem</a>(<em>int</em> <dfn class="local col3 decl" id="43goalstate" title='goalstate' data-type='int' data-ref="43goalstate">goalstate</dfn>, <a class="typedef" href="../qcommon/q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="local col4 decl" id="44origin" title='origin' data-type='vec_t *' data-ref="44origin">origin</dfn>, <em>int</em> *<dfn class="local col5 decl" id="45inventory" title='inventory' data-type='int *' data-ref="45inventory">inventory</dfn>, <em>int</em> <dfn class="local col6 decl" id="46travelflags" title='travelflags' data-type='int' data-ref="46travelflags">travelflags</dfn>,</td></tr>
+<tr><th id="81">81</th><td>							<a class="typedef" href="#bot_goal_t" title='bot_goal_t' data-type='struct bot_goal_s' data-ref="bot_goal_t">bot_goal_t</a> *<dfn class="local col7 decl" id="47ltg" title='ltg' data-type='bot_goal_t *' data-ref="47ltg">ltg</dfn>, <em>float</em> <dfn class="local col8 decl" id="48maxtime" title='maxtime' data-type='float' data-ref="48maxtime">maxtime</dfn>);</td></tr>
+<tr><th id="82">82</th><td><i>//returns true if the bot touches the goal</i></td></tr>
+<tr><th id="83">83</th><td><em>int</em> <a class="decl" href="be_ai_goal.c.html#BotTouchingGoal" title='BotTouchingGoal' data-ref="BotTouchingGoal" id="BotTouchingGoal">BotTouchingGoal</a>(<a class="typedef" href="../qcommon/q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="local col9 decl" id="49origin" title='origin' data-type='vec_t *' data-ref="49origin">origin</dfn>, <a class="typedef" href="#bot_goal_t" title='bot_goal_t' data-type='struct bot_goal_s' data-ref="bot_goal_t">bot_goal_t</a> *<dfn class="local col0 decl" id="50goal" title='goal' data-type='bot_goal_t *' data-ref="50goal">goal</dfn>);</td></tr>
+<tr><th id="84">84</th><td><i>//returns true if the goal should be visible but isn't</i></td></tr>
+<tr><th id="85">85</th><td><em>int</em> <a class="decl" href="be_ai_goal.c.html#BotItemGoalInVisButNotVisible" title='BotItemGoalInVisButNotVisible' data-ref="BotItemGoalInVisButNotVisible" id="BotItemGoalInVisButNotVisible">BotItemGoalInVisButNotVisible</a>(<em>int</em> <dfn class="local col1 decl" id="51viewer" title='viewer' data-type='int' data-ref="51viewer">viewer</dfn>, <a class="typedef" href="../qcommon/q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="local col2 decl" id="52eye" title='eye' data-type='vec_t *' data-ref="52eye">eye</dfn>, <a class="typedef" href="../qcommon/q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="local col3 decl" id="53viewangles" title='viewangles' data-type='vec_t *' data-ref="53viewangles">viewangles</dfn>, <a class="typedef" href="#bot_goal_t" title='bot_goal_t' data-type='struct bot_goal_s' data-ref="bot_goal_t">bot_goal_t</a> *<dfn class="local col4 decl" id="54goal" title='goal' data-type='bot_goal_t *' data-ref="54goal">goal</dfn>);</td></tr>
+<tr><th id="86">86</th><td><i>//search for a goal for the given classname, the index can be used</i></td></tr>
+<tr><th id="87">87</th><td><i>//as a start point for the search when multiple goals are available with that same classname</i></td></tr>
+<tr><th id="88">88</th><td><em>int</em> <a class="decl" href="be_ai_goal.c.html#BotGetLevelItemGoal" title='BotGetLevelItemGoal' data-ref="BotGetLevelItemGoal" id="BotGetLevelItemGoal">BotGetLevelItemGoal</a>(<em>int</em> <dfn class="local col5 decl" id="55index" title='index' data-type='int' data-ref="55index">index</dfn>, <em>char</em> *<dfn class="local col6 decl" id="56classname" title='classname' data-type='char *' data-ref="56classname">classname</dfn>, <a class="typedef" href="#bot_goal_t" title='bot_goal_t' data-type='struct bot_goal_s' data-ref="bot_goal_t">bot_goal_t</a> *<dfn class="local col7 decl" id="57goal" title='goal' data-type='bot_goal_t *' data-ref="57goal">goal</dfn>);</td></tr>
+<tr><th id="89">89</th><td><i>//get the next camp spot in the map</i></td></tr>
+<tr><th id="90">90</th><td><em>int</em> <a class="decl" href="be_ai_goal.c.html#BotGetNextCampSpotGoal" title='BotGetNextCampSpotGoal' data-ref="BotGetNextCampSpotGoal" id="BotGetNextCampSpotGoal">BotGetNextCampSpotGoal</a>(<em>int</em> <dfn class="local col8 decl" id="58num" title='num' data-type='int' data-ref="58num">num</dfn>, <a class="typedef" href="#bot_goal_t" title='bot_goal_t' data-type='struct bot_goal_s' data-ref="bot_goal_t">bot_goal_t</a> *<dfn class="local col9 decl" id="59goal" title='goal' data-type='bot_goal_t *' data-ref="59goal">goal</dfn>);</td></tr>
+<tr><th id="91">91</th><td><i>//get the map location with the given name</i></td></tr>
+<tr><th id="92">92</th><td><em>int</em> <a class="decl" href="be_ai_goal.c.html#BotGetMapLocationGoal" title='BotGetMapLocationGoal' data-ref="BotGetMapLocationGoal" id="BotGetMapLocationGoal">BotGetMapLocationGoal</a>(<em>char</em> *<dfn class="local col0 decl" id="60name" title='name' data-type='char *' data-ref="60name">name</dfn>, <a class="typedef" href="#bot_goal_t" title='bot_goal_t' data-type='struct bot_goal_s' data-ref="bot_goal_t">bot_goal_t</a> *<dfn class="local col1 decl" id="61goal" title='goal' data-type='bot_goal_t *' data-ref="61goal">goal</dfn>);</td></tr>
+<tr><th id="93">93</th><td><i>//returns the avoid goal time</i></td></tr>
+<tr><th id="94">94</th><td><em>float</em> <a class="decl" href="be_ai_goal.c.html#BotAvoidGoalTime" title='BotAvoidGoalTime' data-ref="BotAvoidGoalTime" id="BotAvoidGoalTime">BotAvoidGoalTime</a>(<em>int</em> <dfn class="local col2 decl" id="62goalstate" title='goalstate' data-type='int' data-ref="62goalstate">goalstate</dfn>, <em>int</em> <dfn class="local col3 decl" id="63number" title='number' data-type='int' data-ref="63number">number</dfn>);</td></tr>
+<tr><th id="95">95</th><td><i>//set the avoid goal time</i></td></tr>
+<tr><th id="96">96</th><td><em>void</em> <a class="decl" href="be_ai_goal.c.html#BotSetAvoidGoalTime" title='BotSetAvoidGoalTime' data-ref="BotSetAvoidGoalTime" id="BotSetAvoidGoalTime">BotSetAvoidGoalTime</a>(<em>int</em> <dfn class="local col4 decl" id="64goalstate" title='goalstate' data-type='int' data-ref="64goalstate">goalstate</dfn>, <em>int</em> <dfn class="local col5 decl" id="65number" title='number' data-type='int' data-ref="65number">number</dfn>, <em>float</em> <dfn class="local col6 decl" id="66avoidtime" title='avoidtime' data-type='float' data-ref="66avoidtime">avoidtime</dfn>);</td></tr>
+<tr><th id="97">97</th><td><i>//initializes the items in the level</i></td></tr>
+<tr><th id="98">98</th><td><em>void</em> <a class="decl" href="be_ai_goal.c.html#BotInitLevelItems" title='BotInitLevelItems' data-ref="BotInitLevelItems" id="BotInitLevelItems">BotInitLevelItems</a>(<em>void</em>);</td></tr>
+<tr><th id="99">99</th><td><i>//regularly update dynamic entity items (dropped weapons, flags etc.)</i></td></tr>
+<tr><th id="100">100</th><td><em>void</em> <a class="decl" href="be_ai_goal.c.html#BotUpdateEntityItems" title='BotUpdateEntityItems' data-ref="BotUpdateEntityItems" id="BotUpdateEntityItems">BotUpdateEntityItems</a>(<em>void</em>);</td></tr>
+<tr><th id="101">101</th><td><i>//interbreed the goal fuzzy logic</i></td></tr>
+<tr><th id="102">102</th><td><em>void</em> <a class="decl" href="be_ai_goal.c.html#BotInterbreedGoalFuzzyLogic" title='BotInterbreedGoalFuzzyLogic' data-ref="BotInterbreedGoalFuzzyLogic" id="BotInterbreedGoalFuzzyLogic">BotInterbreedGoalFuzzyLogic</a>(<em>int</em> <dfn class="local col7 decl" id="67parent1" title='parent1' data-type='int' data-ref="67parent1">parent1</dfn>, <em>int</em> <dfn class="local col8 decl" id="68parent2" title='parent2' data-type='int' data-ref="68parent2">parent2</dfn>, <em>int</em> <dfn class="local col9 decl" id="69child" title='child' data-type='int' data-ref="69child">child</dfn>);</td></tr>
+<tr><th id="103">103</th><td><i>//save the goal fuzzy logic to disk</i></td></tr>
+<tr><th id="104">104</th><td><em>void</em> <a class="decl" href="be_ai_goal.c.html#BotSaveGoalFuzzyLogic" title='BotSaveGoalFuzzyLogic' data-ref="BotSaveGoalFuzzyLogic" id="BotSaveGoalFuzzyLogic">BotSaveGoalFuzzyLogic</a>(<em>int</em> <dfn class="local col0 decl" id="70goalstate" title='goalstate' data-type='int' data-ref="70goalstate">goalstate</dfn>, <em>char</em> *<dfn class="local col1 decl" id="71filename" title='filename' data-type='char *' data-ref="71filename">filename</dfn>);</td></tr>
+<tr><th id="105">105</th><td><i>//mutate the goal fuzzy logic</i></td></tr>
+<tr><th id="106">106</th><td><em>void</em> <a class="decl" href="be_ai_goal.c.html#BotMutateGoalFuzzyLogic" title='BotMutateGoalFuzzyLogic' data-ref="BotMutateGoalFuzzyLogic" id="BotMutateGoalFuzzyLogic">BotMutateGoalFuzzyLogic</a>(<em>int</em> <dfn class="local col2 decl" id="72goalstate" title='goalstate' data-type='int' data-ref="72goalstate">goalstate</dfn>, <em>float</em> <dfn class="local col3 decl" id="73range" title='range' data-type='float' data-ref="73range">range</dfn>);</td></tr>
+<tr><th id="107">107</th><td><i>//loads item weights for the bot</i></td></tr>
+<tr><th id="108">108</th><td><em>int</em> <a class="decl" href="be_ai_goal.c.html#BotLoadItemWeights" title='BotLoadItemWeights' data-ref="BotLoadItemWeights" id="BotLoadItemWeights">BotLoadItemWeights</a>(<em>int</em> <dfn class="local col4 decl" id="74goalstate" title='goalstate' data-type='int' data-ref="74goalstate">goalstate</dfn>, <em>char</em> *<dfn class="local col5 decl" id="75filename" title='filename' data-type='char *' data-ref="75filename">filename</dfn>);</td></tr>
+<tr><th id="109">109</th><td><i>//frees the item weights of the bot</i></td></tr>
+<tr><th id="110">110</th><td><em>void</em> <a class="decl" href="be_ai_goal.c.html#BotFreeItemWeights" title='BotFreeItemWeights' data-ref="BotFreeItemWeights" id="BotFreeItemWeights">BotFreeItemWeights</a>(<em>int</em> <dfn class="local col6 decl" id="76goalstate" title='goalstate' data-type='int' data-ref="76goalstate">goalstate</dfn>);</td></tr>
+<tr><th id="111">111</th><td><i>//returns the handle of a newly allocated goal state</i></td></tr>
+<tr><th id="112">112</th><td><em>int</em> <a class="decl" href="be_ai_goal.c.html#BotAllocGoalState" title='BotAllocGoalState' data-ref="BotAllocGoalState" id="BotAllocGoalState">BotAllocGoalState</a>(<em>int</em> <dfn class="local col7 decl" id="77client" title='client' data-type='int' data-ref="77client">client</dfn>);</td></tr>
+<tr><th id="113">113</th><td><i>//free the given goal state</i></td></tr>
+<tr><th id="114">114</th><td><em>void</em> <a class="decl" href="be_ai_goal.c.html#BotFreeGoalState" title='BotFreeGoalState' data-ref="BotFreeGoalState" id="BotFreeGoalState">BotFreeGoalState</a>(<em>int</em> <dfn class="local col8 decl" id="78handle" title='handle' data-type='int' data-ref="78handle">handle</dfn>);</td></tr>
+<tr><th id="115">115</th><td><i>//setup the goal AI</i></td></tr>
+<tr><th id="116">116</th><td><em>int</em> <a class="decl" href="be_ai_goal.c.html#BotSetupGoalAI" title='BotSetupGoalAI' data-ref="BotSetupGoalAI" id="BotSetupGoalAI">BotSetupGoalAI</a>(<em>void</em>);</td></tr>
+<tr><th id="117">117</th><td><i>//shut down the goal AI</i></td></tr>
+<tr><th id="118">118</th><td><em>void</em> <a class="decl" href="be_ai_goal.c.html#BotShutdownGoalAI" title='BotShutdownGoalAI' data-ref="BotShutdownGoalAI" id="BotShutdownGoalAI">BotShutdownGoalAI</a>(<em>void</em>);</td></tr>
+<tr><th id="119">119</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='be_ai_goal.c.html'>codebrowser/code/botlib/be_ai_goal.c</a><br/>Generated on <em>2017-Aug-29</em> from project codebrowser revision <em>63e07af</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

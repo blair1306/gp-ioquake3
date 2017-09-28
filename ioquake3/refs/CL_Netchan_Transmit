@@ -1,0 +1,12 @@
+<dec f='codebrowser/code/client/client.h' l='626' type='void CL_Netchan_Transmit(netchan_t * chan, msg_t * msg)'/>
+<doc f='codebrowser/code/client/client.h' l='623'>//
+// cl_net_chan.c
+//</doc>
+<doc f='codebrowser/code/client/client.h' l='626'>//int length, const byte *data );</doc>
+<use f='codebrowser/code/client/cl_input.c' l='894' u='c' c='CL_WritePacket'/>
+<def f='codebrowser/code/client/cl_net_chan.c' l='152' ll='167' type='void CL_Netchan_Transmit(netchan_t * chan, msg_t * msg)'/>
+<doc f='codebrowser/code/client/cl_net_chan.c' l='147'>/*
+===============
+CL_Netchan_Transmit
+================
+*/</doc>

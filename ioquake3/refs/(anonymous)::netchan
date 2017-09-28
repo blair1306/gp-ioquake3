@@ -1,0 +1,14 @@
+<dec f='codebrowser/code/client/client.h' l='270' type='netchan_t'/>
+<offset>1252416</offset>
+<doc f='codebrowser/code/client/client.h' l='269'>// big stuff at end of structure so most offsets are 15 bits or less</doc>
+<use f='codebrowser/code/client/cl_input.c' l='697' u='m' c='CL_ReadyToSendPacket'/>
+<use f='codebrowser/code/client/cl_input.c' l='702' u='m' c='CL_ReadyToSendPacket'/>
+<use f='codebrowser/code/client/cl_input.c' l='712' u='m' c='CL_ReadyToSendPacket'/>
+<use f='codebrowser/code/client/cl_input.c' l='791' u='m' c='CL_WritePacket'/>
+<use f='codebrowser/code/client/cl_input.c' l='884' u='m' c='CL_WritePacket'/>
+<use f='codebrowser/code/client/cl_input.c' l='894' u='a' c='CL_WritePacket'/>
+<use f='codebrowser/code/client/cl_main.c' l='1878' u='m' c='CL_Rcon_f'/>
+<use f='codebrowser/code/client/cl_main.c' l='2727' u='a' c='CL_ConnectionlessPacket'/>
+<use f='codebrowser/code/client/cl_main.c' l='2829' u='m' c='CL_PacketEvent'/>
+<use f='codebrowser/code/client/cl_main.c' l='2836' u='a' c='CL_PacketEvent'/>
+<use f='codebrowser/code/client/cl_parse.c' l='310' u='m' c='CL_ParseSnapshot'/>

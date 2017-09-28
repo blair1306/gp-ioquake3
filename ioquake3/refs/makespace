@@ -1,0 +1,10 @@
+<dec f='codebrowser/code/tools/lcc/cpp/cpp.h' l='132' type='void makespace(Tokenrow * )'/>
+<use f='codebrowser/code/tools/lcc/cpp/macro.c' l='267' u='c' c='gatherargs'/>
+<use f='codebrowser/code/tools/lcc/cpp/macro.c' l='279' u='c' c='gatherargs'/>
+<use f='codebrowser/code/tools/lcc/cpp/macro.c' l='388' u='c' c='doconcat'/>
+<use f='codebrowser/code/tools/lcc/cpp/tokens.c' l='139' u='c' c='insertrow'/>
+<use f='codebrowser/code/tools/lcc/cpp/tokens.c' l='141' u='c' c='insertrow'/>
+<def f='codebrowser/code/tools/lcc/cpp/tokens.c' l='147' ll='171' type='void makespace(Tokenrow * trp)'/>
+<doc f='codebrowser/code/tools/lcc/cpp/tokens.c' l='144'>/*
+ * make sure there is WS before trp-&gt;tp, if tokens might merge in the output
+ */</doc>

@@ -1,0 +1,12 @@
+<dec f='codebrowser/code/server/server.h' l='371' type='void SV_AuthorizeIpPacket(netadr_t from)'/>
+<def f='codebrowser/code/server/sv_client.c' l='216' ll='279' type='void SV_AuthorizeIpPacket(netadr_t from)'/>
+<doc f='codebrowser/code/server/sv_client.c' l='207'>/*
+====================
+SV_AuthorizeIpPacket
+
+A packet has been returned from the authorize server.
+If we have a challenge adr for that ip, send the
+challengeResponse to it
+====================
+*/</doc>
+<use f='codebrowser/code/server/sv_main.c' l='806' u='c' c='SV_ConnectionlessPacket'/>

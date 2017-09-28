@@ -1,0 +1,13 @@
+<dec f='codebrowser/code/qcommon/qcommon.h' l='1001' type='void CL_MapLoading()'/>
+<def f='codebrowser/code/client/cl_main.c' l='1284' ll='1320' type='void CL_MapLoading()'/>
+<doc f='codebrowser/code/client/cl_main.c' l='1275'>/*
+=====================
+CL_MapLoading
+
+A local server is starting to load a map, so update the
+screen to let the user know about it, then dump all client
+memory on the hunk from cgame, ui, and renderer
+=====================
+*/</doc>
+<def f='codebrowser/code/null/null_client.c' l='54' ll='55' type='void CL_MapLoading()'/>
+<use f='codebrowser/code/server/sv_init.c' l='417' u='c' c='SV_SpawnServer'/>

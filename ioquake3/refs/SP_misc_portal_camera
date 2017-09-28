@@ -1,0 +1,10 @@
+<def f='codebrowser/code/game/g_misc.c' l='228' ll='238' type='void SP_misc_portal_camera(gentity_t * ent)'/>
+<doc f='codebrowser/code/game/g_misc.c' l='224'>/*QUAKED misc_portal_camera (0 0 1) (-8 -8 -8) (8 8 8) slowrotate fastrotate noswing
+The target for a misc_portal_director.  You can set either angles or target another entity to determine the direction of view.
+&quot;roll&quot; an angle modifier to orient the camera around the target vector;
+*/</doc>
+<dec f='codebrowser/code/game/g_spawn.c' l='164' type='void SP_misc_portal_camera(gentity_t * ent)'/>
+<use f='codebrowser/code/game/g_spawn.c' l='238'/>
+<use f='codebrowser/code/game/g_spawn.c' l='238'/>
+<use f='codebrowser/code/game/g_spawn.c' l='238'/>
+<use f='codebrowser/code/game/g_spawn.c' l='238'/>

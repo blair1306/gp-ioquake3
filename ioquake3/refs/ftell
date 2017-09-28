@@ -1,0 +1,13 @@
+<dec f='include/stdio.h' l='754' type='long ftell(FILE * __stream)'/>
+<doc f='include/stdio.h' l='750'>/* Return the current position of STREAM.
+
+   This function is a possible cancellation point and therefore not
+   marked with __THROW.  */</doc>
+<use f='codebrowser/code/qcommon/files.c' l='438' u='c' c='FS_fplength'/>
+<use f='codebrowser/code/qcommon/files.c' l='440' u='c' c='FS_fplength'/>
+<use f='codebrowser/code/qcommon/files.c' l='4124' u='c' c='FS_FTell'/>
+<use f='codebrowser/code/qcommon/ioapi.c' l='123' u='c' c='ftell_file_func'/>
+<use f='codebrowser/code/tools/asm/cmdlib.c' l='629' u='c' c='Q_filelength'/>
+<use f='codebrowser/code/tools/asm/cmdlib.c' l='631' u='c' c='Q_filelength'/>
+<use f='codebrowser/code/tools/lcc/src/bytecode.c' l='243' u='c' c='filelength'/>
+<use f='codebrowser/code/tools/lcc/src/bytecode.c' l='245' u='c' c='filelength'/>

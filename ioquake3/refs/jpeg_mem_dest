@@ -1,0 +1,12 @@
+<dec f='codebrowser/code/jpeg-8c/jpeglib.h' l='958' type='void jpeg_mem_dest(j_compress_ptr cinfo, unsigned char ** outbuffer, unsigned long * outsize)'/>
+<def f='codebrowser/code/jpeg-8c/jdatadst.c' l='231' ll='267' macro='1' type='void jpeg_mem_dest(j_compress_ptr cinfo, unsigned char ** outbuffer, unsigned long * outsize)'/>
+<doc f='codebrowser/code/jpeg-8c/jdatadst.c' l='220'>/*
+ * Prepare for output to a memory buffer.
+ * The caller may supply an own initial buffer with appropriate size.
+ * Otherwise, or when the actual data output exceeds the given size,
+ * the library adapts the buffer size as necessary.
+ * The standard library functions malloc/free are used for allocating
+ * larger memory, so the buffer is available to the application after
+ * finishing compression, and then the application is responsible for
+ * freeing the requested memory.
+ */</doc>

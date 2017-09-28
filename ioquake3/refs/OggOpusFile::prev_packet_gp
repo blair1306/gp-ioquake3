@@ -1,0 +1,20 @@
+<dec f='codebrowser/code/opusfile-0.8/src/internal.h' l='188' type='ogg_int64_t'/>
+<offset>1088</offset>
+<doc f='codebrowser/code/opusfile-0.8/src/internal.h' l='187'>/*The granule position of the previous packet (current packet start time).*/</doc>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='954' u='w' c='op_find_initial_pcm_offset'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='1452' u='w' c='op_open_seekable2'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='1467' u='w' c='op_decode_clear'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='1897' u='w' c='op_fetch_and_process_page'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='1965' u='r' c='op_fetch_and_process_page'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='2077' u='w' c='op_fetch_and_process_page'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='2107' u='w' c='op_raw_seek'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='2294' u='w' c='op_pcm_seek_page'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='2496' u='w' c='op_pcm_seek_page'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='2501' u='r' c='op_pcm_seek_page'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='2533' u='r' c='op_pcm_seek'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='2566' u='r' c='op_pcm_seek'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='2576' u='w' c='op_pcm_seek'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='2646' u='r' c='op_pcm_tell'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='2784' u='r' c='op_read_native'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='2788' u='r' c='op_read_native'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='2792' u='w' c='op_read_native'/>

@@ -1,0 +1,11 @@
+<dec f='codebrowser/code/game/g_local.h' l='332' type='struct gentity_s *'/>
+<offset>64</offset>
+<use f='codebrowser/code/game/g_main.c' l='454' u='w' c='G_InitGame'/>
+<use f='codebrowser/code/game/g_main.c' l='476' u='r' c='G_InitGame'/>
+<use f='codebrowser/code/game/g_utils.c' l='428' u='r' c='G_Spawn'/>
+<dec f='codebrowser/code/server/server.h' l='87' type='sharedEntity_t *'/>
+<offset>2621824</offset>
+<doc f='codebrowser/code/server/server.h' l='86'>// the game virtual machine will update these on init and changes</doc>
+<use f='codebrowser/code/server/sv_game.c' l='35' u='r' c='SV_NumForGentity'/>
+<use f='codebrowser/code/server/sv_game.c' l='43' u='r' c='SV_GentityNum'/>
+<use f='codebrowser/code/server/sv_game.c' l='255' u='w' c='SV_LocateGameData'/>

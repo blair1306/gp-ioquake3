@@ -1,0 +1,15 @@
+<dec f='codebrowser/code/qcommon/qcommon.h' l='624' type='void FS_FreeFileList(char ** list)'/>
+<doc f='codebrowser/code/qcommon/qcommon.h' l='620'>// directory should not have either a leading or trailing /
+// if extension is &quot;/&quot;, only subdirectories will be returned
+// the returned files will not include any directories or /</doc>
+<use f='codebrowser/code/client/cl_main.c' l='3260' u='r' c='CL_InitRef'/>
+<def f='codebrowser/code/qcommon/files.c' l='2367' ll='2383' type='void FS_FreeFileList(char ** list)'/>
+<use f='codebrowser/code/qcommon/files.c' l='2418' u='c' c='FS_GetFileList'/>
+<use f='codebrowser/code/qcommon/files.c' l='2649' u='c' c='FS_Dir_f'/>
+<use f='codebrowser/code/qcommon/files.c' l='2763' u='c' c='FS_NewDir_f'/>
+<use f='codebrowser/code/qcommon/files.c' l='4154' u='c' c='FS_FilenameCompletion'/>
+<doc f='codebrowser/code/qcommon/files.c' l='2362'>/*
+=================
+FS_FreeFileList
+=================
+*/</doc>

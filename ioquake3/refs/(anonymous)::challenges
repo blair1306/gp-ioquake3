@@ -1,0 +1,11 @@
+<dec f='codebrowser/code/server/server.h' l='242' type='challenge_t [2048]'/>
+<offset>384</offset>
+<doc f='codebrowser/code/server/server.h' l='242'>// to prevent invalid IPs from connecting</doc>
+<use f='codebrowser/code/server/sv_client.c' l='106' u='a' c='SV_GetChallenge'/>
+<use f='codebrowser/code/server/sv_client.c' l='135' u='a' c='SV_GetChallenge'/>
+<use f='codebrowser/code/server/sv_client.c' l='231' u='m' c='SV_AuthorizeIpPacket'/>
+<use f='codebrowser/code/server/sv_client.c' l='240' u='a' c='SV_AuthorizeIpPacket'/>
+<use f='codebrowser/code/server/sv_client.c' l='412' u='m' c='SV_DirectConnect'/>
+<use f='codebrowser/code/server/sv_client.c' l='414' u='m' c='SV_DirectConnect'/>
+<use f='codebrowser/code/server/sv_client.c' l='425' u='a' c='SV_DirectConnect'/>
+<use f='codebrowser/code/server/sv_client.c' l='649' u='a' c='SV_DropClient'/>

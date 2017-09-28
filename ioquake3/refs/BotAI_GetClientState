@@ -1,0 +1,14 @@
+<dec f='codebrowser/code/game/ai_main.h' l='290' type='int BotAI_GetClientState(int clientNum, playerState_t * state)'/>
+<use f='codebrowser/code/game/ai_chat.c' l='103' u='c' c='BotIsFirstInRankings'/>
+<use f='codebrowser/code/game/ai_chat.c' l='126' u='c' c='BotIsLastInRankings'/>
+<use f='codebrowser/code/game/ai_chat.c' l='151' u='c' c='BotFirstClientInRankings'/>
+<use f='codebrowser/code/game/ai_chat.c' l='180' u='c' c='BotLastClientInRankings'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='209' u='c' c='EntityIsDead'/>
+<def f='codebrowser/code/game/ai_main.c' l='165' ll='178' type='int BotAI_GetClientState(int clientNum, playerState_t * state)'/>
+<use f='codebrowser/code/game/ai_main.c' l='993' u='c' c='BotAI'/>
+<doc f='codebrowser/code/game/ai_main.c' l='160'>/*
+==================
+BotAI_GetClientState
+==================
+*/</doc>
+<use f='codebrowser/code/game/ai_team.c' l='111' u='c' c='BotClientTravelTimeToGoal'/>

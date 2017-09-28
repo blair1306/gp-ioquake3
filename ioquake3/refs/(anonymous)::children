@@ -1,0 +1,20 @@
+<dec f='codebrowser/code/qcommon/qfiles.h' l='414' type='int [2]'/>
+<offset>32</offset>
+<doc f='codebrowser/code/qcommon/qfiles.h' l='414'>// negative numbers are -(leafs+1), not nodes</doc>
+<dec f='codebrowser/code/qcommon/cm_local.h' l='34' type='int [2]'/>
+<use f='codebrowser/code/qcommon/cm_load.c' l='202' u='r' c='CMod_LoadNodes'/>
+<use f='codebrowser/code/qcommon/cm_load.c' l='203' u='w' c='CMod_LoadNodes'/>
+<offset>64</offset>
+<doc f='codebrowser/code/qcommon/cm_local.h' l='34'>// negative numbers are leafs</doc>
+<use f='codebrowser/code/qcommon/cm_test.c' l='46' u='r' c='CM_PointLeafnum_r'/>
+<use f='codebrowser/code/qcommon/cm_test.c' l='48' u='r' c='CM_PointLeafnum_r'/>
+<use f='codebrowser/code/qcommon/cm_test.c' l='155' u='r' c='CM_BoxLeafnums_r'/>
+<use f='codebrowser/code/qcommon/cm_test.c' l='157' u='r' c='CM_BoxLeafnums_r'/>
+<use f='codebrowser/code/qcommon/cm_test.c' l='160' u='r' c='CM_BoxLeafnums_r'/>
+<use f='codebrowser/code/qcommon/cm_test.c' l='161' u='r' c='CM_BoxLeafnums_r'/>
+<use f='codebrowser/code/qcommon/cm_trace.c' l='1080' u='r' c='CM_TraceThroughTree'/>
+<use f='codebrowser/code/qcommon/cm_trace.c' l='1084' u='r' c='CM_TraceThroughTree'/>
+<use f='codebrowser/code/qcommon/cm_trace.c' l='1119' u='r' c='CM_TraceThroughTree'/>
+<use f='codebrowser/code/qcommon/cm_trace.c' l='1136' u='r' c='CM_TraceThroughTree'/>
+<use f='codebrowser/code/renderergl1/tr_bsp.c' l='1401' u='r' c='R_LoadNodesAndLeafs'/>
+<use f='codebrowser/code/renderergl2/tr_bsp.c' l='1921' u='r' c='R_LoadNodesAndLeafs'/>

@@ -1,0 +1,17 @@
+<dec f='codebrowser/code/game/g_local.h' l='542' type='void TeleportPlayer(gentity_t * player, vec_t * origin, vec_t * angles)'/>
+<doc f='codebrowser/code/game/g_local.h' l='539'>//
+// g_misc.c
+//</doc>
+<use f='codebrowser/code/game/g_active.c' l='623' u='c' c='ClientEvents'/>
+<use f='codebrowser/code/game/g_cmds.c' l='1677' u='c' c='Cmd_SetViewpos_f'/>
+<def f='codebrowser/code/game/g_misc.c' l='79' ll='124' type='void TeleportPlayer(gentity_t * player, vec_t * origin, vec_t * angles)'/>
+<doc f='codebrowser/code/game/g_misc.c' l='71'>/*
+=================================================================================
+
+TELEPORTERS
+
+=================================================================================
+*/</doc>
+<use f='codebrowser/code/game/g_mover.c' l='849' u='c' c='Touch_DoorTriggerSpectator'/>
+<use f='codebrowser/code/game/g_target.c' l='356' u='c' c='target_teleporter_use'/>
+<use f='codebrowser/code/game/g_trigger.c' l='293' u='c' c='trigger_teleporter_touch'/>

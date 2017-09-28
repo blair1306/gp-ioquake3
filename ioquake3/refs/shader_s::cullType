@@ -1,0 +1,18 @@
+<dec f='codebrowser/code/renderergl1/tr_local.h' l='345' type='cullType_t'/>
+<offset>1856</offset>
+<doc f='codebrowser/code/renderergl1/tr_local.h' l='345'>// CT_FRONT_SIDED, CT_BACK_SIDED, or CT_TWO_SIDED</doc>
+<use f='codebrowser/code/renderergl1/tr_shade.c' l='1192' u='r' c='RB_StageIteratorGeneric'/>
+<use f='codebrowser/code/renderergl1/tr_shade.c' l='1311' u='r' c='RB_StageIteratorVertexLitTexture'/>
+<use f='codebrowser/code/renderergl1/tr_shade.c' l='1381' u='r' c='RB_StageIteratorLightmappedMultitexture'/>
+<use f='codebrowser/code/renderergl1/tr_shader.c' l='1640' u='w' c='ParseShader'/>
+<use f='codebrowser/code/renderergl1/tr_shader.c' l='1644' u='w' c='ParseShader'/>
+<use f='codebrowser/code/renderergl1/tr_world.c' l='133' u='r' c='R_CullSurface'/>
+<use f='codebrowser/code/renderergl1/tr_world.c' l='148' u='r' c='R_CullSurface'/>
+<dec f='codebrowser/code/renderergl2/tr_local.h' l='457' type='cullType_t'/>
+<offset>1856</offset>
+<doc f='codebrowser/code/renderergl2/tr_local.h' l='457'>// CT_FRONT_SIDED, CT_BACK_SIDED, or CT_TWO_SIDED</doc>
+<use f='codebrowser/code/renderergl2/tr_shade.c' l='1456' u='r' c='RB_StageIteratorGeneric'/>
+<use f='codebrowser/code/renderergl2/tr_shade.c' l='1462' u='r' c='RB_StageIteratorGeneric'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='1987' u='w' c='ParseShader'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='1991' u='w' c='ParseShader'/>
+<use f='codebrowser/code/renderergl2/tr_world.c' l='53' u='r' c='R_CullSurface'/>

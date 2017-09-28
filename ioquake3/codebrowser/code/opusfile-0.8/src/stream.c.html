@@ -1,0 +1,385 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>stream.c source code [codebrowser/code/opusfile-0.8/src/stream.c] - Woboq Code Browser</title>
+<meta name="woboq:interestingDefinitions" content="OpusMemStream "/>
+<link rel="stylesheet" href="../../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'codebrowser/code/opusfile-0.8/src/stream.c'; var root_path = '../../../..'; var data_path = '../../../../../data';</script>
+<script src='../../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../../..'>codebrowser</a>/<a href='../..'>code</a>/<a href='..'>opusfile-0.8</a>/<a href='./'>src</a>/<a href='stream.c.html'>stream.c</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/********************************************************************</i></td></tr>
+<tr><th id="2">2</th><td><i> *                                                                  *</i></td></tr>
+<tr><th id="3">3</th><td><i> * THIS FILE IS PART OF THE libopusfile SOFTWARE CODEC SOURCE CODE. *</i></td></tr>
+<tr><th id="4">4</th><td><i> * USE, DISTRIBUTION AND REPRODUCTION OF THIS LIBRARY SOURCE IS     *</i></td></tr>
+<tr><th id="5">5</th><td><i> * GOVERNED BY A BSD-STYLE SOURCE LICENSE INCLUDED WITH THIS SOURCE *</i></td></tr>
+<tr><th id="6">6</th><td><i> * IN 'COPYING'. PLEASE READ THESE TERMS BEFORE DISTRIBUTING.       *</i></td></tr>
+<tr><th id="7">7</th><td><i> *                                                                  *</i></td></tr>
+<tr><th id="8">8</th><td><i> * THE libopusfile SOURCE CODE IS (C) COPYRIGHT 1994-2012           *</i></td></tr>
+<tr><th id="9">9</th><td><i> * by the Xiph.Org Foundation and contributors <a href="http://www.xiph.org/">http://www.xiph.org/</a> *</i></td></tr>
+<tr><th id="10">10</th><td><i> *                                                                  *</i></td></tr>
+<tr><th id="11">11</th><td><i> ********************************************************************</i></td></tr>
+<tr><th id="12">12</th><td><i></i></td></tr>
+<tr><th id="13">13</th><td><i> function: stdio-based convenience library for opening/seeking/decoding</i></td></tr>
+<tr><th id="14">14</th><td><i> last mod: $Id: vorbisfile.c 17573 2010-10-27 14:53:59Z xiphmont $</i></td></tr>
+<tr><th id="15">15</th><td><i></i></td></tr>
+<tr><th id="16">16</th><td><i> ********************************************************************/</i></td></tr>
+<tr><th id="17">17</th><td><u>#<span data-ppcond="17">ifdef</span> <span class="macro" data-ref="_M/HAVE_CONFIG_H">HAVE_CONFIG_H</span></u></td></tr>
+<tr><th id="18">18</th><td><u>#include "config.h"</u></td></tr>
+<tr><th id="19">19</th><td><u>#<span data-ppcond="17">endif</span></u></td></tr>
+<tr><th id="20">20</th><td></td></tr>
+<tr><th id="21">21</th><td><u>#include <a href="internal.h.html">"internal.h"</a></u></td></tr>
+<tr><th id="22">22</th><td><u>#include <a href="../../../../include/x86_64-linux-gnu/sys/types.h.html">&lt;sys/types.h&gt;</a></u></td></tr>
+<tr><th id="23">23</th><td><u>#include <a href="../../../../include/stdio.h.html">&lt;stdio.h&gt;</a></u></td></tr>
+<tr><th id="24">24</th><td><u>#include <a href="../../../../include/stdlib.h.html">&lt;stdlib.h&gt;</a></u></td></tr>
+<tr><th id="25">25</th><td><u>#include <a href="../../../../include/errno.h.html">&lt;errno.h&gt;</a></u></td></tr>
+<tr><th id="26">26</th><td><u>#include <a href="../../../../include/string.h.html">&lt;string.h&gt;</a></u></td></tr>
+<tr><th id="27">27</th><td><u>#<span data-ppcond="27">if</span> defined(<span class="macro" data-ref="_M/_WIN32">_WIN32</span>)</u></td></tr>
+<tr><th id="28">28</th><td><u># include &lt;io.h&gt;</u></td></tr>
+<tr><th id="29">29</th><td><u>#<span data-ppcond="27">endif</span></u></td></tr>
+<tr><th id="30">30</th><td></td></tr>
+<tr><th id="31">31</th><td><b>typedef</b> <b>struct</b> <a class="type" href="#OpusMemStream" title='OpusMemStream' data-ref="OpusMemStream">OpusMemStream</a> <dfn class="typedef" id="OpusMemStream" title='OpusMemStream' data-type='struct OpusMemStream' data-ref="OpusMemStream">OpusMemStream</dfn>;</td></tr>
+<tr><th id="32">32</th><td></td></tr>
+<tr><th id="33">33</th><td><u>#define <dfn class="macro" id="_M/OP_MEM_SIZE_MAX" data-ref="_M/OP_MEM_SIZE_MAX">OP_MEM_SIZE_MAX</dfn> (~(<span class='typedef' title='size_t' data-type='unsigned long' data-ref="size_t">size_t</span>)0&gt;&gt;1)</u></td></tr>
+<tr><th id="34">34</th><td><u>#define <dfn class="macro" id="_M/OP_MEM_DIFF_MAX" data-ref="_M/OP_MEM_DIFF_MAX">OP_MEM_DIFF_MAX</dfn> ((<span class='typedef' title='ptrdiff_t' data-type='long' data-ref="ptrdiff_t">ptrdiff_t</span>)OP_MEM_SIZE_MAX)</u></td></tr>
+<tr><th id="35">35</th><td></td></tr>
+<tr><th id="36">36</th><td><i>/*The context information needed to read from a block of memory as if it were a</i></td></tr>
+<tr><th id="37">37</th><td><i>   file.*/</i></td></tr>
+<tr><th id="38">38</th><td><b>struct</b> <dfn class="type def" id="OpusMemStream" title='OpusMemStream' data-ref="OpusMemStream">OpusMemStream</dfn>{</td></tr>
+<tr><th id="39">39</th><td>  <i  data-doc="OpusMemStream::data">/*The block of memory to read from.*/</i></td></tr>
+<tr><th id="40">40</th><td>  <em>const</em> <em>unsigned</em> <em>char</em> *<dfn class="tu decl" id="OpusMemStream::data" title='OpusMemStream::data' data-type='const unsigned char *' data-ref="OpusMemStream::data">data</dfn>;</td></tr>
+<tr><th id="41">41</th><td>  <i  data-doc="OpusMemStream::size">/*The total size of the block.</i></td></tr>
+<tr><th id="42">42</th><td><i  data-doc="OpusMemStream::size">    This must be at most OP_MEM_SIZE_MAX to prevent signed overflow while</i></td></tr>
+<tr><th id="43">43</th><td><i  data-doc="OpusMemStream::size">     seeking.*/</i></td></tr>
+<tr><th id="44">44</th><td>  <span class='typedef' title='ptrdiff_t' data-type='long' data-ref="ptrdiff_t">ptrdiff_t</span>            <dfn class="tu decl" id="OpusMemStream::size" title='OpusMemStream::size' data-type='ptrdiff_t' data-ref="OpusMemStream::size">size</dfn>;</td></tr>
+<tr><th id="45">45</th><td>  <i  data-doc="OpusMemStream::pos">/*The current file position.</i></td></tr>
+<tr><th id="46">46</th><td><i  data-doc="OpusMemStream::pos">    This is allowed to be set arbitrarily greater than size (i.e., past the end</i></td></tr>
+<tr><th id="47">47</th><td><i  data-doc="OpusMemStream::pos">     of the block, though we will not read data past the end of the block), but</i></td></tr>
+<tr><th id="48">48</th><td><i  data-doc="OpusMemStream::pos">     is not allowed to be negative (i.e., before the beginning of the block).*/</i></td></tr>
+<tr><th id="49">49</th><td>  <span class='typedef' title='ptrdiff_t' data-type='long' data-ref="ptrdiff_t">ptrdiff_t</span>            <dfn class="tu decl" id="OpusMemStream::pos" title='OpusMemStream::pos' data-type='ptrdiff_t' data-ref="OpusMemStream::pos">pos</dfn>;</td></tr>
+<tr><th id="50">50</th><td>};</td></tr>
+<tr><th id="51">51</th><td></td></tr>
+<tr><th id="52">52</th><td><em>static</em> <em>int</em> <dfn class="tu decl def" id="op_fread" title='op_fread' data-type='int op_fread(void * _stream, unsigned char * _ptr, int _buf_size)' data-ref="op_fread">op_fread</dfn>(<em>void</em> *<dfn class="local col1 decl" id="1_stream" title='_stream' data-type='void *' data-ref="1_stream">_stream</dfn>,<em>unsigned</em> <em>char</em> *<dfn class="local col2 decl" id="2_ptr" title='_ptr' data-type='unsigned char *' data-ref="2_ptr">_ptr</dfn>,<em>int</em> <dfn class="local col3 decl" id="3_buf_size" title='_buf_size' data-type='int' data-ref="3_buf_size">_buf_size</dfn>){</td></tr>
+<tr><th id="53">53</th><td>  <a class="typedef" href="../../../../include/stdio.h.html#FILE" title='FILE' data-type='struct _IO_FILE' data-ref="FILE">FILE</a>   *<dfn class="local col4 decl" id="4stream" title='stream' data-type='FILE *' data-ref="4stream">stream</dfn>;</td></tr>
+<tr><th id="54">54</th><td>  <span class='typedef' title='size_t' data-type='unsigned long' data-ref="size_t">size_t</span>  <dfn class="local col5 decl" id="5ret" title='ret' data-type='size_t' data-ref="5ret">ret</dfn>;</td></tr>
+<tr><th id="55">55</th><td>  <i>/*Check for empty read.*/</i></td></tr>
+<tr><th id="56">56</th><td>  <b>if</b>(<a class="local col3 ref" href="#3_buf_size" title='_buf_size' data-ref="3_buf_size">_buf_size</a>&lt;=<var>0</var>)<b>return</b> <var>0</var>;</td></tr>
+<tr><th id="57">57</th><td>  <a class="local col4 ref" href="#4stream" title='stream' data-ref="4stream">stream</a>=(<a class="typedef" href="../../../../include/stdio.h.html#FILE" title='FILE' data-type='struct _IO_FILE' data-ref="FILE">FILE</a> *)<a class="local col1 ref" href="#1_stream" title='_stream' data-ref="1_stream">_stream</a>;</td></tr>
+<tr><th id="58">58</th><td>  <a class="local col5 ref" href="#5ret" title='ret' data-ref="5ret">ret</a>=<a class="ref" href="../../../../include/stdio.h.html#fread" title='fread' data-ref="fread">fread</a>(<a class="local col2 ref" href="#2_ptr" title='_ptr' data-ref="2_ptr">_ptr</a>,<var>1</var>,<a class="local col3 ref" href="#3_buf_size" title='_buf_size' data-ref="3_buf_size">_buf_size</a>,<a class="local col4 ref" href="#4stream" title='stream' data-ref="4stream">stream</a>);</td></tr>
+<tr><th id="59">59</th><td>  <a class="macro" href="internal.h.html#91" title="" data-ref="_M/OP_ASSERT">OP_ASSERT</a>(ret&lt;=(size_t)_buf_size);</td></tr>
+<tr><th id="60">60</th><td>  <i>/*If ret==0 and !feof(stream), there was a read error.*/</i></td></tr>
+<tr><th id="61">61</th><td>  <b>return</b> <a class="local col5 ref" href="#5ret" title='ret' data-ref="5ret">ret</a>&gt;<var>0</var>||<a class="ref" href="../../../../include/stdio.h.html#feof" title='feof' data-ref="feof">feof</a>(<a class="local col4 ref" href="#4stream" title='stream' data-ref="4stream">stream</a>)?(<em>int</em>)<a class="local col5 ref" href="#5ret" title='ret' data-ref="5ret">ret</a>:<a class="macro" href="../include/opusfile.h.html#168" title="(-128)" data-ref="_M/OP_EREAD">OP_EREAD</a>;</td></tr>
+<tr><th id="62">62</th><td>}</td></tr>
+<tr><th id="63">63</th><td></td></tr>
+<tr><th id="64">64</th><td><em>static</em> <em>int</em> <dfn class="tu decl def" id="op_fseek" title='op_fseek' data-type='int op_fseek(void * _stream, long long _offset, int _whence)' data-ref="op_fseek">op_fseek</dfn>(<em>void</em> *<dfn class="local col6 decl" id="6_stream" title='_stream' data-type='void *' data-ref="6_stream">_stream</dfn>,<a class="macro" href="../../opus-1.1.4/include/opus_types.h.html#152" title="long long" data-ref="_M/opus_int64">opus_int64</a> <dfn class="local col7 decl" id="7_offset" title='_offset' data-type='long long' data-ref="7_offset">_offset</dfn>,<em>int</em> <dfn class="local col8 decl" id="8_whence" title='_whence' data-type='int' data-ref="8_whence">_whence</dfn>){</td></tr>
+<tr><th id="65">65</th><td><u>#<span data-ppcond="65">if</span> defined(<span class="macro" data-ref="_M/_WIN32">_WIN32</span>)</u></td></tr>
+<tr><th id="66">66</th><td>  <i>/*_fseeki64() is not exposed until MSCVCRT80.</i></td></tr>
+<tr><th id="67">67</th><td><i>    This is the default starting with MSVC 2005 (_MSC_VER&gt;=1400), but we want</i></td></tr>
+<tr><th id="68">68</th><td><i>     to allow linking against older MSVCRT versions for compatibility back to</i></td></tr>
+<tr><th id="69">69</th><td><i>     XP without installing extra runtime libraries.</i></td></tr>
+<tr><th id="70">70</th><td><i>    i686-pc-mingw32 does not have fseeko() and requires</i></td></tr>
+<tr><th id="71">71</th><td><i>     __MSVCRT_VERSION__&gt;=0x800 for _fseeki64(), which screws up linking with</i></td></tr>
+<tr><th id="72">72</th><td><i>     other libraries (that don't use MSVCRT80 from MSVC 2005 by default).</i></td></tr>
+<tr><th id="73">73</th><td><i>    i686-w64-mingw32 does have fseeko() and respects _FILE_OFFSET_BITS, but I</i></td></tr>
+<tr><th id="74">74</th><td><i>     don't know how to detect that at compile time.</i></td></tr>
+<tr><th id="75">75</th><td><i>    We could just use fseeko64() (which is available in both), but its</i></td></tr>
+<tr><th id="76">76</th><td><i>     implemented using fgetpos()/fsetpos() just like this code, except without</i></td></tr>
+<tr><th id="77">77</th><td><i>     the overflow checking, so we prefer our version.*/</i></td></tr>
+<tr><th id="78">78</th><td>  opus_int64 pos;</td></tr>
+<tr><th id="79">79</th><td>  <i>/*We don't use fpos_t directly because it might be a struct if __STDC__ is</i></td></tr>
+<tr><th id="80">80</th><td><i>     non-zero or _INTEGRAL_MAX_BITS &lt; 64.</i></td></tr>
+<tr><th id="81">81</th><td><i>    I'm not certain when the latter is true, but someone could in theory set</i></td></tr>
+<tr><th id="82">82</th><td><i>     the former.</i></td></tr>
+<tr><th id="83">83</th><td><i>    Either way, it should be binary compatible with a normal 64-bit int (this</i></td></tr>
+<tr><th id="84">84</th><td><i>     assumption is not portable, but I believe it is true for MSVCRT).*/</i></td></tr>
+<tr><th id="85">85</th><td>  OP_ASSERT(<b>sizeof</b>(pos)==<b>sizeof</b>(fpos_t));</td></tr>
+<tr><th id="86">86</th><td>  <i>/*Translate the seek to an absolute one.*/</i></td></tr>
+<tr><th id="87">87</th><td>  <b>if</b>(_whence==SEEK_CUR){</td></tr>
+<tr><th id="88">88</th><td>    <em>int</em> ret;</td></tr>
+<tr><th id="89">89</th><td>    ret=fgetpos((FILE *)_stream,(fpos_t *)&amp;pos);</td></tr>
+<tr><th id="90">90</th><td>    <b>if</b>(ret)<b>return</b> ret;</td></tr>
+<tr><th id="91">91</th><td>  }</td></tr>
+<tr><th id="92">92</th><td>  <b>else</b> <b>if</b>(_whence==SEEK_END)pos=_filelengthi64(_fileno((FILE *)_stream));</td></tr>
+<tr><th id="93">93</th><td>  <b>else</b> <b>if</b>(_whence==SEEK_SET)pos=<var>0</var>;</td></tr>
+<tr><th id="94">94</th><td>  <b>else</b> <b>return</b> -<var>1</var>;</td></tr>
+<tr><th id="95">95</th><td>  <i>/*Check for errors or overflow.*/</i></td></tr>
+<tr><th id="96">96</th><td>  <b>if</b>(pos&lt;<var>0</var>||_offset&lt;-pos||_offset&gt;OP_INT64_MAX-pos)<b>return</b> -<var>1</var>;</td></tr>
+<tr><th id="97">97</th><td>  pos+=_offset;</td></tr>
+<tr><th id="98">98</th><td>  <b>return</b> fsetpos((FILE *)_stream,(fpos_t *)&amp;pos);</td></tr>
+<tr><th id="99">99</th><td><u>#<span data-ppcond="65">else</span></u></td></tr>
+<tr><th id="100">100</th><td>  <i>/*This function actually conforms to the SUSv2 and POSIX.1-2001, so we prefer</i></td></tr>
+<tr><th id="101">101</th><td><i>     it except on Windows.*/</i></td></tr>
+<tr><th id="102">102</th><td>  <b>return</b> <a class="ref" href="../../../../include/stdio.h.html#781" title='fseeko' data-ref="fseeko64">fseeko</a>((<a class="typedef" href="../../../../include/stdio.h.html#FILE" title='FILE' data-type='struct _IO_FILE' data-ref="FILE">FILE</a> *)<a class="local col6 ref" href="#6_stream" title='_stream' data-ref="6_stream">_stream</a>,(<a class="typedef" href="../../../../include/x86_64-linux-gnu/sys/types.h.html#off_t" title='off_t' data-type='__off64_t' data-ref="off_t">off_t</a>)<a class="local col7 ref" href="#7_offset" title='_offset' data-ref="7_offset">_offset</a>,<a class="local col8 ref" href="#8_whence" title='_whence' data-ref="8_whence">_whence</a>);</td></tr>
+<tr><th id="103">103</th><td><u>#<span data-ppcond="65">endif</span></u></td></tr>
+<tr><th id="104">104</th><td>}</td></tr>
+<tr><th id="105">105</th><td></td></tr>
+<tr><th id="106">106</th><td><em>static</em> <a class="macro" href="../../opus-1.1.4/include/opus_types.h.html#152" title="long long" data-ref="_M/opus_int64">opus_int64</a> <dfn class="tu decl def" id="op_ftell" title='op_ftell' data-type='long long op_ftell(void * _stream)' data-ref="op_ftell">op_ftell</dfn>(<em>void</em> *<dfn class="local col9 decl" id="9_stream" title='_stream' data-type='void *' data-ref="9_stream">_stream</dfn>){</td></tr>
+<tr><th id="107">107</th><td><u>#<span data-ppcond="107">if</span> defined(<span class="macro" data-ref="_M/_WIN32">_WIN32</span>)</u></td></tr>
+<tr><th id="108">108</th><td>  <i>/*_ftelli64() is not exposed until MSCVCRT80, and ftello()/ftello64() have</i></td></tr>
+<tr><th id="109">109</th><td><i>     the same problems as fseeko()/fseeko64() in MingW.</i></td></tr>
+<tr><th id="110">110</th><td><i>    See above for a more detailed explanation.*/</i></td></tr>
+<tr><th id="111">111</th><td>  opus_int64 pos;</td></tr>
+<tr><th id="112">112</th><td>  OP_ASSERT(<b>sizeof</b>(pos)==<b>sizeof</b>(fpos_t));</td></tr>
+<tr><th id="113">113</th><td>  <b>return</b> fgetpos((FILE *)_stream,(fpos_t *)&amp;pos)?-<var>1</var>:pos;</td></tr>
+<tr><th id="114">114</th><td><u>#<span data-ppcond="107">else</span></u></td></tr>
+<tr><th id="115">115</th><td>  <i>/*This function actually conforms to the SUSv2 and POSIX.1-2001, so we prefer</i></td></tr>
+<tr><th id="116">116</th><td><i>     it except on Windows.*/</i></td></tr>
+<tr><th id="117">117</th><td>  <b>return</b> <a class="ref" href="../../../../include/stdio.h.html#784" title='ftello' data-ref="ftello64">ftello</a>((<a class="typedef" href="../../../../include/stdio.h.html#FILE" title='FILE' data-type='struct _IO_FILE' data-ref="FILE">FILE</a> *)<a class="local col9 ref" href="#9_stream" title='_stream' data-ref="9_stream">_stream</a>);</td></tr>
+<tr><th id="118">118</th><td><u>#<span data-ppcond="107">endif</span></u></td></tr>
+<tr><th id="119">119</th><td>}</td></tr>
+<tr><th id="120">120</th><td></td></tr>
+<tr><th id="121">121</th><td><em>static</em> <em>const</em> <a class="typedef" href="../include/opusfile.h.html#OpusFileCallbacks" title='OpusFileCallbacks' data-type='struct OpusFileCallbacks' data-ref="OpusFileCallbacks">OpusFileCallbacks</a> <dfn class="tu decl def" id="OP_FILE_CALLBACKS" title='OP_FILE_CALLBACKS' data-type='const OpusFileCallbacks' data-ref="OP_FILE_CALLBACKS">OP_FILE_CALLBACKS</dfn>={</td></tr>
+<tr><th id="122">122</th><td>  <a class="tu ref" href="#op_fread" title='op_fread' data-use='r' data-ref="op_fread">op_fread</a>,</td></tr>
+<tr><th id="123">123</th><td>  <a class="tu ref" href="#op_fseek" title='op_fseek' data-use='r' data-ref="op_fseek">op_fseek</a>,</td></tr>
+<tr><th id="124">124</th><td>  <a class="tu ref" href="#op_ftell" title='op_ftell' data-use='r' data-ref="op_ftell">op_ftell</a>,</td></tr>
+<tr><th id="125">125</th><td>  (<a class="typedef" href="../include/opusfile.h.html#op_close_func" title='op_close_func' data-type='int (*)(void *)' data-ref="op_close_func">op_close_func</a>)<a class="ref" href="../../../../include/stdio.h.html#fclose" title='fclose' data-ref="fclose">fclose</a></td></tr>
+<tr><th id="126">126</th><td>};</td></tr>
+<tr><th id="127">127</th><td></td></tr>
+<tr><th id="128">128</th><td><u>#<span data-ppcond="128">if</span> defined(<span class="macro" data-ref="_M/_WIN32">_WIN32</span>)</u></td></tr>
+<tr><th id="129">129</th><td><u># include &lt;stddef.h&gt;</u></td></tr>
+<tr><th id="130">130</th><td><u># include &lt;errno.h&gt;</u></td></tr>
+<tr><th id="131">131</th><td></td></tr>
+<tr><th id="132">132</th><td><i>/*Windows doesn't accept UTF-8 by default, and we don't have a wchar_t API,</i></td></tr>
+<tr><th id="133">133</th><td><i>   so if we just pass the path to fopen(), then there'd be no way for a user</i></td></tr>
+<tr><th id="134">134</th><td><i>   of our API to open a Unicode filename.</i></td></tr>
+<tr><th id="135">135</th><td><i>  Instead, we translate from UTF-8 to UTF-16 and use Windows' wchar_t API.</i></td></tr>
+<tr><th id="136">136</th><td><i>  This makes this API more consistent with platforms where the character set</i></td></tr>
+<tr><th id="137">137</th><td><i>   used by fopen is the same as used on disk, which is generally UTF-8, and</i></td></tr>
+<tr><th id="138">138</th><td><i>   with our metadata API, which always uses UTF-8.*/</i></td></tr>
+<tr><th id="139">139</th><td><em>static</em> wchar_t *op_utf8_to_utf16(<em>const</em> <em>char</em> *_src){</td></tr>
+<tr><th id="140">140</th><td>  wchar_t *dst;</td></tr>
+<tr><th id="141">141</th><td>  size_t   len;</td></tr>
+<tr><th id="142">142</th><td>  len=strlen(_src);</td></tr>
+<tr><th id="143">143</th><td>  <i>/*Worst-case output is 1 wide character per 1 input character.*/</i></td></tr>
+<tr><th id="144">144</th><td>  dst=(wchar_t *)_ogg_malloc(<b>sizeof</b>(*dst)*(len+<var>1</var>));</td></tr>
+<tr><th id="145">145</th><td>  <b>if</b>(dst!=NULL){</td></tr>
+<tr><th id="146">146</th><td>    size_t si;</td></tr>
+<tr><th id="147">147</th><td>    size_t di;</td></tr>
+<tr><th id="148">148</th><td>    <b>for</b>(di=si=<var>0</var>;si&lt;len;si++){</td></tr>
+<tr><th id="149">149</th><td>      <em>int</em> c0;</td></tr>
+<tr><th id="150">150</th><td>      c0=(<em>unsigned</em> <em>char</em>)_src[si];</td></tr>
+<tr><th id="151">151</th><td>      <b>if</b>(!(c0&amp;<var>0x80</var>)){</td></tr>
+<tr><th id="152">152</th><td>        <i>/*Start byte says this is a 1-byte sequence.*/</i></td></tr>
+<tr><th id="153">153</th><td>        dst[di++]=(wchar_t)c0;</td></tr>
+<tr><th id="154">154</th><td>        <b>continue</b>;</td></tr>
+<tr><th id="155">155</th><td>      }</td></tr>
+<tr><th id="156">156</th><td>      <b>else</b>{</td></tr>
+<tr><th id="157">157</th><td>        <em>int</em> c1;</td></tr>
+<tr><th id="158">158</th><td>        <i>/*This is safe, because c0 was not 0 and _src is NUL-terminated.*/</i></td></tr>
+<tr><th id="159">159</th><td>        c1=(<em>unsigned</em> <em>char</em>)_src[si+<var>1</var>];</td></tr>
+<tr><th id="160">160</th><td>        <b>if</b>((c1&amp;<var>0xC0</var>)==<var>0x80</var>){</td></tr>
+<tr><th id="161">161</th><td>          <i>/*Found at least one continuation byte.*/</i></td></tr>
+<tr><th id="162">162</th><td>          <b>if</b>((c0&amp;<var>0xE0</var>)==<var>0xC0</var>){</td></tr>
+<tr><th id="163">163</th><td>            wchar_t w;</td></tr>
+<tr><th id="164">164</th><td>            <i>/*Start byte says this is a 2-byte sequence.*/</i></td></tr>
+<tr><th id="165">165</th><td>            w=(c0&amp;<var>0x1F</var>)&lt;&lt;<var>6</var>|c1&amp;<var>0x3F</var>;</td></tr>
+<tr><th id="166">166</th><td>            <b>if</b>(w&gt;=<var>0x80U</var>){</td></tr>
+<tr><th id="167">167</th><td>              <i>/*This is a 2-byte sequence that is not overlong.*/</i></td></tr>
+<tr><th id="168">168</th><td>              dst[di++]=w;</td></tr>
+<tr><th id="169">169</th><td>              si++;</td></tr>
+<tr><th id="170">170</th><td>              <b>continue</b>;</td></tr>
+<tr><th id="171">171</th><td>            }</td></tr>
+<tr><th id="172">172</th><td>          }</td></tr>
+<tr><th id="173">173</th><td>          <b>else</b>{</td></tr>
+<tr><th id="174">174</th><td>            <em>int</em> c2;</td></tr>
+<tr><th id="175">175</th><td>            <i>/*This is safe, because c1 was not 0 and _src is NUL-terminated.*/</i></td></tr>
+<tr><th id="176">176</th><td>            c2=(<em>unsigned</em> <em>char</em>)_src[si+<var>2</var>];</td></tr>
+<tr><th id="177">177</th><td>            <b>if</b>((c2&amp;<var>0xC0</var>)==<var>0x80</var>){</td></tr>
+<tr><th id="178">178</th><td>              <i>/*Found at least two continuation bytes.*/</i></td></tr>
+<tr><th id="179">179</th><td>              <b>if</b>((c0&amp;<var>0xF0</var>)==<var>0xE0</var>){</td></tr>
+<tr><th id="180">180</th><td>                wchar_t w;</td></tr>
+<tr><th id="181">181</th><td>                <i>/*Start byte says this is a 3-byte sequence.*/</i></td></tr>
+<tr><th id="182">182</th><td>                w=(c0&amp;<var>0xF</var>)&lt;&lt;<var>12</var>|(c1&amp;<var>0x3F</var>)&lt;&lt;<var>6</var>|c2&amp;<var>0x3F</var>;</td></tr>
+<tr><th id="183">183</th><td>                <b>if</b>(w&gt;=<var>0x800U</var>&amp;&amp;(w&lt;<var>0xD800</var>||w&gt;=<var>0xE000</var>)&amp;&amp;w&lt;<var>0xFFFE</var>){</td></tr>
+<tr><th id="184">184</th><td>                  <i>/*This is a 3-byte sequence that is not overlong, not a</i></td></tr>
+<tr><th id="185">185</th><td><i>                     UTF-16 surrogate pair value, and not a 'not a character'</i></td></tr>
+<tr><th id="186">186</th><td><i>                     value.*/</i></td></tr>
+<tr><th id="187">187</th><td>                  dst[di++]=w;</td></tr>
+<tr><th id="188">188</th><td>                  si+=<var>2</var>;</td></tr>
+<tr><th id="189">189</th><td>                  <b>continue</b>;</td></tr>
+<tr><th id="190">190</th><td>                }</td></tr>
+<tr><th id="191">191</th><td>              }</td></tr>
+<tr><th id="192">192</th><td>              <b>else</b>{</td></tr>
+<tr><th id="193">193</th><td>                <em>int</em> c3;</td></tr>
+<tr><th id="194">194</th><td>                <i>/*This is safe, because c2 was not 0 and _src is</i></td></tr>
+<tr><th id="195">195</th><td><i>                   NUL-terminated.*/</i></td></tr>
+<tr><th id="196">196</th><td>                c3=(<em>unsigned</em> <em>char</em>)_src[si+<var>3</var>];</td></tr>
+<tr><th id="197">197</th><td>                <b>if</b>((c3&amp;<var>0xC0</var>)==<var>0x80</var>){</td></tr>
+<tr><th id="198">198</th><td>                  <i>/*Found at least three continuation bytes.*/</i></td></tr>
+<tr><th id="199">199</th><td>                  <b>if</b>((c0&amp;<var>0xF8</var>)==<var>0xF0</var>){</td></tr>
+<tr><th id="200">200</th><td>                    opus_uint32 w;</td></tr>
+<tr><th id="201">201</th><td>                    <i>/*Start byte says this is a 4-byte sequence.*/</i></td></tr>
+<tr><th id="202">202</th><td>                    w=(c0&amp;<var>7</var>)&lt;&lt;<var>18</var>|(c1&amp;<var>0x3F</var>)&lt;&lt;<var>12</var>|(c2&amp;<var>0x3F</var>)&lt;&lt;<var>6</var>&amp;(c3&amp;<var>0x3F</var>);</td></tr>
+<tr><th id="203">203</th><td>                    <b>if</b>(w&gt;=<var>0x10000U</var>&amp;&amp;w&lt;<var>0x110000U</var>){</td></tr>
+<tr><th id="204">204</th><td>                      <i>/*This is a 4-byte sequence that is not overlong and not</i></td></tr>
+<tr><th id="205">205</th><td><i>                         greater than the largest valid Unicode code point.</i></td></tr>
+<tr><th id="206">206</th><td><i>                        Convert it to a surrogate pair.*/</i></td></tr>
+<tr><th id="207">207</th><td>                      w-=<var>0x10000</var>;</td></tr>
+<tr><th id="208">208</th><td>                      dst[di++]=(wchar_t)(<var>0xD800</var>+(w&gt;&gt;<var>10</var>));</td></tr>
+<tr><th id="209">209</th><td>                      dst[di++]=(wchar_t)(<var>0xDC00</var>+(w&amp;<var>0x3FF</var>));</td></tr>
+<tr><th id="210">210</th><td>                      si+=<var>3</var>;</td></tr>
+<tr><th id="211">211</th><td>                      <b>continue</b>;</td></tr>
+<tr><th id="212">212</th><td>                    }</td></tr>
+<tr><th id="213">213</th><td>                  }</td></tr>
+<tr><th id="214">214</th><td>                }</td></tr>
+<tr><th id="215">215</th><td>              }</td></tr>
+<tr><th id="216">216</th><td>            }</td></tr>
+<tr><th id="217">217</th><td>          }</td></tr>
+<tr><th id="218">218</th><td>        }</td></tr>
+<tr><th id="219">219</th><td>      }</td></tr>
+<tr><th id="220">220</th><td>      <i>/*If we got here, we encountered an illegal UTF-8 sequence.*/</i></td></tr>
+<tr><th id="221">221</th><td>      _ogg_free(dst);</td></tr>
+<tr><th id="222">222</th><td>      <b>return</b> NULL;</td></tr>
+<tr><th id="223">223</th><td>    }</td></tr>
+<tr><th id="224">224</th><td>    OP_ASSERT(di&lt;=len);</td></tr>
+<tr><th id="225">225</th><td>    dst[di]=<kbd>'\0'</kbd>;</td></tr>
+<tr><th id="226">226</th><td>  }</td></tr>
+<tr><th id="227">227</th><td>  <b>return</b> dst;</td></tr>
+<tr><th id="228">228</th><td>}</td></tr>
+<tr><th id="229">229</th><td></td></tr>
+<tr><th id="230">230</th><td><u>#<span data-ppcond="128">endif</span></u></td></tr>
+<tr><th id="231">231</th><td></td></tr>
+<tr><th id="232">232</th><td><em>void</em> *<dfn class="decl def" id="op_fopen" title='op_fopen' data-ref="op_fopen">op_fopen</dfn>(<a class="typedef" href="../include/opusfile.h.html#OpusFileCallbacks" title='OpusFileCallbacks' data-type='struct OpusFileCallbacks' data-ref="OpusFileCallbacks">OpusFileCallbacks</a> *<dfn class="local col0 decl" id="10_cb" title='_cb' data-type='OpusFileCallbacks *' data-ref="10_cb">_cb</dfn>,<em>const</em> <em>char</em> *<dfn class="local col1 decl" id="11_path" title='_path' data-type='const char *' data-ref="11_path">_path</dfn>,<em>const</em> <em>char</em> *<dfn class="local col2 decl" id="12_mode" title='_mode' data-type='const char *' data-ref="12_mode">_mode</dfn>){</td></tr>
+<tr><th id="233">233</th><td>  <a class="typedef" href="../../../../include/stdio.h.html#FILE" title='FILE' data-type='struct _IO_FILE' data-ref="FILE">FILE</a> *<dfn class="local col3 decl" id="13fp" title='fp' data-type='FILE *' data-ref="13fp">fp</dfn>;</td></tr>
+<tr><th id="234">234</th><td><u>#<span data-ppcond="234">if</span> !defined(<span class="macro" data-ref="_M/_WIN32">_WIN32</span>)</u></td></tr>
+<tr><th id="235">235</th><td>  <a class="local col3 ref" href="#13fp" title='fp' data-ref="13fp">fp</a>=<a class="ref" href="../../../../include/stdio.h.html#283" title='fopen' data-ref="fopen64">fopen</a>(<a class="local col1 ref" href="#11_path" title='_path' data-ref="11_path">_path</a>,<a class="local col2 ref" href="#12_mode" title='_mode' data-ref="12_mode">_mode</a>);</td></tr>
+<tr><th id="236">236</th><td><u>#<span data-ppcond="234">else</span></u></td></tr>
+<tr><th id="237">237</th><td>  fp=NULL;</td></tr>
+<tr><th id="238">238</th><td>  <b>if</b>(_path==NULL||_mode==NULL)errno=EINVAL;</td></tr>
+<tr><th id="239">239</th><td>  <b>else</b>{</td></tr>
+<tr><th id="240">240</th><td>    wchar_t *wpath;</td></tr>
+<tr><th id="241">241</th><td>    wchar_t *wmode;</td></tr>
+<tr><th id="242">242</th><td>    wpath=op_utf8_to_utf16(_path);</td></tr>
+<tr><th id="243">243</th><td>    wmode=op_utf8_to_utf16(_mode);</td></tr>
+<tr><th id="244">244</th><td>    <b>if</b>(wmode==NULL)errno=EINVAL;</td></tr>
+<tr><th id="245">245</th><td>    <b>else</b> <b>if</b>(wpath==NULL)errno=ENOENT;</td></tr>
+<tr><th id="246">246</th><td>    <b>else</b> fp=_wfopen(wpath,wmode);</td></tr>
+<tr><th id="247">247</th><td>    _ogg_free(wmode);</td></tr>
+<tr><th id="248">248</th><td>    _ogg_free(wpath);</td></tr>
+<tr><th id="249">249</th><td>  }</td></tr>
+<tr><th id="250">250</th><td><u>#<span data-ppcond="234">endif</span></u></td></tr>
+<tr><th id="251">251</th><td>  <b>if</b>(<a class="local col3 ref" href="#13fp" title='fp' data-ref="13fp">fp</a>!=<span class="macro" title="((void*)0)" data-ref="_M/NULL">NULL</span>)*<a class="local col0 ref" href="#10_cb" title='_cb' data-ref="10_cb">_cb</a>=*&amp;<a class="tu ref" href="#OP_FILE_CALLBACKS" title='OP_FILE_CALLBACKS' data-use='a' data-ref="OP_FILE_CALLBACKS">OP_FILE_CALLBACKS</a>;</td></tr>
+<tr><th id="252">252</th><td>  <b>return</b> <a class="local col3 ref" href="#13fp" title='fp' data-ref="13fp">fp</a>;</td></tr>
+<tr><th id="253">253</th><td>}</td></tr>
+<tr><th id="254">254</th><td></td></tr>
+<tr><th id="255">255</th><td><em>void</em> *<dfn class="decl def" id="op_fdopen" title='op_fdopen' data-ref="op_fdopen">op_fdopen</dfn>(<a class="typedef" href="../include/opusfile.h.html#OpusFileCallbacks" title='OpusFileCallbacks' data-type='struct OpusFileCallbacks' data-ref="OpusFileCallbacks">OpusFileCallbacks</a> *<dfn class="local col4 decl" id="14_cb" title='_cb' data-type='OpusFileCallbacks *' data-ref="14_cb">_cb</dfn>,<em>int</em> <dfn class="local col5 decl" id="15_fd" title='_fd' data-type='int' data-ref="15_fd">_fd</dfn>,<em>const</em> <em>char</em> *<dfn class="local col6 decl" id="16_mode" title='_mode' data-type='const char *' data-ref="16_mode">_mode</dfn>){</td></tr>
+<tr><th id="256">256</th><td>  <a class="typedef" href="../../../../include/stdio.h.html#FILE" title='FILE' data-type='struct _IO_FILE' data-ref="FILE">FILE</a> *<dfn class="local col7 decl" id="17fp" title='fp' data-type='FILE *' data-ref="17fp">fp</dfn>;</td></tr>
+<tr><th id="257">257</th><td>  <a class="local col7 ref" href="#17fp" title='fp' data-ref="17fp">fp</a>=<a class="ref" href="../../../../include/stdio.h.html#fdopen" title='fdopen' data-ref="fdopen">fdopen</a>(<a class="local col5 ref" href="#15_fd" title='_fd' data-ref="15_fd">_fd</a>,<a class="local col6 ref" href="#16_mode" title='_mode' data-ref="16_mode">_mode</a>);</td></tr>
+<tr><th id="258">258</th><td>  <b>if</b>(<a class="local col7 ref" href="#17fp" title='fp' data-ref="17fp">fp</a>!=<span class="macro" title="((void*)0)" data-ref="_M/NULL">NULL</span>)*<a class="local col4 ref" href="#14_cb" title='_cb' data-ref="14_cb">_cb</a>=*&amp;<a class="tu ref" href="#OP_FILE_CALLBACKS" title='OP_FILE_CALLBACKS' data-use='a' data-ref="OP_FILE_CALLBACKS">OP_FILE_CALLBACKS</a>;</td></tr>
+<tr><th id="259">259</th><td>  <b>return</b> <a class="local col7 ref" href="#17fp" title='fp' data-ref="17fp">fp</a>;</td></tr>
+<tr><th id="260">260</th><td>}</td></tr>
+<tr><th id="261">261</th><td></td></tr>
+<tr><th id="262">262</th><td><em>void</em> *<dfn class="decl def" id="op_freopen" title='op_freopen' data-ref="op_freopen">op_freopen</dfn>(<a class="typedef" href="../include/opusfile.h.html#OpusFileCallbacks" title='OpusFileCallbacks' data-type='struct OpusFileCallbacks' data-ref="OpusFileCallbacks">OpusFileCallbacks</a> *<dfn class="local col8 decl" id="18_cb" title='_cb' data-type='OpusFileCallbacks *' data-ref="18_cb">_cb</dfn>,<em>const</em> <em>char</em> *<dfn class="local col9 decl" id="19_path" title='_path' data-type='const char *' data-ref="19_path">_path</dfn>,<em>const</em> <em>char</em> *<dfn class="local col0 decl" id="20_mode" title='_mode' data-type='const char *' data-ref="20_mode">_mode</dfn>,</td></tr>
+<tr><th id="263">263</th><td> <em>void</em> *<dfn class="local col1 decl" id="21_stream" title='_stream' data-type='void *' data-ref="21_stream">_stream</dfn>){</td></tr>
+<tr><th id="264">264</th><td>  <a class="typedef" href="../../../../include/stdio.h.html#FILE" title='FILE' data-type='struct _IO_FILE' data-ref="FILE">FILE</a> *<dfn class="local col2 decl" id="22fp" title='fp' data-type='FILE *' data-ref="22fp">fp</dfn>;</td></tr>
+<tr><th id="265">265</th><td><u>#<span data-ppcond="265">if</span> !defined(<span class="macro" data-ref="_M/_WIN32">_WIN32</span>)</u></td></tr>
+<tr><th id="266">266</th><td>  <a class="local col2 ref" href="#22fp" title='fp' data-ref="22fp">fp</a>=<a class="ref" href="../../../../include/stdio.h.html#286" title='freopen' data-ref="freopen64">freopen</a>(<a class="local col9 ref" href="#19_path" title='_path' data-ref="19_path">_path</a>,<a class="local col0 ref" href="#20_mode" title='_mode' data-ref="20_mode">_mode</a>,(<a class="typedef" href="../../../../include/stdio.h.html#FILE" title='FILE' data-type='struct _IO_FILE' data-ref="FILE">FILE</a> *)<a class="local col1 ref" href="#21_stream" title='_stream' data-ref="21_stream">_stream</a>);</td></tr>
+<tr><th id="267">267</th><td><u>#<span data-ppcond="265">else</span></u></td></tr>
+<tr><th id="268">268</th><td>  fp=NULL;</td></tr>
+<tr><th id="269">269</th><td>  <b>if</b>(_path==NULL||_mode==NULL)errno=EINVAL;</td></tr>
+<tr><th id="270">270</th><td>  <b>else</b>{</td></tr>
+<tr><th id="271">271</th><td>    wchar_t *wpath;</td></tr>
+<tr><th id="272">272</th><td>    wchar_t *wmode;</td></tr>
+<tr><th id="273">273</th><td>    wpath=op_utf8_to_utf16(_path);</td></tr>
+<tr><th id="274">274</th><td>    wmode=op_utf8_to_utf16(_mode);</td></tr>
+<tr><th id="275">275</th><td>    <b>if</b>(wmode==NULL)errno=EINVAL;</td></tr>
+<tr><th id="276">276</th><td>    <b>else</b> <b>if</b>(wpath==NULL)errno=ENOENT;</td></tr>
+<tr><th id="277">277</th><td>    <b>else</b> fp=_wfreopen(wpath,wmode,(FILE *)_stream);</td></tr>
+<tr><th id="278">278</th><td>    _ogg_free(wmode);</td></tr>
+<tr><th id="279">279</th><td>    _ogg_free(wpath);</td></tr>
+<tr><th id="280">280</th><td>  }</td></tr>
+<tr><th id="281">281</th><td><u>#<span data-ppcond="265">endif</span></u></td></tr>
+<tr><th id="282">282</th><td>  <b>if</b>(<a class="local col2 ref" href="#22fp" title='fp' data-ref="22fp">fp</a>!=<span class="macro" title="((void*)0)" data-ref="_M/NULL">NULL</span>)*<a class="local col8 ref" href="#18_cb" title='_cb' data-ref="18_cb">_cb</a>=*&amp;<a class="tu ref" href="#OP_FILE_CALLBACKS" title='OP_FILE_CALLBACKS' data-use='a' data-ref="OP_FILE_CALLBACKS">OP_FILE_CALLBACKS</a>;</td></tr>
+<tr><th id="283">283</th><td>  <b>return</b> <a class="local col2 ref" href="#22fp" title='fp' data-ref="22fp">fp</a>;</td></tr>
+<tr><th id="284">284</th><td>}</td></tr>
+<tr><th id="285">285</th><td></td></tr>
+<tr><th id="286">286</th><td><em>static</em> <em>int</em> <dfn class="tu decl def" id="op_mem_read" title='op_mem_read' data-type='int op_mem_read(void * _stream, unsigned char * _ptr, int _buf_size)' data-ref="op_mem_read">op_mem_read</dfn>(<em>void</em> *<dfn class="local col3 decl" id="23_stream" title='_stream' data-type='void *' data-ref="23_stream">_stream</dfn>,<em>unsigned</em> <em>char</em> *<dfn class="local col4 decl" id="24_ptr" title='_ptr' data-type='unsigned char *' data-ref="24_ptr">_ptr</dfn>,<em>int</em> <dfn class="local col5 decl" id="25_buf_size" title='_buf_size' data-type='int' data-ref="25_buf_size">_buf_size</dfn>){</td></tr>
+<tr><th id="287">287</th><td>  <a class="typedef" href="#OpusMemStream" title='OpusMemStream' data-type='struct OpusMemStream' data-ref="OpusMemStream">OpusMemStream</a> *<dfn class="local col6 decl" id="26stream" title='stream' data-type='OpusMemStream *' data-ref="26stream">stream</dfn>;</td></tr>
+<tr><th id="288">288</th><td>  <span class='typedef' title='ptrdiff_t' data-type='long' data-ref="ptrdiff_t">ptrdiff_t</span>      <dfn class="local col7 decl" id="27size" title='size' data-type='ptrdiff_t' data-ref="27size">size</dfn>;</td></tr>
+<tr><th id="289">289</th><td>  <span class='typedef' title='ptrdiff_t' data-type='long' data-ref="ptrdiff_t">ptrdiff_t</span>      <dfn class="local col8 decl" id="28pos" title='pos' data-type='ptrdiff_t' data-ref="28pos">pos</dfn>;</td></tr>
+<tr><th id="290">290</th><td>  <a class="local col6 ref" href="#26stream" title='stream' data-ref="26stream">stream</a>=(<a class="typedef" href="#OpusMemStream" title='OpusMemStream' data-type='struct OpusMemStream' data-ref="OpusMemStream">OpusMemStream</a> *)<a class="local col3 ref" href="#23_stream" title='_stream' data-ref="23_stream">_stream</a>;</td></tr>
+<tr><th id="291">291</th><td>  <i>/*Check for empty read.*/</i></td></tr>
+<tr><th id="292">292</th><td>  <b>if</b>(<a class="local col5 ref" href="#25_buf_size" title='_buf_size' data-ref="25_buf_size">_buf_size</a>&lt;=<var>0</var>)<b>return</b> <var>0</var>;</td></tr>
+<tr><th id="293">293</th><td>  <a class="local col7 ref" href="#27size" title='size' data-ref="27size">size</a>=<a class="local col6 ref" href="#26stream" title='stream' data-ref="26stream">stream</a>-&gt;<a class="tu ref" href="#OpusMemStream::size" title='OpusMemStream::size' data-use='r' data-ref="OpusMemStream::size">size</a>;</td></tr>
+<tr><th id="294">294</th><td>  <a class="local col8 ref" href="#28pos" title='pos' data-ref="28pos">pos</a>=<a class="local col6 ref" href="#26stream" title='stream' data-ref="26stream">stream</a>-&gt;<a class="tu ref" href="#OpusMemStream::pos" title='OpusMemStream::pos' data-use='r' data-ref="OpusMemStream::pos">pos</a>;</td></tr>
+<tr><th id="295">295</th><td>  <i>/*Check for EOF.*/</i></td></tr>
+<tr><th id="296">296</th><td>  <b>if</b>(<a class="local col8 ref" href="#28pos" title='pos' data-ref="28pos">pos</a>&gt;=<a class="local col7 ref" href="#27size" title='size' data-ref="27size">size</a>)<b>return</b> <var>0</var>;</td></tr>
+<tr><th id="297">297</th><td>  <i>/*Check for a short read.*/</i></td></tr>
+<tr><th id="298">298</th><td>  <a class="local col5 ref" href="#25_buf_size" title='_buf_size' data-ref="25_buf_size">_buf_size</a>=(<em>int</em>)<a class="macro" href="internal.h.html#100" title="((size-pos)&lt;(_buf_size)?(size-pos):(_buf_size))" data-ref="_M/OP_MIN">OP_MIN</a>(<a class="local col7 ref" href="#27size" title='size' data-ref="27size">size</a>-<a class="local col8 ref" href="#28pos" title='pos' data-ref="28pos">pos</a>,<a class="local col5 ref" href="#25_buf_size" title='_buf_size' data-ref="25_buf_size">_buf_size</a>);</td></tr>
+<tr><th id="299">299</th><td>  <a class="ref" href="../../../../include/string.h.html#memcpy" title='memcpy' data-ref="memcpy">memcpy</a>(<a class="local col4 ref" href="#24_ptr" title='_ptr' data-ref="24_ptr">_ptr</a>,<a class="local col6 ref" href="#26stream" title='stream' data-ref="26stream">stream</a>-&gt;<a class="tu ref" href="#OpusMemStream::data" title='OpusMemStream::data' data-use='r' data-ref="OpusMemStream::data">data</a>+<a class="local col8 ref" href="#28pos" title='pos' data-ref="28pos">pos</a>,<a class="local col5 ref" href="#25_buf_size" title='_buf_size' data-ref="25_buf_size">_buf_size</a>);</td></tr>
+<tr><th id="300">300</th><td>  <a class="local col8 ref" href="#28pos" title='pos' data-ref="28pos">pos</a>+=<a class="local col5 ref" href="#25_buf_size" title='_buf_size' data-ref="25_buf_size">_buf_size</a>;</td></tr>
+<tr><th id="301">301</th><td>  <a class="local col6 ref" href="#26stream" title='stream' data-ref="26stream">stream</a>-&gt;<a class="tu ref" href="#OpusMemStream::pos" title='OpusMemStream::pos' data-use='w' data-ref="OpusMemStream::pos">pos</a>=<a class="local col8 ref" href="#28pos" title='pos' data-ref="28pos">pos</a>;</td></tr>
+<tr><th id="302">302</th><td>  <b>return</b> <a class="local col5 ref" href="#25_buf_size" title='_buf_size' data-ref="25_buf_size">_buf_size</a>;</td></tr>
+<tr><th id="303">303</th><td>}</td></tr>
+<tr><th id="304">304</th><td></td></tr>
+<tr><th id="305">305</th><td><em>static</em> <em>int</em> <dfn class="tu decl def" id="op_mem_seek" title='op_mem_seek' data-type='int op_mem_seek(void * _stream, long long _offset, int _whence)' data-ref="op_mem_seek">op_mem_seek</dfn>(<em>void</em> *<dfn class="local col9 decl" id="29_stream" title='_stream' data-type='void *' data-ref="29_stream">_stream</dfn>,<a class="macro" href="../../opus-1.1.4/include/opus_types.h.html#152" title="long long" data-ref="_M/opus_int64">opus_int64</a> <dfn class="local col0 decl" id="30_offset" title='_offset' data-type='long long' data-ref="30_offset">_offset</dfn>,<em>int</em> <dfn class="local col1 decl" id="31_whence" title='_whence' data-type='int' data-ref="31_whence">_whence</dfn>){</td></tr>
+<tr><th id="306">306</th><td>  <a class="typedef" href="#OpusMemStream" title='OpusMemStream' data-type='struct OpusMemStream' data-ref="OpusMemStream">OpusMemStream</a> *<dfn class="local col2 decl" id="32stream" title='stream' data-type='OpusMemStream *' data-ref="32stream">stream</dfn>;</td></tr>
+<tr><th id="307">307</th><td>  <span class='typedef' title='ptrdiff_t' data-type='long' data-ref="ptrdiff_t">ptrdiff_t</span>      <dfn class="local col3 decl" id="33pos" title='pos' data-type='ptrdiff_t' data-ref="33pos">pos</dfn>;</td></tr>
+<tr><th id="308">308</th><td>  <a class="local col2 ref" href="#32stream" title='stream' data-ref="32stream">stream</a>=(<a class="typedef" href="#OpusMemStream" title='OpusMemStream' data-type='struct OpusMemStream' data-ref="OpusMemStream">OpusMemStream</a> *)<a class="local col9 ref" href="#29_stream" title='_stream' data-ref="29_stream">_stream</a>;</td></tr>
+<tr><th id="309">309</th><td>  <a class="local col3 ref" href="#33pos" title='pos' data-ref="33pos">pos</a>=<a class="local col2 ref" href="#32stream" title='stream' data-ref="32stream">stream</a>-&gt;<a class="tu ref" href="#OpusMemStream::pos" title='OpusMemStream::pos' data-use='r' data-ref="OpusMemStream::pos">pos</a>;</td></tr>
+<tr><th id="310">310</th><td>  <a class="macro" href="internal.h.html#91" title="" data-ref="_M/OP_ASSERT">OP_ASSERT</a>(pos&gt;=<var>0</var>);</td></tr>
+<tr><th id="311">311</th><td>  <b>switch</b>(<a class="local col1 ref" href="#31_whence" title='_whence' data-ref="31_whence">_whence</a>){</td></tr>
+<tr><th id="312">312</th><td>    <b>case</b> <a class="macro" href="../../../../include/stdio.h.html#140" title="0" data-ref="_M/SEEK_SET">SEEK_SET</a>:{</td></tr>
+<tr><th id="313">313</th><td>      <i>/*Check for overflow:*/</i></td></tr>
+<tr><th id="314">314</th><td>      <b>if</b>(<a class="local col0 ref" href="#30_offset" title='_offset' data-ref="30_offset">_offset</a>&lt;<var>0</var>||<a class="local col0 ref" href="#30_offset" title='_offset' data-ref="30_offset">_offset</a>&gt;<a class="macro" href="#34" title="((ptrdiff_t)(~(size_t)0&gt;&gt;1))" data-ref="_M/OP_MEM_DIFF_MAX">OP_MEM_DIFF_MAX</a>)<b>return</b> -<var>1</var>;</td></tr>
+<tr><th id="315">315</th><td>      <a class="local col3 ref" href="#33pos" title='pos' data-ref="33pos">pos</a>=(<span class='typedef' title='ptrdiff_t' data-type='long' data-ref="ptrdiff_t">ptrdiff_t</span>)<a class="local col0 ref" href="#30_offset" title='_offset' data-ref="30_offset">_offset</a>;</td></tr>
+<tr><th id="316">316</th><td>    }<b>break</b>;</td></tr>
+<tr><th id="317">317</th><td>    <b>case</b> <a class="macro" href="../../../../include/stdio.h.html#141" title="1" data-ref="_M/SEEK_CUR">SEEK_CUR</a>:{</td></tr>
+<tr><th id="318">318</th><td>      <i>/*Check for overflow:*/</i></td></tr>
+<tr><th id="319">319</th><td>      <b>if</b>(<a class="local col0 ref" href="#30_offset" title='_offset' data-ref="30_offset">_offset</a>&lt;-<a class="local col3 ref" href="#33pos" title='pos' data-ref="33pos">pos</a>||<a class="local col0 ref" href="#30_offset" title='_offset' data-ref="30_offset">_offset</a>&gt;<a class="macro" href="#34" title="((ptrdiff_t)(~(size_t)0&gt;&gt;1))" data-ref="_M/OP_MEM_DIFF_MAX">OP_MEM_DIFF_MAX</a>-<a class="local col3 ref" href="#33pos" title='pos' data-ref="33pos">pos</a>)<b>return</b> -<var>1</var>;</td></tr>
+<tr><th id="320">320</th><td>      <a class="local col3 ref" href="#33pos" title='pos' data-ref="33pos">pos</a>=(<span class='typedef' title='ptrdiff_t' data-type='long' data-ref="ptrdiff_t">ptrdiff_t</span>)(<a class="local col3 ref" href="#33pos" title='pos' data-ref="33pos">pos</a>+<a class="local col0 ref" href="#30_offset" title='_offset' data-ref="30_offset">_offset</a>);</td></tr>
+<tr><th id="321">321</th><td>    }<b>break</b>;</td></tr>
+<tr><th id="322">322</th><td>    <b>case</b> <a class="macro" href="../../../../include/stdio.h.html#142" title="2" data-ref="_M/SEEK_END">SEEK_END</a>:{</td></tr>
+<tr><th id="323">323</th><td>      <span class='typedef' title='ptrdiff_t' data-type='long' data-ref="ptrdiff_t">ptrdiff_t</span> <dfn class="local col4 decl" id="34size" title='size' data-type='ptrdiff_t' data-ref="34size">size</dfn>;</td></tr>
+<tr><th id="324">324</th><td>      <a class="local col4 ref" href="#34size" title='size' data-ref="34size">size</a>=<a class="local col2 ref" href="#32stream" title='stream' data-ref="32stream">stream</a>-&gt;<a class="tu ref" href="#OpusMemStream::size" title='OpusMemStream::size' data-use='r' data-ref="OpusMemStream::size">size</a>;</td></tr>
+<tr><th id="325">325</th><td>      <a class="macro" href="internal.h.html#91" title="" data-ref="_M/OP_ASSERT">OP_ASSERT</a>(size&gt;=<var>0</var>);</td></tr>
+<tr><th id="326">326</th><td>      <i>/*Check for overflow:*/</i></td></tr>
+<tr><th id="327">327</th><td>      <b>if</b>(<a class="local col0 ref" href="#30_offset" title='_offset' data-ref="30_offset">_offset</a>&gt;<a class="local col4 ref" href="#34size" title='size' data-ref="34size">size</a>||<a class="local col0 ref" href="#30_offset" title='_offset' data-ref="30_offset">_offset</a>&lt;<a class="local col4 ref" href="#34size" title='size' data-ref="34size">size</a>-<a class="macro" href="#34" title="((ptrdiff_t)(~(size_t)0&gt;&gt;1))" data-ref="_M/OP_MEM_DIFF_MAX">OP_MEM_DIFF_MAX</a>)<b>return</b> -<var>1</var>;</td></tr>
+<tr><th id="328">328</th><td>      <a class="local col3 ref" href="#33pos" title='pos' data-ref="33pos">pos</a>=(<span class='typedef' title='ptrdiff_t' data-type='long' data-ref="ptrdiff_t">ptrdiff_t</span>)(<a class="local col4 ref" href="#34size" title='size' data-ref="34size">size</a>-<a class="local col0 ref" href="#30_offset" title='_offset' data-ref="30_offset">_offset</a>);</td></tr>
+<tr><th id="329">329</th><td>    }<b>break</b>;</td></tr>
+<tr><th id="330">330</th><td>    <b>default</b>:<b>return</b> -<var>1</var>;</td></tr>
+<tr><th id="331">331</th><td>  }</td></tr>
+<tr><th id="332">332</th><td>  <a class="local col2 ref" href="#32stream" title='stream' data-ref="32stream">stream</a>-&gt;<a class="tu ref" href="#OpusMemStream::pos" title='OpusMemStream::pos' data-use='w' data-ref="OpusMemStream::pos">pos</a>=<a class="local col3 ref" href="#33pos" title='pos' data-ref="33pos">pos</a>;</td></tr>
+<tr><th id="333">333</th><td>  <b>return</b> <var>0</var>;</td></tr>
+<tr><th id="334">334</th><td>}</td></tr>
+<tr><th id="335">335</th><td></td></tr>
+<tr><th id="336">336</th><td><em>static</em> <a class="macro" href="../../opus-1.1.4/include/opus_types.h.html#152" title="long long" data-ref="_M/opus_int64">opus_int64</a> <dfn class="tu decl def" id="op_mem_tell" title='op_mem_tell' data-type='long long op_mem_tell(void * _stream)' data-ref="op_mem_tell">op_mem_tell</dfn>(<em>void</em> *<dfn class="local col5 decl" id="35_stream" title='_stream' data-type='void *' data-ref="35_stream">_stream</dfn>){</td></tr>
+<tr><th id="337">337</th><td>  <a class="typedef" href="#OpusMemStream" title='OpusMemStream' data-type='struct OpusMemStream' data-ref="OpusMemStream">OpusMemStream</a> *<dfn class="local col6 decl" id="36stream" title='stream' data-type='OpusMemStream *' data-ref="36stream">stream</dfn>;</td></tr>
+<tr><th id="338">338</th><td>  <a class="local col6 ref" href="#36stream" title='stream' data-ref="36stream">stream</a>=(<a class="typedef" href="#OpusMemStream" title='OpusMemStream' data-type='struct OpusMemStream' data-ref="OpusMemStream">OpusMemStream</a> *)<a class="local col5 ref" href="#35_stream" title='_stream' data-ref="35_stream">_stream</a>;</td></tr>
+<tr><th id="339">339</th><td>  <b>return</b> (<a class="typedef" href="../../libogg-1.3.2/include/ogg/config_types.h.html#ogg_int64_t" title='ogg_int64_t' data-type='int64_t' data-ref="ogg_int64_t">ogg_int64_t</a>)<a class="local col6 ref" href="#36stream" title='stream' data-ref="36stream">stream</a>-&gt;<a class="tu ref" href="#OpusMemStream::pos" title='OpusMemStream::pos' data-use='r' data-ref="OpusMemStream::pos">pos</a>;</td></tr>
+<tr><th id="340">340</th><td>}</td></tr>
+<tr><th id="341">341</th><td></td></tr>
+<tr><th id="342">342</th><td><em>static</em> <em>int</em> <dfn class="tu decl def" id="op_mem_close" title='op_mem_close' data-type='int op_mem_close(void * _stream)' data-ref="op_mem_close">op_mem_close</dfn>(<em>void</em> *<dfn class="local col7 decl" id="37_stream" title='_stream' data-type='void *' data-ref="37_stream">_stream</dfn>){</td></tr>
+<tr><th id="343">343</th><td>  <a class="macro" href="../../libogg-1.3.2/include/ogg/os_types.h.html#25" title="free" data-ref="_M/_ogg_free">_ogg_free</a>(<a class="local col7 ref" href="#37_stream" title='_stream' data-ref="37_stream">_stream</a>);</td></tr>
+<tr><th id="344">344</th><td>  <b>return</b> <var>0</var>;</td></tr>
+<tr><th id="345">345</th><td>}</td></tr>
+<tr><th id="346">346</th><td></td></tr>
+<tr><th id="347">347</th><td><em>static</em> <em>const</em> <a class="typedef" href="../include/opusfile.h.html#OpusFileCallbacks" title='OpusFileCallbacks' data-type='struct OpusFileCallbacks' data-ref="OpusFileCallbacks">OpusFileCallbacks</a> <dfn class="tu decl def" id="OP_MEM_CALLBACKS" title='OP_MEM_CALLBACKS' data-type='const OpusFileCallbacks' data-ref="OP_MEM_CALLBACKS">OP_MEM_CALLBACKS</dfn>={</td></tr>
+<tr><th id="348">348</th><td>  <a class="tu ref" href="#op_mem_read" title='op_mem_read' data-ref="op_mem_read">op_mem_read</a>,</td></tr>
+<tr><th id="349">349</th><td>  <a class="tu ref" href="#op_mem_seek" title='op_mem_seek' data-ref="op_mem_seek">op_mem_seek</a>,</td></tr>
+<tr><th id="350">350</th><td>  <a class="tu ref" href="#op_mem_tell" title='op_mem_tell' data-ref="op_mem_tell">op_mem_tell</a>,</td></tr>
+<tr><th id="351">351</th><td>  <a class="tu ref" href="#op_mem_close" title='op_mem_close' data-ref="op_mem_close">op_mem_close</a></td></tr>
+<tr><th id="352">352</th><td>};</td></tr>
+<tr><th id="353">353</th><td></td></tr>
+<tr><th id="354">354</th><td><em>void</em> *<dfn class="decl def" id="op_mem_stream_create" title='op_mem_stream_create' data-ref="op_mem_stream_create">op_mem_stream_create</dfn>(<a class="typedef" href="../include/opusfile.h.html#OpusFileCallbacks" title='OpusFileCallbacks' data-type='struct OpusFileCallbacks' data-ref="OpusFileCallbacks">OpusFileCallbacks</a> *<dfn class="local col8 decl" id="38_cb" title='_cb' data-type='OpusFileCallbacks *' data-ref="38_cb">_cb</dfn>,</td></tr>
+<tr><th id="355">355</th><td> <em>const</em> <em>unsigned</em> <em>char</em> *<dfn class="local col9 decl" id="39_data" title='_data' data-type='const unsigned char *' data-ref="39_data">_data</dfn>,<span class='typedef' title='size_t' data-type='unsigned long' data-ref="size_t">size_t</span> <dfn class="local col0 decl" id="40_size" title='_size' data-type='size_t' data-ref="40_size">_size</dfn>){</td></tr>
+<tr><th id="356">356</th><td>  <a class="typedef" href="#OpusMemStream" title='OpusMemStream' data-type='struct OpusMemStream' data-ref="OpusMemStream">OpusMemStream</a> *<dfn class="local col1 decl" id="41stream" title='stream' data-type='OpusMemStream *' data-ref="41stream">stream</dfn>;</td></tr>
+<tr><th id="357">357</th><td>  <b>if</b>(<a class="local col0 ref" href="#40_size" title='_size' data-ref="40_size">_size</a>&gt;<a class="macro" href="#33" title="(~(size_t)0&gt;&gt;1)" data-ref="_M/OP_MEM_SIZE_MAX">OP_MEM_SIZE_MAX</a>)<b>return</b> <span class="macro" title="((void*)0)" data-ref="_M/NULL">NULL</span>;</td></tr>
+<tr><th id="358">358</th><td>  <a class="local col1 ref" href="#41stream" title='stream' data-ref="41stream">stream</a>=(<a class="typedef" href="#OpusMemStream" title='OpusMemStream' data-type='struct OpusMemStream' data-ref="OpusMemStream">OpusMemStream</a> *)<a class="macro" href="../../libogg-1.3.2/include/ogg/os_types.h.html#22" title="malloc" data-ref="_M/_ogg_malloc">_ogg_malloc</a>(<b>sizeof</b>(*<a class="local col1 ref" href="#41stream" title='stream' data-ref="41stream">stream</a>));</td></tr>
+<tr><th id="359">359</th><td>  <b>if</b>(<a class="local col1 ref" href="#41stream" title='stream' data-ref="41stream">stream</a>!=<span class="macro" title="((void*)0)" data-ref="_M/NULL">NULL</span>){</td></tr>
+<tr><th id="360">360</th><td>    *<a class="local col8 ref" href="#38_cb" title='_cb' data-ref="38_cb">_cb</a>=*&amp;<a class="tu ref" href="#OP_MEM_CALLBACKS" title='OP_MEM_CALLBACKS' data-use='a' data-ref="OP_MEM_CALLBACKS">OP_MEM_CALLBACKS</a>;</td></tr>
+<tr><th id="361">361</th><td>    <a class="local col1 ref" href="#41stream" title='stream' data-ref="41stream">stream</a>-&gt;<a class="tu ref" href="#OpusMemStream::data" title='OpusMemStream::data' data-use='w' data-ref="OpusMemStream::data">data</a>=<a class="local col9 ref" href="#39_data" title='_data' data-ref="39_data">_data</a>;</td></tr>
+<tr><th id="362">362</th><td>    <a class="local col1 ref" href="#41stream" title='stream' data-ref="41stream">stream</a>-&gt;<a class="tu ref" href="#OpusMemStream::size" title='OpusMemStream::size' data-use='w' data-ref="OpusMemStream::size">size</a>=<a class="local col0 ref" href="#40_size" title='_size' data-ref="40_size">_size</a>;</td></tr>
+<tr><th id="363">363</th><td>    <a class="local col1 ref" href="#41stream" title='stream' data-ref="41stream">stream</a>-&gt;<a class="tu ref" href="#OpusMemStream::pos" title='OpusMemStream::pos' data-use='w' data-ref="OpusMemStream::pos">pos</a>=<var>0</var>;</td></tr>
+<tr><th id="364">364</th><td>  }</td></tr>
+<tr><th id="365">365</th><td>  <b>return</b> <a class="local col1 ref" href="#41stream" title='stream' data-ref="41stream">stream</a>;</td></tr>
+<tr><th id="366">366</th><td>}</td></tr>
+<tr><th id="367">367</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated on <em>2017-Aug-29</em> from project codebrowser revision <em>63e07af</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

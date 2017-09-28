@@ -1,0 +1,14 @@
+<def f='codebrowser/code/game/g_client.c' l='37' ll='48' type='void SP_info_player_deathmatch(gentity_t * ent)'/>
+<use f='codebrowser/code/game/g_client.c' l='55' u='c' c='SP_info_player_start'/>
+<doc f='codebrowser/code/game/g_client.c' l='30'>/*QUAKED info_player_deathmatch (1 0 1) (-16 -16 -24) (16 16 32) initial
+potential spawning position for deathmatch games.
+The first time a player enters the game, they will be at an &apos;initial&apos; spot.
+Targets will be fired when someone spawns in on them.
+&quot;nobots&quot; will prevent bots from using this spot.
+&quot;nohumans&quot; will prevent non-bots from using this spot.
+*/</doc>
+<dec f='codebrowser/code/game/g_spawn.c' l='123' type='void SP_info_player_deathmatch(gentity_t * ent)'/>
+<use f='codebrowser/code/game/g_spawn.c' l='188'/>
+<use f='codebrowser/code/game/g_spawn.c' l='188'/>
+<use f='codebrowser/code/game/g_spawn.c' l='188'/>
+<use f='codebrowser/code/game/g_spawn.c' l='188'/>

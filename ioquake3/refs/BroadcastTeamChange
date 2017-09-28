@@ -1,0 +1,11 @@
+<dec f='codebrowser/code/game/g_local.h' l='429' type='void BroadcastTeamChange(gclient_t * client, int oldTeam)'/>
+<use f='codebrowser/code/game/g_client.c' l='968' u='c' c='ClientConnect'/>
+<def f='codebrowser/code/game/g_cmds.c' l='493' ll='508' type='void BroadcastTeamChange(gclient_t * client, int oldTeam)'/>
+<use f='codebrowser/code/game/g_cmds.c' l='640' u='c' c='SetTeam'/>
+<doc f='codebrowser/code/game/g_cmds.c' l='486'>/*
+=================
+BroadcastTeamChange
+
+Let everyone know about a team change
+=================
+*/</doc>

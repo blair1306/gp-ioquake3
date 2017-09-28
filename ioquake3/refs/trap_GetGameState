@@ -1,0 +1,6 @@
+<dec f='codebrowser/code/cgame/cg_local.h' l='1611' type='void trap_GetGameState(gameState_t * gamestate)'/>
+<doc f='codebrowser/code/cgame/cg_local.h' l='1609'>// the gamestate should be grabbed at startup, and whenever a
+// configstring changes</doc>
+<use f='codebrowser/code/cgame/cg_main.c' l='1880' u='c' c='CG_Init'/>
+<use f='codebrowser/code/cgame/cg_servercmds.c' l='287' u='c' c='CG_ConfigStringModified'/>
+<def f='codebrowser/code/cgame/cg_syscalls.c' l='311' ll='313' type='void trap_GetGameState(gameState_t * gamestate)'/>

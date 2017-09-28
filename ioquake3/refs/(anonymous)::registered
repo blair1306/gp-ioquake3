@@ -1,0 +1,51 @@
+<dec f='codebrowser/code/tools/lcc/src/config.h' l='51' type='unsigned int'/>
+<offset>1</offset>
+<dec f='codebrowser/code/cgame/cg_local.h' l='421' type='qboolean'/>
+<offset>0</offset>
+<use f='codebrowser/code/cgame/cg_weapons.c' l='836' u='r' c='CG_RegisterItemVisuals'/>
+<use f='codebrowser/code/cgame/cg_weapons.c' l='843' u='w' c='CG_RegisterItemVisuals'/>
+<dec f='codebrowser/code/renderergl1/tr_local.h' l='869' type='qboolean'/>
+<offset>0</offset>
+<doc f='codebrowser/code/renderergl1/tr_local.h' l='869'>// cleared at shutdown, set at beginRegistration</doc>
+<use f='codebrowser/code/renderergl1/tr_backend.c' l='736' u='r' c='RE_StretchRaw'/>
+<use f='codebrowser/code/renderergl1/tr_cmds.c' l='109' u='r' c='R_IssuePendingRenderCommands'/>
+<use f='codebrowser/code/renderergl1/tr_cmds.c' l='187' u='r' c='RE_SetColor'/>
+<use f='codebrowser/code/renderergl1/tr_cmds.c' l='217' u='r' c='RE_StretchPic'/>
+<use f='codebrowser/code/renderergl1/tr_cmds.c' l='292' u='r' c='RE_BeginFrame'/>
+<use f='codebrowser/code/renderergl1/tr_cmds.c' l='465' u='r' c='RE_EndFrame'/>
+<use f='codebrowser/code/renderergl1/tr_cmds.c' l='498' u='r' c='RE_TakeVideoFrame'/>
+<use f='codebrowser/code/renderergl1/tr_init.c' l='1273' u='r' c='RE_Shutdown'/>
+<use f='codebrowser/code/renderergl1/tr_init.c' l='1288' u='w' c='RE_Shutdown'/>
+<use f='codebrowser/code/renderergl1/tr_model.c' l='888' u='w' c='RE_BeginRegistration'/>
+<use f='codebrowser/code/renderergl1/tr_scene.c' l='117' u='r' c='RE_AddPolyToScene'/>
+<use f='codebrowser/code/renderergl1/tr_scene.c' l='200' u='r' c='RE_AddRefEntityToScene'/>
+<use f='codebrowser/code/renderergl1/tr_scene.c' l='235' u='r' c='RE_AddDynamicLightToScene'/>
+<use f='codebrowser/code/renderergl1/tr_scene.c' l='292' u='r' c='RE_RenderScene'/>
+<dec f='codebrowser/code/renderergl2/tr_local.h' l='1429' type='qboolean'/>
+<offset>0</offset>
+<doc f='codebrowser/code/renderergl2/tr_local.h' l='1429'>// cleared at shutdown, set at beginRegistration</doc>
+<use f='codebrowser/code/renderergl2/tr_backend.c' l='683' u='r' c='RE_StretchRaw'/>
+<use f='codebrowser/code/renderergl2/tr_cmds.c' l='116' u='r' c='R_IssuePendingRenderCommands'/>
+<use f='codebrowser/code/renderergl2/tr_cmds.c' l='233' u='r' c='RE_SetColor'/>
+<use f='codebrowser/code/renderergl2/tr_cmds.c' l='263' u='r' c='RE_StretchPic'/>
+<use f='codebrowser/code/renderergl2/tr_cmds.c' l='338' u='r' c='RE_BeginFrame'/>
+<use f='codebrowser/code/renderergl2/tr_cmds.c' l='536' u='r' c='RE_EndFrame'/>
+<use f='codebrowser/code/renderergl2/tr_cmds.c' l='569' u='r' c='RE_TakeVideoFrame'/>
+<use f='codebrowser/code/renderergl2/tr_init.c' l='1517' u='r' c='RE_Shutdown'/>
+<use f='codebrowser/code/renderergl2/tr_init.c' l='1537' u='w' c='RE_Shutdown'/>
+<use f='codebrowser/code/renderergl2/tr_model.c' l='1184' u='w' c='RE_BeginRegistration'/>
+<use f='codebrowser/code/renderergl2/tr_scene.c' l='119' u='r' c='RE_AddPolyToScene'/>
+<use f='codebrowser/code/renderergl2/tr_scene.c' l='206' u='r' c='RE_AddRefEntityToScene'/>
+<use f='codebrowser/code/renderergl2/tr_scene.c' l='244' u='r' c='RE_AddDynamicLightToScene'/>
+<use f='codebrowser/code/renderergl2/tr_scene.c' l='462' u='r' c='RE_RenderScene'/>
+<use f='codebrowser/code/tools/lcc/src/gen.c' l='370' u='r' c='emit'/>
+<use f='codebrowser/code/tools/lcc/src/gen.c' l='618' u='r' c='ralloc'/>
+<use f='codebrowser/code/tools/lcc/src/gen.c' l='622' u='r' c='ralloc'/>
+<use f='codebrowser/code/tools/lcc/src/gen.c' l='634' u='r' c='ralloc'/>
+<use f='codebrowser/code/tools/lcc/src/gen.c' l='645' u='w' c='ralloc'/>
+<use f='codebrowser/code/tools/lcc/src/gen.c' l='656' u='w' c='ralloc'/>
+<use f='codebrowser/code/tools/lcc/src/gen.c' l='700' u='r' c='uses'/>
+<use f='codebrowser/code/tools/lcc/src/gen.c' l='715' u='r' c='spillr'/>
+<use f='codebrowser/code/tools/lcc/src/gen.c' l='721' u='r' c='spillr'/>
+<use f='codebrowser/code/tools/lcc/src/gen.c' l='797' u='r' c='spill'/>
+<use f='codebrowser/code/tools/lcc/src/gen.c' l='808' u='r' c='spill'/>

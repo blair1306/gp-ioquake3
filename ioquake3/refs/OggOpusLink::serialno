@@ -1,0 +1,16 @@
+<dec f='codebrowser/code/opusfile-0.8/src/internal.h' l='145' type='ogg_uint32_t'/>
+<offset>320</offset>
+<doc f='codebrowser/code/opusfile-0.8/src/internal.h' l='144'>/*The serial number.*/</doc>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='976' u='r' c='op_find_final_pcm_offset'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='1161' u='r' c='op_bisect_forward_serialno'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='1225' u='r' c='op_bisect_forward_serialno'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='1250' u='r' c='op_bisect_forward_serialno'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='1268' u='w' c='op_bisect_forward_serialno'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='1379' u='r' c='op_make_decode_ready'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='1402' u='r' c='op_open_seekable2_impl'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='1556' u='w' c='op_open1'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='1708' u='r' c='op_serialno'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='1842' u='r' c='op_fetch_and_process_page'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='1886' u='r' c='op_fetch_and_process_page'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='1916' u='w' c='op_fetch_and_process_page'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='2216' u='r' c='op_pcm_seek_page'/>

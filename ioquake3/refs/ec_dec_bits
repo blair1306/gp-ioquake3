@@ -1,0 +1,16 @@
+<dec f='codebrowser/code/opus-1.1.4/celt/entdec.h' l='98' type='opus_uint32 ec_dec_bits(ec_dec * _this, unsigned int _ftb)'/>
+<use f='codebrowser/code/opus-1.1.4/celt/bands.c' l='872' u='c' c='quant_band_n1'/>
+<use f='codebrowser/code/opus-1.1.4/celt/bands.c' l='1278' u='c' c='quant_band_stereo'/>
+<doc f='codebrowser/code/opus-1.1.4/celt/entdec.h' l='92'>/*Extracts a sequence of raw bits from the stream.
+  The bits must have been encoded with ec_enc_bits().
+  No call to ec_dec_update() is necessary after this call.
+  _ftb: The number of bits to extract.
+        This must be between 0 and 25, inclusive.
+  Return: The decoded bits.*/</doc>
+<use f='codebrowser/code/opus-1.1.4/celt/celt_decoder.c' l='875' u='c' c='celt_decode_with_ec'/>
+<use f='codebrowser/code/opus-1.1.4/celt/celt_decoder.c' l='876' u='c' c='celt_decode_with_ec'/>
+<use f='codebrowser/code/opus-1.1.4/celt/celt_decoder.c' l='986' u='c' c='celt_decode_with_ec'/>
+<use f='codebrowser/code/opus-1.1.4/celt/entdec.c' l='212' u='c' c='ec_dec_uint'/>
+<def f='codebrowser/code/opus-1.1.4/celt/entdec.c' l='225' ll='245' type='opus_uint32 ec_dec_bits(ec_dec * _this, unsigned int _bits)'/>
+<use f='codebrowser/code/opus-1.1.4/celt/quant_bands.c' l='504' u='c' c='unquant_fine_energy'/>
+<use f='codebrowser/code/opus-1.1.4/celt/quant_bands.c' l='530' u='c' c='unquant_energy_finalise'/>

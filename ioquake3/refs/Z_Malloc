@@ -1,0 +1,38 @@
+<dec f='codebrowser/code/qcommon/qcommon.h' l='942' type='void * Z_Malloc(int size)'/>
+<use f='codebrowser/code/client/cl_avi.c' l='364' u='c' c='CL_OpenAVIForWriting'/>
+<use f='codebrowser/code/client/cl_avi.c' l='366' u='c' c='CL_OpenAVIForWriting'/>
+<doc f='codebrowser/code/qcommon/qcommon.h' l='942'>// returns 0 filled memory</doc>
+<use f='codebrowser/code/client/snd_codec.c' l='213' u='c' c='S_CodecUtilOpen'/>
+<use f='codebrowser/code/qcommon/cm_polylib.c' l='61' u='c' c='AllocWinding'/>
+<def f='codebrowser/code/qcommon/common.c' l='1048' ll='1062' type='void * Z_Malloc(int size)'/>
+<use f='codebrowser/code/qcommon/common.c' l='1798' u='c' c='Hunk_AllocateTempMemory'/>
+<use f='codebrowser/code/qcommon/common.c' l='2031' u='c' c='Com_GetSystemEvent'/>
+<use f='codebrowser/code/qcommon/common.c' l='2066' u='c' c='Com_GetRealEvent'/>
+<use f='codebrowser/code/qcommon/files.c' l='2054' u='c' c='FS_LoadZipFile'/>
+<use f='codebrowser/code/qcommon/files.c' l='2056' u='c' c='FS_LoadZipFile'/>
+<use f='codebrowser/code/qcommon/files.c' l='2067' u='c' c='FS_LoadZipFile'/>
+<use f='codebrowser/code/qcommon/files.c' l='2344' u='c' c='FS_ListFilteredFiles'/>
+<use f='codebrowser/code/qcommon/files.c' l='2458' u='c' c='Sys_ConcatenateFileLists'/>
+<use f='codebrowser/code/qcommon/files.c' l='2714' u='c' c='FS_SortFileList'/>
+<use f='codebrowser/code/qcommon/files.c' l='2981' u='c' c='FS_AddGameDirectory'/>
+<use f='codebrowser/code/qcommon/files.c' l='3001' u='c' c='FS_AddGameDirectory'/>
+<use f='codebrowser/code/qcommon/files.c' l='3002' u='c' c='FS_AddGameDirectory'/>
+<use f='codebrowser/code/qcommon/files.c' l='3022' u='c' c='FS_AddGameDirectory'/>
+<use f='codebrowser/code/qcommon/files.c' l='3023' u='c' c='FS_AddGameDirectory'/>
+<use f='codebrowser/code/qcommon/unzip.c' l='70' u='c' c='unzlocal_SearchCentralDir'/>
+<use f='codebrowser/code/qcommon/unzip.c' l='70' u='c' c='unzOpen2'/>
+<use f='codebrowser/code/qcommon/unzip.c' l='70' u='c' c='unzOpenCurrentFile3'/>
+<use f='codebrowser/code/qcommon/unzip.c' l='70' u='c' c='unzOpenCurrentFile3'/>
+<use f='codebrowser/code/qcommon/vm.c' l='914' u='c' c='VM_VmProfile_f'/>
+<use f='codebrowser/code/qcommon/vm_x86.c' l='1082' u='c' c='VM_Compile'/>
+<use f='codebrowser/code/qcommon/vm_x86.c' l='1083' u='c' c='VM_Compile'/>
+<use f='codebrowser/code/qcommon/vm_x86.c' l='1084' u='c' c='VM_Compile'/>
+<use f='codebrowser/code/server/sv_bot.c' l='527' u='c' c='SV_BotInitBotLib'/>
+<use f='codebrowser/code/server/sv_ccmds.c' l='663' u='c' c='SV_RehashBans_f'/>
+<use f='codebrowser/code/server/sv_client.c' l='1064' u='c' c='SV_WriteDownloadToClient'/>
+<use f='codebrowser/code/server/sv_client.c' l='1869' u='c' c='SV_UserVoip'/>
+<use f='codebrowser/code/server/sv_init.c' l='272' u='c' c='SV_Startup'/>
+<use f='codebrowser/code/server/sv_init.c' l='337' u='c' c='SV_ChangeMaxClients'/>
+<use f='codebrowser/code/server/sv_net_chan.c' l='232' u='c' c='SV_Netchan_Transmit'/>
+<use f='codebrowser/code/sys/sys_unix.c' l='404' u='c' c='Sys_ListFiles'/>
+<use f='codebrowser/code/sys/sys_unix.c' l='465' u='c' c='Sys_ListFiles'/>

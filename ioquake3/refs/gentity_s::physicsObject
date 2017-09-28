@@ -1,0 +1,8 @@
+<dec f='codebrowser/code/game/g_local.h' l='98' type='qboolean'/>
+<offset>4736</offset>
+<doc f='codebrowser/code/game/g_local.h' l='98'>// if true, it can be pushed by movers and fall off edges</doc>
+<use f='codebrowser/code/game/g_arenas.c' l='158' u='w' c='SpawnModelOnVictoryPad'/>
+<use f='codebrowser/code/game/g_client.c' l='387' u='w' c='BodySink'/>
+<use f='codebrowser/code/game/g_client.c' l='446' u='w' c='CopyToBodyQue'/>
+<use f='codebrowser/code/game/g_main.c' l='1828' u='r' c='G_RunFrame'/>
+<use f='codebrowser/code/game/g_mover.c' l='357' u='r' c='G_MoverPush'/>

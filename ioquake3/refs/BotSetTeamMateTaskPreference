@@ -1,0 +1,10 @@
+<dec f='codebrowser/code/game/ai_team.h' l='35' type='void BotSetTeamMateTaskPreference(bot_state_t * bs, int teammate, int preference)'/>
+<use f='codebrowser/code/game/ai_cmd.c' l='1041' u='c' c='BotMatch_TaskPreference'/>
+<def f='codebrowser/code/game/ai_team.c' l='187' ll='193' type='void BotSetTeamMateTaskPreference(bot_state_t * bs, int teammate, int preference)'/>
+<doc f='codebrowser/code/game/ai_team.c' l='182'>/*
+==================
+BotSetTeamMateTaskPreference
+==================
+*/</doc>
+<use f='codebrowser/code/game/ai_vcmd.c' l='464' u='c' c='BotVoiceChat_WantOnDefense'/>
+<use f='codebrowser/code/game/ai_vcmd.c' l='485' u='c' c='BotVoiceChat_WantOnOffense'/>

@@ -1,0 +1,45 @@
+<dec f='codebrowser/code/opusfile-0.8/src/internal.h' l='182' type='int'/>
+<offset>960</offset>
+<doc f='codebrowser/code/opusfile-0.8/src/internal.h' l='181'>/*One of OP_NOTOPEN, OP_PARTOPEN, OP_OPENED, OP_STREAMSET, OP_INITSET.*/</doc>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='493' u='r' c='op_fetch_headers_impl'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='503' u='w' c='op_fetch_headers_impl'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='515' u='r' c='op_fetch_headers_impl'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='518' u='r' c='op_fetch_headers_impl'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='582' u='w' c='op_fetch_headers'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='587' u='w' c='op_fetch_headers'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='1303' u='r' c='op_update_gain'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='1347' u='r' c='op_make_decode_ready'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='1348' u='r' c='op_make_decode_ready'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='1372' u='w' c='op_make_decode_ready'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='1473' u='w' c='op_decode_clear'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='1482' u='r' c='op_clear'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='1482' u='r' c='op_clear'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='1568' u='w' c='op_open1'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='1576' u='w' c='op_open2'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='1583' u='w' c='op_open2'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='1682' u='r' c='op_test_open'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='1716' u='r' c='op_raw_total'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='1731' u='r' c='op_pcm_total'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='1765' u='r' c='op_tags'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='1765' u='r' c='op_tags'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='1770' u='r' c='op_tags'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='1775' u='r' c='op_current_link'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='1804' u='r' c='op_bitrate'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='1814' u='r' c='op_bitrate_instant'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='1856' u='r' c='op_fetch_and_process_page'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='1863' u='r' c='op_fetch_and_process_page'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='1876' u='r' c='op_fetch_and_process_page'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='1893' u='w' c='op_fetch_and_process_page'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='1935' u='r' c='op_fetch_and_process_page'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='1941' u='r' c='op_fetch_and_process_page'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='2089' u='r' c='op_raw_seek'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='2235' u='r' c='op_pcm_seek_page'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='2296' u='w' c='op_pcm_seek_page'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='2318' u='w' c='op_pcm_seek_page'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='2519' u='r' c='op_pcm_seek'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='2531' u='r' c='op_pcm_seek'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='2598' u='r' c='op_raw_tell'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='2645' u='r' c='op_pcm_tell'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='2745' u='r' c='op_read_native'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='2748' u='r' c='op_read_native'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='2869' u='r' c='op_filter_read_native'/>

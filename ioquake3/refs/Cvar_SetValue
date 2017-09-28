@@ -1,0 +1,31 @@
+<dec f='codebrowser/code/qcommon/qcommon.h' l='526' type='void Cvar_SetValue(const char * var_name, float value)'/>
+<doc f='codebrowser/code/qcommon/qcommon.h' l='524'>// don&apos;t set the cvar immediately</doc>
+<use f='codebrowser/code/client/cl_curl.c' l='207' u='c' c='CL_cURL_CallbackProgress'/>
+<use f='codebrowser/code/client/cl_curl.c' l='209' u='c' c='CL_cURL_CallbackProgress'/>
+<use f='codebrowser/code/client/cl_curl.c' l='266' u='c' c='CL_cURL_BeginDownload'/>
+<use f='codebrowser/code/client/cl_keys.c' l='1250' u='c' c='CL_KeyDownEvent'/>
+<use f='codebrowser/code/client/cl_main.c' l='2177' u='c' c='CL_BeginDownload'/>
+<use f='codebrowser/code/client/cl_main.c' l='3266' u='r' c='CL_InitRef'/>
+<use f='codebrowser/code/client/cl_parse.c' l='584' u='c' c='CL_ParseDownload'/>
+<use f='codebrowser/code/client/cl_parse.c' l='630' u='c' c='CL_ParseDownload'/>
+<use f='codebrowser/code/qcommon/common.c' l='224' u='c' c='Com_Printf'/>
+<def f='codebrowser/code/qcommon/cvar.c' l='669' ll='678' type='void Cvar_SetValue(const char * var_name, float value)'/>
+<doc f='codebrowser/code/qcommon/cvar.c' l='664'>/*
+============
+Cvar_SetValue
+============
+*/</doc>
+<use f='codebrowser/code/qcommon/net_ip.c' l='974' u='c' c='NET_SetMulticast6'/>
+<use f='codebrowser/code/qcommon/net_ip.c' l='1372' u='c' c='NET_OpenIP'/>
+<use f='codebrowser/code/qcommon/net_ip.c' l='1390' u='c' c='NET_OpenIP'/>
+<use f='codebrowser/code/sdl/sdl_input.c' l='1130' u='c' c='IN_ProcessEvents'/>
+<use f='codebrowser/code/sdl/sdl_input.c' l='1131' u='c' c='IN_ProcessEvents'/>
+<use f='codebrowser/code/sdl/sdl_input.c' l='1141' u='c' c='IN_ProcessEvents'/>
+<use f='codebrowser/code/sdl/sdl_input.c' l='1143' u='c' c='IN_ProcessEvents'/>
+<use f='codebrowser/code/sdl/sdl_input.c' l='1144' u='c' c='IN_ProcessEvents'/>
+<use f='codebrowser/code/sdl/sdl_input.c' l='1145' u='c' c='IN_ProcessEvents'/>
+<use f='codebrowser/code/sdl/sdl_input.c' l='1234' u='c' c='IN_Init'/>
+<use f='codebrowser/code/sdl/sdl_input.c' l='1235' u='c' c='IN_Init'/>
+<use f='codebrowser/code/server/sv_ccmds.c' l='178' u='c' c='SV_Map_f'/>
+<use f='codebrowser/code/server/sv_ccmds.c' l='179' u='c' c='SV_Map_f'/>
+<use f='codebrowser/code/server/sv_ccmds.c' l='199' u='c' c='SV_Map_f'/>

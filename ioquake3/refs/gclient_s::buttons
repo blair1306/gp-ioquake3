@@ -1,0 +1,14 @@
+<dec f='codebrowser/code/game/g_local.h' l='269' type='int'/>
+<offset>5248</offset>
+<doc f='codebrowser/code/game/g_local.h' l='267'>// we can&apos;t just use pers.lastCommand.time, because
+									// of the g_sycronousclients case</doc>
+<use f='codebrowser/code/game/g_active.c' l='349' u='r' c='SpectatorThink'/>
+<use f='codebrowser/code/game/g_active.c' l='350' u='w' c='SpectatorThink'/>
+<use f='codebrowser/code/game/g_active.c' l='353' u='r' c='SpectatorThink'/>
+<use f='codebrowser/code/game/g_active.c' l='516' u='r' c='ClientIntermissionThink'/>
+<use f='codebrowser/code/game/g_active.c' l='517' u='w' c='ClientIntermissionThink'/>
+<use f='codebrowser/code/game/g_active.c' l='518' u='r' c='ClientIntermissionThink'/>
+<use f='codebrowser/code/game/g_active.c' l='518' u='r' c='ClientIntermissionThink'/>
+<use f='codebrowser/code/game/g_active.c' l='989' u='r' c='ClientThink_real'/>
+<use f='codebrowser/code/game/g_active.c' l='990' u='w' c='ClientThink_real'/>
+<use f='codebrowser/code/game/g_active.c' l='991' u='r' c='ClientThink_real'/>

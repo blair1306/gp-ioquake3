@@ -1,0 +1,24 @@
+<dec f='codebrowser/code/renderergl1/tr_local.h' l='1144' type='void RE_BeginFrame(stereoFrame_t stereoFrame)'/>
+<dec f='codebrowser/code/renderergl1/tr_local.h' l='1577' type='void RE_BeginFrame(stereoFrame_t stereoFrame)'/>
+<def f='codebrowser/code/renderergl1/tr_cmds.c' l='288' ll='452' type='void RE_BeginFrame(stereoFrame_t stereoFrame)'/>
+<doc f='codebrowser/code/renderergl1/tr_cmds.c' l='280'>/*
+====================
+RE_BeginFrame
+
+If running in stereo, RE_BeginFrame will be called twice
+for each RE_EndFrame
+====================
+*/</doc>
+<use f='codebrowser/code/renderergl1/tr_init.c' l='1344' u='r' c='GetRefAPI'/>
+<dec f='codebrowser/code/renderergl2/tr_local.h' l='1891' type='void RE_BeginFrame(stereoFrame_t stereoFrame)'/>
+<dec f='codebrowser/code/renderergl2/tr_local.h' l='2426' type='void RE_BeginFrame(stereoFrame_t stereoFrame)'/>
+<def f='codebrowser/code/renderergl2/tr_cmds.c' l='334' ll='523' type='void RE_BeginFrame(stereoFrame_t stereoFrame)'/>
+<doc f='codebrowser/code/renderergl2/tr_cmds.c' l='326'>/*
+====================
+RE_BeginFrame
+
+If running in stereo, RE_BeginFrame will be called twice
+for each RE_EndFrame
+====================
+*/</doc>
+<use f='codebrowser/code/renderergl2/tr_init.c' l='1593' u='r' c='GetRefAPI'/>

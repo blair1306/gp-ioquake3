@@ -1,0 +1,13 @@
+<dec f='codebrowser/code/client/client.h' l='102' type='int'/>
+<offset>4448</offset>
+<doc f='codebrowser/code/client/client.h' l='102'>// cl.serverTime = cls.realtime + cl.serverTimeDelta</doc>
+<use f='codebrowser/code/client/cl_cgame.c' l='835' u='r' c='CL_AdjustTimeDelta'/>
+<use f='codebrowser/code/client/cl_cgame.c' l='838' u='w' c='CL_AdjustTimeDelta'/>
+<use f='codebrowser/code/client/cl_cgame.c' l='849' u='w' c='CL_AdjustTimeDelta'/>
+<use f='codebrowser/code/client/cl_cgame.c' l='849' u='r' c='CL_AdjustTimeDelta'/>
+<use f='codebrowser/code/client/cl_cgame.c' l='859' u='w' c='CL_AdjustTimeDelta'/>
+<use f='codebrowser/code/client/cl_cgame.c' l='862' u='w' c='CL_AdjustTimeDelta'/>
+<use f='codebrowser/code/client/cl_cgame.c' l='868' u='r' c='CL_AdjustTimeDelta'/>
+<use f='codebrowser/code/client/cl_cgame.c' l='886' u='w' c='CL_FirstSnapshot'/>
+<use f='codebrowser/code/client/cl_cgame.c' l='1001' u='r' c='CL_SetCGameTime'/>
+<use f='codebrowser/code/client/cl_cgame.c' l='1012' u='r' c='CL_SetCGameTime'/>

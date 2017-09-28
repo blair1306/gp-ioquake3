@@ -1,0 +1,11 @@
+<def f='codebrowser/code/game/g_mover.c' l='264' ll='412' type='qboolean G_MoverPush(gentity_t * pusher, vec_t * move, vec_t * amove, gentity_t ** obstacle)'/>
+<use f='codebrowser/code/game/g_mover.c' l='437' u='c' c='G_MoverTeam'/>
+<doc f='codebrowser/code/game/g_mover.c' l='255'>/*
+============
+G_MoverPush
+
+Objects need to be moved back on a failed push,
+otherwise riders would continue to slide.
+If qfalse is returned, *obstacle will be the blocking entity
+============
+*/</doc>

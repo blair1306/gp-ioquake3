@@ -1,0 +1,13 @@
+<def f='codebrowser/code/client/cl_input.c' l='672' ll='720' type='qboolean CL_ReadyToSendPacket()'/>
+<use f='codebrowser/code/client/cl_input.c' l='919' u='c' c='CL_SendCmd'/>
+<doc f='codebrowser/code/client/cl_input.c' l='661'>/*
+=================
+CL_ReadyToSendPacket
+
+Returns qfalse if we are over the maxpackets limit
+and should choke back the bandwidth a bit by not sending
+a packet this frame.  All the commands will still get
+delivered in the next packet, but saving a header and
+getting more delta compression will reduce total bandwidth.
+=================
+*/</doc>

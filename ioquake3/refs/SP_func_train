@@ -1,0 +1,18 @@
+<def f='codebrowser/code/game/g_mover.c' l='1427' ll='1457' type='void SP_func_train(gentity_t * self)'/>
+<doc f='codebrowser/code/game/g_mover.c' l='1415'>/*QUAKED func_train (0 .5 .8) ? START_ON TOGGLE BLOCK_STOPS
+A train is a mover that moves between path_corner target points.
+Trains MUST HAVE AN ORIGIN BRUSH.
+The train spawns at the first target it is pointing at.
+&quot;model2&quot;	.md3 model to also draw
+&quot;speed&quot;		default 100
+&quot;dmg&quot;		default	2
+&quot;noise&quot;		looping sound to play when the train is in motion
+&quot;target&quot;	next path corner
+&quot;color&quot;		constantLight color
+&quot;light&quot;		constantLight radius
+*/</doc>
+<dec f='codebrowser/code/game/g_spawn.c' l='133' type='void SP_func_train(gentity_t * ent)'/>
+<use f='codebrowser/code/game/g_spawn.c' l='201'/>
+<use f='codebrowser/code/game/g_spawn.c' l='201'/>
+<use f='codebrowser/code/game/g_spawn.c' l='201'/>
+<use f='codebrowser/code/game/g_spawn.c' l='201'/>

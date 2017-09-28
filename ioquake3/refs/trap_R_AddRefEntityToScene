@@ -1,0 +1,65 @@
+<dec f='codebrowser/code/cgame/cg_local.h' l='1585' type='void trap_R_AddRefEntityToScene(const refEntity_t * re)'/>
+<use f='codebrowser/code/cgame/cg_draw.c' l='301' u='c' c='CG_Draw3DModel'/>
+<use f='codebrowser/code/cgame/cg_draw.c' l='1993' u='c' c='CG_DrawCrosshair3D'/>
+<use f='codebrowser/code/cgame/cg_ents.c' l='196' u='c' c='CG_General'/>
+<use f='codebrowser/code/cgame/cg_ents.c' l='257' u='c' c='CG_Item'/>
+<use f='codebrowser/code/cgame/cg_ents.c' l='350' u='c' c='CG_Item'/>
+<use f='codebrowser/code/cgame/cg_ents.c' l='373' u='c' c='CG_Item'/>
+<use f='codebrowser/code/cgame/cg_ents.c' l='401' u='c' c='CG_Item'/>
+<use f='codebrowser/code/cgame/cg_ents.c' l='476' u='c' c='CG_Missile'/>
+<use f='codebrowser/code/cgame/cg_ents.c' l='563' u='c' c='CG_Grapple'/>
+<use f='codebrowser/code/cgame/cg_ents.c' l='596' u='c' c='CG_Mover'/>
+<use f='codebrowser/code/cgame/cg_ents.c' l='602' u='c' c='CG_Mover'/>
+<use f='codebrowser/code/cgame/cg_ents.c' l='630' u='c' c='CG_Beam'/>
+<use f='codebrowser/code/cgame/cg_ents.c' l='663' u='c' c='CG_Portal'/>
+<use f='codebrowser/code/cgame/cg_ents.c' l='815' u='c' c='CG_TeamBase'/>
+<use f='codebrowser/code/cgame/cg_localents.c' l='263' u='c' c='CG_AddFragment'/>
+<use f='codebrowser/code/cgame/cg_localents.c' l='266' u='c' c='CG_AddFragment'/>
+<use f='codebrowser/code/cgame/cg_localents.c' l='288' u='c' c='CG_AddFragment'/>
+<use f='codebrowser/code/cgame/cg_localents.c' l='315' u='c' c='CG_AddFragment'/>
+<use f='codebrowser/code/cgame/cg_localents.c' l='346' u='c' c='CG_AddFadeRGB'/>
+<use f='codebrowser/code/cgame/cg_localents.c' l='388' u='c' c='CG_AddMoveScaleFade'/>
+<use f='codebrowser/code/cgame/cg_localents.c' l='424' u='c' c='CG_AddScaleFade'/>
+<use f='codebrowser/code/cgame/cg_localents.c' l='464' u='c' c='CG_AddFallScaleFade'/>
+<use f='codebrowser/code/cgame/cg_localents.c' l='480' u='c' c='CG_AddExplosion'/>
+<use f='codebrowser/code/cgame/cg_localents.c' l='521' u='c' c='CG_AddSpriteExplosion'/>
+<use f='codebrowser/code/cgame/cg_localents.c' l='793' u='c' c='CG_AddScorePlum'/>
+<use f='codebrowser/code/cgame/cg_players.c' l='1644' u='c' c='CG_TrailItem'/>
+<use f='codebrowser/code/cgame/cg_players.c' l='1668' u='c' c='CG_PlayerFlag'/>
+<use f='codebrowser/code/cgame/cg_players.c' l='1761' u='c' c='CG_PlayerFlag'/>
+<use f='codebrowser/code/cgame/cg_players.c' l='1929' u='c' c='CG_PlayerFloatSprite'/>
+<use f='codebrowser/code/cgame/cg_players.c' l='2154' u='c' c='CG_AddRefEntityWithPowerups'/>
+<use f='codebrowser/code/cgame/cg_players.c' l='2165' u='c' c='CG_AddRefEntityWithPowerups'/>
+<use f='codebrowser/code/cgame/cg_players.c' l='2174' u='c' c='CG_AddRefEntityWithPowerups'/>
+<use f='codebrowser/code/cgame/cg_players.c' l='2179' u='c' c='CG_AddRefEntityWithPowerups'/>
+<use f='codebrowser/code/cgame/cg_players.c' l='2184' u='c' c='CG_AddRefEntityWithPowerups'/>
+<def f='codebrowser/code/cgame/cg_syscalls.c' l='257' ll='259' type='void trap_R_AddRefEntityToScene(const refEntity_t * re)'/>
+<use f='codebrowser/code/cgame/cg_view.c' l='167' u='c' c='CG_AddTestModel'/>
+<use f='codebrowser/code/cgame/cg_view.c' l='597' u='c' c='CG_DamageBlendBlob'/>
+<use f='codebrowser/code/cgame/cg_weapons.c' l='586' u='c' c='CG_GrappleTrail'/>
+<use f='codebrowser/code/cgame/cg_weapons.c' l='1037' u='c' c='CG_LightningBolt'/>
+<use f='codebrowser/code/cgame/cg_weapons.c' l='1057' u='c' c='CG_LightningBolt'/>
+<use f='codebrowser/code/cgame/cg_weapons.c' l='1173' u='c' c='CG_AddWeaponWithPowerups'/>
+<use f='codebrowser/code/cgame/cg_weapons.c' l='1175' u='c' c='CG_AddWeaponWithPowerups'/>
+<use f='codebrowser/code/cgame/cg_weapons.c' l='1179' u='c' c='CG_AddWeaponWithPowerups'/>
+<use f='codebrowser/code/cgame/cg_weapons.c' l='1183' u='c' c='CG_AddWeaponWithPowerups'/>
+<use f='codebrowser/code/cgame/cg_weapons.c' l='1335' u='c' c='CG_AddPlayerWeapon'/>
+<dec f='codebrowser/code/q3_ui/ui_local.h' l='650' type='void trap_R_AddRefEntityToScene(const refEntity_t * re)'/>
+<use f='codebrowser/code/q3_ui/ui_menu.c' l='210' u='c' c='Main_MenuDraw'/>
+<use f='codebrowser/code/q3_ui/ui_players.c' l='642' u='c' c='UI_PlayerFloatSprite'/>
+<use f='codebrowser/code/q3_ui/ui_players.c' l='773' u='c' c='UI_DrawPlayer'/>
+<use f='codebrowser/code/q3_ui/ui_players.c' l='795' u='c' c='UI_DrawPlayer'/>
+<use f='codebrowser/code/q3_ui/ui_players.c' l='812' u='c' c='UI_DrawPlayer'/>
+<use f='codebrowser/code/q3_ui/ui_players.c' l='829' u='c' c='UI_DrawPlayer'/>
+<use f='codebrowser/code/q3_ui/ui_players.c' l='850' u='c' c='UI_DrawPlayer'/>
+<use f='codebrowser/code/q3_ui/ui_players.c' l='869' u='c' c='UI_DrawPlayer'/>
+<dec f='codebrowser/code/ui/ui_local.h' l='941' type='void trap_R_AddRefEntityToScene(const refEntity_t * re)'/>
+<use f='codebrowser/code/ui/ui_main.c' l='5112' u='a' c='_UI_Init'/>
+<use f='codebrowser/code/ui/ui_players.c' l='643' u='c' c='UI_PlayerFloatSprite'/>
+<use f='codebrowser/code/ui/ui_players.c' l='779' u='c' c='UI_DrawPlayer'/>
+<use f='codebrowser/code/ui/ui_players.c' l='801' u='c' c='UI_DrawPlayer'/>
+<use f='codebrowser/code/ui/ui_players.c' l='818' u='c' c='UI_DrawPlayer'/>
+<use f='codebrowser/code/ui/ui_players.c' l='829' u='c' c='UI_DrawPlayer'/>
+<use f='codebrowser/code/ui/ui_players.c' l='850' u='c' c='UI_DrawPlayer'/>
+<use f='codebrowser/code/ui/ui_players.c' l='863' u='c' c='UI_DrawPlayer'/>
+<def f='codebrowser/code/ui/ui_syscalls.c' l='152' ll='154' type='void trap_R_AddRefEntityToScene(const refEntity_t * re)'/>

@@ -1,0 +1,28 @@
+<dec f='codebrowser/code/botlib/l_precomp.h' l='111' type='int PC_ReadToken(source_t * source, token_t * token)'/>
+<doc f='codebrowser/code/botlib/l_precomp.h' l='110'>//read a token from the source</doc>
+<use f='codebrowser/code/botlib/be_ai_char.c' l='231' u='c' c='BotLoadCharacterFromFile'/>
+<use f='codebrowser/code/botlib/be_ai_chat.c' l='641' u='c' c='BotLoadSynonyms'/>
+<use f='codebrowser/code/botlib/be_ai_chat.c' l='994' u='c' c='BotLoadRandomStrings'/>
+<use f='codebrowser/code/botlib/be_ai_chat.c' l='1171' u='c' c='BotLoadMatchPieces'/>
+<use f='codebrowser/code/botlib/be_ai_chat.c' l='1296' u='c' c='BotLoadMatchTemplates'/>
+<use f='codebrowser/code/botlib/be_ai_chat.c' l='1315' u='c' c='BotLoadMatchTemplates'/>
+<use f='codebrowser/code/botlib/be_ai_chat.c' l='1867' u='c' c='BotLoadReplyChat'/>
+<use f='codebrowser/code/botlib/be_ai_chat.c' l='2071' u='c' c='BotLoadInitialChat'/>
+<use f='codebrowser/code/botlib/be_ai_goal.c' l='297' u='c' c='LoadItemConfig'/>
+<use f='codebrowser/code/botlib/be_ai_weap.c' l='240' u='c' c='LoadWeaponConfig'/>
+<use f='codebrowser/code/botlib/be_ai_weight.c' l='338' u='c' c='ReadWeightConfig'/>
+<def f='codebrowser/code/botlib/l_precomp.c' l='2706' ll='2782' type='int PC_ReadToken(source_t * source, token_t * token)'/>
+<use f='codebrowser/code/botlib/l_precomp.c' l='2740' u='c' c='PC_ReadToken'/>
+<use f='codebrowser/code/botlib/l_precomp.c' l='2793' u='c' c='PC_ExpectTokenString'/>
+<use f='codebrowser/code/botlib/l_precomp.c' l='2816' u='c' c='PC_ExpectTokenType'/>
+<use f='codebrowser/code/botlib/l_precomp.c' l='2868' u='c' c='PC_ExpectAnyToken'/>
+<use f='codebrowser/code/botlib/l_precomp.c' l='2888' u='c' c='PC_CheckTokenString'/>
+<use f='codebrowser/code/botlib/l_precomp.c' l='2905' u='c' c='PC_CheckTokenType'/>
+<use f='codebrowser/code/botlib/l_precomp.c' l='2927' u='c' c='PC_SkipUntilString'/>
+<use f='codebrowser/code/botlib/l_precomp.c' l='3175' u='c' c='PC_ReadTokenHandle'/>
+<doc f='codebrowser/code/botlib/l_precomp.c' l='2700'>//============================================================================
+//
+// Parameter:				-
+// Returns:					-
+// Changes Globals:		-
+//============================================================================</doc>

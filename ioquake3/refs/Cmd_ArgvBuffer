@@ -1,0 +1,13 @@
+<dec f='codebrowser/code/qcommon/qcommon.h' l='455' type='void Cmd_ArgvBuffer(int arg, char * buffer, int bufferLength)'/>
+<use f='codebrowser/code/client/cl_cgame.c' l='435' u='c' c='CL_CgameSystemCalls'/>
+<use f='codebrowser/code/client/cl_ui.c' l='774' u='c' c='CL_UISystemCalls'/>
+<def f='codebrowser/code/qcommon/cmd.c' l='385' ll='387' type='void Cmd_ArgvBuffer(int arg, char * buffer, int bufferLength)'/>
+<doc f='codebrowser/code/qcommon/cmd.c' l='377'>/*
+============
+Cmd_ArgvBuffer
+
+The interpreted versions use this because
+they can&apos;t have pointers returned to them
+============
+*/</doc>
+<use f='codebrowser/code/server/sv_game.c' l='319' u='c' c='SV_GameSystemCalls'/>

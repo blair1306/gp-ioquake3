@@ -1,0 +1,12 @@
+<dec f='codebrowser/code/cgame/cg_local.h' l='328' type='int'/>
+<offset>1056</offset>
+<use f='codebrowser/code/cgame/cg_players.c' l='926' u='w' c='CG_NewClientInfo'/>
+<use f='codebrowser/code/cgame/cg_scoreboard.c' l='139' u='r' c='CG_DrawClientScore'/>
+<dec f='codebrowser/code/game/g_local.h' l='225' type='int'/>
+<offset>128</offset>
+<use f='codebrowser/code/game/g_client.c' l='853' u='r' c='ClientUserinfoChanged'/>
+<use f='codebrowser/code/game/g_client.c' l='860' u='r' c='ClientUserinfoChanged'/>
+<use f='codebrowser/code/game/g_client.c' l='1305' u='w' c='ClientDisconnect'/>
+<use f='codebrowser/code/game/g_main.c' l='708' u='w' c='AdjustTournamentScores'/>
+<use f='codebrowser/code/game/g_session.c' l='52' u='r' c='G_WriteClientSessionData'/>
+<use f='codebrowser/code/game/g_session.c' l='84' u='a' c='G_ReadSessionData'/>

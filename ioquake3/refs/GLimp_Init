@@ -1,0 +1,19 @@
+<dec f='codebrowser/code/renderercommon/tr_common.h' l='158' type='void GLimp_Init(qboolean )'/>
+<doc f='codebrowser/code/renderercommon/tr_common.h' l='150'>/*
+====================================================================
+
+IMPLEMENTATION SPECIFIC FUNCTIONS
+
+====================================================================
+*/</doc>
+<use f='codebrowser/code/renderergl1/tr_init.c' l='198' u='c' c='InitOpenGL'/>
+<use f='codebrowser/code/renderergl2/tr_init.c' l='262' u='c' c='InitOpenGL'/>
+<def f='codebrowser/code/sdl/sdl_glimp.c' l='792' ll='861' type='void GLimp_Init(qboolean coreContext)'/>
+<doc f='codebrowser/code/sdl/sdl_glimp.c' l='784'>/*
+===============
+GLimp_Init
+
+This routine is responsible for initializing the OS specific portions
+of OpenGL
+===============
+*/</doc>

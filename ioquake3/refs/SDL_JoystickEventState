@@ -1,0 +1,11 @@
+<dec f='include/SDL2/SDL_joystick.h' l='191' type='int SDL_JoystickEventState(int state)'/>
+<doc f='include/SDL2/SDL_joystick.h' l='182'>/**
+ *  Enable/disable joystick event polling.
+ *
+ *  If joystick events are disabled, you must call SDL_JoystickUpdate()
+ *  yourself and check the state of the joystick when you want joystick
+ *  information.
+ *
+ *  The state can be one of ::SDL_QUERY, ::SDL_ENABLE or ::SDL_IGNORE.
+ */</doc>
+<use f='codebrowser/code/sdl/sdl_input.c' l='533' u='c' c='IN_InitJoystick'/>

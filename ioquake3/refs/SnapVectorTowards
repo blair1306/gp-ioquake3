@@ -1,0 +1,18 @@
+<dec f='codebrowser/code/game/g_local.h' l='554' type='void SnapVectorTowards(vec_t * v, vec_t * to)'/>
+<use f='codebrowser/code/game/g_missile.c' l='380' u='c' c='G_MissileImpact'/>
+<use f='codebrowser/code/game/g_missile.c' l='387' u='c' c='G_MissileImpact'/>
+<use f='codebrowser/code/game/g_missile.c' l='426' u='c' c='G_MissileImpact'/>
+<def f='codebrowser/code/game/g_weapon.c' l='144' ll='154' type='void SnapVectorTowards(vec_t * v, vec_t * to)'/>
+<use f='codebrowser/code/game/g_weapon.c' l='196' u='c' c='Bullet_Fire'/>
+<use f='codebrowser/code/game/g_weapon.c' l='524' u='c' c='weapon_railgun_fire'/>
+<use f='codebrowser/code/game/g_weapon.c' l='598' u='c' c='Weapon_HookThink'/>
+<doc f='codebrowser/code/game/g_weapon.c' l='134'>/*
+======================
+SnapVectorTowards
+
+Round a vector to integers for more efficient network
+transmission, but make sure that it rounds towards a given point
+rather than blindly truncating.  This prevents it from truncating 
+into a wall.
+======================
+*/</doc>

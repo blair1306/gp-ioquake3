@@ -1,0 +1,9 @@
+<dec f='codebrowser/code/game/ai_dmq3.h' l='108' type='int BotTeamFlagCarrier(bot_state_t * bs)'/>
+<doc f='codebrowser/code/game/ai_dmq3.h' l='107'>// returns the client number of the team mate flag carrier (-1 if none)</doc>
+<def f='codebrowser/code/game/ai_dmq3.c' l='3098' ll='3120' type='int BotTeamFlagCarrier(bot_state_t * bs)'/>
+<doc f='codebrowser/code/game/ai_dmq3.c' l='3093'>/*
+==================
+BotTeamFlagCarrier
+==================
+*/</doc>
+<use f='codebrowser/code/game/ai_vcmd.c' l='370' u='c' c='BotVoiceChat_FollowFlagCarrier'/>

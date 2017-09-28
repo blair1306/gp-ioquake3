@@ -1,0 +1,11 @@
+<dec f='codebrowser/code/jpeg-8c/jpeglib.h' l='322' type='JQUANT_TBL *[4]'/>
+<offset>896</offset>
+<doc f='codebrowser/code/jpeg-8c/jpeglib.h' l='320'>/* comp_info[i] describes component that appears i&apos;th in SOF */</doc>
+<use f='codebrowser/code/jpeg-8c/jcapimin.c' l='68' u='w' c='jpeg_CreateCompress'/>
+<use f='codebrowser/code/jpeg-8c/jcapimin.c' l='134' u='r' c='jpeg_suppress_tables'/>
+<use f='codebrowser/code/jpeg-8c/jcdctmgr.c' l='352' u='r' c='start_pass_fdctmgr'/>
+<use f='codebrowser/code/jpeg-8c/jcdctmgr.c' l='354' u='r' c='start_pass_fdctmgr'/>
+<use f='codebrowser/code/jpeg-8c/jcmarker.c' l='149' u='r' c='emit_dqt'/>
+<use f='codebrowser/code/jpeg-8c/jcmarker.c' l='641' u='r' c='write_tables_only'/>
+<use f='codebrowser/code/jpeg-8c/jcparam.c' l='44' u='a' c='jpeg_add_quant_table'/>
+<use f='codebrowser/code/jpeg-8c/jctrans.c' l='95' u='a' c='jpeg_copy_critical_parameters'/>

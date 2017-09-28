@@ -1,0 +1,15 @@
+<dec f='codebrowser/code/qcommon/qcommon.h' l='404' type='void Cbuf_Init()'/>
+<doc f='codebrowser/code/qcommon/qcommon.h' l='396'>/*
+
+Any number of commands can be added in a frame, from several different sources.
+Most commands come from either keybindings or console line input, but entire text
+files can be execed.
+
+*/</doc>
+<def f='codebrowser/code/qcommon/cmd.c' l='76' ll='81' type='void Cbuf_Init()'/>
+<doc f='codebrowser/code/qcommon/cmd.c' l='71'>/*
+============
+Cbuf_Init
+============
+*/</doc>
+<use f='codebrowser/code/qcommon/common.c' l='2691' u='c' c='Com_Init'/>

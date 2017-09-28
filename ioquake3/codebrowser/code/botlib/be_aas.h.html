@@ -1,0 +1,240 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>be_aas.h source code [codebrowser/code/botlib/be_aas.h] - Woboq Code Browser</title>
+<meta name="woboq:interestingDefinitions" content="aas_altroutegoal_s,aas_areainfo_s,aas_clientmove_s,aas_entityinfo_s,aas_predictroute_s,aas_trace_s "/>
+<link rel="stylesheet" href="../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'codebrowser/code/botlib/be_aas.h'; var root_path = '../../..'; var data_path = '../../../../data';</script>
+<script src='../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../..'>codebrowser</a>/<a href='..'>code</a>/<a href='./'>botlib</a>/<a href='be_aas.h.html'>be_aas.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/*</i></td></tr>
+<tr><th id="2">2</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="3">3</th><td><i>Copyright (C) 1999-2005 Id Software, Inc.</i></td></tr>
+<tr><th id="4">4</th><td><i></i></td></tr>
+<tr><th id="5">5</th><td><i>This file is part of Quake III Arena source code.</i></td></tr>
+<tr><th id="6">6</th><td><i></i></td></tr>
+<tr><th id="7">7</th><td><i>Quake III Arena source code is free software; you can redistribute it</i></td></tr>
+<tr><th id="8">8</th><td><i>and/or modify it under the terms of the GNU General Public License as</i></td></tr>
+<tr><th id="9">9</th><td><i>published by the Free Software Foundation; either version 2 of the License,</i></td></tr>
+<tr><th id="10">10</th><td><i>or (at your option) any later version.</i></td></tr>
+<tr><th id="11">11</th><td><i></i></td></tr>
+<tr><th id="12">12</th><td><i>Quake III Arena source code is distributed in the hope that it will be</i></td></tr>
+<tr><th id="13">13</th><td><i>useful, but WITHOUT ANY WARRANTY; without even the implied warranty of</i></td></tr>
+<tr><th id="14">14</th><td><i>MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</i></td></tr>
+<tr><th id="15">15</th><td><i>GNU General Public License for more details.</i></td></tr>
+<tr><th id="16">16</th><td><i></i></td></tr>
+<tr><th id="17">17</th><td><i>You should have received a copy of the GNU General Public License</i></td></tr>
+<tr><th id="18">18</th><td><i>along with Quake III Arena source code; if not, write to the Free Software</i></td></tr>
+<tr><th id="19">19</th><td><i>Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA</i></td></tr>
+<tr><th id="20">20</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="21">21</th><td><i>*/</i></td></tr>
+<tr><th id="22">22</th><td><i>//</i></td></tr>
+<tr><th id="23">23</th><td></td></tr>
+<tr><th id="24">24</th><td><i>/*****************************************************************************</i></td></tr>
+<tr><th id="25">25</th><td><i> * name:		be_aas.h</i></td></tr>
+<tr><th id="26">26</th><td><i> *</i></td></tr>
+<tr><th id="27">27</th><td><i> * desc:		Area Awareness System, stuff exported to the AI</i></td></tr>
+<tr><th id="28">28</th><td><i> *</i></td></tr>
+<tr><th id="29">29</th><td><i> * $Archive: /source/code/botlib/be_aas.h $</i></td></tr>
+<tr><th id="30">30</th><td><i> *</i></td></tr>
+<tr><th id="31">31</th><td><i> *****************************************************************************/</i></td></tr>
+<tr><th id="32">32</th><td></td></tr>
+<tr><th id="33">33</th><td><u>#<span data-ppcond="33">ifndef</span> <a class="macro" href="l_struct.h.html#33" data-ref="_M/MAX_STRINGFIELD">MAX_STRINGFIELD</a></u></td></tr>
+<tr><th id="34">34</th><td><u>#define MAX_STRINGFIELD				80</u></td></tr>
+<tr><th id="35">35</th><td><u>#<span data-ppcond="33">endif</span></u></td></tr>
+<tr><th id="36">36</th><td></td></tr>
+<tr><th id="37">37</th><td><i>//travel flags</i></td></tr>
+<tr><th id="38">38</th><td><u>#define <dfn class="macro" id="_M/TFL_INVALID" data-ref="_M/TFL_INVALID">TFL_INVALID</dfn>				0x00000001	//traveling temporary not possible</u></td></tr>
+<tr><th id="39">39</th><td><u>#define <dfn class="macro" id="_M/TFL_WALK" data-ref="_M/TFL_WALK">TFL_WALK</dfn>				0x00000002	//walking</u></td></tr>
+<tr><th id="40">40</th><td><u>#define <dfn class="macro" id="_M/TFL_CROUCH" data-ref="_M/TFL_CROUCH">TFL_CROUCH</dfn>				0x00000004	//crouching</u></td></tr>
+<tr><th id="41">41</th><td><u>#define <dfn class="macro" id="_M/TFL_BARRIERJUMP" data-ref="_M/TFL_BARRIERJUMP">TFL_BARRIERJUMP</dfn>			0x00000008	//jumping onto a barrier</u></td></tr>
+<tr><th id="42">42</th><td><u>#define <dfn class="macro" id="_M/TFL_JUMP" data-ref="_M/TFL_JUMP">TFL_JUMP</dfn>				0x00000010	//jumping</u></td></tr>
+<tr><th id="43">43</th><td><u>#define <dfn class="macro" id="_M/TFL_LADDER" data-ref="_M/TFL_LADDER">TFL_LADDER</dfn>				0x00000020	//climbing a ladder</u></td></tr>
+<tr><th id="44">44</th><td><u>#define <dfn class="macro" id="_M/TFL_WALKOFFLEDGE" data-ref="_M/TFL_WALKOFFLEDGE">TFL_WALKOFFLEDGE</dfn>		0x00000080	//walking of a ledge</u></td></tr>
+<tr><th id="45">45</th><td><u>#define <dfn class="macro" id="_M/TFL_SWIM" data-ref="_M/TFL_SWIM">TFL_SWIM</dfn>				0x00000100	//swimming</u></td></tr>
+<tr><th id="46">46</th><td><u>#define <dfn class="macro" id="_M/TFL_WATERJUMP" data-ref="_M/TFL_WATERJUMP">TFL_WATERJUMP</dfn>			0x00000200	//jumping out of the water</u></td></tr>
+<tr><th id="47">47</th><td><u>#define <dfn class="macro" id="_M/TFL_TELEPORT" data-ref="_M/TFL_TELEPORT">TFL_TELEPORT</dfn>			0x00000400	//teleporting</u></td></tr>
+<tr><th id="48">48</th><td><u>#define <dfn class="macro" id="_M/TFL_ELEVATOR" data-ref="_M/TFL_ELEVATOR">TFL_ELEVATOR</dfn>			0x00000800	//elevator</u></td></tr>
+<tr><th id="49">49</th><td><u>#define <dfn class="macro" id="_M/TFL_ROCKETJUMP" data-ref="_M/TFL_ROCKETJUMP">TFL_ROCKETJUMP</dfn>			0x00001000	//rocket jumping</u></td></tr>
+<tr><th id="50">50</th><td><u>#define <dfn class="macro" id="_M/TFL_BFGJUMP" data-ref="_M/TFL_BFGJUMP">TFL_BFGJUMP</dfn>				0x00002000	//bfg jumping</u></td></tr>
+<tr><th id="51">51</th><td><u>#define <dfn class="macro" id="_M/TFL_GRAPPLEHOOK" data-ref="_M/TFL_GRAPPLEHOOK">TFL_GRAPPLEHOOK</dfn>			0x00004000	//grappling hook</u></td></tr>
+<tr><th id="52">52</th><td><u>#define <dfn class="macro" id="_M/TFL_DOUBLEJUMP" data-ref="_M/TFL_DOUBLEJUMP">TFL_DOUBLEJUMP</dfn>			0x00008000	//double jump</u></td></tr>
+<tr><th id="53">53</th><td><u>#define <dfn class="macro" id="_M/TFL_RAMPJUMP" data-ref="_M/TFL_RAMPJUMP">TFL_RAMPJUMP</dfn>			0x00010000	//ramp jump</u></td></tr>
+<tr><th id="54">54</th><td><u>#define <dfn class="macro" id="_M/TFL_STRAFEJUMP" data-ref="_M/TFL_STRAFEJUMP">TFL_STRAFEJUMP</dfn>			0x00020000	//strafe jump</u></td></tr>
+<tr><th id="55">55</th><td><u>#define <dfn class="macro" id="_M/TFL_JUMPPAD" data-ref="_M/TFL_JUMPPAD">TFL_JUMPPAD</dfn>				0x00040000	//jump pad</u></td></tr>
+<tr><th id="56">56</th><td><u>#define <dfn class="macro" id="_M/TFL_AIR" data-ref="_M/TFL_AIR">TFL_AIR</dfn>					0x00080000	//travel through air</u></td></tr>
+<tr><th id="57">57</th><td><u>#define <dfn class="macro" id="_M/TFL_WATER" data-ref="_M/TFL_WATER">TFL_WATER</dfn>				0x00100000	//travel through water</u></td></tr>
+<tr><th id="58">58</th><td><u>#define <dfn class="macro" id="_M/TFL_SLIME" data-ref="_M/TFL_SLIME">TFL_SLIME</dfn>				0x00200000	//travel through slime</u></td></tr>
+<tr><th id="59">59</th><td><u>#define <dfn class="macro" id="_M/TFL_LAVA" data-ref="_M/TFL_LAVA">TFL_LAVA</dfn>				0x00400000	//travel through lava</u></td></tr>
+<tr><th id="60">60</th><td><u>#define <dfn class="macro" id="_M/TFL_DONOTENTER" data-ref="_M/TFL_DONOTENTER">TFL_DONOTENTER</dfn>			0x00800000	//travel through donotenter area</u></td></tr>
+<tr><th id="61">61</th><td><u>#define <dfn class="macro" id="_M/TFL_FUNCBOB" data-ref="_M/TFL_FUNCBOB">TFL_FUNCBOB</dfn>				0x01000000	//func bobbing</u></td></tr>
+<tr><th id="62">62</th><td><u>#define <dfn class="macro" id="_M/TFL_FLIGHT" data-ref="_M/TFL_FLIGHT">TFL_FLIGHT</dfn>				0x02000000	//flight</u></td></tr>
+<tr><th id="63">63</th><td><u>#define <dfn class="macro" id="_M/TFL_BRIDGE" data-ref="_M/TFL_BRIDGE">TFL_BRIDGE</dfn>				0x04000000	//move over a bridge</u></td></tr>
+<tr><th id="64">64</th><td><i>//</i></td></tr>
+<tr><th id="65">65</th><td><u>#define <dfn class="macro" id="_M/TFL_NOTTEAM1" data-ref="_M/TFL_NOTTEAM1">TFL_NOTTEAM1</dfn>			0x08000000	//not team 1</u></td></tr>
+<tr><th id="66">66</th><td><u>#define <dfn class="macro" id="_M/TFL_NOTTEAM2" data-ref="_M/TFL_NOTTEAM2">TFL_NOTTEAM2</dfn>			0x10000000	//not team 2</u></td></tr>
+<tr><th id="67">67</th><td></td></tr>
+<tr><th id="68">68</th><td><i>//default travel flags</i></td></tr>
+<tr><th id="69">69</th><td><u>#define <dfn class="macro" id="_M/TFL_DEFAULT" data-ref="_M/TFL_DEFAULT">TFL_DEFAULT</dfn>	TFL_WALK|TFL_CROUCH|TFL_BARRIERJUMP|\</u></td></tr>
+<tr><th id="70">70</th><td><u>	TFL_JUMP|TFL_LADDER|\</u></td></tr>
+<tr><th id="71">71</th><td><u>	TFL_WALKOFFLEDGE|TFL_SWIM|TFL_WATERJUMP|\</u></td></tr>
+<tr><th id="72">72</th><td><u>	TFL_TELEPORT|TFL_ELEVATOR|\</u></td></tr>
+<tr><th id="73">73</th><td><u>	TFL_AIR|TFL_WATER|TFL_JUMPPAD|TFL_FUNCBOB</u></td></tr>
+<tr><th id="74">74</th><td></td></tr>
+<tr><th id="75">75</th><td><b>typedef</b> <b>enum</b></td></tr>
+<tr><th id="76">76</th><td>{</td></tr>
+<tr><th id="77">77</th><td>	<dfn class="enum" id="SOLID_NOT" title='SOLID_NOT' data-ref="SOLID_NOT">SOLID_NOT</dfn>,			<i>// no interaction with other objects</i></td></tr>
+<tr><th id="78">78</th><td>	<dfn class="enum" id="SOLID_TRIGGER" title='SOLID_TRIGGER' data-ref="SOLID_TRIGGER">SOLID_TRIGGER</dfn>,		<i>// only touch when inside, after moving</i></td></tr>
+<tr><th id="79">79</th><td>	<dfn class="enum" id="SOLID_BBOX" title='SOLID_BBOX' data-ref="SOLID_BBOX">SOLID_BBOX</dfn>,			<i>// touch on edge</i></td></tr>
+<tr><th id="80">80</th><td>	<dfn class="enum" id="SOLID_BSP" title='SOLID_BSP' data-ref="SOLID_BSP">SOLID_BSP</dfn>			<i>// bsp clip, touch on edge</i></td></tr>
+<tr><th id="81">81</th><td>} <dfn class="typedef" id="solid_t" title='solid_t' data-type='enum solid_t' data-ref="solid_t">solid_t</dfn>;</td></tr>
+<tr><th id="82">82</th><td></td></tr>
+<tr><th id="83">83</th><td><i>//a trace is returned when a box is swept through the AAS world</i></td></tr>
+<tr><th id="84">84</th><td><b>typedef</b> <b>struct</b> <dfn class="type def" id="aas_trace_s" title='aas_trace_s' data-ref="aas_trace_s"><a class="type" href="#aas_trace_s" title='aas_trace_s' data-ref="aas_trace_s">aas_trace_s</a></dfn></td></tr>
+<tr><th id="85">85</th><td>{</td></tr>
+<tr><th id="86">86</th><td>	<a class="typedef" href="../qcommon/q_shared.h.html#qboolean" title='qboolean' data-type='enum qboolean' data-ref="qboolean">qboolean</a>	<dfn class="decl" id="aas_trace_s::startsolid" title='aas_trace_s::startsolid' data-ref="aas_trace_s::startsolid">startsolid</dfn>;	<i>// if true, the initial point was in a solid area</i></td></tr>
+<tr><th id="87">87</th><td>	<em>float</em>		<dfn class="decl" id="aas_trace_s::fraction" title='aas_trace_s::fraction' data-ref="aas_trace_s::fraction">fraction</dfn>;	<i>// time completed, 1.0 = didn't hit anything</i></td></tr>
+<tr><th id="88">88</th><td>	<a class="typedef" href="../qcommon/q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a>		<dfn class="decl" id="aas_trace_s::endpos" title='aas_trace_s::endpos' data-ref="aas_trace_s::endpos">endpos</dfn>;		<i>// final position</i></td></tr>
+<tr><th id="89">89</th><td>	<em>int</em>			<dfn class="decl" id="aas_trace_s::ent" title='aas_trace_s::ent' data-ref="aas_trace_s::ent">ent</dfn>;		<i>// entity blocking the trace</i></td></tr>
+<tr><th id="90">90</th><td>	<em>int</em>			<dfn class="decl" id="aas_trace_s::lastarea" title='aas_trace_s::lastarea' data-ref="aas_trace_s::lastarea">lastarea</dfn>;	<i>// last area the trace was in (zero if none)</i></td></tr>
+<tr><th id="91">91</th><td>	<em>int</em>			<dfn class="decl" id="aas_trace_s::area" title='aas_trace_s::area' data-ref="aas_trace_s::area">area</dfn>;		<i>// area blocking the trace (zero if none)</i></td></tr>
+<tr><th id="92">92</th><td>	<em>int</em>			<dfn class="decl" id="aas_trace_s::planenum" title='aas_trace_s::planenum' data-ref="aas_trace_s::planenum">planenum</dfn>;	<i>// number of the plane that was hit</i></td></tr>
+<tr><th id="93">93</th><td>} <dfn class="typedef" id="aas_trace_t" title='aas_trace_t' data-type='struct aas_trace_s' data-ref="aas_trace_t">aas_trace_t</dfn>;</td></tr>
+<tr><th id="94">94</th><td></td></tr>
+<tr><th id="95">95</th><td><i>/* Defined in botlib.h</i></td></tr>
+<tr><th id="96">96</th><td><i></i></td></tr>
+<tr><th id="97">97</th><td><i>//bsp_trace_t hit surface</i></td></tr>
+<tr><th id="98">98</th><td><i>typedef struct bsp_surface_s</i></td></tr>
+<tr><th id="99">99</th><td><i>{</i></td></tr>
+<tr><th id="100">100</th><td><i>	char name[16];</i></td></tr>
+<tr><th id="101">101</th><td><i>	int flags;</i></td></tr>
+<tr><th id="102">102</th><td><i>	int value;</i></td></tr>
+<tr><th id="103">103</th><td><i>} bsp_surface_t;</i></td></tr>
+<tr><th id="104">104</th><td><i></i></td></tr>
+<tr><th id="105">105</th><td><i>//a trace is returned when a box is swept through the BSP world</i></td></tr>
+<tr><th id="106">106</th><td><i>typedef struct bsp_trace_s</i></td></tr>
+<tr><th id="107">107</th><td><i>{</i></td></tr>
+<tr><th id="108">108</th><td><i>	qboolean		allsolid;	// if true, plane is not valid</i></td></tr>
+<tr><th id="109">109</th><td><i>	qboolean		startsolid;	// if true, the initial point was in a solid area</i></td></tr>
+<tr><th id="110">110</th><td><i>	float			fraction;	// time completed, 1.0 = didn't hit anything</i></td></tr>
+<tr><th id="111">111</th><td><i>	vec3_t			endpos;		// final position</i></td></tr>
+<tr><th id="112">112</th><td><i>	cplane_t		plane;		// surface normal at impact</i></td></tr>
+<tr><th id="113">113</th><td><i>	float			exp_dist;	// expanded plane distance</i></td></tr>
+<tr><th id="114">114</th><td><i>	int				sidenum;	// number of the brush side hit</i></td></tr>
+<tr><th id="115">115</th><td><i>	bsp_surface_t	surface;	// hit surface</i></td></tr>
+<tr><th id="116">116</th><td><i>	int				contents;	// contents on other side of surface hit</i></td></tr>
+<tr><th id="117">117</th><td><i>	int				ent;		// number of entity hit</i></td></tr>
+<tr><th id="118">118</th><td><i>} bsp_trace_t;</i></td></tr>
+<tr><th id="119">119</th><td><i>//</i></td></tr>
+<tr><th id="120">120</th><td><i>*/</i></td></tr>
+<tr><th id="121">121</th><td><i></i></td></tr>
+<tr><th id="122">122</th><td><i>//entity info</i></td></tr>
+<tr><th id="123">123</th><td><b>typedef</b> <b>struct</b> <dfn class="type def" id="aas_entityinfo_s" title='aas_entityinfo_s' data-ref="aas_entityinfo_s"><a class="type" href="#aas_entityinfo_s" title='aas_entityinfo_s' data-ref="aas_entityinfo_s">aas_entityinfo_s</a></dfn></td></tr>
+<tr><th id="124">124</th><td>{</td></tr>
+<tr><th id="125">125</th><td>	<em>int</em>		<dfn class="decl" id="aas_entityinfo_s::valid" title='aas_entityinfo_s::valid' data-ref="aas_entityinfo_s::valid">valid</dfn>;			<i>// true if updated this frame</i></td></tr>
+<tr><th id="126">126</th><td>	<em>int</em>		<dfn class="decl" id="aas_entityinfo_s::type" title='aas_entityinfo_s::type' data-ref="aas_entityinfo_s::type">type</dfn>;			<i>// entity type</i></td></tr>
+<tr><th id="127">127</th><td>	<em>int</em>		<dfn class="decl" id="aas_entityinfo_s::flags" title='aas_entityinfo_s::flags' data-ref="aas_entityinfo_s::flags">flags</dfn>;			<i>// entity flags</i></td></tr>
+<tr><th id="128">128</th><td>	<em>float</em>	<dfn class="decl" id="aas_entityinfo_s::ltime" title='aas_entityinfo_s::ltime' data-ref="aas_entityinfo_s::ltime">ltime</dfn>;			<i>// local time</i></td></tr>
+<tr><th id="129">129</th><td>	<em>float</em>	<dfn class="decl" id="aas_entityinfo_s::update_time" title='aas_entityinfo_s::update_time' data-ref="aas_entityinfo_s::update_time">update_time</dfn>;	<i>// time between last and current update</i></td></tr>
+<tr><th id="130">130</th><td>	<em>int</em>		<dfn class="decl" id="aas_entityinfo_s::number" title='aas_entityinfo_s::number' data-ref="aas_entityinfo_s::number">number</dfn>;			<i>// number of the entity</i></td></tr>
+<tr><th id="131">131</th><td>	<a class="typedef" href="../qcommon/q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a>	<dfn class="decl" id="aas_entityinfo_s::origin" title='aas_entityinfo_s::origin' data-ref="aas_entityinfo_s::origin">origin</dfn>;			<i>// origin of the entity</i></td></tr>
+<tr><th id="132">132</th><td>	<a class="typedef" href="../qcommon/q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a>	<dfn class="decl" id="aas_entityinfo_s::angles" title='aas_entityinfo_s::angles' data-ref="aas_entityinfo_s::angles">angles</dfn>;			<i>// angles of the model</i></td></tr>
+<tr><th id="133">133</th><td>	<a class="typedef" href="../qcommon/q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a>	<dfn class="decl" id="aas_entityinfo_s::old_origin" title='aas_entityinfo_s::old_origin' data-ref="aas_entityinfo_s::old_origin">old_origin</dfn>;		<i>// for lerping</i></td></tr>
+<tr><th id="134">134</th><td>	<a class="typedef" href="../qcommon/q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a>	<dfn class="decl" id="aas_entityinfo_s::lastvisorigin" title='aas_entityinfo_s::lastvisorigin' data-ref="aas_entityinfo_s::lastvisorigin">lastvisorigin</dfn>;	<i>// last visible origin</i></td></tr>
+<tr><th id="135">135</th><td>	<a class="typedef" href="../qcommon/q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a>	<dfn class="decl" id="aas_entityinfo_s::mins" title='aas_entityinfo_s::mins' data-ref="aas_entityinfo_s::mins">mins</dfn>;			<i>// bounding box minimums</i></td></tr>
+<tr><th id="136">136</th><td>	<a class="typedef" href="../qcommon/q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a>	<dfn class="decl" id="aas_entityinfo_s::maxs" title='aas_entityinfo_s::maxs' data-ref="aas_entityinfo_s::maxs">maxs</dfn>;			<i>// bounding box maximums</i></td></tr>
+<tr><th id="137">137</th><td>	<em>int</em>		<dfn class="decl" id="aas_entityinfo_s::groundent" title='aas_entityinfo_s::groundent' data-ref="aas_entityinfo_s::groundent">groundent</dfn>;		<i>// ground entity</i></td></tr>
+<tr><th id="138">138</th><td>	<em>int</em>		<dfn class="decl" id="aas_entityinfo_s::solid" title='aas_entityinfo_s::solid' data-ref="aas_entityinfo_s::solid">solid</dfn>;			<i>// solid type</i></td></tr>
+<tr><th id="139">139</th><td>	<em>int</em>		<dfn class="decl" id="aas_entityinfo_s::modelindex" title='aas_entityinfo_s::modelindex' data-ref="aas_entityinfo_s::modelindex">modelindex</dfn>;		<i>// model used</i></td></tr>
+<tr><th id="140">140</th><td>	<em>int</em>		<dfn class="decl" id="aas_entityinfo_s::modelindex2" title='aas_entityinfo_s::modelindex2' data-ref="aas_entityinfo_s::modelindex2">modelindex2</dfn>;	<i>// weapons, CTF flags, etc</i></td></tr>
+<tr><th id="141">141</th><td>	<em>int</em>		<dfn class="decl" id="aas_entityinfo_s::frame" title='aas_entityinfo_s::frame' data-ref="aas_entityinfo_s::frame">frame</dfn>;			<i>// model frame number</i></td></tr>
+<tr><th id="142">142</th><td>	<em>int</em>		<dfn class="decl" id="aas_entityinfo_s::event" title='aas_entityinfo_s::event' data-ref="aas_entityinfo_s::event">event</dfn>;			<i>// impulse events -- muzzle flashes, footsteps, etc</i></td></tr>
+<tr><th id="143">143</th><td>	<em>int</em>		<dfn class="decl" id="aas_entityinfo_s::eventParm" title='aas_entityinfo_s::eventParm' data-ref="aas_entityinfo_s::eventParm">eventParm</dfn>;		<i>// even parameter</i></td></tr>
+<tr><th id="144">144</th><td>	<em>int</em>		<dfn class="decl" id="aas_entityinfo_s::powerups" title='aas_entityinfo_s::powerups' data-ref="aas_entityinfo_s::powerups">powerups</dfn>;		<i>// bit flags</i></td></tr>
+<tr><th id="145">145</th><td>	<em>int</em>		<dfn class="decl" id="aas_entityinfo_s::weapon" title='aas_entityinfo_s::weapon' data-ref="aas_entityinfo_s::weapon">weapon</dfn>;			<i>// determines weapon and flash model, etc</i></td></tr>
+<tr><th id="146">146</th><td>	<em>int</em>		<dfn class="decl" id="aas_entityinfo_s::legsAnim" title='aas_entityinfo_s::legsAnim' data-ref="aas_entityinfo_s::legsAnim">legsAnim</dfn>;		<i>// mask off ANIM_TOGGLEBIT</i></td></tr>
+<tr><th id="147">147</th><td>	<em>int</em>		<dfn class="decl" id="aas_entityinfo_s::torsoAnim" title='aas_entityinfo_s::torsoAnim' data-ref="aas_entityinfo_s::torsoAnim">torsoAnim</dfn>;		<i>// mask off ANIM_TOGGLEBIT</i></td></tr>
+<tr><th id="148">148</th><td>} <dfn class="typedef" id="aas_entityinfo_t" title='aas_entityinfo_t' data-type='struct aas_entityinfo_s' data-ref="aas_entityinfo_t">aas_entityinfo_t</dfn>;</td></tr>
+<tr><th id="149">149</th><td></td></tr>
+<tr><th id="150">150</th><td><i>// area info</i></td></tr>
+<tr><th id="151">151</th><td><b>typedef</b> <b>struct</b> <dfn class="type def" id="aas_areainfo_s" title='aas_areainfo_s' data-ref="aas_areainfo_s"><a class="type" href="#aas_areainfo_s" title='aas_areainfo_s' data-ref="aas_areainfo_s">aas_areainfo_s</a></dfn></td></tr>
+<tr><th id="152">152</th><td>{</td></tr>
+<tr><th id="153">153</th><td>	<em>int</em> <dfn class="decl" id="aas_areainfo_s::contents" title='aas_areainfo_s::contents' data-ref="aas_areainfo_s::contents">contents</dfn>;</td></tr>
+<tr><th id="154">154</th><td>	<em>int</em> <dfn class="decl" id="aas_areainfo_s::flags" title='aas_areainfo_s::flags' data-ref="aas_areainfo_s::flags">flags</dfn>;</td></tr>
+<tr><th id="155">155</th><td>	<em>int</em> <dfn class="decl" id="aas_areainfo_s::presencetype" title='aas_areainfo_s::presencetype' data-ref="aas_areainfo_s::presencetype">presencetype</dfn>;</td></tr>
+<tr><th id="156">156</th><td>	<em>int</em> <dfn class="decl" id="aas_areainfo_s::cluster" title='aas_areainfo_s::cluster' data-ref="aas_areainfo_s::cluster">cluster</dfn>;</td></tr>
+<tr><th id="157">157</th><td>	<a class="typedef" href="../qcommon/q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="decl" id="aas_areainfo_s::mins" title='aas_areainfo_s::mins' data-ref="aas_areainfo_s::mins">mins</dfn>;</td></tr>
+<tr><th id="158">158</th><td>	<a class="typedef" href="../qcommon/q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="decl" id="aas_areainfo_s::maxs" title='aas_areainfo_s::maxs' data-ref="aas_areainfo_s::maxs">maxs</dfn>;</td></tr>
+<tr><th id="159">159</th><td>	<a class="typedef" href="../qcommon/q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="decl" id="aas_areainfo_s::center" title='aas_areainfo_s::center' data-ref="aas_areainfo_s::center">center</dfn>;</td></tr>
+<tr><th id="160">160</th><td>} <dfn class="typedef" id="aas_areainfo_t" title='aas_areainfo_t' data-type='struct aas_areainfo_s' data-ref="aas_areainfo_t">aas_areainfo_t</dfn>;</td></tr>
+<tr><th id="161">161</th><td></td></tr>
+<tr><th id="162">162</th><td><i>// client movement prediction stop events, stop as soon as:</i></td></tr>
+<tr><th id="163">163</th><td><u>#define <dfn class="macro" id="_M/SE_NONE" data-ref="_M/SE_NONE">SE_NONE</dfn>					0</u></td></tr>
+<tr><th id="164">164</th><td><u>#define <dfn class="macro" id="_M/SE_HITGROUND" data-ref="_M/SE_HITGROUND">SE_HITGROUND</dfn>			1		// the ground is hit</u></td></tr>
+<tr><th id="165">165</th><td><u>#define <dfn class="macro" id="_M/SE_LEAVEGROUND" data-ref="_M/SE_LEAVEGROUND">SE_LEAVEGROUND</dfn>			2		// there's no ground</u></td></tr>
+<tr><th id="166">166</th><td><u>#define <dfn class="macro" id="_M/SE_ENTERWATER" data-ref="_M/SE_ENTERWATER">SE_ENTERWATER</dfn>			4		// water is entered</u></td></tr>
+<tr><th id="167">167</th><td><u>#define <dfn class="macro" id="_M/SE_ENTERSLIME" data-ref="_M/SE_ENTERSLIME">SE_ENTERSLIME</dfn>			8		// slime is entered</u></td></tr>
+<tr><th id="168">168</th><td><u>#define <dfn class="macro" id="_M/SE_ENTERLAVA" data-ref="_M/SE_ENTERLAVA">SE_ENTERLAVA</dfn>			16		// lava is entered</u></td></tr>
+<tr><th id="169">169</th><td><u>#define <dfn class="macro" id="_M/SE_HITGROUNDDAMAGE" data-ref="_M/SE_HITGROUNDDAMAGE">SE_HITGROUNDDAMAGE</dfn>		32		// the ground is hit with damage</u></td></tr>
+<tr><th id="170">170</th><td><u>#define <dfn class="macro" id="_M/SE_GAP" data-ref="_M/SE_GAP">SE_GAP</dfn>					64		// there's a gap</u></td></tr>
+<tr><th id="171">171</th><td><u>#define <dfn class="macro" id="_M/SE_TOUCHJUMPPAD" data-ref="_M/SE_TOUCHJUMPPAD">SE_TOUCHJUMPPAD</dfn>			128		// touching a jump pad area</u></td></tr>
+<tr><th id="172">172</th><td><u>#define <dfn class="macro" id="_M/SE_TOUCHTELEPORTER" data-ref="_M/SE_TOUCHTELEPORTER">SE_TOUCHTELEPORTER</dfn>		256		// touching teleporter</u></td></tr>
+<tr><th id="173">173</th><td><u>#define <dfn class="macro" id="_M/SE_ENTERAREA" data-ref="_M/SE_ENTERAREA">SE_ENTERAREA</dfn>			512		// the given stoparea is entered</u></td></tr>
+<tr><th id="174">174</th><td><u>#define <dfn class="macro" id="_M/SE_HITGROUNDAREA" data-ref="_M/SE_HITGROUNDAREA">SE_HITGROUNDAREA</dfn>		1024	// a ground face in the area is hit</u></td></tr>
+<tr><th id="175">175</th><td><u>#define <dfn class="macro" id="_M/SE_HITBOUNDINGBOX" data-ref="_M/SE_HITBOUNDINGBOX">SE_HITBOUNDINGBOX</dfn>		2048	// hit the specified bounding box</u></td></tr>
+<tr><th id="176">176</th><td><u>#define <dfn class="macro" id="_M/SE_TOUCHCLUSTERPORTAL" data-ref="_M/SE_TOUCHCLUSTERPORTAL">SE_TOUCHCLUSTERPORTAL</dfn>	4096	// touching a cluster portal</u></td></tr>
+<tr><th id="177">177</th><td></td></tr>
+<tr><th id="178">178</th><td><b>typedef</b> <b>struct</b> <dfn class="type def" id="aas_clientmove_s" title='aas_clientmove_s' data-ref="aas_clientmove_s"><a class="type" href="#aas_clientmove_s" title='aas_clientmove_s' data-ref="aas_clientmove_s">aas_clientmove_s</a></dfn></td></tr>
+<tr><th id="179">179</th><td>{</td></tr>
+<tr><th id="180">180</th><td>	<a class="typedef" href="../qcommon/q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="decl" id="aas_clientmove_s::endpos" title='aas_clientmove_s::endpos' data-ref="aas_clientmove_s::endpos">endpos</dfn>;			<i>//position at the end of movement prediction</i></td></tr>
+<tr><th id="181">181</th><td>	<em>int</em> <dfn class="decl" id="aas_clientmove_s::endarea" title='aas_clientmove_s::endarea' data-ref="aas_clientmove_s::endarea">endarea</dfn>;			<i>//area at end of movement prediction</i></td></tr>
+<tr><th id="182">182</th><td>	<a class="typedef" href="../qcommon/q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="decl" id="aas_clientmove_s::velocity" title='aas_clientmove_s::velocity' data-ref="aas_clientmove_s::velocity">velocity</dfn>;		<i>//velocity at the end of movement prediction</i></td></tr>
+<tr><th id="183">183</th><td>	<a class="typedef" href="#aas_trace_t" title='aas_trace_t' data-type='struct aas_trace_s' data-ref="aas_trace_t">aas_trace_t</a> <dfn class="decl" id="aas_clientmove_s::trace" title='aas_clientmove_s::trace' data-ref="aas_clientmove_s::trace">trace</dfn>;		<i>//last trace</i></td></tr>
+<tr><th id="184">184</th><td>	<em>int</em> <dfn class="decl" id="aas_clientmove_s::presencetype" title='aas_clientmove_s::presencetype' data-ref="aas_clientmove_s::presencetype">presencetype</dfn>;		<i>//presence type at end of movement prediction</i></td></tr>
+<tr><th id="185">185</th><td>	<em>int</em> <dfn class="decl" id="aas_clientmove_s::stopevent" title='aas_clientmove_s::stopevent' data-ref="aas_clientmove_s::stopevent">stopevent</dfn>;			<i>//event that made the prediction stop</i></td></tr>
+<tr><th id="186">186</th><td>	<em>int</em> <dfn class="decl" id="aas_clientmove_s::endcontents" title='aas_clientmove_s::endcontents' data-ref="aas_clientmove_s::endcontents">endcontents</dfn>;		<i>//contents at the end of movement prediction</i></td></tr>
+<tr><th id="187">187</th><td>	<em>float</em> <dfn class="decl" id="aas_clientmove_s::time" title='aas_clientmove_s::time' data-ref="aas_clientmove_s::time">time</dfn>;				<i>//time predicted ahead</i></td></tr>
+<tr><th id="188">188</th><td>	<em>int</em> <dfn class="decl" id="aas_clientmove_s::frames" title='aas_clientmove_s::frames' data-ref="aas_clientmove_s::frames">frames</dfn>;				<i>//number of frames predicted ahead</i></td></tr>
+<tr><th id="189">189</th><td>} <dfn class="typedef" id="aas_clientmove_t" title='aas_clientmove_t' data-type='struct aas_clientmove_s' data-ref="aas_clientmove_t">aas_clientmove_t</dfn>;</td></tr>
+<tr><th id="190">190</th><td></td></tr>
+<tr><th id="191">191</th><td><i>// alternate route goals</i></td></tr>
+<tr><th id="192">192</th><td><u>#define <dfn class="macro" id="_M/ALTROUTEGOAL_ALL" data-ref="_M/ALTROUTEGOAL_ALL">ALTROUTEGOAL_ALL</dfn>				1</u></td></tr>
+<tr><th id="193">193</th><td><u>#define <dfn class="macro" id="_M/ALTROUTEGOAL_CLUSTERPORTALS" data-ref="_M/ALTROUTEGOAL_CLUSTERPORTALS">ALTROUTEGOAL_CLUSTERPORTALS</dfn>		2</u></td></tr>
+<tr><th id="194">194</th><td><u>#define <dfn class="macro" id="_M/ALTROUTEGOAL_VIEWPORTALS" data-ref="_M/ALTROUTEGOAL_VIEWPORTALS">ALTROUTEGOAL_VIEWPORTALS</dfn>		4</u></td></tr>
+<tr><th id="195">195</th><td></td></tr>
+<tr><th id="196">196</th><td><b>typedef</b> <b>struct</b> <dfn class="type def" id="aas_altroutegoal_s" title='aas_altroutegoal_s' data-ref="aas_altroutegoal_s"><a class="type" href="#aas_altroutegoal_s" title='aas_altroutegoal_s' data-ref="aas_altroutegoal_s">aas_altroutegoal_s</a></dfn></td></tr>
+<tr><th id="197">197</th><td>{</td></tr>
+<tr><th id="198">198</th><td>	<a class="typedef" href="../qcommon/q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="decl" id="aas_altroutegoal_s::origin" title='aas_altroutegoal_s::origin' data-ref="aas_altroutegoal_s::origin">origin</dfn>;</td></tr>
+<tr><th id="199">199</th><td>	<em>int</em> <dfn class="decl" id="aas_altroutegoal_s::areanum" title='aas_altroutegoal_s::areanum' data-ref="aas_altroutegoal_s::areanum">areanum</dfn>;</td></tr>
+<tr><th id="200">200</th><td>	<em>unsigned</em> <em>short</em> <dfn class="decl" id="aas_altroutegoal_s::starttraveltime" title='aas_altroutegoal_s::starttraveltime' data-ref="aas_altroutegoal_s::starttraveltime">starttraveltime</dfn>;</td></tr>
+<tr><th id="201">201</th><td>	<em>unsigned</em> <em>short</em> <dfn class="decl" id="aas_altroutegoal_s::goaltraveltime" title='aas_altroutegoal_s::goaltraveltime' data-ref="aas_altroutegoal_s::goaltraveltime">goaltraveltime</dfn>;</td></tr>
+<tr><th id="202">202</th><td>	<em>unsigned</em> <em>short</em> <dfn class="decl" id="aas_altroutegoal_s::extratraveltime" title='aas_altroutegoal_s::extratraveltime' data-ref="aas_altroutegoal_s::extratraveltime">extratraveltime</dfn>;</td></tr>
+<tr><th id="203">203</th><td>} <dfn class="typedef" id="aas_altroutegoal_t" title='aas_altroutegoal_t' data-type='struct aas_altroutegoal_s' data-ref="aas_altroutegoal_t">aas_altroutegoal_t</dfn>;</td></tr>
+<tr><th id="204">204</th><td></td></tr>
+<tr><th id="205">205</th><td><i>// route prediction stop events</i></td></tr>
+<tr><th id="206">206</th><td><u>#define <dfn class="macro" id="_M/RSE_NONE" data-ref="_M/RSE_NONE">RSE_NONE</dfn>				0</u></td></tr>
+<tr><th id="207">207</th><td><u>#define <dfn class="macro" id="_M/RSE_NOROUTE" data-ref="_M/RSE_NOROUTE">RSE_NOROUTE</dfn>				1	//no route to goal</u></td></tr>
+<tr><th id="208">208</th><td><u>#define <dfn class="macro" id="_M/RSE_USETRAVELTYPE" data-ref="_M/RSE_USETRAVELTYPE">RSE_USETRAVELTYPE</dfn>		2	//stop as soon as on of the given travel types is used</u></td></tr>
+<tr><th id="209">209</th><td><u>#define <dfn class="macro" id="_M/RSE_ENTERCONTENTS" data-ref="_M/RSE_ENTERCONTENTS">RSE_ENTERCONTENTS</dfn>		4	//stop when entering the given contents</u></td></tr>
+<tr><th id="210">210</th><td><u>#define <dfn class="macro" id="_M/RSE_ENTERAREA" data-ref="_M/RSE_ENTERAREA">RSE_ENTERAREA</dfn>			8	//stop when entering the given area</u></td></tr>
+<tr><th id="211">211</th><td></td></tr>
+<tr><th id="212">212</th><td><b>typedef</b> <b>struct</b> <dfn class="type def" id="aas_predictroute_s" title='aas_predictroute_s' data-ref="aas_predictroute_s"><a class="type" href="#aas_predictroute_s" title='aas_predictroute_s' data-ref="aas_predictroute_s">aas_predictroute_s</a></dfn></td></tr>
+<tr><th id="213">213</th><td>{</td></tr>
+<tr><th id="214">214</th><td>	<a class="typedef" href="../qcommon/q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="decl" id="aas_predictroute_s::endpos" title='aas_predictroute_s::endpos' data-ref="aas_predictroute_s::endpos">endpos</dfn>;			<i>//position at the end of movement prediction</i></td></tr>
+<tr><th id="215">215</th><td>	<em>int</em> <dfn class="decl" id="aas_predictroute_s::endarea" title='aas_predictroute_s::endarea' data-ref="aas_predictroute_s::endarea">endarea</dfn>;			<i>//area at end of movement prediction</i></td></tr>
+<tr><th id="216">216</th><td>	<em>int</em> <dfn class="decl" id="aas_predictroute_s::stopevent" title='aas_predictroute_s::stopevent' data-ref="aas_predictroute_s::stopevent">stopevent</dfn>;			<i>//event that made the prediction stop</i></td></tr>
+<tr><th id="217">217</th><td>	<em>int</em> <dfn class="decl" id="aas_predictroute_s::endcontents" title='aas_predictroute_s::endcontents' data-ref="aas_predictroute_s::endcontents">endcontents</dfn>;		<i>//contents at the end of movement prediction</i></td></tr>
+<tr><th id="218">218</th><td>	<em>int</em> <dfn class="decl" id="aas_predictroute_s::endtravelflags" title='aas_predictroute_s::endtravelflags' data-ref="aas_predictroute_s::endtravelflags">endtravelflags</dfn>;		<i>//end travel flags</i></td></tr>
+<tr><th id="219">219</th><td>	<em>int</em> <dfn class="decl" id="aas_predictroute_s::numareas" title='aas_predictroute_s::numareas' data-ref="aas_predictroute_s::numareas">numareas</dfn>;			<i>//number of areas predicted ahead</i></td></tr>
+<tr><th id="220">220</th><td>	<em>int</em> <dfn class="decl" id="aas_predictroute_s::time" title='aas_predictroute_s::time' data-ref="aas_predictroute_s::time">time</dfn>;				<i>//time predicted ahead (in hundreth of a sec)</i></td></tr>
+<tr><th id="221">221</th><td>} <dfn class="typedef" id="aas_predictroute_t" title='aas_predictroute_t' data-type='struct aas_predictroute_s' data-ref="aas_predictroute_t">aas_predictroute_t</dfn>;</td></tr>
+<tr><th id="222">222</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='be_aas_bspq3.c.html'>codebrowser/code/botlib/be_aas_bspq3.c</a><br/>Generated on <em>2017-Aug-29</em> from project codebrowser revision <em>63e07af</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

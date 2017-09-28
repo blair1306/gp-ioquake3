@@ -1,0 +1,15 @@
+<def f='codebrowser/code/opusfile-0.8/include/opusfile.h' l='900' ll='913'/>
+<size>32</size>
+<doc f='codebrowser/code/opusfile-0.8/include/opusfile.h' l='891'>/**The callbacks used to access non-&lt;code&gt;FILE&lt;/code&gt; stream resources.
+   The function prototypes are basically the same as for the stdio functions
+    &lt;code&gt;fread()&lt;/code&gt;, &lt;code&gt;fseek()&lt;/code&gt;, &lt;code&gt;ftell()&lt;/code&gt;, and
+    &lt;code&gt;fclose()&lt;/code&gt;.
+   The differences are that the &lt;code&gt;FILE *&lt;/code&gt; arguments have been
+    replaced with a &lt;code&gt;void *&lt;/code&gt;, which is to be used as a pointer to
+    whatever internal data these functions might need, that #seek and #tell
+    take and return 64-bit offsets, and that #seek &lt;em&gt;must&lt;/em&gt; return -1 if
+    the stream is unseekable.*/</doc>
+<mbr r='OpusFileCallbacks::read' o='0' t='op_read_func'/>
+<mbr r='OpusFileCallbacks::seek' o='64' t='op_seek_func'/>
+<mbr r='OpusFileCallbacks::tell' o='128' t='op_tell_func'/>
+<mbr r='OpusFileCallbacks::close' o='192' t='op_close_func'/>

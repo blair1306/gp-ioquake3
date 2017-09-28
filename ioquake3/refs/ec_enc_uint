@@ -1,0 +1,11 @@
+<dec f='codebrowser/code/opus-1.1.4/celt/entenc.h' l='71' type='void ec_enc_uint(ec_enc * _this, opus_uint32 _fl, opus_uint32 _ft)'/>
+<use f='codebrowser/code/opus-1.1.4/celt/bands.c' l='744' u='c' c='compute_theta'/>
+<doc f='codebrowser/code/opus-1.1.4/celt/entenc.h' l='67'>/*Encodes a raw unsigned integer in the stream.
+  _fl: The integer to encode.
+  _ft: The number of integers that can be encoded (one more than the max).
+       This must be at least one, and no more than 2**32-1.*/</doc>
+<use f='codebrowser/code/opus-1.1.4/celt/celt_encoder.c' l='1580' u='c' c='celt_encode_with_ec'/>
+<use f='codebrowser/code/opus-1.1.4/celt/cwrs.c' l='460' u='c' c='encode_pulses'/>
+<def f='codebrowser/code/opus-1.1.4/celt/entenc.c' l='175' ll='191' type='void ec_enc_uint(ec_enc * _this, opus_uint32 _fl, opus_uint32 _ft)'/>
+<use f='codebrowser/code/opus-1.1.4/celt/rate.c' l='393' u='c' c='interp_bits2pulses'/>
+<use f='codebrowser/code/opus-1.1.4/src/opus_encoder.c' l='1827' u='c' c='opus_encode_native'/>

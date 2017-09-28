@@ -1,0 +1,11 @@
+<dec f='codebrowser/code/qcommon/q_shared.h' l='875' type='qboolean Info_Validate(const char * s)'/>
+<use f='codebrowser/code/game/g_client.c' l='723' u='c' c='ClientUserinfoChanged'/>
+<def f='codebrowser/code/qcommon/q_shared.c' l='1280' ll='1288' type='qboolean Info_Validate(const char * s)'/>
+<doc f='codebrowser/code/qcommon/q_shared.c' l='1272'>/*
+==================
+Info_Validate
+
+Some characters are illegal in info strings because they
+can mess up the server&apos;s parsing
+==================
+*/</doc>

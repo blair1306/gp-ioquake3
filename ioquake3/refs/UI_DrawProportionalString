@@ -1,0 +1,98 @@
+<dec f='codebrowser/code/cgame/cg_local.h' l='1258' type='void UI_DrawProportionalString(int x, int y, const char * str, int style, vec_t * color)'/>
+<def f='codebrowser/code/cgame/cg_drawtools.c' l='763' ll='817' type='void UI_DrawProportionalString(int x, int y, const char * str, int style, vec_t * color)'/>
+<doc f='codebrowser/code/cgame/cg_drawtools.c' l='758'>/*
+=================
+UI_DrawProportionalString
+=================
+*/</doc>
+<use f='codebrowser/code/cgame/cg_info.c' l='179' u='c' c='CG_DrawInformation'/>
+<use f='codebrowser/code/cgame/cg_info.c' l='182' u='c' c='CG_DrawInformation'/>
+<use f='codebrowser/code/cgame/cg_info.c' l='196' u='c' c='CG_DrawInformation'/>
+<use f='codebrowser/code/cgame/cg_info.c' l='203' u='c' c='CG_DrawInformation'/>
+<use f='codebrowser/code/cgame/cg_info.c' l='211' u='c' c='CG_DrawInformation'/>
+<use f='codebrowser/code/cgame/cg_info.c' l='223' u='c' c='CG_DrawInformation'/>
+<use f='codebrowser/code/cgame/cg_info.c' l='231' u='c' c='CG_DrawInformation'/>
+<use f='codebrowser/code/cgame/cg_info.c' l='268' u='c' c='CG_DrawInformation'/>
+<use f='codebrowser/code/cgame/cg_info.c' l='274' u='c' c='CG_DrawInformation'/>
+<use f='codebrowser/code/cgame/cg_info.c' l='282' u='c' c='CG_DrawInformation'/>
+<use f='codebrowser/code/cgame/cg_info.c' l='291' u='c' c='CG_DrawInformation'/>
+<dec f='codebrowser/code/q3_ui/ui_local.h' l='577' type='void UI_DrawProportionalString(int x, int y, const char * str, int style, vec_t * color)'/>
+<def f='codebrowser/code/q3_ui/ui_atoms.c' l='510' ll='564' type='void UI_DrawProportionalString(int x, int y, const char * str, int style, vec_t * color)'/>
+<use f='codebrowser/code/q3_ui/ui_atoms.c' l='601' u='c' c='UI_DrawProportionalString_AutoWrapped'/>
+<use f='codebrowser/code/q3_ui/ui_atoms.c' l='611' u='c' c='UI_DrawProportionalString_AutoWrapped'/>
+<use f='codebrowser/code/q3_ui/ui_atoms.c' l='623' u='c' c='UI_DrawProportionalString_AutoWrapped'/>
+<doc f='codebrowser/code/q3_ui/ui_atoms.c' l='505'>/*
+=================
+UI_DrawProportionalString
+=================
+*/</doc>
+<use f='codebrowser/code/q3_ui/ui_cdkey.c' l='173' u='c' c='UI_CDKeyMenu_DrawKey'/>
+<use f='codebrowser/code/q3_ui/ui_cdkey.c' l='176' u='c' c='UI_CDKeyMenu_DrawKey'/>
+<use f='codebrowser/code/q3_ui/ui_cdkey.c' l='179' u='c' c='UI_CDKeyMenu_DrawKey'/>
+<use f='codebrowser/code/q3_ui/ui_confirm.c' l='129' u='c' c='MessageMenu_Draw'/>
+<use f='codebrowser/code/q3_ui/ui_confirm.c' l='147' u='c' c='ConfirmMenu_Draw'/>
+<use f='codebrowser/code/q3_ui/ui_confirm.c' l='148' u='c' c='ConfirmMenu_Draw'/>
+<use f='codebrowser/code/q3_ui/ui_connect.c' l='92' u='c' c='UI_DisplayDownloadInfo'/>
+<use f='codebrowser/code/q3_ui/ui_connect.c' l='93' u='c' c='UI_DisplayDownloadInfo'/>
+<use f='codebrowser/code/q3_ui/ui_connect.c' l='94' u='c' c='UI_DisplayDownloadInfo'/>
+<use f='codebrowser/code/q3_ui/ui_connect.c' l='102' u='c' c='UI_DisplayDownloadInfo'/>
+<use f='codebrowser/code/q3_ui/ui_connect.c' l='108' u='c' c='UI_DisplayDownloadInfo'/>
+<use f='codebrowser/code/q3_ui/ui_connect.c' l='109' u='c' c='UI_DisplayDownloadInfo'/>
+<use f='codebrowser/code/q3_ui/ui_connect.c' l='131' u='c' c='UI_DisplayDownloadInfo'/>
+<use f='codebrowser/code/q3_ui/ui_connect.c' l='133' u='c' c='UI_DisplayDownloadInfo'/>
+<use f='codebrowser/code/q3_ui/ui_connect.c' l='136' u='c' c='UI_DisplayDownloadInfo'/>
+<use f='codebrowser/code/q3_ui/ui_connect.c' l='139' u='c' c='UI_DisplayDownloadInfo'/>
+<use f='codebrowser/code/q3_ui/ui_connect.c' l='142' u='c' c='UI_DisplayDownloadInfo'/>
+<use f='codebrowser/code/q3_ui/ui_connect.c' l='148' u='c' c='UI_DisplayDownloadInfo'/>
+<use f='codebrowser/code/q3_ui/ui_connect.c' l='180' u='c' c='UI_DrawConnectScreen'/>
+<use f='codebrowser/code/q3_ui/ui_connect.c' l='183' u='c' c='UI_DrawConnectScreen'/>
+<use f='codebrowser/code/q3_ui/ui_connect.c' l='187' u='c' c='UI_DrawConnectScreen'/>
+<use f='codebrowser/code/q3_ui/ui_connect.c' l='250' u='c' c='UI_DrawConnectScreen'/>
+<use f='codebrowser/code/q3_ui/ui_controls2.c' l='1040' u='c' c='Controls_ResetDefaults_Draw'/>
+<use f='codebrowser/code/q3_ui/ui_controls2.c' l='1041' u='c' c='Controls_ResetDefaults_Draw'/>
+<use f='codebrowser/code/q3_ui/ui_credits.c' l='75' u='c' c='UI_CreditMenu_Draw_ioq3'/>
+<use f='codebrowser/code/q3_ui/ui_credits.c' l='79' u='c' c='UI_CreditMenu_Draw_ioq3'/>
+<use f='codebrowser/code/q3_ui/ui_credits.c' l='116' u='c' c='UI_CreditMenu_Draw'/>
+<use f='codebrowser/code/q3_ui/ui_credits.c' l='119' u='c' c='UI_CreditMenu_Draw'/>
+<use f='codebrowser/code/q3_ui/ui_credits.c' l='121' u='c' c='UI_CreditMenu_Draw'/>
+<use f='codebrowser/code/q3_ui/ui_credits.c' l='124' u='c' c='UI_CreditMenu_Draw'/>
+<use f='codebrowser/code/q3_ui/ui_credits.c' l='126' u='c' c='UI_CreditMenu_Draw'/>
+<use f='codebrowser/code/q3_ui/ui_credits.c' l='128' u='c' c='UI_CreditMenu_Draw'/>
+<use f='codebrowser/code/q3_ui/ui_credits.c' l='131' u='c' c='UI_CreditMenu_Draw'/>
+<use f='codebrowser/code/q3_ui/ui_credits.c' l='133' u='c' c='UI_CreditMenu_Draw'/>
+<use f='codebrowser/code/q3_ui/ui_credits.c' l='136' u='c' c='UI_CreditMenu_Draw'/>
+<use f='codebrowser/code/q3_ui/ui_credits.c' l='138' u='c' c='UI_CreditMenu_Draw'/>
+<use f='codebrowser/code/q3_ui/ui_credits.c' l='141' u='c' c='UI_CreditMenu_Draw'/>
+<use f='codebrowser/code/q3_ui/ui_credits.c' l='143' u='c' c='UI_CreditMenu_Draw'/>
+<use f='codebrowser/code/q3_ui/ui_credits.c' l='146' u='c' c='UI_CreditMenu_Draw'/>
+<use f='codebrowser/code/q3_ui/ui_credits.c' l='148' u='c' c='UI_CreditMenu_Draw'/>
+<use f='codebrowser/code/q3_ui/ui_credits.c' l='151' u='c' c='UI_CreditMenu_Draw'/>
+<use f='codebrowser/code/q3_ui/ui_credits.c' l='153' u='c' c='UI_CreditMenu_Draw'/>
+<use f='codebrowser/code/q3_ui/ui_credits.c' l='156' u='c' c='UI_CreditMenu_Draw'/>
+<use f='codebrowser/code/q3_ui/ui_credits.c' l='158' u='c' c='UI_CreditMenu_Draw'/>
+<use f='codebrowser/code/q3_ui/ui_menu.c' l='225' u='c' c='Main_MenuDraw'/>
+<use f='codebrowser/code/q3_ui/ui_playermodel.c' l='376' u='c' c='PlayerModel_DrawPlayer'/>
+<use f='codebrowser/code/q3_ui/ui_playersettings.c' l='130' u='c' c='PlayerSettings_DrawName'/>
+<use f='codebrowser/code/q3_ui/ui_playersettings.c' l='170' u='c' c='PlayerSettings_DrawName'/>
+<use f='codebrowser/code/q3_ui/ui_playersettings.c' l='195' u='c' c='PlayerSettings_DrawHandicap'/>
+<use f='codebrowser/code/q3_ui/ui_playersettings.c' l='196' u='c' c='PlayerSettings_DrawHandicap'/>
+<use f='codebrowser/code/q3_ui/ui_playersettings.c' l='221' u='c' c='PlayerSettings_DrawEffects'/>
+<use f='codebrowser/code/q3_ui/ui_qmenu.c' l='233' u='c' c='PText_Draw'/>
+<use f='codebrowser/code/q3_ui/ui_saveconfig.c' l='115' u='c' c='UI_SaveConfigMenu_SavenameDraw'/>
+<use f='codebrowser/code/q3_ui/ui_setup.c' l='94' u='c' c='Setup_ResetDefaults_Draw'/>
+<use f='codebrowser/code/q3_ui/ui_setup.c' l='95' u='c' c='Setup_ResetDefaults_Draw'/>
+<use f='codebrowser/code/q3_ui/ui_splevel.c' l='358' u='c' c='UI_SPLevelMenu_ResetDraw'/>
+<use f='codebrowser/code/q3_ui/ui_splevel.c' l='359' u='c' c='UI_SPLevelMenu_ResetDraw'/>
+<use f='codebrowser/code/q3_ui/ui_splevel.c' l='360' u='c' c='UI_SPLevelMenu_ResetDraw'/>
+<use f='codebrowser/code/q3_ui/ui_splevel.c' l='361' u='c' c='UI_SPLevelMenu_ResetDraw'/>
+<use f='codebrowser/code/q3_ui/ui_splevel.c' l='563' u='c' c='UI_SPLevelMenu_MenuDraw'/>
+<use f='codebrowser/code/q3_ui/ui_splevel.c' l='608' u='c' c='UI_SPLevelMenu_MenuDraw'/>
+<use f='codebrowser/code/q3_ui/ui_splevel.c' l='617' u='c' c='UI_SPLevelMenu_MenuDraw'/>
+<use f='codebrowser/code/q3_ui/ui_splevel.c' l='653' u='c' c='UI_SPLevelMenu_MenuDraw'/>
+<use f='codebrowser/code/q3_ui/ui_splevel.c' l='668' u='c' c='UI_SPLevelMenu_MenuDraw'/>
+<use f='codebrowser/code/q3_ui/ui_sppostgame.c' l='249' u='c' c='UI_SPPostgameMenu_DrawAwardsPresentation'/>
+<use f='codebrowser/code/q3_ui/ui_sppostgame.c' l='311' u='c' c='UI_SPPostgameMenu_MenuDraw'/>
+<use f='codebrowser/code/q3_ui/ui_sppostgame.c' l='313' u='c' c='UI_SPPostgameMenu_MenuDraw'/>
+<use f='codebrowser/code/q3_ui/ui_sppostgame.c' l='314' u='c' c='UI_SPPostgameMenu_MenuDraw'/>
+<use f='codebrowser/code/q3_ui/ui_teamorders.c' l='243' u='c' c='UI_TeamOrdersMenu_ListDraw'/>
+<dec f='codebrowser/code/ui/ui_local.h' l='867' type='void UI_DrawProportionalString(int x, int y, const char * str, int style, vec_t * color)'/>

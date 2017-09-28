@@ -1,0 +1,23 @@
+<dec f='codebrowser/code/game/ai_dmq3.h' l='122' type='float BotEntityVisible(int viewer, vec_t * eye, vec_t * viewangles, float fov, int ent)'/>
+<use f='codebrowser/code/game/ai_chat.c' l='337' u='c' c='BotVisibleEnemies'/>
+<doc f='codebrowser/code/game/ai_dmq3.h' l='121'>//returns entity visibility in the range [0, 1]</doc>
+<use f='codebrowser/code/game/ai_dmnet.c' l='362' u='c' c='BotGetLongTermGoal'/>
+<use f='codebrowser/code/game/ai_dmnet.c' l='408' u='c' c='BotGetLongTermGoal'/>
+<use f='codebrowser/code/game/ai_dmnet.c' l='1081' u='c' c='BotLongTermGoal'/>
+<use f='codebrowser/code/game/ai_dmnet.c' l='2093' u='c' c='AINode_Battle_Fight'/>
+<use f='codebrowser/code/game/ai_dmnet.c' l='2190' u='c' c='AINode_Battle_Chase'/>
+<use f='codebrowser/code/game/ai_dmnet.c' l='2359' u='c' c='AINode_Battle_Retreat'/>
+<use f='codebrowser/code/game/ai_dmnet.c' l='2536' u='c' c='AINode_Battle_NBG'/>
+<def f='codebrowser/code/game/ai_dmq3.c' l='2826' ll='2928' type='float BotEntityVisible(int viewer, vec_t * eye, vec_t * viewangles, float fov, int ent)'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='3031' u='c' c='BotFindEnemy'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='3084' u='c' c='BotTeamFlagCarrierVisible'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='3147' u='c' c='BotEnemyFlagCarrierVisible'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='3187' u='c' c='BotVisibleTeamMatesAndEnemies'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='3381' u='c' c='BotAimAtEnemy'/>
+<doc f='codebrowser/code/game/ai_dmq3.c' l='2819'>/*
+==================
+BotEntityVisible
+
+returns visibility in the range [0, 1] taking fog and water surfaces into account
+==================
+*/</doc>

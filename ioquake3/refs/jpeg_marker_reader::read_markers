@@ -1,0 +1,8 @@
+<dec f='codebrowser/code/jpeg-8c/jpegint.h' l='198' type='int (*)(j_decompress_ptr)'/>
+<offset>64</offset>
+<doc f='codebrowser/code/jpeg-8c/jpegint.h' l='194'>/* Read markers until SOS or EOI.
+   * Returns same codes as are defined for jpeg_consume_input:
+   * JPEG_SUSPENDED, JPEG_REACHED_SOS, or JPEG_REACHED_EOI.
+   */</doc>
+<use f='codebrowser/code/jpeg-8c/jdinput.c' l='568' u='r' c='consume_markers'/>
+<use f='codebrowser/code/jpeg-8c/jdmarker.c' l='1320' u='w' c='jinit_marker_reader'/>

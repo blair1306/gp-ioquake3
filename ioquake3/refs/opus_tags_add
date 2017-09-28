@@ -1,0 +1,13 @@
+<dec f='codebrowser/code/opusfile-0.8/include/opusfile.h' l='490' type='int opus_tags_add(OpusTags * _tags, const char * _tag, const char * _value)'/>
+<doc f='codebrowser/code/opusfile-0.8/include/opusfile.h' l='479'>/**Add a (tag, value) pair to an initialized #OpusTags structure.
+   \note Neither opus_tags_add() nor opus_tags_add_comment() support values
+    containing embedded NULs, although the bitstream format does support them.
+   To add such tags, you will need to manipulate the #OpusTags structure
+    directly.
+   \param _tags  The #OpusTags structure to add the (tag, value) pair to.
+   \param _tag   A NUL-terminated, case-insensitive, ASCII string containing
+                  the tag to add (without an &apos;=&apos; character).
+   \param _value A NUL-terminated UTF-8 containing the corresponding value.
+   \return 0 on success, or a negative value on failure.
+   \retval #OP_EFAULT An internal memory allocation failed.*/</doc>
+<def f='codebrowser/code/opusfile-0.8/src/info.c' l='281' ll='302' type='int opus_tags_add(OpusTags * _tags, const char * _tag, const char * _value)'/>

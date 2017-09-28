@@ -1,0 +1,16 @@
+<dec f='codebrowser/code/qcommon/qcommon.h' l='1114' type='qboolean Sys_IsLANAddress(netadr_t adr)'/>
+<doc f='codebrowser/code/qcommon/qcommon.h' l='1112'>//Does NOT parse port numbers, only base addresses.</doc>
+<use f='codebrowser/code/client/cl_input.c' l='702' u='c' c='CL_ReadyToSendPacket'/>
+<use f='codebrowser/code/client/cl_main.c' l='2364' u='c' c='CL_CheckForResend'/>
+<def f='codebrowser/code/qcommon/net_ip.c' l='708' ll='782' type='qboolean Sys_IsLANAddress(netadr_t adr)'/>
+<doc f='codebrowser/code/qcommon/net_ip.c' l='701'>/*
+==================
+Sys_IsLANAddress
+
+LAN clients will have their rate var ignored
+==================
+*/</doc>
+<use f='codebrowser/code/server/sv_client.c' l='150' u='c' c='SV_GetChallenge'/>
+<use f='codebrowser/code/server/sv_client.c' l='436' u='c' c='SV_DirectConnect'/>
+<use f='codebrowser/code/server/sv_client.c' l='1407' u='c' c='SV_UserinfoChanged'/>
+<use f='codebrowser/code/server/sv_snapshot.c' l='666' u='c' c='SV_SendClientMessages'/>

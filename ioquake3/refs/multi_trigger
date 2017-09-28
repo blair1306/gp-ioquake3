@@ -1,0 +1,6 @@
+<def f='codebrowser/code/game/g_trigger.c' l='45' ll='74' type='void multi_trigger(gentity_t * ent, gentity_t * activator)'/>
+<use f='codebrowser/code/game/g_trigger.c' l='77' u='c' c='Use_Multi'/>
+<use f='codebrowser/code/game/g_trigger.c' l='84' u='c' c='Touch_Multi'/>
+<doc f='codebrowser/code/game/g_trigger.c' l='42'>// the trigger was just activated
+// ent-&gt;activator should be set to the activator so it can be held through a delay
+// so wait for the delay time before firing</doc>

@@ -1,0 +1,14 @@
+<dec f='codebrowser/code/qcommon/qcommon.h' l='1012' type='void CL_CDDialog()'/>
+<doc f='codebrowser/code/qcommon/qcommon.h' l='1008'>// adds the current command line as a clc_clientCommand to the client message.
+// things like godmode, noclip, etc, are commands directed to the server,
+// so when they are typed in at the console, they will need to be forwarded.</doc>
+<def f='codebrowser/code/client/cl_main.c' l='173' ll='175' type='void CL_CDDialog()'/>
+<doc f='codebrowser/code/client/cl_main.c' l='166'>/*
+===============
+CL_CDDialog
+
+Called by Com_Error when a cd is needed
+===============
+*/</doc>
+<def f='codebrowser/code/null/null_client.c' l='80' ll='81' type='void CL_CDDialog()'/>
+<use f='codebrowser/code/qcommon/common.c' l='345' u='c' c='Com_Error'/>

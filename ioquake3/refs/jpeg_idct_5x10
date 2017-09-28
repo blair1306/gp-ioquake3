@@ -1,0 +1,9 @@
+<dec f='codebrowser/code/jpeg-8c/jdct.h' l='321' type='void jpeg_idct_5x10(j_decompress_ptr cinfo, jpeg_component_info * compptr, JCOEFPTR coef_block, JSAMPARRAY output_buf, JDIMENSION output_col)'/>
+<use f='codebrowser/code/jpeg-8c/jddctmgr.c' l='209' u='r' c='start_pass'/>
+<def f='codebrowser/code/jpeg-8c/jidctint.c' l='4584' ll='4726' macro='1' type='void jpeg_idct_5x10(j_decompress_ptr cinfo, jpeg_component_info * compptr, JCOEFPTR coef_block, JSAMPARRAY output_buf, JDIMENSION output_col)'/>
+<doc f='codebrowser/code/jpeg-8c/jidctint.c' l='4577'>/*
+ * Perform dequantization and inverse DCT on one block of coefficients,
+ * producing a 5x10 output block.
+ *
+ * 10-point IDCT in pass 1 (columns), 5-point in pass 2 (rows).
+ */</doc>

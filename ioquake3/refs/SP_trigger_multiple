@@ -1,0 +1,13 @@
+<dec f='codebrowser/code/game/g_spawn.c' l='137' type='void SP_trigger_multiple(gentity_t * ent)'/>
+<use f='codebrowser/code/game/g_spawn.c' l='211'/>
+<use f='codebrowser/code/game/g_spawn.c' l='211'/>
+<use f='codebrowser/code/game/g_spawn.c' l='211'/>
+<use f='codebrowser/code/game/g_spawn.c' l='211'/>
+<def f='codebrowser/code/game/g_trigger.c' l='94' ll='108' type='void SP_trigger_multiple(gentity_t * ent)'/>
+<doc f='codebrowser/code/game/g_trigger.c' l='87'>/*QUAKED trigger_multiple (.5 .5 .5) ? RED_ONLY BLUE_ONLY
+&quot;wait&quot; : Seconds between triggerings, 0.5 default, -1 = one time only.
+&quot;random&quot;	wait variance, default is 0
+Variable sized repeatable trigger.  Must be targeted at one or more entities.
+so, the basic time between firing is a random time between
+(wait - random) and (wait + random)
+*/</doc>

@@ -1,0 +1,17 @@
+<dec f='codebrowser/code/qcommon/qcommon.h' l='1036' type='void S_ClearSoundBuffer()'/>
+<dec f='codebrowser/code/client/snd_public.h' l='68' type='void S_ClearSoundBuffer()'/>
+<dec f='codebrowser/code/client/snd_public.h' l='68' type='void S_ClearSoundBuffer()'/>
+<doc f='codebrowser/code/qcommon/qcommon.h' l='1034'>// for writing the config files</doc>
+<use f='codebrowser/code/client/cl_main.c' l='1436' u='c' c='CL_Disconnect'/>
+<def f='codebrowser/code/client/snd_main.c' l='299' ll='304' type='void S_ClearSoundBuffer()'/>
+<doc f='codebrowser/code/client/snd_main.c' l='294'>/*
+=================
+S_ClearSoundBuffer
+=================
+*/</doc>
+<def f='codebrowser/code/null/null_snddma.c' l='59' ll='60' type='void S_ClearSoundBuffer()'/>
+<use f='codebrowser/code/qcommon/files.c' l='725' u='c' c='FS_SV_FOpenFileRead'/>
+<use f='codebrowser/code/qcommon/files.c' l='815' u='c' c='FS_SV_Rename'/>
+<use f='codebrowser/code/qcommon/files.c' l='849' u='c' c='FS_Rename'/>
+<use f='codebrowser/code/qcommon/files.c' l='957' u='c' c='FS_FOpenFileAppend'/>
+<use f='codebrowser/code/qcommon/files.c' l='1000' u='c' c='FS_FCreateOpenPipeFile'/>

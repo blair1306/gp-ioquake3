@@ -1,0 +1,8 @@
+<def f='codebrowser/code/jpeg-8c/jpegint.h' l='46' ll='54'/>
+<size>32</size>
+<doc f='codebrowser/code/jpeg-8c/jpegint.h' l='45'>/* Master control module */</doc>
+<mbr r='jpeg_comp_master::prepare_for_pass' o='0' t='void (*)(j_compress_ptr)'/>
+<mbr r='jpeg_comp_master::pass_startup' o='64' t='void (*)(j_compress_ptr)'/>
+<mbr r='jpeg_comp_master::finish_pass' o='128' t='void (*)(j_compress_ptr)'/>
+<mbr r='jpeg_comp_master::call_pass_startup' o='192' t='boolean'/>
+<mbr r='jpeg_comp_master::is_last_pass' o='224' t='boolean'/>

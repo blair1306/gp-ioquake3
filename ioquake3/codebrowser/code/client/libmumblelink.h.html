@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>libmumblelink.h source code [codebrowser/code/client/libmumblelink.h] - Woboq Code Browser</title>
+<link rel="stylesheet" href="../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'codebrowser/code/client/libmumblelink.h'; var root_path = '../../..'; var data_path = '../../../../data';</script>
+<script src='../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../..'>codebrowser</a>/<a href='..'>code</a>/<a href='./'>client</a>/<a href='libmumblelink.h.html'>libmumblelink.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/* libmumblelink.h -- mumble link interface</i></td></tr>
+<tr><th id="2">2</th><td><i></i></td></tr>
+<tr><th id="3">3</th><td><i>  Copyright (C) 2008 Ludwig Nussel &lt;ludwig.nussel@suse.de&gt;</i></td></tr>
+<tr><th id="4">4</th><td><i></i></td></tr>
+<tr><th id="5">5</th><td><i>  This software is provided 'as-is', without any express or implied</i></td></tr>
+<tr><th id="6">6</th><td><i>  warranty.  In no event will the authors be held liable for any damages</i></td></tr>
+<tr><th id="7">7</th><td><i>  arising from the use of this software.</i></td></tr>
+<tr><th id="8">8</th><td><i></i></td></tr>
+<tr><th id="9">9</th><td><i>  Permission is granted to anyone to use this software for any purpose,</i></td></tr>
+<tr><th id="10">10</th><td><i>  including commercial applications, and to alter it and redistribute it</i></td></tr>
+<tr><th id="11">11</th><td><i>  freely, subject to the following restrictions:</i></td></tr>
+<tr><th id="12">12</th><td><i></i></td></tr>
+<tr><th id="13">13</th><td><i>  1. The origin of this software must not be misrepresented; you must not</i></td></tr>
+<tr><th id="14">14</th><td><i>     claim that you wrote the original software. If you use this software</i></td></tr>
+<tr><th id="15">15</th><td><i>     in a product, an acknowledgment in the product documentation would be</i></td></tr>
+<tr><th id="16">16</th><td><i>     appreciated but is not required.</i></td></tr>
+<tr><th id="17">17</th><td><i>  2. Altered source versions must be plainly marked as such, and must not be</i></td></tr>
+<tr><th id="18">18</th><td><i>     misrepresented as being the original software.</i></td></tr>
+<tr><th id="19">19</th><td><i>  3. This notice may not be removed or altered from any source distribution.</i></td></tr>
+<tr><th id="20">20</th><td><i></i></td></tr>
+<tr><th id="21">21</th><td><i>*/</i></td></tr>
+<tr><th id="22">22</th><td></td></tr>
+<tr><th id="23">23</th><td><em>int</em> <dfn class="decl" id="mumble_link" title='mumble_link' data-ref="mumble_link">mumble_link</dfn>(<em>const</em> <em>char</em>* <dfn class="local col1 decl" id="1name" title='name' data-type='const char *' data-ref="1name">name</dfn>);</td></tr>
+<tr><th id="24">24</th><td><em>int</em> <dfn class="decl" id="mumble_islinked" title='mumble_islinked' data-ref="mumble_islinked">mumble_islinked</dfn>(<em>void</em>);</td></tr>
+<tr><th id="25">25</th><td><em>void</em> <dfn class="decl" id="mumble_update_coordinates" title='mumble_update_coordinates' data-ref="mumble_update_coordinates">mumble_update_coordinates</dfn>(<em>float</em> <dfn class="local col2 decl" id="2fPosition" title='fPosition' data-type='float *' data-ref="2fPosition">fPosition</dfn>[<var>3</var>], <em>float</em> <dfn class="local col3 decl" id="3fFront" title='fFront' data-type='float *' data-ref="3fFront">fFront</dfn>[<var>3</var>], <em>float</em> <dfn class="local col4 decl" id="4fTop" title='fTop' data-type='float *' data-ref="4fTop">fTop</dfn>[<var>3</var>]);</td></tr>
+<tr><th id="26">26</th><td></td></tr>
+<tr><th id="27">27</th><td><i>/* new for mumble 1.2: also set camera position */</i></td></tr>
+<tr><th id="28">28</th><td><em>void</em> <dfn class="decl" id="mumble_update_coordinates2" title='mumble_update_coordinates2' data-ref="mumble_update_coordinates2">mumble_update_coordinates2</dfn>(<em>float</em> <dfn class="local col5 decl" id="5fAvatarPosition" title='fAvatarPosition' data-type='float *' data-ref="5fAvatarPosition">fAvatarPosition</dfn>[<var>3</var>], <em>float</em> <dfn class="local col6 decl" id="6fAvatarFront" title='fAvatarFront' data-type='float *' data-ref="6fAvatarFront">fAvatarFront</dfn>[<var>3</var>], <em>float</em> <dfn class="local col7 decl" id="7fAvatarTop" title='fAvatarTop' data-type='float *' data-ref="7fAvatarTop">fAvatarTop</dfn>[<var>3</var>],</td></tr>
+<tr><th id="29">29</th><td>		<em>float</em> <dfn class="local col8 decl" id="8fCameraPosition" title='fCameraPosition' data-type='float *' data-ref="8fCameraPosition">fCameraPosition</dfn>[<var>3</var>], <em>float</em> <dfn class="local col9 decl" id="9fCameraFront" title='fCameraFront' data-type='float *' data-ref="9fCameraFront">fCameraFront</dfn>[<var>3</var>], <em>float</em> <dfn class="local col0 decl" id="10fCameraTop" title='fCameraTop' data-type='float *' data-ref="10fCameraTop">fCameraTop</dfn>[<var>3</var>]);</td></tr>
+<tr><th id="30">30</th><td></td></tr>
+<tr><th id="31">31</th><td><em>void</em> <dfn class="decl" id="mumble_set_description" title='mumble_set_description' data-ref="mumble_set_description">mumble_set_description</dfn>(<em>const</em> <em>char</em>* <dfn class="local col1 decl" id="11description" title='description' data-type='const char *' data-ref="11description">description</dfn>);</td></tr>
+<tr><th id="32">32</th><td><em>void</em> <dfn class="decl" id="mumble_set_context" title='mumble_set_context' data-ref="mumble_set_context">mumble_set_context</dfn>(<em>const</em> <em>unsigned</em> <em>char</em>* <dfn class="local col2 decl" id="12context" title='context' data-type='const unsigned char *' data-ref="12context">context</dfn>, <span class='typedef' title='size_t' data-type='unsigned long' data-ref="size_t">size_t</span> <dfn class="local col3 decl" id="13len" title='len' data-type='size_t' data-ref="13len">len</dfn>);</td></tr>
+<tr><th id="33">33</th><td><em>void</em> <dfn class="decl" id="mumble_set_identity" title='mumble_set_identity' data-ref="mumble_set_identity">mumble_set_identity</dfn>(<em>const</em> <em>char</em>* <dfn class="local col4 decl" id="14identity" title='identity' data-type='const char *' data-ref="14identity">identity</dfn>);</td></tr>
+<tr><th id="34">34</th><td></td></tr>
+<tr><th id="35">35</th><td><em>void</em> <dfn class="decl" id="mumble_unlink" title='mumble_unlink' data-ref="mumble_unlink">mumble_unlink</dfn>(<em>void</em>);</td></tr>
+<tr><th id="36">36</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='cl_cgame.c.html'>codebrowser/code/client/cl_cgame.c</a><br/>Generated on <em>2017-Aug-29</em> from project codebrowser revision <em>63e07af</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

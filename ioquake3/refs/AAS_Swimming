@@ -1,0 +1,17 @@
+<dec f='codebrowser/code/botlib/be_aas_move.h' l='55' type='int AAS_Swimming(vec_t * origin)'/>
+<dec f='codebrowser/code/botlib/be_aas_move.h' l='55' type='int AAS_Swimming(vec_t * origin)'/>
+<doc f='codebrowser/code/botlib/be_aas_move.h' l='54'>//returns true if swimming at the given origin</doc>
+<def f='codebrowser/code/botlib/be_aas_move.c' l='215' ll='223' type='int AAS_Swimming(vec_t * origin)'/>
+<use f='codebrowser/code/botlib/be_aas_move.c' l='548' u='c' c='AAS_ClientMovementPrediction'/>
+<use f='codebrowser/code/botlib/be_aas_move.c' l='1028' u='c' c='AAS_TestMovementPrediction'/>
+<doc f='codebrowser/code/botlib/be_aas_move.c' l='208'>//===========================================================================
+// returns qtrue if a bot at the given position is swimming
+//
+// Parameter:				-
+// Returns:					-
+// Changes Globals:		-
+//===========================================================================</doc>
+<use f='codebrowser/code/botlib/be_ai_move.c' l='335' u='c' c='BotReachabilityArea'/>
+<use f='codebrowser/code/botlib/be_ai_move.c' l='1235' u='c' c='BotMoveInDirection'/>
+<use f='codebrowser/code/botlib/be_ai_move.c' l='3138' u='c' c='BotMoveToGoal'/>
+<use f='codebrowser/code/botlib/be_interface.c' l='723' u='r' c='Init_AAS_Export'/>

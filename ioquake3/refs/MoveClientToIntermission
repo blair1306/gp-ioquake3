@@ -1,0 +1,15 @@
+<dec f='codebrowser/code/game/g_local.h' l='601' type='void MoveClientToIntermission(gentity_t * ent)'/>
+<doc f='codebrowser/code/game/g_local.h' l='598'>//
+// g_main.c
+//</doc>
+<use f='codebrowser/code/game/g_client.c' l='1228' u='c' c='ClientSpawn'/>
+<def f='codebrowser/code/game/g_main.c' l='931' ll='954' type='void MoveClientToIntermission(gentity_t * ent)'/>
+<use f='codebrowser/code/game/g_main.c' l='1014' u='c' c='BeginIntermission'/>
+<doc f='codebrowser/code/game/g_main.c' l='923'>/*
+========================
+MoveClientToIntermission
+
+When the intermission starts, this will be called for all players.
+If a new client connects, this will be called after the spawn function.
+========================
+*/</doc>

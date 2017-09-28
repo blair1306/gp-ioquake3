@@ -1,0 +1,15 @@
+<dec f='codebrowser/code/client/client.h' l='572' type='void SCR_AdjustFrom640(float * x, float * y, float * w, float * h)'/>
+<use f='codebrowser/code/client/cl_cin.c' l='1589' u='c' c='CIN_DrawCinematic'/>
+<use f='codebrowser/code/client/cl_console.c' l='659' u='c' c='Con_DrawSolidConsole'/>
+<use f='codebrowser/code/client/cl_scrn.c' l='47' u='c' c='SCR_DrawNamedPic'/>
+<def f='codebrowser/code/client/cl_scrn.c' l='59' ll='85' type='void SCR_AdjustFrom640(float * x, float * y, float * w, float * h)'/>
+<use f='codebrowser/code/client/cl_scrn.c' l='97' u='c' c='SCR_FillRect'/>
+<use f='codebrowser/code/client/cl_scrn.c' l='112' u='c' c='SCR_DrawPic'/>
+<use f='codebrowser/code/client/cl_scrn.c' l='141' u='c' c='SCR_DrawChar'/>
+<doc f='codebrowser/code/client/cl_scrn.c' l='52'>/*
+================
+SCR_AdjustFrom640
+
+Adjusted for resolution and screen aspect ratio
+================
+*/</doc>

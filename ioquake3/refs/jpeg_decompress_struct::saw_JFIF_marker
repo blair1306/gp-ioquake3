@@ -1,0 +1,10 @@
+<dec f='codebrowser/code/jpeg-8c/jpeglib.h' l='582' type='boolean'/>
+<offset>3008</offset>
+<doc f='codebrowser/code/jpeg-8c/jpeglib.h' l='579'>/* These fields record data obtained from optional markers recognized by
+   * the JPEG library.
+   */</doc>
+<doc f='codebrowser/code/jpeg-8c/jpeglib.h' l='582'>/* TRUE iff a JFIF APP0 marker was found */</doc>
+<use f='codebrowser/code/jpeg-8c/jctrans.c' l='145' u='r' c='jpeg_copy_critical_parameters'/>
+<use f='codebrowser/code/jpeg-8c/jdapimin.c' l='127' u='r' c='default_decompress_parms'/>
+<use f='codebrowser/code/jpeg-8c/jdmarker.c' l='222' u='w' c='get_soi'/>
+<use f='codebrowser/code/jpeg-8c/jdmarker.c' l='637' u='w' c='examine_app0'/>

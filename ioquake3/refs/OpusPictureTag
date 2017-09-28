@@ -1,0 +1,13 @@
+<def f='codebrowser/code/opusfile-0.8/include/opusfile.h' l='330' ll='391'/>
+<size>64</size>
+<doc f='codebrowser/code/opusfile-0.8/include/opusfile.h' l='329'>/**The contents of a METADATA_BLOCK_PICTURE tag.*/</doc>
+<mbr r='OpusPictureTag::type' o='0' t='opus_int32'/>
+<mbr r='OpusPictureTag::mime_type' o='64' t='char *'/>
+<mbr r='OpusPictureTag::description' o='128' t='char *'/>
+<mbr r='OpusPictureTag::width' o='192' t='opus_uint32'/>
+<mbr r='OpusPictureTag::height' o='224' t='opus_uint32'/>
+<mbr r='OpusPictureTag::depth' o='256' t='opus_uint32'/>
+<mbr r='OpusPictureTag::colors' o='288' t='opus_uint32'/>
+<mbr r='OpusPictureTag::data_length' o='320' t='opus_uint32'/>
+<mbr r='OpusPictureTag::data' o='384' t='unsigned char *'/>
+<mbr r='OpusPictureTag::format' o='448' t='int'/>

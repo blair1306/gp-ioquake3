@@ -1,0 +1,13 @@
+<dec f='codebrowser/code/opus-1.1.4/celt/rate.h' l='98' type='int compute_allocation(const OpusCustomMode * m, int start, int end, const int * offsets, const int * cap, int alloc_trim, int * intensity, int * dual_stero, opus_int32 total, opus_int32 * balance, int * pulses, int * ebits, int * fine_priority, int C, int LM, ec_ctx * ec, int encode, int prev, int signalBandwidth)'/>
+<doc f='codebrowser/code/opus-1.1.4/celt/rate.h' l='89'>/** Compute the pulse allocation, i.e. how many pulses will go in each
+  * band.
+ @param m mode
+ @param offsets Requested increase or decrease in the number of bits for
+                each band
+ @param total Number of bands
+ @param pulses Number of pulses per band (returned)
+ @return Total number of bits allocated
+*/</doc>
+<use f='codebrowser/code/opus-1.1.4/celt/celt_decoder.c' l='959' u='c' c='celt_decode_with_ec'/>
+<use f='codebrowser/code/opus-1.1.4/celt/celt_encoder.c' l='2026' u='c' c='celt_encode_with_ec'/>
+<def f='codebrowser/code/opus-1.1.4/celt/rate.c' l='527' ll='638' type='int compute_allocation(const OpusCustomMode * m, int start, int end, const int * offsets, const int * cap, int alloc_trim, int * intensity, int * dual_stereo, opus_int32 total, opus_int32 * balance, int * pulses, int * ebits, int * fine_priority, int C, int LM, ec_ctx * ec, int encode, int prev, int signalBandwidth)'/>

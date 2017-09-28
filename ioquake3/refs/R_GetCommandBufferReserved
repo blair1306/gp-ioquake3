@@ -1,0 +1,20 @@
+<def f='codebrowser/code/renderergl1/tr_cmds.c' l='122' ll='140' type='void * R_GetCommandBufferReserved(int bytes, int reservedBytes)'/>
+<use f='codebrowser/code/renderergl1/tr_cmds.c' l='150' u='c' c='R_GetCommandBuffer'/>
+<use f='codebrowser/code/renderergl1/tr_cmds.c' l='468' u='c' c='RE_EndFrame'/>
+<doc f='codebrowser/code/renderergl1/tr_cmds.c' l='115'>/*
+============
+R_GetCommandBufferReserved
+
+make sure there is enough command space
+============
+*/</doc>
+<def f='codebrowser/code/renderergl2/tr_cmds.c' l='129' ll='147' type='void * R_GetCommandBufferReserved(int bytes, int reservedBytes)'/>
+<use f='codebrowser/code/renderergl2/tr_cmds.c' l='157' u='c' c='R_GetCommandBuffer'/>
+<use f='codebrowser/code/renderergl2/tr_cmds.c' l='539' u='c' c='RE_EndFrame'/>
+<doc f='codebrowser/code/renderergl2/tr_cmds.c' l='122'>/*
+============
+R_GetCommandBufferReserved
+
+make sure there is enough command space
+============
+*/</doc>

@@ -1,0 +1,12 @@
+<dec f='codebrowser/code/renderergl2/tr_local.h' l='2136' type='void R_BindVao(vao_t * vao)'/>
+<use f='codebrowser/code/renderergl2/tr_surface.c' l='76' u='c' c='RB_CheckVao'/>
+<use f='codebrowser/code/renderergl2/tr_surface.c' l='1233' u='c' c='RB_SurfaceVaoMdvMesh'/>
+<def f='codebrowser/code/renderergl2/tr_vbo.c' l='336' ll='381' type='void R_BindVao(vao_t * vao)'/>
+<use f='codebrowser/code/renderergl2/tr_vbo.c' l='606' u='c' c='RB_UpdateTessVao'/>
+<use f='codebrowser/code/renderergl2/tr_vbo.c' l='721' u='c' c='VaoCache_Commit'/>
+<use f='codebrowser/code/renderergl2/tr_vbo.c' l='876' u='c' c='VaoCache_BindVao'/>
+<doc f='codebrowser/code/renderergl2/tr_vbo.c' l='331'>/*
+============
+R_BindVao
+============
+*/</doc>

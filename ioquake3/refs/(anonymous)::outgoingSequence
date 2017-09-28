@@ -1,0 +1,25 @@
+<dec f='codebrowser/code/qcommon/qcommon.h' l='214' type='int'/>
+<offset>448</offset>
+<use f='codebrowser/code/client/cl_input.c' l='712' u='r' c='CL_ReadyToSendPacket'/>
+<use f='codebrowser/code/client/cl_input.c' l='791' u='r' c='CL_WritePacket'/>
+<use f='codebrowser/code/client/cl_input.c' l='884' u='r' c='CL_WritePacket'/>
+<use f='codebrowser/code/client/cl_parse.c' l='310' u='r' c='CL_ParseSnapshot'/>
+<use f='codebrowser/code/qcommon/net_chan.c' l='94' u='w' c='Netchan_Setup'/>
+<use f='codebrowser/code/qcommon/net_chan.c' l='118' u='r' c='Netchan_TransmitNextFragment'/>
+<use f='codebrowser/code/qcommon/net_chan.c' l='129' u='r' c='Netchan_TransmitNextFragment'/>
+<use f='codebrowser/code/qcommon/net_chan.c' l='152' u='r' c='Netchan_TransmitNextFragment'/>
+<use f='codebrowser/code/qcommon/net_chan.c' l='163' u='w' c='Netchan_TransmitNextFragment'/>
+<use f='codebrowser/code/qcommon/net_chan.c' l='201' u='r' c='Netchan_Transmit'/>
+<use f='codebrowser/code/qcommon/net_chan.c' l='210' u='r' c='Netchan_Transmit'/>
+<use f='codebrowser/code/qcommon/net_chan.c' l='212' u='w' c='Netchan_Transmit'/>
+<use f='codebrowser/code/qcommon/net_chan.c' l='227' u='r' c='Netchan_Transmit'/>
+<use f='codebrowser/code/server/sv_bot.c' l='629' u='r' c='SV_BotGetSnapshotEntity'/>
+<use f='codebrowser/code/server/sv_client.c' l='729' u='r' c='SV_SendClientGameState'/>
+<use f='codebrowser/code/server/sv_net_chan.c' l='65' u='r' c='SV_Netchan_Encode'/>
+<use f='codebrowser/code/server/sv_snapshot.c' l='129' u='r' c='SV_WriteSnapshotToClient'/>
+<use f='codebrowser/code/server/sv_snapshot.c' l='136' u='r' c='SV_WriteSnapshotToClient'/>
+<use f='codebrowser/code/server/sv_snapshot.c' l='145' u='r' c='SV_WriteSnapshotToClient'/>
+<use f='codebrowser/code/server/sv_snapshot.c' l='458' u='r' c='SV_BuildClientSnapshot'/>
+<use f='codebrowser/code/server/sv_snapshot.c' l='580' u='r' c='SV_SendMessageToClient'/>
+<use f='codebrowser/code/server/sv_snapshot.c' l='581' u='r' c='SV_SendMessageToClient'/>
+<use f='codebrowser/code/server/sv_snapshot.c' l='582' u='r' c='SV_SendMessageToClient'/>

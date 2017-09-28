@@ -1,0 +1,16 @@
+<dec f='codebrowser/code/game/bg_public.h' l='129' type='3'/>
+<doc f='codebrowser/code/game/bg_public.h' l='129'>// no acceleration or turning, but free falling</doc>
+<use f='codebrowser/code/cgame/cg_predict.c' l='446' u='r' c='CG_PredictPlayerState'/>
+<use f='codebrowser/code/cgame/cg_scoreboard.c' l='291' u='r' c='CG_DrawOldScoreboard'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='2073' u='r' c='BotIsDead'/>
+<use f='codebrowser/code/game/bg_pmove.c' l='94' u='r' c='PM_StartTorsoAnim'/>
+<use f='codebrowser/code/game/bg_pmove.c' l='101' u='r' c='PM_StartLegsAnim'/>
+<use f='codebrowser/code/game/bg_pmove.c' l='1276' u='r' c='PM_CheckDuck'/>
+<use f='codebrowser/code/game/bg_pmove.c' l='1927' u='r' c='PmoveSingle'/>
+<use f='codebrowser/code/game/bg_pmove.c' l='1964' u='r' c='PmoveSingle'/>
+<use f='codebrowser/code/game/g_active.c' l='43' u='r' c='P_DamageFeedback'/>
+<use f='codebrowser/code/game/g_active.c' l='831' u='r' c='ClientThink_real'/>
+<use f='codebrowser/code/game/g_active.c' l='903' u='r' c='ClientThink_real'/>
+<use f='codebrowser/code/game/g_combat.c' l='442' u='r' c='player_die'/>
+<use f='codebrowser/code/game/g_combat.c' l='465' u='r' c='player_die'/>
+<use f='codebrowser/code/game/g_trigger.c' l='277' u='r' c='trigger_teleporter_touch'/>

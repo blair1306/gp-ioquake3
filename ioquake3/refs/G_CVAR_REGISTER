@@ -1,0 +1,9 @@
+<dec f='codebrowser/code/game/g_public.h' l='122' type='3'/>
+<doc f='codebrowser/code/game/g_public.h' l='117'>// get current time for profiling reasons
+	// this should NOT be used for any game related tasks,
+	// because it is not journaled
+
+	// console variable interaction</doc>
+<doc f='codebrowser/code/game/g_public.h' l='122'>// ( vmCvar_t *vmCvar, const char *varName, const char *defaultValue, int flags );</doc>
+<use f='codebrowser/code/game/g_syscalls.c' l='95' c='trap_Cvar_Register'/>
+<use f='codebrowser/code/server/sv_game.c' l='302' c='SV_GameSystemCalls'/>

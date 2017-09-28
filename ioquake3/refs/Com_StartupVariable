@@ -1,0 +1,19 @@
+<dec f='codebrowser/code/qcommon/qcommon.h' l='841' type='void Com_StartupVariable(const char * match)'/>
+<def f='codebrowser/code/qcommon/common.c' l='482' ll='502' type='void Com_StartupVariable(const char * match)'/>
+<use f='codebrowser/code/qcommon/common.c' l='1912' u='c' c='Com_InitJournaling'/>
+<use f='codebrowser/code/qcommon/common.c' l='2696' u='c' c='Com_Init'/>
+<use f='codebrowser/code/qcommon/common.c' l='2735' u='c' c='Com_Init'/>
+<doc f='codebrowser/code/qcommon/common.c' l='471'>/*
+===============
+Com_StartupVariable
+
+Searches for command line parameters that are set commands.
+If match is not NULL, only that cvar will be looked for.
+That is necessary because cddir and basedir need to be set
+before the filesystem is started, but all other sets should
+be after execing the config and default.
+===============
+*/</doc>
+<use f='codebrowser/code/qcommon/files.c' l='3943' u='c' c='FS_InitFilesystem'/>
+<use f='codebrowser/code/qcommon/files.c' l='3944' u='c' c='FS_InitFilesystem'/>
+<use f='codebrowser/code/qcommon/files.c' l='3945' u='c' c='FS_InitFilesystem'/>

@@ -1,0 +1,11 @@
+<dec f='codebrowser/code/game/g_local.h' l='438' type='void RespawnItem(gentity_t * ent)'/>
+<def f='codebrowser/code/game/g_items.c' l='350' ll='418' type='void RespawnItem(gentity_t * ent)'/>
+<use f='codebrowser/code/game/g_items.c' l='556' u='r' c='Touch_Item'/>
+<use f='codebrowser/code/game/g_items.c' l='645' u='c' c='Use_Item'/>
+<use f='codebrowser/code/game/g_items.c' l='708' u='r' c='FinishSpawningItem'/>
+<doc f='codebrowser/code/game/g_items.c' l='345'>/*
+===============
+RespawnItem
+===============
+*/</doc>
+<use f='codebrowser/code/game/g_team.c' l='532' u='c' c='Team_ResetFlag'/>

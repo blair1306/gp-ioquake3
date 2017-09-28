@@ -1,0 +1,37 @@
+<dec f='codebrowser/code/game/g_local.h' l='470' type='gentity_t * G_TempEntity(vec_t * origin, int event)'/>
+<use f='codebrowser/code/game/g_active.c' l='724' u='c' c='SendPendingPredictableEvents'/>
+<use f='codebrowser/code/game/g_client.c' l='1221' u='c' c='ClientSpawn'/>
+<use f='codebrowser/code/game/g_client.c' l='1284' u='c' c='ClientDisconnect'/>
+<use f='codebrowser/code/game/g_combat.c' l='36' u='c' c='ScorePlum'/>
+<use f='codebrowser/code/game/g_combat.c' l='495' u='c' c='player_die'/>
+<use f='codebrowser/code/game/g_items.c' l='390' u='c' c='RespawnItem'/>
+<use f='codebrowser/code/game/g_items.c' l='393' u='c' c='RespawnItem'/>
+<use f='codebrowser/code/game/g_items.c' l='405' u='c' c='RespawnItem'/>
+<use f='codebrowser/code/game/g_items.c' l='408' u='c' c='RespawnItem'/>
+<use f='codebrowser/code/game/g_items.c' l='496' u='c' c='Touch_Item'/>
+<use f='codebrowser/code/game/g_items.c' l='502' u='c' c='Touch_Item'/>
+<use f='codebrowser/code/game/g_misc.c' l='87' u='c' c='TeleportPlayer'/>
+<use f='codebrowser/code/game/g_misc.c' l='90' u='c' c='TeleportPlayer'/>
+<use f='codebrowser/code/game/g_mover.c' l='808' u='c' c='Blocked_Door'/>
+<use f='codebrowser/code/game/g_team.c' l='124' u='c' c='AddTeamScore'/>
+<use f='codebrowser/code/game/g_team.c' l='561' u='c' c='Team_ReturnFlagSound'/>
+<use f='codebrowser/code/game/g_team.c' l='599' u='c' c='Team_TakeFlagSound'/>
+<use f='codebrowser/code/game/g_team.c' l='617' u='c' c='Team_CaptureFlagSound'/>
+<def f='codebrowser/code/game/g_utils.c' l='490' ll='509' type='gentity_t * G_TempEntity(vec_t * origin, int event)'/>
+<use f='codebrowser/code/game/g_utils.c' l='611' u='c' c='G_Sound'/>
+<doc f='codebrowser/code/game/g_utils.c' l='481'>/*
+=================
+G_TempEntity
+
+Spawns an event entity that will be auto-removed
+The origin will be snapped to save net bandwidth, so care
+must be taken if the origin is right on a surface (snap towards start vector first)
+=================
+*/</doc>
+<use f='codebrowser/code/game/g_weapon.c' l='96' u='c' c='CheckGauntletAttack'/>
+<use f='codebrowser/code/game/g_weapon.c' l='200' u='c' c='Bullet_Fire'/>
+<use f='codebrowser/code/game/g_weapon.c' l='206' u='c' c='Bullet_Fire'/>
+<use f='codebrowser/code/game/g_weapon.c' l='359' u='c' c='weapon_supershotgun_fire'/>
+<use f='codebrowser/code/game/g_weapon.c' l='527' u='c' c='weapon_railgun_fire'/>
+<use f='codebrowser/code/game/g_weapon.c' l='677' u='c' c='Weapon_LightningFire'/>
+<use f='codebrowser/code/game/g_weapon.c' l='685' u='c' c='Weapon_LightningFire'/>

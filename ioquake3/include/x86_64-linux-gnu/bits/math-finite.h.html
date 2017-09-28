@@ -1,0 +1,524 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>math-finite.h source code [include/x86_64-linux-gnu/bits/math-finite.h] - Woboq Code Browser</title>
+<link rel="stylesheet" href="../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'include/x86_64-linux-gnu/bits/math-finite.h'; var root_path = '../../..'; var data_path = '../../../../data';</script>
+<script src='../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../..'>include</a>/<a href='..'>x86_64-linux-gnu</a>/<a href='./'>bits</a>/<a href='math-finite.h.html'>math-finite.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/* Entry points to finite-math-only compiler runs.</i></td></tr>
+<tr><th id="2">2</th><td><i>   Copyright (C) 2011-2016 Free Software Foundation, Inc.</i></td></tr>
+<tr><th id="3">3</th><td><i>   This file is part of the GNU C Library.</i></td></tr>
+<tr><th id="4">4</th><td><i></i></td></tr>
+<tr><th id="5">5</th><td><i>   The GNU C Library is free software; you can redistribute it and/or</i></td></tr>
+<tr><th id="6">6</th><td><i>   modify it under the terms of the GNU Lesser General Public</i></td></tr>
+<tr><th id="7">7</th><td><i>   License as published by the Free Software Foundation; either</i></td></tr>
+<tr><th id="8">8</th><td><i>   version 2.1 of the License, or (at your option) any later version.</i></td></tr>
+<tr><th id="9">9</th><td><i></i></td></tr>
+<tr><th id="10">10</th><td><i>   The GNU C Library is distributed in the hope that it will be useful,</i></td></tr>
+<tr><th id="11">11</th><td><i>   but WITHOUT ANY WARRANTY; without even the implied warranty of</i></td></tr>
+<tr><th id="12">12</th><td><i>   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU</i></td></tr>
+<tr><th id="13">13</th><td><i>   Lesser General Public License for more details.</i></td></tr>
+<tr><th id="14">14</th><td><i></i></td></tr>
+<tr><th id="15">15</th><td><i>   You should have received a copy of the GNU Lesser General Public</i></td></tr>
+<tr><th id="16">16</th><td><i>   License along with the GNU C Library; if not, see</i></td></tr>
+<tr><th id="17">17</th><td><i>   &lt;<a href="http://www.gnu.org/licenses/">http://www.gnu.org/licenses/</a>&gt;.  */</i></td></tr>
+<tr><th id="18">18</th><td></td></tr>
+<tr><th id="19">19</th><td><u>#<span data-ppcond="19">ifndef</span> <a class="macro" href="../../math.h.html#24" data-ref="_M/_MATH_H">_MATH_H</a></u></td></tr>
+<tr><th id="20">20</th><td><u># error "Never use &lt;bits/math-finite.h&gt; directly; include &lt;math.h&gt; instead."</u></td></tr>
+<tr><th id="21">21</th><td><u>#<span data-ppcond="19">endif</span></u></td></tr>
+<tr><th id="22">22</th><td></td></tr>
+<tr><th id="23">23</th><td><i>/* acos.  */</i></td></tr>
+<tr><th id="24">24</th><td><b>extern</b> <em>double</em> <a class="macro" href="../sys/cdefs.h.html#184" title="acos (double) __asm__ (&quot;&quot; &quot;__acos_finite&quot;) __attribute__ ((__nothrow__ ))" data-ref="_M/__REDIRECT_NTH">__REDIRECT_NTH</a> (<a class="decl" href="mathcalls.h.html#54" title='acos' data-ref="acos" id="acos">acos</a>, (<em>double</em>), __acos_finite);</td></tr>
+<tr><th id="25">25</th><td><u>#<span data-ppcond="25">ifdef</span> <a class="macro" href="../../features.h.html#269" data-ref="_M/__USE_ISOC99">__USE_ISOC99</a></u></td></tr>
+<tr><th id="26">26</th><td><b>extern</b> <em>float</em> <a class="macro" href="../sys/cdefs.h.html#184" title="acosf (float) __asm__ (&quot;&quot; &quot;__acosf_finite&quot;) __attribute__ ((__nothrow__ ))" data-ref="_M/__REDIRECT_NTH">__REDIRECT_NTH</a> (<a class="decl" href="mathcalls.h.html#54" title='acosf' data-ref="acosf" id="acosf">acosf</a>, (<em>float</em>), __acosf_finite);</td></tr>
+<tr><th id="27">27</th><td><u># <span data-ppcond="27">ifdef</span> <a class="macro" href="../../math.h.html#150" data-ref="_M/__MATH_DECLARE_LDOUBLE">__MATH_DECLARE_LDOUBLE</a></u></td></tr>
+<tr><th id="28">28</th><td><u>#  <span data-ppcond="28">ifdef</span> <span class="macro" data-ref="_M/__NO_LONG_DOUBLE_MATH">__NO_LONG_DOUBLE_MATH</span></u></td></tr>
+<tr><th id="29">29</th><td><b>extern</b> <em>long</em> <em>double</em> __REDIRECT_NTH (acosl, (<em>long</em> <em>double</em>), __acos_finite);</td></tr>
+<tr><th id="30">30</th><td><u>#  <span data-ppcond="28">else</span></u></td></tr>
+<tr><th id="31">31</th><td><b>extern</b> <em>long</em> <em>double</em> <a class="macro" href="../sys/cdefs.h.html#184" title="acosl (long double) __asm__ (&quot;&quot; &quot;__acosl_finite&quot;) __attribute__ ((__nothrow__ ))" data-ref="_M/__REDIRECT_NTH">__REDIRECT_NTH</a> (<a class="decl" href="mathcalls.h.html#54" title='acosl' data-ref="acosl" id="acosl">acosl</a>, (<em>long</em> <em>double</em>), __acosl_finite);</td></tr>
+<tr><th id="32">32</th><td><u>#  <span data-ppcond="28">endif</span></u></td></tr>
+<tr><th id="33">33</th><td><u># <span data-ppcond="27">endif</span></u></td></tr>
+<tr><th id="34">34</th><td><u>#<span data-ppcond="25">endif</span></u></td></tr>
+<tr><th id="35">35</th><td></td></tr>
+<tr><th id="36">36</th><td><u>#<span data-ppcond="36">if</span> defined <span class="macro" data-ref="_M/__USE_XOPEN_EXTENDED">__USE_XOPEN_EXTENDED</span> || defined <a class="macro" href="../../features.h.html#269" data-ref="_M/__USE_ISOC99">__USE_ISOC99</a></u></td></tr>
+<tr><th id="37">37</th><td><i>/* acosh.  */</i></td></tr>
+<tr><th id="38">38</th><td><b>extern</b> <em>double</em> <a class="macro" href="../sys/cdefs.h.html#184" title="acosh (double) __asm__ (&quot;&quot; &quot;__acosh_finite&quot;) __attribute__ ((__nothrow__ ))" data-ref="_M/__REDIRECT_NTH">__REDIRECT_NTH</a> (<a class="decl" href="mathcalls.h.html#88" title='acosh' data-ref="acosh" id="acosh">acosh</a>, (<em>double</em>), __acosh_finite);</td></tr>
+<tr><th id="39">39</th><td><u>#<span data-ppcond="36">endif</span></u></td></tr>
+<tr><th id="40">40</th><td><u>#<span data-ppcond="40">ifdef</span> <a class="macro" href="../../features.h.html#269" data-ref="_M/__USE_ISOC99">__USE_ISOC99</a></u></td></tr>
+<tr><th id="41">41</th><td><b>extern</b> <em>float</em> <a class="macro" href="../sys/cdefs.h.html#184" title="acoshf (float) __asm__ (&quot;&quot; &quot;__acoshf_finite&quot;) __attribute__ ((__nothrow__ ))" data-ref="_M/__REDIRECT_NTH">__REDIRECT_NTH</a> (<a class="decl" href="mathcalls.h.html#88" title='acoshf' data-ref="acoshf" id="acoshf">acoshf</a>, (<em>float</em>), __acoshf_finite);</td></tr>
+<tr><th id="42">42</th><td><u># <span data-ppcond="42">ifdef</span> <a class="macro" href="../../math.h.html#150" data-ref="_M/__MATH_DECLARE_LDOUBLE">__MATH_DECLARE_LDOUBLE</a></u></td></tr>
+<tr><th id="43">43</th><td><u>#  <span data-ppcond="43">ifdef</span> <span class="macro" data-ref="_M/__NO_LONG_DOUBLE_MATH">__NO_LONG_DOUBLE_MATH</span></u></td></tr>
+<tr><th id="44">44</th><td><b>extern</b> <em>long</em> <em>double</em> __REDIRECT_NTH (acoshl, (<em>long</em> <em>double</em>), __acosh_finite);</td></tr>
+<tr><th id="45">45</th><td><u>#  <span data-ppcond="43">else</span></u></td></tr>
+<tr><th id="46">46</th><td><b>extern</b> <em>long</em> <em>double</em> <a class="macro" href="../sys/cdefs.h.html#184" title="acoshl (long double) __asm__ (&quot;&quot; &quot;__acoshl_finite&quot;) __attribute__ ((__nothrow__ ))" data-ref="_M/__REDIRECT_NTH">__REDIRECT_NTH</a> (<a class="decl" href="mathcalls.h.html#88" title='acoshl' data-ref="acoshl" id="acoshl">acoshl</a>, (<em>long</em> <em>double</em>), __acoshl_finite);</td></tr>
+<tr><th id="47">47</th><td><u>#  <span data-ppcond="43">endif</span></u></td></tr>
+<tr><th id="48">48</th><td><u># <span data-ppcond="42">endif</span></u></td></tr>
+<tr><th id="49">49</th><td><u>#<span data-ppcond="40">endif</span></u></td></tr>
+<tr><th id="50">50</th><td></td></tr>
+<tr><th id="51">51</th><td><i>/* asin.  */</i></td></tr>
+<tr><th id="52">52</th><td><b>extern</b> <em>double</em> <a class="macro" href="../sys/cdefs.h.html#184" title="asin (double) __asm__ (&quot;&quot; &quot;__asin_finite&quot;) __attribute__ ((__nothrow__ ))" data-ref="_M/__REDIRECT_NTH">__REDIRECT_NTH</a> (<a class="decl" href="mathcalls.h.html#56" title='asin' data-ref="asin" id="asin">asin</a>, (<em>double</em>), __asin_finite);</td></tr>
+<tr><th id="53">53</th><td><u>#<span data-ppcond="53">ifdef</span> <a class="macro" href="../../features.h.html#269" data-ref="_M/__USE_ISOC99">__USE_ISOC99</a></u></td></tr>
+<tr><th id="54">54</th><td><b>extern</b> <em>float</em> <a class="macro" href="../sys/cdefs.h.html#184" title="asinf (float) __asm__ (&quot;&quot; &quot;__asinf_finite&quot;) __attribute__ ((__nothrow__ ))" data-ref="_M/__REDIRECT_NTH">__REDIRECT_NTH</a> (<a class="decl" href="mathcalls.h.html#56" title='asinf' data-ref="asinf" id="asinf">asinf</a>, (<em>float</em>), __asinf_finite);</td></tr>
+<tr><th id="55">55</th><td><u># <span data-ppcond="55">ifdef</span> <a class="macro" href="../../math.h.html#150" data-ref="_M/__MATH_DECLARE_LDOUBLE">__MATH_DECLARE_LDOUBLE</a></u></td></tr>
+<tr><th id="56">56</th><td><u>#  <span data-ppcond="56">ifdef</span> <span class="macro" data-ref="_M/__NO_LONG_DOUBLE_MATH">__NO_LONG_DOUBLE_MATH</span></u></td></tr>
+<tr><th id="57">57</th><td><b>extern</b> <em>long</em> <em>double</em> __REDIRECT_NTH (asinl, (<em>long</em> <em>double</em>), __asin_finite);</td></tr>
+<tr><th id="58">58</th><td><u>#  <span data-ppcond="56">else</span></u></td></tr>
+<tr><th id="59">59</th><td><b>extern</b> <em>long</em> <em>double</em> <a class="macro" href="../sys/cdefs.h.html#184" title="asinl (long double) __asm__ (&quot;&quot; &quot;__asinl_finite&quot;) __attribute__ ((__nothrow__ ))" data-ref="_M/__REDIRECT_NTH">__REDIRECT_NTH</a> (<a class="decl" href="mathcalls.h.html#56" title='asinl' data-ref="asinl" id="asinl">asinl</a>, (<em>long</em> <em>double</em>), __asinl_finite);</td></tr>
+<tr><th id="60">60</th><td><u>#  <span data-ppcond="56">endif</span></u></td></tr>
+<tr><th id="61">61</th><td><u># <span data-ppcond="55">endif</span></u></td></tr>
+<tr><th id="62">62</th><td><u>#<span data-ppcond="53">endif</span></u></td></tr>
+<tr><th id="63">63</th><td></td></tr>
+<tr><th id="64">64</th><td><i>/* atan2.  */</i></td></tr>
+<tr><th id="65">65</th><td><b>extern</b> <em>double</em> <a class="macro" href="../sys/cdefs.h.html#184" title="atan2 (double, double) __asm__ (&quot;&quot; &quot;__atan2_finite&quot;) __attribute__ ((__nothrow__ ))" data-ref="_M/__REDIRECT_NTH">__REDIRECT_NTH</a> (<a class="decl" href="mathcalls.h.html#60" title='atan2' data-ref="atan2" id="atan2">atan2</a>, (<em>double</em>, <em>double</em>), __atan2_finite);</td></tr>
+<tr><th id="66">66</th><td><u>#<span data-ppcond="66">ifdef</span> <a class="macro" href="../../features.h.html#269" data-ref="_M/__USE_ISOC99">__USE_ISOC99</a></u></td></tr>
+<tr><th id="67">67</th><td><b>extern</b> <em>float</em> <a class="macro" href="../sys/cdefs.h.html#184" title="atan2f (float, float) __asm__ (&quot;&quot; &quot;__atan2f_finite&quot;) __attribute__ ((__nothrow__ ))" data-ref="_M/__REDIRECT_NTH">__REDIRECT_NTH</a> (<a class="decl" href="mathcalls.h.html#60" title='atan2f' data-ref="atan2f" id="atan2f">atan2f</a>, (<em>float</em>, <em>float</em>), __atan2f_finite);</td></tr>
+<tr><th id="68">68</th><td><u># <span data-ppcond="68">ifdef</span> <a class="macro" href="../../math.h.html#150" data-ref="_M/__MATH_DECLARE_LDOUBLE">__MATH_DECLARE_LDOUBLE</a></u></td></tr>
+<tr><th id="69">69</th><td><u>#  <span data-ppcond="69">ifdef</span> <span class="macro" data-ref="_M/__NO_LONG_DOUBLE_MATH">__NO_LONG_DOUBLE_MATH</span></u></td></tr>
+<tr><th id="70">70</th><td><b>extern</b> <em>long</em> <em>double</em> __REDIRECT_NTH (atan2l, (<em>long</em> <em>double</em>, <em>long</em> <em>double</em>),</td></tr>
+<tr><th id="71">71</th><td>				   __atan2_finite);</td></tr>
+<tr><th id="72">72</th><td><u>#  <span data-ppcond="69">else</span></u></td></tr>
+<tr><th id="73">73</th><td><b>extern</b> <em>long</em> <em>double</em> <a class="macro" href="../sys/cdefs.h.html#184" title="atan2l (long double, long double) __asm__ (&quot;&quot; &quot;__atan2l_finite&quot;) __attribute__ ((__nothrow__ ))" data-ref="_M/__REDIRECT_NTH">__REDIRECT_NTH</a> (<a class="decl" href="mathcalls.h.html#60" title='atan2l' data-ref="atan2l" id="atan2l">atan2l</a>, (<em>long</em> <em>double</em>, <em>long</em> <em>double</em>),</td></tr>
+<tr><th id="74">74</th><td>				   __atan2l_finite);</td></tr>
+<tr><th id="75">75</th><td><u>#  <span data-ppcond="69">endif</span></u></td></tr>
+<tr><th id="76">76</th><td><u># <span data-ppcond="68">endif</span></u></td></tr>
+<tr><th id="77">77</th><td><u>#<span data-ppcond="66">endif</span></u></td></tr>
+<tr><th id="78">78</th><td></td></tr>
+<tr><th id="79">79</th><td><u>#<span data-ppcond="79">if</span> defined <span class="macro" data-ref="_M/__USE_XOPEN_EXTENDED">__USE_XOPEN_EXTENDED</span> || defined <a class="macro" href="../../features.h.html#269" data-ref="_M/__USE_ISOC99">__USE_ISOC99</a></u></td></tr>
+<tr><th id="80">80</th><td><i>/* atanh.  */</i></td></tr>
+<tr><th id="81">81</th><td><b>extern</b> <em>double</em> <a class="macro" href="../sys/cdefs.h.html#184" title="atanh (double) __asm__ (&quot;&quot; &quot;__atanh_finite&quot;) __attribute__ ((__nothrow__ ))" data-ref="_M/__REDIRECT_NTH">__REDIRECT_NTH</a> (<a class="decl" href="mathcalls.h.html#92" title='atanh' data-ref="atanh" id="atanh">atanh</a>, (<em>double</em>), __atanh_finite);</td></tr>
+<tr><th id="82">82</th><td><u>#<span data-ppcond="79">endif</span></u></td></tr>
+<tr><th id="83">83</th><td><u>#<span data-ppcond="83">ifdef</span> <a class="macro" href="../../features.h.html#269" data-ref="_M/__USE_ISOC99">__USE_ISOC99</a></u></td></tr>
+<tr><th id="84">84</th><td><b>extern</b> <em>float</em> <a class="macro" href="../sys/cdefs.h.html#184" title="atanhf (float) __asm__ (&quot;&quot; &quot;__atanhf_finite&quot;) __attribute__ ((__nothrow__ ))" data-ref="_M/__REDIRECT_NTH">__REDIRECT_NTH</a> (<a class="decl" href="mathcalls.h.html#92" title='atanhf' data-ref="atanhf" id="atanhf">atanhf</a>, (<em>float</em>), __atanhf_finite);</td></tr>
+<tr><th id="85">85</th><td><u># <span data-ppcond="85">ifdef</span> <a class="macro" href="../../math.h.html#150" data-ref="_M/__MATH_DECLARE_LDOUBLE">__MATH_DECLARE_LDOUBLE</a></u></td></tr>
+<tr><th id="86">86</th><td><u>#  <span data-ppcond="86">ifdef</span> <span class="macro" data-ref="_M/__NO_LONG_DOUBLE_MATH">__NO_LONG_DOUBLE_MATH</span></u></td></tr>
+<tr><th id="87">87</th><td><b>extern</b> <em>long</em> <em>double</em> __REDIRECT_NTH (atanhl, (<em>long</em> <em>double</em>), __atanh_finite);</td></tr>
+<tr><th id="88">88</th><td><u>#  <span data-ppcond="86">else</span></u></td></tr>
+<tr><th id="89">89</th><td><b>extern</b> <em>long</em> <em>double</em> <a class="macro" href="../sys/cdefs.h.html#184" title="atanhl (long double) __asm__ (&quot;&quot; &quot;__atanhl_finite&quot;) __attribute__ ((__nothrow__ ))" data-ref="_M/__REDIRECT_NTH">__REDIRECT_NTH</a> (<a class="decl" href="mathcalls.h.html#92" title='atanhl' data-ref="atanhl" id="atanhl">atanhl</a>, (<em>long</em> <em>double</em>), __atanhl_finite);</td></tr>
+<tr><th id="90">90</th><td><u>#  <span data-ppcond="86">endif</span></u></td></tr>
+<tr><th id="91">91</th><td><u># <span data-ppcond="85">endif</span></u></td></tr>
+<tr><th id="92">92</th><td><u>#<span data-ppcond="83">endif</span></u></td></tr>
+<tr><th id="93">93</th><td></td></tr>
+<tr><th id="94">94</th><td><i>/* cosh.  */</i></td></tr>
+<tr><th id="95">95</th><td><b>extern</b> <em>double</em> <a class="macro" href="../sys/cdefs.h.html#184" title="cosh (double) __asm__ (&quot;&quot; &quot;__cosh_finite&quot;) __attribute__ ((__nothrow__ ))" data-ref="_M/__REDIRECT_NTH">__REDIRECT_NTH</a> (<a class="decl" href="mathcalls.h.html#72" title='cosh' data-ref="cosh" id="cosh">cosh</a>, (<em>double</em>), __cosh_finite);</td></tr>
+<tr><th id="96">96</th><td><u>#<span data-ppcond="96">ifdef</span> <a class="macro" href="../../features.h.html#269" data-ref="_M/__USE_ISOC99">__USE_ISOC99</a></u></td></tr>
+<tr><th id="97">97</th><td><b>extern</b> <em>float</em> <a class="macro" href="../sys/cdefs.h.html#184" title="coshf (float) __asm__ (&quot;&quot; &quot;__coshf_finite&quot;) __attribute__ ((__nothrow__ ))" data-ref="_M/__REDIRECT_NTH">__REDIRECT_NTH</a> (<a class="decl" href="mathcalls.h.html#72" title='coshf' data-ref="coshf" id="coshf">coshf</a>, (<em>float</em>), __coshf_finite);</td></tr>
+<tr><th id="98">98</th><td><u># <span data-ppcond="98">ifdef</span> <a class="macro" href="../../math.h.html#150" data-ref="_M/__MATH_DECLARE_LDOUBLE">__MATH_DECLARE_LDOUBLE</a></u></td></tr>
+<tr><th id="99">99</th><td><u>#  <span data-ppcond="99">ifdef</span> <span class="macro" data-ref="_M/__NO_LONG_DOUBLE_MATH">__NO_LONG_DOUBLE_MATH</span></u></td></tr>
+<tr><th id="100">100</th><td><b>extern</b> <em>long</em> <em>double</em> __REDIRECT_NTH (coshl, (<em>long</em> <em>double</em>), __cosh_finite);</td></tr>
+<tr><th id="101">101</th><td><u>#  <span data-ppcond="99">else</span></u></td></tr>
+<tr><th id="102">102</th><td><b>extern</b> <em>long</em> <em>double</em> <a class="macro" href="../sys/cdefs.h.html#184" title="coshl (long double) __asm__ (&quot;&quot; &quot;__coshl_finite&quot;) __attribute__ ((__nothrow__ ))" data-ref="_M/__REDIRECT_NTH">__REDIRECT_NTH</a> (<a class="decl" href="mathcalls.h.html#72" title='coshl' data-ref="coshl" id="coshl">coshl</a>, (<em>long</em> <em>double</em>), __coshl_finite);</td></tr>
+<tr><th id="103">103</th><td><u>#  <span data-ppcond="99">endif</span></u></td></tr>
+<tr><th id="104">104</th><td><u># <span data-ppcond="98">endif</span></u></td></tr>
+<tr><th id="105">105</th><td><u>#<span data-ppcond="96">endif</span></u></td></tr>
+<tr><th id="106">106</th><td></td></tr>
+<tr><th id="107">107</th><td><i>/* exp.  */</i></td></tr>
+<tr><th id="108">108</th><td><b>extern</b> <em>double</em> <a class="macro" href="../sys/cdefs.h.html#184" title="exp (double) __asm__ (&quot;&quot; &quot;__exp_finite&quot;) __attribute__ ((__nothrow__ ))" data-ref="_M/__REDIRECT_NTH">__REDIRECT_NTH</a> (<a class="decl" href="mathcalls.h.html#100" title='exp' data-ref="exp" id="exp">exp</a>, (<em>double</em>), __exp_finite);</td></tr>
+<tr><th id="109">109</th><td><u>#<span data-ppcond="109">ifdef</span> <a class="macro" href="../../features.h.html#269" data-ref="_M/__USE_ISOC99">__USE_ISOC99</a></u></td></tr>
+<tr><th id="110">110</th><td><b>extern</b> <em>float</em> <a class="macro" href="../sys/cdefs.h.html#184" title="expf (float) __asm__ (&quot;&quot; &quot;__expf_finite&quot;) __attribute__ ((__nothrow__ ))" data-ref="_M/__REDIRECT_NTH">__REDIRECT_NTH</a> (<a class="decl" href="mathcalls.h.html#100" title='expf' data-ref="expf" id="expf">expf</a>, (<em>float</em>), __expf_finite);</td></tr>
+<tr><th id="111">111</th><td><u># <span data-ppcond="111">ifdef</span> <a class="macro" href="../../math.h.html#150" data-ref="_M/__MATH_DECLARE_LDOUBLE">__MATH_DECLARE_LDOUBLE</a></u></td></tr>
+<tr><th id="112">112</th><td><u>#  <span data-ppcond="112">ifdef</span> <span class="macro" data-ref="_M/__NO_LONG_DOUBLE_MATH">__NO_LONG_DOUBLE_MATH</span></u></td></tr>
+<tr><th id="113">113</th><td><b>extern</b> <em>long</em> <em>double</em> __REDIRECT_NTH (expl, (<em>long</em> <em>double</em>), __exp_finite);</td></tr>
+<tr><th id="114">114</th><td><u>#  <span data-ppcond="112">else</span></u></td></tr>
+<tr><th id="115">115</th><td><b>extern</b> <em>long</em> <em>double</em> <a class="macro" href="../sys/cdefs.h.html#184" title="expl (long double) __asm__ (&quot;&quot; &quot;__expl_finite&quot;) __attribute__ ((__nothrow__ ))" data-ref="_M/__REDIRECT_NTH">__REDIRECT_NTH</a> (<a class="decl" href="mathcalls.h.html#100" title='expl' data-ref="expl" id="expl">expl</a>, (<em>long</em> <em>double</em>), __expl_finite);</td></tr>
+<tr><th id="116">116</th><td><u>#  <span data-ppcond="112">endif</span></u></td></tr>
+<tr><th id="117">117</th><td><u># <span data-ppcond="111">endif</span></u></td></tr>
+<tr><th id="118">118</th><td><u>#<span data-ppcond="109">endif</span></u></td></tr>
+<tr><th id="119">119</th><td></td></tr>
+<tr><th id="120">120</th><td><u>#<span data-ppcond="120">ifdef</span> <span class="macro" data-ref="_M/__USE_GNU">__USE_GNU</span></u></td></tr>
+<tr><th id="121">121</th><td><i>/* exp10.  */</i></td></tr>
+<tr><th id="122">122</th><td><b>extern</b> <em>double</em> __REDIRECT_NTH (exp10, (<em>double</em>), __exp10_finite);</td></tr>
+<tr><th id="123">123</th><td><b>extern</b> <em>float</em> __REDIRECT_NTH (exp10f, (<em>float</em>), __exp10f_finite);</td></tr>
+<tr><th id="124">124</th><td><u># ifdef __MATH_DECLARE_LDOUBLE</u></td></tr>
+<tr><th id="125">125</th><td><u>#  ifdef __NO_LONG_DOUBLE_MATH</u></td></tr>
+<tr><th id="126">126</th><td><b>extern</b> <em>long</em> <em>double</em> __REDIRECT_NTH (exp10l, (<em>long</em> <em>double</em>), __exp10_finite);</td></tr>
+<tr><th id="127">127</th><td><u>#  else</u></td></tr>
+<tr><th id="128">128</th><td><b>extern</b> <em>long</em> <em>double</em> __REDIRECT_NTH (exp10l, (<em>long</em> <em>double</em>), __exp10l_finite);</td></tr>
+<tr><th id="129">129</th><td><u>#  endif</u></td></tr>
+<tr><th id="130">130</th><td><u># endif</u></td></tr>
+<tr><th id="131">131</th><td></td></tr>
+<tr><th id="132">132</th><td><i>/* pow10.  */</i></td></tr>
+<tr><th id="133">133</th><td><b>extern</b> <em>double</em> __REDIRECT_NTH (pow10, (<em>double</em>), __exp10_finite);</td></tr>
+<tr><th id="134">134</th><td><b>extern</b> <em>float</em> __REDIRECT_NTH (pow10f, (<em>float</em>), __exp10f_finite);</td></tr>
+<tr><th id="135">135</th><td><u># ifdef __MATH_DECLARE_LDOUBLE</u></td></tr>
+<tr><th id="136">136</th><td><u>#  ifdef __NO_LONG_DOUBLE_MATH</u></td></tr>
+<tr><th id="137">137</th><td><b>extern</b> <em>long</em> <em>double</em> __REDIRECT_NTH (pow10l, (<em>long</em> <em>double</em>), __exp10_finite);</td></tr>
+<tr><th id="138">138</th><td><u>#  else</u></td></tr>
+<tr><th id="139">139</th><td><b>extern</b> <em>long</em> <em>double</em> __REDIRECT_NTH (pow10l, (<em>long</em> <em>double</em>), __exp10l_finite);</td></tr>
+<tr><th id="140">140</th><td><u>#  endif</u></td></tr>
+<tr><th id="141">141</th><td><u># endif</u></td></tr>
+<tr><th id="142">142</th><td><u>#<span data-ppcond="120">endif</span></u></td></tr>
+<tr><th id="143">143</th><td></td></tr>
+<tr><th id="144">144</th><td><u>#<span data-ppcond="144">ifdef</span> <a class="macro" href="../../features.h.html#269" data-ref="_M/__USE_ISOC99">__USE_ISOC99</a></u></td></tr>
+<tr><th id="145">145</th><td><i>/* exp2.  */</i></td></tr>
+<tr><th id="146">146</th><td><b>extern</b> <em>double</em> <a class="macro" href="../sys/cdefs.h.html#184" title="exp2 (double) __asm__ (&quot;&quot; &quot;__exp2_finite&quot;) __attribute__ ((__nothrow__ ))" data-ref="_M/__REDIRECT_NTH">__REDIRECT_NTH</a> (<a class="decl" href="mathcalls.h.html#141" title='exp2' data-ref="exp2" id="exp2">exp2</a>, (<em>double</em>), __exp2_finite);</td></tr>
+<tr><th id="147">147</th><td><b>extern</b> <em>float</em> <a class="macro" href="../sys/cdefs.h.html#184" title="exp2f (float) __asm__ (&quot;&quot; &quot;__exp2f_finite&quot;) __attribute__ ((__nothrow__ ))" data-ref="_M/__REDIRECT_NTH">__REDIRECT_NTH</a> (<a class="decl" href="mathcalls.h.html#141" title='exp2f' data-ref="exp2f" id="exp2f">exp2f</a>, (<em>float</em>), __exp2f_finite);</td></tr>
+<tr><th id="148">148</th><td><u># <span data-ppcond="148">ifdef</span> <a class="macro" href="../../math.h.html#150" data-ref="_M/__MATH_DECLARE_LDOUBLE">__MATH_DECLARE_LDOUBLE</a></u></td></tr>
+<tr><th id="149">149</th><td><u>#  <span data-ppcond="149">ifdef</span> <span class="macro" data-ref="_M/__NO_LONG_DOUBLE_MATH">__NO_LONG_DOUBLE_MATH</span></u></td></tr>
+<tr><th id="150">150</th><td><b>extern</b> <em>long</em> <em>double</em> __REDIRECT_NTH (exp2l, (<em>long</em> <em>double</em>), __exp2_finite);</td></tr>
+<tr><th id="151">151</th><td><u>#  <span data-ppcond="149">else</span></u></td></tr>
+<tr><th id="152">152</th><td><b>extern</b> <em>long</em> <em>double</em> <a class="macro" href="../sys/cdefs.h.html#184" title="exp2l (long double) __asm__ (&quot;&quot; &quot;__exp2l_finite&quot;) __attribute__ ((__nothrow__ ))" data-ref="_M/__REDIRECT_NTH">__REDIRECT_NTH</a> (<a class="decl" href="mathcalls.h.html#141" title='exp2l' data-ref="exp2l" id="exp2l">exp2l</a>, (<em>long</em> <em>double</em>), __exp2l_finite);</td></tr>
+<tr><th id="153">153</th><td><u>#  <span data-ppcond="149">endif</span></u></td></tr>
+<tr><th id="154">154</th><td><u># <span data-ppcond="148">endif</span></u></td></tr>
+<tr><th id="155">155</th><td><u>#<span data-ppcond="144">endif</span></u></td></tr>
+<tr><th id="156">156</th><td></td></tr>
+<tr><th id="157">157</th><td><i>/* fmod.  */</i></td></tr>
+<tr><th id="158">158</th><td><b>extern</b> <em>double</em> <a class="macro" href="../sys/cdefs.h.html#184" title="fmod (double, double) __asm__ (&quot;&quot; &quot;__fmod_finite&quot;) __attribute__ ((__nothrow__ ))" data-ref="_M/__REDIRECT_NTH">__REDIRECT_NTH</a> (<a class="decl" href="mathcalls.h.html#187" title='fmod' data-ref="fmod" id="fmod">fmod</a>, (<em>double</em>, <em>double</em>), __fmod_finite);</td></tr>
+<tr><th id="159">159</th><td><u>#<span data-ppcond="159">ifdef</span> <a class="macro" href="../../features.h.html#269" data-ref="_M/__USE_ISOC99">__USE_ISOC99</a></u></td></tr>
+<tr><th id="160">160</th><td><b>extern</b> <em>float</em> <a class="macro" href="../sys/cdefs.h.html#184" title="fmodf (float, float) __asm__ (&quot;&quot; &quot;__fmodf_finite&quot;) __attribute__ ((__nothrow__ ))" data-ref="_M/__REDIRECT_NTH">__REDIRECT_NTH</a> (<a class="decl" href="mathcalls.h.html#187" title='fmodf' data-ref="fmodf" id="fmodf">fmodf</a>, (<em>float</em>, <em>float</em>), __fmodf_finite);</td></tr>
+<tr><th id="161">161</th><td><u># <span data-ppcond="161">ifdef</span> <a class="macro" href="../../math.h.html#150" data-ref="_M/__MATH_DECLARE_LDOUBLE">__MATH_DECLARE_LDOUBLE</a></u></td></tr>
+<tr><th id="162">162</th><td><u>#  <span data-ppcond="162">ifdef</span> <span class="macro" data-ref="_M/__NO_LONG_DOUBLE_MATH">__NO_LONG_DOUBLE_MATH</span></u></td></tr>
+<tr><th id="163">163</th><td><b>extern</b> <em>long</em> <em>double</em> __REDIRECT_NTH (fmodl, (<em>long</em> <em>double</em>, <em>long</em> <em>double</em>),</td></tr>
+<tr><th id="164">164</th><td>				   __fmod_finite);</td></tr>
+<tr><th id="165">165</th><td><u>#  <span data-ppcond="162">else</span></u></td></tr>
+<tr><th id="166">166</th><td><b>extern</b> <em>long</em> <em>double</em> <a class="macro" href="../sys/cdefs.h.html#184" title="fmodl (long double, long double) __asm__ (&quot;&quot; &quot;__fmodl_finite&quot;) __attribute__ ((__nothrow__ ))" data-ref="_M/__REDIRECT_NTH">__REDIRECT_NTH</a> (<a class="decl" href="mathcalls.h.html#187" title='fmodl' data-ref="fmodl" id="fmodl">fmodl</a>, (<em>long</em> <em>double</em>, <em>long</em> <em>double</em>),</td></tr>
+<tr><th id="167">167</th><td>				   __fmodl_finite);</td></tr>
+<tr><th id="168">168</th><td><u>#  <span data-ppcond="162">endif</span></u></td></tr>
+<tr><th id="169">169</th><td><u># <span data-ppcond="161">endif</span></u></td></tr>
+<tr><th id="170">170</th><td><u>#<span data-ppcond="159">endif</span></u></td></tr>
+<tr><th id="171">171</th><td></td></tr>
+<tr><th id="172">172</th><td><u>#<span data-ppcond="172">if</span> defined <span class="macro" data-ref="_M/__USE_XOPEN">__USE_XOPEN</span> || defined <a class="macro" href="../../features.h.html#269" data-ref="_M/__USE_ISOC99">__USE_ISOC99</a></u></td></tr>
+<tr><th id="173">173</th><td><i>/* hypot.  */</i></td></tr>
+<tr><th id="174">174</th><td><b>extern</b> <em>double</em> <a class="macro" href="../sys/cdefs.h.html#184" title="hypot (double, double) __asm__ (&quot;&quot; &quot;__hypot_finite&quot;) __attribute__ ((__nothrow__ ))" data-ref="_M/__REDIRECT_NTH">__REDIRECT_NTH</a> (<a class="decl" href="mathcalls.h.html#162" title='hypot' data-ref="hypot" id="hypot">hypot</a>, (<em>double</em>, <em>double</em>), __hypot_finite);</td></tr>
+<tr><th id="175">175</th><td><u>#<span data-ppcond="172">endif</span></u></td></tr>
+<tr><th id="176">176</th><td><u>#<span data-ppcond="176">ifdef</span> <a class="macro" href="../../features.h.html#269" data-ref="_M/__USE_ISOC99">__USE_ISOC99</a></u></td></tr>
+<tr><th id="177">177</th><td><b>extern</b> <em>float</em> <a class="macro" href="../sys/cdefs.h.html#184" title="hypotf (float, float) __asm__ (&quot;&quot; &quot;__hypotf_finite&quot;) __attribute__ ((__nothrow__ ))" data-ref="_M/__REDIRECT_NTH">__REDIRECT_NTH</a> (<a class="decl" href="mathcalls.h.html#162" title='hypotf' data-ref="hypotf" id="hypotf">hypotf</a>, (<em>float</em>, <em>float</em>), __hypotf_finite);</td></tr>
+<tr><th id="178">178</th><td><u># <span data-ppcond="178">ifdef</span> <a class="macro" href="../../math.h.html#150" data-ref="_M/__MATH_DECLARE_LDOUBLE">__MATH_DECLARE_LDOUBLE</a></u></td></tr>
+<tr><th id="179">179</th><td><u>#  <span data-ppcond="179">ifdef</span> <span class="macro" data-ref="_M/__NO_LONG_DOUBLE_MATH">__NO_LONG_DOUBLE_MATH</span></u></td></tr>
+<tr><th id="180">180</th><td><b>extern</b> <em>long</em> <em>double</em> __REDIRECT_NTH (hypotl, (<em>long</em> <em>double</em>, <em>long</em> <em>double</em>),</td></tr>
+<tr><th id="181">181</th><td>				   __hypot_finite);</td></tr>
+<tr><th id="182">182</th><td><u>#  <span data-ppcond="179">else</span></u></td></tr>
+<tr><th id="183">183</th><td><b>extern</b> <em>long</em> <em>double</em> <a class="macro" href="../sys/cdefs.h.html#184" title="hypotl (long double, long double) __asm__ (&quot;&quot; &quot;__hypotl_finite&quot;) __attribute__ ((__nothrow__ ))" data-ref="_M/__REDIRECT_NTH">__REDIRECT_NTH</a> (<a class="decl" href="mathcalls.h.html#162" title='hypotl' data-ref="hypotl" id="hypotl">hypotl</a>, (<em>long</em> <em>double</em>, <em>long</em> <em>double</em>),</td></tr>
+<tr><th id="184">184</th><td>				   __hypotl_finite);</td></tr>
+<tr><th id="185">185</th><td><u>#  <span data-ppcond="179">endif</span></u></td></tr>
+<tr><th id="186">186</th><td><u># <span data-ppcond="178">endif</span></u></td></tr>
+<tr><th id="187">187</th><td><u>#<span data-ppcond="176">endif</span></u></td></tr>
+<tr><th id="188">188</th><td></td></tr>
+<tr><th id="189">189</th><td><u>#<span data-ppcond="189">if</span> defined <a class="macro" href="../../features.h.html#317" data-ref="_M/__USE_MISC">__USE_MISC</a> || defined <span class="macro" data-ref="_M/__USE_XOPEN">__USE_XOPEN</span></u></td></tr>
+<tr><th id="190">190</th><td><i>/* j0.  */</i></td></tr>
+<tr><th id="191">191</th><td><b>extern</b> <em>double</em> <a class="macro" href="../sys/cdefs.h.html#184" title="j0 (double) __asm__ (&quot;&quot; &quot;__j0_finite&quot;) __attribute__ ((__nothrow__ ))" data-ref="_M/__REDIRECT_NTH">__REDIRECT_NTH</a> (<a class="decl" href="mathcalls.h.html#247" title='j0' data-ref="j0" id="j0">j0</a>, (<em>double</em>), __j0_finite);</td></tr>
+<tr><th id="192">192</th><td><u>#<span data-ppcond="189">endif</span></u></td></tr>
+<tr><th id="193">193</th><td><u>#<span data-ppcond="193">if</span> defined <a class="macro" href="../../features.h.html#317" data-ref="_M/__USE_MISC">__USE_MISC</a> &amp;&amp; defined <a class="macro" href="../../features.h.html#269" data-ref="_M/__USE_ISOC99">__USE_ISOC99</a></u></td></tr>
+<tr><th id="194">194</th><td><b>extern</b> <em>float</em> <a class="macro" href="../sys/cdefs.h.html#184" title="j0f (float) __asm__ (&quot;&quot; &quot;__j0f_finite&quot;) __attribute__ ((__nothrow__ ))" data-ref="_M/__REDIRECT_NTH">__REDIRECT_NTH</a> (<a class="decl" href="mathcalls.h.html#247" title='j0f' data-ref="j0f" id="j0f">j0f</a>, (<em>float</em>), __j0f_finite);</td></tr>
+<tr><th id="195">195</th><td><u># <span data-ppcond="195">ifdef</span> <a class="macro" href="../../math.h.html#150" data-ref="_M/__MATH_DECLARE_LDOUBLE">__MATH_DECLARE_LDOUBLE</a></u></td></tr>
+<tr><th id="196">196</th><td><u>#  <span data-ppcond="196">ifdef</span> <span class="macro" data-ref="_M/__NO_LONG_DOUBLE_MATH">__NO_LONG_DOUBLE_MATH</span></u></td></tr>
+<tr><th id="197">197</th><td><b>extern</b> <em>long</em> <em>double</em> __REDIRECT_NTH (j0l, (<em>long</em> <em>double</em>), __j0_finite);</td></tr>
+<tr><th id="198">198</th><td><u>#  <span data-ppcond="196">else</span></u></td></tr>
+<tr><th id="199">199</th><td><b>extern</b> <em>long</em> <em>double</em> <a class="macro" href="../sys/cdefs.h.html#184" title="j0l (long double) __asm__ (&quot;&quot; &quot;__j0l_finite&quot;) __attribute__ ((__nothrow__ ))" data-ref="_M/__REDIRECT_NTH">__REDIRECT_NTH</a> (<a class="decl" href="mathcalls.h.html#247" title='j0l' data-ref="j0l" id="j0l">j0l</a>, (<em>long</em> <em>double</em>), __j0l_finite);</td></tr>
+<tr><th id="200">200</th><td><u>#  <span data-ppcond="196">endif</span></u></td></tr>
+<tr><th id="201">201</th><td><u># <span data-ppcond="195">endif</span></u></td></tr>
+<tr><th id="202">202</th><td><u>#<span data-ppcond="193">endif</span></u></td></tr>
+<tr><th id="203">203</th><td></td></tr>
+<tr><th id="204">204</th><td><u>#<span data-ppcond="204">if</span> defined <a class="macro" href="../../features.h.html#317" data-ref="_M/__USE_MISC">__USE_MISC</a> || defined <span class="macro" data-ref="_M/__USE_XOPEN">__USE_XOPEN</span></u></td></tr>
+<tr><th id="205">205</th><td><i>/* y0.  */</i></td></tr>
+<tr><th id="206">206</th><td><b>extern</b> <em>double</em> <a class="macro" href="../sys/cdefs.h.html#184" title="y0 (double) __asm__ (&quot;&quot; &quot;__y0_finite&quot;) __attribute__ ((__nothrow__ ))" data-ref="_M/__REDIRECT_NTH">__REDIRECT_NTH</a> (<a class="decl" href="mathcalls.h.html#250" title='y0' data-ref="y0" id="y0">y0</a>, (<em>double</em>), __y0_finite);</td></tr>
+<tr><th id="207">207</th><td><u>#<span data-ppcond="204">endif</span></u></td></tr>
+<tr><th id="208">208</th><td><u>#<span data-ppcond="208">if</span> defined <a class="macro" href="../../features.h.html#317" data-ref="_M/__USE_MISC">__USE_MISC</a> &amp;&amp; defined <a class="macro" href="../../features.h.html#269" data-ref="_M/__USE_ISOC99">__USE_ISOC99</a></u></td></tr>
+<tr><th id="209">209</th><td><b>extern</b> <em>float</em> <a class="macro" href="../sys/cdefs.h.html#184" title="y0f (float) __asm__ (&quot;&quot; &quot;__y0f_finite&quot;) __attribute__ ((__nothrow__ ))" data-ref="_M/__REDIRECT_NTH">__REDIRECT_NTH</a> (<a class="decl" href="mathcalls.h.html#250" title='y0f' data-ref="y0f" id="y0f">y0f</a>, (<em>float</em>), __y0f_finite);</td></tr>
+<tr><th id="210">210</th><td><u># <span data-ppcond="210">ifdef</span> <a class="macro" href="../../math.h.html#150" data-ref="_M/__MATH_DECLARE_LDOUBLE">__MATH_DECLARE_LDOUBLE</a></u></td></tr>
+<tr><th id="211">211</th><td><u>#  <span data-ppcond="211">ifdef</span> <span class="macro" data-ref="_M/__NO_LONG_DOUBLE_MATH">__NO_LONG_DOUBLE_MATH</span></u></td></tr>
+<tr><th id="212">212</th><td><b>extern</b> <em>long</em> <em>double</em> __REDIRECT_NTH (y0l, (<em>long</em> <em>double</em>), __y0_finite);</td></tr>
+<tr><th id="213">213</th><td><u>#  <span data-ppcond="211">else</span></u></td></tr>
+<tr><th id="214">214</th><td><b>extern</b> <em>long</em> <em>double</em> <a class="macro" href="../sys/cdefs.h.html#184" title="y0l (long double) __asm__ (&quot;&quot; &quot;__y0l_finite&quot;) __attribute__ ((__nothrow__ ))" data-ref="_M/__REDIRECT_NTH">__REDIRECT_NTH</a> (<a class="decl" href="mathcalls.h.html#250" title='y0l' data-ref="y0l" id="y0l">y0l</a>, (<em>long</em> <em>double</em>), __y0l_finite);</td></tr>
+<tr><th id="215">215</th><td><u>#  <span data-ppcond="211">endif</span></u></td></tr>
+<tr><th id="216">216</th><td><u># <span data-ppcond="210">endif</span></u></td></tr>
+<tr><th id="217">217</th><td><u>#<span data-ppcond="208">endif</span></u></td></tr>
+<tr><th id="218">218</th><td></td></tr>
+<tr><th id="219">219</th><td><u>#<span data-ppcond="219">if</span> defined <a class="macro" href="../../features.h.html#317" data-ref="_M/__USE_MISC">__USE_MISC</a> || defined <span class="macro" data-ref="_M/__USE_XOPEN">__USE_XOPEN</span></u></td></tr>
+<tr><th id="220">220</th><td><i>/* j1.  */</i></td></tr>
+<tr><th id="221">221</th><td><b>extern</b> <em>double</em> <a class="macro" href="../sys/cdefs.h.html#184" title="j1 (double) __asm__ (&quot;&quot; &quot;__j1_finite&quot;) __attribute__ ((__nothrow__ ))" data-ref="_M/__REDIRECT_NTH">__REDIRECT_NTH</a> (<a class="decl" href="mathcalls.h.html#248" title='j1' data-ref="j1" id="j1">j1</a>, (<em>double</em>), __j1_finite);</td></tr>
+<tr><th id="222">222</th><td><u>#<span data-ppcond="219">endif</span></u></td></tr>
+<tr><th id="223">223</th><td><u>#<span data-ppcond="223">if</span> defined <a class="macro" href="../../features.h.html#317" data-ref="_M/__USE_MISC">__USE_MISC</a> &amp;&amp; defined <a class="macro" href="../../features.h.html#269" data-ref="_M/__USE_ISOC99">__USE_ISOC99</a></u></td></tr>
+<tr><th id="224">224</th><td><b>extern</b> <em>float</em> <a class="macro" href="../sys/cdefs.h.html#184" title="j1f (float) __asm__ (&quot;&quot; &quot;__j1f_finite&quot;) __attribute__ ((__nothrow__ ))" data-ref="_M/__REDIRECT_NTH">__REDIRECT_NTH</a> (<a class="decl" href="mathcalls.h.html#248" title='j1f' data-ref="j1f" id="j1f">j1f</a>, (<em>float</em>), __j1f_finite);</td></tr>
+<tr><th id="225">225</th><td><u># <span data-ppcond="225">ifdef</span> <a class="macro" href="../../math.h.html#150" data-ref="_M/__MATH_DECLARE_LDOUBLE">__MATH_DECLARE_LDOUBLE</a></u></td></tr>
+<tr><th id="226">226</th><td><u>#  <span data-ppcond="226">ifdef</span> <span class="macro" data-ref="_M/__NO_LONG_DOUBLE_MATH">__NO_LONG_DOUBLE_MATH</span></u></td></tr>
+<tr><th id="227">227</th><td><b>extern</b> <em>long</em> <em>double</em> __REDIRECT_NTH (j1l, (<em>long</em> <em>double</em>), __j1_finite);</td></tr>
+<tr><th id="228">228</th><td><u>#  <span data-ppcond="226">else</span></u></td></tr>
+<tr><th id="229">229</th><td><b>extern</b> <em>long</em> <em>double</em> <a class="macro" href="../sys/cdefs.h.html#184" title="j1l (long double) __asm__ (&quot;&quot; &quot;__j1l_finite&quot;) __attribute__ ((__nothrow__ ))" data-ref="_M/__REDIRECT_NTH">__REDIRECT_NTH</a> (<a class="decl" href="mathcalls.h.html#248" title='j1l' data-ref="j1l" id="j1l">j1l</a>, (<em>long</em> <em>double</em>), __j1l_finite);</td></tr>
+<tr><th id="230">230</th><td><u>#  <span data-ppcond="226">endif</span></u></td></tr>
+<tr><th id="231">231</th><td><u># <span data-ppcond="225">endif</span></u></td></tr>
+<tr><th id="232">232</th><td><u>#<span data-ppcond="223">endif</span></u></td></tr>
+<tr><th id="233">233</th><td></td></tr>
+<tr><th id="234">234</th><td><u>#<span data-ppcond="234">if</span> defined <a class="macro" href="../../features.h.html#317" data-ref="_M/__USE_MISC">__USE_MISC</a> || defined <span class="macro" data-ref="_M/__USE_XOPEN">__USE_XOPEN</span></u></td></tr>
+<tr><th id="235">235</th><td><i>/* y1.  */</i></td></tr>
+<tr><th id="236">236</th><td><b>extern</b> <em>double</em> <a class="macro" href="../sys/cdefs.h.html#184" title="y1 (double) __asm__ (&quot;&quot; &quot;__y1_finite&quot;) __attribute__ ((__nothrow__ ))" data-ref="_M/__REDIRECT_NTH">__REDIRECT_NTH</a> (<a class="decl" href="mathcalls.h.html#251" title='y1' data-ref="y1" id="y1">y1</a>, (<em>double</em>), __y1_finite);</td></tr>
+<tr><th id="237">237</th><td><u>#<span data-ppcond="234">endif</span></u></td></tr>
+<tr><th id="238">238</th><td><u>#<span data-ppcond="238">if</span> defined <a class="macro" href="../../features.h.html#317" data-ref="_M/__USE_MISC">__USE_MISC</a> &amp;&amp; defined <a class="macro" href="../../features.h.html#269" data-ref="_M/__USE_ISOC99">__USE_ISOC99</a></u></td></tr>
+<tr><th id="239">239</th><td><b>extern</b> <em>float</em> <a class="macro" href="../sys/cdefs.h.html#184" title="y1f (float) __asm__ (&quot;&quot; &quot;__y1f_finite&quot;) __attribute__ ((__nothrow__ ))" data-ref="_M/__REDIRECT_NTH">__REDIRECT_NTH</a> (<a class="decl" href="mathcalls.h.html#251" title='y1f' data-ref="y1f" id="y1f">y1f</a>, (<em>float</em>), __y1f_finite);</td></tr>
+<tr><th id="240">240</th><td><u># <span data-ppcond="240">ifdef</span> <a class="macro" href="../../math.h.html#150" data-ref="_M/__MATH_DECLARE_LDOUBLE">__MATH_DECLARE_LDOUBLE</a></u></td></tr>
+<tr><th id="241">241</th><td><u>#  <span data-ppcond="241">ifdef</span> <span class="macro" data-ref="_M/__NO_LONG_DOUBLE_MATH">__NO_LONG_DOUBLE_MATH</span></u></td></tr>
+<tr><th id="242">242</th><td><b>extern</b> <em>long</em> <em>double</em> __REDIRECT_NTH (y1l, (<em>long</em> <em>double</em>), __y1_finite);</td></tr>
+<tr><th id="243">243</th><td><u>#  <span data-ppcond="241">else</span></u></td></tr>
+<tr><th id="244">244</th><td><b>extern</b> <em>long</em> <em>double</em> <a class="macro" href="../sys/cdefs.h.html#184" title="y1l (long double) __asm__ (&quot;&quot; &quot;__y1l_finite&quot;) __attribute__ ((__nothrow__ ))" data-ref="_M/__REDIRECT_NTH">__REDIRECT_NTH</a> (<a class="decl" href="mathcalls.h.html#251" title='y1l' data-ref="y1l" id="y1l">y1l</a>, (<em>long</em> <em>double</em>), __y1l_finite);</td></tr>
+<tr><th id="245">245</th><td><u>#  <span data-ppcond="241">endif</span></u></td></tr>
+<tr><th id="246">246</th><td><u># <span data-ppcond="240">endif</span></u></td></tr>
+<tr><th id="247">247</th><td><u>#<span data-ppcond="238">endif</span></u></td></tr>
+<tr><th id="248">248</th><td></td></tr>
+<tr><th id="249">249</th><td><u>#<span data-ppcond="249">if</span> defined <a class="macro" href="../../features.h.html#317" data-ref="_M/__USE_MISC">__USE_MISC</a> || defined <span class="macro" data-ref="_M/__USE_XOPEN">__USE_XOPEN</span></u></td></tr>
+<tr><th id="250">250</th><td><i>/* jn.  */</i></td></tr>
+<tr><th id="251">251</th><td><b>extern</b> <em>double</em> <a class="macro" href="../sys/cdefs.h.html#184" title="jn (int, double) __asm__ (&quot;&quot; &quot;__jn_finite&quot;) __attribute__ ((__nothrow__ ))" data-ref="_M/__REDIRECT_NTH">__REDIRECT_NTH</a> (<a class="decl" href="mathcalls.h.html#249" title='jn' data-ref="jn" id="jn">jn</a>, (<em>int</em>, <em>double</em>), __jn_finite);</td></tr>
+<tr><th id="252">252</th><td><u>#<span data-ppcond="249">endif</span></u></td></tr>
+<tr><th id="253">253</th><td><u>#<span data-ppcond="253">if</span> defined <a class="macro" href="../../features.h.html#317" data-ref="_M/__USE_MISC">__USE_MISC</a> &amp;&amp; defined <a class="macro" href="../../features.h.html#269" data-ref="_M/__USE_ISOC99">__USE_ISOC99</a></u></td></tr>
+<tr><th id="254">254</th><td><b>extern</b> <em>float</em> <a class="macro" href="../sys/cdefs.h.html#184" title="jnf (int, float) __asm__ (&quot;&quot; &quot;__jnf_finite&quot;) __attribute__ ((__nothrow__ ))" data-ref="_M/__REDIRECT_NTH">__REDIRECT_NTH</a> (<a class="decl" href="mathcalls.h.html#249" title='jnf' data-ref="jnf" id="jnf">jnf</a>, (<em>int</em>, <em>float</em>), __jnf_finite);</td></tr>
+<tr><th id="255">255</th><td><u># <span data-ppcond="255">ifdef</span> <a class="macro" href="../../math.h.html#150" data-ref="_M/__MATH_DECLARE_LDOUBLE">__MATH_DECLARE_LDOUBLE</a></u></td></tr>
+<tr><th id="256">256</th><td><u>#  <span data-ppcond="256">ifdef</span> <span class="macro" data-ref="_M/__NO_LONG_DOUBLE_MATH">__NO_LONG_DOUBLE_MATH</span></u></td></tr>
+<tr><th id="257">257</th><td><b>extern</b> <em>long</em> <em>double</em> __REDIRECT_NTH (jnl, (<em>int</em>, <em>long</em> <em>double</em>), __jn_finite);</td></tr>
+<tr><th id="258">258</th><td><u>#  <span data-ppcond="256">else</span></u></td></tr>
+<tr><th id="259">259</th><td><b>extern</b> <em>long</em> <em>double</em> <a class="macro" href="../sys/cdefs.h.html#184" title="jnl (int, long double) __asm__ (&quot;&quot; &quot;__jnl_finite&quot;) __attribute__ ((__nothrow__ ))" data-ref="_M/__REDIRECT_NTH">__REDIRECT_NTH</a> (<a class="decl" href="mathcalls.h.html#249" title='jnl' data-ref="jnl" id="jnl">jnl</a>, (<em>int</em>, <em>long</em> <em>double</em>), __jnl_finite);</td></tr>
+<tr><th id="260">260</th><td><u>#  <span data-ppcond="256">endif</span></u></td></tr>
+<tr><th id="261">261</th><td><u># <span data-ppcond="255">endif</span></u></td></tr>
+<tr><th id="262">262</th><td><u>#<span data-ppcond="253">endif</span></u></td></tr>
+<tr><th id="263">263</th><td></td></tr>
+<tr><th id="264">264</th><td><u>#<span data-ppcond="264">if</span> defined <a class="macro" href="../../features.h.html#317" data-ref="_M/__USE_MISC">__USE_MISC</a> || defined <span class="macro" data-ref="_M/__USE_XOPEN">__USE_XOPEN</span></u></td></tr>
+<tr><th id="265">265</th><td><i>/* yn.  */</i></td></tr>
+<tr><th id="266">266</th><td><b>extern</b> <em>double</em> <a class="macro" href="../sys/cdefs.h.html#184" title="yn (int, double) __asm__ (&quot;&quot; &quot;__yn_finite&quot;) __attribute__ ((__nothrow__ ))" data-ref="_M/__REDIRECT_NTH">__REDIRECT_NTH</a> (<a class="decl" href="mathcalls.h.html#252" title='yn' data-ref="yn" id="yn">yn</a>, (<em>int</em>, <em>double</em>), __yn_finite);</td></tr>
+<tr><th id="267">267</th><td><u>#<span data-ppcond="264">endif</span></u></td></tr>
+<tr><th id="268">268</th><td><u>#<span data-ppcond="268">if</span> defined <a class="macro" href="../../features.h.html#317" data-ref="_M/__USE_MISC">__USE_MISC</a> &amp;&amp; defined <a class="macro" href="../../features.h.html#269" data-ref="_M/__USE_ISOC99">__USE_ISOC99</a></u></td></tr>
+<tr><th id="269">269</th><td><b>extern</b> <em>float</em> <a class="macro" href="../sys/cdefs.h.html#184" title="ynf (int, float) __asm__ (&quot;&quot; &quot;__ynf_finite&quot;) __attribute__ ((__nothrow__ ))" data-ref="_M/__REDIRECT_NTH">__REDIRECT_NTH</a> (<a class="decl" href="mathcalls.h.html#252" title='ynf' data-ref="ynf" id="ynf">ynf</a>, (<em>int</em>, <em>float</em>), __ynf_finite);</td></tr>
+<tr><th id="270">270</th><td><u># <span data-ppcond="270">ifdef</span> <a class="macro" href="../../math.h.html#150" data-ref="_M/__MATH_DECLARE_LDOUBLE">__MATH_DECLARE_LDOUBLE</a></u></td></tr>
+<tr><th id="271">271</th><td><u>#  <span data-ppcond="271">ifdef</span> <span class="macro" data-ref="_M/__NO_LONG_DOUBLE_MATH">__NO_LONG_DOUBLE_MATH</span></u></td></tr>
+<tr><th id="272">272</th><td><b>extern</b> <em>long</em> <em>double</em> __REDIRECT_NTH (ynl, (<em>int</em>, <em>long</em> <em>double</em>), __yn_finite);</td></tr>
+<tr><th id="273">273</th><td><u>#  <span data-ppcond="271">else</span></u></td></tr>
+<tr><th id="274">274</th><td><b>extern</b> <em>long</em> <em>double</em> <a class="macro" href="../sys/cdefs.h.html#184" title="ynl (int, long double) __asm__ (&quot;&quot; &quot;__ynl_finite&quot;) __attribute__ ((__nothrow__ ))" data-ref="_M/__REDIRECT_NTH">__REDIRECT_NTH</a> (<a class="decl" href="mathcalls.h.html#252" title='ynl' data-ref="ynl" id="ynl">ynl</a>, (<em>int</em>, <em>long</em> <em>double</em>), __ynl_finite);</td></tr>
+<tr><th id="275">275</th><td><u>#  <span data-ppcond="271">endif</span></u></td></tr>
+<tr><th id="276">276</th><td><u># <span data-ppcond="270">endif</span></u></td></tr>
+<tr><th id="277">277</th><td><u>#<span data-ppcond="268">endif</span></u></td></tr>
+<tr><th id="278">278</th><td></td></tr>
+<tr><th id="279">279</th><td><u>#<span data-ppcond="279">ifdef</span> <a class="macro" href="../../features.h.html#317" data-ref="_M/__USE_MISC">__USE_MISC</a></u></td></tr>
+<tr><th id="280">280</th><td><i>/* lgamma_r.  */</i></td></tr>
+<tr><th id="281">281</th><td><b>extern</b> <em>double</em> <a class="macro" href="../sys/cdefs.h.html#184" title="lgamma_r (double, int *) __asm__ (&quot;&quot; &quot;__lgamma_r_finite&quot;) __attribute__ ((__nothrow__ ))" data-ref="_M/__REDIRECT_NTH">__REDIRECT_NTH</a> (<a class="decl" href="mathcalls.h.html#281" title='lgamma_r' data-ref="lgamma_r" id="lgamma_r">lgamma_r</a>, (<em>double</em>, <em>int</em> *), __lgamma_r_finite);</td></tr>
+<tr><th id="282">282</th><td><u># <span data-ppcond="282">ifdef</span> <a class="macro" href="../../features.h.html#269" data-ref="_M/__USE_ISOC99">__USE_ISOC99</a></u></td></tr>
+<tr><th id="283">283</th><td><b>extern</b> <em>float</em> <a class="macro" href="../sys/cdefs.h.html#184" title="lgammaf_r (float, int *) __asm__ (&quot;&quot; &quot;__lgammaf_r_finite&quot;) __attribute__ ((__nothrow__ ))" data-ref="_M/__REDIRECT_NTH">__REDIRECT_NTH</a> (<a class="decl" href="mathcalls.h.html#281" title='lgammaf_r' data-ref="lgammaf_r" id="lgammaf_r">lgammaf_r</a>, (<em>float</em>, <em>int</em> *), __lgammaf_r_finite);</td></tr>
+<tr><th id="284">284</th><td><u>#  <span data-ppcond="284">ifdef</span> <a class="macro" href="../../math.h.html#150" data-ref="_M/__MATH_DECLARE_LDOUBLE">__MATH_DECLARE_LDOUBLE</a></u></td></tr>
+<tr><th id="285">285</th><td><u>#   <span data-ppcond="285">ifdef</span> <span class="macro" data-ref="_M/__NO_LONG_DOUBLE_MATH">__NO_LONG_DOUBLE_MATH</span></u></td></tr>
+<tr><th id="286">286</th><td><b>extern</b> <em>long</em> <em>double</em> __REDIRECT_NTH (lgammal_r, (<em>long</em> <em>double</em>, <em>int</em> *),</td></tr>
+<tr><th id="287">287</th><td>				   __lgamma_r_finite);</td></tr>
+<tr><th id="288">288</th><td><u>#   <span data-ppcond="285">else</span></u></td></tr>
+<tr><th id="289">289</th><td><b>extern</b> <em>long</em> <em>double</em> <a class="macro" href="../sys/cdefs.h.html#184" title="lgammal_r (long double, int *) __asm__ (&quot;&quot; &quot;__lgammal_r_finite&quot;) __attribute__ ((__nothrow__ ))" data-ref="_M/__REDIRECT_NTH">__REDIRECT_NTH</a> (<a class="decl" href="mathcalls.h.html#281" title='lgammal_r' data-ref="lgammal_r" id="lgammal_r">lgammal_r</a>, (<em>long</em> <em>double</em>, <em>int</em> *),</td></tr>
+<tr><th id="290">290</th><td>				   __lgammal_r_finite);</td></tr>
+<tr><th id="291">291</th><td><u>#   <span data-ppcond="285">endif</span></u></td></tr>
+<tr><th id="292">292</th><td><u>#  <span data-ppcond="284">endif</span></u></td></tr>
+<tr><th id="293">293</th><td><u># <span data-ppcond="282">endif</span></u></td></tr>
+<tr><th id="294">294</th><td><u>#<span data-ppcond="279">endif</span></u></td></tr>
+<tr><th id="295">295</th><td></td></tr>
+<tr><th id="296">296</th><td><b>extern</b> <em>double</em> <dfn class="decl" id="__lgamma_r_finite" title='__lgamma_r_finite' data-ref="__lgamma_r_finite">__lgamma_r_finite</dfn> (<em>double</em>, <em>int</em> *);</td></tr>
+<tr><th id="297">297</th><td><b>extern</b> <em>float</em> <dfn class="decl" id="__lgammaf_r_finite" title='__lgammaf_r_finite' data-ref="__lgammaf_r_finite">__lgammaf_r_finite</dfn> (<em>float</em>, <em>int</em> *);</td></tr>
+<tr><th id="298">298</th><td><u>#<span data-ppcond="298">ifdef</span> <span class="macro" data-ref="_M/__NO_LONG_DOUBLE_MATH">__NO_LONG_DOUBLE_MATH</span></u></td></tr>
+<tr><th id="299">299</th><td><b>extern</b> <em>long</em> <em>double</em> __REDIRECT_NTH (__lgammal_r_finite, (<em>long</em> <em>double</em>, <em>int</em> *),</td></tr>
+<tr><th id="300">300</th><td>				   __lgamma_r_finite);</td></tr>
+<tr><th id="301">301</th><td><u>#<span data-ppcond="298">else</span></u></td></tr>
+<tr><th id="302">302</th><td><b>extern</b> <em>long</em> <em>double</em> <dfn class="decl" id="__lgammal_r_finite" title='__lgammal_r_finite' data-ref="__lgammal_r_finite">__lgammal_r_finite</dfn> (<em>long</em> <em>double</em>, <em>int</em> *);</td></tr>
+<tr><th id="303">303</th><td><u>#<span data-ppcond="298">endif</span></u></td></tr>
+<tr><th id="304">304</th><td></td></tr>
+<tr><th id="305">305</th><td><u>#<span data-ppcond="305">if</span> ((defined <span class="macro" data-ref="_M/__USE_XOPEN">__USE_XOPEN</span> || defined <a class="macro" href="../../features.h.html#269" data-ref="_M/__USE_ISOC99">__USE_ISOC99</a>) \</u></td></tr>
+<tr><th id="306">306</th><td><u>     &amp;&amp; defined <a class="macro" href="../sys/cdefs.h.html#334" data-ref="_M/__extern_always_inline">__extern_always_inline</a>)</u></td></tr>
+<tr><th id="307">307</th><td><i>/* lgamma.  */</i></td></tr>
+<tr><th id="308">308</th><td><a class="macro" href="../sys/cdefs.h.html#334" title="extern __inline __attribute__ ((__always_inline__)) __attribute__ ((__gnu_inline__))" data-ref="_M/__extern_always_inline">__extern_always_inline</a> <em>double</em> <a class="macro" href="../sys/cdefs.h.html#57" title="__attribute__ ((__nothrow__ )) lgamma (double __d)" data-ref="_M/__NTH">__NTH</a> (<dfn class="decl def" id="lgamma" title='lgamma' data-ref="lgamma">lgamma</dfn> (<em>double</em> <dfn class="local col8 decl" id="508__d" title='__d' data-type='double' data-ref="508__d">__d</dfn>))</td></tr>
+<tr><th id="309">309</th><td>{</td></tr>
+<tr><th id="310">310</th><td><u># <span data-ppcond="310">if</span> defined <a class="macro" href="../../features.h.html#317" data-ref="_M/__USE_MISC">__USE_MISC</a> || defined <span class="macro" data-ref="_M/__USE_XOPEN">__USE_XOPEN</span></u></td></tr>
+<tr><th id="311">311</th><td>  <b>return</b> <a class="ref" href="#__lgamma_r_finite" title='__lgamma_r_finite' data-ref="__lgamma_r_finite">__lgamma_r_finite</a> (<a class="local col8 ref" href="#308" title='__d' data-ref="508__d">__d</a>, &amp;<a class="ref" href="../../math.h.html#signgam" title='signgam' data-ref="signgam">signgam</a>);</td></tr>
+<tr><th id="312">312</th><td><u># <span data-ppcond="310">else</span></u></td></tr>
+<tr><th id="313">313</th><td>  <em>int</em> __local_signgam = <var>0</var>;</td></tr>
+<tr><th id="314">314</th><td>  <b>return</b> __lgamma_r_finite (__d, &amp;__local_signgam);</td></tr>
+<tr><th id="315">315</th><td><u># <span data-ppcond="310">endif</span></u></td></tr>
+<tr><th id="316">316</th><td>}</td></tr>
+<tr><th id="317">317</th><td><u>#<span data-ppcond="305">endif</span></u></td></tr>
+<tr><th id="318">318</th><td><u>#<span data-ppcond="318">if</span> defined <a class="macro" href="../../features.h.html#269" data-ref="_M/__USE_ISOC99">__USE_ISOC99</a> &amp;&amp; defined <a class="macro" href="../sys/cdefs.h.html#334" data-ref="_M/__extern_always_inline">__extern_always_inline</a></u></td></tr>
+<tr><th id="319">319</th><td><a class="macro" href="../sys/cdefs.h.html#334" title="extern __inline __attribute__ ((__always_inline__)) __attribute__ ((__gnu_inline__))" data-ref="_M/__extern_always_inline">__extern_always_inline</a> <em>float</em> <a class="macro" href="../sys/cdefs.h.html#57" title="__attribute__ ((__nothrow__ )) lgammaf (float __d)" data-ref="_M/__NTH">__NTH</a> (<dfn class="decl def" id="lgammaf" title='lgammaf' data-ref="lgammaf">lgammaf</dfn> (<em>float</em> <dfn class="local col9 decl" id="509__d" title='__d' data-type='float' data-ref="509__d">__d</dfn>))</td></tr>
+<tr><th id="320">320</th><td>{</td></tr>
+<tr><th id="321">321</th><td><u># <span data-ppcond="321">if</span> defined <a class="macro" href="../../features.h.html#317" data-ref="_M/__USE_MISC">__USE_MISC</a> || defined <span class="macro" data-ref="_M/__USE_XOPEN">__USE_XOPEN</span></u></td></tr>
+<tr><th id="322">322</th><td>  <b>return</b> <a class="ref" href="#__lgammaf_r_finite" title='__lgammaf_r_finite' data-ref="__lgammaf_r_finite">__lgammaf_r_finite</a> (<a class="local col9 ref" href="#319" title='__d' data-ref="509__d">__d</a>, &amp;<a class="ref" href="../../math.h.html#signgam" title='signgam' data-ref="signgam">signgam</a>);</td></tr>
+<tr><th id="323">323</th><td><u># <span data-ppcond="321">else</span></u></td></tr>
+<tr><th id="324">324</th><td>  <em>int</em> __local_signgam = <var>0</var>;</td></tr>
+<tr><th id="325">325</th><td>  <b>return</b> __lgammaf_r_finite (__d, &amp;__local_signgam);</td></tr>
+<tr><th id="326">326</th><td><u># <span data-ppcond="321">endif</span></u></td></tr>
+<tr><th id="327">327</th><td>}</td></tr>
+<tr><th id="328">328</th><td><u># <span data-ppcond="328">ifdef</span> <a class="macro" href="../../math.h.html#150" data-ref="_M/__MATH_DECLARE_LDOUBLE">__MATH_DECLARE_LDOUBLE</a></u></td></tr>
+<tr><th id="329">329</th><td><a class="macro" href="../sys/cdefs.h.html#334" title="extern __inline __attribute__ ((__always_inline__)) __attribute__ ((__gnu_inline__))" data-ref="_M/__extern_always_inline">__extern_always_inline</a> <em>long</em> <em>double</em> <a class="macro" href="../sys/cdefs.h.html#57" title="__attribute__ ((__nothrow__ )) lgammal (long double __d)" data-ref="_M/__NTH">__NTH</a> (<dfn class="decl def" id="lgammal" title='lgammal' data-ref="lgammal">lgammal</dfn> (<em>long</em> <em>double</em> <dfn class="local col0 decl" id="510__d" title='__d' data-type='long double' data-ref="510__d">__d</dfn>))</td></tr>
+<tr><th id="330">330</th><td>{</td></tr>
+<tr><th id="331">331</th><td><u># <span data-ppcond="331">if</span> defined <a class="macro" href="../../features.h.html#317" data-ref="_M/__USE_MISC">__USE_MISC</a> || defined <span class="macro" data-ref="_M/__USE_XOPEN">__USE_XOPEN</span></u></td></tr>
+<tr><th id="332">332</th><td>  <b>return</b> <a class="ref" href="#__lgammal_r_finite" title='__lgammal_r_finite' data-ref="__lgammal_r_finite">__lgammal_r_finite</a> (<a class="local col0 ref" href="#329" title='__d' data-ref="510__d">__d</a>, &amp;<a class="ref" href="../../math.h.html#signgam" title='signgam' data-ref="signgam">signgam</a>);</td></tr>
+<tr><th id="333">333</th><td><u># <span data-ppcond="331">else</span></u></td></tr>
+<tr><th id="334">334</th><td>  <em>int</em> __local_signgam = <var>0</var>;</td></tr>
+<tr><th id="335">335</th><td>  <b>return</b> __lgammal_r_finite (__d, &amp;__local_signgam);</td></tr>
+<tr><th id="336">336</th><td><u># <span data-ppcond="331">endif</span></u></td></tr>
+<tr><th id="337">337</th><td>}</td></tr>
+<tr><th id="338">338</th><td><u># <span data-ppcond="328">endif</span></u></td></tr>
+<tr><th id="339">339</th><td><u>#<span data-ppcond="318">endif</span></u></td></tr>
+<tr><th id="340">340</th><td></td></tr>
+<tr><th id="341">341</th><td><u>#<span data-ppcond="341">if</span> ((defined <a class="macro" href="../../features.h.html#317" data-ref="_M/__USE_MISC">__USE_MISC</a> || (defined <span class="macro" data-ref="_M/__USE_XOPEN">__USE_XOPEN</span> &amp;&amp; !defined <a class="macro" href="../../features.h.html#265" data-ref="_M/__USE_XOPEN2K">__USE_XOPEN2K</a>)) \</u></td></tr>
+<tr><th id="342">342</th><td><u>     &amp;&amp; defined <a class="macro" href="../sys/cdefs.h.html#334" data-ref="_M/__extern_always_inline">__extern_always_inline</a>)</u></td></tr>
+<tr><th id="343">343</th><td><i>/* gamma.  */</i></td></tr>
+<tr><th id="344">344</th><td><a class="macro" href="../sys/cdefs.h.html#334" title="extern __inline __attribute__ ((__always_inline__)) __attribute__ ((__gnu_inline__))" data-ref="_M/__extern_always_inline">__extern_always_inline</a> <em>double</em> <a class="macro" href="../sys/cdefs.h.html#57" title="__attribute__ ((__nothrow__ )) gamma (double __d)" data-ref="_M/__NTH">__NTH</a> (<dfn class="decl def" id="gamma" title='gamma' data-ref="gamma">gamma</dfn> (<em>double</em> <dfn class="local col1 decl" id="511__d" title='__d' data-type='double' data-ref="511__d">__d</dfn>))</td></tr>
+<tr><th id="345">345</th><td>{</td></tr>
+<tr><th id="346">346</th><td>  <b>return</b> <a class="ref" href="#__lgamma_r_finite" title='__lgamma_r_finite' data-ref="__lgamma_r_finite">__lgamma_r_finite</a> (<a class="local col1 ref" href="#344" title='__d' data-ref="511__d">__d</a>, &amp;<a class="ref" href="../../math.h.html#signgam" title='signgam' data-ref="signgam">signgam</a>);</td></tr>
+<tr><th id="347">347</th><td>}</td></tr>
+<tr><th id="348">348</th><td><u># <span data-ppcond="348">ifdef</span> <a class="macro" href="../../features.h.html#269" data-ref="_M/__USE_ISOC99">__USE_ISOC99</a></u></td></tr>
+<tr><th id="349">349</th><td><a class="macro" href="../sys/cdefs.h.html#334" title="extern __inline __attribute__ ((__always_inline__)) __attribute__ ((__gnu_inline__))" data-ref="_M/__extern_always_inline">__extern_always_inline</a> <em>float</em> <a class="macro" href="../sys/cdefs.h.html#57" title="__attribute__ ((__nothrow__ )) gammaf (float __d)" data-ref="_M/__NTH">__NTH</a> (<dfn class="decl def" id="gammaf" title='gammaf' data-ref="gammaf">gammaf</dfn> (<em>float</em> <dfn class="local col2 decl" id="512__d" title='__d' data-type='float' data-ref="512__d">__d</dfn>))</td></tr>
+<tr><th id="350">350</th><td>{</td></tr>
+<tr><th id="351">351</th><td>  <b>return</b> <a class="ref" href="#__lgammaf_r_finite" title='__lgammaf_r_finite' data-ref="__lgammaf_r_finite">__lgammaf_r_finite</a> (<a class="local col2 ref" href="#349" title='__d' data-ref="512__d">__d</a>, &amp;<a class="ref" href="../../math.h.html#signgam" title='signgam' data-ref="signgam">signgam</a>);</td></tr>
+<tr><th id="352">352</th><td>}</td></tr>
+<tr><th id="353">353</th><td><u>#  <span data-ppcond="353">ifdef</span> <a class="macro" href="../../math.h.html#150" data-ref="_M/__MATH_DECLARE_LDOUBLE">__MATH_DECLARE_LDOUBLE</a></u></td></tr>
+<tr><th id="354">354</th><td><a class="macro" href="../sys/cdefs.h.html#334" title="extern __inline __attribute__ ((__always_inline__)) __attribute__ ((__gnu_inline__))" data-ref="_M/__extern_always_inline">__extern_always_inline</a> <em>long</em> <em>double</em> <a class="macro" href="../sys/cdefs.h.html#57" title="__attribute__ ((__nothrow__ )) gammal (long double __d)" data-ref="_M/__NTH">__NTH</a> (<dfn class="decl def" id="gammal" title='gammal' data-ref="gammal">gammal</dfn> (<em>long</em> <em>double</em> <dfn class="local col3 decl" id="513__d" title='__d' data-type='long double' data-ref="513__d">__d</dfn>))</td></tr>
+<tr><th id="355">355</th><td>{</td></tr>
+<tr><th id="356">356</th><td>  <b>return</b> <a class="ref" href="#__lgammal_r_finite" title='__lgammal_r_finite' data-ref="__lgammal_r_finite">__lgammal_r_finite</a> (<a class="local col3 ref" href="#354" title='__d' data-ref="513__d">__d</a>, &amp;<a class="ref" href="../../math.h.html#signgam" title='signgam' data-ref="signgam">signgam</a>);</td></tr>
+<tr><th id="357">357</th><td>}</td></tr>
+<tr><th id="358">358</th><td><u>#  <span data-ppcond="353">endif</span></u></td></tr>
+<tr><th id="359">359</th><td><u># <span data-ppcond="348">endif</span></u></td></tr>
+<tr><th id="360">360</th><td><u>#<span data-ppcond="341">endif</span></u></td></tr>
+<tr><th id="361">361</th><td></td></tr>
+<tr><th id="362">362</th><td><i>/* log.  */</i></td></tr>
+<tr><th id="363">363</th><td><b>extern</b> <em>double</em> <a class="macro" href="../sys/cdefs.h.html#184" title="log (double) __asm__ (&quot;&quot; &quot;__log_finite&quot;) __attribute__ ((__nothrow__ ))" data-ref="_M/__REDIRECT_NTH">__REDIRECT_NTH</a> (<a class="decl" href="mathcalls.h.html#109" title='log' data-ref="log" id="log">log</a>, (<em>double</em>), __log_finite);</td></tr>
+<tr><th id="364">364</th><td><u>#<span data-ppcond="364">ifdef</span> <a class="macro" href="../../features.h.html#269" data-ref="_M/__USE_ISOC99">__USE_ISOC99</a></u></td></tr>
+<tr><th id="365">365</th><td><b>extern</b> <em>float</em> <a class="macro" href="../sys/cdefs.h.html#184" title="logf (float) __asm__ (&quot;&quot; &quot;__logf_finite&quot;) __attribute__ ((__nothrow__ ))" data-ref="_M/__REDIRECT_NTH">__REDIRECT_NTH</a> (<a class="decl" href="mathcalls.h.html#109" title='logf' data-ref="logf" id="logf">logf</a>, (<em>float</em>), __logf_finite);</td></tr>
+<tr><th id="366">366</th><td><u># <span data-ppcond="366">ifdef</span> <a class="macro" href="../../math.h.html#150" data-ref="_M/__MATH_DECLARE_LDOUBLE">__MATH_DECLARE_LDOUBLE</a></u></td></tr>
+<tr><th id="367">367</th><td><u>#  <span data-ppcond="367">ifdef</span> <span class="macro" data-ref="_M/__NO_LONG_DOUBLE_MATH">__NO_LONG_DOUBLE_MATH</span></u></td></tr>
+<tr><th id="368">368</th><td><b>extern</b> <em>long</em> <em>double</em> __REDIRECT_NTH (logl, (<em>long</em> <em>double</em>), __log_finite);</td></tr>
+<tr><th id="369">369</th><td><u>#  <span data-ppcond="367">else</span></u></td></tr>
+<tr><th id="370">370</th><td><b>extern</b> <em>long</em> <em>double</em> <a class="macro" href="../sys/cdefs.h.html#184" title="logl (long double) __asm__ (&quot;&quot; &quot;__logl_finite&quot;) __attribute__ ((__nothrow__ ))" data-ref="_M/__REDIRECT_NTH">__REDIRECT_NTH</a> (<a class="decl" href="mathcalls.h.html#109" title='logl' data-ref="logl" id="logl">logl</a>, (<em>long</em> <em>double</em>), __logl_finite);</td></tr>
+<tr><th id="371">371</th><td><u>#  <span data-ppcond="367">endif</span></u></td></tr>
+<tr><th id="372">372</th><td><u># <span data-ppcond="366">endif</span></u></td></tr>
+<tr><th id="373">373</th><td><u>#<span data-ppcond="364">endif</span></u></td></tr>
+<tr><th id="374">374</th><td></td></tr>
+<tr><th id="375">375</th><td><i>/* log10.  */</i></td></tr>
+<tr><th id="376">376</th><td><b>extern</b> <em>double</em> <a class="macro" href="../sys/cdefs.h.html#184" title="log10 (double) __asm__ (&quot;&quot; &quot;__log10_finite&quot;) __attribute__ ((__nothrow__ ))" data-ref="_M/__REDIRECT_NTH">__REDIRECT_NTH</a> (<a class="decl" href="mathcalls.h.html#112" title='log10' data-ref="log10" id="log10">log10</a>, (<em>double</em>), __log10_finite);</td></tr>
+<tr><th id="377">377</th><td><u>#<span data-ppcond="377">ifdef</span> <a class="macro" href="../../features.h.html#269" data-ref="_M/__USE_ISOC99">__USE_ISOC99</a></u></td></tr>
+<tr><th id="378">378</th><td><b>extern</b> <em>float</em> <a class="macro" href="../sys/cdefs.h.html#184" title="log10f (float) __asm__ (&quot;&quot; &quot;__log10f_finite&quot;) __attribute__ ((__nothrow__ ))" data-ref="_M/__REDIRECT_NTH">__REDIRECT_NTH</a> (<a class="decl" href="mathcalls.h.html#112" title='log10f' data-ref="log10f" id="log10f">log10f</a>, (<em>float</em>), __log10f_finite);</td></tr>
+<tr><th id="379">379</th><td><u># <span data-ppcond="379">ifdef</span> <a class="macro" href="../../math.h.html#150" data-ref="_M/__MATH_DECLARE_LDOUBLE">__MATH_DECLARE_LDOUBLE</a></u></td></tr>
+<tr><th id="380">380</th><td><u>#  <span data-ppcond="380">ifdef</span> <span class="macro" data-ref="_M/__NO_LONG_DOUBLE_MATH">__NO_LONG_DOUBLE_MATH</span></u></td></tr>
+<tr><th id="381">381</th><td><b>extern</b> <em>long</em> <em>double</em> __REDIRECT_NTH (log10l, (<em>long</em> <em>double</em>), __log10_finite);</td></tr>
+<tr><th id="382">382</th><td><u>#  <span data-ppcond="380">else</span></u></td></tr>
+<tr><th id="383">383</th><td><b>extern</b> <em>long</em> <em>double</em> <a class="macro" href="../sys/cdefs.h.html#184" title="log10l (long double) __asm__ (&quot;&quot; &quot;__log10l_finite&quot;) __attribute__ ((__nothrow__ ))" data-ref="_M/__REDIRECT_NTH">__REDIRECT_NTH</a> (<a class="decl" href="mathcalls.h.html#112" title='log10l' data-ref="log10l" id="log10l">log10l</a>, (<em>long</em> <em>double</em>), __log10l_finite);</td></tr>
+<tr><th id="384">384</th><td><u>#  <span data-ppcond="380">endif</span></u></td></tr>
+<tr><th id="385">385</th><td><u># <span data-ppcond="379">endif</span></u></td></tr>
+<tr><th id="386">386</th><td><u>#<span data-ppcond="377">endif</span></u></td></tr>
+<tr><th id="387">387</th><td></td></tr>
+<tr><th id="388">388</th><td><u>#<span data-ppcond="388">ifdef</span> <a class="macro" href="../../features.h.html#269" data-ref="_M/__USE_ISOC99">__USE_ISOC99</a></u></td></tr>
+<tr><th id="389">389</th><td><i>/* log2.  */</i></td></tr>
+<tr><th id="390">390</th><td><b>extern</b> <em>double</em> <a class="macro" href="../sys/cdefs.h.html#184" title="log2 (double) __asm__ (&quot;&quot; &quot;__log2_finite&quot;) __attribute__ ((__nothrow__ ))" data-ref="_M/__REDIRECT_NTH">__REDIRECT_NTH</a> (<a class="decl" href="mathcalls.h.html#144" title='log2' data-ref="log2" id="log2">log2</a>, (<em>double</em>), __log2_finite);</td></tr>
+<tr><th id="391">391</th><td><b>extern</b> <em>float</em> <a class="macro" href="../sys/cdefs.h.html#184" title="log2f (float) __asm__ (&quot;&quot; &quot;__log2f_finite&quot;) __attribute__ ((__nothrow__ ))" data-ref="_M/__REDIRECT_NTH">__REDIRECT_NTH</a> (<a class="decl" href="mathcalls.h.html#144" title='log2f' data-ref="log2f" id="log2f">log2f</a>, (<em>float</em>), __log2f_finite);</td></tr>
+<tr><th id="392">392</th><td><u># <span data-ppcond="392">ifdef</span> <a class="macro" href="../../math.h.html#150" data-ref="_M/__MATH_DECLARE_LDOUBLE">__MATH_DECLARE_LDOUBLE</a></u></td></tr>
+<tr><th id="393">393</th><td><u>#  <span data-ppcond="393">ifdef</span> <span class="macro" data-ref="_M/__NO_LONG_DOUBLE_MATH">__NO_LONG_DOUBLE_MATH</span></u></td></tr>
+<tr><th id="394">394</th><td><b>extern</b> <em>long</em> <em>double</em> __REDIRECT_NTH (log2l, (<em>long</em> <em>double</em>), __log2_finite);</td></tr>
+<tr><th id="395">395</th><td><u>#  <span data-ppcond="393">else</span></u></td></tr>
+<tr><th id="396">396</th><td><b>extern</b> <em>long</em> <em>double</em> <a class="macro" href="../sys/cdefs.h.html#184" title="log2l (long double) __asm__ (&quot;&quot; &quot;__log2l_finite&quot;) __attribute__ ((__nothrow__ ))" data-ref="_M/__REDIRECT_NTH">__REDIRECT_NTH</a> (<a class="decl" href="mathcalls.h.html#144" title='log2l' data-ref="log2l" id="log2l">log2l</a>, (<em>long</em> <em>double</em>), __log2l_finite);</td></tr>
+<tr><th id="397">397</th><td><u>#  <span data-ppcond="393">endif</span></u></td></tr>
+<tr><th id="398">398</th><td><u># <span data-ppcond="392">endif</span></u></td></tr>
+<tr><th id="399">399</th><td><u>#<span data-ppcond="388">endif</span></u></td></tr>
+<tr><th id="400">400</th><td></td></tr>
+<tr><th id="401">401</th><td><i>/* pow.  */</i></td></tr>
+<tr><th id="402">402</th><td><b>extern</b> <em>double</em> <a class="macro" href="../sys/cdefs.h.html#184" title="pow (double, double) __asm__ (&quot;&quot; &quot;__pow_finite&quot;) __attribute__ ((__nothrow__ ))" data-ref="_M/__REDIRECT_NTH">__REDIRECT_NTH</a> (<a class="decl" href="mathcalls.h.html#153" title='pow' data-ref="pow" id="pow">pow</a>, (<em>double</em>, <em>double</em>), __pow_finite);</td></tr>
+<tr><th id="403">403</th><td><u>#<span data-ppcond="403">ifdef</span> <a class="macro" href="../../features.h.html#269" data-ref="_M/__USE_ISOC99">__USE_ISOC99</a></u></td></tr>
+<tr><th id="404">404</th><td><b>extern</b> <em>float</em> <a class="macro" href="../sys/cdefs.h.html#184" title="powf (float, float) __asm__ (&quot;&quot; &quot;__powf_finite&quot;) __attribute__ ((__nothrow__ ))" data-ref="_M/__REDIRECT_NTH">__REDIRECT_NTH</a> (<a class="decl" href="mathcalls.h.html#153" title='powf' data-ref="powf" id="powf">powf</a>, (<em>float</em>, <em>float</em>), __powf_finite);</td></tr>
+<tr><th id="405">405</th><td><u># <span data-ppcond="405">ifdef</span> <a class="macro" href="../../math.h.html#150" data-ref="_M/__MATH_DECLARE_LDOUBLE">__MATH_DECLARE_LDOUBLE</a></u></td></tr>
+<tr><th id="406">406</th><td><u>#  <span data-ppcond="406">ifdef</span> <span class="macro" data-ref="_M/__NO_LONG_DOUBLE_MATH">__NO_LONG_DOUBLE_MATH</span></u></td></tr>
+<tr><th id="407">407</th><td><b>extern</b> <em>long</em> <em>double</em> __REDIRECT_NTH (powl, (<em>long</em> <em>double</em>, <em>long</em> <em>double</em>),</td></tr>
+<tr><th id="408">408</th><td>				   __pow_finite);</td></tr>
+<tr><th id="409">409</th><td><u>#  <span data-ppcond="406">else</span></u></td></tr>
+<tr><th id="410">410</th><td><b>extern</b> <em>long</em> <em>double</em> <a class="macro" href="../sys/cdefs.h.html#184" title="powl (long double, long double) __asm__ (&quot;&quot; &quot;__powl_finite&quot;) __attribute__ ((__nothrow__ ))" data-ref="_M/__REDIRECT_NTH">__REDIRECT_NTH</a> (<a class="decl" href="mathcalls.h.html#153" title='powl' data-ref="powl" id="powl">powl</a>, (<em>long</em> <em>double</em>, <em>long</em> <em>double</em>),</td></tr>
+<tr><th id="411">411</th><td>				   __powl_finite);</td></tr>
+<tr><th id="412">412</th><td><u>#  <span data-ppcond="406">endif</span></u></td></tr>
+<tr><th id="413">413</th><td><u># <span data-ppcond="405">endif</span></u></td></tr>
+<tr><th id="414">414</th><td><u>#<span data-ppcond="403">endif</span></u></td></tr>
+<tr><th id="415">415</th><td></td></tr>
+<tr><th id="416">416</th><td><u>#<span data-ppcond="416">if</span> defined <span class="macro" data-ref="_M/__USE_XOPEN_EXTENDED">__USE_XOPEN_EXTENDED</span> || defined <a class="macro" href="../../features.h.html#269" data-ref="_M/__USE_ISOC99">__USE_ISOC99</a></u></td></tr>
+<tr><th id="417">417</th><td><i>/* remainder.  */</i></td></tr>
+<tr><th id="418">418</th><td><b>extern</b> <em>double</em> <a class="macro" href="../sys/cdefs.h.html#184" title="remainder (double, double) __asm__ (&quot;&quot; &quot;__remainder_finite&quot;) __attribute__ ((__nothrow__ ))" data-ref="_M/__REDIRECT_NTH">__REDIRECT_NTH</a> (<a class="decl" href="mathcalls.h.html#298" title='remainder' data-ref="remainder" id="remainder">remainder</a>, (<em>double</em>, <em>double</em>), __remainder_finite);</td></tr>
+<tr><th id="419">419</th><td><u>#<span data-ppcond="416">endif</span></u></td></tr>
+<tr><th id="420">420</th><td><u>#<span data-ppcond="420">ifdef</span> <a class="macro" href="../../features.h.html#269" data-ref="_M/__USE_ISOC99">__USE_ISOC99</a></u></td></tr>
+<tr><th id="421">421</th><td><b>extern</b> <em>float</em> <a class="macro" href="../sys/cdefs.h.html#184" title="remainderf (float, float) __asm__ (&quot;&quot; &quot;__remainderf_finite&quot;) __attribute__ ((__nothrow__ ))" data-ref="_M/__REDIRECT_NTH">__REDIRECT_NTH</a> (<a class="decl" href="mathcalls.h.html#298" title='remainderf' data-ref="remainderf" id="remainderf">remainderf</a>, (<em>float</em>, <em>float</em>), __remainderf_finite);</td></tr>
+<tr><th id="422">422</th><td><u># <span data-ppcond="422">ifdef</span> <a class="macro" href="../../math.h.html#150" data-ref="_M/__MATH_DECLARE_LDOUBLE">__MATH_DECLARE_LDOUBLE</a></u></td></tr>
+<tr><th id="423">423</th><td><u>#  <span data-ppcond="423">ifdef</span> <span class="macro" data-ref="_M/__NO_LONG_DOUBLE_MATH">__NO_LONG_DOUBLE_MATH</span></u></td></tr>
+<tr><th id="424">424</th><td><b>extern</b> <em>long</em> <em>double</em> __REDIRECT_NTH (remainderl, (<em>long</em> <em>double</em>, <em>long</em> <em>double</em>),</td></tr>
+<tr><th id="425">425</th><td>				   __remainder_finite);</td></tr>
+<tr><th id="426">426</th><td><u>#  <span data-ppcond="423">else</span></u></td></tr>
+<tr><th id="427">427</th><td><b>extern</b> <em>long</em> <em>double</em> <a class="macro" href="../sys/cdefs.h.html#184" title="remainderl (long double, long double) __asm__ (&quot;&quot; &quot;__remainderl_finite&quot;) __attribute__ ((__nothrow__ ))" data-ref="_M/__REDIRECT_NTH">__REDIRECT_NTH</a> (<a class="decl" href="mathcalls.h.html#298" title='remainderl' data-ref="remainderl" id="remainderl">remainderl</a>, (<em>long</em> <em>double</em>, <em>long</em> <em>double</em>),</td></tr>
+<tr><th id="428">428</th><td>				   __remainderl_finite);</td></tr>
+<tr><th id="429">429</th><td><u>#  <span data-ppcond="423">endif</span></u></td></tr>
+<tr><th id="430">430</th><td><u># <span data-ppcond="422">endif</span></u></td></tr>
+<tr><th id="431">431</th><td><u>#<span data-ppcond="420">endif</span></u></td></tr>
+<tr><th id="432">432</th><td></td></tr>
+<tr><th id="433">433</th><td><u>#<span data-ppcond="433">if</span> (defined <a class="macro" href="../../features.h.html#317" data-ref="_M/__USE_MISC">__USE_MISC</a>							\</u></td></tr>
+<tr><th id="434">434</th><td><u>     || (defined <span class="macro" data-ref="_M/__USE_XOPEN_EXTENDED">__USE_XOPEN_EXTENDED</span> &amp;&amp; !defined <a class="macro" href="../../features.h.html#273" data-ref="_M/__USE_XOPEN2K8">__USE_XOPEN2K8</a>))</u></td></tr>
+<tr><th id="435">435</th><td><i>/* scalb.  */</i></td></tr>
+<tr><th id="436">436</th><td><b>extern</b> <em>double</em> <a class="macro" href="../sys/cdefs.h.html#184" title="scalb (double, double) __asm__ (&quot;&quot; &quot;__scalb_finite&quot;) __attribute__ ((__nothrow__ ))" data-ref="_M/__REDIRECT_NTH">__REDIRECT_NTH</a> (<a class="decl" href="mathcalls.h.html#383" title='scalb' data-ref="scalb" id="scalb">scalb</a>, (<em>double</em>, <em>double</em>), __scalb_finite);</td></tr>
+<tr><th id="437">437</th><td><u>#<span data-ppcond="433">endif</span></u></td></tr>
+<tr><th id="438">438</th><td><u>#<span data-ppcond="438">if</span> defined <a class="macro" href="../../features.h.html#317" data-ref="_M/__USE_MISC">__USE_MISC</a> &amp;&amp; defined <a class="macro" href="../../features.h.html#269" data-ref="_M/__USE_ISOC99">__USE_ISOC99</a></u></td></tr>
+<tr><th id="439">439</th><td><b>extern</b> <em>float</em> <a class="macro" href="../sys/cdefs.h.html#184" title="scalbf (float, float) __asm__ (&quot;&quot; &quot;__scalbf_finite&quot;) __attribute__ ((__nothrow__ ))" data-ref="_M/__REDIRECT_NTH">__REDIRECT_NTH</a> (<a class="decl" href="mathcalls.h.html#383" title='scalbf' data-ref="scalbf" id="scalbf">scalbf</a>, (<em>float</em>, <em>float</em>), __scalbf_finite);</td></tr>
+<tr><th id="440">440</th><td><u># <span data-ppcond="440">ifdef</span> <a class="macro" href="../../math.h.html#150" data-ref="_M/__MATH_DECLARE_LDOUBLE">__MATH_DECLARE_LDOUBLE</a></u></td></tr>
+<tr><th id="441">441</th><td><u>#  <span data-ppcond="441">ifdef</span> <span class="macro" data-ref="_M/__NO_LONG_DOUBLE_MATH">__NO_LONG_DOUBLE_MATH</span></u></td></tr>
+<tr><th id="442">442</th><td><b>extern</b> <em>long</em> <em>double</em> __REDIRECT_NTH (scalbl, (<em>long</em> <em>double</em>, <em>long</em> <em>double</em>),</td></tr>
+<tr><th id="443">443</th><td>				   __scalb_finite);</td></tr>
+<tr><th id="444">444</th><td><u>#  <span data-ppcond="441">else</span></u></td></tr>
+<tr><th id="445">445</th><td><b>extern</b> <em>long</em> <em>double</em> <a class="macro" href="../sys/cdefs.h.html#184" title="scalbl (long double, long double) __asm__ (&quot;&quot; &quot;__scalbl_finite&quot;) __attribute__ ((__nothrow__ ))" data-ref="_M/__REDIRECT_NTH">__REDIRECT_NTH</a> (<a class="decl" href="mathcalls.h.html#383" title='scalbl' data-ref="scalbl" id="scalbl">scalbl</a>, (<em>long</em> <em>double</em>, <em>long</em> <em>double</em>),</td></tr>
+<tr><th id="446">446</th><td>				   __scalbl_finite);</td></tr>
+<tr><th id="447">447</th><td><u>#  <span data-ppcond="441">endif</span></u></td></tr>
+<tr><th id="448">448</th><td><u># <span data-ppcond="440">endif</span></u></td></tr>
+<tr><th id="449">449</th><td><u>#<span data-ppcond="438">endif</span></u></td></tr>
+<tr><th id="450">450</th><td></td></tr>
+<tr><th id="451">451</th><td><i>/* sinh.  */</i></td></tr>
+<tr><th id="452">452</th><td><b>extern</b> <em>double</em> <a class="macro" href="../sys/cdefs.h.html#184" title="sinh (double) __asm__ (&quot;&quot; &quot;__sinh_finite&quot;) __attribute__ ((__nothrow__ ))" data-ref="_M/__REDIRECT_NTH">__REDIRECT_NTH</a> (<a class="decl" href="mathcalls.h.html#74" title='sinh' data-ref="sinh" id="sinh">sinh</a>, (<em>double</em>), __sinh_finite);</td></tr>
+<tr><th id="453">453</th><td><u>#<span data-ppcond="453">ifdef</span> <a class="macro" href="../../features.h.html#269" data-ref="_M/__USE_ISOC99">__USE_ISOC99</a></u></td></tr>
+<tr><th id="454">454</th><td><b>extern</b> <em>float</em> <a class="macro" href="../sys/cdefs.h.html#184" title="sinhf (float) __asm__ (&quot;&quot; &quot;__sinhf_finite&quot;) __attribute__ ((__nothrow__ ))" data-ref="_M/__REDIRECT_NTH">__REDIRECT_NTH</a> (<a class="decl" href="mathcalls.h.html#74" title='sinhf' data-ref="sinhf" id="sinhf">sinhf</a>, (<em>float</em>), __sinhf_finite);</td></tr>
+<tr><th id="455">455</th><td><u># <span data-ppcond="455">ifdef</span> <a class="macro" href="../../math.h.html#150" data-ref="_M/__MATH_DECLARE_LDOUBLE">__MATH_DECLARE_LDOUBLE</a></u></td></tr>
+<tr><th id="456">456</th><td><u>#  <span data-ppcond="456">ifdef</span> <span class="macro" data-ref="_M/__NO_LONG_DOUBLE_MATH">__NO_LONG_DOUBLE_MATH</span></u></td></tr>
+<tr><th id="457">457</th><td><b>extern</b> <em>long</em> <em>double</em> __REDIRECT_NTH (sinhl, (<em>long</em> <em>double</em>), __sinh_finite);</td></tr>
+<tr><th id="458">458</th><td><u>#  <span data-ppcond="456">else</span></u></td></tr>
+<tr><th id="459">459</th><td><b>extern</b> <em>long</em> <em>double</em> <a class="macro" href="../sys/cdefs.h.html#184" title="sinhl (long double) __asm__ (&quot;&quot; &quot;__sinhl_finite&quot;) __attribute__ ((__nothrow__ ))" data-ref="_M/__REDIRECT_NTH">__REDIRECT_NTH</a> (<a class="decl" href="mathcalls.h.html#74" title='sinhl' data-ref="sinhl" id="sinhl">sinhl</a>, (<em>long</em> <em>double</em>), __sinhl_finite);</td></tr>
+<tr><th id="460">460</th><td><u>#  <span data-ppcond="456">endif</span></u></td></tr>
+<tr><th id="461">461</th><td><u># <span data-ppcond="455">endif</span></u></td></tr>
+<tr><th id="462">462</th><td><u>#<span data-ppcond="453">endif</span></u></td></tr>
+<tr><th id="463">463</th><td></td></tr>
+<tr><th id="464">464</th><td><i>/* sqrt.  */</i></td></tr>
+<tr><th id="465">465</th><td><b>extern</b> <em>double</em> <a class="macro" href="../sys/cdefs.h.html#184" title="sqrt (double) __asm__ (&quot;&quot; &quot;__sqrt_finite&quot;) __attribute__ ((__nothrow__ ))" data-ref="_M/__REDIRECT_NTH">__REDIRECT_NTH</a> (<a class="decl" href="mathcalls.h.html#156" title='sqrt' data-ref="sqrt" id="sqrt">sqrt</a>, (<em>double</em>), __sqrt_finite);</td></tr>
+<tr><th id="466">466</th><td><u>#<span data-ppcond="466">ifdef</span> <a class="macro" href="../../features.h.html#269" data-ref="_M/__USE_ISOC99">__USE_ISOC99</a></u></td></tr>
+<tr><th id="467">467</th><td><b>extern</b> <em>float</em> <a class="macro" href="../sys/cdefs.h.html#184" title="sqrtf (float) __asm__ (&quot;&quot; &quot;__sqrtf_finite&quot;) __attribute__ ((__nothrow__ ))" data-ref="_M/__REDIRECT_NTH">__REDIRECT_NTH</a> (<a class="decl" href="mathcalls.h.html#156" title='sqrtf' data-ref="sqrtf" id="sqrtf">sqrtf</a>, (<em>float</em>), __sqrtf_finite);</td></tr>
+<tr><th id="468">468</th><td><u># <span data-ppcond="468">ifdef</span> <a class="macro" href="../../math.h.html#150" data-ref="_M/__MATH_DECLARE_LDOUBLE">__MATH_DECLARE_LDOUBLE</a></u></td></tr>
+<tr><th id="469">469</th><td><u>#  <span data-ppcond="469">ifdef</span> <span class="macro" data-ref="_M/__NO_LONG_DOUBLE_MATH">__NO_LONG_DOUBLE_MATH</span></u></td></tr>
+<tr><th id="470">470</th><td><b>extern</b> <em>long</em> <em>double</em> __REDIRECT_NTH (sqrtl, (<em>long</em> <em>double</em>), __sqrt_finite);</td></tr>
+<tr><th id="471">471</th><td><u>#  <span data-ppcond="469">else</span></u></td></tr>
+<tr><th id="472">472</th><td><b>extern</b> <em>long</em> <em>double</em> <a class="macro" href="../sys/cdefs.h.html#184" title="sqrtl (long double) __asm__ (&quot;&quot; &quot;__sqrtl_finite&quot;) __attribute__ ((__nothrow__ ))" data-ref="_M/__REDIRECT_NTH">__REDIRECT_NTH</a> (<a class="decl" href="mathcalls.h.html#156" title='sqrtl' data-ref="sqrtl" id="sqrtl">sqrtl</a>, (<em>long</em> <em>double</em>), __sqrtl_finite);</td></tr>
+<tr><th id="473">473</th><td><u>#  <span data-ppcond="469">endif</span></u></td></tr>
+<tr><th id="474">474</th><td><u># <span data-ppcond="468">endif</span></u></td></tr>
+<tr><th id="475">475</th><td><u>#<span data-ppcond="466">endif</span></u></td></tr>
+<tr><th id="476">476</th><td></td></tr>
+<tr><th id="477">477</th><td><u>#<span data-ppcond="477">if</span> defined <a class="macro" href="../../features.h.html#269" data-ref="_M/__USE_ISOC99">__USE_ISOC99</a> &amp;&amp; defined <a class="macro" href="../sys/cdefs.h.html#334" data-ref="_M/__extern_always_inline">__extern_always_inline</a></u></td></tr>
+<tr><th id="478">478</th><td><i>/* tgamma.  */</i></td></tr>
+<tr><th id="479">479</th><td><b>extern</b> <em>double</em> <dfn class="decl" id="__gamma_r_finite" title='__gamma_r_finite' data-ref="__gamma_r_finite">__gamma_r_finite</dfn> (<em>double</em>, <em>int</em> *);</td></tr>
+<tr><th id="480">480</th><td><a class="macro" href="../sys/cdefs.h.html#334" title="extern __inline __attribute__ ((__always_inline__)) __attribute__ ((__gnu_inline__))" data-ref="_M/__extern_always_inline">__extern_always_inline</a> <em>double</em> <a class="macro" href="../sys/cdefs.h.html#57" title="__attribute__ ((__nothrow__ )) tgamma (double __d)" data-ref="_M/__NTH">__NTH</a> (<dfn class="decl def" id="tgamma" title='tgamma' data-ref="tgamma">tgamma</dfn> (<em>double</em> <dfn class="local col4 decl" id="514__d" title='__d' data-type='double' data-ref="514__d">__d</dfn>))</td></tr>
+<tr><th id="481">481</th><td>{</td></tr>
+<tr><th id="482">482</th><td>  <em>int</em> <dfn class="local col5 decl" id="515__local_signgam" title='__local_signgam' data-type='int' data-ref="515__local_signgam">__local_signgam</dfn> = <var>0</var>;</td></tr>
+<tr><th id="483">483</th><td>  <em>double</em> <dfn class="local col6 decl" id="516__res" title='__res' data-type='double' data-ref="516__res">__res</dfn> = <a class="ref" href="#__gamma_r_finite" title='__gamma_r_finite' data-ref="__gamma_r_finite">__gamma_r_finite</a> (<a class="local col4 ref" href="#480" title='__d' data-ref="514__d">__d</a>, &amp;<a class="local col5 ref" href="#515__local_signgam" title='__local_signgam' data-ref="515__local_signgam">__local_signgam</a>);</td></tr>
+<tr><th id="484">484</th><td>  <b>return</b> <a class="local col5 ref" href="#515__local_signgam" title='__local_signgam' data-ref="515__local_signgam">__local_signgam</a> &lt; <var>0</var> ? -<a class="local col6 ref" href="#516__res" title='__res' data-ref="516__res">__res</a> : <a class="local col6 ref" href="#516__res" title='__res' data-ref="516__res">__res</a>;</td></tr>
+<tr><th id="485">485</th><td>}</td></tr>
+<tr><th id="486">486</th><td><b>extern</b> <em>float</em> <dfn class="decl" id="__gammaf_r_finite" title='__gammaf_r_finite' data-ref="__gammaf_r_finite">__gammaf_r_finite</dfn> (<em>float</em>, <em>int</em> *);</td></tr>
+<tr><th id="487">487</th><td><a class="macro" href="../sys/cdefs.h.html#334" title="extern __inline __attribute__ ((__always_inline__)) __attribute__ ((__gnu_inline__))" data-ref="_M/__extern_always_inline">__extern_always_inline</a> <em>float</em> <a class="macro" href="../sys/cdefs.h.html#57" title="__attribute__ ((__nothrow__ )) tgammaf (float __d)" data-ref="_M/__NTH">__NTH</a> (<dfn class="decl def" id="tgammaf" title='tgammaf' data-ref="tgammaf">tgammaf</dfn> (<em>float</em> <dfn class="local col7 decl" id="517__d" title='__d' data-type='float' data-ref="517__d">__d</dfn>))</td></tr>
+<tr><th id="488">488</th><td>{</td></tr>
+<tr><th id="489">489</th><td>  <em>int</em> <dfn class="local col8 decl" id="518__local_signgam" title='__local_signgam' data-type='int' data-ref="518__local_signgam">__local_signgam</dfn> = <var>0</var>;</td></tr>
+<tr><th id="490">490</th><td>  <em>float</em> <dfn class="local col9 decl" id="519__res" title='__res' data-type='float' data-ref="519__res">__res</dfn> = <a class="ref" href="#__gammaf_r_finite" title='__gammaf_r_finite' data-ref="__gammaf_r_finite">__gammaf_r_finite</a> (<a class="local col7 ref" href="#487" title='__d' data-ref="517__d">__d</a>, &amp;<a class="local col8 ref" href="#518__local_signgam" title='__local_signgam' data-ref="518__local_signgam">__local_signgam</a>);</td></tr>
+<tr><th id="491">491</th><td>  <b>return</b> <a class="local col8 ref" href="#518__local_signgam" title='__local_signgam' data-ref="518__local_signgam">__local_signgam</a> &lt; <var>0</var> ? -<a class="local col9 ref" href="#519__res" title='__res' data-ref="519__res">__res</a> : <a class="local col9 ref" href="#519__res" title='__res' data-ref="519__res">__res</a>;</td></tr>
+<tr><th id="492">492</th><td>}</td></tr>
+<tr><th id="493">493</th><td><u># <span data-ppcond="493">ifdef</span> <a class="macro" href="../../math.h.html#150" data-ref="_M/__MATH_DECLARE_LDOUBLE">__MATH_DECLARE_LDOUBLE</a></u></td></tr>
+<tr><th id="494">494</th><td><b>extern</b> <em>long</em> <em>double</em> <dfn class="decl" id="__gammal_r_finite" title='__gammal_r_finite' data-ref="__gammal_r_finite">__gammal_r_finite</dfn> (<em>long</em> <em>double</em>, <em>int</em> *);</td></tr>
+<tr><th id="495">495</th><td><a class="macro" href="../sys/cdefs.h.html#334" title="extern __inline __attribute__ ((__always_inline__)) __attribute__ ((__gnu_inline__))" data-ref="_M/__extern_always_inline">__extern_always_inline</a> <em>long</em> <em>double</em> <a class="macro" href="../sys/cdefs.h.html#57" title="__attribute__ ((__nothrow__ )) tgammal (long double __d)" data-ref="_M/__NTH">__NTH</a> (<dfn class="decl def" id="tgammal" title='tgammal' data-ref="tgammal">tgammal</dfn> (<em>long</em> <em>double</em> <dfn class="local col0 decl" id="520__d" title='__d' data-type='long double' data-ref="520__d">__d</dfn>))</td></tr>
+<tr><th id="496">496</th><td>{</td></tr>
+<tr><th id="497">497</th><td>  <em>int</em> <dfn class="local col1 decl" id="521__local_signgam" title='__local_signgam' data-type='int' data-ref="521__local_signgam">__local_signgam</dfn> = <var>0</var>;</td></tr>
+<tr><th id="498">498</th><td><u>#  <span data-ppcond="498">ifdef</span> <span class="macro" data-ref="_M/__NO_LONG_DOUBLE_MATH">__NO_LONG_DOUBLE_MATH</span></u></td></tr>
+<tr><th id="499">499</th><td>  <em>long</em> <em>double</em> __res = __gamma_r_finite (__d, &amp;__local_signgam);</td></tr>
+<tr><th id="500">500</th><td><u>#  <span data-ppcond="498">else</span></u></td></tr>
+<tr><th id="501">501</th><td>  <em>long</em> <em>double</em> <dfn class="local col2 decl" id="522__res" title='__res' data-type='long double' data-ref="522__res">__res</dfn> = <a class="ref" href="#__gammal_r_finite" title='__gammal_r_finite' data-ref="__gammal_r_finite">__gammal_r_finite</a> (<a class="local col0 ref" href="#495" title='__d' data-ref="520__d">__d</a>, &amp;<a class="local col1 ref" href="#521__local_signgam" title='__local_signgam' data-ref="521__local_signgam">__local_signgam</a>);</td></tr>
+<tr><th id="502">502</th><td><u>#  <span data-ppcond="498">endif</span></u></td></tr>
+<tr><th id="503">503</th><td>  <b>return</b> <a class="local col1 ref" href="#521__local_signgam" title='__local_signgam' data-ref="521__local_signgam">__local_signgam</a> &lt; <var>0</var> ? -<a class="local col2 ref" href="#522__res" title='__res' data-ref="522__res">__res</a> : <a class="local col2 ref" href="#522__res" title='__res' data-ref="522__res">__res</a>;</td></tr>
+<tr><th id="504">504</th><td>}</td></tr>
+<tr><th id="505">505</th><td><u># <span data-ppcond="493">endif</span></u></td></tr>
+<tr><th id="506">506</th><td><u>#<span data-ppcond="477">endif</span></u></td></tr>
+<tr><th id="507">507</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='../../../codebrowser/code/asm/snapvector.c.html'>codebrowser/code/asm/snapvector.c</a><br/>Generated on <em>2017-Aug-29</em> from project include<br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

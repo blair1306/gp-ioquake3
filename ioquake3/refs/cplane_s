@@ -1,0 +1,9 @@
+<def f='codebrowser/code/qcommon/q_shared.h' l='1005' ll='1011'/>
+<size>20</size>
+<doc f='codebrowser/code/qcommon/q_shared.h' l='1003'>// plane_t structure
+// !!! if this is changed, it must be changed in asm code too !!!</doc>
+<mbr r='cplane_s::normal' o='0' t='vec3_t'/>
+<mbr r='cplane_s::dist' o='96' t='float'/>
+<mbr r='cplane_s::type' o='128' t='byte'/>
+<mbr r='cplane_s::signbits' o='136' t='byte'/>
+<mbr r='cplane_s::pad' o='144' t='byte [2]'/>

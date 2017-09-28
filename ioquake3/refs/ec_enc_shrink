@@ -1,0 +1,14 @@
+<dec f='codebrowser/code/opus-1.1.4/celt/entenc.h' l='103' type='void ec_enc_shrink(ec_enc * _this, opus_uint32 _size)'/>
+<doc f='codebrowser/code/opus-1.1.4/celt/entenc.h' l='95'>/*Compacts the data to fit in the target size.
+  This moves up the raw bits at the end of the current buffer so they are at
+   the end of the new buffer size.
+  The caller must ensure that the amount of data that&apos;s already been written
+   will fit in the new size.
+  _size: The number of bytes in the new buffer.
+         This must be large enough to contain the bits already written, and
+          must be no larger than the existing size.*/</doc>
+<use f='codebrowser/code/opus-1.1.4/celt/celt_encoder.c' l='1503' u='c' c='celt_encode_with_ec'/>
+<use f='codebrowser/code/opus-1.1.4/celt/celt_encoder.c' l='1539' u='c' c='celt_encode_with_ec'/>
+<use f='codebrowser/code/opus-1.1.4/celt/celt_encoder.c' l='1994' u='c' c='celt_encode_with_ec'/>
+<def f='codebrowser/code/opus-1.1.4/celt/entenc.c' l='237' ll='242' type='void ec_enc_shrink(ec_enc * _this, opus_uint32 _size)'/>
+<use f='codebrowser/code/opus-1.1.4/src/opus_encoder.c' l='1847' u='c' c='opus_encode_native'/>

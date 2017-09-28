@@ -1,0 +1,12 @@
+<dec f='codebrowser/code/qcommon/q_shared.h' l='714' type='void MakeNormalVectors(const vec_t * forward, vec_t * right, vec_t * up)'/>
+<def f='codebrowser/code/qcommon/q_math.c' l='473' ll='486' type='void MakeNormalVectors(const vec_t * forward, vec_t * right, vec_t * up)'/>
+<doc f='codebrowser/code/qcommon/q_math.c' l='465'>/*
+================
+MakeNormalVectors
+
+Given a normalized forward vector, create two
+other perpendicular vectors
+================
+*/</doc>
+<use f='codebrowser/code/renderergl1/tr_surface.c' l='475' u='c' c='RB_SurfaceRailRings'/>
+<use f='codebrowser/code/renderergl2/tr_surface.c' l='698' u='c' c='RB_SurfaceRailRings'/>

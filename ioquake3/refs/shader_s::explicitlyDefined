@@ -1,0 +1,18 @@
+<dec f='codebrowser/code/renderergl1/tr_local.h' l='330' type='qboolean'/>
+<offset>672</offset>
+<doc f='codebrowser/code/renderergl1/tr_local.h' l='325'>// load for some reason, but R_FindShader should
+										// still keep a name allocated for it, so if
+										// something calls RE_RegisterShader again with
+										// the same name, we don&apos;t try looking for it again</doc>
+<doc f='codebrowser/code/renderergl1/tr_local.h' l='330'>// found in a .shader file</doc>
+<use f='codebrowser/code/renderergl1/tr_shader.c' l='1672' u='w' c='ParseShader'/>
+<use f='codebrowser/code/renderergl1/tr_shader.c' l='2910' u='r' c='R_ShaderList_f'/>
+<dec f='codebrowser/code/renderergl2/tr_local.h' l='443' type='qboolean'/>
+<offset>672</offset>
+<doc f='codebrowser/code/renderergl2/tr_local.h' l='438'>// load for some reason, but R_FindShader should
+										// still keep a name allocated for it, so if
+										// something calls RE_RegisterShader again with
+										// the same name, we don&apos;t try looking for it again</doc>
+<doc f='codebrowser/code/renderergl2/tr_local.h' l='443'>// found in a .shader file</doc>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='2019' u='w' c='ParseShader'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='3613' u='r' c='R_ShaderList_f'/>

@@ -1,0 +1,308 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>be_aas_def.h source code [codebrowser/code/botlib/be_aas_def.h] - Woboq Code Browser</title>
+<meta name="woboq:interestingDefinitions" content="aas_entity_s,aas_link_s,aas_reachabilityareas_s,aas_reversedlink_s,aas_reversedreachability_s,aas_routingcache_s,aas_routingupdate_s,aas_s,aas_settings_s,bsp_entdata_s,bsp_link_s "/>
+<link rel="stylesheet" href="../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'codebrowser/code/botlib/be_aas_def.h'; var root_path = '../../..'; var data_path = '../../../../data';</script>
+<script src='../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../..'>codebrowser</a>/<a href='..'>code</a>/<a href='./'>botlib</a>/<a href='be_aas_def.h.html'>be_aas_def.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/*</i></td></tr>
+<tr><th id="2">2</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="3">3</th><td><i>Copyright (C) 1999-2005 Id Software, Inc.</i></td></tr>
+<tr><th id="4">4</th><td><i></i></td></tr>
+<tr><th id="5">5</th><td><i>This file is part of Quake III Arena source code.</i></td></tr>
+<tr><th id="6">6</th><td><i></i></td></tr>
+<tr><th id="7">7</th><td><i>Quake III Arena source code is free software; you can redistribute it</i></td></tr>
+<tr><th id="8">8</th><td><i>and/or modify it under the terms of the GNU General Public License as</i></td></tr>
+<tr><th id="9">9</th><td><i>published by the Free Software Foundation; either version 2 of the License,</i></td></tr>
+<tr><th id="10">10</th><td><i>or (at your option) any later version.</i></td></tr>
+<tr><th id="11">11</th><td><i></i></td></tr>
+<tr><th id="12">12</th><td><i>Quake III Arena source code is distributed in the hope that it will be</i></td></tr>
+<tr><th id="13">13</th><td><i>useful, but WITHOUT ANY WARRANTY; without even the implied warranty of</i></td></tr>
+<tr><th id="14">14</th><td><i>MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</i></td></tr>
+<tr><th id="15">15</th><td><i>GNU General Public License for more details.</i></td></tr>
+<tr><th id="16">16</th><td><i></i></td></tr>
+<tr><th id="17">17</th><td><i>You should have received a copy of the GNU General Public License</i></td></tr>
+<tr><th id="18">18</th><td><i>along with Quake III Arena source code; if not, write to the Free Software</i></td></tr>
+<tr><th id="19">19</th><td><i>Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA</i></td></tr>
+<tr><th id="20">20</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="21">21</th><td><i>*/</i></td></tr>
+<tr><th id="22">22</th><td></td></tr>
+<tr><th id="23">23</th><td><i>/*****************************************************************************</i></td></tr>
+<tr><th id="24">24</th><td><i> * name:		be_aas_def.h</i></td></tr>
+<tr><th id="25">25</th><td><i> *</i></td></tr>
+<tr><th id="26">26</th><td><i> * desc:		AAS</i></td></tr>
+<tr><th id="27">27</th><td><i> *</i></td></tr>
+<tr><th id="28">28</th><td><i> * $Archive: /source/code/botlib/be_aas_def.h $</i></td></tr>
+<tr><th id="29">29</th><td><i> *</i></td></tr>
+<tr><th id="30">30</th><td><i> *****************************************************************************/</i></td></tr>
+<tr><th id="31">31</th><td></td></tr>
+<tr><th id="32">32</th><td><u>#include <a href="../qcommon/q_shared.h.html">"../qcommon/q_shared.h"</a></u></td></tr>
+<tr><th id="33">33</th><td></td></tr>
+<tr><th id="34">34</th><td><i>//debugging on</i></td></tr>
+<tr><th id="35">35</th><td><u>#define <dfn class="macro" id="_M/AAS_DEBUG" data-ref="_M/AAS_DEBUG">AAS_DEBUG</dfn></u></td></tr>
+<tr><th id="36">36</th><td></td></tr>
+<tr><th id="37">37</th><td><u>#define <dfn class="macro" id="_M/DF_AASENTNUMBER" data-ref="_M/DF_AASENTNUMBER">DF_AASENTNUMBER</dfn>(x)		(x - aasworld.entities)</u></td></tr>
+<tr><th id="38">38</th><td><u>#define <dfn class="macro" id="_M/DF_NUMBERAASENT" data-ref="_M/DF_NUMBERAASENT">DF_NUMBERAASENT</dfn>(x)		(&amp;aasworld.entities[x])</u></td></tr>
+<tr><th id="39">39</th><td><u>#define <dfn class="macro" id="_M/DF_AASENTCLIENT" data-ref="_M/DF_AASENTCLIENT">DF_AASENTCLIENT</dfn>(x)		(x - aasworld.entities - 1)</u></td></tr>
+<tr><th id="40">40</th><td><u>#define <dfn class="macro" id="_M/DF_CLIENTAASENT" data-ref="_M/DF_CLIENTAASENT">DF_CLIENTAASENT</dfn>(x)		(&amp;aasworld.entities[x + 1])</u></td></tr>
+<tr><th id="41">41</th><td></td></tr>
+<tr><th id="42">42</th><td><u>#<span data-ppcond="42">ifndef</span> <a class="macro" href="l_precomp.h.html#33" data-ref="_M/MAX_PATH">MAX_PATH</a></u></td></tr>
+<tr><th id="43">43</th><td>	<u>#define MAX_PATH				MAX_QPATH</u></td></tr>
+<tr><th id="44">44</th><td><u>#<span data-ppcond="42">endif</span></u></td></tr>
+<tr><th id="45">45</th><td></td></tr>
+<tr><th id="46">46</th><td><i>//structure to link entities to areas and areas to entities</i></td></tr>
+<tr><th id="47">47</th><td><b>typedef</b> <b>struct</b> <dfn class="type def" id="aas_link_s" title='aas_link_s' data-ref="aas_link_s"><a class="type" href="#aas_link_s" title='aas_link_s' data-ref="aas_link_s">aas_link_s</a></dfn></td></tr>
+<tr><th id="48">48</th><td>{</td></tr>
+<tr><th id="49">49</th><td>	<em>int</em> <dfn class="decl" id="aas_link_s::entnum" title='aas_link_s::entnum' data-ref="aas_link_s::entnum">entnum</dfn>;</td></tr>
+<tr><th id="50">50</th><td>	<em>int</em> <dfn class="decl" id="aas_link_s::areanum" title='aas_link_s::areanum' data-ref="aas_link_s::areanum">areanum</dfn>;</td></tr>
+<tr><th id="51">51</th><td>	<b>struct</b> <a class="type" href="#aas_link_s" title='aas_link_s' data-ref="aas_link_s">aas_link_s</a> *<dfn class="decl" id="aas_link_s::next_ent" title='aas_link_s::next_ent' data-ref="aas_link_s::next_ent">next_ent</dfn>, *<dfn class="decl" id="aas_link_s::prev_ent" title='aas_link_s::prev_ent' data-ref="aas_link_s::prev_ent">prev_ent</dfn>;</td></tr>
+<tr><th id="52">52</th><td>	<b>struct</b> <a class="type" href="#aas_link_s" title='aas_link_s' data-ref="aas_link_s">aas_link_s</a> *<dfn class="decl" id="aas_link_s::next_area" title='aas_link_s::next_area' data-ref="aas_link_s::next_area">next_area</dfn>, *<dfn class="decl" id="aas_link_s::prev_area" title='aas_link_s::prev_area' data-ref="aas_link_s::prev_area">prev_area</dfn>;</td></tr>
+<tr><th id="53">53</th><td>} <dfn class="typedef" id="aas_link_t" title='aas_link_t' data-type='struct aas_link_s' data-ref="aas_link_t">aas_link_t</dfn>;</td></tr>
+<tr><th id="54">54</th><td></td></tr>
+<tr><th id="55">55</th><td><i>//structure to link entities to leaves and leaves to entities</i></td></tr>
+<tr><th id="56">56</th><td><b>typedef</b> <b>struct</b> <dfn class="type def" id="bsp_link_s" title='bsp_link_s' data-ref="bsp_link_s"><a class="type" href="#bsp_link_s" title='bsp_link_s' data-ref="bsp_link_s">bsp_link_s</a></dfn></td></tr>
+<tr><th id="57">57</th><td>{</td></tr>
+<tr><th id="58">58</th><td>	<em>int</em> <dfn class="decl" id="bsp_link_s::entnum" title='bsp_link_s::entnum' data-ref="bsp_link_s::entnum">entnum</dfn>;</td></tr>
+<tr><th id="59">59</th><td>	<em>int</em> <dfn class="decl" id="bsp_link_s::leafnum" title='bsp_link_s::leafnum' data-ref="bsp_link_s::leafnum">leafnum</dfn>;</td></tr>
+<tr><th id="60">60</th><td>	<b>struct</b> <a class="type" href="#bsp_link_s" title='bsp_link_s' data-ref="bsp_link_s">bsp_link_s</a> *<dfn class="decl" id="bsp_link_s::next_ent" title='bsp_link_s::next_ent' data-ref="bsp_link_s::next_ent">next_ent</dfn>, *<dfn class="decl" id="bsp_link_s::prev_ent" title='bsp_link_s::prev_ent' data-ref="bsp_link_s::prev_ent">prev_ent</dfn>;</td></tr>
+<tr><th id="61">61</th><td>	<b>struct</b> <a class="type" href="#bsp_link_s" title='bsp_link_s' data-ref="bsp_link_s">bsp_link_s</a> *<dfn class="decl" id="bsp_link_s::next_leaf" title='bsp_link_s::next_leaf' data-ref="bsp_link_s::next_leaf">next_leaf</dfn>, *<dfn class="decl" id="bsp_link_s::prev_leaf" title='bsp_link_s::prev_leaf' data-ref="bsp_link_s::prev_leaf">prev_leaf</dfn>;</td></tr>
+<tr><th id="62">62</th><td>} <dfn class="typedef" id="bsp_link_t" title='bsp_link_t' data-type='struct bsp_link_s' data-ref="bsp_link_t">bsp_link_t</dfn>;</td></tr>
+<tr><th id="63">63</th><td></td></tr>
+<tr><th id="64">64</th><td><b>typedef</b> <b>struct</b> <dfn class="type def" id="bsp_entdata_s" title='bsp_entdata_s' data-ref="bsp_entdata_s"><a class="type" href="#bsp_entdata_s" title='bsp_entdata_s' data-ref="bsp_entdata_s">bsp_entdata_s</a></dfn></td></tr>
+<tr><th id="65">65</th><td>{</td></tr>
+<tr><th id="66">66</th><td>	<a class="typedef" href="../qcommon/q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="decl" id="bsp_entdata_s::origin" title='bsp_entdata_s::origin' data-ref="bsp_entdata_s::origin">origin</dfn>;</td></tr>
+<tr><th id="67">67</th><td>	<a class="typedef" href="../qcommon/q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="decl" id="bsp_entdata_s::angles" title='bsp_entdata_s::angles' data-ref="bsp_entdata_s::angles">angles</dfn>;</td></tr>
+<tr><th id="68">68</th><td>	<a class="typedef" href="../qcommon/q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="decl" id="bsp_entdata_s::absmins" title='bsp_entdata_s::absmins' data-ref="bsp_entdata_s::absmins">absmins</dfn>;</td></tr>
+<tr><th id="69">69</th><td>	<a class="typedef" href="../qcommon/q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="decl" id="bsp_entdata_s::absmaxs" title='bsp_entdata_s::absmaxs' data-ref="bsp_entdata_s::absmaxs">absmaxs</dfn>;</td></tr>
+<tr><th id="70">70</th><td>	<em>int</em> <dfn class="decl" id="bsp_entdata_s::solid" title='bsp_entdata_s::solid' data-ref="bsp_entdata_s::solid">solid</dfn>;</td></tr>
+<tr><th id="71">71</th><td>	<em>int</em> <dfn class="decl" id="bsp_entdata_s::modelnum" title='bsp_entdata_s::modelnum' data-ref="bsp_entdata_s::modelnum">modelnum</dfn>;</td></tr>
+<tr><th id="72">72</th><td>} <dfn class="typedef" id="bsp_entdata_t" title='bsp_entdata_t' data-type='struct bsp_entdata_s' data-ref="bsp_entdata_t">bsp_entdata_t</dfn>;</td></tr>
+<tr><th id="73">73</th><td></td></tr>
+<tr><th id="74">74</th><td><i>//entity</i></td></tr>
+<tr><th id="75">75</th><td><b>typedef</b> <b>struct</b> <dfn class="type def" id="aas_entity_s" title='aas_entity_s' data-ref="aas_entity_s"><a class="type" href="#aas_entity_s" title='aas_entity_s' data-ref="aas_entity_s">aas_entity_s</a></dfn></td></tr>
+<tr><th id="76">76</th><td>{</td></tr>
+<tr><th id="77">77</th><td>	<i>//entity info</i></td></tr>
+<tr><th id="78">78</th><td>	<a class="typedef" href="be_aas.h.html#aas_entityinfo_t" title='aas_entityinfo_t' data-type='struct aas_entityinfo_s' data-ref="aas_entityinfo_t">aas_entityinfo_t</a> <dfn class="decl" id="aas_entity_s::i" title='aas_entity_s::i' data-ref="aas_entity_s::i">i</dfn>;</td></tr>
+<tr><th id="79">79</th><td>	<i>//links into the AAS areas</i></td></tr>
+<tr><th id="80">80</th><td>	<a class="typedef" href="#aas_link_t" title='aas_link_t' data-type='struct aas_link_s' data-ref="aas_link_t">aas_link_t</a> *<dfn class="decl" id="aas_entity_s::areas" title='aas_entity_s::areas' data-ref="aas_entity_s::areas">areas</dfn>;</td></tr>
+<tr><th id="81">81</th><td>	<i>//links into the BSP leaves</i></td></tr>
+<tr><th id="82">82</th><td>	<a class="typedef" href="#bsp_link_t" title='bsp_link_t' data-type='struct bsp_link_s' data-ref="bsp_link_t">bsp_link_t</a> *<dfn class="decl" id="aas_entity_s::leaves" title='aas_entity_s::leaves' data-ref="aas_entity_s::leaves">leaves</dfn>;</td></tr>
+<tr><th id="83">83</th><td>} <dfn class="typedef" id="aas_entity_t" title='aas_entity_t' data-type='struct aas_entity_s' data-ref="aas_entity_t">aas_entity_t</dfn>;</td></tr>
+<tr><th id="84">84</th><td></td></tr>
+<tr><th id="85">85</th><td><b>typedef</b> <b>struct</b> <dfn class="type def" id="aas_settings_s" title='aas_settings_s' data-ref="aas_settings_s"><a class="type" href="#aas_settings_s" title='aas_settings_s' data-ref="aas_settings_s">aas_settings_s</a></dfn></td></tr>
+<tr><th id="86">86</th><td>{</td></tr>
+<tr><th id="87">87</th><td>	<a class="typedef" href="../qcommon/q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="decl" id="aas_settings_s::phys_gravitydirection" title='aas_settings_s::phys_gravitydirection' data-ref="aas_settings_s::phys_gravitydirection">phys_gravitydirection</dfn>;</td></tr>
+<tr><th id="88">88</th><td>	<em>float</em> <dfn class="decl" id="aas_settings_s::phys_friction" title='aas_settings_s::phys_friction' data-ref="aas_settings_s::phys_friction">phys_friction</dfn>;</td></tr>
+<tr><th id="89">89</th><td>	<em>float</em> <dfn class="decl" id="aas_settings_s::phys_stopspeed" title='aas_settings_s::phys_stopspeed' data-ref="aas_settings_s::phys_stopspeed">phys_stopspeed</dfn>;</td></tr>
+<tr><th id="90">90</th><td>	<em>float</em> <dfn class="decl" id="aas_settings_s::phys_gravity" title='aas_settings_s::phys_gravity' data-ref="aas_settings_s::phys_gravity">phys_gravity</dfn>;</td></tr>
+<tr><th id="91">91</th><td>	<em>float</em> <dfn class="decl" id="aas_settings_s::phys_waterfriction" title='aas_settings_s::phys_waterfriction' data-ref="aas_settings_s::phys_waterfriction">phys_waterfriction</dfn>;</td></tr>
+<tr><th id="92">92</th><td>	<em>float</em> <dfn class="decl" id="aas_settings_s::phys_watergravity" title='aas_settings_s::phys_watergravity' data-ref="aas_settings_s::phys_watergravity">phys_watergravity</dfn>;</td></tr>
+<tr><th id="93">93</th><td>	<em>float</em> <dfn class="decl" id="aas_settings_s::phys_maxvelocity" title='aas_settings_s::phys_maxvelocity' data-ref="aas_settings_s::phys_maxvelocity">phys_maxvelocity</dfn>;</td></tr>
+<tr><th id="94">94</th><td>	<em>float</em> <dfn class="decl" id="aas_settings_s::phys_maxwalkvelocity" title='aas_settings_s::phys_maxwalkvelocity' data-ref="aas_settings_s::phys_maxwalkvelocity">phys_maxwalkvelocity</dfn>;</td></tr>
+<tr><th id="95">95</th><td>	<em>float</em> <dfn class="decl" id="aas_settings_s::phys_maxcrouchvelocity" title='aas_settings_s::phys_maxcrouchvelocity' data-ref="aas_settings_s::phys_maxcrouchvelocity">phys_maxcrouchvelocity</dfn>;</td></tr>
+<tr><th id="96">96</th><td>	<em>float</em> <dfn class="decl" id="aas_settings_s::phys_maxswimvelocity" title='aas_settings_s::phys_maxswimvelocity' data-ref="aas_settings_s::phys_maxswimvelocity">phys_maxswimvelocity</dfn>;</td></tr>
+<tr><th id="97">97</th><td>	<em>float</em> <dfn class="decl" id="aas_settings_s::phys_walkaccelerate" title='aas_settings_s::phys_walkaccelerate' data-ref="aas_settings_s::phys_walkaccelerate">phys_walkaccelerate</dfn>;</td></tr>
+<tr><th id="98">98</th><td>	<em>float</em> <dfn class="decl" id="aas_settings_s::phys_airaccelerate" title='aas_settings_s::phys_airaccelerate' data-ref="aas_settings_s::phys_airaccelerate">phys_airaccelerate</dfn>;</td></tr>
+<tr><th id="99">99</th><td>	<em>float</em> <dfn class="decl" id="aas_settings_s::phys_swimaccelerate" title='aas_settings_s::phys_swimaccelerate' data-ref="aas_settings_s::phys_swimaccelerate">phys_swimaccelerate</dfn>;</td></tr>
+<tr><th id="100">100</th><td>	<em>float</em> <dfn class="decl" id="aas_settings_s::phys_maxstep" title='aas_settings_s::phys_maxstep' data-ref="aas_settings_s::phys_maxstep">phys_maxstep</dfn>;</td></tr>
+<tr><th id="101">101</th><td>	<em>float</em> <dfn class="decl" id="aas_settings_s::phys_maxsteepness" title='aas_settings_s::phys_maxsteepness' data-ref="aas_settings_s::phys_maxsteepness">phys_maxsteepness</dfn>;</td></tr>
+<tr><th id="102">102</th><td>	<em>float</em> <dfn class="decl" id="aas_settings_s::phys_maxwaterjump" title='aas_settings_s::phys_maxwaterjump' data-ref="aas_settings_s::phys_maxwaterjump">phys_maxwaterjump</dfn>;</td></tr>
+<tr><th id="103">103</th><td>	<em>float</em> <dfn class="decl" id="aas_settings_s::phys_maxbarrier" title='aas_settings_s::phys_maxbarrier' data-ref="aas_settings_s::phys_maxbarrier">phys_maxbarrier</dfn>;</td></tr>
+<tr><th id="104">104</th><td>	<em>float</em> <dfn class="decl" id="aas_settings_s::phys_jumpvel" title='aas_settings_s::phys_jumpvel' data-ref="aas_settings_s::phys_jumpvel">phys_jumpvel</dfn>;</td></tr>
+<tr><th id="105">105</th><td>	<em>float</em> <dfn class="decl" id="aas_settings_s::phys_falldelta5" title='aas_settings_s::phys_falldelta5' data-ref="aas_settings_s::phys_falldelta5">phys_falldelta5</dfn>;</td></tr>
+<tr><th id="106">106</th><td>	<em>float</em> <dfn class="decl" id="aas_settings_s::phys_falldelta10" title='aas_settings_s::phys_falldelta10' data-ref="aas_settings_s::phys_falldelta10">phys_falldelta10</dfn>;</td></tr>
+<tr><th id="107">107</th><td>	<em>float</em> <dfn class="decl" id="aas_settings_s::rs_waterjump" title='aas_settings_s::rs_waterjump' data-ref="aas_settings_s::rs_waterjump">rs_waterjump</dfn>;</td></tr>
+<tr><th id="108">108</th><td>	<em>float</em> <dfn class="decl" id="aas_settings_s::rs_teleport" title='aas_settings_s::rs_teleport' data-ref="aas_settings_s::rs_teleport">rs_teleport</dfn>;</td></tr>
+<tr><th id="109">109</th><td>	<em>float</em> <dfn class="decl" id="aas_settings_s::rs_barrierjump" title='aas_settings_s::rs_barrierjump' data-ref="aas_settings_s::rs_barrierjump">rs_barrierjump</dfn>;</td></tr>
+<tr><th id="110">110</th><td>	<em>float</em> <dfn class="decl" id="aas_settings_s::rs_startcrouch" title='aas_settings_s::rs_startcrouch' data-ref="aas_settings_s::rs_startcrouch">rs_startcrouch</dfn>;</td></tr>
+<tr><th id="111">111</th><td>	<em>float</em> <dfn class="decl" id="aas_settings_s::rs_startgrapple" title='aas_settings_s::rs_startgrapple' data-ref="aas_settings_s::rs_startgrapple">rs_startgrapple</dfn>;</td></tr>
+<tr><th id="112">112</th><td>	<em>float</em> <dfn class="decl" id="aas_settings_s::rs_startwalkoffledge" title='aas_settings_s::rs_startwalkoffledge' data-ref="aas_settings_s::rs_startwalkoffledge">rs_startwalkoffledge</dfn>;</td></tr>
+<tr><th id="113">113</th><td>	<em>float</em> <dfn class="decl" id="aas_settings_s::rs_startjump" title='aas_settings_s::rs_startjump' data-ref="aas_settings_s::rs_startjump">rs_startjump</dfn>;</td></tr>
+<tr><th id="114">114</th><td>	<em>float</em> <dfn class="decl" id="aas_settings_s::rs_rocketjump" title='aas_settings_s::rs_rocketjump' data-ref="aas_settings_s::rs_rocketjump">rs_rocketjump</dfn>;</td></tr>
+<tr><th id="115">115</th><td>	<em>float</em> <dfn class="decl" id="aas_settings_s::rs_bfgjump" title='aas_settings_s::rs_bfgjump' data-ref="aas_settings_s::rs_bfgjump">rs_bfgjump</dfn>;</td></tr>
+<tr><th id="116">116</th><td>	<em>float</em> <dfn class="decl" id="aas_settings_s::rs_jumppad" title='aas_settings_s::rs_jumppad' data-ref="aas_settings_s::rs_jumppad">rs_jumppad</dfn>;</td></tr>
+<tr><th id="117">117</th><td>	<em>float</em> <dfn class="decl" id="aas_settings_s::rs_aircontrolledjumppad" title='aas_settings_s::rs_aircontrolledjumppad' data-ref="aas_settings_s::rs_aircontrolledjumppad">rs_aircontrolledjumppad</dfn>;</td></tr>
+<tr><th id="118">118</th><td>	<em>float</em> <dfn class="decl" id="aas_settings_s::rs_funcbob" title='aas_settings_s::rs_funcbob' data-ref="aas_settings_s::rs_funcbob">rs_funcbob</dfn>;</td></tr>
+<tr><th id="119">119</th><td>	<em>float</em> <dfn class="decl" id="aas_settings_s::rs_startelevator" title='aas_settings_s::rs_startelevator' data-ref="aas_settings_s::rs_startelevator">rs_startelevator</dfn>;</td></tr>
+<tr><th id="120">120</th><td>	<em>float</em> <dfn class="decl" id="aas_settings_s::rs_falldamage5" title='aas_settings_s::rs_falldamage5' data-ref="aas_settings_s::rs_falldamage5">rs_falldamage5</dfn>;</td></tr>
+<tr><th id="121">121</th><td>	<em>float</em> <dfn class="decl" id="aas_settings_s::rs_falldamage10" title='aas_settings_s::rs_falldamage10' data-ref="aas_settings_s::rs_falldamage10">rs_falldamage10</dfn>;</td></tr>
+<tr><th id="122">122</th><td>	<em>float</em> <dfn class="decl" id="aas_settings_s::rs_maxfallheight" title='aas_settings_s::rs_maxfallheight' data-ref="aas_settings_s::rs_maxfallheight">rs_maxfallheight</dfn>;</td></tr>
+<tr><th id="123">123</th><td>	<em>float</em> <dfn class="decl" id="aas_settings_s::rs_maxjumpfallheight" title='aas_settings_s::rs_maxjumpfallheight' data-ref="aas_settings_s::rs_maxjumpfallheight">rs_maxjumpfallheight</dfn>;</td></tr>
+<tr><th id="124">124</th><td>} <dfn class="typedef" id="aas_settings_t" title='aas_settings_t' data-type='struct aas_settings_s' data-ref="aas_settings_t">aas_settings_t</dfn>;</td></tr>
+<tr><th id="125">125</th><td></td></tr>
+<tr><th id="126">126</th><td><u>#define <dfn class="macro" id="_M/CACHETYPE_PORTAL" data-ref="_M/CACHETYPE_PORTAL">CACHETYPE_PORTAL</dfn>		0</u></td></tr>
+<tr><th id="127">127</th><td><u>#define <dfn class="macro" id="_M/CACHETYPE_AREA" data-ref="_M/CACHETYPE_AREA">CACHETYPE_AREA</dfn>			1</u></td></tr>
+<tr><th id="128">128</th><td></td></tr>
+<tr><th id="129">129</th><td><i>//routing cache</i></td></tr>
+<tr><th id="130">130</th><td><b>typedef</b> <b>struct</b> <dfn class="type def" id="aas_routingcache_s" title='aas_routingcache_s' data-ref="aas_routingcache_s"><a class="type" href="#aas_routingcache_s" title='aas_routingcache_s' data-ref="aas_routingcache_s">aas_routingcache_s</a></dfn></td></tr>
+<tr><th id="131">131</th><td>{</td></tr>
+<tr><th id="132">132</th><td>	<a class="typedef" href="../qcommon/q_shared.h.html#byte" title='byte' data-type='unsigned char' data-ref="byte">byte</a> <dfn class="decl" id="aas_routingcache_s::type" title='aas_routingcache_s::type' data-ref="aas_routingcache_s::type">type</dfn>;									<i>//portal or area cache</i></td></tr>
+<tr><th id="133">133</th><td>	<em>float</em> <dfn class="decl" id="aas_routingcache_s::time" title='aas_routingcache_s::time' data-ref="aas_routingcache_s::time">time</dfn>;									<i>//last time accessed or updated</i></td></tr>
+<tr><th id="134">134</th><td>	<em>int</em> <dfn class="decl" id="aas_routingcache_s::size" title='aas_routingcache_s::size' data-ref="aas_routingcache_s::size">size</dfn>;									<i>//size of the routing cache</i></td></tr>
+<tr><th id="135">135</th><td>	<em>int</em> <dfn class="decl" id="aas_routingcache_s::cluster" title='aas_routingcache_s::cluster' data-ref="aas_routingcache_s::cluster">cluster</dfn>;								<i>//cluster the cache is for</i></td></tr>
+<tr><th id="136">136</th><td>	<em>int</em> <dfn class="decl" id="aas_routingcache_s::areanum" title='aas_routingcache_s::areanum' data-ref="aas_routingcache_s::areanum">areanum</dfn>;								<i>//area the cache is created for</i></td></tr>
+<tr><th id="137">137</th><td>	<a class="typedef" href="../qcommon/q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="decl" id="aas_routingcache_s::origin" title='aas_routingcache_s::origin' data-ref="aas_routingcache_s::origin">origin</dfn>;								<i>//origin within the area</i></td></tr>
+<tr><th id="138">138</th><td>	<em>float</em> <dfn class="decl" id="aas_routingcache_s::starttraveltime" title='aas_routingcache_s::starttraveltime' data-ref="aas_routingcache_s::starttraveltime">starttraveltime</dfn>;						<i>//travel time to start with</i></td></tr>
+<tr><th id="139">139</th><td>	<em>int</em> <dfn class="decl" id="aas_routingcache_s::travelflags" title='aas_routingcache_s::travelflags' data-ref="aas_routingcache_s::travelflags">travelflags</dfn>;							<i>//combinations of the travel flags</i></td></tr>
+<tr><th id="140">140</th><td>	<b>struct</b> <a class="type" href="#aas_routingcache_s" title='aas_routingcache_s' data-ref="aas_routingcache_s">aas_routingcache_s</a> *<dfn class="decl" id="aas_routingcache_s::prev" title='aas_routingcache_s::prev' data-ref="aas_routingcache_s::prev">prev</dfn>, *<dfn class="decl" id="aas_routingcache_s::next" title='aas_routingcache_s::next' data-ref="aas_routingcache_s::next">next</dfn>;</td></tr>
+<tr><th id="141">141</th><td>	<b>struct</b> <a class="type" href="#aas_routingcache_s" title='aas_routingcache_s' data-ref="aas_routingcache_s">aas_routingcache_s</a> *<dfn class="decl" id="aas_routingcache_s::time_prev" title='aas_routingcache_s::time_prev' data-ref="aas_routingcache_s::time_prev">time_prev</dfn>, *<dfn class="decl" id="aas_routingcache_s::time_next" title='aas_routingcache_s::time_next' data-ref="aas_routingcache_s::time_next">time_next</dfn>;</td></tr>
+<tr><th id="142">142</th><td>	<em>unsigned</em> <em>char</em> *<dfn class="decl" id="aas_routingcache_s::reachabilities" title='aas_routingcache_s::reachabilities' data-ref="aas_routingcache_s::reachabilities">reachabilities</dfn>;				<i>//reachabilities used for routing</i></td></tr>
+<tr><th id="143">143</th><td>	<em>unsigned</em> <em>short</em> <em>int</em> <dfn class="decl" id="aas_routingcache_s::traveltimes" title='aas_routingcache_s::traveltimes' data-ref="aas_routingcache_s::traveltimes">traveltimes</dfn>[<var>1</var>];			<i>//travel time for every area (variable sized)</i></td></tr>
+<tr><th id="144">144</th><td>} <dfn class="typedef" id="aas_routingcache_t" title='aas_routingcache_t' data-type='struct aas_routingcache_s' data-ref="aas_routingcache_t">aas_routingcache_t</dfn>;</td></tr>
+<tr><th id="145">145</th><td></td></tr>
+<tr><th id="146">146</th><td><i>//fields for the routing algorithm</i></td></tr>
+<tr><th id="147">147</th><td><b>typedef</b> <b>struct</b> <dfn class="type def" id="aas_routingupdate_s" title='aas_routingupdate_s' data-ref="aas_routingupdate_s"><a class="type" href="#aas_routingupdate_s" title='aas_routingupdate_s' data-ref="aas_routingupdate_s">aas_routingupdate_s</a></dfn></td></tr>
+<tr><th id="148">148</th><td>{</td></tr>
+<tr><th id="149">149</th><td>	<em>int</em> <dfn class="decl" id="aas_routingupdate_s::cluster" title='aas_routingupdate_s::cluster' data-ref="aas_routingupdate_s::cluster">cluster</dfn>;</td></tr>
+<tr><th id="150">150</th><td>	<em>int</em> <dfn class="decl" id="aas_routingupdate_s::areanum" title='aas_routingupdate_s::areanum' data-ref="aas_routingupdate_s::areanum">areanum</dfn>;								<i>//area number of the update</i></td></tr>
+<tr><th id="151">151</th><td>	<a class="typedef" href="../qcommon/q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="decl" id="aas_routingupdate_s::start" title='aas_routingupdate_s::start' data-ref="aas_routingupdate_s::start">start</dfn>;								<i>//start point the area was entered</i></td></tr>
+<tr><th id="152">152</th><td>	<em>unsigned</em> <em>short</em> <em>int</em> <dfn class="decl" id="aas_routingupdate_s::tmptraveltime" title='aas_routingupdate_s::tmptraveltime' data-ref="aas_routingupdate_s::tmptraveltime">tmptraveltime</dfn>;			<i>//temporary travel time</i></td></tr>
+<tr><th id="153">153</th><td>	<em>unsigned</em> <em>short</em> <em>int</em> *<dfn class="decl" id="aas_routingupdate_s::areatraveltimes" title='aas_routingupdate_s::areatraveltimes' data-ref="aas_routingupdate_s::areatraveltimes">areatraveltimes</dfn>;		<i>//travel times within the area</i></td></tr>
+<tr><th id="154">154</th><td>	<a class="typedef" href="../qcommon/q_shared.h.html#qboolean" title='qboolean' data-type='enum qboolean' data-ref="qboolean">qboolean</a> <dfn class="decl" id="aas_routingupdate_s::inlist" title='aas_routingupdate_s::inlist' data-ref="aas_routingupdate_s::inlist">inlist</dfn>;							<i>//true if the update is in the list</i></td></tr>
+<tr><th id="155">155</th><td>	<b>struct</b> <a class="type" href="#aas_routingupdate_s" title='aas_routingupdate_s' data-ref="aas_routingupdate_s">aas_routingupdate_s</a> *<dfn class="decl" id="aas_routingupdate_s::next" title='aas_routingupdate_s::next' data-ref="aas_routingupdate_s::next">next</dfn>;</td></tr>
+<tr><th id="156">156</th><td>	<b>struct</b> <a class="type" href="#aas_routingupdate_s" title='aas_routingupdate_s' data-ref="aas_routingupdate_s">aas_routingupdate_s</a> *<dfn class="decl" id="aas_routingupdate_s::prev" title='aas_routingupdate_s::prev' data-ref="aas_routingupdate_s::prev">prev</dfn>;</td></tr>
+<tr><th id="157">157</th><td>} <dfn class="typedef" id="aas_routingupdate_t" title='aas_routingupdate_t' data-type='struct aas_routingupdate_s' data-ref="aas_routingupdate_t">aas_routingupdate_t</dfn>;</td></tr>
+<tr><th id="158">158</th><td></td></tr>
+<tr><th id="159">159</th><td><i>//reversed reachability link</i></td></tr>
+<tr><th id="160">160</th><td><b>typedef</b> <b>struct</b> <dfn class="type def" id="aas_reversedlink_s" title='aas_reversedlink_s' data-ref="aas_reversedlink_s"><a class="type" href="#aas_reversedlink_s" title='aas_reversedlink_s' data-ref="aas_reversedlink_s">aas_reversedlink_s</a></dfn></td></tr>
+<tr><th id="161">161</th><td>{</td></tr>
+<tr><th id="162">162</th><td>	<em>int</em> <dfn class="decl" id="aas_reversedlink_s::linknum" title='aas_reversedlink_s::linknum' data-ref="aas_reversedlink_s::linknum">linknum</dfn>;								<i>//the aas_areareachability_t</i></td></tr>
+<tr><th id="163">163</th><td>	<em>int</em> <dfn class="decl" id="aas_reversedlink_s::areanum" title='aas_reversedlink_s::areanum' data-ref="aas_reversedlink_s::areanum">areanum</dfn>;								<i>//reachable from this area</i></td></tr>
+<tr><th id="164">164</th><td>	<b>struct</b> <a class="type" href="#aas_reversedlink_s" title='aas_reversedlink_s' data-ref="aas_reversedlink_s">aas_reversedlink_s</a> *<dfn class="decl" id="aas_reversedlink_s::next" title='aas_reversedlink_s::next' data-ref="aas_reversedlink_s::next">next</dfn>;			<i>//next link</i></td></tr>
+<tr><th id="165">165</th><td>} <dfn class="typedef" id="aas_reversedlink_t" title='aas_reversedlink_t' data-type='struct aas_reversedlink_s' data-ref="aas_reversedlink_t">aas_reversedlink_t</dfn>;</td></tr>
+<tr><th id="166">166</th><td></td></tr>
+<tr><th id="167">167</th><td><i>//reversed area reachability</i></td></tr>
+<tr><th id="168">168</th><td><b>typedef</b> <b>struct</b> <dfn class="type def" id="aas_reversedreachability_s" title='aas_reversedreachability_s' data-ref="aas_reversedreachability_s"><a class="type" href="#aas_reversedreachability_s" title='aas_reversedreachability_s' data-ref="aas_reversedreachability_s">aas_reversedreachability_s</a></dfn></td></tr>
+<tr><th id="169">169</th><td>{</td></tr>
+<tr><th id="170">170</th><td>	<em>int</em> <dfn class="decl" id="aas_reversedreachability_s::numlinks" title='aas_reversedreachability_s::numlinks' data-ref="aas_reversedreachability_s::numlinks">numlinks</dfn>;</td></tr>
+<tr><th id="171">171</th><td>	<a class="typedef" href="#aas_reversedlink_t" title='aas_reversedlink_t' data-type='struct aas_reversedlink_s' data-ref="aas_reversedlink_t">aas_reversedlink_t</a> *<dfn class="decl" id="aas_reversedreachability_s::first" title='aas_reversedreachability_s::first' data-ref="aas_reversedreachability_s::first">first</dfn>;</td></tr>
+<tr><th id="172">172</th><td>} <dfn class="typedef" id="aas_reversedreachability_t" title='aas_reversedreachability_t' data-type='struct aas_reversedreachability_s' data-ref="aas_reversedreachability_t">aas_reversedreachability_t</dfn>;</td></tr>
+<tr><th id="173">173</th><td></td></tr>
+<tr><th id="174">174</th><td><i>//areas a reachability goes through</i></td></tr>
+<tr><th id="175">175</th><td><b>typedef</b> <b>struct</b> <dfn class="type def" id="aas_reachabilityareas_s" title='aas_reachabilityareas_s' data-ref="aas_reachabilityareas_s"><a class="type" href="#aas_reachabilityareas_s" title='aas_reachabilityareas_s' data-ref="aas_reachabilityareas_s">aas_reachabilityareas_s</a></dfn></td></tr>
+<tr><th id="176">176</th><td>{</td></tr>
+<tr><th id="177">177</th><td>	<em>int</em> <dfn class="decl" id="aas_reachabilityareas_s::firstarea" title='aas_reachabilityareas_s::firstarea' data-ref="aas_reachabilityareas_s::firstarea">firstarea</dfn>, <dfn class="decl" id="aas_reachabilityareas_s::numareas" title='aas_reachabilityareas_s::numareas' data-ref="aas_reachabilityareas_s::numareas">numareas</dfn>;</td></tr>
+<tr><th id="178">178</th><td>} <dfn class="typedef" id="aas_reachabilityareas_t" title='aas_reachabilityareas_t' data-type='struct aas_reachabilityareas_s' data-ref="aas_reachabilityareas_t">aas_reachabilityareas_t</dfn>;</td></tr>
+<tr><th id="179">179</th><td></td></tr>
+<tr><th id="180">180</th><td><b>typedef</b> <b>struct</b> <dfn class="type def" id="aas_s" title='aas_s' data-ref="aas_s"><a class="type" href="#aas_s" title='aas_s' data-ref="aas_s">aas_s</a></dfn></td></tr>
+<tr><th id="181">181</th><td>{</td></tr>
+<tr><th id="182">182</th><td>	<em>int</em> <dfn class="decl" id="aas_s::loaded" title='aas_s::loaded' data-ref="aas_s::loaded">loaded</dfn>;									<i>//true when an AAS file is loaded</i></td></tr>
+<tr><th id="183">183</th><td>	<em>int</em> <dfn class="decl" id="aas_s::initialized" title='aas_s::initialized' data-ref="aas_s::initialized">initialized</dfn>;							<i>//true when AAS has been initialized</i></td></tr>
+<tr><th id="184">184</th><td>	<em>int</em> <dfn class="decl" id="aas_s::savefile" title='aas_s::savefile' data-ref="aas_s::savefile">savefile</dfn>;								<i>//set true when file should be saved</i></td></tr>
+<tr><th id="185">185</th><td>	<em>int</em> <dfn class="decl" id="aas_s::bspchecksum" title='aas_s::bspchecksum' data-ref="aas_s::bspchecksum">bspchecksum</dfn>;</td></tr>
+<tr><th id="186">186</th><td>	<i>//current time</i></td></tr>
+<tr><th id="187">187</th><td>	<em>float</em> <dfn class="decl" id="aas_s::time" title='aas_s::time' data-ref="aas_s::time">time</dfn>;</td></tr>
+<tr><th id="188">188</th><td>	<em>int</em> <dfn class="decl" id="aas_s::numframes" title='aas_s::numframes' data-ref="aas_s::numframes">numframes</dfn>;</td></tr>
+<tr><th id="189">189</th><td>	<i>//name of the aas file</i></td></tr>
+<tr><th id="190">190</th><td>	<em>char</em> <dfn class="decl" id="aas_s::filename" title='aas_s::filename' data-ref="aas_s::filename">filename</dfn>[<a class="macro" href="l_precomp.h.html#33" title="64" data-ref="_M/MAX_PATH">MAX_PATH</a>];</td></tr>
+<tr><th id="191">191</th><td>	<em>char</em> <dfn class="decl" id="aas_s::mapname" title='aas_s::mapname' data-ref="aas_s::mapname">mapname</dfn>[<a class="macro" href="l_precomp.h.html#33" title="64" data-ref="_M/MAX_PATH">MAX_PATH</a>];</td></tr>
+<tr><th id="192">192</th><td>	<i>//bounding boxes</i></td></tr>
+<tr><th id="193">193</th><td>	<em>int</em> <dfn class="decl" id="aas_s::numbboxes" title='aas_s::numbboxes' data-ref="aas_s::numbboxes">numbboxes</dfn>;</td></tr>
+<tr><th id="194">194</th><td>	<a class="typedef" href="aasfile.h.html#aas_bbox_t" title='aas_bbox_t' data-type='struct aas_bbox_s' data-ref="aas_bbox_t">aas_bbox_t</a> *<dfn class="decl" id="aas_s::bboxes" title='aas_s::bboxes' data-ref="aas_s::bboxes">bboxes</dfn>;</td></tr>
+<tr><th id="195">195</th><td>	<i>//vertexes</i></td></tr>
+<tr><th id="196">196</th><td>	<em>int</em> <dfn class="decl" id="aas_s::numvertexes" title='aas_s::numvertexes' data-ref="aas_s::numvertexes">numvertexes</dfn>;</td></tr>
+<tr><th id="197">197</th><td>	<a class="typedef" href="aasfile.h.html#aas_vertex_t" title='aas_vertex_t' data-type='vec3_t' data-ref="aas_vertex_t">aas_vertex_t</a> *<dfn class="decl" id="aas_s::vertexes" title='aas_s::vertexes' data-ref="aas_s::vertexes">vertexes</dfn>;</td></tr>
+<tr><th id="198">198</th><td>	<i>//planes</i></td></tr>
+<tr><th id="199">199</th><td>	<em>int</em> <dfn class="decl" id="aas_s::numplanes" title='aas_s::numplanes' data-ref="aas_s::numplanes">numplanes</dfn>;</td></tr>
+<tr><th id="200">200</th><td>	<a class="typedef" href="aasfile.h.html#aas_plane_t" title='aas_plane_t' data-type='struct aas_plane_s' data-ref="aas_plane_t">aas_plane_t</a> *<dfn class="decl" id="aas_s::planes" title='aas_s::planes' data-ref="aas_s::planes">planes</dfn>;</td></tr>
+<tr><th id="201">201</th><td>	<i>//edges</i></td></tr>
+<tr><th id="202">202</th><td>	<em>int</em> <dfn class="decl" id="aas_s::numedges" title='aas_s::numedges' data-ref="aas_s::numedges">numedges</dfn>;</td></tr>
+<tr><th id="203">203</th><td>	<a class="typedef" href="aasfile.h.html#aas_edge_t" title='aas_edge_t' data-type='struct aas_edge_s' data-ref="aas_edge_t">aas_edge_t</a> *<dfn class="decl" id="aas_s::edges" title='aas_s::edges' data-ref="aas_s::edges">edges</dfn>;</td></tr>
+<tr><th id="204">204</th><td>	<i>//edge index</i></td></tr>
+<tr><th id="205">205</th><td>	<em>int</em> <dfn class="decl" id="aas_s::edgeindexsize" title='aas_s::edgeindexsize' data-ref="aas_s::edgeindexsize">edgeindexsize</dfn>;</td></tr>
+<tr><th id="206">206</th><td>	<a class="typedef" href="aasfile.h.html#aas_edgeindex_t" title='aas_edgeindex_t' data-type='int' data-ref="aas_edgeindex_t">aas_edgeindex_t</a> *<dfn class="decl" id="aas_s::edgeindex" title='aas_s::edgeindex' data-ref="aas_s::edgeindex">edgeindex</dfn>;</td></tr>
+<tr><th id="207">207</th><td>	<i>//faces</i></td></tr>
+<tr><th id="208">208</th><td>	<em>int</em> <dfn class="decl" id="aas_s::numfaces" title='aas_s::numfaces' data-ref="aas_s::numfaces">numfaces</dfn>;</td></tr>
+<tr><th id="209">209</th><td>	<a class="typedef" href="aasfile.h.html#aas_face_t" title='aas_face_t' data-type='struct aas_face_s' data-ref="aas_face_t">aas_face_t</a> *<dfn class="decl" id="aas_s::faces" title='aas_s::faces' data-ref="aas_s::faces">faces</dfn>;</td></tr>
+<tr><th id="210">210</th><td>	<i>//face index</i></td></tr>
+<tr><th id="211">211</th><td>	<em>int</em> <dfn class="decl" id="aas_s::faceindexsize" title='aas_s::faceindexsize' data-ref="aas_s::faceindexsize">faceindexsize</dfn>;</td></tr>
+<tr><th id="212">212</th><td>	<a class="typedef" href="aasfile.h.html#aas_faceindex_t" title='aas_faceindex_t' data-type='int' data-ref="aas_faceindex_t">aas_faceindex_t</a> *<dfn class="decl" id="aas_s::faceindex" title='aas_s::faceindex' data-ref="aas_s::faceindex">faceindex</dfn>;</td></tr>
+<tr><th id="213">213</th><td>	<i>//convex areas</i></td></tr>
+<tr><th id="214">214</th><td>	<em>int</em> <dfn class="decl" id="aas_s::numareas" title='aas_s::numareas' data-ref="aas_s::numareas">numareas</dfn>;</td></tr>
+<tr><th id="215">215</th><td>	<a class="typedef" href="aasfile.h.html#aas_area_t" title='aas_area_t' data-type='struct aas_area_s' data-ref="aas_area_t">aas_area_t</a> *<dfn class="decl" id="aas_s::areas" title='aas_s::areas' data-ref="aas_s::areas">areas</dfn>;</td></tr>
+<tr><th id="216">216</th><td>	<i>//convex area settings</i></td></tr>
+<tr><th id="217">217</th><td>	<em>int</em> <dfn class="decl" id="aas_s::numareasettings" title='aas_s::numareasettings' data-ref="aas_s::numareasettings">numareasettings</dfn>;</td></tr>
+<tr><th id="218">218</th><td>	<a class="typedef" href="aasfile.h.html#aas_areasettings_t" title='aas_areasettings_t' data-type='struct aas_areasettings_s' data-ref="aas_areasettings_t">aas_areasettings_t</a> *<dfn class="decl" id="aas_s::areasettings" title='aas_s::areasettings' data-ref="aas_s::areasettings">areasettings</dfn>;</td></tr>
+<tr><th id="219">219</th><td>	<i>//reachablity list</i></td></tr>
+<tr><th id="220">220</th><td>	<em>int</em> <dfn class="decl" id="aas_s::reachabilitysize" title='aas_s::reachabilitysize' data-ref="aas_s::reachabilitysize">reachabilitysize</dfn>;</td></tr>
+<tr><th id="221">221</th><td>	<a class="typedef" href="aasfile.h.html#aas_reachability_t" title='aas_reachability_t' data-type='struct aas_reachability_s' data-ref="aas_reachability_t">aas_reachability_t</a> *<dfn class="decl" id="aas_s::reachability" title='aas_s::reachability' data-ref="aas_s::reachability">reachability</dfn>;</td></tr>
+<tr><th id="222">222</th><td>	<i>//nodes of the bsp tree</i></td></tr>
+<tr><th id="223">223</th><td>	<em>int</em> <dfn class="decl" id="aas_s::numnodes" title='aas_s::numnodes' data-ref="aas_s::numnodes">numnodes</dfn>;</td></tr>
+<tr><th id="224">224</th><td>	<a class="typedef" href="aasfile.h.html#aas_node_t" title='aas_node_t' data-type='struct aas_node_s' data-ref="aas_node_t">aas_node_t</a> *<dfn class="decl" id="aas_s::nodes" title='aas_s::nodes' data-ref="aas_s::nodes">nodes</dfn>;</td></tr>
+<tr><th id="225">225</th><td>	<i>//cluster portals</i></td></tr>
+<tr><th id="226">226</th><td>	<em>int</em> <dfn class="decl" id="aas_s::numportals" title='aas_s::numportals' data-ref="aas_s::numportals">numportals</dfn>;</td></tr>
+<tr><th id="227">227</th><td>	<a class="typedef" href="aasfile.h.html#aas_portal_t" title='aas_portal_t' data-type='struct aas_portal_s' data-ref="aas_portal_t">aas_portal_t</a> *<dfn class="decl" id="aas_s::portals" title='aas_s::portals' data-ref="aas_s::portals">portals</dfn>;</td></tr>
+<tr><th id="228">228</th><td>	<i>//cluster portal index</i></td></tr>
+<tr><th id="229">229</th><td>	<em>int</em> <dfn class="decl" id="aas_s::portalindexsize" title='aas_s::portalindexsize' data-ref="aas_s::portalindexsize">portalindexsize</dfn>;</td></tr>
+<tr><th id="230">230</th><td>	<a class="typedef" href="aasfile.h.html#aas_portalindex_t" title='aas_portalindex_t' data-type='int' data-ref="aas_portalindex_t">aas_portalindex_t</a> *<dfn class="decl" id="aas_s::portalindex" title='aas_s::portalindex' data-ref="aas_s::portalindex">portalindex</dfn>;</td></tr>
+<tr><th id="231">231</th><td>	<i>//clusters</i></td></tr>
+<tr><th id="232">232</th><td>	<em>int</em> <dfn class="decl" id="aas_s::numclusters" title='aas_s::numclusters' data-ref="aas_s::numclusters">numclusters</dfn>;</td></tr>
+<tr><th id="233">233</th><td>	<a class="typedef" href="aasfile.h.html#aas_cluster_t" title='aas_cluster_t' data-type='struct aas_cluster_s' data-ref="aas_cluster_t">aas_cluster_t</a> *<dfn class="decl" id="aas_s::clusters" title='aas_s::clusters' data-ref="aas_s::clusters">clusters</dfn>;</td></tr>
+<tr><th id="234">234</th><td>	<i>//</i></td></tr>
+<tr><th id="235">235</th><td>	<em>int</em> <dfn class="decl" id="aas_s::numreachabilityareas" title='aas_s::numreachabilityareas' data-ref="aas_s::numreachabilityareas">numreachabilityareas</dfn>;</td></tr>
+<tr><th id="236">236</th><td>	<em>float</em> <dfn class="decl" id="aas_s::reachabilitytime" title='aas_s::reachabilitytime' data-ref="aas_s::reachabilitytime">reachabilitytime</dfn>;</td></tr>
+<tr><th id="237">237</th><td>	<i>//enities linked in the areas</i></td></tr>
+<tr><th id="238">238</th><td>	<a class="typedef" href="#aas_link_t" title='aas_link_t' data-type='struct aas_link_s' data-ref="aas_link_t">aas_link_t</a> *<dfn class="decl" id="aas_s::linkheap" title='aas_s::linkheap' data-ref="aas_s::linkheap">linkheap</dfn>;						<i>//heap with link structures</i></td></tr>
+<tr><th id="239">239</th><td>	<em>int</em> <dfn class="decl" id="aas_s::linkheapsize" title='aas_s::linkheapsize' data-ref="aas_s::linkheapsize">linkheapsize</dfn>;							<i>//size of the link heap</i></td></tr>
+<tr><th id="240">240</th><td>	<a class="typedef" href="#aas_link_t" title='aas_link_t' data-type='struct aas_link_s' data-ref="aas_link_t">aas_link_t</a> *<dfn class="decl" id="aas_s::freelinks" title='aas_s::freelinks' data-ref="aas_s::freelinks">freelinks</dfn>;						<i>//first free link</i></td></tr>
+<tr><th id="241">241</th><td>	<a class="typedef" href="#aas_link_t" title='aas_link_t' data-type='struct aas_link_s' data-ref="aas_link_t">aas_link_t</a> **<dfn class="decl" id="aas_s::arealinkedentities" title='aas_s::arealinkedentities' data-ref="aas_s::arealinkedentities">arealinkedentities</dfn>;			<i>//entities linked into areas</i></td></tr>
+<tr><th id="242">242</th><td>	<i>//entities</i></td></tr>
+<tr><th id="243">243</th><td>	<em>int</em> <dfn class="decl" id="aas_s::maxentities" title='aas_s::maxentities' data-ref="aas_s::maxentities">maxentities</dfn>;</td></tr>
+<tr><th id="244">244</th><td>	<em>int</em> <dfn class="decl" id="aas_s::maxclients" title='aas_s::maxclients' data-ref="aas_s::maxclients">maxclients</dfn>;</td></tr>
+<tr><th id="245">245</th><td>	<a class="typedef" href="#aas_entity_t" title='aas_entity_t' data-type='struct aas_entity_s' data-ref="aas_entity_t">aas_entity_t</a> *<dfn class="decl" id="aas_s::entities" title='aas_s::entities' data-ref="aas_s::entities">entities</dfn>;</td></tr>
+<tr><th id="246">246</th><td>	<i>//index to retrieve travel flag for a travel type</i></td></tr>
+<tr><th id="247">247</th><td>	<em>int</em> <dfn class="decl" id="aas_s::travelflagfortype" title='aas_s::travelflagfortype' data-ref="aas_s::travelflagfortype">travelflagfortype</dfn>[<a class="macro" href="aasfile.h.html#37" title="32" data-ref="_M/MAX_TRAVELTYPES">MAX_TRAVELTYPES</a>];</td></tr>
+<tr><th id="248">248</th><td>	<i>//travel flags for each area based on contents</i></td></tr>
+<tr><th id="249">249</th><td>	<em>int</em> *<dfn class="decl" id="aas_s::areacontentstravelflags" title='aas_s::areacontentstravelflags' data-ref="aas_s::areacontentstravelflags">areacontentstravelflags</dfn>;</td></tr>
+<tr><th id="250">250</th><td>	<i>//routing update</i></td></tr>
+<tr><th id="251">251</th><td>	<a class="typedef" href="#aas_routingupdate_t" title='aas_routingupdate_t' data-type='struct aas_routingupdate_s' data-ref="aas_routingupdate_t">aas_routingupdate_t</a> *<dfn class="decl" id="aas_s::areaupdate" title='aas_s::areaupdate' data-ref="aas_s::areaupdate">areaupdate</dfn>;</td></tr>
+<tr><th id="252">252</th><td>	<a class="typedef" href="#aas_routingupdate_t" title='aas_routingupdate_t' data-type='struct aas_routingupdate_s' data-ref="aas_routingupdate_t">aas_routingupdate_t</a> *<dfn class="decl" id="aas_s::portalupdate" title='aas_s::portalupdate' data-ref="aas_s::portalupdate">portalupdate</dfn>;</td></tr>
+<tr><th id="253">253</th><td>	<i>//number of routing updates during a frame (reset every frame)</i></td></tr>
+<tr><th id="254">254</th><td>	<em>int</em> <dfn class="decl" id="aas_s::frameroutingupdates" title='aas_s::frameroutingupdates' data-ref="aas_s::frameroutingupdates">frameroutingupdates</dfn>;</td></tr>
+<tr><th id="255">255</th><td>	<i>//reversed reachability links</i></td></tr>
+<tr><th id="256">256</th><td>	<a class="typedef" href="#aas_reversedreachability_t" title='aas_reversedreachability_t' data-type='struct aas_reversedreachability_s' data-ref="aas_reversedreachability_t">aas_reversedreachability_t</a> *<dfn class="decl" id="aas_s::reversedreachability" title='aas_s::reversedreachability' data-ref="aas_s::reversedreachability">reversedreachability</dfn>;</td></tr>
+<tr><th id="257">257</th><td>	<i>//travel times within the areas</i></td></tr>
+<tr><th id="258">258</th><td>	<em>unsigned</em> <em>short</em> ***<dfn class="decl" id="aas_s::areatraveltimes" title='aas_s::areatraveltimes' data-ref="aas_s::areatraveltimes">areatraveltimes</dfn>;</td></tr>
+<tr><th id="259">259</th><td>	<i>//array of size numclusters with cluster cache</i></td></tr>
+<tr><th id="260">260</th><td>	<a class="typedef" href="#aas_routingcache_t" title='aas_routingcache_t' data-type='struct aas_routingcache_s' data-ref="aas_routingcache_t">aas_routingcache_t</a> ***<dfn class="decl" id="aas_s::clusterareacache" title='aas_s::clusterareacache' data-ref="aas_s::clusterareacache">clusterareacache</dfn>;</td></tr>
+<tr><th id="261">261</th><td>	<a class="typedef" href="#aas_routingcache_t" title='aas_routingcache_t' data-type='struct aas_routingcache_s' data-ref="aas_routingcache_t">aas_routingcache_t</a> **<dfn class="decl" id="aas_s::portalcache" title='aas_s::portalcache' data-ref="aas_s::portalcache">portalcache</dfn>;</td></tr>
+<tr><th id="262">262</th><td>	<i>//cache list sorted on time</i></td></tr>
+<tr><th id="263">263</th><td>	<a class="typedef" href="#aas_routingcache_t" title='aas_routingcache_t' data-type='struct aas_routingcache_s' data-ref="aas_routingcache_t">aas_routingcache_t</a> *<dfn class="decl" id="aas_s::oldestcache" title='aas_s::oldestcache' data-ref="aas_s::oldestcache">oldestcache</dfn>;		<i>// start of cache list sorted on time</i></td></tr>
+<tr><th id="264">264</th><td>	<a class="typedef" href="#aas_routingcache_t" title='aas_routingcache_t' data-type='struct aas_routingcache_s' data-ref="aas_routingcache_t">aas_routingcache_t</a> *<dfn class="decl" id="aas_s::newestcache" title='aas_s::newestcache' data-ref="aas_s::newestcache">newestcache</dfn>;		<i>// end of cache list sorted on time</i></td></tr>
+<tr><th id="265">265</th><td>	<i>//maximum travel time through portal areas</i></td></tr>
+<tr><th id="266">266</th><td>	<em>int</em> *<dfn class="decl" id="aas_s::portalmaxtraveltimes" title='aas_s::portalmaxtraveltimes' data-ref="aas_s::portalmaxtraveltimes">portalmaxtraveltimes</dfn>;</td></tr>
+<tr><th id="267">267</th><td>	<i>//areas the reachabilities go through</i></td></tr>
+<tr><th id="268">268</th><td>	<em>int</em> *<dfn class="decl" id="aas_s::reachabilityareaindex" title='aas_s::reachabilityareaindex' data-ref="aas_s::reachabilityareaindex">reachabilityareaindex</dfn>;</td></tr>
+<tr><th id="269">269</th><td>	<a class="typedef" href="#aas_reachabilityareas_t" title='aas_reachabilityareas_t' data-type='struct aas_reachabilityareas_s' data-ref="aas_reachabilityareas_t">aas_reachabilityareas_t</a> *<dfn class="decl" id="aas_s::reachabilityareas" title='aas_s::reachabilityareas' data-ref="aas_s::reachabilityareas">reachabilityareas</dfn>;</td></tr>
+<tr><th id="270">270</th><td>} <dfn class="typedef" id="aas_t" title='aas_t' data-type='struct aas_s' data-ref="aas_t">aas_t</dfn>;</td></tr>
+<tr><th id="271">271</th><td></td></tr>
+<tr><th id="272">272</th><td><u>#define <dfn class="macro" id="_M/AASINTERN" data-ref="_M/AASINTERN">AASINTERN</dfn></u></td></tr>
+<tr><th id="273">273</th><td></td></tr>
+<tr><th id="274">274</th><td><u>#<span data-ppcond="274">ifndef</span> <span class="macro" data-ref="_M/BSPCINCLUDE">BSPCINCLUDE</span></u></td></tr>
+<tr><th id="275">275</th><td></td></tr>
+<tr><th id="276">276</th><td><u>#include <a href="be_aas_main.h.html">"be_aas_main.h"</a></u></td></tr>
+<tr><th id="277">277</th><td><u>#include <a href="be_aas_entity.h.html">"be_aas_entity.h"</a></u></td></tr>
+<tr><th id="278">278</th><td><u>#include <a href="be_aas_sample.h.html">"be_aas_sample.h"</a></u></td></tr>
+<tr><th id="279">279</th><td><u>#include <a href="be_aas_cluster.h.html">"be_aas_cluster.h"</a></u></td></tr>
+<tr><th id="280">280</th><td><u>#include <a href="be_aas_reach.h.html">"be_aas_reach.h"</a></u></td></tr>
+<tr><th id="281">281</th><td><u>#include <a href="be_aas_route.h.html">"be_aas_route.h"</a></u></td></tr>
+<tr><th id="282">282</th><td><u>#include <a href="be_aas_routealt.h.html">"be_aas_routealt.h"</a></u></td></tr>
+<tr><th id="283">283</th><td><u>#include <a href="be_aas_debug.h.html">"be_aas_debug.h"</a></u></td></tr>
+<tr><th id="284">284</th><td><u>#include <a href="be_aas_file.h.html">"be_aas_file.h"</a></u></td></tr>
+<tr><th id="285">285</th><td><u>#include <a href="be_aas_optimize.h.html">"be_aas_optimize.h"</a></u></td></tr>
+<tr><th id="286">286</th><td><u>#include <a href="be_aas_bsp.h.html">"be_aas_bsp.h"</a></u></td></tr>
+<tr><th id="287">287</th><td><u>#include <a href="be_aas_move.h.html">"be_aas_move.h"</a></u></td></tr>
+<tr><th id="288">288</th><td></td></tr>
+<tr><th id="289">289</th><td><u>#<span data-ppcond="274">endif</span> //BSPCINCLUDE</u></td></tr>
+<tr><th id="290">290</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='be_aas_bspq3.c.html'>codebrowser/code/botlib/be_aas_bspq3.c</a><br/>Generated on <em>2017-Aug-29</em> from project codebrowser revision <em>63e07af</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

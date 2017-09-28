@@ -1,0 +1,22 @@
+<dec f='codebrowser/code/opusfile-0.8/include/opusfile.h' l='1606' type='opus_int32 op_bitrate(const OggOpusFile * _of, int _li)'/>
+<doc f='codebrowser/code/opusfile-0.8/include/opusfile.h' l='1586'>/**Computes the bitrate of the stream, or of an individual link in a
+    (possibly-chained) Ogg Opus stream.
+   The stream must be seekable to compute the bitrate.
+   For unseekable streams, use op_bitrate_instant() to get periodic estimates.
+   \warning If the Opus stream (or link) is concurrently multiplexed with other
+    logical streams (e.g., video), this uses the size of the entire stream (or
+    link) to compute the bitrate, not just the number of bytes in the first
+    logical Opus stream.
+   Returning the latter requires scanning the entire file, but this may be done
+    by decoding the whole file and calling op_bitrate_instant() once at the
+    end.
+   Install a trivial decoding callback with op_set_decode_callback() if you
+    wish to skip actual decoding during this process.
+   \param _of The \c OggOpusFile from which to retrieve the bitrate.
+   \param _li The index of the link whose bitrate should be computed.
+              Use a negative number to get the bitrate of the whole stream.
+   \return The bitrate on success, or a negative value on error.
+   \retval #OP_EINVAL The stream was only partially open, the stream was not
+                       seekable, or \a _li was larger than the number of
+                       links.*/</doc>
+<def f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='1803' ll='1809' type='opus_int32 op_bitrate(const OggOpusFile * _of, int _li)'/>

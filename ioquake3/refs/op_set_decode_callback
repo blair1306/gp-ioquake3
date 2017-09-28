@@ -1,0 +1,23 @@
+<dec f='codebrowser/code/opusfile-0.8/include/opusfile.h' l='1808' type='void op_set_decode_callback(OggOpusFile * _of, op_decode_cb_func _decode_cb, void * _ctx)'/>
+<doc f='codebrowser/code/opusfile-0.8/include/opusfile.h' l='1787'>/**Sets the packet decode callback function.
+   If set, this is called once for each packet that needs to be decoded.
+   This can be used by advanced applications to do additional processing on the
+    compressed or uncompressed data.
+   For example, an application might save the final entropy coder state for
+    debugging and testing purposes, or it might apply additional filters
+    before the downmixing, dithering, or soft-clipping performed by
+    &lt;tt&gt;libopusfile&lt;/tt&gt;, so long as these filters do not introduce any
+    latency.
+
+   A call to this function is no guarantee that the audio will eventually be
+    delivered to the application.
+   &lt;tt&gt;libopusfile&lt;/tt&gt; may discard some or all of the decoded audio data
+    (i.e., at the beginning or end of a link, or after a seek), however the
+    callback is still required to provide all of it.
+   \param _of        The \c OggOpusFile on which to set the decode callback.
+   \param _decode_cb The callback function to call.
+                     This may be &lt;code&gt;NULL&lt;/code&gt; to disable calling the
+                      callback.
+   \param _ctx       The application-provided context pointer to pass to the
+                      callback on each call.*/</doc>
+<def f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='2657' ll='2661' type='void op_set_decode_callback(OggOpusFile * _of, op_decode_cb_func _decode_cb, void * _ctx)'/>

@@ -1,0 +1,19 @@
+<dec f='codebrowser/code/server/server.h' l='119' type='2'/>
+<doc f='codebrowser/code/server/server.h' l='118'>// connection for a couple seconds</doc>
+<doc f='codebrowser/code/server/server.h' l='119'>// has been assigned to a client_t, but no gamestate yet</doc>
+<use f='codebrowser/code/server/sv_ccmds.c' l='318' u='r' c='SV_MapRestart_f'/>
+<use f='codebrowser/code/server/sv_ccmds.c' l='1193' u='r' c='SV_Status_f'/>
+<use f='codebrowser/code/server/sv_client.c' l='580' u='r' c='SV_DirectConnect'/>
+<use f='codebrowser/code/server/sv_client.c' l='594' u='r' c='SV_DirectConnect'/>
+<use f='codebrowser/code/server/sv_client.c' l='694' u='r' c='SV_DropClient'/>
+<use f='codebrowser/code/server/sv_init.c' l='307' u='r' c='SV_ChangeMaxClients'/>
+<use f='codebrowser/code/server/sv_init.c' l='325' u='r' c='SV_ChangeMaxClients'/>
+<use f='codebrowser/code/server/sv_init.c' l='342' u='r' c='SV_ChangeMaxClients'/>
+<use f='codebrowser/code/server/sv_init.c' l='456' u='r' c='SV_SpawnServer'/>
+<use f='codebrowser/code/server/sv_init.c' l='515' u='r' c='SV_SpawnServer'/>
+<use f='codebrowser/code/server/sv_init.c' l='539' u='r' c='SV_SpawnServer'/>
+<use f='codebrowser/code/server/sv_init.c' l='723' u='r' c='SV_FinalMessage'/>
+<use f='codebrowser/code/server/sv_main.c' l='571' u='r' c='SVC_Status'/>
+<use f='codebrowser/code/server/sv_main.c' l='631' u='r' c='SVC_Info'/>
+<use f='codebrowser/code/server/sv_main.c' l='970' u='r' c='SV_CheckTimeouts'/>
+<use f='codebrowser/code/server/sv_main.c' l='1001' u='r' c='SV_CheckPaused'/>

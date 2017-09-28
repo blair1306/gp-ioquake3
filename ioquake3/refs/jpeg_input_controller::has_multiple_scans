@@ -1,0 +1,14 @@
+<dec f='codebrowser/code/jpeg-8c/jpegint.h' l='156' type='boolean'/>
+<offset>256</offset>
+<doc f='codebrowser/code/jpeg-8c/jpegint.h' l='155'>/* State variables made visible to other modules */</doc>
+<doc f='codebrowser/code/jpeg-8c/jpegint.h' l='156'>/* True if file has multiple scans */</doc>
+<use f='codebrowser/code/jpeg-8c/jdapimin.c' l='356' u='r' c='jpeg_has_multiple_scans'/>
+<use f='codebrowser/code/jpeg-8c/jdapistd.c' l='52' u='r' c='jpeg_start_decompress'/>
+<use f='codebrowser/code/jpeg-8c/jdinput.c' l='381' u='w' c='initial_setup'/>
+<use f='codebrowser/code/jpeg-8c/jdinput.c' l='383' u='w' c='initial_setup'/>
+<use f='codebrowser/code/jpeg-8c/jdinput.c' l='585' u='r' c='consume_markers'/>
+<use f='codebrowser/code/jpeg-8c/jdinput.c' l='624' u='w' c='reset_input_controller'/>
+<use f='codebrowser/code/jpeg-8c/jdinput.c' l='658' u='w' c='jinit_input_controller'/>
+<use f='codebrowser/code/jpeg-8c/jdmaster.c' l='365' u='r' c='master_selection'/>
+<use f='codebrowser/code/jpeg-8c/jdmaster.c' l='383' u='r' c='master_selection'/>
+<use f='codebrowser/code/jpeg-8c/jdtrans.c' l='129' u='r' c='transdecode_master_selection'/>

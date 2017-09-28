@@ -1,0 +1,29 @@
+<dec f='codebrowser/code/cgame/cg_local.h' l='1512' type='void trap_SendConsoleCommand(const char * text)'/>
+<doc f='codebrowser/code/cgame/cg_local.h' l='1508'>// add commands to the local console as if they were typed in
+// for map changing, etc.  The command is not executed immediately,
+// but will be executed in order the next time console commands
+// are processed</doc>
+<use f='codebrowser/code/cgame/cg_newdraw.c' l='103' u='c' c='CG_CheckOrderPending'/>
+<use f='codebrowser/code/cgame/cg_newdraw.c' l='107' u='c' c='CG_CheckOrderPending'/>
+<use f='codebrowser/code/cgame/cg_newdraw.c' l='109' u='c' c='CG_CheckOrderPending'/>
+<use f='codebrowser/code/cgame/cg_newdraw.c' l='112' u='c' c='CG_CheckOrderPending'/>
+<use f='codebrowser/code/cgame/cg_newdraw.c' l='116' u='c' c='CG_CheckOrderPending'/>
+<def f='codebrowser/code/cgame/cg_syscalls.c' l='108' ll='110' type='void trap_SendConsoleCommand(const char * text)'/>
+<dec f='codebrowser/code/game/g_local.h' l='762' type='void trap_SendConsoleCommand(int exec_when, const char * text)'/>
+<use f='codebrowser/code/game/ai_main.c' l='674' u='c' c='BotInterbreeding'/>
+<use f='codebrowser/code/game/g_arenas.c' l='134' u='c' c='UpdateTournamentInfo'/>
+<use f='codebrowser/code/game/g_bot.c' l='228' u='c' c='PlayerIntroSound'/>
+<use f='codebrowser/code/game/g_bot.c' l='327' u='c' c='G_AddRandomBot'/>
+<use f='codebrowser/code/game/g_bot.c' l='350' u='c' c='G_RemoveRandomBot'/>
+<use f='codebrowser/code/game/g_bot.c' l='889' u='c' c='G_SpawnBots'/>
+<use f='codebrowser/code/game/g_client.c' l='1313' u='c' c='ClientDisconnect'/>
+<use f='codebrowser/code/game/g_cmds.c' l='1355' u='c' c='Cmd_CallVote_f'/>
+<use f='codebrowser/code/game/g_main.c' l='1057' u='c' c='ExitLevel'/>
+<use f='codebrowser/code/game/g_main.c' l='1070' u='c' c='ExitLevel'/>
+<use f='codebrowser/code/game/g_main.c' l='1072' u='c' c='ExitLevel'/>
+<use f='codebrowser/code/game/g_main.c' l='1495' u='c' c='CheckTournament'/>
+<use f='codebrowser/code/game/g_main.c' l='1550' u='c' c='CheckTournament'/>
+<use f='codebrowser/code/game/g_main.c' l='1566' u='c' c='CheckVote'/>
+<use f='codebrowser/code/game/g_main.c' l='1701' u='c' c='CheckTeamVote'/>
+<use f='codebrowser/code/game/g_svcmds.c' l='497' u='c' c='ConsoleCommand'/>
+<def f='codebrowser/code/game/g_syscalls.c' l='90' ll='92' type='void trap_SendConsoleCommand(int exec_when, const char * text)'/>

@@ -1,0 +1,34 @@
+<dec f='codebrowser/code/tools/lcc/src/c.h' l='102' type='float'/>
+<offset>0</offset>
+<dec f='codebrowser/code/qcommon/q_shared.h' l='201' type='float'/>
+<offset>0</offset>
+<use f='codebrowser/code/cgame/cg_syscalls.c' l='41' u='w' c='PASSFLOAT'/>
+<use f='codebrowser/code/qcommon/qcommon.h' l='381' u='r' c='_vmf'/>
+<use f='codebrowser/code/client/cl_cgame.c' l='399' u='w' c='FloatAsInt'/>
+<use f='codebrowser/code/client/cl_ui.c' l='711' u='w' c='FloatAsInt'/>
+<use f='codebrowser/code/game/g_syscalls.c' l='40' u='w' c='PASSFLOAT'/>
+<use f='codebrowser/code/game/g_syscalls.c' l='297' u='r' c='trap_AAS_Time'/>
+<use f='codebrowser/code/game/g_syscalls.c' l='483' u='r' c='trap_Characteristic_Float'/>
+<use f='codebrowser/code/game/g_syscalls.c' l='489' u='r' c='trap_Characteristic_BFloat'/>
+<use f='codebrowser/code/game/g_syscalls.c' l='659' u='r' c='trap_BotAvoidGoalTime'/>
+<use f='codebrowser/code/qcommon/cm_trace.c' l='139' u='w' c='SquareRootFloat'/>
+<use f='codebrowser/code/qcommon/cm_trace.c' l='141' u='r' c='SquareRootFloat'/>
+<use f='codebrowser/code/qcommon/msg.c' l='310' u='w' c='MSG_WriteFloat'/>
+<use f='codebrowser/code/qcommon/msg.c' l='441' u='w' c='MSG_ReadFloat'/>
+<use f='codebrowser/code/qcommon/msg.c' l='444' u='r' c='MSG_ReadFloat'/>
+<use f='codebrowser/code/qcommon/msg.c' l='593' u='w' c='MSG_WriteDeltaFloat'/>
+<use f='codebrowser/code/qcommon/msg.c' l='603' u='r' c='MSG_ReadDeltaFloat'/>
+<use f='codebrowser/code/qcommon/msg.c' l='649' u='w' c='MSG_WriteDeltaKeyFloat'/>
+<use f='codebrowser/code/qcommon/msg.c' l='659' u='r' c='MSG_ReadDeltaKeyFloat'/>
+<use f='codebrowser/code/qcommon/q_math.c' l='509' u='w' c='Q_rsqrt'/>
+<use f='codebrowser/code/qcommon/q_math.c' l='511' u='r' c='Q_rsqrt'/>
+<use f='codebrowser/code/qcommon/q_math.c' l='520' u='w' c='Q_fabs'/>
+<use f='codebrowser/code/qcommon/q_math.c' l='522' u='r' c='Q_fabs'/>
+<use f='codebrowser/code/qcommon/q_math.c' l='1008' u='w' c='Q_isnan'/>
+<use f='codebrowser/code/qcommon/q_shared.c' l='234' u='w' c='FloatSwap'/>
+<use f='codebrowser/code/qcommon/q_shared.c' l='237' u='r' c='FloatSwap'/>
+<use f='codebrowser/code/server/sv_game.c' l='281' u='w' c='FloatAsInt'/>
+<use f='codebrowser/code/tools/lcc/src/bytecode.c' l='44' u='w' c='b_defconst'/>
+<use f='codebrowser/code/tools/lcc/src/bytecode.c' l='73' u='w' c='b_defsymbol'/>
+<use f='codebrowser/code/ui/ui_syscalls.c' l='39' u='w' c='PASSFLOAT'/>
+<use f='codebrowser/code/ui/ui_syscalls.c' l='73' u='r' c='trap_Cvar_VariableValue'/>

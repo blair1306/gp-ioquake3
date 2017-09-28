@@ -1,0 +1,11 @@
+<dec f='include/SDL2/SDL_hints.h' l='584'/>
+<doc f='include/SDL2/SDL_hints.h' l='574'>/**
+ * \brief A variable to control whether certain IMEs should handle text editing internally instead of sending SDL_TEXTEDITING events.
+ *
+ * The variable can be set to the following values:
+ *   &quot;0&quot;       - SDL_TEXTEDITING events are sent, and it is the application&apos;s
+ *               responsibility to render the text from these events and 
+ *               differentiate it somehow from committed text. (default)
+ *   &quot;1&quot;       - If supported by the IME then SDL_TEXTEDITING events are not sent, 
+ *               and text that is being composed will be rendered in its own UI.
+ */</doc>

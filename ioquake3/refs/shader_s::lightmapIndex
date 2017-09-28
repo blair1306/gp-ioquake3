@@ -1,0 +1,46 @@
+<dec f='codebrowser/code/renderergl1/tr_local.h' l='317' type='int'/>
+<offset>512</offset>
+<doc f='codebrowser/code/renderergl1/tr_local.h' l='317'>// for a shader to match, both name and lightmapIndex must match</doc>
+<use f='codebrowser/code/renderergl1/tr_shader.c' l='630' u='r' c='ParseStage'/>
+<use f='codebrowser/code/renderergl1/tr_shader.c' l='633' u='r' c='ParseStage'/>
+<use f='codebrowser/code/renderergl1/tr_shader.c' l='2138' u='r' c='VertexLightingCollapse'/>
+<use f='codebrowser/code/renderergl1/tr_shader.c' l='2188' u='w' c='InitShader'/>
+<use f='codebrowser/code/renderergl1/tr_shader.c' l='2360' u='r' c='FinishShader'/>
+<use f='codebrowser/code/renderergl1/tr_shader.c' l='2365' u='w' c='FinishShader'/>
+<use f='codebrowser/code/renderergl1/tr_shader.c' l='2545' u='r' c='R_FindShader'/>
+<use f='codebrowser/code/renderergl1/tr_shader.c' l='2609' u='r' c='R_FindShader'/>
+<use f='codebrowser/code/renderergl1/tr_shader.c' l='2615' u='r' c='R_FindShader'/>
+<use f='codebrowser/code/renderergl1/tr_shader.c' l='2622' u='r' c='R_FindShader'/>
+<use f='codebrowser/code/renderergl1/tr_shader.c' l='2631' u='r' c='R_FindShader'/>
+<use f='codebrowser/code/renderergl1/tr_shader.c' l='2644' u='r' c='R_FindShader'/>
+<use f='codebrowser/code/renderergl1/tr_shader.c' l='2682' u='r' c='RE_RegisterShaderFromImage'/>
+<use f='codebrowser/code/renderergl1/tr_shader.c' l='2701' u='r' c='RE_RegisterShaderFromImage'/>
+<use f='codebrowser/code/renderergl1/tr_shader.c' l='2707' u='r' c='RE_RegisterShaderFromImage'/>
+<use f='codebrowser/code/renderergl1/tr_shader.c' l='2714' u='r' c='RE_RegisterShaderFromImage'/>
+<use f='codebrowser/code/renderergl1/tr_shader.c' l='2723' u='r' c='RE_RegisterShaderFromImage'/>
+<use f='codebrowser/code/renderergl1/tr_shader.c' l='2736' u='r' c='RE_RegisterShaderFromImage'/>
+<use f='codebrowser/code/renderergl1/tr_shader.c' l='2896' u='r' c='R_ShaderList_f'/>
+<dec f='codebrowser/code/renderergl2/tr_local.h' l='430' type='int'/>
+<offset>512</offset>
+<doc f='codebrowser/code/renderergl2/tr_local.h' l='430'>// for a shader to match, both name and lightmapIndex must match</doc>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='642' u='r' c='ParseStage'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='645' u='r' c='ParseStage'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='658' u='r' c='ParseStage'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='661' u='r' c='ParseStage'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='2239' u='r' c='CollapseStagesToLightall'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='2844' u='r' c='VertexLightingCollapse'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='2894' u='w' c='InitShader'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='3077' u='r' c='FinishShader'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='3266' u='r' c='R_FindShader'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='3327' u='r' c='R_FindShader'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='3333' u='r' c='R_FindShader'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='3340' u='r' c='R_FindShader'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='3349' u='r' c='R_FindShader'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='3362' u='r' c='R_FindShader'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='3400' u='r' c='RE_RegisterShaderFromImage'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='3413' u='r' c='RE_RegisterShaderFromImage'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='3419' u='r' c='RE_RegisterShaderFromImage'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='3426' u='r' c='RE_RegisterShaderFromImage'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='3435' u='r' c='RE_RegisterShaderFromImage'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='3448' u='r' c='RE_RegisterShaderFromImage'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='3608' u='r' c='R_ShaderList_f'/>

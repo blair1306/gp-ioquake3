@@ -1,0 +1,9 @@
+<def f='codebrowser/code/sys/con_tty.c' l='278' ll='281' type='void CON_SigCont(int signum)'/>
+<use f='codebrowser/code/sys/con_tty.c' l='300' u='r' c='CON_Init'/>
+<doc f='codebrowser/code/sys/con_tty.c' l='270'>/*
+==================
+CON_SigCont
+Reinitialize console input after receiving SIGCONT, as on Linux the terminal seems to lose all
+set attributes if user did CTRL+Z and then does fg again.
+==================
+*/</doc>

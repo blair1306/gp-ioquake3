@@ -1,0 +1,5 @@
+<dec f='codebrowser/code/opusfile-0.8/include/opusfile.h' l='1233' type='OggOpusFile * op_open_callbacks(void * _source, const OpusFileCallbacks * _cb, const unsigned char * _initial_data, size_t _initial_bytes, int * _error)'/>
+<use f='codebrowser/code/client/snd_codec_opus.c' l='242' u='c' c='S_OggOpus_CodecOpenStream'/>
+<use f='codebrowser/code/opusfile-0.8/src/http.c' l='3419' u='c' c='op_vopen_url'/>
+<def f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='1614' ll='1626' type='OggOpusFile * op_open_callbacks(void * _source, const OpusFileCallbacks * _cb, const unsigned char * _initial_data, size_t _initial_bytes, int * _error)'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='1637' u='c' c='op_open_close_on_failure'/>

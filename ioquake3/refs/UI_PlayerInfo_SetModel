@@ -1,0 +1,21 @@
+<dec f='codebrowser/code/q3_ui/ui_local.h' l='527' type='void UI_PlayerInfo_SetModel(playerInfo_t * pi, const char * model)'/>
+<use f='codebrowser/code/q3_ui/ui_controls2.c' l='745' u='c' c='Controls_DrawPlayer'/>
+<use f='codebrowser/code/q3_ui/ui_controls2.c' l='1163' u='c' c='Controls_InitModel'/>
+<use f='codebrowser/code/q3_ui/ui_playermodel.c' l='184' u='c' c='PlayerModel_UpdateModel'/>
+<def f='codebrowser/code/q3_ui/ui_players.c' l='1127' ll='1138' type='void UI_PlayerInfo_SetModel(playerInfo_t * pi, const char * model)'/>
+<doc f='codebrowser/code/q3_ui/ui_players.c' l='1122'>/*
+===============
+UI_PlayerInfo_SetModel
+===============
+*/</doc>
+<use f='codebrowser/code/q3_ui/ui_playersettings.c' l='240' u='c' c='PlayerSettings_DrawPlayer'/>
+<use f='codebrowser/code/q3_ui/ui_playersettings.c' l='311' u='c' c='PlayerSettings_SetMenuItems'/>
+<dec f='codebrowser/code/ui/ui_local.h' l='571' type='void UI_PlayerInfo_SetModel(playerInfo_t * pi, const char * model, const char * headmodel, char * teamName)'/>
+<use f='codebrowser/code/ui/ui_main.c' l='1307' u='c' c='UI_DrawPlayerModel'/>
+<use f='codebrowser/code/ui/ui_main.c' l='1502' u='c' c='UI_DrawOpponent'/>
+<def f='codebrowser/code/ui/ui_players.c' l='1245' ll='1256' type='void UI_PlayerInfo_SetModel(playerInfo_t * pi, const char * model, const char * headmodel, char * teamName)'/>
+<doc f='codebrowser/code/ui/ui_players.c' l='1240'>/*
+===============
+UI_PlayerInfo_SetModel
+===============
+*/</doc>

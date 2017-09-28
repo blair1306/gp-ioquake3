@@ -1,0 +1,104 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>sys_autoupdater.c source code [codebrowser/code/sys/sys_autoupdater.c] - Woboq Code Browser</title>
+<link rel="stylesheet" href="../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'codebrowser/code/sys/sys_autoupdater.c'; var root_path = '../../..'; var data_path = '../../../../data';</script>
+<script src='../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../..'>codebrowser</a>/<a href='..'>code</a>/<a href='./'>sys</a>/<a href='sys_autoupdater.c.html'>sys_autoupdater.c</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/*</i></td></tr>
+<tr><th id="2">2</th><td><i>The code in this file is in the public domain. The rest of ioquake3</i></td></tr>
+<tr><th id="3">3</th><td><i>is licensed under the GPLv2. Do not mingle code, please!</i></td></tr>
+<tr><th id="4">4</th><td><i>*/</i></td></tr>
+<tr><th id="5">5</th><td></td></tr>
+<tr><th id="6">6</th><td><u>#<span data-ppcond="6">ifdef</span> <span class="macro" data-ref="_M/USE_AUTOUPDATER">USE_AUTOUPDATER</span></u></td></tr>
+<tr><th id="7">7</th><td><u>#  ifndef AUTOUPDATER_BIN</u></td></tr>
+<tr><th id="8">8</th><td><u>#    error The build system should have defined AUTOUPDATER_BIN</u></td></tr>
+<tr><th id="9">9</th><td><u>#  endif</u></td></tr>
+<tr><th id="10">10</th><td></td></tr>
+<tr><th id="11">11</th><td><u>#  ifdef _WIN32</u></td></tr>
+<tr><th id="12">12</th><td><u>#    define WIN32_LEAN_AND_MEAN 1</u></td></tr>
+<tr><th id="13">13</th><td><u>#    include &lt;windows.h&gt;</u></td></tr>
+<tr><th id="14">14</th><td><u>#  else</u></td></tr>
+<tr><th id="15">15</th><td><u>#    include &lt;unistd.h&gt;</u></td></tr>
+<tr><th id="16">16</th><td><u>#  endif</u></td></tr>
+<tr><th id="17">17</th><td></td></tr>
+<tr><th id="18">18</th><td><u>#  include &lt;stdio.h&gt;</u></td></tr>
+<tr><th id="19">19</th><td><u>#  include &lt;string.h&gt;</u></td></tr>
+<tr><th id="20">20</th><td><u>#<span data-ppcond="6">endif</span></u></td></tr>
+<tr><th id="21">21</th><td></td></tr>
+<tr><th id="22">22</th><td><em>void</em> <dfn class="decl def" id="Sys_LaunchAutoupdater" title='Sys_LaunchAutoupdater' data-ref="Sys_LaunchAutoupdater">Sys_LaunchAutoupdater</dfn>(<em>int</em> <dfn class="local col1 decl" id="1argc" title='argc' data-type='int' data-ref="1argc">argc</dfn>, <em>char</em> **<dfn class="local col2 decl" id="2argv" title='argv' data-type='char **' data-ref="2argv">argv</dfn>)</td></tr>
+<tr><th id="23">23</th><td>{</td></tr>
+<tr><th id="24">24</th><td><u>#<span data-ppcond="24">ifdef</span> <span class="macro" data-ref="_M/USE_AUTOUPDATER">USE_AUTOUPDATER</span></u></td></tr>
+<tr><th id="25">25</th><td>	<u>#ifdef _WIN32</u></td></tr>
+<tr><th id="26">26</th><td>	{</td></tr>
+<tr><th id="27">27</th><td>		<i>/* We don't need the Unix pipe() tapdance here because Windows lets children wait on parent processes. */</i></td></tr>
+<tr><th id="28">28</th><td>		PROCESS_INFORMATION procinfo;</td></tr>
+<tr><th id="29">29</th><td>		STARTUPINFO startinfo;</td></tr>
+<tr><th id="30">30</th><td>		<em>char</em> cmdline[<var>128</var>];</td></tr>
+<tr><th id="31">31</th><td>		memset(&amp;procinfo, <kbd>'\0'</kbd>, <b>sizeof</b> (procinfo));</td></tr>
+<tr><th id="32">32</th><td>		memset(&amp;startinfo, <kbd>'\0'</kbd>, <b>sizeof</b> (startinfo));</td></tr>
+<tr><th id="33">33</th><td>		startinfo.cb = <b>sizeof</b> (startinfo);</td></tr>
+<tr><th id="34">34</th><td>		sprintf(cmdline, <q>""</q> AUTOUPDATER_BIN <q>" --waitpid %u"</q>, (<em>unsigned</em> <em>int</em>) GetCurrentProcessId());</td></tr>
+<tr><th id="35">35</th><td></td></tr>
+<tr><th id="36">36</th><td>		<b>if</b> (CreateProcessA(AUTOUPDATER_BIN, cmdline, NULL, NULL, FALSE, CREATE_NO_WINDOW, NULL, NULL, &amp;startinfo, &amp;procinfo))</td></tr>
+<tr><th id="37">37</th><td>		{</td></tr>
+<tr><th id="38">38</th><td>			<i>/* close handles now so child cleans up immediately if nothing to do */</i></td></tr>
+<tr><th id="39">39</th><td>			CloseHandle(procinfo.hProcess);</td></tr>
+<tr><th id="40">40</th><td>			CloseHandle(procinfo.hThread);</td></tr>
+<tr><th id="41">41</th><td>		}</td></tr>
+<tr><th id="42">42</th><td>	}</td></tr>
+<tr><th id="43">43</th><td>	<u>#else</u></td></tr>
+<tr><th id="44">44</th><td>	<em>int</em> updater_pipes[<var>2</var>];</td></tr>
+<tr><th id="45">45</th><td>	<b>if</b> (pipe(updater_pipes) == <var>0</var>)</td></tr>
+<tr><th id="46">46</th><td>	{</td></tr>
+<tr><th id="47">47</th><td>		pid_t pid = fork();</td></tr>
+<tr><th id="48">48</th><td>		<b>if</b> (pid == -<var>1</var>)  <i>/* failure, oh well. */</i></td></tr>
+<tr><th id="49">49</th><td>		{</td></tr>
+<tr><th id="50">50</th><td>			close(updater_pipes[<var>0</var>]);</td></tr>
+<tr><th id="51">51</th><td>			close(updater_pipes[<var>1</var>]);</td></tr>
+<tr><th id="52">52</th><td>		}</td></tr>
+<tr><th id="53">53</th><td>		<b>else</b> <b>if</b> (pid == <var>0</var>)  <i>/* child process */</i></td></tr>
+<tr><th id="54">54</th><td>		{</td></tr>
+<tr><th id="55">55</th><td>			close(updater_pipes[<var>1</var>]);  <i>/* don't need write end. */</i></td></tr>
+<tr><th id="56">56</th><td>			<b>if</b> (dup2(updater_pipes[<var>0</var>], <var>3</var>) != -<var>1</var>)</td></tr>
+<tr><th id="57">57</th><td>			{</td></tr>
+<tr><th id="58">58</th><td>				<em>char</em> pidstr[<var>64</var>];</td></tr>
+<tr><th id="59">59</th><td>				<em>char</em> *ptr = strrchr(argv[<var>0</var>], <kbd>'/'</kbd>);</td></tr>
+<tr><th id="60">60</th><td>				<b>if</b> (ptr)</td></tr>
+<tr><th id="61">61</th><td>					*ptr = <kbd>'\0'</kbd>;</td></tr>
+<tr><th id="62">62</th><td>				<b>if</b> (chdir(argv[<var>0</var>]) == -<var>1</var>) {</td></tr>
+<tr><th id="63">63</th><td>					_exit(<var>1</var>);  <i>/* oh well. */</i></td></tr>
+<tr><th id="64">64</th><td>				}</td></tr>
+<tr><th id="65">65</th><td>				<u>#ifdef __APPLE__</u></td></tr>
+<tr><th id="66">66</th><td>				<b>if</b> (chdir(<q>"../.."</q>) == -<var>1</var>) {  <i>/* put this at base of app bundle so paths make sense later. */</i></td></tr>
+<tr><th id="67">67</th><td>					_exit(<var>1</var>);  <i>/* oh well. */</i></td></tr>
+<tr><th id="68">68</th><td>				}</td></tr>
+<tr><th id="69">69</th><td>				<u>#endif</u></td></tr>
+<tr><th id="70">70</th><td>				snprintf(pidstr, <b>sizeof</b> (pidstr), <q>"%lld"</q>, (<em>long</em> <em>long</em>) getppid());</td></tr>
+<tr><th id="71">71</th><td>				execl(AUTOUPDATER_BIN, AUTOUPDATER_BIN, <q>"--waitpid"</q>, pidstr, NULL);</td></tr>
+<tr><th id="72">72</th><td>			}</td></tr>
+<tr><th id="73">73</th><td>			_exit(<var>0</var>);  <i>/* oh well. */</i></td></tr>
+<tr><th id="74">74</th><td>		}</td></tr>
+<tr><th id="75">75</th><td>		<b>else</b>   <i>/* parent process */</i></td></tr>
+<tr><th id="76">76</th><td>		{</td></tr>
+<tr><th id="77">77</th><td>			<i>/* leave the write end open until we terminate so updater can block on it. */</i></td></tr>
+<tr><th id="78">78</th><td>			close(updater_pipes[<var>0</var>]);</td></tr>
+<tr><th id="79">79</th><td>		}</td></tr>
+<tr><th id="80">80</th><td>	}</td></tr>
+<tr><th id="81">81</th><td>	<u>#endif</u></td></tr>
+<tr><th id="82">82</th><td><u>#<span data-ppcond="24">endif</span></u></td></tr>
+<tr><th id="83">83</th><td></td></tr>
+<tr><th id="84">84</th><td>	(<em>void</em>) <a class="local col1 ref" href="#1argc" title='argc' data-ref="1argc">argc</a>; (<em>void</em>) <a class="local col2 ref" href="#2argv" title='argv' data-ref="2argv">argv</a>;  <i>/* possibly unused. Pacify compilers. */</i></td></tr>
+<tr><th id="85">85</th><td>}</td></tr>
+<tr><th id="86">86</th><td></td></tr>
+<tr><th id="87">87</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated on <em>2017-Aug-29</em> from project codebrowser revision <em>63e07af</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

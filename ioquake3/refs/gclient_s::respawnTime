@@ -1,0 +1,8 @@
+<dec f='codebrowser/code/game/g_local.h' l='294' type='int'/>
+<offset>5856</offset>
+<doc f='codebrowser/code/game/g_local.h' l='293'>// timers</doc>
+<doc f='codebrowser/code/game/g_local.h' l='294'>// can respawn when time &gt; this, force after g_forcerespwan</doc>
+<use f='codebrowser/code/game/g_active.c' l='996' u='r' c='ClientThink_real'/>
+<use f='codebrowser/code/game/g_active.c' l='999' u='r' c='ClientThink_real'/>
+<use f='codebrowser/code/game/g_client.c' l='1193' u='w' c='ClientSpawn'/>
+<use f='codebrowser/code/game/g_combat.c' l='608' u='w' c='player_die'/>

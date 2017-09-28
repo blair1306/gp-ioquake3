@@ -1,0 +1,43 @@
+<dec f='codebrowser/code/renderergl1/tr_local.h' l='1567' type='void * R_GetCommandBuffer(int bytes)'/>
+<def f='codebrowser/code/renderergl1/tr_cmds.c' l='149' ll='151' type='void * R_GetCommandBuffer(int bytes)'/>
+<use f='codebrowser/code/renderergl1/tr_cmds.c' l='163' u='c' c='R_AddDrawSurfCmd'/>
+<use f='codebrowser/code/renderergl1/tr_cmds.c' l='190' u='c' c='RE_SetColor'/>
+<use f='codebrowser/code/renderergl1/tr_cmds.c' l='220' u='c' c='RE_StretchPic'/>
+<use f='codebrowser/code/renderergl1/tr_cmds.c' l='368' u='c' c='RE_BeginFrame'/>
+<use f='codebrowser/code/renderergl1/tr_cmds.c' l='401' u='c' c='RE_BeginFrame'/>
+<use f='codebrowser/code/renderergl1/tr_cmds.c' l='404' u='c' c='RE_BeginFrame'/>
+<use f='codebrowser/code/renderergl1/tr_cmds.c' l='411' u='c' c='RE_BeginFrame'/>
+<use f='codebrowser/code/renderergl1/tr_cmds.c' l='416' u='c' c='RE_BeginFrame'/>
+<use f='codebrowser/code/renderergl1/tr_cmds.c' l='430' u='c' c='RE_BeginFrame'/>
+<use f='codebrowser/code/renderergl1/tr_cmds.c' l='502' u='c' c='RE_TakeVideoFrame'/>
+<doc f='codebrowser/code/renderergl1/tr_cmds.c' l='142'>/*
+=============
+R_GetCommandBuffer
+
+returns NULL if there is not enough space for important commands
+=============
+*/</doc>
+<use f='codebrowser/code/renderergl1/tr_init.c' l='503' u='c' c='R_TakeScreenshot'/>
+<dec f='codebrowser/code/renderergl2/tr_local.h' l='2414' type='void * R_GetCommandBuffer(int bytes)'/>
+<def f='codebrowser/code/renderergl2/tr_cmds.c' l='156' ll='158' type='void * R_GetCommandBuffer(int bytes)'/>
+<use f='codebrowser/code/renderergl2/tr_cmds.c' l='170' u='c' c='R_AddDrawSurfCmd'/>
+<use f='codebrowser/code/renderergl2/tr_cmds.c' l='193' u='c' c='R_AddCapShadowmapCmd'/>
+<use f='codebrowser/code/renderergl2/tr_cmds.c' l='213' u='c' c='R_AddPostProcessCmd'/>
+<use f='codebrowser/code/renderergl2/tr_cmds.c' l='236' u='c' c='RE_SetColor'/>
+<use f='codebrowser/code/renderergl2/tr_cmds.c' l='266' u='c' c='RE_StretchPic'/>
+<use f='codebrowser/code/renderergl2/tr_cmds.c' l='414' u='c' c='RE_BeginFrame'/>
+<use f='codebrowser/code/renderergl2/tr_cmds.c' l='468' u='c' c='RE_BeginFrame'/>
+<use f='codebrowser/code/renderergl2/tr_cmds.c' l='471' u='c' c='RE_BeginFrame'/>
+<use f='codebrowser/code/renderergl2/tr_cmds.c' l='478' u='c' c='RE_BeginFrame'/>
+<use f='codebrowser/code/renderergl2/tr_cmds.c' l='483' u='c' c='RE_BeginFrame'/>
+<use f='codebrowser/code/renderergl2/tr_cmds.c' l='497' u='c' c='RE_BeginFrame'/>
+<use f='codebrowser/code/renderergl2/tr_cmds.c' l='573' u='c' c='RE_TakeVideoFrame'/>
+<doc f='codebrowser/code/renderergl2/tr_cmds.c' l='149'>/*
+=============
+R_GetCommandBuffer
+
+returns NULL if there is not enough space for important commands
+=============
+*/</doc>
+<use f='codebrowser/code/renderergl2/tr_init.c' l='573' u='c' c='R_TakeScreenshot'/>
+<use f='codebrowser/code/renderergl2/tr_init.c' l='834' u='c' c='R_ExportCubemaps'/>

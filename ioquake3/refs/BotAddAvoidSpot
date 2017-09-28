@@ -1,0 +1,10 @@
+<dec f='codebrowser/code/botlib/be_ai_move.h' l='135' type='void BotAddAvoidSpot(int movestate, vec_t * origin, float radius, int type)'/>
+<doc f='codebrowser/code/botlib/be_ai_move.h' l='134'>//add a spot to avoid (if type == AVOID_CLEAR all spots are removed)</doc>
+<def f='codebrowser/code/botlib/be_ai_move.c' l='717' ll='735' type='void BotAddAvoidSpot(int movestate, vec_t * origin, float radius, int type)'/>
+<doc f='codebrowser/code/botlib/be_ai_move.c' l='711'>//===========================================================================
+//
+// Parameter:			-
+// Returns:				-
+// Changes Globals:		-
+//===========================================================================</doc>
+<use f='codebrowser/code/botlib/be_interface.c' l='849' u='r' c='Init_AI_Export'/>

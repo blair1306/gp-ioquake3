@@ -1,0 +1,11 @@
+<dec f='codebrowser/code/client/client.h' l='127' type='outPacket_t [32]'/>
+<offset>178944</offset>
+<doc f='codebrowser/code/client/client.h' l='125'>// frames may need to be packed into a single packet</doc>
+<doc f='codebrowser/code/client/client.h' l='127'>// information about each packet we have sent out</doc>
+<use f='codebrowser/code/client/cl_input.c' l='713' u='m' c='CL_ReadyToSendPacket'/>
+<use f='codebrowser/code/client/cl_input.c' l='792' u='m' c='CL_WritePacket'/>
+<use f='codebrowser/code/client/cl_input.c' l='885' u='m' c='CL_WritePacket'/>
+<use f='codebrowser/code/client/cl_input.c' l='886' u='m' c='CL_WritePacket'/>
+<use f='codebrowser/code/client/cl_input.c' l='887' u='m' c='CL_WritePacket'/>
+<use f='codebrowser/code/client/cl_parse.c' l='311' u='m' c='CL_ParseSnapshot'/>
+<use f='codebrowser/code/client/cl_parse.c' l='312' u='m' c='CL_ParseSnapshot'/>

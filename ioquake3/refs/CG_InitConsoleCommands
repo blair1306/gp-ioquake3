@@ -1,0 +1,11 @@
+<dec f='codebrowser/code/cgame/cg_local.h' l='1449' type='void CG_InitConsoleCommands()'/>
+<def f='codebrowser/code/cgame/cg_consolecmds.c' l='540' ll='583' type='void CG_InitConsoleCommands()'/>
+<doc f='codebrowser/code/cgame/cg_consolecmds.c' l='532'>/*
+=================
+CG_InitConsoleCommands
+
+Let the client system know about all of our commands
+so it can perform tab completion
+=================
+*/</doc>
+<use f='codebrowser/code/cgame/cg_main.c' l='1866' u='c' c='CG_Init'/>

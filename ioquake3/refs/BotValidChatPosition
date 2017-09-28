@@ -1,0 +1,16 @@
+<dec f='codebrowser/code/game/ai_chat.h' l='58' type='int BotValidChatPosition(bot_state_t * bs)'/>
+<def f='codebrowser/code/game/ai_chat.c' l='348' ll='381' type='int BotValidChatPosition(bot_state_t * bs)'/>
+<use f='codebrowser/code/game/ai_chat.c' l='403' u='c' c='BotChat_EnterGame'/>
+<use f='codebrowser/code/game/ai_chat.c' l='668' u='c' c='BotChat_Kill'/>
+<use f='codebrowser/code/game/ai_chat.c' l='736' u='c' c='BotChat_EnemySuicide'/>
+<use f='codebrowser/code/game/ai_chat.c' l='776' u='c' c='BotChat_HitTalking'/>
+<use f='codebrowser/code/game/ai_chat.c' l='816' u='c' c='BotChat_HitNoDeath'/>
+<use f='codebrowser/code/game/ai_chat.c' l='854' u='c' c='BotChat_HitNoKill'/>
+<use f='codebrowser/code/game/ai_chat.c' l='897' u='c' c='BotChat_Random'/>
+<doc f='codebrowser/code/game/ai_chat.c' l='343'>/*
+==================
+BotValidChatPosition
+==================
+*/</doc>
+<doc f='codebrowser/code/game/ai_chat.h' l='57'>// returns true if the bot can chat at the current position</doc>
+<use f='codebrowser/code/game/ai_dmq3.c' l='4687' u='c' c='BotCheckConsoleMessages'/>

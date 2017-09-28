@@ -1,0 +1,10 @@
+<dec f='codebrowser/code/game/bg_public.h' l='60'/>
+<doc f='codebrowser/code/game/bg_public.h' l='54'>//
+// config strings are a general means of communicating variable length strings
+// from the server to all connected clients.
+//
+
+// CS_SERVERINFO and CS_SYSTEMINFO are defined in q_shared.h</doc>
+<use f='codebrowser/code/cgame/cg_main.c' l='1175' u='c'/>
+<use f='codebrowser/code/cgame/cg_servercmds.c' l='293' u='c'/>
+<use f='codebrowser/code/game/g_spawn.c' l='578' u='c'/>

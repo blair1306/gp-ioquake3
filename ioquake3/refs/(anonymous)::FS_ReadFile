@@ -1,0 +1,29 @@
+<dec f='codebrowser/code/renderercommon/tr_public.h' l='156' type='long (*)(const char *, void **)'/>
+<offset>1408</offset>
+<use f='codebrowser/code/client/cl_main.c' l='3257' u='w' c='CL_InitRef'/>
+<use f='codebrowser/code/renderercommon/tr_font.c' l='374' u='r' c='RE_RegisterFont'/>
+<use f='codebrowser/code/renderercommon/tr_font.c' l='376' u='r' c='RE_RegisterFont'/>
+<use f='codebrowser/code/renderercommon/tr_image_bmp.c' l='72' u='r' c='R_LoadBMP'/>
+<use f='codebrowser/code/renderercommon/tr_image_jpg.c' l='119' u='r' c='R_LoadJPG'/>
+<use f='codebrowser/code/renderercommon/tr_image_pcx.c' l='77' u='r' c='R_LoadPCX'/>
+<use f='codebrowser/code/renderercommon/tr_image_png.c' l='255' u='r' c='ReadBufferedFile'/>
+<use f='codebrowser/code/renderercommon/tr_image_tga.c' l='66' u='r' c='R_LoadTGA'/>
+<use f='codebrowser/code/renderergl1/tr_bsp.c' l='1818' u='r' c='RE_LoadWorldMap'/>
+<use f='codebrowser/code/renderergl1/tr_image.c' l='1568' u='r' c='RE_RegisterSkin'/>
+<use f='codebrowser/code/renderergl1/tr_model.c' l='69' u='r' c='R_RegisterMD3'/>
+<use f='codebrowser/code/renderergl1/tr_model.c' l='126' u='r' c='R_RegisterMDR'/>
+<use f='codebrowser/code/renderergl1/tr_model.c' l='163' u='r' c='R_RegisterIQM'/>
+<use f='codebrowser/code/renderergl1/tr_shader.c' l='2981' u='r' c='ScanAndLoadShaderFiles'/>
+<use f='codebrowser/code/renderergl2/tr_bsp.c' l='330' u='r' c='R_LoadLightmaps'/>
+<use f='codebrowser/code/renderergl2/tr_bsp.c' l='1732' u='r' c='R_LoadSurfaces'/>
+<use f='codebrowser/code/renderergl2/tr_bsp.c' l='2217' u='r' c='R_LoadLightGrid'/>
+<use f='codebrowser/code/renderergl2/tr_bsp.c' l='2465' u='r' c='R_LoadEnvironmentJson'/>
+<use f='codebrowser/code/renderergl2/tr_bsp.c' l='2743' u='r' c='RE_LoadWorldMap'/>
+<use f='codebrowser/code/renderergl2/tr_glsl.c' l='432' u='r' c='GLSL_LoadGPUShaderText'/>
+<use f='codebrowser/code/renderergl2/tr_image.c' l='3119' u='r' c='RE_RegisterSkin'/>
+<use f='codebrowser/code/renderergl2/tr_image_dds.c' l='247' u='r' c='R_LoadDDS'/>
+<use f='codebrowser/code/renderergl2/tr_model.c' l='70' u='r' c='R_RegisterMD3'/>
+<use f='codebrowser/code/renderergl2/tr_model.c' l='127' u='r' c='R_RegisterMDR'/>
+<use f='codebrowser/code/renderergl2/tr_model.c' l='164' u='r' c='R_RegisterIQM'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='3687' u='r' c='ScanAndLoadShaderFiles'/>
+<use f='codebrowser/code/renderergl2/tr_shader.c' l='3694' u='r' c='ScanAndLoadShaderFiles'/>

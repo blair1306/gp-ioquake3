@@ -1,0 +1,23 @@
+<dec f='codebrowser/code/game/g_local.h' l='616' type='void ClientUserinfoChanged(int clientNum)'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='121' u='c' c='BotSetUserInfo'/>
+<def f='codebrowser/code/game/g_client.c' l='703' ll='867' type='void ClientUserinfoChanged(int clientNum)'/>
+<use f='codebrowser/code/game/g_client.c' l='959' u='c' c='ClientConnect'/>
+<use f='codebrowser/code/game/g_client.c' l='1306' u='c' c='ClientDisconnect'/>
+<doc f='codebrowser/code/game/g_client.c' l='692'>/*
+===========
+ClientUserInfoChanged
+
+Called from ClientConnect when the player first connects and
+directly by the server system when the player updates a userinfo variable.
+
+The game can override any of the settings and call trap_SetUserinfo
+if desired.
+============
+*/</doc>
+<use f='codebrowser/code/game/g_cmds.c' l='465' u='c' c='Cmd_TeamTask_f'/>
+<use f='codebrowser/code/game/g_cmds.c' l='643' u='c' c='SetTeam'/>
+<use f='codebrowser/code/game/g_main.c' l='216' u='c' c='vmMain'/>
+<use f='codebrowser/code/game/g_main.c' l='709' u='c' c='AdjustTournamentScores'/>
+<use f='codebrowser/code/game/g_main.c' l='715' u='c' c='AdjustTournamentScores'/>
+<use f='codebrowser/code/game/g_main.c' l='1628' u='c' c='SetLeader'/>
+<use f='codebrowser/code/game/g_main.c' l='1632' u='c' c='SetLeader'/>

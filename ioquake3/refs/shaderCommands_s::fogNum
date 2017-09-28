@@ -1,0 +1,34 @@
+<dec f='codebrowser/code/renderergl1/tr_local.h' l='1221' type='int'/>
+<offset>832128</offset>
+<use f='codebrowser/code/renderergl1/tr_flares.c' l='375' u='w' c='RB_RenderFlare'/>
+<use f='codebrowser/code/renderergl1/tr_shade.c' l='324' u='w' c='RB_BeginSurface'/>
+<use f='codebrowser/code/renderergl1/tr_shade.c' l='769' u='r' c='RB_FogPass'/>
+<use f='codebrowser/code/renderergl1/tr_shade.c' l='860' u='r' c='ComputeColors'/>
+<use f='codebrowser/code/renderergl1/tr_shade.c' l='963' u='r' c='ComputeColors'/>
+<use f='codebrowser/code/renderergl1/tr_shade.c' l='1259' u='r' c='RB_StageIteratorGeneric'/>
+<use f='codebrowser/code/renderergl1/tr_shade.c' l='1346' u='r' c='RB_StageIteratorVertexLitTexture'/>
+<use f='codebrowser/code/renderergl1/tr_shade.c' l='1453' u='r' c='RB_StageIteratorLightmappedMultitexture'/>
+<use f='codebrowser/code/renderergl1/tr_shade_calc.c' l='818' u='r' c='RB_CalcFogTexCoords'/>
+<use f='codebrowser/code/renderergl1/tr_surface.c' l='66' u='r' c='RB_CheckOverflow'/>
+<use f='codebrowser/code/renderergl1/tr_surface.c' l='1057' u='r' c='RB_SurfaceGrid'/>
+<use f='codebrowser/code/renderergl1/tr_surface.c' l='1218' u='r' c='RB_SurfaceFlare'/>
+<dec f='codebrowser/code/renderergl2/tr_local.h' l='1985' type='int'/>
+<offset>1185152</offset>
+<use f='codebrowser/code/renderergl2/tr_flares.c' l='389' u='w' c='RB_RenderFlare'/>
+<use f='codebrowser/code/renderergl2/tr_glsl.c' l='1413' u='r' c='GLSL_GetGenericShaderProgram'/>
+<use f='codebrowser/code/renderergl2/tr_shade.c' l='155' u='w' c='RB_BeginSurface'/>
+<use f='codebrowser/code/renderergl2/tr_shade.c' l='466' u='r' c='ComputeShaderColors'/>
+<use f='codebrowser/code/renderergl2/tr_shade.c' l='576' u='r' c='ComputeFogValues'/>
+<use f='codebrowser/code/renderergl2/tr_shade.c' l='579' u='r' c='ComputeFogValues'/>
+<use f='codebrowser/code/renderergl2/tr_shade.c' l='705' u='r' c='ForwardDlight'/>
+<use f='codebrowser/code/renderergl2/tr_shade.c' l='917' u='r' c='RB_FogPass'/>
+<use f='codebrowser/code/renderergl2/tr_shade.c' l='1083' u='r' c='RB_IterateStagesGeneric'/>
+<use f='codebrowser/code/renderergl2/tr_shade.c' l='1144' u='r' c='RB_IterateStagesGeneric'/>
+<use f='codebrowser/code/renderergl2/tr_shade.c' l='1557' u='r' c='RB_StageIteratorGeneric'/>
+<use f='codebrowser/code/renderergl2/tr_shade_calc.c' l='688' u='r' c='RB_CalcFogTexCoords'/>
+<use f='codebrowser/code/renderergl2/tr_surface.c' l='66' u='r' c='RB_CheckOverflow'/>
+<use f='codebrowser/code/renderergl2/tr_surface.c' l='74' u='r' c='RB_CheckVao'/>
+<use f='codebrowser/code/renderergl2/tr_surface.c' l='431' u='r' c='RB_SurfaceVaoCached'/>
+<use f='codebrowser/code/renderergl2/tr_surface.c' l='1018' u='r' c='RB_SurfaceGrid'/>
+<use f='codebrowser/code/renderergl2/tr_surface.c' l='1209' u='r' c='RB_SurfaceFlare'/>
+<use f='codebrowser/code/renderergl2/tr_surface.c' l='1231' u='r' c='RB_SurfaceVaoMdvMesh'/>

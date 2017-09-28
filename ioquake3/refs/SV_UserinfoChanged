@@ -1,0 +1,12 @@
+<dec f='codebrowser/code/server/server.h' l='375' type='void SV_UserinfoChanged(client_t * cl)'/>
+<use f='codebrowser/code/server/sv_client.c' l='573' u='c' c='SV_DirectConnect'/>
+<def f='codebrowser/code/server/sv_client.c' l='1394' ll='1486' type='void SV_UserinfoChanged(client_t * cl)'/>
+<use f='codebrowser/code/server/sv_client.c' l='1497' u='c' c='SV_UpdateUserinfo_f'/>
+<doc f='codebrowser/code/server/sv_client.c' l='1386'>/*
+=================
+SV_UserinfoChanged
+
+Pull specific info from a newly changed userinfo string
+into a more C friendly form.
+=================
+*/</doc>

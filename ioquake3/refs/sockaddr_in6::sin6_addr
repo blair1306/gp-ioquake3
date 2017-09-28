@@ -1,0 +1,12 @@
+<dec f='include/netinet/in.h' l='259' type='struct in6_addr'/>
+<offset>64</offset>
+<doc f='include/netinet/in.h' l='259'>/* IPv6 address */</doc>
+<use f='codebrowser/code/qcommon/net_ip.c' l='225' u='w' c='NetadrToSockadr'/>
+<use f='codebrowser/code/qcommon/net_ip.c' l='232' u='w' c='NetadrToSockadr'/>
+<use f='codebrowser/code/qcommon/net_ip.c' l='247' u='a' c='SockadrToNetadr'/>
+<use f='codebrowser/code/qcommon/net_ip.c' l='758' u='a' c='Sys_IsLANAddress'/>
+<use f='codebrowser/code/qcommon/net_ip.c' l='759' u='a' c='Sys_IsLANAddress'/>
+<use f='codebrowser/code/qcommon/net_ip.c' l='928' u='w' c='NET_IP6Socket'/>
+<use f='codebrowser/code/qcommon/net_ip.c' l='979' u='a' c='NET_SetMulticast6'/>
+<use f='codebrowser/code/qcommon/net_ip.c' l='1006' u='a' c='NET_JoinMulticast6'/>
+<use f='codebrowser/code/qcommon/net_ip.c' l='1006' u='a' c='NET_JoinMulticast6'/>

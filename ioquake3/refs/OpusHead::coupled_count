@@ -1,0 +1,13 @@
+<dec f='codebrowser/code/opusfile-0.8/include/opusfile.h' l='259' type='int'/>
+<offset>224</offset>
+<doc f='codebrowser/code/opusfile-0.8/include/opusfile.h' l='253'>/**The number of coupled Opus streams in each Ogg packet, in the range
+      0...127.
+     This must satisfy &lt;code&gt;0 &lt;= coupled_count &lt;= stream_count&lt;/code&gt; and
+      &lt;code&gt;coupled_count + stream_count &lt;= 255&lt;/code&gt;.
+     The coupled streams appear first, before all uncoupled streams, in an Ogg
+      Opus packet.*/</doc>
+<use f='codebrowser/code/opusfile-0.8/src/info.c' l='57' u='w' c='opus_head_parse'/>
+<use f='codebrowser/code/opusfile-0.8/src/info.c' l='71' u='w' c='opus_head_parse'/>
+<use f='codebrowser/code/opusfile-0.8/src/info.c' l='72' u='r' c='opus_head_parse'/>
+<use f='codebrowser/code/opusfile-0.8/src/info.c' l='74' u='r' c='opus_head_parse'/>
+<use f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='1352' u='r' c='op_make_decode_ready'/>

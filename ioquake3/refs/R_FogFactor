@@ -1,0 +1,28 @@
+<dec f='codebrowser/code/renderergl1/tr_local.h' l='1168' type='float R_FogFactor(float s, float t)'/>
+<def f='codebrowser/code/renderergl1/tr_image.c' l='1135' ll='1159' type='float R_FogFactor(float s, float t)'/>
+<use f='codebrowser/code/renderergl1/tr_image.c' l='1178' u='c' c='R_CreateFogImage'/>
+<doc f='codebrowser/code/renderergl1/tr_image.c' l='1126'>/*
+================
+R_FogFactor
+
+Returns a 0.0 to 1.0 fog density value
+This is called for each texel of the fog texture on startup
+and for each vertex of transparent shaders in fog dynamically
+================
+*/</doc>
+<use f='codebrowser/code/renderergl1/tr_shade_calc.c' l='744' u='c' c='RB_CalcModulateColorsByFog'/>
+<use f='codebrowser/code/renderergl1/tr_shade_calc.c' l='764' u='c' c='RB_CalcModulateAlphasByFog'/>
+<use f='codebrowser/code/renderergl1/tr_shade_calc.c' l='782' u='c' c='RB_CalcModulateRGBAsByFog'/>
+<dec f='codebrowser/code/renderergl2/tr_local.h' l='1916' type='float R_FogFactor(float s, float t)'/>
+<def f='codebrowser/code/renderergl2/tr_image.c' l='2620' ll='2644' type='float R_FogFactor(float s, float t)'/>
+<use f='codebrowser/code/renderergl2/tr_image.c' l='2663' u='c' c='R_CreateFogImage'/>
+<doc f='codebrowser/code/renderergl2/tr_image.c' l='2611'>/*
+================
+R_FogFactor
+
+Returns a 0.0 to 1.0 fog density value
+This is called for each texel of the fog texture on startup
+and for each vertex of transparent shaders in fog dynamically
+================
+*/</doc>
+<use f='codebrowser/code/renderergl2/tr_shade_calc.c' l='653' u='c' c='RB_CalcModulateColorsByFog'/>

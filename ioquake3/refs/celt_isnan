@@ -1,0 +1,8 @@
+<def f='codebrowser/code/opus-1.1.4/celt/arch.h' l='158' ll='163' type='int celt_isnan(float x)'/>
+<doc f='codebrowser/code/opus-1.1.4/celt/arch.h' l='156'>/* This code should reliably detect NaN/inf even when -ffast-math is used.
+   Assumes IEEE 754 format. */</doc>
+<use f='codebrowser/code/opus-1.1.4/src/analysis.c' l='281' u='c' c='tonality_analysis'/>
+<use f='codebrowser/code/opus-1.1.4/src/analysis.c' l='361' u='c' c='tonality_analysis'/>
+<use f='codebrowser/code/opus-1.1.4/src/mlp.c' l='80' u='c' c='tansig_approx'/>
+<use f='codebrowser/code/opus-1.1.4/src/opus_encoder.c' l='1481' u='c' c='opus_encode_native'/>
+<use f='codebrowser/code/opus-1.1.4/src/opus_multistream_encoder.c' l='280' u='c' c='surround_analysis'/>

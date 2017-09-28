@@ -1,0 +1,13 @@
+<dec f='codebrowser/code/cgame/cg_local.h' l='322' type='int'/>
+<offset>896</offset>
+<doc f='codebrowser/code/cgame/cg_local.h' l='322'>// location index for team mode</doc>
+<use f='codebrowser/code/cgame/cg_draw.c' l='903' u='r' c='CG_DrawTeamOverlay'/>
+<use f='codebrowser/code/cgame/cg_newdraw.c' l='413' u='r' c='CG_DrawSelectedPlayerLocation'/>
+<use f='codebrowser/code/cgame/cg_newdraw.c' l='424' u='r' c='CG_DrawPlayerLocation'/>
+<use f='codebrowser/code/cgame/cg_newdraw.c' l='1350' u='r' c='CG_DrawNewTeamInfo'/>
+<use f='codebrowser/code/cgame/cg_servercmds.c' l='138' u='w' c='CG_ParseTeamInfo'/>
+<dec f='codebrowser/code/game/g_local.h' l='201' type='int'/>
+<offset>32</offset>
+<use f='codebrowser/code/game/g_team.c' l='1108' u='r' c='TeamplayInfoMessage'/>
+<use f='codebrowser/code/game/g_team.c' l='1140' u='w' c='CheckTeamStatus'/>
+<use f='codebrowser/code/game/g_team.c' l='1142' u='w' c='CheckTeamStatus'/>

@@ -1,0 +1,23 @@
+<dec f='codebrowser/code/botlib/be_aas_move.h' l='65' type='int AAS_HorizontalVelocityForJump(float zvel, vec_t * start, vec_t * end, float * velocity)'/>
+<dec f='codebrowser/code/botlib/be_aas_move.h' l='65' type='int AAS_HorizontalVelocityForJump(float zvel, vec_t * start, vec_t * end, float * velocity)'/>
+<doc f='codebrowser/code/botlib/be_aas_move.h' l='64'>//calculates the horizontal velocity needed for a jump and returns true this velocity could be calculated</doc>
+<use f='codebrowser/code/botlib/be_aas_debug.c' l='618' u='c' c='AAS_ShowReachability'/>
+<use f='codebrowser/code/botlib/be_aas_debug.c' l='643' u='c' c='AAS_ShowReachability'/>
+<def f='codebrowser/code/botlib/be_aas_move.c' l='1051' ll='1090' type='int AAS_HorizontalVelocityForJump(float zvel, vec_t * start, vec_t * end, float * velocity)'/>
+<doc f='codebrowser/code/botlib/be_aas_move.c' l='1040'>//===========================================================================
+// calculates the horizontal velocity needed to perform a jump from start
+// to end
+//
+// Parameter:			zvel	: z velocity for jump
+//						start	: start position of jump
+//						end		: end position of jump
+//						*speed	: returned speed for jump
+// Returns:				qfalse if too high or too far from start to end
+// Changes Globals:		-
+//===========================================================================</doc>
+<use f='codebrowser/code/botlib/be_aas_reach.c' l='2194' u='c' c='AAS_Reachability_Jump'/>
+<use f='codebrowser/code/botlib/be_aas_reach.c' l='2204' u='c' c='AAS_Reachability_Jump'/>
+<use f='codebrowser/code/botlib/be_aas_reach.c' l='3232' u='c' c='AAS_FindFaceReachabilities'/>
+<use f='codebrowser/code/botlib/be_aas_reach.c' l='3709' u='c' c='AAS_Reachability_JumpPad'/>
+<use f='codebrowser/code/botlib/be_aas_reach.c' l='4053' u='c' c='AAS_Reachability_WeaponJump'/>
+<use f='codebrowser/code/botlib/be_ai_move.c' l='1629' u='c' c='BotTravel_WalkOffLedge'/>

@@ -1,0 +1,51 @@
+<dec f='codebrowser/code/client/client.h' l='286' type='netadr_t'/>
+<dec f='codebrowser/code/client/client.h' l='293' type='netadr_t'/>
+<offset>0</offset>
+<use f='codebrowser/code/client/cl_main.c' l='2444' u='w' c='CL_InitServerInfo'/>
+<use f='codebrowser/code/client/cl_main.c' l='2554' u='r' c='CL_ServersResponsePacket'/>
+<use f='codebrowser/code/client/cl_main.c' l='3803' u='r' c='CL_SetServerInfoByAddress'/>
+<use f='codebrowser/code/client/cl_main.c' l='3809' u='r' c='CL_SetServerInfoByAddress'/>
+<use f='codebrowser/code/client/cl_main.c' l='3815' u='r' c='CL_SetServerInfoByAddress'/>
+<use f='codebrowser/code/client/cl_main.c' l='3870' u='m' c='CL_ServerInfoPacket'/>
+<use f='codebrowser/code/client/cl_main.c' l='3870' u='r' c='CL_ServerInfoPacket'/>
+<use f='codebrowser/code/client/cl_main.c' l='3908' u='m' c='CL_ServerInfoPacket'/>
+<use f='codebrowser/code/client/cl_main.c' l='3913' u='r' c='CL_ServerInfoPacket'/>
+<use f='codebrowser/code/client/cl_main.c' l='4279' u='m' c='CL_GetPing'/>
+<use f='codebrowser/code/client/cl_main.c' l='4287' u='r' c='CL_GetPing'/>
+<use f='codebrowser/code/client/cl_main.c' l='4306' u='r' c='CL_GetPing'/>
+<use f='codebrowser/code/client/cl_main.c' l='4318' u='m' c='CL_GetPingInfo'/>
+<use f='codebrowser/code/client/cl_main.c' l='4339' u='m' c='CL_ClearPing'/>
+<use f='codebrowser/code/client/cl_main.c' l='4357' u='m' c='CL_GetPingQueueCount'/>
+<use f='codebrowser/code/client/cl_main.c' l='4382' u='m' c='CL_GetFreePing'/>
+<use f='codebrowser/code/client/cl_main.c' l='4400' u='m' c='CL_GetFreePing'/>
+<use f='codebrowser/code/client/cl_main.c' l='4463' u='a' c='CL_Ping_f'/>
+<use f='codebrowser/code/client/cl_main.c' l='4467' u='r' c='CL_Ping_f'/>
+<use f='codebrowser/code/client/cl_main.c' l='4519' u='m' c='CL_UpdateVisiblePings_f'/>
+<use f='codebrowser/code/client/cl_main.c' l='4522' u='r' c='CL_UpdateVisiblePings_f'/>
+<use f='codebrowser/code/client/cl_main.c' l='4522' u='r' c='CL_UpdateVisiblePings_f'/>
+<use f='codebrowser/code/client/cl_main.c' l='4530' u='m' c='CL_UpdateVisiblePings_f'/>
+<use f='codebrowser/code/client/cl_main.c' l='4534' u='a' c='CL_UpdateVisiblePings_f'/>
+<use f='codebrowser/code/client/cl_main.c' l='4534' u='a' c='CL_UpdateVisiblePings_f'/>
+<use f='codebrowser/code/client/cl_main.c' l='4537' u='r' c='CL_UpdateVisiblePings_f'/>
+<use f='codebrowser/code/client/cl_main.c' l='4563' u='m' c='CL_UpdateVisiblePings_f'/>
+<use f='codebrowser/code/client/cl_ui.c' l='151' u='r' c='LAN_AddServer'/>
+<use f='codebrowser/code/client/cl_ui.c' l='156' u='w' c='LAN_AddServer'/>
+<use f='codebrowser/code/client/cl_ui.c' l='195' u='r' c='LAN_RemoveServer'/>
+<use f='codebrowser/code/client/cl_ui.c' l='239' u='r' c='LAN_GetServerAddressString'/>
+<use f='codebrowser/code/client/cl_ui.c' l='246' u='r' c='LAN_GetServerAddressString'/>
+<use f='codebrowser/code/client/cl_ui.c' l='252' u='r' c='LAN_GetServerAddressString'/>
+<use f='codebrowser/code/client/cl_ui.c' l='299' u='r' c='LAN_GetServerInfo'/>
+<dec f='codebrowser/code/server/server.h' l='219' type='netadr_t'/>
+<offset>0</offset>
+<use f='codebrowser/code/server/sv_client.c' l='111' u='r' c='SV_GetChallenge'/>
+<use f='codebrowser/code/server/sv_client.c' l='137' u='w' c='SV_GetChallenge'/>
+<use f='codebrowser/code/server/sv_client.c' l='150' u='m' c='SV_GetChallenge'/>
+<use f='codebrowser/code/server/sv_client.c' l='202' u='r' c='SV_GetChallenge'/>
+<use f='codebrowser/code/server/sv_client.c' l='249' u='r' c='SV_AuthorizeIpPacket'/>
+<use f='codebrowser/code/server/sv_client.c' l='255' u='r' c='SV_AuthorizeIpPacket'/>
+<use f='codebrowser/code/server/sv_client.c' l='261' u='r' c='SV_AuthorizeIpPacket'/>
+<use f='codebrowser/code/server/sv_client.c' l='263' u='r' c='SV_AuthorizeIpPacket'/>
+<use f='codebrowser/code/server/sv_client.c' l='272' u='r' c='SV_AuthorizeIpPacket'/>
+<use f='codebrowser/code/server/sv_client.c' l='274' u='r' c='SV_AuthorizeIpPacket'/>
+<use f='codebrowser/code/server/sv_client.c' l='412' u='r' c='SV_DirectConnect'/>
+<use f='codebrowser/code/server/sv_client.c' l='653' u='r' c='SV_DropClient'/>

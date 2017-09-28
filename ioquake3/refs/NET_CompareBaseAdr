@@ -1,0 +1,14 @@
+<dec f='codebrowser/code/qcommon/qcommon.h' l='180' type='qboolean NET_CompareBaseAdr(netadr_t a, netadr_t b)'/>
+<def f='codebrowser/code/qcommon/net_ip.c' l='451' ll='454' type='qboolean NET_CompareBaseAdr(netadr_t a, netadr_t b)'/>
+<use f='codebrowser/code/qcommon/net_ip.c' l='495' u='c' c='NET_CompareAdr'/>
+<doc f='codebrowser/code/qcommon/net_ip.c' l='444'>/*
+===================
+NET_CompareBaseAdr
+
+Compares without the port
+===================
+*/</doc>
+<use f='codebrowser/code/server/sv_client.c' l='223' u='c' c='SV_AuthorizeIpPacket'/>
+<use f='codebrowser/code/server/sv_client.c' l='379' u='c' c='SV_DirectConnect'/>
+<use f='codebrowser/code/server/sv_client.c' l='463' u='c' c='SV_DirectConnect'/>
+<use f='codebrowser/code/server/sv_main.c' l='849' u='c' c='SV_PacketEvent'/>

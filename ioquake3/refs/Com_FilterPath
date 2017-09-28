@@ -1,0 +1,9 @@
+<dec f='codebrowser/code/qcommon/qcommon.h' l='834' type='int Com_FilterPath(char * filter, char * name, int casesensitive)'/>
+<def f='codebrowser/code/qcommon/common.c' l='699' ll='724' type='int Com_FilterPath(char * filter, char * name, int casesensitive)'/>
+<doc f='codebrowser/code/qcommon/common.c' l='694'>/*
+============
+Com_FilterPath
+============
+*/</doc>
+<use f='codebrowser/code/qcommon/files.c' l='2284' u='c' c='FS_ListFilteredFiles'/>
+<use f='codebrowser/code/sys/sys_unix.c' l='365' u='c' c='Sys_ListFilteredFiles'/>

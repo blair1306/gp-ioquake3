@@ -1,0 +1,17 @@
+<dec f='codebrowser/code/qcommon/cm_public.h' l='64' type='int CM_WriteAreaBits(byte * buffer, int area)'/>
+<def f='codebrowser/code/qcommon/cm_test.c' l='454' ll='481' type='int CM_WriteAreaBits(byte * buffer, int area)'/>
+<doc f='codebrowser/code/qcommon/cm_test.c' l='440'>/*
+=================
+CM_WriteAreaBits
+
+Writes a bit vector of all the areas
+that are in the same flood as the area parameter
+Returns the number of bytes needed to hold all the bits.
+
+The bits are OR&apos;d in, so you can CM_WriteAreaBits from multiple
+viewpoints and get the union of all visible areas.
+
+This is used to cull non-visible entities from snapshots
+=================
+*/</doc>
+<use f='codebrowser/code/server/sv_snapshot.c' l='315' u='c' c='SV_AddEntitiesVisibleFromPoint'/>

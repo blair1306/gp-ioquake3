@@ -1,0 +1,12 @@
+<dec f='include/stdio.h' l='362' type='int printf(const char *restrict __format)'/>
+<doc f='include/stdio.h' l='358'>/* Write formatted output to stdout.
+
+   This function is a possible cancellation point and therefore not
+   marked with __THROW.  */</doc>
+<use f='codebrowser/code/qcommon/cm_polylib.c' l='40' u='c' c='pw'/>
+<use f='codebrowser/code/tools/asm/cmdlib.c' l='188' u='c' c='_printf'/>
+<use f='codebrowser/code/tools/lcc/src/bytecode.c' l='129' u='c' c='dumptree'/>
+<use f='codebrowser/code/tools/lcc/src/symbolic.c' l='27' u='c' c='emitCoord'/>
+<use f='codebrowser/code/tools/lcc/src/symbolic.c' l='27' u='c' c='emitSymRef'/>
+<use f='codebrowser/code/tools/lcc/src/symbolic.c' l='27' u='c' c='emitSymbol'/>
+<use f='codebrowser/code/tools/lcc/src/symbolic.c' l='27' u='c' c='s_emit'/>

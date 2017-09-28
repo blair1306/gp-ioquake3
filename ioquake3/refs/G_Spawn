@@ -1,0 +1,32 @@
+<dec f='codebrowser/code/game/g_local.h' l='469' type='gentity_t * G_Spawn()'/>
+<use f='codebrowser/code/game/g_arenas.c' l='143' u='c' c='SpawnModelOnVictoryPad'/>
+<use f='codebrowser/code/game/g_arenas.c' l='295' u='c' c='SpawnPodium'/>
+<use f='codebrowser/code/game/g_client.c' l='369' u='c' c='InitBodyQue'/>
+<use f='codebrowser/code/game/g_cmds.c' l='318' u='c' c='Cmd_Give_f'/>
+<use f='codebrowser/code/game/g_items.c' l='574' u='c' c='LaunchItem'/>
+<use f='codebrowser/code/game/g_missile.c' l='368' u='c' c='G_MissileImpact'/>
+<use f='codebrowser/code/game/g_missile.c' l='527' u='c' c='fire_plasma'/>
+<use f='codebrowser/code/game/g_missile.c' l='568' u='c' c='fire_grenade'/>
+<use f='codebrowser/code/game/g_missile.c' l='610' u='c' c='fire_bfg'/>
+<use f='codebrowser/code/game/g_missile.c' l='650' u='c' c='fire_rocket'/>
+<use f='codebrowser/code/game/g_missile.c' l='687' u='c' c='fire_grapple'/>
+<use f='codebrowser/code/game/g_mover.c' l='913' u='c' c='Think_SpawnNewDoorTrigger'/>
+<use f='codebrowser/code/game/g_mover.c' l='1077' u='c' c='SpawnPlatTrigger'/>
+<use f='codebrowser/code/game/g_spawn.c' l='404' u='c' c='G_SpawnGEntityFromSpawnVars'/>
+<def f='codebrowser/code/game/g_utils.c' l='389' ll='433' type='gentity_t * G_Spawn()'/>
+<use f='codebrowser/code/game/g_utils.c' l='494' u='c' c='G_TempEntity'/>
+<doc f='codebrowser/code/game/g_utils.c' l='374'>/*
+=================
+G_Spawn
+
+Either finds a free entity, or allocates a new one.
+
+  The slots from 0 to MAX_CLIENTS-1 are always reserved for clients, and will
+never be used by anything else.
+
+Try to avoid reusing an entity that was recently freed, because it
+can cause the client to think the entity morphed into something else
+instead of being removed and recreated, which can cause interpolated
+angles and bad trails.
+=================
+*/</doc>

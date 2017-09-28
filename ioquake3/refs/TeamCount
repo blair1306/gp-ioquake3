@@ -1,0 +1,18 @@
+<dec f='codebrowser/code/game/g_local.h' l='563' type='int TeamCount(int ignoreClientNum, team_t team)'/>
+<doc f='codebrowser/code/game/g_local.h' l='560'>//
+// g_client.c
+//</doc>
+<def f='codebrowser/code/game/g_client.c' l='543' ll='560' type='int TeamCount(int ignoreClientNum, team_t team)'/>
+<use f='codebrowser/code/game/g_client.c' l='595' u='c' c='PickTeam'/>
+<use f='codebrowser/code/game/g_client.c' l='596' u='c' c='PickTeam'/>
+<doc f='codebrowser/code/game/g_client.c' l='536'>/*
+================
+TeamCount
+
+Returns number of players on a team
+================
+*/</doc>
+<use f='codebrowser/code/game/g_cmds.c' l='560' u='c' c='SetTeam'/>
+<use f='codebrowser/code/game/g_cmds.c' l='561' u='c' c='SetTeam'/>
+<use f='codebrowser/code/game/g_main.c' l='1504' u='c' c='CheckTournament'/>
+<use f='codebrowser/code/game/g_main.c' l='1505' u='c' c='CheckTournament'/>

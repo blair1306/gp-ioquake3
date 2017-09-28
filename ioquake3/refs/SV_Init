@@ -1,0 +1,13 @@
+<dec f='codebrowser/code/qcommon/qcommon.h' l='1047' type='void SV_Init()'/>
+<doc f='codebrowser/code/qcommon/qcommon.h' l='1044'>//
+// server interface
+//</doc>
+<use f='codebrowser/code/qcommon/common.c' l='2816' u='c' c='Com_Init'/>
+<def f='codebrowser/code/server/sv_init.c' l='630' ll='703' type='void SV_Init()'/>
+<doc f='codebrowser/code/server/sv_init.c' l='623'>/*
+===============
+SV_Init
+
+Only called at main exe startup, not for each game
+===============
+*/</doc>

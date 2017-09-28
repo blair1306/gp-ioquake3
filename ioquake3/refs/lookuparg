@@ -1,0 +1,9 @@
+<dec f='codebrowser/code/tools/lcc/cpp/cpp.h' l='128' type='int lookuparg(Nlist * , Token * )'/>
+<use f='codebrowser/code/tools/lcc/cpp/macro.c' l='329' u='c' c='substargs'/>
+<use f='codebrowser/code/tools/lcc/cpp/macro.c' l='339' u='c' c='substargs'/>
+<def f='codebrowser/code/tools/lcc/cpp/macro.c' l='401' ll='413' type='int lookuparg(Nlist * mac, Token * tp)'/>
+<doc f='codebrowser/code/tools/lcc/cpp/macro.c' l='396'>/*
+ * tp is a potential parameter name of macro mac;
+ * look it up in mac&apos;s arglist, and if found, return the
+ * corresponding index in the argname array.  Return -1 if not found.
+ */</doc>

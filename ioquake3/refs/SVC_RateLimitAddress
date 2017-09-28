@@ -1,0 +1,13 @@
+<dec f='codebrowser/code/server/server.h' l='333' type='qboolean SVC_RateLimitAddress(netadr_t from, int burst, int period)'/>
+<use f='codebrowser/code/server/sv_client.c' l='71' u='c' c='SV_GetChallenge'/>
+<def f='codebrowser/code/server/sv_main.c' l='512' ll='516' type='qboolean SVC_RateLimitAddress(netadr_t from, int burst, int period)'/>
+<use f='codebrowser/code/server/sv_main.c' l='543' u='c' c='SVC_Status'/>
+<use f='codebrowser/code/server/sv_main.c' l='606' u='c' c='SVC_Info'/>
+<use f='codebrowser/code/server/sv_main.c' l='713' u='c' c='SVC_RemoteCommand'/>
+<doc f='codebrowser/code/server/sv_main.c' l='505'>/*
+================
+SVC_RateLimitAddress
+
+Rate limit for a particular address
+================
+*/</doc>

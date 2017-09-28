@@ -1,0 +1,16 @@
+<dec f='codebrowser/code/client/client.h' l='254' type='uint8_t [8]'/>
+<offset>1243872</offset>
+<doc f='codebrowser/code/client/client.h' l='251'>// outgoing data...
+	// if voipTargets[i / 8] &amp; (1 &lt;&lt; (i % 8)),
+	// then we are sending to clientnum i.</doc>
+<use f='codebrowser/code/client/cl_cgame.c' l='932' u='r' c='CL_FirstSnapshot'/>
+<use f='codebrowser/code/client/cl_cgame.c' l='932' u='r' c='CL_FirstSnapshot'/>
+<use f='codebrowser/code/client/cl_input.c' l='801' u='r' c='CL_WritePacket'/>
+<use f='codebrowser/code/client/cl_input.c' l='801' u='r' c='CL_WritePacket'/>
+<use f='codebrowser/code/client/cl_input.c' l='807' u='r' c='CL_WritePacket'/>
+<use f='codebrowser/code/client/cl_input.c' l='807' u='r' c='CL_WritePacket'/>
+<use f='codebrowser/code/client/cl_main.c' l='329' u='r' c='CL_VoipParseTargets'/>
+<use f='codebrowser/code/client/cl_main.c' l='329' u='r' c='CL_VoipParseTargets'/>
+<use f='codebrowser/code/client/cl_main.c' l='349' u='r' c='CL_VoipParseTargets'/>
+<use f='codebrowser/code/client/cl_main.c' l='349' u='r' c='CL_VoipParseTargets'/>
+<use f='codebrowser/code/client/cl_main.c' l='392' u='w' c='CL_VoipParseTargets'/>

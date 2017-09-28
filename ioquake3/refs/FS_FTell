@@ -1,0 +1,6 @@
+<dec f='codebrowser/code/qcommon/qcommon.h' l='689' type='int FS_FTell(fileHandle_t f)'/>
+<doc f='codebrowser/code/qcommon/qcommon.h' l='687'>// doesn&apos;t work for files that are opened from a pack file</doc>
+<use f='codebrowser/code/client/cl_scrn.c' l='343' u='c' c='SCR_DrawDemoRecording'/>
+<use f='codebrowser/code/client/snd_codec_opus.c' l='200' u='c' c='S_OggOpus_Callback_tell'/>
+<use f='codebrowser/code/qcommon/files.c' l='1661' u='c' c='FS_Seek'/>
+<def f='codebrowser/code/qcommon/files.c' l='4119' ll='4127' type='int FS_FTell(fileHandle_t f)'/>

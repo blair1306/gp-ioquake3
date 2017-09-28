@@ -1,0 +1,9 @@
+<dec f='codebrowser/code/jpeg-8c/jpeglib.h' l='938'/>
+<doc f='codebrowser/code/jpeg-8c/jpeglib.h' l='931'>/* Initialization of JPEG compression objects.
+ * jpeg_create_compress() and jpeg_create_decompress() are the exported
+ * names that applications should call.  These expand to calls on
+ * jpeg_CreateCompress and jpeg_CreateDecompress with additional information
+ * passed for version mismatch checking.
+ * NB: you must set up the error-manager BEFORE calling jpeg_create_xxx.
+ */</doc>
+<use f='codebrowser/code/renderercommon/tr_image_jpg.c' l='415' u='c'/>

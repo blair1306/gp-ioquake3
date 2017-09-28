@@ -1,0 +1,80 @@
+<dec f='codebrowser/code/qcommon/q_shared.h' l='1282' type='int'/>
+<offset>32</offset>
+<doc f='codebrowser/code/qcommon/q_shared.h' l='1282'>// entityType_t</doc>
+<use f='codebrowser/code/cgame/cg_ents.c' l='131' u='r' c='CG_EntityEffects'/>
+<use f='codebrowser/code/cgame/cg_ents.c' l='686' u='r' c='CG_AdjustPositionForMover'/>
+<use f='codebrowser/code/cgame/cg_ents.c' l='945' u='r' c='CG_AddCEntity'/>
+<use f='codebrowser/code/cgame/cg_ents.c' l='955' u='r' c='CG_AddCEntity'/>
+<use f='codebrowser/code/cgame/cg_ents.c' l='957' u='r' c='CG_AddCEntity'/>
+<use f='codebrowser/code/cgame/cg_event.c' l='1253' u='r' c='CG_CheckEvents'/>
+<use f='codebrowser/code/cgame/cg_event.c' l='1264' u='r' c='CG_CheckEvents'/>
+<use f='codebrowser/code/cgame/cg_players.c' l='730' u='r' c='CG_LoadClientInfo'/>
+<use f='codebrowser/code/cgame/cg_predict.c' l='65' u='r' c='CG_BuildSolidList'/>
+<use f='codebrowser/code/cgame/cg_predict.c' l='65' u='r' c='CG_BuildSolidList'/>
+<use f='codebrowser/code/cgame/cg_predict.c' l='65' u='r' c='CG_BuildSolidList'/>
+<use f='codebrowser/code/cgame/cg_predict.c' l='349' u='r' c='CG_TouchTriggerPrediction'/>
+<use f='codebrowser/code/cgame/cg_predict.c' l='370' u='r' c='CG_TouchTriggerPrediction'/>
+<use f='codebrowser/code/cgame/cg_predict.c' l='372' u='r' c='CG_TouchTriggerPrediction'/>
+<use f='codebrowser/code/cgame/cg_snapshot.c' l='46' u='r' c='CG_ResetEntity'/>
+<use f='codebrowser/code/cgame/cg_weapons.c' l='2012' u='r' c='CG_ShotgunPellet'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='3797' u='r' c='BotModelMinsMaxs'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='4719' u='r' c='BotCheckForGrenades'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='4789' u='r' c='BotCheckEvents'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='4790' u='r' c='BotCheckEvents'/>
+<use f='codebrowser/code/game/ai_dmq3.c' l='5319' u='r' c='BotSetEntityNumForGoalWithModel'/>
+<use f='codebrowser/code/game/ai_main.c' l='1504' u='r' c='BotAIStartFrame'/>
+<use f='codebrowser/code/game/ai_main.c' l='1509' u='r' c='BotAIStartFrame'/>
+<use f='codebrowser/code/game/ai_main.c' l='1534' u='r' c='BotAIStartFrame'/>
+<use f='codebrowser/code/game/bg_misc.c' l='1468' u='w' c='BG_PlayerStateToEntityState'/>
+<use f='codebrowser/code/game/bg_misc.c' l='1470' u='w' c='BG_PlayerStateToEntityState'/>
+<use f='codebrowser/code/game/bg_misc.c' l='1472' u='w' c='BG_PlayerStateToEntityState'/>
+<use f='codebrowser/code/game/bg_misc.c' l='1544' u='w' c='BG_PlayerStateToEntityStateExtraPolate'/>
+<use f='codebrowser/code/game/bg_misc.c' l='1546' u='w' c='BG_PlayerStateToEntityStateExtraPolate'/>
+<use f='codebrowser/code/game/bg_misc.c' l='1548' u='w' c='BG_PlayerStateToEntityStateExtraPolate'/>
+<use f='codebrowser/code/game/g_active.c' l='274' u='r' c='G_TouchTriggers'/>
+<use f='codebrowser/code/game/g_active.c' l='284' u='r' c='G_TouchTriggers'/>
+<use f='codebrowser/code/game/g_active.c' l='554' u='r' c='ClientEvents'/>
+<use f='codebrowser/code/game/g_active.c' l='728' u='w' c='SendPendingPredictableEvents'/>
+<use f='codebrowser/code/game/g_arenas.c' l='152' u='w' c='SpawnModelOnVictoryPad'/>
+<use f='codebrowser/code/game/g_arenas.c' l='301' u='w' c='SpawnPodium'/>
+<use f='codebrowser/code/game/g_combat.c' l='258' u='w' c='GibEntity'/>
+<use f='codebrowser/code/game/g_combat.c' l='841' u='r' c='G_Damage'/>
+<use f='codebrowser/code/game/g_combat.c' l='960' u='r' c='G_Damage'/>
+<use f='codebrowser/code/game/g_combat.c' l='961' u='r' c='G_Damage'/>
+<use f='codebrowser/code/game/g_items.c' l='576' u='w' c='LaunchItem'/>
+<use f='codebrowser/code/game/g_items.c' l='665' u='w' c='FinishSpawningItem'/>
+<use f='codebrowser/code/game/g_main.c' l='949' u='w' c='MoveClientToIntermission'/>
+<use f='codebrowser/code/game/g_main.c' l='1823' u='r' c='G_RunFrame'/>
+<use f='codebrowser/code/game/g_main.c' l='1828' u='r' c='G_RunFrame'/>
+<use f='codebrowser/code/game/g_main.c' l='1833' u='r' c='G_RunFrame'/>
+<use f='codebrowser/code/game/g_misc.c' l='214' u='w' c='SP_misc_portal_surface'/>
+<use f='codebrowser/code/game/g_missile.c' l='79' u='w' c='G_ExplodeMissile'/>
+<use f='codebrowser/code/game/g_missile.c' l='391' u='w' c='G_MissileImpact'/>
+<use f='codebrowser/code/game/g_missile.c' l='392' u='w' c='G_MissileImpact'/>
+<use f='codebrowser/code/game/g_missile.c' l='424' u='w' c='G_MissileImpact'/>
+<use f='codebrowser/code/game/g_missile.c' l='495' u='r' c='G_RunMissile'/>
+<use f='codebrowser/code/game/g_missile.c' l='531' u='w' c='fire_plasma'/>
+<use f='codebrowser/code/game/g_missile.c' l='572' u='w' c='fire_grenade'/>
+<use f='codebrowser/code/game/g_missile.c' l='614' u='w' c='fire_bfg'/>
+<use f='codebrowser/code/game/g_missile.c' l='654' u='w' c='fire_rocket'/>
+<use f='codebrowser/code/game/g_missile.c' l='691' u='w' c='fire_grapple'/>
+<use f='codebrowser/code/game/g_mover.c' l='357' u='r' c='G_MoverPush'/>
+<use f='codebrowser/code/game/g_mover.c' l='357' u='r' c='G_MoverPush'/>
+<use f='codebrowser/code/game/g_mover.c' l='763' u='w' c='InitMover'/>
+<use f='codebrowser/code/game/g_mover.c' l='804' u='r' c='Blocked_Door'/>
+<use f='codebrowser/code/game/g_spawn.c' l='383' u='r' c='G_SpawnGEntityFromSpawnVars'/>
+<use f='codebrowser/code/game/g_spawn.c' l='383' u='r' c='G_SpawnGEntityFromSpawnVars'/>
+<use f='codebrowser/code/game/g_spawn.c' l='383' u='r' c='G_SpawnGEntityFromSpawnVars'/>
+<use f='codebrowser/code/game/g_spawn.c' l='383' u='r' c='G_SpawnGEntityFromSpawnVars'/>
+<use f='codebrowser/code/game/g_spawn.c' l='383' u='r' c='G_SpawnGEntityFromSpawnVars'/>
+<use f='codebrowser/code/game/g_svcmds.c' l='329' u='r' c='Svcmd_EntityList_f'/>
+<use f='codebrowser/code/game/g_svcmds.c' l='367' u='r' c='Svcmd_EntityList_f'/>
+<use f='codebrowser/code/game/g_target.c' l='223' u='w' c='SP_target_speaker'/>
+<use f='codebrowser/code/game/g_target.c' l='310' u='w' c='target_laser_start'/>
+<use f='codebrowser/code/game/g_trigger.c' l='208' u='w' c='SP_trigger_push'/>
+<use f='codebrowser/code/game/g_trigger.c' l='319' u='w' c='SP_trigger_teleport'/>
+<use f='codebrowser/code/game/g_utils.c' l='495' u='w' c='G_TempEntity'/>
+<use f='codebrowser/code/qcommon/msg.c' l='796' u='a'/>
+<use f='codebrowser/code/qcommon/msg.c' l='796' u='a'/>
+<use f='codebrowser/code/qcommon/msg.c' l='796' u='a'/>
+<use f='codebrowser/code/qcommon/msg.c' l='796' u='a'/>

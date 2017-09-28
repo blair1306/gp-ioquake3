@@ -1,0 +1,41 @@
+<dec f='codebrowser/code/renderergl1/tr_local.h' l='450' type='qboolean'/>
+<use f='codebrowser/code/renderergl1/tr_animation.c' l='195' u='r' c='R_MDRAddAnimSurfaces'/>
+<offset>2080</offset>
+<doc f='codebrowser/code/renderergl1/tr_local.h' l='450'>// true if this view is through a portal</doc>
+<use f='codebrowser/code/renderergl1/tr_backend.c' l='475' u='r' c='RB_BeginDrawingView'/>
+<use f='codebrowser/code/renderergl1/tr_flares.c' l='172' u='r' c='RB_AddFlare'/>
+<use f='codebrowser/code/renderergl1/tr_flares.c' l='190' u='r' c='RB_AddFlare'/>
+<use f='codebrowser/code/renderergl1/tr_flares.c' l='494' u='r' c='RB_RenderFlares'/>
+<use f='codebrowser/code/renderergl1/tr_flares.c' l='514' u='r' c='RB_RenderFlares'/>
+<use f='codebrowser/code/renderergl1/tr_flares.c' l='529' u='r' c='RB_RenderFlares'/>
+<use f='codebrowser/code/renderergl1/tr_main.c' l='956' u='r' c='R_MirrorViewBySurface'/>
+<use f='codebrowser/code/renderergl1/tr_main.c' l='974' u='w' c='R_MirrorViewBySurface'/>
+<use f='codebrowser/code/renderergl1/tr_main.c' l='1207' u='r' c='R_AddEntitySurfaces'/>
+<use f='codebrowser/code/renderergl1/tr_main.c' l='1223' u='r' c='R_AddEntitySurfaces'/>
+<use f='codebrowser/code/renderergl1/tr_main.c' l='1252' u='r' c='R_AddEntitySurfaces'/>
+<use f='codebrowser/code/renderergl1/tr_mesh.c' l='294' u='r' c='R_AddMD3Surfaces'/>
+<use f='codebrowser/code/renderergl1/tr_model_iqm.c' l='851' u='r' c='R_AddIQMSurfaces'/>
+<use f='codebrowser/code/renderergl1/tr_scene.c' l='388' u='w' c='RE_RenderScene'/>
+<use f='codebrowser/code/renderergl1/tr_shade.c' l='357' u='r' c='DrawMultitextured'/>
+<dec f='codebrowser/code/renderergl2/tr_local.h' l='796' type='qboolean'/>
+<use f='codebrowser/code/renderergl2/tr_animation.c' l='196' u='r' c='R_MDRAddAnimSurfaces'/>
+<offset>3104</offset>
+<doc f='codebrowser/code/renderergl2/tr_local.h' l='796'>// true if this view is through a portal</doc>
+<use f='codebrowser/code/renderergl2/tr_backend.c' l='400' u='r' c='RB_BeginDrawingView'/>
+<use f='codebrowser/code/renderergl2/tr_flares.c' l='172' u='r' c='RB_AddFlare'/>
+<use f='codebrowser/code/renderergl2/tr_flares.c' l='190' u='r' c='RB_AddFlare'/>
+<use f='codebrowser/code/renderergl2/tr_flares.c' l='509' u='r' c='RB_RenderFlares'/>
+<use f='codebrowser/code/renderergl2/tr_flares.c' l='529' u='r' c='RB_RenderFlares'/>
+<use f='codebrowser/code/renderergl2/tr_flares.c' l='544' u='r' c='RB_RenderFlares'/>
+<use f='codebrowser/code/renderergl2/tr_main.c' l='823' u='r' c='R_SetupProjectionZ'/>
+<use f='codebrowser/code/renderergl2/tr_main.c' l='1310' u='r' c='R_MirrorViewBySurface'/>
+<use f='codebrowser/code/renderergl2/tr_main.c' l='1328' u='w' c='R_MirrorViewBySurface'/>
+<use f='codebrowser/code/renderergl2/tr_main.c' l='1586' u='r' c='R_AddEntitySurface'/>
+<use f='codebrowser/code/renderergl2/tr_main.c' l='1615' u='r' c='R_AddEntitySurface'/>
+<use f='codebrowser/code/renderergl2/tr_main.c' l='1797' u='w' c='R_RenderDlightCubemaps'/>
+<use f='codebrowser/code/renderergl2/tr_main.c' l='2092' u='w' c='R_RenderPshadowMaps'/>
+<use f='codebrowser/code/renderergl2/tr_main.c' l='2499' u='w' c='R_RenderSunShadowMaps'/>
+<use f='codebrowser/code/renderergl2/tr_main.c' l='2642' u='w' c='R_RenderCubemapSide'/>
+<use f='codebrowser/code/renderergl2/tr_mesh.c' l='295' u='r' c='R_AddMD3Surfaces'/>
+<use f='codebrowser/code/renderergl2/tr_model_iqm.c' l='852' u='r' c='R_AddIQMSurfaces'/>
+<use f='codebrowser/code/renderergl2/tr_scene.c' l='546' u='w' c='RE_RenderScene'/>

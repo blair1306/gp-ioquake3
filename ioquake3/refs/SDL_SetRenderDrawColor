@@ -1,0 +1,13 @@
+<dec f='include/SDL2/SDL_render.h' l='609' type='int SDL_SetRenderDrawColor(SDL_Renderer * renderer, Uint8 r, Uint8 g, Uint8 b, Uint8 a)'/>
+<doc f='include/SDL2/SDL_render.h' l='597'>/**
+ *  \brief Set the color used for drawing operations (Rect, Line and Clear).
+ *
+ *  \param renderer The renderer for which drawing color should be set.
+ *  \param r The red value used to draw on the rendering target.
+ *  \param g The green value used to draw on the rendering target.
+ *  \param b The blue value used to draw on the rendering target.
+ *  \param a The alpha value used to draw on the rendering target, usually
+ *           ::SDL_ALPHA_OPAQUE (255).
+ *
+ *  \return 0 on success, or -1 on error
+ */</doc>

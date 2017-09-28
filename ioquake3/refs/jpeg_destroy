@@ -1,0 +1,15 @@
+<dec f='codebrowser/code/jpeg-8c/jpeglib.h' l='1092' type='void jpeg_destroy(j_common_ptr cinfo)'/>
+<use f='codebrowser/code/jpeg-8c/jcapimin.c' l='98' u='c' c='jpeg_destroy_compress'/>
+<def f='codebrowser/code/jpeg-8c/jcomapi.c' l='68' ll='77' macro='1' type='void jpeg_destroy(j_common_ptr cinfo)'/>
+<doc f='codebrowser/code/jpeg-8c/jcomapi.c' l='57'>/*
+ * Destruction of a JPEG object.
+ *
+ * Everything gets deallocated except the master jpeg_compress_struct itself
+ * and the error manager struct.  Both of these are supplied by the application
+ * and must be freed, if necessary, by the application.  (Often they are on
+ * the stack and so don&apos;t need to be freed anyway.)
+ * Closing a data source or destination, if necessary, is the application&apos;s
+ * responsibility.
+ */</doc>
+<use f='codebrowser/code/jpeg-8c/jdapimin.c' l='94' u='c' c='jpeg_destroy_decompress'/>
+<use f='codebrowser/code/jpeg-8c/jerror.c' l='78' u='c' c='error_exit'/>

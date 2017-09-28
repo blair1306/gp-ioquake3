@@ -1,0 +1,259 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>be_aas_routealt.c source code [codebrowser/code/botlib/be_aas_routealt.c] - Woboq Code Browser</title>
+<meta name="woboq:interestingDefinitions" content="midrangearea_s "/>
+<link rel="stylesheet" href="../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'codebrowser/code/botlib/be_aas_routealt.c'; var root_path = '../../..'; var data_path = '../../../../data';</script>
+<script src='../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../..'>codebrowser</a>/<a href='..'>code</a>/<a href='./'>botlib</a>/<a href='be_aas_routealt.c.html'>be_aas_routealt.c</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/*</i></td></tr>
+<tr><th id="2">2</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="3">3</th><td><i>Copyright (C) 1999-2005 Id Software, Inc.</i></td></tr>
+<tr><th id="4">4</th><td><i></i></td></tr>
+<tr><th id="5">5</th><td><i>This file is part of Quake III Arena source code.</i></td></tr>
+<tr><th id="6">6</th><td><i></i></td></tr>
+<tr><th id="7">7</th><td><i>Quake III Arena source code is free software; you can redistribute it</i></td></tr>
+<tr><th id="8">8</th><td><i>and/or modify it under the terms of the GNU General Public License as</i></td></tr>
+<tr><th id="9">9</th><td><i>published by the Free Software Foundation; either version 2 of the License,</i></td></tr>
+<tr><th id="10">10</th><td><i>or (at your option) any later version.</i></td></tr>
+<tr><th id="11">11</th><td><i></i></td></tr>
+<tr><th id="12">12</th><td><i>Quake III Arena source code is distributed in the hope that it will be</i></td></tr>
+<tr><th id="13">13</th><td><i>useful, but WITHOUT ANY WARRANTY; without even the implied warranty of</i></td></tr>
+<tr><th id="14">14</th><td><i>MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</i></td></tr>
+<tr><th id="15">15</th><td><i>GNU General Public License for more details.</i></td></tr>
+<tr><th id="16">16</th><td><i></i></td></tr>
+<tr><th id="17">17</th><td><i>You should have received a copy of the GNU General Public License</i></td></tr>
+<tr><th id="18">18</th><td><i>along with Quake III Arena source code; if not, write to the Free Software</i></td></tr>
+<tr><th id="19">19</th><td><i>Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA</i></td></tr>
+<tr><th id="20">20</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="21">21</th><td><i>*/</i></td></tr>
+<tr><th id="22">22</th><td></td></tr>
+<tr><th id="23">23</th><td><i>/*****************************************************************************</i></td></tr>
+<tr><th id="24">24</th><td><i> * name:		be_aas_routealt.c</i></td></tr>
+<tr><th id="25">25</th><td><i> *</i></td></tr>
+<tr><th id="26">26</th><td><i> * desc:		AAS</i></td></tr>
+<tr><th id="27">27</th><td><i> *</i></td></tr>
+<tr><th id="28">28</th><td><i> * $Archive: /MissionPack/code/botlib/be_aas_routealt.c $</i></td></tr>
+<tr><th id="29">29</th><td><i> *</i></td></tr>
+<tr><th id="30">30</th><td><i> *****************************************************************************/</i></td></tr>
+<tr><th id="31">31</th><td></td></tr>
+<tr><th id="32">32</th><td><u>#include <a href="../qcommon/q_shared.h.html">"../qcommon/q_shared.h"</a></u></td></tr>
+<tr><th id="33">33</th><td><u>#include <a href="l_utils.h.html">"l_utils.h"</a></u></td></tr>
+<tr><th id="34">34</th><td><u>#include <a href="l_memory.h.html">"l_memory.h"</a></u></td></tr>
+<tr><th id="35">35</th><td><u>#include <a href="l_log.h.html">"l_log.h"</a></u></td></tr>
+<tr><th id="36">36</th><td><u>#include <a href="l_script.h.html">"l_script.h"</a></u></td></tr>
+<tr><th id="37">37</th><td><u>#include <a href="l_precomp.h.html">"l_precomp.h"</a></u></td></tr>
+<tr><th id="38">38</th><td><u>#include <a href="l_struct.h.html">"l_struct.h"</a></u></td></tr>
+<tr><th id="39">39</th><td><u>#include <a href="aasfile.h.html">"aasfile.h"</a></u></td></tr>
+<tr><th id="40">40</th><td><u>#include <a href="botlib.h.html">"botlib.h"</a></u></td></tr>
+<tr><th id="41">41</th><td><u>#include <a href="be_aas.h.html">"be_aas.h"</a></u></td></tr>
+<tr><th id="42">42</th><td><u>#include <a href="be_aas_funcs.h.html">"be_aas_funcs.h"</a></u></td></tr>
+<tr><th id="43">43</th><td><u>#include <a href="be_interface.h.html">"be_interface.h"</a></u></td></tr>
+<tr><th id="44">44</th><td><u>#include <a href="be_aas_def.h.html">"be_aas_def.h"</a></u></td></tr>
+<tr><th id="45">45</th><td></td></tr>
+<tr><th id="46">46</th><td><u>#define <dfn class="macro" id="_M/ENABLE_ALTROUTING" data-ref="_M/ENABLE_ALTROUTING">ENABLE_ALTROUTING</dfn></u></td></tr>
+<tr><th id="47">47</th><td><i>//#define ALTROUTE_DEBUG</i></td></tr>
+<tr><th id="48">48</th><td></td></tr>
+<tr><th id="49">49</th><td><b>typedef</b> <b>struct</b> <dfn class="type def" id="midrangearea_s" title='midrangearea_s' data-ref="midrangearea_s"><a class="type" href="#midrangearea_s" title='midrangearea_s' data-ref="midrangearea_s">midrangearea_s</a></dfn></td></tr>
+<tr><th id="50">50</th><td>{</td></tr>
+<tr><th id="51">51</th><td>	<em>int</em> <dfn class="tu decl" id="midrangearea_s::valid" title='midrangearea_s::valid' data-type='int' data-ref="midrangearea_s::valid">valid</dfn>;</td></tr>
+<tr><th id="52">52</th><td>	<em>unsigned</em> <em>short</em> <dfn class="tu decl" id="midrangearea_s::starttime" title='midrangearea_s::starttime' data-type='unsigned short' data-ref="midrangearea_s::starttime">starttime</dfn>;</td></tr>
+<tr><th id="53">53</th><td>	<em>unsigned</em> <em>short</em> <dfn class="tu decl" id="midrangearea_s::goaltime" title='midrangearea_s::goaltime' data-type='unsigned short' data-ref="midrangearea_s::goaltime">goaltime</dfn>;</td></tr>
+<tr><th id="54">54</th><td>} <dfn class="typedef" id="midrangearea_t" title='midrangearea_t' data-type='struct midrangearea_s' data-ref="midrangearea_t">midrangearea_t</dfn>;</td></tr>
+<tr><th id="55">55</th><td></td></tr>
+<tr><th id="56">56</th><td><a class="typedef" href="#midrangearea_t" title='midrangearea_t' data-type='struct midrangearea_s' data-ref="midrangearea_t">midrangearea_t</a> *<dfn class="decl def" id="midrangeareas" title='midrangeareas' data-ref="midrangeareas">midrangeareas</dfn>;</td></tr>
+<tr><th id="57">57</th><td><em>int</em> *<dfn class="decl def" id="clusterareas" title='clusterareas' data-ref="clusterareas">clusterareas</dfn>;</td></tr>
+<tr><th id="58">58</th><td><em>int</em> <dfn class="decl def" id="numclusterareas" title='numclusterareas' data-ref="numclusterareas">numclusterareas</dfn>;</td></tr>
+<tr><th id="59">59</th><td></td></tr>
+<tr><th id="60">60</th><td><i>//===========================================================================</i></td></tr>
+<tr><th id="61">61</th><td><i>//</i></td></tr>
+<tr><th id="62">62</th><td><i>// Parameter:				-</i></td></tr>
+<tr><th id="63">63</th><td><i>// Returns:					-</i></td></tr>
+<tr><th id="64">64</th><td><i>// Changes Globals:		-</i></td></tr>
+<tr><th id="65">65</th><td><i>//===========================================================================</i></td></tr>
+<tr><th id="66">66</th><td><em>void</em> <dfn class="decl def" id="AAS_AltRoutingFloodCluster_r" title='AAS_AltRoutingFloodCluster_r' data-ref="AAS_AltRoutingFloodCluster_r">AAS_AltRoutingFloodCluster_r</dfn>(<em>int</em> <dfn class="local col1 decl" id="1areanum" title='areanum' data-type='int' data-ref="1areanum">areanum</dfn>)</td></tr>
+<tr><th id="67">67</th><td>{</td></tr>
+<tr><th id="68">68</th><td>	<em>int</em> <dfn class="local col2 decl" id="2i" title='i' data-type='int' data-ref="2i">i</dfn>, <dfn class="local col3 decl" id="3otherareanum" title='otherareanum' data-type='int' data-ref="3otherareanum">otherareanum</dfn>;</td></tr>
+<tr><th id="69">69</th><td>	<a class="typedef" href="aasfile.h.html#aas_area_t" title='aas_area_t' data-type='struct aas_area_s' data-ref="aas_area_t">aas_area_t</a> *<dfn class="local col4 decl" id="4area" title='area' data-type='aas_area_t *' data-ref="4area">area</dfn>;</td></tr>
+<tr><th id="70">70</th><td>	<a class="typedef" href="aasfile.h.html#aas_face_t" title='aas_face_t' data-type='struct aas_face_s' data-ref="aas_face_t">aas_face_t</a> *<dfn class="local col5 decl" id="5face" title='face' data-type='aas_face_t *' data-ref="5face">face</dfn>;</td></tr>
+<tr><th id="71">71</th><td></td></tr>
+<tr><th id="72">72</th><td>	<i>//add the current area to the areas of the current cluster</i></td></tr>
+<tr><th id="73">73</th><td>	<a class="ref" href="#clusterareas" title='clusterareas' data-ref="clusterareas">clusterareas</a>[<a class="ref" href="#numclusterareas" title='numclusterareas' data-ref="numclusterareas">numclusterareas</a>] = <a class="local col1 ref" href="#1areanum" title='areanum' data-ref="1areanum">areanum</a>;</td></tr>
+<tr><th id="74">74</th><td>	<a class="ref" href="#numclusterareas" title='numclusterareas' data-ref="numclusterareas">numclusterareas</a>++;</td></tr>
+<tr><th id="75">75</th><td>	<i>//remove the area from the mid range areas</i></td></tr>
+<tr><th id="76">76</th><td>	<a class="ref" href="#midrangeareas" title='midrangeareas' data-ref="midrangeareas">midrangeareas</a>[<a class="local col1 ref" href="#1areanum" title='areanum' data-ref="1areanum">areanum</a>].<a class="tu ref" href="#midrangearea_s::valid" title='midrangearea_s::valid' data-use='w' data-ref="midrangearea_s::valid">valid</a> = <a class="enum" href="../qcommon/q_shared.h.html#qfalse" title='qfalse' data-ref="qfalse">qfalse</a>;</td></tr>
+<tr><th id="77">77</th><td>	<i>//flood to other areas through the faces of this area</i></td></tr>
+<tr><th id="78">78</th><td>	<a class="local col4 ref" href="#4area" title='area' data-ref="4area">area</a> = &amp;<a class="ref" href="be_aas_main.h.html#aasworld" title='aasworld' data-ref="aasworld">aasworld</a>.<a class="ref" href="be_aas_def.h.html#aas_s::areas" title='aas_s::areas' data-ref="aas_s::areas">areas</a>[<a class="local col1 ref" href="#1areanum" title='areanum' data-ref="1areanum">areanum</a>];</td></tr>
+<tr><th id="79">79</th><td>	<b>for</b> (<a class="local col2 ref" href="#2i" title='i' data-ref="2i">i</a> = <var>0</var>; <a class="local col2 ref" href="#2i" title='i' data-ref="2i">i</a> &lt; <a class="local col4 ref" href="#4area" title='area' data-ref="4area">area</a>-&gt;<a class="ref" href="aasfile.h.html#aas_area_s::numfaces" title='aas_area_s::numfaces' data-ref="aas_area_s::numfaces">numfaces</a>; <a class="local col2 ref" href="#2i" title='i' data-ref="2i">i</a>++)</td></tr>
+<tr><th id="80">80</th><td>	{</td></tr>
+<tr><th id="81">81</th><td>		<a class="local col5 ref" href="#5face" title='face' data-ref="5face">face</a> = &amp;<a class="ref" href="be_aas_main.h.html#aasworld" title='aasworld' data-ref="aasworld">aasworld</a>.<a class="ref" href="be_aas_def.h.html#aas_s::faces" title='aas_s::faces' data-ref="aas_s::faces">faces</a>[<a class="ref" href="../../../include/stdlib.h.html#abs" title='abs' data-ref="abs">abs</a>(<a class="ref" href="be_aas_main.h.html#aasworld" title='aasworld' data-ref="aasworld">aasworld</a>.<a class="ref" href="be_aas_def.h.html#aas_s::faceindex" title='aas_s::faceindex' data-ref="aas_s::faceindex">faceindex</a>[<a class="local col4 ref" href="#4area" title='area' data-ref="4area">area</a>-&gt;<a class="ref" href="aasfile.h.html#aas_area_s::firstface" title='aas_area_s::firstface' data-ref="aas_area_s::firstface">firstface</a> + <a class="local col2 ref" href="#2i" title='i' data-ref="2i">i</a>])];</td></tr>
+<tr><th id="82">82</th><td>		<i>//get the area at the other side of the face</i></td></tr>
+<tr><th id="83">83</th><td>		<b>if</b> (<a class="local col5 ref" href="#5face" title='face' data-ref="5face">face</a>-&gt;<a class="ref" href="aasfile.h.html#aas_face_s::frontarea" title='aas_face_s::frontarea' data-ref="aas_face_s::frontarea">frontarea</a> == <a class="local col1 ref" href="#1areanum" title='areanum' data-ref="1areanum">areanum</a>) <a class="local col3 ref" href="#3otherareanum" title='otherareanum' data-ref="3otherareanum">otherareanum</a> = <a class="local col5 ref" href="#5face" title='face' data-ref="5face">face</a>-&gt;<a class="ref" href="aasfile.h.html#aas_face_s::backarea" title='aas_face_s::backarea' data-ref="aas_face_s::backarea">backarea</a>;</td></tr>
+<tr><th id="84">84</th><td>		<b>else</b> <a class="local col3 ref" href="#3otherareanum" title='otherareanum' data-ref="3otherareanum">otherareanum</a> = <a class="local col5 ref" href="#5face" title='face' data-ref="5face">face</a>-&gt;<a class="ref" href="aasfile.h.html#aas_face_s::frontarea" title='aas_face_s::frontarea' data-ref="aas_face_s::frontarea">frontarea</a>;</td></tr>
+<tr><th id="85">85</th><td>		<i>//if there is an area at the other side of this face</i></td></tr>
+<tr><th id="86">86</th><td>		<b>if</b> (!<a class="local col3 ref" href="#3otherareanum" title='otherareanum' data-ref="3otherareanum">otherareanum</a>) <b>continue</b>;</td></tr>
+<tr><th id="87">87</th><td>		<i>//if the other area is not a midrange area</i></td></tr>
+<tr><th id="88">88</th><td>		<b>if</b> (!<a class="ref" href="#midrangeareas" title='midrangeareas' data-ref="midrangeareas">midrangeareas</a>[<a class="local col3 ref" href="#3otherareanum" title='otherareanum' data-ref="3otherareanum">otherareanum</a>].<a class="tu ref" href="#midrangearea_s::valid" title='midrangearea_s::valid' data-use='r' data-ref="midrangearea_s::valid">valid</a>) <b>continue</b>;</td></tr>
+<tr><th id="89">89</th><td>		<i>//</i></td></tr>
+<tr><th id="90">90</th><td>		<a class="ref" href="#AAS_AltRoutingFloodCluster_r" title='AAS_AltRoutingFloodCluster_r' data-ref="AAS_AltRoutingFloodCluster_r">AAS_AltRoutingFloodCluster_r</a>(<a class="local col3 ref" href="#3otherareanum" title='otherareanum' data-ref="3otherareanum">otherareanum</a>);</td></tr>
+<tr><th id="91">91</th><td>	} <i>//end for</i></td></tr>
+<tr><th id="92">92</th><td>} <i>//end of the function AAS_AltRoutingFloodCluster_r</i></td></tr>
+<tr><th id="93">93</th><td><i>//===========================================================================</i></td></tr>
+<tr><th id="94">94</th><td><i>//</i></td></tr>
+<tr><th id="95">95</th><td><i>// Parameter:				-</i></td></tr>
+<tr><th id="96">96</th><td><i>// Returns:					-</i></td></tr>
+<tr><th id="97">97</th><td><i>// Changes Globals:		-</i></td></tr>
+<tr><th id="98">98</th><td><i>//===========================================================================</i></td></tr>
+<tr><th id="99">99</th><td><em>int</em> <dfn class="decl def" id="AAS_AlternativeRouteGoals" title='AAS_AlternativeRouteGoals' data-ref="AAS_AlternativeRouteGoals">AAS_AlternativeRouteGoals</dfn>(<a class="typedef" href="../qcommon/q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="local col6 decl" id="6start" title='start' data-type='vec_t *' data-ref="6start">start</dfn>, <em>int</em> <dfn class="local col7 decl" id="7startareanum" title='startareanum' data-type='int' data-ref="7startareanum">startareanum</dfn>, <a class="typedef" href="../qcommon/q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="local col8 decl" id="8goal" title='goal' data-type='vec_t *' data-ref="8goal">goal</dfn>, <em>int</em> <dfn class="local col9 decl" id="9goalareanum" title='goalareanum' data-type='int' data-ref="9goalareanum">goalareanum</dfn>, <em>int</em> <dfn class="local col0 decl" id="10travelflags" title='travelflags' data-type='int' data-ref="10travelflags">travelflags</dfn>,</td></tr>
+<tr><th id="100">100</th><td>										 <a class="typedef" href="be_aas.h.html#aas_altroutegoal_t" title='aas_altroutegoal_t' data-type='struct aas_altroutegoal_s' data-ref="aas_altroutegoal_t">aas_altroutegoal_t</a> *<dfn class="local col1 decl" id="11altroutegoals" title='altroutegoals' data-type='aas_altroutegoal_t *' data-ref="11altroutegoals">altroutegoals</dfn>, <em>int</em> <dfn class="local col2 decl" id="12maxaltroutegoals" title='maxaltroutegoals' data-type='int' data-ref="12maxaltroutegoals">maxaltroutegoals</dfn>,</td></tr>
+<tr><th id="101">101</th><td>										 <em>int</em> <dfn class="local col3 decl" id="13type" title='type' data-type='int' data-ref="13type">type</dfn>)</td></tr>
+<tr><th id="102">102</th><td>{</td></tr>
+<tr><th id="103">103</th><td><u>#<span data-ppcond="103">ifndef</span> <a class="macro" href="#46" data-ref="_M/ENABLE_ALTROUTING">ENABLE_ALTROUTING</a></u></td></tr>
+<tr><th id="104">104</th><td>	<b>return</b> <var>0</var>;</td></tr>
+<tr><th id="105">105</th><td><u>#<span data-ppcond="103">else</span></u></td></tr>
+<tr><th id="106">106</th><td>	<em>int</em> <dfn class="local col4 decl" id="14i" title='i' data-type='int' data-ref="14i">i</dfn>, <dfn class="local col5 decl" id="15j" title='j' data-type='int' data-ref="15j">j</dfn>, <dfn class="local col6 decl" id="16bestareanum" title='bestareanum' data-type='int' data-ref="16bestareanum">bestareanum</dfn>;</td></tr>
+<tr><th id="107">107</th><td>	<em>int</em> <dfn class="local col7 decl" id="17numaltroutegoals" title='numaltroutegoals' data-type='int' data-ref="17numaltroutegoals">numaltroutegoals</dfn>, <dfn class="local col8 decl" id="18nummidrangeareas" title='nummidrangeareas' data-type='int' data-ref="18nummidrangeareas">nummidrangeareas</dfn>;</td></tr>
+<tr><th id="108">108</th><td>	<em>int</em> <dfn class="local col9 decl" id="19starttime" title='starttime' data-type='int' data-ref="19starttime">starttime</dfn>, <dfn class="local col0 decl" id="20goaltime" title='goaltime' data-type='int' data-ref="20goaltime">goaltime</dfn>, <dfn class="local col1 decl" id="21goaltraveltime" title='goaltraveltime' data-type='int' data-ref="21goaltraveltime">goaltraveltime</dfn>;</td></tr>
+<tr><th id="109">109</th><td>	<em>float</em> <dfn class="local col2 decl" id="22dist" title='dist' data-type='float' data-ref="22dist">dist</dfn>, <dfn class="local col3 decl" id="23bestdist" title='bestdist' data-type='float' data-ref="23bestdist">bestdist</dfn>;</td></tr>
+<tr><th id="110">110</th><td>	<a class="typedef" href="../qcommon/q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="local col4 decl" id="24mid" title='mid' data-type='vec3_t' data-ref="24mid">mid</dfn>, <dfn class="local col5 decl" id="25dir" title='dir' data-type='vec3_t' data-ref="25dir">dir</dfn>;</td></tr>
+<tr><th id="111">111</th><td><u>#<span data-ppcond="111">ifdef</span> <span class="macro" data-ref="_M/ALTROUTE_DEBUG">ALTROUTE_DEBUG</span></u></td></tr>
+<tr><th id="112">112</th><td>	<em>int</em> startmillisecs;</td></tr>
+<tr><th id="113">113</th><td></td></tr>
+<tr><th id="114">114</th><td>	startmillisecs = Sys_MilliSeconds();</td></tr>
+<tr><th id="115">115</th><td><u>#<span data-ppcond="111">endif</span></u></td></tr>
+<tr><th id="116">116</th><td></td></tr>
+<tr><th id="117">117</th><td>	<b>if</b> (!<a class="local col7 ref" href="#7startareanum" title='startareanum' data-ref="7startareanum">startareanum</a> || !<a class="local col9 ref" href="#9goalareanum" title='goalareanum' data-ref="9goalareanum">goalareanum</a>)</td></tr>
+<tr><th id="118">118</th><td>		<b>return</b> <var>0</var>;</td></tr>
+<tr><th id="119">119</th><td>	<i>//travel time towards the goal area</i></td></tr>
+<tr><th id="120">120</th><td>	<a class="local col1 ref" href="#21goaltraveltime" title='goaltraveltime' data-ref="21goaltraveltime">goaltraveltime</a> = <a class="ref" href="be_aas_route.h.html#AAS_AreaTravelTimeToGoalArea" title='AAS_AreaTravelTimeToGoalArea' data-ref="AAS_AreaTravelTimeToGoalArea">AAS_AreaTravelTimeToGoalArea</a>(<a class="local col7 ref" href="#7startareanum" title='startareanum' data-ref="7startareanum">startareanum</a>, <a class="local col6 ref" href="#6start" title='start' data-ref="6start">start</a>, <a class="local col9 ref" href="#9goalareanum" title='goalareanum' data-ref="9goalareanum">goalareanum</a>, <a class="local col0 ref" href="#10travelflags" title='travelflags' data-ref="10travelflags">travelflags</a>);</td></tr>
+<tr><th id="121">121</th><td>	<i>//clear the midrange areas</i></td></tr>
+<tr><th id="122">122</th><td>	<a class="macro" href="../qcommon/q_shared.h.html#344" title="memset" data-ref="_M/Com_Memset">Com_Memset</a>(<a class="ref" href="#midrangeareas" title='midrangeareas' data-ref="midrangeareas">midrangeareas</a>, <var>0</var>, <a class="ref" href="be_aas_main.h.html#aasworld" title='aasworld' data-ref="aasworld">aasworld</a>.<a class="ref" href="be_aas_def.h.html#aas_s::numareas" title='aas_s::numareas' data-ref="aas_s::numareas">numareas</a> * <b>sizeof</b>(<a class="typedef" href="#midrangearea_t" title='midrangearea_t' data-type='struct midrangearea_s' data-ref="midrangearea_t">midrangearea_t</a>));</td></tr>
+<tr><th id="123">123</th><td>	<a class="local col7 ref" href="#17numaltroutegoals" title='numaltroutegoals' data-ref="17numaltroutegoals">numaltroutegoals</a> = <var>0</var>;</td></tr>
+<tr><th id="124">124</th><td>	<i>//</i></td></tr>
+<tr><th id="125">125</th><td>	<a class="local col8 ref" href="#18nummidrangeareas" title='nummidrangeareas' data-ref="18nummidrangeareas">nummidrangeareas</a> = <var>0</var>;</td></tr>
+<tr><th id="126">126</th><td>	<i>//</i></td></tr>
+<tr><th id="127">127</th><td>	<b>for</b> (<a class="local col4 ref" href="#14i" title='i' data-ref="14i">i</a> = <var>1</var>; <a class="local col4 ref" href="#14i" title='i' data-ref="14i">i</a> &lt; <a class="ref" href="be_aas_main.h.html#aasworld" title='aasworld' data-ref="aasworld">aasworld</a>.<a class="ref" href="be_aas_def.h.html#aas_s::numareas" title='aas_s::numareas' data-ref="aas_s::numareas">numareas</a>; <a class="local col4 ref" href="#14i" title='i' data-ref="14i">i</a>++)</td></tr>
+<tr><th id="128">128</th><td>	{</td></tr>
+<tr><th id="129">129</th><td>		<i>//</i></td></tr>
+<tr><th id="130">130</th><td>		<b>if</b> (!(<a class="local col3 ref" href="#13type" title='type' data-ref="13type">type</a> &amp; <a class="macro" href="be_aas.h.html#192" title="1" data-ref="_M/ALTROUTEGOAL_ALL">ALTROUTEGOAL_ALL</a>))</td></tr>
+<tr><th id="131">131</th><td>		{</td></tr>
+<tr><th id="132">132</th><td>			<b>if</b> (!(<a class="local col3 ref" href="#13type" title='type' data-ref="13type">type</a> &amp; <a class="macro" href="be_aas.h.html#193" title="2" data-ref="_M/ALTROUTEGOAL_CLUSTERPORTALS">ALTROUTEGOAL_CLUSTERPORTALS</a> &amp;&amp; (<a class="ref" href="be_aas_main.h.html#aasworld" title='aasworld' data-ref="aasworld">aasworld</a>.<a class="ref" href="be_aas_def.h.html#aas_s::areasettings" title='aas_s::areasettings' data-ref="aas_s::areasettings">areasettings</a>[<a class="local col4 ref" href="#14i" title='i' data-ref="14i">i</a>].<a class="ref" href="aasfile.h.html#aas_areasettings_s::contents" title='aas_areasettings_s::contents' data-ref="aas_areasettings_s::contents">contents</a> &amp; <a class="macro" href="aasfile.h.html#76" title="8" data-ref="_M/AREACONTENTS_CLUSTERPORTAL">AREACONTENTS_CLUSTERPORTAL</a>)))</td></tr>
+<tr><th id="133">133</th><td>			{</td></tr>
+<tr><th id="134">134</th><td>				<b>if</b> (!(<a class="local col3 ref" href="#13type" title='type' data-ref="13type">type</a> &amp; <a class="macro" href="be_aas.h.html#194" title="4" data-ref="_M/ALTROUTEGOAL_VIEWPORTALS">ALTROUTEGOAL_VIEWPORTALS</a> &amp;&amp; (<a class="ref" href="be_aas_main.h.html#aasworld" title='aasworld' data-ref="aasworld">aasworld</a>.<a class="ref" href="be_aas_def.h.html#aas_s::areasettings" title='aas_s::areasettings' data-ref="aas_s::areasettings">areasettings</a>[<a class="local col4 ref" href="#14i" title='i' data-ref="14i">i</a>].<a class="ref" href="aasfile.h.html#aas_areasettings_s::contents" title='aas_areasettings_s::contents' data-ref="aas_areasettings_s::contents">contents</a> &amp; <a class="macro" href="aasfile.h.html#82" title="512" data-ref="_M/AREACONTENTS_VIEWPORTAL">AREACONTENTS_VIEWPORTAL</a>)))</td></tr>
+<tr><th id="135">135</th><td>				{</td></tr>
+<tr><th id="136">136</th><td>					<b>continue</b>;</td></tr>
+<tr><th id="137">137</th><td>				} <i>//end if</i></td></tr>
+<tr><th id="138">138</th><td>			} <i>//end if</i></td></tr>
+<tr><th id="139">139</th><td>		} <i>//end if</i></td></tr>
+<tr><th id="140">140</th><td>		<i>//if the area has no reachabilities</i></td></tr>
+<tr><th id="141">141</th><td>		<b>if</b> (!<a class="ref" href="be_aas_reach.h.html#AAS_AreaReachability" title='AAS_AreaReachability' data-ref="AAS_AreaReachability">AAS_AreaReachability</a>(<a class="local col4 ref" href="#14i" title='i' data-ref="14i">i</a>)) <b>continue</b>;</td></tr>
+<tr><th id="142">142</th><td>		<i>//tavel time from the area to the start area</i></td></tr>
+<tr><th id="143">143</th><td>		<a class="local col9 ref" href="#19starttime" title='starttime' data-ref="19starttime">starttime</a> = <a class="ref" href="be_aas_route.h.html#AAS_AreaTravelTimeToGoalArea" title='AAS_AreaTravelTimeToGoalArea' data-ref="AAS_AreaTravelTimeToGoalArea">AAS_AreaTravelTimeToGoalArea</a>(<a class="local col7 ref" href="#7startareanum" title='startareanum' data-ref="7startareanum">startareanum</a>, <a class="local col6 ref" href="#6start" title='start' data-ref="6start">start</a>, <a class="local col4 ref" href="#14i" title='i' data-ref="14i">i</a>, <a class="local col0 ref" href="#10travelflags" title='travelflags' data-ref="10travelflags">travelflags</a>);</td></tr>
+<tr><th id="144">144</th><td>		<b>if</b> (!<a class="local col9 ref" href="#19starttime" title='starttime' data-ref="19starttime">starttime</a>) <b>continue</b>;</td></tr>
+<tr><th id="145">145</th><td>		<i>//if the travel time from the start to the area is greater than the shortest goal travel time</i></td></tr>
+<tr><th id="146">146</th><td>		<b>if</b> (<a class="local col9 ref" href="#19starttime" title='starttime' data-ref="19starttime">starttime</a> &gt; (<em>float</em>) <var>1.1</var> * <a class="local col1 ref" href="#21goaltraveltime" title='goaltraveltime' data-ref="21goaltraveltime">goaltraveltime</a>) <b>continue</b>;</td></tr>
+<tr><th id="147">147</th><td>		<i>//travel time from the area to the goal area</i></td></tr>
+<tr><th id="148">148</th><td>		<a class="local col0 ref" href="#20goaltime" title='goaltime' data-ref="20goaltime">goaltime</a> = <a class="ref" href="be_aas_route.h.html#AAS_AreaTravelTimeToGoalArea" title='AAS_AreaTravelTimeToGoalArea' data-ref="AAS_AreaTravelTimeToGoalArea">AAS_AreaTravelTimeToGoalArea</a>(<a class="local col4 ref" href="#14i" title='i' data-ref="14i">i</a>, <span class="macro" title="((void*)0)" data-ref="_M/NULL">NULL</span>, <a class="local col9 ref" href="#9goalareanum" title='goalareanum' data-ref="9goalareanum">goalareanum</a>, <a class="local col0 ref" href="#10travelflags" title='travelflags' data-ref="10travelflags">travelflags</a>);</td></tr>
+<tr><th id="149">149</th><td>		<b>if</b> (!<a class="local col0 ref" href="#20goaltime" title='goaltime' data-ref="20goaltime">goaltime</a>) <b>continue</b>;</td></tr>
+<tr><th id="150">150</th><td>		<i>//if the travel time from the area to the goal is greater than the shortest goal travel time</i></td></tr>
+<tr><th id="151">151</th><td>		<b>if</b> (<a class="local col0 ref" href="#20goaltime" title='goaltime' data-ref="20goaltime">goaltime</a> &gt; (<em>float</em>) <var>0.8</var> * <a class="local col1 ref" href="#21goaltraveltime" title='goaltraveltime' data-ref="21goaltraveltime">goaltraveltime</a>) <b>continue</b>;</td></tr>
+<tr><th id="152">152</th><td>		<i>//this is a mid range area</i></td></tr>
+<tr><th id="153">153</th><td>		<a class="ref" href="#midrangeareas" title='midrangeareas' data-ref="midrangeareas">midrangeareas</a>[<a class="local col4 ref" href="#14i" title='i' data-ref="14i">i</a>].<a class="tu ref" href="#midrangearea_s::valid" title='midrangearea_s::valid' data-use='w' data-ref="midrangearea_s::valid">valid</a> = <a class="enum" href="../qcommon/q_shared.h.html#qtrue" title='qtrue' data-ref="qtrue">qtrue</a>;</td></tr>
+<tr><th id="154">154</th><td>		<a class="ref" href="#midrangeareas" title='midrangeareas' data-ref="midrangeareas">midrangeareas</a>[<a class="local col4 ref" href="#14i" title='i' data-ref="14i">i</a>].<a class="tu ref" href="#midrangearea_s::starttime" title='midrangearea_s::starttime' data-use='w' data-ref="midrangearea_s::starttime">starttime</a> = <a class="local col9 ref" href="#19starttime" title='starttime' data-ref="19starttime">starttime</a>;</td></tr>
+<tr><th id="155">155</th><td>		<a class="ref" href="#midrangeareas" title='midrangeareas' data-ref="midrangeareas">midrangeareas</a>[<a class="local col4 ref" href="#14i" title='i' data-ref="14i">i</a>].<a class="tu ref" href="#midrangearea_s::goaltime" title='midrangearea_s::goaltime' data-use='w' data-ref="midrangearea_s::goaltime">goaltime</a> = <a class="local col0 ref" href="#20goaltime" title='goaltime' data-ref="20goaltime">goaltime</a>;</td></tr>
+<tr><th id="156">156</th><td>		<a class="ref" href="l_log.h.html#Log_Write" title='Log_Write' data-ref="Log_Write">Log_Write</a>(<q>"%d midrange area %d"</q>, <a class="local col8 ref" href="#18nummidrangeareas" title='nummidrangeareas' data-ref="18nummidrangeareas">nummidrangeareas</a>, <a class="local col4 ref" href="#14i" title='i' data-ref="14i">i</a>);</td></tr>
+<tr><th id="157">157</th><td>		<a class="local col8 ref" href="#18nummidrangeareas" title='nummidrangeareas' data-ref="18nummidrangeareas">nummidrangeareas</a>++;</td></tr>
+<tr><th id="158">158</th><td>	} <i>//end for</i></td></tr>
+<tr><th id="159">159</th><td>	<i>//</i></td></tr>
+<tr><th id="160">160</th><td>	<b>for</b> (<a class="local col4 ref" href="#14i" title='i' data-ref="14i">i</a> = <var>1</var>; <a class="local col4 ref" href="#14i" title='i' data-ref="14i">i</a> &lt; <a class="ref" href="be_aas_main.h.html#aasworld" title='aasworld' data-ref="aasworld">aasworld</a>.<a class="ref" href="be_aas_def.h.html#aas_s::numareas" title='aas_s::numareas' data-ref="aas_s::numareas">numareas</a>; <a class="local col4 ref" href="#14i" title='i' data-ref="14i">i</a>++)</td></tr>
+<tr><th id="161">161</th><td>	{</td></tr>
+<tr><th id="162">162</th><td>		<b>if</b> (!<a class="ref" href="#midrangeareas" title='midrangeareas' data-ref="midrangeareas">midrangeareas</a>[<a class="local col4 ref" href="#14i" title='i' data-ref="14i">i</a>].<a class="tu ref" href="#midrangearea_s::valid" title='midrangearea_s::valid' data-use='r' data-ref="midrangearea_s::valid">valid</a>) <b>continue</b>;</td></tr>
+<tr><th id="163">163</th><td>		<i>//get the areas in one cluster</i></td></tr>
+<tr><th id="164">164</th><td>		<a class="ref" href="#numclusterareas" title='numclusterareas' data-ref="numclusterareas">numclusterareas</a> = <var>0</var>;</td></tr>
+<tr><th id="165">165</th><td>		<a class="ref" href="#AAS_AltRoutingFloodCluster_r" title='AAS_AltRoutingFloodCluster_r' data-ref="AAS_AltRoutingFloodCluster_r">AAS_AltRoutingFloodCluster_r</a>(<a class="local col4 ref" href="#14i" title='i' data-ref="14i">i</a>);</td></tr>
+<tr><th id="166">166</th><td>		<i>//now we've got a cluster with areas through which an alternative route could go</i></td></tr>
+<tr><th id="167">167</th><td><i>		//get the 'center' of the cluster</i></td></tr>
+<tr><th id="168">168</th><td>		<a class="macro" href="../qcommon/q_shared.h.html#571" title="((mid)[0]=(mid)[1]=(mid)[2]=0)" data-ref="_M/VectorClear">VectorClear</a>(<a class="local col4 ref" href="#24mid" title='mid' data-ref="24mid">mid</a>);</td></tr>
+<tr><th id="169">169</th><td>		<b>for</b> (<a class="local col5 ref" href="#15j" title='j' data-ref="15j">j</a> = <var>0</var>; <a class="local col5 ref" href="#15j" title='j' data-ref="15j">j</a> &lt; <a class="ref" href="#numclusterareas" title='numclusterareas' data-ref="numclusterareas">numclusterareas</a>; <a class="local col5 ref" href="#15j" title='j' data-ref="15j">j</a>++)</td></tr>
+<tr><th id="170">170</th><td>		{</td></tr>
+<tr><th id="171">171</th><td>			<a class="macro" href="../qcommon/q_shared.h.html#544" title="((mid)[0]=(mid)[0]+(aasworld.areas[clusterareas[j]].center)[0],(mid)[1]=(mid)[1]+(aasworld.areas[clusterareas[j]].center)[1],(mid)[2]=(mid)[2]+(aasworld.areas[clusterareas[j]].center)[2])" data-ref="_M/VectorAdd">VectorAdd</a>(<a class="local col4 ref" href="#24mid" title='mid' data-ref="24mid">mid</a>, <a class="ref" href="be_aas_main.h.html#aasworld" title='aasworld' data-ref="aasworld">aasworld</a>.<a class="ref" href="be_aas_def.h.html#aas_s::areas" title='aas_s::areas' data-ref="aas_s::areas">areas</a>[<a class="ref" href="#clusterareas" title='clusterareas' data-ref="clusterareas">clusterareas</a>[<a class="local col5 ref" href="#15j" title='j' data-ref="15j">j</a>]].<a class="ref" href="aasfile.h.html#aas_area_s::center" title='aas_area_s::center' data-ref="aas_area_s::center">center</a>, <a class="local col4 ref" href="#24mid" title='mid' data-ref="24mid">mid</a>);</td></tr>
+<tr><th id="172">172</th><td>		} <i>//end for</i></td></tr>
+<tr><th id="173">173</th><td>		<a class="macro" href="../qcommon/q_shared.h.html#546" title="((mid)[0]=(mid)[0]*(1.0 / numclusterareas),(mid)[1]=(mid)[1]*(1.0 / numclusterareas),(mid)[2]=(mid)[2]*(1.0 / numclusterareas))" data-ref="_M/VectorScale">VectorScale</a>(<a class="local col4 ref" href="#24mid" title='mid' data-ref="24mid">mid</a>, <var>1.0</var> / <a class="ref" href="#numclusterareas" title='numclusterareas' data-ref="numclusterareas">numclusterareas</a>, <a class="local col4 ref" href="#24mid" title='mid' data-ref="24mid">mid</a>);</td></tr>
+<tr><th id="174">174</th><td>		<i>//get the area closest to the center of the cluster</i></td></tr>
+<tr><th id="175">175</th><td>		<a class="local col3 ref" href="#23bestdist" title='bestdist' data-ref="23bestdist">bestdist</a> = <var>999999</var>;</td></tr>
+<tr><th id="176">176</th><td>		<a class="local col6 ref" href="#16bestareanum" title='bestareanum' data-ref="16bestareanum">bestareanum</a> = <var>0</var>;</td></tr>
+<tr><th id="177">177</th><td>		<b>for</b> (<a class="local col5 ref" href="#15j" title='j' data-ref="15j">j</a> = <var>0</var>; <a class="local col5 ref" href="#15j" title='j' data-ref="15j">j</a> &lt; <a class="ref" href="#numclusterareas" title='numclusterareas' data-ref="numclusterareas">numclusterareas</a>; <a class="local col5 ref" href="#15j" title='j' data-ref="15j">j</a>++)</td></tr>
+<tr><th id="178">178</th><td>		{</td></tr>
+<tr><th id="179">179</th><td>			<a class="macro" href="../qcommon/q_shared.h.html#543" title="((dir)[0]=(mid)[0]-(aasworld.areas[clusterareas[j]].center)[0],(dir)[1]=(mid)[1]-(aasworld.areas[clusterareas[j]].center)[1],(dir)[2]=(mid)[2]-(aasworld.areas[clusterareas[j]].center)[2])" data-ref="_M/VectorSubtract">VectorSubtract</a>(<a class="local col4 ref" href="#24mid" title='mid' data-ref="24mid">mid</a>, <a class="ref" href="be_aas_main.h.html#aasworld" title='aasworld' data-ref="aasworld">aasworld</a>.<a class="ref" href="be_aas_def.h.html#aas_s::areas" title='aas_s::areas' data-ref="aas_s::areas">areas</a>[<a class="ref" href="#clusterareas" title='clusterareas' data-ref="clusterareas">clusterareas</a>[<a class="local col5 ref" href="#15j" title='j' data-ref="15j">j</a>]].<a class="ref" href="aasfile.h.html#aas_area_s::center" title='aas_area_s::center' data-ref="aas_area_s::center">center</a>, <a class="local col5 ref" href="#25dir" title='dir' data-ref="25dir">dir</a>);</td></tr>
+<tr><th id="180">180</th><td>			<a class="local col2 ref" href="#22dist" title='dist' data-ref="22dist">dist</a> = <a class="ref" href="../qcommon/q_shared.h.html#VectorLength" title='VectorLength' data-ref="VectorLength">VectorLength</a>(<a class="local col5 ref" href="#25dir" title='dir' data-ref="25dir">dir</a>);</td></tr>
+<tr><th id="181">181</th><td>			<b>if</b> (<a class="local col2 ref" href="#22dist" title='dist' data-ref="22dist">dist</a> &lt; <a class="local col3 ref" href="#23bestdist" title='bestdist' data-ref="23bestdist">bestdist</a>)</td></tr>
+<tr><th id="182">182</th><td>			{</td></tr>
+<tr><th id="183">183</th><td>				<a class="local col3 ref" href="#23bestdist" title='bestdist' data-ref="23bestdist">bestdist</a> = <a class="local col2 ref" href="#22dist" title='dist' data-ref="22dist">dist</a>;</td></tr>
+<tr><th id="184">184</th><td>				<a class="local col6 ref" href="#16bestareanum" title='bestareanum' data-ref="16bestareanum">bestareanum</a> = <a class="ref" href="#clusterareas" title='clusterareas' data-ref="clusterareas">clusterareas</a>[<a class="local col5 ref" href="#15j" title='j' data-ref="15j">j</a>];</td></tr>
+<tr><th id="185">185</th><td>			} <i>//end if</i></td></tr>
+<tr><th id="186">186</th><td>		} <i>//end for</i></td></tr>
+<tr><th id="187">187</th><td>		<i>//now we've got an area for an alternative route</i></td></tr>
+<tr><th id="188">188</th><td><i>		//FIXME: add alternative goal origin</i></td></tr>
+<tr><th id="189">189</th><td>		<a class="macro" href="../qcommon/q_shared.h.html#545" title="((altroutegoals[numaltroutegoals].origin)[0]=(aasworld.areas[bestareanum].center)[0],(altroutegoals[numaltroutegoals].origin)[1]=(aasworld.areas[bestareanum].center)[1],(altroutegoals[numaltroutegoals].origin)[2]=(aasworld.areas[bestareanum].center)[2])" data-ref="_M/VectorCopy">VectorCopy</a>(<a class="ref" href="be_aas_main.h.html#aasworld" title='aasworld' data-ref="aasworld">aasworld</a>.<a class="ref" href="be_aas_def.h.html#aas_s::areas" title='aas_s::areas' data-ref="aas_s::areas">areas</a>[<a class="local col6 ref" href="#16bestareanum" title='bestareanum' data-ref="16bestareanum">bestareanum</a>].<a class="ref" href="aasfile.h.html#aas_area_s::center" title='aas_area_s::center' data-ref="aas_area_s::center">center</a>, <a class="local col1 ref" href="#11altroutegoals" title='altroutegoals' data-ref="11altroutegoals">altroutegoals</a>[<a class="local col7 ref" href="#17numaltroutegoals" title='numaltroutegoals' data-ref="17numaltroutegoals">numaltroutegoals</a>].<a class="ref" href="be_aas.h.html#aas_altroutegoal_s::origin" title='aas_altroutegoal_s::origin' data-ref="aas_altroutegoal_s::origin">origin</a>);</td></tr>
+<tr><th id="190">190</th><td>		<a class="local col1 ref" href="#11altroutegoals" title='altroutegoals' data-ref="11altroutegoals">altroutegoals</a>[<a class="local col7 ref" href="#17numaltroutegoals" title='numaltroutegoals' data-ref="17numaltroutegoals">numaltroutegoals</a>].<a class="ref" href="be_aas.h.html#aas_altroutegoal_s::areanum" title='aas_altroutegoal_s::areanum' data-ref="aas_altroutegoal_s::areanum">areanum</a> = <a class="local col6 ref" href="#16bestareanum" title='bestareanum' data-ref="16bestareanum">bestareanum</a>;</td></tr>
+<tr><th id="191">191</th><td>		<a class="local col1 ref" href="#11altroutegoals" title='altroutegoals' data-ref="11altroutegoals">altroutegoals</a>[<a class="local col7 ref" href="#17numaltroutegoals" title='numaltroutegoals' data-ref="17numaltroutegoals">numaltroutegoals</a>].<a class="ref" href="be_aas.h.html#aas_altroutegoal_s::starttraveltime" title='aas_altroutegoal_s::starttraveltime' data-ref="aas_altroutegoal_s::starttraveltime">starttraveltime</a> = <a class="ref" href="#midrangeareas" title='midrangeareas' data-ref="midrangeareas">midrangeareas</a>[<a class="local col6 ref" href="#16bestareanum" title='bestareanum' data-ref="16bestareanum">bestareanum</a>].<a class="tu ref" href="#midrangearea_s::starttime" title='midrangearea_s::starttime' data-use='r' data-ref="midrangearea_s::starttime">starttime</a>;</td></tr>
+<tr><th id="192">192</th><td>		<a class="local col1 ref" href="#11altroutegoals" title='altroutegoals' data-ref="11altroutegoals">altroutegoals</a>[<a class="local col7 ref" href="#17numaltroutegoals" title='numaltroutegoals' data-ref="17numaltroutegoals">numaltroutegoals</a>].<a class="ref" href="be_aas.h.html#aas_altroutegoal_s::goaltraveltime" title='aas_altroutegoal_s::goaltraveltime' data-ref="aas_altroutegoal_s::goaltraveltime">goaltraveltime</a> = <a class="ref" href="#midrangeareas" title='midrangeareas' data-ref="midrangeareas">midrangeareas</a>[<a class="local col6 ref" href="#16bestareanum" title='bestareanum' data-ref="16bestareanum">bestareanum</a>].<a class="tu ref" href="#midrangearea_s::goaltime" title='midrangearea_s::goaltime' data-use='r' data-ref="midrangearea_s::goaltime">goaltime</a>;</td></tr>
+<tr><th id="193">193</th><td>		<a class="local col1 ref" href="#11altroutegoals" title='altroutegoals' data-ref="11altroutegoals">altroutegoals</a>[<a class="local col7 ref" href="#17numaltroutegoals" title='numaltroutegoals' data-ref="17numaltroutegoals">numaltroutegoals</a>].<a class="ref" href="be_aas.h.html#aas_altroutegoal_s::extratraveltime" title='aas_altroutegoal_s::extratraveltime' data-ref="aas_altroutegoal_s::extratraveltime">extratraveltime</a> =</td></tr>
+<tr><th id="194">194</th><td>					(<a class="ref" href="#midrangeareas" title='midrangeareas' data-ref="midrangeareas">midrangeareas</a>[<a class="local col6 ref" href="#16bestareanum" title='bestareanum' data-ref="16bestareanum">bestareanum</a>].<a class="tu ref" href="#midrangearea_s::starttime" title='midrangearea_s::starttime' data-use='r' data-ref="midrangearea_s::starttime">starttime</a> + <a class="ref" href="#midrangeareas" title='midrangeareas' data-ref="midrangeareas">midrangeareas</a>[<a class="local col6 ref" href="#16bestareanum" title='bestareanum' data-ref="16bestareanum">bestareanum</a>].<a class="tu ref" href="#midrangearea_s::goaltime" title='midrangearea_s::goaltime' data-use='r' data-ref="midrangearea_s::goaltime">goaltime</a>) -</td></tr>
+<tr><th id="195">195</th><td>								<a class="local col1 ref" href="#21goaltraveltime" title='goaltraveltime' data-ref="21goaltraveltime">goaltraveltime</a>;</td></tr>
+<tr><th id="196">196</th><td>		<a class="local col7 ref" href="#17numaltroutegoals" title='numaltroutegoals' data-ref="17numaltroutegoals">numaltroutegoals</a>++;</td></tr>
+<tr><th id="197">197</th><td>		<i>//</i></td></tr>
+<tr><th id="198">198</th><td><u>#<span data-ppcond="198">ifdef</span> <span class="macro" data-ref="_M/ALTROUTE_DEBUG">ALTROUTE_DEBUG</span></u></td></tr>
+<tr><th id="199">199</th><td>		AAS_ShowAreaPolygons(bestareanum, <var>1</var>, qtrue);</td></tr>
+<tr><th id="200">200</th><td><u>#<span data-ppcond="198">endif</span></u></td></tr>
+<tr><th id="201">201</th><td>		<i>//don't return more than the maximum alternative route goals</i></td></tr>
+<tr><th id="202">202</th><td>		<b>if</b> (<a class="local col7 ref" href="#17numaltroutegoals" title='numaltroutegoals' data-ref="17numaltroutegoals">numaltroutegoals</a> &gt;= <a class="local col2 ref" href="#12maxaltroutegoals" title='maxaltroutegoals' data-ref="12maxaltroutegoals">maxaltroutegoals</a>) <b>break</b>;</td></tr>
+<tr><th id="203">203</th><td>	} <i>//end for</i></td></tr>
+<tr><th id="204">204</th><td><u>#<span data-ppcond="204">ifdef</span> <span class="macro" data-ref="_M/ALTROUTE_DEBUG">ALTROUTE_DEBUG</span></u></td></tr>
+<tr><th id="205">205</th><td>	botimport.Print(PRT_MESSAGE, <q>"alternative route goals in %d msec\n"</q>, Sys_MilliSeconds() - startmillisecs);</td></tr>
+<tr><th id="206">206</th><td><u>#<span data-ppcond="204">endif</span></u></td></tr>
+<tr><th id="207">207</th><td>	<b>return</b> <a class="local col7 ref" href="#17numaltroutegoals" title='numaltroutegoals' data-ref="17numaltroutegoals">numaltroutegoals</a>;</td></tr>
+<tr><th id="208">208</th><td><u>#<span data-ppcond="103">endif</span></u></td></tr>
+<tr><th id="209">209</th><td>} <i>//end of the function AAS_AlternativeRouteGoals</i></td></tr>
+<tr><th id="210">210</th><td><i>//===========================================================================</i></td></tr>
+<tr><th id="211">211</th><td><i>//</i></td></tr>
+<tr><th id="212">212</th><td><i>// Parameter:				-</i></td></tr>
+<tr><th id="213">213</th><td><i>// Returns:					-</i></td></tr>
+<tr><th id="214">214</th><td><i>// Changes Globals:		-</i></td></tr>
+<tr><th id="215">215</th><td><i>//===========================================================================</i></td></tr>
+<tr><th id="216">216</th><td><em>void</em> <dfn class="decl def" id="AAS_InitAlternativeRouting" title='AAS_InitAlternativeRouting' data-ref="AAS_InitAlternativeRouting">AAS_InitAlternativeRouting</dfn>(<em>void</em>)</td></tr>
+<tr><th id="217">217</th><td>{</td></tr>
+<tr><th id="218">218</th><td><u>#<span data-ppcond="218">ifdef</span> <a class="macro" href="#46" data-ref="_M/ENABLE_ALTROUTING">ENABLE_ALTROUTING</a></u></td></tr>
+<tr><th id="219">219</th><td>	<b>if</b> (<a class="ref" href="#midrangeareas" title='midrangeareas' data-ref="midrangeareas">midrangeareas</a>) <a class="ref" href="l_memory.h.html#FreeMemory" title='FreeMemory' data-ref="FreeMemory">FreeMemory</a>(<a class="ref" href="#midrangeareas" title='midrangeareas' data-ref="midrangeareas">midrangeareas</a>);</td></tr>
+<tr><th id="220">220</th><td>	<a class="ref" href="#midrangeareas" title='midrangeareas' data-ref="midrangeareas">midrangeareas</a> = (<a class="typedef" href="#midrangearea_t" title='midrangearea_t' data-type='struct midrangearea_s' data-ref="midrangearea_t">midrangearea_t</a> *) <a class="ref" href="l_memory.h.html#GetMemory" title='GetMemory' data-ref="GetMemory">GetMemory</a>(<a class="ref" href="be_aas_main.h.html#aasworld" title='aasworld' data-ref="aasworld">aasworld</a>.<a class="ref" href="be_aas_def.h.html#aas_s::numareas" title='aas_s::numareas' data-ref="aas_s::numareas">numareas</a> * <b>sizeof</b>(<a class="typedef" href="#midrangearea_t" title='midrangearea_t' data-type='struct midrangearea_s' data-ref="midrangearea_t">midrangearea_t</a>));</td></tr>
+<tr><th id="221">221</th><td>	<b>if</b> (<a class="ref" href="#clusterareas" title='clusterareas' data-ref="clusterareas">clusterareas</a>) <a class="ref" href="l_memory.h.html#FreeMemory" title='FreeMemory' data-ref="FreeMemory">FreeMemory</a>(<a class="ref" href="#clusterareas" title='clusterareas' data-ref="clusterareas">clusterareas</a>);</td></tr>
+<tr><th id="222">222</th><td>	<a class="ref" href="#clusterareas" title='clusterareas' data-ref="clusterareas">clusterareas</a> = (<em>int</em> *) <a class="ref" href="l_memory.h.html#GetMemory" title='GetMemory' data-ref="GetMemory">GetMemory</a>(<a class="ref" href="be_aas_main.h.html#aasworld" title='aasworld' data-ref="aasworld">aasworld</a>.<a class="ref" href="be_aas_def.h.html#aas_s::numareas" title='aas_s::numareas' data-ref="aas_s::numareas">numareas</a> * <b>sizeof</b>(<em>int</em>));</td></tr>
+<tr><th id="223">223</th><td><u>#<span data-ppcond="218">endif</span></u></td></tr>
+<tr><th id="224">224</th><td>} <i>//end of the function AAS_InitAlternativeRouting</i></td></tr>
+<tr><th id="225">225</th><td><i>//===========================================================================</i></td></tr>
+<tr><th id="226">226</th><td><i>//</i></td></tr>
+<tr><th id="227">227</th><td><i>// Parameter:				-</i></td></tr>
+<tr><th id="228">228</th><td><i>// Returns:					-</i></td></tr>
+<tr><th id="229">229</th><td><i>// Changes Globals:		-</i></td></tr>
+<tr><th id="230">230</th><td><i>//===========================================================================</i></td></tr>
+<tr><th id="231">231</th><td><em>void</em> <dfn class="decl def" id="AAS_ShutdownAlternativeRouting" title='AAS_ShutdownAlternativeRouting' data-ref="AAS_ShutdownAlternativeRouting">AAS_ShutdownAlternativeRouting</dfn>(<em>void</em>)</td></tr>
+<tr><th id="232">232</th><td>{</td></tr>
+<tr><th id="233">233</th><td><u>#<span data-ppcond="233">ifdef</span> <a class="macro" href="#46" data-ref="_M/ENABLE_ALTROUTING">ENABLE_ALTROUTING</a></u></td></tr>
+<tr><th id="234">234</th><td>	<b>if</b> (<a class="ref" href="#midrangeareas" title='midrangeareas' data-ref="midrangeareas">midrangeareas</a>) <a class="ref" href="l_memory.h.html#FreeMemory" title='FreeMemory' data-ref="FreeMemory">FreeMemory</a>(<a class="ref" href="#midrangeareas" title='midrangeareas' data-ref="midrangeareas">midrangeareas</a>);</td></tr>
+<tr><th id="235">235</th><td>	<a class="ref" href="#midrangeareas" title='midrangeareas' data-ref="midrangeareas">midrangeareas</a> = <span class="macro" title="((void*)0)" data-ref="_M/NULL">NULL</span>;</td></tr>
+<tr><th id="236">236</th><td>	<b>if</b> (<a class="ref" href="#clusterareas" title='clusterareas' data-ref="clusterareas">clusterareas</a>) <a class="ref" href="l_memory.h.html#FreeMemory" title='FreeMemory' data-ref="FreeMemory">FreeMemory</a>(<a class="ref" href="#clusterareas" title='clusterareas' data-ref="clusterareas">clusterareas</a>);</td></tr>
+<tr><th id="237">237</th><td>	<a class="ref" href="#clusterareas" title='clusterareas' data-ref="clusterareas">clusterareas</a> = <span class="macro" title="((void*)0)" data-ref="_M/NULL">NULL</span>;</td></tr>
+<tr><th id="238">238</th><td>	<a class="ref" href="#numclusterareas" title='numclusterareas' data-ref="numclusterareas">numclusterareas</a> = <var>0</var>;</td></tr>
+<tr><th id="239">239</th><td><u>#<span data-ppcond="233">endif</span></u></td></tr>
+<tr><th id="240">240</th><td>} <i>//end of the function AAS_ShutdownAlternativeRouting</i></td></tr>
+<tr><th id="241">241</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated on <em>2017-Aug-29</em> from project codebrowser revision <em>63e07af</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

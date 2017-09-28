@@ -1,0 +1,27 @@
+<def f='codebrowser/code/qcommon/vm_local.h' l='144' ll='186'/>
+<size>216</size>
+<mbr r='vm_s::programStack' o='0' t='int'/>
+<mbr r='vm_s::systemCall' o='64' t='intptr_t (*)(intptr_t *)'/>
+<mbr r='vm_s::name' o='128' t='char [64]'/>
+<mbr r='vm_s::searchPath' o='640' t='void *'/>
+<mbr r='vm_s::dllHandle' o='704' t='void *'/>
+<mbr r='vm_s::entryPoint' o='768' t='intptr_t (*)(int, ...)'/>
+<mbr r='vm_s::destroy' o='832' t='void (*)(vm_t *)'/>
+<mbr r='vm_s::currentlyInterpreting' o='896' t='qboolean'/>
+<mbr r='vm_s::compiled' o='928' t='qboolean'/>
+<mbr r='vm_s::codeBase' o='960' t='byte *'/>
+<mbr r='vm_s::entryOfs' o='1024' t='int'/>
+<mbr r='vm_s::codeLength' o='1056' t='int'/>
+<mbr r='vm_s::instructionPointers' o='1088' t='intptr_t *'/>
+<mbr r='vm_s::instructionCount' o='1152' t='int'/>
+<mbr r='vm_s::dataBase' o='1216' t='byte *'/>
+<mbr r='vm_s::dataMask' o='1280' t='int'/>
+<mbr r='vm_s::dataAlloc' o='1312' t='int'/>
+<mbr r='vm_s::stackBottom' o='1344' t='int'/>
+<mbr r='vm_s::numSymbols' o='1376' t='int'/>
+<mbr r='vm_s::symbols' o='1408' t='struct vmSymbol_s *'/>
+<mbr r='vm_s::callLevel' o='1472' t='int'/>
+<mbr r='vm_s::breakFunction' o='1504' t='int'/>
+<mbr r='vm_s::breakCount' o='1536' t='int'/>
+<mbr r='vm_s::jumpTableTargets' o='1600' t='byte *'/>
+<mbr r='vm_s::numJumpTableTargets' o='1664' t='int'/>

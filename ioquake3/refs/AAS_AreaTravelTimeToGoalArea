@@ -1,0 +1,21 @@
+<dec f='codebrowser/code/botlib/be_aas_route.h' l='61' type='int AAS_AreaTravelTimeToGoalArea(int areanum, vec_t * origin, int goalareanum, int travelflags)'/>
+<dec f='codebrowser/code/botlib/be_aas_route.h' l='61' type='int AAS_AreaTravelTimeToGoalArea(int areanum, vec_t * origin, int goalareanum, int travelflags)'/>
+<doc f='codebrowser/code/botlib/be_aas_route.h' l='60'>//returns the travel time from the area to the goal area using the given travel flags</doc>
+<use f='codebrowser/code/botlib/be_aas_route.c' l='903' u='c' c='AAS_CreateAllRoutingCache'/>
+<def f='codebrowser/code/botlib/be_aas_route.c' l='1771' ll='1780' type='int AAS_AreaTravelTimeToGoalArea(int areanum, vec_t * origin, int goalareanum, int travelflags)'/>
+<use f='codebrowser/code/botlib/be_aas_route.c' l='2021' u='c' c='AAS_RandomGoalArea'/>
+<doc f='codebrowser/code/botlib/be_aas_route.c' l='1765'>//===========================================================================
+//
+// Parameter:			-
+// Returns:				-
+// Changes Globals:		-
+//===========================================================================</doc>
+<use f='codebrowser/code/botlib/be_aas_routealt.c' l='120' u='c' c='AAS_AlternativeRouteGoals'/>
+<use f='codebrowser/code/botlib/be_aas_routealt.c' l='143' u='c' c='AAS_AlternativeRouteGoals'/>
+<use f='codebrowser/code/botlib/be_aas_routealt.c' l='148' u='c' c='AAS_AlternativeRouteGoals'/>
+<use f='codebrowser/code/botlib/be_ai_goal.c' l='1362' u='c' c='BotChooseLTGItem'/>
+<use f='codebrowser/code/botlib/be_ai_goal.c' l='1478' u='c' c='BotChooseNBGItem'/>
+<use f='codebrowser/code/botlib/be_ai_goal.c' l='1533' u='c' c='BotChooseNBGItem'/>
+<use f='codebrowser/code/botlib/be_ai_goal.c' l='1550' u='c' c='BotChooseNBGItem'/>
+<use f='codebrowser/code/botlib/be_ai_move.c' l='791' u='c' c='BotGetReachabilityToGoal'/>
+<use f='codebrowser/code/botlib/be_interface.c' l='713' u='r' c='Init_AAS_Export'/>

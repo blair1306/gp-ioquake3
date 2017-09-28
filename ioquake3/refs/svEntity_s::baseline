@@ -1,0 +1,6 @@
+<dec f='codebrowser/code/server/server.h' l='55' type='entityState_t'/>
+<offset>128</offset>
+<doc f='codebrowser/code/server/server.h' l='55'>// for delta compression of initial sighting</doc>
+<use f='codebrowser/code/server/sv_client.c' l='759' u='a' c='SV_SendClientGameState'/>
+<use f='codebrowser/code/server/sv_init.c' l='231' u='w' c='SV_CreateBaseline'/>
+<use f='codebrowser/code/server/sv_snapshot.c' l='99' u='a' c='SV_EmitPacketEntities'/>

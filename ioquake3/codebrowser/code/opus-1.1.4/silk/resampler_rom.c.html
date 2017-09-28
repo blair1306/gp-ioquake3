@@ -1,0 +1,114 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>resampler_rom.c source code [codebrowser/code/opus-1.1.4/silk/resampler_rom.c] - Woboq Code Browser</title>
+<link rel="stylesheet" href="../../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'codebrowser/code/opus-1.1.4/silk/resampler_rom.c'; var root_path = '../../../..'; var data_path = '../../../../../data';</script>
+<script src='../../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../../..'>codebrowser</a>/<a href='../..'>code</a>/<a href='..'>opus-1.1.4</a>/<a href='./'>silk</a>/<a href='resampler_rom.c.html'>resampler_rom.c</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/***********************************************************************</i></td></tr>
+<tr><th id="2">2</th><td><i>Copyright (c) 2006-2011, Skype Limited. All rights reserved.</i></td></tr>
+<tr><th id="3">3</th><td><i>Redistribution and use in source and binary forms, with or without</i></td></tr>
+<tr><th id="4">4</th><td><i>modification, are permitted provided that the following conditions</i></td></tr>
+<tr><th id="5">5</th><td><i>are met:</i></td></tr>
+<tr><th id="6">6</th><td><i>- Redistributions of source code must retain the above copyright notice,</i></td></tr>
+<tr><th id="7">7</th><td><i>this list of conditions and the following disclaimer.</i></td></tr>
+<tr><th id="8">8</th><td><i>- Redistributions in binary form must reproduce the above copyright</i></td></tr>
+<tr><th id="9">9</th><td><i>notice, this list of conditions and the following disclaimer in the</i></td></tr>
+<tr><th id="10">10</th><td><i>documentation and/or other materials provided with the distribution.</i></td></tr>
+<tr><th id="11">11</th><td><i>- Neither the name of Internet Society, IETF or IETF Trust, nor the</i></td></tr>
+<tr><th id="12">12</th><td><i>names of specific contributors, may be used to endorse or promote</i></td></tr>
+<tr><th id="13">13</th><td><i>products derived from this software without specific prior written</i></td></tr>
+<tr><th id="14">14</th><td><i>permission.</i></td></tr>
+<tr><th id="15">15</th><td><i>THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"</i></td></tr>
+<tr><th id="16">16</th><td><i>AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE</i></td></tr>
+<tr><th id="17">17</th><td><i>IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE</i></td></tr>
+<tr><th id="18">18</th><td><i>ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE</i></td></tr>
+<tr><th id="19">19</th><td><i>LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR</i></td></tr>
+<tr><th id="20">20</th><td><i>CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF</i></td></tr>
+<tr><th id="21">21</th><td><i>SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS</i></td></tr>
+<tr><th id="22">22</th><td><i>INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN</i></td></tr>
+<tr><th id="23">23</th><td><i>CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)</i></td></tr>
+<tr><th id="24">24</th><td><i>ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE</i></td></tr>
+<tr><th id="25">25</th><td><i>POSSIBILITY OF SUCH DAMAGE.</i></td></tr>
+<tr><th id="26">26</th><td><i>***********************************************************************/</i></td></tr>
+<tr><th id="27">27</th><td></td></tr>
+<tr><th id="28">28</th><td><u>#<span data-ppcond="28">ifdef</span> <span class="macro" data-ref="_M/HAVE_CONFIG_H">HAVE_CONFIG_H</span></u></td></tr>
+<tr><th id="29">29</th><td><u>#include "config.h"</u></td></tr>
+<tr><th id="30">30</th><td><u>#<span data-ppcond="28">endif</span></u></td></tr>
+<tr><th id="31">31</th><td></td></tr>
+<tr><th id="32">32</th><td><i>/* Filter coefficients for IIR/FIR polyphase resampling     *</i></td></tr>
+<tr><th id="33">33</th><td><i> * Total size: 179 Words (358 Bytes)                        */</i></td></tr>
+<tr><th id="34">34</th><td></td></tr>
+<tr><th id="35">35</th><td><u>#include <a href="resampler_private.h.html">"resampler_private.h"</a></u></td></tr>
+<tr><th id="36">36</th><td></td></tr>
+<tr><th id="37">37</th><td><i>/* Matlab code for the notch filter coefficients: */</i></td></tr>
+<tr><th id="38">38</th><td><i>/* B = [1, 0.147, 1];  A = [1, 0.107, 0.89]; G = 0.93; freqz(G * B, A, 2^14, 16e3); axis([0, 8000, -10, 1]) */</i></td></tr>
+<tr><th id="39">39</th><td><i>/* fprintf('\t%6d, %6d, %6d, %6d\n', round(B(2)*2^16), round(-A(2)*2^16), round((1-A(3))*2^16), round(G*2^15)) */</i></td></tr>
+<tr><th id="40">40</th><td><i>/* const opus_int16 silk_resampler_up2_hq_notch[ 4 ] = { 9634,  -7012,   7209,  30474 }; */</i></td></tr>
+<tr><th id="41">41</th><td></td></tr>
+<tr><th id="42">42</th><td><i>/* Tables with IIR and FIR coefficients for fractional downsamplers (123 Words) */</i></td></tr>
+<tr><th id="43">43</th><td><a class="macro" href="SigProc_FIX.h.html#391" title="" data-ref="_M/silk_DWORD_ALIGN">silk_DWORD_ALIGN</a> <em>const</em> <a class="typedef" href="../include/opus_types.h.html#opus_int16" title='opus_int16' data-type='int16_t' data-ref="opus_int16">opus_int16</a> <dfn class="decl def" id="silk_Resampler_3_4_COEFS" title='silk_Resampler_3_4_COEFS' data-ref="silk_Resampler_3_4_COEFS">silk_Resampler_3_4_COEFS</dfn>[ <var>2</var> + <var>3</var> * <a class="macro" href="resampler_rom.h.html#39" title="18" data-ref="_M/RESAMPLER_DOWN_ORDER_FIR0">RESAMPLER_DOWN_ORDER_FIR0</a> / <var>2</var> ] = {</td></tr>
+<tr><th id="44">44</th><td>    -<var>20694</var>, -<var>13867</var>,</td></tr>
+<tr><th id="45">45</th><td>       -<var>49</var>,     <var>64</var>,     <var>17</var>,   -<var>157</var>,    <var>353</var>,   -<var>496</var>,    <var>163</var>,  <var>11047</var>,  <var>22205</var>,</td></tr>
+<tr><th id="46">46</th><td>       -<var>39</var>,      <var>6</var>,     <var>91</var>,   -<var>170</var>,    <var>186</var>,     <var>23</var>,   -<var>896</var>,   <var>6336</var>,  <var>19928</var>,</td></tr>
+<tr><th id="47">47</th><td>       -<var>19</var>,    -<var>36</var>,    <var>102</var>,    -<var>89</var>,    -<var>24</var>,    <var>328</var>,   -<var>951</var>,   <var>2568</var>,  <var>15909</var>,</td></tr>
+<tr><th id="48">48</th><td>};</td></tr>
+<tr><th id="49">49</th><td></td></tr>
+<tr><th id="50">50</th><td><a class="macro" href="SigProc_FIX.h.html#391" title="" data-ref="_M/silk_DWORD_ALIGN">silk_DWORD_ALIGN</a> <em>const</em> <a class="typedef" href="../include/opus_types.h.html#opus_int16" title='opus_int16' data-type='int16_t' data-ref="opus_int16">opus_int16</a> <dfn class="decl def" id="silk_Resampler_2_3_COEFS" title='silk_Resampler_2_3_COEFS' data-ref="silk_Resampler_2_3_COEFS">silk_Resampler_2_3_COEFS</dfn>[ <var>2</var> + <var>2</var> * <a class="macro" href="resampler_rom.h.html#39" title="18" data-ref="_M/RESAMPLER_DOWN_ORDER_FIR0">RESAMPLER_DOWN_ORDER_FIR0</a> / <var>2</var> ] = {</td></tr>
+<tr><th id="51">51</th><td>    -<var>14457</var>, -<var>14019</var>,</td></tr>
+<tr><th id="52">52</th><td>        <var>64</var>,    <var>128</var>,   -<var>122</var>,     <var>36</var>,    <var>310</var>,   -<var>768</var>,    <var>584</var>,   <var>9267</var>,  <var>17733</var>,</td></tr>
+<tr><th id="53">53</th><td>        <var>12</var>,    <var>128</var>,     <var>18</var>,   -<var>142</var>,    <var>288</var>,   -<var>117</var>,   -<var>865</var>,   <var>4123</var>,  <var>14459</var>,</td></tr>
+<tr><th id="54">54</th><td>};</td></tr>
+<tr><th id="55">55</th><td></td></tr>
+<tr><th id="56">56</th><td><a class="macro" href="SigProc_FIX.h.html#391" title="" data-ref="_M/silk_DWORD_ALIGN">silk_DWORD_ALIGN</a> <em>const</em> <a class="typedef" href="../include/opus_types.h.html#opus_int16" title='opus_int16' data-type='int16_t' data-ref="opus_int16">opus_int16</a> <dfn class="decl def" id="silk_Resampler_1_2_COEFS" title='silk_Resampler_1_2_COEFS' data-ref="silk_Resampler_1_2_COEFS">silk_Resampler_1_2_COEFS</dfn>[ <var>2</var> + <a class="macro" href="resampler_rom.h.html#40" title="24" data-ref="_M/RESAMPLER_DOWN_ORDER_FIR1">RESAMPLER_DOWN_ORDER_FIR1</a> / <var>2</var> ] = {</td></tr>
+<tr><th id="57">57</th><td>       <var>616</var>, -<var>14323</var>,</td></tr>
+<tr><th id="58">58</th><td>       -<var>10</var>,     <var>39</var>,     <var>58</var>,    -<var>46</var>,    -<var>84</var>,    <var>120</var>,    <var>184</var>,   -<var>315</var>,   -<var>541</var>,   <var>1284</var>,   <var>5380</var>,   <var>9024</var>,</td></tr>
+<tr><th id="59">59</th><td>};</td></tr>
+<tr><th id="60">60</th><td></td></tr>
+<tr><th id="61">61</th><td><a class="macro" href="SigProc_FIX.h.html#391" title="" data-ref="_M/silk_DWORD_ALIGN">silk_DWORD_ALIGN</a> <em>const</em> <a class="typedef" href="../include/opus_types.h.html#opus_int16" title='opus_int16' data-type='int16_t' data-ref="opus_int16">opus_int16</a> <dfn class="decl def" id="silk_Resampler_1_3_COEFS" title='silk_Resampler_1_3_COEFS' data-ref="silk_Resampler_1_3_COEFS">silk_Resampler_1_3_COEFS</dfn>[ <var>2</var> + <a class="macro" href="resampler_rom.h.html#41" title="36" data-ref="_M/RESAMPLER_DOWN_ORDER_FIR2">RESAMPLER_DOWN_ORDER_FIR2</a> / <var>2</var> ] = {</td></tr>
+<tr><th id="62">62</th><td>     <var>16102</var>, -<var>15162</var>,</td></tr>
+<tr><th id="63">63</th><td>       -<var>13</var>,      <var>0</var>,     <var>20</var>,     <var>26</var>,      <var>5</var>,    -<var>31</var>,    -<var>43</var>,     -<var>4</var>,     <var>65</var>,     <var>90</var>,      <var>7</var>,   -<var>157</var>,   -<var>248</var>,    -<var>44</var>,    <var>593</var>,   <var>1583</var>,   <var>2612</var>,   <var>3271</var>,</td></tr>
+<tr><th id="64">64</th><td>};</td></tr>
+<tr><th id="65">65</th><td></td></tr>
+<tr><th id="66">66</th><td><a class="macro" href="SigProc_FIX.h.html#391" title="" data-ref="_M/silk_DWORD_ALIGN">silk_DWORD_ALIGN</a> <em>const</em> <a class="typedef" href="../include/opus_types.h.html#opus_int16" title='opus_int16' data-type='int16_t' data-ref="opus_int16">opus_int16</a> <dfn class="decl def" id="silk_Resampler_1_4_COEFS" title='silk_Resampler_1_4_COEFS' data-ref="silk_Resampler_1_4_COEFS">silk_Resampler_1_4_COEFS</dfn>[ <var>2</var> + <a class="macro" href="resampler_rom.h.html#41" title="36" data-ref="_M/RESAMPLER_DOWN_ORDER_FIR2">RESAMPLER_DOWN_ORDER_FIR2</a> / <var>2</var> ] = {</td></tr>
+<tr><th id="67">67</th><td>     <var>22500</var>, -<var>15099</var>,</td></tr>
+<tr><th id="68">68</th><td>         <var>3</var>,    -<var>14</var>,    -<var>20</var>,    -<var>15</var>,      <var>2</var>,     <var>25</var>,     <var>37</var>,     <var>25</var>,    -<var>16</var>,    -<var>71</var>,   -<var>107</var>,    -<var>79</var>,     <var>50</var>,    <var>292</var>,    <var>623</var>,    <var>982</var>,   <var>1288</var>,   <var>1464</var>,</td></tr>
+<tr><th id="69">69</th><td>};</td></tr>
+<tr><th id="70">70</th><td></td></tr>
+<tr><th id="71">71</th><td><a class="macro" href="SigProc_FIX.h.html#391" title="" data-ref="_M/silk_DWORD_ALIGN">silk_DWORD_ALIGN</a> <em>const</em> <a class="typedef" href="../include/opus_types.h.html#opus_int16" title='opus_int16' data-type='int16_t' data-ref="opus_int16">opus_int16</a> <dfn class="decl def" id="silk_Resampler_1_6_COEFS" title='silk_Resampler_1_6_COEFS' data-ref="silk_Resampler_1_6_COEFS">silk_Resampler_1_6_COEFS</dfn>[ <var>2</var> + <a class="macro" href="resampler_rom.h.html#41" title="36" data-ref="_M/RESAMPLER_DOWN_ORDER_FIR2">RESAMPLER_DOWN_ORDER_FIR2</a> / <var>2</var> ] = {</td></tr>
+<tr><th id="72">72</th><td>     <var>27540</var>, -<var>15257</var>,</td></tr>
+<tr><th id="73">73</th><td>        <var>17</var>,     <var>12</var>,      <var>8</var>,      <var>1</var>,    -<var>10</var>,    -<var>22</var>,    -<var>30</var>,    -<var>32</var>,    -<var>22</var>,      <var>3</var>,     <var>44</var>,    <var>100</var>,    <var>168</var>,    <var>243</var>,    <var>317</var>,    <var>381</var>,    <var>429</var>,    <var>455</var>,</td></tr>
+<tr><th id="74">74</th><td>};</td></tr>
+<tr><th id="75">75</th><td></td></tr>
+<tr><th id="76">76</th><td><a class="macro" href="SigProc_FIX.h.html#391" title="" data-ref="_M/silk_DWORD_ALIGN">silk_DWORD_ALIGN</a> <em>const</em> <a class="typedef" href="../include/opus_types.h.html#opus_int16" title='opus_int16' data-type='int16_t' data-ref="opus_int16">opus_int16</a> <dfn class="decl def" id="silk_Resampler_2_3_COEFS_LQ" title='silk_Resampler_2_3_COEFS_LQ' data-ref="silk_Resampler_2_3_COEFS_LQ">silk_Resampler_2_3_COEFS_LQ</dfn>[ <var>2</var> + <var>2</var> * <var>2</var> ] = {</td></tr>
+<tr><th id="77">77</th><td>     -<var>2797</var>,  -<var>6507</var>,</td></tr>
+<tr><th id="78">78</th><td>      <var>4697</var>,  <var>10739</var>,</td></tr>
+<tr><th id="79">79</th><td>      <var>1567</var>,   <var>8276</var>,</td></tr>
+<tr><th id="80">80</th><td>};</td></tr>
+<tr><th id="81">81</th><td></td></tr>
+<tr><th id="82">82</th><td><i>/* Table with interplation fractions of 1/24, 3/24, 5/24, ... , 23/24 : 23/24 (46 Words) */</i></td></tr>
+<tr><th id="83">83</th><td><a class="macro" href="SigProc_FIX.h.html#391" title="" data-ref="_M/silk_DWORD_ALIGN">silk_DWORD_ALIGN</a> <em>const</em> <a class="typedef" href="../include/opus_types.h.html#opus_int16" title='opus_int16' data-type='int16_t' data-ref="opus_int16">opus_int16</a> <dfn class="decl def" id="silk_resampler_frac_FIR_12" title='silk_resampler_frac_FIR_12' data-ref="silk_resampler_frac_FIR_12">silk_resampler_frac_FIR_12</dfn>[ <var>12</var> ][ <a class="macro" href="resampler_rom.h.html#42" title="8" data-ref="_M/RESAMPLER_ORDER_FIR_12">RESAMPLER_ORDER_FIR_12</a> / <var>2</var> ] = {</td></tr>
+<tr><th id="84">84</th><td>    {  <var>189</var>,  -<var>600</var>,   <var>617</var>, <var>30567</var> },</td></tr>
+<tr><th id="85">85</th><td>    {  <var>117</var>,  -<var>159</var>, -<var>1070</var>, <var>29704</var> },</td></tr>
+<tr><th id="86">86</th><td>    {   <var>52</var>,   <var>221</var>, -<var>2392</var>, <var>28276</var> },</td></tr>
+<tr><th id="87">87</th><td>    {   -<var>4</var>,   <var>529</var>, -<var>3350</var>, <var>26341</var> },</td></tr>
+<tr><th id="88">88</th><td>    {  -<var>48</var>,   <var>758</var>, -<var>3956</var>, <var>23973</var> },</td></tr>
+<tr><th id="89">89</th><td>    {  -<var>80</var>,   <var>905</var>, -<var>4235</var>, <var>21254</var> },</td></tr>
+<tr><th id="90">90</th><td>    {  -<var>99</var>,   <var>972</var>, -<var>4222</var>, <var>18278</var> },</td></tr>
+<tr><th id="91">91</th><td>    { -<var>107</var>,   <var>967</var>, -<var>3957</var>, <var>15143</var> },</td></tr>
+<tr><th id="92">92</th><td>    { -<var>103</var>,   <var>896</var>, -<var>3487</var>, <var>11950</var> },</td></tr>
+<tr><th id="93">93</th><td>    {  -<var>91</var>,   <var>773</var>, -<var>2865</var>,  <var>8798</var> },</td></tr>
+<tr><th id="94">94</th><td>    {  -<var>71</var>,   <var>611</var>, -<var>2143</var>,  <var>5784</var> },</td></tr>
+<tr><th id="95">95</th><td>    {  -<var>46</var>,   <var>425</var>, -<var>1375</var>,  <var>2996</var> },</td></tr>
+<tr><th id="96">96</th><td>};</td></tr>
+<tr><th id="97">97</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated on <em>2017-Aug-29</em> from project codebrowser revision <em>63e07af</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

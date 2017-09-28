@@ -1,0 +1,14 @@
+<dec f='codebrowser/code/cgame/cg_local.h' l='350' type='qboolean'/>
+<offset>3904</offset>
+<use f='codebrowser/code/cgame/cg_draw.c' l='347' u='r' c='CG_DrawHead'/>
+<use f='codebrowser/code/cgame/cg_newdraw.c' l='552' u='r' c='CG_DrawSelectedPlayerHead'/>
+<use f='codebrowser/code/cgame/cg_players.c' l='724' u='w' c='CG_LoadClientInfo'/>
+<use f='codebrowser/code/cgame/cg_players.c' l='774' u='r' c='CG_ScanForExistingClientInfo'/>
+<use f='codebrowser/code/cgame/cg_players.c' l='786' u='w' c='CG_ScanForExistingClientInfo'/>
+<use f='codebrowser/code/cgame/cg_players.c' l='814' u='r' c='CG_SetDeferredClientInfo'/>
+<use f='codebrowser/code/cgame/cg_players.c' l='833' u='r' c='CG_SetDeferredClientInfo'/>
+<use f='codebrowser/code/cgame/cg_players.c' l='840' u='w' c='CG_SetDeferredClientInfo'/>
+<use f='codebrowser/code/cgame/cg_players.c' l='859' u='w' c='CG_SetDeferredClientInfo'/>
+<use f='codebrowser/code/cgame/cg_players.c' l='1052' u='w' c='CG_NewClientInfo'/>
+<use f='codebrowser/code/cgame/cg_players.c' l='1081' u='r' c='CG_LoadDeferredPlayers'/>
+<use f='codebrowser/code/cgame/cg_players.c' l='1085' u='w' c='CG_LoadDeferredPlayers'/>

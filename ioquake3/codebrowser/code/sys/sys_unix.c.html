@@ -1,0 +1,973 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>sys_unix.c source code [codebrowser/code/sys/sys_unix.c] - Woboq Code Browser</title>
+<link rel="stylesheet" href="../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'codebrowser/code/sys/sys_unix.c'; var root_path = '../../..'; var data_path = '../../../../data';</script>
+<script src='../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../..'>codebrowser</a>/<a href='..'>code</a>/<a href='./'>sys</a>/<a href='sys_unix.c.html'>sys_unix.c</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/*</i></td></tr>
+<tr><th id="2">2</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="3">3</th><td><i>Copyright (C) 1999-2005 Id Software, Inc.</i></td></tr>
+<tr><th id="4">4</th><td><i></i></td></tr>
+<tr><th id="5">5</th><td><i>This file is part of Quake III Arena source code.</i></td></tr>
+<tr><th id="6">6</th><td><i></i></td></tr>
+<tr><th id="7">7</th><td><i>Quake III Arena source code is free software; you can redistribute it</i></td></tr>
+<tr><th id="8">8</th><td><i>and/or modify it under the terms of the GNU General Public License as</i></td></tr>
+<tr><th id="9">9</th><td><i>published by the Free Software Foundation; either version 2 of the License,</i></td></tr>
+<tr><th id="10">10</th><td><i>or (at your option) any later version.</i></td></tr>
+<tr><th id="11">11</th><td><i></i></td></tr>
+<tr><th id="12">12</th><td><i>Quake III Arena source code is distributed in the hope that it will be</i></td></tr>
+<tr><th id="13">13</th><td><i>useful, but WITHOUT ANY WARRANTY; without even the implied warranty of</i></td></tr>
+<tr><th id="14">14</th><td><i>MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</i></td></tr>
+<tr><th id="15">15</th><td><i>GNU General Public License for more details.</i></td></tr>
+<tr><th id="16">16</th><td><i></i></td></tr>
+<tr><th id="17">17</th><td><i>You should have received a copy of the GNU General Public License</i></td></tr>
+<tr><th id="18">18</th><td><i>along with Quake III Arena source code; if not, write to the Free Software</i></td></tr>
+<tr><th id="19">19</th><td><i>Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA</i></td></tr>
+<tr><th id="20">20</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="21">21</th><td><i>*/</i></td></tr>
+<tr><th id="22">22</th><td></td></tr>
+<tr><th id="23">23</th><td><u>#include <a href="../qcommon/q_shared.h.html">"../qcommon/q_shared.h"</a></u></td></tr>
+<tr><th id="24">24</th><td><u>#include <a href="../qcommon/qcommon.h.html">"../qcommon/qcommon.h"</a></u></td></tr>
+<tr><th id="25">25</th><td><u>#include <a href="sys_local.h.html">"sys_local.h"</a></u></td></tr>
+<tr><th id="26">26</th><td></td></tr>
+<tr><th id="27">27</th><td><u>#include <a href="../../../include/signal.h.html">&lt;signal.h&gt;</a></u></td></tr>
+<tr><th id="28">28</th><td><u>#include <a href="../../../include/x86_64-linux-gnu/sys/types.h.html">&lt;sys/types.h&gt;</a></u></td></tr>
+<tr><th id="29">29</th><td><u>#include <a href="../../../include/x86_64-linux-gnu/sys/stat.h.html">&lt;sys/stat.h&gt;</a></u></td></tr>
+<tr><th id="30">30</th><td><u>#include <a href="../../../include/errno.h.html">&lt;errno.h&gt;</a></u></td></tr>
+<tr><th id="31">31</th><td><u>#include <a href="../../../include/stdio.h.html">&lt;stdio.h&gt;</a></u></td></tr>
+<tr><th id="32">32</th><td><u>#include <a href="../../../include/dirent.h.html">&lt;dirent.h&gt;</a></u></td></tr>
+<tr><th id="33">33</th><td><u>#include <a href="../../../include/unistd.h.html">&lt;unistd.h&gt;</a></u></td></tr>
+<tr><th id="34">34</th><td><u>#include <a href="../../../include/x86_64-linux-gnu/sys/mman.h.html">&lt;sys/mman.h&gt;</a></u></td></tr>
+<tr><th id="35">35</th><td><u>#include <a href="../../../include/x86_64-linux-gnu/sys/time.h.html">&lt;sys/time.h&gt;</a></u></td></tr>
+<tr><th id="36">36</th><td><u>#include <a href="../../../include/pwd.h.html">&lt;pwd.h&gt;</a></u></td></tr>
+<tr><th id="37">37</th><td><u>#include <a href="../../../include/libgen.h.html">&lt;libgen.h&gt;</a></u></td></tr>
+<tr><th id="38">38</th><td><u>#include <a href="../../../include/fcntl.h.html">&lt;fcntl.h&gt;</a></u></td></tr>
+<tr><th id="39">39</th><td><u>#include <a href="../../../include/fenv.h.html">&lt;fenv.h&gt;</a></u></td></tr>
+<tr><th id="40">40</th><td><u>#include <a href="../../../include/x86_64-linux-gnu/sys/wait.h.html">&lt;sys/wait.h&gt;</a></u></td></tr>
+<tr><th id="41">41</th><td></td></tr>
+<tr><th id="42">42</th><td><a class="typedef" href="../qcommon/q_shared.h.html#qboolean" title='qboolean' data-type='enum qboolean' data-ref="qboolean">qboolean</a> <dfn class="decl def" id="stdinIsATTY" title='stdinIsATTY' data-ref="stdinIsATTY">stdinIsATTY</dfn>;</td></tr>
+<tr><th id="43">43</th><td></td></tr>
+<tr><th id="44">44</th><td><i  data-doc="homePath">// Used to determine where to store user-specific files</i></td></tr>
+<tr><th id="45">45</th><td><em>static</em> <em>char</em> <dfn class="tu decl def" id="homePath" title='homePath' data-type='char [4096]' data-ref="homePath">homePath</dfn>[ <a class="macro" href="../qcommon/q_shared.h.html#258" title="4096" data-ref="_M/MAX_OSPATH">MAX_OSPATH</a> ] = { <var>0</var> };</td></tr>
+<tr><th id="46">46</th><td></td></tr>
+<tr><th id="47">47</th><td><i  data-doc="steamPath">// Used to store the Steam Quake 3 installation path</i></td></tr>
+<tr><th id="48">48</th><td><em>static</em> <em>char</em> <dfn class="tu decl def" id="steamPath" title='steamPath' data-type='char [4096]' data-ref="steamPath">steamPath</dfn>[ <a class="macro" href="../qcommon/q_shared.h.html#258" title="4096" data-ref="_M/MAX_OSPATH">MAX_OSPATH</a> ] = { <var>0</var> };</td></tr>
+<tr><th id="49">49</th><td></td></tr>
+<tr><th id="50">50</th><td><i  data-doc="gogPath">// Used to store the GOG Quake 3 installation path</i></td></tr>
+<tr><th id="51">51</th><td><em>static</em> <em>char</em> <dfn class="tu decl def" id="gogPath" title='gogPath' data-type='char [4096]' data-ref="gogPath">gogPath</dfn>[ <a class="macro" href="../qcommon/q_shared.h.html#258" title="4096" data-ref="_M/MAX_OSPATH">MAX_OSPATH</a> ] = { <var>0</var> };</td></tr>
+<tr><th id="52">52</th><td></td></tr>
+<tr><th id="53">53</th><td><i>/*</i></td></tr>
+<tr><th id="54">54</th><td><i>==================</i></td></tr>
+<tr><th id="55">55</th><td><i>Sys_DefaultHomePath</i></td></tr>
+<tr><th id="56">56</th><td><i>==================</i></td></tr>
+<tr><th id="57">57</th><td><i>*/</i></td></tr>
+<tr><th id="58">58</th><td><em>char</em> *<dfn class="decl def" id="Sys_DefaultHomePath" title='Sys_DefaultHomePath' data-ref="Sys_DefaultHomePath">Sys_DefaultHomePath</dfn>(<em>void</em>)</td></tr>
+<tr><th id="59">59</th><td>{</td></tr>
+<tr><th id="60">60</th><td>	<em>char</em> *<dfn class="local col1 decl" id="81p" title='p' data-type='char *' data-ref="81p">p</dfn>;</td></tr>
+<tr><th id="61">61</th><td></td></tr>
+<tr><th id="62">62</th><td>	<b>if</b>( !*<a class="tu ref" href="#homePath" title='homePath' data-use='r' data-ref="homePath">homePath</a> &amp;&amp; <a class="ref" href="../qcommon/qcommon.h.html#com_homepath" title='com_homepath' data-ref="com_homepath">com_homepath</a> != <span class="macro" title="((void*)0)" data-ref="_M/NULL">NULL</span> )</td></tr>
+<tr><th id="63">63</th><td>	{</td></tr>
+<tr><th id="64">64</th><td>		<b>if</b>( ( <a class="local col1 ref" href="#81p" title='p' data-ref="81p">p</a> = <a class="ref" href="../../../include/stdlib.h.html#getenv" title='getenv' data-ref="getenv">getenv</a>( <q>"HOME"</q> ) ) != <span class="macro" title="((void*)0)" data-ref="_M/NULL">NULL</span> )</td></tr>
+<tr><th id="65">65</th><td>		{</td></tr>
+<tr><th id="66">66</th><td>			<a class="ref" href="../qcommon/q_shared.h.html#Com_sprintf" title='Com_sprintf' data-ref="Com_sprintf">Com_sprintf</a>(<a class="tu ref" href="#homePath" title='homePath' data-use='r' data-ref="homePath">homePath</a>, <b>sizeof</b>(<a class="tu ref" href="#homePath" title='homePath' data-use='r' data-ref="homePath">homePath</a>), <q>"%s%c"</q>, <a class="local col1 ref" href="#81p" title='p' data-ref="81p">p</a>, <a class="macro" href="../qcommon/q_platform.h.html#181" title="&apos;/&apos;" data-ref="_M/PATH_SEP">PATH_SEP</a>);</td></tr>
+<tr><th id="67">67</th><td><u>#<span data-ppcond="67">ifdef</span> <span class="macro" data-ref="_M/__APPLE__">__APPLE__</span></u></td></tr>
+<tr><th id="68">68</th><td>			Q_strcat(homePath, <b>sizeof</b>(homePath),</td></tr>
+<tr><th id="69">69</th><td>				<q>"Library/Application Support/"</q>);</td></tr>
+<tr><th id="70">70</th><td></td></tr>
+<tr><th id="71">71</th><td>			<b>if</b>(com_homepath-&gt;string[<var>0</var>])</td></tr>
+<tr><th id="72">72</th><td>				Q_strcat(homePath, <b>sizeof</b>(homePath), com_homepath-&gt;string);</td></tr>
+<tr><th id="73">73</th><td>			<b>else</b></td></tr>
+<tr><th id="74">74</th><td>				Q_strcat(homePath, <b>sizeof</b>(homePath), HOMEPATH_NAME_MACOSX);</td></tr>
+<tr><th id="75">75</th><td><u>#<span data-ppcond="67">else</span></u></td></tr>
+<tr><th id="76">76</th><td>			<b>if</b>(<a class="ref" href="../qcommon/qcommon.h.html#com_homepath" title='com_homepath' data-ref="com_homepath">com_homepath</a>-&gt;<a class="ref" href="../qcommon/q_shared.h.html#cvar_s::string" title='cvar_s::string' data-ref="cvar_s::string">string</a>[<var>0</var>])</td></tr>
+<tr><th id="77">77</th><td>				<a class="ref" href="../qcommon/q_shared.h.html#Q_strcat" title='Q_strcat' data-ref="Q_strcat">Q_strcat</a>(<a class="tu ref" href="#homePath" title='homePath' data-use='r' data-ref="homePath">homePath</a>, <b>sizeof</b>(<a class="tu ref" href="#homePath" title='homePath' data-use='r' data-ref="homePath">homePath</a>), <a class="ref" href="../qcommon/qcommon.h.html#com_homepath" title='com_homepath' data-ref="com_homepath">com_homepath</a>-&gt;<a class="ref" href="../qcommon/q_shared.h.html#cvar_s::string" title='cvar_s::string' data-ref="cvar_s::string">string</a>);</td></tr>
+<tr><th id="78">78</th><td>			<b>else</b></td></tr>
+<tr><th id="79">79</th><td>				<a class="ref" href="../qcommon/q_shared.h.html#Q_strcat" title='Q_strcat' data-ref="Q_strcat">Q_strcat</a>(<a class="tu ref" href="#homePath" title='homePath' data-use='r' data-ref="homePath">homePath</a>, <b>sizeof</b>(<a class="tu ref" href="#homePath" title='homePath' data-use='r' data-ref="homePath">homePath</a>), <a class="macro" href="../qcommon/q_shared.h.html#48" title="&quot;.q3a&quot;" data-ref="_M/HOMEPATH_NAME_UNIX">HOMEPATH_NAME_UNIX</a>);</td></tr>
+<tr><th id="80">80</th><td><u>#<span data-ppcond="67">endif</span></u></td></tr>
+<tr><th id="81">81</th><td>		}</td></tr>
+<tr><th id="82">82</th><td>	}</td></tr>
+<tr><th id="83">83</th><td></td></tr>
+<tr><th id="84">84</th><td>	<b>return</b> <a class="tu ref" href="#homePath" title='homePath' data-use='r' data-ref="homePath">homePath</a>;</td></tr>
+<tr><th id="85">85</th><td>}</td></tr>
+<tr><th id="86">86</th><td></td></tr>
+<tr><th id="87">87</th><td><i>/*</i></td></tr>
+<tr><th id="88">88</th><td><i>================</i></td></tr>
+<tr><th id="89">89</th><td><i>Sys_SteamPath</i></td></tr>
+<tr><th id="90">90</th><td><i>================</i></td></tr>
+<tr><th id="91">91</th><td><i>*/</i></td></tr>
+<tr><th id="92">92</th><td><em>char</em> *<dfn class="decl def" id="Sys_SteamPath" title='Sys_SteamPath' data-ref="Sys_SteamPath">Sys_SteamPath</dfn>( <em>void</em> )</td></tr>
+<tr><th id="93">93</th><td>{</td></tr>
+<tr><th id="94">94</th><td>	<i>// Disabled since Steam doesn't let you install Quake 3 on Mac/Linux</i></td></tr>
+<tr><th id="95">95</th><td><u>#<span data-ppcond="95">if</span> 0 //#ifdef STEAMPATH_NAME</u></td></tr>
+<tr><th id="96">96</th><td>	<em>char</em> *p;</td></tr>
+<tr><th id="97">97</th><td></td></tr>
+<tr><th id="98">98</th><td>	<b>if</b>( ( p = getenv( <q>"HOME"</q> ) ) != NULL )</td></tr>
+<tr><th id="99">99</th><td>	{</td></tr>
+<tr><th id="100">100</th><td><u>#ifdef __APPLE__</u></td></tr>
+<tr><th id="101">101</th><td>		<em>char</em> *steamPathEnd = <q>"/Library/Application Support/Steam/SteamApps/common/"</q> STEAMPATH_NAME;</td></tr>
+<tr><th id="102">102</th><td><u>#else</u></td></tr>
+<tr><th id="103">103</th><td>		<em>char</em> *steamPathEnd = <q>"/.steam/steam/SteamApps/common/"</q> STEAMPATH_NAME;</td></tr>
+<tr><th id="104">104</th><td><u>#endif</u></td></tr>
+<tr><th id="105">105</th><td>		Com_sprintf(steamPath, <b>sizeof</b>(steamPath), <q>"%s%s"</q>, p, steamPathEnd);</td></tr>
+<tr><th id="106">106</th><td>	}</td></tr>
+<tr><th id="107">107</th><td><u>#<span data-ppcond="95">endif</span></u></td></tr>
+<tr><th id="108">108</th><td></td></tr>
+<tr><th id="109">109</th><td>	<b>return</b> <a class="tu ref" href="#steamPath" title='steamPath' data-use='r' data-ref="steamPath">steamPath</a>;</td></tr>
+<tr><th id="110">110</th><td>}</td></tr>
+<tr><th id="111">111</th><td></td></tr>
+<tr><th id="112">112</th><td><i>/*</i></td></tr>
+<tr><th id="113">113</th><td><i>================</i></td></tr>
+<tr><th id="114">114</th><td><i>Sys_GogPath</i></td></tr>
+<tr><th id="115">115</th><td><i>================</i></td></tr>
+<tr><th id="116">116</th><td><i>*/</i></td></tr>
+<tr><th id="117">117</th><td><em>char</em> *<dfn class="decl def" id="Sys_GogPath" title='Sys_GogPath' data-ref="Sys_GogPath">Sys_GogPath</dfn>( <em>void</em> )</td></tr>
+<tr><th id="118">118</th><td>{</td></tr>
+<tr><th id="119">119</th><td>	<i>// GOG also doesn't let you install Quake 3 on Mac/Linux</i></td></tr>
+<tr><th id="120">120</th><td>	<b>return</b> <a class="tu ref" href="#gogPath" title='gogPath' data-use='r' data-ref="gogPath">gogPath</a>;</td></tr>
+<tr><th id="121">121</th><td>}</td></tr>
+<tr><th id="122">122</th><td></td></tr>
+<tr><th id="123">123</th><td><i>/*</i></td></tr>
+<tr><th id="124">124</th><td><i>================</i></td></tr>
+<tr><th id="125">125</th><td><i>Sys_Milliseconds</i></td></tr>
+<tr><th id="126">126</th><td><i>================</i></td></tr>
+<tr><th id="127">127</th><td><i>*/</i></td></tr>
+<tr><th id="128">128</th><td><i>/* base time in seconds, that's our origin</i></td></tr>
+<tr><th id="129">129</th><td><i>   timeval:tv_sec is an int:</i></td></tr>
+<tr><th id="130">130</th><td><i>   assuming this wraps every 0x7fffffff - ~68 years since the Epoch (1970) - we're safe till 2038 */</i></td></tr>
+<tr><th id="131">131</th><td><em>unsigned</em> <em>long</em> <dfn class="decl def" id="sys_timeBase" title='sys_timeBase' data-ref="sys_timeBase">sys_timeBase</dfn> = <var>0</var>;</td></tr>
+<tr><th id="132">132</th><td><i>/* current time in ms, using sys_timeBase as origin</i></td></tr>
+<tr><th id="133">133</th><td><i>   NOTE: sys_timeBase*1000 + curtime -&gt; ms since the Epoch</i></td></tr>
+<tr><th id="134">134</th><td><i>     0x7fffffff ms - ~24 days</i></td></tr>
+<tr><th id="135">135</th><td><i>   although timeval:tv_usec is an int, I'm not sure wether it is actually used as an unsigned int</i></td></tr>
+<tr><th id="136">136</th><td><i>     (which would affect the wrap period) */</i></td></tr>
+<tr><th id="137">137</th><td><em>int</em> <dfn class="decl def" id="curtime" title='curtime' data-ref="curtime">curtime</dfn>;</td></tr>
+<tr><th id="138">138</th><td><em>int</em> <dfn class="decl def" id="Sys_Milliseconds" title='Sys_Milliseconds' data-ref="Sys_Milliseconds">Sys_Milliseconds</dfn> (<em>void</em>)</td></tr>
+<tr><th id="139">139</th><td>{</td></tr>
+<tr><th id="140">140</th><td>	<b>struct</b> <a class="type" href="../../../include/x86_64-linux-gnu/bits/time.h.html#timeval" title='timeval' data-ref="timeval">timeval</a> <dfn class="local col2 decl" id="82tp" title='tp' data-type='struct timeval' data-ref="82tp">tp</dfn>;</td></tr>
+<tr><th id="141">141</th><td></td></tr>
+<tr><th id="142">142</th><td>	<a class="ref" href="../../../include/x86_64-linux-gnu/sys/time.h.html#gettimeofday" title='gettimeofday' data-ref="gettimeofday">gettimeofday</a>(&amp;<a class="local col2 ref" href="#82tp" title='tp' data-ref="82tp">tp</a>, <span class="macro" title="((void*)0)" data-ref="_M/NULL">NULL</span>);</td></tr>
+<tr><th id="143">143</th><td></td></tr>
+<tr><th id="144">144</th><td>	<b>if</b> (!<a class="ref" href="#sys_timeBase" title='sys_timeBase' data-ref="sys_timeBase">sys_timeBase</a>)</td></tr>
+<tr><th id="145">145</th><td>	{</td></tr>
+<tr><th id="146">146</th><td>		<a class="ref" href="#sys_timeBase" title='sys_timeBase' data-ref="sys_timeBase">sys_timeBase</a> = <a class="local col2 ref" href="#82tp" title='tp' data-ref="82tp">tp</a>.<a class="ref" href="../../../include/x86_64-linux-gnu/bits/time.h.html#timeval::tv_sec" title='timeval::tv_sec' data-ref="timeval::tv_sec">tv_sec</a>;</td></tr>
+<tr><th id="147">147</th><td>		<b>return</b> <a class="local col2 ref" href="#82tp" title='tp' data-ref="82tp">tp</a>.<a class="ref" href="../../../include/x86_64-linux-gnu/bits/time.h.html#timeval::tv_usec" title='timeval::tv_usec' data-ref="timeval::tv_usec">tv_usec</a>/<var>1000</var>;</td></tr>
+<tr><th id="148">148</th><td>	}</td></tr>
+<tr><th id="149">149</th><td></td></tr>
+<tr><th id="150">150</th><td>	<a class="ref" href="#curtime" title='curtime' data-ref="curtime">curtime</a> = (<a class="local col2 ref" href="#82tp" title='tp' data-ref="82tp">tp</a>.<a class="ref" href="../../../include/x86_64-linux-gnu/bits/time.h.html#timeval::tv_sec" title='timeval::tv_sec' data-ref="timeval::tv_sec">tv_sec</a> - <a class="ref" href="#sys_timeBase" title='sys_timeBase' data-ref="sys_timeBase">sys_timeBase</a>)*<var>1000</var> + <a class="local col2 ref" href="#82tp" title='tp' data-ref="82tp">tp</a>.<a class="ref" href="../../../include/x86_64-linux-gnu/bits/time.h.html#timeval::tv_usec" title='timeval::tv_usec' data-ref="timeval::tv_usec">tv_usec</a>/<var>1000</var>;</td></tr>
+<tr><th id="151">151</th><td></td></tr>
+<tr><th id="152">152</th><td>	<b>return</b> <a class="ref" href="#curtime" title='curtime' data-ref="curtime">curtime</a>;</td></tr>
+<tr><th id="153">153</th><td>}</td></tr>
+<tr><th id="154">154</th><td></td></tr>
+<tr><th id="155">155</th><td><i>/*</i></td></tr>
+<tr><th id="156">156</th><td><i>==================</i></td></tr>
+<tr><th id="157">157</th><td><i>Sys_RandomBytes</i></td></tr>
+<tr><th id="158">158</th><td><i>==================</i></td></tr>
+<tr><th id="159">159</th><td><i>*/</i></td></tr>
+<tr><th id="160">160</th><td><a class="typedef" href="../qcommon/q_shared.h.html#qboolean" title='qboolean' data-type='enum qboolean' data-ref="qboolean">qboolean</a> <dfn class="decl def" id="Sys_RandomBytes" title='Sys_RandomBytes' data-ref="Sys_RandomBytes">Sys_RandomBytes</dfn>( <a class="typedef" href="../qcommon/q_shared.h.html#byte" title='byte' data-type='unsigned char' data-ref="byte">byte</a> *<dfn class="local col3 decl" id="83string" title='string' data-type='byte *' data-ref="83string">string</dfn>, <em>int</em> <dfn class="local col4 decl" id="84len" title='len' data-type='int' data-ref="84len">len</dfn> )</td></tr>
+<tr><th id="161">161</th><td>{</td></tr>
+<tr><th id="162">162</th><td>	<a class="typedef" href="../../../include/stdio.h.html#FILE" title='FILE' data-type='struct _IO_FILE' data-ref="FILE">FILE</a> *<dfn class="local col5 decl" id="85fp" title='fp' data-type='FILE *' data-ref="85fp">fp</dfn>;</td></tr>
+<tr><th id="163">163</th><td></td></tr>
+<tr><th id="164">164</th><td>	<a class="local col5 ref" href="#85fp" title='fp' data-ref="85fp">fp</a> = <a class="ref" href="../../../include/stdio.h.html#fopen" title='fopen' data-ref="fopen">fopen</a>( <q>"/dev/urandom"</q>, <q>"r"</q> );</td></tr>
+<tr><th id="165">165</th><td>	<b>if</b>( !<a class="local col5 ref" href="#85fp" title='fp' data-ref="85fp">fp</a> )</td></tr>
+<tr><th id="166">166</th><td>		<b>return</b> <a class="enum" href="../qcommon/q_shared.h.html#qfalse" title='qfalse' data-ref="qfalse">qfalse</a>;</td></tr>
+<tr><th id="167">167</th><td></td></tr>
+<tr><th id="168">168</th><td>	<a class="ref" href="../../../include/stdio.h.html#setvbuf" title='setvbuf' data-ref="setvbuf">setvbuf</a>( <a class="local col5 ref" href="#85fp" title='fp' data-ref="85fp">fp</a>, <span class="macro" title="((void*)0)" data-ref="_M/NULL">NULL</span>, <a class="macro" href="../../../include/stdio.h.html#122" title="2" data-ref="_M/_IONBF">_IONBF</a>, <var>0</var> ); <i>// don't buffer reads from /dev/urandom</i></td></tr>
+<tr><th id="169">169</th><td></td></tr>
+<tr><th id="170">170</th><td>	<b>if</b>( <a class="ref" href="../../../include/stdio.h.html#fread" title='fread' data-ref="fread">fread</a>( <a class="local col3 ref" href="#83string" title='string' data-ref="83string">string</a>, <b>sizeof</b>( <a class="typedef" href="../qcommon/q_shared.h.html#byte" title='byte' data-type='unsigned char' data-ref="byte">byte</a> ), <a class="local col4 ref" href="#84len" title='len' data-ref="84len">len</a>, <a class="local col5 ref" href="#85fp" title='fp' data-ref="85fp">fp</a> ) != <a class="local col4 ref" href="#84len" title='len' data-ref="84len">len</a> )</td></tr>
+<tr><th id="171">171</th><td>	{</td></tr>
+<tr><th id="172">172</th><td>		<a class="ref" href="../../../include/stdio.h.html#fclose" title='fclose' data-ref="fclose">fclose</a>( <a class="local col5 ref" href="#85fp" title='fp' data-ref="85fp">fp</a> );</td></tr>
+<tr><th id="173">173</th><td>		<b>return</b> <a class="enum" href="../qcommon/q_shared.h.html#qfalse" title='qfalse' data-ref="qfalse">qfalse</a>;</td></tr>
+<tr><th id="174">174</th><td>	}</td></tr>
+<tr><th id="175">175</th><td></td></tr>
+<tr><th id="176">176</th><td>	<a class="ref" href="../../../include/stdio.h.html#fclose" title='fclose' data-ref="fclose">fclose</a>( <a class="local col5 ref" href="#85fp" title='fp' data-ref="85fp">fp</a> );</td></tr>
+<tr><th id="177">177</th><td>	<b>return</b> <a class="enum" href="../qcommon/q_shared.h.html#qtrue" title='qtrue' data-ref="qtrue">qtrue</a>;</td></tr>
+<tr><th id="178">178</th><td>}</td></tr>
+<tr><th id="179">179</th><td></td></tr>
+<tr><th id="180">180</th><td><i>/*</i></td></tr>
+<tr><th id="181">181</th><td><i>==================</i></td></tr>
+<tr><th id="182">182</th><td><i>Sys_GetCurrentUser</i></td></tr>
+<tr><th id="183">183</th><td><i>==================</i></td></tr>
+<tr><th id="184">184</th><td><i>*/</i></td></tr>
+<tr><th id="185">185</th><td><em>char</em> *<dfn class="decl def" id="Sys_GetCurrentUser" title='Sys_GetCurrentUser' data-ref="Sys_GetCurrentUser">Sys_GetCurrentUser</dfn>( <em>void</em> )</td></tr>
+<tr><th id="186">186</th><td>{</td></tr>
+<tr><th id="187">187</th><td>	<b>struct</b> <a class="type" href="../../../include/pwd.h.html#passwd" title='passwd' data-ref="passwd">passwd</a> *<dfn class="local col6 decl" id="86p" title='p' data-type='struct passwd *' data-ref="86p">p</dfn>;</td></tr>
+<tr><th id="188">188</th><td></td></tr>
+<tr><th id="189">189</th><td>	<b>if</b> ( (<a class="local col6 ref" href="#86p" title='p' data-ref="86p">p</a> = <a class="ref" href="../../../include/pwd.h.html#getpwuid" title='getpwuid' data-ref="getpwuid">getpwuid</a>( <a class="ref" href="../../../include/unistd.h.html#getuid" title='getuid' data-ref="getuid">getuid</a>() )) == <span class="macro" title="((void*)0)" data-ref="_M/NULL">NULL</span> ) {</td></tr>
+<tr><th id="190">190</th><td>		<b>return</b> <q>"player"</q>;</td></tr>
+<tr><th id="191">191</th><td>	}</td></tr>
+<tr><th id="192">192</th><td>	<b>return</b> <a class="local col6 ref" href="#86p" title='p' data-ref="86p">p</a>-&gt;<a class="ref" href="../../../include/pwd.h.html#passwd::pw_name" title='passwd::pw_name' data-ref="passwd::pw_name">pw_name</a>;</td></tr>
+<tr><th id="193">193</th><td>}</td></tr>
+<tr><th id="194">194</th><td></td></tr>
+<tr><th id="195">195</th><td><u>#define <dfn class="macro" id="_M/MEM_THRESHOLD" data-ref="_M/MEM_THRESHOLD">MEM_THRESHOLD</dfn> 96*1024*1024</u></td></tr>
+<tr><th id="196">196</th><td></td></tr>
+<tr><th id="197">197</th><td><i>/*</i></td></tr>
+<tr><th id="198">198</th><td><i>==================</i></td></tr>
+<tr><th id="199">199</th><td><i>Sys_LowPhysicalMemory</i></td></tr>
+<tr><th id="200">200</th><td><i></i></td></tr>
+<tr><th id="201">201</th><td><i>TODO</i></td></tr>
+<tr><th id="202">202</th><td><i>==================</i></td></tr>
+<tr><th id="203">203</th><td><i>*/</i></td></tr>
+<tr><th id="204">204</th><td><a class="typedef" href="../qcommon/q_shared.h.html#qboolean" title='qboolean' data-type='enum qboolean' data-ref="qboolean">qboolean</a> <dfn class="decl def" id="Sys_LowPhysicalMemory" title='Sys_LowPhysicalMemory' data-ref="Sys_LowPhysicalMemory">Sys_LowPhysicalMemory</dfn>( <em>void</em> )</td></tr>
+<tr><th id="205">205</th><td>{</td></tr>
+<tr><th id="206">206</th><td>	<b>return</b> <a class="enum" href="../qcommon/q_shared.h.html#qfalse" title='qfalse' data-ref="qfalse">qfalse</a>;</td></tr>
+<tr><th id="207">207</th><td>}</td></tr>
+<tr><th id="208">208</th><td></td></tr>
+<tr><th id="209">209</th><td><i>/*</i></td></tr>
+<tr><th id="210">210</th><td><i>==================</i></td></tr>
+<tr><th id="211">211</th><td><i>Sys_Basename</i></td></tr>
+<tr><th id="212">212</th><td><i>==================</i></td></tr>
+<tr><th id="213">213</th><td><i>*/</i></td></tr>
+<tr><th id="214">214</th><td><em>const</em> <em>char</em> *<dfn class="decl def" id="Sys_Basename" title='Sys_Basename' data-ref="Sys_Basename">Sys_Basename</dfn>( <em>char</em> *<dfn class="local col7 decl" id="87path" title='path' data-type='char *' data-ref="87path">path</dfn> )</td></tr>
+<tr><th id="215">215</th><td>{</td></tr>
+<tr><th id="216">216</th><td>	<b>return</b> <a class="macro" href="../../../include/libgen.h.html#35" title="__xpg_basename" data-ref="_M/basename">basename</a>( <a class="local col7 ref" href="#87path" title='path' data-ref="87path">path</a> );</td></tr>
+<tr><th id="217">217</th><td>}</td></tr>
+<tr><th id="218">218</th><td></td></tr>
+<tr><th id="219">219</th><td><i>/*</i></td></tr>
+<tr><th id="220">220</th><td><i>==================</i></td></tr>
+<tr><th id="221">221</th><td><i>Sys_Dirname</i></td></tr>
+<tr><th id="222">222</th><td><i>==================</i></td></tr>
+<tr><th id="223">223</th><td><i>*/</i></td></tr>
+<tr><th id="224">224</th><td><em>const</em> <em>char</em> *<dfn class="decl def" id="Sys_Dirname" title='Sys_Dirname' data-ref="Sys_Dirname">Sys_Dirname</dfn>( <em>char</em> *<dfn class="local col8 decl" id="88path" title='path' data-type='char *' data-ref="88path">path</dfn> )</td></tr>
+<tr><th id="225">225</th><td>{</td></tr>
+<tr><th id="226">226</th><td>	<b>return</b> <a class="ref" href="../../../include/libgen.h.html#dirname" title='dirname' data-ref="dirname">dirname</a>( <a class="local col8 ref" href="#88path" title='path' data-ref="88path">path</a> );</td></tr>
+<tr><th id="227">227</th><td>}</td></tr>
+<tr><th id="228">228</th><td></td></tr>
+<tr><th id="229">229</th><td><i>/*</i></td></tr>
+<tr><th id="230">230</th><td><i>==============</i></td></tr>
+<tr><th id="231">231</th><td><i>Sys_FOpen</i></td></tr>
+<tr><th id="232">232</th><td><i>==============</i></td></tr>
+<tr><th id="233">233</th><td><i>*/</i></td></tr>
+<tr><th id="234">234</th><td><a class="typedef" href="../../../include/stdio.h.html#FILE" title='FILE' data-type='struct _IO_FILE' data-ref="FILE">FILE</a> *<dfn class="decl def" id="Sys_FOpen" title='Sys_FOpen' data-ref="Sys_FOpen">Sys_FOpen</dfn>( <em>const</em> <em>char</em> *<dfn class="local col9 decl" id="89ospath" title='ospath' data-type='const char *' data-ref="89ospath">ospath</dfn>, <em>const</em> <em>char</em> *<dfn class="local col0 decl" id="90mode" title='mode' data-type='const char *' data-ref="90mode">mode</dfn> ) {</td></tr>
+<tr><th id="235">235</th><td>	<b>struct</b> <a class="type" href="../../../include/x86_64-linux-gnu/bits/stat.h.html#stat" title='stat' data-ref="stat">stat</a> <dfn class="local col1 decl" id="91buf" title='buf' data-type='struct stat' data-ref="91buf">buf</dfn>;</td></tr>
+<tr><th id="236">236</th><td></td></tr>
+<tr><th id="237">237</th><td>	<i>// check if path exists and is a directory</i></td></tr>
+<tr><th id="238">238</th><td>	<b>if</b> ( !<a class="ref" href="../../../include/x86_64-linux-gnu/sys/stat.h.html#stat" title='stat' data-ref="stat">stat</a>( <a class="local col9 ref" href="#89ospath" title='ospath' data-ref="89ospath">ospath</a>, &amp;<a class="local col1 ref" href="#91buf" title='buf' data-ref="91buf">buf</a> ) &amp;&amp; <a class="macro" href="../../../include/x86_64-linux-gnu/sys/stat.h.html#128" title="((((buf.st_mode)) &amp; 0170000) == (0040000))" data-ref="_M/S_ISDIR">S_ISDIR</a>( <a class="local col1 ref" href="#91buf" title='buf' data-ref="91buf">buf</a>.<a class="ref" href="../../../include/x86_64-linux-gnu/bits/stat.h.html#stat::st_mode" title='stat::st_mode' data-ref="stat::st_mode">st_mode</a> ) )</td></tr>
+<tr><th id="239">239</th><td>		<b>return</b> <span class="macro" title="((void*)0)" data-ref="_M/NULL">NULL</span>;</td></tr>
+<tr><th id="240">240</th><td></td></tr>
+<tr><th id="241">241</th><td>	<b>return</b> <a class="ref" href="../../../include/stdio.h.html#fopen" title='fopen' data-ref="fopen">fopen</a>( <a class="local col9 ref" href="#89ospath" title='ospath' data-ref="89ospath">ospath</a>, <a class="local col0 ref" href="#90mode" title='mode' data-ref="90mode">mode</a> );</td></tr>
+<tr><th id="242">242</th><td>}</td></tr>
+<tr><th id="243">243</th><td></td></tr>
+<tr><th id="244">244</th><td><i>/*</i></td></tr>
+<tr><th id="245">245</th><td><i>==================</i></td></tr>
+<tr><th id="246">246</th><td><i>Sys_Mkdir</i></td></tr>
+<tr><th id="247">247</th><td><i>==================</i></td></tr>
+<tr><th id="248">248</th><td><i>*/</i></td></tr>
+<tr><th id="249">249</th><td><a class="typedef" href="../qcommon/q_shared.h.html#qboolean" title='qboolean' data-type='enum qboolean' data-ref="qboolean">qboolean</a> <dfn class="decl def" id="Sys_Mkdir" title='Sys_Mkdir' data-ref="Sys_Mkdir">Sys_Mkdir</dfn>( <em>const</em> <em>char</em> *<dfn class="local col2 decl" id="92path" title='path' data-type='const char *' data-ref="92path">path</dfn> )</td></tr>
+<tr><th id="250">250</th><td>{</td></tr>
+<tr><th id="251">251</th><td>	<em>int</em> <dfn class="local col3 decl" id="93result" title='result' data-type='int' data-ref="93result">result</dfn> = <a class="ref" href="../../../include/x86_64-linux-gnu/sys/stat.h.html#mkdir" title='mkdir' data-ref="mkdir">mkdir</a>( <a class="local col2 ref" href="#92path" title='path' data-ref="92path">path</a>, <var>0750</var> );</td></tr>
+<tr><th id="252">252</th><td></td></tr>
+<tr><th id="253">253</th><td>	<b>if</b>( <a class="local col3 ref" href="#93result" title='result' data-ref="93result">result</a> != <var>0</var> )</td></tr>
+<tr><th id="254">254</th><td>		<b>return</b> <a class="macro" href="../../../include/x86_64-linux-gnu/bits/errno.h.html#54" title="(*__errno_location ())" data-ref="_M/errno">errno</a> == <a class="macro" href="../../../include/asm-generic/errno-base.h.html#20" title="17" data-ref="_M/EEXIST">EEXIST</a>;</td></tr>
+<tr><th id="255">255</th><td></td></tr>
+<tr><th id="256">256</th><td>	<b>return</b> <a class="enum" href="../qcommon/q_shared.h.html#qtrue" title='qtrue' data-ref="qtrue">qtrue</a>;</td></tr>
+<tr><th id="257">257</th><td>}</td></tr>
+<tr><th id="258">258</th><td></td></tr>
+<tr><th id="259">259</th><td><i>/*</i></td></tr>
+<tr><th id="260">260</th><td><i>==================</i></td></tr>
+<tr><th id="261">261</th><td><i>Sys_Mkfifo</i></td></tr>
+<tr><th id="262">262</th><td><i>==================</i></td></tr>
+<tr><th id="263">263</th><td><i>*/</i></td></tr>
+<tr><th id="264">264</th><td><a class="typedef" href="../../../include/stdio.h.html#FILE" title='FILE' data-type='struct _IO_FILE' data-ref="FILE">FILE</a> *<dfn class="decl def" id="Sys_Mkfifo" title='Sys_Mkfifo' data-ref="Sys_Mkfifo">Sys_Mkfifo</dfn>( <em>const</em> <em>char</em> *<dfn class="local col4 decl" id="94ospath" title='ospath' data-type='const char *' data-ref="94ospath">ospath</dfn> )</td></tr>
+<tr><th id="265">265</th><td>{</td></tr>
+<tr><th id="266">266</th><td>	<a class="typedef" href="../../../include/stdio.h.html#FILE" title='FILE' data-type='struct _IO_FILE' data-ref="FILE">FILE</a>	*<dfn class="local col5 decl" id="95fifo" title='fifo' data-type='FILE *' data-ref="95fifo">fifo</dfn>;</td></tr>
+<tr><th id="267">267</th><td>	<em>int</em>	<dfn class="local col6 decl" id="96result" title='result' data-type='int' data-ref="96result">result</dfn>;</td></tr>
+<tr><th id="268">268</th><td>	<em>int</em>	<dfn class="local col7 decl" id="97fn" title='fn' data-type='int' data-ref="97fn">fn</dfn>;</td></tr>
+<tr><th id="269">269</th><td>	<b>struct</b>	<a class="type" href="../../../include/x86_64-linux-gnu/bits/stat.h.html#stat" title='stat' data-ref="stat">stat</a> <dfn class="local col8 decl" id="98buf" title='buf' data-type='struct stat' data-ref="98buf">buf</dfn>;</td></tr>
+<tr><th id="270">270</th><td></td></tr>
+<tr><th id="271">271</th><td>	<i>// if file already exists AND is a pipefile, remove it</i></td></tr>
+<tr><th id="272">272</th><td>	<b>if</b>( !<a class="ref" href="../../../include/x86_64-linux-gnu/sys/stat.h.html#stat" title='stat' data-ref="stat">stat</a>( <a class="local col4 ref" href="#94ospath" title='ospath' data-ref="94ospath">ospath</a>, &amp;<a class="local col8 ref" href="#98buf" title='buf' data-ref="98buf">buf</a> ) &amp;&amp; <a class="macro" href="../../../include/x86_64-linux-gnu/sys/stat.h.html#133" title="((((buf.st_mode)) &amp; 0170000) == (0010000))" data-ref="_M/S_ISFIFO">S_ISFIFO</a>( <a class="local col8 ref" href="#98buf" title='buf' data-ref="98buf">buf</a>.<a class="ref" href="../../../include/x86_64-linux-gnu/bits/stat.h.html#stat::st_mode" title='stat::st_mode' data-ref="stat::st_mode">st_mode</a> ) )</td></tr>
+<tr><th id="273">273</th><td>		<a class="ref" href="../qcommon/qcommon.h.html#FS_Remove" title='FS_Remove' data-ref="FS_Remove">FS_Remove</a>( <a class="local col4 ref" href="#94ospath" title='ospath' data-ref="94ospath">ospath</a> );</td></tr>
+<tr><th id="274">274</th><td></td></tr>
+<tr><th id="275">275</th><td>	<a class="local col6 ref" href="#96result" title='result' data-ref="96result">result</a> = <a class="ref" href="../../../include/x86_64-linux-gnu/sys/stat.h.html#mkfifo" title='mkfifo' data-ref="mkfifo">mkfifo</a>( <a class="local col4 ref" href="#94ospath" title='ospath' data-ref="94ospath">ospath</a>, <var>0600</var> );</td></tr>
+<tr><th id="276">276</th><td>	<b>if</b>( <a class="local col6 ref" href="#96result" title='result' data-ref="96result">result</a> != <var>0</var> )</td></tr>
+<tr><th id="277">277</th><td>		<b>return</b> <span class="macro" title="((void*)0)" data-ref="_M/NULL">NULL</span>;</td></tr>
+<tr><th id="278">278</th><td></td></tr>
+<tr><th id="279">279</th><td>	<a class="local col5 ref" href="#95fifo" title='fifo' data-ref="95fifo">fifo</a> = <a class="ref" href="../../../include/stdio.h.html#fopen" title='fopen' data-ref="fopen">fopen</a>( <a class="local col4 ref" href="#94ospath" title='ospath' data-ref="94ospath">ospath</a>, <q>"w+"</q> );</td></tr>
+<tr><th id="280">280</th><td>	<b>if</b>( <a class="local col5 ref" href="#95fifo" title='fifo' data-ref="95fifo">fifo</a> )</td></tr>
+<tr><th id="281">281</th><td>	{</td></tr>
+<tr><th id="282">282</th><td>		<a class="local col7 ref" href="#97fn" title='fn' data-ref="97fn">fn</a> = <a class="ref" href="../../../include/stdio.h.html#fileno" title='fileno' data-ref="fileno">fileno</a>( <a class="local col5 ref" href="#95fifo" title='fifo' data-ref="95fifo">fifo</a> );</td></tr>
+<tr><th id="283">283</th><td>		<a class="ref" href="../../../include/fcntl.h.html#fcntl" title='fcntl' data-ref="fcntl">fcntl</a>( <a class="local col7 ref" href="#97fn" title='fn' data-ref="97fn">fn</a>, <a class="macro" href="../../../include/x86_64-linux-gnu/bits/fcntl-linux.h.html#171" title="4" data-ref="_M/F_SETFL">F_SETFL</a>, <a class="macro" href="../../../include/x86_64-linux-gnu/bits/fcntl-linux.h.html#62" title="04000" data-ref="_M/O_NONBLOCK">O_NONBLOCK</a> );</td></tr>
+<tr><th id="284">284</th><td>	}</td></tr>
+<tr><th id="285">285</th><td></td></tr>
+<tr><th id="286">286</th><td>	<b>return</b> <a class="local col5 ref" href="#95fifo" title='fifo' data-ref="95fifo">fifo</a>;</td></tr>
+<tr><th id="287">287</th><td>}</td></tr>
+<tr><th id="288">288</th><td></td></tr>
+<tr><th id="289">289</th><td><i>/*</i></td></tr>
+<tr><th id="290">290</th><td><i>==================</i></td></tr>
+<tr><th id="291">291</th><td><i>Sys_Cwd</i></td></tr>
+<tr><th id="292">292</th><td><i>==================</i></td></tr>
+<tr><th id="293">293</th><td><i>*/</i></td></tr>
+<tr><th id="294">294</th><td><em>char</em> *<dfn class="decl def" id="Sys_Cwd" title='Sys_Cwd' data-ref="Sys_Cwd">Sys_Cwd</dfn>( <em>void</em> )</td></tr>
+<tr><th id="295">295</th><td>{</td></tr>
+<tr><th id="296">296</th><td>	<em>static</em> <em>char</em> <dfn class="local col9 decl" id="99cwd" title='cwd' data-type='char [4096]' data-ref="99cwd">cwd</dfn>[<a class="macro" href="../qcommon/q_shared.h.html#258" title="4096" data-ref="_M/MAX_OSPATH">MAX_OSPATH</a>];</td></tr>
+<tr><th id="297">297</th><td></td></tr>
+<tr><th id="298">298</th><td>	<em>char</em> *<dfn class="local col0 decl" id="100result" title='result' data-type='char *' data-ref="100result">result</dfn> = <a class="ref" href="../../../include/unistd.h.html#getcwd" title='getcwd' data-ref="getcwd">getcwd</a>( <a class="local col9 ref" href="#99cwd" title='cwd' data-ref="99cwd">cwd</a>, <b>sizeof</b>( <a class="local col9 ref" href="#99cwd" title='cwd' data-ref="99cwd">cwd</a> ) - <var>1</var> );</td></tr>
+<tr><th id="299">299</th><td>	<b>if</b>( <a class="local col0 ref" href="#100result" title='result' data-ref="100result">result</a> != <a class="local col9 ref" href="#99cwd" title='cwd' data-ref="99cwd">cwd</a> )</td></tr>
+<tr><th id="300">300</th><td>		<b>return</b> <span class="macro" title="((void*)0)" data-ref="_M/NULL">NULL</span>;</td></tr>
+<tr><th id="301">301</th><td></td></tr>
+<tr><th id="302">302</th><td>	<a class="local col9 ref" href="#99cwd" title='cwd' data-ref="99cwd">cwd</a>[<a class="macro" href="../qcommon/q_shared.h.html#258" title="4096" data-ref="_M/MAX_OSPATH">MAX_OSPATH</a>-<var>1</var>] = <var>0</var>;</td></tr>
+<tr><th id="303">303</th><td></td></tr>
+<tr><th id="304">304</th><td>	<b>return</b> <a class="local col9 ref" href="#99cwd" title='cwd' data-ref="99cwd">cwd</a>;</td></tr>
+<tr><th id="305">305</th><td>}</td></tr>
+<tr><th id="306">306</th><td></td></tr>
+<tr><th id="307">307</th><td><i>/*</i></td></tr>
+<tr><th id="308">308</th><td><i>==============================================================</i></td></tr>
+<tr><th id="309">309</th><td><i></i></td></tr>
+<tr><th id="310">310</th><td><i>DIRECTORY SCANNING</i></td></tr>
+<tr><th id="311">311</th><td><i></i></td></tr>
+<tr><th id="312">312</th><td><i>==============================================================</i></td></tr>
+<tr><th id="313">313</th><td><i>*/</i></td></tr>
+<tr><th id="314">314</th><td></td></tr>
+<tr><th id="315">315</th><td><u>#define <dfn class="macro" id="_M/MAX_FOUND_FILES" data-ref="_M/MAX_FOUND_FILES">MAX_FOUND_FILES</dfn> 0x1000</u></td></tr>
+<tr><th id="316">316</th><td></td></tr>
+<tr><th id="317">317</th><td><i>/*</i></td></tr>
+<tr><th id="318">318</th><td><i>==================</i></td></tr>
+<tr><th id="319">319</th><td><i>Sys_ListFilteredFiles</i></td></tr>
+<tr><th id="320">320</th><td><i>==================</i></td></tr>
+<tr><th id="321">321</th><td><i>*/</i></td></tr>
+<tr><th id="322">322</th><td><em>void</em> <dfn class="decl def" id="Sys_ListFilteredFiles" title='Sys_ListFilteredFiles' data-ref="Sys_ListFilteredFiles">Sys_ListFilteredFiles</dfn>( <em>const</em> <em>char</em> *<dfn class="local col1 decl" id="101basedir" title='basedir' data-type='const char *' data-ref="101basedir">basedir</dfn>, <em>char</em> *<dfn class="local col2 decl" id="102subdirs" title='subdirs' data-type='char *' data-ref="102subdirs">subdirs</dfn>, <em>char</em> *<dfn class="local col3 decl" id="103filter" title='filter' data-type='char *' data-ref="103filter">filter</dfn>, <em>char</em> **<dfn class="local col4 decl" id="104list" title='list' data-type='char **' data-ref="104list">list</dfn>, <em>int</em> *<dfn class="local col5 decl" id="105numfiles" title='numfiles' data-type='int *' data-ref="105numfiles">numfiles</dfn> )</td></tr>
+<tr><th id="323">323</th><td>{</td></tr>
+<tr><th id="324">324</th><td>	<em>char</em>          <dfn class="local col6 decl" id="106search" title='search' data-type='char [4096]' data-ref="106search">search</dfn>[<a class="macro" href="../qcommon/q_shared.h.html#258" title="4096" data-ref="_M/MAX_OSPATH">MAX_OSPATH</a>], <dfn class="local col7 decl" id="107newsubdirs" title='newsubdirs' data-type='char [4096]' data-ref="107newsubdirs">newsubdirs</dfn>[<a class="macro" href="../qcommon/q_shared.h.html#258" title="4096" data-ref="_M/MAX_OSPATH">MAX_OSPATH</a>];</td></tr>
+<tr><th id="325">325</th><td>	<em>char</em>          <dfn class="local col8 decl" id="108filename" title='filename' data-type='char [4096]' data-ref="108filename">filename</dfn>[<a class="macro" href="../qcommon/q_shared.h.html#258" title="4096" data-ref="_M/MAX_OSPATH">MAX_OSPATH</a>];</td></tr>
+<tr><th id="326">326</th><td>	<a class="typedef" href="../../../include/dirent.h.html#DIR" title='DIR' data-type='struct __dirstream' data-ref="DIR">DIR</a>           *<dfn class="local col9 decl" id="109fdir" title='fdir' data-type='DIR *' data-ref="109fdir">fdir</dfn>;</td></tr>
+<tr><th id="327">327</th><td>	<b>struct</b> <a class="type" href="../../../include/x86_64-linux-gnu/bits/dirent.h.html#dirent" title='dirent' data-ref="dirent">dirent</a> *<dfn class="local col0 decl" id="110d" title='d' data-type='struct dirent *' data-ref="110d">d</dfn>;</td></tr>
+<tr><th id="328">328</th><td>	<b>struct</b> <a class="type" href="../../../include/x86_64-linux-gnu/bits/stat.h.html#stat" title='stat' data-ref="stat">stat</a>   <dfn class="local col1 decl" id="111st" title='st' data-type='struct stat' data-ref="111st">st</dfn>;</td></tr>
+<tr><th id="329">329</th><td></td></tr>
+<tr><th id="330">330</th><td>	<b>if</b> ( *<a class="local col5 ref" href="#105numfiles" title='numfiles' data-ref="105numfiles">numfiles</a> &gt;= <a class="macro" href="#315" title="0x1000" data-ref="_M/MAX_FOUND_FILES">MAX_FOUND_FILES</a> - <var>1</var> ) {</td></tr>
+<tr><th id="331">331</th><td>		<b>return</b>;</td></tr>
+<tr><th id="332">332</th><td>	}</td></tr>
+<tr><th id="333">333</th><td></td></tr>
+<tr><th id="334">334</th><td>	<b>if</b> (<a class="ref" href="../../../include/string.h.html#strlen" title='strlen' data-ref="strlen">strlen</a>(<a class="local col2 ref" href="#102subdirs" title='subdirs' data-ref="102subdirs">subdirs</a>)) {</td></tr>
+<tr><th id="335">335</th><td>		<a class="ref" href="../qcommon/q_shared.h.html#Com_sprintf" title='Com_sprintf' data-ref="Com_sprintf">Com_sprintf</a>( <a class="local col6 ref" href="#106search" title='search' data-ref="106search">search</a>, <b>sizeof</b>(<a class="local col6 ref" href="#106search" title='search' data-ref="106search">search</a>), <q>"%s/%s"</q>, <a class="local col1 ref" href="#101basedir" title='basedir' data-ref="101basedir">basedir</a>, <a class="local col2 ref" href="#102subdirs" title='subdirs' data-ref="102subdirs">subdirs</a> );</td></tr>
+<tr><th id="336">336</th><td>	}</td></tr>
+<tr><th id="337">337</th><td>	<b>else</b> {</td></tr>
+<tr><th id="338">338</th><td>		<a class="ref" href="../qcommon/q_shared.h.html#Com_sprintf" title='Com_sprintf' data-ref="Com_sprintf">Com_sprintf</a>( <a class="local col6 ref" href="#106search" title='search' data-ref="106search">search</a>, <b>sizeof</b>(<a class="local col6 ref" href="#106search" title='search' data-ref="106search">search</a>), <q>"%s"</q>, <a class="local col1 ref" href="#101basedir" title='basedir' data-ref="101basedir">basedir</a> );</td></tr>
+<tr><th id="339">339</th><td>	}</td></tr>
+<tr><th id="340">340</th><td></td></tr>
+<tr><th id="341">341</th><td>	<b>if</b> ((<a class="local col9 ref" href="#109fdir" title='fdir' data-ref="109fdir">fdir</a> = <a class="ref" href="../../../include/dirent.h.html#opendir" title='opendir' data-ref="opendir">opendir</a>(<a class="local col6 ref" href="#106search" title='search' data-ref="106search">search</a>)) == <span class="macro" title="((void*)0)" data-ref="_M/NULL">NULL</span>) {</td></tr>
+<tr><th id="342">342</th><td>		<b>return</b>;</td></tr>
+<tr><th id="343">343</th><td>	}</td></tr>
+<tr><th id="344">344</th><td></td></tr>
+<tr><th id="345">345</th><td>	<b>while</b> ((<a class="local col0 ref" href="#110d" title='d' data-ref="110d">d</a> = <a class="ref" href="../../../include/dirent.h.html#readdir" title='readdir' data-ref="readdir">readdir</a>(<a class="local col9 ref" href="#109fdir" title='fdir' data-ref="109fdir">fdir</a>)) != <span class="macro" title="((void*)0)" data-ref="_M/NULL">NULL</span>) {</td></tr>
+<tr><th id="346">346</th><td>		<a class="ref" href="../qcommon/q_shared.h.html#Com_sprintf" title='Com_sprintf' data-ref="Com_sprintf">Com_sprintf</a>(<a class="local col8 ref" href="#108filename" title='filename' data-ref="108filename">filename</a>, <b>sizeof</b>(<a class="local col8 ref" href="#108filename" title='filename' data-ref="108filename">filename</a>), <q>"%s/%s"</q>, <a class="local col6 ref" href="#106search" title='search' data-ref="106search">search</a>, <a class="local col0 ref" href="#110d" title='d' data-ref="110d">d</a>-&gt;<a class="ref" href="../../../include/x86_64-linux-gnu/bits/dirent.h.html#dirent::d_name" title='dirent::d_name' data-ref="dirent::d_name">d_name</a>);</td></tr>
+<tr><th id="347">347</th><td>		<b>if</b> (<a class="ref" href="../../../include/x86_64-linux-gnu/sys/stat.h.html#stat" title='stat' data-ref="stat">stat</a>(<a class="local col8 ref" href="#108filename" title='filename' data-ref="108filename">filename</a>, &amp;<a class="local col1 ref" href="#111st" title='st' data-ref="111st">st</a>) == -<var>1</var>)</td></tr>
+<tr><th id="348">348</th><td>			<b>continue</b>;</td></tr>
+<tr><th id="349">349</th><td></td></tr>
+<tr><th id="350">350</th><td>		<b>if</b> (<a class="local col1 ref" href="#111st" title='st' data-ref="111st">st</a>.<a class="ref" href="../../../include/x86_64-linux-gnu/bits/stat.h.html#stat::st_mode" title='stat::st_mode' data-ref="stat::st_mode">st_mode</a> &amp; <a class="macro" href="../../../include/fcntl.h.html#80" title="0040000" data-ref="_M/S_IFDIR">S_IFDIR</a>) {</td></tr>
+<tr><th id="351">351</th><td>			<b>if</b> (<a class="ref" href="../qcommon/q_shared.h.html#Q_stricmp" title='Q_stricmp' data-ref="Q_stricmp">Q_stricmp</a>(<a class="local col0 ref" href="#110d" title='d' data-ref="110d">d</a>-&gt;<a class="ref" href="../../../include/x86_64-linux-gnu/bits/dirent.h.html#dirent::d_name" title='dirent::d_name' data-ref="dirent::d_name">d_name</a>, <q>"."</q>) &amp;&amp; <a class="ref" href="../qcommon/q_shared.h.html#Q_stricmp" title='Q_stricmp' data-ref="Q_stricmp">Q_stricmp</a>(<a class="local col0 ref" href="#110d" title='d' data-ref="110d">d</a>-&gt;<a class="ref" href="../../../include/x86_64-linux-gnu/bits/dirent.h.html#dirent::d_name" title='dirent::d_name' data-ref="dirent::d_name">d_name</a>, <q>".."</q>)) {</td></tr>
+<tr><th id="352">352</th><td>				<b>if</b> (<a class="ref" href="../../../include/string.h.html#strlen" title='strlen' data-ref="strlen">strlen</a>(<a class="local col2 ref" href="#102subdirs" title='subdirs' data-ref="102subdirs">subdirs</a>)) {</td></tr>
+<tr><th id="353">353</th><td>					<a class="ref" href="../qcommon/q_shared.h.html#Com_sprintf" title='Com_sprintf' data-ref="Com_sprintf">Com_sprintf</a>( <a class="local col7 ref" href="#107newsubdirs" title='newsubdirs' data-ref="107newsubdirs">newsubdirs</a>, <b>sizeof</b>(<a class="local col7 ref" href="#107newsubdirs" title='newsubdirs' data-ref="107newsubdirs">newsubdirs</a>), <q>"%s/%s"</q>, <a class="local col2 ref" href="#102subdirs" title='subdirs' data-ref="102subdirs">subdirs</a>, <a class="local col0 ref" href="#110d" title='d' data-ref="110d">d</a>-&gt;<a class="ref" href="../../../include/x86_64-linux-gnu/bits/dirent.h.html#dirent::d_name" title='dirent::d_name' data-ref="dirent::d_name">d_name</a>);</td></tr>
+<tr><th id="354">354</th><td>				}</td></tr>
+<tr><th id="355">355</th><td>				<b>else</b> {</td></tr>
+<tr><th id="356">356</th><td>					<a class="ref" href="../qcommon/q_shared.h.html#Com_sprintf" title='Com_sprintf' data-ref="Com_sprintf">Com_sprintf</a>( <a class="local col7 ref" href="#107newsubdirs" title='newsubdirs' data-ref="107newsubdirs">newsubdirs</a>, <b>sizeof</b>(<a class="local col7 ref" href="#107newsubdirs" title='newsubdirs' data-ref="107newsubdirs">newsubdirs</a>), <q>"%s"</q>, <a class="local col0 ref" href="#110d" title='d' data-ref="110d">d</a>-&gt;<a class="ref" href="../../../include/x86_64-linux-gnu/bits/dirent.h.html#dirent::d_name" title='dirent::d_name' data-ref="dirent::d_name">d_name</a>);</td></tr>
+<tr><th id="357">357</th><td>				}</td></tr>
+<tr><th id="358">358</th><td>				<a class="ref" href="#Sys_ListFilteredFiles" title='Sys_ListFilteredFiles' data-ref="Sys_ListFilteredFiles">Sys_ListFilteredFiles</a>( <a class="local col1 ref" href="#101basedir" title='basedir' data-ref="101basedir">basedir</a>, <a class="local col7 ref" href="#107newsubdirs" title='newsubdirs' data-ref="107newsubdirs">newsubdirs</a>, <a class="local col3 ref" href="#103filter" title='filter' data-ref="103filter">filter</a>, <a class="local col4 ref" href="#104list" title='list' data-ref="104list">list</a>, <a class="local col5 ref" href="#105numfiles" title='numfiles' data-ref="105numfiles">numfiles</a> );</td></tr>
+<tr><th id="359">359</th><td>			}</td></tr>
+<tr><th id="360">360</th><td>		}</td></tr>
+<tr><th id="361">361</th><td>		<b>if</b> ( *<a class="local col5 ref" href="#105numfiles" title='numfiles' data-ref="105numfiles">numfiles</a> &gt;= <a class="macro" href="#315" title="0x1000" data-ref="_M/MAX_FOUND_FILES">MAX_FOUND_FILES</a> - <var>1</var> ) {</td></tr>
+<tr><th id="362">362</th><td>			<b>break</b>;</td></tr>
+<tr><th id="363">363</th><td>		}</td></tr>
+<tr><th id="364">364</th><td>		<a class="ref" href="../qcommon/q_shared.h.html#Com_sprintf" title='Com_sprintf' data-ref="Com_sprintf">Com_sprintf</a>( <a class="local col8 ref" href="#108filename" title='filename' data-ref="108filename">filename</a>, <b>sizeof</b>(<a class="local col8 ref" href="#108filename" title='filename' data-ref="108filename">filename</a>), <q>"%s/%s"</q>, <a class="local col2 ref" href="#102subdirs" title='subdirs' data-ref="102subdirs">subdirs</a>, <a class="local col0 ref" href="#110d" title='d' data-ref="110d">d</a>-&gt;<a class="ref" href="../../../include/x86_64-linux-gnu/bits/dirent.h.html#dirent::d_name" title='dirent::d_name' data-ref="dirent::d_name">d_name</a> );</td></tr>
+<tr><th id="365">365</th><td>		<b>if</b> (!<a class="ref" href="../qcommon/qcommon.h.html#Com_FilterPath" title='Com_FilterPath' data-ref="Com_FilterPath">Com_FilterPath</a>( <a class="local col3 ref" href="#103filter" title='filter' data-ref="103filter">filter</a>, <a class="local col8 ref" href="#108filename" title='filename' data-ref="108filename">filename</a>, <a class="enum" href="../qcommon/q_shared.h.html#qfalse" title='qfalse' data-ref="qfalse">qfalse</a> ))</td></tr>
+<tr><th id="366">366</th><td>			<b>continue</b>;</td></tr>
+<tr><th id="367">367</th><td>		<a class="local col4 ref" href="#104list" title='list' data-ref="104list">list</a>[ *<a class="local col5 ref" href="#105numfiles" title='numfiles' data-ref="105numfiles">numfiles</a> ] = <a class="ref" href="../qcommon/qcommon.h.html#CopyString" title='CopyString' data-ref="CopyString">CopyString</a>( <a class="local col8 ref" href="#108filename" title='filename' data-ref="108filename">filename</a> );</td></tr>
+<tr><th id="368">368</th><td>		(*<a class="local col5 ref" href="#105numfiles" title='numfiles' data-ref="105numfiles">numfiles</a>)++;</td></tr>
+<tr><th id="369">369</th><td>	}</td></tr>
+<tr><th id="370">370</th><td></td></tr>
+<tr><th id="371">371</th><td>	<a class="ref" href="../../../include/dirent.h.html#closedir" title='closedir' data-ref="closedir">closedir</a>(<a class="local col9 ref" href="#109fdir" title='fdir' data-ref="109fdir">fdir</a>);</td></tr>
+<tr><th id="372">372</th><td>}</td></tr>
+<tr><th id="373">373</th><td></td></tr>
+<tr><th id="374">374</th><td><i>/*</i></td></tr>
+<tr><th id="375">375</th><td><i>==================</i></td></tr>
+<tr><th id="376">376</th><td><i>Sys_ListFiles</i></td></tr>
+<tr><th id="377">377</th><td><i>==================</i></td></tr>
+<tr><th id="378">378</th><td><i>*/</i></td></tr>
+<tr><th id="379">379</th><td><em>char</em> **<dfn class="decl def" id="Sys_ListFiles" title='Sys_ListFiles' data-ref="Sys_ListFiles">Sys_ListFiles</dfn>( <em>const</em> <em>char</em> *<dfn class="local col2 decl" id="112directory" title='directory' data-type='const char *' data-ref="112directory">directory</dfn>, <em>const</em> <em>char</em> *<dfn class="local col3 decl" id="113extension" title='extension' data-type='const char *' data-ref="113extension">extension</dfn>, <em>char</em> *<dfn class="local col4 decl" id="114filter" title='filter' data-type='char *' data-ref="114filter">filter</dfn>, <em>int</em> *<dfn class="local col5 decl" id="115numfiles" title='numfiles' data-type='int *' data-ref="115numfiles">numfiles</dfn>, <a class="typedef" href="../qcommon/q_shared.h.html#qboolean" title='qboolean' data-type='enum qboolean' data-ref="qboolean">qboolean</a> <dfn class="local col6 decl" id="116wantsubs" title='wantsubs' data-type='qboolean' data-ref="116wantsubs">wantsubs</dfn> )</td></tr>
+<tr><th id="380">380</th><td>{</td></tr>
+<tr><th id="381">381</th><td>	<b>struct</b> <a class="type" href="../../../include/x86_64-linux-gnu/bits/dirent.h.html#dirent" title='dirent' data-ref="dirent">dirent</a> *<dfn class="local col7 decl" id="117d" title='d' data-type='struct dirent *' data-ref="117d">d</dfn>;</td></tr>
+<tr><th id="382">382</th><td>	<a class="typedef" href="../../../include/dirent.h.html#DIR" title='DIR' data-type='struct __dirstream' data-ref="DIR">DIR</a>           *<dfn class="local col8 decl" id="118fdir" title='fdir' data-type='DIR *' data-ref="118fdir">fdir</dfn>;</td></tr>
+<tr><th id="383">383</th><td>	<a class="typedef" href="../qcommon/q_shared.h.html#qboolean" title='qboolean' data-type='enum qboolean' data-ref="qboolean">qboolean</a>      <dfn class="local col9 decl" id="119dironly" title='dironly' data-type='qboolean' data-ref="119dironly">dironly</dfn> = <a class="local col6 ref" href="#116wantsubs" title='wantsubs' data-ref="116wantsubs">wantsubs</a>;</td></tr>
+<tr><th id="384">384</th><td>	<em>char</em>          <dfn class="local col0 decl" id="120search" title='search' data-type='char [4096]' data-ref="120search">search</dfn>[<a class="macro" href="../qcommon/q_shared.h.html#258" title="4096" data-ref="_M/MAX_OSPATH">MAX_OSPATH</a>];</td></tr>
+<tr><th id="385">385</th><td>	<em>int</em>           <dfn class="local col1 decl" id="121nfiles" title='nfiles' data-type='int' data-ref="121nfiles">nfiles</dfn>;</td></tr>
+<tr><th id="386">386</th><td>	<em>char</em>          **<dfn class="local col2 decl" id="122listCopy" title='listCopy' data-type='char **' data-ref="122listCopy">listCopy</dfn>;</td></tr>
+<tr><th id="387">387</th><td>	<em>char</em>          *<dfn class="local col3 decl" id="123list" title='list' data-type='char *[4096]' data-ref="123list">list</dfn>[<a class="macro" href="#315" title="0x1000" data-ref="_M/MAX_FOUND_FILES">MAX_FOUND_FILES</a>];</td></tr>
+<tr><th id="388">388</th><td>	<em>int</em>           <dfn class="local col4 decl" id="124i" title='i' data-type='int' data-ref="124i">i</dfn>;</td></tr>
+<tr><th id="389">389</th><td>	<b>struct</b> <a class="type" href="../../../include/x86_64-linux-gnu/bits/stat.h.html#stat" title='stat' data-ref="stat">stat</a>   <dfn class="local col5 decl" id="125st" title='st' data-type='struct stat' data-ref="125st">st</dfn>;</td></tr>
+<tr><th id="390">390</th><td></td></tr>
+<tr><th id="391">391</th><td>	<em>int</em>           <dfn class="local col6 decl" id="126extLen" title='extLen' data-type='int' data-ref="126extLen">extLen</dfn>;</td></tr>
+<tr><th id="392">392</th><td></td></tr>
+<tr><th id="393">393</th><td>	<b>if</b> (<a class="local col4 ref" href="#114filter" title='filter' data-ref="114filter">filter</a>) {</td></tr>
+<tr><th id="394">394</th><td></td></tr>
+<tr><th id="395">395</th><td>		<a class="local col1 ref" href="#121nfiles" title='nfiles' data-ref="121nfiles">nfiles</a> = <var>0</var>;</td></tr>
+<tr><th id="396">396</th><td>		<a class="ref" href="#Sys_ListFilteredFiles" title='Sys_ListFilteredFiles' data-ref="Sys_ListFilteredFiles">Sys_ListFilteredFiles</a>( <a class="local col2 ref" href="#112directory" title='directory' data-ref="112directory">directory</a>, <q>""</q>, <a class="local col4 ref" href="#114filter" title='filter' data-ref="114filter">filter</a>, <a class="local col3 ref" href="#123list" title='list' data-ref="123list">list</a>, &amp;<a class="local col1 ref" href="#121nfiles" title='nfiles' data-ref="121nfiles">nfiles</a> );</td></tr>
+<tr><th id="397">397</th><td></td></tr>
+<tr><th id="398">398</th><td>		<a class="local col3 ref" href="#123list" title='list' data-ref="123list">list</a>[ <a class="local col1 ref" href="#121nfiles" title='nfiles' data-ref="121nfiles">nfiles</a> ] = <span class="macro" title="((void*)0)" data-ref="_M/NULL">NULL</span>;</td></tr>
+<tr><th id="399">399</th><td>		*<a class="local col5 ref" href="#115numfiles" title='numfiles' data-ref="115numfiles">numfiles</a> = <a class="local col1 ref" href="#121nfiles" title='nfiles' data-ref="121nfiles">nfiles</a>;</td></tr>
+<tr><th id="400">400</th><td></td></tr>
+<tr><th id="401">401</th><td>		<b>if</b> (!<a class="local col1 ref" href="#121nfiles" title='nfiles' data-ref="121nfiles">nfiles</a>)</td></tr>
+<tr><th id="402">402</th><td>			<b>return</b> <span class="macro" title="((void*)0)" data-ref="_M/NULL">NULL</span>;</td></tr>
+<tr><th id="403">403</th><td></td></tr>
+<tr><th id="404">404</th><td>		<a class="local col2 ref" href="#122listCopy" title='listCopy' data-ref="122listCopy">listCopy</a> = <a class="ref" href="../qcommon/qcommon.h.html#Z_Malloc" title='Z_Malloc' data-ref="Z_Malloc">Z_Malloc</a>( ( <a class="local col1 ref" href="#121nfiles" title='nfiles' data-ref="121nfiles">nfiles</a> + <var>1</var> ) * <b>sizeof</b>( *<a class="local col2 ref" href="#122listCopy" title='listCopy' data-ref="122listCopy">listCopy</a> ) );</td></tr>
+<tr><th id="405">405</th><td>		<b>for</b> ( <a class="local col4 ref" href="#124i" title='i' data-ref="124i">i</a> = <var>0</var> ; <a class="local col4 ref" href="#124i" title='i' data-ref="124i">i</a> &lt; <a class="local col1 ref" href="#121nfiles" title='nfiles' data-ref="121nfiles">nfiles</a> ; <a class="local col4 ref" href="#124i" title='i' data-ref="124i">i</a>++ ) {</td></tr>
+<tr><th id="406">406</th><td>			<a class="local col2 ref" href="#122listCopy" title='listCopy' data-ref="122listCopy">listCopy</a>[<a class="local col4 ref" href="#124i" title='i' data-ref="124i">i</a>] = <a class="local col3 ref" href="#123list" title='list' data-ref="123list">list</a>[<a class="local col4 ref" href="#124i" title='i' data-ref="124i">i</a>];</td></tr>
+<tr><th id="407">407</th><td>		}</td></tr>
+<tr><th id="408">408</th><td>		<a class="local col2 ref" href="#122listCopy" title='listCopy' data-ref="122listCopy">listCopy</a>[<a class="local col4 ref" href="#124i" title='i' data-ref="124i">i</a>] = <span class="macro" title="((void*)0)" data-ref="_M/NULL">NULL</span>;</td></tr>
+<tr><th id="409">409</th><td></td></tr>
+<tr><th id="410">410</th><td>		<b>return</b> <a class="local col2 ref" href="#122listCopy" title='listCopy' data-ref="122listCopy">listCopy</a>;</td></tr>
+<tr><th id="411">411</th><td>	}</td></tr>
+<tr><th id="412">412</th><td></td></tr>
+<tr><th id="413">413</th><td>	<b>if</b> ( !<a class="local col3 ref" href="#113extension" title='extension' data-ref="113extension">extension</a>)</td></tr>
+<tr><th id="414">414</th><td>		<a class="local col3 ref" href="#113extension" title='extension' data-ref="113extension">extension</a> = <q>""</q>;</td></tr>
+<tr><th id="415">415</th><td></td></tr>
+<tr><th id="416">416</th><td>	<b>if</b> ( <a class="local col3 ref" href="#113extension" title='extension' data-ref="113extension">extension</a>[<var>0</var>] == <kbd>'/'</kbd> &amp;&amp; <a class="local col3 ref" href="#113extension" title='extension' data-ref="113extension">extension</a>[<var>1</var>] == <var>0</var> ) {</td></tr>
+<tr><th id="417">417</th><td>		<a class="local col3 ref" href="#113extension" title='extension' data-ref="113extension">extension</a> = <q>""</q>;</td></tr>
+<tr><th id="418">418</th><td>		<a class="local col9 ref" href="#119dironly" title='dironly' data-ref="119dironly">dironly</a> = <a class="enum" href="../qcommon/q_shared.h.html#qtrue" title='qtrue' data-ref="qtrue">qtrue</a>;</td></tr>
+<tr><th id="419">419</th><td>	}</td></tr>
+<tr><th id="420">420</th><td></td></tr>
+<tr><th id="421">421</th><td>	<a class="local col6 ref" href="#126extLen" title='extLen' data-ref="126extLen">extLen</a> = <a class="ref" href="../../../include/string.h.html#strlen" title='strlen' data-ref="strlen">strlen</a>( <a class="local col3 ref" href="#113extension" title='extension' data-ref="113extension">extension</a> );</td></tr>
+<tr><th id="422">422</th><td></td></tr>
+<tr><th id="423">423</th><td>	<i>// search</i></td></tr>
+<tr><th id="424">424</th><td>	<a class="local col1 ref" href="#121nfiles" title='nfiles' data-ref="121nfiles">nfiles</a> = <var>0</var>;</td></tr>
+<tr><th id="425">425</th><td></td></tr>
+<tr><th id="426">426</th><td>	<b>if</b> ((<a class="local col8 ref" href="#118fdir" title='fdir' data-ref="118fdir">fdir</a> = <a class="ref" href="../../../include/dirent.h.html#opendir" title='opendir' data-ref="opendir">opendir</a>(<a class="local col2 ref" href="#112directory" title='directory' data-ref="112directory">directory</a>)) == <span class="macro" title="((void*)0)" data-ref="_M/NULL">NULL</span>) {</td></tr>
+<tr><th id="427">427</th><td>		*<a class="local col5 ref" href="#115numfiles" title='numfiles' data-ref="115numfiles">numfiles</a> = <var>0</var>;</td></tr>
+<tr><th id="428">428</th><td>		<b>return</b> <span class="macro" title="((void*)0)" data-ref="_M/NULL">NULL</span>;</td></tr>
+<tr><th id="429">429</th><td>	}</td></tr>
+<tr><th id="430">430</th><td></td></tr>
+<tr><th id="431">431</th><td>	<b>while</b> ((<a class="local col7 ref" href="#117d" title='d' data-ref="117d">d</a> = <a class="ref" href="../../../include/dirent.h.html#readdir" title='readdir' data-ref="readdir">readdir</a>(<a class="local col8 ref" href="#118fdir" title='fdir' data-ref="118fdir">fdir</a>)) != <span class="macro" title="((void*)0)" data-ref="_M/NULL">NULL</span>) {</td></tr>
+<tr><th id="432">432</th><td>		<a class="ref" href="../qcommon/q_shared.h.html#Com_sprintf" title='Com_sprintf' data-ref="Com_sprintf">Com_sprintf</a>(<a class="local col0 ref" href="#120search" title='search' data-ref="120search">search</a>, <b>sizeof</b>(<a class="local col0 ref" href="#120search" title='search' data-ref="120search">search</a>), <q>"%s/%s"</q>, <a class="local col2 ref" href="#112directory" title='directory' data-ref="112directory">directory</a>, <a class="local col7 ref" href="#117d" title='d' data-ref="117d">d</a>-&gt;<a class="ref" href="../../../include/x86_64-linux-gnu/bits/dirent.h.html#dirent::d_name" title='dirent::d_name' data-ref="dirent::d_name">d_name</a>);</td></tr>
+<tr><th id="433">433</th><td>		<b>if</b> (<a class="ref" href="../../../include/x86_64-linux-gnu/sys/stat.h.html#stat" title='stat' data-ref="stat">stat</a>(<a class="local col0 ref" href="#120search" title='search' data-ref="120search">search</a>, &amp;<a class="local col5 ref" href="#125st" title='st' data-ref="125st">st</a>) == -<var>1</var>)</td></tr>
+<tr><th id="434">434</th><td>			<b>continue</b>;</td></tr>
+<tr><th id="435">435</th><td>		<b>if</b> ((<a class="local col9 ref" href="#119dironly" title='dironly' data-ref="119dironly">dironly</a> &amp;&amp; !(<a class="local col5 ref" href="#125st" title='st' data-ref="125st">st</a>.<a class="ref" href="../../../include/x86_64-linux-gnu/bits/stat.h.html#stat::st_mode" title='stat::st_mode' data-ref="stat::st_mode">st_mode</a> &amp; <a class="macro" href="../../../include/fcntl.h.html#80" title="0040000" data-ref="_M/S_IFDIR">S_IFDIR</a>)) ||</td></tr>
+<tr><th id="436">436</th><td>			(!<a class="local col9 ref" href="#119dironly" title='dironly' data-ref="119dironly">dironly</a> &amp;&amp; (<a class="local col5 ref" href="#125st" title='st' data-ref="125st">st</a>.<a class="ref" href="../../../include/x86_64-linux-gnu/bits/stat.h.html#stat::st_mode" title='stat::st_mode' data-ref="stat::st_mode">st_mode</a> &amp; <a class="macro" href="../../../include/fcntl.h.html#80" title="0040000" data-ref="_M/S_IFDIR">S_IFDIR</a>)))</td></tr>
+<tr><th id="437">437</th><td>			<b>continue</b>;</td></tr>
+<tr><th id="438">438</th><td></td></tr>
+<tr><th id="439">439</th><td>		<b>if</b> (*<a class="local col3 ref" href="#113extension" title='extension' data-ref="113extension">extension</a>) {</td></tr>
+<tr><th id="440">440</th><td>			<b>if</b> ( <a class="ref" href="../../../include/string.h.html#strlen" title='strlen' data-ref="strlen">strlen</a>( <a class="local col7 ref" href="#117d" title='d' data-ref="117d">d</a>-&gt;<a class="ref" href="../../../include/x86_64-linux-gnu/bits/dirent.h.html#dirent::d_name" title='dirent::d_name' data-ref="dirent::d_name">d_name</a> ) &lt; <a class="local col6 ref" href="#126extLen" title='extLen' data-ref="126extLen">extLen</a> ||</td></tr>
+<tr><th id="441">441</th><td>				<a class="ref" href="../qcommon/q_shared.h.html#Q_stricmp" title='Q_stricmp' data-ref="Q_stricmp">Q_stricmp</a>(</td></tr>
+<tr><th id="442">442</th><td>					<a class="local col7 ref" href="#117d" title='d' data-ref="117d">d</a>-&gt;<a class="ref" href="../../../include/x86_64-linux-gnu/bits/dirent.h.html#dirent::d_name" title='dirent::d_name' data-ref="dirent::d_name">d_name</a> + <a class="ref" href="../../../include/string.h.html#strlen" title='strlen' data-ref="strlen">strlen</a>( <a class="local col7 ref" href="#117d" title='d' data-ref="117d">d</a>-&gt;<a class="ref" href="../../../include/x86_64-linux-gnu/bits/dirent.h.html#dirent::d_name" title='dirent::d_name' data-ref="dirent::d_name">d_name</a> ) - <a class="local col6 ref" href="#126extLen" title='extLen' data-ref="126extLen">extLen</a>,</td></tr>
+<tr><th id="443">443</th><td>					<a class="local col3 ref" href="#113extension" title='extension' data-ref="113extension">extension</a> ) ) {</td></tr>
+<tr><th id="444">444</th><td>				<b>continue</b>; <i>// didn't match</i></td></tr>
+<tr><th id="445">445</th><td>			}</td></tr>
+<tr><th id="446">446</th><td>		}</td></tr>
+<tr><th id="447">447</th><td></td></tr>
+<tr><th id="448">448</th><td>		<b>if</b> ( <a class="local col1 ref" href="#121nfiles" title='nfiles' data-ref="121nfiles">nfiles</a> == <a class="macro" href="#315" title="0x1000" data-ref="_M/MAX_FOUND_FILES">MAX_FOUND_FILES</a> - <var>1</var> )</td></tr>
+<tr><th id="449">449</th><td>			<b>break</b>;</td></tr>
+<tr><th id="450">450</th><td>		<a class="local col3 ref" href="#123list" title='list' data-ref="123list">list</a>[ <a class="local col1 ref" href="#121nfiles" title='nfiles' data-ref="121nfiles">nfiles</a> ] = <a class="ref" href="../qcommon/qcommon.h.html#CopyString" title='CopyString' data-ref="CopyString">CopyString</a>( <a class="local col7 ref" href="#117d" title='d' data-ref="117d">d</a>-&gt;<a class="ref" href="../../../include/x86_64-linux-gnu/bits/dirent.h.html#dirent::d_name" title='dirent::d_name' data-ref="dirent::d_name">d_name</a> );</td></tr>
+<tr><th id="451">451</th><td>		<a class="local col1 ref" href="#121nfiles" title='nfiles' data-ref="121nfiles">nfiles</a>++;</td></tr>
+<tr><th id="452">452</th><td>	}</td></tr>
+<tr><th id="453">453</th><td></td></tr>
+<tr><th id="454">454</th><td>	<a class="local col3 ref" href="#123list" title='list' data-ref="123list">list</a>[ <a class="local col1 ref" href="#121nfiles" title='nfiles' data-ref="121nfiles">nfiles</a> ] = <span class="macro" title="((void*)0)" data-ref="_M/NULL">NULL</span>;</td></tr>
+<tr><th id="455">455</th><td></td></tr>
+<tr><th id="456">456</th><td>	<a class="ref" href="../../../include/dirent.h.html#closedir" title='closedir' data-ref="closedir">closedir</a>(<a class="local col8 ref" href="#118fdir" title='fdir' data-ref="118fdir">fdir</a>);</td></tr>
+<tr><th id="457">457</th><td></td></tr>
+<tr><th id="458">458</th><td>	<i>// return a copy of the list</i></td></tr>
+<tr><th id="459">459</th><td>	*<a class="local col5 ref" href="#115numfiles" title='numfiles' data-ref="115numfiles">numfiles</a> = <a class="local col1 ref" href="#121nfiles" title='nfiles' data-ref="121nfiles">nfiles</a>;</td></tr>
+<tr><th id="460">460</th><td></td></tr>
+<tr><th id="461">461</th><td>	<b>if</b> ( !<a class="local col1 ref" href="#121nfiles" title='nfiles' data-ref="121nfiles">nfiles</a> ) {</td></tr>
+<tr><th id="462">462</th><td>		<b>return</b> <span class="macro" title="((void*)0)" data-ref="_M/NULL">NULL</span>;</td></tr>
+<tr><th id="463">463</th><td>	}</td></tr>
+<tr><th id="464">464</th><td></td></tr>
+<tr><th id="465">465</th><td>	<a class="local col2 ref" href="#122listCopy" title='listCopy' data-ref="122listCopy">listCopy</a> = <a class="ref" href="../qcommon/qcommon.h.html#Z_Malloc" title='Z_Malloc' data-ref="Z_Malloc">Z_Malloc</a>( ( <a class="local col1 ref" href="#121nfiles" title='nfiles' data-ref="121nfiles">nfiles</a> + <var>1</var> ) * <b>sizeof</b>( *<a class="local col2 ref" href="#122listCopy" title='listCopy' data-ref="122listCopy">listCopy</a> ) );</td></tr>
+<tr><th id="466">466</th><td>	<b>for</b> ( <a class="local col4 ref" href="#124i" title='i' data-ref="124i">i</a> = <var>0</var> ; <a class="local col4 ref" href="#124i" title='i' data-ref="124i">i</a> &lt; <a class="local col1 ref" href="#121nfiles" title='nfiles' data-ref="121nfiles">nfiles</a> ; <a class="local col4 ref" href="#124i" title='i' data-ref="124i">i</a>++ ) {</td></tr>
+<tr><th id="467">467</th><td>		<a class="local col2 ref" href="#122listCopy" title='listCopy' data-ref="122listCopy">listCopy</a>[<a class="local col4 ref" href="#124i" title='i' data-ref="124i">i</a>] = <a class="local col3 ref" href="#123list" title='list' data-ref="123list">list</a>[<a class="local col4 ref" href="#124i" title='i' data-ref="124i">i</a>];</td></tr>
+<tr><th id="468">468</th><td>	}</td></tr>
+<tr><th id="469">469</th><td>	<a class="local col2 ref" href="#122listCopy" title='listCopy' data-ref="122listCopy">listCopy</a>[<a class="local col4 ref" href="#124i" title='i' data-ref="124i">i</a>] = <span class="macro" title="((void*)0)" data-ref="_M/NULL">NULL</span>;</td></tr>
+<tr><th id="470">470</th><td></td></tr>
+<tr><th id="471">471</th><td>	<b>return</b> <a class="local col2 ref" href="#122listCopy" title='listCopy' data-ref="122listCopy">listCopy</a>;</td></tr>
+<tr><th id="472">472</th><td>}</td></tr>
+<tr><th id="473">473</th><td></td></tr>
+<tr><th id="474">474</th><td><i>/*</i></td></tr>
+<tr><th id="475">475</th><td><i>==================</i></td></tr>
+<tr><th id="476">476</th><td><i>Sys_FreeFileList</i></td></tr>
+<tr><th id="477">477</th><td><i>==================</i></td></tr>
+<tr><th id="478">478</th><td><i>*/</i></td></tr>
+<tr><th id="479">479</th><td><em>void</em> <dfn class="decl def" id="Sys_FreeFileList" title='Sys_FreeFileList' data-ref="Sys_FreeFileList">Sys_FreeFileList</dfn>( <em>char</em> **<dfn class="local col7 decl" id="127list" title='list' data-type='char **' data-ref="127list">list</dfn> )</td></tr>
+<tr><th id="480">480</th><td>{</td></tr>
+<tr><th id="481">481</th><td>	<em>int</em> <dfn class="local col8 decl" id="128i" title='i' data-type='int' data-ref="128i">i</dfn>;</td></tr>
+<tr><th id="482">482</th><td></td></tr>
+<tr><th id="483">483</th><td>	<b>if</b> ( !<a class="local col7 ref" href="#127list" title='list' data-ref="127list">list</a> ) {</td></tr>
+<tr><th id="484">484</th><td>		<b>return</b>;</td></tr>
+<tr><th id="485">485</th><td>	}</td></tr>
+<tr><th id="486">486</th><td></td></tr>
+<tr><th id="487">487</th><td>	<b>for</b> ( <a class="local col8 ref" href="#128i" title='i' data-ref="128i">i</a> = <var>0</var> ; <a class="local col7 ref" href="#127list" title='list' data-ref="127list">list</a>[<a class="local col8 ref" href="#128i" title='i' data-ref="128i">i</a>] ; <a class="local col8 ref" href="#128i" title='i' data-ref="128i">i</a>++ ) {</td></tr>
+<tr><th id="488">488</th><td>		<a class="ref" href="../qcommon/qcommon.h.html#Z_Free" title='Z_Free' data-ref="Z_Free">Z_Free</a>( <a class="local col7 ref" href="#127list" title='list' data-ref="127list">list</a>[<a class="local col8 ref" href="#128i" title='i' data-ref="128i">i</a>] );</td></tr>
+<tr><th id="489">489</th><td>	}</td></tr>
+<tr><th id="490">490</th><td></td></tr>
+<tr><th id="491">491</th><td>	<a class="ref" href="../qcommon/qcommon.h.html#Z_Free" title='Z_Free' data-ref="Z_Free">Z_Free</a>( <a class="local col7 ref" href="#127list" title='list' data-ref="127list">list</a> );</td></tr>
+<tr><th id="492">492</th><td>}</td></tr>
+<tr><th id="493">493</th><td></td></tr>
+<tr><th id="494">494</th><td><i>/*</i></td></tr>
+<tr><th id="495">495</th><td><i>==================</i></td></tr>
+<tr><th id="496">496</th><td><i>Sys_Sleep</i></td></tr>
+<tr><th id="497">497</th><td><i></i></td></tr>
+<tr><th id="498">498</th><td><i>Block execution for msec or until input is recieved.</i></td></tr>
+<tr><th id="499">499</th><td><i>==================</i></td></tr>
+<tr><th id="500">500</th><td><i>*/</i></td></tr>
+<tr><th id="501">501</th><td><em>void</em> <dfn class="decl def" id="Sys_Sleep" title='Sys_Sleep' data-ref="Sys_Sleep">Sys_Sleep</dfn>( <em>int</em> <dfn class="local col9 decl" id="129msec" title='msec' data-type='int' data-ref="129msec">msec</dfn> )</td></tr>
+<tr><th id="502">502</th><td>{</td></tr>
+<tr><th id="503">503</th><td>	<b>if</b>( <a class="local col9 ref" href="#129msec" title='msec' data-ref="129msec">msec</a> == <var>0</var> )</td></tr>
+<tr><th id="504">504</th><td>		<b>return</b>;</td></tr>
+<tr><th id="505">505</th><td></td></tr>
+<tr><th id="506">506</th><td>	<b>if</b>( <a class="ref" href="#stdinIsATTY" title='stdinIsATTY' data-ref="stdinIsATTY">stdinIsATTY</a> )</td></tr>
+<tr><th id="507">507</th><td>	{</td></tr>
+<tr><th id="508">508</th><td>		<a class="typedef" href="../../../include/x86_64-linux-gnu/sys/select.h.html#fd_set" title='fd_set' data-type='struct fd_set' data-ref="fd_set">fd_set</a> <dfn class="local col0 decl" id="130fdset" title='fdset' data-type='fd_set' data-ref="130fdset">fdset</dfn>;</td></tr>
+<tr><th id="509">509</th><td></td></tr>
+<tr><th id="510">510</th><td>		<a class="macro" href="../../../include/x86_64-linux-gnu/sys/select.h.html#93" title="do { int __d0, __d1; __asm__ __volatile__ (&quot;cld; rep; &quot; &quot;stosq&quot; : &quot;=c&quot; (__d0), &quot;=D&quot; (__d1) : &quot;a&quot; (0), &quot;0&quot; (sizeof (fd_set) / sizeof (__fd_mask)), &quot;1&quot; (&amp;((&amp;fdset)-&gt;__fds_bits)[0]) : &quot;memory&quot;); } while (0)" data-ref="_M/FD_ZERO">FD_ZERO</a>(&amp;<a class="local col0 ref" href="#130fdset" title='fdset' data-ref="130fdset">fdset</a>);</td></tr>
+<tr><th id="511">511</th><td>		<a class="macro" href="../../../include/x86_64-linux-gnu/sys/select.h.html#90" title="((void) (((&amp;fdset)-&gt;__fds_bits)[((0) / (8 * (int) sizeof (__fd_mask)))] |= ((__fd_mask) (1UL &lt;&lt; ((0) % (8 * (int) sizeof (__fd_mask)))))))" data-ref="_M/FD_SET">FD_SET</a>(<a class="macro" href="../../../include/unistd.h.html#213" title="0" data-ref="_M/STDIN_FILENO">STDIN_FILENO</a>, &amp;<a class="local col0 ref" href="#130fdset" title='fdset' data-ref="130fdset">fdset</a>);</td></tr>
+<tr><th id="512">512</th><td>		<b>if</b>( <a class="local col9 ref" href="#129msec" title='msec' data-ref="129msec">msec</a> &lt; <var>0</var> )</td></tr>
+<tr><th id="513">513</th><td>		{</td></tr>
+<tr><th id="514">514</th><td>			<a class="ref" href="../../../include/x86_64-linux-gnu/sys/select.h.html#select" title='select' data-ref="select">select</a>(<a class="macro" href="../../../include/unistd.h.html#213" title="0" data-ref="_M/STDIN_FILENO">STDIN_FILENO</a> + <var>1</var>, &amp;<a class="local col0 ref" href="#130fdset" title='fdset' data-ref="130fdset">fdset</a>, <span class="macro" title="((void*)0)" data-ref="_M/NULL">NULL</span>, <span class="macro" title="((void*)0)" data-ref="_M/NULL">NULL</span>, <span class="macro" title="((void*)0)" data-ref="_M/NULL">NULL</span>);</td></tr>
+<tr><th id="515">515</th><td>		}</td></tr>
+<tr><th id="516">516</th><td>		<b>else</b></td></tr>
+<tr><th id="517">517</th><td>		{</td></tr>
+<tr><th id="518">518</th><td>			<b>struct</b> <a class="type" href="../../../include/x86_64-linux-gnu/bits/time.h.html#timeval" title='timeval' data-ref="timeval">timeval</a> <dfn class="local col1 decl" id="131timeout" title='timeout' data-type='struct timeval' data-ref="131timeout">timeout</dfn>;</td></tr>
+<tr><th id="519">519</th><td></td></tr>
+<tr><th id="520">520</th><td>			<a class="local col1 ref" href="#131timeout" title='timeout' data-ref="131timeout">timeout</a>.<a class="ref" href="../../../include/x86_64-linux-gnu/bits/time.h.html#timeval::tv_sec" title='timeval::tv_sec' data-ref="timeval::tv_sec">tv_sec</a> = <a class="local col9 ref" href="#129msec" title='msec' data-ref="129msec">msec</a>/<var>1000</var>;</td></tr>
+<tr><th id="521">521</th><td>			<a class="local col1 ref" href="#131timeout" title='timeout' data-ref="131timeout">timeout</a>.<a class="ref" href="../../../include/x86_64-linux-gnu/bits/time.h.html#timeval::tv_usec" title='timeval::tv_usec' data-ref="timeval::tv_usec">tv_usec</a> = (<a class="local col9 ref" href="#129msec" title='msec' data-ref="129msec">msec</a>%<var>1000</var>)*<var>1000</var>;</td></tr>
+<tr><th id="522">522</th><td>			<a class="ref" href="../../../include/x86_64-linux-gnu/sys/select.h.html#select" title='select' data-ref="select">select</a>(<a class="macro" href="../../../include/unistd.h.html#213" title="0" data-ref="_M/STDIN_FILENO">STDIN_FILENO</a> + <var>1</var>, &amp;<a class="local col0 ref" href="#130fdset" title='fdset' data-ref="130fdset">fdset</a>, <span class="macro" title="((void*)0)" data-ref="_M/NULL">NULL</span>, <span class="macro" title="((void*)0)" data-ref="_M/NULL">NULL</span>, &amp;<a class="local col1 ref" href="#131timeout" title='timeout' data-ref="131timeout">timeout</a>);</td></tr>
+<tr><th id="523">523</th><td>		}</td></tr>
+<tr><th id="524">524</th><td>	}</td></tr>
+<tr><th id="525">525</th><td>	<b>else</b></td></tr>
+<tr><th id="526">526</th><td>	{</td></tr>
+<tr><th id="527">527</th><td>		<i>// With nothing to select() on, we can't wait indefinitely</i></td></tr>
+<tr><th id="528">528</th><td>		<b>if</b>( <a class="local col9 ref" href="#129msec" title='msec' data-ref="129msec">msec</a> &lt; <var>0</var> )</td></tr>
+<tr><th id="529">529</th><td>			<a class="local col9 ref" href="#129msec" title='msec' data-ref="129msec">msec</a> = <var>10</var>;</td></tr>
+<tr><th id="530">530</th><td></td></tr>
+<tr><th id="531">531</th><td>		<a class="ref" href="../../../include/unistd.h.html#usleep" title='usleep' data-ref="usleep">usleep</a>( <a class="local col9 ref" href="#129msec" title='msec' data-ref="129msec">msec</a> * <var>1000</var> );</td></tr>
+<tr><th id="532">532</th><td>	}</td></tr>
+<tr><th id="533">533</th><td>}</td></tr>
+<tr><th id="534">534</th><td></td></tr>
+<tr><th id="535">535</th><td><i>/*</i></td></tr>
+<tr><th id="536">536</th><td><i>==============</i></td></tr>
+<tr><th id="537">537</th><td><i>Sys_ErrorDialog</i></td></tr>
+<tr><th id="538">538</th><td><i></i></td></tr>
+<tr><th id="539">539</th><td><i>Display an error message</i></td></tr>
+<tr><th id="540">540</th><td><i>==============</i></td></tr>
+<tr><th id="541">541</th><td><i>*/</i></td></tr>
+<tr><th id="542">542</th><td><em>void</em> <dfn class="decl def" id="Sys_ErrorDialog" title='Sys_ErrorDialog' data-ref="Sys_ErrorDialog">Sys_ErrorDialog</dfn>( <em>const</em> <em>char</em> *<dfn class="local col2 decl" id="132error" title='error' data-type='const char *' data-ref="132error">error</dfn> )</td></tr>
+<tr><th id="543">543</th><td>{</td></tr>
+<tr><th id="544">544</th><td>	<em>char</em> <dfn class="local col3 decl" id="133buffer" title='buffer' data-type='char [1024]' data-ref="133buffer">buffer</dfn>[ <var>1024</var> ];</td></tr>
+<tr><th id="545">545</th><td>	<em>unsigned</em> <em>int</em> <dfn class="local col4 decl" id="134size" title='size' data-type='unsigned int' data-ref="134size">size</dfn>;</td></tr>
+<tr><th id="546">546</th><td>	<em>int</em> <dfn class="local col5 decl" id="135f" title='f' data-type='int' data-ref="135f">f</dfn> = -<var>1</var>;</td></tr>
+<tr><th id="547">547</th><td>	<em>const</em> <em>char</em> *<dfn class="local col6 decl" id="136homepath" title='homepath' data-type='const char *' data-ref="136homepath">homepath</dfn> = <a class="ref" href="../qcommon/qcommon.h.html#Cvar_VariableString" title='Cvar_VariableString' data-ref="Cvar_VariableString">Cvar_VariableString</a>( <q>"fs_homepath"</q> );</td></tr>
+<tr><th id="548">548</th><td>	<em>const</em> <em>char</em> *<dfn class="local col7 decl" id="137gamedir" title='gamedir' data-type='const char *' data-ref="137gamedir">gamedir</dfn> = <a class="ref" href="../qcommon/qcommon.h.html#Cvar_VariableString" title='Cvar_VariableString' data-ref="Cvar_VariableString">Cvar_VariableString</a>( <q>"fs_game"</q> );</td></tr>
+<tr><th id="549">549</th><td>	<em>const</em> <em>char</em> *<dfn class="local col8 decl" id="138fileName" title='fileName' data-type='const char *' data-ref="138fileName">fileName</dfn> = <q>"crashlog.txt"</q>;</td></tr>
+<tr><th id="550">550</th><td>	<em>char</em> *<dfn class="local col9 decl" id="139dirpath" title='dirpath' data-type='char *' data-ref="139dirpath">dirpath</dfn> = <a class="ref" href="../qcommon/qcommon.h.html#FS_BuildOSPath" title='FS_BuildOSPath' data-ref="FS_BuildOSPath">FS_BuildOSPath</a>( <a class="local col6 ref" href="#136homepath" title='homepath' data-ref="136homepath">homepath</a>, <a class="local col7 ref" href="#137gamedir" title='gamedir' data-ref="137gamedir">gamedir</a>, <q>""</q>);</td></tr>
+<tr><th id="551">551</th><td>	<em>char</em> *<dfn class="local col0 decl" id="140ospath" title='ospath' data-type='char *' data-ref="140ospath">ospath</dfn> = <a class="ref" href="../qcommon/qcommon.h.html#FS_BuildOSPath" title='FS_BuildOSPath' data-ref="FS_BuildOSPath">FS_BuildOSPath</a>( <a class="local col6 ref" href="#136homepath" title='homepath' data-ref="136homepath">homepath</a>, <a class="local col7 ref" href="#137gamedir" title='gamedir' data-ref="137gamedir">gamedir</a>, <a class="local col8 ref" href="#138fileName" title='fileName' data-ref="138fileName">fileName</a> );</td></tr>
+<tr><th id="552">552</th><td></td></tr>
+<tr><th id="553">553</th><td>	<a class="ref" href="../qcommon/qcommon.h.html#Sys_Print" title='Sys_Print' data-ref="Sys_Print">Sys_Print</a>( <a class="ref" href="../qcommon/q_shared.h.html#va" title='va' data-ref="va">va</a>( <q>"%s\n"</q>, <a class="local col2 ref" href="#132error" title='error' data-ref="132error">error</a> ) );</td></tr>
+<tr><th id="554">554</th><td></td></tr>
+<tr><th id="555">555</th><td><u>#<span data-ppcond="555">ifndef</span> <span class="macro" data-ref="_M/DEDICATED">DEDICATED</span></u></td></tr>
+<tr><th id="556">556</th><td>	Sys_Dialog( DT_ERROR, va( <q>"%s. See \"%s\" for details."</q>, error, ospath ), <q>"Error"</q> );</td></tr>
+<tr><th id="557">557</th><td><u>#<span data-ppcond="555">endif</span></u></td></tr>
+<tr><th id="558">558</th><td></td></tr>
+<tr><th id="559">559</th><td>	<i>// Make sure the write path for the crashlog exists...</i></td></tr>
+<tr><th id="560">560</th><td></td></tr>
+<tr><th id="561">561</th><td>	<b>if</b>(!<a class="ref" href="#Sys_Mkdir" title='Sys_Mkdir' data-ref="Sys_Mkdir">Sys_Mkdir</a>(<a class="local col6 ref" href="#136homepath" title='homepath' data-ref="136homepath">homepath</a>))</td></tr>
+<tr><th id="562">562</th><td>	{</td></tr>
+<tr><th id="563">563</th><td>		<a class="ref" href="../qcommon/q_shared.h.html#Com_Printf" title='Com_Printf' data-ref="Com_Printf">Com_Printf</a>(<q>"ERROR: couldn't create path '%s' for crash log.\n"</q>, <a class="local col6 ref" href="#136homepath" title='homepath' data-ref="136homepath">homepath</a>);</td></tr>
+<tr><th id="564">564</th><td>		<b>return</b>;</td></tr>
+<tr><th id="565">565</th><td>	}</td></tr>
+<tr><th id="566">566</th><td></td></tr>
+<tr><th id="567">567</th><td>	<b>if</b>(!<a class="ref" href="#Sys_Mkdir" title='Sys_Mkdir' data-ref="Sys_Mkdir">Sys_Mkdir</a>(<a class="local col9 ref" href="#139dirpath" title='dirpath' data-ref="139dirpath">dirpath</a>))</td></tr>
+<tr><th id="568">568</th><td>	{</td></tr>
+<tr><th id="569">569</th><td>		<a class="ref" href="../qcommon/q_shared.h.html#Com_Printf" title='Com_Printf' data-ref="Com_Printf">Com_Printf</a>(<q>"ERROR: couldn't create path '%s' for crash log.\n"</q>, <a class="local col9 ref" href="#139dirpath" title='dirpath' data-ref="139dirpath">dirpath</a>);</td></tr>
+<tr><th id="570">570</th><td>		<b>return</b>;</td></tr>
+<tr><th id="571">571</th><td>	}</td></tr>
+<tr><th id="572">572</th><td></td></tr>
+<tr><th id="573">573</th><td>	<i>// We might be crashing because we maxed out the Quake MAX_FILE_HANDLES,</i></td></tr>
+<tr><th id="574">574</th><td><i>	// which will come through here, so we don't want to recurse forever by</i></td></tr>
+<tr><th id="575">575</th><td><i>	// calling FS_FOpenFileWrite()...use the Unix system APIs instead.</i></td></tr>
+<tr><th id="576">576</th><td>	<a class="local col5 ref" href="#135f" title='f' data-ref="135f">f</a> = <a class="ref" href="../../../include/fcntl.h.html#open" title='open' data-ref="open">open</a>( <a class="local col0 ref" href="#140ospath" title='ospath' data-ref="140ospath">ospath</a>, <a class="macro" href="../../../include/x86_64-linux-gnu/bits/fcntl-linux.h.html#47" title="0100" data-ref="_M/O_CREAT">O_CREAT</a> | <a class="macro" href="../../../include/x86_64-linux-gnu/bits/fcntl-linux.h.html#56" title="01000" data-ref="_M/O_TRUNC">O_TRUNC</a> | <a class="macro" href="../../../include/x86_64-linux-gnu/bits/fcntl-linux.h.html#44" title="01" data-ref="_M/O_WRONLY">O_WRONLY</a>, <var>0640</var> );</td></tr>
+<tr><th id="577">577</th><td>	<b>if</b>( <a class="local col5 ref" href="#135f" title='f' data-ref="135f">f</a> == -<var>1</var> )</td></tr>
+<tr><th id="578">578</th><td>	{</td></tr>
+<tr><th id="579">579</th><td>		<a class="ref" href="../qcommon/q_shared.h.html#Com_Printf" title='Com_Printf' data-ref="Com_Printf">Com_Printf</a>( <q>"ERROR: couldn't open %s\n"</q>, <a class="local col8 ref" href="#138fileName" title='fileName' data-ref="138fileName">fileName</a> );</td></tr>
+<tr><th id="580">580</th><td>		<b>return</b>;</td></tr>
+<tr><th id="581">581</th><td>	}</td></tr>
+<tr><th id="582">582</th><td></td></tr>
+<tr><th id="583">583</th><td>	<i>// We're crashing, so we don't care much if write() or close() fails.</i></td></tr>
+<tr><th id="584">584</th><td>	<b>while</b>( ( <a class="local col4 ref" href="#134size" title='size' data-ref="134size">size</a> = <a class="ref" href="sys_local.h.html#CON_LogRead" title='CON_LogRead' data-ref="CON_LogRead">CON_LogRead</a>( <a class="local col3 ref" href="#133buffer" title='buffer' data-ref="133buffer">buffer</a>, <b>sizeof</b>( <a class="local col3 ref" href="#133buffer" title='buffer' data-ref="133buffer">buffer</a> ) ) ) &gt; <var>0</var> ) {</td></tr>
+<tr><th id="585">585</th><td>		<b>if</b>( <a class="ref" href="../../../include/unistd.h.html#write" title='write' data-ref="write">write</a>( <a class="local col5 ref" href="#135f" title='f' data-ref="135f">f</a>, <a class="local col3 ref" href="#133buffer" title='buffer' data-ref="133buffer">buffer</a>, <a class="local col4 ref" href="#134size" title='size' data-ref="134size">size</a> ) != <a class="local col4 ref" href="#134size" title='size' data-ref="134size">size</a> ) {</td></tr>
+<tr><th id="586">586</th><td>			<a class="ref" href="../qcommon/q_shared.h.html#Com_Printf" title='Com_Printf' data-ref="Com_Printf">Com_Printf</a>( <q>"ERROR: couldn't fully write to %s\n"</q>, <a class="local col8 ref" href="#138fileName" title='fileName' data-ref="138fileName">fileName</a> );</td></tr>
+<tr><th id="587">587</th><td>			<b>break</b>;</td></tr>
+<tr><th id="588">588</th><td>		}</td></tr>
+<tr><th id="589">589</th><td>	}</td></tr>
+<tr><th id="590">590</th><td></td></tr>
+<tr><th id="591">591</th><td>	<a class="ref" href="../../../include/unistd.h.html#close" title='close' data-ref="close">close</a>( <a class="local col5 ref" href="#135f" title='f' data-ref="135f">f</a> );</td></tr>
+<tr><th id="592">592</th><td>}</td></tr>
+<tr><th id="593">593</th><td></td></tr>
+<tr><th id="594">594</th><td><u>#<span data-ppcond="594">ifndef</span> <span class="macro" data-ref="_M/__APPLE__">__APPLE__</span></u></td></tr>
+<tr><th id="595">595</th><td><em>static</em> <em>char</em> <dfn class="tu decl def" id="execBuffer" title='execBuffer' data-type='char [1024]' data-ref="execBuffer">execBuffer</dfn>[ <var>1024</var> ];</td></tr>
+<tr><th id="596">596</th><td><em>static</em> <em>char</em> *<dfn class="tu decl def" id="execBufferPointer" title='execBufferPointer' data-type='char *' data-ref="execBufferPointer">execBufferPointer</dfn>;</td></tr>
+<tr><th id="597">597</th><td><em>static</em> <em>char</em> *<dfn class="tu decl def" id="execArgv" title='execArgv' data-type='char *[16]' data-ref="execArgv">execArgv</dfn>[ <var>16</var> ];</td></tr>
+<tr><th id="598">598</th><td><em>static</em> <em>int</em> <dfn class="tu decl def" id="execArgc" title='execArgc' data-type='int' data-ref="execArgc">execArgc</dfn>;</td></tr>
+<tr><th id="599">599</th><td></td></tr>
+<tr><th id="600">600</th><td><i  data-doc="Sys_ClearExecBuffer">/*</i></td></tr>
+<tr><th id="601">601</th><td><i  data-doc="Sys_ClearExecBuffer">==============</i></td></tr>
+<tr><th id="602">602</th><td><i  data-doc="Sys_ClearExecBuffer">Sys_ClearExecBuffer</i></td></tr>
+<tr><th id="603">603</th><td><i  data-doc="Sys_ClearExecBuffer">==============</i></td></tr>
+<tr><th id="604">604</th><td><i  data-doc="Sys_ClearExecBuffer">*/</i></td></tr>
+<tr><th id="605">605</th><td><em>static</em> <em>void</em> <dfn class="tu decl def" id="Sys_ClearExecBuffer" title='Sys_ClearExecBuffer' data-type='void Sys_ClearExecBuffer()' data-ref="Sys_ClearExecBuffer">Sys_ClearExecBuffer</dfn>( <em>void</em> )</td></tr>
+<tr><th id="606">606</th><td>{</td></tr>
+<tr><th id="607">607</th><td>	<a class="tu ref" href="#execBufferPointer" title='execBufferPointer' data-use='w' data-ref="execBufferPointer">execBufferPointer</a> = <a class="tu ref" href="#execBuffer" title='execBuffer' data-use='r' data-ref="execBuffer">execBuffer</a>;</td></tr>
+<tr><th id="608">608</th><td>	<a class="macro" href="../qcommon/q_shared.h.html#344" title="memset" data-ref="_M/Com_Memset">Com_Memset</a>( <a class="tu ref" href="#execArgv" title='execArgv' data-use='r' data-ref="execArgv">execArgv</a>, <var>0</var>, <b>sizeof</b>( <a class="tu ref" href="#execArgv" title='execArgv' data-use='r' data-ref="execArgv">execArgv</a> ) );</td></tr>
+<tr><th id="609">609</th><td>	<a class="tu ref" href="#execArgc" title='execArgc' data-use='w' data-ref="execArgc">execArgc</a> = <var>0</var>;</td></tr>
+<tr><th id="610">610</th><td>}</td></tr>
+<tr><th id="611">611</th><td></td></tr>
+<tr><th id="612">612</th><td><i  data-doc="Sys_AppendToExecBuffer">/*</i></td></tr>
+<tr><th id="613">613</th><td><i  data-doc="Sys_AppendToExecBuffer">==============</i></td></tr>
+<tr><th id="614">614</th><td><i  data-doc="Sys_AppendToExecBuffer">Sys_AppendToExecBuffer</i></td></tr>
+<tr><th id="615">615</th><td><i  data-doc="Sys_AppendToExecBuffer">==============</i></td></tr>
+<tr><th id="616">616</th><td><i  data-doc="Sys_AppendToExecBuffer">*/</i></td></tr>
+<tr><th id="617">617</th><td><em>static</em> <em>void</em> <dfn class="tu decl def" id="Sys_AppendToExecBuffer" title='Sys_AppendToExecBuffer' data-type='void Sys_AppendToExecBuffer(const char * text)' data-ref="Sys_AppendToExecBuffer">Sys_AppendToExecBuffer</dfn>( <em>const</em> <em>char</em> *<dfn class="local col1 decl" id="141text" title='text' data-type='const char *' data-ref="141text">text</dfn> )</td></tr>
+<tr><th id="618">618</th><td>{</td></tr>
+<tr><th id="619">619</th><td>	<span class='typedef' title='size_t' data-type='unsigned long' data-ref="size_t">size_t</span> <dfn class="local col2 decl" id="142size" title='size' data-type='size_t' data-ref="142size">size</dfn> = <b>sizeof</b>( <a class="tu ref" href="#execBuffer" title='execBuffer' data-use='r' data-ref="execBuffer">execBuffer</a> ) - ( <a class="tu ref" href="#execBufferPointer" title='execBufferPointer' data-use='r' data-ref="execBufferPointer">execBufferPointer</a> - <a class="tu ref" href="#execBuffer" title='execBuffer' data-use='r' data-ref="execBuffer">execBuffer</a> );</td></tr>
+<tr><th id="620">620</th><td>	<em>int</em> <dfn class="local col3 decl" id="143length" title='length' data-type='int' data-ref="143length">length</dfn> = <a class="ref" href="../../../include/string.h.html#strlen" title='strlen' data-ref="strlen">strlen</a>( <a class="local col1 ref" href="#141text" title='text' data-ref="141text">text</a> ) + <var>1</var>;</td></tr>
+<tr><th id="621">621</th><td></td></tr>
+<tr><th id="622">622</th><td>	<b>if</b>( <a class="local col3 ref" href="#143length" title='length' data-ref="143length">length</a> &gt; <a class="local col2 ref" href="#142size" title='size' data-ref="142size">size</a> || <a class="tu ref" href="#execArgc" title='execArgc' data-use='r' data-ref="execArgc">execArgc</a> &gt;= <a class="macro" href="../qcommon/q_shared.h.html#233" title="(sizeof(execArgv) / sizeof(*(execArgv)))" data-ref="_M/ARRAY_LEN">ARRAY_LEN</a>( <a class="tu ref" href="#execArgv" title='execArgv' data-use='r' data-ref="execArgv">execArgv</a> ) )</td></tr>
+<tr><th id="623">623</th><td>		<b>return</b>;</td></tr>
+<tr><th id="624">624</th><td></td></tr>
+<tr><th id="625">625</th><td>	<a class="ref" href="../qcommon/q_shared.h.html#Q_strncpyz" title='Q_strncpyz' data-ref="Q_strncpyz">Q_strncpyz</a>( <a class="tu ref" href="#execBufferPointer" title='execBufferPointer' data-use='r' data-ref="execBufferPointer">execBufferPointer</a>, <a class="local col1 ref" href="#141text" title='text' data-ref="141text">text</a>, <a class="local col2 ref" href="#142size" title='size' data-ref="142size">size</a> );</td></tr>
+<tr><th id="626">626</th><td>	<a class="tu ref" href="#execArgv" title='execArgv' data-use='w' data-ref="execArgv">execArgv</a>[ <a class="tu ref" href="#execArgc" title='execArgc' data-use='w' data-ref="execArgc">execArgc</a>++ ] = <a class="tu ref" href="#execBufferPointer" title='execBufferPointer' data-use='r' data-ref="execBufferPointer">execBufferPointer</a>;</td></tr>
+<tr><th id="627">627</th><td></td></tr>
+<tr><th id="628">628</th><td>	<a class="tu ref" href="#execBufferPointer" title='execBufferPointer' data-use='w' data-ref="execBufferPointer">execBufferPointer</a> += <a class="local col3 ref" href="#143length" title='length' data-ref="143length">length</a>;</td></tr>
+<tr><th id="629">629</th><td>}</td></tr>
+<tr><th id="630">630</th><td></td></tr>
+<tr><th id="631">631</th><td><i  data-doc="Sys_Exec">/*</i></td></tr>
+<tr><th id="632">632</th><td><i  data-doc="Sys_Exec">==============</i></td></tr>
+<tr><th id="633">633</th><td><i  data-doc="Sys_Exec">Sys_Exec</i></td></tr>
+<tr><th id="634">634</th><td><i  data-doc="Sys_Exec">==============</i></td></tr>
+<tr><th id="635">635</th><td><i  data-doc="Sys_Exec">*/</i></td></tr>
+<tr><th id="636">636</th><td><em>static</em> <em>int</em> <dfn class="tu decl def" id="Sys_Exec" title='Sys_Exec' data-type='int Sys_Exec()' data-ref="Sys_Exec">Sys_Exec</dfn>( <em>void</em> )</td></tr>
+<tr><th id="637">637</th><td>{</td></tr>
+<tr><th id="638">638</th><td>	<a class="typedef" href="../../../include/x86_64-linux-gnu/sys/types.h.html#pid_t" title='pid_t' data-type='__pid_t' data-ref="pid_t">pid_t</a> <dfn class="local col4 decl" id="144pid" title='pid' data-type='pid_t' data-ref="144pid">pid</dfn> = <a class="ref" href="../../../include/unistd.h.html#fork" title='fork' data-ref="fork">fork</a>( );</td></tr>
+<tr><th id="639">639</th><td></td></tr>
+<tr><th id="640">640</th><td>	<b>if</b>( <a class="local col4 ref" href="#144pid" title='pid' data-ref="144pid">pid</a> &lt; <var>0</var> )</td></tr>
+<tr><th id="641">641</th><td>		<b>return</b> -<var>1</var>;</td></tr>
+<tr><th id="642">642</th><td></td></tr>
+<tr><th id="643">643</th><td>	<b>if</b>( <a class="local col4 ref" href="#144pid" title='pid' data-ref="144pid">pid</a> )</td></tr>
+<tr><th id="644">644</th><td>	{</td></tr>
+<tr><th id="645">645</th><td>		<i>// Parent</i></td></tr>
+<tr><th id="646">646</th><td>		<em>int</em> <dfn class="local col5 decl" id="145exitCode" title='exitCode' data-type='int' data-ref="145exitCode">exitCode</dfn>;</td></tr>
+<tr><th id="647">647</th><td></td></tr>
+<tr><th id="648">648</th><td>		<a class="ref" href="../../../include/x86_64-linux-gnu/sys/wait.h.html#wait" title='wait' data-ref="wait">wait</a>( &amp;<a class="local col5 ref" href="#145exitCode" title='exitCode' data-ref="145exitCode">exitCode</a> );</td></tr>
+<tr><th id="649">649</th><td></td></tr>
+<tr><th id="650">650</th><td>		<b>return</b> <a class="macro" href="../../../include/stdlib.h.html#84" title="((((__extension__ (((union { __typeof(exitCode) __in; int __i; }) { .__in = (exitCode) }).__i))) &amp; 0xff00) &gt;&gt; 8)" data-ref="_M/WEXITSTATUS">WEXITSTATUS</a>( <a class="local col5 ref" href="#145exitCode" title='exitCode' data-ref="145exitCode">exitCode</a> );</td></tr>
+<tr><th id="651">651</th><td>	}</td></tr>
+<tr><th id="652">652</th><td>	<b>else</b></td></tr>
+<tr><th id="653">653</th><td>	{</td></tr>
+<tr><th id="654">654</th><td>		<i>// Child</i></td></tr>
+<tr><th id="655">655</th><td>		<a class="ref" href="../../../include/unistd.h.html#execvp" title='execvp' data-ref="execvp">execvp</a>( <a class="tu ref" href="#execArgv" title='execArgv' data-use='r' data-ref="execArgv">execArgv</a>[ <var>0</var> ], <a class="tu ref" href="#execArgv" title='execArgv' data-use='r' data-ref="execArgv">execArgv</a> );</td></tr>
+<tr><th id="656">656</th><td></td></tr>
+<tr><th id="657">657</th><td>		<i>// Failed to execute</i></td></tr>
+<tr><th id="658">658</th><td>		<a class="ref" href="../../../include/stdlib.h.html#exit" title='exit' data-ref="exit">exit</a>( -<var>1</var> );</td></tr>
+<tr><th id="659">659</th><td></td></tr>
+<tr><th id="660">660</th><td>		<b>return</b> -<var>1</var>;</td></tr>
+<tr><th id="661">661</th><td>	}</td></tr>
+<tr><th id="662">662</th><td>}</td></tr>
+<tr><th id="663">663</th><td></td></tr>
+<tr><th id="664">664</th><td><i  data-doc="Sys_ZenityCommand">/*</i></td></tr>
+<tr><th id="665">665</th><td><i  data-doc="Sys_ZenityCommand">==============</i></td></tr>
+<tr><th id="666">666</th><td><i  data-doc="Sys_ZenityCommand">Sys_ZenityCommand</i></td></tr>
+<tr><th id="667">667</th><td><i  data-doc="Sys_ZenityCommand">==============</i></td></tr>
+<tr><th id="668">668</th><td><i  data-doc="Sys_ZenityCommand">*/</i></td></tr>
+<tr><th id="669">669</th><td><em>static</em> <em>void</em> <dfn class="tu decl def" id="Sys_ZenityCommand" title='Sys_ZenityCommand' data-type='void Sys_ZenityCommand(dialogType_t type, const char * message, const char * title)' data-ref="Sys_ZenityCommand">Sys_ZenityCommand</dfn>( <a class="typedef" href="../qcommon/qcommon.h.html#dialogType_t" title='dialogType_t' data-type='enum dialogType_t' data-ref="dialogType_t">dialogType_t</a> <dfn class="local col6 decl" id="146type" title='type' data-type='dialogType_t' data-ref="146type">type</dfn>, <em>const</em> <em>char</em> *<dfn class="local col7 decl" id="147message" title='message' data-type='const char *' data-ref="147message">message</dfn>, <em>const</em> <em>char</em> *<dfn class="local col8 decl" id="148title" title='title' data-type='const char *' data-ref="148title">title</dfn> )</td></tr>
+<tr><th id="670">670</th><td>{</td></tr>
+<tr><th id="671">671</th><td>	<a class="tu ref" href="#Sys_ClearExecBuffer" title='Sys_ClearExecBuffer' data-use='c' data-ref="Sys_ClearExecBuffer">Sys_ClearExecBuffer</a>( );</td></tr>
+<tr><th id="672">672</th><td>	<a class="tu ref" href="#Sys_AppendToExecBuffer" title='Sys_AppendToExecBuffer' data-use='c' data-ref="Sys_AppendToExecBuffer">Sys_AppendToExecBuffer</a>( <q>"zenity"</q> );</td></tr>
+<tr><th id="673">673</th><td></td></tr>
+<tr><th id="674">674</th><td>	<b>switch</b>( <a class="local col6 ref" href="#146type" title='type' data-ref="146type">type</a> )</td></tr>
+<tr><th id="675">675</th><td>	{</td></tr>
+<tr><th id="676">676</th><td>		<b>default</b>:</td></tr>
+<tr><th id="677">677</th><td>		<b>case</b> <a class="enum" href="../qcommon/qcommon.h.html#DT_INFO" title='DT_INFO' data-ref="DT_INFO">DT_INFO</a>:      <a class="tu ref" href="#Sys_AppendToExecBuffer" title='Sys_AppendToExecBuffer' data-use='c' data-ref="Sys_AppendToExecBuffer">Sys_AppendToExecBuffer</a>( <q>"--info"</q> ); <b>break</b>;</td></tr>
+<tr><th id="678">678</th><td>		<b>case</b> <a class="enum" href="../qcommon/qcommon.h.html#DT_WARNING" title='DT_WARNING' data-ref="DT_WARNING">DT_WARNING</a>:   <a class="tu ref" href="#Sys_AppendToExecBuffer" title='Sys_AppendToExecBuffer' data-use='c' data-ref="Sys_AppendToExecBuffer">Sys_AppendToExecBuffer</a>( <q>"--warning"</q> ); <b>break</b>;</td></tr>
+<tr><th id="679">679</th><td>		<b>case</b> <a class="enum" href="../qcommon/qcommon.h.html#DT_ERROR" title='DT_ERROR' data-ref="DT_ERROR">DT_ERROR</a>:     <a class="tu ref" href="#Sys_AppendToExecBuffer" title='Sys_AppendToExecBuffer' data-use='c' data-ref="Sys_AppendToExecBuffer">Sys_AppendToExecBuffer</a>( <q>"--error"</q> ); <b>break</b>;</td></tr>
+<tr><th id="680">680</th><td>		<b>case</b> <a class="enum" href="../qcommon/qcommon.h.html#DT_YES_NO" title='DT_YES_NO' data-ref="DT_YES_NO">DT_YES_NO</a>:</td></tr>
+<tr><th id="681">681</th><td>			<a class="tu ref" href="#Sys_AppendToExecBuffer" title='Sys_AppendToExecBuffer' data-use='c' data-ref="Sys_AppendToExecBuffer">Sys_AppendToExecBuffer</a>( <q>"--question"</q> );</td></tr>
+<tr><th id="682">682</th><td>			<a class="tu ref" href="#Sys_AppendToExecBuffer" title='Sys_AppendToExecBuffer' data-use='c' data-ref="Sys_AppendToExecBuffer">Sys_AppendToExecBuffer</a>( <q>"--ok-label=Yes"</q> );</td></tr>
+<tr><th id="683">683</th><td>			<a class="tu ref" href="#Sys_AppendToExecBuffer" title='Sys_AppendToExecBuffer' data-use='c' data-ref="Sys_AppendToExecBuffer">Sys_AppendToExecBuffer</a>( <q>"--cancel-label=No"</q> );</td></tr>
+<tr><th id="684">684</th><td>			<b>break</b>;</td></tr>
+<tr><th id="685">685</th><td></td></tr>
+<tr><th id="686">686</th><td>		<b>case</b> <a class="enum" href="../qcommon/qcommon.h.html#DT_OK_CANCEL" title='DT_OK_CANCEL' data-ref="DT_OK_CANCEL">DT_OK_CANCEL</a>:</td></tr>
+<tr><th id="687">687</th><td>			<a class="tu ref" href="#Sys_AppendToExecBuffer" title='Sys_AppendToExecBuffer' data-use='c' data-ref="Sys_AppendToExecBuffer">Sys_AppendToExecBuffer</a>( <q>"--question"</q> );</td></tr>
+<tr><th id="688">688</th><td>			<a class="tu ref" href="#Sys_AppendToExecBuffer" title='Sys_AppendToExecBuffer' data-use='c' data-ref="Sys_AppendToExecBuffer">Sys_AppendToExecBuffer</a>( <q>"--ok-label=OK"</q> );</td></tr>
+<tr><th id="689">689</th><td>			<a class="tu ref" href="#Sys_AppendToExecBuffer" title='Sys_AppendToExecBuffer' data-use='c' data-ref="Sys_AppendToExecBuffer">Sys_AppendToExecBuffer</a>( <q>"--cancel-label=Cancel"</q> );</td></tr>
+<tr><th id="690">690</th><td>			<b>break</b>;</td></tr>
+<tr><th id="691">691</th><td>	}</td></tr>
+<tr><th id="692">692</th><td></td></tr>
+<tr><th id="693">693</th><td>	<a class="tu ref" href="#Sys_AppendToExecBuffer" title='Sys_AppendToExecBuffer' data-use='c' data-ref="Sys_AppendToExecBuffer">Sys_AppendToExecBuffer</a>( <a class="ref" href="../qcommon/q_shared.h.html#va" title='va' data-ref="va">va</a>( <q>"--text=%s"</q>, <a class="local col7 ref" href="#147message" title='message' data-ref="147message">message</a> ) );</td></tr>
+<tr><th id="694">694</th><td>	<a class="tu ref" href="#Sys_AppendToExecBuffer" title='Sys_AppendToExecBuffer' data-use='c' data-ref="Sys_AppendToExecBuffer">Sys_AppendToExecBuffer</a>( <a class="ref" href="../qcommon/q_shared.h.html#va" title='va' data-ref="va">va</a>( <q>"--title=%s"</q>, <a class="local col8 ref" href="#148title" title='title' data-ref="148title">title</a> ) );</td></tr>
+<tr><th id="695">695</th><td>}</td></tr>
+<tr><th id="696">696</th><td></td></tr>
+<tr><th id="697">697</th><td><i  data-doc="Sys_KdialogCommand">/*</i></td></tr>
+<tr><th id="698">698</th><td><i  data-doc="Sys_KdialogCommand">==============</i></td></tr>
+<tr><th id="699">699</th><td><i  data-doc="Sys_KdialogCommand">Sys_KdialogCommand</i></td></tr>
+<tr><th id="700">700</th><td><i  data-doc="Sys_KdialogCommand">==============</i></td></tr>
+<tr><th id="701">701</th><td><i  data-doc="Sys_KdialogCommand">*/</i></td></tr>
+<tr><th id="702">702</th><td><em>static</em> <em>void</em> <dfn class="tu decl def" id="Sys_KdialogCommand" title='Sys_KdialogCommand' data-type='void Sys_KdialogCommand(dialogType_t type, const char * message, const char * title)' data-ref="Sys_KdialogCommand">Sys_KdialogCommand</dfn>( <a class="typedef" href="../qcommon/qcommon.h.html#dialogType_t" title='dialogType_t' data-type='enum dialogType_t' data-ref="dialogType_t">dialogType_t</a> <dfn class="local col9 decl" id="149type" title='type' data-type='dialogType_t' data-ref="149type">type</dfn>, <em>const</em> <em>char</em> *<dfn class="local col0 decl" id="150message" title='message' data-type='const char *' data-ref="150message">message</dfn>, <em>const</em> <em>char</em> *<dfn class="local col1 decl" id="151title" title='title' data-type='const char *' data-ref="151title">title</dfn> )</td></tr>
+<tr><th id="703">703</th><td>{</td></tr>
+<tr><th id="704">704</th><td>	<a class="tu ref" href="#Sys_ClearExecBuffer" title='Sys_ClearExecBuffer' data-use='c' data-ref="Sys_ClearExecBuffer">Sys_ClearExecBuffer</a>( );</td></tr>
+<tr><th id="705">705</th><td>	<a class="tu ref" href="#Sys_AppendToExecBuffer" title='Sys_AppendToExecBuffer' data-use='c' data-ref="Sys_AppendToExecBuffer">Sys_AppendToExecBuffer</a>( <q>"kdialog"</q> );</td></tr>
+<tr><th id="706">706</th><td></td></tr>
+<tr><th id="707">707</th><td>	<b>switch</b>( <a class="local col9 ref" href="#149type" title='type' data-ref="149type">type</a> )</td></tr>
+<tr><th id="708">708</th><td>	{</td></tr>
+<tr><th id="709">709</th><td>		<b>default</b>:</td></tr>
+<tr><th id="710">710</th><td>		<b>case</b> <a class="enum" href="../qcommon/qcommon.h.html#DT_INFO" title='DT_INFO' data-ref="DT_INFO">DT_INFO</a>:      <a class="tu ref" href="#Sys_AppendToExecBuffer" title='Sys_AppendToExecBuffer' data-use='c' data-ref="Sys_AppendToExecBuffer">Sys_AppendToExecBuffer</a>( <q>"--msgbox"</q> ); <b>break</b>;</td></tr>
+<tr><th id="711">711</th><td>		<b>case</b> <a class="enum" href="../qcommon/qcommon.h.html#DT_WARNING" title='DT_WARNING' data-ref="DT_WARNING">DT_WARNING</a>:   <a class="tu ref" href="#Sys_AppendToExecBuffer" title='Sys_AppendToExecBuffer' data-use='c' data-ref="Sys_AppendToExecBuffer">Sys_AppendToExecBuffer</a>( <q>"--sorry"</q> ); <b>break</b>;</td></tr>
+<tr><th id="712">712</th><td>		<b>case</b> <a class="enum" href="../qcommon/qcommon.h.html#DT_ERROR" title='DT_ERROR' data-ref="DT_ERROR">DT_ERROR</a>:     <a class="tu ref" href="#Sys_AppendToExecBuffer" title='Sys_AppendToExecBuffer' data-use='c' data-ref="Sys_AppendToExecBuffer">Sys_AppendToExecBuffer</a>( <q>"--error"</q> ); <b>break</b>;</td></tr>
+<tr><th id="713">713</th><td>		<b>case</b> <a class="enum" href="../qcommon/qcommon.h.html#DT_YES_NO" title='DT_YES_NO' data-ref="DT_YES_NO">DT_YES_NO</a>:    <a class="tu ref" href="#Sys_AppendToExecBuffer" title='Sys_AppendToExecBuffer' data-use='c' data-ref="Sys_AppendToExecBuffer">Sys_AppendToExecBuffer</a>( <q>"--warningyesno"</q> ); <b>break</b>;</td></tr>
+<tr><th id="714">714</th><td>		<b>case</b> <a class="enum" href="../qcommon/qcommon.h.html#DT_OK_CANCEL" title='DT_OK_CANCEL' data-ref="DT_OK_CANCEL">DT_OK_CANCEL</a>: <a class="tu ref" href="#Sys_AppendToExecBuffer" title='Sys_AppendToExecBuffer' data-use='c' data-ref="Sys_AppendToExecBuffer">Sys_AppendToExecBuffer</a>( <q>"--warningcontinuecancel"</q> ); <b>break</b>;</td></tr>
+<tr><th id="715">715</th><td>	}</td></tr>
+<tr><th id="716">716</th><td></td></tr>
+<tr><th id="717">717</th><td>	<a class="tu ref" href="#Sys_AppendToExecBuffer" title='Sys_AppendToExecBuffer' data-use='c' data-ref="Sys_AppendToExecBuffer">Sys_AppendToExecBuffer</a>( <a class="local col0 ref" href="#150message" title='message' data-ref="150message">message</a> );</td></tr>
+<tr><th id="718">718</th><td>	<a class="tu ref" href="#Sys_AppendToExecBuffer" title='Sys_AppendToExecBuffer' data-use='c' data-ref="Sys_AppendToExecBuffer">Sys_AppendToExecBuffer</a>( <a class="ref" href="../qcommon/q_shared.h.html#va" title='va' data-ref="va">va</a>( <q>"--title=%s"</q>, <a class="local col1 ref" href="#151title" title='title' data-ref="151title">title</a> ) );</td></tr>
+<tr><th id="719">719</th><td>}</td></tr>
+<tr><th id="720">720</th><td></td></tr>
+<tr><th id="721">721</th><td><i  data-doc="Sys_XmessageCommand">/*</i></td></tr>
+<tr><th id="722">722</th><td><i  data-doc="Sys_XmessageCommand">==============</i></td></tr>
+<tr><th id="723">723</th><td><i  data-doc="Sys_XmessageCommand">Sys_XmessageCommand</i></td></tr>
+<tr><th id="724">724</th><td><i  data-doc="Sys_XmessageCommand">==============</i></td></tr>
+<tr><th id="725">725</th><td><i  data-doc="Sys_XmessageCommand">*/</i></td></tr>
+<tr><th id="726">726</th><td><em>static</em> <em>void</em> <dfn class="tu decl def" id="Sys_XmessageCommand" title='Sys_XmessageCommand' data-type='void Sys_XmessageCommand(dialogType_t type, const char * message, const char * title)' data-ref="Sys_XmessageCommand">Sys_XmessageCommand</dfn>( <a class="typedef" href="../qcommon/qcommon.h.html#dialogType_t" title='dialogType_t' data-type='enum dialogType_t' data-ref="dialogType_t">dialogType_t</a> <dfn class="local col2 decl" id="152type" title='type' data-type='dialogType_t' data-ref="152type">type</dfn>, <em>const</em> <em>char</em> *<dfn class="local col3 decl" id="153message" title='message' data-type='const char *' data-ref="153message">message</dfn>, <em>const</em> <em>char</em> *<dfn class="local col4 decl" id="154title" title='title' data-type='const char *' data-ref="154title">title</dfn> )</td></tr>
+<tr><th id="727">727</th><td>{</td></tr>
+<tr><th id="728">728</th><td>	<a class="tu ref" href="#Sys_ClearExecBuffer" title='Sys_ClearExecBuffer' data-use='c' data-ref="Sys_ClearExecBuffer">Sys_ClearExecBuffer</a>( );</td></tr>
+<tr><th id="729">729</th><td>	<a class="tu ref" href="#Sys_AppendToExecBuffer" title='Sys_AppendToExecBuffer' data-use='c' data-ref="Sys_AppendToExecBuffer">Sys_AppendToExecBuffer</a>( <q>"xmessage"</q> );</td></tr>
+<tr><th id="730">730</th><td>	<a class="tu ref" href="#Sys_AppendToExecBuffer" title='Sys_AppendToExecBuffer' data-use='c' data-ref="Sys_AppendToExecBuffer">Sys_AppendToExecBuffer</a>( <q>"-buttons"</q> );</td></tr>
+<tr><th id="731">731</th><td></td></tr>
+<tr><th id="732">732</th><td>	<b>switch</b>( <a class="local col2 ref" href="#152type" title='type' data-ref="152type">type</a> )</td></tr>
+<tr><th id="733">733</th><td>	{</td></tr>
+<tr><th id="734">734</th><td>		<b>default</b>:           <a class="tu ref" href="#Sys_AppendToExecBuffer" title='Sys_AppendToExecBuffer' data-use='c' data-ref="Sys_AppendToExecBuffer">Sys_AppendToExecBuffer</a>( <q>"OK:0"</q> ); <b>break</b>;</td></tr>
+<tr><th id="735">735</th><td>		<b>case</b> <a class="enum" href="../qcommon/qcommon.h.html#DT_YES_NO" title='DT_YES_NO' data-ref="DT_YES_NO">DT_YES_NO</a>:    <a class="tu ref" href="#Sys_AppendToExecBuffer" title='Sys_AppendToExecBuffer' data-use='c' data-ref="Sys_AppendToExecBuffer">Sys_AppendToExecBuffer</a>( <q>"Yes:0,No:1"</q> ); <b>break</b>;</td></tr>
+<tr><th id="736">736</th><td>		<b>case</b> <a class="enum" href="../qcommon/qcommon.h.html#DT_OK_CANCEL" title='DT_OK_CANCEL' data-ref="DT_OK_CANCEL">DT_OK_CANCEL</a>: <a class="tu ref" href="#Sys_AppendToExecBuffer" title='Sys_AppendToExecBuffer' data-use='c' data-ref="Sys_AppendToExecBuffer">Sys_AppendToExecBuffer</a>( <q>"OK:0,Cancel:1"</q> ); <b>break</b>;</td></tr>
+<tr><th id="737">737</th><td>	}</td></tr>
+<tr><th id="738">738</th><td></td></tr>
+<tr><th id="739">739</th><td>	<a class="tu ref" href="#Sys_AppendToExecBuffer" title='Sys_AppendToExecBuffer' data-use='c' data-ref="Sys_AppendToExecBuffer">Sys_AppendToExecBuffer</a>( <q>"-center"</q> );</td></tr>
+<tr><th id="740">740</th><td>	<a class="tu ref" href="#Sys_AppendToExecBuffer" title='Sys_AppendToExecBuffer' data-use='c' data-ref="Sys_AppendToExecBuffer">Sys_AppendToExecBuffer</a>( <a class="local col3 ref" href="#153message" title='message' data-ref="153message">message</a> );</td></tr>
+<tr><th id="741">741</th><td>}</td></tr>
+<tr><th id="742">742</th><td></td></tr>
+<tr><th id="743">743</th><td><i>/*</i></td></tr>
+<tr><th id="744">744</th><td><i>==============</i></td></tr>
+<tr><th id="745">745</th><td><i>Sys_Dialog</i></td></tr>
+<tr><th id="746">746</th><td><i></i></td></tr>
+<tr><th id="747">747</th><td><i>Display a *nix dialog box</i></td></tr>
+<tr><th id="748">748</th><td><i>==============</i></td></tr>
+<tr><th id="749">749</th><td><i>*/</i></td></tr>
+<tr><th id="750">750</th><td><a class="typedef" href="../qcommon/qcommon.h.html#dialogResult_t" title='dialogResult_t' data-type='enum dialogResult_t' data-ref="dialogResult_t">dialogResult_t</a> <dfn class="decl def" id="Sys_Dialog" title='Sys_Dialog' data-ref="Sys_Dialog">Sys_Dialog</dfn>( <a class="typedef" href="../qcommon/qcommon.h.html#dialogType_t" title='dialogType_t' data-type='enum dialogType_t' data-ref="dialogType_t">dialogType_t</a> <dfn class="local col5 decl" id="155type" title='type' data-type='dialogType_t' data-ref="155type">type</dfn>, <em>const</em> <em>char</em> *<dfn class="local col6 decl" id="156message" title='message' data-type='const char *' data-ref="156message">message</dfn>, <em>const</em> <em>char</em> *<dfn class="local col7 decl" id="157title" title='title' data-type='const char *' data-ref="157title">title</dfn> )</td></tr>
+<tr><th id="751">751</th><td>{</td></tr>
+<tr><th id="752">752</th><td>	<b>typedef</b> <b>enum</b></td></tr>
+<tr><th id="753">753</th><td>	{</td></tr>
+<tr><th id="754">754</th><td>		<dfn class="local col8 enum" id="158NONE" title='NONE' data-type='0' data-ref="158NONE">NONE</dfn> = <var>0</var>,</td></tr>
+<tr><th id="755">755</th><td>		<dfn class="local col9 enum" id="159ZENITY" title='ZENITY' data-type='1' data-ref="159ZENITY">ZENITY</dfn>,</td></tr>
+<tr><th id="756">756</th><td>		<dfn class="local col0 enum" id="160KDIALOG" title='KDIALOG' data-type='2' data-ref="160KDIALOG">KDIALOG</dfn>,</td></tr>
+<tr><th id="757">757</th><td>		<dfn class="local col1 enum" id="161XMESSAGE" title='XMESSAGE' data-type='3' data-ref="161XMESSAGE">XMESSAGE</dfn>,</td></tr>
+<tr><th id="758">758</th><td>		<dfn class="local col2 enum" id="162NUM_DIALOG_PROGRAMS" title='NUM_DIALOG_PROGRAMS' data-type='4' data-ref="162NUM_DIALOG_PROGRAMS">NUM_DIALOG_PROGRAMS</dfn></td></tr>
+<tr><th id="759">759</th><td>	} <dfn class="local col3 typedef" id="163dialogCommandType_t" title='dialogCommandType_t' data-type='enum dialogCommandType_t' data-ref="163dialogCommandType_t">dialogCommandType_t</dfn>;</td></tr>
+<tr><th id="760">760</th><td>	<b>typedef</b> <em>void</em> (*<dfn class="local col4 typedef" id="164dialogCommandBuilder_t" title='dialogCommandBuilder_t' data-type='void (*)(dialogType_t, const char *, const char *)' data-ref="164dialogCommandBuilder_t">dialogCommandBuilder_t</dfn>)( <a class="typedef" href="../qcommon/qcommon.h.html#dialogType_t" title='dialogType_t' data-type='enum dialogType_t' data-ref="dialogType_t">dialogType_t</a>, <em>const</em> <em>char</em> *, <em>const</em> <em>char</em> * );</td></tr>
+<tr><th id="761">761</th><td></td></tr>
+<tr><th id="762">762</th><td>	<em>const</em> <em>char</em>              *<dfn class="local col5 decl" id="165session" title='session' data-type='const char *' data-ref="165session">session</dfn> = <a class="ref" href="../../../include/stdlib.h.html#getenv" title='getenv' data-ref="getenv">getenv</a>( <q>"DESKTOP_SESSION"</q> );</td></tr>
+<tr><th id="763">763</th><td>	<a class="typedef" href="../qcommon/q_shared.h.html#qboolean" title='qboolean' data-type='enum qboolean' data-ref="qboolean">qboolean</a>                <dfn class="local col6 decl" id="166tried" title='tried' data-type='qboolean [4]' data-ref="166tried">tried</dfn>[ <a class="local col2 enum" href="#162NUM_DIALOG_PROGRAMS" title='NUM_DIALOG_PROGRAMS' data-ref="162NUM_DIALOG_PROGRAMS">NUM_DIALOG_PROGRAMS</a> ] = { <a class="enum" href="../qcommon/q_shared.h.html#qfalse" title='qfalse' data-ref="qfalse">qfalse</a> };</td></tr>
+<tr><th id="764">764</th><td>	<a class="local col4 typedef" href="#164dialogCommandBuilder_t" title='dialogCommandBuilder_t' data-type='void (*)(dialogType_t, const char *, const char *)' data-ref="164dialogCommandBuilder_t">dialogCommandBuilder_t</a>  <dfn class="local col7 decl" id="167commands" title='commands' data-type='dialogCommandBuilder_t [4]' data-ref="167commands">commands</dfn>[ <a class="local col2 enum" href="#162NUM_DIALOG_PROGRAMS" title='NUM_DIALOG_PROGRAMS' data-ref="162NUM_DIALOG_PROGRAMS">NUM_DIALOG_PROGRAMS</a> ] = { <span class="macro" title="((void*)0)" data-ref="_M/NULL">NULL</span> };</td></tr>
+<tr><th id="765">765</th><td>	<a class="local col3 typedef" href="#163dialogCommandType_t" title='dialogCommandType_t' data-type='enum dialogCommandType_t' data-ref="163dialogCommandType_t">dialogCommandType_t</a>     <dfn class="local col8 decl" id="168preferredCommandType" title='preferredCommandType' data-type='dialogCommandType_t' data-ref="168preferredCommandType">preferredCommandType</dfn> = <a class="local col8 enum" href="#158NONE" title='NONE' data-ref="158NONE">NONE</a>;</td></tr>
+<tr><th id="766">766</th><td>	<em>int</em>                     <dfn class="local col9 decl" id="169i" title='i' data-type='int' data-ref="169i">i</dfn>;</td></tr>
+<tr><th id="767">767</th><td></td></tr>
+<tr><th id="768">768</th><td>	<a class="local col7 ref" href="#167commands" title='commands' data-ref="167commands">commands</a>[ <a class="local col9 enum" href="#159ZENITY" title='ZENITY' data-ref="159ZENITY">ZENITY</a> ] = &amp;<a class="tu ref" href="#Sys_ZenityCommand" title='Sys_ZenityCommand' data-use='a' data-ref="Sys_ZenityCommand">Sys_ZenityCommand</a>;</td></tr>
+<tr><th id="769">769</th><td>	<a class="local col7 ref" href="#167commands" title='commands' data-ref="167commands">commands</a>[ <a class="local col0 enum" href="#160KDIALOG" title='KDIALOG' data-ref="160KDIALOG">KDIALOG</a> ] = &amp;<a class="tu ref" href="#Sys_KdialogCommand" title='Sys_KdialogCommand' data-use='a' data-ref="Sys_KdialogCommand">Sys_KdialogCommand</a>;</td></tr>
+<tr><th id="770">770</th><td>	<a class="local col7 ref" href="#167commands" title='commands' data-ref="167commands">commands</a>[ <a class="local col1 enum" href="#161XMESSAGE" title='XMESSAGE' data-ref="161XMESSAGE">XMESSAGE</a> ] = &amp;<a class="tu ref" href="#Sys_XmessageCommand" title='Sys_XmessageCommand' data-use='a' data-ref="Sys_XmessageCommand">Sys_XmessageCommand</a>;</td></tr>
+<tr><th id="771">771</th><td></td></tr>
+<tr><th id="772">772</th><td>	<i>// This may not be the best way</i></td></tr>
+<tr><th id="773">773</th><td>	<b>if</b>( !<a class="ref" href="../qcommon/q_shared.h.html#Q_stricmp" title='Q_stricmp' data-ref="Q_stricmp">Q_stricmp</a>( <a class="local col5 ref" href="#165session" title='session' data-ref="165session">session</a>, <q>"gnome"</q> ) )</td></tr>
+<tr><th id="774">774</th><td>		<a class="local col8 ref" href="#168preferredCommandType" title='preferredCommandType' data-ref="168preferredCommandType">preferredCommandType</a> = <a class="local col9 enum" href="#159ZENITY" title='ZENITY' data-ref="159ZENITY">ZENITY</a>;</td></tr>
+<tr><th id="775">775</th><td>	<b>else</b> <b>if</b>( !<a class="ref" href="../qcommon/q_shared.h.html#Q_stricmp" title='Q_stricmp' data-ref="Q_stricmp">Q_stricmp</a>( <a class="local col5 ref" href="#165session" title='session' data-ref="165session">session</a>, <q>"kde"</q> ) )</td></tr>
+<tr><th id="776">776</th><td>		<a class="local col8 ref" href="#168preferredCommandType" title='preferredCommandType' data-ref="168preferredCommandType">preferredCommandType</a> = <a class="local col0 enum" href="#160KDIALOG" title='KDIALOG' data-ref="160KDIALOG">KDIALOG</a>;</td></tr>
+<tr><th id="777">777</th><td></td></tr>
+<tr><th id="778">778</th><td>	<b>for</b>( <a class="local col9 ref" href="#169i" title='i' data-ref="169i">i</a> = <a class="local col8 enum" href="#158NONE" title='NONE' data-ref="158NONE">NONE</a> + <var>1</var>; <a class="local col9 ref" href="#169i" title='i' data-ref="169i">i</a> &lt; <a class="local col2 enum" href="#162NUM_DIALOG_PROGRAMS" title='NUM_DIALOG_PROGRAMS' data-ref="162NUM_DIALOG_PROGRAMS">NUM_DIALOG_PROGRAMS</a>; <a class="local col9 ref" href="#169i" title='i' data-ref="169i">i</a>++ )</td></tr>
+<tr><th id="779">779</th><td>	{</td></tr>
+<tr><th id="780">780</th><td>		<b>if</b>( <a class="local col8 ref" href="#168preferredCommandType" title='preferredCommandType' data-ref="168preferredCommandType">preferredCommandType</a> != <a class="local col8 enum" href="#158NONE" title='NONE' data-ref="158NONE">NONE</a> &amp;&amp; <a class="local col8 ref" href="#168preferredCommandType" title='preferredCommandType' data-ref="168preferredCommandType">preferredCommandType</a> != <a class="local col9 ref" href="#169i" title='i' data-ref="169i">i</a> )</td></tr>
+<tr><th id="781">781</th><td>			<b>continue</b>;</td></tr>
+<tr><th id="782">782</th><td></td></tr>
+<tr><th id="783">783</th><td>		<b>if</b>( !<a class="local col6 ref" href="#166tried" title='tried' data-ref="166tried">tried</a>[ <a class="local col9 ref" href="#169i" title='i' data-ref="169i">i</a> ] )</td></tr>
+<tr><th id="784">784</th><td>		{</td></tr>
+<tr><th id="785">785</th><td>			<em>int</em> <dfn class="local col0 decl" id="170exitCode" title='exitCode' data-type='int' data-ref="170exitCode">exitCode</dfn>;</td></tr>
+<tr><th id="786">786</th><td></td></tr>
+<tr><th id="787">787</th><td>			<a class="local col7 ref" href="#167commands" title='commands' data-ref="167commands">commands</a>[ <a class="local col9 ref" href="#169i" title='i' data-ref="169i">i</a> ]( <a class="local col5 ref" href="#155type" title='type' data-ref="155type">type</a>, <a class="local col6 ref" href="#156message" title='message' data-ref="156message">message</a>, <a class="local col7 ref" href="#157title" title='title' data-ref="157title">title</a> );</td></tr>
+<tr><th id="788">788</th><td>			<a class="local col0 ref" href="#170exitCode" title='exitCode' data-ref="170exitCode">exitCode</a> = <a class="tu ref" href="#Sys_Exec" title='Sys_Exec' data-use='c' data-ref="Sys_Exec">Sys_Exec</a>( );</td></tr>
+<tr><th id="789">789</th><td></td></tr>
+<tr><th id="790">790</th><td>			<b>if</b>( <a class="local col0 ref" href="#170exitCode" title='exitCode' data-ref="170exitCode">exitCode</a> &gt;= <var>0</var> )</td></tr>
+<tr><th id="791">791</th><td>			{</td></tr>
+<tr><th id="792">792</th><td>				<b>switch</b>( <a class="local col5 ref" href="#155type" title='type' data-ref="155type">type</a> )</td></tr>
+<tr><th id="793">793</th><td>				{</td></tr>
+<tr><th id="794">794</th><td>					<b>case</b> <a class="enum" href="../qcommon/qcommon.h.html#DT_YES_NO" title='DT_YES_NO' data-ref="DT_YES_NO">DT_YES_NO</a>:    <b>return</b> <a class="local col0 ref" href="#170exitCode" title='exitCode' data-ref="170exitCode">exitCode</a> ? <a class="enum" href="../qcommon/qcommon.h.html#DR_NO" title='DR_NO' data-ref="DR_NO">DR_NO</a> : <a class="enum" href="../qcommon/qcommon.h.html#DR_YES" title='DR_YES' data-ref="DR_YES">DR_YES</a>;</td></tr>
+<tr><th id="795">795</th><td>					<b>case</b> <a class="enum" href="../qcommon/qcommon.h.html#DT_OK_CANCEL" title='DT_OK_CANCEL' data-ref="DT_OK_CANCEL">DT_OK_CANCEL</a>: <b>return</b> <a class="local col0 ref" href="#170exitCode" title='exitCode' data-ref="170exitCode">exitCode</a> ? <a class="enum" href="../qcommon/qcommon.h.html#DR_CANCEL" title='DR_CANCEL' data-ref="DR_CANCEL">DR_CANCEL</a> : <a class="enum" href="../qcommon/qcommon.h.html#DR_OK" title='DR_OK' data-ref="DR_OK">DR_OK</a>;</td></tr>
+<tr><th id="796">796</th><td>					<b>default</b>:           <b>return</b> <a class="enum" href="../qcommon/qcommon.h.html#DR_OK" title='DR_OK' data-ref="DR_OK">DR_OK</a>;</td></tr>
+<tr><th id="797">797</th><td>				}</td></tr>
+<tr><th id="798">798</th><td>			}</td></tr>
+<tr><th id="799">799</th><td></td></tr>
+<tr><th id="800">800</th><td>			<a class="local col6 ref" href="#166tried" title='tried' data-ref="166tried">tried</a>[ <a class="local col9 ref" href="#169i" title='i' data-ref="169i">i</a> ] = <a class="enum" href="../qcommon/q_shared.h.html#qtrue" title='qtrue' data-ref="qtrue">qtrue</a>;</td></tr>
+<tr><th id="801">801</th><td></td></tr>
+<tr><th id="802">802</th><td>			<i>// The preference failed, so start again in order</i></td></tr>
+<tr><th id="803">803</th><td>			<b>if</b>( <a class="local col8 ref" href="#168preferredCommandType" title='preferredCommandType' data-ref="168preferredCommandType">preferredCommandType</a> != <a class="local col8 enum" href="#158NONE" title='NONE' data-ref="158NONE">NONE</a> )</td></tr>
+<tr><th id="804">804</th><td>			{</td></tr>
+<tr><th id="805">805</th><td>				<a class="local col8 ref" href="#168preferredCommandType" title='preferredCommandType' data-ref="168preferredCommandType">preferredCommandType</a> = <a class="local col8 enum" href="#158NONE" title='NONE' data-ref="158NONE">NONE</a>;</td></tr>
+<tr><th id="806">806</th><td>				<a class="local col9 ref" href="#169i" title='i' data-ref="169i">i</a> = <a class="local col8 enum" href="#158NONE" title='NONE' data-ref="158NONE">NONE</a> + <var>1</var>;</td></tr>
+<tr><th id="807">807</th><td>			}</td></tr>
+<tr><th id="808">808</th><td>		}</td></tr>
+<tr><th id="809">809</th><td>	}</td></tr>
+<tr><th id="810">810</th><td></td></tr>
+<tr><th id="811">811</th><td>	<a class="ref" href="../qcommon/qcommon.h.html#Com_DPrintf" title='Com_DPrintf' data-ref="Com_DPrintf">Com_DPrintf</a>( <a class="macro" href="../qcommon/q_shared.h.html#425" title="&quot;^3&quot;" data-ref="_M/S_COLOR_YELLOW">S_COLOR_YELLOW</a> <q>"WARNING: failed to show a dialog\n"</q> );</td></tr>
+<tr><th id="812">812</th><td>	<b>return</b> <a class="enum" href="../qcommon/qcommon.h.html#DR_OK" title='DR_OK' data-ref="DR_OK">DR_OK</a>;</td></tr>
+<tr><th id="813">813</th><td>}</td></tr>
+<tr><th id="814">814</th><td><u>#<span data-ppcond="594">endif</span></u></td></tr>
+<tr><th id="815">815</th><td></td></tr>
+<tr><th id="816">816</th><td><i>/*</i></td></tr>
+<tr><th id="817">817</th><td><i>==============</i></td></tr>
+<tr><th id="818">818</th><td><i>Sys_GLimpSafeInit</i></td></tr>
+<tr><th id="819">819</th><td><i></i></td></tr>
+<tr><th id="820">820</th><td><i>Unix specific "safe" GL implementation initialisation</i></td></tr>
+<tr><th id="821">821</th><td><i>==============</i></td></tr>
+<tr><th id="822">822</th><td><i>*/</i></td></tr>
+<tr><th id="823">823</th><td><em>void</em> <dfn class="decl def" id="Sys_GLimpSafeInit" title='Sys_GLimpSafeInit' data-ref="Sys_GLimpSafeInit">Sys_GLimpSafeInit</dfn>( <em>void</em> )</td></tr>
+<tr><th id="824">824</th><td>{</td></tr>
+<tr><th id="825">825</th><td>	<i>// NOP</i></td></tr>
+<tr><th id="826">826</th><td>}</td></tr>
+<tr><th id="827">827</th><td></td></tr>
+<tr><th id="828">828</th><td><i>/*</i></td></tr>
+<tr><th id="829">829</th><td><i>==============</i></td></tr>
+<tr><th id="830">830</th><td><i>Sys_GLimpInit</i></td></tr>
+<tr><th id="831">831</th><td><i></i></td></tr>
+<tr><th id="832">832</th><td><i>Unix specific GL implementation initialisation</i></td></tr>
+<tr><th id="833">833</th><td><i>==============</i></td></tr>
+<tr><th id="834">834</th><td><i>*/</i></td></tr>
+<tr><th id="835">835</th><td><em>void</em> <dfn class="decl def" id="Sys_GLimpInit" title='Sys_GLimpInit' data-ref="Sys_GLimpInit">Sys_GLimpInit</dfn>( <em>void</em> )</td></tr>
+<tr><th id="836">836</th><td>{</td></tr>
+<tr><th id="837">837</th><td>	<i>// NOP</i></td></tr>
+<tr><th id="838">838</th><td>}</td></tr>
+<tr><th id="839">839</th><td></td></tr>
+<tr><th id="840">840</th><td><em>void</em> <dfn class="decl def" id="Sys_SetFloatEnv" title='Sys_SetFloatEnv' data-ref="Sys_SetFloatEnv">Sys_SetFloatEnv</dfn>(<em>void</em>)</td></tr>
+<tr><th id="841">841</th><td>{</td></tr>
+<tr><th id="842">842</th><td>	<i>// rounding toward nearest</i></td></tr>
+<tr><th id="843">843</th><td>	<a class="ref" href="../../../include/fenv.h.html#fesetround" title='fesetround' data-ref="fesetround">fesetround</a>(<a class="macro" href="../../../include/x86_64-linux-gnu/bits/fenv.h.html#53" title="0" data-ref="_M/FE_TONEAREST">FE_TONEAREST</a>);</td></tr>
+<tr><th id="844">844</th><td>}</td></tr>
+<tr><th id="845">845</th><td></td></tr>
+<tr><th id="846">846</th><td><i>/*</i></td></tr>
+<tr><th id="847">847</th><td><i>==============</i></td></tr>
+<tr><th id="848">848</th><td><i>Sys_PlatformInit</i></td></tr>
+<tr><th id="849">849</th><td><i></i></td></tr>
+<tr><th id="850">850</th><td><i>Unix specific initialisation</i></td></tr>
+<tr><th id="851">851</th><td><i>==============</i></td></tr>
+<tr><th id="852">852</th><td><i>*/</i></td></tr>
+<tr><th id="853">853</th><td><em>void</em> <dfn class="decl def" id="Sys_PlatformInit" title='Sys_PlatformInit' data-ref="Sys_PlatformInit">Sys_PlatformInit</dfn>( <em>void</em> )</td></tr>
+<tr><th id="854">854</th><td>{</td></tr>
+<tr><th id="855">855</th><td>	<em>const</em> <em>char</em>* <dfn class="local col1 decl" id="171term" title='term' data-type='const char *' data-ref="171term">term</dfn> = <a class="ref" href="../../../include/stdlib.h.html#getenv" title='getenv' data-ref="getenv">getenv</a>( <q>"TERM"</q> );</td></tr>
+<tr><th id="856">856</th><td></td></tr>
+<tr><th id="857">857</th><td>	<a class="ref" href="../../../include/signal.h.html#signal" title='signal' data-ref="signal">signal</a>( <a class="macro" href="../../../include/x86_64-linux-gnu/bits/signum.h.html#32" title="1" data-ref="_M/SIGHUP">SIGHUP</a>, <a class="ref" href="sys_local.h.html#Sys_SigHandler" title='Sys_SigHandler' data-ref="Sys_SigHandler">Sys_SigHandler</a> );</td></tr>
+<tr><th id="858">858</th><td>	<a class="ref" href="../../../include/signal.h.html#signal" title='signal' data-ref="signal">signal</a>( <a class="macro" href="../../../include/x86_64-linux-gnu/bits/signum.h.html#34" title="3" data-ref="_M/SIGQUIT">SIGQUIT</a>, <a class="ref" href="sys_local.h.html#Sys_SigHandler" title='Sys_SigHandler' data-ref="Sys_SigHandler">Sys_SigHandler</a> );</td></tr>
+<tr><th id="859">859</th><td>	<a class="ref" href="../../../include/signal.h.html#signal" title='signal' data-ref="signal">signal</a>( <a class="macro" href="../../../include/x86_64-linux-gnu/bits/signum.h.html#36" title="5" data-ref="_M/SIGTRAP">SIGTRAP</a>, <a class="ref" href="sys_local.h.html#Sys_SigHandler" title='Sys_SigHandler' data-ref="Sys_SigHandler">Sys_SigHandler</a> );</td></tr>
+<tr><th id="860">860</th><td>	<a class="ref" href="../../../include/signal.h.html#signal" title='signal' data-ref="signal">signal</a>( <a class="macro" href="../../../include/x86_64-linux-gnu/bits/signum.h.html#37" title="6" data-ref="_M/SIGABRT">SIGABRT</a>, <a class="ref" href="sys_local.h.html#Sys_SigHandler" title='Sys_SigHandler' data-ref="Sys_SigHandler">Sys_SigHandler</a> );</td></tr>
+<tr><th id="861">861</th><td>	<a class="ref" href="../../../include/signal.h.html#signal" title='signal' data-ref="signal">signal</a>( <a class="macro" href="../../../include/x86_64-linux-gnu/bits/signum.h.html#39" title="7" data-ref="_M/SIGBUS">SIGBUS</a>, <a class="ref" href="sys_local.h.html#Sys_SigHandler" title='Sys_SigHandler' data-ref="Sys_SigHandler">Sys_SigHandler</a> );</td></tr>
+<tr><th id="862">862</th><td></td></tr>
+<tr><th id="863">863</th><td>	<a class="ref" href="#Sys_SetFloatEnv" title='Sys_SetFloatEnv' data-ref="Sys_SetFloatEnv">Sys_SetFloatEnv</a>();</td></tr>
+<tr><th id="864">864</th><td></td></tr>
+<tr><th id="865">865</th><td>	<a class="ref" href="#stdinIsATTY" title='stdinIsATTY' data-ref="stdinIsATTY">stdinIsATTY</a> = <a class="ref" href="../../../include/unistd.h.html#isatty" title='isatty' data-ref="isatty">isatty</a>( <a class="macro" href="../../../include/unistd.h.html#213" title="0" data-ref="_M/STDIN_FILENO">STDIN_FILENO</a> ) &amp;&amp;</td></tr>
+<tr><th id="866">866</th><td>		!( <a class="local col1 ref" href="#171term" title='term' data-ref="171term">term</a> &amp;&amp; ( !<a class="macro" href="../../../include/x86_64-linux-gnu/bits/string2.h.html#799" title="__extension__ ({ size_t __s1_len, __s2_len; (__builtin_constant_p (term) &amp;&amp; __builtin_constant_p (&quot;raw&quot;) &amp;&amp; (__s1_len = __builtin_strlen (term), __s2_len = __builtin_strlen (&quot;raw&quot;), (!((size_t)(const void *)((term) + 1) - (size_t)(const void *)(term) == 1) || __s1_len &gt;= 4) &amp;&amp; (!((size_t)(const void *)((&quot;raw&quot;) + 1) - (size_t)(const void *)(&quot;raw&quot;) == 1) || __s2_len &gt;= 4)) ? __builtin_strcmp (term, &quot;raw&quot;) : (__builtin_constant_p (term) &amp;&amp; ((size_t)(const void *)((term) + 1) - (size_t)(const void *)(term) == 1) &amp;&amp; (__s1_len = __builtin_strlen (term), __s1_len &lt; 4) ? (__builtin_constant_p (&quot;raw&quot;) &amp;&amp; ((size_t)(const void *)((&quot;raw&quot;) + 1) - (size_t)(const void *)(&quot;raw&quot;) == 1) ? __builtin_strcmp (term, &quot;raw&quot;) : (__extension__ ({ const unsigned char *__s2 = (const unsigned char *) (const char *) (&quot;raw&quot;); int __result = (((const unsigned char *) (const char *) (term))[0] - __s2[0]); if (__s1_len &gt; 0 &amp;&amp; __result == 0) { __result = (((const unsigned char *) (const char *) (term))[1] - __s2[1]); if (__s1_len &gt; 1 &amp;&amp; __result == 0) { __result = (((const unsigned char *) (const char *) (term))[2] - __s2[2]); if (__s1_len &gt; 2 &amp;&amp; __result == 0) __result = (((const unsigned char *) (const char *) (term))[3] - __s2[3]); } } __result; }))) : (__builtin_constant_p (&quot;raw&quot;) &amp;&amp; ((size_t)(const void *)((&quot;raw&quot;) + 1) - (size_t)(const void *)(&quot;raw&quot;) == 1) &amp;&amp; (__s2_len = __builtin_strlen (&quot;raw&quot;), __s2_len &lt; 4) ? (__builtin_constant_p (term) &amp;&amp; ((size_t)(const void *)((term) + 1) - (size_t)(const void *)(term) == 1) ? __builtin_strcmp (term, &quot;raw&quot;) : (- (__extension__ ({ const unsigned char *__s2 = (const unsigned char *) (const char *) (term); int __result = (((const unsigned char *) (const char *) (&quot;raw&quot;))[0] - __s2[0]); if (__s2_len &gt; 0 &amp;&amp; __result == 0) { __result = (((const unsigned char *) (const char *) (&quot;raw&quot;))[1] - __s2[1]); if (__s2_len &gt; 1 &amp;&amp; __result == 0) { __result = (((const unsigned char *) (const char *) (&quot;raw&quot;))[2] - __s2[2]); if (__s2_len &gt; 2 &amp;&amp; __result == 0) __result = (((const unsigned char *) (const char *) (&quot;raw&quot;))[3] - __s2[3]); } } __result; })))) : __builtin_strcmp (term, &quot;raw&quot;)))); })" data-ref="_M/strcmp">strcmp</a>( <a class="local col1 ref" href="#171term" title='term' data-ref="171term">term</a>, <q>"raw"</q> ) || !<a class="macro" href="../../../include/x86_64-linux-gnu/bits/string2.h.html#799" title="__extension__ ({ size_t __s1_len, __s2_len; (__builtin_constant_p (term) &amp;&amp; __builtin_constant_p (&quot;dumb&quot;) &amp;&amp; (__s1_len = __builtin_strlen (term), __s2_len = __builtin_strlen (&quot;dumb&quot;), (!((size_t)(const void *)((term) + 1) - (size_t)(const void *)(term) == 1) || __s1_len &gt;= 4) &amp;&amp; (!((size_t)(const void *)((&quot;dumb&quot;) + 1) - (size_t)(const void *)(&quot;dumb&quot;) == 1) || __s2_len &gt;= 4)) ? __builtin_strcmp (term, &quot;dumb&quot;) : (__builtin_constant_p (term) &amp;&amp; ((size_t)(const void *)((term) + 1) - (size_t)(const void *)(term) == 1) &amp;&amp; (__s1_len = __builtin_strlen (term), __s1_len &lt; 4) ? (__builtin_constant_p (&quot;dumb&quot;) &amp;&amp; ((size_t)(const void *)((&quot;dumb&quot;) + 1) - (size_t)(const void *)(&quot;dumb&quot;) == 1) ? __builtin_strcmp (term, &quot;dumb&quot;) : (__extension__ ({ const unsigned char *__s2 = (const unsigned char *) (const char *) (&quot;dumb&quot;); int __result = (((const unsigned char *) (const char *) (term))[0] - __s2[0]); if (__s1_len &gt; 0 &amp;&amp; __result == 0) { __result = (((const unsigned char *) (const char *) (term))[1] - __s2[1]); if (__s1_len &gt; 1 &amp;&amp; __result == 0) { __result = (((const unsigned char *) (const char *) (term))[2] - __s2[2]); if (__s1_len &gt; 2 &amp;&amp; __result == 0) __result = (((const unsigned char *) (const char *) (term))[3] - __s2[3]); } } __result; }))) : (__builtin_constant_p (&quot;dumb&quot;) &amp;&amp; ((size_t)(const void *)((&quot;dumb&quot;) + 1) - (size_t)(const void *)(&quot;dumb&quot;) == 1) &amp;&amp; (__s2_len = __builtin_strlen (&quot;dumb&quot;), __s2_len &lt; 4) ? (__builtin_constant_p (term) &amp;&amp; ((size_t)(const void *)((term) + 1) - (size_t)(const void *)(term) == 1) ? __builtin_strcmp (term, &quot;dumb&quot;) : (- (__extension__ ({ const unsigned char *__s2 = (const unsigned char *) (const char *) (term); int __result = (((const unsigned char *) (const char *) (&quot;dumb&quot;))[0] - __s2[0]); if (__s2_len &gt; 0 &amp;&amp; __result == 0) { __result = (((const unsigned char *) (const char *) (&quot;dumb&quot;))[1] - __s2[1]); if (__s2_len &gt; 1 &amp;&amp; __result == 0) { __result = (((const unsigned char *) (const char *) (&quot;dumb&quot;))[2] - __s2[2]); if (__s2_len &gt; 2 &amp;&amp; __result == 0) __result = (((const unsigned char *) (const char *) (&quot;dumb&quot;))[3] - __s2[3]); } } __result; })))) : __builtin_strcmp (term, &quot;dumb&quot;)))); })" data-ref="_M/strcmp">strcmp</a>( <a class="local col1 ref" href="#171term" title='term' data-ref="171term">term</a>, <q>"dumb"</q> ) ) );</td></tr>
+<tr><th id="867">867</th><td>}</td></tr>
+<tr><th id="868">868</th><td></td></tr>
+<tr><th id="869">869</th><td><i>/*</i></td></tr>
+<tr><th id="870">870</th><td><i>==============</i></td></tr>
+<tr><th id="871">871</th><td><i>Sys_PlatformExit</i></td></tr>
+<tr><th id="872">872</th><td><i></i></td></tr>
+<tr><th id="873">873</th><td><i>Unix specific deinitialisation</i></td></tr>
+<tr><th id="874">874</th><td><i>==============</i></td></tr>
+<tr><th id="875">875</th><td><i>*/</i></td></tr>
+<tr><th id="876">876</th><td><em>void</em> <dfn class="decl def" id="Sys_PlatformExit" title='Sys_PlatformExit' data-ref="Sys_PlatformExit">Sys_PlatformExit</dfn>( <em>void</em> )</td></tr>
+<tr><th id="877">877</th><td>{</td></tr>
+<tr><th id="878">878</th><td>}</td></tr>
+<tr><th id="879">879</th><td></td></tr>
+<tr><th id="880">880</th><td><i>/*</i></td></tr>
+<tr><th id="881">881</th><td><i>==============</i></td></tr>
+<tr><th id="882">882</th><td><i>Sys_SetEnv</i></td></tr>
+<tr><th id="883">883</th><td><i></i></td></tr>
+<tr><th id="884">884</th><td><i>set/unset environment variables (empty value removes it)</i></td></tr>
+<tr><th id="885">885</th><td><i>==============</i></td></tr>
+<tr><th id="886">886</th><td><i>*/</i></td></tr>
+<tr><th id="887">887</th><td></td></tr>
+<tr><th id="888">888</th><td><em>void</em> <dfn class="decl def" id="Sys_SetEnv" title='Sys_SetEnv' data-ref="Sys_SetEnv">Sys_SetEnv</dfn>(<em>const</em> <em>char</em> *<dfn class="local col2 decl" id="172name" title='name' data-type='const char *' data-ref="172name">name</dfn>, <em>const</em> <em>char</em> *<dfn class="local col3 decl" id="173value" title='value' data-type='const char *' data-ref="173value">value</dfn>)</td></tr>
+<tr><th id="889">889</th><td>{</td></tr>
+<tr><th id="890">890</th><td>	<b>if</b>(<a class="local col3 ref" href="#173value" title='value' data-ref="173value">value</a> &amp;&amp; *<a class="local col3 ref" href="#173value" title='value' data-ref="173value">value</a>)</td></tr>
+<tr><th id="891">891</th><td>		<a class="ref" href="../../../include/stdlib.h.html#setenv" title='setenv' data-ref="setenv">setenv</a>(<a class="local col2 ref" href="#172name" title='name' data-ref="172name">name</a>, <a class="local col3 ref" href="#173value" title='value' data-ref="173value">value</a>, <var>1</var>);</td></tr>
+<tr><th id="892">892</th><td>	<b>else</b></td></tr>
+<tr><th id="893">893</th><td>		<a class="ref" href="../../../include/stdlib.h.html#unsetenv" title='unsetenv' data-ref="unsetenv">unsetenv</a>(<a class="local col2 ref" href="#172name" title='name' data-ref="172name">name</a>);</td></tr>
+<tr><th id="894">894</th><td>}</td></tr>
+<tr><th id="895">895</th><td></td></tr>
+<tr><th id="896">896</th><td><i>/*</i></td></tr>
+<tr><th id="897">897</th><td><i>==============</i></td></tr>
+<tr><th id="898">898</th><td><i>Sys_PID</i></td></tr>
+<tr><th id="899">899</th><td><i>==============</i></td></tr>
+<tr><th id="900">900</th><td><i>*/</i></td></tr>
+<tr><th id="901">901</th><td><em>int</em> <dfn class="decl def" id="Sys_PID" title='Sys_PID' data-ref="Sys_PID">Sys_PID</dfn>( <em>void</em> )</td></tr>
+<tr><th id="902">902</th><td>{</td></tr>
+<tr><th id="903">903</th><td>	<b>return</b> <a class="ref" href="../../../include/unistd.h.html#getpid" title='getpid' data-ref="getpid">getpid</a>( );</td></tr>
+<tr><th id="904">904</th><td>}</td></tr>
+<tr><th id="905">905</th><td></td></tr>
+<tr><th id="906">906</th><td><i>/*</i></td></tr>
+<tr><th id="907">907</th><td><i>==============</i></td></tr>
+<tr><th id="908">908</th><td><i>Sys_PIDIsRunning</i></td></tr>
+<tr><th id="909">909</th><td><i>==============</i></td></tr>
+<tr><th id="910">910</th><td><i>*/</i></td></tr>
+<tr><th id="911">911</th><td><a class="typedef" href="../qcommon/q_shared.h.html#qboolean" title='qboolean' data-type='enum qboolean' data-ref="qboolean">qboolean</a> <dfn class="decl def" id="Sys_PIDIsRunning" title='Sys_PIDIsRunning' data-ref="Sys_PIDIsRunning">Sys_PIDIsRunning</dfn>( <em>int</em> <dfn class="local col4 decl" id="174pid" title='pid' data-type='int' data-ref="174pid">pid</dfn> )</td></tr>
+<tr><th id="912">912</th><td>{</td></tr>
+<tr><th id="913">913</th><td>	<b>return</b> <a class="ref" href="../../../include/signal.h.html#kill" title='kill' data-ref="kill">kill</a>( <a class="local col4 ref" href="#174pid" title='pid' data-ref="174pid">pid</a>, <var>0</var> ) == <var>0</var>;</td></tr>
+<tr><th id="914">914</th><td>}</td></tr>
+<tr><th id="915">915</th><td></td></tr>
+<tr><th id="916">916</th><td><i>/*</i></td></tr>
+<tr><th id="917">917</th><td><i>=================</i></td></tr>
+<tr><th id="918">918</th><td><i>Sys_DllExtension</i></td></tr>
+<tr><th id="919">919</th><td><i></i></td></tr>
+<tr><th id="920">920</th><td><i>Check if filename should be allowed to be loaded as a DLL.</i></td></tr>
+<tr><th id="921">921</th><td><i>=================</i></td></tr>
+<tr><th id="922">922</th><td><i>*/</i></td></tr>
+<tr><th id="923">923</th><td><a class="typedef" href="../qcommon/q_shared.h.html#qboolean" title='qboolean' data-type='enum qboolean' data-ref="qboolean">qboolean</a> <dfn class="decl def" id="Sys_DllExtension" title='Sys_DllExtension' data-ref="Sys_DllExtension">Sys_DllExtension</dfn>( <em>const</em> <em>char</em> *<dfn class="local col5 decl" id="175name" title='name' data-type='const char *' data-ref="175name">name</dfn> ) {</td></tr>
+<tr><th id="924">924</th><td>	<em>const</em> <em>char</em> *<dfn class="local col6 decl" id="176p" title='p' data-type='const char *' data-ref="176p">p</dfn>;</td></tr>
+<tr><th id="925">925</th><td>	<em>char</em> <dfn class="local col7 decl" id="177c" title='c' data-type='char' data-ref="177c">c</dfn> = <var>0</var>;</td></tr>
+<tr><th id="926">926</th><td></td></tr>
+<tr><th id="927">927</th><td>	<b>if</b> ( <a class="ref" href="../qcommon/q_shared.h.html#COM_CompareExtension" title='COM_CompareExtension' data-ref="COM_CompareExtension">COM_CompareExtension</a>( <a class="local col5 ref" href="#175name" title='name' data-ref="175name">name</a>, <a class="macro" href="../qcommon/q_platform.h.html#198" title="&quot;.so&quot;" data-ref="_M/DLL_EXT">DLL_EXT</a> ) ) {</td></tr>
+<tr><th id="928">928</th><td>		<b>return</b> <a class="enum" href="../qcommon/q_shared.h.html#qtrue" title='qtrue' data-ref="qtrue">qtrue</a>;</td></tr>
+<tr><th id="929">929</th><td>	}</td></tr>
+<tr><th id="930">930</th><td></td></tr>
+<tr><th id="931">931</th><td>	<i>// Check for format of filename.so.1.2.3</i></td></tr>
+<tr><th id="932">932</th><td>	<a class="local col6 ref" href="#176p" title='p' data-ref="176p">p</a> = <a class="ref" href="../../../include/string.h.html#strstr" title='strstr' data-ref="strstr">strstr</a>( <a class="local col5 ref" href="#175name" title='name' data-ref="175name">name</a>, <a class="macro" href="../qcommon/q_platform.h.html#198" title="&quot;.so&quot;" data-ref="_M/DLL_EXT">DLL_EXT</a> <q>"."</q> );</td></tr>
+<tr><th id="933">933</th><td></td></tr>
+<tr><th id="934">934</th><td>	<b>if</b> ( <a class="local col6 ref" href="#176p" title='p' data-ref="176p">p</a> ) {</td></tr>
+<tr><th id="935">935</th><td>		<a class="local col6 ref" href="#176p" title='p' data-ref="176p">p</a> += <a class="ref" href="../../../include/string.h.html#strlen" title='strlen' data-ref="strlen">strlen</a>( <a class="macro" href="../qcommon/q_platform.h.html#198" title="&quot;.so&quot;" data-ref="_M/DLL_EXT">DLL_EXT</a> );</td></tr>
+<tr><th id="936">936</th><td></td></tr>
+<tr><th id="937">937</th><td>		<i>// Check if .so is only followed for periods and numbers.</i></td></tr>
+<tr><th id="938">938</th><td>		<b>while</b> ( *<a class="local col6 ref" href="#176p" title='p' data-ref="176p">p</a> ) {</td></tr>
+<tr><th id="939">939</th><td>			<a class="local col7 ref" href="#177c" title='c' data-ref="177c">c</a> = *<a class="local col6 ref" href="#176p" title='p' data-ref="176p">p</a>;</td></tr>
+<tr><th id="940">940</th><td></td></tr>
+<tr><th id="941">941</th><td>			<b>if</b> ( !<a class="macro" href="../../../include/ctype.h.html#200" title="((*__ctype_b_loc ())[(int) ((c))] &amp; (unsigned short int) _ISdigit)" data-ref="_M/isdigit">isdigit</a>( <a class="local col7 ref" href="#177c" title='c' data-ref="177c">c</a> ) &amp;&amp; <a class="local col7 ref" href="#177c" title='c' data-ref="177c">c</a> != <kbd>'.'</kbd> ) {</td></tr>
+<tr><th id="942">942</th><td>				<b>return</b> <a class="enum" href="../qcommon/q_shared.h.html#qfalse" title='qfalse' data-ref="qfalse">qfalse</a>;</td></tr>
+<tr><th id="943">943</th><td>			}</td></tr>
+<tr><th id="944">944</th><td></td></tr>
+<tr><th id="945">945</th><td>			<a class="local col6 ref" href="#176p" title='p' data-ref="176p">p</a>++;</td></tr>
+<tr><th id="946">946</th><td>		}</td></tr>
+<tr><th id="947">947</th><td></td></tr>
+<tr><th id="948">948</th><td>		<i>// Don't allow filename to end in a period. file.so., file.so.0., etc</i></td></tr>
+<tr><th id="949">949</th><td>		<b>if</b> ( <a class="local col7 ref" href="#177c" title='c' data-ref="177c">c</a> != <kbd>'.'</kbd> ) {</td></tr>
+<tr><th id="950">950</th><td>			<b>return</b> <a class="enum" href="../qcommon/q_shared.h.html#qtrue" title='qtrue' data-ref="qtrue">qtrue</a>;</td></tr>
+<tr><th id="951">951</th><td>		}</td></tr>
+<tr><th id="952">952</th><td>	}</td></tr>
+<tr><th id="953">953</th><td></td></tr>
+<tr><th id="954">954</th><td>	<b>return</b> <a class="enum" href="../qcommon/q_shared.h.html#qfalse" title='qfalse' data-ref="qfalse">qfalse</a>;</td></tr>
+<tr><th id="955">955</th><td>}</td></tr>
+<tr><th id="956">956</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated on <em>2017-Aug-29</em> from project codebrowser revision <em>63e07af</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

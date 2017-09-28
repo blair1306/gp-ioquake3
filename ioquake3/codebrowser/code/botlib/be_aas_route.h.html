@@ -1,0 +1,85 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>be_aas_route.h source code [codebrowser/code/botlib/be_aas_route.h] - Woboq Code Browser</title>
+<link rel="stylesheet" href="../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'codebrowser/code/botlib/be_aas_route.h'; var root_path = '../../..'; var data_path = '../../../../data';</script>
+<script src='../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../..'>codebrowser</a>/<a href='..'>code</a>/<a href='./'>botlib</a>/<a href='be_aas_route.h.html'>be_aas_route.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/*</i></td></tr>
+<tr><th id="2">2</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="3">3</th><td><i>Copyright (C) 1999-2005 Id Software, Inc.</i></td></tr>
+<tr><th id="4">4</th><td><i></i></td></tr>
+<tr><th id="5">5</th><td><i>This file is part of Quake III Arena source code.</i></td></tr>
+<tr><th id="6">6</th><td><i></i></td></tr>
+<tr><th id="7">7</th><td><i>Quake III Arena source code is free software; you can redistribute it</i></td></tr>
+<tr><th id="8">8</th><td><i>and/or modify it under the terms of the GNU General Public License as</i></td></tr>
+<tr><th id="9">9</th><td><i>published by the Free Software Foundation; either version 2 of the License,</i></td></tr>
+<tr><th id="10">10</th><td><i>or (at your option) any later version.</i></td></tr>
+<tr><th id="11">11</th><td><i></i></td></tr>
+<tr><th id="12">12</th><td><i>Quake III Arena source code is distributed in the hope that it will be</i></td></tr>
+<tr><th id="13">13</th><td><i>useful, but WITHOUT ANY WARRANTY; without even the implied warranty of</i></td></tr>
+<tr><th id="14">14</th><td><i>MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</i></td></tr>
+<tr><th id="15">15</th><td><i>GNU General Public License for more details.</i></td></tr>
+<tr><th id="16">16</th><td><i></i></td></tr>
+<tr><th id="17">17</th><td><i>You should have received a copy of the GNU General Public License</i></td></tr>
+<tr><th id="18">18</th><td><i>along with Quake III Arena source code; if not, write to the Free Software</i></td></tr>
+<tr><th id="19">19</th><td><i>Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA</i></td></tr>
+<tr><th id="20">20</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="21">21</th><td><i>*/</i></td></tr>
+<tr><th id="22">22</th><td></td></tr>
+<tr><th id="23">23</th><td><i>/*****************************************************************************</i></td></tr>
+<tr><th id="24">24</th><td><i> * name:		be_aas_route.h</i></td></tr>
+<tr><th id="25">25</th><td><i> *</i></td></tr>
+<tr><th id="26">26</th><td><i> * desc:		AAS</i></td></tr>
+<tr><th id="27">27</th><td><i> *</i></td></tr>
+<tr><th id="28">28</th><td><i> * $Archive: /source/code/botlib/be_aas_route.h $</i></td></tr>
+<tr><th id="29">29</th><td><i> *</i></td></tr>
+<tr><th id="30">30</th><td><i> *****************************************************************************/</i></td></tr>
+<tr><th id="31">31</th><td></td></tr>
+<tr><th id="32">32</th><td><u>#<span data-ppcond="32">ifdef</span> <span class="macro" data-ref="_M/AASINTERN">AASINTERN</span></u></td></tr>
+<tr><th id="33">33</th><td><i>//initialize the AAS routing</i></td></tr>
+<tr><th id="34">34</th><td><em>void</em> AAS_InitRouting(<em>void</em>);</td></tr>
+<tr><th id="35">35</th><td><i>//free the AAS routing caches</i></td></tr>
+<tr><th id="36">36</th><td><em>void</em> AAS_FreeRoutingCaches(<em>void</em>);</td></tr>
+<tr><th id="37">37</th><td><i>//returns the travel time from start to end in the given area</i></td></tr>
+<tr><th id="38">38</th><td><em>unsigned</em> <em>short</em> <em>int</em> AAS_AreaTravelTime(<em>int</em> areanum, vec3_t start, vec3_t end);</td></tr>
+<tr><th id="39">39</th><td><i>//</i></td></tr>
+<tr><th id="40">40</th><td><em>void</em> AAS_CreateAllRoutingCache(<em>void</em>);</td></tr>
+<tr><th id="41">41</th><td><em>void</em> AAS_WriteRouteCache(<em>void</em>);</td></tr>
+<tr><th id="42">42</th><td><i>//</i></td></tr>
+<tr><th id="43">43</th><td><em>void</em> AAS_RoutingInfo(<em>void</em>);</td></tr>
+<tr><th id="44">44</th><td><u>#<span data-ppcond="32">endif</span> //AASINTERN</u></td></tr>
+<tr><th id="45">45</th><td></td></tr>
+<tr><th id="46">46</th><td><i>//returns the travel flag for the given travel type</i></td></tr>
+<tr><th id="47">47</th><td><em>int</em> <dfn class="decl" id="AAS_TravelFlagForType" title='AAS_TravelFlagForType' data-ref="AAS_TravelFlagForType">AAS_TravelFlagForType</dfn>(<em>int</em> <dfn class="local col0 decl" id="540traveltype" title='traveltype' data-type='int' data-ref="540traveltype">traveltype</dfn>);</td></tr>
+<tr><th id="48">48</th><td><i>//return the travel flag(s) for traveling through this area</i></td></tr>
+<tr><th id="49">49</th><td><em>int</em> <dfn class="decl" id="AAS_AreaContentsTravelFlags" title='AAS_AreaContentsTravelFlags' data-ref="AAS_AreaContentsTravelFlags">AAS_AreaContentsTravelFlags</dfn>(<em>int</em> <dfn class="local col1 decl" id="541areanum" title='areanum' data-type='int' data-ref="541areanum">areanum</dfn>);</td></tr>
+<tr><th id="50">50</th><td><i>//returns the index of the next reachability for the given area</i></td></tr>
+<tr><th id="51">51</th><td><em>int</em> <dfn class="decl" id="AAS_NextAreaReachability" title='AAS_NextAreaReachability' data-ref="AAS_NextAreaReachability">AAS_NextAreaReachability</dfn>(<em>int</em> <dfn class="local col2 decl" id="542areanum" title='areanum' data-type='int' data-ref="542areanum">areanum</dfn>, <em>int</em> <dfn class="local col3 decl" id="543reachnum" title='reachnum' data-type='int' data-ref="543reachnum">reachnum</dfn>);</td></tr>
+<tr><th id="52">52</th><td><i>//returns the reachability with the given index</i></td></tr>
+<tr><th id="53">53</th><td><em>void</em> <dfn class="decl" id="AAS_ReachabilityFromNum" title='AAS_ReachabilityFromNum' data-ref="AAS_ReachabilityFromNum">AAS_ReachabilityFromNum</dfn>(<em>int</em> <dfn class="local col4 decl" id="544num" title='num' data-type='int' data-ref="544num">num</dfn>, <b>struct</b> <a class="type" href="aasfile.h.html#aas_reachability_s" title='aas_reachability_s' data-ref="aas_reachability_s">aas_reachability_s</a> *<dfn class="local col5 decl" id="545reach" title='reach' data-type='struct aas_reachability_s *' data-ref="545reach">reach</dfn>);</td></tr>
+<tr><th id="54">54</th><td><i>//returns a random goal area and goal origin</i></td></tr>
+<tr><th id="55">55</th><td><em>int</em> <dfn class="decl" id="AAS_RandomGoalArea" title='AAS_RandomGoalArea' data-ref="AAS_RandomGoalArea">AAS_RandomGoalArea</dfn>(<em>int</em> <dfn class="local col6 decl" id="546areanum" title='areanum' data-type='int' data-ref="546areanum">areanum</dfn>, <em>int</em> <dfn class="local col7 decl" id="547travelflags" title='travelflags' data-type='int' data-ref="547travelflags">travelflags</dfn>, <em>int</em> *<dfn class="local col8 decl" id="548goalareanum" title='goalareanum' data-type='int *' data-ref="548goalareanum">goalareanum</dfn>, <a class="typedef" href="../qcommon/q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="local col9 decl" id="549goalorigin" title='goalorigin' data-type='vec_t *' data-ref="549goalorigin">goalorigin</dfn>);</td></tr>
+<tr><th id="56">56</th><td><i>//enable or disable an area for routing</i></td></tr>
+<tr><th id="57">57</th><td><em>int</em> <dfn class="decl" id="AAS_EnableRoutingArea" title='AAS_EnableRoutingArea' data-ref="AAS_EnableRoutingArea">AAS_EnableRoutingArea</dfn>(<em>int</em> <dfn class="local col0 decl" id="550areanum" title='areanum' data-type='int' data-ref="550areanum">areanum</dfn>, <em>int</em> <dfn class="local col1 decl" id="551enable" title='enable' data-type='int' data-ref="551enable">enable</dfn>);</td></tr>
+<tr><th id="58">58</th><td><i>//returns the travel time within the given area from start to end</i></td></tr>
+<tr><th id="59">59</th><td><em>unsigned</em> <em>short</em> <em>int</em> <dfn class="decl" id="AAS_AreaTravelTime" title='AAS_AreaTravelTime' data-ref="AAS_AreaTravelTime">AAS_AreaTravelTime</dfn>(<em>int</em> <dfn class="local col2 decl" id="552areanum" title='areanum' data-type='int' data-ref="552areanum">areanum</dfn>, <a class="typedef" href="../qcommon/q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="local col3 decl" id="553start" title='start' data-type='vec_t *' data-ref="553start">start</dfn>, <a class="typedef" href="../qcommon/q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="local col4 decl" id="554end" title='end' data-type='vec_t *' data-ref="554end">end</dfn>);</td></tr>
+<tr><th id="60">60</th><td><i>//returns the travel time from the area to the goal area using the given travel flags</i></td></tr>
+<tr><th id="61">61</th><td><em>int</em> <dfn class="decl" id="AAS_AreaTravelTimeToGoalArea" title='AAS_AreaTravelTimeToGoalArea' data-ref="AAS_AreaTravelTimeToGoalArea">AAS_AreaTravelTimeToGoalArea</dfn>(<em>int</em> <dfn class="local col5 decl" id="555areanum" title='areanum' data-type='int' data-ref="555areanum">areanum</dfn>, <a class="typedef" href="../qcommon/q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="local col6 decl" id="556origin" title='origin' data-type='vec_t *' data-ref="556origin">origin</dfn>, <em>int</em> <dfn class="local col7 decl" id="557goalareanum" title='goalareanum' data-type='int' data-ref="557goalareanum">goalareanum</dfn>, <em>int</em> <dfn class="local col8 decl" id="558travelflags" title='travelflags' data-type='int' data-ref="558travelflags">travelflags</dfn>);</td></tr>
+<tr><th id="62">62</th><td><i>//predict a route up to a stop event</i></td></tr>
+<tr><th id="63">63</th><td><em>int</em> <dfn class="decl" id="AAS_PredictRoute" title='AAS_PredictRoute' data-ref="AAS_PredictRoute">AAS_PredictRoute</dfn>(<b>struct</b> <a class="type" href="be_aas.h.html#aas_predictroute_s" title='aas_predictroute_s' data-ref="aas_predictroute_s">aas_predictroute_s</a> *<dfn class="local col9 decl" id="559route" title='route' data-type='struct aas_predictroute_s *' data-ref="559route">route</dfn>, <em>int</em> <dfn class="local col0 decl" id="560areanum" title='areanum' data-type='int' data-ref="560areanum">areanum</dfn>, <a class="typedef" href="../qcommon/q_shared.h.html#vec3_t" title='vec3_t' data-type='vec_t [3]' data-ref="vec3_t">vec3_t</a> <dfn class="local col1 decl" id="561origin" title='origin' data-type='vec_t *' data-ref="561origin">origin</dfn>,</td></tr>
+<tr><th id="64">64</th><td>							<em>int</em> <dfn class="local col2 decl" id="562goalareanum" title='goalareanum' data-type='int' data-ref="562goalareanum">goalareanum</dfn>, <em>int</em> <dfn class="local col3 decl" id="563travelflags" title='travelflags' data-type='int' data-ref="563travelflags">travelflags</dfn>, <em>int</em> <dfn class="local col4 decl" id="564maxareas" title='maxareas' data-type='int' data-ref="564maxareas">maxareas</dfn>, <em>int</em> <dfn class="local col5 decl" id="565maxtime" title='maxtime' data-type='int' data-ref="565maxtime">maxtime</dfn>,</td></tr>
+<tr><th id="65">65</th><td>							<em>int</em> <dfn class="local col6 decl" id="566stopevent" title='stopevent' data-type='int' data-ref="566stopevent">stopevent</dfn>, <em>int</em> <dfn class="local col7 decl" id="567stopcontents" title='stopcontents' data-type='int' data-ref="567stopcontents">stopcontents</dfn>, <em>int</em> <dfn class="local col8 decl" id="568stoptfl" title='stoptfl' data-type='int' data-ref="568stoptfl">stoptfl</dfn>, <em>int</em> <dfn class="local col9 decl" id="569stopareanum" title='stopareanum' data-type='int' data-ref="569stopareanum">stopareanum</dfn>);</td></tr>
+<tr><th id="66">66</th><td></td></tr>
+<tr><th id="67">67</th><td></td></tr>
+<tr><th id="68">68</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='be_aas_bspq3.c.html'>codebrowser/code/botlib/be_aas_bspq3.c</a><br/>Generated on <em>2017-Aug-29</em> from project codebrowser revision <em>63e07af</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

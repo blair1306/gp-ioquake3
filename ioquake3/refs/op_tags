@@ -1,0 +1,18 @@
+<dec f='codebrowser/code/opusfile-0.8/include/opusfile.h' l='1567' type='const OpusTags * op_tags(const OggOpusFile * _of, int _li)'/>
+<doc f='codebrowser/code/opusfile-0.8/include/opusfile.h' l='1551'>/**Get the comment header information for the given link in a (possibly
+    chained) Ogg Opus stream.
+   This function may be called on partially-opened streams, but it will always
+    return the tags from the Opus stream in the first link.
+   \param _of The \c OggOpusFile from which to retrieve the comment header
+               information.
+   \param _li The index of the link whose comment header information should be
+               retrieved.
+              Use a negative number to get the comment header information of
+               the current link.
+              For an unseekable stream, \a _li is ignored, and the comment
+               header information for the current link is always returned, if
+               available.
+   \return The contents of the comment header for the given link, or
+            &lt;code&gt;NULL&lt;/code&gt; if this is an unseekable stream that encountered
+            an invalid link.*/</doc>
+<def f='codebrowser/code/opusfile-0.8/src/opusfile.c' l='1762' ll='1772' type='const OpusTags * op_tags(const OggOpusFile * _of, int _li)'/>

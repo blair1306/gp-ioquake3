@@ -1,0 +1,13 @@
+<def f='codebrowser/code/client/cl_parse.c' l='64' ll='83' type='void CL_DeltaEntity(msg_t * msg, clSnapshot_t * frame, int newnum, entityState_t * old, qboolean unchanged)'/>
+<use f='codebrowser/code/client/cl_parse.c' l='131' u='c' c='CL_ParsePacketEntities'/>
+<use f='codebrowser/code/client/cl_parse.c' l='148' u='c' c='CL_ParsePacketEntities'/>
+<use f='codebrowser/code/client/cl_parse.c' l='167' u='c' c='CL_ParsePacketEntities'/>
+<use f='codebrowser/code/client/cl_parse.c' l='179' u='c' c='CL_ParsePacketEntities'/>
+<doc f='codebrowser/code/client/cl_parse.c' l='56'>/*
+==================
+CL_DeltaEntity
+
+Parses deltas from the given base and adds the resulting entity
+to the current frame
+==================
+*/</doc>

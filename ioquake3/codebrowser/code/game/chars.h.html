@@ -1,0 +1,152 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>chars.h source code [codebrowser/code/game/chars.h] - Woboq Code Browser</title>
+<link rel="stylesheet" href="../../../../data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="../../../../data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="../../../../data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'codebrowser/code/game/chars.h'; var root_path = '../../..'; var data_path = '../../../../data';</script>
+<script src='../../../../data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../..'>codebrowser</a>/<a href='..'>code</a>/<a href='./'>game</a>/<a href='chars.h.html'>chars.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/*</i></td></tr>
+<tr><th id="2">2</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="3">3</th><td><i>Copyright (C) 1999-2005 Id Software, Inc.</i></td></tr>
+<tr><th id="4">4</th><td><i></i></td></tr>
+<tr><th id="5">5</th><td><i>This file is part of Quake III Arena source code.</i></td></tr>
+<tr><th id="6">6</th><td><i></i></td></tr>
+<tr><th id="7">7</th><td><i>Quake III Arena source code is free software; you can redistribute it</i></td></tr>
+<tr><th id="8">8</th><td><i>and/or modify it under the terms of the GNU General Public License as</i></td></tr>
+<tr><th id="9">9</th><td><i>published by the Free Software Foundation; either version 2 of the License,</i></td></tr>
+<tr><th id="10">10</th><td><i>or (at your option) any later version.</i></td></tr>
+<tr><th id="11">11</th><td><i></i></td></tr>
+<tr><th id="12">12</th><td><i>Quake III Arena source code is distributed in the hope that it will be</i></td></tr>
+<tr><th id="13">13</th><td><i>useful, but WITHOUT ANY WARRANTY; without even the implied warranty of</i></td></tr>
+<tr><th id="14">14</th><td><i>MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</i></td></tr>
+<tr><th id="15">15</th><td><i>GNU General Public License for more details.</i></td></tr>
+<tr><th id="16">16</th><td><i></i></td></tr>
+<tr><th id="17">17</th><td><i>You should have received a copy of the GNU General Public License</i></td></tr>
+<tr><th id="18">18</th><td><i>along with Quake III Arena source code; if not, write to the Free Software</i></td></tr>
+<tr><th id="19">19</th><td><i>Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA</i></td></tr>
+<tr><th id="20">20</th><td><i>===========================================================================</i></td></tr>
+<tr><th id="21">21</th><td><i>*/</i></td></tr>
+<tr><th id="22">22</th><td><i></i></td></tr>
+<tr><th id="23">23</th><td><i>//========================================================</i></td></tr>
+<tr><th id="24">24</th><td><i>//========================================================</i></td></tr>
+<tr><th id="25">25</th><td><i>//name</i></td></tr>
+<tr><th id="26">26</th><td><u>#define <dfn class="macro" id="_M/CHARACTERISTIC_NAME" data-ref="_M/CHARACTERISTIC_NAME">CHARACTERISTIC_NAME</dfn>							0	//string</u></td></tr>
+<tr><th id="27">27</th><td><i>//gender of the bot</i></td></tr>
+<tr><th id="28">28</th><td><u>#define <dfn class="macro" id="_M/CHARACTERISTIC_GENDER" data-ref="_M/CHARACTERISTIC_GENDER">CHARACTERISTIC_GENDER</dfn>						1	//string ("male", "female", "it")</u></td></tr>
+<tr><th id="29">29</th><td><i>//attack skill</i></td></tr>
+<tr><th id="30">30</th><td><i>// &gt;  0.0 &amp;&amp; &lt;  0.2 = don't move</i></td></tr>
+<tr><th id="31">31</th><td><i>// &gt;  0.3 &amp;&amp; &lt;  1.0 = aim at enemy during retreat</i></td></tr>
+<tr><th id="32">32</th><td><i>// &gt;  0.0 &amp;&amp; &lt;  0.4 = only move forward/backward</i></td></tr>
+<tr><th id="33">33</th><td><i>// &gt;= 0.4 &amp;&amp; &lt;  1.0 = circle strafing</i></td></tr>
+<tr><th id="34">34</th><td><i>// &gt;  0.7 &amp;&amp; &lt;  1.0 = random strafe direction change</i></td></tr>
+<tr><th id="35">35</th><td><u>#define <dfn class="macro" id="_M/CHARACTERISTIC_ATTACK_SKILL" data-ref="_M/CHARACTERISTIC_ATTACK_SKILL">CHARACTERISTIC_ATTACK_SKILL</dfn>					2	//float [0, 1]</u></td></tr>
+<tr><th id="36">36</th><td><i>//weapon weight file</i></td></tr>
+<tr><th id="37">37</th><td><u>#define <dfn class="macro" id="_M/CHARACTERISTIC_WEAPONWEIGHTS" data-ref="_M/CHARACTERISTIC_WEAPONWEIGHTS">CHARACTERISTIC_WEAPONWEIGHTS</dfn>				3	//string</u></td></tr>
+<tr><th id="38">38</th><td><i>//view angle difference to angle change factor</i></td></tr>
+<tr><th id="39">39</th><td><u>#define <dfn class="macro" id="_M/CHARACTERISTIC_VIEW_FACTOR" data-ref="_M/CHARACTERISTIC_VIEW_FACTOR">CHARACTERISTIC_VIEW_FACTOR</dfn>					4	//float &lt;0, 1]</u></td></tr>
+<tr><th id="40">40</th><td><i>//maximum view angle change</i></td></tr>
+<tr><th id="41">41</th><td><u>#define <dfn class="macro" id="_M/CHARACTERISTIC_VIEW_MAXCHANGE" data-ref="_M/CHARACTERISTIC_VIEW_MAXCHANGE">CHARACTERISTIC_VIEW_MAXCHANGE</dfn>				5	//float [1, 360]</u></td></tr>
+<tr><th id="42">42</th><td><i>//reaction time in seconds</i></td></tr>
+<tr><th id="43">43</th><td><u>#define <dfn class="macro" id="_M/CHARACTERISTIC_REACTIONTIME" data-ref="_M/CHARACTERISTIC_REACTIONTIME">CHARACTERISTIC_REACTIONTIME</dfn>					6	//float [0, 5]</u></td></tr>
+<tr><th id="44">44</th><td><i>//accuracy when aiming</i></td></tr>
+<tr><th id="45">45</th><td><u>#define <dfn class="macro" id="_M/CHARACTERISTIC_AIM_ACCURACY" data-ref="_M/CHARACTERISTIC_AIM_ACCURACY">CHARACTERISTIC_AIM_ACCURACY</dfn>					7	//float [0, 1]</u></td></tr>
+<tr><th id="46">46</th><td><i>//weapon specific aim accuracy</i></td></tr>
+<tr><th id="47">47</th><td><u>#define <dfn class="macro" id="_M/CHARACTERISTIC_AIM_ACCURACY_MACHINEGUN" data-ref="_M/CHARACTERISTIC_AIM_ACCURACY_MACHINEGUN">CHARACTERISTIC_AIM_ACCURACY_MACHINEGUN</dfn>		8	//float [0, 1]</u></td></tr>
+<tr><th id="48">48</th><td><u>#define <dfn class="macro" id="_M/CHARACTERISTIC_AIM_ACCURACY_SHOTGUN" data-ref="_M/CHARACTERISTIC_AIM_ACCURACY_SHOTGUN">CHARACTERISTIC_AIM_ACCURACY_SHOTGUN</dfn>			9	//float [0, 1]</u></td></tr>
+<tr><th id="49">49</th><td><u>#define <dfn class="macro" id="_M/CHARACTERISTIC_AIM_ACCURACY_ROCKETLAUNCHER" data-ref="_M/CHARACTERISTIC_AIM_ACCURACY_ROCKETLAUNCHER">CHARACTERISTIC_AIM_ACCURACY_ROCKETLAUNCHER</dfn>	10	//float [0, 1]</u></td></tr>
+<tr><th id="50">50</th><td><u>#define <dfn class="macro" id="_M/CHARACTERISTIC_AIM_ACCURACY_GRENADELAUNCHER" data-ref="_M/CHARACTERISTIC_AIM_ACCURACY_GRENADELAUNCHER">CHARACTERISTIC_AIM_ACCURACY_GRENADELAUNCHER</dfn>	11	//float [0, 1]</u></td></tr>
+<tr><th id="51">51</th><td><u>#define <dfn class="macro" id="_M/CHARACTERISTIC_AIM_ACCURACY_LIGHTNING" data-ref="_M/CHARACTERISTIC_AIM_ACCURACY_LIGHTNING">CHARACTERISTIC_AIM_ACCURACY_LIGHTNING</dfn>		12</u></td></tr>
+<tr><th id="52">52</th><td><u>#define <dfn class="macro" id="_M/CHARACTERISTIC_AIM_ACCURACY_PLASMAGUN" data-ref="_M/CHARACTERISTIC_AIM_ACCURACY_PLASMAGUN">CHARACTERISTIC_AIM_ACCURACY_PLASMAGUN</dfn>		13	//float [0, 1]</u></td></tr>
+<tr><th id="53">53</th><td><u>#define <dfn class="macro" id="_M/CHARACTERISTIC_AIM_ACCURACY_RAILGUN" data-ref="_M/CHARACTERISTIC_AIM_ACCURACY_RAILGUN">CHARACTERISTIC_AIM_ACCURACY_RAILGUN</dfn>			14</u></td></tr>
+<tr><th id="54">54</th><td><u>#define <dfn class="macro" id="_M/CHARACTERISTIC_AIM_ACCURACY_BFG10K" data-ref="_M/CHARACTERISTIC_AIM_ACCURACY_BFG10K">CHARACTERISTIC_AIM_ACCURACY_BFG10K</dfn>			15	//float [0, 1]</u></td></tr>
+<tr><th id="55">55</th><td><i>//skill when aiming</i></td></tr>
+<tr><th id="56">56</th><td><i>// &gt;  0.0 &amp;&amp; &lt;  0.9 = aim is affected by enemy movement</i></td></tr>
+<tr><th id="57">57</th><td><i>// &gt;  0.4 &amp;&amp; &lt;= 0.8 = enemy linear leading</i></td></tr>
+<tr><th id="58">58</th><td><i>// &gt;  0.8 &amp;&amp; &lt;= 1.0 = enemy exact movement leading</i></td></tr>
+<tr><th id="59">59</th><td><i>// &gt;  0.5 &amp;&amp; &lt;= 1.0 = prediction shots when enemy is not visible</i></td></tr>
+<tr><th id="60">60</th><td><i>// &gt;  0.6 &amp;&amp; &lt;= 1.0 = splash damage by shooting nearby geometry</i></td></tr>
+<tr><th id="61">61</th><td><u>#define <dfn class="macro" id="_M/CHARACTERISTIC_AIM_SKILL" data-ref="_M/CHARACTERISTIC_AIM_SKILL">CHARACTERISTIC_AIM_SKILL</dfn>					16	//float [0, 1]</u></td></tr>
+<tr><th id="62">62</th><td><i>//weapon specific aim skill</i></td></tr>
+<tr><th id="63">63</th><td><u>#define <dfn class="macro" id="_M/CHARACTERISTIC_AIM_SKILL_ROCKETLAUNCHER" data-ref="_M/CHARACTERISTIC_AIM_SKILL_ROCKETLAUNCHER">CHARACTERISTIC_AIM_SKILL_ROCKETLAUNCHER</dfn>		17	//float [0, 1]</u></td></tr>
+<tr><th id="64">64</th><td><u>#define <dfn class="macro" id="_M/CHARACTERISTIC_AIM_SKILL_GRENADELAUNCHER" data-ref="_M/CHARACTERISTIC_AIM_SKILL_GRENADELAUNCHER">CHARACTERISTIC_AIM_SKILL_GRENADELAUNCHER</dfn>	18	//float [0, 1]</u></td></tr>
+<tr><th id="65">65</th><td><u>#define <dfn class="macro" id="_M/CHARACTERISTIC_AIM_SKILL_PLASMAGUN" data-ref="_M/CHARACTERISTIC_AIM_SKILL_PLASMAGUN">CHARACTERISTIC_AIM_SKILL_PLASMAGUN</dfn>			19	//float [0, 1]</u></td></tr>
+<tr><th id="66">66</th><td><u>#define <dfn class="macro" id="_M/CHARACTERISTIC_AIM_SKILL_BFG10K" data-ref="_M/CHARACTERISTIC_AIM_SKILL_BFG10K">CHARACTERISTIC_AIM_SKILL_BFG10K</dfn>				20	//float [0, 1]</u></td></tr>
+<tr><th id="67">67</th><td><i>//========================================================</i></td></tr>
+<tr><th id="68">68</th><td><i>//chat</i></td></tr>
+<tr><th id="69">69</th><td><i>//========================================================</i></td></tr>
+<tr><th id="70">70</th><td><i>//file with chats</i></td></tr>
+<tr><th id="71">71</th><td><u>#define <dfn class="macro" id="_M/CHARACTERISTIC_CHAT_FILE" data-ref="_M/CHARACTERISTIC_CHAT_FILE">CHARACTERISTIC_CHAT_FILE</dfn>					21	//string</u></td></tr>
+<tr><th id="72">72</th><td><i>//name of the chat character</i></td></tr>
+<tr><th id="73">73</th><td><u>#define <dfn class="macro" id="_M/CHARACTERISTIC_CHAT_NAME" data-ref="_M/CHARACTERISTIC_CHAT_NAME">CHARACTERISTIC_CHAT_NAME</dfn>					22	//string</u></td></tr>
+<tr><th id="74">74</th><td><i>//characters per minute type speed</i></td></tr>
+<tr><th id="75">75</th><td><u>#define <dfn class="macro" id="_M/CHARACTERISTIC_CHAT_CPM" data-ref="_M/CHARACTERISTIC_CHAT_CPM">CHARACTERISTIC_CHAT_CPM</dfn>						23	//integer [1, 4000]</u></td></tr>
+<tr><th id="76">76</th><td><i>//tendency to insult/praise</i></td></tr>
+<tr><th id="77">77</th><td><u>#define <dfn class="macro" id="_M/CHARACTERISTIC_CHAT_INSULT" data-ref="_M/CHARACTERISTIC_CHAT_INSULT">CHARACTERISTIC_CHAT_INSULT</dfn>					24	//float [0, 1]</u></td></tr>
+<tr><th id="78">78</th><td><i>//tendency to chat misc</i></td></tr>
+<tr><th id="79">79</th><td><u>#define <dfn class="macro" id="_M/CHARACTERISTIC_CHAT_MISC" data-ref="_M/CHARACTERISTIC_CHAT_MISC">CHARACTERISTIC_CHAT_MISC</dfn>					25	//float [0, 1]</u></td></tr>
+<tr><th id="80">80</th><td><i>//tendency to chat at start or end of level</i></td></tr>
+<tr><th id="81">81</th><td><u>#define <dfn class="macro" id="_M/CHARACTERISTIC_CHAT_STARTENDLEVEL" data-ref="_M/CHARACTERISTIC_CHAT_STARTENDLEVEL">CHARACTERISTIC_CHAT_STARTENDLEVEL</dfn>			26	//float [0, 1]</u></td></tr>
+<tr><th id="82">82</th><td><i>//tendency to chat entering or exiting the game</i></td></tr>
+<tr><th id="83">83</th><td><u>#define <dfn class="macro" id="_M/CHARACTERISTIC_CHAT_ENTEREXITGAME" data-ref="_M/CHARACTERISTIC_CHAT_ENTEREXITGAME">CHARACTERISTIC_CHAT_ENTEREXITGAME</dfn>			27	//float [0, 1]</u></td></tr>
+<tr><th id="84">84</th><td><i>//tendency to chat when killed someone</i></td></tr>
+<tr><th id="85">85</th><td><u>#define <dfn class="macro" id="_M/CHARACTERISTIC_CHAT_KILL" data-ref="_M/CHARACTERISTIC_CHAT_KILL">CHARACTERISTIC_CHAT_KILL</dfn>					28	//float [0, 1]</u></td></tr>
+<tr><th id="86">86</th><td><i>//tendency to chat when died</i></td></tr>
+<tr><th id="87">87</th><td><u>#define <dfn class="macro" id="_M/CHARACTERISTIC_CHAT_DEATH" data-ref="_M/CHARACTERISTIC_CHAT_DEATH">CHARACTERISTIC_CHAT_DEATH</dfn>					29	//float [0, 1]</u></td></tr>
+<tr><th id="88">88</th><td><i>//tendency to chat when enemy suicides</i></td></tr>
+<tr><th id="89">89</th><td><u>#define <dfn class="macro" id="_M/CHARACTERISTIC_CHAT_ENEMYSUICIDE" data-ref="_M/CHARACTERISTIC_CHAT_ENEMYSUICIDE">CHARACTERISTIC_CHAT_ENEMYSUICIDE</dfn>			30	//float [0, 1]</u></td></tr>
+<tr><th id="90">90</th><td><i>//tendency to chat when hit while talking</i></td></tr>
+<tr><th id="91">91</th><td><u>#define <dfn class="macro" id="_M/CHARACTERISTIC_CHAT_HITTALKING" data-ref="_M/CHARACTERISTIC_CHAT_HITTALKING">CHARACTERISTIC_CHAT_HITTALKING</dfn>				31	//float [0, 1]</u></td></tr>
+<tr><th id="92">92</th><td><i>//tendency to chat when bot was hit but didn't dye</i></td></tr>
+<tr><th id="93">93</th><td><u>#define <dfn class="macro" id="_M/CHARACTERISTIC_CHAT_HITNODEATH" data-ref="_M/CHARACTERISTIC_CHAT_HITNODEATH">CHARACTERISTIC_CHAT_HITNODEATH</dfn>				32	//float [0, 1]</u></td></tr>
+<tr><th id="94">94</th><td><i>//tendency to chat when bot hit the enemy but enemy didn't dye</i></td></tr>
+<tr><th id="95">95</th><td><u>#define <dfn class="macro" id="_M/CHARACTERISTIC_CHAT_HITNOKILL" data-ref="_M/CHARACTERISTIC_CHAT_HITNOKILL">CHARACTERISTIC_CHAT_HITNOKILL</dfn>				33	//float [0, 1]</u></td></tr>
+<tr><th id="96">96</th><td><i>//tendency to randomly chat</i></td></tr>
+<tr><th id="97">97</th><td><u>#define <dfn class="macro" id="_M/CHARACTERISTIC_CHAT_RANDOM" data-ref="_M/CHARACTERISTIC_CHAT_RANDOM">CHARACTERISTIC_CHAT_RANDOM</dfn>					34	//float [0, 1]</u></td></tr>
+<tr><th id="98">98</th><td><i>//tendency to reply</i></td></tr>
+<tr><th id="99">99</th><td><u>#define <dfn class="macro" id="_M/CHARACTERISTIC_CHAT_REPLY" data-ref="_M/CHARACTERISTIC_CHAT_REPLY">CHARACTERISTIC_CHAT_REPLY</dfn>					35	//float [0, 1]</u></td></tr>
+<tr><th id="100">100</th><td><i>//========================================================</i></td></tr>
+<tr><th id="101">101</th><td><i>//movement</i></td></tr>
+<tr><th id="102">102</th><td><i>//========================================================</i></td></tr>
+<tr><th id="103">103</th><td><i>//tendency to crouch</i></td></tr>
+<tr><th id="104">104</th><td><u>#define <dfn class="macro" id="_M/CHARACTERISTIC_CROUCHER" data-ref="_M/CHARACTERISTIC_CROUCHER">CHARACTERISTIC_CROUCHER</dfn>						36	//float [0, 1]</u></td></tr>
+<tr><th id="105">105</th><td><i>//tendency to jump</i></td></tr>
+<tr><th id="106">106</th><td><u>#define <dfn class="macro" id="_M/CHARACTERISTIC_JUMPER" data-ref="_M/CHARACTERISTIC_JUMPER">CHARACTERISTIC_JUMPER</dfn>						37	//float [0, 1]</u></td></tr>
+<tr><th id="107">107</th><td><i>//tendency to walk</i></td></tr>
+<tr><th id="108">108</th><td><u>#define <dfn class="macro" id="_M/CHARACTERISTIC_WALKER" data-ref="_M/CHARACTERISTIC_WALKER">CHARACTERISTIC_WALKER</dfn>						48	//float [0, 1]</u></td></tr>
+<tr><th id="109">109</th><td><i>//tendency to jump using a weapon</i></td></tr>
+<tr><th id="110">110</th><td><u>#define <dfn class="macro" id="_M/CHARACTERISTIC_WEAPONJUMPING" data-ref="_M/CHARACTERISTIC_WEAPONJUMPING">CHARACTERISTIC_WEAPONJUMPING</dfn>				38	//float [0, 1]</u></td></tr>
+<tr><th id="111">111</th><td><i>//tendency to use the grapple hook when available</i></td></tr>
+<tr><th id="112">112</th><td><u>#define <dfn class="macro" id="_M/CHARACTERISTIC_GRAPPLE_USER" data-ref="_M/CHARACTERISTIC_GRAPPLE_USER">CHARACTERISTIC_GRAPPLE_USER</dfn>					39	//float [0, 1]	//use this!!</u></td></tr>
+<tr><th id="113">113</th><td><i>//========================================================</i></td></tr>
+<tr><th id="114">114</th><td><i>//goal</i></td></tr>
+<tr><th id="115">115</th><td><i>//========================================================</i></td></tr>
+<tr><th id="116">116</th><td><i>//item weight file</i></td></tr>
+<tr><th id="117">117</th><td><u>#define <dfn class="macro" id="_M/CHARACTERISTIC_ITEMWEIGHTS" data-ref="_M/CHARACTERISTIC_ITEMWEIGHTS">CHARACTERISTIC_ITEMWEIGHTS</dfn>					40	//string</u></td></tr>
+<tr><th id="118">118</th><td><i>//the aggression of the bot</i></td></tr>
+<tr><th id="119">119</th><td><u>#define <dfn class="macro" id="_M/CHARACTERISTIC_AGGRESSION" data-ref="_M/CHARACTERISTIC_AGGRESSION">CHARACTERISTIC_AGGRESSION</dfn>					41	//float [0, 1]</u></td></tr>
+<tr><th id="120">120</th><td><i>//the self preservation of the bot (rockets near walls etc.)</i></td></tr>
+<tr><th id="121">121</th><td><u>#define <dfn class="macro" id="_M/CHARACTERISTIC_SELFPRESERVATION" data-ref="_M/CHARACTERISTIC_SELFPRESERVATION">CHARACTERISTIC_SELFPRESERVATION</dfn>				42	//float [0, 1]</u></td></tr>
+<tr><th id="122">122</th><td><i>//how likely the bot is to take revenge</i></td></tr>
+<tr><th id="123">123</th><td><u>#define <dfn class="macro" id="_M/CHARACTERISTIC_VENGEFULNESS" data-ref="_M/CHARACTERISTIC_VENGEFULNESS">CHARACTERISTIC_VENGEFULNESS</dfn>					43	//float [0, 1]	//use this!!</u></td></tr>
+<tr><th id="124">124</th><td><i>//tendency to camp</i></td></tr>
+<tr><th id="125">125</th><td><u>#define <dfn class="macro" id="_M/CHARACTERISTIC_CAMPER" data-ref="_M/CHARACTERISTIC_CAMPER">CHARACTERISTIC_CAMPER</dfn>						44	//float [0, 1]</u></td></tr>
+<tr><th id="126">126</th><td><i>//========================================================</i></td></tr>
+<tr><th id="127">127</th><td><i>//========================================================</i></td></tr>
+<tr><th id="128">128</th><td><i>//tendency to get easy frags</i></td></tr>
+<tr><th id="129">129</th><td><u>#define <dfn class="macro" id="_M/CHARACTERISTIC_EASY_FRAGGER" data-ref="_M/CHARACTERISTIC_EASY_FRAGGER">CHARACTERISTIC_EASY_FRAGGER</dfn>					45	//float [0, 1]</u></td></tr>
+<tr><th id="130">130</th><td><i>//how alert the bot is (view distance)</i></td></tr>
+<tr><th id="131">131</th><td><u>#define <dfn class="macro" id="_M/CHARACTERISTIC_ALERTNESS" data-ref="_M/CHARACTERISTIC_ALERTNESS">CHARACTERISTIC_ALERTNESS</dfn>					46	//float [0, 1]</u></td></tr>
+<tr><th id="132">132</th><td><i>//how much the bot fires its weapon</i></td></tr>
+<tr><th id="133">133</th><td><u>#define <dfn class="macro" id="_M/CHARACTERISTIC_FIRETHROTTLE" data-ref="_M/CHARACTERISTIC_FIRETHROTTLE">CHARACTERISTIC_FIRETHROTTLE</dfn>					47	//float [0, 1]</u></td></tr>
+<tr><th id="134">134</th><td></td></tr>
+<tr><th id="135">135</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='ai_chat.c.html'>codebrowser/code/game/ai_chat.c</a><br/>Generated on <em>2017-Aug-29</em> from project codebrowser revision <em>63e07af</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

@@ -1,0 +1,6 @@
+<dec f='codebrowser/code/qcommon/qcommon.h' l='82' type='void MSG_BeginReadingOOB(msg_t * sb)'/>
+<use f='codebrowser/code/client/cl_main.c' l='2595' u='c' c='CL_ConnectionlessPacket'/>
+<def f='codebrowser/code/qcommon/msg.c' l='80' ll='84' type='void MSG_BeginReadingOOB(msg_t * msg)'/>
+<use f='codebrowser/code/qcommon/net_chan.c' l='253' u='c' c='Netchan_Process'/>
+<use f='codebrowser/code/server/sv_main.c' l='783' u='c' c='SV_ConnectionlessPacket'/>
+<use f='codebrowser/code/server/sv_main.c' l='840' u='c' c='SV_PacketEvent'/>

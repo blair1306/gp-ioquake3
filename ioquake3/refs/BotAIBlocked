@@ -1,0 +1,21 @@
+<dec f='codebrowser/code/game/ai_dmq3.h' l='128' type='void BotAIBlocked(bot_state_t * bs, bot_moveresult_t * moveresult, int activate)'/>
+<doc f='codebrowser/code/game/ai_dmq3.h' l='127'>//AI when the bot is blocked</doc>
+<use f='codebrowser/code/game/ai_dmnet.c' l='1575' u='c' c='AINode_Seek_ActivateEntity'/>
+<use f='codebrowser/code/game/ai_dmnet.c' l='1731' u='c' c='AINode_Seek_NBG'/>
+<use f='codebrowser/code/game/ai_dmnet.c' l='1924' u='c' c='AINode_Seek_LTG'/>
+<use f='codebrowser/code/game/ai_dmnet.c' l='2132' u='c' c='AINode_Battle_Fight'/>
+<use f='codebrowser/code/game/ai_dmnet.c' l='2255' u='c' c='AINode_Battle_Chase'/>
+<use f='codebrowser/code/game/ai_dmnet.c' l='2443' u='c' c='AINode_Battle_Retreat'/>
+<use f='codebrowser/code/game/ai_dmnet.c' l='2587' u='c' c='AINode_Battle_NBG'/>
+<def f='codebrowser/code/game/ai_dmq3.c' l='4435' ll='4535' type='void BotAIBlocked(bot_state_t * bs, bot_moveresult_t * moveresult, int activate)'/>
+<doc f='codebrowser/code/game/ai_dmq3.c' l='4424'>/*
+==================
+BotAIBlocked
+
+Very basic handling of bots being blocked by other entities.
+Check what kind of entity is blocking the bot and try to activate
+it. If that&apos;s not an option then try to walk around or over the entity.
+Before the bot ends in this part of the AI it should predict which doors to
+open, which buttons to activate etc.
+==================
+*/</doc>

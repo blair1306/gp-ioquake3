@@ -1,0 +1,16 @@
+<dec f='codebrowser/code/jpeg-8c/jpeglib.h' l='532' type='int'/>
+<offset>1440</offset>
+<doc f='codebrowser/code/jpeg-8c/jpeglib.h' l='528'>/* The &quot;output scan number&quot; is the notional scan being displayed by the
+   * output side.  The decompressor will not allow output scan/row number
+   * to get ahead of input scan/row, but it can fall arbitrarily far behind.
+   */</doc>
+<doc f='codebrowser/code/jpeg-8c/jpeglib.h' l='532'>/* Nominal scan number being displayed */</doc>
+<use f='codebrowser/code/jpeg-8c/jdapistd.c' l='78' u='w' c='jpeg_start_decompress'/>
+<use f='codebrowser/code/jpeg-8c/jdapistd.c' l='239' u='w' c='jpeg_start_output'/>
+<use f='codebrowser/code/jpeg-8c/jdapistd.c' l='266' u='r' c='jpeg_finish_output'/>
+<use f='codebrowser/code/jpeg-8c/jdcoefct.c' l='329' u='r' c='decompress_data'/>
+<use f='codebrowser/code/jpeg-8c/jdcoefct.c' l='330' u='r' c='decompress_data'/>
+<use f='codebrowser/code/jpeg-8c/jdcoefct.c' l='482' u='r' c='decompress_smooth_data'/>
+<use f='codebrowser/code/jpeg-8c/jdcoefct.c' l='484' u='r' c='decompress_smooth_data'/>
+<use f='codebrowser/code/jpeg-8c/jdinput.c' l='601' u='r' c='consume_markers'/>
+<use f='codebrowser/code/jpeg-8c/jdinput.c' l='602' u='w' c='consume_markers'/>
